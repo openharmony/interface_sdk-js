@@ -7756,7 +7756,7 @@ declare namespace media {
   }
 
   /**
-   * 设置水印配置。水印位置从左上角开始计算。
+   * 添加水印的配置参数。水印位置以视频左上角为原点计算。
    *
    * @syscap SystemCapability.Multimedia.Media.Core
    * @stagemodelonly
@@ -7764,8 +7764,8 @@ declare namespace media {
    */
   interface WatermarkConfiguration {  
     /**
-     * 水印到顶部像素行的偏移量
-     * 取值为整数。
+     * 水印相对于视频顶部位置的偏移量。
+     * 取值为整数，单位为像素（px）。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
@@ -7773,8 +7773,8 @@ declare namespace media {
      */
     top: int;
     /**
-     * 水印到左侧像素行的偏移量
-     * 取值为整数。
+     * 水印相对于视频左侧位置的偏移量。
+     * 取值为整数，单位为像素（px）。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
@@ -7782,8 +7782,8 @@ declare namespace media {
      */
     left: int;
     /**
-     * target width of the watermark in pixel
-     * The value range is all integers.
+     * 水印图片的宽度。
+     * 取值为正整数，取值范围为[1, 4096]，单位为像素（px）。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
@@ -7791,8 +7791,8 @@ declare namespace media {
      */
     width?: int;
     /**
-     * target height of the watermark in pixel
-     * The value range is all integers.
+     * 水印图片的高度。
+     * 取值为正整数，取值范围为[1, 4096]，单位为像素（px）。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
@@ -10720,10 +10720,6 @@ declare namespace media {
     /**
      * 录屏已被用户暂停。
      * 
-     * 26.0.0
-     * 
-     * **模型约束：** 此接口仅可在Stage模型下使用。
-     *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -10732,10 +10728,6 @@ declare namespace media {
     /**
      * 录屏已被用户恢复。
      * 
-     * 26.0.0
-     * 
-     * **模型约束：** 此接口仅可在Stage模型下使用。
-     *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -10744,10 +10736,6 @@ declare namespace media {
     /**
      * 录屏已被应用程序暂停。
      * 
-     * 26.0.0
-     * 
-     * **模型约束：** 此接口仅可在Stage模型下使用。
-     *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -10756,10 +10744,6 @@ declare namespace media {
     /**
      * 录屏已被应用程序恢复。
      * 
-     * 26.0.0
-     * 
-     * **模型约束：** 此接口仅可在Stage模型下使用。
-     *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -10768,7 +10752,7 @@ declare namespace media {
   }
 
   /**
-   * Provides the media AVScreenCaptureStrategy definition.
+   * 录屏策略。
    *
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @since 20 dynamic
@@ -10787,7 +10771,7 @@ declare namespace media {
     enableDeviceLevelCapture?: boolean;
 
     /**
-     * Allows starting or maintaining screen capture during a call
+     * 蜂窝通话时是否保持录屏。true表示蜂窝通话时保持录屏，false表示蜂窝通话时不进行录屏，默认为false。
      *
      * @default {false} [Required if provided]
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -10797,7 +10781,8 @@ declare namespace media {
     keepCaptureDuringCall?: boolean;
 
     /**
-     * Indicates whether to enable B-frame encoding, which is used to reduce the size of the recorded file.
+     * 录屏是否使能B帧编码。true表示录屏文件使能B帧编码，false表示录屏文件禁用B帧编码，默认是false。
+     * B帧视频编码相关的约束和限制可以参考文档B帧视频编码约束和限制。如果当前不符合B帧视频编码的约束和限制，则正常录制不含B帧的视频，不会返回错误。
      *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 20 dynamic
@@ -10806,7 +10791,10 @@ declare namespace media {
     enableBFrame?: boolean;
 
     /**
-     * Set the fill mode for screen capture when a privacy window exists.
+     * 设置屏幕录制时对隐私窗口的屏蔽模式。<br>
+     *  - 0：表示存在隐私窗口时，采用全屏屏蔽模式，默认是0。<br>
+     *  - 1：表示存在隐私窗口时，采用隐私窗口屏蔽模式。<br>
+     *  - 设置为其他值时返回错误。
      *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @stagemodelonly
@@ -10815,7 +10803,7 @@ declare namespace media {
     privacyMaskMode?: int;
 
     /**
-     * Enable pausing the screen capture. The default value is false.
+     * 表示录屏过程中是否允许暂停录屏。<br>true表示允许，false表示不允许。默认是false。
      *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @stagemodelonly
@@ -10825,7 +10813,7 @@ declare namespace media {
   }
 
   /**
-   * Defines the screen capture parameters.
+   * 表示录屏参数配置。
    *
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @since 12 dynamic
@@ -10833,7 +10821,7 @@ declare namespace media {
    */
   interface AVScreenCaptureRecordConfig {
     /**
-     * FD of the file output.
+     * 录制输出的文件fd。
      *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
@@ -10841,7 +10829,8 @@ declare namespace media {
      */
     fd: int;
     /**
-     * Video width, in px. The default value varies according to the display in use.
+     * 录屏的视频宽度。
+     * 默认屏幕宽度，根据不同屏幕默认值不同。单位为像素（px）。
      *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
@@ -10849,7 +10838,8 @@ declare namespace media {
      */
     frameWidth?: int;
     /**
-     * Video height, in px. The default value varies according to the display in use.
+     * 录屏的视频高度。
+     * 默认屏幕高度，根据不同屏幕默认值不同。单位为像素（px）。
      *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
@@ -10857,7 +10847,8 @@ declare namespace media {
      */
     frameHeight?: int;
     /**
-     * Video bit rate, in bit/s. The default value is **10000000**.
+     * 录屏的视频比特率。
+     * 默认为10000000。单位为比特每秒（bit/s）。
      *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
@@ -10865,8 +10856,8 @@ declare namespace media {
      */
     videoBitrate?: int;
     /**
-     * Audio sampling rate, in Hz. This value is used for both internal capture
-     * and external capture (using microphones), in Hz. Only **48000** (default value) and **16000** are supported.
+     * 录屏的音频采样率。
+     * 内录的系统音和外录的麦克风都使用此采样率，默认48000，仅支持设置48000或16000。单位为赫兹（Hz）。
      *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
@@ -10874,8 +10865,7 @@ declare namespace media {
      */
     audioSampleRate?: int;
     /**
-     * Number of audio channels. This value is used for both internal capture and external capture (using microphones).
-     * Only **1** and **2** (default) are supported.
+     * 录屏的音频通道数，内录的系统音和外录的麦克风都使用此通道数，默认2声道，仅支持设置1或2声道。
      *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
@@ -10883,8 +10873,7 @@ declare namespace media {
      */
     audioChannelCount?: int;
     /**
-     * Audio bit rate, in bit/s. This value is used for both internal capture and external capture (using microphones).
-     * The default value is **96000**.
+     * 录屏的音频比特率，内录的系统音和外录的麦克风都使用此比特率，默认96000。单位为比特每秒（bit/s）。
      *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
@@ -10892,7 +10881,7 @@ declare namespace media {
      */
     audioBitrate?: int;
     /**
-     * Encoding and container format used. The default value is **SCREEN_RECORD_PRESET_H264_AAC_MP4**.
+     * 录屏使用的编码和封装格式，默认SCREEN_RECORD_PRESET_H264_AAC_MP4格式。
      *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 12 dynamic
@@ -10900,7 +10889,7 @@ declare namespace media {
      */
     preset?: AVScreenCaptureRecordPreset;
     /**
-     * ID of the display used for screen capture. By default, the main screen is captured.
+     * 指定录屏使用的屏幕，默认主屏幕。
      *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 15 dynamic
@@ -10908,7 +10897,7 @@ declare namespace media {
      */
     displayId?: int;
     /**
-     * Video fill mode during screen capture.
+     * 录屏时视频流的填充模式。
      *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 18 dynamic
@@ -10916,7 +10905,7 @@ declare namespace media {
      */
     fillMode?: AVScreenCaptureFillMode;
     /**
-     * Screen Capture Policy Configuration Fields
+     * 录屏策略。
      *
      * @default {default value of the property} [Required if provided]
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -11211,7 +11200,8 @@ declare namespace media {
     setContentAutoRotation(enable: boolean): Promise<void>;
 
     /**
-     * 订阅录屏状态切换的事件，当状态发生的时候，会通过订阅的回调通知用户。用户只能订阅一个状态切换的回调方法，重复订阅时，以最后一次订阅的回调接口为准。
+     * 订阅录屏状态切换的事件，当状态发生的时候，会通过订阅的回调通知用户。
+     * 用户只能订阅一个状态切换的回调方法，重复订阅时，以最后一次订阅的回调接口为准。
      *
      * @param { 'stateChange' } type - 状态切换事件回调类型，支持的事件：'stateChange'。
      * @param { Callback<AVScreenCaptureStateCode> } callback - 状态切换事件回调方法，
@@ -11222,7 +11212,8 @@ declare namespace media {
     on(type: 'stateChange', callback: Callback<AVScreenCaptureStateCode>): void;
 
     /**
-     * 订阅AVScreenCaptureRecorder的错误事件，用户可以根据应用自身逻辑对错误事件进行处理。用户只能订阅一个错误事件的回调方法，重复订阅时，以最后一次订阅的回调接口为准。
+     * 订阅AVScreenCaptureRecorder的错误事件，用户可以根据应用自身逻辑对错误事件进行处理。
+     * 用户只能订阅一个错误事件的回调方法，重复订阅时，以最后一次订阅的回调接口为准。
      *
      * @param { 'error' } type - 错误事件回调类型，支持的事件：'error'。
      * @param { ErrorCallback } callback - 录屏错误事件回调方法。
@@ -11257,21 +11248,18 @@ declare namespace media {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * Subscribes to screen capture state changes. An application can subscribe to only one screen capture
-     * state change event. When the application initiates multiple subscriptions to this event,
-     * the last subscription is applied.
+     * 订阅录屏状态切换的事件，当状态发生的时候，会通过订阅的回调通知用户。
+     * 用户只能订阅一个状态切换的回调方法，重复订阅时，以最后一次订阅的回调接口为准。
      *
-     * @param { Callback<AVScreenCaptureStateCode> } callback - Callback invoked when the event is triggered.
-     *     AVScreenCaptureStateCode indicates the new state.
+     * @param { Callback<AVScreenCaptureStateCode> } callback - 事件触发时调用的回调。AVScreenCaptureStateCode 表示新的状态。
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 23 static
      */
     onStateChange(callback: Callback<AVScreenCaptureStateCode>): void;
 
     /**
-     * Subscribes to AVScreenCaptureRecorder errors. You can handle the errors based on the application logic.
-     * An application can subscribe to only one AVScreenCaptureRecorder error event.
-     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * 订阅AVScreenCaptureRecorder的错误事件，用户可以根据应用自身逻辑对错误事件进行处理。
+     * 用户只能订阅一个错误事件的回调方法，重复订阅时，以最后一次订阅的回调接口为准。
      *
      * @param { ErrorCallback } callback - Callback invoked when the event is triggered.
      * @throws { BusinessError } 201 - permission denied.
@@ -11283,22 +11271,19 @@ declare namespace media {
     onError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from screen capture state changes. You can specify a callback to cancel the specified subscription.
+     * 取消订阅状态切换回调事件。用户可以指定填入状态切换的回调方法来取消订阅。
      *
-     * @param { Callback<AVScreenCaptureStateCode> } [callback] - Callback used for unsubscription.
-     *     AVScreenCaptureStateCode indicates the new state. If this parameter is not specified,
-     *     the last subscription is canceled.
+     * @param { Callback<AVScreenCaptureStateCode> } [callback] - 用于取消订阅的回调。
+     * AVScreenCaptureStateCode 表示新的状态。如果未指定此参数，最后一个订阅将被取消。 
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 23 static
      */
     offStateChange(callback?: Callback<AVScreenCaptureStateCode>): void;
 
     /**
-     * Unsubscribes from AVScreenCaptureRecorder errors. You can specify a callback to cancel
-     * the specified subscription.
+     * 取消订阅错误回调事件。用户可以指定填入错误回调方法来取消订阅。
      *
-     * @param { ErrorCallback } [callback] - Callback used for unsubscription. If this parameter is not specified,
-     *     the last subscription is canceled.
+     * @param { ErrorCallback } [callback] - 事件触发时调用的回调。
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @since 23 static
      */
