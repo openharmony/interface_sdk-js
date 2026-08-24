@@ -546,8 +546,6 @@ declare class SecurityComponentMethod<T> {
    *
    * 安全控件文本未完全显示时，点击不授权。文本是否完全显示受heightAdaptivePolicy、minFontSize、maxFontSize、maxLines、width和height等属性影响。
    *
-   * 具体效果请见[示例](docroot://reference/apis-arkui/arkui-ts/ts-securitycomponent-attributes.md#示例3)。
-   *
    * @param { TextHeightAdaptivePolicy } policy - 文本自适应高度的方式。
    *     <br>默认值：TextHeightAdaptivePolicy.MAX_LINES_FIRST。
    * @returns { T } 安全控件的属性。
