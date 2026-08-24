@@ -2061,7 +2061,7 @@ declare class On {
    * > 设置为'no'或'no-hide-descendants'，无法使用本接口指定目标控件的文本属性用于查找控件，可以使用[On.originalText()]{@link On#originalText}接口实现。
    *
    * @param { string } txt - 指定控件文本，用于匹配目标控件文本。
-   * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。 [since 10]
+   * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
    * @returns { On } - 返回指定目标控件文本属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2109,7 +2109,7 @@ declare class On {
   /**
    * 指定目标控件的可点击状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件可点击状态。true：可点击。false：不可点击。默认为true。 [since 10]
+   * @param { boolean } [b] - 指定控件可点击状态。true：可点击。false：不可点击。默认为true。
    * @returns { On } - 返回指定目标控件的可点击状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2125,7 +2125,7 @@ declare class On {
   /**
    * 指定目标控件的可长按点击状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件可长按点击状态。true：可长按点击。false：不可长按点击。默认为true。 [since 10]
+   * @param { boolean } [b] - 指定控件可长按点击状态。true：可长按点击。false：不可长按点击。默认为true。
    * @returns { On } - 返回指定目标控件的可长按点击状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2141,7 +2141,7 @@ declare class On {
   /**
    * 指定目标控件的可滑动状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 控件可滑动状态。true：可滑动。false：不可滑动。默认为true。 [since 10]
+   * @param { boolean } [b] - 控件可滑动状态。true：可滑动。false：不可滑动。默认为true。
    * @returns { On } - 返回指定目标控件的可滑动状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2157,7 +2157,7 @@ declare class On {
   /**
    * 指定目标控件的使能状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件使能状态。true：使能。false：未使能。默认为true。 [since 10]
+   * @param { boolean } [b] - 指定控件使能状态。true：使能。false：未使能。默认为true。
    * @returns { On } - 返回指定目标控件的使能状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2173,7 +2173,7 @@ declare class On {
   /**
    * 指定目标控件的获焦状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 控件获焦状态。true：获焦。false：未获焦。默认为true。 [since 10]
+   * @param { boolean } [b] - 控件获焦状态。true：获焦。false：未获焦。默认为true。
    * @returns { On } - 返回指定目标控件的获焦状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2189,7 +2189,7 @@ declare class On {
   /**
    * 指定目标控件的被选中状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件被选中状态。true：被选中。false：未被选中。默认为true。 [since 10]
+   * @param { boolean } [b] - 指定控件被选中状态。true：被选中。false：未被选中。默认为true。
    * @returns { On } - 返回指定目标控件的被选中状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2205,7 +2205,7 @@ declare class On {
   /**
    * 指定目标控件的被勾选状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件被勾选状态。true：被勾选。false：未被勾选。默认为true。 [since 10]
+   * @param { boolean } [b] - 指定控件被勾选状态。true：被勾选。false：未被勾选。默认为true。
    * @returns { On } - 返回指定目标控件的被勾选状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2221,7 +2221,7 @@ declare class On {
   /**
    * 指定目标控件能否被勾选状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件能否被勾选状态。true：能被勾选。false：不能被勾选。默认为true。 [since 10]
+   * @param { boolean } [b] - 指定控件能否被勾选状态。true：能被勾选。false：不能被勾选。默认为true。
    * @returns { On } - 返回指定目标控件能否被勾选状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2340,7 +2340,7 @@ declare class On {
   inWindow(bundleName: string): On;
 
   /**
-   * 获取指定屏幕内的控件对象，返回On对象自身。
+   * 指定目标控件所属的屏幕，返回On对象自身。
    *
    * @param { int } displayId - 指定控件所属屏幕ID，取值范围：大于等于0的整数。
    *      **说明：** 传入displayId不存在时，将抛出17000007异常。可通过
@@ -2405,11 +2405,11 @@ declare class On {
   type(tp: string, pattern: MatchPattern): On;
 
   /**
-   * 获取指定提示文本的控件对象，返回On对象自身。
+   * 指定目标控件的提示文本属性，返回On对象自身。
    *
    * @param { string } val - 指定控件提示文本。  
    * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
-   * @returns { On } - 返回指定提示文本控件的On对象。
+   * @returns { On } - 返回指定目标控件hint属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -3880,7 +3880,7 @@ declare class Driver {
    * 捕获当前屏幕的指定区域，并保存为PNG格式的图片至给出的保存路径中。使用Promise异步回调。适用于支持截屏的场景。
    *
    * @param { string } savePath - 文件保存路径。路径需为当前应用的[沙箱路径](docroot://file-management/app-sandbox-directory.md)。
-   * @param { Rect } [rect] - 截图区域，默认为全屏。 [since 11]
+   * @param { Rect } [rect] - 截图区域，默认为全屏。
    * @returns { Promise<boolean> } - Promise对象，返回截图操作是否成功完成。true：成功完成，false：未成功完成。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4861,7 +4861,7 @@ declare namespace ON {
   export function inWindow(bundleName: string): On;
 
   /**
-   * 获取指定屏幕内的控件对象，返回 On 对象自身。
+   * 指定目标控件所属的屏幕，返回 On 对象自身。
    *
    * @param { int } displayId - 指定控件所属屏幕ID，取值范围：大于等于0的整数。
    * @returns { On } - 返回指定控件所属屏幕的 {@link On} 对象。
@@ -4906,11 +4906,11 @@ declare namespace ON {
    */
   export function type(tp: string, pattern: MatchPattern): On;
   /**
-   * 获取指定提示文本的控件对象，返回 On 对象自身。
+   * 指定目标控件的提示文本属性，返回 On 对象自身。
    *
    * @param { string } val - 指定控件提示文本。
    * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
-   * @returns { On } - 返回指定提示文本控件的 {@link On} 对象。
+   * @returns { On } - 返回指定目标控件hint属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
