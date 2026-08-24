@@ -838,7 +838,7 @@ declare namespace hidebug {
   }
 
   /**
-   * 该接口补充了[hitrace](docroot://dfx/hitrace.md)功能，开发者可通过该接口完成指定范围的trace自动化采集。由于该接口中trace采集过程中消耗的性能与需要采集的范围成正相关，建议开发者在使用该接
+   * 该接口补充了hitrace功能，开发者可通过该接口完成指定范围的trace自动化采集。由于该接口中trace采集过程中消耗的性能与需要采集的范围成正相关，建议开发者在使用该接
    * 口前，通过hitrace命令抓取应用的trace日志，从中筛选出所需trace采集的关键范围，以提高该接口性能。
    *
    * `startAppTraceCapture()`方法的调用需要与'[stopAppTraceCapture()]{@link hidebug.stopAppTraceCapture}'方法的调用一一对应，重复开启trace采集将导
@@ -860,7 +860,7 @@ declare namespace hidebug {
    * @param { TraceFlag } flag - 详情请见[TraceFlag]{@link hidebug.TraceFlag}。
    * @param { int } limitSize - 开启trace文件大小限制，单位为Byte，取值范围（0, 500MB]。超出范围时返回错误码401。
    * @returns { string } 返回trace文件名路径（接口返回真实物理路径，若应用内需要访问，请参考
-   *     [应用沙箱路径和真实物理路径的对应关系](docroot://file-management/app-sandbox-directory.md#应用沙箱路径和真实物理路径的对应关系)进行路径转换）。
+   *     应用沙箱路径和真实物理路径的对应关系进行路径转换）。
    * @throws { BusinessError } 401 - Invalid argument, Possible causes:
    *     1.The limit parameter is too small
    *     2.The parameter is not within the enumeration type
@@ -942,7 +942,7 @@ declare namespace hidebug {
    *
    * 采集trace返回的.sys文件在目录下最多存储3份，数量大于等于3份时再次调用接口会抛出错误码11400120。
    *
-   * 接口不支持在[输入法应用](docroot://inputmethod/ime-kit-intro.md)中使用。
+   * 接口不支持在输入法应用中使用。
    *
    * @param { RequestTraceConfig } config - trace采集配置信息。
    * @returns { Promise<string> } Promise对象，返回以.sys作为后缀的trace文件的应用沙箱路径。
@@ -966,7 +966,7 @@ declare namespace hidebug {
   type GcStats = Record<string, long>;
 
   /**
-   * 获取系统[GC](docroot://arkts-utils/gc-introduction.md)统计信息。
+   * 获取系统GC统计信息。
    *
    * @returns { GcStats } 系统GC统计信息。
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -976,7 +976,7 @@ declare namespace hidebug {
   function getVMRuntimeStats(): GcStats;
 
   /**
-   * 根据参数获取指定的系统[GC](docroot://arkts-utils/gc-introduction.md)统计信息。
+   * 根据参数获取指定的系统GC统计信息。
    *
    * @param { string } item - 所需统计信息的类型。可获取的统计信息类型如下：<br/>"ark.gc.gc-count"：当前线程的GC次数。<br/>"ark.gc.gc-time"：当前线程触发的GC总耗
    *     时，以ms为单位。<br/>"ark.gc.gc-bytes-allocated"：当前线程Ark虚拟机已分配的内存大小，以B为单位。<br/>"ark.gc.gc-bytes-freed"：当前线程GC成功回收的内存，以
@@ -994,8 +994,8 @@ declare namespace hidebug {
   /**
    * 设置应用的文件描述符数量、线程数量、JS内存或Native内存资源限制。
    *
-   * 主要应用场景在于构造内存泄漏故障，参见[订阅资源泄漏事件（ArkTS）](docroot://dfx/hiappevent-watcher-resourceleak-events-arkts.md)、
-   * [订阅资源泄漏事件（C/C++）](docroot://dfx/hiappevent-watcher-resourceleak-events-ndk.md)。
+   * 主要应用场景在于构造内存泄漏故障，参见订阅资源泄漏事件（ArkTS）、
+   * 订阅资源泄漏事件（C/C++）。
    *
    * > **注意**：
    * >
@@ -1137,7 +1137,7 @@ declare namespace hidebug {
    * > **注意**：
    * >
    * > 默认裁剪级别是TRIM_LEVEL_1。如果设置了TRIM_LEVEL_2裁剪，需使用API version 20之后的
-   * > [rawheap-translator](docroot://tools/rawheap-translator.md)工具才能将.rawheap文件转换为.heapsnapshot文件，否则可能导致转换失败。
+   * > rawheap-translator工具才能将.rawheap文件转换为.heapsnapshot文件，否则可能导致转换失败。
    * >
    * > 该接口影响[dumpJsRawHeapData]{@link hidebug.dumpJsRawHeapData}的结果。
    *
@@ -1150,7 +1150,7 @@ declare namespace hidebug {
 
   /**
    * 为当前线程转储虚拟机的原始堆快照，并生成的rawheap格式文件，使用Promise异步回调完成。该文件可通过
-   * [rawheap-translator工具](docroot://tools/rawheap-translator.md)转化为heapsnapshot格式文件进行解析。
+   * rawheap-translator工具转化为heapsnapshot格式文件进行解析。
    *
    * > **注意**：
    * >
@@ -1160,7 +1160,7 @@ declare namespace hidebug {
    *
    * @param { boolean } needGC - 转储堆快照前是否需要GC。true：需要GC。false：不需GC。默认值：true。
    * @returns { Promise<string> } Promise对象，返回生成的快照文件路径（
-   *     [应用沙箱内路径](docroot://file-management/app-sandbox-directory.md#应用沙箱路径和真实物理路径的对应关系)）。
+   *     应用沙箱内路径）。
    * @throws { BusinessError } 11400106 - Quota exceeded.
    * @throws { BusinessError } 11400107 - Fork operation failed.
    * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.
@@ -1178,7 +1178,7 @@ declare namespace hidebug {
 
   /**
    * 为当前线程转储虚拟机的原始堆快照，并支持清除nodeId缓存。生成的文件为rawheap格式，使用Promise异步回调完成。该文件可通过
-   * [rawheap-translator工具](docroot://tools/rawheap-translator.md)转化为heapsnapshot格式文件进行解析。
+   * rawheap-translator工具转化为heapsnapshot格式文件进行解析。
    *
    * > **注意**：
    * >
@@ -1189,7 +1189,7 @@ declare namespace hidebug {
    * @param { boolean } needGC - 转储堆快照前是否需要GC。true：需要GC；false：不需要GC。
    * @param { boolean } needClean - 转储堆快照前是否需要清除nodeId。true：需要清除；false：不需要清除。
    * @returns { Promise<string> } Promise对象，返回生成的快照文件路径（
-   *     [应用沙箱内路径](docroot://file-management/app-sandbox-directory.md#应用沙箱路径和真实物理路径的对应关系)）。
+   *     应用沙箱内路径）。
    * @throws { BusinessError } 11400106 - Quota exceeded.
    * @throws { BusinessError } 11400107 - Fork operation failed.
    * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.
@@ -1208,7 +1208,7 @@ declare namespace hidebug {
 
   /**
    * 为当前线程或其所属进程生成虚拟机的原始堆快照，并支持清除nodeId缓存，生成的文件为rawheap格式。使用Promise异步回调。文件可通过
-   * [rawheap-translator工具](docroot://tools/rawheap-translator.md)转换为heapsnapshot格式文件进行解析。
+   * rawheap-translator工具转换为heapsnapshot格式文件进行解析。
    *
    * > **注意**：
    * >
@@ -1220,7 +1220,7 @@ declare namespace hidebug {
    * @param { boolean } needClean - 转储堆快照前是否需要清除nodeId。true：需要清除；false：不需要清除。
    * @param { boolean } processDump - 是否转储当前线程所属进程的原始堆快照。true：转储当前线程所属进程的原始堆快照。
    * @returns { Promise<Array<string>> } Promise对象，返回生成的快照文件路径数组（
-   *     [应用沙箱内路径](docroot://file-management/app-sandbox-directory.md#应用沙箱路径和真实物理路径的对应关系)）。
+   *     应用沙箱内路径）。
    * @throws { BusinessError } 11400106 - Quota exceeded.
    * @throws { BusinessError } 11400107 - Fork operation failed.
    * @throws { BusinessError } 11400108 - Failed to wait for the child process to finish.

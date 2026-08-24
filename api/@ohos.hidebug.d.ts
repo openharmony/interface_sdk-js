@@ -883,7 +883,7 @@ declare namespace hidebug {
 
   /**
    * Starts automatic trace collection in a specified scope. This API is a supplement to the
-   * [HiTrace](docroot://dfx/hitrace.md) module. The performance consumption during trace collection increases with the
+   * HiTrace module. The performance consumption during trace collection increases with the
    * collection scope. Therefore, before using this API, you are advised to run the **hitrace** command to capture trace
    * logs and select the key scope of trace collection to improve the API performance.
    *
@@ -912,7 +912,7 @@ declare namespace hidebug {
    * @param { int } limitSize - Limit on the trace file size, in bytes. The maximum size of a single file is 500 MB.
    * @returns { string } Trace file path. (The API returns the actual physical path. If the path needs to be accessed in
    *     the application, convert the path by referring to
-   *     [Mappings Between Application Sandbox Paths and Physical Paths](docroot://file-management/app-sandbox-directory.md#mappings-between-application-sandbox-paths-and-physical-paths).
+   *     Mappings Between Application Sandbox Paths and Physical Paths.
    *     )
    * @throws { BusinessError } 401 - Invalid argument, Possible causes:
    *     1.The limit parameter is too small
@@ -1006,7 +1006,7 @@ declare namespace hidebug {
    * A maximum of three .sys files returned by trace collection can be stored in the directory. If the number of .sys
    * files is greater than or equal to three, error code 11400120 is reported when the API is called again.
    *
-   * This API cannot be used in the [input method applications](docroot://inputmethod/ime-kit-intro.md).
+   * This API cannot be used in the input method applications.
    *
    * @param { RequestTraceConfig } config - Trace collection configuration information.
    * @returns { Promise<string> } Promise used to return the application sandbox path of the .sys trace file.
@@ -1031,7 +1031,7 @@ declare namespace hidebug {
   type GcStats = Record<string, long>;
 
   /**
-   * Obtains the system [GC](docroot://arkts-utils/gc-introduction.md) statistics.
+   * Obtains the system GC statistics.
    *
    * @returns { GcStats } System GC statistics.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
@@ -1041,7 +1041,7 @@ declare namespace hidebug {
   function getVMRuntimeStats(): GcStats;
 
   /**
-   * Obtains the specified system [GC](docroot://arkts-utils/gc-introduction.md) statistics based on parameters.
+   * Obtains the specified system GC statistics based on parameters.
    *
    * @param { string } item - Type of the statistics to obtain. The following statistics can be obtained:
    *     <br>**"ark.gc.gc-count"**: number of GC times of the current thread.
@@ -1063,8 +1063,8 @@ declare namespace hidebug {
    * Sets the number of FDs, number of threads, JS memory, or native memory limit of the application.
    *
    * This API is used to construct a memory leak. For details, see
-   * [Subscribing to Resource Leak Events (ArkTS)](docroot://dfx/hiappevent-watcher-resourceleak-events-arkts.md) and
-   * [Subscribing to Resource Leak Events (C/C++)](docroot://dfx/hiappevent-watcher-resourceleak-events-ndk.md).
+   * Subscribing to Resource Leak Events (ArkTS) and
+   * Subscribing to Resource Leak Events (C/C++).
    *
    * > **NOTE**
    * >
@@ -1228,7 +1228,7 @@ declare namespace hidebug {
    * > **NOTE**
    * >
    * > The default trimming level is **TRIM_LEVEL_1**. If **TRIM_LEVEL_2** is set, you need to use
-   * > [rawheap-translator](docroot://tools/rawheap-translator.md) since API version 20 to convert the .rawheap file to
+   * > rawheap-translator since API version 20 to convert the .rawheap file to
    * > the .heapsnapshot file. Otherwise, the conversion may fail.
    * >
    * > This API affects the result of [dumpJsRawHeapData]{@link hidebug.dumpJsRawHeapData}.
@@ -1244,7 +1244,7 @@ declare namespace hidebug {
   /**
    * Dumps the original heap snapshot of the VM for the current thread and generates a .rawheap file. This API uses a
    * promise to return the result. The file can be converted into a heapsnapshot file using
-   * [rawheap-translator](docroot://tools/rawheap-translator.md) for parsing.
+   * rawheap-translator for parsing.
    *
    * > **NOTE**
    * >
@@ -1257,7 +1257,7 @@ declare namespace hidebug {
    * @param { boolean } needGC - Whether GC is required before storing heap snapshots. The value **true** indicates that
    *     GC is required, and **false** indicates the opposite. The default value is **true**.
    * @returns { Promise<string> } Path of the generated snapshot file. (
-   *     [Application Sandbox](docroot://file-management/app-sandbox-directory.md#application-file-directory-and-application-file-path)
+   *     Application Sandbox
    *     )
    * @throws { BusinessError } 11400106 - Quota exceeded.
    * @throws { BusinessError } 11400107 - Fork operation failed.
@@ -1277,7 +1277,7 @@ declare namespace hidebug {
   /**
    * Dumps the original heap snapshot of the VM for the current thread and clears the **nodeId** cache. The generated
    * file is in the rawheap format. This API uses a promise to return the result. The file can be converted into a
-   * heapsnapshot file using [rawheap-translator](docroot://tools/rawheap-translator.md) for parsing.
+   * heapsnapshot file using rawheap-translator for parsing.
    *
    * > **NOTE**
    * >
@@ -1291,7 +1291,7 @@ declare namespace hidebug {
    * @param { boolean } needClean - Whether to clear the node ID before dumping heap snapshots. **true**: yes;
    *     **false**: no.
    * @returns { Promise<string> } Path of the generated snapshot file. (
-   *     [Application Sandbox](docroot://file-management/app-sandbox-directory.md#application-file-directory-and-application-file-path)
+   *     Application Sandbox
    *     )
    * @throws { BusinessError } 11400106 - Quota exceeded.
    * @throws { BusinessError } 11400107 - Fork operation failed.
@@ -1312,7 +1312,7 @@ declare namespace hidebug {
   /**
    * Dumps the original heap snapshot of the VM for the current thread or the process to which the current thread
    * belongs, clears the nodeId cache, and generates a .rawheap file. This API uses a promise to return the result. The
-   * file can be converted into a heapsnapshot file using [rawheap-translator](docroot://tools/rawheap-translator.md)
+   * file can be converted into a heapsnapshot file using rawheap-translator
    * for parsing.
    *
    * > **NOTE**
@@ -1329,7 +1329,7 @@ declare namespace hidebug {
    * @param { boolean } processDump - Whether to dump the original heap snapshot of the process to which the current
    *     thread belongs. **true**: yes.
    * @returns { Promise<Array<string>> } Array of paths of the generated snapshot files. (
-   *     [Application Sandbox](docroot://file-management/app-sandbox-directory.md#application-file-directory-and-application-file-path)
+   *     Application Sandbox
    *     )
    * @throws { BusinessError } 11400106 - Quota exceeded.
    * @throws { BusinessError } 11400107 - Fork operation failed.
