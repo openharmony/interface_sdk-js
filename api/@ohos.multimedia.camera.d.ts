@@ -106,6 +106,36 @@ declare namespace camera {
   }
 
   /**
+   * Enums for camera shared status.
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+  */
+  enum CameraSharedStatus {
+    /**
+     * Shared status.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+    */
+    CAMERA_STATUS_SHARED = 0,
+ 
+    /**
+     * Unshared status.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+    */
+    CAMERA_STATUS_UNSHARED = 1
+  }
+
+  /**
    * Enumerates the fold states available for a fordable device.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -1067,6 +1097,18 @@ declare namespace camera {
     onCameraStatus(callback: AsyncCallback<CameraStatusInfo>): void;
 
     /**
+     * Subscribes camera shared status change event callback.
+     *
+     * @param { Callback<CameraSharedStatusInfo> } callback - Callback used to get the camera shared status change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    onCameraSharedStatus(callback: Callback<CameraSharedStatusInfo>): void;
+
+    /**
      * Unsubscribes from camera status events. This API uses an asynchronous callback to return the result.
      *
      * @param { 'cameraStatus' } type - Event type. The value is fixed at **'cameraStatus'**. The event can be listened
@@ -1089,6 +1131,18 @@ declare namespace camera {
      * @since 23 static
      */
     offCameraStatus(callback?: AsyncCallback<CameraStatusInfo>): void;
+
+    /**
+     * Unsubscribes from camera shared status change event callback.
+     *
+     * @param { Callback<CameraSharedStatusInfo> } [callback] - Callback used to get the camera shared status change.
+     * @throws { BusinessError } 202 - Not System Application.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    offCameraSharedStatus(callback?: Callback<CameraSharedStatusInfo>): void;
 
     /**
      * Subscribes to fold status change events of the foldable device. This API uses an asynchronous callback to return 
@@ -1644,6 +1698,36 @@ declare namespace camera {
      * @since 23 static
      */
     status: CameraStatus;
+  }
+
+  /**
+   * Camera shared status info.
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+  */
+  interface CameraSharedStatusInfo {
+    /**
+     * Camera instance.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+    */
+    camera: CameraDevice;
+ 
+    /**
+     * Current camera shared status.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+    */
+    sharedStatus: CameraSharedStatus;
   }
 
   /**
@@ -6980,7 +7064,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.1.0 dynamic&static
    */
   enum CameraImagingMode {
     /**
@@ -6989,7 +7073,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     AUTO = 0,
 
@@ -6999,7 +7083,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     RGB = 1,
 
@@ -7009,7 +7093,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     IR = 2
   }
@@ -7020,7 +7104,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.1.0 dynamic&static
    */
   interface ImagingModeQuery {
     /**
@@ -7033,7 +7117,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     isImagingModeSupported(mode: CameraImagingMode): boolean;
   }
@@ -7044,7 +7128,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.1.0 dynamic&static
    */
   interface ImagingMode extends ImagingModeQuery {
     /**
@@ -7056,7 +7140,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     getImagingMode(): CameraImagingMode;
 
@@ -7069,7 +7153,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     setImagingMode(mode: CameraImagingMode): void;
   }
@@ -7083,7 +7167,7 @@ declare namespace camera {
    * @extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion,
    *     DepthFusion [since 14]
    * @extends PhotoSession, Beauty, ColorEffect, ColorManagement, Macro, SceneDetection, EffectSuggestion,
-   *     DepthFusion, ImagingMode [since 26.0.0]
+   *     DepthFusion, ImagingMode [since 26.1.0]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
@@ -7731,7 +7815,7 @@ declare namespace camera {
    * @extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro, Aperture, ColorReservation,
    *     EffectSuggestion [since 18]
    * @extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro, Aperture, ColorReservation,
-   *     EffectSuggestion, ImagingMode [since 26.0.0]
+   *     EffectSuggestion, ImagingMode [since 26.1.0]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
