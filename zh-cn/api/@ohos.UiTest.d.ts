@@ -2057,7 +2057,7 @@ declare class On {
    * > **说明**
    * >
    * > 如果控件的无障碍属性
-   * > [accessibilityLevel](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitylevel)
+   * > [accessibilityLevel]{@link ./@internal/component/ets/common:CommonMethod#accessibilityLevel}
    * > 设置为'no'或'no-hide-descendants'，无法使用本接口指定目标控件的文本属性用于查找控件，可以使用[On.originalText()]{@link On#originalText}接口实现。
    *
    * @param { string } txt - 指定控件文本，用于匹配目标控件文本。<!--RP2--><!--RP2End-->
@@ -2429,7 +2429,7 @@ declare class On {
    * > **说明**
    * >
    * > 如果控件的无障碍属性
-   * > [accessibilityLevel](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitylevel)
+   * > [accessibilityLevel]{@link ./@internal/component/ets/common:CommonMethod#accessibilityLevel}
    * > 设置为'no'或'no-hide-descendants'，可以使用本接口指定目标控件的文本属性用于查找控件，使用[On.text()]{@link On#text}接口不生效。
    *
    * @param { string } text - 指定控件文本，用于匹配目标控件文本。 <!--RP2--><!--RP2End-->
@@ -2538,7 +2538,7 @@ declare class Component {
    * > **说明**
    * >
    * > 如果控件的无障碍属性
-   * > [accessibilityLevel](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitylevel)
+   * > [accessibilityLevel]{@link ./@internal/component/ets/common:CommonMethod#accessibilityLevel}
    * > 设置为'no'或'no-hide-descendants'，无法使用本接口获取控件的文本信息，可以使用[Component.getOriginalText()]{@link Component#getOriginalText}
    * > 获取控件的文本信息。
    *
@@ -2942,7 +2942,7 @@ declare class Component {
   scrollSearch(on: On, vertical?: boolean, offset?: int): Promise<Component | null>;
   /**
    * 获取控件对象的文本信息。使用Promise异步回调。如果控件的无障碍属性
-   * [accessibilityLevel](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitylevel)
+   * [accessibilityLevel]{@link ./@internal/component/ets/common:CommonMethod#accessibilityLevel}
    * 设置为'no'或'no-hide-descendants'，可以使用本接口获取控件的文本信息，无法使用[Component.getText()]{@link Component#getText}获取控件的文本信息。
    *
    * @returns { Promise<string> } - Promise对象，返回控件的文本信息。
