@@ -7469,13 +7469,11 @@ declare namespace media {
     off(type: 'photoAssetAvailable', callback?: Callback<photoAccessHelper.PhotoAsset>): void;
 
     /**
-     * Subscribes to audio capturer configuration changes. Any configuration change triggers the callback that
-     * returns the entire configuration information.
+     * 订阅录音配置变化的回调，任意录音配置的变化会触发变化后的录音配置全量信息回调。使用callback异步回调。
      * 
-     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * 当用户重复订阅时，以最后一次订阅的回调接口为准。
      *
-     * @param { Callback<audio.AudioCapturerChangeInfo> } callback - Callback used to return the entire configuration
-     *     information about the audio capturer.
+     * @param { Callback<audio.AudioCapturerChangeInfo> } callback - 回调函数，返回变化后的录音配置全量信息。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -7484,14 +7482,13 @@ declare namespace media {
     onAudioCapturerChange(callback: Callback<audio.AudioCapturerChangeInfo>): void;
 
     /**
-     * Subscribes to media asset callback events. When FileGenerationMode is used during media file creation,
-     * the PhotoAsset object is called back to the application after the stop operation is complete.
+     * 订阅媒体资源回调事件，当[FileGenerationMode]{@link @ohos.multimedia.media:media.FileGenerationMode}枚举设置为系统创建媒体文件时，会在
+     * [stop]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}操作结束后把
+     * [PhotoAsset]{@link @ohos.file.photoAccessHelper:photoAccessHelper}对象回调给应用。使用callback异步回调。
      * 
-     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
-     * The event is triggered when a photo asset is available.
+     * 当用户重复订阅时，以最后一次订阅的回调接口为准。
      *
-     * @param { Callback<photoAccessHelper.PhotoAsset> } callback - Callback used to return the
-     *     **PhotoAsset** object corresponding to the resource file created by the system.
+     * @param { Callback<photoAccessHelper.PhotoAsset> } callback - 回调函数，返回系统创建的资源文件对应的PhotoAsset对象。
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -7500,9 +7497,9 @@ declare namespace media {
     onPhotoAssetAvailable(callback: Callback<photoAccessHelper.PhotoAsset>): void;
 
     /**
-     * Subscribes to AVRecorder state changes. An application can subscribe to only one AVRecorder state change event.
-     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
-     * This event can be triggered by both user operations and the system.
+     * 订阅录制状态机AVRecorderState切换的事件，当AVRecorderState状态机发生变化时，会通过订阅的回调方法通知用户。
+     * 
+     * 用户只能订阅一个录制状态机切换事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为准。使用callback异步回调。
      *
      * @param { OnAVRecorderStateChangeHandler } callback - Callback invoked when the event is triggered.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
@@ -7513,15 +7510,14 @@ declare namespace media {
     onStateChange(callback: OnAVRecorderStateChangeHandler): void;
 
     /**
-     * Subscribes to AVRecorder errors. This event is used only for error prompt and does not require the user to
-     * stop recording control. If the AVRecorderState is also switched to error, call reset() or release()
-     * to exit the recording.
+     * 订阅AVRecorder的错误事件，该事件仅用于错误提示，不需要用户停止播控动作。如果此时
+     * [AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}也切换至error状态，用户需要通过
+     * [reset]{@link media.AVRecorder.reset(callback: AsyncCallback<void>)}或者
+     * [release]{@link media.AVRecorder.release(callback: AsyncCallback<void>)}接口退出录制操作。使用callback异步回调。
      * 
-     * An application can subscribe to only one AVRecorder error event. When the application initiates multiple
-     * subscriptions to this event, the last subscription is applied.
-     * This event is triggered when an error occurs during recording.
+     * 用户只能订阅一个错误事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为准。
      *
-     * @param { ErrorCallback } callback - Callback invoked when the event is triggered.
+     * @param { ErrorCallback } callback - 回调函数，返回录制错误事件。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types. 3.Parameter verification failed.
@@ -7539,43 +7535,39 @@ declare namespace media {
     onError(callback: ErrorCallback): void;
 
     /**
-     * Unsubscribes from AVRecorder state changes.
-     * This event can be triggered by both user operations and the system.
+     * 取消订阅录制状态机[AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}切换的事件。使用callback异步回调。
      *
-     * @param { OnAVRecorderStateChangeHandler } [callback] - Callback invoked when the event is triggered.
-     *     This parameter is supported since API version 12.
+     * @param { OnAVRecorderStateChangeHandler } [callback] - 回调函数，返回录制状态机切换事件。
+     *     如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 23 static
      */
     offStateChange(callback?: OnAVRecorderStateChangeHandler): void;
 
     /**
-     * Unsubscribes from AVRecorder errors. After the unsubscription,
-     * your application can no longer receive AVRecorder errors.
+     * 取消订阅录制错误事件，取消后不再接收到AVRecorder的错误事件。使用callback异步回调。
      *
-     * @param { ErrorCallback } [callback] - Callback invoked when the event is triggered.
-     *     This parameter is supported since API version 12.
+     * @param { ErrorCallback } [callback] - 回调函数，返回录制错误事件。如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
     /**
-     * Subscribes to audio capturer configuration changes.
+     * 取消订阅录音变化的回调事件。使用callback异步回调。
      *
-     * @param { Callback<audio.AudioCapturerChangeInfo> } [callback] - Callback used to return the entire configuration
-     *     information about the audio capturer.
-     *     This parameter is supported since API version 12.
+     * @param { Callback<audio.AudioCapturerChangeInfo> } [callback] - 回调函数，返回变化后的录音配置全量信息。
+     *     如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 23 static
      */
     offAudioCapturerChange(callback?: Callback<audio.AudioCapturerChangeInfo>): void;
 
     /**
-     * Unsubscribes from media asset callback events.
+     * 取消订阅媒体资源的回调类型。使用callback异步回调。
      *
-     * @param { Callback<photoAccessHelper.PhotoAsset> } [callback] - Callback used to return the **PhotoAsset** object
-     *     corresponding to the resource file created by the system.
+     * @param { Callback<photoAccessHelper.PhotoAsset> } [callback] - 回调函数，返回系统创建的资源文件对应的PhotoAsset对象。
+     *     如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 23 static
      */
@@ -7746,7 +7738,7 @@ declare namespace media {
   }
 
   /**
-   * Provides the geographical location definitions for media resources.
+   * 提供媒体资源的地理位置定义。
    *
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform [since 12]
@@ -7755,7 +7747,7 @@ declare namespace media {
    */
   interface Location {
     /**
-     * Latitude.
+     * 纬度。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform [since 12]
@@ -7765,7 +7757,7 @@ declare namespace media {
     latitude: double;
 
     /**
-     * Longitude.
+     * 经度。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform [since 12]
@@ -8110,15 +8102,15 @@ declare namespace media {
   }
 
     /**
-     * The maintenance of this interface has been stopped since version api 9. Please use AVRecorderState.
-     * Describes video recorder states.
+     * 从API version 9起停止维护，请使用AVRecorderState。
+     * 描述视频录制状态。
      *
-     * @unionmember { 'idle' } Idle state. The video recorder is created but not initialized.
-     * @unionmember { 'prepared' } Prepared state. The video recorder is ready to record.
-     * @unionmember { 'playing' } Playing state. The video recorder is recording.
-     * @unionmember { 'paused' } Paused state. The video recorder is paused.
-     * @unionmember { 'stopped' } Stopped state. The video recorder is stopped.
-     * @unionmember { 'error' } Error state. An error occurred.
+     * @unionmember { 'idle' } 空闲状态。视频录制器已创建但未初始化。
+     * @unionmember { 'prepared' } 准备就绪状态。视频录制器已准备好录制。
+     * @unionmember { 'playing' } 播放状态。视频录制器正在录制。
+     * @unionmember { 'paused' } 暂停状态。视频录制器已暂停。
+     * @unionmember { 'stopped' } 停止状态。视频录制器已停止。
+     * @unionmember { 'error' } 错误状态。发生错误。
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
@@ -8156,7 +8148,7 @@ declare namespace media {
      */
     prepare(config: VideoRecorderConfig, callback: AsyncCallback<void>): void;
     /**
-     * Prepares for recording.
+     * 视频录制准备。
      *
      * @permission ohos.permission.MICROPHONE
      * @param { VideoRecorderConfig } config - 录制参数。
