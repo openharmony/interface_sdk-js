@@ -3397,7 +3397,7 @@ declare namespace osAccount {
    * @since 12 dynamic
    * @since 23 static
    */
-  interface CreateOsAccountForDomainOptions extends CreateOsAccountOptions {  }
+  interface CreateOsAccountForDomainOptions extends CreateOsAccountOptions { }
 
   /**
    * Represents the optional parameter used to remove an OS account.

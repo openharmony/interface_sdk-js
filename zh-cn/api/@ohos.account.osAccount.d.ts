@@ -3192,7 +3192,7 @@ declare namespace osAccount {
    * @since 12 dynamic
    * @since 23 static
    */
-  interface CreateOsAccountForDomainOptions extends CreateOsAccountOptions {  }
+  interface CreateOsAccountForDomainOptions extends CreateOsAccountOptions { }
 
   /**
    * 表示用于删除系统账号的可选参数。
