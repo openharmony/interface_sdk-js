@@ -1092,6 +1092,201 @@ declare type OnTabsContentWillChangeCallback = (currentIndex: number, comingInde
 declare type OnTabsContentDidScrollCallback = (selectedIndex: number, index: number, position: number, mainAxisLength: number) => void;
 
 /**
+ * Enumerates the display styles of the tab bar.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamic
+ */
+declare enum TabBarStyle {
+  /**
+   * The bottom tab bar style. The tab bar position can be adjusted through the **vertical** attribute of **Tabs**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  BOTTOM = 0,
+
+  /**
+   * The sidebar style. The tab bar is displayed as a sidebar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  SIDEBAR = 1,
+
+  /**
+   * The adaptable sidebar style. The tab bar can switch between bottom tab bar and sidebar modes
+   * based on the Tabs container size.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  SIDEBAR_ADAPTABLE = 2,
+}
+
+/**
+ * Search filter callback.
+ *
+ * @param { number } tabIndex - Index of the tab to filter.
+ * @param { string } text - The current search text.
+ * @returns { boolean } Returns **true** if the tab matches the search criteria, **false** otherwise.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamic
+ */
+declare type TabsSidebarSearchFilterCallback = (tabIndex: number, text: string) => boolean;
+
+/**
+ * Defines the options for the searchable sidebar tab bar.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamic
+ */
+declare interface TabsSidebarSearchableOptions {
+  /**
+   * Sets the text input in the search text box.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  searchText?: ResourceStr;
+
+  /**
+   * Placeholder text displayed when the search input is empty.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  placeholder?: ResourceStr;
+
+  /**
+   * Callback triggered when the search text changes.
+   *
+   * @param { string } text - The current search text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  searchCallback?: (text: string) => void;
+
+  /**
+   * Filter function to determine whether a tab should be displayed based on the search text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  searchFilter?: TabsSidebarSearchFilterCallback;
+}
+
+/**
+ * Enumerates the actual display modes of the tab bar under different Tabs container sizes.
+ * This enum is used in [barDisplayModeBreakpoint]{@link TabsAttribute#barDisplayModeBreakpoint} to specify
+ * the display mode for different breakpoint sizes. It is only meaningful when **TabBarStyle** is set to
+ * **SIDEBAR_ADAPTABLE** or **SIDEBAR**.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamic
+ */
+declare enum TabBarDisplayMode {
+  /**
+   * The tab bar is displayed at the bottom.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  BOTTOM_TABBAR = 0,
+
+  /**
+   * The tab bar is displayed as a sidebar.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  SIDEBAR = 1,
+}
+
+/**
+ * Defines the value type for different Tabs container sizes.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamic
+ */
+declare interface TabsBreakpointType<T> {
+  /**
+   * Value for small Tabs container size.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  sm?: T;
+
+  /**
+   * Value for medium Tabs container size.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  md?: T;
+
+  /**
+   * Value for large Tabs container size.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  lg?: T;
+}
+
+/**
  * In addition to the [universal attributes]{@link common}, the following attributes are supported.
  *
  * In addition to the [universal events]{@link common}, the following events are supported.
@@ -1796,6 +1991,76 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 26.0.0 dynamic
    */
   barFloatingStyle(style: Optional<FloatingTabBarStyle>): TabsAttribute;
+
+  /**
+   * Sets the display style of the tab bar.
+   *
+   * @param { Optional<TabBarStyle> } style - Display style of the tab bar.
+   *     <br>Default value: **TabBarStyle.BOTTOM**.
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  barStyle(style: Optional<TabBarStyle>): TabsAttribute;
+
+  /**
+   * Sets the position of the sidebar tab bar.
+   * The sidebar tab bar position is not affected by the **vertical** attribute.
+   * It is always on the start or end side of the Tabs container, regardless of the **vertical** setting.
+   *
+   * @param { Optional<BarPosition> } position - Position of the sidebar tab bar.
+   *     <br>Default value: **BarPosition.Start**.
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  sidebarPosition(position: Optional<BarPosition>): TabsAttribute;
+
+  /**
+   * Sets the header content of the sidebar tab bar.
+   *
+   * @param { ComponentContent } header - Header content of the sidebar tab bar.
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  sidebarHeader(header: ComponentContent): TabsAttribute;
+
+  /**
+   * Sets the search options for the sidebar tab bar.
+   *
+   * @param { TabsSidebarSearchableOptions } [searchOptions] - Search options for the sidebar tab bar.
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  sidebarSearchable(searchOptions?: TabsSidebarSearchableOptions): TabsAttribute;
+
+  /**
+   * Sets the display mode of the tab bar for different Tabs container sizes.
+   *
+   * @param { Optional<TabsBreakpointType<TabBarDisplayMode>> } style - Display mode of the tab bar for different Tabs
+   *     container sizes.
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  barDisplayModeBreakpoint(style: Optional<TabsBreakpointType<TabBarDisplayMode>>): TabsAttribute;
 }
 
 /**
