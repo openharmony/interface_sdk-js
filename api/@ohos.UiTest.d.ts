@@ -1911,7 +1911,7 @@ declare class On {
    *
    * > **NOTE**
    * >
-   * > If the [accessibilityLevel]{@link ./@internal/component/ets/common:CommonMethod#accessibilityLevel}
+   * > If the [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
    * > of a component is set to **no** or **no-hide-descendants**, this API cannot be used to specify the text attribute
    * > of the target component for searching for the component. In this case, you can use the
    * > [On.originalText()]{@link On#originalText} API.
@@ -2296,7 +2296,7 @@ declare class On {
    *
    * > **NOTE**
    * >
-   * > If the [accessibilityLevel]{@link ./@internal/component/ets/common:CommonMethod#accessibilityLevel}
+   * > If the [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
    * > of a component is set to **no** or **no-hide-descendants**, this API can be used to specify the text attribute of
    * > the target component for searching for the component. In this case, the [On.text()]{@link On#text} API does not
    * > take effect.
@@ -2407,7 +2407,7 @@ declare class Component {
    *
    * > **NOTE**
    * >
-   * > If the [accessibilityLevel]{@link ./@internal/component/ets/common:CommonMethod#accessibilityLevel}
+   * > If the [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
    * > attribute of the component is set to **no** or **no-hide-descendants**, this API cannot be used to obtain the
    * > text information of the component. In this case, you can use
    * > [Component.getOriginalText ()]{@link Component#getOriginalText} instead.
@@ -2848,7 +2848,7 @@ declare class Component {
   scrollSearch(on: On, vertical?: boolean, offset?: int): Promise<Component | null>;
   /**
    * Obtains the text information of this component. This API uses a promise to return the result. If the
-   * [accessibilityLevel]{@link ./@internal/component/ets/common:CommonMethod#accessibilityLevel}
+   * [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
    * attribute of the component is set to **no** or **no-hide-descendants**, this API can be used
    * to obtain the text information of the component, but [Component.getText()]{@link Component#getText} cannot.
    *
@@ -5145,7 +5145,7 @@ declare namespace ON {
   /**
    * Specifies the original text for the target Component.
    * If the accessibility property
-   * [accessibilityLevel]{@link ./@internal/component/ets/common:CommonMethod#accessibilityLevel}
+   * [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
    * of a component is set to 'no' or 'no-hide-descendants',
    * you will not be able to use {@link On.text} to match the component with the specified original text, but you can
    * use this method to achieve it;
