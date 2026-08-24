@@ -5185,7 +5185,9 @@ declare namespace ON {
    *
    * > **NOTE**
    * >
-   * > If the [accessibilityLevel]{@link CommonMethod#accessibilityLevel} of a component is set to **no** or **no-hide-descendants**, this API can be used to specify the text attribute of the target component for searching for the component. In this case, the [On.text()]{@link On#text} API does not take effect.
+   * > If the [accessibilityLevel]{@link CommonMethod#accessibilityLevel} of a component is set to **no** or **no-hide-descendants**,
+   * > this API can be used to specify the text attribute of the target component for searching for the component.
+   * > In this case, the [On.text()]{@link On#text} API does not take effect.
    *
    * @param { string } text - Component text, used to match the target component.
    * @param { MatchPattern } [pattern] - Match pattern {@link MatchPattern}.
