@@ -3006,16 +3006,11 @@ declare namespace backgroundTaskManager {
      * 
      * When the following common events are received, the related authorization records will be cleared:
      * 
-     * [COMMON_EVENT_PACKAGE_ADDED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_package_added)
-     * , 
-     * [COMMON_EVENT_PACKAGE_REMOVED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_package_removed)
-     * , 
-     * [COMMON_EVENT_BUNDLE_REMOVED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_bundle_removed)
-     * , 
-     * [COMMON_EVENT_PACKAGE_FULLY_REMOVED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_package_fully_removed)
-     * , 
-     * [COMMON_EVENT_PACKAGE_CHANGED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_package_changed)
-     * .
+     * [COMMON_EVENT_PACKAGE_ADDED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_ADDED},
+     * [COMMON_EVENT_PACKAGE_REMOVED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_ADDED},
+     * [COMMON_EVENT_BUNDLE_REMOVED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_ADDED},
+     * [COMMON_EVENT_PACKAGE_FULLY_REMOVED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_ADDED},
+     * [COMMON_EVENT_PACKAGE_CHANGED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_ADDED}.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
