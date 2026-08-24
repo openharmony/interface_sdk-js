@@ -2116,11 +2116,11 @@ declare class On {
   isBefore(on: On): On;
 
   /**
-   * Requires that the target Component which is before another Component that specified by the given {@link Component}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located before the given feature component (parameter {@link Component}),
+   * and returns the On object itself.
    *
-   * @param { Component } com - describes the Component which the target one is in front of.
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - The feature component before which the target component is located.
+   * @returns { On } - Returns the On object that specifies the target component is located before the given feature component.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -2147,11 +2147,11 @@ declare class On {
   isAfter(on: On): On;
 
   /**
-   * Requires that the target Component which is after another Component that specified by the given {@link Component}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located after the given feature component (parameter {@link Component}),
+   * and returns the On object itself.
    *
-   * @param { Component } com - describes the Component which the target one is in back of.
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - The feature component after which the target component is located.
+   * @returns { On } - Returns the On object that specifies the target component is located after the given feature component.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -2178,11 +2178,11 @@ declare class On {
   within(on: On): On;
 
   /**
-   * Requires that the target Component which is inside of another Component that specified by the given {@link Component}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located within the given feature component (parameter {@link Component}),
+   * and returns the On object itself.
    *
-   * @param { Component } com - describes the Component which the target one is inside of.
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - The feature component within which the target component is located.
+   * @returns { On } - Returns the On object that specifies the target component is located within the given feature component.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -5163,11 +5163,11 @@ declare namespace ON {
   export function originalText(text: string, pattern?: MatchPattern): On;
 
   /**
-   * Requires that the target Component which is before another Component that specified by the given {@link Component}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located before the given feature component (parameter {@link Component}),
+   * and returns the On object itself.
    *
-   * @param { Component } com - describes the Component which the target one is in front of.
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - The feature component before which the target component is located.
+   * @returns { On } - Returns the On object that specifies the target component is located before the given feature component.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -5177,11 +5177,11 @@ declare namespace ON {
   export function beforeComponent(com: Component): On;
 
   /**
-   * Requires that the target Component which is after another Component that specified by the given {@link Component}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located after the given feature component (parameter {@link Component}),
+   * and returns the On object itself.
    *
-   * @param { Component } com - describes the Component which the target one is in back of.
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - The feature component after which the target component is located.
+   * @returns { On } - Returns the On object that specifies the target component is located after the given feature component.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -5191,11 +5191,11 @@ declare namespace ON {
   export function afterComponent(com: Component): On;
 
   /**
-   * Requires that the target Component which is inside of another Component that specified by the given {@link Component}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located within the given feature component (parameter {@link Component}),
+   * and returns the On object itself.
    *
-   * @param { Component } com - describes the Component which the target one is inside of.
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - The feature component within which the target component is located.
+   * @returns { On } - Returns the On object that specifies the target component is located within the given feature component.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel

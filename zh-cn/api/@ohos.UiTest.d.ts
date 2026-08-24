@@ -2251,11 +2251,10 @@ declare class On {
   isBefore(on: On): On;
 
   /**
-   * 要求目标组件位于由给定{@link Component}指定的另一个组件之前
-   * 对象，用于相对于组件定位。
+   * 指定目标控件位于给出的特征控件（参数 {@link Component}）之前，返回 On 对象自身。
    *
-   * @param { Component } com - 目标组件前面的组件如所示。
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - 特征控件，目标控件须位于该控件之前。
+   * @returns { On } - 返回指定目标控件位于给出的特征控件之前的 On 对象.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -2282,11 +2281,10 @@ declare class On {
   isAfter(on: On): On;
 
   /**
-   * 要求目标组件位于由给定{@link Component}指定的另一个组件之后
-   * 对象，用于相对于组件定位。
+   * 指定目标控件位于给出的特征控件（参数 {@link Component}）之后，返回 On 对象自身。
    *
-   * @param { Component } com - 描述了目标组件在的后面。
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - 特征控件，目标控件须位于该控件之后。
+   * @returns { On } - 返回指定目标控件位于给出的特征控件之后的 On 对象.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -2313,11 +2311,10 @@ declare class On {
   within(on: On): On;
 
   /**
-   * 要求目标组件位于由给定{@link Component}指定的另一个组件的内部
-   * 对象，用于相对于组件定位。
+   * 指定目标控件位于给出的特征控件（参数 {@link Component}）之内，返回 On 对象自身。
    *
-   * @param { Component } com - 描述目标组件所在的组件。
-   * @returns { On } this {@link On}对象。
+   * @param { Component } com - 特征控件，目标控件须位于该控件之内。
+   * @returns { On } - 返回指定目标控件位于给出的特征控件之内的 On 对象.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -4947,11 +4944,10 @@ declare namespace ON {
   export function originalText(text: string, pattern?: MatchPattern): On;
 
   /**
-   * 要求目标组件位于由给定{@link Component}指定的另一个组件之前
-   * 对象，用于相对于组件定位。
+   * 指定目标控件位于给出的特征控件（参数 {@link Component}）之前，返回 On 对象自身。
    *
-   * @param { Component } com - 描述了目标组件在前面的组件。
-   * @returns { On } this {@link On}对象。
+   * @param { Component } com - 特征控件，目标控件须位于该控件之前。
+   * @returns { On } - 返回指定目标控件位于给出的特征控件之前的 On 对象.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -4961,11 +4957,10 @@ declare namespace ON {
   export function beforeComponent(com: Component): On;
 
   /**
-   * 要求目标组件位于由给定{@link Component}指定的另一个组件之后
-   * 对象，用于相对于组件定位。
+   * 指定目标控件位于给出的特征控件（参数 {@link Component}）之后，返回 On 对象自身。
    *
-   * @param { Component } com - 描述目标组件的后端组件。
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - 特征控件，目标控件须位于该控件之后。
+   * @returns { On } - 返回指定目标控件位于给出的特征控件之后的 On 对象.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -4975,11 +4970,10 @@ declare namespace ON {
   export function afterComponent(com: Component): On;
 
   /**
-   * 要求目标组件位于由给定{@link Component}指定的另一个组件的内部
-   * 对象，用于相对于组件定位。
+   * 指定目标控件位于给出的特征控件（参数 {@link Component}）之内，返回 On 对象自身。
    *
-   * @param { Component } com - 描述目标组件所在的组件。
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - 特征控件，目标控件须位于该控件之内。
+   * @returns { On } - 返回指定目标控件位于给出的特征控件之内的 On 对象.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
