@@ -14,81 +14,41 @@
  */
 
 /**
- * @file
+ * @file Network Search
  * @kit TelephonyKit
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * Provides interfaces for applications to obtain the network state, cell information, signal information,
- * and device ID of the wireless cellular network (WCN), and provides a callback registration mechanism to
- * listen for changes of the network, cell, and signal status of the WCN.
+ * The **radio** module provides basic network search management functions. Using the APIs provided by this module, you
+ * can obtain the radio access technology (RAT) used in the CS and PS domains, network status, current network selection
+ * mode, ISO country code of the registered network, ID of the slot in which the primary card is located, list of signal
+ * strengths of the registered network for the SIM card in the specified slot, and carrier name. Besides, you can check
+ * whether the current device supports New Radio \(NR\) and whether the radio service is enabled on the primary SIM
+ * card. The CS domain refers to the Circuit Switched domain, and the PS domain refers to the Packet Switched domain.
  *
- * @namespace radio
  * @syscap SystemCapability.Telephony.CoreService
  * @since 6 dynamic
  * @since 23 static
  */
 declare namespace radio {
   /**
-   * Obtains radio access technology (RAT) of the registered network. The system
-   * returns RAT of the packet service (PS) and circuit service (CS) domain.
+   * Obtains the RAT used in the CS and PS domains for the SIM card in the specified slot. This API uses an asynchronous
+   * callback to return the result. The CS domain refers to the Circuit Switched domain, and the PS domain refers to the
+   * Packet Switched domain.
+   *
+   * **Required permission**: ohos.permission.GET_NETWORK_INFO
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { number } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}> } callback - Returns
-   * an integer indicating the RAT in use. The values are as follows:
-   * <ul>
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_UNKNOWN}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_GSM}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_1XRTT}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_WCDMA}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_HSPA}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_HSPAP}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_TD_SCDMA}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_EVDO}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_EHRPD}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_LTE}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_LTE_CA}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_IWLAN}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_NR}
-   * </ul>
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
-   */
-  /**
-   * Obtains radio access technology (RAT) of the registered network. The system
-   * returns RAT of the packet service (PS) and circuit service (CS) domain.
-   *
-   * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<NetworkRadioTech> } callback - Returns
-   * the RAT of PS domain and CS domain of registered network.
-   * The values of RAT are as follows:
-   * <ul>
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_UNKNOWN}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_GSM}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_1XRTT}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_WCDMA}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_HSPA}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_HSPAP}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_TD_SCDMA}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_EVDO}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_EHRPD}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_LTE}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_LTE_CA}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_IWLAN}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_NR}
-   * </ul>
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}> } callback - Callback used to
+   *     return the result.  The CS domain refers to the Circuit Switched domain, and the PS domain refers to the Packet
+   *     Switched domain. [since 6 - 10]
+   * @param { AsyncCallback<NetworkRadioTech> } callback - Callback used to return the result.  The CS domain refers to
+   *     the Circuit Switched domain, and the PS domain refers to the Packet Switched domain. [since 11]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -97,68 +57,42 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 11 dynamic
+   * @since 6 dynamic
    * @since 23 static
    */
   function getRadioTech(slotId: int, callback: AsyncCallback<NetworkRadioTech>): void;
 
   /**
-   * Obtains radio access technology (RAT) of the registered network. The system
-   * returns RAT of the packet service (PS) and circuit service (CS) domain.
+   * Obtains the RAT used in the CS and PS domains for the SIM card in the specified slot. This API uses a promise to
+   * return the result. The CS domain refers to the Circuit Switched domain, and the PS domain refers to the Packet
+   * Switched domain.
+   *
+   * **Required permission**: ohos.permission.GET_NETWORK_INFO
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { number } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}> } Returns
-   * the enumeration of RadioTechnology. The values are as follows:
-   * <ul>
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_UNKNOWN}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_GSM}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_1XRTT}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_WCDMA}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_HSPA}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_HSPAP}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_TD_SCDMA}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_EVDO}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_EHRPD}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_LTE}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_LTE_CA}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_IWLAN}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_NR}
-   * </ul>
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
-   * @since 6
-   */
-  /**
-   * Obtains radio access technology (RAT) of the registered network. The system
-   * returns RAT of the packet service (PS) and circuit service (CS) domain.
-   *
-   * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<{psRadioTech: RadioTechnology, csRadioTech: RadioTechnology}> } Promise used to return the
+   *     result. The CS domain refers to the Circuit Switched domain, and the PS domain refers to the Packet Switched
+   *     domain. [since 6 - 10]
    * @returns { Promise<NetworkRadioTech> } Returns the RAT of PS domain and CS domain of registered network.
-   * The values of RAT are as follows:
-   * <ul>
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_UNKNOWN}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_GSM}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_1XRTT}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_WCDMA}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_HSPA}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_HSPAP}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_TD_SCDMA}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_EVDO}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_EHRPD}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_LTE}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_LTE_CA}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_IWLAN}
-   * <li>{@code RadioTechnology#RADIO_TECHNOLOGY_NR}
-   * </ul>
+   *     The values of RAT are as follows:
+   *     <ul>
+   *     <li>{@code RadioTechnology#RADIO_TECHNOLOGY_UNKNOWN}
+   *     <li>{@code RadioTechnology#RADIO_TECHNOLOGY_GSM}
+   *     <li>{@code RadioTechnology#RADIO_TECHNOLOGY_1XRTT}
+   *     <li>{@code RadioTechnology#RADIO_TECHNOLOGY_WCDMA}
+   *     <li>{@code RadioTechnology#RADIO_TECHNOLOGY_HSPA}
+   *     <li>{@code RadioTechnology#RADIO_TECHNOLOGY_HSPAP}
+   *     <li>{@code RadioTechnology#RADIO_TECHNOLOGY_TD_SCDMA}
+   *     <li>{@code RadioTechnology#RADIO_TECHNOLOGY_EVDO}
+   *     <li>{@code RadioTechnology#RADIO_TECHNOLOGY_EHRPD}
+   *     <li>{@code RadioTechnology#RADIO_TECHNOLOGY_LTE}
+   *     <li>{@code RadioTechnology#RADIO_TECHNOLOGY_LTE_CA}
+   *     <li>{@code RadioTechnology#RADIO_TECHNOLOGY_IWLAN}
+   *     <li>{@code RadioTechnology#RADIO_TECHNOLOGY_NR}
+   *     </ul> [since 11]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -167,18 +101,23 @@ declare namespace radio {
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @since 11 dynamic
+   * @since 6 dynamic
    * @since 23 static
    */
   function getRadioTech(slotId: int): Promise<NetworkRadioTech>;
 
   /**
-   * Obtains radio access technology (RAT) of the registered network.
+   * Obtains the RAT used in the CS and PS domains for the SIM card in the specified slot. The CS domain refers to the
+   * Circuit Switched domain, and the PS domain refers to the Packet Switched domain.
+   *
+   * **Required permission**: ohos.permission.GET_NETWORK_INFO
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { int } slotId - Indicates the card slot index number,
-   *     ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { NetworkRadioTech } Returns the RAT of PS domain and CS domain of registered network.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { NetworkRadioTech } RAT used in the CS and PS domains. The CS domain refers to the Circuit Switched
+   *     domain, and the PS domain refers to the Packet Switched domain.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -193,12 +132,16 @@ declare namespace radio {
   function getRadioTechSync(slotId: int): NetworkRadioTech;
 
   /**
-   * Obtains the network state of the registered network.
+   * Obtains the network status of the SIM card in the specified slot. This API uses an asynchronous callback to return
+   * the result.
+   *
+   * **Required permission**: ohos.permission.GET_NETWORK_INFO
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<NetworkState> } callback - Indicates the callback for getting network registration state.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<NetworkState> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -213,13 +156,16 @@ declare namespace radio {
   function getNetworkState(slotId: int, callback: AsyncCallback<NetworkState>): void;
 
   /**
-   * Obtains the network state of the registered network.
+   * Obtains the network status of the SIM card in the specified slot. This API uses a promise to return the result.
+   *
+   * **Required permission**: ohos.permission.GET_NETWORK_INFO
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * if no slotId is provided, the default slotId is 0.
-   * @returns { Promise<NetworkState> } Returns the NetworkState object.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   *     <br> If no card slot is specified, card slot 1 is used by default.
+   * @returns { Promise<NetworkState> } Promise used to return the network status.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -234,10 +180,12 @@ declare namespace radio {
   function getNetworkState(slotId?: int): Promise<NetworkState>;
 
   /**
-   * Obtains the network state of the registered network.
+   * Obtains the network status. This API uses an asynchronous callback to return the result.
+   *
+   * **Required permission**: ohos.permission.GET_NETWORK_INFO
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<NetworkState> } callback - Indicates the callback for getting network registration state.
+   * @param { AsyncCallback<NetworkState> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -380,17 +328,13 @@ declare namespace radio {
   function getCellInformation(callback: AsyncCallback<Array<CellInformation>>): void;
 
   /**
-   * Obtains the network search mode of the SIM card in a specified slot.
+   * Obtains the network selection mode of the SIM card in the specified slot. This API uses an asynchronous callback to
+   * return the result.
    *
-   * @param { int } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
-   * index number supported by the device.
-   * @param { AsyncCallback<NetworkSelectionMode> } callback - Indicates the callback for getting
-   * the network search mode of the SIM card. Available values are as follows:
-   * <ul>
-   * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_UNKNOWN}
-   * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_AUTOMATIC}
-   * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_MANUAL}
-   * <ul>
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<NetworkSelectionMode> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -404,17 +348,13 @@ declare namespace radio {
   function getNetworkSelectionMode(slotId: int, callback: AsyncCallback<NetworkSelectionMode>): void;
 
   /**
-   * Obtains the network search mode of the SIM card in a specified slot.
+   * Obtains the network selection mode of the SIM card in the specified slot. This API uses a promise to return the
+   * result.
    *
-   * @param { int } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
-   * index number supported by the device.
-   * @returns { Promise<NetworkSelectionMode> } Returns the network search mode of the SIM card.
-   * Available values are as follows:
-   * <ul>
-   * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_UNKNOWN}
-   * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_AUTOMATIC}
-   * <li>{@link NetworkSelectionMode#NETWORK_SELECTION_MANUAL}
-   * <ul>
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<NetworkSelectionMode> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -515,12 +455,14 @@ declare namespace radio {
   function getNetworkSearchInformation(slotId: int): Promise<NetworkSearchResult>;
 
   /**
-   * Obtains the ISO-defined country code of the country where the registered network is deployed.
+   * Obtains the ISO country code of the network with which the SIM card in the specified slot is registered. This API
+   * uses an asynchronous callback to return the result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the country code
-   * defined in ISO 3166-2; returns an empty string if the device is not registered with any network.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<string> } callback - Callback used to return the result. which is a country code, for
+   *     example, **CN** (China). If the device is not registered with any network, an empty string is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -534,12 +476,14 @@ declare namespace radio {
   function getISOCountryCodeForNetwork(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the ISO-defined country code of the country where the registered network is deployed.
+   * Obtains the ISO country code of the network with which the SIM card in the specified slot is registered. This API
+   * uses a promise to return the result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<string> } Returns the country code defined in ISO 3166-2.
-   * Returns an empty string if the device is not registered with any network.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<string> } Promise used to return the result, which is an ISO country code, for example, **CN** (
+   *     China). If the device is not registered with any network, an empty string is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -553,12 +497,13 @@ declare namespace radio {
   function getISOCountryCodeForNetwork(slotId: int): Promise<string>;
 
   /**
-   * Obtains the ISO-defined country code of the country where the registered network is deployed.
+   * Obtains the ISO country code of the network with which the SIM card in the specified slot is registered.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { string } Returns the country code defined in ISO 3166-2.
-   * Returns an empty string if the device is not registered with any network.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { string } ISO country code of the network, for example, **CN** (China). If the device is not registered
+   *     with any network, an empty string is returned.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -838,12 +783,10 @@ declare namespace radio {
   function getUniqueDeviceId(callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the index number of the card slot where the primary card is located if multiple SIM cards are inserted.
+   * Obtains the ID of the slot in which the primary card is located. This API uses an asynchronous callback to return
+   * the result.
    *
-   * The primary card is the SIM card inserted in the card slot that uses data services by default.
-   *
-   * @param { AsyncCallback<int> } callback - Indicates the callback for getting the index number of
-   * the primary card slot.
+   * @param { AsyncCallback<int> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -857,11 +800,9 @@ declare namespace radio {
   function getPrimarySlotId(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the index number of the card slot where the primary card is located if multiple SIM cards are inserted.
+   * Obtains the ID of the slot in which the primary card is located. This API uses a promise to return the result.
    *
-   * The primary card is the SIM card inserted in the card slot that uses data services by default.
-   *
-   * @returns { Promise<int> } Returns the index number of the primary card slot.
+   * @returns { Promise<int> } Promise used to return the result.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
@@ -918,12 +859,14 @@ declare namespace radio {
   function setPrimarySlotId(slotId: int): Promise<void>;
 
   /**
-   * Obtains the list of signal strength information of the registered network corresponding to a specified SIM card.
+   * Obtains a list of signal strengths of the network with which the SIM card in the specified slot is registered. This
+   * API uses an asynchronous callback to return the result.
    *
-   * @param { int } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
-   * index number supported by the device.
-   * @param { AsyncCallback<Array<SignalInformation>> } callback - Indicates the callback for getting
-   * the instance list of the child classes derived from {@link SignalInformation}.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<Array<SignalInformation>> } callback - Callback used to return the result, which is an array
+   *     of child class objects derived from [SignalInformation]{@link radio.SignalInformation}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -937,12 +880,14 @@ declare namespace radio {
   function getSignalInformation(slotId: int, callback: AsyncCallback<Array<SignalInformation>>): void;
 
   /**
-   * Obtains the list of signal strength information of the registered network corresponding to a specified SIM card.
+   * Obtains a list of signal strengths of the network with which the SIM card in the specified slot is registered. This
+   * API uses a promise to return the result.
    *
-   * @param { int } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
-   * index number supported by the device.
-   * @returns { Promise<Array<SignalInformation>> } Returns the callback for getting the instance list of
-   * the child classes derived from {@link SignalInformation}.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<Array<SignalInformation>> } Promise used to return the result, which is a list of child class
+   *     objects derived from [SignalInformation]{@link radio.SignalInformation}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -956,12 +901,13 @@ declare namespace radio {
   function getSignalInformation(slotId: int): Promise<Array<SignalInformation>>;
 
   /**
-   * Obtains the list of signal strength information of the registered network corresponding to a specified SIM card.
+   * Obtains a list of signal strengths of the network with which the SIM card in the specified slot is registered.
    *
-   * @param { int } slotId - Indicates the card slot index number, ranging from 0 to the maximum
-   * card slots supported by the device.
-   * @returns { Array<SignalInformation> } Returns the callback for getting the instance list of
-   * the child classes derived from {@link SignalInformation}.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Array<SignalInformation> } Array of child class objects derived from
+   *     [SignalInformation]{@link radio.SignalInformation}.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -969,9 +915,15 @@ declare namespace radio {
   function getSignalInformationSync(slotId: int): Array<SignalInformation>;
 
   /**
-   * Checks whether the device supports 5G New Radio (NR).
+   * Checks whether the current device supports NR.
    *
-   * @returns { boolean } Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+   * > [isNRSupported]{@link radio.isNrSupported}.
+   *
+   * @returns { boolean } - **true**: supported
+   *     <br>- **false**: not supported
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -980,11 +932,18 @@ declare namespace radio {
   function isNrSupported(): boolean;
 
   /**
-   * Checks whether the device supports 5G New Radio (NR) by according card slot.
+   * Checks whether the SIM card in the specified slot supports NR.
    *
-   * @param { int } slotId - Indicates the card slot index number, ranging from 0 to the maximum card slot
-   * index number supported by the device.
-   * @returns { boolean } Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+   * > [isNRSupported]{@link radio.isNrSupported}.
+   *
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { boolean } - **true**: supported
+   *     <br>- **false**: not supported
    * @syscap SystemCapability.Telephony.CoreService
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -993,9 +952,10 @@ declare namespace radio {
   function isNrSupported(slotId: int): boolean;
 
   /**
-   * Checks whether the device supports 5G New Radio (NR).
+   * Checks whether the current device supports NR.
    *
-   * @returns { boolean } Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
+   * @returns { boolean } - **true**: supported
+   *     <br>- **false**: not supported
    * @syscap SystemCapability.Telephony.CoreService
    * @since 9 dynamic
    * @since 23 static
@@ -1003,11 +963,13 @@ declare namespace radio {
   function isNRSupported(): boolean;
 
   /**
-   * Checks whether the device supports 5G New Radio (NR) by according card slot.
+   * Checks whether the SIM card in the specified slot supports NR.
    *
-   * @param { int } slotId - Indicates the card slot index int, ranging from 0 to the maximum card slot
-   * index number supported by the device.
-   * @returns { boolean } Returns {@code true} if the device supports 5G NR; returns {@code false} otherwise.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { boolean } - **true**: supported
+   *     <br>- **false**: not supported
    * @syscap SystemCapability.Telephony.CoreService
    * @since 9 dynamic
    * @since 23 static
@@ -1015,13 +977,18 @@ declare namespace radio {
   function isNRSupported(slotId: int): boolean;
 
   /**
-   * Checks whether the radio service is enabled.
+   * Checks whether the radio service is enabled on the SIM card in the specified slot. This API uses an asynchronous
+   * callback to return the result.
+   *
+   * **Required permission**: ohos.permission.GET_NETWORK_INFO
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<boolean> } callback - Returns {@code true} If the radio service is enabled.
-   * Returns {@code false} otherwise.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   *     <br>- **true**: The radio service is enabled.
+   *     <br>- **false**: The radio service is disabled.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1036,12 +1003,20 @@ declare namespace radio {
   function isRadioOn(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the radio service is enabled.
+   * Checks whether the radio service is enabled on the SIM card in the specified slot. This API uses a promise to
+   * return the result.
+   *
+   * **Required permission**: ohos.permission.GET_NETWORK_INFO
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<boolean> } Returns {@code true} If the radio service is enabled; returns {@code false} otherwise.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2.
+   *     <br>If the slot ID is not specified, this API is defaulted to check whether the radio service is enabled on the
+   *     primary SIM card.
+   * @returns { Promise<boolean> } Promise used to return the result.
+   *     <br>- **true**: The radio service is enabled.
+   *     <br>- **false**: The radio service is disabled.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1056,11 +1031,15 @@ declare namespace radio {
   function isRadioOn(slotId?: int): Promise<boolean>;
 
   /**
-   * Checks whether the radio service is enabled.
+   * Checks whether the radio service is enabled on the primary SIM card. This API uses an asynchronous callback to
+   * return the result.
+   *
+   * **Required permission**: ohos.permission.GET_NETWORK_INFO
    *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<boolean> } callback - Returns {@code true} If the radio service is enabled.
-   * Returns {@code false} otherwise.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   *     <br>- **true**: The radio service is enabled.
+   *     <br>- **false**: The radio service is disabled.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1203,11 +1182,13 @@ declare namespace radio {
   function turnOffRadio(callback: AsyncCallback<void>): void;
 
   /**
-   * Get the operator name of the specified SIM card slot.
+   * Obtains the carrier name of the SIM card in the specified slot. This API uses an asynchronous callback to return
+   * the result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the operator name.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<string> } callback - Callback used to return the carrier name, for example, China Mobile.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1221,11 +1202,12 @@ declare namespace radio {
   function getOperatorName(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
-   * Get the operator name of the specified SIM card slot.
+   * Obtains the carrier name of the SIM card in the specified slot. This API uses a promise to return the result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<string> } Returns the operator name.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<string> } Promise used to return the result, for example, China Mobile.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -1239,11 +1221,12 @@ declare namespace radio {
   function getOperatorName(slotId: int): Promise<string>;
 
   /**
-   * Get the operator name of the specified SIM card slot.
+   * Obtains the carrier name of the SIM card in the specified slot.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { string } Returns the operator name.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { string } Carrier name, for example, China Mobile.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -1473,8 +1456,6 @@ declare namespace radio {
    */
   function offImsRegStateChange(slotId: int, imsType: ImsServiceType, callback?: Callback<ImsRegInfo>): void;
 
-
-
   /**
    * Get the version of Baseband.
    *
@@ -1610,9 +1591,10 @@ declare namespace radio {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { NetworkCapabilityType } type - Indicates the service type of the {@link NetworkCapabilityType}.
-   * @param { NetworkCapabilityState } state - Indicates the service ability state of the {@link NetworkCapabilityState}.
+   * @param { NetworkCapabilityState } state - Indicates the service ability state of the {@link NetworkCapabilityState}
+   *     .
    * @param { AsyncCallback<void> } callback - The callback of setNetworkCapability.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1635,9 +1617,10 @@ declare namespace radio {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { NetworkCapabilityType } type - Indicates the service type of the {@link NetworkCapabilityType}.
-   * @param { NetworkCapabilityState } state - Indicates the service ability state of the {@link NetworkCapabilityState}.
+   * @param { NetworkCapabilityState } state - Indicates the service ability state of the {@link NetworkCapabilityState}
+   *     .
    * @returns { Promise<void> } The promise returned by the setNetworkCapability.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1749,7 +1732,6 @@ declare namespace radio {
   /**
    * Indicates the preferred network.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -2098,18 +2080,16 @@ declare namespace radio {
   }
 
   /**
-   * Describes the radio access technology (RAT) of registered network.
+   * Defines the radio access technology for the packet switched (PS) or circuit switched (CS) network.
    *
-   * @interface NetworkRadioTech
    * @syscap SystemCapability.Telephony.CoreService
    * @since 11 dynamic
    * @since 23 static
    */
   export interface NetworkRadioTech {
     /**
-     * Indicates radio access technology (RAT) of packet service (PS) domain.
+     * PS.
      *
-     * @type { RadioTechnology }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 11 dynamic
      * @since 23 static
@@ -2117,9 +2097,8 @@ declare namespace radio {
     psRadioTech: RadioTechnology;
 
     /**
-     * Indicates radio access technology (RAT) of circuit service (CS) domain.
+     * CS.
      *
-     * @type { RadioTechnology }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 11 dynamic
      * @since 23 static
@@ -2128,16 +2107,15 @@ declare namespace radio {
   }
 
   /**
-   * Describes the radio access technology.
+   * Enumerates radio access technologies.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
    * @since 23 static
    */
   export enum RadioTechnology {
     /**
-     * Indicates unknown radio access technology (RAT).
+     * Unknown RAT
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2146,8 +2124,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_UNKNOWN = 0,
 
     /**
-     * Indicates that RAT is global system for mobile communications (GSM), including GSM, general packet
-     * radio system (GPRS), and enhanced data rates for GSM evolution (EDGE).
+     * Global System for Mobile Communication (GSM)
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2156,8 +2133,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_GSM = 1,
 
     /**
-     * Indicates that RAT is code division multiple access (CDMA), including Interim Standard 95 (IS95) and
-     * Single-Carrier Radio Transmission Technology (1xRTT).
+     * Single-Carrier Radio Transmission Technology (1XRTT)
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2166,7 +2142,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_1XRTT = 2,
 
     /**
-     * Indicates that RAT is wideband code division multiple address (WCDMA).
+     * Wideband Code Division Multiple Access (WCDMA)
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2175,8 +2151,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_WCDMA = 3,
 
     /**
-     * Indicates that RAT is high-speed packet access (HSPA), including HSPA, high-speed downlink packet
-     * access (HSDPA), and high-speed uplink packet access (HSUPA).
+     * High Speed Packet Access (HSPA)
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2185,8 +2160,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_HSPA = 4,
 
     /**
-     * Indicates that RAT is evolved high-speed packet access (HSPA+), including HSPA+ and dual-carrier
-     * HSPA+ (DC-HSPA+).
+     * Evolved High Speed Packet Access (HSPA+)
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2195,7 +2169,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_HSPAP = 5,
 
     /**
-     * Indicates that RAT is time division-synchronous code division multiple access (TD-SCDMA).
+     * TD-SCDMA.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2204,7 +2178,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_TD_SCDMA = 6,
 
     /**
-     * Indicates that RAT is evolution data only (EVDO), including EVDO Rev.0, EVDO Rev.A, and EVDO Rev.B.
+     * Evolution-Data Optimized (EVDO)
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2213,7 +2187,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_EVDO = 7,
 
     /**
-     * Indicates that RAT is evolved high rate packet data (EHRPD).
+     * Evolved High Rate Package Data (EHRPD)
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2222,7 +2196,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_EHRPD = 8,
 
     /**
-     * Indicates that RAT is long term evolution (LTE).
+     * Long Term Evolution (LTE)
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2231,7 +2205,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_LTE = 9,
 
     /**
-     * Indicates that RAT is LTE carrier aggregation (LTE-CA).
+     * Long Term Evolution_Carrier Aggregation (LTE_CA)
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2240,7 +2214,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_LTE_CA = 10,
 
     /**
-     * Indicates that RAT is interworking WLAN (I-WLAN).
+     * Industrial Wireless LAN (IWLAN)
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2249,7 +2223,7 @@ declare namespace radio {
     RADIO_TECHNOLOGY_IWLAN = 11,
 
     /**
-     * Indicates that RAT is 5G new radio (NR).
+     * New Radio (NR)
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2259,18 +2233,16 @@ declare namespace radio {
   }
 
   /**
-   * Returns child class objects specific to the network type.
+   * Defines the signal strength.
    *
-   * @interface SignalInformation
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
    * @since 23 static
    */
   export interface SignalInformation {
     /**
-     * Obtains the network type corresponding to the signal.
+     * Signal strength type.
      *
-     * @type { NetworkType }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
      * @since 23 static
@@ -2278,9 +2250,8 @@ declare namespace radio {
     signalType: NetworkType;
 
     /**
-     * Obtains the signal level of the current network.
+     * Signal strength level. The value range is [0, 5]. If the value is out of range, an error is returned.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
      * @since 23 static
@@ -2288,9 +2259,8 @@ declare namespace radio {
     signalLevel: int;
 
     /**
-     * rsrp for LTE and NR; dbm for CDMA and EVDO; rscp for WCDMA; rssi for GSM.
+     * Signal strength. The value range is [–140, 140]. If the value is out of range, an error is returned.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 9 dynamic
      * @since 23 static
@@ -2299,16 +2269,15 @@ declare namespace radio {
   }
 
   /**
-   * Describes the network type.
+   * Enumerates network types.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
    * @since 23 static
    */
   export enum NetworkType {
     /**
-     * Indicates unknown network type.
+     * Unknown network.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2317,7 +2286,7 @@ declare namespace radio {
     NETWORK_TYPE_UNKNOWN = 0,
 
     /**
-     * Indicates that the network type is GSM.
+     * GSM network.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2326,7 +2295,7 @@ declare namespace radio {
     NETWORK_TYPE_GSM = 1,
 
     /**
-     * Indicates that the network type is CDMA.
+     * CDMA network.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2335,7 +2304,7 @@ declare namespace radio {
     NETWORK_TYPE_CDMA = 2,
 
     /**
-     * Indicates that the network type is WCDMA.
+     * WCDMA network.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2344,7 +2313,7 @@ declare namespace radio {
     NETWORK_TYPE_WCDMA = 3,
 
     /**
-     * Indicates that the network type is TD-SCDMA.
+     * TD-SCDMA network.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2353,7 +2322,7 @@ declare namespace radio {
     NETWORK_TYPE_TDSCDMA = 4,
 
     /**
-     * Indicates that the network type is LTE.
+     * LTE network.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2362,7 +2331,7 @@ declare namespace radio {
     NETWORK_TYPE_LTE = 5,
 
     /**
-     * Indicates that the network type is 5G NR.
+     * NR network.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2372,21 +2341,16 @@ declare namespace radio {
   }
 
   /**
-   * Describes the network registration state.
+   * Defines the network status.
    *
-   * @interface NetworkState
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
    * @since 23 static
    */
   export interface NetworkState {
     /**
-     * Obtains the operator name in the long alphanumeric format of the registered network.
+     * Long carrier name of the registered network.
      *
-     * Returns the operator name in the long alphanumeric format as a string;
-     * returns an empty string if no operator name is obtained.
-     *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
      * @since 23 static
@@ -2394,12 +2358,8 @@ declare namespace radio {
     longOperatorName: string;
 
     /**
-     * Obtains the operator name in the short alphanumeric format of the registered network.
+     * Short carrier name of the registered network.
      *
-     * Returns the operator name in the short alphanumeric format as a string;
-     * returns an empty string if no operator name is obtained.
-     *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
      * @since 23 static
@@ -2407,11 +2367,8 @@ declare namespace radio {
     shortOperatorName: string;
 
     /**
-     * Obtains the PLMN code of the registered network.
+     * PLMN code of the registered network.
      *
-     * Returns the PLMN code as a string; returns an empty string if no operator name is obtained.
-     *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
      * @since 23 static
@@ -2419,9 +2376,8 @@ declare namespace radio {
     plmnNumeric: string;
 
     /**
-     * Checks whether the device is roaming.
+     * Whether the user is roaming.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
      * @since 23 static
@@ -2429,9 +2385,8 @@ declare namespace radio {
     isRoaming: boolean;
 
     /**
-     * Obtains the network registration status of the device.
+     * Network registration status of the device.
      *
-     * @type { RegState }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
      * @since 23 static
@@ -2439,9 +2394,8 @@ declare namespace radio {
     regState: RegState;
 
     /**
-     * Obtains the radio Access technology after config conversion.
+     * RAT of the device.
      *
-     * @type { RadioTechnology }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 8 dynamic
      * @since 23 static
@@ -2449,11 +2403,8 @@ declare namespace radio {
     cfgTech: RadioTechnology;
 
     /**
-     * Obtains the NSA network registration status of the device.
+     * NSA network registration status of the device.
      *
-     * Returns the NSA network registration status {@code NsaState}.
-     *
-     * @type { NsaState }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
      * @since 23 static
@@ -2461,11 +2412,8 @@ declare namespace radio {
     nsaState: NsaState;
 
     /**
-     * Obtains the status of CA.
+     * CA status.
      *
-     * Returns {@code true} if CA is actived; returns {@code false} otherwise.
-     *
-     * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
      * @since 23 static
@@ -2473,12 +2421,8 @@ declare namespace radio {
     isCaActive: boolean;
 
     /**
-     * Checks whether this device is allowed to make emergency calls only.
+     * Whether only emergency calls are allowed.
      *
-     * Returns {@code true} if this device is allowed to make emergency calls only;
-     * returns {@code false} otherwise.
-     *
-     * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
      * @since 23 static
@@ -2487,16 +2431,15 @@ declare namespace radio {
   }
 
   /**
-   * Describes the network registration state.
+   * Defines the network registration status of the device.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
    * @since 23 static
    */
   export enum RegState {
     /**
-     * Indicates a state in which a device cannot use any service.
+     * The device cannot use any services, including data, SMS, and call services.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2505,7 +2448,7 @@ declare namespace radio {
     REG_STATE_NO_SERVICE = 0,
 
     /**
-     * Indicates a state in which a device can use services properly.
+     * The device can use services properly, including data, SMS, and call services.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2514,7 +2457,7 @@ declare namespace radio {
     REG_STATE_IN_SERVICE = 1,
 
     /**
-     * Indicates a state in which a device can use only the emergency call service.
+     * The device can use only the emergency call service.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2523,7 +2466,8 @@ declare namespace radio {
     REG_STATE_EMERGENCY_CALL_ONLY = 2,
 
     /**
-     * Indicates that the cellular radio is powered off.
+     * The device cannot communicate with the network because the cellular radio service is disabled or the modem is
+     * powered off.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2533,16 +2477,15 @@ declare namespace radio {
   }
 
   /**
-   * Describes the nsa state.
+   * Enumerates NSA network states.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
    * @since 23 static
    */
   export enum NsaState {
     /**
-     * Indicates that a device is idle under or is connected to an LTE cell that does not support NSA.
+     * The device is in idle or connected state in an LTE cell that does not support NSA.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2551,7 +2494,7 @@ declare namespace radio {
     NSA_STATE_NOT_SUPPORT = 1,
 
     /**
-     * Indicates that a device is idle under an LTE cell supporting NSA but not NR coverage detection.
+     * The device is in the idle state in an LTE cell that supports NSA but not NR coverage detection.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2560,8 +2503,7 @@ declare namespace radio {
     NSA_STATE_NO_DETECT = 2,
 
     /**
-     * Indicates that a device is connected to an LTE network under an LTE cell
-     * that supports NSA and NR coverage detection.
+     * The device is connected to the LTE network in an LTE cell that supports NSA and NR coverage detection.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2570,7 +2512,7 @@ declare namespace radio {
     NSA_STATE_CONNECTED_DETECT = 3,
 
     /**
-     * Indicates that a device is idle under an LTE cell supporting NSA and NR coverage detection.
+     * The device is in the idle state in an LTE cell that supports NSA and NR coverage detection.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2579,7 +2521,7 @@ declare namespace radio {
     NSA_STATE_IDLE_DETECT = 4,
 
     /**
-     * Indicates that a device is connected to an LTE + NR network under an LTE cell that supports NSA.
+     * The device is connected to the LTE/NR network in an LTE cell that supports NSA.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2588,7 +2530,7 @@ declare namespace radio {
     NSA_STATE_DUAL_CONNECTED = 5,
 
     /**
-     * Indicates that a device is idle under or is connected to an NG-RAN cell while being attached to 5GC.
+     * The device is idle or connected to the NG-RAN cell when being attached to the 5G Core.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2598,20 +2540,16 @@ declare namespace radio {
   }
 
   /**
-   * Obtains current cell information.
+   * Defines the cell information.
    *
-   * @interface CellInformation
    * @syscap SystemCapability.Telephony.CoreService
    * @since 8 dynamic
    * @since 23 static
    */
   export interface CellInformation {
     /**
-     * Obtains the network type of the serving cell.
+     * Network type of the cell.
      *
-     * An application can call this method to determine the network type that the child class uses.
-     *
-     * @type { NetworkType }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 8 dynamic
      * @since 23 static
@@ -2623,7 +2561,6 @@ declare namespace radio {
      *
      * Returns {@code true} if the user equipment (UE) is camped on the cell; returns {@code false} otherwise.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2636,7 +2573,6 @@ declare namespace radio {
      *
      * Returns a timestamp since boot, in nanoseconds.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2645,11 +2581,8 @@ declare namespace radio {
     timeStamp: int;
 
     /**
-     * An abstract method of the parent class whose implementation depends on the child classes.
-     * Returned child class objects vary according to the network type.
-     * Returns child class objects specific to the network type.
+     * Signal information.
      *
-     * @type { SignalInformation }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 8 dynamic
      * @since 23 static
@@ -2659,8 +2592,6 @@ declare namespace radio {
     /**
      * Obtains signal strength under different network formats.
      *
-     * @type { CdmaCellInformation | GsmCellInformation | LteCellInformation | NrCellInformation
-     * | TdscdmaCellInformation | WcdmaCellInformation }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2673,7 +2604,6 @@ declare namespace radio {
   /**
    * Obtains CDMA cell information.
    *
-   * @interface CdmaCellInformation
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -2683,7 +2613,6 @@ declare namespace radio {
     /**
      * Indicates the base station Id.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2694,7 +2623,6 @@ declare namespace radio {
     /**
      * Indicates the latitude.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2705,7 +2633,6 @@ declare namespace radio {
     /**
      * Indicates the longitude.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2716,7 +2643,6 @@ declare namespace radio {
     /**
      * Indicates the network identification code.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2727,7 +2653,6 @@ declare namespace radio {
     /**
      * Indicates the system identification code.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2739,7 +2664,6 @@ declare namespace radio {
   /**
    * Obtains GSM cell information.
    *
-   * @interface GsmCellInformation
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -2749,7 +2673,6 @@ declare namespace radio {
     /**
      * Indicates the location area code.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2760,7 +2683,6 @@ declare namespace radio {
     /**
      * Indicates the cell identification.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2771,7 +2693,6 @@ declare namespace radio {
     /**
      * Indicates the ARFCN(absolute radio frequency channel int).
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2782,7 +2703,6 @@ declare namespace radio {
     /**
      * Indicates the base station identification code.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2793,7 +2713,6 @@ declare namespace radio {
     /**
      * Indicates the mobile country code.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2804,7 +2723,6 @@ declare namespace radio {
     /**
      * Indicates the mobile network code.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2816,7 +2734,6 @@ declare namespace radio {
   /**
    * Obtains LTE cell information.
    *
-   * @interface LteCellInformation
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -2826,7 +2743,6 @@ declare namespace radio {
     /**
      * Indicates the cell global identification.
      *
-     * @type { long }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2837,7 +2753,6 @@ declare namespace radio {
     /**
      * Indicates the physical cell identification.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2848,7 +2763,6 @@ declare namespace radio {
     /**
      * Indicates the tracking area code.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2859,7 +2773,6 @@ declare namespace radio {
     /**
      * Indicates the E-UTRA Absolute Radio Frequency Channel Number.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2870,7 +2783,6 @@ declare namespace radio {
     /**
      * Indicates the bandwidth.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2881,7 +2793,6 @@ declare namespace radio {
     /**
      * Indicates the mobile country code.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2892,7 +2803,6 @@ declare namespace radio {
     /**
      * Indicates the mobile network code.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2903,7 +2813,6 @@ declare namespace radio {
     /**
      * Support for New Radio_Dual Connectivity.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2915,7 +2824,6 @@ declare namespace radio {
   /**
    * Obtains NR cell information.
    *
-   * @interface NrCellInformation
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -2925,7 +2833,6 @@ declare namespace radio {
     /**
      * Indicates the NR-ARFCN(NR Absolute Radio Frequency Channel Number).
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2936,7 +2843,6 @@ declare namespace radio {
     /**
      * Indicates the physical cell identification.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2947,7 +2853,6 @@ declare namespace radio {
     /**
      * Indicates the tracking area code.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2958,7 +2863,6 @@ declare namespace radio {
     /**
      * Indicates the 5G network cell ID.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2969,7 +2873,6 @@ declare namespace radio {
     /**
      * Indicates the mobile country code.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2980,7 +2883,6 @@ declare namespace radio {
     /**
      * Indicates the mobile network code.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2992,7 +2894,6 @@ declare namespace radio {
   /**
    * Obtains TDSCDMA cell information.
    *
-   * @interface TdscdmaCellInformation
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -3002,7 +2903,6 @@ declare namespace radio {
     /**
      * Indicates the location area code.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -3013,7 +2913,6 @@ declare namespace radio {
     /**
      * Indicates the cell ID.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -3024,7 +2923,6 @@ declare namespace radio {
     /**
      * Indicates the cell parameter ID.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -3035,7 +2933,6 @@ declare namespace radio {
     /**
      * Indicates the absolute radio frequency number.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -3046,7 +2943,6 @@ declare namespace radio {
     /**
      * Indicates the mobile country code.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -3057,7 +2953,6 @@ declare namespace radio {
     /**
      * Indicates the mobile network code.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -3069,7 +2964,6 @@ declare namespace radio {
   /**
    * Obtains WCDMA cell information.
    *
-   * @interface WcdmaCellInformation
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -3079,7 +2973,6 @@ declare namespace radio {
     /**
      * Indicates the location area code.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -3090,7 +2983,6 @@ declare namespace radio {
     /**
      * Indicates the cell ID.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -3101,7 +2993,6 @@ declare namespace radio {
     /**
      * Indicates the primary scrambling code.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -3112,7 +3003,6 @@ declare namespace radio {
     /**
      * Indicates the absolute radio frequency number.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -3123,7 +3013,6 @@ declare namespace radio {
     /**
      * Indicates the mobile country code.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -3134,7 +3023,6 @@ declare namespace radio {
     /**
      * Indicates the mobile network code.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -3146,7 +3034,6 @@ declare namespace radio {
   /**
    * Obtains the option mode of NR.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamiconly
@@ -3198,7 +3085,6 @@ declare namespace radio {
   /**
    * Obtains the option mode of NR.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -3249,7 +3135,6 @@ declare namespace radio {
   /**
    * Obtains the network search results.
    *
-   * @interface NetworkSearchResult
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 6 dynamic
@@ -3259,7 +3144,6 @@ declare namespace radio {
     /**
      * Indicates whether the network search was successful.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 6 dynamic
@@ -3270,7 +3154,6 @@ declare namespace radio {
     /**
      * Obtains the network search results.
      *
-     * @type { Array<NetworkInformation> }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 6 dynamic
@@ -3282,7 +3165,6 @@ declare namespace radio {
   /**
    * Obtains the network information.
    *
-   * @interface NetworkInformation
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 6 dynamic
@@ -3292,7 +3174,6 @@ declare namespace radio {
     /**
      * Indicates the name of the operator.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 6 dynamic
@@ -3303,7 +3184,6 @@ declare namespace radio {
     /**
      * Indicates the number of the operator.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 6 dynamic
@@ -3314,7 +3194,6 @@ declare namespace radio {
     /**
      * Indicates the status of network information.
      *
-     * @type { NetworkInformationState }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 6 dynamic
@@ -3325,7 +3204,6 @@ declare namespace radio {
     /**
      * Indicates the radio Technology.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 6 dynamic
@@ -3337,7 +3215,6 @@ declare namespace radio {
   /**
    * Obtains network information status.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 6 dynamic
@@ -3388,7 +3265,6 @@ declare namespace radio {
   /**
    * Obtains the network selection mode option.
    *
-   * @interface NetworkSelectionModeOptions
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 6 dynamic
@@ -3399,7 +3275,6 @@ declare namespace radio {
      * Indicates the card slot index number, ranging from 0 to
      * the maximum card slot index number supported by the device.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 6 dynamic
@@ -3410,7 +3285,6 @@ declare namespace radio {
     /**
      * Indicates the network search mode of the SIM card.
      *
-     * @type { NetworkSelectionMode }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 6 dynamic
@@ -3421,7 +3295,6 @@ declare namespace radio {
     /**
      * Indicates the network information.
      *
-     * @type { NetworkInformation }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 6 dynamic
@@ -3432,7 +3305,6 @@ declare namespace radio {
     /**
      * Indicates whether to continue selecting the network selection mode.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 6 dynamic
@@ -3442,16 +3314,15 @@ declare namespace radio {
   }
 
   /**
-   * Obtains the network selection mode.
+   * Enumerates network selection modes.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
    * @since 23 static
    */
   export enum NetworkSelectionMode {
     /**
-     * Indicates that the network is unavailable for registration.
+     * Unknown network selection mode.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -3460,7 +3331,7 @@ declare namespace radio {
     NETWORK_SELECTION_UNKNOWN = 0,
 
     /**
-     * Indicates that the network is unavailable for registration.
+     * Automatic network selection mode.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -3469,7 +3340,7 @@ declare namespace radio {
     NETWORK_SELECTION_AUTOMATIC = 1,
 
     /**
-     * Manual network selection modes.
+     * Manual network selection mode.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -3481,7 +3352,6 @@ declare namespace radio {
   /**
    * Obtains IMS registration status.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -3512,7 +3382,6 @@ declare namespace radio {
   /**
    * Indicates IMS registration technology.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -3563,7 +3432,6 @@ declare namespace radio {
   /**
    * Indicates IMS registration information.
    *
-   * @interface ImsRegInfo
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -3573,7 +3441,6 @@ declare namespace radio {
     /**
      * Indicates the registration status of the ims service.
      *
-     * @type { ImsRegState }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -3584,7 +3451,6 @@ declare namespace radio {
     /**
      * Indicates the mode of ims radio technology.
      *
-     * @type { ImsRegTech }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -3596,7 +3462,6 @@ declare namespace radio {
   /**
    * Indicates the type of IMS service.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -3647,7 +3512,6 @@ declare namespace radio {
   /**
    * Enum for network capability type.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -3678,7 +3542,6 @@ declare namespace radio {
   /**
    * Enum for network capability state.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
@@ -3767,7 +3630,6 @@ declare namespace radio {
   /**
    * Indicates the results of manual network scan
    *
-   * @interface NetworkSearchRealTimeResult
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @FaAndStageModel
@@ -3778,7 +3640,6 @@ declare namespace radio {
     /**
      * the network search results.
      *
-     * @type { Array<NetworkInformation> }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @FaAndStageModel
@@ -3789,7 +3650,6 @@ declare namespace radio {
     /**
      * Indicates whether the network search was stop.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @FaAndStageModel
