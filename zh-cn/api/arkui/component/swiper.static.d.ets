@@ -109,7 +109,7 @@ export declare class SwiperController {
    * > **说明：**
    * >
    * > Swiper的preloadItems需要在Swiper创建之后去调用，首次预加载推荐在Swiper的
-   * > [onAppear](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-show-hide.md#onappear)生命周期中去控制。
+   * > [onAppear]{@link CommonMethod#onAppear}生命周期中去控制。
    *
    * @param { Array<int> | undefined } indices - 需预加载的子节点的下标数组。<br/>取值为undefined时，默认全部加载。
    * @returns { Promise<void> } Promise对象，无返回结果。
@@ -872,7 +872,7 @@ export type OnSwiperGestureSwipeCallback = (index: int, extraInfo: SwiperAnimati
  *
  * > **说明：**
  * >
- * > Swiper组件通用属性[clip](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-sharp-clipping.md#clip12)的默认值为
+ * > Swiper组件通用属性[clip]{@link CommonMethod#clip}的默认值为
  * > true。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1023,7 +1023,7 @@ export declare interface SwiperAttribute extends CommonMethod {
   default itemSpace(value: double | string | undefined): this;
 
   /**
-   * 设置主轴方向上元素排列的模式，优先以[displayCount](docroot://reference/apis-arkui/arkui-ts/ts-container-swiper copy.md#displaycount8)
+   * 设置主轴方向上元素排列的模式，优先以[displayCount]{@link CommonMethod#displayCount}
    * 设置的个数显示，displayCount未设置时本属性生效。
    *
    * @param { SwiperDisplayMode | undefined } value
@@ -1235,7 +1235,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 该接口不支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { Length | undefined } value - 前边距。不支持设置百分比。<br/>
@@ -1262,7 +1262,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 该接口不支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { Length | undefined } value - 后边距。不支持设置百分比。<br/>
@@ -1454,7 +1454,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * [onDataDelete]{@link ./../../@internal/component/ets/lazy_for_each:DataChangeListener.onDataDelete}等接口修改数据源。其他场景下，显
    * 示区域上方或前方插入或删除数据，可见内容位置会变化。
    *
-   * 在[displayCount](docroot://reference/apis-arkui/arkui-ts/ts-container-swiper copy.md#displaycount8)属性的swipeByGroup参数
+   * 在[displayCount]{@link CommonMethod#displayCount}属性的swipeByGroup参数
    * 设置为true，即按组翻页生效时，一次在显示区域上方或前方插入或删除数据，且插入或删除的是一组节点数量倍数的数据量时，才能保持可见内容位置不变，否则可见内容位置可能会随每组数据重新分组改变。
    *
    * @param { boolean | undefined } enabled - 设置显示区域上方或前方插入或删除数据时是否要保持可见内容位置不变。<br/>默认值：false，显示区域上方或前方插入或删除数据时可见内容位置会跟随

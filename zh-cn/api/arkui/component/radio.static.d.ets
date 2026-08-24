@@ -225,9 +225,7 @@ export declare interface RadioAttribute extends CommonMethod {
      */
     default radioStyle(value?: RadioStyle | undefined): this;
     /**
-     * 定制Radio内容区的方法。与
-     * [contentModifier](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-radio copy.md#contentmodifier12)<
-     * sup>12+</sup>相比，modifier参数新增了对undefined类型的支持。
+     * 定制Radio内容区的方法。
      *
      * @param { ContentModifier<RadioConfiguration> | undefined } modifier - 在Radio组件上，定制内容区的方法。<br/>modifier：内容修改器，开发者需
      *     要自定义class实现ContentModifier接口。<br/>当modifier的值为undefined时，不使用内容修改器。

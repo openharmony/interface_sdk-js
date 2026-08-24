@@ -24,7 +24,7 @@
 * > **说明：**
 *
 * > - 从API version 8开始支持，从API version 22开始废弃，建议使用[Swiper]{@link swiper}替代。详细示例请参考
-* > [示例2](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-stepper.md#示例2使用swiper替代stepper)。
+* > [示例2]{@link ./stepper}。
 *
  * @interface StepperInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -152,7 +152,7 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
 * > **说明：**
 *
 * > - 从API version 8开始支持，从API version 22开始废弃，建议使用[Swiper]{@link swiper}替代。详细示例请参考
-* > [示例2](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-stepper.md#示例2使用swiper替代stepper)。
+* > [示例2]{@link ./stepper}。
 *
 * ###### 子组件
 *

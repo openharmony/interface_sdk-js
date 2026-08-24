@@ -565,7 +565,7 @@ declare namespace promptAction {
          * 
          * showInSubWindow为true时，maskRect不生效。
          * 
-         * maskRect在设置[Rectangle](docroot://reference/apis-arkui/arkui-ts/ts-methods-alert-dialog-box.md#rectangle8)中的部分
+         * maskRect在设置[Rectangle]{@link ./common.Rectangle}中的部分
          * 属性后，若未设置其余的属性，则其余属性的默认值为0。
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -953,8 +953,8 @@ declare namespace promptAction {
      * 自定义弹窗控制器，继承自[CommonController](docroot://reference/apis-arkui/js-apis-promptAction copy.md#commoncontroller18)。
      * 
      * DialogController可作为UIContext弹出自定义弹窗的成员变量，具体用法可看
-     * [openCustomDialogWithController](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#opencustomdialogwithcontroller18)
-     * 和[presentCustomDialog](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#presentcustomdialog18)示例。
+     * [openCustomDialogWithController]{@link PromptAction#openCustomDialogWithController}
+     * 和[presentCustomDialog]{@link PromptAction#presentCustomDialog}示例。
      *
      * @extends CommonController
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -978,7 +978,7 @@ declare namespace promptAction {
          * 弹窗遮蔽层区域。
          * <br/>默认值：{ x: 0, y: 0, width: '100%', height: '100%' }
          * <br/>**说明：** <br/>showInSubWindow为true时，maskRect不生效。
-         * <br/>maskRect在设置[Rectangle](docroot://reference/apis-arkui/arkui-ts/ts-methods-alert-dialog-box.md#rectangle8)中的部分属性后，
+         * <br/>maskRect在设置[Rectangle]{@link ./common.Rectangle}中的部分属性后，
          * 若未设置其余的属性，则其余属性的默认值为0。
          *
          * @type { ?Rectangle }
@@ -1765,7 +1765,7 @@ declare namespace promptAction {
      * >
      * > - 直接使用openToast可能导致[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题，建议使用UIContext中的
      * > getPromptAction方法获取到PromptAction对象，再通过该对象调用
-     * > [openToast](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#opentoast18)实现。
+     * > [openToast]{@link PromptAction#openToast}实现。
      *
      * @param { ShowToastOptions } options - Toast选项。
      * @returns { Promise<int> } 返回即时反馈的id，可供closeToast使用。
@@ -1786,7 +1786,7 @@ declare namespace promptAction {
      * >
      * > 直接使用closeToast可能导致[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题，建议使用UIContext中的getPromptAction
      * > 方法获取到PromptAction对象，再通过该对象调用
-     * > [closeToast](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#closetoast18)实现。
+     * > [closeToast]{@link PromptAction#closeToast}实现。
      *
      * @param { int } toastId - openToast返回的id。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:

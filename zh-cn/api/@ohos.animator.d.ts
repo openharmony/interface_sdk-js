@@ -400,7 +400,7 @@ export default class Animator {
    * > -
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [createAnimator](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#createanimator)来明确UI的执行上下文。
+   * > [createAnimator]{@link UIContext#createAnimator}来明确UI的执行上下文。
    *
    * @param { AnimatorOptions } options - 定义动画选项。
    * @returns { AnimatorResult } Animator结果接口。

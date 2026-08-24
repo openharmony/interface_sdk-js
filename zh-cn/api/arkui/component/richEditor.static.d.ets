@@ -806,7 +806,7 @@ export declare interface RichEditorTextStyleResult {
     /**
      * 文本描边宽度。
      * 
-     * 单位为[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
+     * 单位为[vp]{@link Length}。
      * 
      * **模型约束：** 此接口仅可在Stage模型下使用。
      *
@@ -1191,7 +1191,7 @@ export declare interface RichEditorGesture {
      */
     onClick?: Callback<ClickEvent>;
     /**
-     * [GestureEvent](docroot://reference/apis-arkui/arkui-ts/ts-gesture-common.md#gestureevent对象说明)为用户长按事件。
+     * [GestureEvent]{@link GestureEvent}为用户长按事件。
      * 
      * 长按完成时回调事件。
      *
@@ -2028,45 +2028,45 @@ export declare class RichEditorController extends RichEditorBaseController {
      * >
      * > - 如果组件光标闪烁，插入后光标位置更新为新插入builder的后面。
      * 
-     * 通用属性仅支持[size](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#size)、
-     * [padding](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#padding)、
-     * [margin](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#margin)、
-     * [aspectRatio](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-layout-constraints.md#aspectratio)、
-     * [borderStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#borderstyle)、
-     * [borderWidth](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#borderwidth)、
-     * [borderColor](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#bordercolor)、
-     * [borderRadius](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#borderradius)、
-     * [backgroundColor](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backgroundcolor)、
-     * [backgroundBlurStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backgroundblurstyle9)
-     * 、[opacity](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-opacity.md#opacity)、
-     * [blur](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#blur)、
-     * [backdropBlur](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backdropblur)、
-     * [shadow](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#shadow)、
-     * [grayscale](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#grayscale)、
-     * [brightness](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#brightness)、
-     * [saturate](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#saturate)、
-     * [contrast](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#contrast)、
-     * [invert](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#invert)、
-     * [sepia](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#sepia)、
-     * [hueRotate](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#huerotate)、
-     * [colorBlend](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#colorblend)、
-     * [linearGradientBlur](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#lineargradientblur12)
-     * 、[clip](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-sharp-clipping.md#clip12)、
-     * [mask](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-sharp-clipping.md#mask12)、
-     * [foregroundBlurStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-foreground-blur-style.md#foregroundblurstyle)
+     * 通用属性仅支持[size]{@link CommonMethod#size}、
+     * [padding]{@link CommonMethod#padding}、
+     * [margin]{@link CommonMethod#margin}、
+     * [aspectRatio]{@link CommonMethod#aspectRatio}、
+     * [borderStyle]{@link CommonMethod#borderStyle}、
+     * [borderWidth]{@link CommonMethod#borderWidth}、
+     * [borderColor]{@link CommonMethod#borderColor}、
+     * [borderRadius]{@link CommonMethod#borderRadius}、
+     * [backgroundColor]{@link CommonMethod#backgroundColor}、
+     * [backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle}
+     * 、[opacity]{@link CommonMethod#opacity}、
+     * [blur]{@link CommonMethod#blur}、
+     * [backdropBlur]{@link CommonMethod#backdropBlur}、
+     * [shadow]{@link CommonMethod#shadow}、
+     * [grayscale]{@link CommonMethod#grayscale}、
+     * [brightness]{@link CommonMethod#brightness}、
+     * [saturate]{@link CommonMethod#saturate}、
+     * [contrast]{@link CommonMethod#contrast}、
+     * [invert]{@link CommonMethod#invert}、
+     * [sepia]{@link CommonMethod#sepia}、
+     * [hueRotate]{@link CommonMethod#hueRotate}、
+     * [colorBlend]{@link CommonMethod#colorBlend}、
+     * [linearGradientBlur]{@link CommonMethod#linearGradientBlur}
+     * 、[clip]{@link CommonMethod#clip}、
+     * [mask]{@link CommonMethod#mask}、
+     * [foregroundBlurStyle]{@link CommonMethod#foregroundBlurStyle}
      * 、
-     * [accessibilityGroup](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitygroup)
+     * [accessibilityGroup]{@link CommonMethod#accessibilityGroup}
      * 、
-     * [accessibilityText](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitytext)
+     * [accessibilityText]{@link CommonMethod#accessibilityText}
      * 、
-     * [accessibilityDescription](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitydescription)
+     * [accessibilityDescription]{@link CommonMethod#accessibilityDescription}
      * 、
-     * [accessibilityLevel](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitylevel)
+     * [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
      * 、
-     * [sphericalEffect](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#sphericaleffect12)
-     * 、[lightUpEffect](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#lightupeffect12)
+     * [sphericalEffect]{@link CommonMethod#sphericalEffect}
+     * 、[lightUpEffect]{@link CommonMethod#lightUpEffect}
      * 、
-     * [pixelStretchEffect](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#pixelstretcheffect12)
+     * [pixelStretchEffect]{@link CommonMethod#pixelStretchEffect}
      * 。
      *
      * @param { CustomBuilder } value - 自定义组件。
@@ -2250,7 +2250,7 @@ export declare class RichEditorStyledStringController extends RichEditorBaseCont
  * >
  * > - align属性只支持上方、中间和下方位置的对齐方式。
  * >
- * > - 不支持[borderImage](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border-image.md#borderimage)属性。
+ * > - 不支持[borderImage]{@link CommonMethod#borderImage}属性。
  * >
  * > - 组件水平方向默认padding为16vp，竖直方向默认padding为8vp。
  *
@@ -2419,13 +2419,13 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * 默认在输入控件失去焦点时，关闭自定义键盘。
      * 
      * 自定义键盘支持接续功能，使用
-     * [setCustomKeyboardContinueFeature](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#setcustomkeyboardcontinuefeature23)
+     * [setCustomKeyboardContinueFeature]{@link UIContext#setCustomKeyboardContinueFeature}
      * 接口，可以设置自定义键盘之间切换时是否接续。
      * 
      * > **说明：**
      * >
      * > 从API version 23开始，该接口支持在
-     * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * > [attributeModifier]{@link CommonMethod#attributeModifier}
      * > 中调用。
      *
      * @param { CustomBuilder | ComponentContentBase | undefined } value - 自定义键盘。<br>传入undefined时默认使用系统键盘。
@@ -2477,7 +2477,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * > **说明：**
      * >
      * > 从API version 18开始，该接口支持在
-     * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * > [attributeModifier]{@link CommonMethod#attributeModifier}
      * > 中调用。
      *
      * @param { boolean | undefined } enable - 使能预上屏功能。<br/>true表示开启，false表示不开启。<br/>取值为undefined时，按照默认值处理。<br/>默认值：
@@ -2536,7 +2536,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * > **说明：**
      * >
      * > 从API version 18开始，该接口支持在
-     * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * > [attributeModifier]{@link CommonMethod#attributeModifier}
      * > 中调用。
      *
      * @param { ResourceStr | undefined } value - 无输入时的提示文本。<br/>取值为undefined时，无提示文本。
@@ -2605,7 +2605,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * > **说明：**
      * >
      * > 从API version 18开始，该接口支持在
-     * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * > [attributeModifier]{@link CommonMethod#attributeModifier}
      * > 中调用。
      *
      * @param { Callback<RichEditorChangeValue, boolean> | undefined } callback - 文本内容即将变化时触发的函数。
@@ -2623,7 +2623,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * > **说明：**
      * >
      * > 从API version 18开始，该接口支持在
-     * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * > [attributeModifier]{@link CommonMethod#attributeModifier}
      * > 中调用。
      *
      * @param { OnDidChangeCallback | undefined } callback - 内容变化后触发的函数。
@@ -2684,7 +2684,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * > **说明：**
      * >
      * > 从API version 18开始，该接口支持在
-     * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * > [attributeModifier]{@link CommonMethod#attributeModifier}
      * > 中调用。
      *
      * @param { EditMenuOptions | undefined } editMenu - 扩展菜单选项。<br/>取值为undefined时，按照
@@ -2712,7 +2712,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * > **说明：**
      * >
      * > 从API version 20开始，该接口支持在
-     * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * > [attributeModifier]{@link CommonMethod#attributeModifier}
      * > 中调用。
      *
      * @param { boolean | undefined } isEnabled - 是否支持触控反馈。<br/>true表示开启触控反馈，false表示不开启触控反馈。<br/>取值为undefined时，按照默认值处理。<
@@ -2729,7 +2729,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * > **说明：**
      * >
      * > 从API version 18开始，该接口支持在
-     * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * > [attributeModifier]{@link CommonMethod#attributeModifier}
      * > 中调用。
      *
      * @param { BarState | undefined } state - 输入框滚动条的显示模式。<br/>取值为undefined时，按照默认值处理。<br/>默认值：BarState.Auto

@@ -204,7 +204,7 @@ export declare interface PageTransitionOptions {
      * 推荐以Curve或ICurve形式指定。
      * 
      * 当类型为string时，为动画插值曲线，取值参考
-     * [AnimateParam](docroot://reference/apis-arkui/arkui-ts/ts-explicit-animation.md#animateparam对象说明)的curve参数。
+     * [AnimateParam]{@link AnimateParam}的curve参数。
      * 
      * 默认值：Curve.Linear
      *

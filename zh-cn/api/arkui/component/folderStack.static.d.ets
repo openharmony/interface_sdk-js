@@ -160,7 +160,7 @@ export declare interface FolderStackAttribute extends CommonMethod {
      *
      * @param { boolean } value - 是否开启自动旋转。<br/>
      *    默认值：true，设置true表示FolderStack在半折叠状态（见
-     *    [FoldStatus](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#foldstatus11)）
+     *    [FoldStatus]{@link FoldStatus}）
      *    进行布局时开启自动旋转，设置false表示关闭自动旋转。
      *    该属性不区分设备类型。<br/>
      *    非法值：按默认值处理。<br/>

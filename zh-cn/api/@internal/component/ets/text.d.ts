@@ -80,9 +80,9 @@ interface TextInterface {
 }
 
 /**
- * 除支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)外，还支持以下属性。
+ * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性。
  *
- * 除支持[通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)外，还支持以下事件。
+ * 除支持[通用事件]{@link CommonMethod}外，还支持以下事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -172,7 +172,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * @param { number | string | Resource } value - 文本最小显示字号。
    *     <br>取值范围：大于0。
-   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[fp]{@link Length}
    *     <br>**说明：**
    *     <br>设置的值≤0时，自适应字号不生效，此时按照fontSize属性的值生效。
    * @returns { TextAttribute }
@@ -200,7 +200,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * @param { number | string | Resource } value - 文本最大显示字号。
    *     <br>取值范围：大于0且大于等于minFontSize。
-   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[fp]{@link Length}
    *     <br>**说明：**
    *     <br>设置的值≤0或小于minFontSize时，自适应字号不生效，此时按照fontSize属性的值生效。
    * @returns { TextAttribute }
@@ -511,7 +511,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * 于WordBreak.BREAK_ALL的时候生效，不支持连词符。
    * - 从API version 11开始，建议优先组合[textOverflow]{@link TextAttribute#textOverflow}和
    * [wordBreak]{@link TextAttribute#wordBreak}属性来设置截断方式，具体详见
-   * [示例4（设置文本断行及折行）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#示例4设置文本断行及折行)<!--RP1--><!--RP1
+   * [示例4（设置文本断行及折行）]{@link ./text}<!--RP1--><!--RP1
    * End-->。
    *
    * 当TextOverflowOptions设置为TextOverflow.MARQUEE时：
@@ -642,7 +642,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { number | string } value - Letter spacing.<br>Default value: **0**<br>Unit: [fp]{@link common}<br>The
    *     [Resource]{@link Resource} type is supported since API version 20. [since 7 - 19]
    * @param { number | ResourceStr } value - 文本字符间距。
-   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[fp]{@link Length}
    *     <br>从API version 20开始，支持[Resource]{@link Resource}类型。 [since 20]
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -705,7 +705,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * 此时Text会监听onClick事件，手势事件为非冒泡事件，若需要点击Text组件区域响应父组件的点击手势事件，建议在父组件上使用
    * [parallelGesture]{@link CommonMethod#parallelGesture}绑定手势识别，也可参考
-   * [示例7（设置文本识别）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#示例7设置文本识别)。
+   * [示例7（设置文本识别）]{@link ./text}。
    *
    * 由于卡片没有长按事件，此场景下长按文本，不会弹出文本选择菜单。
    *
@@ -783,7 +783,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * 设置首行文本缩进。未通过该接口设置时，默认首行文本缩进为0。
    *
    * @param { Length } value - 首行文本缩进。
-   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[fp]{@link Length}
    *     <br>取值范围：大于等于0。设置负数时，按默认值处理。
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1021,7 +1021,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * 需要[CopyOptions]{@link CopyOptions}为CopyOptions.LocalDevice或CopyOptions.CROSS_DEVICE时，本功能生效。
    *
-   * 在[SelectionContainer](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-selectioncontainer.md)跨节点选中场景中该属性
+   * 在[SelectionContainer]{@link SelectionContainer}跨节点选中场景中该属性
    * 无效，在文本选择菜单中不会展示对应的AI菜单项。
    *
    * @param { boolean | undefined } enable - 是否对选中文本进行实体识别。
@@ -1457,7 +1457,7 @@ declare const TextInstance: TextAttribute;
  *
  * > **说明：**
  * >
- * > 使用[子组件](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#子组件)实现
+ * > 使用[子组件]{@link ./text}实现
  * > [图文混排](docroot://ui/arkts-text-image-layout.md)场景。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

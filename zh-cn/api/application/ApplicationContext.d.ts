@@ -409,7 +409,7 @@ declare class ApplicationContext extends Context {
    * >
    * > 调用该接口前，需要确保窗口已完成创建、且UIAbility对应的页面已完成加载，即在
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate}生命周期中通过
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)方法加载页面之后调用。
+   * > [loadContent]{@link @ohos.window:window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}方法加载页面之后调用。
    *
    * @param { ConfigurationConstant.ColorMode } colorMode - 深浅色模式，包括：深色模式、浅色模式、未设置颜色模式（默认）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -431,7 +431,7 @@ declare class ApplicationContext extends Context {
    * >
    * > 调用该接口前，需要确保窗口已完成创建、且UIAbility对应的页面已完成加载，即在
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate}生命周期中通过
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)方法加载页面之后调用。
+   * > [loadContent]{@link @ohos.window:window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}方法加载页面之后调用。
    *
    * @param { string } language - 设置语言，当前支持的语言列表可以通过
    *     [getSystemLanguages()]{@link ./../@ohos.i18n:i18n.System.getSystemLanguages}获取。
@@ -581,10 +581,10 @@ declare class ApplicationContext extends Context {
    * >
    * > 调用该接口前，需要确保窗口已完成创建、且UIAbility对应的页面已完成加载，即在
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate}生命周期中通过
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)方法加载页面之后调用。
+   * > [loadContent]{@link @ohos.window:window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}方法加载页面之后调用。
    *
    * @param { string } font - 设置字体类型，字体可以通过
-   *     [UIContext.registerFont](docroot://reference/apis-arkui/arkts-apis-uicontext-font.md#registerfont)方法进行注册使用。
+   *     [UIContext.registerFont]{@link UIContext#registerFont}方法进行注册使用。
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

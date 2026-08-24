@@ -244,17 +244,17 @@ export interface SelectionContainerInterface {
 }
 
 /**
- * 支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)。
+ * 支持[通用属性]{@link CommonMethod}。
  * 
- * 支持[通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)。
+ * 支持[通用事件]{@link CommonMethod}。
  * 
  * > **说明：**
  * >
- * > - 不支持[隐私遮罩](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-obscured.md)。
+ * > - 不支持[隐私遮罩]{@link ./common}。
  * >
- * > - 不支持[图形变换](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-transformation.md)，跨节点场景中Text子组件不支持图形变换。
+ * > - 不支持[图形变换]{@link ./common}，跨节点场景中Text子组件不支持图形变换。
  * >
- * > - 不支持[拖拽事件](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-drag-drop.md)。
+ * > - 不支持[拖拽事件]{@link ./common}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

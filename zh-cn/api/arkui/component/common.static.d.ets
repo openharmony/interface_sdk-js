@@ -1733,7 +1733,7 @@ export type Matrix4Transit = matrix4.Matrix4Transit;
  */
 export declare interface MotionPathOptions {
     /**
-     * 位移动画的运动路径，使用[SVG路径描述规范](docroot://reference/apis-arkui/arkui-ts/ts-drawing-components-path.md#svg路径描述规范)。path中支持使
+     * 位移动画的运动路径，使用[SVG路径描述规范]{@link Path}。path中支持使
      * 用start和end进行起点和终点的替代，如：'Mstart.x start.y L50 50 Lend.x end.y Z'，更多说明请参考
      * [绘制路径](docroot://ui/ui-js-components-svg-path.md)。
      * 
@@ -1822,7 +1822,7 @@ export declare interface sharedTransitionOptions {
      * 推荐以Curve或ICurve形式指定。
      * 
      * 当类型为string时，为动画插值曲线，取值参考
-     * [AnimateParam](docroot://reference/apis-arkui/arkui-ts/ts-explicit-animation.md#animateparam对象说明)的curve参数。
+     * [AnimateParam]{@link AnimateParam}的curve参数。
      * 
      * 默认值：Curve.Linear
      *
@@ -7252,7 +7252,7 @@ export declare interface SheetOptions extends BindOptions {
      * 
      * 悬浮效果只在控制条显示的场景生效，且控制条不占位。
      * 
-     * title传入[CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)时enableFloatingDragBar始
+     * title传入[CustomBuilder]{@link CustomBuilder}时enableFloatingDragBar始
      * 终为false。
      *
      * @default false
@@ -7291,7 +7291,7 @@ export declare interface SheetOptions extends BindOptions {
      * 默认值：undefined，会清除由该接口设置的材质效果。 
      * 
      * **说明**: 不同系统材质对应不同的属性影响效果，该接口影响背景色
-     * [backgroundColor](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backgroundcolor)、
+     * [backgroundColor]{@link CommonMethod#backgroundColor}、
      * 边框颜色[borderColor]{@link CommonMethod#borderColor}、边框宽度[borderWidth]{@link CommonMethod#borderWidth}、阴影
      * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。使用示例请参考
      * [示例10（半模态设置系统材质）](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-sheet-transition_static.md#示例10半模态设置系统材质)。
@@ -7551,7 +7551,7 @@ export declare interface SheetOptions extends BindOptions {
      * 
      * 1. 半模态显示期间mode属性不支持动态切换，两种模式的显示层级完全不同，无法做到显示期间同一个半模态从一个层级变换到另一个层级。建议在使用时明确诉求固定mode值。 
      *  2. 设置SheetMode.EMBEDDED时不支持设置UIContext属性，两者对应的半模态显示层级效果互相冲突。
-     * 3. 使用[openBindSheet](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#openbindsheet12)启动半模态页面，若未传入有效的targetId，则不支持设置为SheetMode.EMBEDDED，默认为SheetMode.OVERLAY。
+     * 3. 使用[openBindSheet]{@link UIContext#openBindSheet}启动半模态页面，若未传入有效的targetId，则不支持设置为SheetMode.EMBEDDED，默认为SheetMode.OVERLAY。
      *
      * @default SheetMode.OVERLAY
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7616,7 +7616,7 @@ export declare interface SheetOptions extends BindOptions {
      * 
      * **说明：**
      * 
-     * 使用[openBindSheet](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#openbindsheet12)启动的半模态页面，不支持设置
+     * 使用[openBindSheet]{@link UIContext#openBindSheet}启动的半模态页面，不支持设置
      * 、更新该属性。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15878,7 +15878,7 @@ export declare interface KeyframeState {
      * 推荐以Curve或ICurve形式指定。
      * 
      * 当类型为string时，为动画插值曲线，取值参考
-     * [AnimateParam](docroot://reference/apis-arkui/arkui-ts/ts-explicit-animation.md#animateparam对象说明)的curve参数。
+     * [AnimateParam]{@link AnimateParam}的curve参数。
      * 
      * 默认值：Curve.EaseInOut
      * 

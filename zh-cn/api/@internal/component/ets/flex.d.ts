@@ -238,7 +238,7 @@ interface FlexInterface {
    * 创建Flex布局容器，用于以弹性方式排列、对齐子组件并分配剩余空间。
    *
    * @param { FlexOptions } value - Flex容器的配置选项，用于设置子组件的排列方向、换行方式、对齐方式和间距。不传入时使用默认配置，各属性默认值详见
-   *     [FlexOptions](docroot://reference/apis-arkui/arkui-ts/ts-container-flex.md#flexoptions对象说明)对象说明。
+   *     [FlexOptions]{@link FlexOptions}对象说明。
    * @returns { FlexAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]

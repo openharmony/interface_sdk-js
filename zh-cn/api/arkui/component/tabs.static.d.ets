@@ -90,7 +90,7 @@ export declare enum TabsNestedScrollMode {
 }
 
 /**
- * 点击[TabBar](docroot://reference/apis-arkui/arkui-ts/ts-container-tabcontent.md#tabbar)页签时切换TabContent的动画形式枚举。
+ * 点击[TabBar]{@link CommonMethod#TabBar}页签时切换TabContent的动画形式枚举。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -277,7 +277,7 @@ export declare class TabsController {
    * > **说明：**
    * >
    * > - Tabs的preloadItems需要在Tabs创建之后去调用，首次预加载推荐在Tabs的
-   * > [onAppear](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-show-hide.md#onappear)生命周期中去控制。
+   * > [onAppear]{@link CommonMethod#onAppear}生命周期中去控制。
    * >
    * > - 如果TabsController对象未绑定任何Tabs组件，直接调用该接口，会抛出JS异常。因此使用该接口时，建议通过try-catch捕获异常。
    * >
@@ -302,9 +302,9 @@ export declare class TabsController {
    * > **说明：**
    * >
    * > 当使用
-   * > [bindTabsToScrollable](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#bindtabstoscrollable13)
+   * > [bindTabsToScrollable]{@link UIContext#bindTabsToScrollable}
    * > 或
-   * > [bindTabsToNestedScrollable](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#bindtabstonestedscrollable13)
+   * > [bindTabsToNestedScrollable]{@link UIContext#bindTabsToNestedScrollable}
    * > 等接口绑定了Tabs组件和可滚动容器组件后，在滑动可滚动容器组件时，会触发所有与其绑定的Tabs组件的TabBar的显示和隐藏动效，调用setTabBarTranslate接口设置的TabBar平移距离会失效。因此不建议同
    * > 时使用bindTabsToScrollable、bindTabsToNestedScrollable和setTabBarTranslate接口。
    *
@@ -321,9 +321,9 @@ export declare class TabsController {
    * > **说明：**
    * >
    * > 当使用
-   * > [bindTabsToScrollable](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#bindtabstoscrollable13)
+   * > [bindTabsToScrollable]{@link UIContext#bindTabsToScrollable}
    * > 或
-   * > [bindTabsToNestedScrollable](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#bindtabstonestedscrollable13)
+   * > [bindTabsToNestedScrollable]{@link UIContext#bindTabsToNestedScrollable}
    * > 等接口绑定了Tabs组件和可滚动容器组件后，在滑动可滚动容器组件时，会触发所有与其绑定的Tabs组件的TabBar的显示和隐藏动效，调用setTabBarOpacity接口设置的TabBar不透明度会失效。因此不建议同时使
    * > 用bindTabsToScrollable、bindTabsToNestedScrollable和setTabBarOpacity接口。
    *
@@ -395,19 +395,19 @@ export declare interface TabsOptions {
    * [barBackgroundColor]{@link TabsAttribute.barBackgroundColor}、
    * [barBackgroundBlurStyle]{@link TabsAttribute.default barBackgroundBlurStyle(style: BlurStyle | undefined, options: BackgroundBlurStyleOptions | undefined)}
    * 、[barBackgroundEffect]{@link TabsAttribute.barBackgroundEffect}属性会覆盖CommonModifier的
-   * [width](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#width)、
-   * [height](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#height)、
-   * [backgroundColor](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backgroundcolor18)
+   * [width]{@link CommonMethod#width}、
+   * [height]{@link CommonMethod#height}、
+   * [backgroundColor]{@link CommonMethod#backgroundColor}
    * 、
-   * [backgroundBlurStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backgroundblurstyle18)
+   * [backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle}
    * 、
-   * [backgroundEffect](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backgroundeffect18)
+   * [backgroundEffect]{@link CommonMethod#backgroundEffect}
    * 属性。
-   * [align](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-location.md#align)属性仅在
+   * [align]{@link CommonMethod#align}属性仅在
    * [BarMode.Scrollable](docroot://reference/apis-arkui/arkui-ts/ts-container-tabs copy.md#barmode10-1)模式下生效，且Tabs为横向
    * 时还需[nonScrollableLayoutStyle]{@link ScrollableBarModeOptions}未设置或设置为异常值时才能生效。
    * [TabContent]{@link ./../../@internal/component/ets/tab_content}组件的
-   * [tabBar](docroot://reference/apis-arkui/arkui-ts/ts-container-tabcontent.md#tabbar18)属性为底部页签样式时不支持拖拽功能。
+   * [tabBar]{@link CommonMethod#tabBar}属性为底部页签样式时不支持拖拽功能。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -678,7 +678,7 @@ export declare interface TabsAttribute extends CommonMethod {
    * 设置是否为纵向Tabs。
    *
    * @param { boolean | undefined } value - 是否为纵向Tabs。<br/>默认值：false，横向Tabs，为true时纵向Tabs。<br/>当横向Tabs设置height为auto时，
-   *     Tabs组件高度自适应子组件高度，即为[tabBar](docroot://reference/apis-arkui/arkui-ts/ts-container-tabcontent.md#tabbar)高度+
+   *     Tabs组件高度自适应子组件高度，即为[tabBar]{@link CommonMethod#tabBar}高度+
    *     divider线宽+TabContent高度+上下padding值+上下border宽度。<br/>当纵向Tabs设置width为auto时，Tabs组件宽度自适应子组件宽度，即为tabBar宽度+divider线宽+
    *     TabContent宽度+左右padding值+左右border宽度。<br/>尽量保持每一个页面中的子组件尺寸大小一致，避免滑动页面时出现页面切换动画跳动现象。<br/>true：纵向Tabs；false：横向
    *     Tabs。<br/>取值为undefined时，按默认值处理。
@@ -746,7 +746,7 @@ export declare interface TabsAttribute extends CommonMethod {
    * 设置TabBar的高度值。横向Tabs可以设置height为'auto'，让TabBar自适应子组件高度。height设置为小于0或大于Tabs高度值时，按默认值显示。
    *
    * API version 14之前的版本，若设置barHeight为固定值后，TabBar无法扩展底部安全区。从API version 14开始支持配合
-   * [safeAreaPadding](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#safeareapadding14)属性，当
+   * [safeAreaPadding]{@link CommonMethod#safeAreaPadding}属性，当
    * safeAreaPadding不设置bottom或者bottom设置为0时，可以实现扩展安全区。
    *
    * @param { Length | undefined } value - TabBar的高度值。<br/>默认值：<br/>未设置样式或者通过CustomBuilder设置自定义样式的TabBar且vertical属性为
@@ -816,8 +816,7 @@ export declare interface TabsAttribute extends CommonMethod {
    *     设
    *     置为小于0或undefined时，默认值为300.
    *     <br/>API version 11及以后，不设置该属性或设置为异常值，且设置
-   *     [TabBar](docroot://reference/apis-arkui/arkui-ts/ts-container-tabcontent.
-   *     md#tabbar)为
+   *     [TabBar]{@link CommonMethod#TabBar}为
    *     [BottomTabBarStyle]{@link.
    *     /.
    *     /.
@@ -839,11 +838,11 @@ export declare interface TabsAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 此属性不支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { AnimationMode | undefined } mode - 点击
-   *     [TabBar](docroot://reference/apis-arkui/arkui-ts/ts-container-tabcontent.md#tabbar)页签或调用
+   *     [TabBar]{@link CommonMethod#TabBar}页签或调用
    *     [TabsController]{@link TabsController}的[changeIndex]{@link TabsController.changeIndex}接口时切换TabContent的动画形式。<
    *     br/>默认值：AnimationMode.CONTENT_FIRST，表示在点击TabBar页签或调用TabsController的changeIndex接口切换TabContent时，先加载目标页内容，再开始切换动
    *     画。<br/>取值为undefined时，按默认值处理。
@@ -860,7 +859,7 @@ export declare interface TabsAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 17开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { EdgeEffect | undefined } edgeEffect - 边缘滑动效果。<br/>默认值：EdgeEffect.Spring<br/>取值为undefined时，按默认值处理。
@@ -1080,13 +1079,13 @@ export declare interface TabsAttribute extends CommonMethod {
    * 4. 目前自定义切换动画只支持两种场景触发：点击页签和调用TabsController.changeIndex()接口。
    * 5. 当使用自定义切换动画时，Tabs组件支持的事件中，除了[onGestureSwipe]{@link TabsAttribute.onGestureSwipe}，其他事件均支持。
    * 6. [onChange]{@link TabsAttribute.onChange}和[onAnimationEnd]{@link TabsAttribute.onAnimationEnd}事件的触发时机需要特殊说明：如果在第一次自定义动画执行过程中，触发了第二次自定义动画，那么在开始第二次自定义动画时，就会触发第一次自定义动画的onChange和onAnimationEnd事件。
-   * 7. 当使用自定义动画时，参与动画的页面布局方式会改为[Stack]{@link ./../../@internal/component/ets/stack}布局。如果开发者未主动设置相关页面的[zIndex](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-z-order.md#zindex)属性，那么所有页面的zIndex值是一样的，页面的渲染层级会按照在组件树上的顺序（即页面的index值顺序）确定。因此，开发者需要主动修改页面的zIndex属性，来控制页面的渲染层级。
-   * 8. 此属性不支持在[attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)中调用。
+   * 7. 当使用自定义动画时，参与动画的页面布局方式会改为[Stack]{@link ./../../@internal/component/ets/stack}布局。如果开发者未主动设置相关页面的[zIndex]{@link CommonMethod#zIndex}属性，那么所有页面的zIndex值是一样的，页面的渲染层级会按照在组件树上的顺序（即页面的index值顺序）确定。因此，开发者需要主动修改页面的zIndex属性，来控制页面的渲染层级。
+   * 8. 此属性不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { TabsCustomContentTransitionCallback | undefined } delegate - 自定义Tabs页面切换动画开始时触发的回调。取值为undefined时，不使用回调函数
@@ -1104,7 +1103,7 @@ export declare interface TabsAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 12开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { BlurStyle | undefined } value - TabBar的背景模糊材质。<br />默认值：BlurStyle.NONE<br/>取值为undefined时，按默认值处理。
@@ -1170,7 +1169,7 @@ export declare interface TabsAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { OnTabsContentWillChangeCallback | undefined } handler
@@ -1313,11 +1312,11 @@ export declare interface TabContentTransitionProxy {
  *     [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)和
  *     [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md)，不建议自定义组件作为子组件。并且if/else和ForEach下也仅支持
  *     TabContent作为子组件，不建议自定义组件作为子组件。<br/>**说明：** <br/>1. Tabs子组件设置了通用属性
- *     [visibility](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-visibility.md#visibility)的值为None，或者设
+ *     [visibility]{@link CommonMethod#visibility}的值为None，或者设
  *     置值为Hidden时，对应子组件不显示，但依然会在视窗内占位。<br/>2. 已经显示的Tabs子组件TabContent后续隐藏时不会被销毁，若需要页面懒加载和释放，可以参考
  *     [示例13](docroot://reference/apis-arkui/arkui-ts/ts-container-tabs copy.md#示例13页面懒加载和释放)。<br/>3. Tabs设置
- *     [height](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#height)为auto时，可根据子组件高度自适应高度大小。设置
- *     [width](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#width)为auto时，可根据子组件宽度自适应宽度大小。
+ *     [height]{@link CommonMethod#height}为auto时，可根据子组件高度自适应高度大小。设置
+ *     [width]{@link CommonMethod#width}为auto时，可根据子组件宽度自适应宽度大小。
  * @returns { TabsAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

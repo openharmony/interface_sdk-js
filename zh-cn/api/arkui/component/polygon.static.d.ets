@@ -61,7 +61,7 @@ export declare interface PolygonOptions {
  */
 export declare interface PolygonAttribute extends CommonShapeMethod {
     /**
-     * 设置多边形的顶点坐标列表，支持[attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)动态设置属性方法。
+     * 设置多边形的顶点坐标列表，支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性方法。
      * 异常值按照默认值处理。
      *
      * @param { Array<ShapePoint> | undefined } value - 多边形的顶点坐标列表。使用时传入一个二维数组，每个子数组表示一个顶点的[x, y]坐标。

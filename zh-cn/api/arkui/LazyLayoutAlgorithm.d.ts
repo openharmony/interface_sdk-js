@@ -22,7 +22,7 @@ import { FrameNode, LayoutConstraint } from './FrameNode';
 import { Position } from './Graphics';
 
 /**
- * [LazyDynamicLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-lazydynamiclayout.md)组件支持的懒加载布局算法详细信息。
+ * [LazyDynamicLayout]{@link CommonMethod#LazyDynamicLayout}组件支持的懒加载布局算法详细信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -179,7 +179,7 @@ interface LazyCustomLayoutAlgorithmOptions {
  * > **说明：**
  * >
  * > LazyCustomLayoutAlgorithm类对象可以作为
- * > [LazyDynamicLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-lazydynamiclayout.md)组件的入参指定布局算法。
+ * > [LazyDynamicLayout]{@link CommonMethod#LazyDynamicLayout}组件的入参指定布局算法。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -209,7 +209,7 @@ export class LazyCustomLayoutAlgorithm implements LazyLayoutAlgorithm {
    * > [getChild()]{@link ./FrameNode:FrameNode#getChild(index: number)}方法获取子组件FrameNode，调用
    * > [FrameNode]{@link ./FrameNode:FrameNode}的[measure()]{@link ./FrameNode:FrameNode#measure}方法测量子组件大小，参考
    * > LazyDynamicLayout组件
-   * > [示例1（实现懒加载自定义布局）](docroot://reference/apis-arkui/arkui-ts/ts-container-lazydynamiclayout.md#示例1实现懒加载自定义布局)。
+   * > [示例1（实现懒加载自定义布局）]{@link @ohos.arkui.components.ArkLazyDynamicLayout}。
    * >
    * > - 在此函数中调用[getChild()]{@link ./FrameNode:FrameNode#getChild(index: number)}方法获取子组件时，必须传入
    * > [ExpandMode.LAZY_NOT_EXPAND]{@link ./FrameNode:ExpandMode}，避免全量加载子组件导致懒加载失效。调用
@@ -240,7 +240,7 @@ export class LazyCustomLayoutAlgorithm implements LazyLayoutAlgorithm {
    * > [getChild()]{@link ./FrameNode:FrameNode#getChild(index: number)}方法获取子组件FrameNode，调用
    * > [FrameNode]{@link ./FrameNode:FrameNode}的[layout()]{@link ./FrameNode:FrameNode#layout}方法设置子组件位置，参考
    * > LazyDynamicLayout组件
-   * > [示例1（实现懒加载自定义布局）](docroot://reference/apis-arkui/arkui-ts/ts-container-lazydynamiclayout.md#示例1实现懒加载自定义布局)。
+   * > [示例1（实现懒加载自定义布局）]{@link @ohos.arkui.components.ArkLazyDynamicLayout}。
    * >
    * > - 在此函数中调用[getChild()]{@link ./FrameNode:FrameNode#getChild(index: number)}方法获取子组件时，必须传入
    * > [ExpandMode.LAZY_NOT_EXPAND]{@link ./FrameNode:ExpandMode}，避免全量加载子组件导致懒加载失效。调用

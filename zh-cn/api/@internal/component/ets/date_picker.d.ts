@@ -216,7 +216,7 @@ declare interface DatePickerOptions {
   /**
    * 设置日期展示模式。适用于需要自定义日期展示列的场景，如仅需选择年月或月日。不传入时默认为DatePickerMode.DATE，显示年、月、日三列。
    * 
-   * 在[DatePickerDialog]{@link ./date_picker}中，当
+   * 在[DatePickerDialog]{@link DatePickerDialog}中，当
    * [DatePickerDialogOptions]{@link DatePickerDialogOptions}的showTime设置为true时，此参数不生效，默认显示年、月、日三列。
    * 这是为保证布局合理性，当showTime为true时会额外显示时间列。
    * 

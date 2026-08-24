@@ -28,7 +28,7 @@ import { CommonMethod } from './common';
    * > **说明：**
    *
    * > 如果未调用[setXComponentSurfaceRect]{@link XComponentController#setXComponentSurfaceRect}接口，且未设置
- * > [border](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#border)和
+ * > [border]{@link CommonMethod#border}和
  * > [padding]{@link CommonMethod#padding}，则**surfaceWidth**和**surfaceHeight**属性默认为**XComponent**的尺寸。
  * >
  * > 请确保**surfaceWidth**和**surfaceHeight**的值不超过8192 px。超过此限制可能导致渲染问题。
@@ -451,7 +451,7 @@ declare interface XComponentOptions {
 }
 
 /**
- * 定义native xcomponent参数。使用此类构造参数创建的XComponent可以将其对应的[FrameNode]{@link ../../../arkui/FrameNode}对象传递到Native侧，从而能够使用NDK接口进行surface生命周期相关设置和[组件事件监听](docroot://ui/ndk-listen-to-component-events.md)。
+ * 定义native xcomponent参数。使用此类构造参数创建的XComponent可以将其对应的[FrameNode]{@link ../../../arkui/FrameNode}对象传递到Native侧，从而能够使用NDK接口进行surface生命周期相关设置和[组件事件监听]{@link XComponentAttribute#onLoad}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -536,7 +536,7 @@ interface XComponentInterface {
   /**
    * 创建**XComponent**组件，其生命周期回调可以从native侧触发。
    *
-   * 从API版本12开始，该接口不再维护。建议使用[XComponent(options: XComponentOptions)](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-xcomponent.md#xcomponent12)替代。
+   * 从API版本12开始，该接口不再维护。建议使用[XComponent(options: XComponentOptions)]{@link XComponent}替代。
    *
    * @param { object } value - 表示XComponent的选项。
    * @returns { XComponentAttribute } XComponent的属性。
@@ -632,7 +632,7 @@ declare class XComponentAttribute extends CommonMethod<XComponentAttribute> {
    *
    * 要使设置生效，此属性必须与XComponentController的[StartImageAnalyzer]{@link XComponentController#startImageAnalyzer}和[StopImageAnalyzer]{@link XComponentController#stopImageAnalyzer}一起使用。
    *
-   * 此特性不能与[overlay](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-overlay.md#overlay)属性同时使用。
+   * 此特性不能与[overlay]{@link CommonMethod#overlay}属性同时使用。
    * 如果两者都设置，overlay中的CustomBuilder属性将不生效。此特性还依赖于设备能力。
    *
    * @param { boolean } enable - 是否启用AI图像分析器。<br>**true**：启用；**false**：禁用。<br>

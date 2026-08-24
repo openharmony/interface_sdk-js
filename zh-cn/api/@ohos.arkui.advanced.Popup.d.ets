@@ -330,7 +330,7 @@ export interface PopupOptions {
   buttons?: [PopupButtonOptions?, PopupButtonOptions?];
 
   /**
-    * 设置Popup内容的布局方向，可用枚举值见[Direction](ts-appendix-enums.md#direction)。
+    * 设置Popup内容的布局方向，可用枚举值见[Direction]{@link ./enums.Direction}。
     * 
     * 默认值：Direction.Auto
     *

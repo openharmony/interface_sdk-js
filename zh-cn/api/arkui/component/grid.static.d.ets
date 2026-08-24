@@ -305,7 +305,7 @@ export declare interface ComputedBarAttribute {
 export declare interface UIGridEvent extends UIScrollableCommonEvent {
 
   /**
-   * 设置[onWillScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onwillscroll12)事件的回调。
+   * 设置[onWillScroll]{@link UIScrollableCommonEvent#onWillScroll}事件的回调。
    *
    * 方法入参为undefined时，会重置事件回调。
    *
@@ -317,7 +317,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
 
   /**
-   * 设置[onDidScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#ondidscroll12)事件的回调。
+   * 设置[onDidScroll]{@link UIScrollableCommonEvent#onDidScroll}事件的回调。
    *
    * 方法入参为undefined时，会重置事件回调。
    *
@@ -353,7 +353,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
 export type OnGridScrollIndexCallback = (first: int, last: int) => void;
 
 /**
- * 除支持[通用属性]{@link common}和[滚动组件通用属性](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#属性)外，还支持
+ * 除支持[通用属性]{@link common}和[滚动组件通用属性]{@link ScrollableCommonMethod}外，还支持
  * 以下属性：
  *
  * > **说明：**
@@ -536,7 +536,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
    * 设置预加载的GridItem数量，并配置是否显示预加载节点。
    *
    * 设置缓存后会在Grid显示区域上下各缓存cachedCount*列数个GridItem。配合裁剪[clip]{@link CommonMethod#clip(value: boolean)}或内容裁剪
-   * [clipContent](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#clipcontent14)属性可以显示出预加载节
+   * [clipContent]{@link CommonMethod#clipContent}属性可以显示出预加载节
    * 点。
    *
    * @param { int | undefined } count - 预加载的GridItem的数量。<br/>默认值：垂直滚动时为一个屏幕内可显示的行数，水平滚动时为一个屏幕内可显示的列数，最大值为16。<br/>取值范围：
@@ -563,7 +563,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
 
   /**
    * 设置是否开启鼠标框选。开启框选后，可以配合GridItem的[selected]{@link GridItemAttribute#selected}属性和
-   * [onSelect](docroot://reference/apis-arkui/arkui-ts/ts-container-griditem.md#onselect8)事件获取GridItem的选中状态，还可以通过
+   * [onSelect]{@link UIScrollableCommonEvent#onSelect}事件获取GridItem的选中状态，还可以通过
    * [多态样式]{@link common}设置GridItem的选中态样式（GridItem默认无选中态样式）。
    *
    * @param { boolean | undefined } value

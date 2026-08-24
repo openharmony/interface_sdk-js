@@ -32,7 +32,7 @@ import { AttributeModifier, CommonMethod } from "./common";
 import { CustomBuilder, CustomBuilderT } from './builder';
 
 /**
- * 属性继承自[BaseSpan](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-span.md#basespan)，通用属性方法支持
+ * 属性继承自[BaseSpan]{@link BaseSpan}，通用属性方法支持
  * [尺寸设置](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md)、
  * [背景设置](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md)、
  * [边框设置](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md)。
@@ -72,12 +72,12 @@ export declare interface ImageSpanAttribute extends BaseSpan {
    */
   default colorFilter(filter: ColorFilter | DrawingColorFilter | undefined): this;
   /**
-   * 开启或关闭[SVG标签解析能力增强功能](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md)，开启后相关SVG图片显示效果会有变化。
+   * 开启或关闭[SVG标签解析能力增强功能]{@link ./image}，开启后相关SVG图片显示效果会有变化。
    *
    * ImageSpan组件创建后，不支持动态修改该属性的值。
    *
    * @param { boolean | undefined } enable - 控制是否开启
-   *     [SVG标签解析能力增强功能](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md)。
+   *     [SVG标签解析能力增强功能]{@link ./image}。
    *     <br>true：支持SVG解析新能力；false：保持原有SVG解析能力。
    *     <br>默认值：false <br/>设置undefined时按默认值处理。
    * @returns { ImageSpanAttribute }
@@ -169,7 +169,7 @@ export declare interface ImageLoadResult {
   /**
    * 图片的宽。
    *
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -179,7 +179,7 @@ export declare interface ImageLoadResult {
   /**
    * 图片的高。
    *
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -189,7 +189,7 @@ export declare interface ImageLoadResult {
   /**
    * 组件的宽。
    *
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -199,7 +199,7 @@ export declare interface ImageLoadResult {
   /**
    * 组件的高。
    *
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -221,7 +221,7 @@ export declare interface ImageLoadResult {
   /**
    * 图片实际绘制的宽度。
    *
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * **说明：**
    *
@@ -235,7 +235,7 @@ export declare interface ImageLoadResult {
   /**
    * 图片实际绘制的高度。
    *
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * **说明：**
    *
@@ -249,7 +249,7 @@ export declare interface ImageLoadResult {
   /**
    * 实际绘制内容相对于组件自身的x轴偏移。
    *
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * **说明：**
    *
@@ -263,7 +263,7 @@ export declare interface ImageLoadResult {
   /**
    * 实际绘制内容相对于组件自身的y轴偏移。
    *
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * **说明：**
    *

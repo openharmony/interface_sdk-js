@@ -159,7 +159,7 @@ export declare interface RoundedRectOptions {
 export declare interface RectAttribute extends CommonShapeMethod {
     /**
      * 设置圆角的宽度，仅设置宽时宽高一致，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法。异常值按照默认值处理。
      *
      * @param { Length | undefined } value - 圆角的宽度，取值范围≥0。
@@ -174,7 +174,7 @@ export declare interface RectAttribute extends CommonShapeMethod {
     default radiusWidth(value: Length | undefined): this;
     /**
      * 设置圆角的高度，仅设置高时宽高一致，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法。异常值按照默认值处理。
      *
      * @param { Length | undefined } value - 圆角的高度，取值范围≥0。
@@ -189,7 +189,7 @@ export declare interface RectAttribute extends CommonShapeMethod {
     default radiusHeight(value: Length | undefined): this;
     /**
      * 设置圆角半径大小，取值范围≥0，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法。异常值按照默认值处理。
      *
      * @param { Length | Array<RadiusItem> | undefined } value - 圆角半径大小。

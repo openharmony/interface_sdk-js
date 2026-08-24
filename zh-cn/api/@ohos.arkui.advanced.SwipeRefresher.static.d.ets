@@ -31,7 +31,7 @@ import { Builder } from '@ohos.arkui.component';
  *
  * > **说明：**
  * >
- * > - 如果SwipeRefresher设置[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)和[通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到SwipeRefresher本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议SwipeRefresher设置通用属性和通用事件。
+ * > - 如果SwipeRefresher设置[通用属性]{@link CommonMethod}和[通用事件]{@link CommonMethod}，编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到SwipeRefresher本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议SwipeRefresher设置通用属性和通用事件。
  *
  * @struct { SwipeRefresher }
  * @syscap SystemCapability.ArkUI.ArkUI.Full

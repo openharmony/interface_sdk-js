@@ -500,7 +500,7 @@ export declare interface NavDestinationTransition {
 
   /**
    * 指定转场动效的闭包函数，系统会根据闭包中对组件UI状态的修改，生成对应的过渡动画。参见
-   * [animateTo](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#animateto)中的event。
+   * [animateTo]{@link UIContext#animateTo}中的event。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -552,7 +552,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 12开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle
@@ -646,7 +646,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 22开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { Callback<Object | null | undefined> | undefined } callback - 页面返回回调，入参为
@@ -668,7 +668,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 12开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { NavDestinationMode } value - NavDestinationMode [since 23 - 24]
@@ -703,8 +703,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * >
    * > 不支持通过SymbolGlyphModifier对象的fontSize属性修改图标大小、effectStrategy属性修改动效、symbolEffect属性修改动效类型。
    *
-   * 设置页面右上角菜单。不设置时不显示菜单项。与
-   * [menus](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navdestination copy.md#menus12)相比，新增菜单选项。使用
+   * 设置页面右上角菜单。不设置时不显示菜单项。使用
    * Array<[NavigationMenuItem]{@link ./../../@internal/component/ets/navigation:NavigationMenuItem}&gt; 写法时，竖屏最多支持显示3个图
    * 标，横屏最多支持显示5个图标，多余的图标会被放入自动生成的更多图标。
    *
@@ -724,7 +723,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > - 从API version 20开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    * >
    * > - 不支持通过SymbolGlyphModifier对象的fontSize属性修改图标大小、effectStrategy属性修改动效、symbolEffect属性修改动效类型。
@@ -734,9 +733,9 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    *     在每个均分内容区布局文本和图标。<br/>-竖屏模式最多支持显示5个图标，多余的图标会被放入自动生成的更多图标中，点击更多图标，可以展示剩余内容。横屏模式时，如果为
    *     [Split]{@link ./../../@internal/component/ets/navigation:NavigationMode}模式，仍按照竖屏模式显示，如果为
    *     [Stack]{@link ./../../@internal/component/ets/navigation:NavigationMode}模式需配合
-   *     [menus](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navdestination copy.md#menus12)属性的Array<
+   *     [menus]{@link menus}属性的Array<
    *     [NavigationMenuItem]{@link ./../../@internal/component/ets/navigation:NavigationMenuItem}>使用，底部工具栏会自动隐藏，同时底部工具栏
-   *     所有选项移动至页面右上角菜单。<br/>使用[CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)写法为用户自
+   *     所有选项移动至页面右上角菜单。<br/>使用[CustomBuilder]{@link CustomBuilder}写法为用户自
    *     定义工具栏选项，不具备以上功能。<br/>取值为undefined时，无内容。
    * @param { NavigationToolbarOptions | undefined } [options] - 工具栏选项。包含工具栏背景颜色、工具栏背景模糊样式及模糊选项、工具栏背景属性、工具栏布局方式、是否隐藏工具栏的
    *     文本、工具栏更多图标的菜单选项。<br/>取值为undefined时，按NavigationToolbarOptions的默认值处理。
@@ -765,7 +764,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { Callback<NavDestinationContext> | undefined } callback - 当NavDestination即将构建子组件之前会触发此回调。<br/>取值为undefined时
@@ -783,7 +782,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { VoidCallback | undefined } callback - 当该NavDestination挂载之前触发此回调。在该回调中允许修改路由栈，当前帧生效。<br/>取值为undefined时，不使用回
@@ -801,7 +800,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { VoidCallback | undefined } callback - 当该NavDestination卸载之前触发的生命周期(有转场动画时，在转场动画开始之前触发)。<br/>取值为undefined时，不
@@ -819,7 +818,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { VoidCallback | undefined } callback - 当该NavDestination显示之前触发此回调。<br/>取值为undefined时，不使用回调函数。
@@ -836,7 +835,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { VoidCallback | undefined } callback - 当该NavDestination隐藏之前触发此回调。<br/>取值为undefined时，不使用回调函数。
@@ -878,11 +877,11 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > - 必须配合Navigation使用，作为其Navigation目的页面的根节点时才能生效。
    * >
    * > - 其他使用限制请参考Navigation对应的
-   * > [systemBarStyle](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#systembarstyle12)属性说明。
+   * > [systemBarStyle]{@link systemBarStyle}属性说明。
    * >
    * >
    * > - 从API version 20开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { SystemBarStyle | undefined } style - 系统状态栏样式。<br/>取值为undefined时，无样式。
@@ -900,7 +899,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 该接口需要配合Navigation的
-   * > [recoverable](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#recoverable14)接口使用。
+   * > [recoverable]{@link recoverable}接口使用。
    *
    * @param { boolean | undefined } recoverable - NavDestination是否可恢复。<br/>取值为undefined时，按默认值处理。<br/>默认值：false<br/>true：
    *     路由栈可恢复。<br/>false：路由栈不可恢复。
@@ -938,7 +937,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > 得最佳用户体验，不建议同时触发多个可滚动容器组件的滚动事件。
    * >
    * > - 从API version 22开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { Array<Scroller> | undefined } scrollers - 可滚动容器组件的控制器。<br/>取值为undefined时，无控制器。
@@ -964,7 +963,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > 得最佳用户体验，不建议同时触发多个可滚动容器组件的滚动事件。
    * >
    * > - 从API version 22开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { Array<NestedScrollInfo> | undefined } scrollInfos - 嵌套的可滚动容器组件的控制器。<br/>取值为undefined时，无控制器。
@@ -983,7 +982,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 22开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { Callback<NavDestinationActiveReason> | undefined } callback - NavDestination由非激活态变为激活态的原因。<br/>取值为
@@ -1003,7 +1002,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 22开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { Callback<NavDestinationActiveReason> | undefined } callback - NavDestination由激活态变为非激活态的原因。<br/>取值为
@@ -1021,7 +1020,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > - 该接口不支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    * >
    * > - 该属性与[systemTransition]{@link NavDestinationAttribute.systemTransition}同时设置时，后设置的属性生效。
@@ -1047,7 +1046,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > 、[replaceDestination]{@link ./../../@internal/component/ets/navigation:NavPathStack.replaceDestination}不会触发该回调。
    * >
    * > - 从API version 22开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { Callback<Object | null | undefined> | undefined } callback - Indicates callback when destination be pushed
@@ -1070,7 +1069,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > >   3. NavDestination类型为[NavDestinationMode]{@link NavDestinationMode}.STANDARD。
    * >
    * > - 设置显示方向的实际效果依赖于具体的设备支持情况，具体参考窗口的
-   * > [setPreferredOrientation](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setpreferredorientation9-1)接
+   * > [setPreferredOrientation]{@link setPreferredOrientation}接
    * > 口。
    *
    * @param { Orientation | undefined } orientation - NavDestination页面对应的Orientation。<br/>取值为undefined时，按当前设备的显示方向处理。
@@ -1093,7 +1092,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * > >   4. NavDestination类型为[NavDestinationMode]{@link NavDestinationMode}.STANDARD。
    * >
    * > - 设置系统状态栏的实际效果依赖于具体的设备支持情况，具体参考窗口的
-   * > [setSpecificSystemBarEnabled](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setspecificsystembarenabled11)
+   * > [setSpecificSystemBarEnabled]{@link setSpecificSystemBarEnabled}
    * > 接口。
    *
    * @param { boolean | undefined } enabled - 进入该NavDestination后，系统状态栏的显示/隐藏状态。<br/>取值为undefined时，按默认值处理。<br/>true：显示状态栏
@@ -1116,7 +1115,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * >
    * >
    * > 设置系统导航条的实际效果依赖于具体的设备支持情况，具体参考窗口的
-   * > [setSpecificSystemBarEnabled](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setspecificsystembarenabled11)
+   * > [setSpecificSystemBarEnabled]{@link setSpecificSystemBarEnabled}
    * > 接口。
    *
    * @param { boolean | undefined } enabled - 进入该NavDestination后，系统导航条的显示/隐藏状态。<br/>取值为undefined时，按默认值处理。<br/>true：显示导航条

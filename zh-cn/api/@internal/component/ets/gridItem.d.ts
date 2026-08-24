@@ -144,8 +144,8 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    *
    * @param { number } value - 当前元素起始行号。<br/>需要指定GridItem起始行列号和所占行列数的场景推荐使用Grid的
    *     [GridLayoutOptions]{@link GridLayoutOptions}参数，详细可参考Grid的
-   *     [示例1（固定行列Grid）](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例1固定行列grid)和
-   *     [示例3（可滚动Grid设置跨行跨列节点）](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例3可滚动grid设置跨行跨列节点)。<br/>取值
+   *     [示例1（固定行列Grid）]{@link ./grid}和
+   *     [示例3（可滚动Grid设置跨行跨列节点）]{@link ./grid}。<br/>取值
    *     范围：[0, 总行数-1]
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -161,8 +161,8 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    *
    * @param { number } value - 当前元素终点行号。<br/>需要指定GridItem起始行列号和所占行列数的场景推荐使用Grid的
    *     [GridLayoutOptions]{@link GridLayoutOptions}参数，详细可参考Grid的
-   *     [示例1（固定行列Grid）](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例1固定行列grid)和
-   *     [示例3（可滚动Grid设置跨行跨列节点）](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例3可滚动grid设置跨行跨列节点)。<br/>取值
+   *     [示例1（固定行列Grid）]{@link ./grid}和
+   *     [示例3（可滚动Grid设置跨行跨列节点）]{@link ./grid}。<br/>取值
    *     范围：[0, 总行数-1]
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -178,8 +178,8 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    *
    * @param { number } value - 当前元素起始列号。<br/>需要指定GridItem起始行列号和所占行列数的场景推荐使用Grid的
    *     [GridLayoutOptions]{@link GridLayoutOptions}参数，详细可参考Grid的
-   *     [示例1（固定行列Grid）](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例1固定行列grid)和
-   *     [示例3（可滚动Grid设置跨行跨列节点）](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例3可滚动grid设置跨行跨列节点)。<br/>取值
+   *     [示例1（固定行列Grid）]{@link ./grid}和
+   *     [示例3（可滚动Grid设置跨行跨列节点）]{@link ./grid}。<br/>取值
    *     范围：[0, 总列数-1]
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -195,8 +195,8 @@ declare class GridItemAttribute extends CommonMethod<GridItemAttribute> {
    *
    * @param { number } value - 当前元素终点列号。<br/>需要指定GridItem起始行列号和所占行列数的场景推荐使用Grid的
    *     [GridLayoutOptions]{@link GridLayoutOptions}参数，详细可参考Grid的
-   *     [示例1（固定行列Grid）](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例1固定行列grid)和
-   *     [示例3（可滚动Grid设置跨行跨列节点）](docroot://reference/apis-arkui/arkui-ts/ts-container-grid.md#示例3可滚动grid设置跨行跨列节点)。<br/>取值
+   *     [示例1（固定行列Grid）]{@link ./grid}和
+   *     [示例3（可滚动Grid设置跨行跨列节点）]{@link ./grid}。<br/>取值
    *     范围：[0, 总列数-1]
    * @returns { GridItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

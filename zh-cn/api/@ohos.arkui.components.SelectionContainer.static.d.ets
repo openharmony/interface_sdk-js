@@ -162,13 +162,13 @@ export declare interface SelectionContainerEditMenuOptions {
 }
 
 /**
- * 支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)。
+ * 支持[通用属性]{@link CommonMethod}。
  *
  * > **说明：**
  * >
- * > - 不支持[隐私遮罩](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-obscured.md)。
+ * > - 不支持[隐私遮罩]{@link ./common}。
  * >
- * > - 不支持[图形变换](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-transformation.md)，跨节点场景中Text子组件不支持图形变
+ * > - 不支持[图形变换]{@link ./common}，跨节点场景中Text子组件不支持图形变
  * > 换。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -181,7 +181,7 @@ export declare interface SelectionContainerAttribute extends CommonMethod {
    *
    * > **说明：**
    * >
-   * > Text子组件已显式设置[copyOption](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#copyoption9)时，优先使用
+   * > Text子组件已显式设置[copyOption]{@link ./text.copyOption}时，优先使用
    * > Text子组件的配置；未设置时，使用SelectionContainer的配置。
    *
    * @param { CopyOptions | undefined } value - 复制粘贴配置项，用于设置文本的可复制范围。具体说明请参考CopyOptions枚举。
@@ -199,7 +199,7 @@ export declare interface SelectionContainerAttribute extends CommonMethod {
    * >
    * > - 该属性在跨节点场景中用于各Text子组件选中文本手柄颜色。
    * >
-   * > - 在跨节点场景中Text子组件[caretColor](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#caretcolor14)设置无
+   * > - 在跨节点场景中Text子组件[caretColor]{@link ./text.caretColor}设置无
    * > 效，始终使用SelectionContainer的配置。
    *
    * @param { ResourceColor | undefined } color - 手柄颜色。
@@ -218,7 +218,7 @@ export declare interface SelectionContainerAttribute extends CommonMethod {
    * > - 该属性在跨节点场景中用于各Text子组件选中区域的高亮颜色。
    * >
    * > - Text子组件已显式设置
-   * > [selectedBackgroundColor](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#selectedbackgroundcolor14)
+   * > [selectedBackgroundColor]{@link ./text.selectedBackgroundColor}
    * > 时，优先使用Text子组件的配置；未设置时，使用SelectionContainer的配置。
    *
    * @param { ResourceColor | undefined } color - 选中文本底板颜色。
@@ -269,15 +269,15 @@ export declare interface SelectionContainerAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > - bindSelectionMenu的长按响应时长为600ms，
-   * > [bindContextMenu](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-menu.md#bindcontextmenu8)的长按响应时
+   * > [bindContextMenu]{@link CommonMethod#bindContextMenu}的长按响应时
    * > 长为800ms，当两者同时绑定且触发方式均为长按时，优先响应bindSelectionMenu。
    * >
-   * > - 自定义菜单过长时，建议内部嵌套使用[Scroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scroll.md)组件，避免键盘被遮挡。
+   * > - 自定义菜单过长时，建议内部嵌套使用[Scroll]{@link ./scroll}组件，避免键盘被遮挡。
    * >
    * > - 选区跨越不可复制Text时，菜单仅基于实际选中的可复制文本进行显示和处理。
    *
    * @param { TextSpanType | undefined } spanType - 选择菜单类型。用于指定选择菜单作用的文本类型范围，不同类型对应不同的菜单行为。各枚举值的含义及适用场景详见
-   *     [TextSpanType](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#textspantype11枚举说明)。
+   *     [TextSpanType]{@link ./text.TextSpanType}。
    * @param { CustomBuilder | undefined } content - 选择菜单内容。
    * @param { TextResponseType | undefined } responseType - 选择菜单响应类型。
    * @param { SelectionContainerMenuOptions | undefined } [options] - 选择菜单选项，用于配置菜单出现、消失、显示、隐藏等事件的回调。当需要监听这些菜单事件时传入此参数，不

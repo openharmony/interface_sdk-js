@@ -368,8 +368,8 @@ interface CommonArcButtonOptions {
     
     /**
      * ArcButton进度条参数。不设置该属性时ArcButton组件表现为按钮样式（
-     * [示例1](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#示例1-设置弧形按钮)），设置后表现为进度条样式（
-     * [示例2](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#示例2-设置设备进度条按钮)），进度条样式不受
+     * [示例1]{@link @ohos.arkui.advanced.ArcButton}），设置后表现为进度条样式（
+     * [示例2]{@link @ohos.arkui.advanced.ArcButton}），进度条样式不受
      * [ArcButtonStyleMode]{@link ArcButtonStyleMode}属性设置影响。 
      * 
      * 默认值：[ArcButtonProgressConfig]{@link ArcButtonProgressConfig} 的各项子属性均取其默认值。
@@ -572,8 +572,8 @@ export declare class ArcButtonOptions {
 
     /**
      * ArcButton进度条参数。不设置该属性时ArcButton组件表现为按钮样式（
-     * [示例1](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#示例1-设置弧形按钮)），设置后表现为进度条样式（
-     * [示例2](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#示例2-设置设备进度条按钮)），进度条样式不受
+     * [示例1]{@link @ohos.arkui.advanced.ArcButton}），设置后表现为进度条样式（
+     * [示例2]{@link @ohos.arkui.advanced.ArcButton}），进度条样式不受
      * [ArcButtonStyleMode]{@link ArcButtonStyleMode}属性设置影响。 
      * 
      * 默认值：[ArcButtonProgressConfig]{@link ArcButtonProgressConfig} 的各项子属性均取其默认值。

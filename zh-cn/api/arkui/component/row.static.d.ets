@@ -100,7 +100,7 @@ export declare interface RowAttribute extends CommonMethod {
      * > 说明：
      * >
      * > Row布局时若子组件不设置
-     * > [flexShrink](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-flex-layout.md#flexshrink)
+     * > [flexShrink]{@link CommonMethod#flexShrink}
      * > 则默认不会压缩子组件，即所有子组件主轴大小累加可超过容器主轴，此时FlexAlign.Center和FlexAlign.End会失效。
      *
      * @param { FlexAlign | undefined } value - 子组件在水平方向上的对齐格式。

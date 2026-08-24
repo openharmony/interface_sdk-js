@@ -39,7 +39,7 @@ export declare interface ContainerSpanAttribute {
    * > **说明：**
    * >
    * > 从API version 12开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { TextBackgroundStyle | undefined } style - 文本背景样式。<br />默认值：<br />{<br />  color: Color.Transparent,<br /

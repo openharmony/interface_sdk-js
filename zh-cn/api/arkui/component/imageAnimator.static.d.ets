@@ -38,7 +38,7 @@ export interface ImageFrameInfo {
   /**
      * 图片路径，图片格式为jpg、jpeg、svg、png、bmp、webp、ico和heif，从API version9开始支持
      * [Resource]{@link Resource}类型的路径，从API version 12开始支持
-     * [PixelMap](docroot://reference/apis-arkui/arkui-ts/ts-image-common.md#pixelmap)类型。
+     * [PixelMap]{@link PixelMap}类型。
      * 
      * **string格式说明：**
      * 

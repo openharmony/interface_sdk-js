@@ -54,7 +54,7 @@ export declare interface TextOverflowOptions {
 }
 
 /**
- * 除支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)，还支持以下属性：
+ * 除支持[通用属性]{@link CommonMethod}，还支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -68,7 +68,7 @@ export declare interface TextAttribute extends CommonMethod {
    * 仅Text组件生效，其子组件不生效。
    *
    * @param { Font | undefined } fontValue - 设置文本样式。<br/>默认值：
-   *     [Font](docroot://reference/apis-arkui/arkui-ts/ts-types.md#font)<br/>取值为undefined时，按默认值处理。
+   *     [Font]{@link Font}<br/>取值为undefined时，按默认值处理。
    * @param { FontSettingOptions | undefined } [options] - 设置字体配置项。<br/>默认值：
    *     [FontSettingOptions](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#fontsettingoptions12对象说明)<br/>
    *     取值为undefined时，按默认值处理。
@@ -112,7 +112,7 @@ export declare interface TextAttribute extends CommonMethod {
    * minFontSize小于或等于0时，自适应字号不生效，此时按照[fontSize]{@link fontSize}属性的值生效，未设置时按照其默认值生效。
    *
    * @param { double | string | Resource | undefined } value - 文本最小显示字号。<br/>单位：
-   *     [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)<br/>取值为undefined时，按照
+   *     [fp]{@link Length}<br/>取值为undefined时，按照
    *     [fontSize]{@link fontSize}属性的值生效，未设置时按照其默认值生效。
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -132,7 +132,7 @@ export declare interface TextAttribute extends CommonMethod {
    * maxFontSize小于等于0或者maxFontSize小于minFontSize时，自适应字号不生效，此时按照[fontSize]{@link fontSize}属性的值生效，未设置时按照其默认值生效。
    *
    * @param { double | string | Resource | undefined } value - 文本最大显示字号。<br/>单位：
-   *     [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)<br/>取值为undefined时，按照
+   *     [fp]{@link Length}<br/>取值为undefined时，按照
    *     [fontSize]{@link fontSize}属性的值生效，未设置时按照其默认值生效。
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -200,7 +200,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * 文本段落宽度占满Text组件宽度。
    *
-   * 可通过[align](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-location.md#align)属性控制文本段落在垂直方向上的位置，此组
+   * 可通过[align]{@link CommonMethod#align}属性控制文本段落在垂直方向上的位置，此组
    * 件中不可通过align属性控制文本段落在水平方向上的位置，具体效果如下：
    *
    * - Alignment.TopStart、Alignment.Top、Alignment.TopEnd：内容顶部对齐。
@@ -230,8 +230,8 @@ export declare interface TextAttribute extends CommonMethod {
    * > - 与[halfLeading]{@link halfLeading}同时配置时，halfLeading不生效。
    * >
    * > - 一个段落下使用同一字号必须同时设置行高[lineHeight]{@link lineHeight}或者同一个段落不同字号文本混排时才有效果差异，否则设置了该属性任意枚举值和未设置该属性都是一样的排版效果。属性字符串
-   * > [TextStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#textstyle)中的SuperscriptStyle上
-   * > 下角标样式仅在[TextVerticalAlign](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#textverticalalign20)属性值为
+   * > [TextStyle]{@link TextStyle}中的SuperscriptStyle上
+   * > 下角标样式仅在[TextVerticalAlign]{@link TextVerticalAlign}属性值为
    * > TextVerticalAlign.BASELINE时生效，其余垂直对齐方式下上下角标文本和普通文本表现一致，无上下角标效果。
    *
    * @param { TextVerticalAlign | undefined } textVerticalAlign - 文本段落在垂直方向的对齐方式。<br/>默认值：TextVerticalAlign.BASELINE<
@@ -304,11 +304,11 @@ export declare interface TextAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 当lineHeightMultiple使用有效值和
-   * > [lineHeight](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#lineheight)或
-   * > [lineSpacing](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#linespacing12)同时设置时，仅
+   * > [lineHeight]{@link lineHeight}或
+   * > [lineSpacing]{@link lineSpacing}同时设置时，仅
    * > lineHeightMultiple生效。lineHeightMultiple小于0时，lineHeightMultiple不生效，使用
-   * > [lineHeight](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#lineheight)和
-   * > [lineSpacing](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#linespacing12)设置行高和行间距。
+   * > [lineHeight]{@link lineHeight}和
+   * > [lineSpacing]{@link lineSpacing}设置行高和行间距。
    *
    * @param { double | undefined } value
    * @returns { TextAttribute }
@@ -322,7 +322,7 @@ export declare interface TextAttribute extends CommonMethod {
    * 设置文本超长时的显示方式。
    *
    * 当
-   * [TextOverflowOptions](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#textoverflowoptions18对象说明)
+   * [TextOverflowOptions]{@link ./text.TextOverflowOptions}
    * 设置为TextOverflow.None、TextOverflow.Clip或TextOverflow.Ellipsis时：
    *
    * - 设置为TextOverflow.None、TextOverflow.Clip，文本超长时按最大行截断显示。
@@ -333,21 +333,21 @@ export declare interface TextAttribute extends CommonMethod {
    * - 折行规则参考[lineBreakStrategy]{@link lineBreakStrategy}。该属性在[wordBreak]{@link wordBreak}不等于WordBreak.BREAK_ALL的时候生效，
    * 不支持连词符。
    * - 从API version 11开始，建议优先组合[textOverflow]{@link textOverflow}和[wordBreak]{@link wordBreak}属性来设置截断方式，具体详见
-   * [示例4（设置文本断行及折行）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#示例4设置文本断行及折行)<!--RP1--><!--
+   * [示例4（设置文本断行及折行）]{@link ./text}<!--RP1--><!--
    * RP1End-->。
    *
    * 当TextOverflowOptions设置为TextOverflow.MARQUEE时：
    *
    * - 文本在一行内滚动显示。
    * - 设置[maxLines]{@link maxLines}及[copyOption]{@link copyOption}属性均不生效。
-   * - Text组件[clip](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-sharp-clipping.md#clip12)属性默认为
+   * - Text组件[clip]{@link CommonMethod#clip}属性默认为
    * true。
-   * - 属性字符串的[CustomSpan](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#customspan)不支持跑马灯模式。
+   * - 属性字符串的[CustomSpan]{@link CustomSpan}不支持跑马灯模式。
    * - [textAlign]{@link textAlign}属性的生效规则：当文本不可滚动时，textAlign属性生效；当文本可滚动时，textAlign属性不生效。
    * - 从API version 12开始，当TextOverflowOptions设置为TextOverflow.MARQUEE时，支持ImageSpan组件，文本和图片可在一行内滚动显示。
    *
    * @param { TextOverflowOptions| undefined } options - 文本超长显示方式对象。<br/>取值为undefined时，按
-   *     [TextOverflowOptions](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#textoverflowoptions18对象说明)
+   *     [TextOverflowOptions]{@link ./text.TextOverflowOptions}
    *     中的默认值处理。
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -388,9 +388,9 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * 与[maxLines]{@link maxLines}同时配置时，最小行数对应的显示高度不会超过最大行数对应的高度限制。
    *
-   * 如果文本设置了[constraintSize](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#constraintsize)，那
+   * 如果文本设置了[constraintSize]{@link CommonMethod#constraintSize}，那
    * 么组件最后显示高度会在
-   * [constraintSize](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#constraintsize)约束内。
+   * [constraintSize]{@link CommonMethod#constraintSize}约束内。
    *
    * @param { int | undefined } minLines - 文本最小行数。
    *     <br>取值范围：[0, INT32_MAX]<br/>设置的值小于0时按0处理。<br/>值为undefined时，最小行数无限制。
@@ -452,7 +452,7 @@ export declare interface TextAttribute extends CommonMethod {
    * 正数内容向上偏移，负数向下偏移。
    *
    * @param { double | string | undefined } value - 文本基线的偏移量。<br/>默认值：0<br/>单位：fp
-   *     <br>从API version 20开始，支持[Resource](docroot://reference/apis-arkui/arkui-ts/ts-types.md#resource)类型。<br/>取值为
+   *     <br>从API version 20开始，支持[Resource]{@link Resource}类型。<br/>取值为
    *     undefined时，按默认值处理。
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -465,10 +465,10 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * 从API version 20开始，当Text组件执行复制操作时，会将HTML格式的内容添加到剪贴板中。
    *
-   * - 当Text组件包含子组件时，仅支持[Span](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-span.md)和
-   * [ImageSpan](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-imagespan.md)子组件向剪贴板中添加HTML格式的内容。
+   * - 当Text组件包含子组件时，仅支持[Span]{@link Span}和
+   * [ImageSpan]{@link ImageSpan}子组件向剪贴板中添加HTML格式的内容。
    * - 设置Text组件的属性字符串时，请参考属性字符串
-   * [toHtml](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#tohtml14)接口文档，以了解支持转换为HTML的范围。
+   * [toHtml]{@link toHtml}接口文档，以了解支持转换为HTML的范围。
    *
    * 设置copyOption为CopyOptions.InApp或者CopyOptions.LocalDevice时：
    *
@@ -477,8 +477,8 @@ export declare interface TextAttribute extends CommonMethod {
    * - 若需要支持Ctrl+C复制，需同时设置[textSelectable]{@link textSelectable}为TextSelectableMode.SELECTABLE_FOCUSABLE。
    *
    * 此时Text会监听onClick事件，手势事件为非冒泡事件，若需要点击Text组件区域响应父组件的点击手势事件，建议在父组件上使用
-   * [parallelGesture](docroot://reference/apis-arkui/arkui-ts/ts-gesture-settings.md#parallelgesture)绑定手势识别，也可参考
-   * [示例7（设置文本识别）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#示例7设置文本识别)。
+   * [parallelGesture]{@link parallelGesture}绑定手势识别，也可参考
+   * [示例7（设置文本识别）]{@link ./text}。
    *
    * 由于卡片没有长按事件，此场景下长按文本，不会弹出文本选择菜单。
    *
@@ -492,9 +492,9 @@ export declare interface TextAttribute extends CommonMethod {
   /**
    * 设置选中文本拖拽效果。
    *
-   * 不能和[onDragStart](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-drag-drop.md#ondragstart)事件同时使用。
+   * 不能和[onDragStart]{@link CommonMethod#onDragStart}事件同时使用。
    *
-   * 当draggable设置为true时，需配合[CopyOptions](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#copyoptions9)使用，
+   * 当draggable设置为true时，需配合[CopyOptions]{@link CopyOptions}使用，
    * 设置copyOptions为CopyOptions.InApp或者CopyOptions.LocalDevice，支持对选中文本的拖拽及复制到输入框。
    *
    * @param { boolean | undefined } value - 选中文本拖拽效果。<br/>true表示选中文本可拖拽，false表示不可拖拽。<br/>默认值：false<br/>取值为undefined时，按
@@ -511,7 +511,7 @@ export declare interface TextAttribute extends CommonMethod {
    * 不支持ShadowOptions对象中的type、fill字段和color字段的智能取色模式。
    *
    * @param { ShadowOptions | Array<ShadowOptions> | undefined } value - 文字阴影效果。<br/>取值为undefined时，按
-   *     [ShadowOptions](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#shadowoptions对象说明)
+   *     [ShadowOptions]{@link ShadowOptions}
    *     中的默认值处理。
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -543,7 +543,7 @@ export declare interface TextAttribute extends CommonMethod {
    * 设置首行文本缩进。
    *
    * @param { Length | undefined } value - 首行文本缩进。<br/>默认值：0<br/>单位：
-   *     [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)<br/>取值范围：大于等于0。设置负数时，按默认值处理。<br/>取值为
+   *     [fp]{@link Length}<br/>取值范围：大于等于0。设置负数时，按默认值处理。<br/>取值为
    *     undefined时，按默认值处理。
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -621,7 +621,7 @@ export declare interface TextAttribute extends CommonMethod {
    * 当selectionStart大于等于selectionEnd时不选中。可选范围为[0, textSize]，其中textSize为文本内容最大字符数，入参小于0时处理为0，大于textSize时处理为textSize。
    *
    * 当selectionStart或selectionEnd位于截断的不可见区域时，文本不选中。当
-   * [clip](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-sharp-clipping.md#clip12)设置为false时，超出父组件的文
+   * [clip]{@link CommonMethod#clip}设置为false时，超出父组件的文
    * 本可以被选中。
    *
    * 可通过[onTextSelectionChange]{@link onTextSelectionChange}接口获取选中区域位置变化结果。
@@ -710,13 +710,13 @@ export declare interface TextAttribute extends CommonMethod {
    * 启用后可识别选区中的邮件、电话、网址、日期、地址等，并在文本选择菜单中展示对应的AI菜单项。默认启用AI菜单功能。
    *
    * AI菜单功能启用时，在组件中选中文本后，文本选择菜单能够展示对应的AI菜单项，包括
-   * [TextMenuItemId](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#textmenuitemid12)中的url（打开链接）、email（新建邮
+   * [TextMenuItemId]{@link TextMenuItemId}中的url（打开链接）、email（新建邮
    * 件）、phoneNumber（呼叫）、address（导航前往）、dateTime（新建日程）。
    *
    * AI菜单生效时，选中范围内需包括且仅包括一个完整的AI实体，才能展示对应的选项。该菜单项与
-   * [TextMenuItemId](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#textmenuitemid12)中的askAI菜单项不同时出现。
+   * [TextMenuItemId]{@link TextMenuItemId}中的askAI菜单项不同时出现。
    *
-   * 需要[CopyOptions](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#copyoptions9)为
+   * 需要[CopyOptions]{@link CopyOptions}为
    * CopyOptions.LocalDevice或CopyOptions.CROSS_DEVICE时，本功能生效。
    *
    * @param { boolean | undefined } enable - 是否对选中文本进行实体识别。<br/>true：开启识别，false：关闭识别。默认值为：true。<br/>取值为undefined时，按默认值
@@ -732,10 +732,10 @@ export declare interface TextAttribute extends CommonMethod {
    * 设置自定义选择菜单。
    *
    * bindSelectionMenu的长按响应时长为600ms，
-   * [bindContextMenu](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-menu.md#bindcontextmenu8)的长按响应时
+   * [bindContextMenu]{@link CommonMethod#bindContextMenu}的长按响应时
    * 长为800ms，当两者同时绑定且触发方式均为长按时，优先响应bindSelectionMenu。
    *
-   * 自定义菜单超长时，建议内部嵌套使用[Scroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scroll.md)组件，避免键盘被遮挡。
+   * 自定义菜单超长时，建议内部嵌套使用[Scroll]{@link CommonMethod#Scroll}组件，避免键盘被遮挡。
    *
    * 从API版本26.0.0开始，文本组件调用该接口时，options中的menuType属性传入MenuType.PREVIEW_MENU，设置图片预览菜单的能力生效。
    *
@@ -747,7 +747,7 @@ export declare interface TextAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 该接口不支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    * >
    * > 通过[editMenuOptions]{@link editMenuOptions}设置文本选择菜单时，保留系统默认的风格，触发菜单弹出的条件不变。
@@ -759,7 +759,7 @@ export declare interface TextAttribute extends CommonMethod {
    * @param { TextResponseType | undefined } responseType - 选择菜单的响应类型。<br/>默认值：TextResponseType.LONG_PRESS<br/>取值为
    *     undefined时，按默认值处理。
    * @param { SelectionMenuOptions | undefined } [options] - 选择菜单的选项。<br/>取值为undefined时，按
-   *     [SelectionMenuOptions](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-richeditor.md#selectionmenuoptions)
+   *     [SelectionMenuOptions]{@link SelectionMenuOptions}
    *     中的默认值处理。
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -793,13 +793,13 @@ export declare interface TextAttribute extends CommonMethod {
    * >
    * > 不支持Text内同时存在文本内容和Span或ImageSpan子组件。如果同时存在，只显示Span或ImageSpan内的内容。
    * >
-   * > 字体排版引擎会对开发者传入的宽度[width](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#width)进行向下取整，保证
+   * > 字体排版引擎会对开发者传入的宽度[width]{@link CommonMethod#width}进行向下取整，保证
    * > 是整型像素后进行排版。如果向上取整，可能会出现文字右侧被截断。
    * >
-   * > 当多个Text组件在[Row](docroot://reference/apis-arkui/arkui-ts/ts-container-row.md)容器内布局且没有设置具体的布局分配信息时，Text会以Row的最大尺寸
+   * > 当多个Text组件在[Row]{@link ./row}容器内布局且没有设置具体的布局分配信息时，Text会以Row的最大尺寸
    * > 进行布局。如果需要子组件主轴累加的尺寸不超过Row容器主轴的尺寸，可以设置
-   * > [layoutWeight](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#layoutweight)或者是以
-   * > [Flex](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-flex-layout.md)布局来约束子组件的主轴尺寸。
+   * > [layoutWeight]{@link CommonMethod#layoutWeight}或者是以
+   * > [Flex]{@link ./flex}布局来约束子组件的主轴尺寸。
    * >
    * > 系统默认字体支持的liga连字：Th fb ff fb ffb ffh ffi ffk ffl fh fi fk fl rf rt rv rx ry。常导致Span、属性字符串的效果不符合预期，关闭liga连字特性可以规
    * > 避。
@@ -820,7 +820,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { TextMarqueeOptions | undefined } options - 当Text组件的textOverflow属性设置为MARQUEE时，可通过marqueeOptions设置跑马灯动效具体的
    *     属性，如开关、步长、循环次数、方向等。<br/>取值为undefined时，按
-   *     [TextMarqueeOptions](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#textmarqueeoptions18对象说明)
+   *     [TextMarqueeOptions]{@link TextMarqueeOptions}
    *     中的默认值处理。
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -845,7 +845,7 @@ export declare interface TextAttribute extends CommonMethod {
    * @param { boolean | undefined } supported - 是否支持卡片敏感隐私信息。<br/>默认值: false
    *     <br>true表示支持卡片敏感隐私信息，隐私模式下文字将被遮罩为横杠"-"样式；false表示不支持卡片敏感隐私信息，隐私模式下文字正常显示。<br/>**说明：**<br/>设置为null则表示不敏感。<br/>进
    *     入隐私模式需要卡片框架支持。隐私遮罩的类型可以通过
-   *     [obscured](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-obscured.md#obscured)配置。<br/>取值为
+   *     [obscured]{@link CommonMethod#obscured}配置。<br/>取值为
    *     undefined时，按默认值处理。
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -873,7 +873,7 @@ export declare interface TextAttribute extends CommonMethod {
    * [disableMenuItems](docroot://reference/apis-arkui/arkts-apis-uicontext-textmenucontroller.md#disablemenuitems20)或
    * [disableSystemServiceMenuItems](docroot://reference/apis-arkui/arkts-apis-uicontext-textmenucontroller.md#disablesystemservicemenuitems20)
    * 接口屏蔽文本选择菜单内的系统服务菜单项时，editMenuOptions接口内回调方法
-   * [onCreateMenu](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#oncreatemenu12)的入参列表中不包含被屏蔽的菜单选项。
+   * [onCreateMenu]{@link onCreateMenu}的入参列表中不包含被屏蔽的菜单选项。
    *
    * > **说明：**
    * >
@@ -923,7 +923,7 @@ export declare interface TextAttribute extends CommonMethod {
    * * 行首空格不在优化范围内，行尾文本强制换行，每行行尾空格根据组件宽度优化行尾空格。
    *
    * 当纯空格文本设置优化行尾空格[optimizeTrailingSpace]{@link optimizeTrailingSpace}为true时，不允许同时设置文本背景色
-   * [backgroundColor](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backgroundcolor)、
+   * [backgroundColor]{@link CommonMethod#backgroundColor}、
    * 空格装饰线[decoration]{@link decoration}和对齐[textAlign]{@link textAlign}三个属性。
    *
    * @param { boolean | undefined } optimize - 是否优化每行末尾的空格。<br/>true表示优化末尾空格，false则不优化。<br/>默认值：false
@@ -971,18 +971,18 @@ export declare interface TextAttribute extends CommonMethod {
   default setTextOptions(content?: string | Resource, value?: TextOptions): this;
 
   /**
-   * 可以显示为径向渐变[RadialGradientStyle](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#radialgradientstyle20)或线
-   * 性渐变[LinearGradientStyle](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#lineargradientstyle20)或纯色
-   * [ColorShaderStyle](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#colorshaderstyle20)的效果，shaderStyle的优
-   * 先级高于[fontColor](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-symbolSpan.md#fontcolor)和AI识别，纯色建议使用
-   * [fontColor](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-symbolSpan.md#fontcolor)。
+   * 可以显示为径向渐变[RadialGradientStyle]{@link RadialGradientStyle}或线
+   * 性渐变[LinearGradientStyle]{@link LinearGradientStyle}或纯色
+   * [ColorShaderStyle]{@link ColorShaderStyle}的效果，shaderStyle的优
+   * 先级高于[fontColor]{@link fontColor}和AI识别，纯色建议使用
+   * [fontColor]{@link fontColor}。
    *
    * @param { ShaderStyle | undefined } shader - 径向渐变或线性渐变或纯色。<br/>根据传入的参数区分处理径向渐变
-   *     [RadialGradientStyle](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#radialgradientstyle20)或线性渐变
-   *     [LinearGradientStyle](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#lineargradientstyle20)或纯色
-   *     [ColorShaderStyle](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#colorshaderstyle20)，最终设置到Text文本上
+   *     [RadialGradientStyle]{@link RadialGradientStyle}或线性渐变
+   *     [LinearGradientStyle]{@link LinearGradientStyle}或纯色
+   *     [ColorShaderStyle]{@link ColorShaderStyle}，最终设置到Text文本上
    *     显示为渐变色效果。<br/>**说明：**<br/>当设置为径向渐变
-   *     [RadialGradientStyle](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#radialgradientstyle20)时，若
+   *     [RadialGradientStyle]{@link RadialGradientStyle}时，若
    *     [RadialGradientOptions](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-gradient-color.md#radialgradientoptions18对象说明)
    *     的center参数设置到组件范围外时，可将repeating参数设置为true，此时渐变效果会更明显。<br/>值为undefined时，无渐变效果。
    * @returns { TextAttribute }
@@ -993,7 +993,7 @@ export declare interface TextAttribute extends CommonMethod {
   default shaderStyle(shader: ShaderStyle | undefined): this;
   /**
    * 可以设置为数字翻牌动效
-   * [NumericTextTransition](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#numerictexttransition20)。
+   * [NumericTextTransition]{@link NumericTextTransition}。
    *
    * @param { ContentTransition | undefined } transition - 文本动效属性。<br/>值为undefined时，无翻牌效果。
    * @returns { TextAttribute } returns the instance of the TextAttribute.
@@ -1086,7 +1086,7 @@ export declare interface TextAttribute extends CommonMethod {
    *
    * @param { Array<FontVariation> | undefined } fontVariations - 可变字体的属性数组，数组成员为可变字体的各种属性。<br/>设置为undefined时的效果等同于未设置
    *     fontVariations属性时的效果。<br/>fontVariations属性的优先级高于
-   *     [fontWeight](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#fontweight12)。
+   *     [fontWeight]{@link fontWeight}。
    * @returns { TextAttribute } - returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1121,7 +1121,7 @@ export declare interface TextAttribute extends CommonMethod {
   default punctuationOverflow(enabled: boolean | undefined): this;
 }
 /**
- * [Span](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-span.md)类型信息。
+ * [Span]{@link Span}类型信息。
  *
  * > **说明：**
  * >

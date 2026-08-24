@@ -810,7 +810,7 @@ interface StyledStringChangeValue {
  * ###### 导入对象
  * 
  * 以Text组件为例，完整示例请参考Text组件的
- * [示例10（获取文本信息）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#示例10获取文本信息)。
+ * [示例10（获取文本信息）]{@link ./text}。
  * 
  * ```ts
  * controller: TextController = new TextController();
@@ -851,9 +851,9 @@ declare interface LayoutManager {
    * > - 文本内容变更后，需等待布局完成才可获取到最新的位置信息。
    *
    * @param { number } x - 相对于组件的横坐标。
-   *     <br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[px]{@link Length}
    * @param { number } y - 相对于组件的纵坐标。
-   *     <br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[px]{@link Length}
    * @returns { PositionWithAffinity } 字形位置信息。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，返回无效值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -874,9 +874,9 @@ declare interface LayoutManager {
    * > - 文本内容变更后，需等待布局完成才可获取到最新的位置信息。
    *
    * @param { number } x - 相对于组件的横坐标。
-   *     <br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[px]{@link Length}
    * @param { number } y - 相对于组件的纵坐标。
-   *     <br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[px]{@link Length}
    * @returns { PositionWithAffinity | undefined } 字符的位置信息。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，该接口会返回
    *     undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -890,8 +890,8 @@ declare interface LayoutManager {
   /**
    * 根据指定编码类型，获取距离指定坐标最近的字符位置信息。
    *
-   * @param { number } x - 相对于组件的横坐标。<br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
-   * @param { number } y - 相对于组件的纵坐标。<br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * @param { number } x - 相对于组件的横坐标。<br>单位：[px]{@link Length}
+   * @param { number } y - 相对于组件的纵坐标。<br>单位：[px]{@link Length}
    * @param { TextEncoding } [encoding] - 字符位置使用的编码类型，默认值为**TextEncoding.TEXT_ENCODING_UTF8**。
    * @returns { PositionWithAffinity | undefined } 字符的位置信息。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，该接口会返回
    *     undefined。
