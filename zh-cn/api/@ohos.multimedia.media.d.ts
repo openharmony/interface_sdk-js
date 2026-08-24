@@ -240,12 +240,11 @@ declare namespace media {
   function createMediaSourceWithUrl(url: string, headers?: Record<string, string>): MediaSource;
 
   /**
-   * Creates a media source for streaming media to be pre-downloaded.
+   * 创建流媒体预下载媒体来源实例方法。
    *
-   * @param { string } url : Url of the media source. The following streaming media formats are supported: HLS,
-   *     HTTP-FLV, DASH, and HTTPS.
-   * @param { Record<string, string> } [headers] : Headers attached to network request while player request data.
-   * @returns { MediaSource | undefined } MediaSource instance if the operation is successful; returns null otherwise.
+   * @param { string } url : 流媒体预下载媒体来源url，支持的流媒体格式：HLS、HTTP-FLV、Dash、Https。<br> - 本地m3u8的fd路径。
+   * @param { Record<string, string> } [headers] : 支持流媒体预下载HttpHeader自定义。不传时为网络请求默认的HttpHeader。
+   * @returns { MediaSource | undefined } MediaSource返回值。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 5400101 - No memory.
@@ -278,7 +277,7 @@ declare namespace media {
   function createMediaSourceWithStreamData(streams: Array<MediaStream>): MediaSource | undefined;
 
   /**
-   * Interface for defining time base metadata
+   * 描述基于时间的元数据的信息。
    *
    * @syscap SystemCapability.Multimedia.Media.Core
    * @stagemodelonly
@@ -286,8 +285,8 @@ declare namespace media {
    */
   interface AVTimedMetaData {  
     /**
-     * Defines the unique token of the time base metadata,
-     * The tag must be unique in other time metadata of the video source.
+     * 基于时间的元数据的唯一标记。
+     * 该标记在视频源的数据信息中须保持唯一。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
@@ -296,7 +295,7 @@ declare namespace media {
     id?: string;
 
     /**
-     * The classification label of the time base metadata.
+     * 基于时间的元数据的分类标签。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
@@ -305,9 +304,9 @@ declare namespace media {
     classify?: string;
 
     /**
-     * Defines the offset value of the time primitive information relative to the start time of the entire media.
-     * The value should be an integer.
-     * <br>Unit:milliseconds.
+     * 基于时间的元数据相对整个媒体起始时间的偏移值。
+     * 取值限定为整数。
+     * <br>单位：毫秒。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
@@ -316,9 +315,9 @@ declare namespace media {
     start: int;
 
     /**
-     * Duration of the time primitive information
-     * The value should be an integer.
-     * <br>Unit:milliseconds.
+     * 基于时间的元数据的持续时长。
+     * 取值限定为整数。
+     * <br>单位：毫秒。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
@@ -327,7 +326,7 @@ declare namespace media {
     duration: int;
 
     /**
-     * Key-value pair set corresponding to time primitive information
+     * 	基于时间的元数据对应的键值对集合。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
@@ -405,7 +404,7 @@ declare namespace media {
     removeAdsMediaSource(id: string): void;
 
     /**
-     * S跳过当前正在播放的广告内容。跳过后将立即恢复主内容的播放，并触发onAdsListenerAdsSkipped的回调。例如，当用户点击播放器上的“跳过广告”按钮时，可调用此接口跳过当前广告并继续播放主内容。
+     * 跳过当前正在播放的广告内容。跳过后将立即恢复主内容的播放，并触发onAdsListenerAdsSkipped的回调。例如，当用户点击播放器上的“跳过广告”按钮时，可调用此接口跳过当前广告并继续播放主内容。
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @stagemodelonly
@@ -5623,7 +5622,7 @@ declare namespace media {
   type SourceCloseCallback = (uuid: long) => void;
 
   /**
-   * Defines a media data loader, which needs to be implemented by applications.
+   * 用于定义媒体数据加载器，需要应用程序对其进行实现。
    *
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
@@ -5632,7 +5631,7 @@ declare namespace media {
    */
   interface MediaSourceLoader {
     /**
-     * Callback function is implemented by application, which is used to handle resource opening requests.
+     * 由应用程序实现的回调函数，用于处理资源打开请求。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -5642,7 +5641,7 @@ declare namespace media {
     open: SourceOpenCallback;
 
     /**
-     * Callback function is implemented by application, which is used to handle resource read requests.
+     * 由应用程序实现的回调函数，用于处理资源读取请求。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -5652,7 +5651,7 @@ declare namespace media {
     read: SourceReadCallback;
 
     /**
-     * Callback function is implemented by application, which is used to handle resource close request.
+     * 由应用程序实现的回调函数，用于处理资源关闭请求。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -5795,12 +5794,13 @@ declare namespace media {
     /**
      * 用于应用程序向播放器发送数据。
      *
-     * @param { long } uuid - ID for the resource handle.
-     * @param { long } offset - Offset of the current media data relative to the start of the resource.
-     * @param { ArrayBuffer } buffer - Media data sent to the player.
-     * @returns { int | undefined } - accept bytes for current read. The value less than zero means failed.
-     *     -2, means player need current data any more, the client should stop current read process.
-     *     -3, means player buffer is full, the client should wait for next read.
+     * @param { long } uuid - 资源句柄的标识。
+     * @param { long } offset - 当前媒体数据相对于资源起始位置的偏移量。offset不能小于0。
+     * @param { ArrayBuffer } buffer - 响应播放器的媒体数据。<br/>**注意：** 不要传输无关数据，会影响正常数据解析和播放。
+     * @returns { int | undefined } - 当前服务端接受的字节数。
+     *     <br>- 返回值小于0表示操作失败。
+     *     <br>- 返回值为-2时，表示播放器不再需要当前数据，客户端应停止当前读取过程。
+     *     <br>- 返回值为-3时，表示播放器的缓冲区已满，客户端应等待下一次读取。
      * @syscap  SystemCapability.Multimedia.Media.Core
      * @since 23 static
      */
