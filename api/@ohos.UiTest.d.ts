@@ -40,7 +40,7 @@
  * 
  * > **NOTE**
  * >
- * > - The APIs of this module can be used only in <!--RP1-->[UITest](docroot://application-test/uitest-guidelines.md)<!--RP1End-->.
+ * > - The APIs of this module can be used only in [UITest](docroot://application-test/uitest-guidelines.md).
  * >
  * > - The APIs of this module do not support concurrent calls.
  * 
@@ -1916,7 +1916,7 @@ declare class On {
    * > of the target component for searching for the component. In this case, you can use the
    * > [On.originalText()]{@link On#originalText} API.
    *
-   * @param { string } txt - Component text, used to match the target component.<!--RP2--><!--RP2End-->
+   * @param { string } txt - Component text, used to match the target component.
    * @param { MatchPattern } [pattern] - Match pattern {@link MatchPattern} .
    *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } - **On** object that matches the text attribute of the target component.
@@ -1934,7 +1934,7 @@ declare class On {
   /**
    * Specifies the ID attribute of the target component.
    *
-   * @param { string } id - Component ID.<!--RP2--><!--RP2End-->
+   * @param { string } id - Component ID.
    * @returns { On } - **On** object that matches the ID attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -1950,7 +1950,7 @@ declare class On {
   /**
    * Specifies the type attribute of the target component.
    *
-   * @param { string } tp - Component type.<!--RP2--><!--RP2End-->
+   * @param { string } tp - Component type.
    * @returns { On } - **On** object that matches the type attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -1967,7 +1967,7 @@ declare class On {
    * Specifies the clickable attribute of the target component.
    *
    * @param { boolean } [b] - Clickable status of the component. The value **true** indicates that the component is clickable
-   *     , and **false** indicates the opposite. Default value: **true**<!--RP2--><!--RP2End-->
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } - **On** object that matches the clickable attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -1984,7 +1984,7 @@ declare class On {
    * Specifies the long-clickable attribute of the target component.
    *
    * @param { boolean } [b] - Long-clickable status of the component. The value **true** indicates that the component is long
-   *     -clickable, and **false** indicates the opposite. Default value: **true**<!--RP2--><!--RP2End-->
+   *     -clickable, and **false** indicates the opposite. Default value: **true**
    * @returns { On } - **On** object that matches the long-clickable attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2001,7 +2001,7 @@ declare class On {
    * Specifies the scrollable attribute of the target component.
    *
    * @param { boolean } [b] - Scrollable status of the component. The value **true** indicates that the component is
-   *     scrollable, and **false** indicates the opposite. Default value: **true**<!--RP2--><!--RP2End-->
+   *     scrollable, and **false** indicates the opposite. Default value: **true**
    * @returns { On } - **On** object that matches the scrollable attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2018,7 +2018,7 @@ declare class On {
    * Specifies the enabled attribute of the target component.
    *
    * @param { boolean } [b] - Enabled status of the component. The value **true** indicates that the component is enabled,
-   *     and **false** indicates the opposite. Default value: **true**<!--RP2--><!--RP2End-->
+   *     and **false** indicates the opposite. Default value: **true**
    * @returns { On } - **On** object that matches the enabled attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2035,7 +2035,7 @@ declare class On {
    * Specifies the focused attribute of the target component.
    *
    * @param { boolean } [b] - Focused status of the component. The value **true** indicates that the component is focused,
-   *     and **false** indicates the opposite. Default value: **true**<!--RP2--><!--RP2End-->
+   *     and **false** indicates the opposite. Default value: **true**
    * @returns { On } - **On** object that matches the focused attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2052,7 +2052,7 @@ declare class On {
    * Specifies the selected attribute of the target component.
    *
    * @param { boolean } [b] - Selected status of the component. The value **true** indicates that the component is selected,
-   *     and **false** indicates the opposite. Default value: **true**<!--RP2--><!--RP2End-->
+   *     and **false** indicates the opposite. Default value: **true**
    * @returns { On } - **On** object that matches the selected attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2069,7 +2069,7 @@ declare class On {
    * Specifies the checked attribute of the target component.
    *
    * @param { boolean } [b] - Checked status of the component. The value **true** indicates that the component is checked,
-   *     and **false** indicates the opposite. Default value: **true**<!--RP2--><!--RP2End-->
+   *     and **false** indicates the opposite. Default value: **true**
    * @returns { On } - **On** object that matches the checked attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2086,7 +2086,7 @@ declare class On {
    * Specifies the checkable attribute of the target component.
    *
    * @param { boolean } [b] - Checkable status of the component. The value **true** indicates that the component is checkable
-   *     , and **false** indicates the opposite. Default value: **true**<!--RP2--><!--RP2End-->
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } - **On** object that matches the checkable attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2102,7 +2102,7 @@ declare class On {
   /**
    * Specifies that the target component is located before the given attribute component.
    *
-   * @param { On } on - Information about the attribute component.<!--RP3--><!--RP3End-->
+   * @param { On } on - Information about the attribute component.
    * @returns { On } - **On** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2133,7 +2133,7 @@ declare class On {
   /**
    * Specifies that the target component is located after the given attribute component.
    *
-   * @param { On } on - Information about the attribute component.<!--RP3--><!--RP3End-->
+   * @param { On } on - Information about the attribute component.
    * @returns { On } - **On** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2164,7 +2164,7 @@ declare class On {
   /**
    * Specifies that the target component is located within the given attribute component.
    *
-   * @param { On } on - Information about the attribute component.<!--RP3--><!--RP3End-->
+   * @param { On } on - Information about the attribute component.
    * @returns { On } - **On** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2195,7 +2195,7 @@ declare class On {
   /**
    * Specifies that the target component is located within the given application window.
    *
-   * @param { string } bundleName - Bundle name of the application window.<!--RP2--><!--RP2End-->
+   * @param { string } bundleName - Bundle name of the application window.
    * @returns { On } - **On** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2214,7 +2214,7 @@ declare class On {
    *     or equal to 0.
    *     <br>**Note**: If the input **displayId** does not exist, the exception **17000007** is reported. You can use
    *     [getAllDisplays]{@link @ohos.display:display.getAllDisplays(callback: AsyncCallback<Array<Display>>)} to obtain
-   *     all current **display** objects and use them to obtain the corresponding display IDs.<!--RP2--><!--RP2End-->
+   *     all current **display** objects and use them to obtain the corresponding display IDs.
    * @returns { On } - The **On** object of the display to which the specified component belongs.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -2228,7 +2228,7 @@ declare class On {
   /**
    * Specifies the description of the target component. Multiple match patterns are supported.
    *
-   * @param { string } val - Description of the component.<!--RP2--><!--RP2End-->
+   * @param { string } val - Description of the component.
    * @param { MatchPattern } [pattern] - Match pattern {@link MatchPattern} .
    *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } - **On** object.
@@ -2245,7 +2245,7 @@ declare class On {
   /**
    * Specifies the **id** attribute and match pattern of the target component.
    *
-   * @param { string } id - Component ID.<!--RP2--><!--RP2End-->
+   * @param { string } id - Component ID.
    * @param { MatchPattern } pattern - Text matching pattern {@link MatchPattern}.
    * @returns { On } - **On** object that matches the ID attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -2261,7 +2261,7 @@ declare class On {
   /**
    * Specifies the **type** attribute and match pattern of the target component.
    *
-   * @param { string } tp - Component type.<!--RP2--><!--RP2End-->
+   * @param { string } tp - Component type.
    * @param { MatchPattern } pattern - Text matching pattern {@link MatchPattern}.
    * @returns { On } - **On** object that matches the type attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -2277,7 +2277,7 @@ declare class On {
   /**
    * Specifies the hint text attribute of the target component.
    *
-   * @param { string } val - The specified hint text of the component.<!--RP2--><!--RP2End-->
+   * @param { string } val - The specified hint text of the component.
    * @param { MatchPattern } [pattern] - Match pattern{@link MatchPattern}.
    *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } - **On** object that matches the **hint** attribute of the target component.
@@ -2301,7 +2301,7 @@ declare class On {
    * > the target component for searching for the component. In this case, the [On.text()]{@link On#text} API does not
    * > take effect.
    *
-   * @param { string } text - Component text, used to match the target component.<!--RP2--><!--RP2End-->
+   * @param { string } text - Component text, used to match the target component.
    * @param { MatchPattern } [pattern] - Match pattern{@link MatchPattern}.
    *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } - **On** object that matches the text attribute of the target component.
@@ -4503,7 +4503,7 @@ declare class Driver {
    *
    * > **NOTE**
    * >
-   * > If the knuckle gesture is disabled on the device<!--RP4--><!--RP4End-->, 17000005 is returned.
+   * > If the knuckle gesture is disabled on the device, 17000005 is returned.
    *
    * @param { Array<Point> } pointers - Array of knuckle knock coordinates on the display. The array length can be
    *     1 or 2. If the value is out of range, error code 17000007 is thrown.
@@ -4526,7 +4526,7 @@ declare class Driver {
    *
    * > **NOTE**
    * >
-   * > If the knuckle gesture is disabled on the device<!--RP4--><!--RP4End-->, 17000005 is returned.
+   * > If the knuckle gesture is disabled on the device, 17000005 is returned.
    *
    * @param { PointerMatrix } pointers - Scroll trajectory, including the number of fingers and an array of
    *     coordinates along the trajectory.
@@ -5035,11 +5035,10 @@ declare namespace ON {
   export function checkable(b?: boolean): On;
 
   /**
-   * Requires that the target Component which is before another Component that specified by the given {@link On}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located before the given attribute component.
    *
-   * @param { On } on - describes the attribute requirements of Component which the target one is in front of.
-   * @returns { On } this {@link On} object.
+   * @param { On } on - Information about the attribute component.
+   * @returns { On } - {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -5047,11 +5046,10 @@ declare namespace ON {
   export function isBefore(on: On): On;
 
   /**
-   * Requires that the target Component which is after another Component that specified by the given {@link On}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located after the given attribute component.
    *
-   * @param { On } on - describes the attribute requirements of Component which the target one is in back of.
-   * @returns { On } this {@link On} object.
+   * @param { On } on - Information about the attribute component.
+   * @returns { On } - {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -5059,11 +5057,10 @@ declare namespace ON {
   export function isAfter(on: On): On;
 
   /**
-   * Requires that the target Component which is inside of another Component that specified by the given {@link On}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located within the given attribute component.
    *
-   * @param { On } on - describes the attribute requirements of Component which the target one is inside of.
-   * @returns { On } this {@link On} object.
+   * @param { On } on - Information about the attribute component.
+   * @returns { On } - {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test

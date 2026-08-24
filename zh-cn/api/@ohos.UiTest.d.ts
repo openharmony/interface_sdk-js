@@ -32,7 +32,7 @@
   * > **说明：**
   * >
   * > - 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
-  * > - 本模块接口在<!--RP1-->[自动化测试脚本](docroot://application-test/uitest-guidelines.md)<!--RP1End-->中使用。
+  * > - 本模块接口在[自动化测试脚本](docroot://application-test/uitest-guidelines.md)中使用。
   * > - 本模块接口不支持并发调用。
   * 
   * @file
@@ -2060,7 +2060,7 @@ declare class On {
    * > [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
    * > 设置为'no'或'no-hide-descendants'，无法使用本接口指定目标控件的文本属性用于查找控件，可以使用[On.originalText()]{@link On#originalText}接口实现。
    *
-   * @param { string } txt - 指定控件文本，用于匹配目标控件文本。<!--RP2--><!--RP2End-->
+   * @param { string } txt - 指定控件文本，用于匹配目标控件文本。
    * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。 [since 10]
    * @returns { On } - 返回指定目标控件文本属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -2077,7 +2077,7 @@ declare class On {
   /**
    * 指定目标控件id属性，返回On对象自身。
    *
-   * @param { string } id - 指定控件的id值。<!--RP2--><!--RP2End-->
+   * @param { string } id - 指定控件的id值。
    * @returns { On } - 返回指定目标控件id属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2093,7 +2093,7 @@ declare class On {
   /**
    * 指定目标控件的控件类型属性，返回On对象自身。
    *
-   * @param { string } tp - 指定控件类型。<!--RP2--><!--RP2End-->
+   * @param { string } tp - 指定控件类型。
    * @returns { On } - 返回指定目标控件的控件类型属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2109,7 +2109,7 @@ declare class On {
   /**
    * 指定目标控件的可点击状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件可点击状态。true：可点击。false：不可点击。默认为true。<!--RP2--><!--RP2End--> [since 10]
+   * @param { boolean } [b] - 指定控件可点击状态。true：可点击。false：不可点击。默认为true。 [since 10]
    * @returns { On } - 返回指定目标控件的可点击状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2125,7 +2125,7 @@ declare class On {
   /**
    * 指定目标控件的可长按点击状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件可长按点击状态。true：可长按点击。false：不可长按点击。默认为true。<!--RP2--><!--RP2End--> [since 10]
+   * @param { boolean } [b] - 指定控件可长按点击状态。true：可长按点击。false：不可长按点击。默认为true。 [since 10]
    * @returns { On } - 返回指定目标控件的可长按点击状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2141,7 +2141,7 @@ declare class On {
   /**
    * 指定目标控件的可滑动状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 控件可滑动状态。true：可滑动。false：不可滑动。默认为true。<!--RP2--><!--RP2End--> [since 10]
+   * @param { boolean } [b] - 控件可滑动状态。true：可滑动。false：不可滑动。默认为true。 [since 10]
    * @returns { On } - 返回指定目标控件的可滑动状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2157,7 +2157,7 @@ declare class On {
   /**
    * 指定目标控件的使能状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件使能状态。true：使能。false：未使能。默认为true。<!--RP2--><!--RP2End--> [since 10]
+   * @param { boolean } [b] - 指定控件使能状态。true：使能。false：未使能。默认为true。 [since 10]
    * @returns { On } - 返回指定目标控件的使能状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2173,7 +2173,7 @@ declare class On {
   /**
    * 指定目标控件的获焦状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 控件获焦状态。true：获焦。false：未获焦。默认为true。<!--RP2--><!--RP2End--> [since 10]
+   * @param { boolean } [b] - 控件获焦状态。true：获焦。false：未获焦。默认为true。 [since 10]
    * @returns { On } - 返回指定目标控件的获焦状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2189,7 +2189,7 @@ declare class On {
   /**
    * 指定目标控件的被选中状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件被选中状态。true：被选中。false：未被选中。默认为true。<!--RP2--><!--RP2End--> [since 10]
+   * @param { boolean } [b] - 指定控件被选中状态。true：被选中。false：未被选中。默认为true。 [since 10]
    * @returns { On } - 返回指定目标控件的被选中状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2205,7 +2205,7 @@ declare class On {
   /**
    * 指定目标控件的被勾选状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件被勾选状态。true：被勾选。false：未被勾选。默认为true。<!--RP2--><!--RP2End--> [since 10]
+   * @param { boolean } [b] - 指定控件被勾选状态。true：被勾选。false：未被勾选。默认为true。 [since 10]
    * @returns { On } - 返回指定目标控件的被勾选状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2221,7 +2221,7 @@ declare class On {
   /**
    * 指定目标控件能否被勾选状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件能否被勾选状态。true：能被勾选。false：不能被勾选。默认为true。<!--RP2--><!--RP2End--> [since 10]
+   * @param { boolean } [b] - 指定控件能否被勾选状态。true：能被勾选。false：不能被勾选。默认为true。 [since 10]
    * @returns { On } - 返回指定目标控件能否被勾选状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2237,7 +2237,7 @@ declare class On {
   /**
    * 指定目标控件位于给出的特征属性控件之前，返回On对象自身。
    *
-   * @param { On } on - 特征控件的属性要求。 <!--RP3--><!--RP3End-->
+   * @param { On } on - 特征控件的属性要求。 
    * @returns { On } - 返回指定目标控件位于给出的特征属性控件之前的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2267,7 +2267,7 @@ declare class On {
   /**
    * 指定目标控件位于给出的特征属性控件之后，返回On对象自身。
    *
-   * @param { On } on - 特征控件的属性要求。 <!--RP3--><!--RP3End-->
+   * @param { On } on - 特征控件的属性要求。 
    * @returns { On } - 返回指定目标控件位于给出的特征属性控件之后的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2297,7 +2297,7 @@ declare class On {
   /**
    * 指定目标控件位于给出的特征属性控件之内，返回On对象自身。
    *
-   * @param { On } on - 特征控件的属性要求。<!--RP3--><!--RP3End-->
+   * @param { On } on - 特征控件的属性要求。
    * @returns { On } - 返回指定目标控件位于给出的特征属性控件内的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2327,7 +2327,7 @@ declare class On {
   /**
    * 指定目标控件位于给出的应用窗口内，返回On对象自身。
    *
-   * @param { string } bundleName - 应用窗口的包名。<!--RP2--><!--RP2End-->
+   * @param { string } bundleName - 应用窗口的包名。
    * @returns { On } - 返回指定目标控件位于给出的应用窗口内的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2345,7 +2345,7 @@ declare class On {
    * @param { int } displayId - 指定控件所属屏幕ID，取值范围：大于等于0的整数。
    *      **说明：** 传入displayId不存在时，将抛出17000007异常。可通过
    *     [getAllDisplays]{@link @ohos.display:display.getAllDisplays(callback: AsyncCallback<Array<Display>>)}获取当前所有的
-   *     display对象，并由display对象获取对应的屏幕ID。<!--RP2--><!--RP2End-->
+   *     display对象，并由display对象获取对应的屏幕ID。
    * @returns { On } - 返回指定控件所属屏幕的On对象。
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -2359,7 +2359,7 @@ declare class On {
   /**
    * 指定目标控件的描述属性，支持多种匹配模式，返回On对象自身。
    *
-   * @param { string } val - 控件的描述属性。 <!--RP2--><!--RP2End-->
+   * @param { string } val - 控件的描述属性。 
    * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
    * @returns { On } - 返回指定目标控件description属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -2375,7 +2375,7 @@ declare class On {
   /**
    * 指定目标控件id属性和匹配模式，返回On对象自身。
    *
-   * @param { string } id - 指定控件的id值。<!--RP2--><!--RP2End-->
+   * @param { string } id - 指定控件的id值。
    * @param { MatchPattern } pattern - 指定的文本匹配模式。
    * @returns { On } - 返回指定目标控件id属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -2391,7 +2391,7 @@ declare class On {
   /**
    * 指定目标控件的控件类型属性和匹配模式，返回On对象自身。
    *
-   * @param { string } tp - 指定控件类型。<!--RP2--><!--RP2End-->
+   * @param { string } tp - 指定控件类型。
    * @param { MatchPattern } pattern - 指定的文本匹配模式。
    * @returns { On } - 返回指定目标控件的控件类型属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -2407,7 +2407,7 @@ declare class On {
   /**
    * 获取指定提示文本的控件对象，返回On对象自身。
    *
-   * @param { string } val - 指定控件提示文本。  <!--RP2--><!--RP2End-->
+   * @param { string } val - 指定控件提示文本。  
    * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
    * @returns { On } - 返回指定提示文本控件的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -2429,7 +2429,7 @@ declare class On {
    * > [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
    * > 设置为'no'或'no-hide-descendants'，可以使用本接口指定目标控件的文本属性用于查找控件，使用[On.text()]{@link On#text}接口不生效。
    *
-   * @param { string } text - 指定控件文本，用于匹配目标控件文本。 <!--RP2--><!--RP2End-->
+   * @param { string } text - 指定控件文本，用于匹配目标控件文本。 
    * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
    * @returns { On } - 返回指定目标控件文本属性的On对象。
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -4321,7 +4321,7 @@ declare class Driver {
    * 
    * > **说明：**
    * >
-   * > 若设备关闭了指关节手势<!--RP4--><!--RP4End-->，则调用本接口返回17000005错误码。
+   * > 若设备关闭了指关节手势，则调用本接口返回17000005错误码。
    *
    * @param { Array<Point> } pointers - 指关节敲击屏幕坐标点的数组，数组长度取值为1或2。
    * @param { int } times - 指关节连续敲击屏幕的次数，取值为1或2。
@@ -4342,7 +4342,7 @@ declare class Driver {
    * 
    * > **说明：**
    * >
-   * > 若设备关闭了指关节手势<!--RP4--><!--RP4End-->，则调用本接口返回17000005错误码。
+   * > 若设备关闭了指关节手势，则调用本接口返回17000005错误码。
    *
    * @param { PointerMatrix } pointers - 滑动轨迹，包括操作手指个数和滑动坐标序列。
    *     
@@ -4818,11 +4818,10 @@ declare namespace ON {
   export function checkable(b?: boolean): On;
 
   /**
-   * Requires that the target Component which is before another Component that specified by the given {@link On}
-   * object,used to locate Component relatively.
+   * 指定目标控件位于给出的特征属性控件之前，返回 On 对象自身。
    *
-   * @param { On } on - describes the attribute requirements of Component which the target one is in front of.
-   * @returns { On } this {@link On} object.
+   * @param { On } on - 特征控件的属性要求。
+   * @returns { On } - 返回指定目标控件位于给出的特征属性控件之前的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4830,11 +4829,10 @@ declare namespace ON {
   export function isBefore(on: On): On;
 
   /**
-   * Requires that the target Component which is after another Component that specified by the given {@link On}
-   * object,used to locate Component relatively.
+   * 指定目标控件位于给出的特征属性控件之后，返回 On 对象自身。
    *
-   * @param { On } on - describes the attribute requirements of Component which the target one is in back of.
-   * @returns { On } this {@link On} object.
+   * @param { On } on - 特征控件的属性要求。
+   * @returns { On } - 返回指定目标控件位于给出的特征属性控件之后的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4842,11 +4840,10 @@ declare namespace ON {
   export function isAfter(on: On): On;
 
   /**
-   * Requires that the target Component which is inside of another Component that specified by the given {@link On}
-   * object,used to locate Component relatively.
+   * 指定目标控件位于给出的特征属性控件之内，返回 On 对象自身。
    *
-   * @param { On } on - describes the attribute requirements of Component which the target one is inside of.
-   * @returns { On } this {@link On} object.
+   * @param { On } on - 特征控件的属性要求。
+   * @returns { On } - 返回指定目标控件位于给出的特征属性控件之内的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
