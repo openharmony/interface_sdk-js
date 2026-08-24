@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file VCard
  * @kit TelephonyKit
  */
 
@@ -24,371 +24,230 @@ import type dataSharePredicates from './@ohos.data.dataSharePredicates';
 import type Context from './application/BaseContext';
 
 /**
- * Provides applications with APIs for obtaining vcard.
+ * VCard is a file format standard for electronic business cards. It contains information such as names, addresses,
+ * phone numbers, URLs, logos, and photos. The VCard module provides the VCard management functions, including importing
+ * VCard files to the contact database and exporting contact data to VCard files.
  *
- * @namespace vcard
  * @syscap SystemCapability.Telephony.CoreService
  * @since 11 dynamic
  * @since 23 static
  */
 declare namespace vcard {
   /**
-   * Import contacts from the specified vcf file.
+   * Imports a VCard file (that is, **.vcf** file) to the contact database. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS and
    *     ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or
-   *     capability.
-   * @param { string } filePath - Vcf file path.
-   * @param { int } accountId - Contact account ID. When the app chooses to
-   *      import the vcf file into a contact account,
-   *      it needs to pass in the accountId. If the accountId is not passed, a new
-   *      contact account will be added by default.
-   * @param { AsyncCallback<void> } callback - The callback of the function.
+   * @param { Context } context - Application context.
+   * @param { string } filePath - URL of the vcard file (VCF).
+   * @param { int } accountId - Contact account ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 11 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 11 - 22]
+   * @publicapi [since 23]
    * @since 11 dynamic
-   */
-  /**
-   * Import contacts from the specified vcf file.
-   *
-   * @permission ohos.permission.WRITE_CONTACTS and
-   *      ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or
-   *     capability.
-   * @param { string } filePath - Vcf file path.
-   * @param { int } accountId - Contact account ID. When the app chooses to
-   *      import the vcf file into a contact account,
-   *     it needs to pass in the accountId. If the accountId is not passed, a new
-   *      contact account will be added by default.
-   * @param { AsyncCallback<void> } callback - The callback of the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function importVCard(context: Context, filePath: string, accountId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Import contacts from the specified vcf file.
+   * Imports a VCard file (that is, **.vcf** file) to the contact database. This API uses a promise to return the
+   * result.
    *
    * @permission ohos.permission.WRITE_CONTACTS and
-   *      ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or
-   *     capability.
-   * @param { string } filePath - Vcf file path.
-   * @param { int } accountId - Contact account ID.When the app chooses to
-   *     import the vcf file into a contact account,
-   *      it needs to pass in the accountId. If the accountId is not passed, a new
-   *      contact account will be added by default.
-   * @returns { Promise<void> } the promise returned by the function.
+   *     ohos.permission.READ_CONTACTS
+   * @param { Context } context - Application context.
+   * @param { string } filePath - URL of the vcard file (VCF).
+   * @param { int } accountId - Contact account ID.
+   * @returns { Promise<void> } Promise used to return the operation result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 11 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 11 - 22]
+   * @publicapi [since 23]
    * @since 11 dynamic
-   */
-  /**
-   * Import contacts from the specified vcf file.
-   *
-   * @permission ohos.permission.WRITE_CONTACTS and
-   *      ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or
-   *     capability.
-   * @param { string } filePath - Vcf file path.
-   * @param { int } accountId - Contact account ID.When the app chooses to
-   *     import the vcf file into a contact account,
-   *     it needs to pass in the accountId. If the accountId is not passed, a new
-   *     contact account will be added by default.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function importVCard(context: Context, filePath: string, accountId?: int): Promise<void>;
 
   /**
-   * Import contacts from the specified vcf file.
+   * Imports a VCard file (that is, **.vcf** file) to the contact database. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS and
-   *      ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or
-   *     capability.
-   * @param { string } filePath - Vcf file path.
-   * @param { AsyncCallback<void> } callback - The callback of the function.
+   *     ohos.permission.READ_CONTACTS
+   * @param { Context } context - Application context.
+   * @param { string } filePath - URL of the vcard file (VCF).
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 11 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 11 - 22]
+   * @publicapi [since 23]
    * @since 11 dynamic
-   */
-  /**
-   * Import contacts from the specified vcf file.
-   *
-   * @permission ohos.permission.WRITE_CONTACTS and
-   *      ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or
-   *     capability.
-   * @param { string } filePath - Vcf file path.
-   * @param { AsyncCallback<void> } callback - The callback of the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function importVCard(context: Context, filePath: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Export contact data to a vcf file.
+   * Exports contacts as a vcard file (VCF). This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS and ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { dataSharePredicates.DataSharePredicates } predicates - Execute statement.
-   * @param { VCardBuilderOptions } options - Encoding and version.
-   * @param { AsyncCallback<string> } callback - Represents the address of the generated vcf file.
+   * @param { Context } context - Application context.
+   * @param { dataSharePredicates.DataSharePredicates } predicates - Query statement.
+   * @param { VCardBuilderOptions } options - VCard version and encoding type.
+   * @param { AsyncCallback<string> } callback - Callback used to Address of the generated vcard file (VCF).
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 11 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 11 - 22]
+   * @publicapi [since 23]
    * @since 11 dynamic
-   */
-  /**
-   * Export contact data to a vcf file.
-   *
-   * @permission ohos.permission.WRITE_CONTACTS and ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { dataSharePredicates.DataSharePredicates } predicates - Execute statement.
-   * @param { VCardBuilderOptions } options - Encoding and version.
-   * @param { AsyncCallback<string> } callback - Represents the address of the generated vcf file.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, options: VCardBuilderOptions, callback: AsyncCallback<string>): void;
 
   /**
-   * Export contact data to a vcf file.
+   * Exports contacts as a vcard file (VCF). This API uses a promise to return the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS and ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { dataSharePredicates.DataSharePredicates } predicates - Execute statement.
-   * @param { VCardBuilderOptions } options - Encoding and version.
-   * @returns { Promise<string> } the promise represents the address of the generated vcf file..
+   * @param { Context } context - Application context.
+   * @param { dataSharePredicates.DataSharePredicates } predicates - Query statement.
+   * @param { VCardBuilderOptions } options - VCard version and encoding type.
+   * @returns { Promise<string> } Promise used to return the operation result.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 11 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 11 - 22]
+   * @publicapi [since 23]
    * @since 11 dynamic
-   */
-  /**
-   * Export contact data to a vcf file.
-   *
-   * @permission ohos.permission.WRITE_CONTACTS and ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { dataSharePredicates.DataSharePredicates } predicates - Execute statement.
-   * @param { VCardBuilderOptions } options - Encoding and version.
-   * @returns { Promise<string> } the promise represents the address of the generated vcf file..
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, options?: VCardBuilderOptions): Promise<string>;
 
   /**
-   * Export contact data to a vcf file.
+   * Exports contacts as a vcard file (VCF). This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.WRITE_CONTACTS and ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { dataSharePredicates.DataSharePredicates } predicates - Execute statement.
-   * @param { AsyncCallback<string> } callback - Represents the address of the generated vcf file.
+   * @param { Context } context - Application context.
+   * @param { dataSharePredicates.DataSharePredicates } predicates - Query statement.
+   * @param { AsyncCallback<string> } callback - Callback used to Address of the generated vcard file (VCF).
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 11 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300999 - Unknown error.
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 11 - 22]
+   * @publicapi [since 23]
    * @since 11 dynamic
-   */
-  /**
-   * Export contact data to a vcf file.
-   *
-   * @permission ohos.permission.WRITE_CONTACTS and ohos.permission.READ_CONTACTS
-   * @param { Context } context - Indicates the context of application or capability.
-   * @param { dataSharePredicates.DataSharePredicates } predicates - Execute statement.
-   * @param { AsyncCallback<string> } callback - Represents the address of the generated vcf file.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @syscap SystemCapability.Telephony.CoreService
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function exportVCard(context: Context, predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<string>): void;
 
   /**
-   * Indicates the VCard types.
+   * Enumerates VCard versions.
    *
-   * @enum { string }
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 11 - 22]
+   * @publicapi [since 23]
    * @since 11 dynamic
-   */
-  /**
-   * Indicates the VCard types.
-   *
-   * @enum { string }
-   * @syscap SystemCapability.Telephony.CoreService
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   export enum VCardType {
 
     /**
-     * Indicates the VCard version 2.1.
+     * VCard 2.1.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 11 - 22]
+     * @publicapi [since 23]
      * @since 11 dynamic
-     */
-    /**
-     * Indicates the VCard version 2.1.
-     *
-     * @syscap SystemCapability.Telephony.CoreService
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     VERSION_21 = 0,
 
     /**
-     * Indicates the VCard version 3.0.
+     * VCard 3.0.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 11 - 22]
+     * @publicapi [since 23]
      * @since 11 dynamic
-     */
-    /**
-     * Indicates the VCard version 3.0.
-     *
-     * @syscap SystemCapability.Telephony.CoreService
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     VERSION_30 = 1,
 
     /**
-     * Indicates the VCard version 4.0.
+     * VCard 4.0.
      *
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 11 - 22]
+     * @publicapi [since 23]
      * @since 11 dynamic
-     */
-    /**
-     * Indicates the VCard version 4.0.
-     *
-     * @syscap SystemCapability.Telephony.CoreService
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     VERSION_40 = 2
   }
 
   /**
-   * Indicates the options for VCard export.
+   * Defines the VCard information.
    *
-   * @interface VCardBuilderOptions
    * @syscap SystemCapability.Telephony.CoreService
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hide this for inner system use. [since 11 - 22]
+   * @publicapi [since 23]
    * @since 11 dynamic
-   */
-  /**
-   * Indicates the options for VCard export.
-   *
-   * @interface VCardBuilderOptions
-   * @syscap SystemCapability.Telephony.CoreService
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   export interface VCardBuilderOptions {
     /**
-     * Indicates the VCard types.
+     * VCard version. The default value is **VERSION_21**.
      *
-     * @type { ?VCardType }
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 11 - 22]
+     * @publicapi [since 23]
      * @since 11 dynamic
-     */
-    /**
-     * Indicates the VCard types.
-     *
-     * @type { ?VCardType }
-     * @syscap SystemCapability.Telephony.CoreService
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     cardType?: VCardType;
     /**
-     * Indicates the Encoding format.
+     * VCard encoding type. The default value is **UTF-8**.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Telephony.CoreService
-     * @systemapi Hide this for inner system use.
+     * @systemapi Hide this for inner system use. [since 11 - 22]
+     * @publicapi [since 23]
      * @since 11 dynamic
-     */
-    /**
-     * Indicates the Encoding format.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.Telephony.CoreService
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     charset?: string;
   }
