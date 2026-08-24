@@ -4101,6 +4101,7 @@ declare class Driver {
 
   /**
    * Drags the mouse pointer from the start point to the end point. This API uses a promise to return the result.
+   * For API version 26.0.0 and earlier, this API does not support cross-screen mouse dragging. The start point and end point must be on the same screen. Otherwise, error code 401 will be returned. Since API version 26.0.0, this API supports cross-screen mouse dragging.
    *
    * @param { Point } from - Coordinates of the start point.
    * @param { Point } to - Coordinates of the end point.
@@ -4123,6 +4124,7 @@ declare class Driver {
   /**
    * Drags the mouse from the start point to the end point. You can specify the dragging speed and the duration before
    * dragging. This API uses a promise to return the result.
+   * For API version 26.0.0 and earlier, this API does not support cross-screen mouse dragging. The start point and end point must be on the same screen. Otherwise, error code 401 will be returned. Since API version 26.0.0, this API supports cross-screen mouse dragging.
    *
    * @param { Point } from - Coordinates of the start point.
    * @param { Point } to - Coordinates of the end point.
