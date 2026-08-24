@@ -24,6 +24,8 @@ export const SDK_DEVICE_INFO_FILE = '@ohos.deviceInfo.d.ets';
 
 /** 单槽位节点类型 → setter 方法名 */
 export const SINGLE_SETTER_BY_KIND: Partial<Record<arkts.Es2pandaAstNodeType, string>> = {
+  // class property：全局属性
+  [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_CLASS_PROPERTY]: 'setValue',
   // 表达式语句：foo 作为独立语句
   [arkts.Es2pandaAstNodeType.AST_NODE_TYPE_EXPRESSION_STATEMENT]: 'setExpression',
   // await 表达式：await foo()
