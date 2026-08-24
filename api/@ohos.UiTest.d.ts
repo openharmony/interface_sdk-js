@@ -475,8 +475,8 @@ declare class UiComponent {
   isSelected(): Promise<boolean>;
 
   /**
-   * Inputs text to a component. This API takes effect only for editable text components. This API uses a promise to
-   * return the result.
+   * Inputs text to a component. This API takes effect only for editable text components. 
+   * This API uses a promise to return the result.
    *
    * @param { string } text - Text to enter.
    * @returns { Promise<void> } - Promise that returns no value.
@@ -489,8 +489,8 @@ declare class UiComponent {
   inputText(text: string): Promise<void>;
 
   /**
-   * Scrolls on this component to search for the target component (applicable to components that support scrolling, such
-   * as **List**). This API uses a promise to return the result.
+   * Scrolls on this component to search for the target component (applicable to components that support scrolling, 
+   * such as **List**). This API uses a promise to return the result.
    *
    * @param { By } by - Attributes of the target component.
    * @returns { Promise<UiComponent> } - Promise used to return the target component.
@@ -548,8 +548,8 @@ declare class UiDriver {
   delayMs(duration: number): Promise<void>;
 
   /**
-   * Searches this **UiDriver** object for the target component that matches the given attributes. This API uses a
-   * promise to return the result.
+   * Searches this **UiDriver** object for the target component that matches the given attributes. 
+   * This API uses a promise to return the result.
    *
    * @param { By } by - Attributes of the target component.
    * @returns { Promise<UiComponent> } - Promise used to return the component.
@@ -562,8 +562,8 @@ declare class UiDriver {
   findComponent(by: By): Promise<UiComponent>;
 
   /**
-   * Searches this **UiDriver** object for all components that match the given attributes. This API uses a promise to
-   * return the result.
+   * Searches this **UiDriver** object for all components that match the given attributes. 
+   * This API uses a promise to return the result.
    *
    * @param { By } by - Attributes of the target component.
    * @returns { Promise<Array<UiComponent>> } - Promise used to return the list of components.
@@ -576,9 +576,9 @@ declare class UiDriver {
   findComponents(by: By): Promise<Array<UiComponent>>;
 
   /**
-   * Asserts that a component that matches the given attributes exists on the current page. If the component does not
-   * exist, the API throws a JS exception, causing the current test case to fail. This API uses a promise to return the
-   * result.
+   * Asserts that a component that matches the given attributes exists on the current page. 
+   * If the component does not exist, the API throws a JS exception, causing the current test case to fail. 
+   * This API uses a promise to return the result.
    *
    * @param { By } by - Attributes of the target component.
    * @returns { Promise<void> } - Promise that returns no value.
@@ -655,8 +655,8 @@ declare class UiDriver {
   doubleClick(x: number, y: number): Promise<void>;
 
   /**
-   * Long-clicks a specific point of this **UiDriver** object based on the given coordinates. This API uses a promise to
-   * return the result.
+   * Long-clicks a specific point of this **UiDriver** object based on the given coordinates. 
+   * This API uses a promise to return the result.
    *
    * @param { number } x - Horizontal coordinate of the target point, in pixels. The value is an integer greater than
    *     or equal to 0.
@@ -672,8 +672,8 @@ declare class UiDriver {
   longClick(x: number, y: number): Promise<void>;
 
   /**
-   * Swipes on this **UiDriver** object from the start point to the end point based on the given coordinates. This API
-   *  uses a promise to return the result.
+   * Swipes on this **UiDriver** object from the start point to the end point based on the given coordinates. 
+   * This API uses a promise to return the result.
    *
    * @param { number } startx - Horizontal coordinate of the start point, in pixels. The value is an integer greater
    *     than or equal to 0.
@@ -693,8 +693,8 @@ declare class UiDriver {
   swipe(startx: number, starty: number, endx: number, endy: number): Promise<void>;
 
   /**
-   * Captures the current screen of this **UiDriver** object and saves it as a PNG image to the given save path. This
-   * API uses a promise to return the result.
+   * Captures the current screen of this **UiDriver** object and saves it as a PNG image to the given save path.
+   * This API uses a promise to return the result.
    *
    * @param { string } savePath - File save path.
    * @returns { Promise<boolean> } - Promise used to return whether the screenshot operation is successful.
@@ -941,8 +941,8 @@ declare interface Point {
    */
   y: int;
   /**
-   * ID of the display to which the coordinate point belongs. The
-   * default value is the default screen ID of the device.
+   * ID of the display to which the coordinate point belongs. 
+   * The default value is the default screen ID of the device.
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -1040,8 +1040,8 @@ declare interface WindowFilter {
   bundleName?: string;
 
   /**
-   * Window title, which is used to filter the target window in multi-window scenarios. This parameter is left empty
-   * by default.
+   * Window title, which is used to filter the target window in multi-window scenarios. 
+   * This parameter is left empty by default.
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice [since 11]
@@ -1051,8 +1051,8 @@ declare interface WindowFilter {
   title?: string;
 
   /**
-   * Whether the window is focused. The value **true** indicates that the window is focused, and **false** indicates the
-   *  opposite. 
+   * Whether the window is focused.
+   * The value **true** indicates that the window is focused, and **false** indicates the opposite. 
    * The default value is **false**.
    *
    * @syscap SystemCapability.Test.UiTest
@@ -1063,8 +1063,9 @@ declare interface WindowFilter {
   focused?: boolean;
 
   /**
-   * Whether the window is interacting with the user. The value **true** indicates that the window is interacting with
-   * the user, and **false** indicates the opposite.
+   * Whether the window is interacting with the user. 
+   * The value **true** indicates that the window is interacting with the user, 
+   * and **false** indicates the opposite.
    *
    * This API is supported since API version 9 and deprecated since API version 11. You are advised to use
    * {@link WindowFilter#active} instead.
@@ -2227,9 +2228,9 @@ declare class On {
    *
    * @param { int } displayId - ID of the display to which the component belongs. The value is an integer greater than
    *     or equal to 0.
-   *     <br>**Note**: If the input **displayId** does not exist, the exception **17000007** is reported. You can use
-   *     [getAllDisplays]{@link @ohos.display:display.getAllDisplays(callback: AsyncCallback<Array<Display>>)} to obtain
-   *     all current **display** objects and use them to obtain the corresponding display IDs.
+   *     <br>**Note**: If the input **displayId** does not exist, the exception **17000007** is reported. 
+   * You can use [getAllDisplays]{@link @ohos.display:display.getAllDisplays(callback: AsyncCallback<Array<Display>>)} 
+   * to obtain all current **display** objects and use them to obtain the corresponding display IDs.
    * @returns { On } - The **On** object of the display to which the specified component belongs.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -3434,7 +3435,10 @@ declare class Driver {
    * Swipe on the screen between the specified points with optional touch options.
    *
    * @param { Point } from - the coordinate point where the finger touches the screen.
-   * @param { Point } to - [Point] object, which transfers the coordinates of the end point and the ID of the display to which the start point belongs. Note: The target point and the start point must be on the same screen. Otherwise, the 17000007 exception is thrown.
+   * @param { Point } to - [Point] object, 
+   * which transfers the coordinates of the end point and the ID of the display to which the start point belongs. 
+   * Note: The target point and the start point must be on the same screen. 
+   * Otherwise, the 17000007 exception is thrown.
    * @param { TouchOptions } [options] - the options for the swipe operation.
    *                                Only the 'speed' and 'pressure' properties are applicable for this method.
    *                                Setting other properties will result in a BusinessError 17000007.
@@ -3482,7 +3486,10 @@ declare class Driver {
    * Drag on the screen between the specified points with optional settings.
    *
    * @param { Point } from - the coordinate point where the finger touches the screen.
-   * @param { Point } to - [Point] object, which transfers the coordinates of the end point and the ID of the display to which the start point belongs. Note: The target point and the start point must be on the same screen. Otherwise, the 17000007 exception is thrown.
+   * @param { Point } to - [Point] object, 
+   * which transfers the coordinates of the end point and the ID of the display to which the start point belongs. 
+   * Note: The target point and the start point must be on the same screen. 
+   * Otherwise, the 17000007 exception is thrown.
    * @param { TouchOptions } [options] - the options for the drag operation.
    *                         Only the 'pressure', 'speed', and 'duration' properties are applicable for this method.
    *                         Setting other properties will result in a BusinessError 17000007.
@@ -3498,8 +3505,9 @@ declare class Driver {
    */
   dragBetweenWithOptions(from: Point, to: Point, options?: TouchOptions): Promise<void>;
   /**
-   * Captures the current screen and saves it as a PNG image to the given save path. This API uses a promise to return
-   * the result. This API can be used in scenarios where screenshots are supported.
+   * Captures the current screen and saves it as a PNG image to the given save path. 
+   * This API uses a promise to return the result. 
+   * This API can be used in scenarios where screenshots are supported.
    *
    * @param { string } savePath - File save path. The path must be the
    *     [sandbox path](docroot://file-management/app-sandbox-directory.md) of the current application.
@@ -3517,8 +3525,9 @@ declare class Driver {
   screenCap(savePath: string): Promise<boolean>;
 
   /**
-   * Captures the specified screen and saves it as a PNG image to the given save path. This API uses a promise to
-   * return the result. This API can be used in scenarios where screenshots are supported.
+   * Captures the specified screen and saves it as a PNG image to the given save path. 
+   * This API uses a promise to return the result. 
+   * This API can be used in scenarios where screenshots are supported.
    *
    * @param { string } savePath - File save path. The path must be the
    *     [sandbox path](docroot://file-management/app-sandbox-directory.md) of the current application.
@@ -3758,9 +3767,10 @@ declare class Driver {
    * redirection, animation playback, and loading. After calling this method, you can perform subsequent test
    * operations only after the UI becomes stable. This API uses a promise to return the result.
    *
-   * @param { int } idleTime - Idle time threshold, in ms. If the duration for which a component remains inactive reaches
-   *     this threshold, it is considered as idle. The value must be an integer greater than or equal to 0. If the
-   *     value is a negative number, error code 401 is returned.
+   * @param { int } idleTime - Idle time threshold, in ms. 
+   * If the duration for which a component remains inactive reaches this threshold, it is considered as idle. 
+   * The value must be an integer greater than or equal to 0. 
+   * If the value is a negative number, error code 401 is returned.
    * @param { int } timeout - Maximum waiting time, in ms. If the
    *     value is a negative number, error code 401 is returned.
    * @returns { Promise<boolean> } - Promise used to return whether all components on the current UI are idle. The value true
@@ -4123,7 +4133,9 @@ declare class Driver {
 
   /**
    * Drags the mouse pointer from the start point to the end point. This API uses a promise to return the result.
-   * For API version 26.0.0 and earlier, this API does not support cross-screen mouse dragging. The start point and end point must be on the same screen. Otherwise, error code 401 will be returned. Since API version 26.0.0, this API supports cross-screen mouse dragging.
+   * For API version 26.0.0 and earlier, this API does not support cross-screen mouse dragging. 
+   * The start point and end point must be on the same screen. Otherwise, error code 401 will be returned. 
+   * Since API version 26.0.0, this API supports cross-screen mouse dragging.
    *
    * @param { Point } from - Coordinates of the start point.
    * @param { Point } to - Coordinates of the end point.
@@ -4146,7 +4158,9 @@ declare class Driver {
   /**
    * Drags the mouse from the start point to the end point. You can specify the dragging speed and the duration before
    * dragging. This API uses a promise to return the result.
-   * For API version 26.0.0 and earlier, this API does not support cross-screen mouse dragging. The start point and end point must be on the same screen. Otherwise, error code 401 will be returned. Since API version 26.0.0, this API supports cross-screen mouse dragging.
+   * For API version 26.0.0 and earlier, this API does not support cross-screen mouse dragging. 
+   * The start point and end point must be on the same screen. Otherwise, error code 401 will be returned. 
+   * Since API version 26.0.0, this API supports cross-screen mouse dragging.
    *
    * @param { Point } from - Coordinates of the start point.
    * @param { Point } to - Coordinates of the end point.
@@ -4373,7 +4387,10 @@ declare class Driver {
   injectPenPointerAction(pointers: PointerMatrix, speed?: int, pressure?: double): Promise<void>;
 
   /**
-   * Triggers a stylus key operation. This method is applicable to test scenarios where stylus switching needs to be simulated, for example, simulating a click operation in air mouse mode or invoking the smart key. This API uses a promise to return the result.
+   * Triggers a stylus key operation. 
+   * This method is applicable to test scenarios where stylus switching needs to be simulated, 
+   * for example, simulating a click operation in air mouse mode or invoking the smart key. 
+   * This API uses a promise to return the result.
    *
    * Supported combinations:
    *
@@ -5124,7 +5141,9 @@ declare namespace ON {
    *
    * @param { int } displayId - ID of the display to which the component belongs. 
    * The value is an integer greater than or equal to 0.
-   *      **Note:** If the input displayId does not exist, the exception 17000007 is reported. You can use [getAllDisplays] to obtain all current display objects and then obtain the ID of the display from a display object.
+   *      **Note:** If the input displayId does not exist, the exception 17000007 is reported. 
+   * You can use [getAllDisplays]{@link @ohos.display:display.getAllDisplays(callback: AsyncCallback<Array<Display>>)} 
+   * to obtain all current **display** objects and use them to obtain the corresponding display IDs.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest

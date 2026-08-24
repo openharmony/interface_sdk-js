@@ -2745,7 +2745,6 @@ declare class Component {
    * 在控件上滑动到顶部（适用支持滑动的控件）。使用Promise异步回调。
    *
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。
-   *     [since 11]
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2764,7 +2763,6 @@ declare class Component {
    * 在控件上滑动到底部（适用支持滑动的控件）。使用Promise异步回调。
    *
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。
-   *     [since 11]
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -3199,7 +3197,7 @@ declare class Driver {
    * @param { number } key0 - 指定的第一个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}。
    * @param { number } key1 - 指定的第二个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}。
    * @param { number } [key2] - 指定的第三个key值，取值范围：大于等于0的整数。取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，
-   *     默认值为0。 [since 11]
+   *     默认值为0。
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3294,7 +3292,6 @@ declare class Driver {
    * @param { int } endx - 以number的形式传入目的点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } endy - 以number的形式传入目的点的纵坐标信息，取值范围：大于等于0的整数。
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。
-   *     [since 11]
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3316,7 +3313,6 @@ declare class Driver {
    * @param { int } endx - 以number的形式传入目的点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } endy - 以number的形式传入目的点的纵坐标信息，取值范围：大于等于0的整数。
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。
-   *     [since 11]
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3746,7 +3742,6 @@ declare class Driver {
    *
    * @param { PointerMatrix } pointers - 滑动轨迹，包括操作手指个数和滑动坐标序列。
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。
-   *     [since 11]
    * @returns { Promise<boolean> } - Promise对象，返回操作是否成功完成。true：完成，false：未完成。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3803,9 +3798,7 @@ declare class Driver {
    * @param { Point } p - 鼠标点击的坐标。
    * @param { MouseButton } btnId - 按下的鼠标按钮。
    * @param { int } [key1] - 指定的第一个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，默认值为0。
-   *     [since 11]
    * @param { int } [key2] - 指定的第二个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，默认值为0。
-   *     [since 11]
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3840,10 +3833,8 @@ declare class Driver {
    * @param { Point } p - 鼠标点击的坐标。
    * @param { boolean } down - 滚轮滑动方向是否向下。true表示向下滑动。false表示向上滚动。
    * @param { number } d - 鼠标滚轮滚动的格数，取值大于等于0的整数，每格对应目标点位移120px。
-   * @param { number } [key1] - 指定的第一个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，默认值
-   *     为0。 [since 11]
-   * @param { number } [key2] - 指定的第二个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，默认值
-   *     为0。 [since 11]
+   * @param { number } [key1] - 指定的第一个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，默认值为0。 
+   * @param { number } [key2] - 指定的第二个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，默认值为0。
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
