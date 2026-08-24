@@ -820,6 +820,17 @@ declare interface RichEditorImageSpanStyle {
    * @since 11 dynamic
    */
   layoutStyle?: RichEditorLayoutStyle;
+
+  /**
+   * 图片拉伸选项。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  resizable?: ResizableOptions;
 }
 
 /**
@@ -1386,6 +1397,17 @@ declare interface RichEditorImageSpanStyleResult {
    * @since 12 dynamic
    */
   layoutStyle?: RichEditorLayoutStyle;
+
+  /**
+   * 图片拉伸选项。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  resizable?: ResizableOptions;
 }
 
 /**

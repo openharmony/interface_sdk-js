@@ -174,6 +174,26 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @since 12 dynamic
    */
   alt(value: PixelMap): ImageSpanAttribute;
+
+  /**
+   * 设置图像拉伸时可调整大小的图像选项。拉伸对拖拽缩略图以及占位图有效。
+   *
+   * 设置合法的 [ResizableOptions]{@link ResizableOptions} 时，objectRepeat属性、antialiased属性和orientation属性设置不生效。
+   *
+   * 当设置 top +bottom 大于原图的高或者 left + right 大于原图的宽时 [ResizableOptions]{@link ResizableOptions} 属性设置不生效。
+   *
+   * 当组件的参数类型为动图、[AnimatedDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:AnimatedDrawableDescriptor}和SVG时设置该属性
+   * 不生效。
+   *
+   * @param { ResizableOptions } value - 图像拉伸时可调整大小的图像选项。
+   * @returns { ImageSpanAttribute } Returns the instance of the ImageSpanAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  resizable(value: ResizableOptions): ImageSpanAttribute;
 }
 
 /**
