@@ -4930,7 +4930,7 @@ declare namespace ON {
 
   /**
    * Specifies the original text for the target Component.
-   * If the accessibility property 'accessibilityLevel' of a component is set to 'no' or 'no-hide-descendants',
+   * If the accessibility property [accessibilityLevel]{@link CommonMethod#accessibilityLevel} of a component is set to 'no' or 'no-hide-descendants',
    * you will not be able to use {@link On.text} to match the component with the specified original text, but you can 
    * use this method to achieve it;
    * if the component does not set the above accessibility property, this method has no difference with {@link On.text}
