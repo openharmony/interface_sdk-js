@@ -228,7 +228,7 @@ declare class By {
   /**
    * Specifies the scrollable attribute of the target component.
    *
-   * @param { boolean } b - Scrollable status of the component. The value **true** indicates that the component is scrollable
+   * @param { boolean } b - Whether the specified component is scrollable. The value **true** indicates that the component is scrollable
    *     , and **false** indicates the opposite. Default value: **true**
    * @returns { By } - **By** object that matches the scrollable attribute of the target component.
    * @syscap SystemCapability.Test.UiTest
@@ -932,7 +932,7 @@ declare interface Point {
    */
   y: int;
   /**
-   * ID of the display to which the coordinate point belongs. The value is an integer greater than or equal to 0. The
+   * ID of the display to which the coordinate point belongs. The
    * default value is the default screen ID of the device.
    *
    * @syscap SystemCapability.Test.UiTest
@@ -1073,7 +1073,7 @@ declare interface WindowFilter {
   active?: boolean;
 
   /**
-   * ID of the display to which the window belongs. The value is an integer greater than or equal to 0. The default
+   * ID of the display to which the window belongs. The default
    * value is the default screen ID of the device.
    *
    * @syscap SystemCapability.Test.UiTest
@@ -2000,7 +2000,7 @@ declare class On {
   /**
    * Specifies the scrollable attribute of the target component.
    *
-   * @param { boolean } [b] - Scrollable status of the component. The value **true** indicates that the component is
+   * @param { boolean } [b] - Whether the specified component is scrollable. The value **true** indicates that the component is
    *     scrollable, and **false** indicates the opposite. Default value: **true**
    * @returns { On } - **On** object that matches the scrollable attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
@@ -2632,7 +2632,7 @@ declare class Component {
    * Scrolls to the top of this component. This API is applicable to components that support scrolling. This API uses
    * a promise to return the result.
    *
-   * @param { int } [speed] - Scroll speed.
+   * @param { int } [speed] - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
    *     <br>Throws error code 401 if negative.
@@ -2655,7 +2655,7 @@ declare class Component {
    * Scrolls to the bottom of this component. This API is applicable to components that support scrolling. This API
    * uses a promise to return the result.
    *
-   * @param { int } [speed] - Scroll speed.
+   * @param { int } [speed] - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
    *     <br>Throws error code 401 if negative.
@@ -2814,7 +2814,7 @@ declare class Component {
    * @param { boolean } [vertical] - Whether the search direction is vertical. The default value **true** indicates that the
    *     search direction is vertical. **false** indicates that the search direction is horizontal.
    * @param { number } [offset] - Offset from the scrolling start/end point to the component border, in pixels. The
-   *     default value is **80**. The value is an integer greater than or equal to 0. If the value is a negative
+   *     default value is **80**. If the value is a negative
    *     number, error code 401 is returned.
    * @returns { Promise<Component> } - Promise used to return the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -2895,7 +2895,7 @@ declare class Driver {
   /**
    * Delays a duration of time. This API uses a promise to return the result.
    *
-   * @param { int } duration - Specified time, in ms. The value is an integer greater than or equal to 0. If the
+   * @param { int } duration - Specified time, in ms. If the
    *     value is a negative number, error code 401 is returned.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -3127,11 +3127,11 @@ declare class Driver {
    * result. For example, if the key code value is (2072, 2019), the module finds and clicks the key combination that
    * matches the value, for example, **Ctrl+C**.
    *
-   * @param { number } key0 - First key code value. The value is an integer greater than or equal to 0.
+   * @param { number } key0 - First key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
-   * @param { number } key1 - Second key code value. The value is an integer greater than or equal to 0.
+   * @param { number } key1 - Second key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
-   * @param { number } [key2] - Third key code value. The value is an integer greater than or equal to 0.
+   * @param { number } [key2] - Third key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @returns { Promise<void> } - Promise that returns no value.
@@ -3151,14 +3151,14 @@ declare class Driver {
    * promise to return the result. For example, if the key code value is (2072, 2019), the module finds and clicks the
    * key combination that matches the value, for example, **Ctrl+C**.
    *
-   * @param { int } key0 - First key code value. The value is an integer greater than or equal to 0.
+   * @param { int } key0 - First key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
-   * @param { int } key1 - Second key code value. The value is an integer greater than or equal to 0.
+   * @param { int } key1 - Second key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
-   * @param { int } [key2] - Third key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key2] - Third key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [displayId] - Display ID. The value is an integer greater than or equal to 0. The default value is the
+   * @param { int } [displayId] - Display ID. The default value is the
    *     default display ID of the device.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -3524,7 +3524,7 @@ declare class Driver {
    * @param { string } savePath - the path where to store the json, must be in the application sandbox directory.
    *     The path must be the [sandbox path](docroot://file-management/app-sandbox-directory.md) of the current
    *     application.
-   * @param { int } [displayId] - Display ID. The value is an integer greater than or equal to 0. The default value
+   * @param { int } [displayId] - Display ID. The default value
    *     is the default screen ID of the device.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
    * @returns { Promise<boolean> } true if dump layout and file-storing are completed successfully,false otherwise.
@@ -3734,7 +3734,7 @@ declare class Driver {
    * @param { int } idleTime - Idle time threshold, in ms. If the duration for which a component remains inactive reaches
    *     this threshold, it is considered as idle. The value must be an integer greater than or equal to 0. If the
    *     value is a negative number, error code 401 is returned.
-   * @param { int } timeout - Maximum waiting time, in ms. The value is an integer greater than or equal to 0. If the
+   * @param { int } timeout - Maximum waiting time, in ms. If the
    *     value is a negative number, error code 401 is returned.
    * @returns { Promise<boolean> } - Promise used to return whether all components on the current UI are idle. The value true
    *     indicates that all components on the current UI are idle, and false indicates the opposite.
@@ -3755,10 +3755,10 @@ declare class Driver {
    *
    * @param { Point } from - Coordinates of the point where the finger touches the screen.
    * @param { Point } to - Coordinates of the point where the finger leaves the screen.
-   * @param { int } stepLen - Sliding step length, in pixels. The value is an integer greater than or equal to 0. If
+   * @param { int } stepLen - Sliding step length, in pixels. If
    *     the value is a negative number, error code 401 is returned.
    *     <br>Unit: px
-   * @param { int } speed - Fling speed, in px/s. The value ranges from 200 to 40000. If the set value is not in the range
+   * @param { int } speed - Swipe speed, in px/s. The value ranges from 200 to 40000. If the set value is not in the range
    *     , the default value **600** is used.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
@@ -3807,7 +3807,7 @@ declare class Driver {
    * Simulates a fling operation with the specified direction and speed. This API uses a promise to return the result.
    *
    * @param { UiDirection } direction - Direction of the fling operation.
-   * @param { int } speed - Scroll speed.
+   * @param { int } speed - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
    *     <br>Throws error code 401 if negative.
@@ -3830,7 +3830,7 @@ declare class Driver {
    *  to return the result.
    *
    * @param { UiDirection } direction - Direction of the fling operation.
-   * @param { int } speed - Fling speed, in px/s. The value ranges from 200 to 40000. If the set value is not in the range,
+   * @param { int } speed - Swipe speed, in px/s. The value ranges from 200 to 40000. If the set value is not in the range,
    *     the default value **600** is used.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
@@ -3857,10 +3857,10 @@ declare class Driver {
    *
    * @param { Point } p - Target coordinates of the mouse click.
    * @param { MouseButton } btnId - Mouse button pressed.
-   * @param { int } [key1] - First key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key1] - First key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [key2] - Second key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key2] - Second key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @returns { Promise<void> } - Promise that returns no value.
@@ -3900,12 +3900,12 @@ declare class Driver {
    * @param { boolean } down - Whether the mouse wheel scrolls downward. The value **true** indicates the mouse wheel scrolls
    *     downward, and **false** indicates the mouse wheel scrolls upward.
    * @param { number } d - Number of ticks scrolled by the mouse wheel. A tick indicates a 120 px scroll at the mouse
-   *     cursor position. The value is an integer greater than or equal to 0. If the value is a negative number,
+   *     cursor position. If the value is a negative number,
    *     error code 401 is returned.
-   * @param { number } [key1] - First key code value. The value is an integer greater than or equal to 0.
+   * @param { number } [key1] - First key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { number } [key2] - Second key code value. The value is an integer greater than or equal to 0.
+   * @param { number } [key2] - Second key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @returns { Promise<void> } - Promise that returns no value.
@@ -3927,15 +3927,15 @@ declare class Driver {
    * @param { boolean } down - Whether the mouse wheel scrolls downward. The value **true** indicates the mouse wheel scrolls
    *     downward, and **false** indicates the mouse wheel scrolls upward.
    * @param { int } d - Number of ticks scrolled by the mouse wheel. A tick indicates a 120 px scroll at the mouse
-   *     cursor position. The value is an integer greater than or equal to 0. If the value is a negative number,
+   *     cursor position. If the value is a negative number,
    *     error code 401 is returned.
-   * @param { int } [key1] - First key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key1] - First key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [key2] - Second key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key2] - Second key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [speed] - Scroll speed of the mouse wheel.
+   * @param { int } [speed] - Swipe speed of the mouse wheel.
    *     <br>Value range:[1, 500]
    *     <br>Unit: ticks/s
    *     <br>Throws error code 401 if negative.
@@ -3995,10 +3995,10 @@ declare class Driver {
    *
    * @param { Point } p - Coordinates of the double-click.
    * @param { MouseButton } btnId - Mouse button pressed.
-   * @param { int } [key1] - First key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key1] - First key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [key2] - Second key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key2] - Second key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @returns { Promise<void> } - Promise that returns no value.
@@ -4020,10 +4020,10 @@ declare class Driver {
    *
    * @param { Point } p - Coordinates of the long-click of the mouse device.
    * @param { MouseButton } btnId - Mouse button pressed.
-   * @param { number } [key1] - First key code value. The value is an integer greater than or equal to 0.
+   * @param { number } [key1] - First key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { number } [key2] - Second key code value. The value is an integer greater than or equal to 0.
+   * @param { number } [key2] - Second key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @returns { Promise<void> } - Promise that returns no value.
@@ -4044,10 +4044,10 @@ declare class Driver {
    *
    * @param { Point } p - Coordinates of the long-click of the mouse device.
    * @param { MouseButton } btnId - Mouse button pressed.
-   * @param { int } [key1] - First key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key1] - First key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [key2] - Second key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key2] - Second key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @param { int } [duration] - Long-click duration, in ms. The value is an integer greater than or equal to 1500.
@@ -4072,7 +4072,7 @@ declare class Driver {
    *
    * @param { Point } from - Coordinates of the start point.
    * @param { Point } to - Coordinates of the end point.
-   * @param { int } [speed] - Mouse move speed.
+   * @param { int } [speed] - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
    *     <br>Throws error code 401 if negative.
@@ -4094,7 +4094,7 @@ declare class Driver {
    *
    * @param { Point } from - Coordinates of the start point.
    * @param { Point } to - Coordinates of the end point.
-   * @param { number } [speed] - Mouse drag speed.
+   * @param { number } [speed] - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
    *     <br>Throws error code 401 if negative.
@@ -4116,7 +4116,7 @@ declare class Driver {
    *
    * @param { Point } from - Coordinates of the start point.
    * @param { Point } to - Coordinates of the end point.
-   * @param { int } [speed] - Speed of mouse drag.
+   * @param { int } [speed] - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
    *     <br>Throws error code 401 if negative.
@@ -4457,7 +4457,7 @@ declare class Driver {
    *     which it belongs.
    *     <br> **Note**: The target point and the start point must be on the same screen. Otherwise, the **17000007**
    *     exception is thrown.
-   * @param { int } [speed] - Scroll speed.
+   * @param { int } [speed] - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Throws error code 17000007 if negative.
    *     <br>Default value: 600
@@ -4479,7 +4479,7 @@ declare class Driver {
    * @param { Point } point - Point of the mouse cursor when the two-finger scrolling is performed on the touchpad.
    * @param { UiDirection } direction - Direction of two-finger scrolling on the touchpad.
    * @param { int } d - Number of grids scrolled by two fingers on the touchpad. A tick indicates a 120 px scroll at
-   *     the mouse cursor position. The value is an integer greater than or equal to 0. If the value is a negative
+   *     the mouse cursor position. If the value is a negative
    *     number, the 17000007 error code is returned.
    * @param { int } [speed] - Speed of two-finger scrolling on the touchpad.
    *     <br>Unit: ticks/s.
@@ -4904,7 +4904,7 @@ declare const ON: On;
  */
 declare namespace ON {
   /**
-   * Specifies the text for the target Component.
+   * Specifies the text attribute of the target component. Multiple match patterns are supported.
    *
    * @param { string } txt - the text value.
    * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value.
@@ -4917,7 +4917,7 @@ declare namespace ON {
   export function text(txt: string, pattern?: MatchPattern): On;
 
   /**
-   * Specifies the id of the target Component.
+   * Specifies the ID attribute of the target component.
    *
    * @param { string } id - the id value.
    * @returns { On } this {@link On} object.
@@ -4928,7 +4928,7 @@ declare namespace ON {
   export function id(id: string): On;
 
   /**
-   * Specifies the type of the target Component.
+   * Specifies the type attribute of the target component.
    *
    * @param { string } tp - The type value.
    * @returns { On } this {@link On} object.
@@ -4939,7 +4939,7 @@ declare namespace ON {
   export function type(tp: string): On;
 
   /**
-   * Specifies the clickable status of the target Component.
+   * Specifies the clickable attribute of the target component.
    *
    * @param { boolean } [b] - the clickable status.
    *     <br>Default value: true
@@ -4951,7 +4951,7 @@ declare namespace ON {
   export function clickable(b?: boolean): On;
 
   /**
-   * Specifies the longClickable status of the target Component.
+   * Specifies the long-clickable attribute of the target component.
    *
    * @param { boolean } [b] - the longClickable status.
    *     <br>Default value: true
@@ -4963,7 +4963,7 @@ declare namespace ON {
   export function longClickable(b?: boolean): On;
 
   /**
-   * Specifies the scrollable status of the target Component.
+   * Specifies the scrollable attribute of the target component.
    *
    * @param { boolean } [b] - the scrollable status.
    *     <br>Default value: true
@@ -4975,7 +4975,7 @@ declare namespace ON {
   export function scrollable(b?: boolean): On;
 
   /**
-   * Specifies the enabled status of the target Component.
+   * Specifies the enabled attribute of the target component.
    *
    * @param { boolean } [b] - the enabled status.
    *     <br>Default value: true
@@ -4987,7 +4987,7 @@ declare namespace ON {
   export function enabled(b?: boolean): On;
 
   /**
-   * Specifies the focused status of the target Component.
+   * Specifies the focused attribute of the target component.
    *
    * @param { boolean } [b] - the focused status.
    *     <br>Default value: true
@@ -4999,7 +4999,7 @@ declare namespace ON {
   export function focused(b?: boolean): On;
 
   /**
-   * Specifies the selected status of the target Component.
+   * Specifies the selected attribute of the target component.
    *
    * @param { boolean } [b] - the - selected status.
    *     <br>Default value: true
@@ -5011,7 +5011,7 @@ declare namespace ON {
   export function selected(b?: boolean): On;
 
   /**
-   * Specifies the checked status of the target Component.
+   * Specifies the checked attribute of the target component.
    *
    * @param { boolean } [b] - the checked status.
    *     <br>Default value: true
@@ -5023,7 +5023,7 @@ declare namespace ON {
   export function checked(b?: boolean): On;
 
   /**
-   * Specifies the checkable status of the target Component.
+   * Specifies the checkable attribute of the target component.
    *
    * @param { boolean } [b] - the checkable status.
    *     <br>Default value: true
@@ -5068,7 +5068,7 @@ declare namespace ON {
   export function within(on: On): On;
 
   /**
-   * Specifies the bundleName of the application which the window that the target Component is located belongs.
+   * Specifies that the target component is located within the given application window.
    *
    * @param { string } bundleName - the bundleName of the specified window.
    * @returns { On } this {@link On} object.
@@ -5079,7 +5079,7 @@ declare namespace ON {
   export function inWindow(bundleName: string): On;
 
   /**
-   * Specifies the displayId to which the target Component belongs.
+   * Specifies the display to which the target component belongs.
    *
    * @param { int } displayId - the Id of the specified display.
    * @returns { On } this {@link On} object.
@@ -5091,7 +5091,7 @@ declare namespace ON {
   export function belongingDisplay(displayId: int): On;
 
   /**
-   * Specifies the description for the target Component.
+   * Specifies the description attribute of the target component.
    *
    * @param { string } val - the description value.
    * @param { MatchPattern } [pattern] - the {@link MatchPattern} of description value.
@@ -5103,7 +5103,7 @@ declare namespace ON {
    */
   export function description(val: string, pattern?: MatchPattern): On;
   /**
-   * Specifies the id of the target Component.
+   * Specifies the ID attribute of the target component.
    *
    * @param { string } id - the id value.
    * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value.
@@ -5115,7 +5115,7 @@ declare namespace ON {
    */
   export function id(id: string, pattern: MatchPattern): On;
   /**
-   * Specifies the type of the target Component.
+   * Specifies the type attribute of the target component.
    *
    * @param { string } tp - The type value.
    * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value.
@@ -5127,7 +5127,7 @@ declare namespace ON {
    */
   export function type(tp: string, pattern: MatchPattern): On;
   /**
-   * Specifies the hint for the target Component.
+   * Specifies the hint attribute of the target component.
    *
    * @param { string } val - the hint value.
    * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value.
@@ -5140,13 +5140,11 @@ declare namespace ON {
   export function hint(val: string, pattern?: MatchPattern): On;
 
   /**
-   * Specifies the original text for the target Component.
-   * If the accessibility property
-   * [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
-   * of a component is set to 'no' or 'no-hide-descendants',
-   * you will not be able to use {@link On.text} to match the component with the specified original text, but you can
-   * use this method to achieve it;
-   * if the component does not set the above accessibility property, this method has no difference with {@link On.text}
+   * Specifies the text content and text matching pattern of the component.
+   *
+   * > **NOTE**
+   * >
+   * > If the [accessibilityLevel]{@link CommonMethod#accessibilityLevel} of a component is set to **no** or **no-hide-descendants**, this API can be used to specify the text attribute of the target component for searching for the component. In this case, the [On.text()]{@link On#text} API does not take effect.
    *
    * @param { string } text - the original text value.
    * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value.
