@@ -575,7 +575,7 @@ export declare class ChipV2CloseIcon extends ChipV2Accessibility {
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-export interface ChipV2SymbolIconConfig {
+export declare interface ChipV2SymbolIconConfig {
   /**
    * Symbol normal.
    *
@@ -1347,7 +1347,7 @@ export interface IChipV2OptionsConfig {
  * @since 26.0.0 dynamic
  */
 @ObservedV2
-export class ChipV2Options {
+export declare class ChipV2Options {
   /**
    * Chip prefix icon.
    *

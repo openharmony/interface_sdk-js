@@ -14,182 +14,109 @@
  */
 
 /**
+ * The **mediaquery** module provides different styles for different media types.
+ * 
+ * > **NOTE**
+ * >
+ * > - The APIs of this module are no longer maintained since API version 7. You are advised to use 
+ * > [@ohos.mediaquery]{@link @ohos.mediaquery:mediaquery} instead.
+ *
  * @file
  * @kit ArkUI
  */
 
 /**
- * Defines the MediaQuery event.
+ * Defines a media query event.
  *
- * @interface MediaQueryEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 3
- */
-/**
- * Defines the MediaQuery event.
- *
- * @interface MediaQueryEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 3 dynamic
  */
 export interface MediaQueryEvent {
   /**
-   * The result of match result.
+   * Matching result. The value **true** means that the query condition is met, and **false** means the opposite.
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  /**
-   * The result of match result.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 3 dynamic
    */
   matches: boolean;
 }
 
 /**
- * Defines the MediaQuery list info.
+ * Represents media query list information.
  *
- * @interface MediaQueryList
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 3
- */
-/**
- * Defines the MediaQuery list info.
- *
- * @interface MediaQueryList
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 3 dynamic
  */
 export interface MediaQueryList {
   /**
    * Serialized media query condition.
-   * This parameter is read-only.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  /**
-   * Serialized media query condition.
-   * This parameter is read-only.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 3 dynamic
    */
   media?: string;
 
   /**
-   * Whether the query is successful. True if the query condition is matched successfully, false otherwise.
-   * This parameter is read-only.
+   * Matching result. The value **true** means that the query condition is met, and **false** means the opposite.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  /**
-   * Whether the query is successful. True if the query condition is matched successfully, false otherwise.
-   * This parameter is read-only.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 3 dynamic
    */
   matches?: boolean;
 
   /**
-   * Called when the matches value changes.
+   * Callback invoked when the match result changes. **matches** indicates whether the media query condition is met. The
+   * value **true** means that the query condition is met, and **false** means the opposite.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  /**
-   * Called when the matches value changes.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 3 dynamic
    */
   onchange?: (matches: boolean) => void;
 
   /**
-   * Adds a listening function to MediaQueryList.
-   * The listening function must be added before onShow is called, that is, added to the onInit or onReady function.
+   * Adds a listener for this **MediaQueryList** object. The listener must be added before **onShow** is called, that 
+   * is, it must be added in the **onInit** or **onReady** API.
    *
-   * @param { function } callback
+   * @param { function } callback - Callback invoked when the query condition changes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  /**
-   * Adds a listening function to MediaQueryList.
-   * The listening function must be added before onShow is called, that is, added to the onInit or onReady function.
-   *
-   * @param { function } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 3 dynamic
    */
   addListener(callback: (event: MediaQueryEvent) => void): void;
 
   /**
-   * Removes a listening function from MediaQueryList.
+   * Removes the listener for this **MediaQueryList** object.
    *
-   * @param { function } callback
+   * @param { function } callback - Callback invoked when the query condition changes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  /**
-   * Removes a listening function from MediaQueryList.
-   *
-   * @param { function } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 3 dynamic
    */
   removeListener(callback: (event: MediaQueryEvent) => void): void;
 }
 
 /**
- * Defines the mediaquery interface.
+ * Defines the MediaQuery API.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 3
- */
-/**
- * Defines the mediaquery interface.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 3 dynamic
  */
 export default class MediaQuery {
   /**
-   * Queries a media item and returns a MediaQueryList object.
+   * Creates a **MediaQueryList** object based on the query condition.
    *
-   * @param { string } condition
-   * @returns { MediaQueryList }
+   * @param { string } condition - Query condition.
+   * @returns { MediaQueryList } Created **MediaQueryList** object. For details, see the following description.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 3
-   */
-  /**
-   * Queries a media item and returns a MediaQueryList object.
-   *
-   * @param { string } condition
-   * @returns { MediaQueryList }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 3 dynamic
    */
   static matchMedia(condition: string): MediaQueryList;
 }
