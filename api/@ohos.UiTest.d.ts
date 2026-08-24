@@ -536,7 +536,8 @@ declare class UiDriver {
   /**
    * Delays a duration of time. This API uses a promise to return the result.
    *
-   * @param { number } duration - Specified time, in ms. The value is an integer greater than or equal to 0.
+   * @param { number } duration - Specified time, in ms. 
+   * The value is an integer greater than or equal to 0.
    * @returns { Promise<void> } - Promise that returns no value.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
@@ -607,7 +608,8 @@ declare class UiDriver {
   /**
    * Triggers a key event by passing the key code value. This API uses a promise to return the result.
    *
-   * @param { number } keyCode - Key code value. The value is an integer greater than or equal to 0.
+   * @param { number } keyCode - Key code value. 
+   * The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    * @returns { Promise<void> } - Promise that returns no value.
    * @syscap SystemCapability.Test.UiTest
@@ -915,7 +917,8 @@ declare enum DisplayRotation {
  */
 declare interface Point {
   /**
-   * Horizontal coordinate of a coordinate point, in pixels. The value is an integer greater than or equal to 0.
+   * Horizontal coordinate of a coordinate point, in pixels. 
+   * The value is an integer greater than or equal to 0.
    *
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
@@ -926,7 +929,8 @@ declare interface Point {
    */
   x: int;
   /**
-   * Vertical coordinate of a coordinate point, in pixels. The value is an integer greater than or equal to 0.
+   * Vertical coordinate of a coordinate point, in pixels. 
+   * The value is an integer greater than or equal to 0.
    *
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
@@ -959,7 +963,8 @@ declare interface Point {
  */
 declare interface Rect {
   /**
-   * X coordinate of the upper left corner of the component border, in pixels. The value is an integer greater than or equal to 0.
+   * X coordinate of the upper left corner of the component border, in pixels. 
+   * The value is an integer greater than or equal to 0.
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform [since 12]
@@ -969,7 +974,8 @@ declare interface Rect {
    */
   left: int;
   /**
-   * Y coordinate of the upper left corner of the component border, in pixels. The value is an integer greater than or equal to 0.
+   * Y coordinate of the upper left corner of the component border, in pixels. 
+   * The value is an integer greater than or equal to 0.
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform [since 12]
@@ -979,7 +985,8 @@ declare interface Rect {
    */
   top: int;
   /**
-   * X coordinate of the lower right corner of the component border, in pixels. The value is an integer greater than or equal to 0.
+   * X coordinate of the lower right corner of the component border, in pixels. 
+   * The value is an integer greater than or equal to 0.
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform [since 12]
@@ -989,7 +996,8 @@ declare interface Rect {
    */
   right: int;
   /**
-   * Y coordinate of the lower right corner of the component border, in pixels. The value is an integer greater than or equal to 0.
+   * Y coordinate of the lower right corner of the component border, in pixels. 
+   * The value is an integer greater than or equal to 0.
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform [since 12]
@@ -999,7 +1007,8 @@ declare interface Rect {
    */
   bottom: int;
   /**
-   * ID of the display to which the component border belongs. The value is an integer greater than or equal to 0.
+   * ID of the display to which the component border belongs. 
+   * The value is an integer greater than or equal to 0.
    *     <br>Default value: the default screen ID of the device.
    *
    * @syscap SystemCapability.Test.UiTest
@@ -1043,7 +1052,8 @@ declare interface WindowFilter {
 
   /**
    * Whether the window is focused. The value **true** indicates that the window is focused, and **false** indicates the
-   *  opposite. The default value is **false**.
+   *  opposite. 
+   * The default value is **false**.
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice [since 11]
@@ -1078,8 +1088,8 @@ declare interface WindowFilter {
   active?: boolean;
 
   /**
-   * ID of the display to which the window belongs. The default
-   * value is the default screen ID of the device.
+   * ID of the display to which the window belongs. 
+   * The default value is the default screen ID of the device.
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -1226,8 +1236,8 @@ declare enum ComponentEventType {
  */
 declare interface WindowChangeOptions {
   /**
-   * Listening timeout interval, in milliseconds. The value is an integer greater than or equal to 500. The default
-   * value is **10000**. If the value is out of range, an error code is thrown.
+   * Listening timeout interval, in milliseconds. The value is an integer greater than or equal to 500. 
+   * The default value is **10000**. If the value is out of range, an error code is thrown.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 22 dynamic
@@ -1258,8 +1268,8 @@ declare interface WindowChangeOptions {
  */
 declare interface ComponentEventOptions {
   /**
-   * Listening timeout interval, in milliseconds. The value is an integer greater than or equal to 500. The default
-   * value is **10000**. If the value is out of range, an error code is thrown.
+   * Listening timeout interval, in milliseconds. The value is an integer greater than or equal to 500. 
+   * The default value is **10000**. If the value is out of range, an error code is thrown.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 22 dynamic
@@ -1747,9 +1757,9 @@ declare interface TouchOptions {
    */
   duration?: int;
   /**
-   * Pressure value of the touch. The value range is [0, 1]. The default value is **0**. If the value is **null** or
-   * **undefined**, the default value is used. If the value is out of the value range, the 17000007 error code is
-   * thrown.
+   * Pressure value of the touch. The value range is [0, 1]. 
+   * The default value is **0**. If the value is **null** or **undefined**, the default value is used. 
+   * If the value is out of the value range, the 17000007 error code is thrown.
    *
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -2818,8 +2828,9 @@ declare class Component {
    * the component border. This API uses a promise to return the result.
    *
    * @param { On } on - Attributes of the target component.
-   * @param { boolean } [vertical] - Whether the search direction is vertical. The default value **true** indicates that the
-   *     search direction is vertical. **false** indicates that the search direction is horizontal.
+   * @param { boolean } [vertical] - Whether the search direction is vertical. 
+   * The default value **true** indicates that the search direction is vertical. 
+   * **false** indicates that the search direction is horizontal.
    * @param { number } [offset] - Offset from the scrolling start/end point to the component border, in pixels. The
    *     default value is **80**. If the value is a negative
    *     number, error code 401 is returned.
@@ -3078,7 +3089,8 @@ declare class Driver {
   /**
    * Simulates pressing the Back button on a specified screen. This API uses a promise to return the result.
    *
-   * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
+   * @param { int } displayId - Display ID. 
+   * The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -3094,7 +3106,8 @@ declare class Driver {
   /**
    * Triggers a key event by passing the key code value. This API uses a promise to return the result.
    *
-   * @param { int } keyCode - Key code value. The value is an integer greater than or equal to 0.
+   * @param { int } keyCode - Key code value. 
+   * The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -3113,9 +3126,11 @@ declare class Driver {
    * Triggers a key event by passing the key code value on the specified screen. This API uses a promise to return the
    * result.
    *
-   * @param { int } keyCode - Key code value. The value is an integer greater than or equal to 0.
+   * @param { int } keyCode - Key code value. 
+   * The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
-   * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
+   * @param { int } displayId - Display ID. 
+   * The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **401** is reported.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -3165,8 +3180,8 @@ declare class Driver {
    * @param { int } [key2] - Third key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [displayId] - Display ID. The default value is the
-   *     default display ID of the device.
+   * @param { int } [displayId] - Display ID. 
+   * The default value is the default display ID of the device.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3419,7 +3434,7 @@ declare class Driver {
    * Swipe on the screen between the specified points with optional touch options.
    *
    * @param { Point } from - the coordinate point where the finger touches the screen.
-   * @param { Point } to - the coordinate point where the finger leaves the screen.
+   * @param { Point } to - [Point] object, which transfers the coordinates of the end point and the ID of the display to which the start point belongs. Note: The target point and the start point must be on the same screen. Otherwise, the 17000007 exception is thrown.
    * @param { TouchOptions } [options] - the options for the swipe operation.
    *                                Only the 'speed' and 'pressure' properties are applicable for this method.
    *                                Setting other properties will result in a BusinessError 17000007.
@@ -3467,7 +3482,7 @@ declare class Driver {
    * Drag on the screen between the specified points with optional settings.
    *
    * @param { Point } from - the coordinate point where the finger touches the screen.
-   * @param { Point } to - the coordinate point where the finger leaves the screen.
+   * @param { Point } to - [Point] object, which transfers the coordinates of the end point and the ID of the display to which the start point belongs. Note: The target point and the start point must be on the same screen. Otherwise, the 17000007 exception is thrown.
    * @param { TouchOptions } [options] - the options for the drag operation.
    *                         Only the 'pressure', 'speed', and 'duration' properties are applicable for this method.
    *                         Setting other properties will result in a BusinessError 17000007.
@@ -3507,7 +3522,8 @@ declare class Driver {
    *
    * @param { string } savePath - File save path. The path must be the
    *     [sandbox path](docroot://file-management/app-sandbox-directory.md) of the current application.
-   * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
+   * @param { int } displayId - Display ID. 
+   * The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **401** is reported.
    * @returns { Promise<boolean> } Promise used to return whether the screenshot operation is successful. The value
    *     **true** indicates that the screen capture operation is successful, and the value **false** indicates the
@@ -3531,8 +3547,8 @@ declare class Driver {
    * @param { string } savePath - the path where to store the json, must be in the application sandbox directory.
    *     The path must be the [sandbox path](docroot://file-management/app-sandbox-directory.md) of the current
    *     application.
-   * @param { int } [displayId] - Display ID. The default value
-   *     is the default screen ID of the device.
+   * @param { int } [displayId] - Display ID. 
+   * The default value is the default screen ID of the device.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
    * @returns { Promise<boolean> } true if dump layout and file-storing are completed successfully,false otherwise.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -3584,7 +3600,8 @@ declare class Driver {
   /**
    * Obtains the display rotation of the specified device. This API uses a promise to return the result.
    *
-   * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
+   * @param { int } displayId - Display ID. 
+   * The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
    * @returns { Promise<DisplayRotation> } - Promise used to return the display rotation of the specified device.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -3639,7 +3656,8 @@ declare class Driver {
   /**
    * Obtains the size of the specified display on the current device. This API uses a promise to return the result.
    *
-   * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
+   * @param { int } displayId - Display ID. 
+   * The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
    * @returns { Promise<Point> } Promise used to return the **Point** object. The size of the specified display is
    *     **Point.x * Point.y**.
@@ -3676,7 +3694,8 @@ declare class Driver {
   /**
    * Obtains the density of the specified display of the current device. This API uses a promise to return the result.
    *
-   * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
+   * @param { int } displayId - Display ID. 
+   * The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
    * @returns { Promise<Point> } Promise used to return the **Point** object. The density of the specified display is
    *     **Point.x*Point.y**.
@@ -3720,7 +3739,8 @@ declare class Driver {
    * Injects an operation of returning to the home screen on the specified display. This API uses a promise to return
    * the result.
    *
-   * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
+   * @param { int } displayId - Display ID. 
+   * The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -3843,7 +3863,8 @@ declare class Driver {
    *     <br>Unit: px/s.
    *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
-   * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
+   * @param { int } displayId - Display ID. 
+   * The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **401** is reported.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -3969,7 +3990,8 @@ declare class Driver {
    *
    * @param { string } savePath - File save path. The path must be the
    *     [sandbox path](docroot://file-management/app-sandbox-directory.md) of the current application.
-   * @param { Rect } [rect] - Area of the screen to capture. The default value is the entire screen.
+   * @param { Rect } [rect] - Area of the screen to capture. 
+   *     The default value is the entire screen.
    * @returns { Promise<boolean> } - Promise used to return whether the screenshot operation is successful.
    *     The value **true** indicates the screenshot operation is successful, and **false** indicates the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -4154,7 +4176,7 @@ declare class Driver {
    * with optional touch and key settings.
    *
    * @param { Point } from - the starting point.
-   * @param { Point } to - the ending point.
+   * @param { Point } to - Coordinates of the end point.
    * @param { TouchOptions } [touchOptions] - the touch options for speed and duration settings.
    *                                    Only 'speed' and 'duration' properties are valid in this method.
    *                                    Setting other properties will cause BusinessError 17000007.
@@ -4262,9 +4284,10 @@ declare class Driver {
    * Simulates a pen long-click operation. This API uses a promise to return the result.
    *
    * @param { Point } point - Coordinates of the long-clicked point.
-   * @param { double } [pressure] - Long-click pressure of the pen. The value ranges from 0.0 to 1.0. The default value
-   *     is **1.0**. If the value is **null** or **undefined**, the default value is used. If the value is out of the
-   *     value range, error code 401 is thrown.
+   * @param { double } [pressure] - Long-click pressure of the pen. The value ranges from 0.0 to 1.0. 
+   * The default value is **1.0**. If the value is **null** or **undefined**, 
+   * the default value is used. 
+   * If the value is out of the value range, error code 401 is thrown.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4303,9 +4326,10 @@ declare class Driver {
    *     <br>Unit: px/s.
    *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
-   * @param { double } [pressure] - Swipe pressure of the pen. The value ranges from 0.0 to 1.0. The default value is
-   *     **1.0**. If the value is **null** or **undefined**, the default value is used. If the value is out of the
-   *     value range, error code 401 is thrown.
+   * @param { double } [pressure] - Swipe pressure of the pen. The value ranges from 0.0 to 1.0. 
+   * The default value is **1.0**. 
+   * If the value is **null** or **undefined**, the default value is used. 
+   * If the value is out of the value range, error code 401 is thrown.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4332,9 +4356,10 @@ declare class Driver {
    *     <br>Unit: px/s.
    *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
-   * @param { double } [pressure] - Injection pressure. The value range is [0.0, 1.0]. The default value is **1.0**.
-   *     If the value is **null** or **undefined**, the default value is used. If the value is out of the value range,
-   *     error code 401 is thrown.
+   * @param { double } [pressure] - Injection pressure. The value range is [0.0, 1.0]. 
+   * The default value is **1.0**.
+   * If the value is **null** or **undefined**, the default value is used. 
+   * If the value is out of the value range, error code 401 is thrown.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4348,7 +4373,7 @@ declare class Driver {
   injectPenPointerAction(pointers: PointerMatrix, speed?: int, pressure?: double): Promise<void>;
 
   /**
-   * Trigger pen key operation.
+   * Triggers a stylus key operation. This method is applicable to test scenarios where stylus switching needs to be simulated, for example, simulating a click operation in air mouse mode or invoking the smart key. This API uses a promise to return the result.
    *
    * Supported combinations:
    *
@@ -4363,8 +4388,8 @@ declare class Driver {
    *     handwriting mode or air mouse mode.
    * @param { PenKeyOperation } operation - Stylus key operation mode, which specifies the operation mode of the key,
    *     such as single-tap or double-tap.
-   * @param { PenKeyOperationOptions } [options] - Operation options, including optional coordinates. The default values
-   *     are inherited from the default values of the properties in {@link PenKeyOperationOptions}.
+   * @param { PenKeyOperationOptions } [options] - Operation options, including optional coordinates. 
+   * The default values are inherited from the default values of the properties in {@link PenKeyOperationOptions}.
    *     <br> **Note**: When **mode** is set to {@link PenMode#AIR_MOUSE} and **key** is set to {@link PenKey#AIR_MOUSE},
    *     the **point** attribute in **options** must be set. Otherwise, error code 17000007 will be thrown.
    * @returns { Promise<void> } - Promise that returns no value.
@@ -5097,7 +5122,8 @@ declare namespace ON {
   /**
    * Specifies the display to which the target component belongs.
    *
-   * @param { int } displayId - ID of the display to which the component belongs. The value is an integer greater than or equal to 0.
+   * @param { int } displayId - ID of the display to which the component belongs. 
+   * The value is an integer greater than or equal to 0.
    *      **Note:** If the input displayId does not exist, the exception 17000007 is reported. You can use [getAllDisplays] to obtain all current display objects and then obtain the ID of the display from a display object.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
