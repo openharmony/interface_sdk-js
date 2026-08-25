@@ -29,41 +29,58 @@ import type rpc from './@ohos.rpc';
  * 本模块包含以下基础类：
  * 
  * - [ImageSource]{@link image.ImageSource}类，提供获取[图片信息]{@link image.ImageInfo}、将图片解码为PixelMap或Picture、读取和修改
- * [图片属性]{@link image.PropertyKey}的能力。[支持解码的图片格式](docroot://reference/apis-image-kit/arkts-apis-image-ImageSource.md#属性)
+ * [图片属性]{@link image.PropertyKey}的能力。[支持解码的图片格式]{@link image.ImageSource#supportedFormats}
  * 包括png、jpeg、bmp、gif、webp、dng、heic<sup>12+</sup>、wbmp<sup>23+</sup>、heifs<sup>23+</sup>、tiff<sup>23+</sup>。
+ * 
  * - [ImagePacker]{@link image.ImagePacker}类，提供将图片编码为压缩后的数据流或文件的能力。编码前需获取图片的ImageSource、PixelMap或Picture作为输入。
- * [支持编码的图片格式](docroot://reference/apis-image-kit/arkts-apis-image-ImagePacker.md#属性)包括jpeg、webp、png、heic<sup>12+</sup>、
+ * [支持编码的图片格式]{@link image.ImagePacker#supportedFormats}包括jpeg、webp、png、heic<sup>12+</sup>、
  * gif<sup>18+</sup>。
+ * 
  * - [PixelMap]{@link image.PixelMap}类，位图对象，包含像素数据以及[图片信息]{@link image.ImageInfo}。可用于读取或写入像素数据，进行裁剪、缩放、平移、旋转、镜像等操作，并可直接传
  * 给[Image组件]{@link ./@internal/component/ets/image}用于显示。还提供了获取和设置图片色域、HDR元数据的方法。
+ * 
  * - [Picture]{@link image.Picture}类，多图对象，由主图、辅助图和元数据组成。其中，主图包含了主要图像信息；辅助图用于存储与主图相关的附加信息；元数据用于存储与图片相关的其他信息。Picture提供获取主图
  * 、合成HDR图、获取辅助图、设置辅助图、获取元数据、设置元数据等方法。
+ * 
  * - [AuxiliaryPicture]{@link image.AuxiliaryPicture}类，辅助图一般用于辅助主图进行特殊信息的展示，使图像包含更丰富的信息。目前支持的辅助图的类型可参考
  * [AuxiliaryPictureType]{@link image.AuxiliaryPictureType}。
+ * 
  * - [Metadata]{@link image.Metadata}类，以Key-Value的形式存储图像的元数据。目前支持的元数据类型可参考[MetadataType]{@link image.MetadataType}，包含
  * Exif元数据、水印裁剪图元数据和HEIF序列图像元数据。Exif元数据的Key可参考[PropertyKey]{@link image.PropertyKey}；水印裁剪图元数据的Key可参考
  * [FragmentMapPropertyKey]{@link image.FragmentMapPropertyKey}；HEIF序列图像元数据的Key可参考
  * [HeifsPropertyKey]{@link image.HeifsPropertyKey}。
+ * 
  * - [ExifMetadata]{@link image.ExifMetadata}类，以Key-Value的形式存储图像的Exif元数据。Exif元数据的Key可参考
  * [PropertyKey]{@link image.PropertyKey}。
+ * 
  * - [MakerNoteHuaweiMetadata]{@link image.MakerNoteHuaweiMetadata}类，以Key-Value的形式存储图像Huawei相机定义的照片元数据。Huawei相机定义的照片元数据的
  * Key可参考[PropertyKey]{@link image.PropertyKey}。
+ * 
  * - [HeifsMetadata]{@link image.HeifsMetadata}类，以Key-Value的形式存储图像的HEIF序列图像元数据。HEIF序列图像元数据的Key可参考
  * [HeifsPropertyKey]{@link image.HeifsPropertyKey}。
- * - [WebPMetadata](docroot://reference/apis-image-kit/arkts-apis-image-WebPMetadata.md)类，以Key-Value的形式存储图像的WebP图像元数据。
- * WebP图像元数据的Key可参考[WebPPropertyKey]{@link image.WebPPropertyKey}。
- * - [GifMetadata](docroot://reference/apis-image-kit/arkts-apis-image-GifMetadata.md)类，以Key-Value的形式存储图像的GIF图像元数据。GIF图像
- * 元数据的Key可参考[GifPropertyKey]{@link image.GifPropertyKey}。
- * - [JfifMetadata](docroot://reference/apis-image-kit/arkts-apis-image-JfifMetadata.md)类，以Key-Value的形式存储图像的JFIF图像元数据。
- * JFIF图像元数据的Key可参考[JfifPropertyKey]{@link image.JfifPropertyKey}。
- * - [TiffMetadata](docroot://reference/apis-image-kit/arkts-apis-image-TiffMetadata.md)类，以Key-Value的形式存储图像的TIFF图像元数据。
- * TIFF图像元数据的Key可参考[TiffPropertyKey]{@link image.TiffPropertyKey}。
- * - [PngMetadata](docroot://reference/apis-image-kit/arkts-apis-image-PngMetadata.md)类，以Key-Value的形式存储图像的PNG图像元数据。PNG图像
- * 元数据的Key可参考[PngPropertyKey]{@link image.PngPropertyKey}。
- * - [AvisMetadata](docroot://reference/apis-image-kit/arkts-apis-image-AvisMetadata.md)类，以Key-Value的形式存储图像的AVIS图像元数据。
- * AVIS图像元数据的Key可参考[AvisPropertyKey]{@link image.AvisPropertyKey}。
+ * 
+ * - [WebPMetadata]{@link image.WebPMetadata}类，以Key-Value的形式存储图像的WebP图像元数据。WebP图像元数据的Key可参考
+ * [WebPPropertyKey]{@link image.WebPPropertyKey}。
+ * 
+ * - [GifMetadata]{@link image.GifMetadata}类，以Key-Value的形式存储图像的GIF图像元数据。GIF图像元数据的Key可参考
+ * [GifPropertyKey]{@link image.GifPropertyKey}。
+ * 
+ * - [JfifMetadata]{@link image.JfifMetadata}类，以Key-Value的形式存储图像的JFIF图像元数据。JFIF图像元数据的Key可参考
+ * [JfifPropertyKey]{@link image.JfifPropertyKey}。
+ * 
+ * - [TiffMetadata]{@link TiffMetadata}类，以Key-Value的形式存储图像的TIFF图像元数据。TIFF图像元数据的Key可参考
+ * [TiffPropertyKey]{@link image.TiffPropertyKey}。
+ * 
+ * - [PngMetadata]{@link image.PngMetadata}类，以Key-Value的形式存储图像的PNG图像元数据。PNG图像元数据的Key可参考
+ * [PngPropertyKey]{@link image.PngPropertyKey}。
+ * 
+ * - [AvisMetadata]{@link image.AvisMetadata}类，以Key-Value的形式存储图像的AVIS图像元数据。AVIS图像元数据的Key可参考
+ * [AvisPropertyKey]{@link image.AvisPropertyKey}。
+ * 
  * - [ImageReceiver]{@link image.ImageReceiver}类，作为图片的消费者，用于从Surface中接收、读取图片。
+ * 
  * - [ImageCreator]{@link image.ImageCreator}类，作为图片的生产者，用于将图片写入到Surface中。
+ * 
  * - [Image]{@link image.Image}类，供ImageReceiver和ImageCreator使用，用于传输图片对象，其实际内容由生产者决定。如相机预览流提供的Image对象存储了YUV数据、相机拍照提供的
  * Image对象存储了JPEG文件。
  *
@@ -3362,8 +3379,8 @@ declare namespace image {
      * 
      * 图片解码和图片编码支持格式的范围不同，请避免直接将解码得到的图片真实格式作为图片编码时[PackingOption]{@link image.PackingOption}的format。
      * 
-     * 可以使用ImageSource[属性](docroot://reference/apis-image-kit/arkts-apis-image-ImageSource.md#属性)中的supportedFormats和
-     * ImagePacker[属性](docroot://reference/apis-image-kit/arkts-apis-image-ImagePacker.md#属性)中的supportedFormats查看解码和编码支持
+     * 可以使用ImageSource[属性]{@link @ohos.multimedia.image: image.ImageSource#supportedFormats}中的supportedFormats和
+     * ImagePacker[属性]{@link @ohos.multimedia.image: image.ImagePacker#supportedFormats} 中的supportedFormats查看解码和编码支持
      * 的格式范围。
      *
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -4875,11 +4892,51 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * 
    * 由于图片占用内存较大，所以当ImageSource实例使用完成后，应主动调用[release]{@link image.ImageSource.release(callback: AsyncCallback<void>)}方法及时
    * 释放内存。释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
+   * 
+   * 从API version 10开始支持SVG标签，使用版本为(SVG) 1.1, SVG标签需设置width和height。SVG文件可添加XML声明，应以**<?xml**开头，当前支持的标签列表有：
+   * 
+   * - a
+   * - circle
+   * - clipPath
+   * - defs
+   * - ellipse
+   * - feBlend
+   * - feColorMatrix
+   * - feComposite
+   * - feDiffuseLighting
+   * - feDisplacementMap
+   * - feDistantLight
+   * - feFlood
+   * - feGaussianBlur
+   * - feImage
+   * - feMorphology
+   * - feOffset
+   * - fePointLight
+   * - feSpecularLighting
+   * - feSpotLight
+   * - feTurbulence
+   * - filter
+   * - g
+   * - image
+   * - line
+   * - linearGradient
+   * - mask
+   * - path
+   * - pattern
+   * - polygon
+   * - polyline
+   * - radialGradient
+   * - rect
+   * - stop
+   * - svg
+   * - text
+   * - textPath
+   * - tspan
+   * - use
    *
    * @param { string } uri - 图片路径，当前仅支持应用沙箱路径。
    *     <br>当前支持格式有：JPEG、PNG、GIF、BMP、WebP、DNG、HEIC<sup>12+</sup>、WBMP<sup>23+</sup>、HEIFS<sup>23+</sup>、TIFF<sup>23+</
-   *     sup>、SVG<sup>10+</sup>（可参考[SVG标签说明](docroot://reference/apis-image-kit/arkts-apis-image-f.md#svg标签说明)）、ICO<sup>
-   *     11+</sup>。从API版本26.0.0开始，增加支持AVIF、AVIS格式。
+   *     sup>、SVG<sup>10+</sup>、ICO<sup>11+</sup>。从API版本26.0.0开始，增加支持AVIF、AVIS格式。
    *     <br>部分格式的解码能力依赖于具体的设备硬件，建议在调用前使用
    *     [image.getImageSourceSupportedFormats]{@link image.getImageSourceSupportedFormats}接口，动态查询当前设备上的解码能力。
    * @returns { ImageSource } 返回ImageSource类实例，失败时返回undefined。
@@ -4906,12 +4963,52 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * 
    * 由于图片占用内存较大，所以当ImageSource实例使用完成后，应主动调用[release]{@link image.ImageSource.release(callback: AsyncCallback<void>)}方法及时
    * 释放内存。释放时应确保该实例的所有异步方法均执行完成，且后续不再使用该实例。
+   * 
+   * * 从API version 10开始支持SVG标签，使用版本为(SVG) 1.1, SVG标签需设置width和height。SVG文件可添加XML声明，应以**<?xml**开头，当前支持的标签列表有：
+   * 
+   * - a
+   * - circle
+   * - clipPath
+   * - defs
+   * - ellipse
+   * - feBlend
+   * - feColorMatrix
+   * - feComposite
+   * - feDiffuseLighting
+   * - feDisplacementMap
+   * - feDistantLight
+   * - feFlood
+   * - feGaussianBlur
+   * - feImage
+   * - feMorphology
+   * - feOffset
+   * - fePointLight
+   * - feSpecularLighting
+   * - feSpotLight
+   * - feTurbulence
+   * - filter
+   * - g
+   * - image
+   * - line
+   * - linearGradient
+   * - mask
+   * - path
+   * - pattern
+   * - polygon
+   * - polyline
+   * - radialGradient
+   * - rect
+   * - stop
+   * - svg
+   * - text
+   * - textPath
+   * - tspan
+   * - uses
    *
    * @param { string } uri - 图片路径，当前仅支持应用沙箱路径（可参考[使用说明](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#使用说明)）
    *     。
    *     <br>当前支持格式有：JPEG、PNG、GIF、BMP、WebP、DNG、HEIC<sup>12+</sup>、WBMP<sup>23+</sup>、HEIFS<sup>23+</sup>、TIFF<sup>23+</
-   *     sup>、SVG<sup>10+</sup>（可参考[SVG标签说明](docroot://reference/apis-image-kit/arkts-apis-image-f.md#svg标签说明)）、ICO<sup>
-   *     11+</sup>。从API版本26.0.0开始，增加支持AVIF、AVIS格式。部分格式的解码能力依赖于具体的设备硬件，建议在调用前使用
+   *     sup>、SVG<sup>10+</sup>、ICO<sup>11+</sup>。从API版本26.0.0开始，增加支持AVIF、AVIS格式。部分格式的解码能力依赖于具体的设备硬件，建议在调用前使用
    *     [image.getImageSourceSupportedFormats]{@link image.getImageSourceSupportedFormats}接口，动态查询当前设备上的解码能力。
    * @param { SourceOptions } options - 图片属性，包括图片像素密度、像素格式和图片尺寸。
    * @returns { ImageSource } 返回ImageSource类实例，失败时返回undefined。
@@ -8853,7 +8950,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * 
    * > **说明：**
    * >
-   * > 返回字段类型具体参考[TiffMetadata](docroot://reference/apis-image-kit/arkts-apis-image-TiffMetadata.md)。
+   * > 返回字段类型具体参考[TiffMetadata]{@link TiffMetadata}。
    * > | 名称 | 值 | 说明 |
    * > | ---- | -- | ---- |
    * > | DOCUMENT_NAME | 'TiffDocumentName' | 文档或图像的名称。 |
@@ -9084,7 +9181,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * 
    * > **说明：**
    * >
-   * > 返回字段类型具体参考[JfifMetadata](docroot://reference/apis-image-kit/arkts-apis-image-JfifMetadata.md)。
+   * > 返回字段类型具体参考[JfifMetadata]{@link image.JfifMetadata}。
    * > | 名称 | 值 | 说明 |
    * > | ---- | -- | ---- |
    * > | DENSITY_UNIT | 'JfifDensityUnit' | 用于定义JfifXDensity（水平像素密度）和JfifYDensity（垂直像素密度）的物理度量单位。
@@ -9155,7 +9252,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * 
    * > **说明：**
    * >
-   * > 返回字段类型具体参考[PngMetadata](docroot://reference/apis-image-kit/arkts-apis-image-PngMetadata.md)。
+   * > 返回字段类型具体参考[PngMetadata]{@link image.PngMetadata}。
    * > | 名称 | 值 | 说明 |
    * > | ---- | -- | ---- |
    * > | X_PIXELS_PER_METER | 'PngXPixelsPerMeter' | PNG图像X方向每米像素数。 |
@@ -13423,7 +13520,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * 
    * > **说明：**
    * >
-   * > 返回字段类型具体参考[AvisMetadata](docroot://reference/apis-image-kit/arkts-apis-image-AvisMetadata.md)。
+   * > 返回字段类型具体参考[AvisMetadata]{@link image.AvisMetadata}。
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @stagemodelonly
@@ -14886,6 +14983,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * >
      * > - ISOSpeedRatings字段：当该标签值为0或65535时，会优先使用推荐曝光指数，若不存在则依次使用标准输出灵敏度、ISO速度、曝光指数。
      * >
+     * > 该接口支持读取以下格式的元数据：
+     * >
      * > - 从API version 24开始，支持读取DNG元数据。要查询的属性的具体信息请参考[DngPropertyKey]{@link image.DngPropertyKey}。
      * >
      * > - 从API version 24开始，支持读取HEIFS元数据。要查询的属性的具体信息请参考[HeifsPropertyKey]{@link image.HeifsPropertyKey}。
@@ -14899,7 +14998,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * > - 从API版本26.0.0开始，支持读取GIF元数据。要查询的属性的具体信息请参考[GifPropertyKey]{@link image.GifPropertyKey}。
      * >
      * > - 从API版本26.0.0开始，支持读取JPEG、PNG、GIF、DNG、TIFF格式图片的XMP元数据。XMP元数据的操作方法可以参考
-     * > [XMPMetadata](docroot://reference/apis-image-kit/arkts-apis-image-XMPMetadata.md)。
+     * > [XMPMetadata]{@link image.XMPMetadata}。
      * >
      * > - 从API版本26.0.0开始，支持读取AVIS元数据。要查询的属性的具体信息请参考[AvisPropertyKey]{@link image.AvisPropertyKey}。
      *
@@ -14932,7 +15031,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * > - 支持修改JPEG、PNG和HEIF文件类型的图片属性，图片需要包含Exif信息。修改属性前，先通过supportedFormats属性查询设备是否支持HEIF格式的Exif读写。
      * >
      * > - 从API版本26.0.0开始，支持修改JPEG、PNG、GIF格式图片的XMP元数据。XMP元数据的操作方法可以参考
-     * > [XMPMetadata](docroot://reference/apis-image-kit/arkts-apis-image-XMPMetadata.md)。
+     * > [XMPMetadata]{@link image.XMPMetadata}。
      * >
      * > - 调用writeImageMetadata接口修改Exif字段时，必须确保对应的图片文件有写权限，否则会导致字段修改不成功。
      *
@@ -14987,7 +15086,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * > - 从API版本26.0.0开始，支持读取GIF元数据。要查询的属性的具体信息请参考[GifPropertyKey]{@link image.GifPropertyKey}。
      * >
      * > - 从API版本26.0.0开始，支持读取JPEG、PNG、GIF、DNG、TIFF格式图片的XMP元数据。XMP元数据的操作方法可以参考
-     * > [XMPMetadata](docroot://reference/apis-image-kit/arkts-apis-image-XMPMetadata.md)。
+     * > [XMPMetadata]{@link image.XMPMetadata}。
      * >
      * > - 从API版本26.0.0开始，支持读取AVIS元数据。要查询的属性的具体信息请参考[AvisPropertyKey]{@link image.AvisPropertyKey}。
      *
