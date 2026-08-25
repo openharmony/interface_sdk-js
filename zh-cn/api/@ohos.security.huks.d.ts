@@ -1341,7 +1341,7 @@ declare namespace huks {
    * @param { long } handle - Handle of the **updateSession** operation, which is of the uint64 type.
    * @param { HuksOptions } options - Parameter set used for the **updateSession** operation.
    * @param { Uint8Array } token - Authentication token for
-   *     [refined key access control](docroot://security/UniversalKeystoreKit/huks-identity-authentication-overview.md#refined-key-access-control)
+   *     [refined key access control](docroot://security/UniversalKeystoreKit/huks-identity-authentication-overview.md#二次认证密钥访问控制)
    *     .
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
    *     successful, **err** is **undefined**, and **data** is the obtained **HuksReturnResult**. Otherwise, **err** is
@@ -1508,7 +1508,7 @@ declare namespace huks {
    *     <br>取值限定为整数。
    * @param { HuksOptions } options - Parameter set used for the **finishSession** operation.
    * @param { Uint8Array } token - Authentication token for
-   *     [refined key access control](docroot://security/UniversalKeystoreKit/huks-identity-authentication-overview.md#refined-key-access-control)
+   *     [refined key access control](docroot://security/UniversalKeystoreKit/huks-identity-authentication-overview.md#二次认证密钥访问控制)
    *     .
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
    *     successful, **err** is **undefined**, and **data** is the obtained **HuksReturnResult**. Otherwise, **err** is
@@ -4588,9 +4588,7 @@ declare namespace huks {
    *
    * > **说明：**
    * >
-   * > 业务在使用存储等级为ECE的密钥时，建议通过感知
-   * > [锁屏事件](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_screen_locked)
-   * > 来清理使用该密钥创建的会话资源，以保证安全性。
+   * > 业务在使用存储等级为ECE的密钥时，建议通过感知[锁屏事件](@link COMMON_EVENT_SCREEN_LOCKED)来清理使用该密钥创建的会话资源，以保证安全性。
    *
    * @syscap SystemCapability.Security.Huks.Extension [since 11 - 11]
    * @syscap SystemCapability.Security.Huks.Core [since 12]
