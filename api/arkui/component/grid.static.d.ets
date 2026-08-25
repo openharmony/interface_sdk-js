@@ -266,7 +266,7 @@ export declare enum GridItemAlignment {
 export declare interface ComputedBarAttribute {
 
   /**
-   * The offset of the grid.
+   * The offset of the grid, in vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -275,7 +275,7 @@ export declare interface ComputedBarAttribute {
   totalOffset: double;
 
   /**
-   * The range of the grid.
+   * The range of the grid, in vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
