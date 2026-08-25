@@ -350,7 +350,7 @@ declare enum GridItemAlignment {
 declare interface ComputedBarAttribute {
 
   /**
-   * Grid内容相对显示区域的总偏移，单位px。
+   * Grid内容相对显示区域的总偏移，单位vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -361,7 +361,7 @@ declare interface ComputedBarAttribute {
   totalOffset: number;
 
   /**
-   * Grid内容总长度，单位px。
+   * Grid内容总长度，单位vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
