@@ -3882,7 +3882,8 @@ declare namespace avSession {
   }
 
   /**
-   * 在投播建立后，调用[avSession.getAVCastController]{@link avSession.getAVCastController}后，返回会话控制器实例。控制器可查看会话ID，并可完成对会话发送命令及事件，
+   * 在投播建立后，调用[avSession.AVSession.getAVCastController]{@link avSession.AVSession.getAVCastController}后，
+   * 返回会话控制器实例。控制器可查看会话ID，并可完成对会话发送命令及事件，
    * 获取会话元数据，播放状态信息等操作。
    * 
    * > **说明：**
