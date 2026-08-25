@@ -5301,7 +5301,7 @@ declare namespace window {
 
     /**
      * Whether to hide the Dock icon and the hover thumbnail preview.
-     * If true, the current main window will not display its icon and hover thumbnail preview on the Dock.
+     * If true, the current window will not display its icon and hover thumbnail preview on the Dock.
      *
      * @default false
      * @since 26.0.0 dynamic&static
@@ -5310,7 +5310,7 @@ declare namespace window {
 
     /**
      * Whether to hide the window from the task view.
-     * If true, the current main window will not be displayed in the task view.
+     * If true, the current window will not be displayed in the task view.
      *
      * @default false
      * @since 26.0.0 dynamic&static

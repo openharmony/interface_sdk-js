@@ -5090,7 +5090,7 @@ declare namespace window {
 
     /**
      * 是否屏蔽快捷栏图标及Hover缩略图。
-     * 如果为true，则当前主窗口不会在快捷栏上显示图标及Hover缩略图。
+     * 如果为true，则当前窗口不会在快捷栏上显示图标及Hover缩略图。
      *
      * @default false
      * @since 26.0.0 dynamic&static
@@ -5099,7 +5099,7 @@ declare namespace window {
 
     /**
      * 是否屏蔽多任务视图。
-     * 如果为true，则当前主窗口不会在多任务视图中显示。
+     * 如果为true，则当前窗口不会在多任务视图中显示。
      *
      * @default false
      * @since 26.0.0 dynamic&static
