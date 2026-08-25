@@ -780,7 +780,7 @@ declare class UIAbility extends Ability {
    * > dock栏或系统托盘处右键点击关闭，本回调函数将不执行。
    * >
    * > - 如果应用本身或者所使用的三方框架注册了
-   * > [window.WindowStage.on('windowStageClose')](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#onwindowstageclose14)
+   * > [window.WindowStage.on]{@link ./@ohos.window:WindowStage.on(eventType: 'windowStageClose', callback: Callback<void>)}
    * > 监听，本回调函数将不执行。
    *
    * @permission ohos.permission.PREPARE_APP_TERMINATE

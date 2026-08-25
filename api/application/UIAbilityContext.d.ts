@@ -2537,7 +2537,7 @@ declare class UIAbilityContext extends Context {
    * >
    * > - Before calling this API, ensure that the window has been created and the page corresponding to the UIAbility 
    * > has been loaded (using the 
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9) API in the 
+   * > [loadContent]{@link ./../@ohos.window:WindowStage.loadContent} API in the 
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate} lifecycle).
    * >
    * > - After this API is called, a new resource manager object is created. If a resource manager was previously cached
