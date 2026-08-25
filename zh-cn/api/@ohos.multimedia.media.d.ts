@@ -5048,68 +5048,61 @@ declare namespace media {
     offError(callback?: ErrorCallback): void;
 
     /**
-     * Unsubscribes from audio stream output device changes and reasons. This API uses an asynchronous callback
-     * to return the result.
+     * 取消订阅音频流输出设备的更改及原因。这个API使用异步回调来返回结果。
      *
-     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } [callback] - Callback used to return the output device
-     *     descriptor of the current audio stream and the change reason.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     2. Incorrect parameter types. 3.Parameter verification failed.
+     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } [callback] - 回调返回当前音频流的输出设备描述以及更改原因。
+     * @throws { BusinessError } 401 - 参数错误。可能的原因：1、必填参数未填写。2、参数类型不正确。3、参数校验失败。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offAudioOutputDeviceChangeWithInfo(callback?: Callback<audio.AudioStreamDeviceChangeInfo>): void;
 
     /**
-     * Unsubscribes from subtitle update events.
+     * 取消订阅字幕更新事件。
      *
-     * @param { Callback<SubtitleInfo> } [callback] - Callback that has been registered to listen for subtitle
-     *     update events.
+     * @param { Callback<SubtitleInfo> } [callback] - 已注册用于监听字幕更新事件的回调。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offSubtitleUpdate(callback?: Callback<SubtitleInfo>): void;
 
     /**
-     * Unsubscribes from track change events.
-     * The event is triggered when the track changes.
+     * 取消订阅轨道更改事件。
+     * 当轨道改变时，该事件被触发。
      *
-     * @param { OnTrackChangeHandler } [callback] - Callback that has been registered to listen for track changes.
+     * @param { OnTrackChangeHandler } [callback] - 已注册用于监听轨道变化的回调。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offTrackChange(callback?: OnTrackChangeHandler): void;
 
     /**
-     * Unsubscribes from track information update events.
-     * The event is triggered when the track information is updated.
+     * 取消订阅轨道信息更新事件。
+     * 当轨道信息更新时，该事件被触发。
      *
-     * @param { Callback<Array<MediaDescription>> } [callback] - Callback that has been registered to listen for track
-     *     information updates.
+     * @param { Callback<Array<MediaDescription>> } [callback] - 已注册用于监听轨道信息更新的回调。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offTrackInfoUpdate(callback?: Callback<Array<MediaDescription>>): void;
 
     /**
-     * Unsubscribes from update events of the maximum amplitude.
-     * The event is triggered when the amplitude changes.
+     * 取消订阅最大振幅的更新事件。
+     * 当幅度发生变化时，该事件被触发。
      *
-     * @param { Callback<Array<double>> } [callback] - Callback that has been registered to listen for amplitude
-     *     updates.
+     * @param { Callback<Array<double>> } [callback] - 已注册用于监听振幅更新的回调。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offAmplitudeUpdate(callback?: Callback<Array<double>>): void;
 
     /**
-     * Unsubscribes from the events indicating that an SEI message is received.
-     * The event is triggered when an SEI message is received.
+     * 取消订阅收到SEI消息事件。
+     * 当收到SEI消息时，该事件被触发。
      *
-     * @param { Array<int> } [payloadTypes] - The payload types of the SEI message.
-     *     Null means unsubscribe all payload types.
-     * @param { OnSeiMessageHandle } [callback] - Callback used to listen for SEI message events and receive the
-     *     subscribed-to payload types.
+     * @param { Array<int> } [payloadTypes] - SEI消息的负载类型。
+     * Null 表示取消订阅所有负载类型。
+     * @param { OnSeiMessageHandle } [callback] - 回调用于监听SEI消息事件并接收订阅的有效载荷类型。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
@@ -5836,7 +5829,7 @@ declare namespace media {
   }
 
   /**
-   * Media Stream. AVPlayer use this for mediaData access, current version only support live stream.
+   * 媒体流。AVPlayer用来访问媒体数据，目前只支持直播流。
    *
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
@@ -5845,7 +5838,7 @@ declare namespace media {
    */
   interface MediaStream {
     /**
-     * url for this mediaStream
+     * mediaStream网址
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -5855,7 +5848,7 @@ declare namespace media {
     url: string;
  
     /**
-     * video width.
+     * 视频宽度
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -5865,7 +5858,7 @@ declare namespace media {
     width: int;
 
     /**
-     * video height.
+     * 视频高度。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -5875,7 +5868,7 @@ declare namespace media {
     height: int;
 
     /**
-     * biterate of this mediaStream.
+     * mediaStream比特率。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -5988,7 +5981,7 @@ declare namespace media {
     APPLICATION_M3U8 = 'application/m3u8',
   }
   /**
-   * Provides preferred playback settings for player.
+   * 播放器首选播放设置。
    *
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
@@ -5997,7 +5990,7 @@ declare namespace media {
    */
   interface PlaybackStrategy {
     /**
-     * Choose a stream with width close to it.
+     * 选择宽度接近的流。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -6006,7 +5999,7 @@ declare namespace media {
      */
     preferredWidth?: int;
     /**
-     * Choose a stream with height close to it.
+     * 选择高度接近的流。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -6015,7 +6008,7 @@ declare namespace media {
      */
     preferredHeight?: int;
     /**
-     * Chooses a preferred buffer duration.
+     * 选择缓冲时长。
      * 
      * <p>The preferred buffer duration in the playback policy, is used to set the buffer size. For details,
      * see [Online Video Frame Freezing Optimization Practice]{@link
@@ -6029,7 +6022,7 @@ declare namespace media {
     preferredBufferDuration?: int;
 
     /**
-     * If true, the player should choose HDR stream if exist.
+     * 如果是，应该选择HDR流（如果有的话）。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -6039,7 +6032,7 @@ declare namespace media {
     preferredHdr?: boolean;
 
     /**
-     * mute the specified media stream when playing.
+     * 播放时静音指定的媒体流。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12 dynamic
@@ -6048,7 +6041,7 @@ declare namespace media {
     mutedMediaType?: MediaType;
 
     /**
-     * Audio language.
+     * 音频语言。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -6058,7 +6051,7 @@ declare namespace media {
     preferredAudioLanguage?: string;
 
     /**
-     * Subtitle language.
+     * 字幕语言。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -6068,7 +6061,7 @@ declare namespace media {
     preferredSubtitleLanguage?: string;
 
     /**
-     * Show first frame on prepare.
+     * prepare时显示首帧。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -6078,7 +6071,7 @@ declare namespace media {
     showFirstFrameOnPrepare?: boolean;
 
     /**
-     * Customize the buffering threshold for start or restart playing. The unit is second.
+     * 自定义开始或重新播放的缓冲阈值，单位为秒。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -6088,8 +6081,8 @@ declare namespace media {
     preferredBufferDurationForPlaying?: double;
 
     /**
-     * Enable super-resolution feature. default is false.
-     * Must enable super-resolution feature before calling {@link #setSuperResolution} and {@link #setVideoWindowSize}.
+     * 是否启用超分。默认是关闭的。
+     * 在调用之前必须启用超分辨率功能 {@link #setSuperResolution} 和 {@link #setVideoWindowSize}.
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -6099,8 +6092,8 @@ declare namespace media {
     enableSuperResolution?: boolean;
 
     /**
-     * set max buffering threshold for liveStreaming or avplayer while change the speed.
-     * It is recommended that the value be 2 seconds greater than the starting waterline.
+     * 在更改速度时，为直播或 AVPlayer 设置最大缓冲阈值。
+     * 建议比起始水位高出2秒。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -6110,8 +6103,7 @@ declare namespace media {
     thresholdForAutoQuickPlay?: double;
 
     /**
-     * Indicates whether to keep the decoder working when closing the media,
-     * which is used to facilitate quick opening of the media. Currently only supports video
+     * 在关闭媒体时是否保持解码器工作，用于方便快速打开媒体。目前仅支持视频。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -6121,8 +6113,7 @@ declare namespace media {
     keepDecodingOnMute?: boolean;
 
     /**
-     * Indicates whether to enable camera post-processing during video playback,
-     * which is used to apply image enhancements when playing back video content.
+     * 表示是否在视频播放时启用相机后处理，用于在播放视频内容时应用图像增强。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
@@ -6133,8 +6124,7 @@ declare namespace media {
   }
 
   /**
-   * Media file descriptor. The caller needs to ensure that the fd is valid and
-   * the offset and length are correct.
+   * 媒体文件描述符。调用者需要确保 fd 有效，并且偏移量和长度是正确的。
    *
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform [since 12]
@@ -6144,8 +6134,7 @@ declare namespace media {
    */
   interface AVFileDescriptor {
     /**
-     * The file descriptor of audio or video source from file system. The caller
-     * is responsible to close the file descriptor.
+     * 来自文件系统的音频或视频源的文件描述符。调用者负责关闭该文件描述符。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform [since 12]
@@ -6156,8 +6145,7 @@ declare namespace media {
     fd: int;
 
     /**
-     * The offset into the file where the data to be read, in bytes. By default,
-     * the offset is zero.
+     * 读取的数据在文件中的偏移量，单位字节。默认情况下，偏移量是零。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform [since 12]
@@ -6168,8 +6156,7 @@ declare namespace media {
     offset?: long;
 
     /**
-     * The length in bytes of the data to be read. By default, the length is the
-     * rest of bytes in the file from the offset.
+     * 读取的数据的字节长度。默认情况下，长度是从偏移量开始文件中剩余的字节数。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @crossplatform [since 12]
@@ -6181,9 +6168,8 @@ declare namespace media {
   }
 
   /**
-   * Defines the descriptor of an audio and video file, which is used in DataSource playback mode.
-   * Use scenario: An application can create a playback instance and start playback before it finishes
-   * downloading the audio and video resources.
+   * 定义音频和视频文件的描述符，用于DataSource播放模式。
+   * 使用场景：一个应用可以在下载完音频和视频资源之前创建播放实例并开始播放。
    *
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform [since 12]
@@ -6193,8 +6179,7 @@ declare namespace media {
    */
   interface AVDataSrcDescriptor {
     /**
-     * Size of the file, -1 means the file size is unknown, in this case,
-     * seek and setSpeed can't be executed, loop can't be set, and can't replay.
+     * 文件大小，-1表示文件大小未知，在这种情况下，seek和setSpeed无法执行，loop不能设置，也无法重播。
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform [since 12]
@@ -6204,13 +6189,12 @@ declare namespace media {
      */
     fileSize: long;
     /**
-     * Callback function implemented by users, which is used to fill data.
-     * buffer - The buffer need to fill.
-     * length - The stream length player want to get.
-     * pos - The stream position player want get start, and is an optional parameter.
-     * When fileSize set to -1, this parameter is not used.
-     * Returns length of the data to be filled, Return -1 to indicate that the end of the stream is reached,
-     * Return -2 to indicate that an unrecoverable error has been encountered.
+     * 用户实现的回调函数，用来填充数据。
+     * buffer - 缓冲区需要填充。
+     * length - 播放需要获得的流长度。
+     * pos - 播放获取流的起始位置，可选参数。
+     * 当fileSize设置为-1时，这个参数不会被使用。
+     * 返回要填充的数据的长度，返回-1表示已到达流的末尾，返回-2表示遇到了不可恢复的错误。
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform [since 12]
@@ -6222,9 +6206,8 @@ declare namespace media {
   }
 
   /**
-   * Provides subtitle information. When a subtitle update event is subscribed to, the information about the
-   * external subtitle is returned through a callback.
-   * Can be synchronized to the time reported by AVPlayer#timeUpdate event
+   * 提供字幕信息。当订阅了字幕更新事件时，关于外部字幕的信息会通过回调返回。
+   * 可以同步到AVPlayer#timeUpdate事件报告的时间
    *
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
@@ -6233,7 +6216,7 @@ declare namespace media {
    */
   interface SubtitleInfo {
     /**
-     * Duration of the text to be displayed, as milliseconds.
+     * 文本显示的时间长度，以毫秒为单位。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -6242,7 +6225,7 @@ declare namespace media {
      */
     duration?: int;
     /**
-     * Display start time of the text, as milliseconds.
+     * 显示文本的开始时间，以毫秒为单位。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -6251,7 +6234,7 @@ declare namespace media {
      */
     startTime?: int;
     /**
-     * Text information of current update event.
+     * 更新事件的文本信息。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
