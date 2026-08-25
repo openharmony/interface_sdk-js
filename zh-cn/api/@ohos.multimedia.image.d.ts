@@ -4075,6 +4075,67 @@ declare namespace image {
   }
 
   /**
+   * SVG资源限制等级枚举。
+   *
+   * 更高等级允许解析和绘制SVG图像时使用更少的资源。
+   * 无论指定哪种等级，系统默认的资源限制都会实施。
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum SVGResourceLimitLevel {
+    /**
+     * 使用系统默认的SVG资源限制。
+     *
+     * 该等级不会关闭SVG资源保护。
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    NONE = 0,
+
+    /**
+     * 使用低等级限制，允许使用更多SVG资源预算。
+     *
+     * 此等级适用于复杂的SVG图片。系统默认的资源限制仍然使用。
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    LOW = 1,
+
+    /**
+     * 使用中等级限制，允许使用适中的SVG资源预算。
+     *
+     * 该等级平衡SVG兼容性和资源消耗，适用于大多数SVG图像。
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    MEDIUM = 2,
+
+    /**
+     * 使用高等级限制，允许使用更少SVG资源预算。
+     *
+     * 该等级适用于简单SVG图像，如图标和基础的UI资源。
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    HIGH = 3
+  }
+
+  /**
    * ImageSource的初始化选项。
    *
    * @syscap SystemCapability.Multimedia.Image.Core
@@ -4125,6 +4186,19 @@ declare namespace image {
      * @since 23 static
      */
     sourceSize?: Size;
+
+    /**
+     * SVG图像解析和绘制时使用的资源限制。
+     * 该限制于SVG元数据解析前生效，因此也应用于图像信息获取。该限制对非SVG图像无效。
+     * 默认值：默认值为{@link SVGResourceLimitLevel.NONE}，它使用
+     * 系统定义的默认资源限制，不会禁用SVG资源保护。
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    svgResourceLimitLevel?: SVGResourceLimitLevel;
   }
 
   /**
