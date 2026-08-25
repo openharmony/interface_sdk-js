@@ -4682,7 +4682,7 @@ declare namespace avSession {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice [since 12]
@@ -4698,7 +4698,7 @@ declare namespace avSession {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 23 static
@@ -4716,7 +4716,7 @@ declare namespace avSession {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice [since 12]
@@ -4731,7 +4731,7 @@ declare namespace avSession {
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400104 - Time out.
      * @throws { BusinessError } 5400105 - Service died.
-     * @throws { BusinessError } 5400106 - Unsupport format.
+     * @throws { BusinessError } 5400106 - Unsupported format.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 23 static
@@ -10017,7 +10017,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_PARSING_CONTAINER_UNSUPPORTED = 6613003,
 
     /**
-     * 媒体清单中不支持的特性。
+     * 媒体清单中不支持此功能。
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -10067,7 +10067,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_DECODING_FAILED = 6614003,
 
     /**
-     * 设备的能力无法解码当前格式。
+     * 所需解码的内容格式超出设备能力导致失败。
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
