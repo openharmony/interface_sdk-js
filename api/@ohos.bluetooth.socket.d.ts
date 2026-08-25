@@ -26,7 +26,6 @@ import type baseProfile from './@ohos.bluetooth.baseProfile';
  *
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @since 10 dynamic
- * @since 26.0.0 static
  */
 declare namespace socket {
   /**
@@ -46,7 +45,6 @@ declare namespace socket {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 26.0.0 static
    */
   function sppListen(name: string, options: SppOptions, callback: AsyncCallback<int>): void;
 
@@ -57,7 +55,6 @@ declare namespace socket {
    * @returns { int } Returns the l2cap socket psm
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 20 dynamic
-   * @since 26.0.0 static
    */
   function getL2capPsm(serverSocket: int): int;
 
@@ -75,7 +72,6 @@ declare namespace socket {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 26.0.0 static
    */
   function sppAccept(serverSocket: int, callback: AsyncCallback<int>): void;
 
@@ -96,7 +92,6 @@ declare namespace socket {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 26.0.0 static
    */
   function sppConnect(deviceId: string, options: SppOptions, callback: AsyncCallback<int>): void;
 
@@ -111,7 +106,6 @@ declare namespace socket {
    * 3. Parameter verification failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 17 dynamic
-   * @since 26.0.0 static
    */
   function getDeviceId(clientSocket: int): string;
 
@@ -122,7 +116,6 @@ declare namespace socket {
    * @returns { int } Maximum received data size
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 22 dynamic
-   * @since 26.0.0 static
    */
   function getMaxReceiveDataSize(clientSocket: int): int;
 
@@ -133,7 +126,6 @@ declare namespace socket {
    * @returns { int } Maximum transmitted data size
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 22 dynamic
-   * @since 26.0.0 static
    */
   function getMaxTransmitDataSize(clientSocket: int): int;
 
@@ -144,7 +136,6 @@ declare namespace socket {
    * @returns { boolean } Indicates whether or not it is connected.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 22 dynamic
-   * @since 26.0.0 static
    */
   function isConnected(clientSocket: int): boolean;
 
@@ -159,7 +150,6 @@ declare namespace socket {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 26.0.0 static
    */
   function sppCloseServerSocket(socket: int): void;
 
@@ -174,7 +164,6 @@ declare namespace socket {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 26.0.0 static
    */
   function sppCloseClientSocket(socket: int): void;
 
@@ -190,7 +179,6 @@ declare namespace socket {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 26.0.0 static
    */
   function sppWrite(clientSocket: int, data: ArrayBuffer): void;
 
@@ -211,20 +199,6 @@ declare namespace socket {
   function on(type: 'sppRead', clientSocket: number, callback: Callback<ArrayBuffer>): void;
 
   /**
-   * Subscribe the event reported when data is read from the socket.
-   *
-   * @param { int } clientSocket - Client socket ID, which is obtained by sppAccept or sppConnect.
-   *     The value should be an integer.
-   * @param { Callback<ArrayBuffer> } callback - Callback used to listen for the spp read event.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2901054 - IO error.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 26.0.0 static
-   */
-  function onSppRead(clientSocket: int, callback: Callback<ArrayBuffer>): void;
-
-  /**
    * Unsubscribe the event reported when data is read from the socket.
    *
    * @param { 'sppRead' } type - Type of the spp read event to listen for.
@@ -239,18 +213,6 @@ declare namespace socket {
   function off(type: 'sppRead', clientSocket: number, callback?: Callback<ArrayBuffer>): void;
 
   /**
-   * Unsubscribe the event reported when data is read from the socket.
-   *
-   * @param { int } clientSocket - Client socket ID, which is obtained by sppAccept or sppConnect.
-   *     The value should be an integer.
-   * @param { Callback<ArrayBuffer> } [callback] - Callback used to listen for the spp read event.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 26.0.0 static
-   */
-  function offSppRead(clientSocket: int, callback?: Callback<ArrayBuffer>): void;
-
-  /**
    * Asynchronous interface for writing data to the socket.
    *
    * @param { int } clientSocket - Indicates the client socket ID, returned by {@link sppAccept} or {@link sppConnect}.
@@ -261,7 +223,6 @@ declare namespace socket {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 18 dynamic
-   * @since 26.0.0 static
    */
   function sppWriteAsync(clientSocket: int, data: ArrayBuffer): Promise<void>;
 
@@ -275,7 +236,6 @@ declare namespace socket {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 18 dynamic
-   * @since 26.0.0 static
    */
   function sppReadAsync(clientSocket: int): Promise<ArrayBuffer>;
 
@@ -284,7 +244,6 @@ declare namespace socket {
    *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 26.0.0 static
    */
   interface SppOptions {
     /**
@@ -292,7 +251,6 @@ declare namespace socket {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10 dynamic
-     * @since 26.0.0 static
      */
     uuid: string;
     /**
@@ -300,7 +258,6 @@ declare namespace socket {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10 dynamic
-     * @since 26.0.0 static
      */
     secure: boolean;
     /**
@@ -308,7 +265,6 @@ declare namespace socket {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10 dynamic
-     * @since 26.0.0 static
      */
     type: SppType;
     /**
@@ -316,7 +272,6 @@ declare namespace socket {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 20 dynamic
-     * @since 26.0.0 static
      */
     psm?: int;
   }
@@ -326,7 +281,6 @@ declare namespace socket {
    *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
-   * @since 26.0.0 static
    */
   enum SppType {
     /**
@@ -334,7 +288,6 @@ declare namespace socket {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 10 dynamic
-     * @since 26.0.0 static
      */
     SPP_RFCOMM = 0,
     /**
@@ -342,7 +295,6 @@ declare namespace socket {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 20 dynamic
-     * @since 26.0.0 static
      */
     SPP_L2CAP = 1,
     /**
@@ -350,7 +302,6 @@ declare namespace socket {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 20 dynamic
-     * @since 26.0.0 static
      */
     SPP_L2CAP_BLE = 2
   }
