@@ -31,7 +31,7 @@ import sendableRelationalStore from './@ohos.data.sendableRelationalStore';
  * 
  * 为保证插入并读取数据成功，建议一条数据不超过2MB。如果数据超过2MB，插入操作将成功，读取操作将失败。
  * 
- * 大数据量场景下查询数据可能会导致耗时长甚至应用卡死，如有相关操作可参考文档[批量数据写数据库场景](docroot://arkts-utils/batch-database-operations-guide.md)，且有建议如下：
+ * 大数据量场景下查询数据可能会导致耗时长甚至应用卡死，如有相关操作可参考文档[批量数据写数据库场景](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/arkts-utils/batch-database-operations-guide.md)，且有建议如下：
  * 
  * - 单次查询数据量不超过5000条。
  * - 在[TaskPool]{@link @ohos.taskpool:taskpool}中查询。
@@ -367,7 +367,7 @@ declare namespace relationalStore {
     /**
      * 数据库自定义路径。
      * 
-     * **使用约束：** 数据库路径大小限制为128字节，如果超过该大小会开库失败，抛出错误码401，请参见[通用错误码](docroot://reference/errorcode-universal.md)。
+     * **使用约束：** 数据库路径大小限制为128字节，如果超过该大小会开库失败，抛出错误码401，请参见[通用错误码](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/errorcode-universal.md)。
      * 
      * 从API version 11开始，支持此可选参数。数据库将在如下的目录结构中被创建：context.databaseDir + "/rdb/" + customDir，其中context.databaseDir是应用沙箱对应
      * 的路径，"/rdb/"表示创建的是关系型数据库，customDir表示自定义的路径。当此参数不填时，默认在本应用沙箱目录下创建RdbStore实例。从API version 18开始，如果同时配置了rootDir参数，将打开或
@@ -412,7 +412,7 @@ declare namespace relationalStore {
      * 指定本地设备是否自动清理远端设备删除后同步过来的数据，true表示自动清理，false表示手动清理，默认自动清理。若设置为false，需要主动调用
      * [cleanDeviceDirtyData]{@link relationalStore.RdbStore.cleanDeviceDirtyData}进行脏数据清理。
      * 
-     * [多设备协同表模式](docroot://database/data-sync-of-rdb-store.md#数据同步存储机制)分布式数据表配置不生效。
+     * [数据同步存储机制](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/database/data-sync-of-rdb-store.md#数据同步存储机制)分布式数据表配置不生效。
      * 
      * **系统接口：** 此接口为系统接口。
      *
@@ -483,7 +483,7 @@ declare namespace relationalStore {
 
     /**
      * 配置加载自定义动态库，数组中可传入多个动态库名称，默认值为空数组。具体请见
-     * [pluginLibs的使用约束和示例](docroot://reference/apis-arkdata/arkts-apis-data-relationalStore-i.md#pluginlibs的使用约束和示例)。
+     * [StoreConfig](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/apis-arkdata/arkts-apis-data-relationalStore-i.md#StoreConfig)。
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 12 dynamic
@@ -528,7 +528,7 @@ declare namespace relationalStore {
      * 当此参数不填时，则在FTS下不支持中文以及多国语言分词，但仍可支持英文分词。
      * 
      * 如果用户想使用自定义分词器，可以通过pluginLibs参数进行配置，具体请见
-     * [pluginLibs的使用约束和示例](docroot://reference/apis-arkdata/arkts-apis-data-relationalStore-i.md#pluginlibs的使用约束和示例)。
+     * [StoreConfig](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/apis-arkdata/arkts-apis-data-relationalStore-i.md#StoreConfig)。
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 17 dynamic
@@ -615,7 +615,7 @@ declare namespace relationalStore {
     /**
      * 整数类型，指定数据库PBKDF2算法的迭代次数，默认值为10000。
      * 
-     * 迭代次数应当为大于零的整数，若非整数则向下取整，若小于零则抛出错误码401，请参见[通用错误码](docroot://reference/errorcode-universal.md)。
+     * 迭代次数应当为大于零的整数，若非整数则向下取整，若小于零则抛出错误码401，请参见[通用错误码](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/errorcode-universal.md)。
      * 
      * 不指定此参数或指定为零时，使用默认值10000，并使用默认加密算法AES_256_GCM。
      *
@@ -1221,7 +1221,7 @@ declare namespace relationalStore {
    * > **说明：**
    * >
    * > 若需要进行同步操作，数据库安全级别应不高于对端设备安全级别，具体可见
-   * > [跨设备同步访问控制机制](docroot://database/sync-app-data-across-devices-overview.md#跨设备同步访问控制机制)。
+   * > [跨设备同步访问控制机制](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/database/sync-app-data-across-devices-overview.md#跨设备同步访问控制机制)。
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
@@ -1655,7 +1655,7 @@ declare namespace relationalStore {
 
     /**
      * 资产临时路径。仅当assetConflictPolicy值为CONFLICT_POLICY_TEMP_PATH时生效，需指定为
-     * [distributedfiles](docroot://file-management/app-sandbox-directory.md#应用文件目录与应用文件路径)下的临时路径，格式示例：tmp/，若未填写或路径不合规，将
+     * [应用文件目录与应用文件路径](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/file-management/app-sandbox-directory.md#应用文件目录与应用文件路径)下的临时路径，格式示例：tmp/，若未填写或路径不合规，将
      * 抛出 401 错误码。默认值为空。
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -4349,7 +4349,7 @@ declare namespace relationalStore {
      * version: int
      * 
      * 设置和获取数据库版本，值为正整数。读取和设置version属性会占用数据库连接，避免对该属性进行频繁操作。使用临时变量保存读取到的version值，在数据库变更完成后将其赋值给RdbStore实例的version属性。数据库升
-     * 级时变更version属性的场景，请参考[开发指南示例代码](docroot://database/data-persistence-by-rdb-store.md#开发步骤)。
+     * 级时变更version属性的场景，请参考[开发步骤](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/database/data-persistence-by-rdb-store.md#开发步骤)。
      *
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -5885,7 +5885,7 @@ declare namespace relationalStore {
      * [getString]{@link relationalStore.ResultSet.getString}等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
      * 
      * 该接口支持向量数据库（在[StoreConfig]{@link relationalStore.StoreConfig}中配置vector为true）使用，当前支持的语法见
-     * [规格限制](docroot://database/data-persistence-by-vector-store.md#规格限制)。
+     * [规格限制](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/database/data-persistence-by-vector-store.md#规格限制)。
      * 
      * 聚合函数不支持嵌套使用。
      *
@@ -5909,7 +5909,7 @@ declare namespace relationalStore {
      * [getString]{@link relationalStore.ResultSet.getString}等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
      * 
      * 该接口支持向量数据库（在[StoreConfig]{@link relationalStore.StoreConfig}中配置vector为true）使用，当前支持的语法见
-     * [规格限制](docroot://database/data-persistence-by-vector-store.md#规格限制)。
+     * [规格限制](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/database/data-persistence-by-vector-store.md#规格限制)。
      * 
      * 聚合函数不支持嵌套使用。
      *
@@ -5934,7 +5934,7 @@ declare namespace relationalStore {
      * [getString]{@link relationalStore.ResultSet.getString}等get方法时将无法成功获取数据，并可能导致操作失败或抛出异常。
      * 
      * 该接口支持向量数据库（在[StoreConfig]{@link relationalStore.StoreConfig}中配置vector为true）使用，当前支持的语法见
-     * [规格限制](docroot://database/data-persistence-by-vector-store.md#规格限制)。
+     * [规格限制](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/database/data-persistence-by-vector-store.md#规格限制)。
      * 
      * 聚合函数不支持嵌套使用。
      *
@@ -7130,10 +7130,10 @@ declare namespace relationalStore {
     setDistributedTables(tables: Array<string>, type?: DistributedType, config?: DistributedConfig): Promise<void>;
 
     /**
-     * 保留对应[单版本表模式](docroot://database/data-sync-of-rdb-store.md#数据同步存储机制)分布式数据表中对应设备同步过来的数据，删除其他设备同步过来的数据，使用Promise异步回
+     * 保留对应[单版本表模式](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/database/data-sync-of-rdb-store.md#数据同步存储机制)分布式数据表中对应设备同步过来的数据，删除其他设备同步过来的数据，使用Promise异步回
      * 调。
      * 
-     * 不支持对[多设备协同表模式](docroot://database/data-sync-of-rdb-store.md#数据同步存储机制)分布式数据表进行删除。
+     * 不支持对[多设备协同表模式](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/database/data-sync-of-rdb-store.md#数据同步存储机制)分布式数据表进行删除。
      * 
      * 要删除数据越多，执行所需的时间越长。
      * 
@@ -7931,11 +7931,11 @@ declare namespace relationalStore {
     offSqliteErrorOccurred(observer?: Callback<ExceptionMessage>): void;
 
     /**
-     * 通知通过[on](docroot://reference/apis-arkdata/arkts-apis-data-relationalStore-RdbStore.md#on10)注册的进程间或者进程内监听事件。
+     * 通知通过[on](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/apis-arkdata/arkts-apis-data-relationalStore-RdbStore.md#on10)注册的进程间或者进程内监听事件。
      *
      * @param { string } event - 通知订阅事件的名称，可自定义事件名称，不能与系统已有事件[dataChange]{@link relationalStore.RdbStore.onDataChange}，
-     *     [autoSyncProgress](docroot://reference/apis-arkdata/arkts-apis-data-relationalStore-RdbStore.md#onautosyncprogress11)，
-     *     [statistics](docroot://reference/apis-arkdata/arkts-apis-data-relationalStore-RdbStore.md#onstatistics12)名称重
+     *     [autoSyncProgress](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/apis-arkdata/arkts-apis-data-relationalStore-RdbStore.md#onautosyncprogress11)，
+     *     [statistics](https://gitcode.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/apis-arkdata/arkts-apis-data-relationalStore-RdbStore.md#onstatistics12)名称重
      *     复。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
