@@ -5084,7 +5084,8 @@ declare namespace window {
      *
      * @default false
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.0.0 dynamic&static
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
      */
     windowMinimizedWhenStart?: boolean;
 
@@ -5093,7 +5094,9 @@ declare namespace window {
      * 如果为true，则当前窗口不会在快捷栏上显示图标及Hover缩略图。
      *
      * @default false
-     * @since 26.0.0 dynamic&static
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
      */
     excludeFromDock?: boolean;
 
@@ -5102,7 +5105,9 @@ declare namespace window {
      * 如果为true，则当前窗口不会在多任务视图中显示。
      *
      * @default false
-     * @since 26.0.0 dynamic&static
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
      */
     excludeFromRecent?: boolean;
   }

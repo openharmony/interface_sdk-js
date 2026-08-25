@@ -5291,11 +5291,12 @@ declare namespace window {
 
     /**
      * Whether the window starts in a minimized state.
-     * If true, the window will not be brought to the foreground, and only an icon will be displayed on the Dock.
+     * If true, the window will not be brought to the foreground.
      *
      * @default false
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.0.0 dynamic&static
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
      */
     windowMinimizedWhenStart?: boolean;
 
@@ -5304,16 +5305,20 @@ declare namespace window {
      * If true, the current window will not display its icon and hover thumbnail preview on the Dock.
      *
      * @default false
-     * @since 26.0.0 dynamic&static
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
      */
     excludeFromDock?: boolean;
 
     /**
-     * Whether to hide the window from the task view.
-     * If true, the current window will not be displayed in the task view.
+     * Whether to hide the window from the multitasking center.
+     * If true, the current window will not be displayed in the multitasking center.
      *
      * @default false
-     * @since 26.0.0 dynamic&static
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
      */
     excludeFromRecent?: boolean;
   }
