@@ -21,7 +21,7 @@
 /**
  * 可以作为
  * [registerMissionListener]{@link @ohos.distributedMissionManager:distributedMissionManager.registerMissionListener(parameter: MissionDeviceInfo, options: MissionCallback, callback: AsyncCallback<void>)}
- * 的入参，表示注册监听时所需参数的枚举。
+ * 的入参，表示注册监听时所需参数的对象，包含deviceId等设备标识符字段。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
