@@ -434,7 +434,7 @@ declare namespace taskpool {
 
   /**
    * 表示任务组，一次执行一组任务，适用于执行一组有关联的任务。如果所有任务正常执行，异步执行完毕后返回所有任务结果的数组，
-   * 数组中元素的顺序与调用[addTask]{@link taskpool.TaskGroup#addTask(task: Task)}添加任务的顺序相同。如果任意任务失败，
+   * 数组中元素的顺序与调用[addTask]{@link taskpool.TaskGroup.addTask(task: Task)}添加任务的顺序相同。如果任意任务失败，
    * 则会抛出对应异常。如果任务组中存在多个任务失败的情况，则会抛出第一个失败任务的异常。任务组可以多次执行，但执行后不能新增任务。
    *
    * @syscap SystemCapability.Utils.Lang
@@ -572,7 +572,7 @@ declare namespace taskpool {
 
   /**
    * 表示长时任务。**LongTask**继承自
-   * [Task]{@link taskpool.execute(func: Function, ...args: Object[])}。
+   * [Task]{@link taskpool.Task}。
    * 长时任务不设置执行时间上限，长时间运行不会触发超时异常，但不支持将同一任务多次执行或者将该任务加入任务组（TaskGroup）。
    * 执行长时任务的线程会持续存在，直到任务完成并调用[terminateTask]{@link taskpool.terminateTask}后，该线程在空闲时被回收。
    *
@@ -585,7 +585,7 @@ declare namespace taskpool {
 
   /**
    * 表示泛型任务。**GenericsTask**继承自
-   * [Task]{@link taskpool.execute(func: Function, ...args: Object[])}。
+   * [Task]{@link taskpool.Task}。
    * 相比创建Task，创建GenericsTask可以在编译阶段校验并发函数的传参和返回值类型。其余行为与Task相同。
    *
    * @syscap SystemCapability.Utils.Lang

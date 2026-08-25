@@ -35,7 +35,7 @@ declare namespace json {
    * allowing for custom data processing or conversion during parsing.
    *
    * When used as a parameter of
-   * [JSON.stringify]{@link json.stringify(value: Object, replacer?: Transformer, space?: string | number)}, the
+   * [JSON.stringify]{@link util.json.stringify(value: Object, replacer?: Transformer, space?: string | number)}, the
    * function is used to transfer and handle each property during serialization.
    *
    * @param { Object } this - Object to which the key-value pair to parse belongs.

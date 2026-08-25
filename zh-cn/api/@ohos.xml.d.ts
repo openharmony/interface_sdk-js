@@ -869,7 +869,7 @@ declare namespace xml {
      * > **说明：**
      * >
      * > - `inputStream`参数必须传入继承自[Readable]{@link @ohos.util.stream:stream.Readable}且实现
-     * > [Doread]{@link @ohos.util.stream:stream.Readable#doRead}的类。可以传入其他模块中满足该条件的类，如
+     * > [doRead]{@link ./@ohos.util.stream:util.stream.Readable.doRead}的类。可以传入其他模块中满足该条件的类，如
      * > [ReadStream]{@link @ohos.file.fs:ReadStream}。
      *
      * @param { stream.Readable } inputStream - 用于读取XML数据的可读流实例。

@@ -31,7 +31,7 @@ import buffer from '@ohos.buffer';
  * The stream module provides APIs to process basic types of streams. With streams, data is read or written by chunk,
  * instead of being loaded to the memory at a time.
  * There are four fundamental stream types: writable streams ([Writable]{@link stream.Writable}), readable streams (
- * [Readable]{@link stream.ReadableOptions}), duplex streams ([Duplex]{@link stream.Duplex}), and transform streams (
+ * [Readable]{@link util.stream.Readable}), duplex streams ([Duplex]{@link stream.Duplex}), and transform streams (
  * [Transform]{@link stream.Transform}).
  *
  * @syscap SystemCapability.Utils.Lang
@@ -542,7 +542,7 @@ declare namespace stream {
 
     /**
      * You need to implement this API. It is called when the readable stream calls
-     * [on]{@link stream.Writable#on(event: string, callback: Callback<emitter.EventData>)} for the first time. This API
+     * [on]{@link util.stream.Readable.on(event: string, callback: Callback<emitter.EventData>)} for the first time. This API
      * uses an asynchronous callback to return the result.
      *
      * @param { Function } callback - Callback function.
@@ -670,7 +670,7 @@ declare namespace stream {
   /**
    * A stream that is both readable and writable. A duplex stream allows data to be transmitted in two directions, that
    * is, data can be read and written.
-   * The **Duplex** class inherits from [Readable]{@link stream.ReadableOptions} and supports all the APIs in
+   * The **Duplex** class inherits from [Readable]{@link util.stream.Readable} and supports all the APIs in
    * **Readable**.
    *
    * @syscap SystemCapability.Utils.Lang

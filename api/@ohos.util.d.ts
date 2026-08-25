@@ -20,7 +20,7 @@
 
 /**
  * The util module provides common utility functions, such as [TextEncoder]{@link util.TextEncoder} and
- * [TextDecoder]{@link util.TextDecoderOptions} for string encoding and decoding,
+ * [TextDecoder]{@link util.TextDecoder} for string encoding and decoding,
  * [RationalNumber<sup>8+</sup>]{@link util.RationalNumber} for rational number operations,
  * [LRUCache<sup>9+</sup>]{@link util.LRUCache} for cache management, [ScopeHelper<sup>9+</sup>]{@link util.ScopeHelper}
  * for range determination, [Base64Helper<sup>9+</sup>]{@link util.Base64Helper} for Base64 encoding and decoding,
