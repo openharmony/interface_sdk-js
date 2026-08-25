@@ -689,12 +689,12 @@ export declare interface SoundPool {
   /**
    * 音频池资源播放完成监听，同时返回播放结束的音频的streamId。
    * 
-   * 当仅单独注册[onPlayFinished(callback: Callback<void>): void]{@link SoundPool.onPlayFinished(callback: Callback<void>): void}事件回调或者
-   * [onPlayFinishedWithStreamId(callback: Callback<int>): void]{@link SoundPool.onPlayFinishedWithStreamId(callback: Callback<int>): void}事件回调
+   * 当仅单独注册[onPlayFinished(callback: Callback<void>): void]{@link SoundPool.onPlayFinished(callback: Callback<void>)}事件回调或者
+   * [onPlayFinishedWithStreamId(callback: Callback<int>): void]{@link SoundPool.onPlayFinishedWithStreamId(callback: Callback<int>)}事件回调
    * 时，当音频播放完成的时候，都会触发注册的回调。
    * 
-   * 当同时注册[onPlayFinished(callback: Callback<void>): void]{@link SoundPool.onPlayFinished(callback: Callback<void>): void}事件回调和
-   * [onPlayFinishedWithStreamId(callback: Callback<int>): void]{@link SoundPool.onPlayFinishedWithStreamId(callback: Callback<int>): void}事件回调
+   * 当同时注册[onPlayFinished(callback: Callback<void>): void]{@link SoundPool.onPlayFinished(callback: Callback<void>)}事件回调和
+   * [onPlayFinishedWithStreamId(callback: Callback<int>): void]{@link SoundPool.onPlayFinishedWithStreamId(callback: Callback<int>)}事件回调
    * 时，当音频播放完成的时候，仅会触发'playFinishedWithStreamId'事件回调，不会触发'playFinished'事件回调。
    *
    * @param {Callback<int>} callback - Callback used to return the result. Stream ID of the audio that
