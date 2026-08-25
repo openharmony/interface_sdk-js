@@ -14,9 +14,7 @@
  */
 
 /**
- 剪贴板
- * @file
- 剪贴板
+ * @file 剪贴板
  * @kit BasicServicesKit
  */
 
@@ -156,11 +154,11 @@ declare namespace pasteboard {
   /**
    * 用于表示允许的数据字段类型。
    *
-   * @syscap SystemCapability.MiscServices.Pasteboard
    * @unionmember { string } 表示string的类型。
    * @unionmember { image.PixelMap } 表示[image.PixelMap]{@link @ohos.multimedia.image:image.PixelMap}的类型。
    * @unionmember { Want } 表示[Want]{@link @ohos.app.ability.Want:Want}的类型。
    * @unionmember { ArrayBuffer } 表示ArrayBuffer的类型。
+   * @syscap SystemCapability.MiscServices.Pasteboard
    * @crossplatform [since 24]
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -379,6 +377,8 @@ declare namespace pasteboard {
     /**
      * 表示允许在任何应用内粘贴。
      *
+     * 从API version 12开始废弃，无替代接口和替代方法。
+     *
      * @syscap SystemCapability.MiscServices.Pasteboard
      * @atomicservice [since 11]
      * @since 9 dynamiconly
@@ -438,7 +438,6 @@ declare namespace pasteboard {
      */
     FLIGHT_NUMBER = 4
   }
-
 
   /**
    * 定义剪贴板中所有内容条目的属性，包含时间戳、数据类型、粘贴范围以及一些附加数据等，
@@ -1353,7 +1352,6 @@ declare namespace pasteboard {
      */
     offRemoteUpdate(callback?: UpdateCallback): void;
 
-
     /**
      * 取消订阅系统剪贴板内容变化事件。
      *
@@ -1550,7 +1548,7 @@ declare namespace pasteboard {
      *
      * 应用使用自定义控件访问剪贴板内容需[申请访问剪贴板权限](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md)。
      * 应用[使用粘贴控件](docroot://security/AccessToken/pastebutton.md)访问剪贴板内容，无需申请权限。
-     * 
+     *
      * @permission ohos.permission.READ_PASTEBOARD [since 12]
      * @returns { PasteData } 返回系统剪贴板数据。
      * @throws { BusinessError } 12900005 - Excessive processing time for internal data.
@@ -1587,8 +1585,6 @@ declare namespace pasteboard {
      * @useinstead pasteboard.SystemPasteboard.hasData()
      */
     hasPasteData(): Promise<boolean>;
-
-
 
     /**
      * 判断系统剪贴板中是否有内容，使用callback异步回调。适用于需要异步判断剪贴板是否有内容且不阻塞主线程的场景，如UI响应优先的交互流程。
@@ -1716,7 +1712,7 @@ declare namespace pasteboard {
      *
      * 应用使用自定义控件访问剪贴板内容需[申请访问剪贴板权限](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md)。
      * 应用[使用粘贴控件](docroot://security/AccessToken/pastebutton.md)访问剪贴板内容，无需申请权限。
-     *  
+     *
      * @permission ohos.permission.READ_PASTEBOARD
      * @returns { Promise<unifiedDataChannel.UnifiedData> } Promise对象，返回系统剪贴板数据。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
@@ -1737,7 +1733,7 @@ declare namespace pasteboard {
      *
      * 应用使用自定义控件访问剪贴板内容需[申请访问剪贴板权限](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md)。
      * 应用[使用粘贴控件](docroot://security/AccessToken/pastebutton.md)访问剪贴板内容，无需申请权限。
-     * 
+     *
      * @permission ohos.permission.READ_PASTEBOARD
      * @returns { unifiedDataChannel.UnifiedData } 返回系统剪贴板数据。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
@@ -1881,7 +1877,7 @@ declare namespace pasteboard {
      *
      * 应用使用自定义控件访问剪贴板内容需[申请访问剪贴板权限](docroot://basic-services/pasteboard/get-pastedata-permission-guidelines.md)。
      * 应用[使用粘贴控件](docroot://security/AccessToken/pastebutton.md)访问剪贴板内容，无需申请权限。
-     * 
+     *
      * @permission ohos.permission.READ_PASTEBOARD
      * @param { GetDataParams } params - 应用在使用剪贴板提供的文件拷贝能力的情况下需要的参数，包含目标路径、文件冲突选项、进度条类型等。
      * @returns { Promise<PasteData> } Promise对象，返回系统剪贴板数据。
