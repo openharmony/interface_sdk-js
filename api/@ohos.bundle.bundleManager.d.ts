@@ -566,7 +566,7 @@ declare namespace bundleManager {
     INPUT_METHOD = 2,
 
     /**
-     * [ServiceExtensionAbility]{@link @ohos.app.ability.ServiceExtensionAbility:ServiceExtensionAbility}: provides
+     * ServiceExtensionAbility: provides
      * extended capabilities related to background services.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -586,7 +586,7 @@ declare namespace bundleManager {
     ACCESSIBILITY = 4,
 
     /**
-     * [DataShareExtensionAbility]{@link @ohos.application.DataShareExtensionAbility}: provides extended capabilities
+     * DataShareExtensionAbility: provides extended capabilities
      * related to data sharing, providing data reading and writing services.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -606,8 +606,7 @@ declare namespace bundleManager {
     FILE_SHARE = 6,
 
     /**
-     * [StaticSubscriberExtensionAbility]{@link @ohos.application.StaticSubscriberExtensionAbility:StaticSubscriberExtensionAbility}
-     * : provides extended capabilities related to static broadcast, used to handle static events such as startup
+     * StaticSubscriberExtensionAbility: provides extended capabilities related to static broadcast, used to handle static events such as startup
      * events.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -637,7 +636,7 @@ declare namespace bundleManager {
     BACKUP = 9,
 
     /**
-     * [WindowExtensionAbility]{@link @ohos.application.WindowExtensionAbility}: provides extended capabilities that
+     * WindowExtensionAbility: provides extended capabilities that
      * allow system applications to pull up and embed UIs of other applications.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -3035,7 +3034,7 @@ declare namespace bundleManager {
 
   /**
    * Obtains the **Want** parameters of the
-   * [entry UIAbility](docroot://quick-start/application-package-glossary.md#uiability) of the current application.
+   * [entry UIAbility](docroot://application-models/ability-terminology.md#uiability) of the current application.
    *
    * @returns { Want } Want object that contains only the bundle name and ability name.
    * @throws { BusinessError } 17700072 - The launch want is not found.

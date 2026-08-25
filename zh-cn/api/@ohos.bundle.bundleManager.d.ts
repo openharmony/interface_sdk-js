@@ -513,7 +513,7 @@ declare namespace bundleManager {
     INPUT_METHOD = 2,
 
     /**
-     * [ServiceExtensionAbility]{@link @ohos.app.ability.ServiceExtensionAbility:ServiceExtensionAbility}：后台服务扩展能力，提供后台运
+     * ServiceExtensionAbility：后台服务扩展能力，提供后台运
      * 行并对外提供相应能力。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -532,7 +532,7 @@ declare namespace bundleManager {
     ACCESSIBILITY = 4,
 
     /**
-     * [DataShareExtensionAbility]{@link @ohos.application.DataShareExtensionAbility}：数据共享扩展能力，用于对外提供数据读写服务。
+     * DataShareExtensionAbility：数据共享扩展能力，用于对外提供数据读写服务。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
@@ -550,8 +550,7 @@ declare namespace bundleManager {
     FILE_SHARE = 6,
 
     /**
-     * [StaticSubscriberExtensionAbility]{@link @ohos.application.StaticSubscriberExtensionAbility:StaticSubscriberExtensionAbility}
-     * ：静态广播扩展能力，用于处理静态事件，比如开机事件。
+     * StaticSubscriberExtensionAbility：静态广播扩展能力，用于处理静态事件，比如开机事件。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
@@ -578,7 +577,7 @@ declare namespace bundleManager {
     BACKUP = 9,
 
     /**
-     * [WindowExtensionAbility]{@link @ohos.application.WindowExtensionAbility}：界面组合扩展能力，允许系统应用进行跨应用的界面拉起和嵌入。
+     * WindowExtensionAbility：界面组合扩展能力，允许系统应用进行跨应用的界面拉起和嵌入。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
@@ -760,7 +759,7 @@ declare namespace bundleManager {
     LIVE_FORM = 30,
 
     /**
-     * [SelectionExtensionAbility]{@link @ohos.selectionInput.SelectionExtensionAbility:SelectionExtensionAbility}：为开发者提
+     * SelectionExtensionAbility：为开发者提
      * 供划词弹窗能力的ExtensionAbility。
      *
      * **模型约束**：此接口仅可在Stage模型下使用。
@@ -2851,7 +2850,7 @@ declare namespace bundleManager {
   function getLaunchWantForBundleSync(bundleName: string, userId?: int): Want;
 
   /**
-   * 获取本应用[入口UIAbility](docroot://quick-start/application-package-glossary.md#uiability)的Want参数。
+   * 获取本应用[入口UIAbility](docroot://application-models/ability-terminology.md#uiability)的Want参数。
    *
    * @returns { Want } 返回仅包含bundleName和abilityName的Want对象。
    * @throws { BusinessError } 17700072 - The launch want is not found.
