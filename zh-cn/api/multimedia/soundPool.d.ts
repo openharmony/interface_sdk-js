@@ -693,7 +693,7 @@ export declare interface SoundPool {
    * [onPlayFinishedWithStreamId(callback: Callback<int>): void]{@link SoundPool.onPlayFinishedWithStreamId(callback: Callback<int>)}事件回调
    * 时，当音频播放完成的时候，都会触发注册的回调。
    * 
-   * 当同时注册[onPlayFinished(callback: Callback<void>): void]{@link SoundPool.onPlayFinished(callback: Callback<void>)}事件回调和
+   * 当同时注册[onPlayFinished(callback: Callback<void>): void]{@link SoundPool.onPlayFinished(callback: Callback<void>)}事件回调和 
    * [onPlayFinishedWithStreamId(callback: Callback<int>): void]{@link SoundPool.onPlayFinishedWithStreamId(callback: Callback<int>)}事件回调
    * 时，当音频播放完成的时候，仅会触发'playFinishedWithStreamId'事件回调，不会触发'playFinished'事件回调。
    *

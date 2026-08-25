@@ -628,25 +628,19 @@ declare namespace media {
   ): void;
 
   /**
-   * Creates a **SoundPool** instance. This API uses an asynchronous callback to return the result.
+   * 创建音频池实例。使用callback异步回调。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * - In versions earlier than API version 18, the bottom layer of the created **SoundPool** object is in singleton
-   * mode. Therefore, an application process can create only one **SoundPool** instance.
-   * - In API version 18 and later versions, the bottom layer of the created **SoundPool** object is in multiton mode.
-   * Therefore, an application process can create a maximum of 128 **SoundPool** instances.
+   * - API version 18以下版本，创建的SoundPool对象底层为单实例模式，一个应用进程只能够创建1个SoundPool实例。
+   * - API version 18及API version 18以上版本，创建的SoundPool对象底层为多实例模式，一个应用进程最多能够创建128个SoundPool实例。
    *
-   * @param { int } maxStreams - Maximum number of streams that can be played by the **SoundPool** instance.
-   *     The value is an integer ranging from 1 to 32.
-   * @param { audio.AudioRendererInfo } audioRenderInfo - Audio renderer parameters. When the **usage** parameter
-   *     in **audioRenderInfo** is set to **STREAM_USAGE_UNKNOWN**, **STREAM_USAGE_MUSIC**, **STREAM_USAGE_MOVIE**, or
-   *     **STREAM_USAGE_AUDIOBOOK**, the SoundPool uses the audio mixing mode when playing a short sound, without
-   *     interrupting the playback of other audios.
-   * @param {AsyncCallback<SoundPool | undefined>} callback - Callback used to return the result. If the operation is
-   *     successful, a
-   *     **SoundPool** instance is returned; otherwise, **null** is returned.
-   *     The instance is used for loading and playback.
+   * @param { int } maxStreams - soundPool实例的最大播放的流数，设置范围为1-32的正整数。
+   * @param { audio.AudioRendererInfo } audioRenderInfo - 音频播放参数信息。其中audioRenderInfo中的参数usage取值为
+   *     STREAM_USAGE_UNKNOWN，STREAM_USAGE_MUSIC，STREAM_USAGE_MOVIE，STREAM_USAGE_AUDIOBOOK时，SoundPool播放短音时为混音
+   *     模式，不会打断其他音频播放。SoundPool支持将rendererFlags设置为1用于低时延通路播放。
+   * @param {AsyncCallback<SoundPool | undefined>} callback - 回调函数。异步返回SoundPool实例，失败时返回null。
+   *     用于音频池实例的加载播放功能。
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 23 static
@@ -676,21 +670,16 @@ declare namespace media {
   function createSoundPool(maxStreams: number, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool>;
 
   /**
-   * Creates a **SoundPool** instance. This API uses a promise to return the result.
+   * 创建音频池实例。使用Promise异步回调。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * - In versions earlier than API version 18, the bottom layer of the created **SoundPool** object is in singleton
-   * mode. Therefore, an application process can create only one **SoundPool** instance.
-   * - In API version 18 and later versions, the bottom layer of the created **SoundPool** object is in multiton mode.
-   * Therefore, an application process can create a maximum of 128 **SoundPool** instances.
+   * - API version 18以下版本，创建的SoundPool对象底层为单实例模式，一个应用进程只能够创建1个SoundPool实例。
+   * - API version 18及API version 18以上版本，创建的SoundPool对象底层为多实例模式，一个应用进程最多能够创建128个SoundPool实例。
    *
-   * @param {int} maxStreams - Maximum number of streams that can be played by the **SoundPool** instance.
-   *     The value is an integer ranging from 1 to 32.
-   * @param {audio.AudioRendererInfo} audioRenderInfo - Audio renderer parameters.
-   * @returns {Promise<SoundPool | undefined>} Promise used to return the result. If the operation is successful,
-   *     a **SoundPool** instance is returned; otherwise, **null** is returned.
-   *     The instance is used for loading and playback.
+   * @param {int} maxStreams - soundPool实例的最大播放的流数，设置范围为1-32的正整数。
+   * @param {audio.AudioRendererInfo} audioRenderInfo - 音频播放参数信息
+   * @returns {Promise<SoundPool | undefined>} 异步返回SoundPool实例，失败时返回null。用于音频池实例的加载播放功能。
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 23 static
@@ -698,17 +687,14 @@ declare namespace media {
   function createSoundPool(maxStreams: int, audioRenderInfo: audio.AudioRendererInfo): Promise<SoundPool | undefined>;
 
   /**
-   * Creates a **SoundPool** instance. This API uses a promise to return the result.
+   * 创建音频池实例。使用Promise异步回调。
    * 
-   * If a **SoundPool** instance created using [createSoundPool]{@link #createSoundPool} is used to play the same sound
-   * again, it stops the current audio and restarts the audio. However, if the instance is created using
-   * **createParallelSoundPool**, it keeps playing the first audio and starts the new one alongside it.
+   * 使用[createSoundPool]{@link #createSoundPool}创建的音频池实例，在重复播放相同音频时，会停止之前的播放并重新开始；而使用
+   * createParallelSoundPool创建的实例，在重复播放相同音频时，不会停止之前的音频，而是并行播放。
    *
-   * @param { int } maxStreams - Maximum number of streams that can be played by the **SoundPool** instance.
-   *     The value is an integer ranging from 1 to 32.
-   * @param { audio.AudioRendererInfo } audioRenderInfo - Audio renderer parameters.
-   * @returns { Promise<SoundPool> } Promise used to return the result. If the operation is successful, a **SoundPool**
-   *     instance is returned; otherwise, **null** is returned. The instance is used for loading and playback.
+   * @param { int } maxStreams - soundPool实例的最大播放的流数，设置范围为1-32的正整数。
+   * @param { audio.AudioRendererInfo } audioRenderInfo - 音频播放参数信息。
+   * @returns { Promise<SoundPool> } Promise对象，返回SoundPool实例，失败时返回null。用于音频池实例的加载播放功能。
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @throws { BusinessError } 202 - System API error. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -930,9 +916,9 @@ declare namespace media {
   function createAVMetadataExtractor(): Promise<AVMetadataExtractor>;
 
   /**
-   * Creates an **AVMetadataExtractor** instance. This API uses a promise to return the result.
+   * 创建AVMetadataExtractor实例。使用Promise异步回调。
    *
-   * @returns { Promise<AVMetadataExtractor | undefined> } A Promise instance used to return AVMetadataExtractor
+   * @returns { Promise<AVMetadataExtractor | undefined> } Promise对象。异步返回元数据获取类对象（AVMetadataExtractor）。
    *     instance
    *     if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 5400101 - No memory. Returned by promise.
@@ -955,12 +941,10 @@ declare namespace media {
   function createAVMetadataExtractor(callback: AsyncCallback<AVMetadataExtractor>): void;
 
   /**
-   * Creates an **AVMetadataExtractor** instance. This API uses an asynchronous callback to return the result.
+   * 创建AVMetadataExtractor实例。使用callback异步回调。
    *
-   * @param { AsyncCallback<AVMetadataExtractor | undefined> } callback - Callback used to return the result. If the
-   *     operation is
-   *     successful, **err** is **undefined** and **data** is the **AVMetadataExtractor** instance created;
-   *     otherwise, **err** is an error object.
+   * @param { AsyncCallback<AVMetadataExtractor | undefined> } callback - 回调函数。当创建AVMetadataExtractor实例成功，err为undefined，data为获取到的
+   *     AVMetadataExtractor实例，否则为错误对象。
    * @throws { BusinessError } 5400101 - No memory. Returned by callback.
    * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
    * @crossplatform
@@ -979,12 +963,9 @@ declare namespace media {
   function createAVImageGenerator(): Promise<AVImageGenerator>;
 
   /**
-   * Creates an **AVImageGenerator** instance. This API uses a promise to return the result.
+   * 创建AVImageGenerator对象。使用Promise异步回调。
    *
-   * @returns { Promise<AVImageGenerator | undefined> } Promise used to return the result. If the operation is
-   *     successful,
-   *     an **AVImageGenerator** instance is returned; otherwise, **null** is returned.
-   *     The API can be used to obtain a video thumbnail.
+   * @returns { Promise<AVImageGenerator | undefined> } Promise对象。异步返回AVImageGenerator实例，失败时返回null。可用于获取视频缩略图。
    * @throws { BusinessError } 5400101 - No memory. Returned by promise.
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @since 23 static
@@ -1002,11 +983,9 @@ declare namespace media {
   function createAVImageGenerator(callback: AsyncCallback<AVImageGenerator>): void;
 
   /**
-   * Creates an **AVImageGenerator** instance. This API uses an asynchronous callback to return the result.
+   * 创建AVImageGenerator实例。使用callback异步回调。
    *
-   * @param { AsyncCallback<AVImageGenerator | undefined> } callback - Callback used to return the result.
-   *     If the operation is successful, an **AVImageGenerator** instance is returned; otherwise, **null** is returned.
-   *     The API can be used to obtain a video thumbnail.
+   * @param { AsyncCallback<AVImageGenerator | undefined> } callback - 回调函数。异步返回AVImageGenerator实例，失败时返回null。可用于获取视频缩略图。
    * @throws { BusinessError } 5400101 - No memory. Returned by callback.
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @since 23 static
@@ -1075,10 +1054,9 @@ declare namespace media {
     fetchMetadata(callback: AsyncCallback<AVMetadata>): void;
 
     /**
-     * Obtains media metadata. This API uses an asynchronous callback to return the result.
+     * 获取媒体元数据。使用callback异步回调。
      *
-     * @param { AsyncCallback<AVMetadata | undefined> } callback - Callback used to return the result,
-     *     which is an **AVMetadata** instance.
+     * @param { AsyncCallback<AVMetadata | undefined> } callback - 回调函数。异步返回音视频元数据对象（AVMetadata）。
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
@@ -1102,10 +1080,9 @@ declare namespace media {
     fetchMetadata(): Promise<AVMetadata>;
 
     /**
-     * Obtains media metadata. This API uses a promise to return the result.
+     * 获取媒体元数据。使用Promise异步回调。
      *
-     * @returns { Promise<AVMetadata | undefined> } Promise used to return the result,
-     *     which is an **AVMetadata** instance.
+     * @returns { Promise<AVMetadata | undefined> } Promise对象。异步返回音视频元数据对象（AVMetadata）。
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
@@ -1144,10 +1121,9 @@ declare namespace media {
     fetchAlbumCover(callback: AsyncCallback<image.PixelMap>): void;
 
     /**
-     * Obtains the cover of the audio album. This API uses an asynchronous callback to return the result.
+     * 获取音频专辑封面。使用callback异步回调。
      *
-     * @param { AsyncCallback<image.PixelMap | undefined> } callback - Callback used to return the album cover.
-     *     to return when fetchAlbumCover completed.
+     * @param { AsyncCallback<image.PixelMap | undefined> } callback - 回调函数。异步返回专辑封面。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
@@ -1169,9 +1145,9 @@ declare namespace media {
     fetchAlbumCover(): Promise<image.PixelMap>;
 
     /**
-     * Obtains the cover of the audio album. This API uses a promise to return the result.
+     * 获取专辑封面。使用Promise异步回调。
      *
-     * @returns { Promise<image.PixelMap | undefined> } Promise used to return the album cover.
+     * @returns { Promise<image.PixelMap | undefined> } Promise对象。异步返回专辑封面。
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
@@ -1212,16 +1188,12 @@ declare namespace media {
     fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>;
 
     /**
-     * It will decode the given video resource. Then fetch a picture
-     * at @timeUs according the given @options and @param .
+     * 获取视频缩略图。使用Promise异步回调。
      *
-     * @param { long } timeUs - The time expected to fetch picture from the video resource.
-     *     The unit is microsecond(us).
-     * @param { AVImageQueryOptions } options - The time options about the relationship
-     *     between the given timeUs and a key frame, see @AVImageQueryOptions .
-     * @param { PixelMapParams } param - The output pixel map format params, see @PixelMapParams .
-     * @returns { Promise<image.PixelMap | undefined> } A Promise instance used to return the pixel map
-     *     when fetchFrameByTime completed.
+     * @param { long } timeUs - 需要获取的缩略图在视频中的时间点，单位为微秒（us）。
+     * @param { AVImageQueryOptions } options - 需要获取的缩略图时间点与视频帧的对应关系。见 @AVImageQueryOptions .
+     * @param { PixelMapParams } param - 需要获取的缩略图的格式参数。见 @PixelMapParams .
+     * @returns { Promise<image.PixelMap | undefined> } Promise对象，返回视频缩略图对象。
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @throws { BusinessError } 5400108 - Parameter check failed. Returned by promise.
@@ -1316,10 +1288,10 @@ declare namespace media {
     cancelAllFetchFrames(): void;
 
     /**
-     * Obtains the video timestamp corresponding to a video frame number. Only MP4 video files are supported.
+     * 获取目标视频帧号对应的视频时间戳（仅支持MP4视频文件）。使用Promise异步回调。
      *
-     * @param { int } index - Video frame number.
-     * @returns { Promise<long> } Promise used to return the timestamp, in microseconds.
+     * @param { int } index - 视频帧号。
+     * @returns { Promise<long> } Promise对象，返回时间戳。单位是微秒。
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
@@ -1331,10 +1303,10 @@ declare namespace media {
     getTimeByFrameIndex(index: int): Promise<long>;
 
     /**
-     * Obtains the video frame number corresponding to a video timestamp. Only MP4 video files are supported.
+     * 获取目标视频时间戳对应的视频帧号（仅支持MP4视频文件）。使用Promise异步回调。
      *
-     * @param { long } timeUs - Video timestamp, in microseconds.
-     * @returns { Promise<int> } Promise used to return the video frame number.
+     * @param { long } timeUs - 视频时间戳，单位：微秒。
+     * @returns { Promise<int> } Promise对象，返回视频帧号。
      * @throws { BusinessError } 401 - The parameter check failed. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
@@ -1371,9 +1343,7 @@ declare namespace media {
   }
 
   /**
-   * Defines the audio and video metadata. Parameters that are not declared as read-only in
-   * [AVRecorderConfig]{@link #AVRecorderConfig} can be used as input parameters for recording of
-   * [AVRecorder]{@link #AVRecorder}.
+   * 音视频元数据，包含各个元数据字段。
    *
    * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
    * @crossplatform [since 12]
@@ -1382,7 +1352,7 @@ declare namespace media {
    */
   interface AVMetadata {
     /**
-     * Title of the album. This parameter is not supported in AVRecorder settings.
+     * 专辑的标题。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1392,7 +1362,7 @@ declare namespace media {
     album?: string;
 
     /**
-     * Artist of the album. This parameter is not supported in AVRecorder settings.
+     * 专辑的艺术家。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1402,7 +1372,7 @@ declare namespace media {
     albumArtist?: string;
 
     /**
-     * Artist of the media asset. This parameter is not supported in AVRecorder settings.
+     * 媒体资源的艺术家。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1412,7 +1382,7 @@ declare namespace media {
     artist?: string;
 
     /**
-     * Author of the media asset. This parameter is not supported in AVRecorder settings.
+     * 媒体资源的作者。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1422,7 +1392,7 @@ declare namespace media {
     author?: string;
 
     /**
-     * Time when the media asset is created. This parameter is not supported in AVRecorder settings.
+     * 媒体资源的创建时间。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1432,8 +1402,7 @@ declare namespace media {
     dateTime?: string;
 
     /**
-     * Time when the media asset is created. The value is in the YYYY-MM-DD HH:mm:ss format.
-     * This parameter is not supported in AVRecorder settings.
+     * 媒体资源的创建时间，按YYYY-MM-DD HH:mm:ss格式输出。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1443,7 +1412,7 @@ declare namespace media {
     dateTimeFormat?: string;
 
     /**
-     * Composer of the media asset. This parameter is not supported in AVRecorder settings.
+     * 媒体资源的作曲家。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1453,7 +1422,7 @@ declare namespace media {
     composer?: string;
 
     /**
-     * Duration of the media asset. This parameter is not supported in AVRecorder settings.
+     * 媒体资源的时长。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1463,7 +1432,7 @@ declare namespace media {
     duration?: string;
 
     /**
-     * Type or genre of the media asset.
+     * 媒体资源的类型或体裁。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1473,7 +1442,7 @@ declare namespace media {
     genre?: string;
 
     /**
-     * Whether the media asset contains audio. This parameter is not supported in AVRecorder settings.
+     * 媒体资源是否包含音频。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1483,7 +1452,7 @@ declare namespace media {
     hasAudio?: string;
 
     /**
-     * Whether the media asset contains a video. This parameter is not supported in AVRecorder settings.
+     * 媒体资源是否包含视频。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1493,8 +1462,8 @@ declare namespace media {
     hasVideo?: string;
 
     /**
-     * MIME type of the media asset. This parameter is not supported in AVRecorder settings.
-     * Some example mime types include: "video/mp4", "audio/mp4", "audio/amr-wb".
+     * 媒体资源的mime类型。不支持AVRecorder设置该属性。
+     * 一些示例的mimeType类型包括: "video/mp4", "audio/mp4", "audio/amr-wb"
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1504,7 +1473,7 @@ declare namespace media {
     mimeType?: string;
 
     /**
-     * Number of tracks of the media asset. This parameter is not supported in AVRecorder settings.
+     * 媒体资源的轨道数量。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1514,7 +1483,7 @@ declare namespace media {
     trackCount?: string;
 
     /**
-     * Audio sampling rate, in Hz. This parameter is not supported in AVRecorder settings.
+     * 音频的采样率，单位为赫兹（Hz）。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1524,8 +1493,7 @@ declare namespace media {
     sampleRate?: string;
 
     /**
-     * Title of the media asset. This parameter is not supported in AVRecorder settings.
-     * This parameter is read-only in the current version.
+     * 媒体资源的标题。当前版本为只读参数。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1535,7 +1503,7 @@ declare namespace media {
     title?: string;
 
 	  /**
-     * Description of the media asset. This parameter is not supported in AVRecorder settings.
+     * 媒体资源的描述信息。当前版本为只读参数。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 23 dynamic&static
@@ -1543,7 +1511,7 @@ declare namespace media {
     description?: string;
 
     /**
-     * Video height, in px. This parameter is not supported in AVRecorder settings.
+     * 视频的高度，单位为像素（px）。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1553,7 +1521,7 @@ declare namespace media {
     videoHeight?: string;
 
     /**
-     * Video width, in px. This parameter is not supported in AVRecorder settings.
+     * 视频的宽度，单位为像素（px）。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1563,7 +1531,7 @@ declare namespace media {
     videoWidth?: string;
 
     /**
-     * Video rotation direction, in degrees.
+     * 视频的旋转方向，单位为度（°）。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1573,7 +1541,7 @@ declare namespace media {
     videoOrientation?: string;
 
     /**
-     * HDR type of the media asset. This parameter is not supported in AVRecorder settings.
+     * 媒体资源的HDR类型。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform
@@ -1583,7 +1551,7 @@ declare namespace media {
     hdrType?: HdrType;
 
     /**
-     * Geographical location of the media asset.
+     * 视频的地理位置信息。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 12 dynamic
@@ -1592,7 +1560,7 @@ declare namespace media {
     location?: Location;
 
     /**
-     * Custom key-value mappings obtained from **moov.meta.list**.
+     * 从moov.meta.list 获取的自定义参数键值映射。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 12 dynamic
@@ -1601,7 +1569,7 @@ declare namespace media {
     customInfo?: Record<string, string>;
 
     /**
-     * Tracks info of the media asset. This parameter is not supported in AVRecorder settings.
+     * 媒体资源的轨道信息。不支持AVRecorder设置该属性。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @since 20 dynamic
@@ -1610,8 +1578,8 @@ declare namespace media {
     tracks?: Array<MediaDescription>;
 
     /**
-     * The offset value of GLTF 3D model in media file. This parameter is not supported in AVRecorder settings.
-     * If the media file has no GLTF 3D model, gltf_offset is undefined.
+     * GLTF 3D模型在媒体文件中的偏移。不支持AVRecorder设置该属性。
+     * 如果媒体文件没有GLTF 3D模型，则gltf_offset是undefined。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @systemapi
@@ -1621,8 +1589,7 @@ declare namespace media {
     gltf_offset?: string;
 
    /**
-    * The identifier that represents the software or hardware and settings used for encoding.
-    * This parameter is not supported in AVRecorder settings.
+    * 用于编码的软件、硬件及其设置的标识符。不支持AVRecorder设置该属性。
     *
     * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
     * @stagemodelonly
@@ -1632,7 +1599,7 @@ declare namespace media {
   }
 
   /**
-   * This interface is used to define the output image size.
+   * 用于获取视频缩略图时，来定义输出图像大小。
    *
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @since 20 dynamic
@@ -1640,10 +1607,10 @@ declare namespace media {
    */
   interface OutputSize {  
     /**
-     * The expected output frame image width.
-     * If the value is less than 0, the width will be the orginal width of the video.
-     * If the value is 0 or no value is assigned, the scaling ratio will follow the specified height.
-     * If both width and height is not assigned, the output will be the original size of video frame.
+     * 输出的缩略图宽度，单位为像素（px）。
+     * 如果该值小于0，宽度是视频的原始宽度。
+     * 如果值为0或未分配任何值，缩放比例同高度比例。
+     * 如果宽度和高度均未分配任意值，则输出原始视频帧的宽度和高度。
      *
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 20 dynamic
@@ -1651,10 +1618,10 @@ declare namespace media {
      */
     width?:int;
     /**
-     * The expected output frame image height.
-     * If the value is less than 0, the height will be the orginal height of the video.
-     * If the value is 0 or no value is assigned, the scaling ratio will follow the specified width.
-     * If both width and height is not assigned, the output will be the original size of video frame.
+     * 输出的缩略图高度，单位为像素（px）。
+     * 如果该值小于0，高度是视频的原始高度。
+     * 如果值为0或未分配任何值，缩放比例同宽度比例。
+     * 如果宽度和高度均未分配任意值，则输出原始视频帧的宽度和高度。
      *
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 20 dynamic
@@ -1743,14 +1710,12 @@ declare namespace media {
       callback: AsyncCallback<image.PixelMap>): void;
 
     /**
-     * Obtains a video thumbnail. This API uses an asynchronous callback to return the result.
+     * 获取视频缩略图。使用callback异步回调。
      *
-     * @param { long } timeUs - Time of the video for which a thumbnail is to be obtained, in μs.
-     * @param { AVImageQueryOptions } options - Relationship between the time passed in and the video frame.
-     * @param { PixelMapParams } param - Format parameters of the thumbnail to be obtained.
-     * @param { AsyncCallback<image.PixelMap | undefined> } callback - Callback used to return the result.
-     *     If the operation is successful, **err** is **undefined** and **data** is the **PixelMap** instance obtained;
-     *     otherwise, **err** is an error object.
+     * @param { long } timeUs - 需要获取的缩略图在视频中的时间点，单位为微秒（μs）。
+     * @param { AVImageQueryOptions } options - 需要获取的缩略图时间点与视频帧的对应关系。
+     * @param { PixelMapParams } param - 需要获取的缩略图的格式参数。
+     * @param { AsyncCallback<image.PixelMap | undefined> } callback - 回调函数。获取缩略图成功时，err为undefined，data为PixelMap实例，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
@@ -1774,12 +1739,12 @@ declare namespace media {
     fetchFrameByTime(timeUs: number, options: AVImageQueryOptions, param: PixelMapParams): Promise<image.PixelMap>;
 
     /**
-     * Obtains a video thumbnail. This API uses a promise to return the result.
+     * 获取视频缩略图。使用Promise异步回调。
      *
-     * @param { long } timeUs - Time of the video for which a thumbnail is to be obtained, in μs.
-     * @param { AVImageQueryOptions } options - Relationship between the time passed in and the video frame.
-     * @param { PixelMapParams } param - Format parameters of the thumbnail to be obtained.
-     * @returns { Promise<image.PixelMap | undefined> } Promise used to return the video thumbnail.
+     * @param { long } timeUs - 需要获取的缩略图在视频中的时间点，单位为微秒（μs）。
+     * @param { AVImageQueryOptions } options - 需要获取的缩略图时间点与视频帧的对应关系。
+     * @param { PixelMapParams } param - 需要获取的缩略图的格式参数。
+     * @returns { Promise<image.PixelMap | undefined> } Promise对象，返回视频缩略图对象。
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
@@ -1803,13 +1768,12 @@ declare namespace media {
       Promise<image.PixelMap>;
 
     /**
-     * Supports extracting video thumbnails by proportional scaling
+     * 支持按比例缩放提取视频缩略图。使用Promise异步回调。
      *
-     * @param { long } timeUs - The time expected to fetch picture from the video resource.
-     *     The unit is microsecond(us).
-     * @param { AVImageQueryOptions } queryMode - Specify how to position the video frame
-     * @param { OutputSize } [outputSize] - This field is used to define the output size of frame.
-     * @returns { Promise<image.PixelMap | undefined> }  Returns the output image object
+     * @param { long } timeUs - 在视频中需要获取的缩略图的时间点，单位为微秒（μs）。
+     * @param { AVImageQueryOptions } queryMode - 需要获取的缩略图时间点与视频帧的对应关系。
+     * @param { OutputSize } [outputSize] - 定义帧的输出大小。默认按原图大小显示。
+     * @returns { Promise<image.PixelMap | undefined> }  Promise对象。返回视频缩略图对象。
      * @throws { BusinessError } 5400102 Operation not allowed. Returned by promise.
      * @throws { BusinessError } 5400106 Unsupported format. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
@@ -1889,7 +1853,7 @@ declare namespace media {
   }
 
   /**
-   * Defines the format parameters of the video thumbnail to be obtained.
+   * 获取视频缩略图时，输出缩略图的格式参数。
    *
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @since 12 dynamic
@@ -1897,9 +1861,8 @@ declare namespace media {
    */
   interface PixelMapParams {
     /**
-     * Width of the thumbnail. Unit: px.
-     * The value must be greater than 0 and less than or equal to the width of the original video.
-     * Otherwise, the returned thumbnail will not be scaled.
+     * 输出的缩略图宽度，单位为像素（px）。
+     * 应保证大于0且不大于原始视频宽度。否则返回的缩略图不会进行缩放。
      *
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12 dynamic
@@ -1908,9 +1871,8 @@ declare namespace media {
     width?: int;
 
     /**
-     * Height of the thumbnail. Unit: px.
-     * The value must be greater than 0 and less than or equal to the height of the original video.
-     * Otherwise, the returned thumbnail will not be scaled.
+     * 输出的缩略图高度，单位为像素（px）。
+     * 应保证大于0且不大于原始视频高度。否则返回的缩略图不会进行缩放。
      *
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12 dynamic
@@ -1919,7 +1881,7 @@ declare namespace media {
     height?: int;
 
     /**
-     * Color format of the thumbnail.
+     * 输出的缩略图颜色格式。
      * 
      * **System API**: This is a system API.
      *
@@ -1931,8 +1893,7 @@ declare namespace media {
     colorFormat?: PixelFormat;
 
     /**
-     * Auto flip the thumbnail when video has mirror attribute (Vertical Flip or Horizontal Flip).
-     * If the value is false, the returned thumbnail will not be flipped.
+     * 当视频具有镜像属性（垂直翻转或水平翻转）时，自动翻转缩略图。如果该值为false，则返回的缩略图将不会翻转。
      * 
      * **System API**: This is a system API.
      *
@@ -1945,7 +1906,7 @@ declare namespace media {
   }
 
   /**
-   * Enumerates the color formats supported by the video thumbnail.
+   * 获取视频缩略图时，输出的缩略图采用的颜色格式枚举。
    *
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
    * @systemapi
@@ -2021,7 +1982,7 @@ declare namespace media {
   }
 
   /**
-   * Defines the frame info when fetch picture form a video.
+   * 批量获取视频缩略图操作的返回值，包含请求抽帧的时间点、实际抽帧的时间点、从视频中输出缩略图的格式参数和获取单张缩略图操作的结果。
    *
    * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
    * @stagemodelonly
@@ -2029,7 +1990,7 @@ declare namespace media {
    */
   interface FrameInfo {
     /**
-     * The requested frame time.
+     * 请求抽帧的时间点。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @stagemodelonly
@@ -2038,7 +1999,7 @@ declare namespace media {
     requestedTimeUs: long;
 
     /**
-     * The actual frame time.
+     * 实际抽帧的时间点。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @stagemodelonly
@@ -2047,7 +2008,7 @@ declare namespace media {
     actualTimeUs?: long;
 
     /**
-     * The image extracted from video.
+     * 从视频中输出缩略图的格式参数。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @stagemodelonly
@@ -2056,7 +2017,7 @@ declare namespace media {
     image?: image.PixelMap;
 
     /**
-     * The fetch result code - succeed, failed or cancelled.
+     * 获取单张缩略图任务的结果。例如成功，失败或任务被取消。
      *
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @stagemodelonly
