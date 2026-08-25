@@ -6673,7 +6673,6 @@ declare namespace media {
    * [视频录制开发指导](docroot://media/media/video-recording.md)。
    * 
    * > **说明：**
-   * >
    * > - 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
    * > - 本Interface首批接口从API version 9开始支持。
    * > - 相机视频录制功能需配合相机模块使用，相机模块接口的使用详情请参考[相机管理]{@link @ohos.multimedia.camera:camera}。
@@ -6686,10 +6685,14 @@ declare namespace media {
    */
   interface AVRecorder {
     /**
-     * 音视频录制的参数设置。使用callback异步回调。
+     * 准备录制。设置音视频录制的参数，并初始化录制上下文。使用callback异步回调。<br>
+     * 必须在[start]{@link media.AVRecorder#start(callback: AsyncCallback<void>)}之前调用，调用成功后进入prepared状态，
+     * 此时，纯音频录制可直接调用[start]{@link start(callback: AsyncCallback<void>)}接口开始录制；
+     * 纯视频或音视频录制需先调用[getInputSurface]{@link getInputSurface(callback: AsyncCallback<string>)}
+     * 接口获取surface，再调用[start]{@link start(callback: AsyncCallback<void>)}接口开始录制。
      *
      * @permission ohos.permission.MICROPHONE
-     * @param { AVRecorderConfig } config - 配置音视频录制的相关参数。
+     * @param { AVRecorderConfig } config - 配置音视频录制的相关参数。音频录制时需设置audioSourceType，视频录制时需设置videoSourceType。
      * @param { AsyncCallback<void> } callback - 回调函数。当prepare接口成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -6704,12 +6707,14 @@ declare namespace media {
     prepare(config: AVRecorderConfig, callback: AsyncCallback<void>): void;
 
     /**
-     * 音视频录制的参数设置。使用Promise异步回调。
+     * 准备录制。设置音视频录制的参数，并初始化录制上下文。使用Promise异步回调。<br>
+     * 必须在[start]{@link start()}之前调用，调用成功后进入prepared状态，此时，纯音频录制可直接调用[start]{@link start()}接口开始录制；
+     * 纯视频或音视频录制需先调用[getInputSurface]{@link getInputSurface()}接口获取surface，再调用[start]{@link start()}接口开始录制。
      *
      * @permission ohos.permission.MICROPHONE [since 9 - 11]
      * @permission ohos.permission.MICROPHONE
      *     This permission is required only if audio recording is involved. [since 12]
-     * @param { AVRecorderConfig } config - 配置音视频录制的相关参数。
+     * @param { AVRecorderConfig } config - 配置音视频录制的相关参数。音频录制时需设置audioSourceType，视频录制时需设置videoSourceType。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -6725,9 +6730,9 @@ declare namespace media {
     prepare(config: AVRecorderConfig): Promise<void>;
 
     /**
-     * 获取实时的配置参数。使用callback异步回调。
+     * 获取实时的配置参数。适用于需要确认录制配置是否正确应用的场景，如调试录制参数、验证配置生效情况等。使用callback异步回调。<br>
      * 
-     * 只能在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}接口调用成功后调用。
+     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}之后调用。
      *
      * @param { AsyncCallback<AVRecorderConfig> } callback - 回调函数。获取实时配置的参数成功时，err为undefined，data为获取到的配置参数，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
@@ -6739,11 +6744,12 @@ declare namespace media {
     getAVRecorderConfig(callback: AsyncCallback<AVRecorderConfig>): void;
 
     /**
-     * 获取实时的配置参数。使用callback异步回调。
+     * 获取实时的配置参数。适用于需要确认录制配置是否正确应用的场景，如调试录制参数、验证配置生效情况等。使用callback异步回调。<br>
      * 
-     * 只能在prepare()接口调用成功后调用。
+     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}之后调用。
      *
-     * @param { AsyncCallback<AVRecorderConfig | undefined> } callback - 回调函数，返回实时配置参数，否则为错误对象。
+     * @param { AsyncCallback<AVRecorderConfig | undefined> } callback - 回调函数。获取实时配置的参数成功时，err为undefined，data为获取到的配置参数，
+     *     否则为错误对象。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -6753,9 +6759,9 @@ declare namespace media {
     getAVRecorderConfig(callback: AsyncCallback<AVRecorderConfig | undefined>): void;
 
     /**
-     * 获取实时的配置参数。使用Promise异步回调。
+     * 获取实时的配置参数。适用于需要确认录制配置是否正确应用的场景，如调试录制参数、验证配置生效情况等。使用Promise异步回调。<br>
      * 
-     * 只能在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}接口调用成功后调用。
+     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}之后调用。
      *
      * @returns { Promise<AVRecorderConfig> } Promise对象。返回实时配置参数。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
@@ -6767,9 +6773,9 @@ declare namespace media {
     getAVRecorderConfig(): Promise<AVRecorderConfig>;
 
     /**
-     * 获取实时的配置参数。使用Promise异步回调。
+     * 获取实时的配置参数。适用于需要确认录制配置是否正确应用的场景，如调试录制参数、验证配置生效情况等。使用Promise异步回调。<br>
      * 
-     * 只能在prepare()接口调用成功后调用。
+     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}之后调用。
      *
      * @returns { Promise<AVRecorderConfig | undefined> } Promise对象，返回实时配置参数。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
@@ -6781,14 +6787,12 @@ declare namespace media {
     getAVRecorderConfig(): Promise<AVRecorderConfig | undefined>;
 
     /**
-     * 获取录制需要的surface。使用callback异步回调。
-     * 
-     * 开发者从此surface中获取surfaceBuffer，填入相应的视频数据。
-     * 
-     * 应当注意，填入的视频数据需要携带时间戳（单位ns）和buffersize。时间戳的起始时间请以系统启动时间为基准。
-     * 
-     * 需在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}接口成功调用后，才能调用
-     * getInputSurface接口。
+     * 获得录制需要的surface。适用于纯视频或音视频录制时需要获取surface传递视频数据的场景。
+     * 相机视频录制功能需配合相机模块使用，详情请参考[相机管理](../apis-camera-kit/arkts-apis-camera.md)。使用callback异步回调。<br>
+     * 开发者从此surface中获取surfaceBuffer，填入待录制的视频数据。<br>
+     * 填入视频数据时需携带时间戳（单位ns）和buffer size。时间戳的起始时间以系统启动时间为基准。<br>
+     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}和
+     * [start]{@link media.AVRecorder.start(callback: AsyncCallback<void>)}之间调用。
      *
      * @param { AsyncCallback<string> } callback - 回调函数。当获取surface成功，err为undefined，data为获取到的surfaceId，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
@@ -6800,15 +6804,15 @@ declare namespace media {
     getInputSurface(callback: AsyncCallback<string>): void;
 
     /**
-     * 获取录制需要的surface。使用callback异步回调。
-     * 
-     * 开发者从此surface中获取surfaceBuffer，填入相应的视频数据。
-     * 
-     * 应当注意，填入的视频数据需要携带时间戳（单位ns）和buffersize。时间戳的起始时间请以系统启动时间为基准。
-     * 
-     * 只能在prepare()接口调用成功后调用getInputSurface接口。
+     * 获得录制需要的surface。适用于纯视频或音视频录制时需要获取surface传递视频数据的场景。
+     * 相机视频录制功能需配合相机模块使用，详情请参考[相机管理](../apis-camera-kit/arkts-apis-camera.md)。使用callback异步回调。<br>
+     * 开发者从此surface中获取surfaceBuffer，填入待录制的视频数据。<br>
+     * 填入视频数据时需携带时间戳（单位ns）和buffer size。时间戳的起始时间以系统启动时间为基准。<br>
+     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}和
+     * [start]{@link media.AVRecorder.start(callback: AsyncCallback<void>)}之间调用。
      *
-     * @param { AsyncCallback<string | undefined> } callback - 回调函数，返回surfaceId，否则为错误对象。
+     * @param { AsyncCallback<string | undefined> } callback - 回调函数。当获取surface成功，err为undefined，data为获取到的surfaceId，
+     *     否则为错误对象。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -6818,15 +6822,14 @@ declare namespace media {
     getInputSurface(callback: AsyncCallback<string | undefined>): void;
 
     /**
-     * 获取录制需要的surface。使用Promise异步回调。
-     * 
-     * 开发者从此surface中获取surfaceBuffer，填入相应的视频数据。
-     * 
-     * 应当注意，填入的视频数据需要携带时间戳（单位ns）和buffersize。时间戳的起始时间请以系统启动时间为基准。
-     * 
-     * 需在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}接口成功调用后，才能调用getInputSurface接口。
+     * 获得录制需要的surface。适用于纯视频或音视频录制时需要获取surface传递视频数据的场景。
+     * 相机视频录制功能需配合相机模块使用，详情请参考[相机管理](../apis-camera-kit/arkts-apis-camera.md)。使用callback异步回调。<br>
+     * 开发者从此surface中获取surfaceBuffer，填入待录制的视频数据。<br>
+     * 填入视频数据时需携带时间戳（单位ns）和buffer size。时间戳的起始时间以系统启动时间为基准。<br>
+     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}和
+     * [start]{@link media.AVRecorder.start()}之间调用。
      *
-     * @returns { Promise<string> } Promise对象，返回surfaceId。
+     * @returns { Promise<string> } Promise对象，返回获取的surfaceId。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -6836,15 +6839,14 @@ declare namespace media {
     getInputSurface(): Promise<string>;
 
     /**
-     * 获取录制需要的surface。使用Promise异步回调。
-     * 
-     * 开发者从此surface中获取surfaceBuffer，填入相应的视频数据。
-     * 
-     * 应当注意，填入的视频数据需要携带时间戳（单位ns）和buffersize。时间戳的起始时间请以系统启动时间为基准。
-     * 
-     * 只能在prepare()接口调用成功后调用getInputSurface接口。
+     * 获得录制需要的surface。适用于纯视频或音视频录制时需要获取surface传递视频数据的场景。
+     * 相机视频录制功能需配合相机模块使用，详情请参考[相机管理](../apis-camera-kit/arkts-apis-camera.md)。使用callback异步回调。<br>
+     * 开发者从此surface中获取surfaceBuffer，填入待录制的视频数据。<br>
+     * 填入视频数据时需携带时间戳（单位ns）和buffer size。时间戳的起始时间以系统启动时间为基准。<br>
+     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}和
+     * [start]{@link media.AVRecorder.start()}之间调用。
      *
-     * @returns { Promise<string | undefined> } Promise对象，返回surfaceId。
+     * @returns { Promise<string | undefined> } Promise对象，返回获取的surfaceId。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -6917,13 +6919,14 @@ declare namespace media {
     setWatermark(watermark: image.PixelMap, config: WatermarkConfig): Promise<void>
 
     /**
-     * 为AVRecorder添加水印。使用Promise异步回调。
-     * 应用最多可添加5个水印。
-     * 只能在prepared状态之前调用。
+     * 添加自定义水印图像到录制视频中。适用于需要在录制视频中嵌入品牌标识、版权信息或时间戳等水印的场景。使用Promise异步回调。<br>
+     * > **说明：**
+     * > - 应用最多可添加5个水印。
+     * > - 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}之前调用。
      *
-     * @param { image.PixelMap } watermark - 水印图片。
-     * @param { WatermarkConfiguration } config - 水印配置。
-     * @returns { Promise<int> } Promise对象，返回水印id。
+     * @param { image.PixelMap } watermark - 水印图像。该图像将作为水印叠加到录制的视频中。
+     * @param { WatermarkConfiguration } config - 配置视频录制水印的相关参数。
+     * @returns { Promise<int> } Promise对象，返回所添加水印的编号，取值范围[1, 5]。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -6935,14 +6938,13 @@ declare namespace media {
     addWatermark(watermark: image.PixelMap, config: WatermarkConfiguration): Promise<int>;
 
     /**
-     * 设置录制的元数据信息。如果这些信息的键相同，会覆盖config.metadata.customInfo（参考
-     * [prepare()]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}和
-     * [AVRecorderConfig]{@link @ohos.multimedia.media:media.AVRecorderConfig}）中的值。
-     * 
-     * 该方法只能在[prepare()]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}事件成功触发后，且必须在
-     * [stop()]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}之前调用。
+     * 设置录制的元数据信息。适用于需要在录制文件中嵌入自定义元数据（如作者、标题、标签等）的场景。
+     * 如果metadata参数与config.metadata.customInfo（参考[prepare()]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}和
+     * [AVRecorderConfig]{@link @ohos.multimedia.media:media.AVRecorderConfig}）中存在相同的键，前者的对应值将覆盖后者。<br>
+     * 必须在[prepare()]{@link prepare(config: AVRecorderConfig)}和[stop()]{@link stop(callback: AsyncCallback<void>)}之间调用。
      *
-     * @param { Record<string, string> } metadata - 录制的元数据信息。<br>格式为字符串键值对，其中，键需要以`com.openharmony.`开头，且值的长度不能超过256个字节。
+     * @param { Record<string, string> } metadata - 录制的元数据信息。格式为字符串键值对，其中，键需要以`com.openharmony.`开头，否则该键值对将被忽略；
+     *     值的长度范围为0-256个字节，否则返回错误码5400108。
      * @throws { BusinessError } 202 - Not System App. [since 19 - 24]
      * @throws { BusinessError } 5400101 - No memory. [since 26.0.0]
      * @throws { BusinessError } 5400102 - Operation not allowed. [since 26.0.0]
@@ -6956,12 +6958,10 @@ declare namespace media {
     setMetadata(metadata: Record<string, string>): void;
 
     /**
-     * 更新视频旋转角度。使用Promise异步回调。
-     * 
-     * 当且仅当[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}接口成功调用后，且在
-     * [start]{@link media.AVRecorder.start(callback: AsyncCallback<void>)}接口之前，才能调用updateRotation接口。
+     * 更新视频旋转角度。适用于设备方向发生变化（如横竖屏切换）时需要动态调整录制视频旋转角度的场景。使用Promise异步回调。<br>
+     * 必须在[prepare]{@link prepare(config: AVRecorderConfig)}和[start]{@link start(callback: AsyncCallback<void>)}之间调用。
      *
-     * @param { int } rotation - 旋转角度，取值仅支持0、90、180、270度。
+     * @param { int } rotation - 旋转角度，单位为度（°）。取值仅支持0°、90°、180°和270°。传入不支持的角度值时，返回错误码401。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types. 3.Parameter verification failed.
@@ -6975,9 +6975,11 @@ declare namespace media {
     updateRotation(rotation: int): Promise<void>;
 
     /**
-     * 设置当前录制音频流是否启用静音打断模式。使用Promise异步回调。
+     * 设置当前录制音频流是否启用静音打断模式。启用后，录制音频流被更高优先级音频打断时将录制静音而非停止录制，适用于需要在打断期间保持录制连续性的场景（如会议录音、语音备忘）。
+     * 不启用则保持默认打断模式（音频流被打断时停止录制）。使用Promise异步回调。<br>
+     * 必须在[prepare()]{@link prepare(config: AVRecorderConfig)}之前调用。
      *
-     * @param { boolean } muteWhenInterrupted - 设置当前录制音频流是否启用静音打断模式, true表示启用，false表示不启用，保持为默认打断模式。
+     * @param { boolean } muteWhenInterrupted - 设置当前录制音频流是否启用静音打断模式。true表示启用，音频流被打断时录制静音；false表示不启用，音频流被打断时停止录制。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -6988,13 +6990,12 @@ declare namespace media {
     setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise<void>;
 
     /**
-     * 开始视频录制。使用callback异步回调。
-     * 
-     * 纯音频录制需在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}接口成功调用后，
-     * 才能调用start接口。纯视频录制，音视频录制需在
-     * [getInputSurface]{@link media.AVRecorder.getInputSurface(callback: AsyncCallback<string>)}接口成功调用后，才能调用start接口。
+     * 开始录制。使用callback异步回调。<br>
+     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}之后调用，
+     * 调用成功后进入started状态。录制视频时，还需在
+     * [getInputSurface]{@link media.AVRecorder.getInputSurface(callback: AsyncCallback<string>)}接口调用成功后，才能调用此接口。
      *
-     * @param { AsyncCallback<void> } callback - 回调函数。当开始录制视频成功，err为undefined，否则为错误对象。
+     * @param { AsyncCallback<void> } callback - 回调函数。如果开始录制成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -7006,10 +7007,9 @@ declare namespace media {
     start(callback: AsyncCallback<void>): void;
 
     /**
-     * 开始视频录制。使用Promise异步回调。
-     * 
-     * 纯音频录制需在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}接口成功调用后，才能调用start接口。纯视频录制，音视频录制需在
-     * [getInputSurface]{@link media.AVRecorder.getInputSurface()}接口成功调用后，才能调用start接口。
+     * 开始录制。使用Promise异步回调。<br>
+     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}之后调用，调用成功后进入started状态。录制视频时，还需在
+     * [getInputSurface]{@link media.AVRecorder.getInputSurface()}接口调用成功后，才能调用此接口。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
@@ -7024,12 +7024,11 @@ declare namespace media {
     start(): Promise<void>;
 
     /**
-     * 暂停视频录制。使用callback异步回调。
-     * 
-     * 需要[start]{@link media.AVRecorder.start(callback: AsyncCallback<void>)}接口成功调用后，才能调用pause接口，可以通过调用
-     * [resume]{@link media.AVRecorder.resume(callback: AsyncCallback<void>)}接口来恢复录制。
+     * 暂停录制。使用callback异步回调。<br>
+     * 必须在[start]{@link media.AVRecorder.start(callback: AsyncCallback<void>)}之后调用，调用成功后进入paused状态，
+     * 之后可以通过调用[resume]{@link media.AVRecorder.resume(callback: AsyncCallback<void>)}接口来恢复录制。
      *
-     * @param { AsyncCallback<void> } callback - 回调函数。当暂停视频录制成功，err为undefined，否则为错误对象。
+     * @param { AsyncCallback<void> } callback - 回调函数。如果暂停录制成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -7041,10 +7040,9 @@ declare namespace media {
     pause(callback: AsyncCallback<void>): void;
 
     /**
-     * 暂停视频录制。使用Promise异步回调。
-     * 
-     * 需要[start]{@link media.AVRecorder.start()}接口成功调用后，才能调用pause接口，可以通过调用[resume]{@link media.AVRecorder.resume()}接口来恢复
-     * 录制。
+     * 暂停录制。使用Promise异步回调。<br>
+     * 必须在[start]{@link media.AVRecorder.start()}之后调用，调用成功后进入paused状态，
+     * 之后可以通过调用[resume]{@link media.AVRecorder.resume()}接口来恢复录制。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
@@ -7059,11 +7057,12 @@ declare namespace media {
     pause(): Promise<void>;
 
     /**
-     * 恢复视频录制。使用callback异步回调。
-     * 
-     * 需要在[pause]{@link media.AVRecorder.pause(callback: AsyncCallback<void>)}接口成功调用后，才能调用resume接口。
+     * 恢复录制。使用callback异步回调。<br>
+     * 必须在[pause]{@link media.AVRecorder.pause(callback: AsyncCallback<void>)}之后调用，调用成功后进入started状态，
+     * 之后可以再次调用[pause]{@link media.AVRecorder.pause(callback: AsyncCallback<void>)}接口暂停录制，或调用
+     * [stop]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}接口停止录制。
      *
-     * @param { AsyncCallback<void> } callback - 回调函数。当恢复视频录制成功，err为undefined，否则为错误对象。
+     * @param { AsyncCallback<void> } callback - 回调函数。如果恢复录制成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -7075,9 +7074,9 @@ declare namespace media {
     resume(callback: AsyncCallback<void>): void;
 
     /**
-     * 恢复视频录制。使用Promise异步回调。
-     * 
-     * 需要在[pause]{@link media.AVRecorder.pause()}接口成功调用后，才能调用resume接口。
+     * 恢复录制。使用Promise异步回调。<br>
+     * 必须在[pause]{@link media.AVRecorder.pause()}之后调用，调用成功后进入started状态，
+     * 之后可以再次调用[pause]{@link media.AVRecorder.pause()}接口暂停录制，或调用[stop]{@link media.AVRecorder.stop()}接口停止录制。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
@@ -7092,17 +7091,16 @@ declare namespace media {
     resume(): Promise<void>;
 
     /**
-     * 停止视频录制。使用callback异步回调。
-     * 
-     * 需要在[start]{@link media.AVRecorder.start(callback: AsyncCallback<void>)}或
-     * [pause]{@link media.AVRecorder.pause(callback: AsyncCallback<void>)}接口成功调用后，才能调用stop接口。
-     * 
-     * 纯音频录制时，需要重新调用[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}接口
-     * 才能重新录制。纯视频录制，音视频录制时，需要重新调用
+     * 停止录制。使用callback异步回调。<br>
+     * 必须在[start]{@link media.AVRecorder.start(callback: AsyncCallback<void>)}或
+     * [pause]{@link media.AVRecorder.pause(callback: AsyncCallback<void>)}之后调用，调用成功后进入stopped状态。
+     * 当prepare配置中将FileGenerationMode设置为系统创建媒体文件模式时，本接口调用结束后会触发on('photoAssetAvailable')回调。
+     * 纯音频录制时，需要重新调用[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
+     * 接口才能重新录制；纯视频录制、音视频录制时，需要重新调用
      * [prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}和
      * [getInputSurface]{@link media.AVRecorder.getInputSurface(callback: AsyncCallback<string>)}接口才能重新录制。
      *
-     * @param { AsyncCallback<void> } callback - 回调函数。当停止视频录制成功，err为undefined，否则为错误对象。
+     * @param { AsyncCallback<void> } callback - 回调函数。如果停止录制成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -7114,12 +7112,11 @@ declare namespace media {
     stop(callback: AsyncCallback<void>): void;
 
     /**
-     * 停止视频录制。使用Promise异步回调。
-     * 
-     * 需要在[start]{@link media.AVRecorder.start()}或[pause]{@link media.AVRecorder.pause()}接口成功调用后，才能调用stop接口。
-     * 
-     * 纯音频录制时，需要重新调用[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}接口才能重新录制。纯视频录制，音视频录制时，需要重新调用
-     * [prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}和
+     * 停止录制。使用Promise异步回调。<br>
+     * 必须在[start]{@link media.AVRecorder.start()}或[pause]{@link media.AVRecorder.pause()}之后调用，调用成功后进入stopped状态。
+     * 当prepare配置中将FileGenerationMode设置为系统创建媒体文件模式时，本接口调用结束后会触发on('photoAssetAvailable')回调。
+     * 纯音频录制时，需要重新调用[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}接口才能重新录制；
+     * 纯视频录制、音视频录制时，需要重新调用[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}和
      * [getInputSurface]{@link media.AVRecorder.getInputSurface()}接口才能重新录制。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
@@ -7135,10 +7132,10 @@ declare namespace media {
     stop(): Promise<void>;
 
     /**
-     * 重置音视频录制。使用callback异步回调。
-     * 
+     * 重置音视频录制，将录制器恢复至初始状态以便重新配置参数。使用callback异步回调。<br>
+     * 必须在非released状态下调用，调用成功后进入idle状态。<br>
      * 纯音频录制时，需要重新调用[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}接口
-     * 才能重新录制。纯视频录制，音视频录制时，需要重新调用
+     * 才能重新录制。纯视频录制、音视频录制时，需要重新调用
      * [prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}和
      * [getInputSurface]{@link media.AVRecorder.getInputSurface(callback: AsyncCallback<string>)}接口才能重新录制。
      *
@@ -7153,10 +7150,10 @@ declare namespace media {
     reset(callback: AsyncCallback<void>): void;
 
     /**
-     * 重置音视频录制。使用Promise异步回调。
-     * 
-     * 纯音频录制时，需要重新调用[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}接口才能重新录制。纯视频录制，音视频录制时，需要重新调用
-     * [prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}和
+     * 重置音视频录制，将录制器恢复至初始状态以便重新配置参数。使用Promise异步回调。<br>
+     * 必须在非released状态下调用，调用成功后进入idle状态。<br>
+     * 纯音频录制时，需要重新调用[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}接口才能重新录制。
+     * 纯视频录制、音视频录制时，需要重新调用[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}和
      * [getInputSurface]{@link media.AVRecorder.getInputSurface()}接口才能重新录制。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
@@ -7170,8 +7167,9 @@ declare namespace media {
     reset(): Promise<void>;
 
     /**
-     * 释放音视频录制资源。使用callback异步回调。
-     * 
+     * 释放音视频录制资源。使用callback异步回调。<br>
+     * 必须在非released状态下调用，调用成功后进入released状态。<br>
+     * 与[createAVRecorder]{@link media.createAVRecorder(callback: AsyncCallback<AVRecorder>)}配对使用，录制流程结束后应调用此接口释放资源。
      * 释放音视频录制资源之后，该AVRecorder实例不能再进行任何操作。
      *
      * @param { AsyncCallback<void> } callback - 回调函数。当释放音视频录制资源成功，err为undefined，否则为错误对象。
@@ -7184,8 +7182,9 @@ declare namespace media {
     release(callback: AsyncCallback<void>): void;
 
     /**
-     * 释放音视频录制资源。使用Promise异步回调。
-     * 
+     * 释放音视频录制资源。使用Promise异步回调。<br>
+     * 必须在非released状态下调用，调用成功后进入released状态。<br>
+     * 与[createAVRecorder]{@link media.createAVRecorder()}配对使用，录制流程结束后应调用此接口释放资源。
      * 释放音视频录制资源之后，该AVRecorder实例不能再进行任何操作。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
@@ -7199,10 +7198,9 @@ declare namespace media {
     release(): Promise<void>;
 
     /**
-     * 获取当前音频采集参数。使用callback异步回调。
-     * 
-     * 在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}接口成功调用后，才能调用此接
-     * 口。在[stop]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}接口成功调用后，调用此接口会报错。
+     * 获取当前音频采集参数。适用于需要确认当前音频采集设备类型或验证音频配置的场景。使用callback异步回调。<br>
+     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
+     * 和[stop]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}之间调用。
      *
      * @param { AsyncCallback<audio.AudioCapturerChangeInfo> } callback - 回调函数。当获取音频采集参数成功时，err为undefined，data为获取到的
      *     audio.AudioCapturerChangeInfo，否则为错误对象。
@@ -7215,9 +7213,9 @@ declare namespace media {
     getCurrentAudioCapturerInfo(callback: AsyncCallback<audio.AudioCapturerChangeInfo>): void;
 
     /**
-     * 获取当前音频采集参数。使用callback异步回调。
-     * 
-     * 只能在prepare()接口调用成功后调用。在stop()接口成功调用后调用此接口会报错。
+     * 获取当前音频采集参数。适用于需要确认当前音频采集设备类型或验证音频配置的场景。使用callback异步回调。<br>
+     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
+     * 和[stop]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}之间调用。
      *
      * @param { AsyncCallback<audio.AudioCapturerChangeInfo | undefined> } callback - 回调函数，返回audio.AudioCapturerChangeInfo对象，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed.
@@ -7229,10 +7227,9 @@ declare namespace media {
     getCurrentAudioCapturerInfo(callback: AsyncCallback<audio.AudioCapturerChangeInfo | undefined>): void;
 
     /**
-     * 获取当前音频采集参数。使用Promise异步回调。
-     * 
-     * 在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}接口成功调用后，才能调用此接
-     * 口。在[stop]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}接口成功调用后，调用此接口会报错。
+     * 获取当前音频采集参数。适用于需要确认当前音频采集设备类型或验证音频配置的场景。使用Promise异步回调。<br>
+     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}
+     * 和[stop]{@link media.AVRecorder.stop()}之间调用。
      *
      * @returns { Promise<audio.AudioCapturerChangeInfo> } Promise对象，返回获取的当前音频采集参数。
      * @throws { BusinessError } 5400102 - Operation not allowed.
@@ -7244,9 +7241,9 @@ declare namespace media {
     getCurrentAudioCapturerInfo(): Promise<audio.AudioCapturerChangeInfo>;
 
     /**
-     * 获取当前音频采集参数。使用Promise异步回调。
-     * 
-     * 只能在prepare()接口调用成功后调用。在stop()接口成功调用后调用此接口会报错。
+     * 获取当前音频采集参数。适用于需要确认当前音频采集设备类型或验证音频配置的场景。使用Promise异步回调。<br>
+     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}
+     * 和[stop]{@link media.AVRecorder.stop()}之间调用。
      *
      * @returns { Promise<audio.AudioCapturerChangeInfo | undefined> } Promise对象，返回当前音频采集参数信息。
      * @throws { BusinessError } 5400102 - Operation not allowed.
@@ -7258,12 +7255,10 @@ declare namespace media {
     getCurrentAudioCapturerInfo(): Promise<audio.AudioCapturerChangeInfo | undefined>;
 
     /**
-     * 获取当前音频最大振幅。使用callback异步回调。
-     * 
-     * 在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}接口成功调用后，才能调用此接
-     * 口。在[stop]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}接口成功调用后，调用此接口会报错。
-     * 
-     * 调用接口时，获取到的返回值是上一次获取最大振幅的时刻到当前这段区间内的音频最大振幅。例如，在1s时获取了一次最大振幅，到2s时再获取到的最大振幅是1-2s区间里面的最大值。
+     * 获取当前音频最大振幅。适用于需要实时监控音频振幅的场景，如录音音量可视化显示、音频质量检测等。使用callback异步回调。<br>
+     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
+     * 和[stop]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}之间调用。<br>
+     * 调用接口时，获取到的返回值是上一次获取最大振幅的时刻到当前这段区间内的音频最大振幅。例如，在1s时获取了一次最大振幅，到2s时再获取到的最大振幅是1-2s这个区间内的最大值。
      *
      * @param { AsyncCallback<int> } callback - 回调函数。获取当前音频最大振幅成功时，err为undefined，data为获取到的最大振幅，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed.
@@ -7275,12 +7270,10 @@ declare namespace media {
     getAudioCapturerMaxAmplitude(callback: AsyncCallback<int>): void;
 
     /**
-     * 获取当前音频最大振幅。使用Promise异步回调。
-     * 
-     * 在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}接口成功调用后，才能调用此接
-     * 口。在[stop]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}接口成功调用后，调用此接口会报错。
-     * 
-     * 调用接口时，获取到的返回值是上一次获取最大振幅的时刻到当前这段区间内的音频最大振幅。例如，在1s时获取了一次最大振幅，到2s时再获取到的最大振幅是1-2s区间里面的最大值。
+     * 获取当前音频最大振幅。适用于需要实时监控音频振幅的场景，如录音音量可视化显示、音频质量检测等。使用Promise异步回调。<br>
+     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}
+     * 和[stop]{@link media.AVRecorder.stop()}之间调用。<br>
+     * 调用接口时，获取到的返回值是上一次获取最大振幅的时刻到当前这段区间内的音频最大振幅。例如，在1s时获取了一次最大振幅，到2s时再获取到的最大振幅是1-2s这个区间内的最大值。
      *
      * @returns { Promise<int> } Promise对象，返回获取的当前音频最大振幅。
      * @throws { BusinessError } 5400102 - Operation not allowed.
@@ -7292,7 +7285,8 @@ declare namespace media {
     getAudioCapturerMaxAmplitude(): Promise<int>;
 
     /**
-     * 获取可用的编码器参数。使用callback异步回调。
+     * 获取可用的编码器参数。适用于需要根据设备能力选择合适编码器的场景。使用callback异步回调。<br>
+     * 必须在非released/error状态下调用。
      *
      * @param { AsyncCallback<Array<EncoderInfo>> } callback - 回调函数。获取可用的编码器参数成功时，err为undefined，data为获取到的编码器参数，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed.
@@ -7304,7 +7298,8 @@ declare namespace media {
     getAvailableEncoder(callback: AsyncCallback<Array<EncoderInfo>>): void;
 
     /**
-     * 获取可用的编码器参数。使用Promise异步回调。
+     * 获取可用的编码器参数。适用于需要根据设备能力选择合适编码器的场景。使用Promise异步回调。<br>
+     * 必须在非released/error状态下调用。
      *
      * @returns { Promise<Array<EncoderInfo>> } Promise对象，返回获取的可用的编码器参数。
      * @throws { BusinessError } 5400102 - Operation not allowed.
@@ -7316,7 +7311,7 @@ declare namespace media {
     getAvailableEncoder(): Promise<Array<EncoderInfo>>;
 
     /**
-     * 音视频录制的状态。
+     * 音视频录制的状态。<br>
      * 
      * **原子化服务API：** 从API version 12 开始，该接口支持在原子化服务中使用。
      *
@@ -7329,12 +7324,11 @@ declare namespace media {
     readonly state: AVRecorderState;
 
     /**
-     * 订阅录音配置变化的回调，任意录音配置的变化会触发变化后的录音配置全量信息回调。使用callback异步回调。
-     * 
-     * 当用户重复订阅时，以最后一次订阅的回调接口为准。
+     * 订阅录音配置变化的回调事件。当录音配置发生变化时，会触发回调返回变化后的录音配置全量信息。使用callback异步回调。<br>
+     * 用户只能订阅一个录音配置变化事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为准。
      *
      * @param { 'audioCapturerChange' } type - 录音配置变化的回调类型，支持的事件：'audioCapturerChange'。
-     * @param { Callback<audio.AudioCapturerChangeInfo> } callback - 回调函数，返回变化后的录音配置全量信息。
+     * @param { Callback<audio.AudioCapturerChangeInfo> } callback - 回调函数，用于接收变化后的录音配置全量信息。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -7343,14 +7337,14 @@ declare namespace media {
     on(type: 'audioCapturerChange', callback: Callback<audio.AudioCapturerChangeInfo>): void;
 
     /**
-     * 订阅媒体资源回调事件，当[FileGenerationMode]{@link @ohos.multimedia.media:media.FileGenerationMode}枚举设置为系统创建媒体文件时，会在
-     * [stop]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}操作结束后把
-     * [PhotoAsset]{@link @ohos.file.photoAccessHelper:photoAccessHelper}对象回调给应用。使用callback异步回调。
-     * 
-     * 当用户重复订阅时，以最后一次订阅的回调接口为准。
+     * 订阅媒体资源创建完成的回调事件。当[FileGenerationMode]{@link @ohos.multimedia.media:media.FileGenerationMode}枚举设置为系统创建媒体文件时，
+     * [stop]{@link media.AVRecorder.stop()}操作结束后会把
+     * [PhotoAsset]{@link @ohos.file.photoAccessHelper:photoAccessHelper}对象回调给应用。使用callback异步回调。<br>
+     * 用户只能订阅一个媒体资源回调事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为准。
      *
-     * @param { 'photoAssetAvailable' } type - 录像资源的回调类型，支持的事件：'photoAssetAvailable'。
-     * @param { Callback<photoAccessHelper.PhotoAsset> } callback - 回调函数，返回系统创建的资源文件对应的PhotoAsset对象。
+     * @param { 'photoAssetAvailable' } type - 媒体资源创建完成的回调类型，支持的事件：'photoAssetAvailable'。
+     * @param { Callback<photoAccessHelper.PhotoAsset> } callback - 回调函数，用于接收系统创建的资源文件对应的PhotoAsset对象。
+     *     需在prepare配置中将FileGenerationMode设置为系统创建媒体文件模式，stop结束后才会触发此回调。
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -7358,12 +7352,14 @@ declare namespace media {
      */
     on(type: 'photoAssetAvailable', callback: Callback<photoAccessHelper.PhotoAsset>): void;
     /**
-     * 订阅录制状态机AVRecorderState切换的事件，当AVRecorderState状态机发生变化时，会通过订阅的回调方法通知用户。用户只能订阅一个录制状态机切换事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为
-     * 准。使用callback异步回调。
+     * 订阅录制状态机[AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}切换的回调事件。
+     * 当AVRecorderState发生变化时，会通过回调方法通知用户。<br>
+     * 用户只能订阅一个回调方法，重复订阅时以最后一次订阅的回调接口为准。使用callback异步回调。
      *
-     * @param { 'stateChange' } type - 录制状态机切换事件回调类型，支持的事件：'stateChange'，用户操作和系统都会触发此事件。
+     * @param { 'stateChange' } type - 录制状态机切换的回调类型，支持的事件：'stateChange'，用户操作和系统都会触发此事件。
      * @param { function } callback - 回调函数，返回录制状态机切换事件。 [since 9 - 11]
-     * @param { OnAVRecorderStateChangeHandler } callback - 回调函数，返回录制状态机切换事件。 [since 12]
+     * @param { OnAVRecorderStateChangeHandler } callback - 回调函数，用于接收录制状态机切换事件。
+     *     回调参数包括：state（录制状态，类型为AVRecorderState）和reason（状态切换原因，类型为StateChangeReason）。 [since 12]
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -7374,15 +7370,14 @@ declare namespace media {
     on(type: 'stateChange', callback: OnAVRecorderStateChangeHandler): void;
 
     /**
-     * 订阅AVRecorder的错误事件，该事件仅用于错误提示，不需要用户停止播控动作。如果此时
-     * [AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}也切换至error状态，用户需要通过
-     * [reset]{@link media.AVRecorder.reset(callback: AsyncCallback<void>)}或者
-     * [release]{@link media.AVRecorder.release(callback: AsyncCallback<void>)}接口退出录制操作。使用callback异步回调。
-     * 
+     * 订阅录制错误的回调事件。该事件仅用于错误提示，用户无需停止录制操作。
+     * 如果[AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}也切换至error状态，
+     * 用户需通过[reset]{@link media.AVRecorder.reset()}
+     * 或者[release]{@link media.AVRecorder.release()}接口退出录制操作。使用callback异步回调。<br>
      * 用户只能订阅一个错误事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为准。
      *
-     * @param { 'error' } type - 录制错误事件回调类型'error'。 <br>- 'error'：录制过程中发生错误，触发该事件。
-     * @param { ErrorCallback } callback - 回调函数，返回录制错误事件。
+     * @param { 'error' } type - 录制错误的回调类型，支持的事件：'error'。
+     * @param { ErrorCallback } callback - 回调函数，用于接收录制错误事件。回调参数为err（错误对象，类型为BusinessError，包含错误码code和错误信息message）。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -7402,11 +7397,11 @@ declare namespace media {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * 取消订阅录制状态机[AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}切换的事件。使用callback异步回调。
+     * 取消订阅录制状态机[AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}切换的回调事件。使用callback异步回调。
      *
-     * @param { 'stateChange' } type - 录制状态机切换事件回调类型，支持的事件：'stateChange'，用户操作和系统都会触发此事件。
-     * @param { OnAVRecorderStateChangeHandler } callback - 回调函数，返回录制状态机切换事件。如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消
-     *     所有callback。<br/>从API version 12开始支持此参数。 [since 12]
+     * @param { 'stateChange' } type - 录制状态机切换的回调类型，支持的事件：'stateChange'，用户操作和系统都会触发此事件。
+     * @param { OnAVRecorderStateChangeHandler } callback - 回调函数，用于接收录制状态机切换事件。
+     *     如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。<br>从API version 12开始支持此参数。
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -7415,11 +7410,11 @@ declare namespace media {
     off(type: 'stateChange', callback?: OnAVRecorderStateChangeHandler): void;
 
     /**
-     * 取消订阅录制错误事件，取消后不再接收到AVRecorder的错误事件。使用callback异步回调。
+     * 取消订阅录制错误的回调事件。使用callback异步回调。
      *
-     * @param { 'error' } type - 录制错误事件回调类型'error'。 <br>- 'error'：录制过程中发生错误，触发该事件。
-     * @param { ErrorCallback } callback - 回调函数，返回录制错误事件。如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。<br/>从API
-     *     version 12开始支持此参数。 [since 12]
+     * @param { 'error' } type - 录制错误的回调类型，支持的事件：'error'。
+     * @param { ErrorCallback } callback - 回调函数，用于接收录制错误事件。
+     *     如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。<br>从API version 12开始支持此参数。
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -7428,33 +7423,32 @@ declare namespace media {
     off(type: 'error', callback?: ErrorCallback): void;
 
     /**
-     * 取消订阅录音变化的回调事件。使用callback异步回调。
+     * 取消订阅录音配置变化的回调事件。使用callback异步回调。
      *
      * @param { 'audioCapturerChange' } type - 录音配置变化的回调类型，支持的事件：'audioCapturerChange'。
-     * @param { Callback<audio.AudioCapturerChangeInfo> } callback - 回调函数，返回变化后的录音配置全量信息。如果指定参数则取消对应callback（callback对象不
-     *     能是匿名函数），否则取消所有callback。<br/>从API version 12开始支持此参数。 [since 12]
+     * @param { Callback<audio.AudioCapturerChangeInfo> } callback - 回调函数，用于接收变化后的录音配置全量信息。
+     *     如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。<br>从API version 12开始支持此参数。
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 11 dynamic
      */
     off(type: 'audioCapturerChange', callback?: Callback<audio.AudioCapturerChangeInfo>): void;
 
     /**
-     * 取消订阅媒体资源的回调类型。使用callback异步回调。
+     * 取消订阅媒体资源创建完成的回调事件。使用callback异步回调。
      *
-     * @param { 'photoAssetAvailable' } type - 录音配置变化的回调类型，支持的事件：'photoAssetAvailable'。
-     * @param { Callback<photoAccessHelper.PhotoAsset> } callback - 回调函数，返回系统创建的资源文件对应的PhotoAsset对象。如果指定参数则取消对应callback（
-     *     callback对象不能是匿名函数），否则取消所有callback。
+     * @param { 'photoAssetAvailable' } type - 媒体资源创建完成的回调类型，支持的事件：'photoAssetAvailable'。
+     * @param { Callback<photoAccessHelper.PhotoAsset> } callback - 回调函数，用于接收系统创建的资源文件对应的PhotoAsset对象。
+     *     如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
      */
     off(type: 'photoAssetAvailable', callback?: Callback<photoAccessHelper.PhotoAsset>): void;
 
     /**
-     * 订阅录音配置变化的回调，任意录音配置的变化会触发变化后的录音配置全量信息回调。使用callback异步回调。
-     * 
-     * 当用户重复订阅时，以最后一次订阅的回调接口为准。
+     * 订阅录音配置变化的回调事件。当录音配置发生变化时，会触发回调返回变化后的录音配置全量信息。使用callback异步回调。<br>
+     * 用户只能订阅一个录音配置变化事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为准。
      *
-     * @param { Callback<audio.AudioCapturerChangeInfo> } callback - 回调函数，返回变化后的录音配置全量信息。
+     * @param { Callback<audio.AudioCapturerChangeInfo> } callback - 回调函数，用于接收变化后的录音配置全量信息。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -7463,13 +7457,13 @@ declare namespace media {
     onAudioCapturerChange(callback: Callback<audio.AudioCapturerChangeInfo>): void;
 
     /**
-     * 订阅媒体资源回调事件，当[FileGenerationMode]{@link @ohos.multimedia.media:media.FileGenerationMode}枚举设置为系统创建媒体文件时，会在
-     * [stop]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}操作结束后把
-     * [PhotoAsset]{@link @ohos.file.photoAccessHelper:photoAccessHelper}对象回调给应用。使用callback异步回调。
-     * 
-     * 当用户重复订阅时，以最后一次订阅的回调接口为准。
+     * 订阅媒体资源创建完成的回调事件。当[FileGenerationMode]{@link @ohos.multimedia.media:media.FileGenerationMode}枚举设置为系统创建媒体文件时，
+     * [stop]{@link media.AVRecorder.stop()}操作结束后会把
+     * [PhotoAsset]{@link @ohos.file.photoAccessHelper:photoAccessHelper}对象回调给应用。使用callback异步回调。<br>
+     * 用户只能订阅一个媒体资源回调事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为准。
      *
-     * @param { Callback<photoAccessHelper.PhotoAsset> } callback - 回调函数，返回系统创建的资源文件对应的PhotoAsset对象。
+     * @param { Callback<photoAccessHelper.PhotoAsset> } callback - 回调函数，用于接收系统创建的资源文件对应的PhotoAsset对象。
+     *     需在prepare配置中将FileGenerationMode设置为系统创建媒体文件模式，stop结束后才会触发此回调。
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -7478,11 +7472,12 @@ declare namespace media {
     onPhotoAssetAvailable(callback: Callback<photoAccessHelper.PhotoAsset>): void;
 
     /**
-     * 订阅录制状态机AVRecorderState切换的事件，当AVRecorderState状态机发生变化时，会通过订阅的回调方法通知用户。
-     * 
-     * 用户只能订阅一个录制状态机切换事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为准。使用callback异步回调。
+     * 订阅录制状态机[AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}切换的回调事件。
+     * 当AVRecorderState发生变化时，会通过回调方法通知用户。<br>
+     * 用户只能订阅一个回调方法，重复订阅时以最后一次订阅的回调接口为准。使用callback异步回调。
      *
-     * @param { OnAVRecorderStateChangeHandler } callback - Callback invoked when the event is triggered.
+     * @param { OnAVRecorderStateChangeHandler } callback - 回调函数，用于接收录制状态机切换事件。
+     *     回调参数包括：state（录制状态，类型为AVRecorderState）和reason（状态切换原因，类型为StateChangeReason）。
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
@@ -7491,11 +7486,10 @@ declare namespace media {
     onStateChange(callback: OnAVRecorderStateChangeHandler): void;
 
     /**
-     * 订阅AVRecorder的错误事件，该事件仅用于错误提示，不需要用户停止播控动作。如果此时
-     * [AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}也切换至error状态，用户需要通过
-     * [reset]{@link media.AVRecorder.reset(callback: AsyncCallback<void>)}或者
-     * [release]{@link media.AVRecorder.release(callback: AsyncCallback<void>)}接口退出录制操作。使用callback异步回调。
-     * 
+     * 订阅录制错误的回调事件。该事件仅用于错误提示，用户无需停止录制操作。
+     * 如果[AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}也切换至error状态，
+     * 用户需通过[reset]{@link media.AVRecorder.reset()}
+     * 或者[release]{@link media.AVRecorder.release()}接口退出录制操作。使用callback异步回调。<br>
      * 用户只能订阅一个错误事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为准。
      *
      * @param { ErrorCallback } callback - 回调函数，返回录制错误事件。
@@ -7516,9 +7510,9 @@ declare namespace media {
     onError(callback: ErrorCallback): void;
 
     /**
-     * 取消订阅录制状态机[AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}切换的事件。使用callback异步回调。
+     * 取消订阅录制状态机[AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}切换的回调事件。使用callback异步回调。
      *
-     * @param { OnAVRecorderStateChangeHandler } [callback] - 回调函数，返回录制状态机切换事件。
+     * @param { OnAVRecorderStateChangeHandler } [callback] - 回调函数，用于接收录制状态机切换事件。
      *     如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 23 static
@@ -7526,18 +7520,18 @@ declare namespace media {
     offStateChange(callback?: OnAVRecorderStateChangeHandler): void;
 
     /**
-     * 取消订阅录制错误事件，取消后不再接收到AVRecorder的错误事件。使用callback异步回调。
+     * 取消订阅录制错误的回调事件。使用callback异步回调。
      *
-     * @param { ErrorCallback } [callback] - 回调函数，返回录制错误事件。如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。
+     * @param { ErrorCallback } [callback] - 回调函数，用于接收录制错误事件。如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
     /**
-     * 取消订阅录音变化的回调事件。使用callback异步回调。
+     * 取消订阅录音配置变化的回调事件。使用callback异步回调。
      *
-     * @param { Callback<audio.AudioCapturerChangeInfo> } [callback] - 回调函数，返回变化后的录音配置全量信息。
+     * @param { Callback<audio.AudioCapturerChangeInfo> } [callback] - 回调函数，用于接收变化后的录音配置全量信息。
      *     如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 23 static
@@ -7545,9 +7539,9 @@ declare namespace media {
     offAudioCapturerChange(callback?: Callback<audio.AudioCapturerChangeInfo>): void;
 
     /**
-     * 取消订阅媒体资源的回调类型。使用callback异步回调。
+     * 取消订阅媒体资源创建完成的回调事件。使用callback异步回调。
      *
-     * @param { Callback<photoAccessHelper.PhotoAsset> } [callback] - 回调函数，返回系统创建的资源文件对应的PhotoAsset对象。
+     * @param { Callback<photoAccessHelper.PhotoAsset> } [callback] - 回调函数，用于接收系统创建的资源文件对应的PhotoAsset对象。
      *     如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 23 static
@@ -7823,7 +7817,10 @@ declare namespace media {
   }
 
   /**
-   * 音频录制配置定义。
+   * > **说明：**
+   * > 从API version 6开始支持，从API version 9开始废弃，建议使用[AVRecorderConfig]{@link media.AVRecorderConfig}替代。
+   *
+   * 表示音频的录音配置。
    *
    * @syscap SystemCapability.Multimedia.Media.AudioRecorder
    * @since 6 dynamiconly
@@ -7832,8 +7829,8 @@ declare namespace media {
    */
   interface AudioRecorderConfig {
     /**
-     * 音频编码格式。默认值为DEFAULT，API8之后将废弃。
-     * 请使用"audioEncoderMime"替代。
+     * 音频编码格式，默认设置为AAC_LC。<br>
+     * **说明：** 从API version 6开始支持，从API version 8开始废弃，建议使用audioEncoderMime替代。
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
@@ -7843,7 +7840,9 @@ declare namespace media {
     audioEncoder?: AudioEncoder;
 
     /**
-     * 音频编码比特率，单位为bit/s。
+     * 音频编码比特率，默认值为48000。单位为比特每秒（bit/s）。<br>
+     * **说明：** 从API version 6开始支持，从API version 9开始废弃，
+     * 建议使用[AVRecorderProfile]{@link media.AVRecorderProfile}中的audioBitrate替代。
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
@@ -7853,7 +7852,9 @@ declare namespace media {
     audioEncodeBitRate?: number;
 
     /**
-     * 音频采样率，单位为Hz。
+     * 音频采集采样率，默认值为48000。单位为赫兹（Hz）。<br>可变比特率模式，码率仅作参考。<br>
+     * **说明：** 从API version 6开始支持，从API version 9开始废弃，
+     * 建议使用[AVRecorderProfile]{@link media.AVRecorderProfile}中的audioSampleRate替代。
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
@@ -7863,7 +7864,9 @@ declare namespace media {
     audioSampleRate?: number;
 
     /**
-     * 音频声道数。
+     * 音频采集声道数，默认值为2。<br>
+     * **说明：** 从API version 6开始支持，从API version 9开始废弃，
+     * 建议使用[AVRecorderProfile]{@link media.AVRecorderProfile}中的audioChannels替代。
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
@@ -7873,7 +7876,8 @@ declare namespace media {
     numberOfChannels?: number;
 
     /**
-     * 音频输出格式。默认值为DEFAULT。API8之后废弃，使用"fileFormat"替代。
+     * 音频输出封装格式，默认设置为MPEG_4。<br>
+     * **说明：** 从API version 6开始支持，从API version 8开始废弃，建议使用fileFormat替代。
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
@@ -7883,10 +7887,9 @@ declare namespace media {
     format?: AudioOutputFormat;
 
     /**
-     * 音频输出URI。支持两种URI格式。
-     * 格式：scheme + "://" + "context"。
-     * file格式：file://path
-     * fd格式：fd://fd
+     * 音频输出URI：fd://xx (fd number)<br>
+     * 文件需要由调用者创建，并赋予适当的权限。<br>
+     * **说明：** 从API version 6开始支持，从API version 9开始废弃，建议使用[AVRecorderConfig]{@link media.AVRecorderConfig}中的url替代。
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
@@ -7896,7 +7899,8 @@ declare namespace media {
     uri: string;
 
     /**
-     * 地理位置信息。
+     * 音频采集的地理位置。<br>
+     * **说明：** 从API version 6开始支持，从API version 9开始废弃，建议使用[AVMetadata]{@link media.AVMetadata}中的location替代。
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
@@ -7906,7 +7910,9 @@ declare namespace media {
     location?: Location;
 
     /**
-     * 音频编码格式MIME。用于替代audioEncoder。
+     * 音频编码格式。<br>
+     * **说明：** 从API version 8开始支持，从API version 9开始废弃，
+     * 建议使用[AVRecorderProfile]{@link media.AVRecorderProfile}中的audioCodec替代。
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 8 dynamiconly
@@ -7915,7 +7921,9 @@ declare namespace media {
      */
     audioEncoderMime?: CodecMimeType;
     /**
-     * 输出文件格式，详见ContainerFormatType。用于替代"format"。
+     * 文件容器格式。<br>
+     * **说明：** 从API version 8开始支持，从API version 9开始废弃，
+     * 建议使用[AVRecorderProfile]{@link media.AVRecorderProfile}中的fileFormat替代。
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 8 dynamiconly
@@ -9817,7 +9825,7 @@ declare namespace media {
      */
     APP_CREATE = 0,
     /**
-     * 由系统创建媒体文件，当前仅在相机录制场景下生效，会忽略应用设置的url。
+     * 由系统创建媒体文件，会忽略应用设置的url。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
@@ -10053,12 +10061,20 @@ declare namespace media {
    */
   interface AVRecorderProfile {
     /**
-     * 音频编码比特率，单位为bit/s。录制音频时该参数为必填参数。<br>支持的比特率范围：
-     * <br>- AAC编码格式范围 [32000 - 500000]。<br>- G.711 μ-law编码格式范围 [64000]。
-     * <br>- MP3编码格式范围 [8000, 16000, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 160000, 192000,
-     * 224000, 256000, 320000]。<br>使用MP3编码格式时，采样率和比特率的对应关系如下：<br>- 采样率低于
-     * 16 kHz时，比特率范围为 [8000 - 64000]。<br>- 采样率在16 kHz至32 kHz之间时，
-     * 比特率范围为 [8000 - 160000]。<br>- 采样率大于32 kHz时，比特率范围为 [32000 - 320000]。<br>- AMR-NB编码格式范围 [4750, 5150, 5900, 6700, 7400, 7950, 10200, 12200]。<br>- AMR-WB编码格式范围 [6600, 8850, 12650, 14250, 15850, 18250, 19850, 23050, 23850]。<br>**原子化服务API**：从API version 12开始，该接口支持在原子化服务中使用。
+     * 音频编码比特率，选择音频录制时必填。单位为比特/秒（bit/s）。<br>
+     * 取值范围：<br>
+     * - AAC编码格式支持比特率范围[32000, 500000]。<br>
+     * - G711-mulaw编码格式支持比特率大小：64000。<br>
+     * - MP3编码格式取值范围[8000, 16000, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 160000, 192000,
+     * 224000, 256000, 320000]。<br>
+     * 当使用MP3编码格式时，采样率和比特率的映射关系：<br>
+     * - 采样率使用16K以下时，对应比特率范围为[8000 - 64000]。<br>
+     * - 采样率使用16K~32K时对应的比特率范围为[8000, 160000]。<br>
+     * - 采样率使用32K以上时对应的比特率范围为[32000, 320000]。<br>
+     * 
+     * - AMR_NB编码格式支持比特率范围[4750, 5150, 5900, 6700, 7400, 7950, 10200, 12200]。<br>
+     * - AMR_WB编码格式支持比特率范围[6600, 8850, 12650, 14250, 15850, 18250, 19850, 23050, 23850]。<br>
+     * **原子化服务API：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -10069,7 +10085,12 @@ declare namespace media {
     audioBitrate?: int;
 
     /**
-     * 音频声道数。录制音频时该参数为必填参数。<br>- AAC编码格式范围 [1 - 2]。<br>- G.711 μ-law编码格式范围 [1]。<br>- MP3编码格式范围 [1 - 2]。<br>- AMR-NB和AMR-WB编码格式范围 [1]。<br>**原子化服务API**：从API version 12开始，该接口支持在原子化服务中使用。
+     * 音频采集声道数，选择音频录制时必填。<br>
+     * - AAC编码格式取值范围[1, 2]。<br>
+     * - G711-mulaw编码格式支持大小：1。<br>
+     * - MP3编码格式取值范围[1, 2]。<br>
+     * - AMR-NB和AMR-WB编码格式支持大小：1。<br>
+     * **原子化服务API：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -10080,7 +10101,9 @@ declare namespace media {
     audioChannels?: int;
 
     /**
-     * 音频编码格式。录制音频时该参数为必填参数。当前支持AUDIO_AAC、AUDIO_MP3、AUDIO_G711MU、AUDIO_AMR_NB和AUDIO_AMR_WB。<br>**原子化服务API**：从API version 12开始，该接口支持在原子化服务中使用。
+     * 音频编码格式，选择音频录制时必填。<br>
+     * 当前支持AUDIO_AAC、AUDIO_MP3、AUDIO_G711MU、AUDIO_AMR_NB和AUDIO_AMR_WB。<br>
+     * **原子化服务API：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -10091,7 +10114,9 @@ declare namespace media {
     audioCodec?: CodecMimeType;
 
     /**
-     * AAC音频编码器的AAC profile。如果不设置，默认使用AAC_LC profile。
+     * 音频编码扩展格式，默认为AAC_LC格式。<br>
+     * 当前支持类型：AAC_LC、AAC_HE和AAC_HE_V2。<br>
+     * **原子化服务API：** 从API version 22开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @atomicservice
@@ -10101,9 +10126,15 @@ declare namespace media {
     aacProfile?: AacProfile;
 
     /**
-     * 音频采样率，单位为Hz。录制音频时该参数为必填参数。<br>支持的采样率范围：
-     * <br>- AAC编码格式范围 [8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000, 64000, 88200, 96000]。<br>- G.711 μ-law编码格式范围 [8000]。<br>- MP3编码格式范围 [8000, 11025, 12000, 16000,
-     * 22050, 24000, 32000, 44100, 48000]。<br>- AMR-NB编码格式范围 [8000]。<br>- AMR-WB编码格式范围 [16000]。<br>可变比特率。比特率仅供参考。<br>**原子化服务API**：从API version 12开始，该接口支持在原子化服务中使用。
+     * 音频采样率，选择音频录制时必填。单位为赫兹（Hz）。<br>
+     * 取值范围：<br>
+     * - AAC编码支持采样率范围[8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000, 64000, 88200, 96000]。<br>
+     * - G711-mulaw编码支持采样率大小：8000。<br>
+     * - MP3编码支持采样率范围[8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000]。<br>
+     * - AMR_NB编码支持采样率大小：8000。<br>
+     * - AMR_WB编码支持采样率大小：16000。<br>
+     * 可变比特率模式，码率仅作参考。<br>
+     * **原子化服务API：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -10114,7 +10145,8 @@ declare namespace media {
     audioSampleRate?: int;
 
     /**
-     * 文件的容器格式。此参数为必填参数。当前支持MP4、M4A、MP3、WAV、AMR和AAC容器格式。AUDIO_MP3编码格式不能在MP4容器格式中使用。<br>**原子化服务API**：从API version 12开始，该接口支持在原子化服务中使用。
+     * 文件的容器格式，必要参数。当前支持MP4、M4A、MP3、WAV、AMR、AAC封装格式，当前AAC音频封装默认为ADTS帧头格式。不支持在MP4封装格式下使用AUDIO_MP3编码格式。<br>
+     * **原子化服务API：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -10125,7 +10157,7 @@ declare namespace media {
     fileFormat: ContainerFormatType;
 
     /**
-     * 视频编码比特率，单位为bit/s。录制视频时该参数为必填参数。取值范围为[10000 - 100000000]。
+     * 视频编码比特率，选择视频录制时必填。取值范围[10000, 100000000]，单位为比特/秒（bit/s）。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -10135,7 +10167,7 @@ declare namespace media {
     videoBitrate?: int;
 
     /**
-     * 视频编码格式。录制视频时该参数为必填参数。当前支持VIDEO_AVC和VIDEO_HEVC。
+     * 视频编码格式，选择视频录制时必填。当前支持VIDEO_AVC和VIDEO_HEVC。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -10145,7 +10177,7 @@ declare namespace media {
     videoCodec?: CodecMimeType;
 
     /**
-     * 视频帧宽度，单位为像素（px）。录制视频时该参数为必填参数。取值范围为[176 - 4096]。
+     * 视频帧的宽，选择视频录制时必填。取值范围[176, 4096]，单位为像素（px）。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -10155,7 +10187,7 @@ declare namespace media {
     videoFrameWidth?: int;
 
     /**
-     * 视频帧高度，单位为像素（px）。录制视频时该参数为必填参数。取值范围为[144 - 4096]。
+     * 视频帧的高，选择视频录制时必填。取值范围[144, 4096]，单位为像素（px）。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -10165,7 +10197,7 @@ declare namespace media {
     videoFrameHeight?: int;
 
     /**
-     * 视频帧率，单位为fps。录制视频时该参数为必填参数。取值范围为[1 - 60]。
+     * 视频帧率，选择视频录制时必填。推荐范围[1, 60]，单位为帧/秒（fps）。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -10175,7 +10207,7 @@ declare namespace media {
     videoFrameRate?: int;
 
     /**
-     * HDR编码。录制视频时该参数可选。默认值为**false**，对编码格式无要求。当**isHdr**设置为**true**时，编码格式必须为**video/hevc**。
+     * HDR编码，选择视频录制时选填。isHdr默认为false，对应编码格式没有要求，isHdr为true时，对应的编码格式必须为video/hevc。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -10185,7 +10217,7 @@ declare namespace media {
     isHdr?: boolean;
 
     /**
-     * 是否支持时域分层编码。录制视频时该参数可选。默认值为**false**。如果设置为**true**，视频输出流中的部分帧可以跳过不编码。
+     * 视频录制是否支持时域分层编码功能，选择视频录制时选填，enableTemporalScale默认为false。设置为true时，编码输出的码流中部分帧可以支持跳过不编码。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform
@@ -10205,7 +10237,7 @@ declare namespace media {
     enableStableQualityMode?: boolean
  
     /**
-     * 是否启用B帧。默认不启用。
+     * 视频录制是否启用B帧编码。true表示启用B帧编码（仅在视频编码格式为H.265且设备硬件支持的情况下生效），false表示不启用B帧编码。<br>该参数为视频录制场景下的可选项，默认值为false。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 20 dynamic
@@ -10215,9 +10247,9 @@ declare namespace media {
   }
 
   /**
-   * 音视频录制的参数。
-   * 
-   * audioSourceType和videoSourceType参数用于区分纯音频录制、纯视频录制和音视频录制。纯音频录制仅设置audioSourceType。纯视频录制仅设置videoSourceType。音视频录制需同时设置audioSourceType和videoSourceType。
+   * 表示音视频录制的参数设置。<br>
+   * 通过audioSourceType和videoSourceType区分纯音频录制、纯视频录制或音视频录制。纯音频录制时，仅需要设置audioSourceType；纯视频录制时，仅需要设置videoSourceType；
+   * 音视频录制时，audioSourceType和videoSourceType均需要设置。
    *
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform [since 12]
@@ -10227,7 +10259,7 @@ declare namespace media {
    */
   interface AVRecorderConfig {
     /**
-     * 录制的音频源类型。录制音频时该参数为必填参数。<br>**原子化服务API**：从API version 12开始，该接口支持在原子化服务中使用。
+     * 选择录制的音频源类型。选择音频录制时必填。<br> **原子化服务API：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -10237,7 +10269,7 @@ declare namespace media {
      */
     audioSourceType?: AudioSourceType;
     /**
-     * 录制的视频源类型。录制视频时该参数为必填参数。
+     * 选择录制的视频源类型。选择视频录制时必填。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -10255,7 +10287,7 @@ declare namespace media {
      */
     metaSourceTypes?: Array<MetaSourceType>;
     /**
-     * 录制配置参数。此参数为必填参数。<br>**原子化服务API**：从API version 12开始，该接口支持在原子化服务中使用。
+     * 录制的profile，必要参数。<br> **原子化服务API：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -10265,7 +10297,7 @@ declare namespace media {
      */
     profile: AVRecorderProfile;
     /**
-     * 录制输出URL：fd://xx（fd句柄）。<br>此参数为必填参数。<br>**原子化服务API**：从API version 12开始，该接口支持在原子化服务中使用。
+     * 录制输出URL：fd://xx (fd number)，必要参数。 <br> **原子化服务API：** 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @crossplatform [since 12]
@@ -10276,7 +10308,7 @@ declare namespace media {
     url: string;
 
     /**
-     * 文件创建模式，与on('photoAssetAvailable')配合使用。
+     * 创建媒体文件的模式，配合on('photoAssetAvailable')监听使用。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
@@ -10284,7 +10316,9 @@ declare namespace media {
      */
     fileGenerationMode?: FileGenerationMode;
     /**
-     * 录制视频的旋转角度。MP4视频取值可为0（默认）、90、180或270。<br>此接口从API version 6开始支持，从API version 12开始废弃，建议使用**AVMetadata.videoOrientation**替代。如果同时设置了两个参数，将使用**AVMetadata.videoOrientation**。
+     * 录制的视频旋转角度，单位为度（°）。mp4格式支持0°、90°、180°和270°，默认值为0°。<br>
+     * 从API version 6开始支持，从API version 12开始废弃。建议使用[AVMetadata]{@link media.AVMetadata}.videoOrientation替代。<br>
+     * 如果同时设置两个值，将会采用[AVMetadata]{@link media.AVMetadata}.videoOrientation。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9 dynamiconly
@@ -10293,7 +10327,9 @@ declare namespace media {
      */
     rotation?: number;
     /**
-     * 录制视频的地理位置。默认不记录地理位置信息。<br>此接口从API version 6开始支持，从API version 12开始废弃，建议使用**AVMetadata.location**替代。如果同时设置了两个参数，将使用**AVMetadata.location**。
+     * 录制的地理位置，默认不记录地理位置信息。<br>
+     * 从API version 6开始支持，从API version 12开始废弃。建议使用 [AVMetadata]{@link media.AVMetadata}.location。<br>
+     * 如果同时设置两个值，将会采用[AVMetadata]{@link media.AVMetadata}.location。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 9 dynamiconly
@@ -10302,7 +10338,7 @@ declare namespace media {
      */
     location?: Location;
     /**
-     * 元数据。详见AVMetadata。
+     * 设置元数据信息。详细内容请参考 [AVMetadata]{@link media.AVMetadata}。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 12 dynamic
@@ -10310,7 +10346,9 @@ declare namespace media {
      */
     metadata?: AVMetadata;
     /**
-     * 最大录制时长，单位为秒。取值范围为[1, 2^31-1]。如果提供了无效值，将重置为最大允许时长。一旦录制达到指定时长，将自动停止并通过**stateChange**回调通知录制已停止：AVRecorderState = 'stopped'，StateChangeReason = BACKGROUND。
+     * 设置录制的最大时长，单位为秒，有效值取值范围[1, 2^31-1]，无效输入会重置为最大值。
+     * 录制到达设定时长后，录制会自动停止，并通过stateChange回调录制状态，[AVRecorderState]{@link media.AVRecorderState} = 'stopped'，
+     * [StateChangeReason]{@link media.StateChangeReason} = BACKGROUND。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @since 18 dynamic
