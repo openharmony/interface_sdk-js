@@ -335,7 +335,7 @@ export declare const InsightIntentLink: ((intentInfo: LinkIntentDecoratorInfo) =
  * supported by the
  * [@InsightIntentPage](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentpage)
  *  decorator, such as the name of
- * [NavDestination](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#navdestination10) of the
+ * [NavDestination]{@link ./@internal/component/ets/navigation:NavigationAttribute.navDestination} of the
  * target page.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -365,7 +365,7 @@ declare interface PageIntentDecoratorInfo extends IntentDecoratorInfo {
   pagePath: string;
 
   /**
-   * ID of the [Navigation](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#attributes)
+   * ID of the [NavDestination组件]{@link ./@internal/component/ets/navigation:NavigationAttribute}
    * component bound to the intent.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -377,7 +377,7 @@ declare interface PageIntentDecoratorInfo extends IntentDecoratorInfo {
 
   /**
    * Name of the
-   * [NavDestination](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#navdestination10)
+   * {@link ./@internal/component/ets/navigation:NavigationAttribute.navDestination}
    * component bound to the intent.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

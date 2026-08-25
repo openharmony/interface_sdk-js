@@ -409,7 +409,7 @@ declare class ApplicationContext extends Context {
    * >
    * > 调用该接口前，需要确保窗口已完成创建、且UIAbility对应的页面已完成加载，即在
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate}生命周期中通过
-   * > [loadContent]{@link @ohos.window:window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}方法加载页面之后调用。
+   * > [loadContent]{@link ./../@ohos.window:WindowStage.loadContent}方法加载页面之后调用。
    *
    * @param { ConfigurationConstant.ColorMode } colorMode - 深浅色模式，包括：深色模式、浅色模式、未设置颜色模式（默认）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -431,7 +431,7 @@ declare class ApplicationContext extends Context {
    * >
    * > 调用该接口前，需要确保窗口已完成创建、且UIAbility对应的页面已完成加载，即在
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate}生命周期中通过
-   * > [loadContent]{@link @ohos.window:window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}方法加载页面之后调用。
+   * > [loadContent()]{@link ./../@ohos.window:WindowStage.loadContent}方法加载页面之后调用。
    *
    * @param { string } language - 设置语言，当前支持的语言列表可以通过
    *     [getSystemLanguages()]{@link ./../@ohos.i18n:i18n.System.getSystemLanguages}获取。
@@ -497,9 +497,9 @@ declare class ApplicationContext extends Context {
    * >
    * > 在原子化服务调用本接口成功后的3秒内，再次调用本接口、
    * > [restartSelfAtomicService()]{@link ./../@ohos.app.ability.abilityManager:abilityManager.restartSelfAtomicService}
-   * > 或[UIAbilityContext.restartApp()]{@link UIAbilityContext:UIAbilityContext.restartApp}接口中的任一接口，系统将返回错误码16000064。
+   * > 或[UIAbilityContext.restartApp()]{@link ./UIAbilityContext:UIAbilityContext.restartApp}接口中的任一接口，系统将返回错误码16000064。
    * >
-   * > 在应用调用本接口成功后的3秒内，若再次调用本接口或[UIAbilityContext.restartApp()]{@link UIAbilityContext:UIAbilityContext.restartApp}接口中的任
+   * > 在应用调用本接口成功后的3秒内，若再次调用本接口或[UIAbilityContext.restartApp()]{@link ./UIAbilityContext:UIAbilityContext.restartApp}接口中的任
    * > 一接口，系统将返回错误码16000064。
    *
    * @param { Want } want - Want information about the UIAbility to start. No verification is performed on the bundle
@@ -581,10 +581,10 @@ declare class ApplicationContext extends Context {
    * >
    * > 调用该接口前，需要确保窗口已完成创建、且UIAbility对应的页面已完成加载，即在
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate}生命周期中通过
-   * > [loadContent]{@link @ohos.window:window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}方法加载页面之后调用。
+   * > [loadContent()]{@link ./../@ohos.window:WindowStage.loadContent}方法加载页面之后调用。
    *
    * @param { string } font - 设置字体类型，字体可以通过
-   *     [UIContext.registerFont]{@link UIContext#registerFont}方法进行注册使用。
+   *     [UIContext.registerFont]{@link ./../@ohos.arkui.UIContext:Font.registerfont}方法进行注册使用。
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

@@ -478,7 +478,7 @@ declare class ApplicationContext extends Context {
    * >
    * > Before calling this API, ensure that the window has been created and the page corresponding to the UIAbility has
    * > been loaded (using the
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9) API in the
+   * > [loadContent()]{@link ./../@ohos.window:WindowStage.loadContent} API in the
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate} lifecycle).
    *
    * @param { ConfigurationConstant.ColorMode } colorMode - Dark/light color mode, which can be dark mode, light mode,
@@ -502,7 +502,8 @@ declare class ApplicationContext extends Context {
    * >
    * > Before calling this API, ensure that the window has been created and the page corresponding to the UIAbility has
    * > been loaded (using the
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9) API in the
+   * >  [loadContent()]{@link ./../@ohos.window:WindowStage.loadContent}
+   * > API in the
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate} lifecycle).
    *
    * @param { string } language - Target language. The list of supported languages can be obtained by calling
@@ -681,7 +682,7 @@ declare class ApplicationContext extends Context {
    * >
    * > Before calling this API, ensure that the window has been created and the page corresponding to the UIAbility has
    * > been loaded (using the
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9) API in the
+   * > [loadContent()]{@link ./../@ohos.window:WindowStage.loadContent} API in the
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate} lifecycle).
    *
    * @param { string } font - Font, which can be registered by calling
