@@ -3161,7 +3161,7 @@ declare namespace media {
     selectTrack(index: int, mode?: SwitchMode): Promise<void>;
 
     /**
-     * 使用AVPlayer播放多音轨视频时取消指定音视频轨道播放，使用Promise异步回调。
+     * 平滑切换回默认轨道，使用Promise异步回调。
      *
      * @param { int } index - 多音视频资源的轨道索引，来自[getTrackDescription]{@link media.AVPlayer.getTrackDescription()}接口所获取的轨道信息
      *     [MediaDescription]{@link @ohos.multimedia.media:media.MediaDescription}。
@@ -3176,11 +3176,11 @@ declare namespace media {
     deselectTrack(index: int): Promise<void>;
 
     /**
-     * Obtains the selected track by the specified media type. This API can be called only when the AVPlayer
-     * is in the prepared, playing, or paused state. This API uses a promise to return the result.
+     * 获取指定媒体类型所选择的轨道。该接口仅在AVPlayer处于prepared、playing或paused状态时可调用。
+     * 使用Promise异步回调。
      *
-     * @param { MediaType } trackType - specified media Type, see [MediaType]{@link #MediaType}.
-     * @returns { Promise<int> } A Promise instance used to return selected track index.
+     * @param { MediaType } trackType - 指定的媒体类型，见[MediaType]{@link #MediaType}.
+     * @returns { Promise<int> } Promise对象，返回已选择轨道索引。
      * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
      * @throws { BusinessError } 5400101 - No memory. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
@@ -3233,7 +3233,7 @@ declare namespace media {
     setTrackSelectionFilter(filter : TrackSelectionFilter): Promise<void>;
 
     /**
-     * 依据fd为视频添加外挂字幕，当前仅支持与视频资源同时设置（在avplayer设置fdSrc视频资源后设置外挂字幕）。使用Promise异步回调。
+     * 依据资源句柄为视频添加外挂字幕，当前仅支持与视频资源同时设置（在AVPlayer设置视频资源后设置外挂字幕）。使用Promise异步回调。
      *
      * @param { int } fd - 资源句柄，通过
      *     [resourceManager.getRawFd]{@link @ohos.resourceManager:resourceManager.ResourceManager.getRawFd(path: string, callback: _AsyncCallback<RawFileDescriptor>)}
@@ -3251,7 +3251,7 @@ declare namespace media {
     addSubtitleFromFd(fd: int, offset?: long, length?: long): Promise<void>;
 
     /**
-     * 依据url为视频添加外挂字幕，当前仅支持与视频资源同时设置（在avplayer设置fdSrc视频资源后设置外挂字幕）。使用Promise异步回调。
+     * 依据外挂字幕文件地址为视频添加外挂字幕，当前仅支持与视频资源同时设置（在AVPlayer设置视频资源后设置外挂字幕）。使用Promise异步回调。
      *
      * @param { string } url - 外挂字幕文件地址。
      * @returns { Promise<void> } Promise对象，无返回结果。
@@ -3371,11 +3371,11 @@ declare namespace media {
     setMediaMuted(mediaType: MediaType, muted: boolean): Promise<void>;
 
     /**
-     * Specifies whether to forcibly load the video. This API can be called only when the AVPlayer
-     * is in the prepared, playing, or paused state. This API uses a promise to return the result.
+     * 指定是否强制加载视频。该接口仅在AVPlayer处于prepared、playing或paused状态时可调用。
+     * 使用Promise异步回调。
      *
-     * @param { boolean } force - specified whether to forcibly load the video.
-     * @returns { Promise<void> } A Promise instance used to return when forceLoadVideo completed.
+     * @param { boolean } force - 指定是否强制加载视频。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @systemapi
