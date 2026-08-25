@@ -689,9 +689,13 @@ export declare interface SoundPool {
   /**
    * 音频池资源播放完成监听，同时返回播放结束的音频的streamId。
    * 
-   * 当仅单独注册onPlayFinished事件回调或者onPlayFinishedWithStreamId事件回调时，当音频播放完成的时候，都会触发注册的回调。
+   * 当仅单独注册[onPlayFinished(callback: Callback<void>): void]{@link SoundPool.onPlayFinished(callback: Callback<void>): void}事件回调或者
+   * [onPlayFinishedWithStreamId(callback: Callback<int>): void]{@link SoundPool.onPlayFinishedWithStreamId(callback: Callback<int>): void}事件回调
+   * 时，当音频播放完成的时候，都会触发注册的回调。
    * 
-   * 当同时注册onPlayFinished事件回调和onPlayFinishedWithStreamId事件回调时，当音频播放完成的时候，仅会触发'playFinishedWithStreamId'事件回调，不会触发'playFinished'事件回调。
+   * 当同时注册[onPlayFinished(callback: Callback<void>): void]{@link SoundPool.onPlayFinished(callback: Callback<void>): void}事件回调和
+   * [onPlayFinishedWithStreamId(callback: Callback<int>): void]{@link SoundPool.onPlayFinishedWithStreamId(callback: Callback<int>): void}事件回调
+   * 时，当音频播放完成的时候，仅会触发'playFinishedWithStreamId'事件回调，不会触发'playFinished'事件回调。
    *
    * @param {Callback<int>} callback - Callback used to return the result. Stream ID of the audio that
    *     finishes playing.
@@ -724,7 +728,7 @@ export declare interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
    */
-  on(type:'errorOccurred', callback:Callback<ErrorInfo>): void;
+  on(type: 'errorOccurred', callback: Callback<ErrorInfo>): void;
   /**
    * 监听SoundPool的错误事件，并返回包含错误码、错误发生阶段、资源ID和音频流ID的ErrorInfo。使用callback异步回调。
    *
@@ -732,7 +736,7 @@ export declare interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 23 static
    */
-  onErrorOccurred(callback:Callback<ErrorInfo>): void;
+  onErrorOccurred(callback: Callback<ErrorInfo>): void;
   /**
    * 取消监听音频池的错误事件。
    *
@@ -742,7 +746,7 @@ export declare interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
    */
-  off(type: 'errorOccurred', callback?:Callback<ErrorInfo>): void;
+  off(type: 'errorOccurred', callback?: Callback<ErrorInfo>): void;
   /**
    * 取消监听音频池的错误事件。
    *
@@ -750,5 +754,5 @@ export declare interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 23 static
    */
-  offErrorOccurred(callback?:Callback<ErrorInfo>): void;
+  offErrorOccurred(callback?: Callback<ErrorInfo>): void;
 }
