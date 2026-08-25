@@ -2611,32 +2611,19 @@ declare namespace media {
    *     [prepare()]{@link @ohos.multimedia.media:media.AVPlayer.prepare(callback: AsyncCallback<void>)}重新准备，也可以调用
    *     [reset()]{@link @ohos.multimedia.media:media.AVPlayer.reset(callback: AsyncCallback<void>)}重置，或者调用
    *     [release()]{@link @ohos.multimedia.media:media.AVPlayer.release(callback: AsyncCallback<void>)}彻底销毁。
-   * @unionmember { 'released' } The AVPlayer enters this state when
-   *     [release()]{@link @ohos.multimedia.media:media.AVPlayer.release(callback: AsyncCallback<void>) } 销毁状态，销毁与当前
+   * @unionmember { 'released' } 销毁状态，销毁与当前
    *     AVPlayer关联的播放引擎，无法再进行状态转换，调用
    *     [release()]{@link @ohos.multimedia.media:media.AVPlayer.release(callback: AsyncCallback<void>)}方法后，会进入released状
    *     态，结束流程。
-   * @unionmember { 'error' } The AVPlayer enters this state when an irreversible error occurs in the playback engine.
-   *     You can call [reset()]{@link @ohos.multimedia.media:media.AVPlayer.reset(callback: AsyncCallback<void>)} to
-   *     reset the properties or call
-   *     [release()]{@link @ohos.multimedia.media:media.AVPlayer.release(callback: AsyncCallback<void>)} to destroy the
-   *     playback engine. For details about the error codes, see
+   * @unionmember { 'error' } 错误状态，当播放引擎发生不可逆的错误（详见Media错误码），则会转换至当前状态，可以调用
+   *     [reset()]{@link @ohos.multimedia.media:media.AVPlayer.reset(callback: AsyncCallback<void>)} 重置，也可以调用release()
+   *     [release()]{@link @ohos.multimedia.media:media.AVPlayer.release(callback: AsyncCallback<void>)} 销毁重建。详见错误码
    *     [Media Error Codes](docroot://reference/apis-media-kit/errorcode-media.md).
    *     <br>**NOTE**
-   *     <br>Distinguishing the error state from the
-   *     [on('error')]{@link @ohos.multimedia.media:media.AVPlayer.on(type: 'error', callback: ErrorCallback)} state:
-   *     <br>1. When the AVPlayer enters the error state, the **on('error')** event is triggered. You can obtain the detailed
-   *     error information through this event.
-   *     <br>2. When the AVPlayer enters the error state, the playback service stops. This requires the client to design a
-   *     fault tolerance mechanism to call
-   *     [reset()]{@link @ohos.multimedia.media:media.AVPlayer.reset(callback: AsyncCallback<void>)} or
-   *     [release()]{@link @ohos.multimedia.media:media.AVPlayer.release(callback: AsyncCallback<void>) } 错误状态，当**播放引擎**
-   *     发生**不可逆的错误**（详见[Media错误码](docroot://reference/apis-media-kit/errorcode-media.md)），则会转换至当前状态，可以调用
-   *     [reset()]{@link @ohos.multimedia.media:media.AVPlayer.reset(callback: AsyncCallback<void>)}重置，也可以调用
-   *     [release()]{@link @ohos.multimedia.media:media.AVPlayer.release(callback: AsyncCallback<void>)}销毁重建。<br/>
-   *     **注意：**<br/>区分error状态和
-   *     [on('error')]{@link @ohos.multimedia.media:media.AVPlayer.on(type: 'error', callback: ErrorCallback)} ：<br/>1、进
-   *     入error状态时，会触发on('error')监听事件，可以通过on('error')事件获取详细错误信息；<br/>2、处于error状态时，播放服务进入不可播控的状态，要求客户端设计容错机制，使用
+   *     <br>区分error状态和
+   *     [on('error')]{@link @ohos.multimedia.media:media.AVPlayer.on(type: 'error', callback: ErrorCallback)} :
+   *     <br>1. 进入error状态时，会触发on('error')监听事件，可以通过on('error')事件获取详细错误信息；
+   *     <br>2. 处于error状态时，播放服务进入不可播控的状态，要求客户端设计容错机制，使用
    *     [reset()]{@link @ohos.multimedia.media:media.AVPlayer.reset(callback: AsyncCallback<void>)}重置或者
    *     [release()]{@link @ohos.multimedia.media:media.AVPlayer.release(callback: AsyncCallback<void>)}销毁重建；<br/>3、如果客户
    *     端收到on('error')，但未进入error状态：<br/>原因1：客户端未按状态机调用API或传入参数错误，被AVPlayer拦截提醒，需要客户端调整代码逻辑；<br/>原因2：播放过程发现码流问题，导致容器、解码短
@@ -2648,7 +2635,7 @@ declare namespace media {
    * @since 23 static
    */
 
-  type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error';
+    type AVPlayerState = 'idle' | 'initialized' | 'prepared' | 'playing' | 'paused' | 'completed' | 'stopped' | 'released' | 'error';
 
   /**
    * track变更事件回调方法。
