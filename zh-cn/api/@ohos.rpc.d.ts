@@ -2248,7 +2248,7 @@ declare namespace rpc {
      * 从MessageSequence实例中读取字符串数组。
      * 
      * - 返回新创建的数组，无需预先创建。
-     * - 数组单个元素的长度范围0-40959字节。
+     * - 数组单个元素的长度范围[0, 40960)。
      *
      * @returns { string[] } 返回字符串数组。
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
@@ -4164,7 +4164,7 @@ declare namespace rpc {
   /**
    * 提供与匿名共享内存对象相关的方法，包括创建、关闭、映射和取消映射Ashmem、从Ashmem读取数据和写入数据、获取Ashmem大小、设置Ashmem保护。
    * 
-   * 共享内存只适用与本设备内跨进程通信。
+   * 共享内存只适用于本设备内跨进程通信。
    * 
    * - 大数据传输：传输大量数据(如图片、文件)时使用共享内存提升效率。
    * - 跨进程数据共享：多个进程需要共享访问同一块内存数据。
