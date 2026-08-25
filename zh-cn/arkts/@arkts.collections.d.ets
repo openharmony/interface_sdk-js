@@ -48,19 +48,19 @@ type BuiltinMap<K, V> = Map<K, V>;
  * 本模块提供的ArkTS容器集，可以用于并发场景下的高性能数据传递。功能与JavaScript内建的对应容器类似，但ArkTS容器实例无法通过`"."`或者`"[]"`添加或更新属性。
  * ArkTS容器在多个并发实例间传递时，其默认行为是引用传递，支持多个并发实例可以同时操作同一个容器实例。另外，也支持拷贝传递，即每个并发实例持有一个ArkTS容器实例。
  * ArkTS容器并不是线程安全的，内部使用了fail-fast（快速失败）机制：当检测多个并发实例同时对容器进行结构性改变时，会触发异常。因此，在多线程读写容器时，容器使用方需要使用ArkTS提供的异步锁机制保证ArkTS容器的安全访问。
- * 当前ArkTS容器集主要包含以下几种容器：[Array]{@link ./arkts/@arkts.collections:collections},
- * [Map]{@link ./arkts/@arkts.collections:collections}, [Set]{@link ./arkts/@arkts.collections:collections}, TypedArray
- * ([Int8Array]{@link ./arkts/@arkts.collections:collections},
- * [Uint8Array]{@link ./arkts/@arkts.collections:collections},
- * [Int16Array]{@link ./arkts/@arkts.collections:collections},
- * [Uint16Array]{@link ./arkts/@arkts.collections:collections},
- * [Int32Array]{@link ./arkts/@arkts.collections:collections},
- * [Uint32Array]{@link ./arkts/@arkts.collections:collections},
- * [Uint8ClampedArray]{@link ./arkts/@arkts.collections:collections} and
- * [Float32Array]{@link ./arkts/@arkts.collections:collections}),
- * [ArrayBuffer]{@link ./arkts/@arkts.collections:collections},
- * [BitVector]{@link ./arkts/@arkts.collections:collections}, and
- * [ConcatArray]{@link ./arkts/@arkts.collections:collections}.
+ * 当前ArkTS容器集主要包含以下几种容器：[Array]{@link collections.Array},
+ * [Map]{@link collections.Map}, [Set]{@link collections.Set}, TypedArray
+ * ([Int8Array]{@link collections.Int8Array},
+ * [Uint8Array]{@link collections.Uint8Array},
+ * [Int16Array]{@link collections.Int16Array},
+ * [Uint16Array]{@link collections.Uint16Array},
+ * [Int32Array]{@link collections.Int32Array},
+ * [Uint32Array]{@link collections.Uint32Array},
+ * [Uint8ClampedArray]{@link collections.Uint8ClampedArray} and
+ * [Float32Array]{@link collections.Float32Array}),
+ * [ArrayBuffer]{@link collections.ArrayBuffer},
+ * [BitVector]{@link collections.BitVector}, and
+ * [ConcatArray]{@link collections.ConcatArray}.
  *
  * > **说明**
  * >
@@ -1013,7 +1013,7 @@ declare namespace collections {
     toLocaleString(): string;
     /**
      * 此API与
-     * [reduceRight]{@link collections.Array#reduceRight(callbackFn: ArrayReduceCallback<T, T, Array<T>>)}方法类似，
+     * [reduceRight]{@link collections.Array.reduceRight(callbackFn: ArrayReduceCallback<T, T, Array<T>>)}方法类似，
      * 但它接受一个初始值作为第二个参数，用于在Array从右到左顺序遍历开始前初始化累加器。
      *
      * @param { ArrayReduceCallback<U, T, Array<T>> } callbackFn - 一个接受四个参数的函数，用于对
@@ -1473,14 +1473,14 @@ declare namespace collections {
     has(value: T): boolean;
   }
   /**
-   * ArkTS TypedArray（[Int8Array]{@link ./arkts/@arkts.collections:collections}、
-   * [Uint8Array]{@link ./arkts/@arkts.collections:collections}、
-   * [Int16Array]{@link ./arkts/@arkts.collections:collections}、
-   * [Uint16Array]{@link ./arkts/@arkts.collections:collections}、
-   * [Int32Array]{@link ./arkts/@arkts.collections:collections}、
-   * [Uint32Array]{@link ./arkts/@arkts.collections:collections}、
-   * [Uint8ClampedArray]{@link ./arkts/@arkts.collections:collections}、
-   * [Float32Array]{@link ./arkts/@arkts.collections:collections}）的底层数据结构。
+   * ArkTS TypedArray（[Int8Array]{@link collections.Int8Array}、
+   * [Uint8Array]{@link collections.Uint8Array}、
+   * [Int16Array]{@link collections.Int16Array}、
+   * [Uint16Array]{@link collections.Uint16Array}、
+   * [Int32Array]{@link collections.Int32Array}、
+   * [Uint32Array]{@link collections.Uint32Array}、
+   * [Uint8ClampedArray]{@link collections.Uint8ClampedArray}、
+   * [Float32Array]{@link collections.Float32Array}）的底层数据结构。
    *
    * > **说明**
    * >
@@ -1534,7 +1534,7 @@ declare namespace collections {
   }
 
   /**
-   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}实现。
+   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link collections.ArrayBuffer}实现。
    *
    * > **说明**
    * >
@@ -2127,7 +2127,7 @@ declare namespace collections {
  }
 
   /**
-   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}实现。
+   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link collections.ArrayBuffer}实现。
    *
    * > **说明**
    * >
@@ -2704,7 +2704,7 @@ declare namespace collections {
  }
 
   /**
-   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}实现。
+   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link collections.ArrayBuffer}实现。
    *
    * > **说明**
    * >
@@ -3309,7 +3309,7 @@ declare namespace collections {
  }
 
   /**
-   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}实现。
+   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link collections.ArrayBuffer}实现。
    *
    * > **说明**
    * >
@@ -3908,7 +3908,7 @@ declare namespace collections {
     static of(...items: number[]): Int16Array;
  }
   /**
-   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}实现。
+   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link collections.ArrayBuffer}实现。
    *
    * > **说明**
    * >
@@ -4493,7 +4493,7 @@ declare namespace collections {
     static of(...items: number[]): Uint16Array;
  }
   /**
-   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}实现。
+   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link collections.ArrayBuffer}实现。
    *
    * > **说明**
    * >
@@ -5078,7 +5078,7 @@ declare namespace collections {
     static of(...items: number[]): Int32Array;
  }
   /**
-   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}实现。
+   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link collections.ArrayBuffer}实现。
    *
    * > **说明**
    * >
@@ -5666,7 +5666,7 @@ declare namespace collections {
  }
 
   /**
-   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}实现。
+   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link collections.ArrayBuffer}实现。
    *
    * > **说明：**
    * >

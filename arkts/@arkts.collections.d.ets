@@ -54,19 +54,19 @@ type BuiltinMap<K, V> = Map<K, V>;
  * ArkTS containers are not thread-safe. They adopt the fail-fast approach. An exception is thrown if multiple
  * concurrent instances make structural changes to a container instance at the same time. Therefore, in multi-thread
  * read/write scenarios, you must use the ArkTS asynchronous lock to ensure secure access to the ArkTS containers.
- * Currently, the following ArkTS containers are provided: [Array]{@link ./arkts/@arkts.collections:collections},
- * [Map]{@link ./arkts/@arkts.collections:collections}, [Set]{@link ./arkts/@arkts.collections:collections}, TypedArray
- * ([Int8Array]{@link ./arkts/@arkts.collections:collections},
- * [Uint8Array]{@link ./arkts/@arkts.collections:collections},
- * [Int16Array]{@link ./arkts/@arkts.collections:collections},
- * [Uint16Array]{@link ./arkts/@arkts.collections:collections},
- * [Int32Array]{@link ./arkts/@arkts.collections:collections},
- * [Uint32Array]{@link ./arkts/@arkts.collections:collections},
- * [Uint8ClampedArray]{@link ./arkts/@arkts.collections:collections} and
- * [Float32Array]{@link ./arkts/@arkts.collections:collections}),
- * [ArrayBuffer]{@link ./arkts/@arkts.collections:collections},
- * [BitVector]{@link ./arkts/@arkts.collections:collections}, and
- * [ConcatArray]{@link ./arkts/@arkts.collections:collections}.
+ * Currently, the following ArkTS containers are provided: [Array]{@link collections.Array},
+ * [Map]{@link collections.Map}, [Set]{@link collections.Set}, TypedArray
+ * ([Int8Array]{@link collections.Int8Array},
+ * [Uint8Array]{@link collections.Uint8Array},
+ * [Int16Array]{@link collections.Int16Array},
+ * [Uint16Array]{@link collections.Uint16Array},
+ * [Int32Array]{@link collections.Int32Array},
+ * [Uint32Array]{@link collections.Uint32Array},
+ * [Uint8ClampedArray]{@link collections.Uint8ClampedArray} and
+ * [Float32Array]{@link collections.Float32Array}),
+ * [ArrayBuffer]{@link collections.ArrayBuffer},
+ * [BitVector]{@link collections.BitVector}, and
+ * [ConcatArray]{@link collections.ConcatArray}.
  *
  * > **NOTE**
  * >
@@ -1034,7 +1034,7 @@ declare namespace collections {
     toLocaleString(): string;
     /**
      * This API is similar to the
-     * [reduceRight]{@link collections.Array#reduceRight(callbackFn: ArrayReduceCallback<T, T, Array<T>>)} API, but it
+     * [reduceRight]{@link collections.Array.reduceRight(callbackFn: ArrayReduceCallback<T, T, Array<T>>)} API, but it
      * takes an initial value as the second parameter to initialize the accumulator before the array traversal starts
      * from right to left.
      *
@@ -1506,14 +1506,14 @@ declare namespace collections {
     has(value: T): boolean;
   }
   /**
-   * Underlying data structure of the ArkTS TypedArray ([Int8Array]{@link ./arkts/@arkts.collections:collections},
-   * [Uint8Array]{@link ./arkts/@arkts.collections:collections},
-   * [Int16Array]{@link ./arkts/@arkts.collections:collections},
-   * [Uint16Array]{@link ./arkts/@arkts.collections:collections},
-   * [Int32Array]{@link ./arkts/@arkts.collections:collections},
-   * [Uint32Array]{@link ./arkts/@arkts.collections:collections},
-   * [Uint8ClampedArray]{@link ./arkts/@arkts.collections:collections}, and
-   * [Float32Array]{@link ./arkts/@arkts.collections:collections}).
+   * Underlying data structure of the ArkTS TypedArray ([Int8Array]{@link collections.Int8Array},
+   * [Uint8Array]{@link collections.Uint8Array},
+   * [Int16Array]{@link collections.Int16Array},
+   * [Uint16Array]{@link collections.Uint16Array},
+   * [Int32Array]{@link collections.Int32Array},
+   * [Uint32Array]{@link collections.Uint32Array},
+   * [Uint8ClampedArray]{@link collections.Uint8ClampedArray}, and
+   * [Float32Array]{@link collections.Float32Array}).
    *
    * > **NOTE**
    * >
@@ -1566,7 +1566,7 @@ declare namespace collections {
   }
 
   /**
-   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}.
+   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link collections.ArrayBuffer}.
    *
    * > **NOTE**
    * >
@@ -2193,7 +2193,7 @@ declare namespace collections {
  }
 
   /**
-   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}.
+   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link collections.ArrayBuffer}.
    *
    * > **NOTE**
    * >
@@ -2801,7 +2801,7 @@ declare namespace collections {
  }
 
   /**
-   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}.
+   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link collections.ArrayBuffer}.
    *
    * > **NOTE**
    * >
@@ -3423,7 +3423,7 @@ declare namespace collections {
  }
 
   /**
-   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}.
+   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link collections.ArrayBuffer}.
    *
    * > **NOTE**
    * >
@@ -4049,7 +4049,7 @@ declare namespace collections {
  }
 
   /**
-   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}.
+   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link collections.ArrayBuffer}.
    *
    * > **NOTE**
    * >
@@ -4670,7 +4670,7 @@ declare namespace collections {
  }
 
   /**
-   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}.
+   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link collections.ArrayBuffer}.
    *
    * > **NOTE**
    * >
@@ -5292,7 +5292,7 @@ declare namespace collections {
  }
 
   /**
-   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}.
+   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link collections.ArrayBuffer}.
    *
    * > **NOTE**
    * >
@@ -5913,7 +5913,7 @@ declare namespace collections {
  }
 
   /**
-   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}.
+   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link collections.ArrayBuffer}.
    *
    * > **NOTE**
    * >
