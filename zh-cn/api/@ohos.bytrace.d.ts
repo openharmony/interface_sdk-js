@@ -15,7 +15,7 @@
 
 /**
  * @file 性能打点
- * @kit PerformanceAnalysisKit
+ * @kit API10LessDeprecatedModules
  */
 
 /**

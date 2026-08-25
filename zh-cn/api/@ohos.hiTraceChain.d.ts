@@ -276,7 +276,7 @@ declare namespace hiTraceChain {
    * HiTraceId。当前线程TLS中已存在有效的HiTraceId时，不会开始新的跟踪，返回各属性值均为0的无效HiTraceId。
    *
    * @param { string } name - 跟踪业务名。该参数的长度不超过63Byte，超出部分将被截断。
-   * @param { int } flags - 跟踪标志组合，具体可参考[HiTraceFlag]{@link hiTraceChain.HiTraceFlag}。当需要跟踪异步调用时设置
+   * @param { int } [flags] - 跟踪标志组合，具体可参考[HiTraceFlag]{@link hiTraceChain.HiTraceFlag}。当需要跟踪异步调用时设置
    * INCLUDE_ASYNC，不创建分支信息时设置DONOT_CREATE_SPAN，调试场景下设置TP_INFO可打印埋点信息。默认值为0，表示只跟踪同步调用、创建分支信
    * 息、不打印日志。
    * @returns { HiTraceId } 当前线程TLS中的HiTraceId实例。
@@ -361,7 +361,7 @@ declare namespace hiTraceChain {
    * @param { HiTraceCommunicationMode } mode - Communication mode for the trace point.
    * @param { HiTraceTracepointType } type - 信息埋点需要指定的跟踪埋点类型。
    * @param { HiTraceId } id - 实施信息埋点操作的HiTraceId实例。
-   * @param { string } msg - HiTraceMeter打点操作传入的trace说明信息，用于在性能分析时标识打点位置。当需要在HiTraceMeter报告中区分不同
+   * @param { string } [msg] - HiTraceMeter打点操作传入的trace说明信息，用于在性能分析时标识打点位置。当需要在HiTraceMeter报告中区分不同
    * 打点位置时传入有意义的描述信息（如函数名、操作步骤等），不传入时使用空字符串，不影响基本打点功能。该参数的长度不超过63Byte，超出部分将被截断。
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
