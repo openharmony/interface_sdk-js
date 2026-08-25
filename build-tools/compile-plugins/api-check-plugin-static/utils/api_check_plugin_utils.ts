@@ -714,9 +714,11 @@ export function readSystemModules(projectConfig: ProjectConfig): void {
   const monitor = getGlobalMonitor();
   monitor.start(PERF.READ_MODULE);
 
-  const apiDirPath = path.resolve(projectConfig.buildSdkPath, './api');
-  const arktsDirPath = path.resolve(projectConfig.buildSdkPath, './arkts');
-  const kitsDirPath = path.resolve(projectConfig.buildSdkPath, './kits');
+  const openharmonyExternalPaths = (projectConfig.externalApiPaths || [])
+    .filter((item: string) => /openharmony[\\\/]ets[\\\/]static/.test(item));
+  const apiDirPath: string = openharmonyExternalPaths.find((item: string) => path.basename(item) === 'api') || '';
+  const arktsDirPath: string = openharmonyExternalPaths.find((item: string) => path.basename(item) === 'arkts') || '';
+  const kitsDirPath: string = openharmonyExternalPaths.find((item: string) => path.basename(item) === 'kits') || '';
   const systemModulePathArray = [apiDirPath, arktsDirPath, kitsDirPath];
 
   systemModulePathArray.forEach(systemModulesPath => {
