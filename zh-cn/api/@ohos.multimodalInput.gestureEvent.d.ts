@@ -88,7 +88,7 @@ export declare interface Rotate {
 export declare interface ThreeFingersSwipe {
 
   /**
-   * 手势事件类型，包括手势取消、手势开始、手势更新、手势结束。
+   * 手势事件类型。如：手势开始、手势更新、手势结束等。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -125,7 +125,7 @@ export declare interface ThreeFingersSwipe {
 export declare interface FourFingersSwipe {
 
   /**
-   * 手势事件类型，包括手势取消、手势开始、手势更新、手势结束。
+   * 手势事件类型。如：手势开始、手势更新、手势结束等。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic

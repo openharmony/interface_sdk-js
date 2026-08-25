@@ -22,7 +22,7 @@ import { Callback } from './@ohos.base';
 import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 
 /**
- * 全局快捷键订阅模块，用于处理组合按键的订阅。
+ * 全局快捷键订阅模块，用于处理组合按键的订阅，本模块也支持音量键拦截监听能力。
  *
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
  * @since 14 dynamic
