@@ -5048,7 +5048,7 @@ declare namespace media {
     offError(callback?: ErrorCallback): void;
 
     /**
-     * 取消订阅音频流输出设备的更改及原因。这个API使用异步回调来返回结果。
+     * 取消订阅音频流输出设备的更改及原因。该API使用异步回调返回结果。
      *
      * @param { Callback<audio.AudioStreamDeviceChangeInfo> } [callback] - 回调返回当前音频流的输出设备描述以及更改原因。
      * @throws { BusinessError } 401 - 参数错误。可能的原因：1、必填参数未填写。2、参数类型不正确。3、参数校验失败。
@@ -5101,7 +5101,7 @@ declare namespace media {
      * 当收到SEI消息时，该事件被触发。
      *
      * @param { Array<int> } [payloadTypes] - SEI消息的负载类型。
-     * Null 表示取消订阅所有负载类型。
+     * Null表示取消订阅所有负载类型。
      * @param { OnSeiMessageHandle } [callback] - 回调用于监听SEI消息事件并接收订阅的有效载荷类型。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
@@ -6193,7 +6193,7 @@ declare namespace media {
      * buffer - 缓冲区需要填充。
      * length - 播放需要获得的流长度。
      * pos - 播放获取流的起始位置，可选参数。
-     * 当fileSize设置为-1时，这个参数不会被使用。
+     * 当fileSize设置为-1时，该参数不会被使用。
      * 返回要填充的数据的长度，返回-1表示已到达流的末尾，返回-2表示遇到了不可恢复的错误。
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -7265,7 +7265,7 @@ declare namespace media {
      * 在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}接口成功调用后，才能调用此接
      * 口。在[stop]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}接口成功调用后，调用此接口会报错。
      * 
-     * 调用接口时，获取到的返回值是上一次获取最大振幅的时刻到当前这段区间内的音频最大振幅。例如，在1s时获取了一次最大振幅，到2s时再获取到的最大振幅是1-2s这个区间里面的最大值。
+     * 调用接口时，获取到的返回值是上一次获取最大振幅的时刻到当前这段区间内的音频最大振幅。例如，在1s时获取了一次最大振幅，到2s时再获取到的最大振幅是1-2s区间里面的最大值。
      *
      * @param { AsyncCallback<int> } callback - 回调函数。获取当前音频最大振幅成功时，err为undefined，data为获取到的最大振幅，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed.
@@ -7282,7 +7282,7 @@ declare namespace media {
      * 在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}接口成功调用后，才能调用此接
      * 口。在[stop]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}接口成功调用后，调用此接口会报错。
      * 
-     * 调用接口时，获取到的返回值是上一次获取最大振幅的时刻到当前这段区间内的音频最大振幅。例如，在1s时获取了一次最大振幅，到2s时再获取到的最大振幅是1-2s这个区间里面的最大值。
+     * 调用接口时，获取到的返回值是上一次获取最大振幅的时刻到当前这段区间内的音频最大振幅。例如，在1s时获取了一次最大振幅，到2s时再获取到的最大振幅是1-2s区间里面的最大值。
      *
      * @returns { Promise<int> } Promise对象，返回获取的当前音频最大振幅。
      * @throws { BusinessError } 5400102 - Operation not allowed.
