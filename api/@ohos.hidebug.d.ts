@@ -317,7 +317,7 @@ declare namespace hidebug {
      * @since 12 dynamic
      * @since 23 static
      */
-    threadName: string;
+    threadName?: string;
   }
 
   /**
