@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 国际化-I18n
  * @kit LocalizationKit
  */
 
