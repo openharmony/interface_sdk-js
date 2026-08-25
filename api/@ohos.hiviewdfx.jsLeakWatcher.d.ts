@@ -21,7 +21,7 @@
 import { Callback } from './@ohos.base';
 
 /**
- * This module provides the capability of monitoring whether JS objects are leaked.
+ * This module provides the capability of monitoring whether ArkTS objects are leaked.
  *
  * @syscap SystemCapability.HiviewDFX.HiChecker
  * @since 12 dynamic
@@ -29,7 +29,7 @@ import { Callback } from './@ohos.base';
  */
 declare namespace jsLeakWatcher {
   /**
-   * Enables the detection for JS object leaks. This function is disabled by default.
+   * Enables the detection for ArkTS object leaks. This function is disabled by default.
    *
    * @param { boolean } isEnable - Whether to enable **jsLeakWatcher**. **true**: yes; **false**: no.
    * @syscap SystemCapability.HiviewDFX.HiChecker
@@ -41,7 +41,8 @@ declare namespace jsLeakWatcher {
   /**
    * Registers the object to be checked.
    *
-   * @param { object } obj - Name of the object to be checked.<br>Note: You can pass objects of any type.
+   * @param { object } obj - Name of the object to be checked.
+   *     <br>Note: You can pass objects of any type.
    * @param { string } msg - Custom object information.
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 12 dynamic
@@ -66,10 +67,12 @@ declare namespace jsLeakWatcher {
    * Dumps the list of leaked objects and VM memory snapshot.
    *
    * @param { string } filePath - Path for storing exported information files.
+   *     <br>**Note**: Since API version 24, only the latest snapshot information is retained within the process
+   *     lifecycle.
    * @returns { Array<string> } Export result. The file name extension is **.jsleaklist** for the list of leaked objects
    *     and **.heapsnapshot** for the VM memory snapshot.
-   *     <br>Note: If the dump is successful, the path of the leaked object list file and the VM memory snapshot path are
-   *     returned. Otherwise, an empty array is returned.
+   *     <br>Note: If the dump is successful, the path of the leaked object list file and the VM memory snapshot path
+   *     are returned. Otherwise, an empty array is returned.
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 12 dynamic
    * @since 26.1.0 static
@@ -77,22 +80,22 @@ declare namespace jsLeakWatcher {
   function dump(filePath: string): Array<string>;
 
   /**
-   * Enables the detection for JS object leaks. This function is disabled by default.
+   * Enables the ArkTS object leak detection.
    *
-   * This API can detect the JS object memory leak, which is simpler than the method that needs to call the **enable**,
-   * **watch**, **check**, and **dump** functions.
+   * This API can detect the ArkTS object memory leak, which is simpler than the method that needs to call the
+   * **enable**, **watch**, **check**, and **dump** functions.
    *
-   * If a memory leak occurs, the leaked file is returned through the callback.
-   *
-   * @param { boolean } isEnabled - Whether to enable the detection for JS object memory leaks. **true**: yes; **false**
-   *     : no.
+   * @param { boolean } isEnabled - Whether to enable the detection for ArkTS object memory leaks. **true**: yes;
+   *     **false**: no.
    * @param { Array<string> } configs - Configuration item. Each element in the array indicates a specific object type
-   *     to monitor.<br>Options: **XComponent**, **NodeContainer**, **Window**, **CustomComponent**, and **Ability**.<br
-   *     >Note: An empty array indicates that all the preceding objects are monitored.
+   *     to monitor.
+   *     <br>Options: **XComponent**, **NodeContainer**, **Window**, **CustomComponent**, and **Ability**.
+   *     <br>Note: An empty array indicates that all the preceding objects are monitored.
    * @param { Callback<Array<string>> } callback - Callback used to receive the memory-leaked object returned by the
-   *     **jsLeakWatcher.enableLeakWatcher** API.<br>You need to input an array object in the callback. Index **0** is
-   *     the name of the leak list file, whose extension is **.jsleaklist**. Index **1** is the name of the VM memory
-   *     snapshot file, whose extension is **.rawheap**.
+   *     **jsLeakWatcher.enableLeakWatcher** API.
+   *     <br>You need to input an array object in the callback. Index **0** is the name of the leak list file, whose
+   *     extension is **.jsleaklist**. Index **1** is the name of the VM memory snapshot file, whose extension is
+   *     **.rawheap**.
    * @throws { BusinessError } 10801001 - The parameter isEnabled is invalid.
    * @throws { BusinessError } 10801002 - The parameter config is invalid.
    * @throws { BusinessError } 10801003 - The parameter callback is invalid.
@@ -211,7 +214,13 @@ declare namespace jsLeakWatcher {
     /**
      * Interval between each round of leak detection, in milliseconds.
      *
-     * The default value is 30 seconds.
+     * The default value is **90000ms**.
+     *
+     * If the custom detection interval entered by the application is less than the default value, JSLeakWatcher
+     * forcibly sets the interval to the default value.
+     *
+     * Currently, the performance overhead of JSLeakWatcher is high, which may cause application freeze. You are advised
+     * to increase the value of this parameter to reduce the freeze frequency.
      *
      * @syscap SystemCapability.HiviewDFX.HiChecker
      * @FaAndStageModel
@@ -279,7 +288,8 @@ declare namespace jsLeakWatcher {
     /**
      * Class name of the object to be excluded from monitoring.
      *
-     * This parameter applies only to custom components and does not affect the filtering of other component types.
+     * This parameter applies to the **Window**, **CustomComponent**, and **Ability** components and does not affect the
+     * filtering of other component types.
      *
      * If obfuscation occurs, filtering cannot be performed. This parameter takes effect only in the development state.
      *
@@ -302,15 +312,17 @@ declare namespace jsLeakWatcher {
    * that requires four functions (**enable**, **watch**, **check**, and **dump**). You can use the **configs**
    * parameter to customize the properties of monitoring items, greatly improving the leak detection performance.
    *
-   * @param { boolean } isEnabled - Whether to enable the detection for ArkTS object memory leaks.<br>**true**: yes;<br>
-   *     **false**: no.
+   * @param { boolean } isEnabled - Whether to enable the detection for ArkTS object memory leaks.
+   *     <br>**true**: yes;
+   *     <br>**false**: no.
    * @param { LeakWatcherConfig } configs - LeakWatcherConfig object, which contains multiple configurable properties
-   *     for memory leak monitoring.<br>Note: If the parameter type in the object is set to null or a false value, the
-   *     default value is used.
+   *     for memory leak monitoring.
+   *     <br>Note: If the parameter type in the object is set to null or a false value, the default value is used.
    * @param { Callback<Array<string>> } callback - Callback used to receive the memory-leaked object returned by the
-   *     **jsLeakWatcher.enableLeakWatcher** API.<br>You need to input an array object in the callback. Index **0** is
-   *     the name of the leak list file, whose extension is **.jsleaklist**. Index **1** is the name of the VM memory
-   *     snapshot file, whose extension is **.rawheap**.
+   *     **jsLeakWatcher.enableLeakWatcher** API.
+   *     <br>You need to input an array object in the callback. Index **0** is the name of the leak list file, whose
+   *     extension is **.jsleaklist**. Index **1** is the name of the VM memory snapshot file, whose extension is
+   *     **.rawheap**.
    * @throws { BusinessError } 10801001 - The parameter isEnabled is invalid.
    * @throws { BusinessError } 10801002 - The parameter config is invalid.
    * @throws { BusinessError } 10801003 - The parameter callback is invalid.
@@ -325,5 +337,4 @@ declare namespace jsLeakWatcher {
    */
   function enableLeakWatcher(isEnabled: boolean, configs: LeakWatcherConfig, callback: Callback<Array<string>>): void;
 }
-
 export default jsLeakWatcher;
