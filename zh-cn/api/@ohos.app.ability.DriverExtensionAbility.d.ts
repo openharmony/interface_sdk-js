@@ -23,7 +23,7 @@ import type Want from './@ohos.app.ability.Want';
 import _DriverExtensionContext from './application/DriverExtensionContext';
 
 /**
- * DriverExtensionAbility的上下文环境。
+ * DriverExtensionAbility的上下文环境，继承自ExtensionContext，其具体使用方法可参考DriverExtensionContext。
  *
  * @typedef { _DriverExtensionContext }
  * @syscap SystemCapability.Driver.ExternalDevice
@@ -99,7 +99,7 @@ declare class DriverExtensionAbility {
 
   /**
    * Extension的生命周期回调，客户端执行断开连接服务时回调。
-   * @param { Want } want - Indicates disconnection information about the driver extension.
+   * @param { Want } want - 当前Extension相关的Want类型信息，包括ability名称、bundle名称等。
    * @returns { undefined | Promise<void> } 返回值为空；或一个Promise对象，无返回结果。
    * @syscap SystemCapability.Driver.ExternalDevice
    * @stagemodelonly
@@ -111,7 +111,7 @@ declare class DriverExtensionAbility {
    * 转储客户端信息时调用，建议不要转储敏感信息。
    *
    * @param { Array<string> } params - 表示命令形式的参数。
-   * @returns { Array<string> } 一个string类型的数组，用于转存客户端信息。
+   * @returns { Array<string> } 一个string类型的数组，包含转储的客户端信息。
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10 dynamic
