@@ -35,7 +35,7 @@ import type DistributedExtensionContext from './@ohos.application.DistributedExt
 declare class DistributedExtensionAbility {
 
   /**
-   * DistributedExtension的上下文环境，继承自ExtensionContext。
+   * DistributedExtension（协同Extension）的上下文环境，继承自ExtensionContext。
    *
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
@@ -47,7 +47,7 @@ declare class DistributedExtensionAbility {
   /**
    * Extension生命周期回调，在创建时回调，执行初始化业务逻辑操作。
    *
-   * @param { Want } want - 当前Extension相关的Want类型信息，包括ability名称、bundle名称等。
+   * @param { Want } want - 当前Extension相关的Want信息，用于携带创建Extension所需的初始化配置信息。
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 20 dynamic
@@ -65,12 +65,15 @@ declare class DistributedExtensionAbility {
    */
   onDestroy(): void;
 
-  /**
-   * 多设备协作场景下返回协作结果的回调。
+/**
+   * Extension生命周期回调，在多设备限定协同场景下，协同方应用被拉起过程中返回是否接受协同的结果，
+   * 返回结果决定协同流程是否继续。
    *
-   * @param { Record<string, Object> } wantParam - want相关参数，仅支持key值取"ohos.extra.param.key.supportCollaborateIndex"。通过该key值可以获
-   *     取到调用方传输的数据并进行相应的处理。
-   * @returns { AbilityConstant.CollaborateResult } 协同方应用是否接受协同。
+   * @param { Record<string, Object> } wantParam - 协同回调参数，键值对对象，携带调用方传输的协同相关数据。
+   *     开发者可通过"ohos.extra.param.key.supportCollaborateIndex"和"CollaborationValues"等key值获取这些数据，
+   *     以决定是否接受协同请求及处理协同逻辑，影响协同流程是否继续。
+   * @returns { AbilityConstant.CollaborateResult } 表示协同方应用是否接受协同的结果。取值包括：
+   *     **ACCEPT**表示接受协同，协同流程继续；**REJECT**表示拒绝协同，协同流程终止。
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 20 dynamic
