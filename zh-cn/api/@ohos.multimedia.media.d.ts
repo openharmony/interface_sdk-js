@@ -3370,7 +3370,7 @@ declare namespace media {
     forceLoadVideo(force: boolean): Promise<void>;
     /**
      * 设置播放区间，并通过指定的[SeekMode]{@link @ohos.multimedia.media:media.SeekMode}跳转到区间开始位置。设置之后，只播放音视频文件设定区间内的内容。使用Promise异步回调
-     * 。可在**initialized**/**prepared**/**paused**/**stopped**/**completed**状态下使用。
+     * 。可在**initialized/prepared/paused/stopped/completed**状态下使用。
      *
      * @param { int } startTimeMs - 区间开始位置，单位ms，取值[0, duration)。可以设置-1值，系统将会从0位置开始播放。
      * @param { int } endTimeMs - 区间结束位置，单位ms，取值(startTimeMs, duration]。可以设置-1值，系统将会播放到资源末尾。
@@ -3685,7 +3685,7 @@ declare namespace media {
     /**
      * 视频循环播放属性，默认false，设置为true表示循环播放，动态属性。
      * 
-     * 只允许在**prepared**/**playing**/**paused**/**completed**状态下设置。
+     * 只允许在**prepared/playing/paused/completed**状态下设置。
      * 
      * 直播场景不支持loop设置。
      *
@@ -3710,7 +3710,7 @@ declare namespace media {
     /**
      * 音频焦点模型，默认SHARE_MODE，动态属性。
      * 
-     * 只允许在**prepared**/**playing**/**paused**/**completed**状态下设置。
+     * 只允许在**prepared/playing/paused/completed**状态下设置。
      * 
      * 在第一次调用[play()]{@link media.AVPlayer.play(callback: AsyncCallback<void>)}之前设置， 以便此后中断模式生效。
      *
@@ -3737,8 +3737,7 @@ declare namespace media {
     audioRendererInfo?: audio.AudioRendererInfo;
 
     /**
-     * 设置音频音效模式，默认值为EFFECT_DEFAULT，动态属性。audioRendererInfo的usage变动时会恢复为默认值，只允许在**prepared**/**playing**/**paused**/
-     * **completed**状态下设置。
+     * 设置音频音效模式，默认值为EFFECT_DEFAULT，动态属性。audioRendererInfo的usage变动时会恢复为默认值，只允许在**prepared/playing/paused/completed**状态下设置。
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @atomicservice [since 12]
@@ -3750,7 +3749,7 @@ declare namespace media {
     /**
      * 视频的当前播放位置，单位为毫秒（ms），可查询参数。
      * 
-     * 返回为（-1）表示无效值，**prepared**/**playing**/**paused**/**completed**状态下有效。
+     * 返回为（-1）表示无效值，**prepared/playing/paused/completed**状态下有效。
      * 
      * 直播场景默认返回（-1）。
      *
@@ -3765,7 +3764,7 @@ declare namespace media {
     /**
      * 视频时长，单位为毫秒（ms），可查询参数。
      * 
-     * 返回为（-1）表示无效值，**prepared**/**playing**/**paused**/**completed**状态下有效。
+     * 返回为（-1）表示无效值，**prepared/playing/paused/completed**状态下有效。
      * 
      * 直播场景默认返回（-1）。
      *
@@ -3793,7 +3792,7 @@ declare namespace media {
      * 
      * 仅支持在**initialized**状态下初始化。
      * 
-     * 初始化后可以在**prepared**/**playing**/**paused**/**completed**/**stopped**状态下重新设置，重新设置后视频播放将在新的窗口渲染。
+     * 初始化后可以在**prepared/playing/paused/completed/stopped**状态下重新设置，重新设置后视频播放将在新的窗口渲染。
      * 
      * 使用场景：视频播放时的窗口渲染（纯音频播放时不涉及）。
      * 
@@ -3814,7 +3813,7 @@ declare namespace media {
     /**
      * 视频宽，单位为像素（px），可查询参数。
      * 
-     * 返回为（0）表示无效值，**prepared**/**playing**/**paused**/**completed**状态下有效。
+     * 返回为（0）表示无效值，**prepared/playing/paused/completed**状态下有效。
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform [since 12]
@@ -3827,7 +3826,7 @@ declare namespace media {
     /**
      * 视频高，单位为像素（px），可查询参数。
      * 
-     * 返回为（0）表示无效值，**prepared**/**playing**/**paused**/**completed**状态下有效。
+     * 返回为（0）表示无效值，**prepared/playing/paused/completed**状态下有效。
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform [since 12]
@@ -3840,7 +3839,7 @@ declare namespace media {
     /**
      * 视频缩放模式，默认VIDEO_SCALE_TYPE_FIT，动态属性。
      * 
-     * 只允许在**prepared**/**playing**/**paused**/**completed**状态下设置。
+     * 只允许在**prepared/playing/paused/completed**状态下设置。
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @crossplatform [since 12]
