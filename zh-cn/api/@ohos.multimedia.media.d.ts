@@ -792,16 +792,14 @@ declare namespace media {
   function createAVTranscoder(): Promise<AVTranscoder>;
 
   /**
-   * Creates an **AVTranscoder** instance. This API uses a promise to return the result.
+   * 创建视频转码实例。使用Promise异步回调。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * A maximum of 2 **AVTranscoder** instances can be created.
+   * 可创建的视频转码实例不能超过2个。
    *
-   * @returns { Promise<AVTranscoder | undefined> } Promise used to return the result. If the operation is successful,
-   *     an
-   *     **AVTranscoder** instance is returned; otherwise, **null** is returned. The instance can be used for video
-   *     transcoding.
+   * @returns { Promise<AVTranscoder | undefined> } Promise对象。操作成功时返回AVTranscoder实例，失败时返回null。
+   * 可用于视频转码。
    * @throws {  BusinessError  } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
    * @since 23 static
@@ -11340,7 +11338,7 @@ declare namespace media {
   }
 
   /**
-   * Describes the video transcoding parameters.
+   * 表示视频转码的参数设置。
    *
    * @syscap SystemCapability.Multimedia.Media.AVTranscoder
    * @atomicservice [since 22]
@@ -11349,7 +11347,7 @@ declare namespace media {
    */
   interface AVTranscoderConfig {
     /**
-     * Bitrate of the output audio, in bit/s. The value range is [1-500000]. The default value is 48 kbit/s.
+     * 输出音频的码率，单位为比特率（bps），支持范围[1, 500000]。默认设置为48Kbps。
      *
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice [since 22]
@@ -11359,7 +11357,7 @@ declare namespace media {
     audioBitrate?: int;
 
     /**
-     * Encoding format of the output audio. Currently, only AAC is supported. The default value is **AAC**.
+     * 输出音频的编码格式，当前仅支持AAC。默认设置为AAC。
      *
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice [since 22]
@@ -11369,7 +11367,17 @@ declare namespace media {
     audioCodec?: CodecMimeType;
 
     /**
-     * Container format of the output video file. Currently, only MP4 is supported.
+     * 输出音频的编码格式。如果指定的编码格式不被支持，prepare会失败。默认设置为AAC。
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    audioCodecV2?: CodecMimeType;
+
+    /**
+     * 输出视频文件的封装格式，当前视频文件仅支持MP4。
      *
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice [since 22]
@@ -11379,9 +11387,8 @@ declare namespace media {
     fileFormat: ContainerFormatType;
 
     /**
-     * Bitrate of the output video, in bit/s. The default bitrate depends on the resolution of the output video.
-     * The default bitrate is 1 Mbit/s for the resolution in the range [240p, 480P],
-     * 2 Mbit/s for the range (480P,720P], 4 Mbit/s for the range (720P,1080P], and 8 Mbit/s for 1080p or higher.
+     * 输出视频的码率，单位为比特率（bps）。默认码率按输出视频的分辨率设置，[240p, 480P]默认码率值为1Mbps，
+     * (480P, 720P]默认码率值为2Mbps，(720P, 1080P]默认码率值为4Mbps，1080P及以上默认值为8Mbps。
      *
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice [since 22]
@@ -11391,8 +11398,7 @@ declare namespace media {
     videoBitrate?: int;
 
     /**
-     * Encoding format of the output video. Currently, only AVC and HEVC are supported.
-     * If the source video is in HEVC format, the default value is **HEVC**. Otherwise, the default value is **AVC**.
+     * 输出视频的编码格式，当前仅支持AVC和HEVC。若源视频编码格式为HEVC，则默认设置为HEVC，否则默认设置为AVC。
      *
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice [since 22]
@@ -11402,8 +11408,7 @@ declare namespace media {
     videoCodec?: CodecMimeType;
 
     /**
-     * Width of the output video frame, in px. The value range is [240 - 3840].
-     * The default value is the width of the source video frame.
+     * 输出视频帧的宽，单位为像素（px），支持范围[240, 3840]。默认设置为源视频帧的宽。
      *
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice [since 22]
@@ -11413,8 +11418,7 @@ declare namespace media {
     videoFrameWidth?: int;
  
     /**
-     * Height of the output video frame, in px. The value range is [240 - 2160].
-     * The default value is the height of the source video frame.
+     * 输出视频帧的高，单位为像素（px），支持范围[240, 2160]。默认设置为源视频帧的高。
      *
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice [since 22]
@@ -11424,7 +11428,7 @@ declare namespace media {
     videoFrameHeight?: int;
 
     /**
-     * Indicates whether to enable B Frame Encoding for reduce file size.
+     * 转码使能B帧编码。true表示开启B帧编码，默认为不开启B帧编码
      *
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice [since 22]
@@ -11621,7 +11625,7 @@ declare namespace media {
      * 
      * 开发者只能订阅一个错误事件的回调方法，当开发者重复订阅时，以最后一次订阅的回调接口为准。
      *
-     * @param { 'error' } type - 转码错误事件回调类型'error'。 <br>- 'error'：录制过程中发生错误，触发该事件。
+     * @param { 'error' } type - 转码错误事件回调类型'error'。 <br>'error'：转码过程中发生错误，触发该事件。
      * @param { ErrorCallback } callback - 转码错误事件回调方法。
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -11682,28 +11686,24 @@ declare namespace media {
     off(type:'progressUpdate', callback?: Callback<int>):void;
 
     /**
-     * Subscribes to the event indicating that transcoding is complete.
-     * An application can subscribe to only one transcoding completion event.
-     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * 注册转码完成事件，并通过注册的回调方法通知开发者。开发者只能注册一个完成事件的回调方法，
+     * 当开发者重复注册时，以最后一次注册的回调接口为准。使用callback异步回调。
      * 
-     * When this event is reported, the current transcoding operation is complete.
-     * You need to call [release()]{@link AVTranscoder.release} to exit the transcoding.
+     * 当AVTranscoder上报complete事件时，当前转码操作已完成，开发者需要通过[release()]{@link AVTranscoder.release} 退出转码操作。
      *
-     * @param { Callback<void> } callback - Callback that has been registered to listen for
-     *     transcoding completion events.
+     * @param { Callback<void> } callback - 转码完成事件回调方法。
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 23 static
      */
     onComplete(callback: Callback<void>):void;
 
     /**
-     * Subscribes to AVTranscoder errors. If this event is reported, call [release()]{@link AVTranscoder.release}
-     * to exit the transcoding.
+     * 注册AVTranscoder的错误事件，该事件仅用于错误提示。如果AVTranscoder上报error事件，
+     * 开发者需要通过[release()]{@link AVTranscoder.release}退出转码操作。
      * 
-     * An application can subscribe to only one AVTranscoder error event.
-     * When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * 开发者只能订阅一个错误事件的回调方法，当开发者重复订阅时，以最后一次订阅的回调接口为准。
      *
-     * @param { ErrorCallback } callback - Callback invoked when the event is triggered.
+     * @param { ErrorCallback } callback - 转码错误事件回调方法。
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 5400101 - No memory.
@@ -11718,45 +11718,38 @@ declare namespace media {
     onError(callback: ErrorCallback):void;
 
     /**
-     * Subscribes to transcoding progress updates. An application can subscribe to only one transcoding progress update
-     * event. When the application initiates multiple subscriptions to this event, the last subscription is applied.
+     * 注册转码进度更新事件，并通过注册的回调方法通知开发者。开发者只能注册一个进度更新事件的回调方法，
+     * 当开发者重复注册时，以最后一次注册的回调接口为准。
      *
-     * @param { Callback<int> } callback - Callback invoked when the event is triggered.
-     *     **progress** is a number that indicates the current transcoding progress, in percentage.
+     * @param { Callback<int> } callback - 转码进度更新事件回调方法，**progress**表示当前转码百分比进度。
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 23 static
      */
     onProgressUpdate(callback: Callback<int>):void;
 
     /**
-     * Unsubscribes from the event indicating that transcoding is complete.
-     * This event can be triggered by both user operations and the system.
+     * 取消注册转码完成事件。
      *
-     * @param { Callback<void> } [callback] - Callback that has been registered to listen for
-     *     transcoding completion events.
+     * @param { Callback<void> } [callback] - 已注册的转码完成事件回调方法。
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 23 static
      */
     offComplete(callback?: Callback<void>):void;
 
     /**
-     * Unsubscribes from AVTranscoder errors. After the unsubscription, your application can no longer
-     * receive AVTranscoder errors.
-     * This event is triggered when an error occurs during transcoding.
+     * 取消注册转码错误事件，取消后不再接收到AVTranscoder的错误事件。
      *
-     * @param { ErrorCallback } [callback] - Callback that has been registered to listen for AVTranscoder errors.
+     * @param { ErrorCallback } [callback] - 已注册的转码错误事件回调方法。
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 23 static
      */
     offError(callback?: ErrorCallback):void;
 
     /**
-     * Unsubscribes from transcoding progress updates.
-     * This event can be triggered by both user operations and the system.
+     * 取消注册转码进度更新事件。
      *
-     * @param { Callback<int> } [callback] - Called that has been registered to listen for progress updates.
-     *     You are advised to use the default value because only the last registered callback is retained in
-     *     the current allback mechanism.
+     * @param { Callback<int> } [callback] - 已注册的转码进度更新事件回调。
+     * 由于当前回调注册时，仅会保留最后一次注册的回调，建议此参数缺省。
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @since 23 static
      */
