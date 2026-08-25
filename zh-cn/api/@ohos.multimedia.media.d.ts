@@ -6124,7 +6124,7 @@ declare namespace media {
   }
 
   /**
-   * 媒体文件描述符。调用者需要确保 fd 有效，并且偏移量和长度是正确的。
+   * 媒体文件描述符。调用者需要确保fd有效，并且偏移量和长度是正确的。
    *
    * @syscap SystemCapability.Multimedia.Media.Core
    * @crossplatform [since 12]
