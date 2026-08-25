@@ -40,7 +40,7 @@
  * 
  * > **NOTE**
  * >
- * > - The APIs of this module can be used only in <!--RP1-->[UITest](docroot://application-test/uitest-guidelines.md)<!--RP1End-->.
+ * > - The APIs of this module can be used only in [UITest](docroot://application-test/uitest-guidelines.md).
  * >
  * > - The APIs of this module do not support concurrent calls.
  * 
@@ -214,7 +214,8 @@ declare class By {
   /**
    * Specifies the clickable attribute of the target component.
    *
-   * @param { boolean } b - Clickable status of the component. The value **true** indicates that the component is clickable,
+   * @param { boolean } b - Clickable status of the component. 
+   * The value **true** indicates that the component is clickable,
    *     and **false** indicates the opposite. Default value: **true**
    * @returns { By } - **By** object that matches the clickable attribute of the target component.
    * @syscap SystemCapability.Test.UiTest
@@ -228,8 +229,9 @@ declare class By {
   /**
    * Specifies the scrollable attribute of the target component.
    *
-   * @param { boolean } b - Scrollable status of the component. The value **true** indicates that the component is scrollable
-   *     , and **false** indicates the opposite. Default value: **true**
+   * @param { boolean } b - Whether the specified component is scrollable. 
+   * The value **true** indicates that the component is scrollable, 
+   * and **false** indicates the opposite. Default value: **true**
    * @returns { By } - **By** object that matches the scrollable attribute of the target component.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
@@ -242,8 +244,9 @@ declare class By {
   /**
    * Specifies the enabled attribute of the target component.
    *
-   * @param { boolean } b - Enabled status of the component. The value **true** indicates that the component is enabled, and
-   *     **false** indicates the opposite. Default value: **true**
+   * @param { boolean } b - Enabled status of the component. 
+   * The value **true** indicates that the component is enabled, 
+   * and **false** indicates the opposite. Default value: **true**
    * @returns { By } - **By** object that matches the enabled attribute of the target component.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
@@ -256,8 +259,9 @@ declare class By {
   /**
    * Specifies the focused attribute of the target component.
    *
-   * @param { boolean } b - Focused status of the component. The value **true** indicates that the component is focused, and
-   *     **false** indicates the opposite. Default value: **true**
+   * @param { boolean } b - Focused status of the component. 
+   * The value **true** indicates that the component is focused, 
+   * and **false** indicates the opposite. Default value: **true**
    * @returns { By } - **By** object that matches the focused attribute of the target component.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
@@ -270,7 +274,8 @@ declare class By {
   /**
    * Specifies the selected status of the target component.
    *
-   * @param { boolean } b - Selected status of the component. The value **true** indicates that the component is selected,
+   * @param { boolean } b - Selected status of the component. 
+   * The value **true** indicates that the component is selected,
    *     and **false** indicates the opposite. Default value: **true**
    * @returns { By } - **By** object that matches the selected attribute of the target component.
    * @syscap SystemCapability.Test.UiTest
@@ -407,8 +412,8 @@ declare class UiComponent {
   /**
    * Obtains the clickable status of this component. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the component is clickable. The value **true** indicates
-   *     that the component is clickable, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return whether the component is clickable. 
+   * The value **true** indicates that the component is clickable, and **false** indicates the opposite.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -420,8 +425,8 @@ declare class UiComponent {
   /**
    * Obtains the scrollable status of this component. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the component is scrollable. The value **true** indicates
-   *     that the component is scrollable, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return whether the component is scrollable. 
+   * The value **true** indicates that the component is scrollable, and **false** indicates the opposite.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -433,8 +438,8 @@ declare class UiComponent {
   /**
    * Obtains the enabled status of this component. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the component is enabled. The value **true** indicates
-   *     that the component is enabled, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return whether the component is enabled. 
+   * The value **true** indicates that the component is enabled, and **false** indicates the opposite.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -446,8 +451,8 @@ declare class UiComponent {
   /**
    * Obtains the focused status of this component. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the component is focused. The value **true** indicates
-   *     that the component is focused, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return whether the component is focused.
+   *     The value **true** indicates that the component is focused, and **false** indicates the opposite.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -459,8 +464,8 @@ declare class UiComponent {
   /**
    * Obtains the selected status of this component. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the component is selected. The value **true** indicates
-   *     that the component is selected, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return whether the component is selected.
+   *     The value **true** indicates that the component is selected, and **false** indicates the opposite.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -470,8 +475,8 @@ declare class UiComponent {
   isSelected(): Promise<boolean>;
 
   /**
-   * Inputs text to a component. This API takes effect only for editable text components. This API uses a promise to
-   * return the result.
+   * Inputs text to a component. This API takes effect only for editable text components. 
+   * This API uses a promise to return the result.
    *
    * @param { string } text - Text to enter.
    * @returns { Promise<void> } - Promise that returns no value.
@@ -484,8 +489,8 @@ declare class UiComponent {
   inputText(text: string): Promise<void>;
 
   /**
-   * Scrolls on this component to search for the target component (applicable to components that support scrolling, such
-   * as **List**). This API uses a promise to return the result.
+   * Scrolls on this component to search for the target component (applicable to components that support scrolling, 
+   * such as **List**). This API uses a promise to return the result.
    *
    * @param { By } by - Attributes of the target component.
    * @returns { Promise<UiComponent> } - Promise used to return the target component.
@@ -531,7 +536,8 @@ declare class UiDriver {
   /**
    * Delays a duration of time. This API uses a promise to return the result.
    *
-   * @param { number } duration - Specified time, in ms. The value is an integer greater than or equal to 0.
+   * @param { number } duration - Specified time, in ms. 
+   * The value is an integer greater than or equal to 0.
    * @returns { Promise<void> } - Promise that returns no value.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
@@ -542,8 +548,8 @@ declare class UiDriver {
   delayMs(duration: number): Promise<void>;
 
   /**
-   * Searches this **UiDriver** object for the target component that matches the given attributes. This API uses a
-   * promise to return the result.
+   * Searches this **UiDriver** object for the target component that matches the given attributes. 
+   * This API uses a promise to return the result.
    *
    * @param { By } by - Attributes of the target component.
    * @returns { Promise<UiComponent> } - Promise used to return the component.
@@ -556,8 +562,8 @@ declare class UiDriver {
   findComponent(by: By): Promise<UiComponent>;
 
   /**
-   * Searches this **UiDriver** object for all components that match the given attributes. This API uses a promise to
-   * return the result.
+   * Searches this **UiDriver** object for all components that match the given attributes. 
+   * This API uses a promise to return the result.
    *
    * @param { By } by - Attributes of the target component.
    * @returns { Promise<Array<UiComponent>> } - Promise used to return the list of components.
@@ -570,9 +576,9 @@ declare class UiDriver {
   findComponents(by: By): Promise<Array<UiComponent>>;
 
   /**
-   * Asserts that a component that matches the given attributes exists on the current page. If the component does not
-   * exist, the API throws a JS exception, causing the current test case to fail. This API uses a promise to return the
-   * result.
+   * Asserts that a component that matches the given attributes exists on the current page. 
+   * If the component does not exist, the API throws a JS exception, causing the current test case to fail. 
+   * This API uses a promise to return the result.
    *
    * @param { By } by - Attributes of the target component.
    * @returns { Promise<void> } - Promise that returns no value.
@@ -602,7 +608,8 @@ declare class UiDriver {
   /**
    * Triggers a key event by passing the key code value. This API uses a promise to return the result.
    *
-   * @param { number } keyCode - Key code value. The value is an integer greater than or equal to 0.
+   * @param { number } keyCode - Key code value. 
+   * The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    * @returns { Promise<void> } - Promise that returns no value.
    * @syscap SystemCapability.Test.UiTest
@@ -648,8 +655,8 @@ declare class UiDriver {
   doubleClick(x: number, y: number): Promise<void>;
 
   /**
-   * Long-clicks a specific point of this **UiDriver** object based on the given coordinates. This API uses a promise to
-   * return the result.
+   * Long-clicks a specific point of this **UiDriver** object based on the given coordinates. 
+   * This API uses a promise to return the result.
    *
    * @param { number } x - Horizontal coordinate of the target point, in pixels. The value is an integer greater than
    *     or equal to 0.
@@ -665,8 +672,8 @@ declare class UiDriver {
   longClick(x: number, y: number): Promise<void>;
 
   /**
-   * Swipes on this **UiDriver** object from the start point to the end point based on the given coordinates. This API
-   *  uses a promise to return the result.
+   * Swipes on this **UiDriver** object from the start point to the end point based on the given coordinates. 
+   * This API uses a promise to return the result.
    *
    * @param { number } startx - Horizontal coordinate of the start point, in pixels. The value is an integer greater
    *     than or equal to 0.
@@ -686,11 +693,11 @@ declare class UiDriver {
   swipe(startx: number, starty: number, endx: number, endy: number): Promise<void>;
 
   /**
-   * Captures the current screen of this **UiDriver** object and saves it as a PNG image to the given save path. This
-   * API uses a promise to return the result.
+   * Captures the current screen of this **UiDriver** object and saves it as a PNG image to the given save path.
+   * This API uses a promise to return the result.
    *
    * @param { string } savePath - File save path.
-   * @returns { Promise<boolean> } - Promise used to return whether the screenshot operation is successful. The value **true*
+   * @returns { Promise<boolean> } - Promise used to return whether the screenshot operation is successful.
    *     The value **true** indicates the screenshot operation is successful, and **false** indicates the opposite.
    * @syscap SystemCapability.Test.UiTest
    * @since 8 dynamiconly
@@ -910,7 +917,8 @@ declare enum DisplayRotation {
  */
 declare interface Point {
   /**
-   * Horizontal coordinate of a coordinate point, in pixels. The value is an integer greater than or equal to 0.
+   * Horizontal coordinate of a coordinate point, in pixels. 
+   * The value is an integer greater than or equal to 0.
    *
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
@@ -921,7 +929,8 @@ declare interface Point {
    */
   x: int;
   /**
-   * Vertical coordinate of a coordinate point, in pixels. The value is an integer greater than or equal to 0.
+   * Vertical coordinate of a coordinate point, in pixels. 
+   * The value is an integer greater than or equal to 0.
    *
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
@@ -932,8 +941,8 @@ declare interface Point {
    */
   y: int;
   /**
-   * ID of the display to which the coordinate point belongs. The value is an integer greater than or equal to 0. The
-   * default value is the default screen ID of the device.
+   * ID of the display to which the coordinate point belongs. 
+   * The default value is the default screen ID of the device.
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -954,7 +963,8 @@ declare interface Point {
  */
 declare interface Rect {
   /**
-   * X coordinate of the upper left corner of the component border, in pixels. The value is an integer greater than or equal to 0.
+   * X coordinate of the upper left corner of the component border, in pixels. 
+   * The value is an integer greater than or equal to 0.
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform [since 12]
@@ -964,7 +974,8 @@ declare interface Rect {
    */
   left: int;
   /**
-   * Y coordinate of the upper left corner of the component border, in pixels. The value is an integer greater than or equal to 0.
+   * Y coordinate of the upper left corner of the component border, in pixels. 
+   * The value is an integer greater than or equal to 0.
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform [since 12]
@@ -974,7 +985,8 @@ declare interface Rect {
    */
   top: int;
   /**
-   * X coordinate of the lower right corner of the component border, in pixels. The value is an integer greater than or equal to 0.
+   * X coordinate of the lower right corner of the component border, in pixels. 
+   * The value is an integer greater than or equal to 0.
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform [since 12]
@@ -984,7 +996,8 @@ declare interface Rect {
    */
   right: int;
   /**
-   * Y coordinate of the lower right corner of the component border, in pixels. The value is an integer greater than or equal to 0.
+   * Y coordinate of the lower right corner of the component border, in pixels. 
+   * The value is an integer greater than or equal to 0.
    * @readonly [since 9-19]
    * @syscap SystemCapability.Test.UiTest
    * @crossplatform [since 12]
@@ -994,7 +1007,8 @@ declare interface Rect {
    */
   bottom: int;
   /**
-   * ID of the display to which the component border belongs. The value is an integer greater than or equal to 0.
+   * ID of the display to which the component border belongs. 
+   * The value is an integer greater than or equal to 0.
    *     <br>Default value: the default screen ID of the device.
    *
    * @syscap SystemCapability.Test.UiTest
@@ -1026,8 +1040,8 @@ declare interface WindowFilter {
   bundleName?: string;
 
   /**
-   * Window title, which is used to filter the target window in multi-window scenarios. This parameter is left empty
-   * by default.
+   * Window title, which is used to filter the target window in multi-window scenarios. 
+   * This parameter is left empty by default.
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice [since 11]
@@ -1037,8 +1051,9 @@ declare interface WindowFilter {
   title?: string;
 
   /**
-   * Whether the window is focused. The value **true** indicates that the window is focused, and **false** indicates the
-   *  opposite. The default value is **false**.
+   * Whether the window is focused.
+   * The value **true** indicates that the window is focused, and **false** indicates the opposite. 
+   * The default value is **false**.
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice [since 11]
@@ -1048,8 +1063,9 @@ declare interface WindowFilter {
   focused?: boolean;
 
   /**
-   * Whether the window is interacting with the user. The value **true** indicates that the window is interacting with
-   * the user, and **false** indicates the opposite.
+   * Whether the window is interacting with the user. 
+   * The value **true** indicates that the window is interacting with the user, 
+   * and **false** indicates the opposite.
    *
    * This API is supported since API version 9 and deprecated since API version 11. You are advised to use
    * {@link WindowFilter#active} instead.
@@ -1073,8 +1089,8 @@ declare interface WindowFilter {
   active?: boolean;
 
   /**
-   * ID of the display to which the window belongs. The value is an integer greater than or equal to 0. The default
-   * value is the default screen ID of the device.
+   * ID of the display to which the window belongs. 
+   * The default value is the default screen ID of the device.
    *
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
@@ -1221,8 +1237,8 @@ declare enum ComponentEventType {
  */
 declare interface WindowChangeOptions {
   /**
-   * Listening timeout interval, in milliseconds. The value is an integer greater than or equal to 500. The default
-   * value is **10000**. If the value is out of range, an error code is thrown.
+   * Listening timeout interval, in milliseconds. The value is an integer greater than or equal to 500. 
+   * The default value is **10000**. If the value is out of range, an error code is thrown.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 22 dynamic
@@ -1253,8 +1269,8 @@ declare interface WindowChangeOptions {
  */
 declare interface ComponentEventOptions {
   /**
-   * Listening timeout interval, in milliseconds. The value is an integer greater than or equal to 500. The default
-   * value is **10000**. If the value is out of range, an error code is thrown.
+   * Listening timeout interval, in milliseconds. The value is an integer greater than or equal to 500. 
+   * The default value is **10000**. If the value is out of range, an error code is thrown.
    * @syscap SystemCapability.Test.UiTest
    * @atomicservice
    * @since 22 dynamic
@@ -1742,9 +1758,9 @@ declare interface TouchOptions {
    */
   duration?: int;
   /**
-   * Pressure value of the touch. The value range is [0, 1]. The default value is **0**. If the value is **null** or
-   * **undefined**, the default value is used. If the value is out of the value range, the 17000007 error code is
-   * thrown.
+   * Pressure value of the touch. The value range is [0, 1]. 
+   * The default value is **0**. If the value is **null** or **undefined**, the default value is used. 
+   * If the value is out of the value range, the 17000007 error code is thrown.
    *
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -1911,12 +1927,12 @@ declare class On {
    *
    * > **NOTE**
    * >
-   * > If the [accessibilityLevel]{@link ./@internal/component/ets/common:CommonMethod#accessibilityLevel}
+   * > If the [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
    * > of a component is set to **no** or **no-hide-descendants**, this API cannot be used to specify the text attribute
    * > of the target component for searching for the component. In this case, you can use the
    * > [On.originalText()]{@link On#originalText} API.
    *
-   * @param { string } txt - Component text, used to match the target component.<!--RP2--><!--RP2End-->
+   * @param { string } txt - Component text, used to match the target component.
    * @param { MatchPattern } [pattern] - Match pattern {@link MatchPattern} .
    *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } - **On** object that matches the text attribute of the target component.
@@ -1934,7 +1950,7 @@ declare class On {
   /**
    * Specifies the ID attribute of the target component.
    *
-   * @param { string } id - Component ID.<!--RP2--><!--RP2End-->
+   * @param { string } id - Component ID.
    * @returns { On } - **On** object that matches the ID attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -1950,7 +1966,7 @@ declare class On {
   /**
    * Specifies the type attribute of the target component.
    *
-   * @param { string } tp - Component type.<!--RP2--><!--RP2End-->
+   * @param { string } tp - Component type.
    * @returns { On } - **On** object that matches the type attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -1967,7 +1983,7 @@ declare class On {
    * Specifies the clickable attribute of the target component.
    *
    * @param { boolean } [b] - Clickable status of the component. The value **true** indicates that the component is clickable
-   *     , and **false** indicates the opposite. Default value: **true**<!--RP2--><!--RP2End-->
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } - **On** object that matches the clickable attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -1984,7 +2000,7 @@ declare class On {
    * Specifies the long-clickable attribute of the target component.
    *
    * @param { boolean } [b] - Long-clickable status of the component. The value **true** indicates that the component is long
-   *     -clickable, and **false** indicates the opposite. Default value: **true**<!--RP2--><!--RP2End-->
+   *     -clickable, and **false** indicates the opposite. Default value: **true**
    * @returns { On } - **On** object that matches the long-clickable attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2000,8 +2016,8 @@ declare class On {
   /**
    * Specifies the scrollable attribute of the target component.
    *
-   * @param { boolean } [b] - Scrollable status of the component. The value **true** indicates that the component is
-   *     scrollable, and **false** indicates the opposite. Default value: **true**<!--RP2--><!--RP2End-->
+   * @param { boolean } [b] - Whether the specified component is scrollable. The value **true** indicates that the component is
+   *     scrollable, and **false** indicates the opposite. Default value: **true**
    * @returns { On } - **On** object that matches the scrollable attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2018,7 +2034,7 @@ declare class On {
    * Specifies the enabled attribute of the target component.
    *
    * @param { boolean } [b] - Enabled status of the component. The value **true** indicates that the component is enabled,
-   *     and **false** indicates the opposite. Default value: **true**<!--RP2--><!--RP2End-->
+   *     and **false** indicates the opposite. Default value: **true**
    * @returns { On } - **On** object that matches the enabled attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2035,7 +2051,7 @@ declare class On {
    * Specifies the focused attribute of the target component.
    *
    * @param { boolean } [b] - Focused status of the component. The value **true** indicates that the component is focused,
-   *     and **false** indicates the opposite. Default value: **true**<!--RP2--><!--RP2End-->
+   *     and **false** indicates the opposite. Default value: **true**
    * @returns { On } - **On** object that matches the focused attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2052,7 +2068,7 @@ declare class On {
    * Specifies the selected attribute of the target component.
    *
    * @param { boolean } [b] - Selected status of the component. The value **true** indicates that the component is selected,
-   *     and **false** indicates the opposite. Default value: **true**<!--RP2--><!--RP2End-->
+   *     and **false** indicates the opposite. Default value: **true**
    * @returns { On } - **On** object that matches the selected attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2069,7 +2085,7 @@ declare class On {
    * Specifies the checked attribute of the target component.
    *
    * @param { boolean } [b] - Checked status of the component. The value **true** indicates that the component is checked,
-   *     and **false** indicates the opposite. Default value: **true**<!--RP2--><!--RP2End-->
+   *     and **false** indicates the opposite. Default value: **true**
    * @returns { On } - **On** object that matches the checked attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2086,7 +2102,7 @@ declare class On {
    * Specifies the checkable attribute of the target component.
    *
    * @param { boolean } [b] - Checkable status of the component. The value **true** indicates that the component is checkable
-   *     , and **false** indicates the opposite. Default value: **true**<!--RP2--><!--RP2End-->
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } - **On** object that matches the checkable attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2102,7 +2118,7 @@ declare class On {
   /**
    * Specifies that the target component is located before the given attribute component.
    *
-   * @param { On } on - Information about the attribute component.<!--RP3--><!--RP3End-->
+   * @param { On } on - Information about the attribute component.
    * @returns { On } - **On** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2116,11 +2132,11 @@ declare class On {
   isBefore(on: On): On;
 
   /**
-   * Requires that the target Component which is before another Component that specified by the given {@link Component}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located before the given feature component (parameter {@link Component}),
+   * and returns the On object itself.
    *
-   * @param { Component } com - describes the Component which the target one is in front of.
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - The feature component before which the target component is located.
+   * @returns { On } - Returns the On object that specifies the target component is located before the given feature component.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -2133,7 +2149,7 @@ declare class On {
   /**
    * Specifies that the target component is located after the given attribute component.
    *
-   * @param { On } on - Information about the attribute component.<!--RP3--><!--RP3End-->
+   * @param { On } on - Information about the attribute component.
    * @returns { On } - **On** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2147,11 +2163,11 @@ declare class On {
   isAfter(on: On): On;
 
   /**
-   * Requires that the target Component which is after another Component that specified by the given {@link Component}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located after the given feature component (parameter {@link Component}),
+   * and returns the On object itself.
    *
-   * @param { Component } com - describes the Component which the target one is in back of.
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - The feature component after which the target component is located.
+   * @returns { On } - Returns the On object that specifies the target component is located after the given feature component.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -2164,7 +2180,7 @@ declare class On {
   /**
    * Specifies that the target component is located within the given attribute component.
    *
-   * @param { On } on - Information about the attribute component.<!--RP3--><!--RP3End-->
+   * @param { On } on - Information about the attribute component.
    * @returns { On } - **On** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2178,11 +2194,11 @@ declare class On {
   within(on: On): On;
 
   /**
-   * Requires that the target Component which is inside of another Component that specified by the given {@link Component}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located within the given feature component (parameter {@link Component}),
+   * and returns the On object itself.
    *
-   * @param { Component } com - describes the Component which the target one is inside of.
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - The feature component within which the target component is located.
+   * @returns { On } - Returns the On object that specifies the target component is located within the given feature component.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -2195,7 +2211,7 @@ declare class On {
   /**
    * Specifies that the target component is located within the given application window.
    *
-   * @param { string } bundleName - Bundle name of the application window.<!--RP2--><!--RP2End-->
+   * @param { string } bundleName - Bundle name of the application window.
    * @returns { On } - **On** object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2212,9 +2228,9 @@ declare class On {
    *
    * @param { int } displayId - ID of the display to which the component belongs. The value is an integer greater than
    *     or equal to 0.
-   *     <br>**Note**: If the input **displayId** does not exist, the exception **17000007** is reported. You can use
-   *     [getAllDisplays]{@link @ohos.display:display.getAllDisplays(callback: AsyncCallback<Array<Display>>)} to obtain
-   *     all current **display** objects and use them to obtain the corresponding display IDs.<!--RP2--><!--RP2End-->
+   *     <br>**Note**: If the input **displayId** does not exist, the exception **17000007** is reported. 
+   * You can use [getAllDisplays]{@link @ohos.display:display.getAllDisplays(callback: AsyncCallback<Array<Display>>)} 
+   * to obtain all current **display** objects and use them to obtain the corresponding display IDs.
    * @returns { On } - The **On** object of the display to which the specified component belongs.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -2228,7 +2244,7 @@ declare class On {
   /**
    * Specifies the description of the target component. Multiple match patterns are supported.
    *
-   * @param { string } val - Description of the component.<!--RP2--><!--RP2End-->
+   * @param { string } val - Description of the component.
    * @param { MatchPattern } [pattern] - Match pattern {@link MatchPattern} .
    *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } - **On** object.
@@ -2245,7 +2261,7 @@ declare class On {
   /**
    * Specifies the **id** attribute and match pattern of the target component.
    *
-   * @param { string } id - Component ID.<!--RP2--><!--RP2End-->
+   * @param { string } id - Component ID.
    * @param { MatchPattern } pattern - Text matching pattern {@link MatchPattern}.
    * @returns { On } - **On** object that matches the ID attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -2261,7 +2277,7 @@ declare class On {
   /**
    * Specifies the **type** attribute and match pattern of the target component.
    *
-   * @param { string } tp - Component type.<!--RP2--><!--RP2End-->
+   * @param { string } tp - Component type.
    * @param { MatchPattern } pattern - Text matching pattern {@link MatchPattern}.
    * @returns { On } - **On** object that matches the type attribute of the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -2277,7 +2293,7 @@ declare class On {
   /**
    * Specifies the hint text attribute of the target component.
    *
-   * @param { string } val - The specified hint text of the component.<!--RP2--><!--RP2End-->
+   * @param { string } val - The specified hint text of the component.
    * @param { MatchPattern } [pattern] - Match pattern{@link MatchPattern}.
    *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } - **On** object that matches the **hint** attribute of the target component.
@@ -2296,12 +2312,12 @@ declare class On {
    *
    * > **NOTE**
    * >
-   * > If the [accessibilityLevel]{@link ./@internal/component/ets/common:CommonMethod#accessibilityLevel}
+   * > If the [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
    * > of a component is set to **no** or **no-hide-descendants**, this API can be used to specify the text attribute of
    * > the target component for searching for the component. In this case, the [On.text()]{@link On#text} API does not
    * > take effect.
    *
-   * @param { string } text - Component text, used to match the target component.<!--RP2--><!--RP2End-->
+   * @param { string } text - Component text, used to match the target component.
    * @param { MatchPattern } [pattern] - Match pattern{@link MatchPattern}.
    *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } - **On** object that matches the text attribute of the target component.
@@ -2407,7 +2423,7 @@ declare class Component {
    *
    * > **NOTE**
    * >
-   * > If the [accessibilityLevel]{@link ./@internal/component/ets/common:CommonMethod#accessibilityLevel}
+   * > If the [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
    * > attribute of the component is set to **no** or **no-hide-descendants**, this API cannot be used to obtain the
    * > text information of the component. In this case, you can use
    * > [Component.getOriginalText ()]{@link Component#getOriginalText} instead.
@@ -2456,10 +2472,10 @@ declare class Component {
   isClickable(): Promise<boolean>;
 
   /**
-   * Obtains the clickable status of this component. This API uses a promise to return the result.
+   * Obtains the long-clickable status of this component. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the component object is clickable.
-   *     The value **true** indicates that the component is clickable, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return whether the component object is long-clickable.
+   *     The value **true** indicates that the component is long-clickable, and **false** indicates the opposite.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
@@ -2539,7 +2555,7 @@ declare class Component {
    * Obtains the checked status of this component. This API uses a promise to return the result.
    *
    * @returns { Promise<boolean> } - Promise used to return the checked status of the component object.
-   *     The value **true** indicates indicates that the component is checked, and **false** indicates the opposite.
+   *     The value **true** indicates that the component is checked, and **false** indicates the opposite.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
@@ -2632,9 +2648,10 @@ declare class Component {
    * Scrolls to the top of this component. This API is applicable to components that support scrolling. This API uses
    * a promise to return the result.
    *
-   * @param { int } [speed] - Scroll speed.
+   * @param { int } [speed] - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
+   *     <br>If the value is a non-negative number that is not within the specified range or is null or undefined, the default value 600 is used.
    *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
    * @returns { Promise<void> } - Promise that returns no value.
@@ -2655,9 +2672,10 @@ declare class Component {
    * Scrolls to the bottom of this component. This API is applicable to components that support scrolling. This API
    * uses a promise to return the result.
    *
-   * @param { int } [speed] - Scroll speed.
+   * @param { int } [speed] - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
+   *     <br>If the value is a non-negative number that is not within the specified range or is null or undefined, the default value 600 is used.
    *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
    * @returns { Promise<void> } - Promise that returns no value.
@@ -2811,10 +2829,11 @@ declare class Component {
    * the component border. This API uses a promise to return the result.
    *
    * @param { On } on - Attributes of the target component.
-   * @param { boolean } [vertical] - Whether the search direction is vertical. The default value **true** indicates that the
-   *     search direction is vertical. **false** indicates that the search direction is horizontal.
+   * @param { boolean } [vertical] - Whether the search direction is vertical. 
+   * The default value **true** indicates that the search direction is vertical. 
+   * **false** indicates that the search direction is horizontal.
    * @param { number } [offset] - Offset from the scrolling start/end point to the component border, in pixels. The
-   *     default value is **80**. The value is an integer greater than or equal to 0. If the value is a negative
+   *     default value is **80**. If the value is a negative
    *     number, error code 401 is returned.
    * @returns { Promise<Component> } - Promise used to return the target component.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -2848,7 +2867,7 @@ declare class Component {
   scrollSearch(on: On, vertical?: boolean, offset?: int): Promise<Component | null>;
   /**
    * Obtains the text information of this component. This API uses a promise to return the result. If the
-   * [accessibilityLevel]{@link ./@internal/component/ets/common:CommonMethod#accessibilityLevel}
+   * [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
    * attribute of the component is set to **no** or **no-hide-descendants**, this API can be used
    * to obtain the text information of the component, but [Component.getText()]{@link Component#getText} cannot.
    *
@@ -2895,7 +2914,7 @@ declare class Driver {
   /**
    * Delays a duration of time. This API uses a promise to return the result.
    *
-   * @param { int } duration - Specified time, in ms. The value is an integer greater than or equal to 0. If the
+   * @param { int } duration - Specified time, in ms. If the
    *     value is a negative number, error code 401 is returned.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -3071,7 +3090,8 @@ declare class Driver {
   /**
    * Simulates pressing the Back button on a specified screen. This API uses a promise to return the result.
    *
-   * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
+   * @param { int } displayId - Display ID. 
+   * The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -3087,7 +3107,8 @@ declare class Driver {
   /**
    * Triggers a key event by passing the key code value. This API uses a promise to return the result.
    *
-   * @param { int } keyCode - Key code value. The value is an integer greater than or equal to 0.
+   * @param { int } keyCode - Key code value. 
+   * The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -3106,9 +3127,11 @@ declare class Driver {
    * Triggers a key event by passing the key code value on the specified screen. This API uses a promise to return the
    * result.
    *
-   * @param { int } keyCode - Key code value. The value is an integer greater than or equal to 0.
+   * @param { int } keyCode - Key code value. 
+   * The value is an integer greater than or equal to 0.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
-   * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
+   * @param { int } displayId - Display ID. 
+   * The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **401** is reported.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -3127,11 +3150,11 @@ declare class Driver {
    * result. For example, if the key code value is (2072, 2019), the module finds and clicks the key combination that
    * matches the value, for example, **Ctrl+C**.
    *
-   * @param { number } key0 - First key code value. The value is an integer greater than or equal to 0.
+   * @param { number } key0 - First key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
-   * @param { number } key1 - Second key code value. The value is an integer greater than or equal to 0.
+   * @param { number } key1 - Second key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
-   * @param { number } [key2] - Third key code value. The value is an integer greater than or equal to 0.
+   * @param { number } [key2] - Third key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @returns { Promise<void> } - Promise that returns no value.
@@ -3151,15 +3174,15 @@ declare class Driver {
    * promise to return the result. For example, if the key code value is (2072, 2019), the module finds and clicks the
    * key combination that matches the value, for example, **Ctrl+C**.
    *
-   * @param { int } key0 - First key code value. The value is an integer greater than or equal to 0.
+   * @param { int } key0 - First key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
-   * @param { int } key1 - Second key code value. The value is an integer greater than or equal to 0.
+   * @param { int } key1 - Second key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
-   * @param { int } [key2] - Third key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key2] - Third key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [displayId] - Display ID. The value is an integer greater than or equal to 0. The default value is the
-   *     default display ID of the device.
+   * @param { int } [displayId] - Display ID. 
+   * The default value is the default display ID of the device.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3412,7 +3435,10 @@ declare class Driver {
    * Swipe on the screen between the specified points with optional touch options.
    *
    * @param { Point } from - the coordinate point where the finger touches the screen.
-   * @param { Point } to - the coordinate point where the finger leaves the screen.
+   * @param { Point } to - [Point] object, 
+   * which transfers the coordinates of the end point and the ID of the display to which the start point belongs. 
+   * Note: The target point and the start point must be on the same screen. 
+   * Otherwise, the 17000007 exception is thrown.
    * @param { TouchOptions } [options] - the options for the swipe operation.
    *                                Only the 'speed' and 'pressure' properties are applicable for this method.
    *                                Setting other properties will result in a BusinessError 17000007.
@@ -3460,7 +3486,10 @@ declare class Driver {
    * Drag on the screen between the specified points with optional settings.
    *
    * @param { Point } from - the coordinate point where the finger touches the screen.
-   * @param { Point } to - the coordinate point where the finger leaves the screen.
+   * @param { Point } to - [Point] object, 
+   * which transfers the coordinates of the end point and the ID of the display to which the start point belongs. 
+   * Note: The target point and the start point must be on the same screen. 
+   * Otherwise, the 17000007 exception is thrown.
    * @param { TouchOptions } [options] - the options for the drag operation.
    *                         Only the 'pressure', 'speed', and 'duration' properties are applicable for this method.
    *                         Setting other properties will result in a BusinessError 17000007.
@@ -3476,8 +3505,9 @@ declare class Driver {
    */
   dragBetweenWithOptions(from: Point, to: Point, options?: TouchOptions): Promise<void>;
   /**
-   * Captures the current screen and saves it as a PNG image to the given save path. This API uses a promise to return
-   * the result. This API can be used in scenarios where screenshots are supported.
+   * Captures the current screen and saves it as a PNG image to the given save path. 
+   * This API uses a promise to return the result. 
+   * This API can be used in scenarios where screenshots are supported.
    *
    * @param { string } savePath - File save path. The path must be the
    *     [sandbox path](docroot://file-management/app-sandbox-directory.md) of the current application.
@@ -3495,12 +3525,14 @@ declare class Driver {
   screenCap(savePath: string): Promise<boolean>;
 
   /**
-   * Captures the specified screen and saves it as a PNG image to the given save path. This API uses a promise to
-   * return the result. This API can be used in scenarios where screenshots are supported.
+   * Captures the specified screen and saves it as a PNG image to the given save path. 
+   * This API uses a promise to return the result. 
+   * This API can be used in scenarios where screenshots are supported.
    *
    * @param { string } savePath - File save path. The path must be the
    *     [sandbox path](docroot://file-management/app-sandbox-directory.md) of the current application.
-   * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
+   * @param { int } displayId - Display ID. 
+   * The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **401** is reported.
    * @returns { Promise<boolean> } Promise used to return whether the screenshot operation is successful. The value
    *     **true** indicates that the screen capture operation is successful, and the value **false** indicates the
@@ -3524,8 +3556,8 @@ declare class Driver {
    * @param { string } savePath - the path where to store the json, must be in the application sandbox directory.
    *     The path must be the [sandbox path](docroot://file-management/app-sandbox-directory.md) of the current
    *     application.
-   * @param { int } [displayId] - Display ID. The value is an integer greater than or equal to 0. The default value
-   *     is the default screen ID of the device.
+   * @param { int } [displayId] - Display ID. 
+   * The default value is the default screen ID of the device.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
    * @returns { Promise<boolean> } true if dump layout and file-storing are completed successfully,false otherwise.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -3577,7 +3609,8 @@ declare class Driver {
   /**
    * Obtains the display rotation of the specified device. This API uses a promise to return the result.
    *
-   * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
+   * @param { int } displayId - Display ID. 
+   * The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
    * @returns { Promise<DisplayRotation> } - Promise used to return the display rotation of the specified device.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -3632,7 +3665,8 @@ declare class Driver {
   /**
    * Obtains the size of the specified display on the current device. This API uses a promise to return the result.
    *
-   * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
+   * @param { int } displayId - Display ID. 
+   * The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
    * @returns { Promise<Point> } Promise used to return the **Point** object. The size of the specified display is
    *     **Point.x * Point.y**.
@@ -3669,7 +3703,8 @@ declare class Driver {
   /**
    * Obtains the density of the specified display of the current device. This API uses a promise to return the result.
    *
-   * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
+   * @param { int } displayId - Display ID. 
+   * The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
    * @returns { Promise<Point> } Promise used to return the **Point** object. The density of the specified display is
    *     **Point.x*Point.y**.
@@ -3713,7 +3748,8 @@ declare class Driver {
    * Injects an operation of returning to the home screen on the specified display. This API uses a promise to return
    * the result.
    *
-   * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
+   * @param { int } displayId - Display ID. 
+   * The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -3731,10 +3767,11 @@ declare class Driver {
    * redirection, animation playback, and loading. After calling this method, you can perform subsequent test
    * operations only after the UI becomes stable. This API uses a promise to return the result.
    *
-   * @param { int } idleTime - Idle time threshold, in ms. If the duration for which a component remains inactive reaches
-   *     this threshold, it is considered as idle. The value must be an integer greater than or equal to 0. If the
-   *     value is a negative number, error code 401 is returned.
-   * @param { int } timeout - Maximum waiting time, in ms. The value is an integer greater than or equal to 0. If the
+   * @param { int } idleTime - Idle time threshold, in ms. 
+   * If the duration for which a component remains inactive reaches this threshold, it is considered as idle. 
+   * The value must be an integer greater than or equal to 0. 
+   * If the value is a negative number, error code 401 is returned.
+   * @param { int } timeout - Maximum waiting time, in ms. If the
    *     value is a negative number, error code 401 is returned.
    * @returns { Promise<boolean> } - Promise used to return whether all components on the current UI are idle. The value true
    *     indicates that all components on the current UI are idle, and false indicates the opposite.
@@ -3755,10 +3792,10 @@ declare class Driver {
    *
    * @param { Point } from - Coordinates of the point where the finger touches the screen.
    * @param { Point } to - Coordinates of the point where the finger leaves the screen.
-   * @param { int } stepLen - Sliding step length, in pixels. The value is an integer greater than or equal to 0. If
+   * @param { int } stepLen - Sliding step length, in pixels. If
    *     the value is a negative number, error code 401 is returned.
    *     <br>Unit: px
-   * @param { int } speed - Fling speed, in px/s. The value ranges from 200 to 40000. If the set value is not in the range
+   * @param { int } speed - Swipe speed, in px/s. The value ranges from 200 to 40000. If the set value is not in the range
    *     , the default value **600** is used.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
@@ -3807,7 +3844,7 @@ declare class Driver {
    * Simulates a fling operation with the specified direction and speed. This API uses a promise to return the result.
    *
    * @param { UiDirection } direction - Direction of the fling operation.
-   * @param { int } speed - Scroll speed.
+   * @param { int } speed - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
    *     <br>Throws error code 401 if negative.
@@ -3830,13 +3867,14 @@ declare class Driver {
    *  to return the result.
    *
    * @param { UiDirection } direction - Direction of the fling operation.
-   * @param { int } speed - Fling speed, in px/s. The value ranges from 200 to 40000. If the set value is not in the range,
+   * @param { int } speed - Swipe speed, in px/s. The value ranges from 200 to 40000. If the set value is not in the range,
    *     the default value **600** is used.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
    *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
-   * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
+   * @param { int } displayId - Display ID. 
+   * The value is an integer greater than or equal to 0.
    *     <br> **Note**: If the input **displayId** does not exist, the exception **401** is reported.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -3857,10 +3895,10 @@ declare class Driver {
    *
    * @param { Point } p - Target coordinates of the mouse click.
    * @param { MouseButton } btnId - Mouse button pressed.
-   * @param { int } [key1] - First key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key1] - First key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [key2] - Second key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key2] - Second key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @returns { Promise<void> } - Promise that returns no value.
@@ -3897,15 +3935,16 @@ declare class Driver {
    * pressed with mouse scrolling.
    *
    * @param { Point } p - Target coordinates of mouse scrolling.
-   * @param { boolean } down - Whether the mouse wheel scrolls downward. The value **true** indicates the mouse wheel scrolls
-   *     downward, and **false** indicates the mouse wheel scrolls upward.
+   * @param { boolean } down - Whether the mouse wheel scrolls downward. 
+   * The value **true** indicates the mouse wheel scrolls downward, 
+   * and **false** indicates the mouse wheel scrolls upward.
    * @param { number } d - Number of ticks scrolled by the mouse wheel. A tick indicates a 120 px scroll at the mouse
-   *     cursor position. The value is an integer greater than or equal to 0. If the value is a negative number,
+   *     cursor position. If the value is a negative number,
    *     error code 401 is returned.
-   * @param { number } [key1] - First key code value. The value is an integer greater than or equal to 0.
+   * @param { number } [key1] - First key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { number } [key2] - Second key code value. The value is an integer greater than or equal to 0.
+   * @param { number } [key2] - Second key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @returns { Promise<void> } - Promise that returns no value.
@@ -3924,18 +3963,19 @@ declare class Driver {
    * specified scroll speed. This API uses a promise to return the result.
    *
    * @param { Point } p - Target coordinates of mouse scrolling.
-   * @param { boolean } down - Whether the mouse wheel scrolls downward. The value **true** indicates the mouse wheel scrolls
-   *     downward, and **false** indicates the mouse wheel scrolls upward.
+   * @param { boolean } down - Whether the mouse wheel scrolls downward. 
+   * The value **true** indicates the mouse wheel scrolls downward, 
+   * and **false** indicates the mouse wheel scrolls upward.
    * @param { int } d - Number of ticks scrolled by the mouse wheel. A tick indicates a 120 px scroll at the mouse
-   *     cursor position. The value is an integer greater than or equal to 0. If the value is a negative number,
+   *     cursor position. If the value is a negative number,
    *     error code 401 is returned.
-   * @param { int } [key1] - First key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key1] - First key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [key2] - Second key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key2] - Second key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [speed] - Scroll speed of the mouse wheel.
+   * @param { int } [speed] - Swipe speed of the mouse wheel.
    *     <br>Value range:[1, 500]
    *     <br>Unit: ticks/s
    *     <br>Throws error code 401 if negative.
@@ -3960,7 +4000,8 @@ declare class Driver {
    *
    * @param { string } savePath - File save path. The path must be the
    *     [sandbox path](docroot://file-management/app-sandbox-directory.md) of the current application.
-   * @param { Rect } [rect] - Area of the screen to capture. The default value is the entire screen.
+   * @param { Rect } [rect] - Area of the screen to capture. 
+   *     The default value is the entire screen.
    * @returns { Promise<boolean> } - Promise used to return whether the screenshot operation is successful.
    *     The value **true** indicates the screenshot operation is successful, and **false** indicates the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -3995,10 +4036,10 @@ declare class Driver {
    *
    * @param { Point } p - Coordinates of the double-click.
    * @param { MouseButton } btnId - Mouse button pressed.
-   * @param { int } [key1] - First key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key1] - First key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [key2] - Second key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key2] - Second key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @returns { Promise<void> } - Promise that returns no value.
@@ -4020,10 +4061,10 @@ declare class Driver {
    *
    * @param { Point } p - Coordinates of the long-click of the mouse device.
    * @param { MouseButton } btnId - Mouse button pressed.
-   * @param { number } [key1] - First key code value. The value is an integer greater than or equal to 0.
+   * @param { number } [key1] - First key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { number } [key2] - Second key code value. The value is an integer greater than or equal to 0.
+   * @param { number } [key2] - Second key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @returns { Promise<void> } - Promise that returns no value.
@@ -4044,10 +4085,10 @@ declare class Driver {
    *
    * @param { Point } p - Coordinates of the long-click of the mouse device.
    * @param { MouseButton } btnId - Mouse button pressed.
-   * @param { int } [key1] - First key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key1] - First key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
-   * @param { int } [key2] - Second key code value. The value is an integer greater than or equal to 0.
+   * @param { int } [key2] - Second key code value.
    *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *     <br>Default value: 0
    * @param { int } [duration] - Long-click duration, in ms. The value is an integer greater than or equal to 1500.
@@ -4072,9 +4113,10 @@ declare class Driver {
    *
    * @param { Point } from - Coordinates of the start point.
    * @param { Point } to - Coordinates of the end point.
-   * @param { int } [speed] - Mouse move speed.
+   * @param { int } [speed] - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
+   *     <br>If the value is a non-negative number that is not within the specified range or is null or undefined, the default value 600 is used.
    *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
    * @returns { Promise<void> } - Promise that returns no value.
@@ -4091,10 +4133,13 @@ declare class Driver {
 
   /**
    * Drags the mouse pointer from the start point to the end point. This API uses a promise to return the result.
+   * For API version 26.0.0 and earlier, this API does not support cross-screen mouse dragging. 
+   * The start point and end point must be on the same screen. Otherwise, error code 401 will be returned. 
+   * Since API version 26.0.0, this API supports cross-screen mouse dragging.
    *
    * @param { Point } from - Coordinates of the start point.
    * @param { Point } to - Coordinates of the end point.
-   * @param { number } [speed] - Mouse drag speed.
+   * @param { number } [speed] - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
    *     <br>Throws error code 401 if negative.
@@ -4113,12 +4158,16 @@ declare class Driver {
   /**
    * Drags the mouse from the start point to the end point. You can specify the dragging speed and the duration before
    * dragging. This API uses a promise to return the result.
+   * For API version 26.0.0 and earlier, this API does not support cross-screen mouse dragging. 
+   * The start point and end point must be on the same screen. Otherwise, error code 401 will be returned. 
+   * Since API version 26.0.0, this API supports cross-screen mouse dragging.
    *
    * @param { Point } from - Coordinates of the start point.
    * @param { Point } to - Coordinates of the end point.
-   * @param { int } [speed] - Speed of mouse drag.
+   * @param { int } [speed] - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
+   *     <br>If the value is a non-negative number that is not within the specified range or is null or undefined, the default value 600 is used.
    *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
    * @param { int } [duration] - Click duration, in ms. The value is an integer greater than or equal to 1500. The
@@ -4141,7 +4190,7 @@ declare class Driver {
    * with optional touch and key settings.
    *
    * @param { Point } from - the starting point.
-   * @param { Point } to - the ending point.
+   * @param { Point } to - Coordinates of the end point.
    * @param { TouchOptions } [touchOptions] - the touch options for speed and duration settings.
    *                                    Only 'speed' and 'duration' properties are valid in this method.
    *                                    Setting other properties will cause BusinessError 17000007.
@@ -4249,9 +4298,10 @@ declare class Driver {
    * Simulates a pen long-click operation. This API uses a promise to return the result.
    *
    * @param { Point } point - Coordinates of the long-clicked point.
-   * @param { double } [pressure] - Long-click pressure of the pen. The value ranges from 0.0 to 1.0. The default value
-   *     is **1.0**. If the value is **null** or **undefined**, the default value is used. If the value is out of the
-   *     value range, error code 401 is thrown.
+   * @param { double } [pressure] - Long-click pressure of the pen. The value ranges from 0.0 to 1.0. 
+   * The default value is **1.0**. If the value is **null** or **undefined**, 
+   * the default value is used. 
+   * If the value is out of the value range, error code 401 is thrown.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4290,9 +4340,10 @@ declare class Driver {
    *     <br>Unit: px/s.
    *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
-   * @param { double } [pressure] - Swipe pressure of the pen. The value ranges from 0.0 to 1.0. The default value is
-   *     **1.0**. If the value is **null** or **undefined**, the default value is used. If the value is out of the
-   *     value range, error code 401 is thrown.
+   * @param { double } [pressure] - Swipe pressure of the pen. The value ranges from 0.0 to 1.0. 
+   * The default value is **1.0**. 
+   * If the value is **null** or **undefined**, the default value is used. 
+   * If the value is out of the value range, error code 401 is thrown.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4319,9 +4370,10 @@ declare class Driver {
    *     <br>Unit: px/s.
    *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
-   * @param { double } [pressure] - Injection pressure. The value range is [0.0, 1.0]. The default value is **1.0**.
-   *     If the value is **null** or **undefined**, the default value is used. If the value is out of the value range,
-   *     error code 401 is thrown.
+   * @param { double } [pressure] - Injection pressure. The value range is [0.0, 1.0]. 
+   * The default value is **1.0**.
+   * If the value is **null** or **undefined**, the default value is used. 
+   * If the value is out of the value range, error code 401 is thrown.
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4335,7 +4387,10 @@ declare class Driver {
   injectPenPointerAction(pointers: PointerMatrix, speed?: int, pressure?: double): Promise<void>;
 
   /**
-   * Trigger pen key operation.
+   * Triggers a stylus key operation. 
+   * This method is applicable to test scenarios where stylus switching needs to be simulated, 
+   * for example, simulating a click operation in air mouse mode or invoking the smart key. 
+   * This API uses a promise to return the result.
    *
    * Supported combinations:
    *
@@ -4350,8 +4405,8 @@ declare class Driver {
    *     handwriting mode or air mouse mode.
    * @param { PenKeyOperation } operation - Stylus key operation mode, which specifies the operation mode of the key,
    *     such as single-tap or double-tap.
-   * @param { PenKeyOperationOptions } [options] - Operation options, including optional coordinates. The default values
-   *     are inherited from the default values of the properties in {@link PenKeyOperationOptions}.
+   * @param { PenKeyOperationOptions } [options] - Operation options, including optional coordinates. 
+   * The default values are inherited from the default values of the properties in {@link PenKeyOperationOptions}.
    *     <br> **Note**: When **mode** is set to {@link PenMode#AIR_MOUSE} and **key** is set to {@link PenKey#AIR_MOUSE},
    *     the **point** attribute in **options** must be set. Otherwise, error code 17000007 will be thrown.
    * @returns { Promise<void> } - Promise that returns no value.
@@ -4374,6 +4429,7 @@ declare class Driver {
    * @param { int } [speed] - Rotation speed.
    *     <br>Unit: ticks/s.
    *     <br>Value range: [1, 500]
+   *     <br>If the value is a non-negative number that is not within the specified range or is null or undefined, the default value 20 is used.
    *     <br>Throws error code 17000007 if negative.
    *     <br>Default value: 20
    * @returns { Promise<void> } - Promise that returns no value.
@@ -4399,7 +4455,8 @@ declare class Driver {
    *     The default value is 1500. If the value is less than 1500, the 17000007 error code is thrown. If the value
    *     is **null** or **undefined**, the default value is used.
    * @returns { Promise<boolean> } - Promise used to return whether the target component exists during a long-click
-   *     operation. The value **true** indicates that the target component exists, and **false** indicates the opposite.
+   *     operation. 
+   * The value **true** indicates that the target component exists, and **false** indicates the opposite.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -4432,7 +4489,8 @@ declare class Driver {
    *     default value is 1500. If the value is less than 1500, the 17000007 error code is thrown. If the value is
    *     **null** or **undefined**, the default value is used.
    * @returns { Promise<boolean> } - Promise used to return whether the target component exists during the dragging
-   *     operation. The value **true** indicates that the target component exists, and **false** indicates the opposite.
+   *     operation. 
+   * The value **true** indicates that the target component exists, and **false** indicates the opposite.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -4457,7 +4515,7 @@ declare class Driver {
    *     which it belongs.
    *     <br> **Note**: The target point and the start point must be on the same screen. Otherwise, the **17000007**
    *     exception is thrown.
-   * @param { int } [speed] - Scroll speed.
+   * @param { int } [speed] - Swipe speed.
    *     <br>Value range:[200, 40000]
    *     <br>Throws error code 17000007 if negative.
    *     <br>Default value: 600
@@ -4479,7 +4537,7 @@ declare class Driver {
    * @param { Point } point - Point of the mouse cursor when the two-finger scrolling is performed on the touchpad.
    * @param { UiDirection } direction - Direction of two-finger scrolling on the touchpad.
    * @param { int } d - Number of grids scrolled by two fingers on the touchpad. A tick indicates a 120 px scroll at
-   *     the mouse cursor position. The value is an integer greater than or equal to 0. If the value is a negative
+   *     the mouse cursor position. If the value is a negative
    *     number, the 17000007 error code is returned.
    * @param { int } [speed] - Speed of two-finger scrolling on the touchpad.
    *     <br>Unit: ticks/s.
@@ -4503,7 +4561,7 @@ declare class Driver {
    *
    * > **NOTE**
    * >
-   * > If the knuckle gesture is disabled on the device<!--RP4--><!--RP4End-->, 17000005 is returned.
+   * > If the knuckle gesture is disabled on the device, 17000005 is returned.
    *
    * @param { Array<Point> } pointers - Array of knuckle knock coordinates on the display. The array length can be
    *     1 or 2. If the value is out of range, error code 17000007 is thrown.
@@ -4526,7 +4584,7 @@ declare class Driver {
    *
    * > **NOTE**
    * >
-   * > If the knuckle gesture is disabled on the device<!--RP4--><!--RP4End-->, 17000005 is returned.
+   * > If the knuckle gesture is disabled on the device, 17000005 is returned.
    *
    * @param { PointerMatrix } pointers - Scroll trajectory, including the number of fingers and an array of
    *     coordinates along the trajectory.
@@ -4639,8 +4697,8 @@ declare class UiWindow {
    * Checks whether a window is active. This API uses a promise to return the result.
    *
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the window is active. The value **true** indicates that
-   *     the window is active, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return whether the window is active. 
+   * The value **true** indicates that the window is active, and **false** indicates the opposite.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
@@ -4791,8 +4849,8 @@ declare class UiWindow {
   /**
    * Checks whether a window is active. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } - Promise used to return whether the window is active. The value **true** indicates that
-   *     the window is active, and **false** indicates the opposite.
+   * @returns { Promise<boolean> } - Promise used to return whether the window is active. 
+   * The value **true** indicates that the window is active, and **false** indicates the opposite.
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000004 - The window or component is invisible or destroyed.
    * @syscap SystemCapability.Test.UiTest
@@ -4904,11 +4962,11 @@ declare const ON: On;
  */
 declare namespace ON {
   /**
-   * Specifies the text for the target Component.
+   * Specifies the text attribute of the target component. Multiple match patterns are supported.
    *
-   * @param { string } txt - the text value.
-   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value.
-   *     <br>Default value: MatchPattern.EQUALS
+   * @param { string } txt - Component text, used to match the target component.
+   * @param { MatchPattern } [pattern] - Match pattern {@link MatchPattern}.
+   *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -4917,9 +4975,9 @@ declare namespace ON {
   export function text(txt: string, pattern?: MatchPattern): On;
 
   /**
-   * Specifies the id of the target Component.
+   * Specifies the ID attribute of the target component.
    *
-   * @param { string } id - the id value.
+   * @param { string } id - Component ID.
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -4928,9 +4986,9 @@ declare namespace ON {
   export function id(id: string): On;
 
   /**
-   * Specifies the type of the target Component.
+   * Specifies the type attribute of the target component.
    *
-   * @param { string } tp - The type value.
+   * @param { string } tp - Component type.
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -4939,10 +4997,10 @@ declare namespace ON {
   export function type(tp: string): On;
 
   /**
-   * Specifies the clickable status of the target Component.
+   * Specifies the clickable attribute of the target component.
    *
-   * @param { boolean } [b] - the clickable status.
-   *     <br>Default value: true
+   * @param { boolean } [b] - Clickable status of the component. The value **true** indicates that the component is clickable
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -4951,10 +5009,10 @@ declare namespace ON {
   export function clickable(b?: boolean): On;
 
   /**
-   * Specifies the longClickable status of the target Component.
+   * Specifies the long-clickable attribute of the target component.
    *
-   * @param { boolean } [b] - the longClickable status.
-   *     <br>Default value: true
+   * @param { boolean } [b] - Long-clickable status of the component. The value **true** indicates that the component is long-clickable
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -4963,10 +5021,10 @@ declare namespace ON {
   export function longClickable(b?: boolean): On;
 
   /**
-   * Specifies the scrollable status of the target Component.
+   * Specifies the scrollable attribute of the target component.
    *
-   * @param { boolean } [b] - the scrollable status.
-   *     <br>Default value: true
+   * @param { boolean } [b] - Whether the specified component is scrollable. The value **true** indicates that the component is scrollable
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -4975,10 +5033,10 @@ declare namespace ON {
   export function scrollable(b?: boolean): On;
 
   /**
-   * Specifies the enabled status of the target Component.
+   * Specifies the enabled attribute of the target component.
    *
-   * @param { boolean } [b] - the enabled status.
-   *     <br>Default value: true
+   * @param { boolean } [b] - Enabled status of the component. The value **true** indicates that the component is enabled
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -4987,10 +5045,10 @@ declare namespace ON {
   export function enabled(b?: boolean): On;
 
   /**
-   * Specifies the focused status of the target Component.
+   * Specifies the focused attribute of the target component.
    *
-   * @param { boolean } [b] - the focused status.
-   *     <br>Default value: true
+   * @param { boolean } [b] - Focused status of the component. The value **true** indicates that the component is focused
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -4999,10 +5057,10 @@ declare namespace ON {
   export function focused(b?: boolean): On;
 
   /**
-   * Specifies the selected status of the target Component.
+   * Specifies the selected attribute of the target component.
    *
-   * @param { boolean } [b] - the - selected status.
-   *     <br>Default value: true
+   * @param { boolean } [b] - Selected status of the component. The value **true** indicates that the component is selected
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -5011,10 +5069,10 @@ declare namespace ON {
   export function selected(b?: boolean): On;
 
   /**
-   * Specifies the checked status of the target Component.
+   * Specifies the checked attribute of the target component.
    *
-   * @param { boolean } [b] - the checked status.
-   *     <br>Default value: true
+   * @param { boolean } [b] - Checked status of the component. The value **true** indicates that the component is checked
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -5023,10 +5081,10 @@ declare namespace ON {
   export function checked(b?: boolean): On;
 
   /**
-   * Specifies the checkable status of the target Component.
+   * Specifies the checkable attribute of the target component.
    *
-   * @param { boolean } [b] - the checkable status.
-   *     <br>Default value: true
+   * @param { boolean } [b] - Checkable status of the component. The value **true** indicates that the component is checkable
+   *     , and **false** indicates the opposite. Default value: **true**
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -5035,11 +5093,10 @@ declare namespace ON {
   export function checkable(b?: boolean): On;
 
   /**
-   * Requires that the target Component which is before another Component that specified by the given {@link On}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located before the given attribute component.
    *
-   * @param { On } on - describes the attribute requirements of Component which the target one is in front of.
-   * @returns { On } this {@link On} object.
+   * @param { On } on - Information about the attribute component.
+   * @returns { On } - {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -5047,11 +5104,10 @@ declare namespace ON {
   export function isBefore(on: On): On;
 
   /**
-   * Requires that the target Component which is after another Component that specified by the given {@link On}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located after the given attribute component.
    *
-   * @param { On } on - describes the attribute requirements of Component which the target one is in back of.
-   * @returns { On } this {@link On} object.
+   * @param { On } on - Information about the attribute component.
+   * @returns { On } - {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -5059,11 +5115,10 @@ declare namespace ON {
   export function isAfter(on: On): On;
 
   /**
-   * Requires that the target Component which is inside of another Component that specified by the given {@link On}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located within the given attribute component.
    *
-   * @param { On } on - describes the attribute requirements of Component which the target one is inside of.
-   * @returns { On } this {@link On} object.
+   * @param { On } on - Information about the attribute component.
+   * @returns { On } - {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -5071,9 +5126,9 @@ declare namespace ON {
   export function within(on: On): On;
 
   /**
-   * Specifies the bundleName of the application which the window that the target Component is located belongs.
+   * Specifies that the target component is located within the given application window.
    *
-   * @param { string } bundleName - the bundleName of the specified window.
+   * @param { string } bundleName - Bundle name of the application window.
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -5082,9 +5137,13 @@ declare namespace ON {
   export function inWindow(bundleName: string): On;
 
   /**
-   * Specifies the displayId to which the target Component belongs.
+   * Specifies the display to which the target component belongs.
    *
-   * @param { int } displayId - the Id of the specified display.
+   * @param { int } displayId - ID of the display to which the component belongs. 
+   * The value is an integer greater than or equal to 0.
+   *      **Note:** If the input displayId does not exist, the exception 17000007 is reported. 
+   * You can use [getAllDisplays]{@link @ohos.display:display.getAllDisplays(callback: AsyncCallback<Array<Display>>)} 
+   * to obtain all current **display** objects and use them to obtain the corresponding display IDs.
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -5094,9 +5153,9 @@ declare namespace ON {
   export function belongingDisplay(displayId: int): On;
 
   /**
-   * Specifies the description for the target Component.
+   * Specifies the description attribute of the target component.
    *
-   * @param { string } val - the description value.
+   * @param { string } val - Description of the component.
    * @param { MatchPattern } [pattern] - the {@link MatchPattern} of description value.
    *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } this {@link On} object.
@@ -5106,11 +5165,10 @@ declare namespace ON {
    */
   export function description(val: string, pattern?: MatchPattern): On;
   /**
-   * Specifies the id of the target Component.
+   * Specifies the ID attribute of the target component.
    *
-   * @param { string } id - the id value.
-   * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value.
-   *     <br>Default value: {@link MatchPattern.EQUALS}
+   * @param { string } id - Component ID.
+   * @param { MatchPattern } pattern - Text matching pattern.
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -5118,11 +5176,10 @@ declare namespace ON {
    */
   export function id(id: string, pattern: MatchPattern): On;
   /**
-   * Specifies the type of the target Component.
+   * Specifies the type attribute of the target component.
    *
-   * @param { string } tp - The type value.
-   * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value.
-   *     <br>Default value: {@link MatchPattern.EQUALS}
+   * @param { string } tp - Component type.
+   * @param { MatchPattern } pattern - Text matching pattern.
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -5130,10 +5187,10 @@ declare namespace ON {
    */
   export function type(tp: string, pattern: MatchPattern): On;
   /**
-   * Specifies the hint for the target Component.
+   * Specifies the hint attribute of the target component.
    *
-   * @param { string } val - the hint value.
-   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value.
+   * @param { string } val - The specified hint text of the component.
+   * @param { MatchPattern } [pattern] - Match pattern {@link MatchPattern}.
    *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } this {@link On} object.
    * @syscap SystemCapability.Test.UiTest
@@ -5143,16 +5200,16 @@ declare namespace ON {
   export function hint(val: string, pattern?: MatchPattern): On;
 
   /**
-   * Specifies the original text for the target Component.
-   * If the accessibility property
-   * [accessibilityLevel]{@link ./@internal/component/ets/common:CommonMethod#accessibilityLevel}
-   * of a component is set to 'no' or 'no-hide-descendants',
-   * you will not be able to use {@link On.text} to match the component with the specified original text, but you can
-   * use this method to achieve it;
-   * if the component does not set the above accessibility property, this method has no difference with {@link On.text}
+   * Specifies the text content and text matching pattern of the component.
    *
-   * @param { string } text - the original text value.
-   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value.
+   * > **NOTE**
+   * >
+   * > If the [accessibilityLevel]{@link CommonMethod#accessibilityLevel} of a component is set to **no** or **no-hide-descendants**,
+   * > this API can be used to specify the text attribute of the target component for searching for the component.
+   * > In this case, the [On.text()]{@link On#text} API does not take effect.
+   *
+   * @param { string } text - Component text, used to match the target component.
+   * @param { MatchPattern } [pattern] - Match pattern {@link MatchPattern}.
    *     <br>Default value: {@link MatchPattern.EQUALS}
    * @returns { On } this {@link On} object.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -5163,11 +5220,11 @@ declare namespace ON {
   export function originalText(text: string, pattern?: MatchPattern): On;
 
   /**
-   * Requires that the target Component which is before another Component that specified by the given {@link Component}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located before the given feature component (parameter {@link Component}),
+   * and returns the On object itself.
    *
-   * @param { Component } com - describes the Component which the target one is in front of.
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - The feature component before which the target component is located.
+   * @returns { On } - Returns the On object that specifies the target component is located before the given feature component.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -5177,11 +5234,11 @@ declare namespace ON {
   export function beforeComponent(com: Component): On;
 
   /**
-   * Requires that the target Component which is after another Component that specified by the given {@link Component}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located after the given feature component (parameter {@link Component}),
+   * and returns the On object itself.
    *
-   * @param { Component } com - describes the Component which the target one is in back of.
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - The feature component after which the target component is located.
+   * @returns { On } - Returns the On object that specifies the target component is located after the given feature component.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -5191,11 +5248,11 @@ declare namespace ON {
   export function afterComponent(com: Component): On;
 
   /**
-   * Requires that the target Component which is inside of another Component that specified by the given {@link Component}
-   * object,used to locate Component relatively.
+   * Specifies that the target component is located within the given feature component (parameter {@link Component}),
+   * and returns the On object itself.
    *
-   * @param { Component } com - describes the Component which the target one is inside of.
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - The feature component within which the target component is located.
+   * @returns { On } - Returns the On object that specifies the target component is located within the given feature component.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
