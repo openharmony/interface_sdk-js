@@ -5290,7 +5290,7 @@ declare namespace window {
     isWindowLimitsForcible?: boolean;
 
     /**
-     * WWhether the window starts in a minimized state.
+     * Whether the window starts in a minimized state.
      * If true, the window will not be brought to the foreground, and only an icon will be displayed on the Dock.
      *
      * @default false
