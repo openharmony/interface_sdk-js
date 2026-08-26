@@ -6550,35 +6550,35 @@ declare namespace media {
    * 音视频录制的状态机。可通过state属性获取当前状态。
    *
    * @unionmember { 'idle' } 闲置状态。此时可以调用
-   *     [AVRecorder.prepare()]{@link @ohos.multimedia.media:media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
+   *     [AVRecorder.prepare()]{@link media.AVRecorder#prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
    *     方法设置录制参数，进入prepared状态。AVRecorder刚被创建，或者在任何非released状态下调用
-   *     [AVRecorder.reset()]{@link @ohos.multimedia.media:media.AVRecorder.reset(callback: AsyncCallback<void>)}方法，
+   *     [AVRecorder.reset()]{@link media.AVRecorder#reset(callback: AsyncCallback<void>)}方法，
    *     均进入idle状态。
    * @unionmember { 'prepared' } 参数设置完成。此时可以调用
-   *     [AVRecorder.start()]{@link @ohos.multimedia.media:media.AVRecorder.start(callback: AsyncCallback<void>)}方法
+   *     [AVRecorder.start()]{@link media.AVRecorder#start(callback: AsyncCallback<void>)}方法
    *     开始录制，进入started状态。
    * @unionmember { 'started' } 正在录制。此时可以调用
-   *     [AVRecorder.pause()]{@link @ohos.multimedia.media:media.AVRecorder.pause(callback: AsyncCallback<void>)}方法
+   *     [AVRecorder.pause()]{@link media.AVRecorder#pause(callback: AsyncCallback<void>)}方法
    *     暂停录制，进入paused状态。也可以调用
-   *     [AVRecorder.stop()]{@link @ohos.multimedia.media:media.AVRecorder.stop(callback: AsyncCallback<void>)}方法
+   *     [AVRecorder.stop()]{@link media.AVRecorder#stop(callback: AsyncCallback<void>)}方法
    *     结束录制，进入stopped状态。
    * @unionmember { 'paused' } 录制暂停。此时可以调用
-   *     [AVRecorder.resume()]{@link @ohos.multimedia.media:media.AVRecorder.resume(callback: AsyncCallback<void>)}方法
+   *     [AVRecorder.resume()]{@link media.AVRecorder#resume(callback: AsyncCallback<void>)}方法
    *     继续录制，进入started状态。也可以调用
-   *     [AVRecorder.stop()]{@link @ohos.multimedia.media:media.AVRecorder.stop(callback: AsyncCallback<void>)}方法
+   *     [AVRecorder.stop()]{@link media.AVRecorder#stop(callback: AsyncCallback<void>)}方法
    *     结束录制，进入stopped状态。
    * @unionmember { 'stopped' } 录制停止。此时可以调用
-   *     [AVRecorder.prepare()]{@link @ohos.multimedia.media:media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
+   *     [AVRecorder.prepare()]{@link media.AVRecorder#prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
    *     方法设置录制参数，重新进入prepared状态。
    * @unionmember { 'released' } 录制资源释放。此时不能再进行任何操作。在任何其他状态下，均可以通过调用
-   *     [AVRecorder.release()]{@link @ohos.multimedia.media:media.AVRecorder.release(callback: AsyncCallback<void>)}
+   *     [AVRecorder.release()]{@link media.AVRecorder#release(callback: AsyncCallback<void>)}
    *     方法进入released状态。
    * @unionmember { 'error' } 错误状态。当AVRecorder实例发生不可逆错误，会转换至当前状态。切换至error状态时会伴随
-   *     [AVRecorder.on('error')事件]{@link @ohos.multimedia.media:media.AVRecorder.on(type: 'error', callback: ErrorCallback)}
+   *     [AVRecorder.on('error')]{@link media.AVRecorder#on(type: 'error', callback: ErrorCallback)}
    *     ，该事件会上报详细错误原因。在error状态时，用户需要调用
-   *     [AVRecorder.reset()]{@link @ohos.multimedia.media:media.AVRecorder.reset(callback: AsyncCallback<void>)}方法
+   *     [AVRecorder.reset()]{@link media.AVRecorder#reset(callback: AsyncCallback<void>)}方法
    *     重置AVRecorder实例，或者调用
-   *     [AVRecorder.release()]{@link @ohos.multimedia.media:media.AVRecorder.release(callback: AsyncCallback<void>)}
+   *     [AVRecorder.release()]{@link media.AVRecorder#release(callback: AsyncCallback<void>)}
    *     方法释放资源。
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform [since 12]
@@ -6605,16 +6605,15 @@ declare namespace media {
    * AVRecorder是音视频录制管理类，用于音视频录制的全流程管理，支持音频录制、视频录制及音视频混合录制，可灵活配置编码参数、添加水印、设置元数据、监听录制状态和错误事件等。
    * 适用于录制音视频并保存到文件的场景，包括需要在音频流打断期间保持录制连续性、实时监控音频振幅等场景。
    * 在调用AVRecorder的方法前，需要先调用
-   * [createAVRecorder]{@link @ohos.multimedia.media:media.createAVRecorder()}接口构建一个AVRecorder实例。
+   * [createAVRecorder]{@link media.createAVRecorder()}接口构建一个AVRecorder实例。
    * 典型录制流程：
-   * [createAVRecorder]{@link @ohos.multimedia.media:media.createAVRecorder()} →
-   * [prepare]{@link @ohos.multimedia.media:media.AVRecorder.prepare(config: AVRecorderConfig)} →
-   * [getInputSurface]{@link @ohos.multimedia.media:media.AVRecorder.getInputSurface()}（纯视频/音视频录制时） →
-   * [start]{@link @ohos.multimedia.media:media.AVRecorder.start()} →
-   * [pause]{@link @ohos.multimedia.media:media.AVRecorder.pause()}/
-   * [resume]{@link @ohos.multimedia.media:media.AVRecorder.resume()} →
-   * [stop]{@link @ohos.multimedia.media:media.AVRecorder.stop()} →
-   * [release]{@link @ohos.multimedia.media:media.AVRecorder.release()}。
+   * [createAVRecorder]{@link media.createAVRecorder()} →
+   * [prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig)} →
+   * [getInputSurface]{@link media.AVRecorder#getInputSurface()}（纯视频/音视频录制时） →
+   * [start]{@link media.AVRecorder#start()} →
+   * [pause]{@link media.AVRecorder#pause()}/[resume]{@link media.AVRecorder#resume()} →
+   * [stop]{@link media.AVRecorder#stop()} →
+   * [release]{@link media.AVRecorder#release()}。
    * 
    * 音视频录制示例可参考：[音频录制开发指导](docroot://media/media/using-avrecorder-for-recording.md)、
    * [视频录制开发指导](docroot://media/media/video-recording.md)。
@@ -6634,9 +6633,9 @@ declare namespace media {
     /**
      * 准备录制。设置音视频录制的参数，并初始化录制上下文。使用callback异步回调。<br>
      * 必须在[start]{@link media.AVRecorder#start(callback: AsyncCallback<void>)}之前调用，调用成功后进入prepared状态，
-     * 此时，纯音频录制可直接调用[start]{@link start(callback: AsyncCallback<void>)}接口开始录制；
-     * 纯视频或音视频录制需先调用[getInputSurface]{@link getInputSurface(callback: AsyncCallback<string>)}
-     * 接口获取surface，再调用[start]{@link start(callback: AsyncCallback<void>)}接口开始录制。
+     * 此时，纯音频录制可直接调用[start]{@link media.AVRecorder#start(callback: AsyncCallback<void>)}接口开始录制；
+     * 纯视频或音视频录制需先调用[getInputSurface]{@link media.AVRecorder#getInputSurface(callback: AsyncCallback<string>)}
+     * 接口获取surface，再调用[start]{@link media.AVRecorder#start(callback: AsyncCallback<void>)}接口开始录制。
      *
      * @permission ohos.permission.MICROPHONE
      * @param { AVRecorderConfig } config - 配置音视频录制的相关参数。音频录制时需设置audioSourceType，视频录制时需设置videoSourceType。
@@ -6655,12 +6654,10 @@ declare namespace media {
 
     /**
      * 准备录制。设置音视频录制的参数，并初始化录制上下文。使用Promise异步回调。<br>
-     * 必须在[start]{@link start()}之前调用，调用成功后进入prepared状态，此时，纯音频录制可直接调用[start]{@link start()}接口开始录制；
-     * 纯视频或音视频录制需先调用[getInputSurface]{@link getInputSurface()}接口获取surface，再调用[start]{@link start()}接口开始录制。
+     * 必须在[start]{@link media.AVRecorder#start()}之前调用，调用成功后进入prepared状态，此时，纯音频录制可直接调用[start]{@link media.AVRecorder#start()}接口开始录制；
+     * 纯视频或音视频录制需先调用[getInputSurface]{@link media.AVRecorder#getInputSurface()}接口获取surface，再调用[start]{@link media.AVRecorder#start()}接口开始录制。
      *
-     * @permission ohos.permission.MICROPHONE [since 9 - 11]
      * @permission ohos.permission.MICROPHONE
-     *     This permission is required only if audio recording is involved. [since 12]
      * @param { AVRecorderConfig } config - 配置音视频录制的相关参数。音频录制时需设置audioSourceType，视频录制时需设置videoSourceType。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
@@ -6679,7 +6676,7 @@ declare namespace media {
     /**
      * 获取实时的配置参数。适用于需要确认录制配置是否正确应用的场景，如调试录制参数、验证配置生效情况等。使用callback异步回调。<br>
      * 
-     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}之后调用。
+     * 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}之后调用。
      *
      * @param { AsyncCallback<AVRecorderConfig> } callback - 回调函数。获取实时配置的参数成功时，err为undefined，data为获取到的配置参数，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
@@ -6693,7 +6690,7 @@ declare namespace media {
     /**
      * 获取实时的配置参数。适用于需要确认录制配置是否正确应用的场景，如调试录制参数、验证配置生效情况等。使用callback异步回调。<br>
      * 
-     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}之后调用。
+     * 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}之后调用。
      *
      * @param { AsyncCallback<AVRecorderConfig | undefined> } callback - 回调函数。获取实时配置的参数成功时，err为undefined，data为获取到的配置参数，
      *     否则为错误对象。
@@ -6708,7 +6705,7 @@ declare namespace media {
     /**
      * 获取实时的配置参数。适用于需要确认录制配置是否正确应用的场景，如调试录制参数、验证配置生效情况等。使用Promise异步回调。<br>
      * 
-     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}之后调用。
+     * 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}之后调用。
      *
      * @returns { Promise<AVRecorderConfig> } Promise对象。返回实时配置参数。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
@@ -6722,7 +6719,7 @@ declare namespace media {
     /**
      * 获取实时的配置参数。适用于需要确认录制配置是否正确应用的场景，如调试录制参数、验证配置生效情况等。使用Promise异步回调。<br>
      * 
-     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}之后调用。
+     * 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}之后调用。
      *
      * @returns { Promise<AVRecorderConfig | undefined> } Promise对象，返回实时配置参数。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
@@ -6738,8 +6735,8 @@ declare namespace media {
      * 相机视频录制功能需配合相机模块使用，详情请参考[相机管理](../apis-camera-kit/arkts-apis-camera.md)。使用callback异步回调。<br>
      * 开发者从此surface中获取surfaceBuffer，填入待录制的视频数据。<br>
      * 填入视频数据时需携带时间戳（单位ns）和buffer size。时间戳的起始时间以系统启动时间为基准。<br>
-     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}和
-     * [start]{@link media.AVRecorder.start(callback: AsyncCallback<void>)}之间调用。
+     * 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}和
+     * [start]{@link media.AVRecorder#start(callback: AsyncCallback<void>)}之间调用。
      *
      * @param { AsyncCallback<string> } callback - 回调函数。当获取surface成功，err为undefined，data为获取到的surfaceId，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
@@ -6755,8 +6752,8 @@ declare namespace media {
      * 相机视频录制功能需配合相机模块使用，详情请参考[相机管理](../apis-camera-kit/arkts-apis-camera.md)。使用callback异步回调。<br>
      * 开发者从此surface中获取surfaceBuffer，填入待录制的视频数据。<br>
      * 填入视频数据时需携带时间戳（单位ns）和buffer size。时间戳的起始时间以系统启动时间为基准。<br>
-     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}和
-     * [start]{@link media.AVRecorder.start(callback: AsyncCallback<void>)}之间调用。
+     * 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}和
+     * [start]{@link media.AVRecorder#start(callback: AsyncCallback<void>)}之间调用。
      *
      * @param { AsyncCallback<string | undefined> } callback - 回调函数。当获取surface成功，err为undefined，data为获取到的surfaceId，
      *     否则为错误对象。
@@ -6773,8 +6770,8 @@ declare namespace media {
      * 相机视频录制功能需配合相机模块使用，详情请参考[相机管理](../apis-camera-kit/arkts-apis-camera.md)。使用callback异步回调。<br>
      * 开发者从此surface中获取surfaceBuffer，填入待录制的视频数据。<br>
      * 填入视频数据时需携带时间戳（单位ns）和buffer size。时间戳的起始时间以系统启动时间为基准。<br>
-     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}和
-     * [start]{@link media.AVRecorder.start()}之间调用。
+     * 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}和
+     * [start]{@link media.AVRecorder#start()}之间调用。
      *
      * @returns { Promise<string> } Promise对象，返回获取的surfaceId。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
@@ -6790,8 +6787,8 @@ declare namespace media {
      * 相机视频录制功能需配合相机模块使用，详情请参考[相机管理](../apis-camera-kit/arkts-apis-camera.md)。使用callback异步回调。<br>
      * 开发者从此surface中获取surfaceBuffer，填入待录制的视频数据。<br>
      * 填入视频数据时需携带时间戳（单位ns）和buffer size。时间戳的起始时间以系统启动时间为基准。<br>
-     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}和
-     * [start]{@link media.AVRecorder.start()}之间调用。
+     * 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}和
+     * [start]{@link media.AVRecorder#start()}之间调用。
      *
      * @returns { Promise<string | undefined> } Promise对象，返回获取的surfaceId。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
@@ -6869,7 +6866,7 @@ declare namespace media {
      * 添加自定义水印图像到录制视频中。适用于需要在录制视频中嵌入品牌标识、版权信息或时间戳等水印的场景。使用Promise异步回调。<br>
      * > **说明：**
      * > - 应用最多可添加5个水印。
-     * > - 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}之前调用。
+     * > - 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}之前调用。
      *
      * @param { image.PixelMap } watermark - 水印图像。该图像将作为水印叠加到录制的视频中。
      * @param { WatermarkConfiguration } config - 配置视频录制水印的相关参数。
@@ -6886,9 +6883,9 @@ declare namespace media {
 
     /**
      * 设置录制的元数据信息。适用于需要在录制文件中嵌入自定义元数据（如作者、标题、标签等）的场景。
-     * 如果metadata参数与config.metadata.customInfo（参考[prepare()]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}和
-     * [AVRecorderConfig]{@link @ohos.multimedia.media:media.AVRecorderConfig}）中存在相同的键，前者的对应值将覆盖后者。<br>
-     * 必须在[prepare()]{@link prepare(config: AVRecorderConfig)}和[stop()]{@link stop(callback: AsyncCallback<void>)}之间调用。
+     * 如果metadata参数与config.metadata.customInfo（参考[prepare()]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}和
+     * [AVRecorderConfig]{@link media.AVRecorderConfig}）中存在相同的键，前者的对应值将覆盖后者。<br>
+     * 必须在[prepare()]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}和[stop()]{@link media.AVRecorder#stop(callback: AsyncCallback<void>)}之间调用。
      *
      * @param { Record<string, string> } metadata - 录制的元数据信息。格式为字符串键值对，其中，键需要以`com.openharmony.`开头，否则该键值对将被忽略；
      *     值的长度范围为0-256个字节，否则返回错误码5400108。
@@ -6906,7 +6903,7 @@ declare namespace media {
 
     /**
      * 更新视频旋转角度。适用于设备方向发生变化（如横竖屏切换）时需要动态调整录制视频旋转角度的场景。使用Promise异步回调。<br>
-     * 必须在[prepare]{@link prepare(config: AVRecorderConfig)}和[start]{@link start(callback: AsyncCallback<void>)}之间调用。
+     * 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}和[start]{@link media.AVRecorder#start(callback: AsyncCallback<void>)}之间调用。
      *
      * @param { int } rotation - 旋转角度，单位为度（°）。取值仅支持0°、90°、180°和270°。传入不支持的角度值时，返回错误码401。
      * @returns { Promise<void> } Promise对象，无返回结果。
@@ -6924,7 +6921,7 @@ declare namespace media {
     /**
      * 设置当前录制音频流是否启用静音打断模式。启用后，录制音频流被更高优先级音频打断时将录制静音而非停止录制，适用于需要在打断期间保持录制连续性的场景（如会议录音、语音备忘）。
      * 不启用则保持默认打断模式（音频流被打断时停止录制）。使用Promise异步回调。<br>
-     * 必须在[prepare()]{@link prepare(config: AVRecorderConfig)}之前调用。
+     * 必须在[prepare()]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}之前调用。
      *
      * @param { boolean } muteWhenInterrupted - 设置当前录制音频流是否启用静音打断模式。true表示启用，音频流被打断时录制静音；false表示不启用，音频流被打断时停止录制。
      * @returns { Promise<void> } Promise对象，无返回结果。
@@ -6938,9 +6935,9 @@ declare namespace media {
 
     /**
      * 开始录制。使用callback异步回调。<br>
-     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}之后调用，
+     * 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}之后调用，
      * 调用成功后进入started状态。录制视频时，还需在
-     * [getInputSurface]{@link media.AVRecorder.getInputSurface(callback: AsyncCallback<string>)}接口调用成功后，才能调用此接口。
+     * [getInputSurface]{@link media.AVRecorder#getInputSurface(callback: AsyncCallback<string>)}接口调用成功后，才能调用此接口。
      *
      * @param { AsyncCallback<void> } callback - 回调函数。如果开始录制成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
@@ -6955,8 +6952,8 @@ declare namespace media {
 
     /**
      * 开始录制。使用Promise异步回调。<br>
-     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}之后调用，调用成功后进入started状态。录制视频时，还需在
-     * [getInputSurface]{@link media.AVRecorder.getInputSurface()}接口调用成功后，才能调用此接口。
+     * 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}之后调用，调用成功后进入started状态。录制视频时，还需在
+     * [getInputSurface]{@link media.AVRecorder#getInputSurface()}接口调用成功后，才能调用此接口。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
@@ -6972,8 +6969,8 @@ declare namespace media {
 
     /**
      * 暂停录制。使用callback异步回调。<br>
-     * 必须在[start]{@link media.AVRecorder.start(callback: AsyncCallback<void>)}之后调用，调用成功后进入paused状态，
-     * 之后可以通过调用[resume]{@link media.AVRecorder.resume(callback: AsyncCallback<void>)}接口来恢复录制。
+     * 必须在[start]{@link media.AVRecorder#start(callback: AsyncCallback<void>)}之后调用，调用成功后进入paused状态，
+     * 之后可以通过调用[resume]{@link media.AVRecorder#resume(callback: AsyncCallback<void>)}接口来恢复录制。
      *
      * @param { AsyncCallback<void> } callback - 回调函数。如果暂停录制成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
@@ -6988,8 +6985,8 @@ declare namespace media {
 
     /**
      * 暂停录制。使用Promise异步回调。<br>
-     * 必须在[start]{@link media.AVRecorder.start()}之后调用，调用成功后进入paused状态，
-     * 之后可以通过调用[resume]{@link media.AVRecorder.resume()}接口来恢复录制。
+     * 必须在[start]{@link media.AVRecorder#start()}之后调用，调用成功后进入paused状态，
+     * 之后可以通过调用[resume]{@link media.AVRecorder#resume()}接口来恢复录制。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
@@ -7005,9 +7002,9 @@ declare namespace media {
 
     /**
      * 恢复录制。使用callback异步回调。<br>
-     * 必须在[pause]{@link media.AVRecorder.pause(callback: AsyncCallback<void>)}之后调用，调用成功后进入started状态，
-     * 之后可以再次调用[pause]{@link media.AVRecorder.pause(callback: AsyncCallback<void>)}接口暂停录制，或调用
-     * [stop]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}接口停止录制。
+     * 必须在[pause]{@link media.AVRecorder#pause(callback: AsyncCallback<void>)}之后调用，调用成功后进入started状态，
+     * 之后可以再次调用[pause]{@link media.AVRecorder#pause(callback: AsyncCallback<void>)}接口暂停录制，或调用
+     * [stop]{@link media.AVRecorder#stop(callback: AsyncCallback<void>)}接口停止录制。
      *
      * @param { AsyncCallback<void> } callback - 回调函数。如果恢复录制成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
@@ -7022,8 +7019,8 @@ declare namespace media {
 
     /**
      * 恢复录制。使用Promise异步回调。<br>
-     * 必须在[pause]{@link media.AVRecorder.pause()}之后调用，调用成功后进入started状态，
-     * 之后可以再次调用[pause]{@link media.AVRecorder.pause()}接口暂停录制，或调用[stop]{@link media.AVRecorder.stop()}接口停止录制。
+     * 必须在[pause]{@link media.AVRecorder#pause()}之后调用，调用成功后进入started状态，
+     * 之后可以再次调用[pause]{@link media.AVRecorder#pause()}接口暂停录制，或调用[stop]{@link media.AVRecorder#stop()}接口停止录制。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
@@ -7039,13 +7036,13 @@ declare namespace media {
 
     /**
      * 停止录制。使用callback异步回调。<br>
-     * 必须在[start]{@link media.AVRecorder.start(callback: AsyncCallback<void>)}或
-     * [pause]{@link media.AVRecorder.pause(callback: AsyncCallback<void>)}之后调用，调用成功后进入stopped状态。
+     * 必须在[start]{@link media.AVRecorder#start(callback: AsyncCallback<void>)}或
+     * [pause]{@link media.AVRecorder#pause(callback: AsyncCallback<void>)}之后调用，调用成功后进入stopped状态。
      * 当prepare配置中将FileGenerationMode设置为系统创建媒体文件模式时，本接口调用结束后会触发on('photoAssetAvailable')回调。
-     * 纯音频录制时，需要重新调用[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
+     * 纯音频录制时，需要重新调用[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
      * 接口才能重新录制；纯视频录制、音视频录制时，需要重新调用
-     * [prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}和
-     * [getInputSurface]{@link media.AVRecorder.getInputSurface(callback: AsyncCallback<string>)}接口才能重新录制。
+     * [prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}和
+     * [getInputSurface]{@link media.AVRecorder#getInputSurface(callback: AsyncCallback<string>)}接口才能重新录制。
      *
      * @param { AsyncCallback<void> } callback - 回调函数。如果停止录制成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by callback.
@@ -7060,11 +7057,11 @@ declare namespace media {
 
     /**
      * 停止录制。使用Promise异步回调。<br>
-     * 必须在[start]{@link media.AVRecorder.start()}或[pause]{@link media.AVRecorder.pause()}之后调用，调用成功后进入stopped状态。
+     * 必须在[start]{@link media.AVRecorder#start()}或[pause]{@link media.AVRecorder#pause()}之后调用，调用成功后进入stopped状态。
      * 当prepare配置中将FileGenerationMode设置为系统创建媒体文件模式时，本接口调用结束后会触发on('photoAssetAvailable')回调。
-     * 纯音频录制时，需要重新调用[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}接口才能重新录制；
-     * 纯视频录制、音视频录制时，需要重新调用[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}和
-     * [getInputSurface]{@link media.AVRecorder.getInputSurface()}接口才能重新录制。
+     * 纯音频录制时，需要重新调用[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}接口才能重新录制；
+     * 纯视频录制、音视频录制时，需要重新调用[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}和
+     * [getInputSurface]{@link media.AVRecorder#getInputSurface()}接口才能重新录制。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operate not permit. Return by promise.
@@ -7081,10 +7078,10 @@ declare namespace media {
     /**
      * 重置音视频录制，将录制器恢复至初始状态以便重新配置参数。使用callback异步回调。<br>
      * 必须在非released状态下调用，调用成功后进入idle状态。<br>
-     * 纯音频录制时，需要重新调用[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}接口
+     * 纯音频录制时，需要重新调用[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}接口
      * 才能重新录制。纯视频录制、音视频录制时，需要重新调用
-     * [prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}和
-     * [getInputSurface]{@link media.AVRecorder.getInputSurface(callback: AsyncCallback<string>)}接口才能重新录制。
+     * [prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}和
+     * [getInputSurface]{@link media.AVRecorder#getInputSurface(callback: AsyncCallback<string>)}接口才能重新录制。
      *
      * @param { AsyncCallback<void> } callback - 回调函数。当重置音视频录制成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 5400103 - IO error. Return by callback.
@@ -7099,9 +7096,9 @@ declare namespace media {
     /**
      * 重置音视频录制，将录制器恢复至初始状态以便重新配置参数。使用Promise异步回调。<br>
      * 必须在非released状态下调用，调用成功后进入idle状态。<br>
-     * 纯音频录制时，需要重新调用[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}接口才能重新录制。
-     * 纯视频录制、音视频录制时，需要重新调用[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}和
-     * [getInputSurface]{@link media.AVRecorder.getInputSurface()}接口才能重新录制。
+     * 纯音频录制时，需要重新调用[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}接口才能重新录制。
+     * 纯视频录制、音视频录制时，需要重新调用[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}和
+     * [getInputSurface]{@link media.AVRecorder#getInputSurface()}接口才能重新录制。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
@@ -7146,8 +7143,8 @@ declare namespace media {
 
     /**
      * 获取当前音频采集参数。适用于需要确认当前音频采集设备类型或验证音频配置的场景。使用callback异步回调。<br>
-     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
-     * 和[stop]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}之间调用。
+     * 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
+     * 和[stop]{@link media.AVRecorder#stop(callback: AsyncCallback<void>)}之间调用。
      *
      * @param { AsyncCallback<audio.AudioCapturerChangeInfo> } callback - 回调函数。当获取音频采集参数成功时，err为undefined，data为获取到的
      *     audio.AudioCapturerChangeInfo，否则为错误对象。
@@ -7161,8 +7158,8 @@ declare namespace media {
 
     /**
      * 获取当前音频采集参数。适用于需要确认当前音频采集设备类型或验证音频配置的场景。使用callback异步回调。<br>
-     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
-     * 和[stop]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}之间调用。
+     * 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
+     * 和[stop]{@link media.AVRecorder#stop(callback: AsyncCallback<void>)}之间调用。
      *
      * @param { AsyncCallback<audio.AudioCapturerChangeInfo | undefined> } callback - 回调函数，返回audio.AudioCapturerChangeInfo对象，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed.
@@ -7175,8 +7172,8 @@ declare namespace media {
 
     /**
      * 获取当前音频采集参数。适用于需要确认当前音频采集设备类型或验证音频配置的场景。使用Promise异步回调。<br>
-     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}
-     * 和[stop]{@link media.AVRecorder.stop()}之间调用。
+     * 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}
+     * 和[stop]{@link media.AVRecorder#stop()}之间调用。
      *
      * @returns { Promise<audio.AudioCapturerChangeInfo> } Promise对象，返回获取的当前音频采集参数。
      * @throws { BusinessError } 5400102 - Operation not allowed.
@@ -7189,8 +7186,8 @@ declare namespace media {
 
     /**
      * 获取当前音频采集参数。适用于需要确认当前音频采集设备类型或验证音频配置的场景。使用Promise异步回调。<br>
-     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}
-     * 和[stop]{@link media.AVRecorder.stop()}之间调用。
+     * 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}
+     * 和[stop]{@link media.AVRecorder#stop()}之间调用。
      *
      * @returns { Promise<audio.AudioCapturerChangeInfo | undefined> } Promise对象，返回当前音频采集参数信息。
      * @throws { BusinessError } 5400102 - Operation not allowed.
@@ -7203,8 +7200,8 @@ declare namespace media {
 
     /**
      * 获取当前音频最大振幅。适用于需要实时监控音频振幅的场景，如录音音量可视化显示、音频质量检测等。使用callback异步回调。<br>
-     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
-     * 和[stop]{@link media.AVRecorder.stop(callback: AsyncCallback<void>)}之间调用。<br>
+     * 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
+     * 和[stop]{@link media.AVRecorder#stop(callback: AsyncCallback<void>)}之间调用。<br>
      * 调用接口时，获取到的返回值是上一次获取最大振幅的时刻到当前这段区间内的音频最大振幅。例如，在1s时获取了一次最大振幅，到2s时再获取到的最大振幅是1-2s这个区间内的最大值。
      *
      * @param { AsyncCallback<int> } callback - 回调函数。获取当前音频最大振幅成功时，err为undefined，data为获取到的最大振幅，否则为错误对象。
@@ -7218,8 +7215,8 @@ declare namespace media {
 
     /**
      * 获取当前音频最大振幅。适用于需要实时监控音频振幅的场景，如录音音量可视化显示、音频质量检测等。使用Promise异步回调。<br>
-     * 必须在[prepare]{@link media.AVRecorder.prepare(config: AVRecorderConfig)}
-     * 和[stop]{@link media.AVRecorder.stop()}之间调用。<br>
+     * 必须在[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}
+     * 和[stop]{@link media.AVRecorder#stop()}之间调用。<br>
      * 调用接口时，获取到的返回值是上一次获取最大振幅的时刻到当前这段区间内的音频最大振幅。例如，在1s时获取了一次最大振幅，到2s时再获取到的最大振幅是1-2s这个区间内的最大值。
      *
      * @returns { Promise<int> } Promise对象，返回获取的当前音频最大振幅。
@@ -7284,8 +7281,8 @@ declare namespace media {
     on(type: 'audioCapturerChange', callback: Callback<audio.AudioCapturerChangeInfo>): void;
 
     /**
-     * 订阅媒体资源创建完成的回调事件。当[FileGenerationMode]{@link @ohos.multimedia.media:media.FileGenerationMode}枚举设置为系统创建媒体文件时，
-     * [stop]{@link media.AVRecorder.stop()}操作结束后会把
+     * 订阅媒体资源创建完成的回调事件。当[FileGenerationMode]{@link media.FileGenerationMode}枚举设置为系统创建媒体文件时，
+     * [stop]{@link media.AVRecorder#stop()}操作结束后会把
      * [PhotoAsset]{@link @ohos.file.photoAccessHelper:photoAccessHelper}对象回调给应用。使用callback异步回调。<br>
      * 用户只能订阅一个媒体资源回调事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为准。
      *
@@ -7299,7 +7296,7 @@ declare namespace media {
      */
     on(type: 'photoAssetAvailable', callback: Callback<photoAccessHelper.PhotoAsset>): void;
     /**
-     * 订阅录制状态机[AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}切换的回调事件。
+     * 订阅录制状态机[AVRecorderState]{@link media.AVRecorderState}切换的回调事件。
      * 当AVRecorderState发生变化时，会通过回调方法通知用户。<br>
      * 用户只能订阅一个回调方法，重复订阅时以最后一次订阅的回调接口为准。使用callback异步回调。
      *
@@ -7318,9 +7315,8 @@ declare namespace media {
 
     /**
      * 订阅录制错误的回调事件。该事件仅用于错误提示，用户无需停止录制操作。
-     * 如果[AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}也切换至error状态，
-     * 用户需通过[reset]{@link media.AVRecorder.reset()}
-     * 或者[release]{@link media.AVRecorder.release()}接口退出录制操作。使用callback异步回调。<br>
+     * 如果[AVRecorderState]{@link media.AVRecorderState}也切换至error状态，用户需通过[reset]{@link media.AVRecorder#reset()}
+     * 或者[release]{@link media.AVRecorder#release()}接口退出录制操作。使用callback异步回调。<br>
      * 用户只能订阅一个错误事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为准。
      *
      * @param { 'error' } type - 录制错误的回调类型，支持的事件：'error'。
@@ -7344,7 +7340,7 @@ declare namespace media {
     on(type: 'error', callback: ErrorCallback): void;
 
     /**
-     * 取消订阅录制状态机[AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}切换的回调事件。使用callback异步回调。
+     * 取消订阅录制状态机[AVRecorderState]{@link media.AVRecorderState}切换的回调事件。使用callback异步回调。
      *
      * @param { 'stateChange' } type - 录制状态机切换的回调类型，支持的事件：'stateChange'，用户操作和系统都会触发此事件。
      * @param { OnAVRecorderStateChangeHandler } callback - 回调函数，用于接收录制状态机切换事件。
@@ -7404,8 +7400,8 @@ declare namespace media {
     onAudioCapturerChange(callback: Callback<audio.AudioCapturerChangeInfo>): void;
 
     /**
-     * 订阅媒体资源创建完成的回调事件。当[FileGenerationMode]{@link @ohos.multimedia.media:media.FileGenerationMode}枚举设置为系统创建媒体文件时，
-     * [stop]{@link media.AVRecorder.stop()}操作结束后会把
+     * 订阅媒体资源创建完成的回调事件。当[FileGenerationMode]{@link media.FileGenerationMode}枚举设置为系统创建媒体文件时，
+     * [stop]{@link media.AVRecorder#stop()}操作结束后会把
      * [PhotoAsset]{@link @ohos.file.photoAccessHelper:photoAccessHelper}对象回调给应用。使用callback异步回调。<br>
      * 用户只能订阅一个媒体资源回调事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为准。
      *
@@ -7419,7 +7415,7 @@ declare namespace media {
     onPhotoAssetAvailable(callback: Callback<photoAccessHelper.PhotoAsset>): void;
 
     /**
-     * 订阅录制状态机[AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}切换的回调事件。
+     * 订阅录制状态机[AVRecorderState]{@link media.AVRecorderState}切换的回调事件。
      * 当AVRecorderState发生变化时，会通过回调方法通知用户。<br>
      * 用户只能订阅一个回调方法，重复订阅时以最后一次订阅的回调接口为准。使用callback异步回调。
      *
@@ -7434,9 +7430,9 @@ declare namespace media {
 
     /**
      * 订阅录制错误的回调事件。该事件仅用于错误提示，用户无需停止录制操作。
-     * 如果[AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}也切换至error状态，
-     * 用户需通过[reset]{@link media.AVRecorder.reset()}
-     * 或者[release]{@link media.AVRecorder.release()}接口退出录制操作。使用callback异步回调。<br>
+     * 如果[AVRecorderState]{@link media.AVRecorderState}也切换至error状态，
+     * 用户需通过[reset]{@link media.AVRecorder#reset()}
+     * 或者[release]{@link media.AVRecorder#release()}接口退出录制操作。使用callback异步回调。<br>
      * 用户只能订阅一个错误事件的回调方法，当用户重复订阅时，以最后一次订阅的回调接口为准。
      *
      * @param { ErrorCallback } callback - 回调函数，返回录制错误事件。
@@ -7457,7 +7453,7 @@ declare namespace media {
     onError(callback: ErrorCallback): void;
 
     /**
-     * 取消订阅录制状态机[AVRecorderState]{@link @ohos.multimedia.media:media.AVRecorderState}切换的回调事件。使用callback异步回调。
+     * 取消订阅录制状态机[AVRecorderState]{@link media.AVRecorderState}切换的回调事件。使用callback异步回调。
      *
      * @param { OnAVRecorderStateChangeHandler } [callback] - 回调函数，用于接收录制状态机切换事件。
      *     如果指定参数则取消对应callback（callback对象不能是匿名函数），否则取消所有callback。
@@ -7883,10 +7879,10 @@ declare namespace media {
   /**
    * > **说明：**
    * >
-   * > 从API version 6开始支持，从API version 9开始废弃，建议使用[AVRecorder]{@link @ohos.multimedia.media:media}替代。
+   * > 从API version 6开始支持，从API version 9开始废弃，建议使用[AVRecorder]{@link media.AVRecorder}替代。
    * 
    * 音频录制管理类，用于录制音频媒体。在调用AudioRecorder的方法前，需要先通过
-   * [createAudioRecorder()]{@link @ohos.multimedia.media:media.createAudioRecorder} 构建一个AudioRecorder实例。
+   * [createAudioRecorder()]{@link media.createAudioRecorder} 构建一个AudioRecorder实例。
    *
    * @syscap SystemCapability.Multimedia.Media.AudioRecorder
    * @since 6 dynamiconly
@@ -7899,7 +7895,7 @@ declare namespace media {
      * 
      * > **说明：**
      * > > 从API version 6开始支持，从API version 9开始废弃，建议使用
-     * > [AVRecorder.prepare]{@link @ohos.multimedia.media:media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
+     * > [AVRecorder.prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)}
      * > 替代。
      *
      * @permission ohos.permission.MICROPHONE
@@ -7908,7 +7904,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
      * @deprecated since 9
-     * @useinstead @ohos.multimedia.media:media.AVRecorder.prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)
+     * @useinstead media.AVRecorder#prepare(config: AVRecorderConfig, callback: AsyncCallback<void>)
      */
     prepare(config: AudioRecorderConfig): void;
 
@@ -7917,12 +7913,12 @@ declare namespace media {
      * 
      * > **说明：**
      * > > 从API version 6开始支持，从API version 9开始废弃，建议使用
-     * > [AVRecorder.start]{@link @ohos.multimedia.media:media.AVRecorder.start(callback: AsyncCallback<void>)}替代。
+     * > [AVRecorder.start]{@link media.AVRecorder#start(callback: AsyncCallback<void>)}替代。
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
      * @deprecated since 9
-     * @useinstead @ohos.multimedia.media:media.AVRecorder.start(callback: AsyncCallback<void>)
+     * @useinstead media.AVRecorder#start(callback: AsyncCallback<void>)
      */
     start(): void;
 
@@ -7931,12 +7927,12 @@ declare namespace media {
      * 
      * > **说明：**
      * > > 从API version 6开始支持，从API version 9开始废弃，建议使用
-     * > [AVRecorder.pause]{@link @ohos.multimedia.media:media.AVRecorder.pause(callback: AsyncCallback<void>)}替代。
+     * > [AVRecorder.pause]{@link media.AVRecorder#pause(callback: AsyncCallback<void>)}替代。
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
      * @deprecated since 9
-     * @useinstead @ohos.multimedia.media:media.AVRecorder.pause(callback: AsyncCallback<void>)
+     * @useinstead media.AVRecorder#pause(callback: AsyncCallback<void>)
      */
     pause(): void;
 
@@ -7945,12 +7941,12 @@ declare namespace media {
      * 
      * > **说明：**
      * > > 从API version 6开始支持，从API version 9开始废弃，建议使用
-     * > [AVRecorder.resume]{@link @ohos.multimedia.media:media.AVRecorder.resume(callback: AsyncCallback<void>)}替代。
+     * > [AVRecorder.resume]{@link media.AVRecorder#resume(callback: AsyncCallback<void>)}替代。
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
      * @deprecated since 9
-     * @useinstead @ohos.multimedia.media:media.AVRecorder.resume(callback: AsyncCallback<void>)
+     * @useinstead media.AVRecorder#resume(callback: AsyncCallback<void>)
      */
     resume(): void;
 
@@ -7959,12 +7955,12 @@ declare namespace media {
      * 
      * > **说明：**
      * > > 从API version 6开始支持，从API version 9开始废弃，建议使用
-     * > [AVRecorder.stop]{@link @ohos.multimedia.media:media.AVRecorder.stop(callback: AsyncCallback<void>)}替代。
+     * > [AVRecorder.stop]{@link media.AVRecorder#stop(callback: AsyncCallback<void>)}替代。
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
      * @deprecated since 9
-     * @useinstead @ohos.multimedia.media:media.AVRecorder.stop(callback: AsyncCallback<void>)
+     * @useinstead media.AVRecorder#stop(callback: AsyncCallback<void>)
      */
     stop(): void;
 
@@ -7973,12 +7969,12 @@ declare namespace media {
      * 
      * > **说明：**
      * > > 从API version 6开始支持，从API version 9开始废弃，建议使用
-     * > [AVRecorder.release]{@link @ohos.multimedia.media:media.AVRecorder.release(callback: AsyncCallback<void>)}替代。
+     * > [AVRecorder.release]{@link media.AVRecorder#release(callback: AsyncCallback<void>)}替代。
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
      * @deprecated since 9
-     * @useinstead @ohos.multimedia.media:media.AVRecorder.release(callback: AsyncCallback<void>)
+     * @useinstead media.AVRecorder#release(callback: AsyncCallback<void>)
      */
     release(): void;
 
@@ -7989,12 +7985,12 @@ declare namespace media {
      * 
      * > **说明：**
      * > > 从API version 6开始支持，从API version 9开始废弃，建议使用
-     * > [AVRecorder.reset]{@link @ohos.multimedia.media:media.AVRecorder.reset(callback: AsyncCallback<void>)}替代。
+     * > [AVRecorder.reset]{@link media.AVRecorder#reset(callback: AsyncCallback<void>)}替代。
      *
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
      * @deprecated since 9
-     * @useinstead @ohos.multimedia.media:media.AVRecorder.reset(callback: AsyncCallback<void>)
+     * @useinstead media.AVRecorder#reset(callback: AsyncCallback<void>)
      */
     reset(): void;
 
@@ -8003,19 +7999,23 @@ declare namespace media {
      * 
      * > **说明：**
      * > > 从API version 6开始支持，从API version 9开始废弃，建议使用
-     * > [AVRecorder.on('stateChange')]{@link @ohos.multimedia.media:media.AVRecorder.on(type: 'stateChange', callback: OnAVRecorderStateChangeHandler)}
+     * > [AVRecorder.on('stateChange')]{@link media.AVRecorder#on(type: 'stateChange', callback: OnAVRecorderStateChangeHandler)}
      * > 替代。
      *
-     * @param { 'prepare' | 'start' | 'pause' | 'resume' | 'stop' | 'release' | 'reset' } type - 录制事件回调类型，支持的事件包括：'
-     *     prepare' | 'start' |  'pause' | ’resume‘ | 'stop' | 'release' | 'reset'。<br/>- 'prepare' ：完成prepare调用，音频录制参数设
-     *     置完成，触发该事件。<br/>- 'start' ：完成start调用，音频录制开始，触发该事件。<br/>- 'pause': 完成pause调用，音频暂停录制，触发该事件。<br/>- 'resume': 完成
-     *     resume调用，音频恢复录制，触发该事件。<br/>- 'stop' ：完成stop调用，音频停止录制，触发该事件。<br/>- 'release' ：完成release调用，音频释放录制资源，触发该事件。<br/>
-     *     - 'reset'：完成reset调用，音频重置为初始状态，触发该事件。
+     * @param { 'prepare' | 'start' | 'pause' | 'resume' | 'stop' | 'release' | 'reset' } type - 录制事件回调类型，支持的事件包括：
+     *     'prepare' | 'start' | 'pause' | 'resume' | 'stop' | 'release' | 'reset'。<br/>
+     *     - 'prepare' ：完成prepare调用，音频录制参数设置完成，触发该事件。<br/>
+     *     - 'start' ：完成start调用，音频录制开始，触发该事件。<br/>
+     *     - 'pause' ：完成pause调用，音频暂停录制，触发该事件。<br/>
+     *     - 'resume' ：完成resume调用，音频恢复录制，触发该事件。<br/>
+     *     - 'stop' ：完成stop调用，音频停止录制，触发该事件。<br/>
+     *     - 'release' ：完成release调用，音频释放录制资源，触发该事件。<br/>
+     *     - 'reset' ：完成reset调用，音频重置为初始状态，触发该事件。
      * @param { function } callback - 录制事件回调方法。
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
      * @deprecated since 9
-     * @useinstead @ohos.multimedia.media:media.AVRecorder.on(type: 'stateChange', callback: OnAVRecorderStateChangeHandler)
+     * @useinstead media.AVRecorder#on(type: 'stateChange', callback: OnAVRecorderStateChangeHandler)
      */
     on(type: 'prepare' | 'start' | 'pause' | 'resume' | 'stop' | 'release' | 'reset', callback: () => void): void;
 
@@ -8024,7 +8024,7 @@ declare namespace media {
      * 
      * > **说明：**
      * > > 从API version 6开始支持，从API version 9开始废弃，建议使用
-     * > [AVRecorder.on('error')]{@link @ohos.multimedia.media:media.AVRecorder.on(type: 'error', callback: ErrorCallback)}
+     * > [AVRecorder.on('error')]{@link media.AVRecorder#on(type: 'error', callback: ErrorCallback)}
      * > 替代。
      *
      * @param { 'error' } type - 录制错误事件回调类型'error'。<br/>- 'error'：音频录制过程中发生错误，触发该事件。
@@ -8032,7 +8032,7 @@ declare namespace media {
      * @syscap SystemCapability.Multimedia.Media.AudioRecorder
      * @since 6 dynamiconly
      * @deprecated since 9
-     * @useinstead @ohos.multimedia.media:media.AVRecorder.on(type: 'error', callback: ErrorCallback)
+     * @useinstead media.AVRecorder#on(type: 'error', callback: ErrorCallback)
      */
     on(type: 'error', callback: ErrorCallback): void;
   }
