@@ -713,10 +713,7 @@ declare namespace applicationManager {
    * >
    * > 2. If the application running blocklist is not empty, this API cannot be used to add applications to the running
    * > trustlist. Otherwise, the error code 9200010 is reported. APIs related to the application running blocklist
-   * > include [addDisallowedRunningBundlesSync]{@link applicationManager.addDisallowedRunningBundlesSync},
-   * > [addDisallowedRunningBundles]{@link applicationManager.addDisallowedRunningBundles},
-   * > [addDisallowedRunningBundles]{@link applicationManager.addDisallowedRunningBundles}, and
-   * > [addDisallowedRunningBundles]{@link applicationManager.addDisallowedRunningBundles}.
+   * > include [addDisallowedRunningBundlesSync]{@link applicationManager.addDisallowedRunningBundlesSync}.
    * >
    * > 3. This API only takes effect for third-party applications. System applications are not subject to this list and
    * > are allowed to run by default.
