@@ -24,6 +24,7 @@ import type common2D from './@ohos.graphics.common2D';
 import type componentUtils from './@ohos.arkui.componentUtils';
 import { UIContext } from './@ohos.arkui.UIContext';
 import type Want from './@ohos.app.ability.Want';
+import common from './@ohos.app.ability.common';
 
 /**
  * Module for AI-generated images using UI Component.
@@ -1005,7 +1006,19 @@ declare namespace imageGeneration {
    * @since 26.0.0 dynamic
    */
   function restoreGeneratorDialog(uiContext: UIContext): Promise<void>;
-
+  /**
+   * Start the smart canvas service.
+   *
+   * @param { common.ServiceExtensionContext | common.UIAbilityContext | common.UIExtensionContext } context - different
+   *     ability context.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic
+   */
+  function startSmartCanvasService(
+    context: common.ServiceExtensionContext | common.UIAbilityContext | common.UIExtensionContext): Promise<void>;
   /**
    * Parameters used to open the NodeGraphComponent.
    *
