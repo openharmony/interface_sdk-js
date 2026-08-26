@@ -2805,10 +2805,10 @@ declare namespace backgroundTaskManager {
      * 当接收到以下公共事件时，相关授权记录将被清除：
      * 
      * [COMMON_EVENT_PACKAGE_ADDED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_ADDED}、
-     * [COMMON_EVENT_PACKAGE_REMOVED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_ADDED}、
-     * [COMMON_EVENT_BUNDLE_REMOVED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_ADDED}、
-     * [COMMON_EVENT_PACKAGE_FULLY_REMOVED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_ADDED}、
-     * [COMMON_EVENT_PACKAGE_CHANGED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_ADDED}。
+     * [COMMON_EVENT_PACKAGE_REMOVED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_REMOVED}、
+     * [COMMON_EVENT_BUNDLE_REMOVED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_BUNDLE_REMOVED}、
+     * [COMMON_EVENT_PACKAGE_FULLY_REMOVED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_FULLY_REMOVED}、
+     * [COMMON_EVENT_PACKAGE_CHANGED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_CHANGED}。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
