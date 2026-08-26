@@ -2809,7 +2809,6 @@ declare namespace backgroundTaskManager {
      * [COMMON_EVENT_BUNDLE_REMOVED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_ADDED}、
      * [COMMON_EVENT_PACKAGE_FULLY_REMOVED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_ADDED}、
      * [COMMON_EVENT_PACKAGE_CHANGED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_ADDED}。
-     * [COMMON_EVENT_PACKAGE_ADDED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_package_added)
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic
