@@ -248,3 +248,66 @@ export declare struct InputMethodListDialog {
   @Builder
   build(): void;
 }
+
+/**
+ * ##  示例
+ * <br>
+ * <br>```ts
+ * <br>import { PatternOptions, InputMethodListDialog } from '@kit.IMEKit';
+ * <br>
+ * <br>@Entry
+ * <br>// 设置组件
+ * <br>@Component
+ * <br>struct SettingsItem {
+ * <br> @State defaultPattern: number = 1;
+ * <br> private oneHandAction: PatternOptions = {
+ * <br>   defaultSelected: this.defaultPattern,
+ * <br>   patterns: [ // patterns中的图标需要在工程的resource中添加对应图标资源后使用
+ * <br>     {
+ * <br>       icon: $r('app.media.hand_icon'), // 此处为输入法模式选项的图标资源，例如单手模式图标
+ * <br>       selectedIcon: $r('app.media.hand_icon_selected') // 此处为输入法模式选项的图标资源选中状态，例如单手模式选中状态的图标
+ * <br>     },
+ * <br>     {
+ * <br>       icon: $r('app.media.hand_icon1'),
+ * <br>       selectedIcon: $r('app.media.hand_icon_selected1')
+ * <br>     },
+ * <br>     {
+ * <br>       icon: $r('app.media.hand_icon2'),
+ * <br>       selectedIcon: $r('app.media.hand_icon_selected2')
+ * <br>     }],
+ * <br>   // 模式选项改变时的回调函数
+ * <br>   action: (index: number) => {
+ * <br>     console.info(`pattern is changed, current is ${index}`);
+ * <br>     this.defaultPattern = index; // 更新默认选择的模式
+ * <br>   }
+ * <br> };
+ * <br> // 创建自定义对话框控制器
+ * <br> private listController: CustomDialogController = new CustomDialogController({
+ * <br>   builder: InputMethodListDialog({ patternOptions: this.oneHandAction }), // 构建输入法切换列表弹窗
+ * <br>   customStyle: true,
+ * <br>   maskColor: '#00000000'
+ * <br> });
+ * <br>
+ * <br> build() {
+ * <br>   Column() {
+ * <br>     Flex({
+ * <br>       direction: FlexDirection.Column,
+ * <br>       alignItems: ItemAlign.Center, 
+ * <br>       justifyContent: FlexAlign.Center 
+ * <br>     }) {
+ * <br>       Text('输入法切换列表').fontSize(20)
+ * <br>     }
+ * <br>   }
+ * <br>   .width('13%')
+ * <br>   .id('bindInputMethod')
+ * <br>   .onClick((event?: ClickEvent) => {
+ * <br>     this.listController.open();
+ * <br>   })
+ * <br> }
+ * <br>}
+ * <br>```
+ * <br>
+ * <br>示例效果图：
+ * <br>![示例效果图](docroot://reference/apis-ime-kit/figures/示例效果图.png)
+ *
+ */
