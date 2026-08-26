@@ -57,18 +57,15 @@ declare namespace media {
   function createAVPlayer(callback: AsyncCallback<AVPlayer>): void;
 
   /**
-   * Creates an **AVPlayer** instance. This API uses an asynchronous callback to return the result.
-   * <br>**NOTE:**<br>
-   * You are advised to create a maximum of 16 **AVPlayer** instances for an application in both audio and video
-   * playback scenarios.
+   * 创建一个AVPlayer实例。此API采用异步回调方式返回结果。
+   * <br>**注意:**<br>
+   * 建议在音频和视频播放场景中，为应用程序最多创建16个**AVPlayer**实例。
    * 
-   * The actual number of instances that can be created may be different.
-   * It depends on the specifications of the device chip in use.
+   * 实际可创建的实例数量可能有所不同。
+   * 这取决于所使用的设备芯片的规格。
    *
-   * @param { AsyncCallback<AVPlayer | undefined> } callback - used to return the result. If the operation is successful
-   *     , an
-   *     **AVPlayer** instance is returned; otherwise, **null** is returned. The instance can be used to play
-   *     audio and video.
+   * @param { AsyncCallback<AVPlayer | undefined> } callback - 用于返回结果。如果操作成功，则返回AVPlayer实例；否则，返回null。该实例可用于播放音频和视频。
+   *
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
@@ -97,18 +94,14 @@ declare namespace media {
   function createAVPlayer(): Promise<AVPlayer>;
 
   /**
-   * Creates an **AVPlayer** instance. This API uses a promise to return the result.
+   * 创建AVPlayer实例。此API使用promise返回结果。
    * <br>**NOTE:**<br>
-   * You are advised to create a maximum of 16 **AVPlayer** instances for an application in both audio and video
-   * playback scenarios.
+   * 建议在音频和视频播放场景中，为应用程序最多创建16个**AVPlayer**实例。
    * 
-   * The actual number of instances that can be created may be different. It depends on the specifications of
-   * the device chip in use.
+   * 实际可创建的实例数量可能有所不同。
+   * 这取决于所使用的设备芯片的规格。
    *
-   * @returns { Promise<AVPlayer | undefined> } A Promise instance used to return the result. If the operation is
-   *     successful, an
-   *     **AVPlayer** instance is returned; **null** is returned otherwise. The instance can be used to play
-   *     audio and video.
+   * @returns { Promise<AVPlayer | undefined> } 用于返回结果的Promise实例。如果操作成功，则返回AVPlayer实例；否则返回null。该实例可用于播放音频和视频。
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform
@@ -2524,61 +2517,48 @@ declare namespace media {
    * [stateChange]{@link @ohos.multimedia.media:media.AVPlayer.on(type: 'stateChange', callback: OnAVPlayerStateChangeHandle)}
    * 事件上报当前状态，状态机之间的切换规则，可参考[音频播放开发指导](docroot://media/media/using-avplayer-for-playback.md)。
    *
-   * @unionmember { 'idle' } The AVPlayer enters this state after
-   *     [createAVPlayer()]{@link @ohos.multimedia.media:media.createAVPlayer(callback: AsyncCallback<AVPlayer>)} or
-   *     [reset()]{@link @ohos.multimedia.media:media.AVPlayer.reset(callback: AsyncCallback<void>)} is called.
-   *     <br>In case [createAVPlayer()]{@link @ohos.multimedia.media:media.createAVPlayer(callback: AsyncCallback<AVPlayer>)}
-   *     is used, all properties are set to their default values.
-   *     <br>In case [reset()]{@link @ohos.multimedia.media:media.AVPlayer.reset(callback: AsyncCallback<void>) } 闲置状态，
-   *     AVPlayer刚被创建
-   *     [createAVPlayer()]{@link @ohos.multimedia.media:media.createAVPlayer(callback: AsyncCallback<AVPlayer>)}或者调用了
-   *     [reset()]{@link @ohos.multimedia.media:media.AVPlayer.reset(callback: AsyncCallback<void>)}方法之后，进入idle状态。<br/>首
-   *     次创建[createAVPlayer()]{@link @ohos.multimedia.media:media.createAVPlayer(callback: AsyncCallback<AVPlayer>)}，所有属
-   *     性都为默认值。<br/>调用[reset()]{@link @ohos.multimedia.media:media.AVPlayer.reset(callback: AsyncCallback<void>)}方法，url
+   * @unionmember { 'idle' } 闲置状态，AVPlayer刚被创建
+   *     [createAVPlayer()]{@link @ohos.multimedia.media:media.createAVPlayer(callback: AsyncCallback<AVPlayer>)}
+   *     或者调用了[reset()]{@link @ohos.multimedia.media:media.AVPlayer.reset(callback: AsyncCallback<void>)}方法之后，进入idle状态。
+   *     首次创建[createAVPlayer()]{@link @ohos.multimedia.media:media.createAVPlayer(callback: AsyncCallback<AVPlayer>)}，
+   *     所有属性都为默认值。
+   *     调用[reset()]{@link @ohos.multimedia.media:media.AVPlayer.reset(callback: AsyncCallback<void>)}方法，url
    *     <sup>9+</sup> 或 fdSrc<sup>9+</sup>或dataSrc<sup>10+</sup>属性及loop属性会被重置，其他用户设置的属性将被保留。
-   * @unionmember { 'initialized' } 资源初始化，在idle 状态设置 url<sup>9+</sup> 或 fdSrc<sup>9+</sup>属性，AVPlayer会进入initialized状态，此时
-   *     可以配置窗口、音频等静态属性。
-   * @unionmember { 'prepared' } The AVPlayer enters this state when
-   *     [prepare()]{@link @ohos.multimedia.media:media.AVPlayer.prepare(callback: AsyncCallback<void>) } 已准备状态，在
-   *     initialized状态调用[prepare()]{@link @ohos.multimedia.media:media.AVPlayer.prepare(callback: AsyncCallback<void>)}方
-   *     法，AVPlayer会进入prepared状态，此时播放引擎的资源已准备就绪。
-   * @unionmember { 'playing' } The AVPlayer enters this state when
-   *     [play()]{@link @ohos.multimedia.media:media.AVPlayer.play(callback: AsyncCallback<void>) } 正在播放状态，在prepared/
-   *     paused/completed状态调用[play()]{@link @ohos.multimedia.media:media.AVPlayer.play(callback: AsyncCallback<void>)}方法
-   *     ，AVPlayer会进入playing状态。
+   *
+   * @unionmember { 'initialized' } 资源初始化，在idle状态设置 url<sup>9+</sup> 或 fdSrc<sup>9+</sup>属性，
+   *     AVPlayer会进入initialized状态，此时可以配置窗口、音频等静态属性。
+   *
+   * @unionmember { 'prepared' } 已准备状态，AVPlayer在initialized状态
+   *     调用[prepare()]{@link @ohos.multimedia.media:media.AVPlayer.prepare(callback: AsyncCallback<void>)}方法，
+   *     AVPlayer会进入prepared状态，此时播放引擎的资源已准备就绪。
+   *
+   * @unionmember { 'playing' } 正在播放状态，AVPlayer在prepared/paused/completed状态调用
+   *     [play()]{@link @ohos.multimedia.media:media.AVPlayer.play(callback: AsyncCallback<void>)}方法，AVPlayer会进入playing状态。
+   *
    * @unionmember { 'paused' } 暂停状态，在playing状态调用pause方法，AVPlayer会进入paused状态。
-   * @unionmember { 'completed' } The AVPlayer enters this state when a media asset finishes playing and loop playback
-   *     is not set (no **loop = true**). In this case, if
-   *     [play()]{@link @ohos.multimedia.media:media.AVPlayer.play(callback: AsyncCallback<void>)} is called, the
-   *     AVPlayer enters the playing state and replays the media asset; if
-   *     [stop()]{@link @ohos.multimedia.media:media.AVPlayer.stop(callback: AsyncCallback<void>) } 播放至结尾状态，当媒体资源播放至结尾时，
-   *     如果用户未设置循环播放（loop = true），AVPlayer会进入completed状态，此时调用
+   *
+   * @unionmember { 'completed' } 播放至结尾状态，当媒体资源播放至结尾时，如果用户未设置循环播放（loop=true），AVPlayer会进入completed状态，
+   *     此时调用
    *     [play()]{@link @ohos.multimedia.media:media.AVPlayer.play(callback: AsyncCallback<void>)}会进入playing状态和重播，调用
    *     [stop()]{@link @ohos.multimedia.media:media.AVPlayer.stop(callback: AsyncCallback<void>)}会进入stopped状态。
-   * @unionmember { 'stopped' } The AVPlayer enters this state when
-   *     [stop()]{@link @ohos.multimedia.media:media.AVPlayer.stop(callback: AsyncCallback<void>)} is called in the
-   *     prepared, playing, paused, or completed state. In this case, the playback engine retains the properties but
-   *     releases the memory resources. You can call
-   *     [prepare()]{@link @ohos.multimedia.media:media.AVPlayer.prepare(callback: AsyncCallback<void>)} to prepare the
-   *     resources again, call
-   *     [reset()]{@link @ohos.multimedia.media:media.AVPlayer.reset(callback: AsyncCallback<void>)} to reset the
-   *     properties, or call
-   *     [release()]{@link @ohos.multimedia.media:media.AVPlayer.release(callback: AsyncCallback<void>) } 停止状态，在prepared
-   *     /playing/paused/completed状态调用
+   *
+   * @unionmember { 'stopped' } 停止状态，在prepared/playing/paused/completed状态调用
    *     [stop()]{@link @ohos.multimedia.media:media.AVPlayer.stop(callback: AsyncCallback<void>)}方法，AVPlayer会进入stopped状
    *     态，此时播放引擎只会保留属性，但会释放内存资源，可以调用
    *     [prepare()]{@link @ohos.multimedia.media:media.AVPlayer.prepare(callback: AsyncCallback<void>)}重新准备，也可以调用
    *     [reset()]{@link @ohos.multimedia.media:media.AVPlayer.reset(callback: AsyncCallback<void>)}重置，或者调用
    *     [release()]{@link @ohos.multimedia.media:media.AVPlayer.release(callback: AsyncCallback<void>)}彻底销毁。
+   *
    * @unionmember { 'released' } 销毁状态，销毁与当前
    *     AVPlayer关联的播放引擎，无法再进行状态转换，调用
    *     [release()]{@link @ohos.multimedia.media:media.AVPlayer.release(callback: AsyncCallback<void>)}方法后，会进入released状
    *     态，结束流程。
+   *
    * @unionmember { 'error' } 错误状态，当播放引擎发生不可逆的错误（详见Media错误码），则会转换至当前状态，可以调用
    *     [reset()]{@link @ohos.multimedia.media:media.AVPlayer.reset(callback: AsyncCallback<void>)} 重置，也可以调用release()
    *     [release()]{@link @ohos.multimedia.media:media.AVPlayer.release(callback: AsyncCallback<void>)} 销毁重建。详见错误码
    *     [Media Error Codes](docroot://reference/apis-media-kit/errorcode-media.md).
-   *     <br>**NOTE**
+   *     <br>**注意：**
    *     <br>区分error状态和
    *     [on('error')]{@link @ohos.multimedia.media:media.AVPlayer.on(type: 'error', callback: ErrorCallback)} :
    *     <br>1. 进入error状态时，会触发on('error')监听事件，可以通过on('error')事件获取详细错误信息；
@@ -2587,6 +2567,7 @@ declare namespace media {
    *     [release()]{@link @ohos.multimedia.media:media.AVPlayer.release(callback: AsyncCallback<void>)}销毁重建；<br/>3、如果客户
    *     端收到on('error')，但未进入error状态：<br/>原因1：客户端未按状态机调用API或传入参数错误，被AVPlayer拦截提醒，需要客户端调整代码逻辑；<br/>原因2：播放过程发现码流问题，导致容器、解码短
    *     暂异常，不影响连续播放和播控操作的，不需要客户端设计容错机制。
+   * 
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @crossplatform [since 12]
    * @atomicservice [since 11]
