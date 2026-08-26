@@ -17,7 +17,7 @@
  * 音频池提供了短音频的加载、播放、音量设置、循环设置、停止播放、资源卸载等功能。
  * 
  * SoundPool需要和@ohos.multimedia.media配合使用，需要先通过
- * [media.createSoundPool](docroot://reference/apis-media-kit/arkts-apis-media-f.md)
+ * [createSoundPool]{@link ../@ohos.multimedia.media:media.createSoundPool}
  * 完成音频池实例的创建。
  *
  * @file
@@ -125,7 +125,7 @@ export interface PlayParameters {
    */
   loop?: int;
   /**
-   * 设置音频播放的倍速，具体倍速范围参照[AudioRendererRate](docroot://reference/apis-audio-kit/arkts-apis-audio-e.md)。默认值：0。
+   * 设置音频播放的倍速，具体倍速范围参照[AudioRendererRate]{@link ../@ohos.multimedia.audio:audio.AudioRendererRate}。默认值：0。
    *
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
@@ -189,7 +189,7 @@ export interface PlayParameters {
 
 /**
  * 音频池提供了系统声音的加载、播放、音量设置、循环设置、停止播放和资源卸载等功能，在调用SoundPool的接口前，需要先通过
- * [media.createSoundPool](docroot://reference/apis-media-kit/arkts-apis-media-f.md)
+ * [createSoundPool]{@link ../@ohos.multimedia.media:media.createSoundPool}
  * 创建实例。
  * 
  * > **说明：**
@@ -391,7 +391,7 @@ export declare interface SoundPool {
   stop(streamID: int): Promise<void>;
   /**
    * 设置同一ID音频在播放时的打断模式。创建soundPool之后，该接口仅在首次调用soundPool的Play函数之前设置有效，期间可多次设置，否则将默认使用
-   * [SAME_SOUND_INTERRUPT](docroot://reference/apis-media-kit/arkts-apis-media-e.md)，即对同一ID的音频，如果前者尚未播放完成，后者在播放前会先打断前
+   * [SAME_SOUND_INTERRUPT](docroot://reference/apis-media-kit/arkts-media-media-soundinterruptmode-e.md)，即对同一ID的音频，如果前者尚未播放完成，后者在播放前会先打断前
    * 者的播放。
    *
    * @param { media.SoundInterruptMode } interruptMode - 同一ID音频在播放时的打断模式，通过media.SoundInterruptMode枚举获取。
