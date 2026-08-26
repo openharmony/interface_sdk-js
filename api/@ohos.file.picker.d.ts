@@ -201,7 +201,7 @@ declare namespace picker {
 
     /**
      * A constructor used to create a PhotoViewPicker instance. This constructor is recommended. For details about how
-     * to obtain the context, see [getHostContext]{@link @ohos.arkui.UIContext.UIContext#getHostContext}.
+     * to obtain the context, see [getHostContext]{@link @ohos.arkui.UIContext:UIContext#getHostContext}.
      *
      * @param { Context } context - Application context (only **UIAbilityContext** is supported). For details about the
      *     application context of the stage model, see [Context]{@link ./app/context}.
@@ -941,7 +941,7 @@ declare namespace picker {
     /**
      * A constructor used to create a **DocumentViewPicker** instance. This constructor is recommended. For details
      * about how to obtain the context, see
-     * [getHostContext](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#gethostcontext12).
+     * [getHostContext]{@link @ohos.arkui.UIContext:UIContext#getHostContext}.
      *
      * @param { Context } context - Application context (only **UIAbilityContext** is supported). For details about the
      *     application context of the stage model, see [Context]{@link ./app/context}.
@@ -1191,7 +1191,7 @@ declare namespace picker {
     /**
      * A constructor used to create an **AudioViewPicker** instance. This constructor is recommended. For details about
      * how to obtain the context, see
-     * [getHostContext](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#gethostcontext12).
+     * [getHostContext]{@link @ohos.arkui.UIContext:UIContext#getHostContext}.
      *
      * @param { Context } context - Application context (only **UIAbilityContext** is supported). For details about the
      *     application context of the stage model, see [Context]{@link ./app/context}.
