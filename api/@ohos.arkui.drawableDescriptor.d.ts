@@ -170,6 +170,16 @@ export class DrawableDescriptor {
    * @since 26.0.0 dynamic
    */
   invalidate(): void;
+  /**
+   * set svg resource limit level.
+   * 
+   * @param { image.SVGResourceLimitLevel } limit - svg resource limit level.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.1.0 dynamic
+   */
+  setSVGResourceLimitLevel(limit: image.SVGResourceLimitLevel): void;
 }
 
 /**
