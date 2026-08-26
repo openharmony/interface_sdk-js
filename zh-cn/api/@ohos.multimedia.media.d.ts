@@ -2646,7 +2646,7 @@ declare namespace media {
   type OnSuperResolutionChanged = (enabled: boolean) => void;
 
   /**
-   * Describes the information of an SEI message.
+   * 描述 SEI 消息的信息。
    *
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
@@ -2655,7 +2655,7 @@ declare namespace media {
    */
   interface SeiMessage {
     /**
-     * Payload type of SEI message.
+     * SEI 消息的有效载荷类型。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -2665,7 +2665,7 @@ declare namespace media {
     payloadType: int;
 
     /**
-     * Payload data of SEI message.
+     * SEI 消息的有效载荷数据。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @atomicservice
@@ -2763,14 +2763,14 @@ declare namespace media {
   }
 
   /**
-   * Describes the information of an Metrics Event.
+   * 描述一个指标事件的信息。
    *
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @since 23 dynamic&static
    */
   interface AVMetricsEvent {
     /**
-     * Type of the metrics event.
+     * 指标事件的类型。
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @stagemodelonly
@@ -2779,7 +2779,7 @@ declare namespace media {
     event: AVMetricsEventType;
 	
     /**
-     * Absolute timestamp when the event occurred.
+     * 事件发生的绝对时间戳。
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 dynamic&static
@@ -2787,7 +2787,7 @@ declare namespace media {
     timeStamp: long;
 
     /**
-     * The playback progress position when the event occurs.
+     * 事件发生时的播放进度位置。
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 dynamic&static
@@ -2795,7 +2795,7 @@ declare namespace media {
     playbackPosition: int;
 	
     /**
-     * The detailed information of the event.
+     * 事件的详细信息。
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @stagemodelonly
@@ -3792,8 +3792,8 @@ declare namespace media {
     videoScaleType?: VideoScaleType;
 
     /**
-     * Audio privacy configuration. For more information, see {@link #audio.AudioPrivacyType}.
-     * Default value: PRIVACY_TYPE_PUBLIC.
+     * 音频隐私设置。如需更多信息，请参阅 {@link #audio.AudioPrivacyType}.
+     * 默认值: PRIVACY_TYPE_PUBLIC.
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @systemapi
@@ -3804,8 +3804,8 @@ declare namespace media {
     privacyType?: audio.AudioPrivacyType;
 
     /**
-     * Whether a slower synchronization policy is used at the start of playback to reduce subjective image jitter caused
-     * by insufficient frame rate. Default value: false, means that the slower synchronization policy will not be used.
+     * 在播放开始时是否使用较慢的同步策略，以减少由于帧率不足引起的主观图像抖动
+     * 默认值：false，表示不会使用较慢的同步策略。
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @systemapi
@@ -4529,7 +4529,7 @@ declare namespace media {
     off(type:'superResolutionChanged', callback?: OnSuperResolutionChanged): void;
 
     /**
-     * Register listens for mediaKeySystemInfoUpdate events.
+     * 注册监听 mediaKeySystemInfoUpdate 事件。
      *
      * @param { Callback<Array<drm.MediaKeySystemInfo>> } callback - Callback invoked when the event is triggered.
      *     It reports a **MediaKeySystemInfo** array.
@@ -4539,8 +4539,8 @@ declare namespace media {
     onMediaKeySystemInfoUpdate( callback: Callback<Array<drm.MediaKeySystemInfo>>): void;
 
     /**
-     * Register listens for media playback stateChange event.
-     * This event can be triggered by both user operations and the system.
+     * 注册监听媒体播放状态变更事件。
+     * 此事件可以由用户操作和系统触发。
      *
      * @param { OnAVPlayerStateChangeHandle } callback - Callback invoked when the event is triggered.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -4549,150 +4549,149 @@ declare namespace media {
     onStateChange(callback: OnAVPlayerStateChangeHandle): void;
 
     /**
-     * Subscribes to the event to check whether the volume is successfully set.
+     * 订阅事件以检查音量是否已成功设置。
      *
-     * @param { Callback<double> } callback - Callback invoked when the event is triggered.
-     *     It reports the effective volume.
+     * @param { Callback<double> } callback - 事件触发时调用回调。
+     *     它上报有效音量。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onVolumeChange(callback: Callback<double>): void;
 
     /**
-     * Subscribes to the event that indicates the end of the stream being played. If {@link #loop} = true is set,
-     * the AVPlayer seeks to the beginning of the stream and plays the stream again. If loop is not set,
-     * the completed state is reported through the {@link #stateChange} event.
+     * 订阅表示正在播放的流结束的事件。如果设置了 {@link#loop} = true，
+     * AVPlayer寻找流的开头并再次播放流。如果未设置循环，
+     * 完成状态通过 {@link#stateChange} 事件上报。
      *
-     * @param { Callback<void> } callback - Callback invoked when the event is triggered.
+     * @param { Callback<void> } callback - 事件触发时调用回调。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onEndOfStream(callback: Callback<void>): void;
 
     /**
-     * Subscribes to the event to check whether the seek operation takes effect.
+     * 订阅检查查找操作是否生效事件。
      *
-     * @param { Callback<int> } callback - Callback invoked when the event is triggered.
-     *     It reports the time position requested by the user.
-     *     For video playback, {@link #SeekMode} may cause the actual position to be different from that
-     *     requested by the user.The exact position can be obtained from the currentTime attribute. The time
-     *     in this callback only means that the requested seek operation is complete.
+     * @param { Callback<int> } callback - 事件触发时调用回调。
+     *     它上报了用户请求的时间位置。
+     *     对于视频播放，｛@link#SeekMode｝可能会导致实际位置与用户请求的位置不同
+     *     确切的位置可以从 currentTime 属性中获得。
+     *     此回调中的时间仅表示请求的查找操作已完成。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onSeekDone(callback: Callback<int>): void;
 
     /**
-     * Subscribes to the event to check whether the playback speed is successfully set.
+     * 订阅检查是否成功设置了播放速度事件。
      *
-     * @param { Callback<int> } callback - Callback used to return the result. When the call of
-     *     setSpeed is successful, the effective speed mode is reported. For details, see {@link #PlaybackSpeed}.
+     * @param { Callback<int> } callback - 回调用于返回结果。
+     *     当调用 setSpeed 成功时，会上报有效速度模式。有关详细信息，请参阅 {@link #PlaybackSpeed}.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onSpeedDone(callback: Callback<int>): void;
 
     /**
-     * Register listens for media playbackRateDone event.
+     * 注册监听媒体 playbackRateDone 事件。
      *
-     * @param { OnPlaybackRateDone } callback - Callback used to listen for the playbackRateDone event.
+     * @param { OnPlaybackRateDone } callback - 回调用于监听 playbackRateOne 事件。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onPlaybackRateDone(callback: OnPlaybackRateDone): void;
 
     /**
-     * Subscribes to the event to check whether the bit rate is successfully set.
+     * 订阅检查是否成功设置了比特率事件。
      *
-     * @param { Callback<int> } callback - Callback invoked when the event is triggered.
-     *     It reports the effective bit rate.
+     * @param { Callback<int> } callback - 事件触发时调用回调。
+     *     它上报了有效比特率。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onBitrateDone(callback: Callback<int>): void;
 
     /**
-     * Subscribes to playback position changes. It is used to refresh the current position of the progress bar.
-     * By default, this event is reported every 100 ms. However, it is reported immediately upon
-     * a successful seek operation.
+     * 订阅播放位置变更。用于刷新进度条的当前位置。
+     * 默认情况下，此事件每100毫秒上报一次。
+     * 一旦跳转成功，则立即上报。
      *
-     * @param { Callback<int> } callback - Callback used to return the current time.
+     * @param { Callback<int> } callback - 回调用于返回当前时间。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onTimeUpdate(callback: Callback<int>): void;
 
     /**
-     * Subscribes to media asset duration changes. It is used to refresh the length of the progress bar. By
-     * default, this event is reported once in the prepared state. However, it can be repeatedly reported for
-     * special streams that trigger duration changes. The **'durationUpdate'** event is not supported in live mode.
+     * 订阅媒体资源持续时间变更。它用于刷新进度条的长度。
+     * 默认情况下，此事件在准备状态下上报一次。然而，对于触发持续变化的特殊流，可以重复上报。
+     * 实时模式下不支持 **“durationUpdate”** 事件。
      *
-     * @param { Callback<int> } callback - Callback used to return the resource duration.
+     * @param { Callback<int> } callback - 回调用于返回资源持续时间。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onDurationUpdate(callback: Callback<int>): void;
 
     /**
-     * Subscribes to audio and video buffer changes. This subscription is supported only in network
-     * playback scenarios.
+     * 订阅音频和视频缓冲区变更。
+     * 仅在网络播放场景中支持此订阅。
      *
-     * @param { OnBufferingUpdateHandler } callback - Callback invoked when the event is triggered,
-     *     and return BufferingInfoType and the value.
+     * @param { OnBufferingUpdateHandler } callback - 事件触发时调用回调，
+     *     并返回 BufferingInfoType 和 值。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onBufferingUpdate(callback: OnBufferingUpdateHandler): void;
 
     /**
-     * Subscribes to the event that indicates rendering starts for the first frame. This subscription is
-     * supported only in video playback scenarios. This event only means that the playback service sends
-     * the first frame to the display module. The actual rendering effect depends on the rendering performance
-     * of the display service.
+     * 订阅指示第一帧渲染开始的事件。仅在视频播放场景中支持此订阅。
+     * 此事件仅表示播放服务将第一帧发送到显示模块。
+     * 实际的渲染效果取决于显示服务的渲染性能。
      *
-     * @param { Callback<void> } callback - Callback invoked when the event is triggered.
+     * @param { Callback<void> } callback - 事件触发时调用回调。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onStartRenderFrame(callback: Callback<void>): void;
 
     /**
-     * Subscribes to video size (width and height) changes. This subscription is supported only in video playback
-     * scenarios. By default, this event is reported only once in the prepared state. However, it is also reported
-     * upon resolution changes in the case of HLS streams.
+     * 订阅视频大小（宽度和高度）更改。仅在视频播放场景中支持此订阅。
+     * 默认情况下，此事件在准备状态下只上报一次。 
+     * 然而，在 HLS 流发生改变的情况下，它也会上报
      *
-     * @param { OnVideoSizeChangeHandler } callback - Callback invoked when the event is triggered.
+     * @param { OnVideoSizeChangeHandler } callback - 事件触发时调用回调，
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onVideoSizeChange(callback: OnVideoSizeChangeHandler): void;
 
     /**
-     * Register listens for audio interrupt event, refer to {@link #audio.InterruptEvent}.
-     * The application needs to perform corresponding processing based on different audio interruption events.
-     * For details, see Handling Audio Interruption Events.
+     * 注册监听音频中断事件，请参阅 {@link #audio.InterruptEvent}。
+     * 应用程序需要根据不同的音频中断事件执行相应的处理。
+     * 有关详细信息，请参阅处理音频中断事件。
      *
-     * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for the playback event return
-     *     audio interrupt info.
+     * @param { Callback<audio.InterruptEvent> } callback - 用于监听播放事件的回调返回
+     *     音频中断信息。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onAudioInterrupt(callback: Callback<audio.InterruptEvent>): void;
 
     /**
-     * Register listens for available bitrate list collect completed events for HLS protocol stream playback.
-     * This event will be reported after the {@link #prepare} called.
+     * 注册监听可用比特率列表，收集 HLS 协议流播放的已完成事件。
+     * 此事件将在调用｛@link#prepare｝后上报。
      *
-     * @param { Callback<Array<int>> } callback - Callback used to listen for the playback event return
-     *     available bitrate list. It returns an array that holds the available bit rates.
-     *     If the array length is 0, no bit rate can be set.
+     * @param { Callback<Array<int>> } callback - 用于监听播放事件的回调返回可用比特率列表。
+     *     它返回一个包含可用比特率的数组。
+     *     如果数组长度为0，则无法设置比特率。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onAvailableBitrates(callback: Callback<Array<int>>): void;
 
     /**
-     * Register listens for playback error events.
+     * 注册监听播放错误事件
      *
      * @param { ErrorCallback } callback - Callback used to listen for the playback error event.
      * @throws { BusinessError } 201 - Permission denied.
@@ -4722,39 +4721,39 @@ declare namespace media {
     onError(callback: ErrorCallback): void;
 
     /**
-     * Subscribes to audio stream output device changes and reasons. This API uses an asynchronous callback
-     * to return the result.
+     * 订阅音频流输出设备的更改及其原因。
+     * 此API使用异步回调来返回结果。
      * 
-     * When subscribing to this event, you are advised to implement the player behavior when the device is
-     * connected or disconnected by referring to Responding to Audio Output Device Changes.
+     * 订阅此事件时，建议您在设备
+     * 连接或断开连接时通过参考“响应音频输出设备更改”来实现播放器行为。
      *
-     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - Callback used to listen device change event.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     *     2. Incorrect parameter types. 3.Parameter verification failed.
+     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } callback - 用于监听设备更改事件的回调。
+     * @throws { BusinessError } 401 - 参数错误。可能原因：1. 必填参数未指定。
+     *     <br>2. 参数类型不正确。 3.参数校验失败。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onAudioOutputDeviceChangeWithInfo(callback: Callback<audio.AudioStreamDeviceChangeInfo>): void;
 
     /**
-     * Subscribes to subtitle update events. When external subtitles exist, the system notifies the application
-     * through the subscribed-to callback. An application can subscribe to only one subtitle update event. When
-     * the application initiates multiple subscriptions to this event, the last subscription is applied.
-     * The event is triggered when the external subtitle is updated.
+     * 订阅字幕更新事件。当存在外挂字幕时，系统通过订阅的回调通知应用程序。
+     * 一个应用程序只能订阅一个字幕更新事件。
+     * 当应用程序对此事件发起多个订阅时，将应用最后一个订阅。
+     * 当外挂字幕更新时，会触发该事件。
      *
-     * @param { Callback<SubtitleInfo> } callback - Callback invoked when the subtitle is updated.
+     * @param { Callback<SubtitleInfo> } callback - 字幕更新时调用回调。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onSubtitleUpdate(callback: Callback<SubtitleInfo>): void;
 
     /**
-     * Subscribes to track change events. When the track changes, the system notifies the application through
-     * the subscribed-to callback. An application can subscribe to only one track change event. When the
-     * application initiates multiple subscriptions to this event, the last subscription is applied.
-     * The event is triggered when the track changes.
+     * 订阅轨道变更事件。当轨道发生变化时，系统会通过订阅的回调通知应用程序。
+     * 一个应用程序只能订阅一个字幕更新事件。
+     * 当应用程序对此事件发起多个订阅时，将应用最后一个订阅。
+     * 当轨道发生变化时，会触发该事件。
      *
-     * @param { OnTrackChangeHandler } callback - Callback invoked when the event is triggered.
+     * @param { OnTrackChangeHandler } callback - 事件触发时调用回调。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
@@ -4773,211 +4772,215 @@ declare namespace media {
     onTrackInfoUpdate(callback: Callback<Array<MediaDescription>>): void;
 
     /**
-     * Subscribes to update events of the maximum audio level value, which is periodically reported when audio
-     * resources are played.
-     * The event is triggered when the amplitude changes.
+     * 订阅更新最大音频级别值的事件，
+     * 该值在播放音频资源时定期上报。
+     * 当振幅变化时，该事件被触发。
      *
-     * @param { Callback<Array<double>> } callback - Callback invoked when the event is triggered.
+     * @param { Callback<Array<double>> } callback - 事件触发时调用回调。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onAmplitudeUpdate(callback: Callback<Array<double>>): void;
 
     /**
-     * Subscribes to events indicating that a Supplemental Enhancement Information (SEI) message is received. This
-     * applies only to HTTP-FLV live streaming and is triggered when SEI messages are present in the video stream.
-     * You must initiate the subscription before calling {@link #prepare}. If you initiate multiple subscriptions
-     * to this event, the last subscription is applied.
+     * 订阅指示接收到补充增强信息（SEI）消息的事件。
+     * 这仅适用于HTTP-FLV直播流，并在视频流中存在SEI消息时触发。
+     * 您必须在调用｛@link#prepare｝之前启动订阅。
+     * 如果您对此事件发起多个订阅，则应用最后一个订阅。
      *
-     * @param { Array<int> } payloadTypes - Array of subscribed-to payload types of SEI messages. Currently,
-     *     only payloadType = 5 is supported.
-     * @param { OnSeiMessageHandle } callback - Callback used to listen for SEI message events and receive the
-     *     subscribed-to payload types.
+     * @param { Array<int> } payloadTypes - 已订阅的 SEI 消息负载类型数组。
+     *     目前，仅支持 payloadType = 5。
+     * @param { OnSeiMessageHandle } callback - 回调用于监听 SEI 消息事件并接收
+     *     订阅的有效载荷类型。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onSeiMessageReceived(payloadTypes: Array<int>, callback: OnSeiMessageHandle): void;
 
     /**
-     * Subscribes to the event indicating that super resolution is enabled or disabled.
-     * The event is triggered when super resolution is enabled or disabled.
+     * 订阅表示启用或禁用超分辨率的事件。
+     * 当启用或禁用超分辨率时，会触发该事件。
      *
-     * @param { OnSuperResolutionChanged } callback - Callback used to listen for the super-resolution changed event.
+     * @param { OnSuperResolutionChanged } callback - 回调用于监听超分辨率更改事件。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     onSuperResolutionChanged(callback: OnSuperResolutionChanged): void;
 
     /**
-     * Unsubscribes from the event indicating that super resolution is enabled or disabled.
-     * The event is triggered when super resolution is enabled or disabled.
+     * 取消订阅事件，表明超分辨率已启用或禁用。
+     * 当启用或禁用超分辨率时，会触发该事件。
      *
-     * @param { OnSuperResolutionChanged } [callback] - Callback used to listen for the super-resolution changed event.
+     * @param { OnSuperResolutionChanged } [callback] - 回调用于监听超分辨率更改事件。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offSuperResolutionChanged(callback?: OnSuperResolutionChanged): void;
 
     /**
-     * Unregister listens for media playback stateChange event.
+     * 取消监听媒体播放状态变更事件。
      *
-     * @param { OnAVPlayerStateChangeHandle } [callback] - Callback invoked when the event is triggered.
+     * @param { OnAVPlayerStateChangeHandle } [callback] - 事件触发时调用回调。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offStateChange(callback?: OnAVPlayerStateChangeHandle): void;
 
     /**
-     * Unsubscribes from the event that checks whether the volume is successfully set.
+     * 取消订阅检查音量是否已成功设置的事件。
      *
-     * @param { Callback<double> } [callback] - Callback invoked when the event is triggered.
-     *     It reports the effective volume.
+     * @param { Callback<double> } [callback] - 事件触发时调用回调。
+     *     它上报了有效音量
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offVolumeChange(callback?: Callback<double>): void;
 
+
     /**
-     * Unregister listens for mediaKeySystemInfoUpdate events.
+     * 取消订阅监听 mediaKeySystemInfoUpdate 事件.
      *
-     * @param { Callback<Array<drm.MediaKeySystemInfo>> } [callback] - Callback for event.
+     * @param { Callback<Array<drm.MediaKeySystemInfo>> } [callback] - 事件回调。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offMediaKeySystemInfoUpdate(callback?: Callback<Array<drm.MediaKeySystemInfo>>): void;
 
     /**
-     * Unregister listens for media playback endOfStream event.
+     * 取消订阅监听媒体播放 endOfStream 事件.
      *
-     * @param { Callback<void> } [callback] - Callback used to listen for the playback end of stream.
+     * @param { Callback<void> } [callback] - 回调用于监听流的播放结束。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offEndOfStream(callback?: Callback<void>): void;
 
     /**
-     * Unsubscribes from the event that checks whether the seek operation takes effect.
+     * 取消订阅检查跳转操作是否生效的事件。
      *
-     * @param { Callback<int> } [callback] - Callback invoked when the event is triggered.
-     *     It reports the time position requested by the user.
-     *     For video playback, SeekMode may cause the actual position to be different from that requested by the user.
-     *     The exact position can be obtained from the currentTime attribute. The time in this callback
-     *     only means that the requested seek operation is complete.
+     * @param { Callback<int> } [callback] - 事件触发时调用回调。
+     *     它上报用户请求的时间位置。
+     *     在视频播放时，SeekMode 可能会导致实际位置与用户请求的位置不同。
+     *     确切的位置可以从currentTime属性中获得。
+     *     这个回调里的时间只是表示请求的定位操作已完成。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offSeekDone(callback?: Callback<int>): void;
 
     /**
-     * Unsubscribes from the event that checks whether the playback speed is successfully set.
+     * 取消订阅检查播放速度是否成功设置的事件。
      *
-     * @param { Callback<int> } [callback] - Callback used to return the result. When the call of setSpeed is
-     *     successful, the effective speed mode is reported. For details, see {@link #PlaybackSpeed}.
+     * @param { Callback<int> } [callback] - 回调用来返回结果。当 setSpeed 调用成功时，
+     *     会上报有效的速度模式。详情请参见 {@link #PlaybackSpeed}。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offSpeedDone(callback?: Callback<int>): void;
 
     /**
-     * Unregister listens for media playbackRateDone event.
+     * 取消注册监听媒体 playbackRateDone 事件。
      *
-     * @param { OnPlaybackRateDone } [callback] - Callback used to listen for the playbackRateDone event.
+     * @param { OnPlaybackRateDone } [callback] - 回调用于监听playbackRateDone事件。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offPlaybackRateDone(callback?: OnPlaybackRateDone): void;
 
     /**
-     * Unsubscribes from the event that checks whether the bit rate is successfully set.
+     * 取消订阅检查比特率是否设置成功的事件。
      *
-     * @param { Callback<int> } [callback] - Callback invoked when the event is triggered.
-     *     It reports the effective bit rate.
+     * @param { Callback<int> } [callback] - 事件触发时调用回调。
+     *     它上报有效比特率。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offBitrateDone(callback?: Callback<int>): void;
 
     /**
-     * Unsubscribes from playback position changes.
+     * 取消订阅播放位置变化。
      *
-     * @param { Callback<int> } [callback] - Callback used to return the current time.
+     * @param { Callback<int> } [callback] - 回调函数用来返回当前时间。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offTimeUpdate(callback?: Callback<int>): void;
 
     /**
-     * Unsubscribes from media asset duration changes.
+     * 取消订阅媒体资源时长的变更。
      *
-     * @param { Callback<int> } [callback] - Callback used to return the resource duration.
+     * @param { Callback<int> } [callback] - 回调用于返回资源时长。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offDurationUpdate(callback?: Callback<int>): void;
 
     /**
-     * Unsubscribes from audio and video buffer changes.
+     * 取消订阅音频和视频缓冲区的更改。
      *
-     * @param { OnBufferingUpdateHandler } [callback] - Callback invoked when the event is triggered,
-     *     and return BufferingInfoType and the value.
+     * @param { OnBufferingUpdateHandler } [callback] - 当事件被触发时调用的回调函数,
+     *     并返回 BufferingInfoType 和它的值。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offBufferingUpdate(callback?: OnBufferingUpdateHandler): void;
 
     /**
-     * Unregister listens for start render video frame events.
+     * 取消注册监听开始渲染视频帧的事件。
      *
-     * @param { Callback<void> } [callback] - Callback used to listen for the playback event return .
+     * @param { Callback<void> } [callback] - 回调用于监听播放事件的返回。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offStartRenderFrame(callback?: Callback<void>): void;
 
     /**
-     * Unsubscribes from video size changes.
+     * 取消订阅视频大小变化。
      *
-     * @param { OnVideoSizeChangeHandler } [callback] - Callback invoked when the event is triggered.
+     * @param { OnVideoSizeChangeHandler } [callback] - 当事件被触发时调用回调。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offVideoSizeChange(callback?: OnVideoSizeChangeHandler): void;
 
     /**
-     * Unregister listens for audio interrupt event, refer to {@link #audio.InterruptEvent}
+     * 取消注册音频中断事件监听，参考{@link #audio.InterruptEvent}
      *
-     * @param { Callback<audio.InterruptEvent> } [callback] - Callback used to listen for
-     *     the playback event return audio interrupt info.
+     * @param { Callback<audio.InterruptEvent> } [callback] - 回调用于监听播放事件
+     *     并返回音频中断信息。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offAudioInterrupt(callback?: Callback<audio.InterruptEvent>): void;
 
     /**
-     * Unregister listens for available bitrate list collect completed events for HLS protocol stream playback.
-     * This event will be reported after the {@link #prepare} called.
+     * 取消监听可用比特率列表，收集 HLS 协议流播放的已完成事件。
+     * 此事件将在调用｛@link#prepare｝后上报。
      *
-     * @param { Callback<Array<int>> } [callback] - Callback used to listen for the playback
-     *     event return available bitrate list.
+     * @param { Callback<Array<int>> } [callback] - 用于监听播放事件的回调
+     *     返回可用比特率列表
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offAvailableBitrates(callback?: Callback<Array<int>>): void;
 
     /**
-     * Unsubscribes from AVPlayer errors.
+     * 取消订阅AVPlayer错误。
      *
-     * @param { ErrorCallback } [callback] - Callback used to return the error code ID and error message.
+     * @param { ErrorCallback } [callback] - 回调用于返回错误代码ID和错误消息。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
     offError(callback?: ErrorCallback): void;
 
     /**
-     * 取消订阅音频流输出设备的更改及原因。该API使用异步回调返回结果。
+     * 取消订阅音频流输出设备更改及其原因。
+     * 此API使用异步回调来返回结果。
      *
-     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } [callback] - 回调返回当前音频流的输出设备描述以及更改原因。
-     * @throws { BusinessError } 401 - 参数错误。可能的原因：1、必填参数未填写。2、参数类型不正确。3、参数校验失败。
+     * @param { Callback<audio.AudioStreamDeviceChangeInfo> } [callback] - 回调用于返回
+     *     当前音频流的输出设备描述符和更改原因。
+     * @throws { BusinessError } 401 - 参数错误。可能原因：1. 必填参数未指定。
+     *     <br>2. 参数类型不正确。 3.参数校验失败。
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @since 23 static
      */
