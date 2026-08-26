@@ -11089,7 +11089,7 @@ declare namespace media {
      * 如录屏时，用户在本应用进行输入密码等操作，应用不会进行黑屏处理。
      *
      * @param { Array<int> } windowIDs - 需要豁免隐私的窗口列表，包括主窗口id和子窗口id，窗口属性获取方法可以参考
-     *     [getWindowProperties](docroot://reference/apis-arkui/arkts-apis-window-Window.md#getwindowproperties9)。
+     *     [getWindowProperties]{@link @ohos.window:window.Window.getWindowProperties}。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -11118,7 +11118,7 @@ declare namespace media {
      * 设置在Picker中隐藏的窗口列表，在下一次显示Picker时生效。使用Promise异步回调。
      *
      * @param { Array<int> } excludedWindows - 需要在Picker中隐藏的窗口列表，窗口属性获取方法可以参考
-     *     [getWindowProperties](docroot://reference/apis-arkui/arkts-apis-window-Window.md#getwindowproperties9)。
+     *     [getWindowProperties]{@link @ohos.window:window.Window.getWindowProperties}。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
@@ -11133,9 +11133,7 @@ declare namespace media {
      * 录屏开始后，调用该接口再次弹出Picker，可动态更新录制源（窗口、屏幕）。使用Promise异步回调。
      * 
      * > **说明：**
-     * >
      * > - 更新录制源过程中，原录制流程不中断。
-     * >
      * > - 通过picker动态更新录制源后，按照新的录制源进行录制。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
@@ -11177,9 +11175,7 @@ declare namespace media {
      * 在录制的视频中添加自定义水印图像。使用Promise异步回调。
      * 
      * > **说明：**
-     * >
      * > - 应用最多可添加5个水印。
-     * >
      * > - 需在[startRecording]{@link @ohos.multimedia.media:media.AVScreenCaptureRecorder.startRecording()}接口调用前调用addWatermark接口。
      *
      * @param { image.PixelMap } watermark - : 水印图像，取值原则：PixelMap对象不能为空。支持透明度设置。图像格式和尺寸要求请参考
@@ -11200,7 +11196,6 @@ declare namespace media {
      * 设置捕获的屏幕内容是否自动旋转以保持图像直立。使用Promise异步回调。
      * 
      * > **说明：**
-     * >
      * > - 需在[startRecording]{@link @ohos.multimedia.media:media.AVScreenCaptureRecorder.startRecording()}接口调用前调用此接口。
      *
      * @param { boolean } enable - 表示是否启用自动旋转，默认值为false。true表示启用自动旋转，输出帧中的图像内容将自动保持直立。
