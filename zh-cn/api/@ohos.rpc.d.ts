@@ -3646,7 +3646,7 @@ declare namespace rpc {
     /**
      * 获取通信对端的进程Uid。
      *
-     * @returns { int } Return the UID of the {@link RemoteProxy} object.
+     * @returns { int } 返回通信对端的进程Uid。
      * @syscap SystemCapability.Communication.IPC.Core
      * @since 7 dynamic
      * @since 23 static
