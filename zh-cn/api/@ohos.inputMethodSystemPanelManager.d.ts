@@ -140,8 +140,11 @@ declare namespace inputMethodSystemPanelManager {
   }
 
   /**
-   * 表示命令的数据类型。
+   * 表示私有数据的数据类型。
    *
+   * @unionmember { int } 表示值类型为数字。
+   * @unionmember { string } 表示值类型为字符串。
+   * @unionmember { boolean } 表示值类型为布尔值。
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @stagemodelonly
