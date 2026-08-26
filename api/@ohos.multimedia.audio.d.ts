@@ -4438,7 +4438,7 @@ declare namespace audio {
      * Unsubscribes from the microphone blocked status change event. This API uses an asynchronous callback to return
      * the result.
      *
-     * @param { 'microphoneBlockStatusChanged' } type - Event type. The event **'micBlockStatusChanged'** is triggered
+     * @param { 'micBlockStatusChanged' } type - Event type. The event **'micBlockStatusChanged'** is triggered
      *     when the microphone blocked status is changed.
      * @param { Callback<DeviceBlockStatusInfo> } callback - Callback used to return the microphone blocked status and
      *     device information.
