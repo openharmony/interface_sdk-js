@@ -47,7 +47,7 @@ declare namespace deviceManager {
    * 获取接入主设备的外部设备列表。如果没有设备接入，那么将会返回一个空的列表。
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { int } busType - 由[BusType]{@link deviceManager.BusType}约定的设备总线类型，不填则查找所有类型设备。
+   * @param { int } [busType] - 由[BusType]{@link deviceManager.BusType}约定的设备总线类型，不填则查找所有类型设备。
    * @returns { Array<Readonly<Device>> } 设备信息列表。
    * @throws { BusinessError } 201 - The permission check failed.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception or busType parameter error.
@@ -185,7 +185,7 @@ declare namespace deviceManager {
    * 查询扩展外设详细信息列表。如果没有设备接入，那么将会返回一个空的列表。
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { long } deviceId - 设备ID，通过[queryDevices]{@link deviceManager.queryDevices}获得。如果不传入设备ID，则默认获取所有设备信息。如果没有设备接
+   * @param { long } [deviceId] - 设备ID，通过[queryDevices]{@link deviceManager.queryDevices}获得。如果不传入设备ID，则默认获取所有设备信息。如果没有设备接
    *     入，返回空列表。
    * @returns { Array<Readonly<DeviceInfo>> } 扩展外设详细信息列表。
    * @throws { BusinessError } 201 - The permission check failed.
@@ -203,7 +203,7 @@ declare namespace deviceManager {
    * 查询扩展外设驱动详细信息列表。如果没有设备接入，那么将会返回一个空的列表。
    *
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
-   * @param { string } driverUid - 驱动UID，通过[queryDeviceInfo]{@link deviceManager.queryDeviceInfo}返回的设备信息获得。如果不传入驱动UID，则默
+   * @param { string } [driverUid] - 驱动UID，通过[queryDeviceInfo]{@link deviceManager.queryDeviceInfo}返回的设备信息获得。如果不传入驱动UID，则默
    *     认获取所有的驱动信息；如果传入了UID但不存在对应的驱动，则会返回空列表。
    * @returns { Array<Readonly<DriverInfo>> } 扩展外设驱动详细信息列表。
    * @throws { BusinessError } 201 - The permission check failed.
