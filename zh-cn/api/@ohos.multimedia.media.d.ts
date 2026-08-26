@@ -1040,7 +1040,7 @@ declare namespace media {
     /**
      * 获取媒体元数据。使用callback异步回调。
      *
-     * @param { AsyncCallback<AVMetadata> } callback - 回调函数。异步返回音视频元数据对象（AVMetadata）。
+     * @param { AsyncCallback<AVMetadata> } callback - 回调函数。当获取媒体元数据成功，err为undefined，data为获取到的AVMetadata实例，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted. [since 23]
@@ -1053,7 +1053,7 @@ declare namespace media {
     /**
      * 获取媒体元数据。使用callback异步回调。
      *
-     * @param { AsyncCallback<AVMetadata | undefined> } callback - 回调函数。异步返回音视频元数据对象（AVMetadata）。
+     * @param { AsyncCallback<AVMetadata | undefined> } callback - 回调函数。当获取媒体元数据成功，err为undefined，data为获取到的AVMetadata实例，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
@@ -1108,7 +1108,7 @@ declare namespace media {
     /**
      * 获取音频专辑封面。使用callback异步回调。
      *
-     * @param { AsyncCallback<image.PixelMap> } callback - 回调函数。异步返回专辑封面。
+     * @param { AsyncCallback<image.PixelMap> } callback - 回调函数。当获取音频专辑封面成功，err为undefined，data为获取到的PixelMap实例，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
@@ -1120,7 +1120,7 @@ declare namespace media {
     /**
      * 获取音频专辑封面。使用callback异步回调。
      *
-     * @param { AsyncCallback<image.PixelMap | undefined> } callback - 回调函数。异步返回专辑封面。
+     * @param { AsyncCallback<image.PixelMap | undefined> } callback - 回调函数。当获取音频专辑封面成功，err为undefined，data为获取到的PixelMap实例，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
@@ -1329,7 +1329,7 @@ declare namespace media {
     /**
      * 释放资源。使用Promise异步回调。
      *
-     * @returns { Promise<void> } 异步方式释放资源release方法的Promise返回值。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1793,7 +1793,7 @@ declare namespace media {
     /**
      * 释放资源。使用Promise异步回调。
      *
-     * @returns { Promise<void> } 异步方式释放资源release方法的Promise返回值。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12 dynamic
