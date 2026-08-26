@@ -26,7 +26,7 @@
  *
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @since 26.1.0 dynamic&static
  */
 declare namespace backgroundLoader {
   /**
@@ -34,7 +34,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.1.0 dynamic&static
    */
   export enum StopCode {
     /**
@@ -42,7 +42,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     SUCCESS = 0,
     /**
@@ -50,7 +50,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     SYSTEM_ERROR = 1,
     /**
@@ -58,7 +58,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     PERCEPTIBLE_ERROR = 2,
     /**
@@ -66,7 +66,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     TIMEOUT_ERROR = 3,
     /**
@@ -74,7 +74,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     EXECUTE_ERROR = 4
   }
@@ -84,7 +84,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.1.0 dynamic&static
    */
   export interface TaskInfo {
     /**
@@ -92,7 +92,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     abilityName: string;
 
@@ -101,7 +101,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     taskId: int;
   }
@@ -111,7 +111,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.1.0 dynamic&static
    */
   export interface TaskStopInfo {
     /**
@@ -119,7 +119,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     taskId: int;
 
@@ -128,7 +128,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     abilityName: string;
 
@@ -137,7 +137,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     stopCode: StopCode;
 
@@ -146,7 +146,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     stopMessage: string;
   }
@@ -156,12 +156,12 @@ declare namespace backgroundLoader {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Taskinfo } taskinfo - The info of background load task.
-   * @throws { BusinessError } 201 - No permission.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.1.0 dynamic&static
    */
   function registerTask(taskInfo: TaskInfo): void;
 
@@ -170,12 +170,12 @@ declare namespace backgroundLoader {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Taskinfo } taskinfo - The info of background load task.
-   * @throws { BusinessError } 201 - No permission.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.1.0 dynamic&static
    */
   function unregisterTask(taskInfo: TaskInfo): void;
 
@@ -184,12 +184,12 @@ declare namespace backgroundLoader {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Taskinfo } taskinfo - The info of background load task.
-   * @throws { BusinessError } 201 - No permission.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.1.0 dynamic&static
    */
   function finishTask(taskInfo: TaskInfo): void;
 
@@ -200,12 +200,12 @@ declare namespace backgroundLoader {
    * @param { int } taskId - Id of the background load task.
    *     <br>The value range is all integers.
    * @returns { Promise<TaskInfo> } Promise used to return the TaskInfo.
-   * @throws { BusinessError } 201 - No permission.
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 9700003 - System service operation failed.
-   * @throws { BusinessError } 9700004 - Check on taskInfo failed.
+   * @throws { BusinessError } 9700004 - Check on taskId failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.1.0 dynamic&static
    */
   function getTaskInfo(taskId: int): Promise<TaskInfo>;
 
@@ -214,7 +214,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.1.0 dynamic&static
    */
   const ON_START: string;
 
@@ -223,7 +223,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.1.0 dynamic&static
    */
   const ON_STOP: string;
 }
