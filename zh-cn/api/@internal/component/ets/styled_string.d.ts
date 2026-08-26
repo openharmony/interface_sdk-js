@@ -2276,6 +2276,17 @@ declare class ImageAttachment {
    * @since 22 dynamic
    */
   readonly supportSvg2?: boolean;
+
+  /**
+   * 获取属性字符串的图片拉伸选项。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  readonly resizable?: ResizableOptions;
 }
 
 /**
@@ -2389,6 +2400,17 @@ declare interface ResourceImageAttachmentOptions {
    * @since 22 dynamic
    */
   supportSvg2?: boolean;
+
+  /**
+   * 获取属性字符串的图片拉伸选项。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  resizable?: ResizableOptions;
 }
 
 /**
@@ -2472,6 +2494,17 @@ declare interface ImageAttachmentInterface {
    * @since 15 dynamic
    */
   colorFilter?: ColorFilterType;
+
+  /**
+   * 获取属性字符串的图片拉伸选项。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  resizable?: ResizableOptions;
 }
 
 /**
