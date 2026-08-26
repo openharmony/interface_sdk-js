@@ -14,12 +14,14 @@
  */
 
 /**
+ * 按键设备的键值，按键设备包括键盘、光盘、游戏手柄等。
+ *
  * @file 键值
  * @kit InputKit
  */
 
 /**
- * 按键设备的键值，按键设备包括键盘、光盘、游戏手柄等。
+ * 键值。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @atomicservice [since 12]
