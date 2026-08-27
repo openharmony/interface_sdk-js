@@ -958,12 +958,13 @@ declare namespace uiEffect {
    * @unionmember { BrightnessBlender } 提亮混合器
    * @unionmember { HdrBrightnessBlender } 支持HDR的提亮混合器 [since 20]
    * @unionmember { HdrDarkenBlender } 支持HDR的压暗混合器 [since 26.0.0]
+   * @unionmember { ColorfulBrightnessBlender } 具有彩色提亮压暗效果的混合器 [since 26.1.0]
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @stagemodelonly
    * @since 13 dynamic
    */
-  type Blender = BrightnessBlender | HdrBrightnessBlender | HdrDarkenBlender;
+  type Blender = BrightnessBlender | HdrBrightnessBlender | HdrDarkenBlender | ColorfulBrightnessBlender;
 
   /**
    * 提亮混合器，用于将提亮效果添加到指定的组件上。
@@ -1118,6 +1119,103 @@ declare namespace uiEffect {
      * @since 26.0.0 dynamiconly
      */
     grayscaleFactor?: [double, double, double];
+  }
+
+  /**
+   * ColorfulBrightnessBlenderOptions的参数列表，用于配置彩色提亮压暗效果的各项属性，
+   * 包括前景压暗权重、提亮压暗强度、亮度差阈值和hdr开关参数。
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @form
+   * @since 26.1.0 dynamiconly
+   */
+  interface ColorfulBrightnessBlenderOptions {
+    /**
+     * 前景颜色压暗权重。为1的时候，颜色倾向比原始颜色暗；为0的时候，颜色倾向比原始颜色亮。
+     * 取值范围为[0, 1]，超出边界会在实现时自动截断。
+     *
+     * @default 1
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.1.0 dynamiconly
+     */
+    darkenWeight?: double;
+
+    /**
+     * 提亮压暗效果强度。
+     * 取值范围为[0, 1]，超出边界会在实现时自动截断。
+     *
+     * @default 0
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.1.0 dynamiconly
+     */
+    vibrancyStrength?: double;
+
+    /**
+     * 保证可读性的亮度差阈值。
+     * 取值范围为[0, 1]，超出边界会在实现时自动截断。
+     *
+     * @default 0
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.1.0 dynamiconly
+     */
+    lumaDiff?: double;
+
+    /**
+     * 是否主动开启hdr。关闭时也可能在前景或背景为hdr时被动触发hdr。
+     *
+     * @default true
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.1.0 dynamiconly
+     */
+    hdrEnabled?: boolean;
+  }
+
+  /**
+   * 彩色提亮压暗混合器，用于将提亮效果添加到指定的组件上。
+   * 在调用ColorfulBrightnessBlender前，需要先通过createColorfulBrightnessBlender创建一个ColorfulBrightnessBlender实例。
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @form
+   * @since 26.1.0 dynamiconly
+   */
+  interface ColorfulBrightnessBlender {
+    /**
+     * 实现彩色提亮压暗效果的常规参数，具体可参考BrightnessBlenderParam。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.1.0 dynamiconly
+     */
+    brightnessBlenderParam: BrightnessBlenderParam;
+
+    /**
+     * 实现彩色提亮压暗效果的增强参数，具体可参考ColorfulBrightnessBlenderOptions。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.1.0 dynamiconly
+     */
+    options?: ColorfulBrightnessBlenderOptions;
   }
 
   /**
@@ -1365,6 +1463,21 @@ declare namespace uiEffect {
    */
   function createHdrDarkenBlender(hdrBrightnessRatio: double,
     grayscaleFactor?: [double, double, double]): HdrDarkenBlender;
+
+  /**
+   * 创建ColorfulBrightnessBlender实例用于给组件添加彩色提亮压暗效果。
+   *
+   * @param { BrightnessBlenderParam } brightnessBlenderParam - 实现彩色提亮压暗效果的常规参数。
+   * @param { ColorfulBrightnessBlenderOptions } [options] - 实现彩色提亮压暗效果的增强参数。
+   * @returns { ColorfulBrightnessBlender } 返回具有彩色提亮压暗效果的混合器。
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @form
+   * @since 26.1.0 dynamiconly
+   */
+  function createColorfulBrightnessBlender(brightnessBlenderParam: BrightnessBlenderParam,
+    options?: ColorfulBrightnessBlenderOptions): ColorfulBrightnessBlender;
 }
 
 /**

@@ -1103,12 +1103,13 @@ declare namespace uiEffect {
    * @unionmember { BrightnessBlender } Brightness blender
    * @unionmember { HdrBrightnessBlender } HDR-enabled brightness blender [since 20]
    * @unionmember { HdrDarkenBlender } HDR-adaptive darken blender [since 26.0.0]
+   * @unionmember { ColorfulBrightnessBlender } Colorful brightness darken blender  [since 26.1.0]
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @stagemodelonly
    * @since 13 dynamic
    */
-  type Blender = BrightnessBlender | HdrBrightnessBlender | HdrDarkenBlender;
+  type Blender = BrightnessBlender | HdrBrightnessBlender | HdrDarkenBlender | ColorfulBrightnessBlender;
 
   /**
    * Brightness blender, used to add a brightness effect to a specified component.
@@ -1277,6 +1278,107 @@ declare namespace uiEffect {
      * @since 26.0.0 dynamiconly
      */
     grayscaleFactor?: [double, double, double];
+  }
+
+  /**
+   * Parameter list of ColorfulBrightnessBlenderOptions, used to configure various properties of the colorful
+   * brightness darken effect, including the foreground darken weight, brightness darken strength, luma difference
+   * threshold, and HDR switch parameters.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @form
+   * @since 26.1.0 dynamiconly
+   */
+  interface ColorfulBrightnessBlenderOptions {
+    /**
+     * Foreground color darken weight. When the value is 1, the color tends to be darker than the original color;
+     * when the value is 0, the color tends to be brighter than the original color.
+     * The value range is [0, 1], and values outside the range will be clamped during implementation.
+     *
+     * @default 1
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.1.0 dynamiconly
+     */
+    darkenWeight?: double;
+
+    /**
+     * Brightness darken effect strength. The value range is [0, 1], and values outside the range will be
+     * clamped during implementation.
+     *
+     * @default 0
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.1.0 dynamiconly
+     */
+    vibrancyStrength?: double;
+
+    /**
+     * Luma difference threshold to ensure readability. The value range is [0, 1], and values outside the range
+     * will be clamped during implementation.
+     *
+     * @default 0
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.1.0 dynamiconly
+     */
+    lumaDiff?: double;
+
+    /**
+     * Whether to actively enable HDR. When disabled, HDR may still be passively triggered if the foreground or
+     * background is HDR.
+     *
+     * @default true
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.1.0 dynamiconly
+     */
+    hdrEnabled?: boolean;
+  }
+
+ /**
+    * Colorful brightness darken blender, used to add a colorful brightness darken effect to a specified component.
+    * Before calling ColorfulBrightnessBlender, you need to first create a ColorfulBrightnessBlender instance
+    * through createColorfulBrightnessBlender.
+    *
+    * @syscap SystemCapability.Graphics.Drawing
+    * @systemapi
+    * @stagemodelonly
+    * @form
+    * @since 26.1.0 dynamiconly
+    */
+  interface ColorfulBrightnessBlender {
+    /**
+     * Regular parameters for the colorful brightness darken effect. For details, see BrightnessBlenderParam.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.1.0 dynamiconly
+     */
+    brightnessBlenderParam: BrightnessBlenderParam;
+
+    /**
+     * Enhanced parameters for the colorful brightness darken effect. For details, see ColorfulBrightnessBlenderOptions.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @form
+     * @since 26.1.0 dynamiconly
+     */
+    options?: ColorfulBrightnessBlenderOptions;
   }
 
   /**
@@ -1567,6 +1669,23 @@ declare namespace uiEffect {
    */
   function createHdrDarkenBlender(hdrBrightnessRatio: double,
     grayscaleFactor?: [double, double, double]): HdrDarkenBlender;
+
+  /**
+   * Creates a ColorfulBrightnessBlender instance for adding a colorful brightness darken effect to a component.
+   *
+   * @param { BrightnessBlenderParam } brightnessBlenderParam - Regular parameters for the colorful brightness darken
+   *     effect.
+   * @param { ColorfulBrightnessBlenderOptions } [options] - Enhanced parameters for the
+   *     colorful brightness darken effect.
+   * @returns { ColorfulBrightnessBlender } Returns the colorful brightness darken blender.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @form
+   * @since 26.1.0 dynamiconly
+   */
+  function createColorfulBrightnessBlender(brightnessBlenderParam: BrightnessBlenderParam,
+    options?: ColorfulBrightnessBlenderOptions): ColorfulBrightnessBlender;
 }
 
 /**
