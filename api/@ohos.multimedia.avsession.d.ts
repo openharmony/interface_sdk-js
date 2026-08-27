@@ -100,7 +100,7 @@ declare namespace avSession {
    * @since 23 static
    */
   function getAllSessionDescriptors(callback: AsyncCallback<Array<Readonly<AVSessionDescriptor>>>): void;
- 
+
   /**
    * Get all avsession descriptors which can be shown on system entrance.
    *
@@ -409,12 +409,13 @@ declare namespace avSession {
    * @param { string } bundleName - Specifies the bundleName which to be started.
    * @param { string } assetId - Specifies the assetId to be started.
    * @param { CommandInfo } [info] - Specifies the specified command information.
-   * @returns { Promise<void> } void promise when executed successfully
-   * @throws { BusinessError } 201 - permission denied
-   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
-   * @throws { BusinessError } 6600101 - Session service exception.
+   * @returns { Promise<void> } Promise that return
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 6700101 - Session service is not running.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
+   * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
   function startAVPlaybackForAudioZone(userId: int, bundleName: string, assetId: string, info?: CommandInfo): Promise<void>;
@@ -7532,7 +7533,7 @@ declare namespace avSession {
      * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
-    readonly userId?: int;
+    userId?: int;
   }
 
   /**
@@ -10186,6 +10187,15 @@ declare namespace avSession {
      * @since 23 static
      */
     ERR_CODE_CAST_CONTROL_DRM_PROVIDE_KEY_RESPONSE_ERROR = 6616100,
+
+    /**
+     * Session service is not running.
+     *
+     * @syscap SystemCapability.Multimedia.AVSession.Manager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    ERR_CODE_SERVICE_NOT_RUNNING = 6700101,
   }
 }
 
