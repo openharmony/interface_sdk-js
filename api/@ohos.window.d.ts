@@ -5298,7 +5298,7 @@ declare namespace window {
      * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
-    windowMinimizedWhenStart?: boolean;
+    minimizeOnStart?: boolean;
 
     /**
      * Whether to hide the Dock icon and the hover thumbnail preview.

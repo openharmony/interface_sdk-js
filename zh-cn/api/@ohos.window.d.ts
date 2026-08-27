@@ -5087,7 +5087,7 @@ declare namespace window {
      * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
-    windowMinimizedWhenStart?: boolean;
+    minimizeOnStart?: boolean;
 
     /**
      * 是否屏蔽快捷栏图标及Hover缩略图。
