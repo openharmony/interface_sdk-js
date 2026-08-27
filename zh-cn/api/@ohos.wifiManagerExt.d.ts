@@ -14,25 +14,26 @@
  */
 
 /**
- * @file
+ * @file WLAN扩展接口
  * @kit ConnectivityKit
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
 /**
- * 提供WLAN扩展接口，供非通用类型产品使用。
+ * 该模块主要提供Wi-Fi扩展接口，供非通用类型产品使用。
  *
- * <p>本文件涉及的接口为非通用接口。这些扩展接口仅供部分产品类型使用，例如路由器。普通产品不应使用这些接口。</p>
- *
- * @namespace wifiManagerExt
  * @syscap SystemCapability.Communication.WiFi.AP.Extension
  * @since 9 dynamiconly
  */
 declare namespace wifiManagerExt {
 
   /**
-   * 使能WLAN热点。
-   * 该方法为异步方法。启用WLAN热点后，Wi-Fi可能会被禁用。
+   * 启用Wi-Fi热点。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 9开始支持，从API version 10开始废弃。
+   *
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -44,8 +45,12 @@ declare namespace wifiManagerExt {
   function enableHotspot(): void;
    
   /**
-   * 去使能WLAN热点。
-   * 如果禁用WLAN热点后Wi-Fi处于启用状态，则Wi-Fi可能会被重新启用。
+   * 禁用Wi-Fi热点。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 9开始支持，从API version 10开始废弃。
+   *
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -57,9 +62,10 @@ declare namespace wifiManagerExt {
   function disableHotspot(): void;
 
   /**
-   * 获取支持的功率模式。
+   * 获取支持的功率模式。使用Promise异步回调。
+   *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { Promise<Array<PowerMode>> } 返回支持的功率模式列表。
+   * @returns { Promise<Array<PowerMode>> } Promise对象。表示功率模式。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
@@ -69,9 +75,10 @@ declare namespace wifiManagerExt {
   function getSupportedPowerMode(): Promise<Array<PowerMode>>;
 
   /**
-   * 获取支持的功率模式。
+   * 获取支持的功率模式。使用callback异步回调。
+   *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { AsyncCallback<Array<PowerMode>> } callback - 回调函数。当操作成功时，err为0，data表示支持的功率模式。如果err为非0，表示处理出现错误。
+   * @param { AsyncCallback<Array<PowerMode>> } callback - 回调函数。当操作成功时，err为0，data表示支持的功率模式。如果err为非0，表示获取支持的功率模式操作出现错误。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
@@ -81,9 +88,10 @@ declare namespace wifiManagerExt {
   function getSupportedPowerMode(callback: AsyncCallback<Array<PowerMode>>): void;
 
   /**
-   * 获取功率模式。
+   * 获取功率模式，使用Promise异步回调。
+   *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { Promise<PowerMode> } 
+   * @returns { Promise<PowerMode> } Promise对象。表示功率模式。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
@@ -93,9 +101,10 @@ declare namespace wifiManagerExt {
   function getPowerMode(): Promise<PowerMode>;
 
   /**
-   * 获取功率模式。
+   * 获取功率模式。使用callback异步回调。
+   *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { AsyncCallback<PowerMode> } callback - 回调函数。当操作成功时，err为0，data表示功率模式。如果err为非0，表示处理出现错误。
+   * @param { AsyncCallback<PowerMode> } callback - 回调函数。当操作成功时，err为0，data表示功率模式。如果err为非0，表示获取功率模式操作出现错误。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
@@ -106,8 +115,13 @@ declare namespace wifiManagerExt {
 
   /**
    * 设置功率模式。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 9开始支持，从API version 10开始废弃。
+   *
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT_EXT
-   * @param { PowerMode } model --WLAN功率模式。
+   * @param { PowerMode } mode - 功率模式。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2701000 - Operation failed.
@@ -119,32 +133,34 @@ declare namespace wifiManagerExt {
 
   /**
    * 表示功率模式的枚举。
-   * 
-   * @enum { number } PowerMode
+   *
    * @syscap SystemCapability.Communication.WiFi.AP.Extension
    * @since 9 dynamiconly
    */
   export enum PowerMode {
-    /** 
-     * 睡眠模式。
+    /**
+     * Sleeping Mode.
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9 dynamiconly
-    */
+     */
     
     SLEEPING = 0,
 
-    /** 
+    /**
      * 常规模式。
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9 dynamiconly
-     * */
+     */
     GENERAL = 1,
 
-    /** 
+    /**
      * 穿墙模式。
+     *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9 dynamiconly
-     * */
+     */
     THROUGH_WALL = 2,
   }
 }
