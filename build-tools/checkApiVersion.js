@@ -258,7 +258,17 @@ function recursionParentNode(tag, url, node) {
     parent = parent.parent;
   }
   errVersionStr = url + '#' + errVersionStr;
-  // 获取到注释的位置，向下遍历找对应的定义，并将找到的行数追加到打印信息中
+  return errVersionStr;
+}
+
+/**
+ * 新增行号信息
+ * @param {ts.Node} tag TypeScript节点
+ * @param {ts.Node} node 解析后的节点
+ * @param {string} errVersionStr 接口信息
+ * @returns {string} 追加行号的接口信息
+ */
+function appendLineNumber(tag, node, errVersionStr) {
   const strArr = errVersionStr.split('#');
   const start = tag.getStart();
   const lineAndChar = node.getLineAndCharacterOfPosition(start);
@@ -275,7 +285,7 @@ function recursionParentNode(tag, url, node) {
     const lineText = lines[targetLineIndex].trim();
     const firstChar = lineText.charAt(0);
     if (lineText.includes(strArr[strArr.length - 1]) && firstChar !== '*') {
-      return errVersionStr = errVersionStr + '(行号：' + (targetLineIndex + 1) + ')';
+      return errVersionStr + '(行号：' + (targetLineIndex + 1) + ')';
     }
   }
   return errVersionStr;
