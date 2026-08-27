@@ -199,7 +199,7 @@ declare namespace shortcutManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700061 - The specified app index is invalid.
    * @throws { BusinessError } 17700070 - The specified shortcut id is illegal.
-   * @throws { BusinessError } 18100001 - A combination of bundleName and appIndex in the shutcutInfo list is
+   * @throws { BusinessError } 18100001 - A combination of bundleName and appIndex in the shortcutInfo list is
    *     different from the others.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
