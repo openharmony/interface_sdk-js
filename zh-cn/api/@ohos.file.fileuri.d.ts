@@ -33,6 +33,7 @@ import uri from './@ohos.uri';
  *
  * @namespace fileUri
  * @syscap SystemCapability.FileManagement.AppFileService
+ * @crossplatform [since 26.1.0]
  * @atomicservice
  * @since 15 dynamic
  * @since 23 static
@@ -50,6 +51,7 @@ declare namespace fileUri {
    *
    * @extends uri.URI
    * @syscap SystemCapability.FileManagement.AppFileService
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 15 dynamic
    * @since 23 static
@@ -75,6 +77,7 @@ declare namespace fileUri {
      * @throws { BusinessError } 13900042 - Unknown error
      * @throws { BusinessError } 14300002 - Invalid uri
      * @syscap SystemCapability.FileManagement.AppFileService
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -101,6 +104,7 @@ declare namespace fileUri {
      * @throws { BusinessError } 13900005 - I/O error
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -125,6 +129,7 @@ declare namespace fileUri {
      * @throws { BusinessError } 13900012 - Permission denied
      * @throws { BusinessError } 13900042 - Unknown error
      * @syscap SystemCapability.FileManagement.AppFileService
+     * @crossplatform [since 26.1.0]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -180,6 +185,7 @@ declare namespace fileUri {
    * @throws { BusinessError } 401 - The input parameter is invalidPossible causes:1.Mandatory parameters are left unspecified;
    * <br>2.Incorrect parameter types.
    * @syscap SystemCapability.FileManagement.AppFileService
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 15 dynamic
    * @since 23 static
