@@ -669,6 +669,5 @@ declare namespace formProvider {
    * @since 23 dynamic&static
    */
   function closeFormEditAbility(isMainPage?: boolean): void;
-
 }
 export default formProvider;
