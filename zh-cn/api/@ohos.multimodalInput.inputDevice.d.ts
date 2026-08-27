@@ -807,14 +807,17 @@ declare namespace inputDevice {
   function setFunctionKeyEnabled(functionKey: FunctionKey, enabled: boolean): Promise<void>;
 
   /**
-   * 将输入设备绑定到显示器。仅支持外接USB和蓝牙的鼠标、触摸板、键盘和游戏手柄。绑定后，输入设备将固定在指定显示器所在的显示器组上操作。使用Promise异步回调。
+   * 将输入设备绑定到显示器组。仅支持外接USB和蓝牙的鼠标、触摸板、键盘和游戏手柄。绑定后，输入设备将固定在指定显示器所在的显示器组上操作。使用Promise异步回调。
    *
    * @permission ohos.permission.INPUT_DEVICE_CONTROLLER
    * @param { int } inputDeviceId - 输入设备的ID。如果输入服务重启或输入设备重连，此ID可能会发生变化。
+   *     <br>取值应为≥0的整数。
    * @param { int } displayId - 目标显示器的ID。
+   *     <br>取值应为≥0的整数。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 201 - Permission denied. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 201 - Permission denied.
+   *     The application does not have the required permission.
+   * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
    * @throws { BusinessError } 3800001 - Input service exception.
    * @throws { BusinessError } 3900001 - The specified input device does not exist.
    * @throws { BusinessError } 3900004 - The specified display does not exist.
