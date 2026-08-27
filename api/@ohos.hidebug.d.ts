@@ -314,8 +314,8 @@ declare namespace hidebug {
      * Thread name.
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 12 dynamic
-     * @since 23 static
+     * @since 26.1.0 dynamic
+     * @since 26.1.0 static
      */
     threadName?: string;
   }
