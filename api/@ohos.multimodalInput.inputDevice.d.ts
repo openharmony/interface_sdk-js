@@ -882,7 +882,7 @@ declare namespace inputDevice {
   function setFunctionKeyEnabled(functionKey: FunctionKey, enabled: boolean): Promise<void>;
 
   /**
-   * Bind input devices to a display.
+   * Bind input devices to a display group.
    * Only external USB and Bluetooth mice, touchpads, keyboards, and game controllers are supported.
    * After binding, the device will be fixed to operate on the display group where the specified display is located.
    * This API uses a promise to return the result.
@@ -890,7 +890,9 @@ declare namespace inputDevice {
    * @permission ohos.permission.INPUT_DEVICE_CONTROLLER
    * @param { int } inputDeviceId - ID of the specified input device.
    *     If the input service restarts or the input device is reconnects, its ID may change.
+   *     The value must be an integer greater than or equal to 0.
    * @param { int } displayId - ID of the target display.
+   *     The value must be an integer greater than or equal to 0.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    *     The application does not have the required permission.
