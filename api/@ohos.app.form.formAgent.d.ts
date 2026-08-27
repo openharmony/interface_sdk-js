@@ -21,6 +21,7 @@
 import type { AsyncCallback } from './@ohos.base';
 import formBindingData from './@ohos.app.form.formBindingData';
 import type Want from './@ohos.app.ability.Want';
+import formInfo from './@ohos.app.form.formInfo';
 
 /**
  * The **FormAgent** module provides APIs related to the widget agent. Currently, you can use the APIs to request to 
