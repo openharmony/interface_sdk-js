@@ -145,7 +145,7 @@ declare namespace thermal {
    * 取消订阅热档位变化时的回调提醒。使用callback异步回调。此方法与thermal.registerThermalLevelCallback配对使用，用于取消先前注册的热档位回调。
    *
    * @param { Callback<void> } [callback] - 回调函数，用来执行取消热档位变化回调后的资源回收等操作，无返回值。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
    * @syscap SystemCapability.PowerManager.ThermalManager
    * @since 9 dynamic
    * @since 23 static

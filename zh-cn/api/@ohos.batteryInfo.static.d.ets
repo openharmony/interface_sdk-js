@@ -19,7 +19,10 @@
  */
 
 /**
- * 该模块提供按场景设置和查询电池配置的能力，还提供电池预估充电时间、总容量、剩余容量等关键属性的查询，适用于需要实时获取电池信息或管理充电场景的系统应用开发。
+ * 该模块主要提供电池状态和充放电状态的查询接口，
+ * 支持查询剩余电量、充电状态、健康状态、充电器类型、电压、电流、温度等电池信息，
+ * 适用于需要根据电池状态调整应用行为（如低电量时降低功耗、充电时启动高耗能任务）的场景，
+ * 可帮助开发者实时感知设备电池状况，优化应用功耗策略并提升用户体验。
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Core
  * @since 23 static
@@ -381,7 +384,7 @@ declare namespace batteryInfo {
 
   /**
    * 表示COMMON_EVENT_BATTERY_CHANGED通用事件附加信息的查询键。
-   * 开发者需先订阅[COMMON_EVENT_BATTERY_CHANGED公共事件](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_battery_changed)，
+   * 开发者需先订阅[COMMON_EVENT_BATTERY_CHANGED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_battery_changed)，
    * 在事件回调中通过这些查询键从事件附加数据中提取对应的电池状态信息。
    * 详细使用方法请参见[@ohos.commonEventManager (公共事件模块)](docroot://reference/api-basic-services/js-apis-commonEventManager.md)。
    *
