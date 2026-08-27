@@ -20,7 +20,10 @@
 import { Permissions }  from './permissions';
 import abilityAccessCtrl from './@ohos.abilityAccessCtrl';
 /**
- * The namespace of abilityToolAccessCtrl
+ * This module provides permission management capabilities for tools (CLI commands and APIs), including permission
+ * query, user authorization, and remote authorization. Permission query is used to check the permission status of
+ * tools, user authorization grants permissions to tools based on user decisions, and remote authorization enables
+ * cross-device permission management through a ticket mechanism.
  *
  * @syscap SystemCapability.Security.Asset
  * @systemapi
