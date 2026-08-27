@@ -1755,5 +1755,38 @@ declare namespace formHost {
     * @since 26.0.0 dynamic&static
     */
   function offDeleteFormsCallback(callback?: formInfo.DeleteFormsCallback): void;
+
+  /**
+   * Register the form host service info.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.FormHostServiceInfo } service - Identifies service info registered to form management service.
+   * @returns { Promise<string> } Promise used to return the service Id of the form host service.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function registerFormHostService(service: formInfo.FormHostServiceInfo): Promise<string>;
+
+  /**
+   * Unregister the form host service info.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } serviceId - Identifies service Id of the form host service.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16501019 - A form service not owned by you cannot be unregistered.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function unregisterFormHostService(serviceId: string): Promise<void>;
 }
 export default formHost;
