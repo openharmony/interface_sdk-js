@@ -301,6 +301,13 @@ declare namespace hidebug {
      * @since 23 static
      */
     cpuUsage: double;
+    /**
+     * Thread name.
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 26.1.0 dynamic&static
+     */
+    threadName?: string;
   }
 
   /**
@@ -1556,5 +1563,16 @@ declare namespace hidebug {
    * @since 24 dynamic&static
    */
   function getRssInfo(): RssInfo;
+
+  /**
+   * Obtains the running unique identifier of the application.
+   *
+   * @returns { string } Returns the running unique ID string. Returns an empty string on failure.
+   * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.1.0 dynamic&static
+   */
+  function getAppRunningUniqueId(): string;
 }
 export default hidebug;
