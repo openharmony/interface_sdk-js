@@ -1381,7 +1381,16 @@ declare namespace formInfo {
      * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
-    NOT_SUPPORT = 4
+    NOT_SUPPORT = 4,
+    /**
+     * Indicates that the number of forms added to the host exceeds the upper limit.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    HOST_FORM_LIMIT = 5
   }
 
   /**
@@ -2349,5 +2358,146 @@ declare namespace formInfo {
    * @since 26.0.0 dynamic&static
    */
   type DeleteFormsCallback = (formIds: Array<string>) => void;
+
+  /**
+     * FormHostServiceInfo
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+  interface FormHostServiceInfo {
+    /**
+     * The service name.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    serviceName: string;
+    /**
+     * The service display name.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    serviceDisplayName: string;
+    /**
+     * The display Id.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    displayId: string;
+    /**
+     * The custom data.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    customData?: Record<string, string>;
+  }
+
+  /**
+   * PeerFormHostServiceInfo
+   *
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface PeerFormHostServiceInfo {
+    /**
+     * The service name of the peer form host service.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    serviceName: string;
+    /**
+     * The service display name of the peer form host service.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    serviceDisplayName: string;
+    /**
+     * The display Id of the peer form host service.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    displayId: string;
+    /**
+     * The custom data of the peer form host service.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    customData?: Record<string, string>;
+    /**
+     * The device Id of the peer form host service.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    deviceId: string;
+    /**
+     * The network Id of the peer form host service.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    networkId: string;
+    /**
+     * The service Id of the peer form host service.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    serviceId: string;
+  }
+
+  /**
+   * PublishFormCrossDeviceResult
+   *
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface PublishFormCrossDeviceResult {
+    /**
+     * The form Id of the form added to the peer form host service.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    formId: string;
+  }
 }
 export default formInfo;
