@@ -12861,7 +12861,7 @@ declare namespace window {
      * 获取该WindowStage实例下的主窗口，使用Promise异步回调。
      * 
      * 调用该接口前，建议先通过[loadContent]{@link window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}方法
-     * 或者[setUIContent]{@link @ohos.window:window.Window.setUIContent(path: string)}方法完成页面加载。
+     * 或者[setUIContent]{@link window.Window.setUIContent(path: string, callback: AsyncCallback<void>): void}方法完成页面加载。
      *
      * @returns { Promise<Window> } Promise对象。返回当前WindowStage下的主窗口对象。
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -12879,7 +12879,7 @@ declare namespace window {
      * 获取该WindowStage实例下的主窗口，使用callback异步回调。
      *
      * 调用该接口前，建议先通过[loadContent]{@link window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}方法
-     * 或者[setUIContent]{@link @ohos.window:window.Window.setUIContent(path: string)}方法完成页面加载。
+     * 或者[setUIContent]{@link window.Window.setUIContent(path: string, callback: AsyncCallback<void>): void}方法完成页面加载。
      *
      * @param { AsyncCallback<Window> } callback 回调函数。返回当前WindowStage下的主窗口对象。
      * @throws { BusinessError } 1300002 - This window state is abnormal.
