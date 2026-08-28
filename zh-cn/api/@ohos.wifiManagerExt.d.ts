@@ -139,7 +139,7 @@ declare namespace wifiManagerExt {
    */
   export enum PowerMode {
     /**
-     * Sleeping Mode.
+     * 睡眠模式。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9 dynamiconly

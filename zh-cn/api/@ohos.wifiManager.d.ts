@@ -143,10 +143,10 @@ declare namespace wifiManager {
   function getScanResults(): Promise<Array<WifiScanInfo>>;
 
   /**
-   * 获取Wifi开关详细状态。
+   * 获取Wi-Fi开关详细状态。
    *
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @returns { WifiDetailState } Wifi枚举状态。
+   * @returns { WifiDetailState } Wi-Fi枚举状态。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -165,7 +165,7 @@ declare namespace wifiManager {
    *
    * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or
    *     (ohos.permission.LOCATION and ohos.permission.APPROXIMATELY_LOCATION))
-   * @param { AsyncCallback<Array<WifiScanInfo>> } callback - Returns information about scanned Wi-Fi hotspot if any.
+   * @param { AsyncCallback<Array<WifiScanInfo>> } callback - 回调函数，返回扫描到的WLAN热点信息（如果有）。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -712,7 +712,7 @@ declare namespace wifiManager {
    * 获取IPV6信息。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { Ipv6Info } Ipv6信息。
+   * @returns { Ipv6Info } IPv6信息。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -820,12 +820,12 @@ declare namespace wifiManager {
   function updateNetwork(config: WifiDeviceConfig): int;
 
   /**
-   * Set whther to allow automatic connnect by networkId.
-   * The network can be associated with again if isAllowed is true, else not.
+   * 设置是否允许通过networkId自动连接。
+   * 如果isAllowed为true，则可以再次关联该网络，否则不可。
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { int } netId Identifies the network to be set. The value of networkId cannot be less than 0.
-   * @param { boolean } isAllowed Identifies whether allow auto connect or not.
+   * @param { int } netId 标识要设置的网络。networkId的值不能小于0。
+   * @param { boolean } isAllowed 标识是否允许自动连接。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 401 - Invalid parameters. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1013,6 +1013,7 @@ declare namespace wifiManager {
   function enableHiLinkHandshake(isHiLinkEnable: boolean, bssid: string, config: WifiDeviceConfig): void;
 
   /**
+   * 重置所有已保存的设备配置。
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
    * @throws {BusinessError} 201 - Permission denied.
@@ -1531,10 +1532,10 @@ declare namespace wifiManager {
   function on(type: 'wifiStateChange', callback: Callback<number>): void;
 
   /**
-   * Subscribe Wi-Fi status change events.
+   * 注册WLAN状态改变事件。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<int> } callback - the callback of on, 0: inactive, 1: active, 2: activating, 3: de-activating
+   * @param { Callback<int> } callback - 状态改变回调函数。返回0：未激活，1：已激活，2：正在激活，3：正在去激活。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -1563,9 +1564,9 @@ declare namespace wifiManager {
   function off(type: 'wifiStateChange', callback?: Callback<number>): void;
 
   /**
-   * Unsubscribe Wi-Fi status change events.
+   * 取消注册Wi-Fi状态改变事件。
    * 
-   * All callback functions will be deregistered If there is no specific callback parameter.
+   * 如果未指定callback参数，将取消注册该事件关联的所有回调函数。
    *
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { Callback<int> } [callback] - the callback of off
@@ -1598,10 +1599,10 @@ declare namespace wifiManager {
   function on(type: 'wifiConnectionChange', callback: Callback<number>): void;
 
     /**
-   * Subscribe Wi-Fi connection change events.
+   * 注册Wi-Fi连接状态改变事件。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<int> } callback - the callback of on, 0: disconnected, 1: connected
+   * @param { Callback<int> } callback - 状态改变回调函数。返回0：已断开，1：已连接。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -1630,8 +1631,8 @@ declare namespace wifiManager {
   function off(type: 'wifiConnectionChange', callback?: Callback<number>): void;
 
   /**
-   * Unsubscribe Wi-Fi connection change events.
-   * All callback functions will be deregistered If there is no specific callback parameter.
+   * 取消注册Wi-Fi连接状态改变事件。
+   * 如果未指定callback参数，将取消注册该事件关联的所有回调函数。
    *
    * @permission ohos.permission.GET_WIFI_INFO
    * @param { Callback<int> } [callback] - the callback of off
@@ -1662,10 +1663,10 @@ declare namespace wifiManager {
   function on(type: 'wifiScanStateChange', callback: Callback<number>): void;
 
   /**
-   * Subscribe Wi-Fi scan status change events.
+   * 注册扫描状态改变事件。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<int> } callback - the callback of on, 0: scan fail, 1: scan success
+   * @param { Callback<int> } callback - 状态改变回调函数。返回0：扫描失败，1：扫描成功。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -1692,11 +1693,11 @@ declare namespace wifiManager {
   function off(type: 'wifiScanStateChange', callback?: Callback<number>): void;
 
   /**
-   * Unsubscribe Wi-Fi scan status change events.
-   * All callback functions will be deregistered If there is no specific callback parameter.
+   * 取消注册扫描状态改变事件。
+   * 如果未指定callback参数，将取消注册该事件关联的所有回调函数。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<int> } [callback] - the callback of off
+   * @param { Callback<int> } [callback] - 状态改变回调函数。如果未指定callback参数，将取消注册该事件关联的所有回调函数。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -1723,10 +1724,10 @@ declare namespace wifiManager {
   function on(type: 'wifiRssiChange', callback: Callback<number>): void;
 
   /**
-   * Subscribe Wi-Fi rssi change events.
+   * 注册Wi-Fi接收信号强度(RSSI)变化事件。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<int> } callback - the callback of on
+   * @param { Callback<int> } callback - 状态改变回调函数。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -1752,11 +1753,11 @@ declare namespace wifiManager {
   function off(type: 'wifiRssiChange', callback?: Callback<number>): void;
 
   /**
-   * Unsubscribe Wi-Fi rssi change events.
-   * All callback functions will be deregistered If there is no specific callback parameter.
+   * 取消注册Wi-Fi接收信号强度(RSSI)变化事件。
+   * 如果未指定callback参数，将取消注册该事件关联的所有回调函数。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<int> } [callback] - the callback of off
+   * @param { Callback<int> } [callback] - 状态改变回调函数。如果未指定callback参数，将取消注册该事件关联的所有回调函数。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2501000 - Operation failed.
@@ -1801,7 +1802,7 @@ declare namespace wifiManager {
   function onStreamChange(callback: Callback<int>): void;
 
   /**
-   * 取消注册WIFI流变更事件。使用callback异步回调。
+   * 取消注册Wi-Fi流变更事件。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_WIFI_CONNECTION
    * @param { 'streamChange' } type - 固定填"streamChange"字符串。
@@ -1819,11 +1820,11 @@ declare namespace wifiManager {
   function off(type: 'streamChange', callback?: Callback<number>): void;
 
   /**
-   * Unsubscribe Wi-Fi stream change events.
-   * All callback functions will be deregistered If there is no specific callback parameter.
+   * 取消注册WLAN接收信号强度(RSSI)变化事件。
+   * 如果未指定callback参数，将取消注册该事件关联的所有回调函数。
    *
    * @permission ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { Callback<int> } [callback] - the callback of off
+   * @param { Callback<int> } [callback] - 状态改变回调函数。如果未指定callback参数，将取消注册该事件关联的所有回调函数。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -1854,11 +1855,11 @@ declare namespace wifiManager {
   function on(type: 'deviceConfigChange', callback: Callback<number>): void;
 
   /**
-   * Subscribe Wi-Fi device config change events.
+   * 注册设备配置改变事件。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<int> } callback - the callback of on,
-   *     0: config is added, 1: config is changed, 2: config is removed.
+   * @param { Callback<int> } callback -  状态改变回调函数,
+   *     0: 配置已添加，1: 配置已改变，2: 配置已移除。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -1888,11 +1889,11 @@ declare namespace wifiManager {
   function off(type: 'deviceConfigChange', callback?: Callback<number>): void;
 
   /**
-   * Subscribe Wi-Fi device config change events.
+   * 注册设备配置改变事件。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<int> } [callback] - the callback of off,
-   *     0: config is added, 1: config is changed, 2: config is removed.
+   * @param { Callback<int> } [callback] - 状态改变回调函数。如果未指定callback参数，将取消注册该事件关联的所有回调函数，
+   *     0: 配置已添加, 1: 配置已改变, 2: 配置已移除。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -1920,11 +1921,11 @@ declare namespace wifiManager {
   function on(type: 'hotspotStateChange', callback: Callback<number>): void;
 
   /**
-   * Subscribe Wi-Fi hotspot state change events.
+   * 注册热点状态改变事件。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<int> } callback - the callback of on,
-   *     0: inactive, 1: active, 2: activating, 3: de-activating
+   * @param { Callback<int> } callback - 状态改变回调函数，
+   *     0: 未激活，1: 已激活，2: 激活中， 3: 去激活中。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
@@ -1950,11 +1951,11 @@ declare namespace wifiManager {
   function off(type: 'hotspotStateChange', callback?: Callback<number>): void;
 
 /**
-   * Unsubscribe Wi-Fi hotspot state change events.
-   * All callback functions will be deregistered If there is no specific callback parameter.
+   * 取消注册热点状态改变事件。
+   * 如果未指定callback参数，将取消注册该事件关联的所有回调函数。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<int> } [callback] - the callback of off
+   * @param { Callback<int> } [callback] - 状态改变回调函数。如果未指定callback参数，将取消注册该事件关联的所有回调函数。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2601000 - Operation failed.
@@ -1983,10 +1984,10 @@ declare namespace wifiManager {
   function on(type: 'hotspotStaJoin', callback: Callback<StationInfo>): void;
 
   /**
-   * Subscribe Wi-Fi hotspot sta join events.
+   * 注册热点STA加入事件。
    *
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
-   * @param { Callback<StationInfo> } callback - the callback of on
+   * @param { Callback<StationInfo> } callback - 状态改变回调函数。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 202 - System API is not allowed called by Non-system application.
    * @throws {BusinessError} 801 - Capability not supported.
@@ -2016,8 +2017,8 @@ declare namespace wifiManager {
   function off(type: 'hotspotStaJoin', callback?: Callback<StationInfo>): void;
 
   /**
-   * Unsubscribe Wi-Fi hotspot sta join events.
-   * All callback functions will be deregistered If there is no specific callback parameter.
+   * 取消注册热点STA加入事件。
+   * 如果未指定callback参数，将取消注册该事件关联的所有回调函数。
    *
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
    * @param { Callback<StationInfo> } [callback] - the callback of off
@@ -2051,7 +2052,7 @@ declare namespace wifiManager {
   function on(type: 'hotspotStaLeave', callback: Callback<StationInfo>): void;
 
   /**
-   * Subscribe Wi-Fi hotspot sta leave events.
+   * 注册热点STA离开事件。
    *
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
    * @param { Callback<StationInfo> } callback - the callback of on
@@ -2084,7 +2085,7 @@ declare namespace wifiManager {
   function off(type: 'hotspotStaLeave', callback?: Callback<StationInfo>): void;
 
   /**
-   * Unsubscribe Wi-Fi hotspot sta leave events.
+   * 取消注册热点STA离开事件。
    *
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
    * @param { Callback<StationInfo> } [callback] - the callback of off
@@ -2116,10 +2117,10 @@ declare namespace wifiManager {
   function on(type: 'p2pStateChange', callback: Callback<number>): void;
 
   /**
-   * Subscribe P2P status change events.
+   * 注册P2P开关状态改变事件。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<int> } callback - the callback of on, 1: idle, 2: starting, 3:started, 4: closing, 5: closed
+   * @param { Callback<int> } callback - 状态改变回调函数。返回1：空闲，2：打开中，3：已打开，4：关闭中，5：已关闭。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
@@ -2145,10 +2146,10 @@ declare namespace wifiManager {
   function off(type: 'p2pStateChange', callback?: Callback<number>): void;
 
   /**
-   * Unsubscribe P2P status change events.
+   * 取消注册P2P开关状态改变事件。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<int> } [callback] - the callback of off
+   * @param { Callback<int> } [callback] - 状态改变回调函数。如果未指定callback参数，将取消注册该事件关联的所有回调函数。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
@@ -2175,10 +2176,10 @@ declare namespace wifiManager {
   function on(type: 'p2pConnectionChange', callback: Callback<WifiP2pLinkedInfo>): void;
 
   /**
-   * Subscribe P2P connection change events.
+   * 注册P2P连接状态改变事件。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<WifiP2pLinkedInfo> } callback - the callback of on
+   * @param { Callback<WifiP2pLinkedInfo> } callback - 状态改变回调函数。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
@@ -2204,10 +2205,10 @@ declare namespace wifiManager {
   function off(type: 'p2pConnectionChange', callback?: Callback<WifiP2pLinkedInfo>): void;
 
   /**
-   * Unsubscribe P2P connection change events.
+   * 取消注册P2P连接状态改变事件。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<WifiP2pLinkedInfo> } [callback] - the callback of off
+   * @param { Callback<WifiP2pLinkedInfo> } [callback] - 状态改变回调函数。如果未指定callback参数，将取消注册该事件关联的所有回调函数。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
@@ -2236,10 +2237,10 @@ declare namespace wifiManager {
   function on(type: 'p2pDeviceChange', callback: Callback<WifiP2pDevice>): void;
 
   /**
-   * Subscribe P2P local device change events.
+   * 注册P2P本端设备状态改变事件。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<WifiP2pDevice> } callback - the callback of on
+   * @param { Callback<WifiP2pDevice> } callback - 状态改变回调函数。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
@@ -2265,9 +2266,9 @@ declare namespace wifiManager {
   function off(type: 'p2pDeviceChange', callback?: Callback<WifiP2pDevice>): void;
 
   /**
-   * Unsubscribe P2P local device change events.
+   * 取消注册P2P本端设备状态改变事件。
    *
-   * @param { Callback<WifiP2pDevice> } [callback] - the callback of off
+   * @param { Callback<WifiP2pDevice> } [callback] - 状态改变回调函数。如果未指定callback参数，将取消注册该事件关联的所有回调函数
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -2296,10 +2297,10 @@ declare namespace wifiManager {
   function on(type: 'p2pPeerDeviceChange', callback: Callback<WifiP2pDevice[]>): void;
 
   /**
-   * Subscribe P2P peer device change events.
+   * 注册P2P对端设备状态改变事件。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<WifiP2pDevice[]> } callback - the callback of on
+   * @param { Callback<WifiP2pDevice[]> } callback - 状态改变回调函数。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
@@ -2326,9 +2327,9 @@ declare namespace wifiManager {
   function off(type: 'p2pPeerDeviceChange', callback?: Callback<WifiP2pDevice[]>): void;
 
   /**
-   * Unsubscribe P2P peer device change events.
+   * 取消注册P2P对端设备状态改变事件。
    *
-   * @param { Callback<WifiP2pDevice[]> } [callback] - the callback of off
+   * @param { Callback<WifiP2pDevice[]> } [callback] - 状态改变回调函数。
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
    * @syscap SystemCapability.Communication.WiFi.P2P
@@ -2354,10 +2355,10 @@ declare namespace wifiManager {
   function on(type: 'p2pPersistentGroupChange', callback: Callback<void>): void;
 
   /**
-   * Subscribe P2P persistent group change events.
+   * 注册P2P永久组状态改变事件。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<void> } callback - the callback of on
+   * @param { Callback<void> } callback - 状态改变回调函数。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
@@ -2383,10 +2384,10 @@ declare namespace wifiManager {
   function off(type: 'p2pPersistentGroupChange', callback?: Callback<void>): void;
 
   /**
-   * Unsubscribe P2P persistent group change events.
+   * 取消注册P2P永久组状态改变事件。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<void> } [callback] - the callback of off
+   * @param { Callback<void> } [callback] - 状态改变回调函数。如果未指定callback参数，将取消注册该事件关联的所有回调函数。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
@@ -2413,10 +2414,10 @@ declare namespace wifiManager {
   function on(type: 'p2pDiscoveryChange', callback: Callback<number>): void;
 
   /**
-   * Subscribe P2P discovery events.
+   * 注册发现设备状态改变事件。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<int> } callback - the callback of on
+   * @param { Callback<int> } callback - 状态改变回调函数。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
@@ -2442,10 +2443,10 @@ declare namespace wifiManager {
   function off(type: 'p2pDiscoveryChange', callback?: Callback<number>): void;
 
   /**
-   * Unsubscribe P2P discovery events.
+   * 取消注册发现设备状态改变事件。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { Callback<int> } [callback] - the callback of off
+   * @param { Callback<int> } [callback] - 状态改变回调函数。如果未指定callback参数，将取消注册该事件关联的所有回调函数。
    * @throws {BusinessError} 201 - Permission denied.
    * @throws {BusinessError} 801 - Capability not supported.
    * @throws {BusinessError} 2801000 - Operation failed.
