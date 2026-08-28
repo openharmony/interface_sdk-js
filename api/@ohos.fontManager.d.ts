@@ -200,7 +200,7 @@ declare namespace fontManager {
   enum FontScope {
     /**
      * Application-level font. The font is cleared when the application exits, the font service exits,
-     * the account is deleted, or the device restarts.
+     * the account is stopping, or the device restarts.
      *
      * @syscap SystemCapability.Global.FontManager
      * @since 26.1.0 dynamic&static
@@ -208,7 +208,7 @@ declare namespace fontManager {
     app = 0,
 
     /**
-     * Session-level font. The font is cleared when the account is deleted or the device restarts.
+     * Session-level font. The font is cleared when the account is stopping or the device restarts.
      *
      * @syscap SystemCapability.Global.FontManager
      * @since 26.1.0 dynamic&static
