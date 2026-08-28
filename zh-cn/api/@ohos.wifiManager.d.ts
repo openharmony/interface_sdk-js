@@ -3503,7 +3503,7 @@ declare namespace wifiManager {
   }
 
   /**
-   * Wi-Fi Ipv6 configuration information.
+   * Wi-Fi IPv6配置信息。
    *
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
@@ -3512,7 +3512,7 @@ declare namespace wifiManager {
    */
   interface Ipv6Config {
     /**
-     * IPv6 address.
+     * IPv6地址。
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
@@ -3522,7 +3522,7 @@ declare namespace wifiManager {
     ipAddress: string;
  
     /**
-     * Gate way.
+     * 网关。
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
@@ -3532,7 +3532,7 @@ declare namespace wifiManager {
     gateway: string;
  
     /**
-     * Prefix length.
+     * 前缀长度。
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
@@ -3542,7 +3542,7 @@ declare namespace wifiManager {
     prefixLength: int;
  
     /**
-     * DNS servers.
+     * DNS 服务器。
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
@@ -3552,7 +3552,7 @@ declare namespace wifiManager {
     dnsServers: Array<string>;
  
     /**
-     * Domains.
+     * 域名。
      *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
@@ -4097,7 +4097,7 @@ declare namespace wifiManager {
   }
 
   /**
-   * Wi-Fi connection information.
+   * Wi-Fi连接信息。
    *
    * @syscap SystemCapability.Communication.WiFi.STA
    * @atomicservice [since 12]
