@@ -32,6 +32,7 @@ import brightness from '@ohos.brightness';
 import charger from '@ohos.charger';
 import deviceAttest from '@ohos.deviceAttest';
 import deviceInfo from '@ohos.deviceInfo';
+import boardInfo from '@ohos.boardInfo';
 import pasteboard from '@ohos.pasteboard';
 import power from '@ohos.power';
 import print from '@ohos.print';
@@ -87,7 +88,7 @@ export {
   OnDownloadCompleteResponse, PrintExtensionAbility, Request, RequestData, RequestFile,
   SetBrightnessModeOptions, SetBrightnessOptions, SetKeepScreenOnOptions, UploadRequestOptions,
   UploadResponse, WallpaperExtensionAbility, appAccount, batteryInfo, batteryStats, brightness, charger, configPolicy,
-  customConfig, deviceAttest, deviceInfo, distributedAccount, osAccount, authorization, pasteboard, power, print, scan, request, cacheDownload, runningLock,
+  customConfig, deviceAttest, deviceInfo, boardInfo, distributedAccount, osAccount, authorization, pasteboard, power, print, scan, request, cacheDownload, runningLock,
   screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
   systemTimer, thermal, update, usb, usbManager, serialManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, systemLoad, intelligentVoice, selectionManager, SelectionExtensionAbility,
@@ -100,6 +101,7 @@ import configPolicy from '@ohos.configPolicy';
 import customConfig from '@ohos.customization.customConfig';
 import { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData } from '@ohos.base';
 import deviceInfo from '@ohos.deviceInfo';
+import boardInfo from '@ohos.boardInfo';
 import zlib from '@ohos.zlib';
 import commonEventManager from '@ohos.commonEventManager';
 import emitter from '@ohos.events.emitter';
@@ -118,7 +120,7 @@ import { Available, SuppressWarnings, SuppressWarningsType } from '@ohos.annotat
 
 export {
   zlib, configPolicy, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, customConfig, systemDateTime,
-  deviceInfo,systemTimer, systemLoad, request, commonEventManager, emitter, StaticSubscriberExtensionAbility,
+  deviceInfo, boardInfo, systemTimer, systemLoad, request, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, appAccount, distributedAccount, osAccount, authorization, intelligentScene, Available,
   SuppressWarnings, SuppressWarningsType
 };
