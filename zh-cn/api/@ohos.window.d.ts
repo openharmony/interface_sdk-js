@@ -2918,7 +2918,7 @@ declare namespace window {
    * 创建子窗口或者系统窗口，使用callback异步回调。
    * 
    * 非[自由窗口](docroot://windowmanager/window-terminology.md#自由窗口)状态下，子窗口创建后默认是
-   * [沉浸式布局](docroot://windowmanager/immersive-window-feature.md#沉浸式布局)。
+   * [沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)。
    * 
    * 自由窗口状态下，子窗口参数[decorEnabled]{@link @ohos.window:window.Configuration}为false时，子窗口创建后为沉浸式布局；子窗口参数decorEnabled为true，子窗口
    * 创建后为非沉浸式布局。
@@ -2953,7 +2953,7 @@ declare namespace window {
    * 创建子窗口或者系统窗口，使用Promise异步回调。
    * 
    * 非[自由窗口](docroot://windowmanager/window-terminology.md#自由窗口)状态下，子窗口创建后默认是
-   * [沉浸式布局](docroot://windowmanager/immersive-window-feature.md#沉浸式布局)。
+   * [沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)。
    * 
    * 自由窗口状态下，子窗口参数[decorEnabled]{@link @ohos.window:window.Configuration}为false时，子窗口创建后为沉浸式布局；子窗口参数decorEnabled为true，子窗口
    * 创建后为非沉浸式布局。
@@ -2987,7 +2987,7 @@ declare namespace window {
   /**
    * 创建子窗口，使用callback异步回调。
    * 
-   * 子窗口创建后默认是[沉浸式布局](docroot://windowmanager/immersive-window-feature.md#沉浸式布局)。
+   * 子窗口创建后默认是[沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)。
    * 
    * > **说明：**
    * >
@@ -3008,7 +3008,7 @@ declare namespace window {
   /**
    * 创建子窗口，使用Promise异步回调。
    * 
-   * 子窗口创建后默认是[沉浸式布局](docroot://windowmanager/immersive-window-feature.md#沉浸式布局)。
+   * 子窗口创建后默认是[沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)。
    * 
    * > **说明：**
    * >
@@ -12035,7 +12035,7 @@ declare namespace window {
      *
      * @param { string } name - 子窗口的名字。
      * @param { SubWindowOptions } options - 子窗口参数。decorEnabled为true时，子窗口为非
-     *     [沉浸式布局](docroot://windowmanager/immersive-window-feature.md#沉浸式布局)；decorEnabled为false时，子窗口为沉浸式布局。
+     *     [沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)；decorEnabled为false时，子窗口为沉浸式布局。
      * @returns { Promise<Window> } Promise对象。返回当前Window下创建的子窗口对象。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
@@ -12911,7 +12911,7 @@ declare namespace window {
     /**
      * 创建该WindowStage实例下的子窗口，使用Promise异步回调。
      * 
-     * 子窗口创建后默认是[沉浸式布局](docroot://windowmanager/immersive-window-feature.md#沉浸式布局)。
+     * 子窗口创建后默认是[沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)。
      *
      * @param { string } name 子窗口的名字。
      * @returns { Promise<Window> } Promise对象。返回当前WindowStage下的子窗口对象。
@@ -12930,7 +12930,7 @@ declare namespace window {
     /**
      * 创建该WindowStage实例下的子窗口，使用callback异步回调。
      * 
-     * 子窗口创建后默认是[沉浸式布局](docroot://windowmanager/immersive-window-feature.md#沉浸式布局)。
+     * 子窗口创建后默认是[沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)。
      *
      * @param { string } name 子窗口的名字。
      * @param { AsyncCallback<Window> } callback 回调函数。返回当前WindowStage下的子窗口对象。
@@ -12949,7 +12949,8 @@ declare namespace window {
     /**
      * 创建该WindowStage实例下的子窗口，使用Promise异步回调。
      * 
-     * 非[自由窗口](docroot://windowmanager/window-terminology.md#自由窗口)状态下，子窗口创建后默认是[沉浸式布局](docroot://windowmanager/immersive-window-feature.md#沉浸式布局)。
+     * 非[自由窗口](docroot://windowmanager/window-terminology.md#自由窗口)状态下，
+     * 子窗口创建后默认是[沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)。
      *
      * 自由窗口状态下，子窗口参数[decorEnabled]{@link window.SubWindowOptions}为false时，子窗口创建后为沉浸式布局；子窗口参数decorEnabled为true，子窗口创建后为非沉浸式布局。
      * @param { string } name - 子窗口的名字。
