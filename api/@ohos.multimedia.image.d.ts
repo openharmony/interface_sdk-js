@@ -3736,6 +3736,17 @@ declare namespace image {
      * @since 26.0.0 dynamic&static
      */
     sizeLimit?: PackingSizeLimit;
+
+    /**
+     * Reserved space size for C2PA data during encoding, in bytes. The default value is 0, indicating
+     * no reserved space is added.
+     *
+     * @syscap SystemCapability.Multimedia.Image.ImagePacker
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    c2paDataSize?: int;
   }
 
   /**
