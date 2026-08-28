@@ -5081,6 +5081,7 @@ declare namespace window {
     /**
      * 窗口是否以最小化状态启动。
      * 如果为true，窗口将不会拉起到前台，只会在快捷栏上显示图标。
+     * 该参数只在同应用内生效，只适用于PC/2in1设备。
      *
      * @default false
      * @syscap SystemCapability.Window.SessionManager
@@ -5092,6 +5093,7 @@ declare namespace window {
     /**
      * 是否屏蔽快捷栏图标及Hover缩略图。
      * 如果为true，则当前窗口不会在快捷栏上显示图标及Hover缩略图。
+     * 该参数只在同应用内生效，只适用于PC/2in1设备，并且需绑定托盘图标。
      *
      * @default false
      * @syscap SystemCapability.Window.SessionManager
@@ -5103,6 +5105,7 @@ declare namespace window {
     /**
      * 是否屏蔽多任务视图。
      * 如果为true，则当前窗口不会在多任务视图中显示。
+     * 该参数只在同应用内生效，只适用于PC/2in1设备，并且需绑定托盘图标。
      *
      * @default false
      * @syscap SystemCapability.Window.SessionManager
