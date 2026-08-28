@@ -15,7 +15,7 @@
 
 /**
  * @file Performance Tracing
- * @kit PerformanceAnalysisKit
+ * @kit API10LessDeprecatedModules
  */
 
 /**

@@ -254,7 +254,7 @@ declare interface SliderOptions {
      * 小于min时取min，大于max时取max。
      * 
      * $$运算符为系统组件提供TS变量的引用，使得TS变量和slider组件的value值保持同步。详细使用示例请参考
-     * [示例7（设置滑动条的双向绑定）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-slider.md#示例7设置滑动条的双向绑定)。
+     * [示例7（设置滑动条的双向绑定）]{@link ./slider}。
      *
      * @default same as the value of min [since 11]
      * @syscap SystemCapability.ArkUI.ArkUI.Full

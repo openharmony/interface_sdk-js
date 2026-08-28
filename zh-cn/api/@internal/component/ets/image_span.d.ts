@@ -132,13 +132,13 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   onComplete(callback: ImageCompleteCallback): ImageSpanAttribute;
 
   /**
-   * 开启或关闭[SVG标签解析能力增强功能](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md)，开启后支持SVG解析新能力，适用于需要使用
+   * 开启或关闭[SVG标签解析能力增强功能]{@link ./image}，开启后支持SVG解析新能力，适用于需要使用
    * SVG新特性的场景；关闭则保持原有SVG解析能力，适用于兼容旧版本SVG图片显示的场景。未通过该接口设置时，默认保持原有SVG解析能力。
    * 
    * ImageSpan组件创建后，不支持动态修改该属性的值。
    *
    * @param { Optional<boolean> } enable - 控制是否开启
-   *     [SVG标签解析能力增强功能](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md)。
+   *     [SVG标签解析能力增强功能]{@link ./image}。
    *     <br>true：支持SVG解析新能力；false：保持原有SVG解析能力。
    * @returns { ImageSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -174,6 +174,26 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @since 12 dynamic
    */
   alt(value: PixelMap): ImageSpanAttribute;
+
+  /**
+   * 设置图像拉伸时可调整大小的图像选项。拉伸对拖拽缩略图以及占位图有效。
+   *
+   * 设置合法的 [ResizableOptions]{@link ResizableOptions} 时，objectRepeat属性、antialiased属性和orientation属性设置不生效。
+   *
+   * 当设置 top +bottom 大于原图的高或者 left + right 大于原图的宽时 [ResizableOptions]{@link ResizableOptions} 属性设置不生效。
+   *
+   * 当组件的参数类型为动图、[AnimatedDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:AnimatedDrawableDescriptor}和SVG时设置该属性
+   * 不生效。
+   *
+   * @param { ResizableOptions } value - 图像拉伸时可调整大小的图像选项。
+   * @returns { ImageSpanAttribute } Returns the instance of the ImageSpanAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  resizable(value: ResizableOptions): ImageSpanAttribute;
 }
 
 /**
@@ -230,7 +250,7 @@ declare interface ImageLoadResult {
   /**
    * 图片的宽。
    * 
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -242,7 +262,7 @@ declare interface ImageLoadResult {
   /**
    * 图片的高。
    * 
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -254,7 +274,7 @@ declare interface ImageLoadResult {
   /**
    * 组件的宽。
    * 
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -266,7 +286,7 @@ declare interface ImageLoadResult {
   /**
    * 组件的高。
    * 
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -292,7 +312,7 @@ declare interface ImageLoadResult {
   /**
    * 图片实际绘制的宽度。
    * 
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    * 
    * **说明：**
    * 
@@ -308,7 +328,7 @@ declare interface ImageLoadResult {
   /**
    * 图片实际绘制的高度。
    * 
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    * 
    * **说明：**
    * 
@@ -324,7 +344,7 @@ declare interface ImageLoadResult {
   /**
    * 实际绘制内容相对于组件自身的x轴偏移。
    * 
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    * 
    * **说明：**
    * 
@@ -340,7 +360,7 @@ declare interface ImageLoadResult {
   /**
    * 实际绘制内容相对于组件自身的y轴偏移。
    * 
-   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[px]{@link Length}
    * 
    * **说明：**
    * 

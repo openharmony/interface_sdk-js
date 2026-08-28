@@ -457,7 +457,7 @@ declare interface ChainAnimationOptions {
 declare interface UIListEvent extends UIScrollableCommonEvent {
 
   /**
-   * 设置[onWillScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onwillscroll12)事件的回调。
+   * 设置[onWillScroll]{@link UIScrollableCommonEvent#onWillScroll}事件的回调。
    *
    * 方法入参为undefined时，会重置事件回调。
    *
@@ -471,7 +471,7 @@ declare interface UIListEvent extends UIScrollableCommonEvent {
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
 
   /**
-   * 设置[onDidScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#ondidscroll12)事件的回调。
+   * 设置[onDidScroll]{@link UIScrollableCommonEvent#onDidScroll}事件的回调。
    *
    * 方法入参为undefined时，会重置事件回调。
    *
@@ -1056,7 +1056,7 @@ declare interface ListDividerOptions {
 }
 
 /**
- * 除支持[通用属性]{@link ./common}和[滚动组件通用属性](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#属性)外，还
+ * 除支持[通用属性]{@link ./common}和[滚动组件通用属性]{@link ScrollableCommonMethod}外，还
  * 支持以下属性：
  *
  * 除支持[通用事件]{@link ./common}和[滚动组件通用事件](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#事件)外，还
@@ -1329,7 +1329,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    *
    * List设置cachedCount后，显示区域外上下各会预加载并布局cachedCount行。计算预加载行数时，会计算ListItemGroup内部的ListItem行数。如果ListItemGroup内没有ListItem，则整
    * 个ListItemGroup算一行。配合裁剪[clip]{@link CommonMethod#clip(value: boolean)}或内容裁剪
-   * [clipContent](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#clipcontent14)属性可以显示出预加载节点。
+   * [clipContent]{@link CommonMethod#clipContent}属性可以显示出预加载节点。
    *
    * > **说明：**
    * >
@@ -1359,7 +1359,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    *
    * 计算预加载行数时，会计算ListItemGroup内部的ListItem行数。如果ListItemGroup内没有ListItem，则整个ListItemGroup算一行。配合
    * [clip]{@link CommonMethod#clip(value: boolean)}或
-   * [clipContent](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#clipcontent14)属性可以显示出预加载节点。
+   * [clipContent]{@link CommonMethod#clipContent}属性可以显示出预加载节点。
    *
    * 默认行为：count参数默认为number类型，数值根据屏幕内显示的节点个数设置，最大值为16。预加载的ListItem默认不参与绘制。
    *
@@ -1448,7 +1448,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * 设置列表项滚动结束对齐效果。
    *
    * 只支持item等高场景限位，不等高场景可能存在不准确的情况。对齐动画期间
-   * [onWillScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onwillscroll12)事件上报的滚动操作来源
+   * [onWillScroll]{@link UIScrollableCommonEvent#onWillScroll}事件上报的滚动操作来源
    * 类型为ScrollSource.FLING。
    *
    * @param { ScrollSnapAlign } value - 列表项滚动结束对齐效果。<br/>默认值：ScrollSnapAlign.NONE
@@ -1679,7 +1679,7 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * > **说明：**
    * >
    * > 从API version 7开始支持，从API version 12开始废弃，建议使用
-   * > [onDidScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#ondidscroll12)替代。
+   * > [onDidScroll]{@link UIScrollableCommonEvent#onDidScroll}替代。
    *
    * @param { function } event - Callback when scroll,
    * scrollOffset: 相对于上一帧的偏移量，List的内容向上滚动时偏移量为正，向下滚动时偏移量为负。<br/>单位vp。
@@ -1835,9 +1835,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * 开始拖拽List的子组件[ListItem]{@link ./list_item}时触发。
    *
    * 不支持拖动到List边缘时触发List的自动滚动，可以使用ForEach、LazyForEach、Repeat的
-   * [onMove](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-drag-sorting.md#onmove)接口实现该效果，参考
+   * [onMove]{@link CommonMethod#onMove}接口实现该效果，参考
    * [示例12（使用onMove进行拖拽）](docroot://reference/apis-arkui/arkui-ts/ts-container-list.md#示例12使用onmove进行拖拽)。但需注意
-   * [onMove](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-drag-sorting.md#onmove)接口不支持跨ListItemGroup
+   * [onMove]{@link CommonMethod#onMove}接口不支持跨ListItemGroup
    * 拖拽。
    *
    * > **说明：**

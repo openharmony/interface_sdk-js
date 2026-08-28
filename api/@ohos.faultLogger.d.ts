@@ -26,21 +26,9 @@ import type { AsyncCallback } from './@ohos.base';
  *
  * The number of application fault logs stored in the system is limited by the system log pressure. You are advised to
  * use [@ohos.hiviewdfx.hiAppEvent]{@link @ohos.hiviewdfx.hiAppEvent:hiAppEvent} to subscribe to fault events such as
- * **APP_CRASH** and **APP_FREEZE**.
- *
- * > **NOTE**
- * >
- * > The APIs of this module are no longer maintained since API version 18. You are advised to use
- * > [@ohos.hiviewdfx.hiAppEvent]{@link @ohos.hiviewdfx.hiAppEvent:hiAppEvent} to subscribe to the **APP_CRASH** and
- * > **APP_FREEZE** events in later versions.
- * >
- * > For details about how to use HiAppEvent to subscribe to the **APP_CRASH** event, see
- * > [Migrating Crash Events from the FaultLogger API](docroot://dfx/hiappevent-watcher-crash-events-arkts.md#migrating-crash-events-from-the-faultlogger-api)
- * > .
- * >
- * > For details about how to use HiAppEvent to subscribe to the **APP_FREEZE** event, see
- * > [Migrating Application Freeze Events from the Faultlogger API](docroot://dfx/hiappevent-watcher-freeze-events-arkts.md#migrating-application-freeze-events-from-the-faultlogger-api)
- * > .
+ * **APP_CRASH** and **APP_FREEZE**. For details, see:
+ * - [Migrating Crash Events from the FaultLogger API](docroot://dfx/hiappevent-watcher-crash-events-arkts.md#migrating-crash-events-from-the-faultlogger-api)
+ * - [Migrating Application Freeze Events from the Faultlogger API](docroot://dfx/hiappevent-watcher-freeze-events-arkts.md#migrating-application-freeze-events-from-the-faultlogger-api)
  *
  * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
  * @since 8 dynamiconly

@@ -373,6 +373,26 @@ declare namespace PiPWindow {
      * @since 26.0.0 static
      */
     VIDEO_LIVE = 3,
+
+    /**
+     * 表示车载影像画中画模板类型，系统依此加载车载影像模板。
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    VIDEO_DRIVE = 4,
+
+    /**
+     * 表示车载导航画中画模版类型，系统依此加载车载导航模板。
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    VIDEO_NAVIGATION = 5
   }
 
   /**

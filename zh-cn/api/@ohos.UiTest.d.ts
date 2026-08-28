@@ -22,17 +22,17 @@
   * - [Component<sup>9+</sup>]{@link Component}：代表UI界面上的指定控件，提供控件属性获取，控件点击，滑动查找，文本注入等能力。
   * - [Driver<sup>9+</sup>]{@link Driver}：入口类，提供控件匹配/查找，按键注入，坐标点击/滑动，截图等能力。
   * - [UiWindow<sup>9+</sup>]{@link UiWindow}：代表UI界面上的窗口对象，提供窗口属性获取，窗口拖动、调整窗口大小等能力。
-  * - [By<sup></sup>]{@link By}：提供控件特征描述能力，用于控件筛选匹配查找。从API version 8开始支持，从API version 9开始废弃，建议使用
+  * - [By<sup>(deprecated)</sup>]{@link By}：提供控件特征描述能力，用于控件筛选匹配查找。从API version 8开始支持，从API version 9开始废弃，建议使用
   * [On<sup>9+</sup>]{@link On}替代。
-  * - [UiComponent<sup></sup>]{@link UiComponent}：代表UI界面上的指定控件，提供控件属性获取，控件点击，滑动查找，文本注入等能力。从API version 8开始支持，从API version
+  * - [UiComponent<sup>(deprecated)</sup>]{@link UiComponent}：代表UI界面上的指定控件，提供控件属性获取，控件点击，滑动查找，文本注入等能力。从API version 8开始支持，从API version
   * 9开始废弃，建议使用[Component<sup>9+</sup>]{@link Component}替代。
-  * - [UiDriver<sup></sup>]{@link UiDriver}：入口类，提供控件匹配/查找，按键注入，坐标点击/滑动，截图等能力。从API version 8开始支持，从API version 9开始废弃，建议使用
+  * - [UiDriver<sup>(deprecated)</sup>]{@link UiDriver}：入口类，提供控件匹配/查找，按键注入，坐标点击/滑动，截图等能力。从API version 8开始支持，从API version 9开始废弃，建议使用
   * [Driver<sup>9+</sup>]{@link Driver}替代。
   * 
   * > **说明：**
   * >
-  * > - 本模块接口在<!--RP1-->[自动化测试脚本](docroot://application-test/uitest-guidelines.md)<!--RP1End-->中使用。
-  * >
+  * > - 本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+  * > - 本模块接口在[自动化测试脚本](docroot://application-test/uitest-guidelines.md)中使用。
   * > - 本模块接口不支持并发调用。
   * 
   * @file
@@ -2057,11 +2057,11 @@ declare class On {
    * > **说明**
    * >
    * > 如果控件的无障碍属性
-   * > [accessibilityLevel](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitylevel)
+   * > [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
    * > 设置为'no'或'no-hide-descendants'，无法使用本接口指定目标控件的文本属性用于查找控件，可以使用[On.originalText()]{@link On#originalText}接口实现。
    *
-   * @param { string } txt - 指定控件文本，用于匹配目标控件文本。<!--RP2--><!--RP2End-->
-   * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。 [since 10]
+   * @param { string } txt - 指定控件文本，用于匹配目标控件文本。
+   * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
    * @returns { On } - 返回指定目标控件文本属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2077,7 +2077,7 @@ declare class On {
   /**
    * 指定目标控件id属性，返回On对象自身。
    *
-   * @param { string } id - 指定控件的id值。<!--RP2--><!--RP2End-->
+   * @param { string } id - 指定控件的id值。
    * @returns { On } - 返回指定目标控件id属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2093,7 +2093,7 @@ declare class On {
   /**
    * 指定目标控件的控件类型属性，返回On对象自身。
    *
-   * @param { string } tp - 指定控件类型。<!--RP2--><!--RP2End-->
+   * @param { string } tp - 指定控件类型。
    * @returns { On } - 返回指定目标控件的控件类型属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2109,7 +2109,7 @@ declare class On {
   /**
    * 指定目标控件的可点击状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件可点击状态。true：可点击。false：不可点击。默认为true。<!--RP2--><!--RP2End--> [since 10]
+   * @param { boolean } [b] - 指定控件可点击状态。true：可点击。false：不可点击。默认为true。
    * @returns { On } - 返回指定目标控件的可点击状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2125,7 +2125,7 @@ declare class On {
   /**
    * 指定目标控件的可长按点击状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件可长按点击状态。true：可长按点击。false：不可长按点击。默认为true。<!--RP2--><!--RP2End--> [since 10]
+   * @param { boolean } [b] - 指定控件可长按点击状态。true：可长按点击。false：不可长按点击。默认为true。
    * @returns { On } - 返回指定目标控件的可长按点击状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2141,7 +2141,7 @@ declare class On {
   /**
    * 指定目标控件的可滑动状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 控件可滑动状态。true：可滑动。false：不可滑动。默认为true。<!--RP2--><!--RP2End--> [since 10]
+   * @param { boolean } [b] - 控件可滑动状态。true：可滑动。false：不可滑动。默认为true。
    * @returns { On } - 返回指定目标控件的可滑动状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2157,7 +2157,7 @@ declare class On {
   /**
    * 指定目标控件的使能状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件使能状态。true：使能。false：未使能。默认为true。<!--RP2--><!--RP2End--> [since 10]
+   * @param { boolean } [b] - 指定控件使能状态。true：使能。false：未使能。默认为true。
    * @returns { On } - 返回指定目标控件的使能状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2173,7 +2173,7 @@ declare class On {
   /**
    * 指定目标控件的获焦状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 控件获焦状态。true：获焦。false：未获焦。默认为true。<!--RP2--><!--RP2End--> [since 10]
+   * @param { boolean } [b] - 控件获焦状态。true：获焦。false：未获焦。默认为true。
    * @returns { On } - 返回指定目标控件的获焦状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2189,7 +2189,7 @@ declare class On {
   /**
    * 指定目标控件的被选中状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件被选中状态。true：被选中。false：未被选中。默认为true。<!--RP2--><!--RP2End--> [since 10]
+   * @param { boolean } [b] - 指定控件被选中状态。true：被选中。false：未被选中。默认为true。
    * @returns { On } - 返回指定目标控件的被选中状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2205,7 +2205,7 @@ declare class On {
   /**
    * 指定目标控件的被勾选状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件被勾选状态。true：被勾选。false：未被勾选。默认为true。<!--RP2--><!--RP2End--> [since 10]
+   * @param { boolean } [b] - 指定控件被勾选状态。true：被勾选。false：未被勾选。默认为true。
    * @returns { On } - 返回指定目标控件的被勾选状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2221,7 +2221,7 @@ declare class On {
   /**
    * 指定目标控件能否被勾选状态属性，返回On对象自身。
    *
-   * @param { boolean } [b] - 指定控件能否被勾选状态。true：能被勾选。false：不能被勾选。默认为true。<!--RP2--><!--RP2End--> [since 10]
+   * @param { boolean } [b] - 指定控件能否被勾选状态。true：能被勾选。false：不能被勾选。默认为true。
    * @returns { On } - 返回指定目标控件能否被勾选状态属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2237,7 +2237,7 @@ declare class On {
   /**
    * 指定目标控件位于给出的特征属性控件之前，返回On对象自身。
    *
-   * @param { On } on - 特征控件的属性要求。 <!--RP3--><!--RP3End-->
+   * @param { On } on - 特征控件的属性要求。 
    * @returns { On } - 返回指定目标控件位于给出的特征属性控件之前的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2251,11 +2251,10 @@ declare class On {
   isBefore(on: On): On;
 
   /**
-   * 要求目标组件位于由给定{@link Component}指定的另一个组件之前
-   * 对象，用于相对于组件定位。
+   * 指定目标控件位于给出的特征控件（参数 {@link Component}）之前，返回 On 对象自身。
    *
-   * @param { Component } com - 目标组件前面的组件如所示。
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - 特征控件，目标控件须位于该控件之前。
+   * @returns { On } - 返回指定目标控件位于给出的特征控件之前的 On 对象.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -2268,7 +2267,7 @@ declare class On {
   /**
    * 指定目标控件位于给出的特征属性控件之后，返回On对象自身。
    *
-   * @param { On } on - 特征控件的属性要求。 <!--RP3--><!--RP3End-->
+   * @param { On } on - 特征控件的属性要求。 
    * @returns { On } - 返回指定目标控件位于给出的特征属性控件之后的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2282,11 +2281,10 @@ declare class On {
   isAfter(on: On): On;
 
   /**
-   * 要求目标组件位于由给定{@link Component}指定的另一个组件之后
-   * 对象，用于相对于组件定位。
+   * 指定目标控件位于给出的特征控件（参数 {@link Component}）之后，返回 On 对象自身。
    *
-   * @param { Component } com - 描述了目标组件在的后面。
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - 特征控件，目标控件须位于该控件之后。
+   * @returns { On } - 返回指定目标控件位于给出的特征控件之后的 On 对象.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -2299,7 +2297,7 @@ declare class On {
   /**
    * 指定目标控件位于给出的特征属性控件之内，返回On对象自身。
    *
-   * @param { On } on - 特征控件的属性要求。<!--RP3--><!--RP3End-->
+   * @param { On } on - 特征控件的属性要求。
    * @returns { On } - 返回指定目标控件位于给出的特征属性控件内的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2313,11 +2311,10 @@ declare class On {
   within(on: On): On;
 
   /**
-   * 要求目标组件位于由给定{@link Component}指定的另一个组件的内部
-   * 对象，用于相对于组件定位。
+   * 指定目标控件位于给出的特征控件（参数 {@link Component}）之内，返回 On 对象自身。
    *
-   * @param { Component } com - 描述目标组件所在的组件。
-   * @returns { On } this {@link On}对象。
+   * @param { Component } com - 特征控件，目标控件须位于该控件之内。
+   * @returns { On } - 返回指定目标控件位于给出的特征控件之内的 On 对象.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -2330,7 +2327,7 @@ declare class On {
   /**
    * 指定目标控件位于给出的应用窗口内，返回On对象自身。
    *
-   * @param { string } bundleName - 应用窗口的包名。<!--RP2--><!--RP2End-->
+   * @param { string } bundleName - 应用窗口的包名。
    * @returns { On } - 返回指定目标控件位于给出的应用窗口内的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -2343,12 +2340,12 @@ declare class On {
   inWindow(bundleName: string): On;
 
   /**
-   * 获取指定屏幕内的控件对象，返回On对象自身。
+   * 指定目标控件所属的屏幕，返回On对象自身。
    *
    * @param { int } displayId - 指定控件所属屏幕ID，取值范围：大于等于0的整数。
    *      **说明：** 传入displayId不存在时，将抛出17000007异常。可通过
    *     [getAllDisplays]{@link @ohos.display:display.getAllDisplays(callback: AsyncCallback<Array<Display>>)}获取当前所有的
-   *     display对象，并由display对象获取对应的屏幕ID。<!--RP2--><!--RP2End-->
+   *     display对象，并由display对象获取对应的屏幕ID。
    * @returns { On } - 返回指定控件所属屏幕的On对象。
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -2362,7 +2359,7 @@ declare class On {
   /**
    * 指定目标控件的描述属性，支持多种匹配模式，返回On对象自身。
    *
-   * @param { string } val - 控件的描述属性。 <!--RP2--><!--RP2End-->
+   * @param { string } val - 控件的描述属性。 
    * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
    * @returns { On } - 返回指定目标控件description属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -2378,7 +2375,7 @@ declare class On {
   /**
    * 指定目标控件id属性和匹配模式，返回On对象自身。
    *
-   * @param { string } id - 指定控件的id值。<!--RP2--><!--RP2End-->
+   * @param { string } id - 指定控件的id值。
    * @param { MatchPattern } pattern - 指定的文本匹配模式。
    * @returns { On } - 返回指定目标控件id属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -2394,7 +2391,7 @@ declare class On {
   /**
    * 指定目标控件的控件类型属性和匹配模式，返回On对象自身。
    *
-   * @param { string } tp - 指定控件类型。<!--RP2--><!--RP2End-->
+   * @param { string } tp - 指定控件类型。
    * @param { MatchPattern } pattern - 指定的文本匹配模式。
    * @returns { On } - 返回指定目标控件的控件类型属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
@@ -2408,11 +2405,11 @@ declare class On {
   type(tp: string, pattern: MatchPattern): On;
 
   /**
-   * 获取指定提示文本的控件对象，返回On对象自身。
+   * 指定目标控件的提示文本属性，返回On对象自身。
    *
-   * @param { string } val - 指定控件提示文本。  <!--RP2--><!--RP2End-->
+   * @param { string } val - 指定控件提示文本。  
    * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
-   * @returns { On } - 返回指定提示文本控件的On对象。
+   * @returns { On } - 返回指定目标控件hint属性的On对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -2429,10 +2426,10 @@ declare class On {
    * > **说明**
    * >
    * > 如果控件的无障碍属性
-   * > [accessibilityLevel](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitylevel)
+   * > [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
    * > 设置为'no'或'no-hide-descendants'，可以使用本接口指定目标控件的文本属性用于查找控件，使用[On.text()]{@link On#text}接口不生效。
    *
-   * @param { string } text - 指定控件文本，用于匹配目标控件文本。 <!--RP2--><!--RP2End-->
+   * @param { string } text - 指定控件文本，用于匹配目标控件文本。 
    * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
    * @returns { On } - 返回指定目标控件文本属性的On对象。
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -2538,7 +2535,7 @@ declare class Component {
    * > **说明**
    * >
    * > 如果控件的无障碍属性
-   * > [accessibilityLevel](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitylevel)
+   * > [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
    * > 设置为'no'或'no-hide-descendants'，无法使用本接口获取控件的文本信息，可以使用[Component.getOriginalText()]{@link Component#getOriginalText}
    * > 获取控件的文本信息。
    *
@@ -2748,7 +2745,6 @@ declare class Component {
    * 在控件上滑动到顶部（适用支持滑动的控件）。使用Promise异步回调。
    *
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。
-   *     [since 11]
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2767,7 +2763,6 @@ declare class Component {
    * 在控件上滑动到底部（适用支持滑动的控件）。使用Promise异步回调。
    *
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。
-   *     [since 11]
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types; 2. Parameter
    *     verification failed.
@@ -2942,7 +2937,7 @@ declare class Component {
   scrollSearch(on: On, vertical?: boolean, offset?: int): Promise<Component | null>;
   /**
    * 获取控件对象的文本信息。使用Promise异步回调。如果控件的无障碍属性
-   * [accessibilityLevel](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitylevel)
+   * [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
    * 设置为'no'或'no-hide-descendants'，可以使用本接口获取控件的文本信息，无法使用[Component.getText()]{@link Component#getText}获取控件的文本信息。
    *
    * @returns { Promise<string> } - Promise对象，返回控件的文本信息。
@@ -3202,7 +3197,7 @@ declare class Driver {
    * @param { number } key0 - 指定的第一个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}。
    * @param { number } key1 - 指定的第二个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}。
    * @param { number } [key2] - 指定的第三个key值，取值范围：大于等于0的整数。取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，
-   *     默认值为0。 [since 11]
+   *     默认值为0。
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3236,7 +3231,7 @@ declare class Driver {
   triggerCombineKeys(key0: int, key1: int, key2?: int, displayId?: int): Promise<void>;
 
   /**
-   * 在目标坐标点单击。使用Promise异步回调。
+   * 在目标坐标点单击。仅支持在设备默认屏幕上操作，如需指定屏幕请使用[clickAt]{@link clickAt}。使用Promise异步回调。
    *
    * @param { int } x - 以number的形式传入目标点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } y - 以number的形式传入目标点的纵坐标信息，取值范围：大于等于0的整数。
@@ -3254,7 +3249,7 @@ declare class Driver {
   click(x: int, y: int): Promise<void>;
 
   /**
-   * 在目标坐标点双击。使用Promise异步回调。
+   * 在目标坐标点双击。仅支持在设备默认屏幕上操作，如需指定屏幕请使用[doubleClickAt]{@link doubleClickAt}。使用Promise异步回调。
    *
    * @param { int } x - 以number的形式传入目标点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } y - 以number的形式传入目标点的纵坐标信息，取值范围：大于等于0的整数。
@@ -3272,7 +3267,7 @@ declare class Driver {
   doubleClick(x: int, y: int): Promise<void>;
 
   /**
-   * 在目标坐标点长按。使用Promise异步回调。
+   * 在目标坐标点长按。仅支持在设备默认屏幕上操作且不支持自定义长按时长，如需指定屏幕或长按时长请使用[longClickAt]{@link longClickAt}。使用Promise异步回调。
    *
    * @param { int } x - 以number的形式传入目标点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } y - 以number的形式传入目标点的纵坐标信息，取值范围：大于等于0的整数。
@@ -3290,14 +3285,13 @@ declare class Driver {
   longClick(x: int, y: int): Promise<void>;
 
   /**
-   * 从起始坐标点滑向目的坐标点。使用Promise异步回调。
+   * 从起始坐标点滑向目的坐标点。仅支持在设备默认屏幕上操作，如需指定屏幕请使用[swipeBetween]{@link swipeBetween}。使用Promise异步回调。
    *
    * @param { int } startx - 以number的形式传入起始点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } starty - 以number的形式传入起始点的纵坐标信息，取值范围：大于等于0的整数。
    * @param { int } endx - 以number的形式传入目的点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } endy - 以number的形式传入目的点的纵坐标信息，取值范围：大于等于0的整数。
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。
-   *     [since 11]
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3312,14 +3306,13 @@ declare class Driver {
   swipe(startx: int, starty: int, endx: int, endy: int, speed?: int): Promise<void>;
 
   /**
-   * 从起始坐标点拖拽至目的坐标点。使用Promise异步回调。
+   * 从起始坐标点拖拽至目的坐标点。仅支持在设备默认屏幕上操作，不支持自定义拖拽前长按时长，如需指定屏幕或长按时长请使用[dragBetween]{@link dragBetween}。使用Promise异步回调。
    *
    * @param { int } startx - 以number的形式传入起始点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } starty - 以number的形式传入起始点的纵坐标信息，取值范围：大于等于0的整数。
    * @param { int } endx - 以number的形式传入目的点的横坐标信息，取值范围：大于等于0的整数。
    * @param { int } endy - 以number的形式传入目的点的纵坐标信息，取值范围：大于等于0的整数。
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。
-   *     [since 11]
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3355,7 +3348,7 @@ declare class Driver {
    *     只有''属性适用于此方法。
    *     设置其他属性将导致BusinessError 17000007。
    *     <br>默认值：参考TouchOptions的默认值。
-   * @returns { Promise<void> } - Promise that returns no value.
+   * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -3403,7 +3396,7 @@ declare class Driver {
    *     只有“持续时间”和“压力”属性适用于此方法。
    *     设置其他属性将导致BusinessError 17000007。
    *     <br>默认值：参考TouchOptions的默认值。
-   * @returns { Promise<void> } - Promise that returns no value.
+   * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -3420,8 +3413,7 @@ declare class Driver {
    * @param { Point } to - 以Point对象的形式传入终止点的坐标信息和所属屏幕ID。
    *     
    *      **说明：** 应与起始点属于同一个屏幕，否则将抛出17000007异常。
-   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错
-   *     误码。
+   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错误码。
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -3441,7 +3433,7 @@ declare class Driver {
    *     只有“速度”和“压力”属性适用于此方法。
    *     设置其他属性将导致BusinessError 17000007。
    *     <br>默认值：参考TouchOptions的默认值。
-   * @returns { Promise<void> } - Promise that returns no value.
+   * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -3458,8 +3450,7 @@ declare class Driver {
    * @param { Point } to - 以Point对象的形式传入终止点的坐标信息和所属屏幕ID。
    *     
    *      **说明：** 应与起始点属于同一个屏幕，否则将抛出17000007异常。
-   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错
-   *     误码。
+   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错误码。
    * @param { int } [duration] - 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，为null或undefined时使用默认值。
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -3480,7 +3471,7 @@ declare class Driver {
    *     只有“压力”、“速度”和“持续时间”属性适用于此方法。
    *     设置其他属性将导致BusinessError 17000007。
    *     <br>默认值：参考TouchOptions的默认值。
-   * @returns { Promise<void> } - Promise that returns no value.
+   * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -3751,7 +3742,6 @@ declare class Driver {
    *
    * @param { PointerMatrix } pointers - 滑动轨迹，包括操作手指个数和滑动坐标序列。
    * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出401错误码。
-   *     [since 11]
    * @returns { Promise<boolean> } - Promise对象，返回操作是否成功完成。true：完成，false：未完成。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3808,9 +3798,7 @@ declare class Driver {
    * @param { Point } p - 鼠标点击的坐标。
    * @param { MouseButton } btnId - 按下的鼠标按钮。
    * @param { int } [key1] - 指定的第一个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，默认值为0。
-   *     [since 11]
    * @param { int } [key2] - 指定的第二个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，默认值为0。
-   *     [since 11]
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3845,10 +3833,8 @@ declare class Driver {
    * @param { Point } p - 鼠标点击的坐标。
    * @param { boolean } down - 滚轮滑动方向是否向下。true表示向下滑动。false表示向上滚动。
    * @param { number } d - 鼠标滚轮滚动的格数，取值大于等于0的整数，每格对应目标点位移120px。
-   * @param { number } [key1] - 指定的第一个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，默认值
-   *     为0。 [since 11]
-   * @param { number } [key2] - 指定的第二个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，默认值
-   *     为0。 [since 11]
+   * @param { number } [key1] - 指定的第一个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，默认值为0。 
+   * @param { number } [key2] - 指定的第二个key值，取值大于等于0的整数，取值范围：[KeyCode键码值]{@link @ohos.multimodalInput.keyCode:KeyCode}，默认值为0。
    * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3885,7 +3871,7 @@ declare class Driver {
    * 捕获当前屏幕的指定区域，并保存为PNG格式的图片至给出的保存路径中。使用Promise异步回调。适用于支持截屏的场景。
    *
    * @param { string } savePath - 文件保存路径。路径需为当前应用的[沙箱路径](docroot://file-management/app-sandbox-directory.md)。
-   * @param { Rect } [rect] - 截图区域，默认为全屏。 [since 11]
+   * @param { Rect } [rect] - 截图区域，默认为全屏。
    * @returns { Promise<boolean> } - Promise对象，返回截图操作是否成功完成。true：成功完成，false：未成功完成。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types; 3. Parameter verification failed.
@@ -4040,7 +4026,7 @@ declare class Driver {
    *     <br>默认值：参考TouchOptions的默认值。
    * @param { KeyOptions } [keyOptions] - 拖动期间要按的键代码的键选项。
    *     <br>默认值：参考keyOptions的默认值。
-   * @returns { Promise<void> } - Promise that returns no value.
+   * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
@@ -4215,7 +4201,7 @@ declare class Driver {
    * @param { PenKeyOperationOptions } [options] - the operation options, including optional coordinate point.
    *     Default value: Refer to the default value of PenKeyOperationOption.
    *     <br>默认值：参考PenKeyOperationOption的默认值。
-   * @returns { Promise<void> } - Promise that returns no value.
+   * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @throws { BusinessError } 17000007 - Parameter verification failed. Unsupported key, mode, and operation combination.
@@ -4269,8 +4255,7 @@ declare class Driver {
    * @param { Point } to - 以Point对象的形式传入终止点的坐标信息和所属屏幕ID。
    *     
    *      **说明：** 应与起始点属于同一个屏幕，否则将抛出17000007异常。
-   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错
-   *     误码。
+   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错误码。
    * @param { int } [duration] - 拖拽前长按持续的时间，取值范围为大于等于1500的整数，默认值为1500，单位：ms。取值小于1500时抛出17000007错误码，为null或undefined时使用默认值。
    * @returns { Promise<boolean> } - Promise对象。返回拖拽操作期间目标控件是否存在。true：存在。false：不存在。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
@@ -4291,8 +4276,7 @@ declare class Driver {
    * @param { Point } to - 以Point对象的形式传入终止点的坐标信息和所属屏幕ID。
    *     
    *      **说明：** 应与起始点属于同一个屏幕，否则将抛出17000007异常。
-   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错
-   *     误码。
+   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错误码。
    * @returns { Promise<boolean> } - Promise对象。返回滑动操作期间目标控件是否存在。true：存在。false：不存在。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -4328,11 +4312,11 @@ declare class Driver {
    * 
    * > **说明：**
    * >
-   * > 若设备关闭了指关节手势<!--RP4--><!--RP4End-->，则调用本接口返回17000005错误码。
+   * > 若设备关闭了指关节手势，则调用本接口返回17000005错误码。
    *
    * @param { Array<Point> } pointers - 指关节敲击屏幕坐标点的数组，数组长度取值为1或2。
    * @param { int } times - 指关节连续敲击屏幕的次数，取值为1或2。
-   * @returns { Promise<void> } - Promise对象。无返回结果。
+   * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -4349,14 +4333,13 @@ declare class Driver {
    * 
    * > **说明：**
    * >
-   * > 若设备关闭了指关节手势<!--RP4--><!--RP4End-->，则调用本接口返回17000005错误码。
+   * > 若设备关闭了指关节手势，则调用本接口返回17000005错误码。
    *
    * @param { PointerMatrix } pointers - 滑动轨迹，包括操作手指个数和滑动坐标序列。
    *     
    *     **说明：**当前仅支持单指操作，PointerMatrix中的操作手指个数fingers必须设置为1。
-   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错
-   *     误码。
-   * @returns { Promise<void> } - Promise对象。无返回结果。
+   * @param { int } [speed] - 滑动速率，取值范围为200-40000的整数，默认值为600，单位：px/s。为不在范围内的非负数或为null/undefined时设为默认值600。为负数时抛出17000007错误码。
+   * @returns { Promise<void> } - Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
    * @throws { BusinessError } 17000005 - This operation is not supported.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
@@ -4703,12 +4686,11 @@ declare const ON: On;
  */
 declare namespace ON {
   /**
-   * Specifies the text for the target Component.
+   * 指定目标控件文本属性，支持多种匹配模式，返回 On 对象自身。
    *
-   * @param { string } txt - the text value.
-   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value, Set it default {@link 
-   *     MatchPattern.EQUALS} if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { string } txt - 指定控件文本，用于匹配目标控件文本。
+   * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
+   * @returns { On } - 返回指定目标控件文本属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4716,10 +4698,10 @@ declare namespace ON {
   export function text(txt: string, pattern?: MatchPattern): On;
 
   /**
-   * Specifies the id of the target Component.
+   * 指定目标控件id属性，返回 On 对象自身。
    *
-   * @param { string } id - the id value.
-   * @returns { On } this {@link On} object.
+   * @param { string } id - 指定控件的id值。
+   * @returns { On } - 返回指定目标控件id属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4727,10 +4709,10 @@ declare namespace ON {
   export function id(id: string): On;
 
   /**
-   * Specifies the type of the target Component.
+   * 指定目标控件的控件类型属性，返回 On 对象自身。
    *
-   * @param { string } tp - The type value.
-   * @returns { On } this {@link On} object.
+   * @param { string } tp - 指定控件类型。
+   * @returns { On } - 返回指定目标控件的控件类型属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4738,10 +4720,10 @@ declare namespace ON {
   export function type(tp: string): On;
 
   /**
-   * Specifies the clickable status of the target Component.
+   * 指定目标控件的可点击状态属性，返回 On 对象自身。
    *
-   * @param { boolean } [b] - the clickable status.Set it default true if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { boolean } [b] - 指定控件可点击状态。true：可点击。false：不可点击。默认为true。
+   * @returns { On } - 返回指定目标控件的可点击状态属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4749,10 +4731,10 @@ declare namespace ON {
   export function clickable(b?: boolean): On;
 
   /**
-   * Specifies the longClickable status of the target Component.
+   * 指定目标控件的可长按点击状态属性，返回 On 对象自身。
    *
-   * @param { boolean } [b] - the longClickable status.Set it default true if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { boolean } [b] - 指定控件可长按点击状态。true：可长按点击。false：不可长按点击。默认为true。
+   * @returns { On } - 返回指定目标控件的可长按点击状态属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4760,10 +4742,10 @@ declare namespace ON {
   export function longClickable(b?: boolean): On;
 
   /**
-   * Specifies the scrollable status of the target Component.
+   * 指定目标控件的可滑动状态属性，返回 On 对象自身。
    *
-   * @param { boolean } [b] - the scrollable status.Set it default true if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { boolean } [b] - 控件可滑动状态。true：可滑动。false：不可滑动。默认为true。
+   * @returns { On } - 返回指定目标控件的可滑动状态属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4771,10 +4753,10 @@ declare namespace ON {
   export function scrollable(b?: boolean): On;
 
   /**
-   * Specifies the enabled status of the target Component.
+   * 指定目标控件的使能状态属性，返回 On 对象自身。
    *
-   * @param { boolean } [b] - the enabled status.Set it default true if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { boolean } [b] - 指定控件使能状态。true：使能。false：未使能。默认为true。
+   * @returns { On } - 返回指定目标控件的使能状态属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4782,10 +4764,10 @@ declare namespace ON {
   export function enabled(b?: boolean): On;
 
   /**
-   * Specifies the focused status of the target Component.
+   * 指定目标控件的获焦状态属性，返回 On 对象自身。
    *
-   * @param { boolean } [b] - the focused status.Set it default true if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { boolean } [b] - 控件获焦状态。true：获焦。false：未获焦。默认为true。
+   * @returns { On } - 返回指定目标控件的获焦状态属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4793,10 +4775,10 @@ declare namespace ON {
   export function focused(b?: boolean): On;
 
   /**
-   * Specifies the selected status of the target Component.
+   * 指定目标控件的被选中状态属性，返回 On 对象自身。
    *
-   * @param { boolean } [b] - the - selected status.Set it default true if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { boolean } [b] - 指定控件被选中状态。true：被选中。false：未被选中。默认为true。
+   * @returns { On } - 返回指定目标控件的被选中状态属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4804,10 +4786,10 @@ declare namespace ON {
   export function selected(b?: boolean): On;
 
   /**
-   * Specifies the checked status of the target Component.
+   * 指定目标控件的被勾选状态属性，返回 On 对象自身。
    *
-   * @param { boolean } [b] - the checked status.Set it default true if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { boolean } [b] - 指定控件被勾选状态。true：被勾选。false：未被勾选。默认为true。
+   * @returns { On } - 返回指定目标控件的被勾选状态属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4815,10 +4797,10 @@ declare namespace ON {
   export function checked(b?: boolean): On;
 
   /**
-   * Specifies the checkable status of the target Component.
+   * 指定目标控件能否被勾选状态属性，返回 On 对象自身。
    *
-   * @param { boolean } [b] - the checkable status.Set it default true if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { boolean } [b] - 指定控件能否被勾选状态。true：能被勾选。false：不能被勾选。默认为true。
+   * @returns { On } - 返回指定目标控件能否被勾选状态属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4826,11 +4808,10 @@ declare namespace ON {
   export function checkable(b?: boolean): On;
 
   /**
-   * Requires that the target Component which is before another Component that specified by the given {@link On}
-   * object,used to locate Component relatively.
+   * 指定目标控件位于给出的特征属性控件之前，返回 On 对象自身。
    *
-   * @param { On } on - describes the attribute requirements of Component which the target one is in front of.
-   * @returns { On } this {@link On} object.
+   * @param { On } on - 特征控件的属性要求。
+   * @returns { On } - 返回指定目标控件位于给出的特征属性控件之前的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4838,11 +4819,10 @@ declare namespace ON {
   export function isBefore(on: On): On;
 
   /**
-   * Requires that the target Component which is after another Component that specified by the given {@link On}
-   * object,used to locate Component relatively.
+   * 指定目标控件位于给出的特征属性控件之后，返回 On 对象自身。
    *
-   * @param { On } on - describes the attribute requirements of Component which the target one is in back of.
-   * @returns { On } this {@link On} object.
+   * @param { On } on - 特征控件的属性要求。
+   * @returns { On } - 返回指定目标控件位于给出的特征属性控件之后的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4850,11 +4830,10 @@ declare namespace ON {
   export function isAfter(on: On): On;
 
   /**
-   * Requires that the target Component which is inside of another Component that specified by the given {@link On}
-   * object,used to locate Component relatively.
+   * 指定目标控件位于给出的特征属性控件之内，返回 On 对象自身。
    *
-   * @param { On } on - describes the attribute requirements of Component which the target one is inside of.
-   * @returns { On } this {@link On} object.
+   * @param { On } on - 特征控件的属性要求。
+   * @returns { On } - 返回指定目标控件位于给出的特征属性控件之内的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4862,10 +4841,10 @@ declare namespace ON {
   export function within(on: On): On;
 
   /**
-   * Specifies the bundleName of the application which the window that the target Component is located belongs.
+   * 指定目标控件位于给出的应用窗口内，返回 On 对象自身。
    *
-   * @param { string } bundleName - the bundleName of the specified window.
-   * @returns { On } this {@link On} object.
+   * @param { string } bundleName - 应用窗口的包名。
+   * @returns { On } - 返回指定目标控件位于给出的应用窗口内的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4873,10 +4852,10 @@ declare namespace ON {
   export function inWindow(bundleName: string): On;
 
   /**
-   * Specifies the displayId to which the target Component belongs.
+   * 指定目标控件所属的屏幕，返回 On 对象自身。
    *
-   * @param { int } displayId - the Id of the specified display.
-   * @returns { On } this {@link On} object.
+   * @param { int } displayId - 指定控件所属屏幕ID，取值范围：大于等于0的整数。
+   * @returns { On } - 返回指定控件所属屏幕的 {@link On} 对象。
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -4885,48 +4864,44 @@ declare namespace ON {
   export function belongingDisplay(displayId: int): On;
 
   /**
-   * Specifies the description for the target Component.
+   * 指定目标控件的描述属性，支持多种匹配模式，返回 On 对象自身。
    *
-   * @param { string } val - the description value.
-   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of description value,set it default {@link 
-   *     MatchPattern.EQUALS} if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { string } val - 控件的描述属性。
+   * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
+   * @returns { On } - 返回指定目标控件description属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
    */
   export function description(val: string, pattern?: MatchPattern): On;
   /**
-   * Specifies the id of the target Component.
+   * 指定目标控件id属性和匹配模式，返回 On 对象自身。
    *
-   * @param { string } id - the id value.
-   * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value,Set it default {@link 
-   *     MatchPattern.EQUALS} if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { string } id - 指定控件的id值。
+   * @param { MatchPattern } pattern - 指定的文本匹配模式。
+   * @returns { On } - 返回指定目标控件id属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
    */
   export function id(id: string, pattern: MatchPattern): On;
   /**
-   * Specifies the type of the target Component.
+   * 指定目标控件的控件类型属性和匹配模式，返回 On 对象自身。
    *
-   * @param { string } tp - The type value.
-   * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value,Set it default {@link 
-   *     MatchPattern.EQUALS} if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { string } tp - 指定控件类型。
+   * @param { MatchPattern } pattern - 指定的文本匹配模式。
+   * @returns { On } - 返回指定目标控件的控件类型属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
    */
   export function type(tp: string, pattern: MatchPattern): On;
   /**
-   * Specifies the hint for the target Component.
+   * 指定目标控件的提示文本属性，返回 On 对象自身。
    *
-   * @param { string } val - the hint value.
-   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value,Set it default {@link 
-   *     MatchPattern.EQUALS} if null or undefined.
-   * @returns { On } this {@link On} object.
+   * @param { string } val - 指定控件提示文本。
+   * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
+   * @returns { On } - 返回指定目标控件hint属性的 {@link On} 对象。
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
    * @test
@@ -4934,16 +4909,17 @@ declare namespace ON {
   export function hint(val: string, pattern?: MatchPattern): On;
 
   /**
-   * Specifies the original text for the target Component.
-   * If the accessibility property 'accessibilityLevel' of a component is set to 'no' or 'no-hide-descendants',
-   * you will not be able to use {@link On.text} to match the component with the specified original text, but you can 
-   * use this method to achieve it;
-   * if the component does not set the above accessibility property, this method has no difference with {@link On.text}
+   * 指定控件的文本内容和文本匹配模式，返回 On 对象自身。
    *
-   * @param { string } text - the original text value.
-   * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value, Set it default {@link 
-   *     MatchPattern.EQUALS} if null or undefined.
-   * @returns { On } this {@link On} object.
+   * > **说明**
+   * >
+   * > 如果控件的无障碍属性
+   * > [accessibilityLevel]{@link CommonMethod#accessibilityLevel}
+   * > 设置为'no'或'no-hide-descendants'，可以使用本接口指定目标控件的文本属性用于查找控件，使用[On.text()]{@link On#text}接口不生效。
+   *
+   * @param { string } text - 指定控件文本，用于匹配目标控件文本。
+   * @param { MatchPattern } [pattern] - 指定的文本匹配模式，默认为[EQUALS]{@link MatchPattern}。
+   * @returns { On } - 返回指定目标控件文本属性的 {@link On} 对象。
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @since 23 static
@@ -4952,11 +4928,10 @@ declare namespace ON {
   export function originalText(text: string, pattern?: MatchPattern): On;
 
   /**
-   * 要求目标组件位于由给定{@link Component}指定的另一个组件之前
-   * 对象，用于相对于组件定位。
+   * 指定目标控件位于给出的特征控件（参数 {@link Component}）之前，返回 On 对象自身。
    *
-   * @param { Component } com - 描述了目标组件在前面的组件。
-   * @returns { On } this {@link On}对象。
+   * @param { Component } com - 特征控件，目标控件须位于该控件之前。
+   * @returns { On } - 返回指定目标控件位于给出的特征控件之前的 On 对象.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -4966,11 +4941,10 @@ declare namespace ON {
   export function beforeComponent(com: Component): On;
 
   /**
-   * 要求目标组件位于由给定{@link Component}指定的另一个组件之后
-   * 对象，用于相对于组件定位。
+   * 指定目标控件位于给出的特征控件（参数 {@link Component}）之后，返回 On 对象自身。
    *
-   * @param { Component } com - 描述目标组件的后端组件。
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - 特征控件，目标控件须位于该控件之后。
+   * @returns { On } - 返回指定目标控件位于给出的特征控件之后的 On 对象.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel
@@ -4980,11 +4954,10 @@ declare namespace ON {
   export function afterComponent(com: Component): On;
 
   /**
-   * 要求目标组件位于由给定{@link Component}指定的另一个组件的内部
-   * 对象，用于相对于组件定位。
+   * 指定目标控件位于给出的特征控件（参数 {@link Component}）之内，返回 On 对象自身。
    *
-   * @param { Component } com - 描述目标组件所在的组件。
-   * @returns { On } this {@link On} object.
+   * @param { Component } com - 特征控件，目标控件须位于该控件之内。
+   * @returns { On } - 返回指定目标控件位于给出的特征控件之内的 On 对象.
    * @throws { BusinessError } 17000007 - Parameter verification failed.
    * @syscap SystemCapability.Test.UiTest
    * @FaAndStageModel

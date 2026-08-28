@@ -75,7 +75,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     VENDOR_BEGIN = 10000
-    }
+  }
 
   /**
      * 设备ID类型枚举。用于定义设备业务标识的类型，支持系统预设类型和厂商自定义扩展类型。
@@ -105,7 +105,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     VENDOR_BEGIN = 10000
-    }
+  }
 
   /**
    * 选择伴随设备的目的。
@@ -145,7 +145,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     VENDOR_BEGIN = 10000
-    }
+  }
 
   /**
    * 设备标识。用于唯一标识一个设备及其用户，包含设备ID类型、设备ID和设备用户ID等信息。
@@ -186,7 +186,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     deviceUserId: int;
-    }
+  }
 
   /**
      * 设备状态信息。用于描述伴随设备的当前状态，包括设备业务标识、用户名、型号信息、设备名、在线状态以及支持的业务ID列表等。
@@ -256,7 +256,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     supportedBusinessIds: int[];
-    }
+  }
 
   /**
    * 用于描述已注册的伴随设备认证模板的完整状态信息，包括模板ID、数据确认状态、有效性、用户ID、添加时间、支持的业务范围以及关联的设备状态等。
@@ -336,7 +336,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     deviceStatus: DeviceStatus;
-    }
+  }
 
   /**
    * 回调函数，用于接收模板状态变化通知。当模板状态发生变化（如添加、删除、有效性变更等）时，系统会通过此回调通知应用。
@@ -397,7 +397,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     templateId?: Uint8Array;
-    }
+  }
 
   /**
      * 状态监听器对象。用于监听或获取模板状态、持续认证状态、可添加设备状态等信息。通过[getStatusMonitor]{@link companionDeviceAuth.getStatusMonitor}获取此对象。
@@ -515,7 +515,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     offContinuousAuthChange(callback?: ContinuousAuthStatusCallback): void;
-    }
+  }
 
   /**
    * 获取状态监听器。用于获取指定用户的状态监听器对象，通过该对象可查询和订阅伴随设备的模板状态、持续认证状态、可添加设备状态等信息。
@@ -571,7 +571,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     selectionContext?: Uint8Array;
-    }
+  }
 
   /**
    * 伴随设备选择回调函数类型。当系统需要用户选择伴随设备时（如添加模板或执行认证），会调用此回调，应用需返回用户选择的设备信息。
@@ -640,6 +640,85 @@ declare namespace companionDeviceAuth {
    * @since 23 dynamic&static
    */
   function updateEnabledBusinessIds(templateId: Uint8Array, enabledBusinessIds: int[]): Promise<void>;
+  /**
+   * 定义用于提交用户输入的密码的回调。
+   *
+   * @param { Uint8Array } passcode - 用户输入的密码(例如USB的密码
+   *     安全密钥)。
+   * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  type PasscodeSubmitCallback = (passcode: Uint8Array) => void;
+
+  /**
+   * 提示输入辅助设备密码时框架携带的选项。
+   *
+   * @interface PasscodePromptParams
+   * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface PasscodePromptParams {
+    /**
+       * 当提示输入辅助设备密码时，框架携带的挑战。
+       *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    challenge: Uint8Array;
+  }
+
+  /**
+   * 定义当框架需要辅助设备的密码时调用的回调。
+   *
+   * @param { PasscodeSubmitCallback } submit - 用于提交输入的密码的回调
+   *     用户。
+   * @param { PasscodePromptParams } params - Params carrying contextual information of this
+   *     prompt request.
+   * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  type PasscodePromptCallback =
+      (submit: PasscodeSubmitCallback, params: PasscodePromptParams) => void;
+
+  /**
+   * 注册当框架需要辅助设备密码时调用的回调。
+   * 如果回调已经被注册，则新的回调将替换它。
+   *
+   * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+   * @param { PasscodePromptCallback } callback - 框架调用的回调
+   *     密码为必填项。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 32600001 - The system service is not working properly. Please try again later.
+   * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function registerPasscodePromptCallback(callback: PasscodePromptCallback): void;
+
+  /**
+   * 取消注册用于提示输入辅助设备密码的回调。
+   *
+   * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 32600001 - The system service is not working properly. Please try again later.
+   * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function unregisterPasscodePromptCallback(): void;
 }
 
 export default companionDeviceAuth;

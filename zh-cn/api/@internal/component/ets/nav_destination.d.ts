@@ -893,7 +893,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    *     时，如果为[Split]{@link NavigationMode}模式，仍按照竖屏模式显示，如果为[Stack]{@link NavigationMode}模式需配合
    *     [menus]{@link NavDestinationAttribute#menus(value: Array<NavigationMenuItem> | CustomBuilder)}属性的Array<
    *     [NavigationMenuItem]{@link NavigationMenuItem}>使用，底部工具栏会自动隐藏，同时底部工具栏所有选项移动至页面右上角菜单。<br/>使用
-   *     [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)写法为用户自定义工具栏选项，不具备以上功能。
+   *     [CustomBuilder]{@link CustomBuilder}写法为用户自定义工具栏选项，不具备以上功能。
    * @param { NavigationToolbarOptions } [options] - 工具栏选项，用于自定义工具栏显示样式。包含工具栏背景颜色、工具栏背景模糊样式及模糊选项、工具栏背景属性、工具栏布局方式、
    *     是否隐藏工具栏的文本、工具栏更多图标的菜单选项。当需要自定义工具栏样式时传入，不传入时使用默认工具栏样式。
    * @returns { NavDestinationAttribute }
@@ -1218,7 +1218,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * > >   3. NavDestination类型为[NavDestinationMode]{@link NavDestinationMode}.STANDARD。
    * >
    * > - 设置显示方向的实际效果依赖于具体的设备支持情况，具体参考窗口的
-   * > [setPreferredOrientation](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setpreferredorientation9-1)接
+   * > [setPreferredOrientation]{@link setPreferredOrientation}接
    * > 口。
    *
    * @param { Optional<Orientation> } orientation - NavDestination页面的显示方向。转场到该NavDestination后，系统会将应用主窗口切换到该显示方向。
@@ -1243,7 +1243,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * > >   4. NavDestination类型为[NavDestinationMode]{@link NavDestinationMode}.STANDARD。
    * >
    * > - 设置系统状态栏的实际效果依赖于具体的设备支持情况，具体参考窗口的
-   * > [setSpecificSystemBarEnabled](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setspecificsystembarenabled11)
+   * > [setSpecificSystemBarEnabled]{@link setSpecificSystemBarEnabled}
    * > 接口。
    *
    * @param { Optional<boolean> } enabled - 进入该NavDestination后，系统状态栏的显示/隐藏状态。<br/>默认值：false<br/>true：
@@ -1268,7 +1268,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    *
    *
    * > 设置系统导航条的实际效果依赖于具体的设备支持情况，具体参考窗口的
-   * > [setSpecificSystemBarEnabled](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setspecificsystembarenabled11)
+   * > [setSpecificSystemBarEnabled]{@link setSpecificSystemBarEnabled}
    * > 接口。
    *
    * @param { Optional<boolean> } enabled - 进入该NavDestination后，系统导航条的显示/隐藏状态。<br/>默认值：false<br/>true：

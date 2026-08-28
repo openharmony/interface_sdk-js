@@ -76,8 +76,7 @@ declare class NotificationSubscriberExtensionAbility {
    * Called when notifications are canceled.
    *
    * @param { Array<string> } hashCodes - List of hash codes of the notifications to cancel, obtained through
-   *     {@link @ohos.application.NotificationSubscriberExtensionAbility:
-   *     NotificationSubscriberExtensionAbility.onReceiveMessage}.
+   *     {@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility.onReceiveMessage}.
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
    * @since 22 dynamic

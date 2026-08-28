@@ -816,11 +816,11 @@ declare namespace userAuth {
 
     /**
      * Privacy PIN. It is a special PIN authentication type, which is generally used for secondary access control after
-     * the screen is unlocked (that is, the user must be authenticated again before accessing a specific application or
-     * content after the device is unlocked). For example, a user can use a privacy password to protect the application
-     * lock (a feature that performs secondary authentication on application startup to prevent others from opening the
-     * user's applications) to prevent family members who know the lock screen password from accessing some of their
-     * applications.
+     * the screen is unlocked. (That is, after the device is unlocked, the user needs to be authenticated again before
+     * accessing specific apps or content.) For example, a user can use the privacy PIN to protect the application lock
+     * (the application lock is a secondary verification function for application startup, which can prevent others from
+     * opening the user's application), so as to prevent family members who know the lock screen password from accessing
+     * some applications of the user.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
@@ -1606,9 +1606,9 @@ declare namespace userAuth {
     reuseUnlockResult?: ReuseUnlockResult;
 
     /**
-     * ID of the target user to be authenticated. This parameter is passed when a specific user, rather than the
-     * currently logged-in user, needs to be authenticated. If not passed, the ID of the currently logged-in user is
-     * used by default. The value is a non-negative integer.
+     * ID of the target user to be authenticated, which specifies the user to be authenticated. This parameter is passed
+     * when a specific user instead of the current login user needs to be authenticated. If this parameter is not
+     * passed, the ID of the current login user is used by default. The value is a non-negative integer.
      *
      * @default The ID of the current user. The value is a positive integer greater than or equal to 0.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1636,9 +1636,9 @@ declare namespace userAuth {
     skipLockedBiometricAuth?: boolean;
 
     /**
-     * List of IDs for credentials to be authenticated. This parameter is passed when only specific credentials, rather
-     * than all credentials of the user, need to be authenticated. If not passed or an empty array is passed, all
-     * credentials of the user are authenticated by default.
+     * Credential ID list, which is used to specify the credentials to be authenticated. This parameter is passed when
+     * only specific credentials instead of all credentials of the user need to be authenticated. If this parameter is
+     * not passed or an empty array is passed, all credentials of the user are authenticated by default.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
@@ -1688,10 +1688,10 @@ declare namespace userAuth {
     navigationButtonText?: string;
 
     /**
-     * Window type of the user authentication screen. **DIALOG_BOX** is suitable for most authentication scenarios (with
-     * better user experience), and **FULLSCREEN** is suitable for scenarios that require an immersive authentication
-     * experience or involve more authentication information. If not specified, the default value is
-     * **WindowModeType.DIALOG_BOX**.
+     * Window type of the authentication widget. **DIALOG_BOX** is applicable to most authentication scenarios (with
+     * good user experience), and **FULLSCREEN** is applicable to scenarios that require immersive authentication
+     * experience or scenarios where a large amount of authentication information needs to be displayed. If no value is
+     * passed, **WindowModeType.DIALOG_BOX** is used by default.
      *
      * @default WindowModeType.DIALOG_BOX
      * @syscap SystemCapability.UserIAM.UserAuth.Core
@@ -1721,9 +1721,10 @@ declare namespace userAuth {
     uiContext?: Context;
 
     /**
-     * Application window object. It is used to display the identity authentication dialog box as an application modal
-     * dialog. It is suitable for scenarios where the authentication dialog box needs to be controlled through a window
-     * object. If this parameter is provided, **uiContext** will be ignored.
+     * Application window object. This API is used to display the authentication dialog box as an application modal
+     * dialog. It is applicable to scenarios where the dialog box needs to be displayed by using the window object. If
+     * this parameter is provided, **uiContext** will be ignored. If this parameter is not passed, the display of the
+     * authentication dialog box is controlled by **uiContext**.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
@@ -2105,8 +2106,8 @@ declare namespace userAuth {
      * > to subscribe to the event.
      *
      * @param { 'result' } type - Event type. The value is **result**, which indicates the authentication result.
-     * @param { IAuthCallback } [callback] - Callback used to return the user authentication result. If this parameter is
-     *     not passed, the value passed when the
+     * @param { IAuthCallback } [callback] - Callback used to return the user authentication result. If this parameter
+     *     is not passed, the value passed when the
      *     [on('result')]{@link userAuth.UserAuthInstance.on(type: 'result', callback: IAuthCallback)} API is called is
      *     used by default.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2343,11 +2344,11 @@ declare namespace userAuth {
    * @permission ohos.permission.SUPPORT_USER_AUTH
    * @param { NoticeType } noticeType - Notification type. It identifies the source of a notification. Currently,
    *     **WIDGET_NOTICE (1)** is supported, indicating that the notification is from the authentication widget.
-   * @param { string } eventData - Event data, which is a JSON string that contains the specific content of the
-   *     notification, such as the authentication type ready event. The data length ranges from 0 to 65536 bytes. The
-   *     JSON object should contain fields such as **widgetContextId** (number type, widget context ID), **event** (
-   *     string type, event type), **version** (string type, version number), and **payload** (object type, event
-   *     payload object).
+   * @param { string } eventData - Event data. It is a string in JSON format, containing the notification details, such
+   *     as the authentication type and ready event. The data length ranges from 0 to 65536 bytes. The JSON object must
+   *     contain the following fields: **widgetContextId** (context ID of the component, number type), **event** (event
+   *     type, string type), **version** (version number, string type), and **payload** (event payload object, object
+   *     type).
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2564,9 +2565,9 @@ declare namespace userAuth {
   }
 
   /**
-   * Defines the identity authentication widget manager. It is used to register custom identity authentication widgets
-   * with the **UserAuthWidgetMgr** for unified management and scheduling. Custom authentication widgets can receive
-   * commands from the user authentication framework and execute corresponding operations.
+   * Defines the authentication widget manager. It is used to register the custom authentication widget with the
+   * **UserAuthWidgetMgr** for unified management and scheduling. The custom authentication widget can receive commands
+   * from the user authentication framework and perform corresponding operations.
    *
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
@@ -2617,9 +2618,9 @@ declare namespace userAuth {
      *
      * @param { 'command' } type - Event type to subscribe to. The value **'command'** indicates that the event that the
      *     user authentication framework sends commands to the identity authentication widget is unsubscribed.
-     * @param { IAuthWidgetCallback } callback - Callback to unregister, which must be the same as the callback passed
-     *     in the **on** method. If this parameter is not passed, all registered callbacks are unregistered. Before
-     *     using the **off** API, ensure that the corresponding callback has been registered through the
+     * @param { IAuthWidgetCallback } callback - Callback function. Callback to be unregistered, which must be the same
+     *     as that passed to the **on** method. If this parameter is not passed, all registered callbacks are
+     *     unregistered. Before using this method, ensure that the corresponding callback has been registered using the
      *     [on]{@link userAuth.UserAuthWidgetMgr.on(type: 'command', callback: IAuthWidgetCallback)} method.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified.
@@ -2702,11 +2703,11 @@ declare namespace userAuth {
      * callback to send commands to the identity authentication widget. The widget needs to parse the command content
      * and perform corresponding operations.
      *
-     * @param { string } cmdData - Command data, which is a JSON string containing the command content sent by the user
-     *     authentication framework to the authentication widget. The JSON structure includes corresponding fields based
-     *     on different command types. Common fields include: **commandType** (string, command type), **authType** (
-     *     array, list of authentication types), **result** (number, authentication result code), etc. The widget must
-     *     parse this data and perform corresponding operations based on the command type.
+     * @param { string } cmdData - Command data. It is a JSON string, containing the command content sent by the user
+     *     authentication framework to the authentication widget. The JSON structure contains fields based on the
+     *     command type. Common fields include **commandType** (string, command type), **authType** (array,
+     *     authentication type list), and **result** (number, authentication result code). The widget needs to parse the
+     *     data and perform the corresponding operations based on the command type.
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -2724,16 +2725,16 @@ declare namespace userAuth {
   }
 
   /**
-   * Defines the callback for obtaining remote authentication widget parameters. This type is used in remote
-   * authentication scenarios. When the configuration parameters of the remote authentication widget need to be
-   * obtained, the system invokes this callback.
+   * Triggered to obtain remote authentication page parameters. This callback type is used in remote authentication
+   * scenarios. When the system needs to obtain the configuration parameters of the remote authentication page, it calls
+   * this callback function.
    *
-   * @param { Uint8Array } challenge - Random challenge value, which can be used to prevent replay attacks. The maximum
-   *     length is 32 bytes. Uint8Array([]) can be passed. It is recommended that a random number generated by the
-   *     [crypto framework]{@link @ohos.security.cryptoFramework:cryptoFramework} be used as the challenge value to
-   *     enhance security.
-   * @returns { WidgetParam } Configuration parameters of the user authentication widget, including the title and
-   *     navigation button text.
+   * @param { Uint8Array } challenge - Random challenge value, which can be used to prevent replay attacks. It cannot
+   *     exceed 32 bytes and can be passed in **Uint8Array([])** format. You are advised to use the random number
+   *     generated by the [crypto framework]{@link @ohos.security.cryptoFramework:cryptoFramework} as the challenge
+   *     value to enhance security.
+   * @returns { WidgetParam } User authentication page configuration parameters. It includes the title and navigation
+   *     button text of the authentication page.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
@@ -2742,14 +2743,14 @@ declare namespace userAuth {
   type WidgetParamCallback = (challenge: Uint8Array) => WidgetParam;
 
   /**
-   * Defines the callback for returning remote authentication results. This type is used in remote authentication
-   * scenarios. After the remote authentication is complete, the system invokes this callback to return the
+   * Triggered to return the remote authentication result. This callback type is used in remote authentication
+   * scenarios. After remote authentication is complete, the system calls this callback function to return the
    * authentication result.
    *
    * @param { Uint8Array } challenge - Challenge value. It is a one-time random number used to prevent replay attacks,
-   *     which is consistent with the challenge value passed during authentication initiation.
-   * @param { UserAuthResult } result - User authentication result, including the authentication result code and
-   *     authentication token.
+   *     and is the same as the challenge value passed during authentication initiation.
+   * @param { UserAuthResult } result - User authentication result. It contains information such as the authentication
+   *     result code and authentication token.
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
@@ -2758,9 +2759,8 @@ declare namespace userAuth {
   type ResultCallback = (challenge: Uint8Array, result: UserAuthResult) => void;
 
   /**
-   * Defines the remote authentication callback API. This API is used in remote authentication scenarios and provides
-   * the callback capabilities for obtaining remote authentication widget parameters and returning authentication
-   * results.
+   * Defines the callback of remote authentication. This API is used in remote authentication scenarios to obtain
+   * parameters of the remote authentication page and return the authentication result.
    *
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @systemapi Hide this for inner system use.
@@ -2769,8 +2769,9 @@ declare namespace userAuth {
    */
   interface IRemoteAuthCallback {
     /**
-     * Callback for obtaining remote authentication widget parameters. When a remote device initiates an authentication
-     * request, the system invokes this callback to obtain the authentication widget configuration parameters.
+     * Callback triggered to obtain remote authentication page parameters. When a remote device initiates an
+     * authentication request, the system calls this callback to obtain the configuration parameters on the
+     * authentication page.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
@@ -2780,8 +2781,8 @@ declare namespace userAuth {
     onGetRemoteAuthWidgetParam: WidgetParamCallback;
 
     /**
-     * Callback for returning remote authentication results. After the remote authentication is complete, the system
-     * invokes this callback to return the authentication result to the initiator.
+     * Callback triggered to return the remote authentication result. After remote authentication is complete, the
+     * system calls this callback to return the authentication result to the initiator.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @systemapi Hide this for inner system use.
@@ -2792,15 +2793,16 @@ declare namespace userAuth {
   }
 
   /**
-   * Registers a remote authentication callback. This API is used in remote authentication scenarios. After
-   * registration, the system can obtain the page parameters required for remote authentication through the callback and
-   * receive the authentication result after the authentication is complete. Duplicate registration is not allowed. When
-   * the callback is no longer needed, call [unregisterRemoteAuthCallback]{@link userAuth.unregisterRemoteAuthCallback}
-   * to unregister it to prevent the callback from being unable to be released.
+   * Registers a remote authentication callback. This API is used to register a callback in remote authentication
+   * scenarios. After the callback is registered, the system can obtain the page parameters required for remote
+   * authentication through the callback and receive the authentication result after the authentication is complete.
+   * Repeated registration is not allowed. If the callback is not used, call
+   * [unregisterRemoteAuthCallback]{@link userAuth.unregisterRemoteAuthCallback} to unregister it to avoid callback
+   * release failures.
    *
    * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
-   * @param { IRemoteAuthCallback } callback - Remote authentication callback API, which includes the callbacks for
-   *     obtaining authentication widget parameters and returning authentication results.
+   * @param { IRemoteAuthCallback } callback - Remote authentication callback API. It contains the callback function for
+   *     obtaining authentication page parameters and returning the authentication result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
    * @throws { BusinessError } 12500002 - General operation error.
@@ -2812,9 +2814,9 @@ declare namespace userAuth {
   function registerRemoteAuthCallback(callback: IRemoteAuthCallback): void;
 
   /**
-   * Unregisters the remote authentication callback. This API is used to unregister a previously registered remote
-   * authentication callback. After unregistration, the system no longer receives remote authentication page parameter
-   * requests or authentication result notification.
+   * Unregisters a remote authentication callback. This API is used to unregister a registered remote authentication
+   * callback. After the callback is unregistered, the system does not receive requests for page parameters or
+   * authentication result notifications for remote authentication.
    *
    * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
    * @throws { BusinessError } 201 - Permission denied.

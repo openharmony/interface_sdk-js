@@ -137,7 +137,7 @@ declare namespace bundleResourceManager {
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Bundle name of the application.
-   * @param { int } resourceFlags - Type of the resource information to obtain.
+   * @param { int } [resourceFlags] - Type of the resource information to obtain.
    * @returns { BundleResourceInfo } Resource information of the application obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -178,7 +178,7 @@ declare namespace bundleResourceManager {
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Bundle name of the application.
-   * @param { int } resourceFlags - Type of the resource information to obtain. The default value is
+   * @param { int } [resourceFlags] - Type of the resource information to obtain. The default value is
    *     **[ResourceFlag]{@link bundleResourceManager.ResourceFlag}.GET_RESOURCE_INFO_ALL**.
    * @returns { Array<LauncherAbilityResourceInfo> } Resource information of the entry ability obtained.
    * @throws { BusinessError } 201 - Permission denied.

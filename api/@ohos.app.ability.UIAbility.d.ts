@@ -866,7 +866,7 @@ declare class UIAbility extends Ability {
    * > UIAbility.
    * >
    * > - Additionally, if the application or a third-party framework registers a listener for 
-   * > [window.WindowStage.on('windowStageClose')](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#onwindowstageclose14)
+   * > [window.WindowStage.on]{@link ./@ohos.window:WindowStage.on(eventType: 'windowStageClose', callback: Callback<void>)}
    * > , this callback function is not executed.
    *
    * @permission ohos.permission.PREPARE_APP_TERMINATE

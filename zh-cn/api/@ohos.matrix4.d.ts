@@ -237,7 +237,7 @@ declare namespace matrix4 {
      * **说明：** 
      * 
      * 为0时表示x方向的矩阵变换中心恰好为组件x方向锚点，取值表示相对组件x方向锚点的额外偏移量。具体实现可参考
-     * [示例3（按中心点旋转）](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-transformation.md#示例3按中心点旋转)。
+     * [示例3（按中心点旋转）]{@link @ohos.matrix4}。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -256,7 +256,7 @@ declare namespace matrix4 {
      * **说明：** 
      * 
      * 为0时表示y方向的矩阵变换中心恰好为组件y方向锚点，取值表示相对组件y方向锚点的额外偏移量。具体实现可参考
-     * [示例3（按中心点旋转）](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-transformation.md#示例3按中心点旋转)。
+     * [示例3（按中心点旋转）]{@link @ohos.matrix4}。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]

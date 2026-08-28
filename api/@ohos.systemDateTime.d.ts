@@ -81,7 +81,7 @@ declare namespace systemDateTime {
    * Sets the system time. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.SET_TIME
-   * @param { long } time - Timestamp to set, in milliseconds.
+   * @param { long } time - Timestamp to set, in milliseconds, and must be greater than 0.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -101,7 +101,7 @@ declare namespace systemDateTime {
    * Sets the system time. This API uses a promise to return the result.
    *
    * @permission ohos.permission.SET_TIME
-   * @param { long } time - Timestamp to set, in milliseconds.
+   * @param { long } time - Timestamp to set, in milliseconds, and must be greater than 0.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.

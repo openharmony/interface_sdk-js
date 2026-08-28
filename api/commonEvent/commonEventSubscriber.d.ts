@@ -352,7 +352,7 @@ export interface CommonEventSubscriber {
 
   /**
    * Aborts an ordered common event. This API is used with 
-   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}. After the abort,
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent}. After the abort,
    * the common event is not sent to the next subscriber. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
@@ -367,7 +367,7 @@ export interface CommonEventSubscriber {
 
   /**
    * Aborts an ordered common event. This API is used with
-   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}. After the abort,
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent}. After the abort,
    * the common event is not sent to the next subscriber. This API uses a promise to return the result.
    *
    * @returns { Promise<void> } Promise that returns no value.
@@ -379,7 +379,7 @@ export interface CommonEventSubscriber {
 
   /**
    * Aborts an ordered common event when used with
-   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}. With the abort
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent}. With the abort
    * state, the common event is not sent to the next subscriber. This API returns the result synchronously.
    *
    * @syscap SystemCapability.Notification.CommonEvent
@@ -390,7 +390,7 @@ export interface CommonEventSubscriber {
 
   /**
    * Clears the abort state of an ordered common event. Use this API together with 
-   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}, and the common 
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent}, and the common 
    * event can be passed to the next subscriber. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
@@ -405,7 +405,7 @@ export interface CommonEventSubscriber {
 
   /**
    * Clears the abort state of this ordered common event. Use this API together with 
-   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}, and the common 
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent}, and the common 
    * event can be passed to the next subscriber. This API uses a promise to return the result.
    *
    * @returns { Promise<void> } Promise that returns no value.
@@ -417,7 +417,7 @@ export interface CommonEventSubscriber {
 
   /**
    * Clears the abort state of an ordered common event when used with
-   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}. After the
+   * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent}. After the
    * clearance, the common event is sent to the next subscriber. This API returns the result synchronously.
    *
    * @syscap SystemCapability.Notification.CommonEvent

@@ -488,6 +488,34 @@ declare namespace deviceInfo {
      * @since 24 static
      */
     get sdkApiVersion(): int;
+
+    /**
+     * 系统软件Minor API版本。从API 26.0.0 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。
+     *
+     * 示例：
+     * 如果系统API版本为26.0.2，则sdkMinorApiVersion为0。
+     * 如果系统API版本为26.1.2，则sdkMinorApiVersion为1。
+     *
+     * @returns { int }
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    get sdkMinorApiVersion(): int;
+
+    /**
+     * 系统软件Patch API版本。从API 26.0.0 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。
+     *
+     * 示例：
+     * 如果系统API版本为26.2.0，则sdkPatchApiVersion为0。
+     * 如果系统API版本为26.2.1，则sdkPatchApiVersion为1。
+     *
+     * @returns { int }
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    get sdkPatchApiVersion(): int;
     
     /**
      * 首个版本系统软件API版本。
@@ -837,7 +865,7 @@ declare namespace deviceInfo {
  
     /**
      * 检查指定的API版本在当前设备上是否可用。
-     * 此方法提供跨不同OpenHarmony/分布式操作系统版本的兼容性检查。它会根据输入格式和API版本范围自动选择合适的版本检查方法。
+     * 此方法提供OpenHarmony及其各发行版系统版本的兼容性检查。该方法会根据输入格式和API版本范围自动选择合适的版本检查方法。
      * 
      * @param { string | int } version - 需要校验的API版本号，支持整数格式版本号和字符串格式版本号。
      *     - 字符串采用M.S.F格式（如 "26.0.0","5.0.1"）：

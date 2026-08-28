@@ -68,7 +68,7 @@ interface ColumnSplitDividerStyle {
    * 取值范围：不支持负值。
    * 
    * 非法值：按默认值处理，此时
-   * [getInspectorByKey()](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-component-id.md#getinspectorbykey9)
+   * [getInspectorByKey()]{@link getInspectorByKey}
    * 接口获取到的属性值为undefined。
    *
    * @default 0
@@ -88,7 +88,7 @@ interface ColumnSplitDividerStyle {
    * 取值范围：不支持负值。
    * 
    * 非法值：按默认值处理，此时
-   * [getInspectorByKey()](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-component-id.md#getinspectorbykey9)
+   * [getInspectorByKey()]{@link getInspectorByKey}
    * 接口获取到的属性值为undefined。
    *
    * @default 0

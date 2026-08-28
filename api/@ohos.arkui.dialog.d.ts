@@ -106,18 +106,6 @@ declare namespace dialog {
     enabled?: boolean;
 
     /**
-     * Whether the button is the default focus.
-     *
-     * @default false
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.1.0 dynamic
-     */
-    defaultFocus?: boolean;
-
-    /**
      * Define whether the button responds to Enter/Space key by default.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full

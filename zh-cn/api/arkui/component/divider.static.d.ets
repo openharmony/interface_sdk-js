@@ -34,7 +34,7 @@ import { AttributeModifier, CommonMethod } from './common';
 export declare interface DividerAttribute extends CommonMethod {
     /**
      * 设置分割线的方向，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifiert)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法。
      *
      * @param { boolean | undefined } value - 使用水平分割线还是垂直分割线。<br>
@@ -50,7 +50,7 @@ export declare interface DividerAttribute extends CommonMethod {
     default vertical(value: boolean | undefined): this;
     /**
      * 设置分割线的颜色，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifiert)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法。
      *
      * @param { ResourceColor | undefined } value - 分割线颜色。<br>
@@ -58,7 +58,7 @@ export declare interface DividerAttribute extends CommonMethod {
      *    非法值：按默认值处理。<br>
      *    取值为undefined时，按默认值处理。<br>
      *    支持通过
-     *    [WithTheme](docroot://reference/apis-arkui/arkui-ts/ts-container-with-theme.md)
+     *    [WithTheme]{@link CommonMethod#WithTheme}
      *    设置通用分割线颜色。
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -68,16 +68,16 @@ export declare interface DividerAttribute extends CommonMethod {
     default color(value: ResourceColor | undefined): this;
     /**
      * 设置分割线的宽度，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifiert)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法。
      *
      * > **说明：**
      * >
      * > 分割线的宽度不支持百分比设置。
      * > 使用水平分割线时，strokeWidth控制高度，优先级低于通用属性
-     * > [height](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#height)；
+     * > [height]{@link CommonMethod#height}；
      * > 使用垂直分割线时，strokeWidth控制宽度，优先级低于通用属性
-     * > [width](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#width)。
+     * > [width]{@link CommonMethod#width}。
      * > 超过通用属性设置大小时，按照通用属性进行裁切。
      * > 如果设备硬件存在1像素取整后分割线不显示问题，建议使用2像素。
      *
@@ -94,7 +94,7 @@ export declare interface DividerAttribute extends CommonMethod {
     default strokeWidth(value: double | string | undefined): this;
     /**
      * 设置分割线的端点样式，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifiert)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法。
      *
      * @param { LineCapStyle | undefined } value - 分割线的端点样式。<br>
@@ -137,7 +137,7 @@ export declare interface DividerAttribute extends CommonMethod {
  * > **说明：**
  * >
  * > 如果出现分割线粗细不一或者消失的问题，请参考
- * > [组件级像素取整常见问题](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-pixelRoundForComponent.md#常见问题)。
+ * > [组件级像素取整常见问题]{@link ./common}。
  *
  * @returns { DividerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full

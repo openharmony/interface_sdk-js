@@ -14,27 +14,32 @@
  */
 
 /**
- * @file
+ * @file Network Firewall
  * @kit NetworkKit
  */
 
 /**
- * Provides interfaces to manage net firewall.
- * 
- * @namespace netFirewall
+ * The **netFirewall** module implements the network firewall functionality for applications. It allows applications to
+ * query the firewall interception records of the device.
+ *
  * @syscap SystemCapability.Communication.NetManager.NetFirewall
  * @since 14 dynamic
  */
 declare namespace netFirewall {
   /**
-   * Set firewall policy by userId.
-   * <p>Enables or disables the firewall function, and specifies the default actions for inbound connections and
-   * outbound connections.</p>
+   * Sets the firewall policy for a system user ID, including the firewall switch status and default inbound or outbound
+   * behavior (allow or deny). Different firewall policies can be configured for different system user IDs. This API
+   * uses a promise to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > If this API is called by multiple applications under the same system user, the latest delivered policy prevails.
+   * > **Required permission**: ohos.permission.MANAGE_NET_FIREWALL
    *
    * @permission ohos.permission.MANAGE_NET_FIREWALL
-   * @param { number } userId - Indicates the user ID. It cannot be the ID of a user that does not exist.
-   * @param { NetFirewallPolicy } policy - The firewall policy to be set.
-   * @returns { Promise<void> } Returns void.
+   * @param { int } userId - System user ID, which must exist.
+   * @param { NetFirewallPolicy } policy - Firewall policy.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -44,14 +49,17 @@ declare namespace netFirewall {
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
-  function setNetFirewallPolicy(userId: number, policy: NetFirewallPolicy): Promise<void>;
+  function setNetFirewallPolicy(userId: int, policy: NetFirewallPolicy): Promise<void>;
 
   /**
-   * Get firewall policy by userId.
-   * 
+   * Queries the firewall policy for a system user ID, including the firewall switch status and default inbound or
+   * outbound behavior (allow or deny). This API uses a promise to return the result.
+   *
+   * **Required permission**: ohos.permission.GET_NET_FIREWALL
+   *
    * @permission ohos.permission.GET_NET_FIREWALL
-   * @param { number } userId - Indicates the user ID. It cannot be the ID of a user that does not exist.
-   * @returns { Promise<NetFirewallPolicy> } Current user firewall policy.
+   * @param { int } userId - System user ID, which must exist.
+   * @returns { Promise<NetFirewallPolicy> } Promise used to return the result, which is a firewall policy.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -61,14 +69,85 @@ declare namespace netFirewall {
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
-  function getNetFirewallPolicy(userId: number): Promise<NetFirewallPolicy>;
+  function getNetFirewallPolicy(userId: int): Promise<NetFirewallPolicy>;
 
   /**
-   * Add a firewall rule.
+   * Adds a firewall rule for the system user ID. The supported rule types are IP, Domain, and DNS. This API uses a
+   * promise to return the result.
+   *
+   * > **Description**
+   * >
+   * > 1. The priority of firewall rules is described as follows (there is no requirement on the call sequence of
+   * > [setNetFirePolicy]{@link netFirewall.setNetFirewallPolicy} and
+   * > [addNetFirewallRule]{@link netFirewall.addNetFirewallRule}):
+   * >
+   * > - Call [setNetFirePolicy]{@link netFirewall.setNetFirewallPolicy} to set the default policy to **DENY** and call
+   * > [addNetFirewallRule]{@link netFirewall.addNetFirewallRule} to add an explicit rule. The priorities of the rules
+   * > are as follows:
+   * >
+   * > - Explicit denying rule
+   * >
+   * > - Explicit allowing rule
+   * >
+   * > - Default denying policy
+   * >
+   * > - Call [setNetFirePolicy]{@link netFirewall.setNetFirewallPolicy} to set the default policy to **ALLOW** and call
+   * > [addNetFirewallRule]{@link netFirewall.addNetFirewallRule} to add an explicit rule. The priorities of the rules
+   * > are as follows:
+   * >
+   * > - Explicit allowing rule
+   * >
+   * > - Explicit denying rule
+   * >
+   * > - Default allowing policy
+   * >
+   * > - When the IP address rule and domain name rule of the firewall conflict (the IP of the domain name resolution is
+   * > the same as that in the IP address rule, and the rule behavior conflicts):
+   * >
+   * > - If the access is performed using a domain name, the domain name rule has a higher priority than the IP address
+   * > rule and is not affected by the rule of the IP parsed from the domain name.
+   * >
+   * > - If the access is performed using an IP address, the following rules are followed:
+   * >
+   * > - If the domain name rule allows the access and the domain name resolution has been performed, the IP address
+   * > denying rule or the default denying policy will not take effect, and the access using the IP address will be
+   * > allowed.
+   * >
+   * > - If the domain name rule allows the access and the domain name resolution has not been performed, the IP address
+   * > denying rule or the default denying policy will take effect, and the access using the IP address will be denied.
+   * >
+   * > - If the domain name rule denies the access, the IP address allowing rule or the default policy will take effect,
+   * > and the access using the IP address will be allowed.
+   * >
+   * > 2. Supplementary description of rule types:
+   * >
+   * > - When the input parameter **rule.type** of **addNetFirewallRule** is set to **RULE_IP**:
+   * >
+   * > - If **rule.action** is set to **RULE_ALLOW** and **rule.localIps** and **rule.remoteIps** are not configured,
+   * > the rule takes effect as full IP range access is allowed.
+   * >
+   * > - If **rule.action** is set to **RULE_DENY** and **rule.localIps** and **rule.remoteIps** are not configured, the
+   * > rule takes effect as full IP range access is denied.
+   * >
+   * > - If **rule.type** of **addNetFirewallRule** is set to **RULE_DOMAIN** and **rule.domains** is not configured,
+   * > the rule does not take effect.
+   * >
+   * > 3. Description of the upper limit for adding firewall rules:
+   * >
+   * > - A maximum of 1000 firewall rules can be added for a single system user ID. If this limit is exceeded, error
+   * > code **29400001** is reported.
+   * >
+   * > - A maximum of 2000 firewall rules can be added for all system user IDs. If this limit is exceeded, error code
+   * > **29400001** is reported.
+   * >
+   * > - A maximum of 100 fuzzy domain name rules can be added for all system user IDs. If this limit is exceeded, error
+   * > code **29400005** is reported.
+   * > **Required permission**: ohos.permission.MANAGE_NET_FIREWALL
    *
    * @permission ohos.permission.MANAGE_NET_FIREWALL
    * @param { NetFirewallRule } rule - Firewall rule.
-   * @returns { Promise<number> } ruleId - Indicates the rule ID, generated by the system.
+   * @returns { Promise<int> } Promise used to return the result, which is the firewall rule ID automatically generated
+   *     by the system.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -84,14 +163,16 @@ declare namespace netFirewall {
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
-  function addNetFirewallRule(rule: NetFirewallRule): Promise<number>;
+  function addNetFirewallRule(rule: NetFirewallRule): Promise<int>;
 
   /**
-   * Update a firewall rule.
+   * Updates a firewall rule. This API uses a promise to return the result.
+   *
+   * **Required permission**: ohos.permission.MANAGE_NET_FIREWALL
    *
    * @permission ohos.permission.MANAGE_NET_FIREWALL
    * @param { NetFirewallRule } rule - Firewall rule.
-   * @returns { Promise<void> } Returns void.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -110,12 +191,14 @@ declare namespace netFirewall {
   function updateNetFirewallRule(rule: NetFirewallRule): Promise<void>;
 
   /**
-   * Delete a firewall rule by userId and ruleId.
+   * Deletes a specified firewall rule of a system user ID. This API uses a promise to return the result.
+   *
+   * **Required permission**: ohos.permission.MANAGE_NET_FIREWALL
    *
    * @permission ohos.permission.MANAGE_NET_FIREWALL
-   * @param { number } userId - Indicates the user ID. It cannot be the ID of a user that does not exist.
-   * @param { number } ruleId - Rule ID.
-   * @returns { Promise<void> } Returns void.
+   * @param { int } userId - System user ID, which must exist.
+   * @param { int } ruleId - ID of the firewall rule.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -126,15 +209,19 @@ declare namespace netFirewall {
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
-  function removeNetFirewallRule(userId: number, ruleId: number): Promise<void>;
+  function removeNetFirewallRule(userId: int, ruleId: int): Promise<void>;
 
   /**
-   * Get firewall rules by userId, and it is necessary to specify the pagination query parameters.
+   * Obtains firewall rules by user ID. You need to specify the pagination query parameter when calling this API.
+   * Currently, firewall rules can be sorted by name. This API uses a promise to return the result.
+   *
+   * **Required permission**: ohos.permission.GET_NET_FIREWALL
    *
    * @permission ohos.permission.GET_NET_FIREWALL
-   * @param { number } userId - Indicates the user ID. It cannot be the ID of a user that does not exist.
-   * @param { RequestParam } requestParam - Paging query input parameters.
-   * @returns { Promise<FirewallRulePage> } Paginated firewall rule list.
+   * @param { int } userId - System user ID, which must exist.
+   * @param { RequestParam } requestParam - Pagination query parameter. The **orderField** field can be sorted only by
+   *     firewall rule name.
+   * @returns { Promise<FirewallRulePage> } Promise used to return the result, which is list of firewall rules.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -144,15 +231,17 @@ declare namespace netFirewall {
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
-  function getNetFirewallRules(userId: number, requestParam: RequestParam): Promise<FirewallRulePage>;
+  function getNetFirewallRules(userId: int, requestParam: RequestParam): Promise<FirewallRulePage>;
 
   /**
-   * Get a specified firewall rule by userId and ruleId.
+   * Obtains a firewall rule based on the specified user ID and rule ID. This API uses a promise to return the result.
+   *
+   * **Required permission**: ohos.permission.GET_NET_FIREWALL
    *
    * @permission ohos.permission.GET_NET_FIREWALL
-   * @param { number } userId - Indicates the user ID. It cannot be the ID of a user that does not exist.
-   * @param { number } ruleId - Rule ID.
-   * @returns { Promise<NetFirewallRule> } Firewall Rule.
+   * @param { int } userId - System user ID, which must exist.
+   * @param { int } ruleId - ID of the firewall rule.
+   * @returns { Promise<NetFirewallRule> } Promise used to return the result, which is a firewall rule.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2100001 - Invalid parameter value.
@@ -163,13 +252,13 @@ declare namespace netFirewall {
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
-  function getNetFirewallRule(userId: number, ruleId: number): Promise<NetFirewallRule>;
+  function getNetFirewallRule(userId: int, ruleId: int): Promise<NetFirewallRule>;
 
   /**
    * Get intercepted records by userId, and it is necessary to specify the pagination query parameters.
    *
    * @permission ohos.permission.GET_NET_FIREWALL
-   * @param { number } userId - Indicates the user ID. It cannot be the ID of a user that does not exist.
+   * @param { int } userId - Indicates the user ID. It cannot be the ID of a user that does not exist.
    * @param { RequestParam } requestParam - Paging query input parameters.
    * @returns { Promise<InterceptedRecordPage> } Block Record List.
    * @throws { BusinessError } 201 - Permission denied.
@@ -183,25 +272,24 @@ declare namespace netFirewall {
    * @systemapi Hide this for inner system use.
    * @since 14 dynamic
    */
-  function getInterceptedRecords(userId: number, requestParam: RequestParam): Promise<InterceptedRecordPage>;
+  function getInterceptedRecords(userId: int, requestParam: RequestParam): Promise<InterceptedRecordPage>;
 
   /**
-   * Firewall rule direction enumeration.
+   * Enumerates the firewall rule directions, including inbound and outbound.
    *
-   * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
   enum NetFirewallRuleDirection {
     /**
-     * Inbound.
+     * Inbound direction.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     RULE_IN = 1,
     /**
-     * Outbound.
+     * Outbound direction.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -210,22 +298,21 @@ declare namespace netFirewall {
   }
 
   /**
-   * Firewall rule behavior enumeration.
+   * Enumerates the firewall rule actions, including allowing or denying network connections.
    *
-   * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
   enum FirewallRuleAction {
     /**
-     * Allow access.
+     * Allowing network connection.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     RULE_ALLOW = 0,
     /**
-     * Deny access.
+     * Denying network connection.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
@@ -234,114 +321,113 @@ declare namespace netFirewall {
   }
 
   /**
-   * Indicates the firewall rule type.
+   * Enumerates the firewall rule types, including IP, Domain, and DNS.
    *
-   * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
   enum NetFirewallRuleType {
     /**
-     * IP type rules.
+     * IP address-based firewall rule.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     RULE_IP = 1,
     /**
-     * Domain type rules.
+     * Domain name-based rule.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     RULE_DOMAIN = 2,
     /**
-     * DNS type rules.
+     * DNS-based firewall rule.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
-    RULE_DNS = 3
+    RULE_DNS = 3,
   }
 
   /**
-   * Pagination query sorting field.
+   * Enumerates the sorting methods of firewall rules.
    *
-   * @enum {number}
+   * > **Description**
+   * >
+   * > [getNetFirewallRules]{@link netFirewall.getNetFirewallRules} supports only the **ORDER_BY_RULE_NAME** field.
+   *
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
   enum NetFirewallOrderField {
     /**
-     * Sort rule names, it can be referenced only by the getNetFirewallRules interface.
+     * Sorting of firewall rules by name.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     ORDER_BY_RULE_NAME = 1,
     /**
-     * Sort the recorded time, it can be referenced only by the getNetFirewallRules interface.
+     * Sorting of firewall rules by time.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
-    ORDER_BY_RECORD_TIME = 100,
+    ORDER_BY_RECORD_TIME = 100
   }
 
   /**
-   * Pagination query sorting type.
+   * Enumerates the sorting order of firewall rules, which can be ascending or descending.
    *
-   * @enum {number}
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
   enum NetFirewallOrderType {
     /**
-     * Ascending order.
+     * Sorting in ascending order.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     ORDER_ASC = 1,
     /**
-     * Descending order.
+     * Sorting in descending order.
      *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
-    ORDER_DESC = 100,
+    ORDER_DESC = 100
   }
 
   /**
-   * Firewall policy.
+   * Defines the firewall policy, including the firewall switch status and default inbound or outbound action (allow or
+   * deny).
    *
-   * @interface NetFirewallPolicy
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
   interface NetFirewallPolicy {
     /**
-     * Whether the firewall is open.
+     * Whether to enable the firewall. The value **true** means to enable the firewall, and the value **false** means
+     * the opposite.
      *
-     * @type {boolean}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     isOpen: boolean;
 
     /**
-     * Inbound connections are allowed or denied by default.
+     * Inbound action.
      *
-     * @type {FirewallRuleAction}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     inAction: FirewallRuleAction;
 
     /**
-     * Outbound connections are allowed or denied by default.
+     * Outbound action.
      *
-     * @type {FirewallRuleAction}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
@@ -349,57 +435,64 @@ declare namespace netFirewall {
   }
 
   /**
-   * Firewall IP parameters.
+   * Defines the IP parameters of the firewall rule. The IP address type can be IPv4 or IPv6. A single IP address or IP
+   * address segment is supported.
    *
-   * @interface NetFirewallIpParams
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
   interface NetFirewallIpParams {
     /**
-     * 1: IP address or subnet, when using a single IP, the mask is 32; 2: IP segment.
+     * **1**: IP address or subnet. In this case, the **address** and **mask** fields must be specified. When a single
+     * IP address is used, the **mask** field must be set to **32**.
      *
-     * @type {number}
+     * **2**: IP address segment. In this case, the **startIp** and **endIp** fields must be specified.
+     *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
-    type: number;
+    type: int;
     /**
-     * 1: IPv4, 2: IPv6, default is IPv4.
+     * **1**: IPv4.
      *
-     * @type {?number}
+     * **2**: IPv6.
+     *
+     * The default value is **IPv4**. Other values are not supported currently.
+     *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
-    family?: number;
+    family?: int;
     /**
-     * IP address: Valid when type equals 1, otherwise it will be ignored.
+     * IP address. This parameter is mandatory and valid only when type is set to **1**.
      *
-     * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     address?: string;
     /**
-     * IPv4: subnet mask, IPv6: prefix, valid when type equals 1, otherwise it will be ignored.
+     * IPv4: subnet mask.
      *
-     * @type {?number}
+     * IPv6: address prefix.
+     *
+     * This parameter is mandatory and valid only when type is set to **1**.
+     *
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
-    mask?: number;
+    mask?: int;
     /**
-     * Start IP: valid when type equals 2, otherwise it will be ignored.
+     * Start IP address. This parameter is mandatory and valid only when type is set to **2**. The value ranges from 0.0
+     * .0.1 to 255.255.255.254. Otherwise, this parameter will be ignored.
      *
-     * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     startIp?: string;
     /**
-     * End IP: valid when type equals 2, otherwise it will be ignored.
+     * End IP address. This parameter is mandatory and valid only when type is set to **2**. The value ranges from 0.0.0
+     * .1 to 255.255.255.254. Otherwise, this parameter will be ignored.
      *
-     * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
@@ -407,52 +500,47 @@ declare namespace netFirewall {
   }
 
   /**
-   * Firewall port parameters.
+   * Defines the port parameters of a firewall rule.
    *
-   * @interface NetFirewallPortParams
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
   interface NetFirewallPortParams {
     /**
-     * Start port, when there is only one port, the start port is the same as the end port.
+     * Start port number.
      *
-     * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
-    startPort: number;
+    startPort: int;
     /**
-     * End port, when there is only one port, the start port is the same as the end port.
+     * End port number.
      *
-     * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
-    endPort: number;
+    endPort: int;
   }
 
   /**
-   * Firewall domain name parameters.
+   * Defines domain name parameters of a firewall rule. Currently, Chinese domain names are not supported.
    *
-   * @interface NetFirewallDomainParams
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
   interface NetFirewallDomainParams {
     /**
-     * Is there a universal configuration rule.
+     * Whether to contain wildcards. The value **true** means to contain wildcards; and the value **false** means the
+     * opposite.
      *
-     * @type {boolean}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     isWildcard: boolean;
     /**
-     * Domain: when isWildcard is false, the complete domain that needs to be determined;
-     * When isWildcard is true, fuzzy domain only support domains like *.openharmony.cn; *.com.
+     * If **isWildcard** is set to **false**, the complete domain name, for example, "www.example.cn", needs to be
+     * specified.
      *
-     * @type {string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
@@ -460,25 +548,27 @@ declare namespace netFirewall {
   }
 
   /**
-   * Firewall DNS parameters.
+   * Defines the DNS information of a firewall rule.
    *
-   * @interface NetFirewallDnsParams
+   * > **Description**
+   * >
+   * > This parameter cannot be empty when **rule.type** of [addNetFirewallRule]{@link netFirewall.addNetFirewallRule}
+   * > is set to RULE_DNS.
+   *
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
   interface NetFirewallDnsParams {
     /**
-     * Primary DNS.
+     * Active DNS server.
      *
-     * @type {string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     primaryDns: string;
     /**
-     * Backup DNS.
+     * Standby DNS server.
      *
-     * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
@@ -486,73 +576,65 @@ declare namespace netFirewall {
   }
 
   /**
-   * Firewall rules.
+   * Defines a firewall rule.
    *
-   * @interface NetFirewallRule
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
   interface NetFirewallRule {
     /**
-     * User id.
+     * System user ID, which must exist.
      *
-     * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
-    userId: number;
+    userId: int;
     /**
-     * Rule name.
+     * Rule name. This parameter is mandatory and can contain a maximum of 128 characters.
      *
-     * @type {string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     name: string;
     /**
-     * Rule direction, inbound or outbound.
+     * Rule direction, which can be inbound or outbound.
      *
-     * @type {NetFirewallRuleDirection}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     direction: NetFirewallRuleDirection;
     /**
-     * Rule action.
+     * Action, which can be allowing or denying.
      *
-     * @type {FirewallRuleAction}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     action: FirewallRuleAction;
     /**
-     * Rule type.
+     * Rule type, which can be IP, Domain, or DNS.
      *
-     * @type {NetFirewallRuleType}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     type: NetFirewallRuleType;
     /**
-     * Whether the rule is enabled.
+     * Whether to enable the rule. The value **true** means to enable the rule, and the value **false** means the
+     * opposite.
      *
-     * @type {boolean}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     isEnabled: boolean;
     /**
-     * Rule id: When a rule is added to the system, the system generates a rule ID.
+     * ID of the firewall rule.
      *
-     * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
-    id?: number;
+    id?: int;
     /**
-     * Rule description.
+     * Firewall rule description. This parameter is optional and can contain a maximum of 256 characters.
      *
-     * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
@@ -560,63 +642,62 @@ declare namespace netFirewall {
     /**
      * Application or service UID.
      *
-     * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
-    appUid?: number;
+    appUid?: int;
     /**
-     * Local IP address: valid when ruleType = RULE_IP, otherwise it will be ignored.
+     * Local IP addresses. This parameter is valid only when **type** is set to **RULE_IP**. Otherwise, it will be
+     * ignored. A maximum of 10 IP addresses can be specified.
      *
-     * @type {?Array<NetFirewallIpParams>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     localIps?: Array<NetFirewallIpParams>;
     /**
-     * Remote IP address: valid when ruleType = RULE_IP, otherwise it will be ignored.
+     * Remote IP addresses. This parameter is valid only when **type** is set to **RULE_IP**. Otherwise, it will be
+     * ignored. A maximum of 10 IP addresses can be specified.
      *
-     * @type {?Array<NetFirewallIpParams>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     remoteIps?: Array<NetFirewallIpParams>;
     /**
-     * Protocol, 1: ICMPv4, 6: TCP, 17: UDP, 58: ICMPv6. Valid when ruleType = RULE_IP, otherwise it will be ignored.
+     * Protocol, which can be TCP (value **6**) or UDP (value **17**). This parameter is valid only when **type** is set
+     * to **RULE_IP**.
      *
-     * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
-    protocol?: number;
+    protocol?: int;
     /**
-     * Local ports: valid when ruleType = RULE_IP, otherwise it will be ignored.
+     * Local ports. This parameter is valid only when **type** is set to **RULE_IP**. Otherwise, it will be ignored. A
+     * maximum of 10 IP addresses can be specified.
      *
-     * @type {?Array<NetFirewallPortParams>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     localPorts?: Array<NetFirewallPortParams>;
     /**
-     * Remote ports: valid when ruleType = RULE_IP, otherwise it will be ignored.
+     * Remote ports. This parameter is valid only when **type** is set to **RULE_IP**. Otherwise, it will be ignored. A
+     * maximum of 10 ports can be specified.
      *
-     * @type {?Array<NetFirewallPortParams>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     remotePorts?: Array<NetFirewallPortParams>;
     /**
-     * Domain name list: valid when ruleType = RULE_DOMAIN, otherwise it will be ignored.
+     * List of domain names. This parameter is valid only when **type** is set to **RULE_DOMAIN**. Currently, domain
+     * names cannot contain Chinese characters.
      *
-     * @type {?Array<NetFirewallDomainParams>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     domains?: Array<NetFirewallDomainParams>;
     /**
-     * DNS: valid when ruleType = RULE_DNS, otherwise it will be ignored.
+     * List of DNS server names. This parameter is valid only when **type** is set to **RULE_DNS**. This parameter
+     * cannot be empty when **type** is set to **RULE_DNS**.
      *
-     * @type {?NetFirewallDnsParams}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
@@ -624,10 +705,9 @@ declare namespace netFirewall {
     /**
      * Interface name: valid when type = RULE_IP, otherwise it will be ignored.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     interface?: string;
   }
@@ -635,7 +715,6 @@ declare namespace netFirewall {
   /**
    * Intercepted record.
    *
-   * @interface InterceptedRecord
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
    * @since 14 dynamic
@@ -644,16 +723,14 @@ declare namespace netFirewall {
     /**
      * Time stamp.
      *
-     * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
      */
-    time: number;
+    time: int;
     /**
      * Local IP.
      *
-     * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
@@ -662,7 +739,6 @@ declare namespace netFirewall {
     /**
      * Remote IP.
      *
-     * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
@@ -671,43 +747,38 @@ declare namespace netFirewall {
     /**
      * Local port.
      *
-     * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
      */
-    localPort?: number;
+    localPort?: int;
     /**
      * Remote port.
      *
-     * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
      */
-    remotePort?: number;
+    remotePort?: int;
     /**
      * Transport layer protocol.
      *
-     * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
      */
-    protocol?: number;
+    protocol?: int;
     /**
      * Application or service ID.
      *
-     * @type {?number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
      */
-    appUid?: number;
+    appUid?: int;
     /**
      * Blocked domain name information.
      *
-     * @type {?string}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
@@ -716,41 +787,36 @@ declare namespace netFirewall {
   }
 
   /**
-   * Pagination query input parameters.
+   * Defines query parameters.
    *
-   * @interface RequestParam
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
   interface RequestParam {
     /**
-     * Page number: indicates the page number to be queried. The start value is 1.
+     * Page number. The value range is [1,1000].
      *
-     * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
-    page: number;
+    page: int;
     /**
-     * Page size: indicates the number of data records to be queried at a time. The maximum value is 50.
+     * Page size. The value range is [1,50].
      *
-     * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
-    pageSize: number;
+    pageSize: int;
     /**
-     * Sort field.
+     * Sorting method. This parameter can be used to sort firewall rules only by name.
      *
-     * @type {NetFirewallOrderField}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
     orderField: NetFirewallOrderField;
     /**
-     * Sort Type: ascending or descending.
+     * Sorting order type.
      *
-     * @type {NetFirewallOrderType}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
@@ -758,41 +824,36 @@ declare namespace netFirewall {
   }
 
   /**
-   * Rule page information.
+   * Defines the pagination structure for firewall rules.
    *
-   * @interface FirewallRulePage
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @since 15 dynamic
    */
   interface FirewallRulePage {
     /**
-     * Current page number: indicates the page number of this query.
+     * Current page number. The value range is [1,1000].
      *
-     * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
-    page: number;
+    page: int;
     /**
-     * Page size: maximum number of records on a page for this query.
+     * Page size. The value range is [1,50].
      *
-     * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
-    pageSize: number;
+    pageSize: int;
     /**
-     * Total pages: total number of pages.
+     * Total number of pages. The value range is [1,1000].
      *
-     * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
-    totalPage: number;
+    totalPage: int;
     /**
-     * Page data: all records displayed on this page.
+     * Page data.
      *
-     * @type {Array<NetFirewallRule> }
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @since 15 dynamic
      */
@@ -802,7 +863,6 @@ declare namespace netFirewall {
   /**
    * Intercepted record page information.
    *
-   * @interface InterceptedRecordPage
    * @syscap SystemCapability.Communication.NetManager.NetFirewall
    * @systemapi Hide this for inner system use.
    * @since 14 dynamic
@@ -811,34 +871,30 @@ declare namespace netFirewall {
     /**
      * Current page number: indicates the page number of this query.
      *
-     * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
      */
-    page: number;
+    page: int;
     /**
      * Page size: maximum number of records on a page for this query.
      *
-     * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
      */
-    pageSize: number;
+    pageSize: int;
     /**
      * Total pages: total number of pages.
      *
-     * @type {number}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
      */
-    totalPage: number;
+    totalPage: int;
     /**
      * Page data: all records displayed on this page.
      *
-     * @type {Array<InterceptedRecord>}
      * @syscap SystemCapability.Communication.NetManager.NetFirewall
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic

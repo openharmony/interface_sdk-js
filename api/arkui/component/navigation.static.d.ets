@@ -533,6 +533,24 @@ export declare interface NavigationOptions {
 }
 
 /**
+ * Indicates options for preloading a page.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.1.0 static
+ */
+export declare interface PreloadOptions {
+  /**
+   * Callback when preloaded page is destroyed by the system.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.1.0 static
+   */
+  onDestroy?: VoidCallback;
+}
+
+/**
  * Indicates the information of NavDestinations. Providers methods for controlling destination page in the stack
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -974,6 +992,25 @@ export declare class NavPathStack {
    * @since 23 static
    */
   setPathStack(pathStack: Array<NavPathInfo>, animated?: boolean): void;
+
+
+  /**
+   * Preloads navigation destination page specified by **info**.
+   * The preload page will not be displayed immediately, but will be cached.
+   * When **pushPath** is called later with matching parameters, preloaded instance
+   * will be used for fast display.
+   *
+   * @param { NavPathInfo } info - Indicates NavDestination to be preloaded.
+   * @param { PreloadOptions } [options] - Indicates options for preloading.
+   * @returns { Promise<void> } The promise returned by function.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100005 - Builder function not registered.
+   * @throws { BusinessError } 100006 - NavDestination not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.1.0 static
+   */
+  preloadPath(info: NavPathInfo, options?: PreloadOptions): Promise<void>;
 }
 
 /**

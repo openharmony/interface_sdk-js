@@ -25,10 +25,6 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
  * 数的值，通过set可以修改系统参数的值。详细的系统参数设计原理及定义可参考[系统参数](docroot://../device-dev/subsystems/subsys-boot-init-sysparam.md)。
  * 
  * > **说明：**
- * > - 本模块接口从API version 9开始不再维护，建议使用新接口[@ohos.systemParameterEnhance](js-apis-system-parameterEnhance-sys.md)替代。
- * >
- * > - 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
  * > - 本模块接口为系统接口。
  * >
  * > - 由于系统参数都是各个系统服务的内部信息和控制参数，每个系统参数都有各自不同的DAC（Discretionary Access Control，自主访问控制）和MAC（Mandatory Access Control，强制访问控制）访问控制权限，三方应用不能使用此类接口。
@@ -53,7 +49,8 @@ declare namespace systemParameterEnhance {
    * @param { string } key - 待查询的系统参数key。最大长度128字节，只允许字母数字加"."，"-"，"@"，":"或"_"，不允许".."。
    * @param { string } def - def为所要获取的系统参数的默认值； <br> def为可选参数，仅当系统参数不存在时生效； <br> def可以传undefined或任意字符串值。
    * @returns { string } 系统参数值。 
-   *     <br> 若key存在,返回设定的值。 
+   *     <br> 若key存在,返回设定的值。
+   *     <br> 若key不存在且指定了def（def不为undefined），返回def。
    *     <br> 若key不存在且未指定def或def为undefined，抛异常。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2.incorrect parameter types; 3.parameter verification failed.
@@ -85,9 +82,9 @@ declare namespace systemParameterEnhance {
   function get(key: string, callback: AsyncCallback<string>): void;
 
   /**
-   * 获取系统参数Key对应的值，使用callback异步回调。
+   * 获取系统参数key对应的值，使用callback异步回调。
    *
-   * @param { string } key - 待查询的系统参数Key。最大长度128字节，只允许字母数字加"."，"-"，"@"，":"或"_"，不允许".."。
+   * @param { string } key - 待查询的系统参数key。最大长度128字节，只允许字母数字加"."，"-"，"@"，":"或"_"，不允许".."。
    * @param { string } def - def为所要获取的系统参数的默认值，仅当系统参数不存在时生效； <br> def可以传任意字符串值。
    * @param { AsyncCallback<string> } callback - 回调函数，异步获取系统参数值。成功时err为undefined，data为系统参数值；失败时err为错误对象，data为undefined。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;

@@ -21,9 +21,11 @@
 import type VpnExtensionContext from './application/VpnExtensionContext';
 import type Want from './@ohos.app.ability.Want';
 
-
 /**
- * class of vpn extension ability.
+ * **VpnExtensionContext** represents the context of **VpnExtensionAbility** and is inherited from
+ * [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}.
+ *
+ * This module provides the context required for APIs to access the resources of a **VpnExtensionAbility** object.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
@@ -31,9 +33,8 @@ import type Want from './@ohos.app.ability.Want';
  */
 export default class VpnExtensionAbility {
   /**
-   * Indicates service extension ability context.
+   * Specified context.
    *
-   * @type { VpnExtensionContext }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
@@ -41,9 +42,14 @@ export default class VpnExtensionAbility {
   context: VpnExtensionContext;
 
   /**
-   * Called back when a vpn extension is started for initialization.
+   * Represents the callback triggered when the extended VPN is initialized.
    *
-   * @param { Want } want - Indicates the want of created service extension.
+   * > **NOTE**
+   * >
+   * > You are advised to call [onDestroy]{@link VpnExtensionAbility#onDestroy} to listen to the destruction of the
+   * > extended VPN and clear resources in a timely manner.
+   *
+   * @param { Want } want - Want information.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 11 dynamic
@@ -51,7 +57,7 @@ export default class VpnExtensionAbility {
   onCreate(want: Want): void;
 
   /**
-   * Called back before a vpn extension is destroyed.
+   * Represents the callback triggered when the extended VPN is destroyed.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

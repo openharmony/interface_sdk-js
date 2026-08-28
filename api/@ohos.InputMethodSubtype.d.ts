@@ -14,14 +14,20 @@
  */
 
 /**
- * @file
+ * @file Input Method Subtype
  * @kit IMEKit
  */
 
 /**
- * The **InputMethodSubtype** module provides APIs for managing the attributes of input method subtypes. The input 
- * method subtype allows the input method to switch to a specific mode or language, for example, the Chinese or English 
- * keyboard.
+ * 
+ * The **InputMethodSubtype** module provides APIs for managing the attributes of input method subtypes.
+ * The input method subtype allows the input method to switch to a specific mode or language, for example,
+ * the Chinese or English keyboard.
+ * <br>
+ * <br> > **NOTE**
+ * <br> >
+ * <br> >The initial APIs of this module are supported since API version 9.
+ * Newly added APIs will be marked with a superscript to indicate their earliest API version.
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 9 dynamic
@@ -110,12 +116,12 @@ export default interface InputMethodSubtype {
   readonly iconId?: double;
 
   /**
-   * Mandatory. Extra information of the input method subtype.
-   * 
-   * **NOTE**
-   * 
-   * - This parameter is optional since API version 10.
-   * - This parameter is reserved and currently has no specific meaning.
+   * Extra information of the input method subtype.
+   * <br>
+   * <br> **NOTE**
+   * <br> 
+   * <br> - This parameter is optional since API version 10.
+   * <br> - This parameter is reserved and currently has no specific meaning.
    *
    * @type { object } [since 9 - 9]
    * @type { ?object } [since 10]

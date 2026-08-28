@@ -393,7 +393,13 @@ declare namespace deviceInfo {
   const sdkApiVersion: number;
 
   /**
-   * System version. The version number is in the format of **<!--RP12-->OpenHarmony-x.x.x.x**, where **x** is a placeholder for digits. <!--RP12End-->To obtain the value of a segment in the version number, you are advised to use **majorVersion**, **seniorVersion**, **featureVersion**, or **buildVersion**, which can improve efficiency. Parsing **osFullName** is not recommended.
+   * Starting from API version 26.0.0, the minor version is introduced as part of semantic versioning.
+   * It is the middle field in the semantic version and is an integer.
+   * The complete API version is represented by sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
+   *
+   * Example:
+   * If the API version of the system software is 26.0.1, sdkMinorApiVersion is 0.
+   * If the API version of the system software is 26.1.0, sdkMinorApiVersion is 1.
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @stagemodelonly
@@ -404,7 +410,13 @@ declare namespace deviceInfo {
   const sdkMinorApiVersion: number;
 
   /**
-   * SDK patch API version. Starting from API version 26.0.0, the system API version is in the format of **sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion**.
+   * Starting from API version 26.0.0, the patch version is introduced as part of semantic versioning.
+   * It is the third field in the semantic version and is an integer.
+   * The complete API version is represented by sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
+   *
+   * Example:
+   * If the API version of the system software is 26.0.1, sdkPatchApiVersion is 1.
+   * If the API version of the system software is 26.1.0, sdkPatchApiVersion is 0.
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @stagemodelonly

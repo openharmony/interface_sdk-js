@@ -279,7 +279,7 @@ declare namespace reminderAgentManager {
    *     API is called.
    * @param { Date } date - Non-reminder date.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - Permission denied
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
@@ -297,7 +297,7 @@ declare namespace reminderAgentManager {
    *     [publishReminder]{@link reminderAgentManager.publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<int>)}
    *     API is called.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - Permission denied
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 12 dynamic
@@ -314,7 +314,7 @@ declare namespace reminderAgentManager {
    *     [publishReminder]{@link reminderAgentManager.publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<int>)}
    *     API is called.
    * @returns { Promise<Array<Date>> } Promise used to return all the non-reminder dates.
-   * @throws { BusinessError } 201 - Permission denied
+   * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 12 dynamic

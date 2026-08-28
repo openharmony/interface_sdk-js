@@ -385,7 +385,7 @@ declare interface UIScrollEvent extends UIScrollableCommonEvent {
  *
  * > 2. Scroller控制器与滚动容器组件绑定后才可以正常调用Scroller方法，否则根据调用接口不同会不生效或者抛异常。
  *
- * > 3. 以[aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear)为例，
+ * > 3. 以[aboutToAppear]{@link aboutToAppear}为例，
  * > aboutToAppear在创建自定义组件的新实例后，在执行其build()方法之前执行。因此如果滚动组件在自定义组件build内，在该自定义组件aboutToAppear执行时，内部滚动组件还没有创建，是不能正常调用上述
  * > Scroller方法的。
  *
@@ -552,9 +552,9 @@ declare class Scroller {
    * >
    * > 3. 从API version 11开始，在List中支持[contentStartOffset]{@link ListAttribute#contentStartOffset(value: number)}和
    * > [contentEndOffset]{@link ListAttribute#contentEndOffset(value: number)}。从API version 22开始，在Grid和WaterFlow组件中支持设置
-   * > [contentStartOffset](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#contentstartoffset22)
+   * > [contentStartOffset]{@link CommonMethod#contentStartOffset}
    * > 和
-   * > [contentEndOffset](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#contentendoffset22)。
+   * > [contentEndOffset]{@link CommonMethod#contentEndOffset}。
    * >
    * > - 当滚动容器组件设置contentStartOffset时，如果ScrollAlign设置为START，滚动结束时，指定item首部会与滚动容器组件contentStartOffset处对齐。
    * >
@@ -997,7 +997,7 @@ interface OnScrollFrameBeginHandlerResult {
 declare type OnScrollFrameBeginCallback = (offset: number, state: ScrollState) => OnScrollFrameBeginHandlerResult;
 
 /**
- * 除支持[通用属性]{@link ./common}和[滚动组件通用属性](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#属性)外，还
+ * 除支持[通用属性]{@link ./common}和[滚动组件通用属性]{@link ScrollableCommonMethod}外，还
  * 支持以下属性：
  *
  * 除支持[通用事件]{@link ./common}和[滚动组件通用事件](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#事件)外，还
@@ -1165,8 +1165,8 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * @param { function } event [since 7 - 17]
    * @param { OnScrollEdgeCallback } event - 滚动到的边缘位置。<br/>当Scroll设置为水平方向滚动时，上报[Edge.Center]{@link Edge}表示水平方向起始位置，上报
    *     [Edge.Baseline]{@link Edge}表示水平方向末尾位置。由于[Edge.Center]{@link Edge}和[Edge.Baseline]{@link Edge}枚举值已经废弃，推荐使用
-   *     [onReachStart](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onreachstart11)、
-   *     [onReachEnd](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onreachend11)事件监听是否滚动到边
+   *     [onReachStart]{@link UIScrollableCommonEvent#onReachStart}、
+   *     [onReachEnd]{@link UIScrollableCommonEvent#onReachEnd}事件监听是否滚动到边
    *     界。 [since 18]
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

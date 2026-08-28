@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Defines 3D boids swarm simulation related interfaces
+ * @file
  * @kit ArkGraphics3D
  */
 
@@ -266,7 +266,7 @@ export interface BoidsSimParameters {
 }
 
 /**
- * Boids simulation gravity field parameters.
+ * Attraction field parameters, used to configure the attraction field in the scene.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
@@ -275,9 +275,9 @@ export interface BoidsSimParameters {
  */
 export interface BoidsSimGravityParameters {
   /**
-   * Radius of influence. Boids strictly within this distance from the entity are attracted
-   * (force is zero at the boundary). Range: [0, +inf). Default: 0.0
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * The radius of the attraction field. Only individuals strictly within this distance are attracted (boundary force is 0).
+   * Value >= 0.
+   * Default value: 0.0.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -287,8 +287,9 @@ export interface BoidsSimGravityParameters {
   radius?: double;
 
   /**
-   * Magnitude of gravitational acceleration applied toward the entity. Range: [0, +inf). Default: 0.0
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * The magnitude of the attraction acceleration applied to the individual, with the direction pointing toward the attraction field entity.
+   * Value >= 0.
+   * Default value: 0.0.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -299,7 +300,7 @@ export interface BoidsSimGravityParameters {
 }
 
 /**
- * Boids simulation repulsion field parameters.
+ * Repulsion field parameters, used to configure the repulsion field in the scene.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
@@ -308,9 +309,9 @@ export interface BoidsSimGravityParameters {
  */
 export interface BoidsSimRepulsionParameters {
   /**
-   * Radius of influence. Boids strictly within this distance from the entity are pushed away
-   * (force is zero at the boundary). Range: [0, +inf). Default: 0.0
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * The radius of the repulsion field. Only individuals strictly within this distance are repelled (boundary force is 0).
+   * Value >= 0.
+   * Default value is 0.0.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -320,8 +321,9 @@ export interface BoidsSimRepulsionParameters {
   radius?: double;
 
   /**
-   * Magnitude of repulsion acceleration applied away from the entity. Range: [0, +inf). Default: 0.0
-   * If a value exceeding the valid range is assigned, it will be clamped.
+   * The magnitude of the repulsion acceleration applied to the individual, whose direction points away from the repulsion field entity.
+   * Value >= 0.
+   * Default value is 0.0.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -335,7 +337,8 @@ export interface BoidsSimRepulsionParameters {
  * The Boids simulation world object, used to manage the lifecycle and components of the Boids simulation.
  *
  * > **NOTE**
- * > Before using the following APIs, you need to obtain the Boids simulation world instance through BoidsSimPlugin.getDefaultBoidsSimWorld.
+ * >
+ * > Before using the following APIs, you need to obtain the Boids simulation world instance through {@link BoidsSimPlugin.getDefaultBoidsSimWorld}.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
@@ -374,7 +377,7 @@ export declare class BoidsSimWorld {
   stop(): void;
 
   /**
-   * Whether the current simulation is playing.
+   * Whether the current simulation is playing. true indicates it is playing, false indicates it is paused.
    *
    * @returns { boolean } true indicates it is playing, false indicates it is paused.
    * @syscap SystemCapability.ArkUi.Graphics3D

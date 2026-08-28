@@ -120,7 +120,7 @@ interface StepperItemInterface {
    * > **说明：**
    *
    * > 从API version 8开始支持，从API version 22开始废弃，建议使用
-   * > [Swiper](docroot://reference/apis-arkui/arkui-ts/ts-container-swiper.md#属性)替代。
+   * > [Swiper]{@link ./swiper}替代。
    *
    * @returns { StepperItemAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -278,7 +278,7 @@ export declare const InsightIntentLink: ((intentInfo: LinkIntentDecoratorInfo) =
  * PageIntentDecoratorInfo继承自[IntentDecoratorInfo]{@link IntentDecoratorInfo}，用于描述
  * [@InsightIntentPage](docroot://reference/apis-ability-kit/js-apis-app-ability-InsightIntentDecorator.md#insightintentpage)
  * 装饰器支持的参数，例如目标页面的
- * [NavDestination](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#navdestination10)名称。
+ * [NavDestination]{@link ./@internal/component/ets/navigation:NavigationAttribute.navDestination}名称。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
@@ -307,7 +307,7 @@ declare interface PageIntentDecoratorInfo extends IntentDecoratorInfo {
   pagePath: string;
 
   /**
-   * 表示与意图绑定的[Navigation组件](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#属性)的id属性。
+   * 表示与意图绑定的[NavDestination组件]{@link ./@internal/component/ets/navigation:NavigationAttribute}的id属性。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -318,7 +318,7 @@ declare interface PageIntentDecoratorInfo extends IntentDecoratorInfo {
 
   /**
    * 表示与意图绑定
-   * [NavDestination组件](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#navdestination10)的名称。
+   * [NavDestination]{@link ./@internal/component/ets/navigation:NavigationAttribute.navDestination}的名称。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

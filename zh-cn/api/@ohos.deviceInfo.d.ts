@@ -25,7 +25,8 @@
  * >
  * > 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * > hardwareProfile、incrementalVersion、buildType、buildUser、buildHost、buildTime、buildRootHash等参数返回值为default，这些参数会在设备正式商用版本中配置具体值。
- * > 本模块接口返回设备常量信息，建议应用只调用一次，不需要频繁调用。
+ * > 本模块接口返回设备常量信息，建议应用只调用一次，不需要频繁调用。未特殊说明的字段，数据长度最大值为96字节。
+ * > 相关错误码请参考[deviceInfo错误码](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-device-info)
  *
  * @syscap SystemCapability.Startup.SystemInfo
  * @crossplatform [since 11]
@@ -232,7 +233,7 @@ declare namespace deviceInfo {
    * 
    * **说明：**可作为设备唯一识别码。
    * 
-   * ohos.permission.sec.ACCESS_UDID(该权限只允许系统应用及企业定制应用申请) 
+   * 需要权限：ohos.permission.sec.ACCESS_UDID(该权限只允许系统应用及企业类应用申请)
    * 
    * 示例：序列号随设备差异
    *
@@ -383,11 +384,11 @@ declare namespace deviceInfo {
   const sdkApiVersion: number;
 
   /**
-   * 系统软件Minor API版本。从API 26.0.0 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。
+   * 从API版本26.0.0起，为配合语义化版本号，新增次版本号的定义，即中间字段的值，值为整型数。完整版本号由sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion共同构成。
    * 
-   * 26.0.0
-   * 
-   * 示例：0
+   * 示例：
+   * 例如系统软件的API版本为26.0.1，则sdkMinorApiVersion为0。
+   * 例如系统软件的API版本为26.1.0，则sdkMinorApiVersion为1。
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @stagemodelonly
@@ -398,11 +399,11 @@ declare namespace deviceInfo {
   const sdkMinorApiVersion: number;
 
   /**
-   * 系统软件Patch API版本。从API 26 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。
+   * 从API版本26.0.0起，为配合语义化版本号，新增修订版本号的定义，即第三个字段的值，值为整型数。完整版本号由sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion共同构成。
    * 
-   * 26.0.0
-   * 
-   * 示例：0
+   * 示例：
+   * 例如系统软件的API版本为26.0.1，则sdkPatchApiVersion为1。
+   * 例如系统软件的API版本为26.1.0，则sdkPatchApiVersion为0。
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @stagemodelonly
@@ -493,7 +494,7 @@ declare namespace deviceInfo {
    * 
    * **说明：**数据长度为65字节(包含结束符)。可作为设备唯一识别码。
    * 
-   * ohos.permission.sec.ACCESS_UDID(该权限只允许系统应用及企业类应用申请)
+   * 需要权限：ohos.permission.sec.ACCESS_UDID(该权限只允许系统应用及企业类应用申请)
    * 
    * 示例：9D6AABD147XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXE5536412
    *
@@ -534,7 +535,7 @@ declare namespace deviceInfo {
   const distributionOSApiVersion: number;
 
   /**
-   * 发行版系统api版本名称<!--Del-->，由发行方定义<!--DelEnd-->。
+   * 发行版系统API版本名称<!--Del-->，由发行方定义<!--DelEnd-->。
    *
    * <!--RP16-->
    * **说明**：不建议用于版本号判断。
@@ -556,7 +557,7 @@ declare namespace deviceInfo {
   const distributionOSReleaseType: string;
 
   /**
-   * 开发者匿名设备标识符。
+   * ODID（Open Developer Identifier，开发者匿名设备标识符）。
    * 
    * **ODID值会在以下场景重新生成：**
    * 
@@ -588,9 +589,9 @@ declare namespace deviceInfo {
   /**
    * 硬盘序列号，该接口在执行期间会拉起临时进程，当系统负载较高时，可能引发阻塞风险。为确保应用主线程的响应性能，建议避免在主线程中调用。设备信息因设备而异且固定不变，可在首次获取后缓存在本地，避免每次使用时重复获取，以提升性能。
    * 
-   * **说明** ：该字段只能在2in1设备进行查询，其他设备查询结果为空。
+   * **说明** ：该字段只能在部分2in1设备上进行查询，其他设备查询结果为空。
    * 
-   * ohos.permission.ACCESS_DISK_PHY_INFO 
+   * 需要权限：ohos.permission.ACCESS_DISK_PHY_INFO (该权限只允许系统应用及企业类应用申请)
    * 
    * 示例：2502EM400567
    *
@@ -609,7 +610,7 @@ declare namespace deviceInfo {
    */
   export enum PerformanceClassLevel {
     /**
-     * 表示设备能力定级为高。
+     * 值为0,表示设备能力定级为高。
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
@@ -617,7 +618,7 @@ declare namespace deviceInfo {
      */
     CLASS_LEVEL_HIGH,
     /**
-     * 表示设备能力定级为中。
+     * 值为1,表示设备能力定级为中。
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
@@ -625,7 +626,7 @@ declare namespace deviceInfo {
      */
     CLASS_LEVEL_MEDIUM,
     /**
-     * 表示设备能力定级为低。
+     * 值为2,表示设备能力定级为低。
      *
      * @syscap SystemCapability.Startup.SystemInfo
      * @crossplatform
@@ -671,7 +672,7 @@ declare namespace deviceInfo {
 
   /**
    * 检查指定的API版本在当前设备上是否可用。
-   * 此方法提供跨不同OpenHarmony/分布式操作系统版本的兼容性检查。该方法会根据输入格式和API版本范围自动选择合适的版本检查方法。
+   * 此方法提供OpenHarmony及其各发行版系统版本的兼容性检查。该方法会根据输入格式和API版本范围自动选择合适的版本检查方法。
    *
    * @param { string | number } version - 需要校验的API版本号，支持整数格式版本号和字符串格式版本号。
    *     - 字符串采用M.S.F格式（如 "26.0.0","5.0.1"）：

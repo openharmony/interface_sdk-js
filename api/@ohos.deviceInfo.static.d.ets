@@ -409,6 +409,34 @@ declare namespace deviceInfo {
      * @since 24 static
      */
     get sdkApiVersion(): int;
+
+    /**
+     * SDK minor API version. Starting from API version 26.0.0, the system API version is in the format of sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
+     *
+     * Example:
+     * If the system API version is 26.0.2, sdkMinorApiVersion is 0.
+     * If the system API version is 26.1.2, sdkMinorApiVersion is 1.
+     *
+     * @returns { int }
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    get sdkMinorApiVersion(): int;
+
+    /**
+     * SDK patch API version. Starting from API version 26.0.0, the system API version is in the format of sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
+     *
+     * Example:
+     * If the system API version is 26.2.0, sdkPatchApiVersion is 0.
+     * If the system API version is 26.2.1, sdkPatchApiVersion is 1.
+     *
+     * @returns { int }
+     * @syscap SystemCapability.Startup.SystemInfo
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    get sdkPatchApiVersion(): int;
     
     /**
      * First API version.

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ethernet Connection Management
  * @kit NetworkKit
  */
 
@@ -22,24 +22,29 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 import type connection from './@ohos.net.connection';
 
 /**
- * Provides interfaces to manage ethernet.
- * @namespace ethernet
+ * The **ethernet** module provides Ethernet management functions such as configuring a network proxy and obtaining the
+ * network IP address.
+ *
  * @syscap SystemCapability.Communication.NetManager.Ethernet
  * @since 9 dynamic
  */
 declare namespace ethernet {
   /**
-   * @typedef { connection.HttpProxy }
+   * Defines the network proxy configuration.
+   *
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @since 10 dynamic
    */
   type HttpProxy = connection.HttpProxy;
 
   /**
-   * Get the specified network interface information.
+   * Obtains the information about a specified network interface. This API uses an asynchronous callback to return the
+   * result.
+   *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { string } iface - Indicates the network interface name.
-   * @param { AsyncCallback<InterfaceConfiguration> } callback - the callback of getIfaceConfig.
+   * @param { string } iface - Network interface.
+   * @param { AsyncCallback<InterfaceConfiguration> } callback - Callback used to return the result. Returns information
+   *     about the specified network interface.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -54,10 +59,11 @@ declare namespace ethernet {
   function getIfaceConfig(iface: string, callback: AsyncCallback<InterfaceConfiguration>): void;
 
   /**
-   * Get the specified network interface information.
+   * Obtains the information about a specified network interface. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { string } iface - Indicates the network interface name.
-   * @returns { Promise<InterfaceConfiguration> } the promise returned by the function.
+   * @param { string } iface - Network interface.
+   * @returns { Promise<InterfaceConfiguration> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -72,11 +78,13 @@ declare namespace ethernet {
   function getIfaceConfig(iface: string): Promise<InterfaceConfiguration>;
 
   /**
-   * Set the specified network interface parameters.
+   * Sets the network interface configuration information. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } iface - Indicates the network interface name of the network parameter.
-   * @param { InterfaceConfiguration } ic - Indicates the ic. See {@link InterfaceConfiguration}.
-   * @param { AsyncCallback<void> } callback - the callback of setIfaceConfig.
+   * @param { string } iface - Interface name.
+   * @param { InterfaceConfiguration } ic - Network interface configuration to set.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, the
+   *     return result is empty. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -94,11 +102,13 @@ declare namespace ethernet {
   function setIfaceConfig(iface: string, ic: InterfaceConfiguration, callback: AsyncCallback<void>): void;
 
   /**
-   * Set the specified network interface parameters.
+   * Sets the network interface configuration information. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
-   * @param { string } iface - Indicates the network interface name of the network parameter.
-   * @param { InterfaceConfiguration } ic - Indicates the ic. See {@link InterfaceConfiguration}.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string } iface - Interface name.
+   * @param { InterfaceConfiguration } ic - Network interface configuration to set.
+   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, the return result is
+   *     empty. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -116,10 +126,14 @@ declare namespace ethernet {
   function setIfaceConfig(iface: string, ic: InterfaceConfiguration): Promise<void>;
 
   /**
-   * Check whether the specified network is active.
+   * Checks whether the interface is activated. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { string } iface - Indicates the network interface name.
-   * @param { AsyncCallback<number> } callback - the callback of isIfaceActive.
+   * @param { string } iface - Interface name. If this parameter is left empty, the API checks for any active network
+   *     interface.
+   * @param { AsyncCallback<int> } callback - Callback used to return the result. The value **1** means that the network
+   *     interface is active, **0** means that the network interface is inactive, and any other value means that an
+   *     error has occurred.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -131,13 +145,17 @@ declare namespace ethernet {
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
    */
-  function isIfaceActive(iface: string, callback: AsyncCallback<number>): void;
+  function isIfaceActive(iface: string, callback: AsyncCallback<int>): void;
 
   /**
-   * Check whether the specified network is active.
+   * Checks whether the interface is activated. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { string } iface - Indicates the network interface name.
-   * @returns { Promise<number> } the promise returned by the function. 
+   * @param { string } iface - Interface name. If this parameter is left empty, the API checks for any active network
+   *     interface.
+   * @returns { Promise<int> } Promise used to return the result. The value **1** means that the network interface is
+   *     active, **0** means that the network interface is inactive, and any other value means that an error has
+   *     occurred.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -149,12 +167,13 @@ declare namespace ethernet {
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
    */
-  function isIfaceActive(iface: string): Promise<number>;
+  function isIfaceActive(iface: string): Promise<int>;
 
   /**
-   * Gets the names of all active network interfaces.
+   * Obtains the active network interface. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { AsyncCallback<Array<string>> } callback - the callback of getAllActiveIfaces.
+   * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
@@ -166,9 +185,10 @@ declare namespace ethernet {
   function getAllActiveIfaces(callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Gets the names of all active network interfaces.
+   * Obtains the active network interface. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { Promise<Array<string>> } the promise returned by the function.
+   * @returns { Promise<Array<string>> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
@@ -180,11 +200,13 @@ declare namespace ethernet {
   function getAllActiveIfaces(): Promise<Array<string>>;
 
   /**
-   * Register a callback for the ethernet interface active state change.
+   * Registers the observer for NIC hot swap events. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { 'interfaceStateChange' } type - Indicates Event name.
-   * @param { Callback<{ iface: string, active: boolean }> } callback - Including iface Indicates the ethernet interface,
-   * and active Indicates whether the interface is active.
+   * @param { 'interfaceStateChange' } type - Event type. The value is **interfaceStateChange**.
+   * @param { Callback<{ iface: string, active: boolean }> } callback - Callback used to return the
+   *     result. [since 10 - 10]
+   * @param { Callback<InterfaceStateInfo> } callback - Callback used to return the result. [since 11]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -192,53 +214,32 @@ declare namespace ethernet {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  /**
-   * Register a callback for the ethernet interface active state change.
-   * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { 'interfaceStateChange' } type - Indicates Event name.
-   * @param { Callback<InterfaceStateInfo> } callback - Including iface Indicates the ethernet interface,
-   * and active Indicates whether the interface is active.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Communication.NetManager.Ethernet
-   * @systemapi Hide this for inner system use.
-   * @since 11 dynamic
-   */
   function on(type: 'interfaceStateChange', callback: Callback<InterfaceStateInfo>): void;
 
   /**
-   * Unregister a callback from the ethernet interface active state change.
+   * Unregisters the observer for NIC hot swap events. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { 'interfaceStateChange' } type - Indicates Event name.
-   * @param { Callback<{ iface: string, active: boolean }> } callback - Including iface Indicates the ethernet interface,
-   * and active Indicates whether the interface is active.
+   * @param { 'interfaceStateChange' } type - Event type. The value is **interfaceStateChange**.
+   * @param { Callback<{ iface: string, active: boolean }> } callback - Callback used to return the
+   *     result. [since 10 - 10]
+   * @param { Callback<InterfaceStateInfo> } callback - Callback used to return the result. [since 11]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
-   * @since 10
-   */
-  /**
-   * Unregister a callback from the ethernet interface active state change.
-   * @permission ohos.permission.GET_NETWORK_INFO
-   * @param { 'interfaceStateChange' } type - Indicates Event name.
-   * @param { Callback<InterfaceStateInfo> } callback - Including iface Indicates the ethernet interface,
-   * and active Indicates whether the interface is active.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @syscap SystemCapability.Communication.NetManager.Ethernet
-   * @systemapi Hide this for inner system use.
-   * @since 11 dynamic
+   * @since 10 dynamic
    */
   function off(type: 'interfaceStateChange', callback?: Callback<InterfaceStateInfo>): void;
 
   /**
-   * Get the ethernet mac address list.
+   * Obtains the names and MAC addresses of all Ethernet NICs. This API uses a promise to return the result.
+   *
+   * **Required permission**: ohos.permission.GET_ETHERNET_LOCAL_MAC
+   *
    * @permission ohos.permission.GET_ETHERNET_LOCAL_MAC
-   * @returns { Promise<Array<MacAddressInfo>> } the promise returned by the function.
+   * @returns { Promise<Array<MacAddressInfo>> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2201005 - Device information does not exist.
@@ -248,9 +249,12 @@ declare namespace ethernet {
   function getMacAddress(): Promise<Array<MacAddressInfo>>;
 
   /**
-   * Get the ethernet mac address list.
+   * Obtains the device information (such as the vendor name, product name, and maximum connection rate) of the local
+   * Ethernet NIC. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.GET_NETWORK_INFO
-   * @returns { Promise<Array<EthernetDeviceInfos>> } the promise returned by the function.
+   * @returns { Promise<Array<EthernetDeviceInfos>> } Promise used to return the result. If the operation is successful,
+   *     the Ethernet device information list is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2201005 - Device information does not exist.
@@ -262,6 +266,7 @@ declare namespace ethernet {
 
   /**
    * Enable the ethernet interface.
+   *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @returns { Promise<void> } The promise returned when the ethernet interface is enabled.
    * @throws { BusinessError } 201 - Permission denied.
@@ -269,14 +274,15 @@ declare namespace ethernet {
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hidethis for inner system use.
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function enableEthernetInterface(): Promise<void>;
 
   /**
    * Disable the ethernet interface.
+   *
    * @permission ohos.permission.CONNECTIVITY_INTERNAL
    * @returns { Promise<void> } The promise returned when the ethernet interface is disabled.
    * @throws { BusinessError } 201 - Permission denied.
@@ -284,14 +290,15 @@ declare namespace ethernet {
    * @throws { BusinessError } 2200002 - Failed to connect to the service.
    * @throws { BusinessError } 2200003 - System internal error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hidethis for inner system use.
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function disableEthernetInterface(): Promise<void>;
 
   /**
    * Check whether the global ethernet switch is enabled.
+   *
    * @permission ohos.permission.GET_NETWORK_INFO
    * @returns { boolean } True if ethernet is globally enabled.
    * @throws { BusinessError } 201 - Permission denied.
@@ -299,33 +306,33 @@ declare namespace ethernet {
    * @throws { BusinessError } 2200002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 2200003 - Internal error.
    * @syscap SystemCapability.Communication.NetManager.Ethernet
-   * @systemapi Hide this for inner system use.
+   * @systemapi Hidethis for inner system use.
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function isEthernetEnabled(): boolean;
 
   /**
    * Defines the network configuration for the Ethernet connection.
-   * @interface InterfaceConfiguration
+   *
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
    */
   export interface InterfaceConfiguration {
     /**
-     * @type {IPSetMode}
-     * See {@link IPSetMode}
+     * Configuration mode of the Ethernet connection.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
      */
     mode: IPSetMode;
     /**
-     * Ethernet connection static configuration IP information.
-     * The address value range is 0-255.0-255.0-255.0-255.0-255
-     * (DHCP mode does not need to be configured)
-     * @type {string}
+     * Static IP address of the Ethernet connection. The value must be an IPv4 address, which is a 32-bit number
+     * displayed in dotted decimal notation and each 8-bit field ranges from 0 to 255. This parameter does not need to
+     * be configured in Dynamic Host Configuration Protocol (DHCP) mode.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -333,10 +340,10 @@ declare namespace ethernet {
     ipAddr: string;
 
     /**
-     * Ethernet connection static configuration route information.
-     * The address value range is 0-255.0-255.0-255.0-255.0-255
-     * (DHCP mode does not need to be configured)
-     * @type {string}
+     * Route of the Ethernet connection. The value must be an IPv4 address, which is a 32-bit number displayed in dotted
+     * decimal notation and each 8-bit field ranges from 0 to 255. This parameter does not need to be configured in DHCP
+     * mode.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -344,10 +351,10 @@ declare namespace ethernet {
     route: string;
 
     /**
-     * Ethernet connection static configuration gateway information.
-     * The address value range is 0-255.0-255.0-255.0-255.0-255
-     * (DHCP mode does not need to be configured)
-     * @type {string}
+     * Gateway of the Ethernet connection. The value must be an IPv4 address, which is a 32-bit number displayed in
+     * dotted decimal notation and each 8-bit field ranges from 0 to 255. This parameter does not need to be configured
+     * in DHCP mode.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -355,10 +362,10 @@ declare namespace ethernet {
     gateway: string;
 
     /**
-     * Ethernet connection static configuration netMask information.
-     * The address value range is 0-255.0-255.0-255.0-255.0-255
-     * (DHCP mode does not need to be configured)
-     * @type {string}
+     * Subnet mask of the Ethernet connection. The value must be an IPv4 address, which is a 32-bit number displayed in
+     * dotted decimal notation and each 8-bit field ranges from 0 to 255. This parameter does not need to be configured
+     * in DHCP mode.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -366,10 +373,10 @@ declare namespace ethernet {
     netMask: string;
 
     /**
-     * The Ethernet connection is configured with the dns service address.
-     * The address value range is 0-255.0-255.0-255.0-255.0-255
-     * (DHCP mode does not need to be configured, Multiple addresses are separated by ",")
-     * @type {string}
+     * DNS server addresses of the Ethernet connection. The value must be an IPv4 address, which is a 32-bit number
+     * displayed in dotted decimal notation and each 8-bit field ranges from 0 to 255. This parameter does not need to
+     * be configured in DHCP mode. Multiple addresses are separated by commas (,).
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -377,8 +384,8 @@ declare namespace ethernet {
     dnsServers: string;
 
     /**
-     * Indicates the HttpProxy settings, no proxy is to be used as default.
-     * @type {?HttpProxy}
+     * HTTP proxy of the Ethernet connection. By default, no proxy is configured.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -387,24 +394,25 @@ declare namespace ethernet {
   }
 
   /**
-   * The interface is used to monitor network interface status changes.
-   * @interface InterfaceStateInfo
+   * Listens for status changes of an Ethernet NIC.
+   *
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
    */
   export interface InterfaceStateInfo {
     /**
-     * Define network card name.
-     * @type { string }
+     * Name of the Ethernet NIC.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
      */
     iface: string;
     /**
-     * Check if it is active.
-     * @type { boolean }
+     * Whether the Ethernet NIC is activated. The value **true** indicates that the Ethernet NIC is activated, and the
+     * value **false** indicates the opposite.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
@@ -414,14 +422,15 @@ declare namespace ethernet {
 
   /**
    * Defines the configuration mode of the Ethernet connection.
-   * @enum {number}
+   *
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
    */
   export enum IPSetMode {
     /**
-     * WAN Static configuration.
+     * Static network configuration for an Ethernet connection.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -429,7 +438,8 @@ declare namespace ethernet {
     STATIC = 0,
 
     /**
-     * WAN Dynamic configuration.
+     * Dynamic network configuration for an Ethernet connection.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -437,7 +447,8 @@ declare namespace ethernet {
     DHCP = 1,
 
     /**
-     * LAN Static configuration.
+     * Static network configuration for a LAN connection.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
@@ -445,7 +456,8 @@ declare namespace ethernet {
     LAN_STATIC = 2,
 
     /**
-     * LAN Dynamic configuration.
+     * Dynamic network configuration for a LAN connection.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
@@ -454,23 +466,23 @@ declare namespace ethernet {
   }
 
   /**
-   * Defines the mac address info of the Ethernet.
-   * @interface MacAddressInfo
+   * Defines the name and MAC address of an Ethernet NIC.
+   *
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @since 14 dynamic
    */
   export interface MacAddressInfo {
     /**
-     * Ethernet interface name.
-     * @type { string }
+     * Name of the Ethernet NIC.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @since 14 dynamic
      */
     iface: string;
 
     /**
-     * Ethernet specific mac address.
-     * @type { string }
+     * MAC address of the Ethernet NIC.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @since 14 dynamic
      */
@@ -478,16 +490,16 @@ declare namespace ethernet {
   }
 
   /**
-   * Defines the device information of the Ethernet.
-   * @interface EthernetDeviceInfos
+   * Defines Ethernet device information.
+   *
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
    */
   export interface EthernetDeviceInfos {
     /**
-     * Ethernet interface name.
-     * @type { string }
+     * Interface name.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
@@ -495,8 +507,8 @@ declare namespace ethernet {
     ifaceName: string;
 
     /**
-     * Ethernet device name.
-     * @type { string }
+     * Device name.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
@@ -505,7 +517,7 @@ declare namespace ethernet {
 
     /**
      * Device connection mode.
-     * @type { DeviceConnectionType }
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
@@ -513,8 +525,8 @@ declare namespace ethernet {
     connectionMode: DeviceConnectionType;
 
     /**
-     * Supplier name of device.
-     * @type { string }
+     * Vendor name.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
@@ -522,8 +534,8 @@ declare namespace ethernet {
     supplierName: string;
 
     /**
-     * Supplier id of device.
-     * @type { string }
+     * Supplier ID.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
@@ -531,8 +543,8 @@ declare namespace ethernet {
     supplierId: string;
 
     /**
-     * Product name of device.
-     * @type { string }
+     * Product name.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
@@ -540,8 +552,8 @@ declare namespace ethernet {
     productName: string;
 
     /**
-     * Maximum Rate of device.
-     * @type { string }
+     * Maximum connection rate.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
@@ -550,15 +562,16 @@ declare namespace ethernet {
   }
 
   /**
-   * Defines the Device Connection Mode of the Ethernet.
-   * @enum {number}
+   * Enumerates Ethernet device connection modes.
+   *
    * @syscap SystemCapability.Communication.NetManager.Ethernet
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
    */
   export enum DeviceConnectionType {
     /**
-     * Ethernet in built-in mode.
+     * Internal connection mode.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
@@ -566,7 +579,8 @@ declare namespace ethernet {
     BUILT_IN = 0,
 
     /**
-     * Ethernet in external mode. For example, an ethernet connection via USB.
+     * External connection mode. For example, the Ethernet device is connected through a USB.
+     *
      * @syscap SystemCapability.Communication.NetManager.Ethernet
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic

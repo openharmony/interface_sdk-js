@@ -25,7 +25,7 @@
  * [NodeContainer]{@link ./node_container}组件封装后应用在WaterFlow或FlowItem中。
  *
  * 从API版本26.0.0开始，其父组件新增支持[List]{@link ./list}、[Scroll]{@link ./scroll}和
- * [LazyColumnLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-lazycolumnlayout.md)，同时新增支持使用自定义组件或
+ * [LazyColumnLayout]{@link CommonMethod#LazyColumnLayout}，同时新增支持使用自定义组件或
  * [NodeContainer]{@link ./node_container}组件封装后应用在List、Scroll或LazyColumnLayout中。
  *
  * 更多关于懒加载布局的使用场景和完整示例，可参考[创建懒加载布局](docroot://ui/arkts-layout-development-create-lazy-layout.md)。
@@ -215,7 +215,7 @@ declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGrid
    * columnsTemplate('repeat(auto-fill, track-size)')是设置固定列宽值为track-size，自动计算列数。
    *
    * columnsTemplate('repeat(auto-stretch, track-size)')是设置固定列宽值为track-size，使用
-   * [columnsGap](docroot://reference/apis-arkui/arkui-ts/ts-container-lazyvgridlayout.md#columnsgap)作为最小列间距，自动计算列数和实际列间
+   * [columnsGap]{@link ./columnsGap}作为最小列间距，自动计算列数和实际列间
    * 距。
    *
    * 其中repeat、auto-fit、auto-fill、auto-stretch为关键字。track-size为列宽，支持的单位包括px、vp、%或有效数字，默认单位为vp，track-size至少包括一个有效列宽。
@@ -245,7 +245,7 @@ declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGrid
  * [NodeContainer]{@link ./node_container}组件封装后应用在WaterFlow或FlowItem中。
  *
  * 从API版本26.0.0开始，其父组件新增支持[List]{@link ./list}、[Scroll]{@link ./scroll}和
- * [LazyColumnLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-lazycolumnlayout.md)，同时新增支持使用自定义组件或
+ * [LazyColumnLayout]{@link CommonMethod#LazyColumnLayout}，同时新增支持使用自定义组件或
  * [NodeContainer]{@link ./node_container}组件封装后应用在List、Scroll或LazyColumnLayout中。
  *
  * 更多关于懒加载布局的使用场景和完整示例，可参考[创建懒加载布局](docroot://ui/arkts-layout-development-create-lazy-layout.md)。

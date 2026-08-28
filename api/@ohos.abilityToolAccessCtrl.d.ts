@@ -20,7 +20,10 @@
 import { Permissions }  from './permissions';
 import abilityAccessCtrl from './@ohos.abilityAccessCtrl';
 /**
- * The namespace of abilityToolAccessCtrl
+ * This module provides permission management capabilities for tools (CLI commands and APIs), including permission
+ * query, user authorization, and remote authorization. Permission query is used to check the permission status of
+ * tools, user authorization grants permissions to tools based on user decisions, and remote authorization enables
+ * cross-device permission management through a ticket mechanism.
  *
  * @syscap SystemCapability.Security.Asset
  * @systemapi
@@ -112,7 +115,7 @@ declare namespace abilityToolAccessCtrl {
      * @since 26.1.0 dynamiconly
      */
     signVerifyMsg?: string;
-}
+  }
   /**
    * Permission query information.
    *
@@ -719,8 +722,8 @@ declare namespace abilityToolAccessCtrl {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 24010000 - Invalid parameter. OperationType and operationInfo do not match,
    *     specified callerTokenId does not exist, ticketExpireTime exceeds 24h, etc.
-   * @throws { BusinessError } 24010001 - Service is abnormal. possible cause: IPC failed.
-   * @throws { BusinessError } 24010002 - Common internal error. possible cause: dependent service unavailable,
+   * @throws { BusinessError } 24010001 - Service is abnormal. Possible cause: IPC failed.
+   * @throws { BusinessError } 24010002 - Common internal error. Possible cause: dependent service unavailable,
    *     resource access failure, etc.
    * @throws { BusinessError } 24010003 - The account is not logged in, network is unavailable, timeout, etc.
    * @throws { BusinessError } 24010006 - The requested operation is not allowed to be executed
@@ -745,8 +748,8 @@ declare namespace abilityToolAccessCtrl {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 24010000 - Invalid parameter. PermissionName exceeds 256 characters,
    *     permissionStatus is invalid, etc.
-   * @throws { BusinessError } 24010001 - Service is abnormal. possible cause: IPC failed.
-   * @throws { BusinessError } 24010002 - Common internal error. possible cause: dependent service unavailable,
+   * @throws { BusinessError } 24010001 - Service is abnormal. Possible cause: IPC failed.
+   * @throws { BusinessError } 24010002 - Common internal error. Possible cause: dependent service unavailable,
    *     resource access failure, etc.
    * @throws { BusinessError } 24010003 - The account is not logged in, network is unavailable, timeout, etc.
    * @throws { BusinessError } 24010004 - Invalid permission. A permission in permissionInfo does not exist.
@@ -772,8 +775,8 @@ declare namespace abilityToolAccessCtrl {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 24010000 - Invalid parameter. OperationType and operationInfo do not match,
    *     specified callerTokenId does not exist, etc.
-   * @throws { BusinessError } 24010001 - Service is abnormal. possible cause: IPC failed.
-   * @throws { BusinessError } 24010002 - Common internal error. possible cause: dependent service unavailable,
+   * @throws { BusinessError } 24010001 - Service is abnormal. Possible cause: IPC failed.
+   * @throws { BusinessError } 24010002 - Common internal error. Possible cause: dependent service unavailable,
    *     resource access failure, etc.
    * @throws { BusinessError } 24010003 - The account is not logged in, network is unavailable, timeout, etc.
    * @syscap SystemCapability.Security.Asset
@@ -796,9 +799,9 @@ declare namespace abilityToolAccessCtrl {
    *     The interface caller does not have permission "ohos.permission.QUERY_TOOL_PERMISSIONS".
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 24010000 - Invalid parameter. Permission exceeds 256 characters,
-   *     specificied tokenId is invalid, etc.
-   * @throws { BusinessError } 24010001 - Service is abnormal. possible cause: IPC failed.
-   * @throws { BusinessError } 24010002 - Common internal error. possible cause: dependent service unavailable,
+   *     specified tokenId is invalid, etc.
+   * @throws { BusinessError } 24010001 - Service is abnormal. Possible cause: IPC failed.
+   * @throws { BusinessError } 24010002 - Common internal error. Possible cause: dependent service unavailable,
    *     resource access failure, etc.
    * @throws { BusinessError } 24010003 - The account is not logged in, network is unavailable, timeout, etc.
    * @syscap SystemCapability.Security.Asset
@@ -821,8 +824,8 @@ declare namespace abilityToolAccessCtrl {
    *     The interface caller does not have permission "ohos.permission.QUERY_TOOL_PERMISSIONS".
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 24010000 - Invalid parameter. Format of ticketInfo or remoteInfo is invalid.
-   * @throws { BusinessError } 24010001 - Service is abnormal. possible cause: IPC failed.
-   * @throws { BusinessError } 24010002 - Common internal error. possible cause: dependent service unavailable,
+   * @throws { BusinessError } 24010001 - Service is abnormal. Possible cause: IPC failed.
+   * @throws { BusinessError } 24010002 - Common internal error. Possible cause: dependent service unavailable,
    *     resource access failure, etc.
    * @throws { BusinessError } 24010003 - The account is not logged in, network is unavailable, timeout, etc.
    * @syscap SystemCapability.Security.Asset
@@ -845,8 +848,8 @@ declare namespace abilityToolAccessCtrl {
    *     The interface caller does not have permission "ohos.permission.QUERY_TOOL_PERMISSIONS".
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 24010000 - Invalid parameter. Format of ticketInfo is invalid.
-   * @throws { BusinessError } 24010001 - Service is abnormal. possible cause: IPC failed.
-   * @throws { BusinessError } 24010002 - Common internal error. possible cause: dependent service unavailable,
+   * @throws { BusinessError } 24010001 - Service is abnormal. Possible cause: IPC failed.
+   * @throws { BusinessError } 24010002 - Common internal error. Possible cause: dependent service unavailable,
    *     resource access failure, etc.
    * @throws { BusinessError } 24010003 - The account is not logged in, network is unavailable, timeout, etc.
    * @syscap SystemCapability.Security.Asset
@@ -867,8 +870,8 @@ declare namespace abilityToolAccessCtrl {
    * @throws { BusinessError } 201 - Permission denial.
    *     The interface caller does not have permission "ohos.permission.QUERY_TOOL_PERMISSIONS".
    * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 24010001 - Service is abnormal. possible cause: IPC failed.
-   * @throws { BusinessError } 24010002 - Common internal error. possible cause: dependent service unavailable,
+   * @throws { BusinessError } 24010001 - Service is abnormal. Possible cause: IPC failed.
+   * @throws { BusinessError } 24010002 - Common internal error. Possible cause: dependent service unavailable,
    *     resource access failure, etc.
    * @syscap SystemCapability.Security.Asset
    * @systemapi
@@ -890,8 +893,8 @@ declare namespace abilityToolAccessCtrl {
    *     The interface caller does not have permission "ohos.permission.MANAGE_TOOL_RUNTIME_PERMISSIONS".
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 24010000 - Invalid parameter. RemoteGrantStatus is invalid.
-   * @throws { BusinessError } 24010001 - Service is abnormal. possible cause: IPC failed.
-   * @throws { BusinessError } 24010002 - Common internal error. possible cause: dependent service unavailable,
+   * @throws { BusinessError } 24010001 - Service is abnormal. Possible cause: IPC failed.
+   * @throws { BusinessError } 24010002 - Common internal error. Possible cause: dependent service unavailable,
    *     resource access failure, etc.
    * @syscap SystemCapability.Security.Asset
    * @systemapi

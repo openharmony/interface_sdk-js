@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Resource Management
  * @kit LocalizationKit
  */
 
@@ -2526,9 +2526,9 @@ declare namespace resourceManager {
      * returns the result synchronously.
      *
      * @param { long } resId - Resource ID.
-     * @param { int } density - Screen density. The default value or value **0** indicates the default screen density. 
+     * @param { int } [density] - Screen density. The default value or value **0** indicates the default screen density. 
      *     For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
-     * @param { int } type - Icon type. The default value is **0**.
+     * @param { int } [type] - Icon type. The default value is **0**.
      *     <br>**0**: Icon resource of the application.
      *     <br>**1**: Layered icon resource of the application in the theme resource package.
      * @returns { DrawableDescriptor } **DrawableDescriptor** object corresponding to the specified resource ID.
@@ -2550,9 +2550,9 @@ declare namespace resourceManager {
      * API returns the result synchronously.
      *
      * @param { string } resName - Resource name.
-     * @param { int } density - Screen density. The default value or value **0** indicates the default screen density. 
+     * @param { int } [density] - Screen density. The default value or value **0** indicates the default screen density. 
      *     For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
-     * @param { int } type - Icon type. The default value is **0**.
+     * @param { int } [type] - Icon type. The default value is **0**.
      *     <br>**0**: Icon resource of the application.
      *     <br>**1**: Layered icon resource of the application in the theme resource package.
      * @returns { DrawableDescriptor } **DrawableDescriptor** object.
@@ -2574,9 +2574,9 @@ declare namespace resourceManager {
      * returns the result synchronously.
      *
      * @param { Resource } resource - Resource object.
-     * @param { number } density - Screen density. The default value or value **0** indicates the default screen 
+     * @param { number } [density] - Screen density. The default value or value **0** indicates the default screen 
      *     density. For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
-     * @param { number } type - Icon type. The default value is **0**.
+     * @param { number } [type] - Icon type. The default value is **0**.
      *     <br>**0**: Icon resource of the application.
      *     <br>**1**: Layered icon resource of the application in the theme resource package.
      * @returns { DrawableDescriptor } **DrawableDescriptor** object corresponding to the specified resource ID.
@@ -2931,7 +2931,7 @@ declare namespace resourceManager {
      * This API returns the result synchronously.
      *
      * @param { long } resId - Resource ID.
-     * @param { int } density - Screen density. The default value or value **0** indicates the default screen density.
+     * @param { int } [density] - Screen density. The default value or value **0** indicates the default screen density.
      *     For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
      * @returns { Uint8Array } Content of the media file corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2952,7 +2952,7 @@ declare namespace resourceManager {
      * object. This API returns the result synchronously.
      *
      * @param { Resource } resource - Resource object.
-     * @param { number } density - Screen density. The default value or value **0** indicates the default screen 
+     * @param { number } [density] - Screen density. The default value or value **0** indicates the default screen 
      *     density. For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
      * @returns { Uint8Array } Content of the media file corresponding to the specified resource object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2
@@ -2974,7 +2974,7 @@ declare namespace resourceManager {
      * ID. This API returns the result synchronously.
      *
      * @param { long } resId - Resource ID.
-     * @param { int } density - Screen density. The default value or value **0** indicates the default screen density.
+     * @param { int } [density] - Screen density. The default value or value **0** indicates the default screen density.
      *     For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
      * @returns { string } Base64 encoding of the image corresponding to the specified resource ID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2995,7 +2995,7 @@ declare namespace resourceManager {
      * object. This API returns the result synchronously.
      *
      * @param { Resource } resource - Resource object.
-     * @param { number } density - Screen density. The default value or value **0** indicates the default screen 
+     * @param { number } [density] - Screen density. The default value or value **0** indicates the default screen 
      *     density. For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
      * @returns { string } Base64 encoding of the image corresponding to the specified resource object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types; 2
@@ -3135,7 +3135,7 @@ declare namespace resourceManager {
      * This API returns the result synchronously.
      *
      * @param { string } resName - Resource name.
-     * @param { int } density - Screen density. The default value or value **0** indicates the default screen density. 
+     * @param { int } [density] - Screen density. The default value or value **0** indicates the default screen density. 
      *     For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
      * @returns { Uint8Array } Promise used to return the result, which is the content of the media file corresponding 
      *     to the specified resource name.
@@ -3157,7 +3157,7 @@ declare namespace resourceManager {
      * name. This API returns the result synchronously.
      *
      * @param { string } resName - Resource name.
-     * @param { int } density - Screen density. The default value or value **0** indicates the default screen density. 
+     * @param { int } [density] - Screen density. The default value or value **0** indicates the default screen density. 
      *     For details about the values, see [ScreenDensity]{@link resourceManager.ScreenDensity}.
      * @returns { string } Base64 encoding of the image corresponding to the specified resource name.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:

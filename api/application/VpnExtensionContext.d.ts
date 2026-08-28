@@ -14,21 +14,20 @@
  */
 
 /**
- * @file
+ * @file 
  * @kit NetworkKit
  */
 
 import ExtensionContext from './ExtensionContext';
 /**
- * The context of vpn extension. It allows access to
- * serviceExtension-specific resources.
+ * **VpnExtensionContext** represents the context of **VpnExtensionAbility** and is inherited from
+ * [ExtensionContext]{@link ./ExtensionContext:ExtensionContext}.
  *
- * @extends ExtensionContext
+ * This module provides the context required for APIs to access the resources of a **VpnExtensionAbility** object.
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @since 11 dynamic
+ * @since 26.1.0 static
  */
-
-export default class VpnExtensionContext extends ExtensionContext {
-}
-
+export default class VpnExtensionContext extends ExtensionContext {}

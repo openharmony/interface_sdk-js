@@ -253,11 +253,11 @@ declare namespace router {
    * > - 从API version 9开始支持，从API version 18开始废弃，建议使用
    * > [pushUrl]{@link @ohos.arkui.UIContext:Router#pushUrl(options: router.RouterOptions, callback: AsyncCallback<void>)}
    * > 替代。pushUrl需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { RouterOptions } options - 跳转页面描述信息。
@@ -286,11 +286,11 @@ declare namespace router {
    * > - 从API version 9开始支持，从API version 18开始废弃，建议使用
    * > [pushUrl]{@link @ohos.arkui.UIContext:Router#pushUrl(options: router.RouterOptions)}替代。pushUrl需先通过
    * > [UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { RouterOptions } options - 跳转页面描述信息。
@@ -319,11 +319,11 @@ declare namespace router {
    * > - 从API version 9开始支持，从API version 18开始废弃，建议使用
    * > [pushUrl]{@link @ohos.arkui.UIContext:Router#pushUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>)}
    * > 替代。pushUrl需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { RouterOptions } options - 跳转页面描述信息。
@@ -353,11 +353,11 @@ declare namespace router {
    * > - 从API version 9开始支持，从API version 18开始废弃，建议使用
    * > [pushUrl]{@link @ohos.arkui.UIContext:Router#pushUrl(options: router.RouterOptions, mode: router.RouterMode)}替代。
    * > pushUrl需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { RouterOptions } options - 跳转页面描述信息。
@@ -403,11 +403,11 @@ declare namespace router {
    * > - 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用
    * > [replaceUrl]{@link @ohos.arkui.UIContext:Router#replaceUrl(options: router.RouterOptions, callback: AsyncCallback<void>)}
    * > 替代。replaceUrl需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { RouterOptions } options - 替换页面描述信息。
@@ -437,11 +437,11 @@ declare namespace router {
    * > - 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用
    * > [replaceUrl]{@link @ohos.arkui.UIContext:Router#replaceUrl(options: router.RouterOptions)}替代。replaceUrl需先通过
    * > [UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { RouterOptions } options - 替换页面描述信息。
@@ -471,11 +471,11 @@ declare namespace router {
    * > - 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用
    * > [replaceUrl]{@link @ohos.arkui.UIContext:Router#replaceUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>)}
    * > 替代。replaceUrl需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { RouterOptions } options - 替换页面描述信息。
@@ -506,11 +506,11 @@ declare namespace router {
    * > - 从API version 9开始支持，除Lite Wearable外，从API version 18开始废弃，建议使用
    * > [replaceUrl]{@link @ohos.arkui.UIContext:Router#replaceUrl(options: router.RouterOptions, mode: router.RouterMode)}
    * > 替代。replaceUrl需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { RouterOptions } options - 替换页面描述信息。
@@ -542,11 +542,11 @@ declare namespace router {
    * > - 从API version 8开始支持，从API version 18开始废弃，建议使用
    * > [back]{@link @ohos.arkui.UIContext:Router#back(options?: router.RouterOptions)}替代。back需先通过
    * > [UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { RouterOptions } options - 返回页面描述信息，其中url指返回目标页面的路由地址，如果页面栈中不存在指定url的页面，则不响应当前返回请求。如果url未设置，则返回上一页，页面不会
@@ -569,11 +569,11 @@ declare namespace router {
    * > - 从API version 12开始支持，从API version 18开始废弃，建议使用
    * > [back]{@link @ohos.arkui.UIContext:Router#back(index: number, params?: Object)}替代。back需先通过
    * > [UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 12开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { number } index - 返回目标页面的索引值，取值范围[1, 页面栈大小]，页面栈最大数量为32。从栈底到栈顶，index从1开始递增。索引不存在或超出页面栈有效范围时不响应。
@@ -596,11 +596,11 @@ declare namespace router {
    * >
    * > - 从API version 8开始支持，从API version 18开始废弃，建议使用[clear]{@link @ohos.arkui.UIContext:Router#clear}替代。clear需先通过
    * > [UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -619,11 +619,11 @@ declare namespace router {
    * >
    * > - 从API version 8开始支持，从API version 18开始废弃，建议使用[getLength]{@link @ohos.arkui.UIContext:Router#getLength}替代。
    * > getLength需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @returns { string } 页面数量，页面栈支持最大数值是32。
@@ -643,11 +643,11 @@ declare namespace router {
    * >
    * > - 从API version 8开始支持，从API version 18开始废弃，建议使用[getState]{@link @ohos.arkui.UIContext:Router#getState}替代。getLength需
    * > 先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @returns { RouterState } 栈顶页面的状态信息，包含页面索引、名称、路径和参数。
@@ -668,11 +668,11 @@ declare namespace router {
    * > - 从API version 12开始支持，从API version 18开始废弃，建议使用
    * > [getStateByIndex]{@link @ohos.arkui.UIContext:Router#getStateByIndex}替代。getStateByIndex需先通过
    * > [UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 12开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { number } index - 表示要获取的页面索引，取值范围[1, 页面栈大小]，页面栈最大数量为32。从栈底到栈顶，index从1开始递增。索引不存在时返回undefined。
@@ -694,11 +694,11 @@ declare namespace router {
    * >
    * > - 从API version 12开始支持，从API version 18开始废弃，建议使用[getStateByUrl]{@link @ohos.arkui.UIContext:Router#getStateByUrl}替
    * > 代。getStateByUrl需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 12开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { string } url - 表示要获取对应页面信息的url。url格式为页面绝对路径，由配置文件中pages列表提供，例如：pages/index/index。
@@ -739,11 +739,11 @@ declare namespace router {
    * > - 从API version 9开始支持，从API version 18开始废弃，建议使用
    * > [showAlertBeforeBackPage]{@link @ohos.arkui.UIContext:Router#showAlertBeforeBackPage}替代。showAlertBeforeBackPage需先
    * > 通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { EnableAlertOptions } options - 文本弹窗信息描述。
@@ -785,11 +785,11 @@ declare namespace router {
    * > - 从API version 9开始支持，从API version 18开始废弃，建议使用
    * > [hideAlertBeforeBackPage]{@link @ohos.arkui.UIContext:Router#hideAlertBeforeBackPage}替代。hideAlertBeforeBackPage需先
    * > 通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -808,11 +808,11 @@ declare namespace router {
    * >
    * > - 从API version 8开始支持，从API version 18开始废弃，建议使用[getParams]{@link @ohos.arkui.UIContext:Router#getParams}替代。
    * > getParams需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    * >
    * > getParams只获取当前页面的参数，并不会清除页面关联的参数。
@@ -892,11 +892,11 @@ declare namespace router {
    * > - 从API version 10开始支持，从API version 18开始废弃，建议使用
    * > [pushNamedRoute]{@link @ohos.arkui.UIContext:Router#pushNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>)}
    * > 替代。pushNamedRoute需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { NamedRouterOptions } options - 跳转页面描述信息。
@@ -926,11 +926,11 @@ declare namespace router {
    * > - 从API version 10开始支持，从API version 18开始废弃，建议使用
    * > [pushNamedRoute]{@link @ohos.arkui.UIContext:Router#pushNamedRoute(options: router.NamedRouterOptions)}替代。
    * > pushNamedRoute需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { NamedRouterOptions } options - 跳转页面描述信息。
@@ -960,11 +960,11 @@ declare namespace router {
    * > - 从API version 10开始支持，从API version 18开始废弃，建议使用
    * > [pushNamedRoute]{@link @ohos.arkui.UIContext:Router#pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>)}
    * > 替代。pushNamedRoute需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { NamedRouterOptions } options - 跳转页面描述信息。
@@ -995,11 +995,11 @@ declare namespace router {
    * > - 从API version 10开始支持，从API version 18开始废弃，建议使用
    * > [pushNamedRoute]{@link @ohos.arkui.UIContext:Router#pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode)}
    * > 替代。pushNamedRoute需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { NamedRouterOptions } options - 跳转页面描述信息。
@@ -1030,11 +1030,11 @@ declare namespace router {
    * > - 从API version 10开始支持，从API version 18开始废弃，建议使用
    * > [replaceNamedRoute]{@link @ohos.arkui.UIContext:Router#replaceNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>)}
    * > 替代。replaceNamedRoute需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { NamedRouterOptions } options - 替换页面描述信息。
@@ -1064,11 +1064,11 @@ declare namespace router {
    * > - 从API version 10开始支持，从API version 18开始废弃，建议使用
    * > [replaceNamedRoute]{@link @ohos.arkui.UIContext:Router#replaceNamedRoute(options: router.NamedRouterOptions)}替代。
    * > replaceNamedRoute需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { NamedRouterOptions } options - 替换页面描述信息。
@@ -1098,11 +1098,11 @@ declare namespace router {
    * > - 从API version 10开始支持，从API version 18开始废弃，建议使用
    * > [replaceNamedRoute]{@link @ohos.arkui.UIContext:Router#replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>)}
    * > 替代。replaceNamedRoute需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { NamedRouterOptions } options - 替换页面描述信息。
@@ -1133,11 +1133,11 @@ declare namespace router {
    * > - 从API version 10开始支持，从API version 18开始废弃，建议使用
    * > [replaceNamedRoute]{@link @ohos.arkui.UIContext:Router#replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode)}
    * > 替代。replaceNamedRoute需先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)获取
+   * > [getRouter]{@link UIContext#getRouter}获取
    * > [Router]{@link @ohos.arkui.UIContext}实例，然后通过该实例进行调用。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取当前UI上下文关联的
+   * > [getRouter]{@link UIContext#getRouter}方法获取当前UI上下文关联的
    * > [Router]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { NamedRouterOptions } options - 替换页面描述信息。

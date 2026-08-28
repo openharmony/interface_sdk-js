@@ -906,11 +906,11 @@ declare namespace url {
     }
 
     /**
-     * [forEach]{@link url.URLParams#forEach(callbackFn: UrlCbFn)}函数所需的回调函数。
+     * [forEach]{@link url.URLParams.forEach(callbackFn: UrlCbFn)}函数所需的回调函数。
      *
      * @param { string } value - 当前遍历到的值。
      * @param { string } key - 当前遍历到的键名。
-     * @param { URLParams } searchParams - 当前调用[forEach]{@link url.URLParams#forEach(callbackFn: UrlCbFn)}方法的实例对象。
+     * @param { URLParams } searchParams - 当前调用[forEach]{@link url.URLParams.forEach(callbackFn: UrlCbFn)}方法的实例对象。
      * @returns { void } This callback does not return a value.
      * @syscap SystemCapability.Utils.Lang
      * @atomicservice

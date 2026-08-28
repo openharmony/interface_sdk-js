@@ -14,30 +14,33 @@
  */
 
 /**
- * @file
+ * @file SIM Management
  * @kit TelephonyKit
  */
 
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * Provides applications with APIs for obtaining SIM card status, card file information, and card specifications.
- * SIM cards include SIM, USIM, and CSIM cards.
+ * The **sim** module provides basic SIM card management functions. With the APIs provided by this module, you can
+ * obtain the ISO country code, home PLMN ID, service provider name, SIM card status, type, installation status, and
+ * activation status of the SIM card in the specified slot.
  *
- * @namespace sim
  * @syscap SystemCapability.Telephony.CoreService
  * @since 6 dynamic
  * @since 23 static
  */
 declare namespace sim {
   /**
-   * Checks whether the SIM card in a specified slot is activated.
+   * Checks whether the SIM card in the specified slot is activated. This API uses an asynchronous callback to return
+   * the result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<boolean> } callback - Indicates the callback for checking
-   * whether the SIM card in a specified slot is activated.
-   * Returns {@code true} if the SIM card is activated; returns {@code false} otherwise.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result, which indicates whether the SIM
+   *     card in the specified slot is activated.
+   *     <br>**true**: activated.
+   *     <br>**false**: not activated.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7 dynamic
    * @since 23 static
@@ -45,11 +48,14 @@ declare namespace sim {
   function isSimActive(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the SIM card in a specified slot is activated.
+   * Checks whether the SIM card in the specified slot is activated. This API uses a promise to return the result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @returns { Promise<boolean> } Returns {@code true} if the SIM card is activated; returns {@code false} otherwise.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<boolean> } Promise used to return the result.
+   *     <br>**true**: activated.
+   *     <br>**false**: not activated.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7 dynamic
    * @since 23 static
@@ -57,11 +63,14 @@ declare namespace sim {
   function isSimActive(slotId: int): Promise<boolean>;
 
   /**
-   * Checks whether the SIM card in a specified slot is activated.
+   * Checks whether the SIM card in the specified slot is activated.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { boolean } Returns {@code true} if the SIM card is activated; returns {@code false} otherwise.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { boolean } Whether the SIM card in the specified slot is activated.
+   *     <br>**true**: activated.
+   *     <br>**false**: not activated.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -69,13 +78,13 @@ declare namespace sim {
   function isSimActiveSync(slotId: int): boolean;
 
   /**
-   * Obtains the default card slot for the voice service.
+   * Obtains the default slot ID of the SIM card that provides voice services. This API uses an asynchronous callback to
+   * return the result.
    *
-   * @param { AsyncCallback<int> } callback - Indicates the callback for getting
-   * the default card slot for the voice service.
-   * Returns {@code 0} if card 1 is used as the default card slot for the voice service;
-   * returns {@code 1} if card 2 is used as the default card slot for the voice service;
-   * returns {@code -1} if no card is available for the voice service.
+   * @param { AsyncCallback<int> } callback - Callback used to return the result.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2.
+   *     <br>- **-1**: card slot not set or service not unavailable
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7 dynamic
    * @since 23 static
@@ -83,11 +92,13 @@ declare namespace sim {
   function getDefaultVoiceSlotId(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the default card slot for the voice service.
+   * Obtains the default slot ID of the SIM card that provides voice services. This API uses a promise to return the
+   * result.
    *
-   * @returns { Promise<int> } Returns {@code 0} if card 1 is used as the default card slot for the voice service;
-   * returns {@code 1} if card 2 is used as the default card slot for the voice service;
-   * returns {@code -1} if no card is available for the voice service.
+   * @returns { Promise<int> } Promise used to return the result.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2.
+   *     <br>- **-1**: card slot not set or service not unavailable
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7 dynamic
    * @since 23 static
@@ -95,13 +106,17 @@ declare namespace sim {
   function getDefaultVoiceSlotId(): Promise<int>;
 
   /**
-   * Checks whether your application (the caller) has been granted the operator permissions.
+   * Checks whether the application (caller) has been granted the operator permission. This API uses an asynchronous
+   * callback to return the result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<boolean> } callback - Indicates the callback of hasOperatorPrivileges.
-   * Returns {@code true} if your application has been granted the operator permissions; returns {@code false} otherwise.
-   * If no SIM card is inserted or the SIM card is deactivated will be return {@code false}.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result, which indicates whether the
+   *     application (caller) has been granted the operator permission.
+   *     <br>- **true**: The application (caller) has been granted the operator permission.
+   *     <br>- **false**: The application (caller) has not been granted the operator permission (no SIM card inserted or
+   *     the SIM card is invalid).
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -115,13 +130,17 @@ declare namespace sim {
   function hasOperatorPrivileges(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether your application (the caller) has been granted the operator permissions.
+   * Checks whether the application (caller) has been granted the operator permission. This API uses a promise to return
+   * the result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @returns { Promise<boolean> } Returns {@code true} if your application has been granted the operator permissions;
-   * returns {@code false} otherwise. If no SIM card is inserted or the SIM card is deactivated will be
-   * return {@code false}.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the application
+   *     (caller) has been granted the carrier permission, and the value **false** indicates the opposite.
+   *     <br>- **true**: The application (caller) has been granted the operator permission.
+   *     <br>- **false**: The application (caller) has not been granted the operator permission (no SIM card inserted or
+   *     the SIM card is invalid).
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -135,12 +154,14 @@ declare namespace sim {
   function hasOperatorPrivileges(slotId: int): Promise<boolean>;
 
   /**
-   * Obtains the ISO country code of the SIM card in a specified slot.
+   * Obtains the ISO country code of the SIM card in the specified slot. This API uses an asynchronous callback to
+   * return the result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the country code defined
-   * in ISO 3166-2; returns an empty string if no SIM card is inserted.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<string> } callback - Callback used to return the result, which is a country code, for
+   *     example, **CN** (China).
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -155,12 +176,13 @@ declare namespace sim {
   function getISOCountryCodeForSim(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the ISO country code of the SIM card in a specified slot.
+   * Obtains the ISO country code of the SIM card in the specified slot. This API uses a promise to return the result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<string> } Returns the country code defined in ISO 3166-2;
-   * returns an empty string if no SIM card is inserted.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<string> } Promise used to return the result, which is the ISO country code of the SIM card in
+   *     the specified slot, for example, **CN** (China).
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -175,12 +197,12 @@ declare namespace sim {
   function getISOCountryCodeForSim(slotId: int): Promise<string>;
 
   /**
-   * Obtains the ISO country code of the SIM card in a specified slot.
+   * Obtains the ISO country code of the SIM card in the specified slot.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { string } Returns the country code defined in ISO 3166-2; returns an empty string if no SIM card
-   * is inserted.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { string } ISO country code of the SIM card in the specified slot, for example, **CN** (China).
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -188,15 +210,14 @@ declare namespace sim {
   function getISOCountryCodeForSimSync(slotId: int): string;
 
   /**
-   * Obtains the home PLMN number of the SIM card in a specified slot.
+   * Obtains the home public land mobile network (PLMN) ID of the SIM card in the specified slot. This API uses an
+   * asynchronous callback to return the result.
    *
-   * <p>The value is recorded in the SIM card and is irrelevant to the network
-   * with which the SIM card is currently registered.
-   *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the PLMN number;
-   * returns an empty string if no SIM card is inserted.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<string> } callback - Callback used to return the result, which is the home PLMN ID of the
+   *     SIM card in the specified slot.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -211,14 +232,12 @@ declare namespace sim {
   function getSimOperatorNumeric(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the home PLMN number of the SIM card in a specified slot.
+   * Obtains the home PLMN ID of the SIM card in the specified slot. This API uses a promise to return the result.
    *
-   * <p>The value is recorded in the SIM card and is irrelevant to the network
-   * with which the SIM card is currently registered.
-   *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<string> } Returns the PLMN number; returns an empty string if no SIM card is inserted.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<string> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -233,14 +252,12 @@ declare namespace sim {
   function getSimOperatorNumeric(slotId: int): Promise<string>;
 
   /**
-   * Obtains the home PLMN number of the SIM card in a specified slot.
+   * Obtains the home PLMN ID of the SIM card in the specified slot. This API returns the result synchronously.
    *
-   * <p>The value is recorded in the SIM card and is irrelevant to the network
-   * with which the SIM card is currently registered.
-   *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { string } Returns the PLMN number; returns an empty string if no SIM card is inserted.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { string } Home PLMN ID of the SIM card in the specified slot.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -248,15 +265,14 @@ declare namespace sim {
   function getSimOperatorNumericSync(slotId: int): string;
 
   /**
-   * Obtains the service provider name (SPN) of the SIM card in a specified slot.
+   * Obtains the service provider name (SPN) of the SIM card in the specified slot. This API uses an asynchronous
+   * callback to return the result.
    *
-   * <p>The value is recorded in the EFSPN file of the SIM card and is irrelevant to the network
-   * with which the SIM card is currently registered.
-   *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the SPN;
-   * returns an empty string if no SIM card is inserted or no EFSPN file in the SIM card.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<string> } callback - Callback used to return the result, which is the SPN of the SIM card in
+   *     the specified slot.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -271,15 +287,12 @@ declare namespace sim {
   function getSimSpn(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the service provider name (SPN) of the SIM card in a specified slot.
+   * Obtains the SPN of the SIM card in the specified slot. This API uses a promise to return the result.
    *
-   * <p>The value is recorded in the EFSPN file of the SIM card and is irrelevant to the network
-   * with which the SIM card is currently registered.
-   *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<string> } Returns the SPN; returns an empty string if no SIM card is inserted or
-   * no EFSPN file in the SIM card.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<string> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -294,15 +307,12 @@ declare namespace sim {
   function getSimSpn(slotId: int): Promise<string>;
 
   /**
-   * Obtains the service provider name (SPN) of the SIM card in a specified slot.
+   * Obtains the SPN of the SIM card in the specified slot. This API returns the result synchronously.
    *
-   * <p>The value is recorded in the EFSPN file of the SIM card and is irrelevant to the network
-   * with which the SIM card is currently registered.
-   *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { string } Returns the SPN; returns an empty string if no EFSPN file is configured for the SIM card.
-   * in the SIM card.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { string } SPN of the SIM card in the specified slot.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -310,19 +320,14 @@ declare namespace sim {
   function getSimSpnSync(slotId: int): string;
 
   /**
-   * Obtains the state of the SIM card in a specified slot.
+   * Obtains the state of the SIM card in the specified slot. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<SimState> } callback - Indicates the callback for getting one of the following SIM card states:
-   * <ul>
-   * <li>{@code SimState#SIM_STATE_UNKNOWN}
-   * <li>{@code SimState#SIM_STATE_NOT_PRESENT}
-   * <li>{@code SimState#SIM_STATE_LOCKED}
-   * <li>{@code SimState#SIM_STATE_NOT_READY}
-   * <li>{@code SimState#SIM_STATE_READY}
-   * <li>{@code SimState#SIM_STATE_LOADED}
-   * </ul>
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<SimState> } callback - Callback used to return the result, which is the state of the SIM
+   *     card in the specified slot. For details, see [SimState]{@link sim.SimState}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -336,19 +341,12 @@ declare namespace sim {
   function getSimState(slotId: int, callback: AsyncCallback<SimState>): void;
 
   /**
-   * Obtains the state of the SIM card in a specified slot.
+   * Obtains the state of the SIM card in the specified slot. This API uses a promise to return the result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @returns { Promise<SimState> } Returns one of the following SIM card states:
-   * <ul>
-   * <li>{@code SimState#SIM_STATE_UNKNOWN}
-   * <li>{@code SimState#SIM_STATE_NOT_PRESENT}
-   * <li>{@code SimState#SIM_STATE_LOCKED}
-   * <li>{@code SimState#SIM_STATE_NOT_READY}
-   * <li>{@code SimState#SIM_STATE_READY}
-   * <li>{@code SimState#SIM_STATE_LOADED}
-   * </ul>
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<SimState> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -362,19 +360,12 @@ declare namespace sim {
   function getSimState(slotId: int): Promise<SimState>;
 
   /**
-   * Obtains the state of the SIM card in a specified slot.
+   * Obtains the state of the SIM card in the specified slot.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { SimState } Returns one of the following SIM card states:
-   * <ul>
-   * <li>{@code SimState#SIM_STATE_UNKNOWN}
-   * <li>{@code SimState#SIM_STATE_NOT_PRESENT}
-   * <li>{@code SimState#SIM_STATE_LOCKED}
-   * <li>{@code SimState#SIM_STATE_NOT_READY}
-   * <li>{@code SimState#SIM_STATE_READY}
-   * <li>{@code SimState#SIM_STATE_LOADED}
-   * </ul>
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { SimState } State of the SIM card in the specified slot.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -382,11 +373,13 @@ declare namespace sim {
   function getSimStateSync(slotId: int): SimState;
 
   /**
-   * Obtains the type of the SIM card installed in a specified slot.
+   * Obtains the type of the SIM card in the specified slot. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<CardType> } callback - Indicates the callback for getting the SIM card type.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<CardType> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -401,11 +394,12 @@ declare namespace sim {
   function getCardType(slotId: int, callback: AsyncCallback<CardType>): void;
 
   /**
-   * Obtains the type of the SIM card installed in a specified slot.
+   * Obtains the type of the SIM card in the specified slot. This API uses a promise to return the result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
-   * @returns { Promise<CardType> } Returns the SIM card type.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<CardType> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -420,11 +414,12 @@ declare namespace sim {
   function getCardType(slotId: int): Promise<CardType>;
 
   /**
-   * Obtains the type of the SIM card inserted in a specified slot.
+   * Obtains the type of the SIM card in the specified slot.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { CardType } Returns the SIM card type.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { CardType } Type of the SIM card in the specified slot.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -439,9 +434,9 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<string> } callback - Indicates the callback for getting the ICCID;
-   * returns an empty string if no SIM card is inserted.
+   *     returns an empty string if no SIM card is inserted.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -466,7 +461,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<string> } Returns the ICCID; returns an empty string if no SIM card is inserted.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -489,9 +484,9 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
+   *     ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<string> } callback - Indicates the callback for getting the voice mailbox alpha identifier;
-   * returns an empty string if no voice mailbox alpha identifier is written into the SIM card.
+   *     returns an empty string if no voice mailbox alpha identifier is written into the SIM card.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -513,9 +508,9 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
+   *     ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @returns { Promise<string> } Returns the voice mailbox alpha identifier;
-   * returns an empty string if no voice mailbox alpha identifier is written into the SIM card.
+   *     returns an empty string if no voice mailbox alpha identifier is written into the SIM card.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -537,9 +532,9 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
+   *     ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<string> } callback - Indicates the callback for getting the voice mailbox number;
-   * returns an empty string if no voice mailbox number is written into the SIM card.
+   *     returns an empty string if no voice mailbox number is written into the SIM card.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -561,9 +556,9 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
+   *     ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @returns { Promise<string> } Returns the voice mailbox number.
-   * returns an empty string if no voice mailbox number is written into the SIM card.
+   *     returns an empty string if no voice mailbox number is written into the SIM card.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -585,7 +580,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
+   *     ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @param { string } mailName - Indicates the name of voice mail.
    * @param { string } mailNumber - Indicates the number of voice mail.
    * @param { AsyncCallback<void> } callback - The callback of setVoiceMailInfo.
@@ -611,7 +606,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from {@code 0} to the maximum card slot index number supported by the device.
+   *     ranging from {@code 0} to the maximum card slot index number supported by the device.
    * @param { string } mailName - Indicates the name of voice mail.
    * @param { string } mailNumber - Indicates the number of voice mail.
    * @returns { Promise<void> } The promise returned by the setVoiceMailInfo.
@@ -638,10 +633,10 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_PHONE_NUMBERS
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<string> } callback - Indicates the callback for getting the MSISDN;
-   * Returns an empty string if no SIM card is inserted or
-   * no MSISDN is recorded in the EFMSISDN file.
+   *     Returns an empty string if no SIM card is inserted or
+   *     no MSISDN is recorded in the EFMSISDN file.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -664,9 +659,9 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_PHONE_NUMBERS
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<string> } Returns the MSISDN; returns an empty string if no SIM card is inserted or
-   * no MSISDN is recorded in the EFMSISDN file.
+   *     no MSISDN is recorded in the EFMSISDN file.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -689,9 +684,9 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<string> } callback - Indicates the callback for getting the GID1;
-   * Returns an empty string if no SIM card is inserted or no GID1 in the SIM card.
+   *     Returns an empty string if no SIM card is inserted or no GID1 in the SIM card.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -714,9 +709,9 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<string> } Returns the GID1; returns an empty string if no SIM card is inserted or
-   * no GID1 in the SIM card.
+   *     no GID1 in the SIM card.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -734,10 +729,9 @@ declare namespace sim {
   function getSimGid1(slotId: int): Promise<string>;
 
   /**
-   * Obtains the maximum number of SIM cards that can be used simultaneously on the device,
-   * that is, the maximum number of SIM card slots.
+   * Obtains the number of card slots.
    *
-   * @returns { int } Returns the maximum number of SIM card slots.
+   * @returns { int } Number of card slots.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7 dynamic
    * @since 23 static
@@ -749,9 +743,9 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<string> } callback - Indicates the callback for getting
-   * the international mobile subscriber ID.
+   *     the international mobile subscriber ID.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -773,7 +767,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<string> } Returns the international mobile subscriber ID.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -795,7 +789,7 @@ declare namespace sim {
    * Indicates whether the SIM card in a specified slot is a specified operator.
    *
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { OperatorSimCard } operator - Indicates the operator of sim.
    * @returns { boolean } Returns {@code true} if the SIM card is specified operator; return {@code false} otherwise.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -814,12 +808,15 @@ declare namespace sim {
   function isOperatorSimCard(slotId: int, operator: OperatorSimCard): boolean;
 
   /**
-   * Checks whether a SIM card is inserted in a specified slot.
+   * Checks whether the SIM card in the specified slot is installed. This API uses an asynchronous callback to return
+   * the result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<boolean> } callback - Indicates the callback for hasSimCard.
-   * Returns {@code true} if a SIM card is inserted; return {@code false} otherwise.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   *     <br>- **true**: installed.
+   *     <br>- **false**: not installed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -833,11 +830,14 @@ declare namespace sim {
   function hasSimCard(slotId: int, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether a SIM card is inserted in a specified slot.
+   * Checks whether the SIM card in the specified slot is installed. This API uses a promise to return the result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<boolean> } Returns {@code true} if a SIM card is inserted; return {@code false} otherwise.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<boolean> } Promise used to return the result.
+   *     <br>- **true**: installed.
+   *     <br>- **false**: not installed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -851,11 +851,14 @@ declare namespace sim {
   function hasSimCard(slotId: int): Promise<boolean>;
 
   /**
-   * Checks whether a SIM card is inserted in a specified slot.
+   * Checks whether the SIM card in the specified slot is installed.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { boolean } Returns {@code true} if a SIM card is inserted; return {@code false} otherwise.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { boolean } Whether the SIM card in the specified slot is installed.
+   *     <br>- **true**: installed.
+   *     <br>- **false**: not installed.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -863,15 +866,23 @@ declare namespace sim {
   function hasSimCardSync(slotId: int): boolean;
 
   /**
-   * Get account information of SIM card.
+   * Obtains SIM card account information. This API uses an asynchronous callback to return the result.
+   *
+   * **Required permission**: ohos.permission.GET_TELEPHONY_STATE
+   *
+   * > **NOTE**
+   * >
+   * > The **GET_TELEPHONY_STATE** permission is required to obtain the ICCID and phone number. Such information is
+   * > sensitive and not open to third-party applications. When this API is called, the returned ICCID and phone number
+   * > are empty.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Indicates the card slot index number,
-   *     ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<IccAccountInfo> } callback - Indicates the callback for
-   *     getting a {@code IccAccountInfo} object. The ICCID and phone number will be null
-   *     if the permission ohos.permission.GET_TELEPHONY_STATE is not granted.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<IccAccountInfo> } callback - Callback used to return the result, which is the account
+   *     information of the SIM card in the specified slot.
+   * @throws { BusinessError } 201 - Permission denied. [since 10 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -882,38 +893,27 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
-   */
-  /**
-   * Get account information of SIM card.
-   *
-   * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Indicates the card slot index number,
-   *     ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<IccAccountInfo> } callback - Indicates the callback for
-   *     getting a {@code IccAccountInfo} object. The ICCID and phone number will be null
-   *     if the permission ohos.permission.GET_TELEPHONY_STATE is not granted.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - No SIM card found.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
-   * @syscap SystemCapability.Telephony.CoreService
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function getSimAccountInfo(slotId: int, callback: AsyncCallback<IccAccountInfo>): void;
 
   /**
-   * Get account information of SIM card.
+   * Obtains SIM card account information. This API uses a promise to return the result.
+   *
+   * **Required permission**: ohos.permission.GET_TELEPHONY_STATE
+   *
+   * > **NOTE**
+   * >
+   * > The **GET_TELEPHONY_STATE** permission is required to obtain the ICCID and phone number. Such information is
+   * > sensitive and not open to third-party applications. When this API is called, the returned ICCID and phone number
+   * > are empty.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Indicates the card slot index number,
-   *     ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<IccAccountInfo> } Returns a {@code IccAccountInfo} object. The ICCID and phone number
-   *     will be null if has no ohos.permission.GET_TELEPHONY_STATE.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<IccAccountInfo> } Promise used to return the result.
+   * @throws { BusinessError } 201 - Permission denied. [since 10 - 22]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -924,35 +924,24 @@ declare namespace sim {
    * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
-   */
-  /**
-   * Get account information of SIM card.
-   *
-   * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { int } slotId - Indicates the card slot index number,
-   *     ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<IccAccountInfo> } Returns a {@code IccAccountInfo} object. The ICCID and phone number
-   *     will be null if has no ohos.permission.GET_TELEPHONY_STATE.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Service connection failed.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300004 - No SIM card found.
-   * @throws { BusinessError } 8300999 - Unknown error.
-   * @throws { BusinessError } 8301002 - The SIM card failed to read or update data.
-   * @syscap SystemCapability.Telephony.CoreService
-   * @since 23 dynamic&static
+   * @since 23 static
    */
   function getSimAccountInfo(slotId: int): Promise<IccAccountInfo>;
 
   /**
-   * Get the list of active SIM card account information.
+   * Obtains the list of activated SIM card accounts. This API uses an asynchronous callback to return the result.
+   *
+   * **Required permission**: ohos.permission.GET_TELEPHONY_STATE
+   *
+   * > **NOTE**
+   * >
+   * > The **GET_TELEPHONY_STATE** permission is required to obtain the ICCID and phone number. Such information is
+   * > sensitive and not open to third-party applications. When this API is called, the returned ICCID and phone number
+   * > are empty.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @param { AsyncCallback<Array<IccAccountInfo>> } callback - The callback is used to
-   * return the array of {@link IccAccountInfo}. The ICCID and phone number will be null
-   * if has no ohos.permission.GET_TELEPHONY_STATE.
+   * @param { AsyncCallback<Array<IccAccountInfo>> } callback - Callback used to return the result, which is a list of
+   *     activated SIM card accounts.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -967,11 +956,18 @@ declare namespace sim {
   function getActiveSimAccountInfoList(callback: AsyncCallback<Array<IccAccountInfo>>): void;
 
   /**
-   * Get the list of active SIM card account information.
+   * Obtains the list of activated SIM card accounts. This API uses a promise to return the result.
+   *
+   * **Required permission**: ohos.permission.GET_TELEPHONY_STATE
+   *
+   * > **NOTE**
+   * >
+   * > The **GET_TELEPHONY_STATE** permission is required to obtain the ICCID and phone number. Such information is
+   * > sensitive and not open to third-party applications. When this API is called, the returned ICCID and phone number
+   * > are empty.
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
-   * @returns { Promise<Array<IccAccountInfo>> } Returns the array of {@link IccAccountInfo}. The ICCID
-   * and phone number will be null if has no ohos.permission.GET_TELEPHONY_STATE.
+   * @returns { Promise<Array<IccAccountInfo>> } Promise used to return the result.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8300004 - No SIM card found.
@@ -987,7 +983,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<void> } callback - The callback of setDefaultVoiceSlotId.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1011,7 +1007,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<void> } The promise returned by the setVoiceMailInfo.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1035,7 +1031,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<void> } callback - The callback of activateSim.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1058,7 +1054,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<void> } The promise returned by the activateSim.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1081,7 +1077,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<void> } callback - The callback of deactivateSim.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1104,7 +1100,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<void> } The promise returned by the deactivateSim.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1127,7 +1123,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } name - Indicates SIM card name.
    * @param { AsyncCallback<void> } callback - The callback of setShowName.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1151,7 +1147,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } name - Indicates SIM card name.
    * @returns { Promise<void> } The promise returned by the setShowName.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1175,7 +1171,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<string> } callback - Indicates the callback for getting the SIM card name.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1198,7 +1194,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<string> } Returns the SIM card name.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1221,7 +1217,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } teleNumber - Indicates SIM card number.
    * @param { AsyncCallback<void> } callback - The callback of setShowNumber.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1245,7 +1241,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } teleNumber - Indicates SIM card number.
    * @returns { Promise<void> } The promise returned by the setShowNumber.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1269,7 +1265,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<string> } callback - Indicates the callback for getting the SIM card number.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1292,7 +1288,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<string> } Returns the SIM card number.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1315,10 +1311,10 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { AsyncCallback<Array<OperatorConfig>> } callback - Indicates the callback for
-   * getting the operatorconfigs in a specified slot;
-   * returns empty OperatorConfig if no SIM card is inserted.
+   *     getting the operatorconfigs in a specified slot;
+   *     returns empty OperatorConfig if no SIM card is inserted.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1339,9 +1335,9 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @returns { Promise<Array<OperatorConfig>> } Returns the operatorconfigs in a specified slot;
-   * returns empty OperatorConfig if no SIM card is inserted.
+   *     returns empty OperatorConfig if no SIM card is inserted.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1362,10 +1358,10 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } pin - Indicates the password of the SIM card.
    * @param { AsyncCallback<LockStatusResponse> } callback - Indicates the callback for getting
-   * the response to obtain the SIM card lock status of the specified card slot.
+   *     the response to obtain the SIM card lock status of the specified card slot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1388,10 +1384,10 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } pin - Indicates the password of the SIM card.
    * @returns { Promise<LockStatusResponse> } Returns the response to obtain
-   * the SIM card lock status of the specified card slot.
+   *     the SIM card lock status of the specified card slot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1414,11 +1410,11 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } newPin - Indicates to reset the SIM card password.
    * @param { string } puk - Indicates the unlock password of the SIM card password.
    * @param { AsyncCallback<LockStatusResponse> } callback - Indicates the callback for getting
-   * the response to obtain the SIM card lock status of the specified card slot.
+   *     the response to obtain the SIM card lock status of the specified card slot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1441,11 +1437,11 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } newPin - Indicates to reset the SIM card password.
    * @param { string } puk - Indicates the unlock password of the SIM card password.
    * @returns { Promise<LockStatusResponse> } Returns the response to obtain
-   * the SIM card lock status of the specified card slot.
+   *     the SIM card lock status of the specified card slot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1468,11 +1464,11 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } newPin - Indicates a new password.
    * @param { string } oldPin - Indicates old password.
    * @param { AsyncCallback<LockStatusResponse> } callback - Indicates the callback for getting
-   * the response to obtain the SIM card lock status of the specified card slot.
+   *     the response to obtain the SIM card lock status of the specified card slot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1495,11 +1491,11 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } newPin - Indicates a new password.
    * @param { string } oldPin - Indicates old password.
    * @returns { Promise<LockStatusResponse> } Returns the response to obtain
-   * the SIM card lock status of the specified card slot.
+   *     the SIM card lock status of the specified card slot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1522,10 +1518,10 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { LockInfo } options - Indicates lock information.
    * @param { AsyncCallback<LockStatusResponse> } callback - Indicates the callback for getting
-   * the response to obtain the SIM card lock status of the specified card slot.
+   *     the response to obtain the SIM card lock status of the specified card slot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1548,10 +1544,10 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { LockInfo } options - Indicates lock information.
    * @returns { Promise<LockStatusResponse> } Returns the response to obtain
-   * the SIM card lock status of the specified card slot.
+   *     the SIM card lock status of the specified card slot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1574,10 +1570,10 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } pin2 - Indicates the password of the SIM card.
    * @param { AsyncCallback<LockStatusResponse> } callback - Indicates the callback for getting
-   * the response to obtain the SIM card lock status of the specified card slot.
+   *     the response to obtain the SIM card lock status of the specified card slot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1600,10 +1596,10 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } pin2 - Indicates the password of the SIM card.
    * @returns { Promise<LockStatusResponse> } Returns the response to obtain
-   * the SIM card lock status of the specified card slot.
+   *     the SIM card lock status of the specified card slot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1626,11 +1622,11 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } newPin2 - Indicates to reset the SIM card password.
    * @param { string } puk2 - Indicates the unlock password of the SIM card password.
    * @param { AsyncCallback<LockStatusResponse> } callback - Indicates the callback for getting
-   * the response to obtain the SIM card lock status of the specified card slot.
+   *     the response to obtain the SIM card lock status of the specified card slot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1653,11 +1649,11 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } newPin2 - Indicates to reset the SIM card password.
    * @param { string } puk2 - Indicates the unlock password of the SIM card password.
    * @returns { Promise<LockStatusResponse> } Returns the response to obtain
-   * the SIM card lock status of the specified card slot.
+   *     the SIM card lock status of the specified card slot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1680,11 +1676,11 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } newPin2 - Indicates a new password.
    * @param { string } oldPin2 - Indicates old password.
    * @param { AsyncCallback<LockStatusResponse> } callback - Indicates the callback for getting
-   * the response to obtain the SIM card lock status of the specified card slot.
+   *     the response to obtain the SIM card lock status of the specified card slot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1707,11 +1703,11 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } newPin2 - Indicates a new password.
    * @param { string } oldPin2 - Indicates old password.
    * @returns { Promise<LockStatusResponse> } Returns the response to obtain
-   * the SIM card lock status of the specified card slot.
+   *     the SIM card lock status of the specified card slot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1734,10 +1730,10 @@ declare namespace sim {
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ContactType } type - Indicates contact type.
    * @param { AsyncCallback<Array<DiallingNumbersInfo>> } callback - Indicates the callback for
-   * getting the dialing number information.
+   *     getting the dialing number information.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1760,7 +1756,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.READ_CONTACTS
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ContactType } type - Indicates contact type.
    * @returns { Promise<Array<DiallingNumbersInfo>> } Returns the dialing number information.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1785,7 +1781,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ContactType } type - Indicates contact type.
    * @param { DiallingNumbersInfo } diallingNumbers - Indicates dialing number information.
    * @param { AsyncCallback<void> } callback - The callback of addIccDiallingNumbers.
@@ -1811,7 +1807,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ContactType } type - Indicates contact type.
    * @param { DiallingNumbersInfo } diallingNumbers - Indicates dialing number information.
    * @returns { Promise<void> } The promise returned by the addIccDiallingNumbers.
@@ -1837,7 +1833,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ContactType } type - Indicates contact type.
    * @param { DiallingNumbersInfo } diallingNumbers - Indicates dialing number information.
    * @param { AsyncCallback<void> } callback - The callback of delIccDiallingNumbers.
@@ -1863,7 +1859,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ContactType } type - Indicates contact type.
    * @param { DiallingNumbersInfo } diallingNumbers - Indicates dialing number information.
    * @returns { Promise<void> } The promise returned by the delIccDiallingNumbers.
@@ -1889,7 +1885,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ContactType } type - Indicates contact type.
    * @param { DiallingNumbersInfo } diallingNumbers - Indicates dialing number information.
    * @param { AsyncCallback<void> } callback - The callback of updateIccDiallingNumbers.
@@ -1915,7 +1911,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.WRITE_CONTACTS
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { ContactType } type - Indicates contact type.
    * @param { DiallingNumbersInfo } diallingNumbers - Indicates dialing number information.
    * @returns { Promise<void> } The promise returned by the updateIccDiallingNumbers.
@@ -1941,7 +1937,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { LockType } lockType - Indicates the lock type.
    * @param { AsyncCallback<LockState> } callback - Indicates the callback for getting the sim card lock status.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1966,7 +1962,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { LockType } lockType - Indicates the lock type.
    * @returns { Promise<LockState> } Returns the sim card lock status.
    * @throws { BusinessError } 201 - Permission denied.
@@ -1991,7 +1987,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } cmd - Indicates sending command.
    * @param { AsyncCallback<void> } callback - The callback of sendEnvelopeCmd.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2015,7 +2011,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } cmd - Indicates sending command.
    * @returns { Promise<void> } The promise returned by the sendEnvelopeCmd.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2039,7 +2035,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } cmd - Indicates sending command.
    * @param { AsyncCallback<void> } callback - The callback of sendTerminalResponseCmd.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2063,7 +2059,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { string } cmd - Indicates sending command.
    * @returns { Promise<void> } The promise returned by the sendTerminalResponseCmd.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2082,16 +2078,15 @@ declare namespace sim {
    */
   function sendTerminalResponseCmd(slotId: int, cmd: string): Promise<void>;
 
-
   /**
    * Unlock SIM card.
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { PersoLockInfo } lockInfo - Indicates customized lock type information.
    * @param { AsyncCallback<LockStatusResponse> } callback - Indicates the callback used to obtain a response
-   * to obtain the SIM card lock status for the specified card slot.
+   *     to obtain the SIM card lock status for the specified card slot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2114,10 +2109,10 @@ declare namespace sim {
    *
    * @permission ohos.permission.SET_TELEPHONY_STATE
    * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
+   *     ranging from 0 to the maximum card slot index number supported by the device.
    * @param { PersoLockInfo } lockInfo - Indicates customized lock type information.
    * @returns { Promise<LockStatusResponse> } Returns the response to obtain
-   * the SIM card lock status of the specified card slot.
+   *     the SIM card lock status of the specified card slot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2136,12 +2131,13 @@ declare namespace sim {
   function unlockSimLock(slotId: int, lockInfo: PersoLockInfo): Promise<LockStatusResponse>;
 
   /**
-   * Obtains the operator key of the SIM card in a specified slot.
+   * Obtains the opkey of the SIM card in the specified slot. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the operator key;
-   * Returns an empty string if no SIM card is inserted or no operator key matched.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<string> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -2156,12 +2152,12 @@ declare namespace sim {
   function getOpKey(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the operator key of the SIM card in a specified slot.
+   * Obtains the opkey of the SIM card in the specified slot. This API uses a promise to return the result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<string> } Returns the operator key;
-   * Returns an empty string if no SIM card is inserted or no operator key matched.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<string> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -2176,12 +2172,12 @@ declare namespace sim {
   function getOpKey(slotId: int): Promise<string>;
 
   /**
-   * Obtains the operator key of the SIM card in a specified slot.
+   * Obtains the opkey of the SIM card in the specified slot.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { string } Returns the operator key; returns an empty string if no SIM card is inserted or
-   * no operator key is matched.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { string } opkey of the SIM card in the specified slot.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -2189,12 +2185,13 @@ declare namespace sim {
   function getOpKeySync(slotId: int): string;
 
   /**
-   * Obtains the operator name of the SIM card in a specified slot.
+   * Obtains the OpName of the SIM card in the specified slot. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @param { AsyncCallback<string> } callback - Indicates the callback for getting the operator name;
-   * Returns an empty string if no SIM card is inserted or no operator name matched.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<string> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -2209,12 +2206,12 @@ declare namespace sim {
   function getOpName(slotId: int, callback: AsyncCallback<string>): void;
 
   /**
-   * Obtains the operator name of the SIM card in a specified slot.
+   * Obtains the OpName of the SIM card in the specified slot. This API uses a promise to return the result.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slot index number supported by the device.
-   * @returns { Promise<string> } Returns the operator name; returns an empty string if no SIM card is inserted or
-   * no operator name matched.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<string> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -2229,12 +2226,12 @@ declare namespace sim {
   function getOpName(slotId: int): Promise<string>;
 
   /**
-   * Obtains the operator name of the SIM card in a specified slot.
+   * Obtains the OpName of the SIM card in the specified slot.
    *
-   * @param { int } slotId - Indicates the card slot index number,
-   * ranging from 0 to the maximum card slots supported by the device.
-   * @returns { string } Returns the operator name; returns an empty string if no SIM card is inserted or
-   * no operator name is matched.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { string } OpName of the SIM card in the specified slot.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
@@ -2242,10 +2239,11 @@ declare namespace sim {
   function getOpNameSync(slotId: int): string;
 
   /**
-   * Obtains the default SIM ID for the voice service.
+   * Obtains the default slot ID of the SIM card that provides voice services. This API uses an asynchronous callback to
+   * return the result.
    *
-   * @param { AsyncCallback<int> } callback - Returns the SIM ID of the default voice sim
-   * and SIM ID will increase from 1.
+   * @param { AsyncCallback<int> } callback - Callback used to return the result.
+   *     <br>The return value is bound to the SIM card and increases from 1.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -2261,10 +2259,11 @@ declare namespace sim {
   function getDefaultVoiceSimId(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the default SIM ID for the voice service.
+   * Obtains the default slot ID of the SIM card that provides voice services. This API uses a promise to return the
+   * result.
    *
-   * @returns { Promise<int> } Returns the SIM ID of the default voice sim
-   * and SIM ID will increase from 1.
+   * @returns { Promise<int> } Promise used to return the result.
+   *     <br>The return value is bound to the SIM card and increases from 1.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -2283,12 +2282,12 @@ declare namespace sim {
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { AsyncCallback<DsdsMode> } callback - Indicates the callback for
    *     getting one of the following dsds mode states:
-   * <ul>
-   * <li>{@code DsdsMode#DSDS_MODE_V2}
-   * <li>{@code DsdsMode#DSDS_MODE_V3}
-   * <li>{@code DsdsMode#DSDS_MODE_V5_TDM}
-   * <li>{@code DsdsMode#DSDS_MODE_V5_DSDA}
-   * </ul>
+   *     <ul>
+   *     <li>{@code DsdsMode#DSDS_MODE_V2}
+   *     <li>{@code DsdsMode#DSDS_MODE_V3}
+   *     <li>{@code DsdsMode#DSDS_MODE_V5_TDM}
+   *     <li>{@code DsdsMode#DSDS_MODE_V5_DSDA}
+   *     </ul>
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2310,12 +2309,12 @@ declare namespace sim {
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @returns { Promise<DsdsMode> } Returns one of the following dsds mode
    *     states:
-   * <ul>
-   * <li>{@code DsdsMode#DSDS_MODE_V2}
-   * <li>{@code DsdsMode#DSDS_MODE_V3}
-   * <li>{@code DsdsMode#DSDS_MODE_V5_TDM}
-   * <li>{@code DsdsMode#DSDS_MODE_V5_DSDA}
-   * </ul>
+   *     <ul>
+   *     <li>{@code DsdsMode#DSDS_MODE_V2}
+   *     <li>{@code DsdsMode#DSDS_MODE_V3}
+   *     <li>{@code DsdsMode#DSDS_MODE_V5_TDM}
+   *     <li>{@code DsdsMode#DSDS_MODE_V5_DSDA}
+   *     </ul>
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -2339,13 +2338,15 @@ declare namespace sim {
    * @param { AuthType } authType - The authentication type.
    * @param { string } authData - Ser password or other authentication information.
    * @returns { Promise<SimAuthenticationResponse> } A string the response of authentication.This value will be null in
-   * the following cases: Authentication error, incorrect MAC Authentication error, security context not supported Key
-   * freshness failure Authentication error, no memory space available Authentication error, no memory space available
-   * in EFMUK.
+   *     the following cases: Authentication error, incorrect MAC Authentication error, security context not supported
+   *     Key
+   *     freshness failure Authentication error, no memory space available Authentication error, no memory space
+   *     available
+   *     in EFMUK.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   * 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Service connection failed.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -2364,8 +2365,8 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @param { AsyncCallback<Array<IccAccountInfo>> } callback - The callback is used to
-   * return the array of {@link IccAccountInfo}. The ICCID and phone number will be null
-   * if has no ohos.permission.GET_TELEPHONY_STATE.
+   *     return the array of {@link IccAccountInfo}. The ICCID and phone number will be null
+   *     if has no ohos.permission.GET_TELEPHONY_STATE.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
@@ -2385,7 +2386,7 @@ declare namespace sim {
    *
    * @permission ohos.permission.GET_TELEPHONY_STATE
    * @returns { Promise<Array<IccAccountInfo>> } Returns the array of {@link IccAccountInfo}. The ICCID
-   * and phone number will be null if has no ohos.permission.GET_TELEPHONY_STATE.
+   *     and phone number will be null if has no ohos.permission.GET_TELEPHONY_STATE.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
@@ -2400,9 +2401,15 @@ declare namespace sim {
   function getAllSimAccountInfoList(): Promise<Array<IccAccountInfo>>;
 
   /**
-   * Obtains the SIM card label.
-   * @param { int } slotId SIM card slot ID.
-   * @param { AsyncCallback<SimLabel> } callback Callback used to return the SIM card label.
+   * Checks the mapping between card slot IDs and SIM cards.
+   *
+   * - Slot 1 corresponds to SIM card 1 or SIM card 2.
+   * - Slot 2 corresponds to SIM card 2 or eSIMX.
+   *
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { AsyncCallback<SimLabel> } callback - Callback used to return the result, which is the SIM card label.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -2414,9 +2421,12 @@ declare namespace sim {
   function getSimLabel(slotId: int, callback: AsyncCallback<SimLabel>): void;
 
   /**
-   * Obtains the SIM card label.
-   * @param { int } slotId SIM card slot ID.
-   * @returns { Promise<SimLabel> } Promise used to return the SIM card label.
+   * Obtains the SIM card label. This API uses a promise to return the result.
+   *
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<SimLabel> } Promise used to return ${the SIM card label}.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
    * @throws { BusinessError } 8300003 - System internal error.
@@ -2428,9 +2438,11 @@ declare namespace sim {
   function getSimLabel(slotId: int): Promise<SimLabel>;
 
   /**
-   * Obtains the SIM card label synchronously.
-   * @param { int } slotId SIM card slot ID, which ranges from 0 to the maximum number of slots supported
-   *     by the device.
+   * Obtains the SIM card label based on the specified SIM card slot ID.
+   *
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
    * @returns { SimLabel } SIM card label.
    * @syscap SystemCapability.Telephony.CoreService
    * @since 20 dynamic
@@ -2439,16 +2451,15 @@ declare namespace sim {
   function getSimLabelSync(slotId: int): SimLabel;
 
   /**
-   * Indicates the SIM card type.
+   * Enumerates the SIM card types.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since 20 dynamic
    * @since 23 static
    */
   export enum SimType {
     /**
-     * Indicates psim type.
+     * Physical SIM card.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 20 dynamic
@@ -2457,7 +2468,7 @@ declare namespace sim {
     PSIM = 0,
 
     /**
-     * Indicates esim type.
+     * eSIM card.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 20 dynamic
@@ -2468,15 +2479,15 @@ declare namespace sim {
 
   /**
    * Defines the SIM card label.
-   * @interface SimLabel
+   *
    * @syscap SystemCapability.Telephony.CoreService
    * @since 20 dynamic
    * @since 23 static
    */
   export interface SimLabel {
     /**
-     * Represents the SIM card type.
-     * @type { SimType }
+     * SIM card type.
+     *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 20 dynamic
      * @since 23 static
@@ -2484,8 +2495,8 @@ declare namespace sim {
     simType: SimType;
 
     /**
-     * Represents the SIM card index.
-     * @type { int }
+     * Unique index ID of the SIM card.
+     *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 20 dynamic
      * @since 23 static
@@ -2496,7 +2507,6 @@ declare namespace sim {
   /**
    * Defines the carrier configuration.
    *
-   * @interface OperatorConfig
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -2506,7 +2516,6 @@ declare namespace sim {
     /**
      * Indicates the field.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2517,7 +2526,6 @@ declare namespace sim {
     /**
      * Indicates the value.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2529,16 +2537,14 @@ declare namespace sim {
   /**
    * Defines the ICC account information.
    *
-   * @interface IccAccountInfo
    * @syscap SystemCapability.Telephony.CoreService
    * @since 10 dynamic
    * @since 23 static
    */
   export interface IccAccountInfo {
     /**
-     * Indicates the sim Id for card.
+     * SIM card ID.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 10 dynamic
      * @since 23 static
@@ -2546,10 +2552,8 @@ declare namespace sim {
     simId: int;
 
     /**
-     * Indicates the card slot index number,
-     * ranging from 0 to the maximum card slot index number supported by the device.
+     * Card slot ID.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 10 dynamic
      * @since 23 static
@@ -2557,9 +2561,11 @@ declare namespace sim {
     slotIndex: int;
 
     /**
-     * Indicates the mark card is eSim or not.
+     * Whether the SIM card is an eSIM.
      *
-     * @type { boolean }
+     * - **true**: The SIM card is an eSIM.
+     * - **false**: The SIM card is not an eSIM.
+     *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 10 dynamic
      * @since 23 static
@@ -2567,9 +2573,12 @@ declare namespace sim {
     isEsim: boolean;
 
     /**
-     * Indicates the active status for card.
+     * Whether the card is activated.
      *
-     * @type { boolean }
+     * **true**: activated.
+     *
+     * **false**: not activated.
+     *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 10 dynamic
      * @since 23 static
@@ -2577,9 +2586,8 @@ declare namespace sim {
     isActive: boolean;
 
     /**
-     * Indicates the iccId for card.
+     * ICCID number.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 10 dynamic
      * @since 23 static
@@ -2587,9 +2595,8 @@ declare namespace sim {
     iccId: string;
 
     /**
-     * Indicates the display name for card.
+     * SIM card display name.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 10 dynamic
      * @since 23 static
@@ -2597,9 +2604,8 @@ declare namespace sim {
     showName: string;
 
     /**
-     * Indicates the display number for card.
+     * SIM card display number.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @since 10 dynamic
      * @since 23 static
@@ -2631,7 +2637,6 @@ declare namespace sim {
   /**
    * Defines the personalized lock information.
    *
-   * @interface LockStatusResponse
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
@@ -2641,7 +2646,6 @@ declare namespace sim {
     /**
      * Indicates the current operation result.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
@@ -2652,7 +2656,6 @@ declare namespace sim {
     /**
      * Indicates the operations remaining.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
@@ -2664,7 +2667,6 @@ declare namespace sim {
   /**
    * Defines the contact number information.
    *
-   * @interface DiallingNumbersInfo
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -2674,7 +2676,6 @@ declare namespace sim {
     /**
      * Indicates the tag.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2685,7 +2686,6 @@ declare namespace sim {
     /**
      * Indicates the call transfer number.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2695,7 +2695,6 @@ declare namespace sim {
     /**
      * Indicates the call transfer teleNumber.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 23 static
@@ -2705,7 +2704,6 @@ declare namespace sim {
     /**
      * Indicates the record number.
      *
-     * @type { ?int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2716,7 +2714,6 @@ declare namespace sim {
     /**
      * Indicates the PIN 2.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2728,7 +2725,6 @@ declare namespace sim {
   /**
    * Defines the personalized lock information.
    *
-   * @interface LockInfo
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -2738,7 +2734,6 @@ declare namespace sim {
     /**
      * Indicates the lock type.
      *
-     * @type { LockType }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2749,7 +2744,6 @@ declare namespace sim {
     /**
      * Indicates the password.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2760,7 +2754,6 @@ declare namespace sim {
     /**
      * Indicates the lock state.
      *
-     * @type { LockState }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2772,7 +2765,6 @@ declare namespace sim {
   /**
    * Defines the personalized lock information.
    *
-   * @interface PersoLockInfo
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -2782,7 +2774,6 @@ declare namespace sim {
     /**
      * Indicates the personalized lock type.
      *
-     * @type { PersoLockType }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2793,7 +2784,6 @@ declare namespace sim {
     /**
      * Indicates the password.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 8 dynamic
@@ -2805,7 +2795,6 @@ declare namespace sim {
   /**
    * Indicates the lock types.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -2834,16 +2823,15 @@ declare namespace sim {
   }
 
   /**
-   * Indicates the SIM card types.
+   * Enumerates SIM card types.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since 7 dynamic
    * @since 23 static
    */
   export enum CardType {
     /**
-     * Icc card type: unknown type Card.
+     * Unknown type.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2852,7 +2840,7 @@ declare namespace sim {
     UNKNOWN_CARD = -1,
 
     /**
-     * Icc card type: Single sim card type.
+     * Single-card (SIM).
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2861,7 +2849,7 @@ declare namespace sim {
     SINGLE_MODE_SIM_CARD = 10,
 
     /**
-     * Icc card type: Single usim card type.
+     * Single-card (USIM).
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2870,7 +2858,7 @@ declare namespace sim {
     SINGLE_MODE_USIM_CARD = 20,
 
     /**
-     * Icc card type: Single ruim card type.
+     * Single-card (RUIM).
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2879,7 +2867,7 @@ declare namespace sim {
     SINGLE_MODE_RUIM_CARD = 30,
 
     /**
-     * Icc card type: Double card C+G.
+     * Dual-card (CDMA+GSM).
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2888,7 +2876,7 @@ declare namespace sim {
     DUAL_MODE_CG_CARD = 40,
 
     /**
-     * Icc card type: China Telecom Internal Roaming Card (Dual Mode).
+     * China Telecom internal roaming card.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2897,7 +2885,7 @@ declare namespace sim {
     CT_NATIONAL_ROAMING_CARD = 41,
 
     /**
-     * Icc card type: China Unicom Dual Mode Card.
+     * China Unicom dual-mode card.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2906,7 +2894,7 @@ declare namespace sim {
     CU_DUAL_MODE_CARD = 42,
 
     /**
-     * Icc card type: China Telecom LTE Card (Dual Mode).
+     * China Telecom dual-mode LTE card.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2915,7 +2903,7 @@ declare namespace sim {
     DUAL_MODE_TELECOM_LTE_CARD = 43,
 
     /**
-     * Icc card type: Double card U+G.
+     * Dual-mode card (UMTS+GSM).
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 7 dynamic
@@ -2924,7 +2912,8 @@ declare namespace sim {
     DUAL_MODE_UG_CARD = 50,
 
     /**
-     * Icc card type: Single isim card type.
+     * Single-card (ISIM).
+     *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 8 dynamic
      * @since 23 static
@@ -2933,17 +2922,15 @@ declare namespace sim {
   }
 
   /**
-   * Indicates the SIM card states.
+   * Enumerates SIM card states.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @since 6 dynamic
    * @since 23 static
    */
   export enum SimState {
     /**
-     * Indicates unknown SIM card state, that is, the accurate status cannot be
-     * obtained.
+     * The SIM card is in **unknown** state; that is, the SIM card status cannot be obtained.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2952,8 +2939,7 @@ declare namespace sim {
     SIM_STATE_UNKNOWN = 0,
 
     /**
-     * Indicates that the SIM card is in the <b>not present</b> state, that is,
-     * no SIM card is inserted into the card slot.
+     * The SIM card is in **not present** state; that is, no SIM card is inserted into the card slot.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2962,9 +2948,8 @@ declare namespace sim {
     SIM_STATE_NOT_PRESENT = 1,
 
     /**
-     * Indicates that the SIM card is in the <b>locked</b> state, that is, the
-     * SIM card is locked by the personal identification number (PIN)/PIN
-     * unblocking key (PUK) or network.
+     * The SIM card is in **locked** state; that is, the SIM card is locked by the personal identification number (PIN),
+     * PIN unblocking key (PUK), or network.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2973,8 +2958,7 @@ declare namespace sim {
     SIM_STATE_LOCKED = 2,
 
     /**
-     * Indicates that the SIM card is in the <b>not ready</b> state, that is,
-     * the SIM card is in position but cannot work properly.
+     * The SIM card is in **not ready** state; that is, the SIM card has been installed but cannot work properly.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2983,8 +2967,7 @@ declare namespace sim {
     SIM_STATE_NOT_READY = 3,
 
     /**
-     * Indicates that the SIM card is in the <b>ready</b> state, that is, the
-     * SIM card is in position and is working properly.
+     * The SIM card is in **ready** state; that is, the SIM card has been installed and is working properly.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -2993,8 +2976,7 @@ declare namespace sim {
     SIM_STATE_READY = 4,
 
     /**
-     * Indicates that the SIM card is in the <b>loaded</b> state, that is, the
-     * SIM card is in position and is working properly.
+     * The SIM card is in **loaded** state; that is, the SIM card is present and all its files have been loaded.
      *
      * @syscap SystemCapability.Telephony.CoreService
      * @since 6 dynamic
@@ -3006,7 +2988,6 @@ declare namespace sim {
   /**
    * Indicates the lock states.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -3037,7 +3018,6 @@ declare namespace sim {
   /**
    * Indicates the contact types.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -3078,7 +3058,6 @@ declare namespace sim {
   /**
    * Indicates the personalized lock types.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 8 dynamic
@@ -3189,7 +3168,6 @@ declare namespace sim {
   /**
    * Indicates the carrier configuration keys.
    *
-   * @enum { string }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -3400,7 +3378,6 @@ declare namespace sim {
   /**
    * Indicates the Dsds Mode.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -3451,7 +3428,6 @@ declare namespace sim {
   /**
    * Indicates the operator of SIM.
    *
-   * @enum { string }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
@@ -3472,7 +3448,6 @@ declare namespace sim {
   /**
    * Indicates the Authentication type
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 14 dynamic
@@ -3502,7 +3477,6 @@ declare namespace sim {
   /**
    * Defines the SIM card authentication response.
    *
-   * @interface SimAuthenticationResponse
    * @syscap SystemCapability.Telephony.CoreService
    * @systemapi Hide this for inner system use.
    * @since 14 dynamic
@@ -3512,7 +3486,6 @@ declare namespace sim {
     /**
      * Status word 1 of the SIM card, which is returned by the SIM card after command execution.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
@@ -3523,7 +3496,6 @@ declare namespace sim {
     /**
      * Status word 2 of the SIM card, which is returned by the SIM card after command execution.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic
@@ -3534,7 +3506,6 @@ declare namespace sim {
     /**
      * Indicates the response of authentication.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService
      * @systemapi Hide this for inner system use.
      * @since 14 dynamic

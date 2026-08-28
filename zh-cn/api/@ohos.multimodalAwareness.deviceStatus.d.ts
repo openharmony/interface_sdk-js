@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,7 +21,7 @@
 import type { Callback } from "./@ohos.base";
 
 /**
- * **deviceStatus**模块提供设备状态感知能力。
+ * **deviceStatus**本模块提供对设备状态的感知能力，通过传感器实时感知设备物理状态，可帮助开发者根据设备物理状态调整应用行为。
  *
  * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
  * @since 18 dynamic
@@ -32,7 +32,8 @@ declare namespace deviceStatus {
   /**
    * 设备静止姿态感知状态（支架态）。
    * 
-   * 设备进入支架态指设备静止，且屏幕与水平面角度处于45度-135度。折叠屏手机需处于折叠状态或者完全展开状态。系统通过传感器检测设备的运动状态和角度变化，判断设备是否满足支架态条件。
+   * 设备进入支架态指设备静止，且屏幕与水平面角度处于45度-135度。折叠屏手机需处于折叠状态或者完全展开状态。系统通过传感器检测设备的运动状态和角度变化，
+   * <br>判断设备是否满足支架态条件。
    *
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
    * @since 18 dynamic
@@ -98,7 +99,7 @@ declare namespace deviceStatus {
   /**
    * 订阅设备静止姿态感知（支架态）事件。建议在不需要时调用off()取消订阅，释放资源。
    *
-   * @param { 'steadyStandingDetect' } type - 事件类型。type为“steadyStandingDetect”，表示设备静止姿态（支架态）感知。
+   * @param { string } type - 事件类型。固定传入'steadyStandingDetect'，表示设备静止姿态（支架态）感知。
    * @param { Callback<SteadyStandingStatus> } callback - 回调函数，用于接收设备静止姿态（支架态）状态信息。
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
@@ -112,7 +113,7 @@ declare namespace deviceStatus {
   /**
    * 取消订阅设备静止姿态感知（支架态）事件，用于应用在退出页面或不再需要监听支架态变化的场景。调用后释放相关资源。
    *
-   * @param { 'steadyStandingDetect' } type - 事件类型。type为“steadyStandingDetect”，表示设备静止姿态（支架态）感知。
+   * @param { string } type - 事件类型。固定传入'steadyStandingDetect'，表示设备静止姿态（支架态）感知。
    * @param { Callback<SteadyStandingStatus> } [callback] - 要注销的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
@@ -126,7 +127,8 @@ declare namespace deviceStatus {
   /**
    * 获取设备的姿态数据。
    * 
-   * 姿态数据包含x、y、z三轴的姿态旋转角，即三轴的欧拉角，三轴定义与设备sensor定义相同，为右手系。姿态旋转角在ZXY旋转顺序、内旋下计算，通过传感器融合获取的四元数计算得到结果。
+   * 姿态数据包含x、y、z三轴的姿态旋转角，即三轴的欧拉角，三轴定义与设备sensor定义相同，为右手系。姿态旋转角在ZXY旋转顺序、内旋下计算，
+   * <br>通过传感器融合获取的四元数计算得到结果。
    *
    * @returns { Promise<DeviceRotationRadian> } 设备旋转弧度结果。
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.

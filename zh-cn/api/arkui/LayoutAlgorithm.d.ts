@@ -68,7 +68,7 @@ export class CustomLayoutAlgorithm implements LayoutAlgorithm {
      * > [getChild()]{@link FrameNode:FrameNode#getChild(index: number)}方法获取子组件FrameNode，调用
      * > [FrameNode]{@link FrameNode:FrameNode}的[measure()]{@link FrameNode:FrameNode#measure}方法测量子组件大小，参考DynamicLayout组
      * > 件
-     * > [示例1（自定义布局算法实现瀑布流布局）](docroot://reference/apis-arkui/arkui-ts/ts-container-dynamiclayout.md#示例1自定义布局算法实现瀑布流布局)。
+     * > [示例1（自定义布局算法实现瀑布流布局）]{@link @ohos.arkui.components.ArkDynamicLayout}。
      *
      * @param { FrameNode } self - 动态布局组件在组件树上的实体节点。
      * @param { LayoutConstraint } constraint - 动态布局组件进行测量时使用的布局约束。
@@ -88,7 +88,7 @@ export class CustomLayoutAlgorithm implements LayoutAlgorithm {
      * > 在此函数中，开发者可以调用[FrameNode]{@link FrameNode:FrameNode}的
      * > [getChild()]{@link FrameNode:FrameNode#getChild(index: number)}方法获取子组件FrameNode，调用
      * > [FrameNode]{@link FrameNode:FrameNode}的[layout()]{@link FrameNode:FrameNode#layout}方法设置子组件位置，参考DynamicLayout组件
-     * > [示例1（自定义布局算法实现瀑布流布局）](docroot://reference/apis-arkui/arkui-ts/ts-container-dynamiclayout.md#示例1自定义布局算法实现瀑布流布局)。
+     * > [示例1（自定义布局算法实现瀑布流布局）]{@link @ohos.arkui.components.ArkDynamicLayout}。
      *
      * @param { FrameNode } self - 动态布局组件在组件树上的实体节点。
      * @param { Position } position - 动态布局组件进行布局时使用的位置信息。

@@ -97,7 +97,7 @@ declare interface StarStyleOptions {
    * 未选中的星级的图片路径，可由用户自定义或使用系统默认图片。
    * 
    * 从API version 20开始，该接口支持设置Resource资源。参考
-   * [示例3（通过Resource资源设置评分的样式）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-rating.md#示例3通过resource资源设置评分的样式)
+   * [示例3（通过Resource资源设置评分的样式）]{@link ./rating}
    * 代码。
    *
    * @type { string } [since 7 - 19]
@@ -115,7 +115,7 @@ declare interface StarStyleOptions {
    * 选中的星级的图片路径，可由用户自定义或使用系统默认图片。
    * 
    * 从API version 20开始，该接口支持设置Resource资源。参考
-   * [示例3（通过Resource资源设置评分的样式）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-rating.md#示例3通过resource资源设置评分的样式)
+   * [示例3（通过Resource资源设置评分的样式）]{@link ./rating}
    * 代码。
    *
    * @type { string } [since 7 - 19]
@@ -133,7 +133,7 @@ declare interface StarStyleOptions {
    * 部分选中的星级的图片路径，可由用户自定义或使用系统默认图片。未设置时将优先使用backgroundUri，效果等同于仅设置foregroundUri和backgroundUri。
    * 
    * 从API version 20开始，该接口支持设置Resource资源。参考
-   * [示例3（通过Resource资源设置评分的样式）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-rating.md#示例3通过resource资源设置评分的样式)
+   * [示例3（通过Resource资源设置评分的样式）]{@link ./rating}
    * 代码。
    *
    * @type { ?string } [since 7 - 19]

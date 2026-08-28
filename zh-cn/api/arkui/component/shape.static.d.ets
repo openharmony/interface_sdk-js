@@ -113,13 +113,13 @@ export declare interface ShapeAttribute extends CommonMethod {
     default viewPort(value: ViewportRect | undefined): this;
     /**
      * 设置边框颜色，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法，不设置时，默认边框透明度为0，即没有边框。
      *
      * @param { ResourceColor | undefined } value - 边框颜色。
-     *     默认值：[Color](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#color).Transparent
+     *     默认值：[Color]{@link Color}.Transparent
      *     异常值undefined和null按照默认值处理，NaN和Infinity按照
-     *     [Color](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#color).Black处理。
+     *     [Color]{@link Color}.Black处理。
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -128,12 +128,12 @@ export declare interface ShapeAttribute extends CommonMethod {
     default stroke(value: ResourceColor | undefined): this;
     /**
      * 设置填充区域的颜色，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法，异常值按照默认值处理。
      * 与通用属性foregroundColor同时设置时，后设置的属性生效。
      *
      * @param { ResourceColor | undefined } value - 填充区域颜色。
-     *     默认值：[Color](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#color).Black
+     *     默认值：[Color]{@link Color}.Black
      *     异常值undefined、null、NaN和Infinity按照默认值处理。
      * @returns { ShapeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -143,7 +143,7 @@ export declare interface ShapeAttribute extends CommonMethod {
     default fill(value: ResourceColor | undefined): this;
     /**
      * 设置边框绘制起点的偏移量，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法。异常值按照默认值处理。
      *
      * @param { Length | undefined } value - 边框绘制起点的偏移量。
@@ -158,7 +158,7 @@ export declare interface ShapeAttribute extends CommonMethod {
     default strokeDashOffset(value: Length | undefined): this;
     /**
      * 设置边框间隙，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法。取值范围为≥0，异常值按照默认值处理。
      *
      * @param { Array<Length> | undefined } value - 定义Shape轮廓的虚线模式的数组，
@@ -179,7 +179,7 @@ export declare interface ShapeAttribute extends CommonMethod {
     default strokeDashArray(value: Array<Length> | undefined): this;
     /**
      * 设置边框端点绘制样式，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法。
      *
      * @param { LineCapStyle | undefined } value - 边框端点绘制样式。
@@ -193,7 +193,7 @@ export declare interface ShapeAttribute extends CommonMethod {
     default strokeLineCap(value: LineCapStyle | undefined): this;
     /**
      * 设置边框拐角绘制样式，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法。
      *
      * @param { LineJoinStyle | undefined } value - 边框拐角绘制样式。
@@ -207,7 +207,7 @@ export declare interface ShapeAttribute extends CommonMethod {
     default strokeLineJoin(value: LineJoinStyle | undefined): this;
     /**
      * 设置斜接长度与边框宽度比值的极限值，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法。
      * 斜接长度表示外边框外边交点到内边交点的距离，边框宽度即strokeWidth属性的值。
      * 该属性取值需在strokeLineJoin属性取值LineJoinStyle.Miter时生效。
@@ -240,7 +240,7 @@ export declare interface ShapeAttribute extends CommonMethod {
     default strokeOpacity(value: double | string | Resource | undefined): this;
     /**
      * 设置填充区域透明度，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法。
      *
      * @param { double | string | Resource | undefined } value - 填充区域透明度。
@@ -259,7 +259,7 @@ export declare interface ShapeAttribute extends CommonMethod {
     default fillOpacity(value: double | string | Resource | undefined): this;
     /**
      * 设置边框宽度，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法。该属性若为string类型，暂不支持百分比，百分比按照1px处理。
      *
      * @param { Length | undefined } value - 边框宽度，取值范围≥0。
@@ -274,7 +274,7 @@ export declare interface ShapeAttribute extends CommonMethod {
     default strokeWidth(value: Length | undefined): this;
     /**
      * 设置是否开启抗锯齿效果，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法。
      *
      * @param { boolean | undefined } value - 是否开启抗锯齿效果。
@@ -292,13 +292,13 @@ export declare interface ShapeAttribute extends CommonMethod {
      * 每个网格交点坐标存储在数组中（每两个元素表示一个交点的x、y坐标）。
      * 通过数组value中的坐标值，重新定位网格顶点位置，实现图像局部扭曲。
      * 支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法。
      *
      * > 说明：
      * >
      * > mesh只对shape传入pixelMap时生效，且效果作用于传入的pixelMap。
-     * > 与[绘制模块](docroot://reference/apis-arkgraphics2d/arkts-apis-graphics-drawing.md)的
+     * > 与[绘制模块]{@link @ohos.graphics.drawing}的
      * > [drawPixelMapMesh](docroot://reference/apis-arkgraphics2d/arkts-apis-graphics-drawing-Canvas.md#drawpixelmapmesh12)
      * > 效果一致，建议使用drawPixelMapMesh。
      *

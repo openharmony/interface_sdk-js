@@ -55,7 +55,7 @@ declare namespace systemParameter {
  	 * > 开发者应根据具体场景选择合适的方法。
    * 
    * @param { string } key - 待查询的系统参数key。
-   * @param { string } def - def为所要获取的系统参数的默认值。 <br> def为可选参数，仅当系统参数不存在时生效。 <br>def可以传undefined或自定义的任意值。
+   * @param { string } def - def为所要获取的系统参数的默认值。 <br> def为可选参数，仅当系统参数不存在时生效。 <br>def可以传undefined或任意字符串类型的值。
    * @returns { string } 系统参数值。
    *     <br> 若key存在,返回设定的值。
    *     <br> 若key不存在且def有效，返回def；若未指定def或def无效(如undefined)，返回空字符串。
@@ -75,7 +75,7 @@ declare namespace systemParameter {
   /**
    * 获取系统参数key对应的值，使用callback异步回调。
    *
-   * @param { string } key - 待查询的系统参数Key。
+   * @param { string } key - 待查询的系统参数key。
    * @param { AsyncCallback<string> } callback - 回调函数，用于异步返回系统参数值。当获取成功时，err为undefined，data为系统参数值；当获取失败时，err为错误对象，data为undefined。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2.incorrect parameter types; 3.parameter verification failed.
@@ -114,7 +114,7 @@ declare namespace systemParameter {
    *
    * @param { string } key - 待查询的系统参数key。
    * @param { string } def - def为所要获取的系统参数的默认值。 <br> def为可选参数，仅当系统参数不存在时生效。 <br> def可以传undefined或任意字符串类型的值。
-   * @returns { Promise<string> } Promise示例，用于异步获取结果。
+   * @returns { Promise<string> } Promise实例，用于异步获取结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2.incorrect parameter types; 3.parameter verification failed.
    * @throws { BusinessError } 14700102 - Invalid system parameter value.
@@ -150,7 +150,7 @@ declare namespace systemParameter {
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.systemParameterEnhance.etSync
+   * @useinstead ohos.systemParameterEnhance.setSync
    */
   function setSync(key: string, value: string): void;
 

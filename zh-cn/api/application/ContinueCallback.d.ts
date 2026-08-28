@@ -14,9 +14,8 @@
  */
 
 /**
- * The ContinueCallback module defines the callback function that indicates the result of mission continuation. For 
- * details about mission continuation, see 
- * [continueMission]{@link @ohos.distributedMissionManager:distributedMissionManager.continueMission(parameter: ContinueDeviceInfo, options: ContinueCallback, callback: AsyncCallback<void>)}
+ * 表示跨设备迁移Mission完成后，返回迁移结果的回调函数，迁移Mission详见：
+ * [continueMission接口]{@link @ohos.distributedMissionManager:distributedMissionManager.continueMission(parameter: ContinueDeviceInfo, options: ContinueCallback, callback: AsyncCallback<void>)}
  *
  * @file
  * @kit AbilityKit
@@ -25,7 +24,7 @@
 /**
  *
  * @typedef { function } OnContinueDoneCallback
- * @param { int } result - The result code of continue mission.
+ * @param { int } result - 迁移任务的结果，0表示迁移成功，非0值表示迁移失败。具体错误码及其含义、可能原因和解决措施请参见continueMission接口的错误码说明。
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @stagemodelonly
@@ -35,7 +34,7 @@
 type OnContinueDoneCallback = (result: int) => void;
 
 /**
- * ContinueCallback registered for notify continue result.
+ * 表示跨设备迁移Mission完成后，返回迁移结果的回调函数。
  *
  * @interface ContinueCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -46,7 +45,7 @@ type OnContinueDoneCallback = (result: int) => void;
  */
 export interface ContinueCallback {
   /**
-   * Called by system when continue mission done.
+   * Mission迁移完成后调用，回调参数result返回迁移结果。当目标设备成功接收并启动Mission后，系统会触发此回调通知源设备迁移结果。开发者应根据result参数判断迁移是否成功，并执行相应操作，如提示用户或进行重试。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi

@@ -476,7 +476,7 @@ export class RegExp extends Object {
      * @stagemodelonly
      * @since 26.0.0 staticonly
      */
-    public replace(str: string, replacer: (substr: string, args: Object[]) => string): string;
+    public replace(str: string, replacer: (substr: string, args: (Object | undefined)[]) => string): string;
 
     /**
      * Splits the string into an array of substrings using the regular expression.

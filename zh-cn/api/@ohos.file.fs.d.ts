@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file @ohos.file.fs (文件管理)
  * @kit CoreFileKit
  */
 
@@ -22,7 +22,21 @@ import { AsyncCallback, Callback } from './@ohos.base';
 import stream from './@ohos.util.stream';
 
 /**
- * FileIO
+ * 本模块是Core File Kit的核心模块，提供基础文件操作API，用于对应用沙箱内的文件和目录进行创建、打开、读写、拷贝、移动、删除、查询属性等操作。
+
+ * 模块提供了多种文件访问模式，开发者可根据场景选择：
+
+ * 基于文件描述符（fd）：通过open获取File对象，再使用read/write进行读写，适用于通用文件读写场景。
+ * 基于流（Stream）：通过createStream/fdopenStream创建Stream，或通过createReadStream/createWriteStream创建ReadStream/WriteStream，适用于流式数据处理或大文件分块读写等场景。
+ * 基于RandomAccessFile：通过createRandomAccessFile创建RandomAccessFile对象，支持独立的偏移指针和随机读写，适用于需要频繁跳转读写位置的场景。
+ * 此外，模块还提供文件监听（Watcher）、内存映射（FileMapping）、安全原子写入（AtomicFile）等其他能力。
+ *
+ * > **使用说明：**
+ *
+ * 使用该功能模块对文件/目录进行操作前，需要先获取其应用沙箱路径，获取沙箱路径的方式及其接口用法可参考：
+ * [应用上下文Context-获取应用文件路径](docroot://application-models/application-context-stage.md#获取应用文件路径)。<br/>
+ * 指向资源的字符串称为URI。对于只支持沙箱路径作为入参的接口，可以使用构造fileUri对象并获取其沙箱路径的属性的方式将URI转换为沙箱路径，然后使用文件接口。
+ * URI定义及其转换方式请参考：[文件URI](docroot://reference/apis-core-file-kit/js-apis-file-fileuri.md)。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform [since 10]
@@ -121,7 +135,7 @@ declare namespace fileIo {
   export type { DfsListeners };
 
   /**
-   * open接口flags参数常量。文件打开标签。
+   * open接口flags参数常量，用于指定文件打开模式（如只读、只写、读写、创建等）。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform [since 10]
@@ -216,7 +230,7 @@ declare namespace fileIo {
      */
     const SYNC = 0o4010000;
     /**
-     * UNCACHE IO。
+     * 读写文件不进行页缓存。
      *
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @stagemodelonly
@@ -228,13 +242,13 @@ declare namespace fileIo {
 }
 
 /**
- * 检查文件或目录是否存在，或校验操作权限，使用promise异步回调。
+ * 检查文件或目录是否存在，或校验操作权限。使用Promise异步回调。
  *
  * 校验读、写或读写权限不通过会抛出13900012（Permission denied）错误码。
  *
- * @param { string } path - 文件或目录应用沙箱路径。
+ * @param { string } path - 文件或目录的应用沙箱路径。
  * @param { AccessModeType } [mode] - 文件或目录校验的权限。不填该参数则默认校验文件是否存在。 [since 12]
- * @returns { Promise<boolean> } Promise对象。返回布尔值。返回true，表示文件存在；返回false，表示文件不存在。
+ * @returns { Promise<boolean> } Promise对象。返回true表示文件或目录存在；返回false表示文件或目录不存在。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -255,9 +269,9 @@ declare namespace fileIo {
 declare function access(path: string, mode?: AccessModeType): Promise<boolean>;
 
 /**
- * 检查文件或目录是否存在，使用callback异步回调。
+ * 检查文件或目录是否存在。使用callback异步回调。
  *
- * @param { string } path - 文件或目录应用沙箱路径。
+ * @param { string } path - 文件或目录的应用沙箱路径。
  * @param { AsyncCallback<boolean> } callback - 异步检查文件或目录是否存在的回调。如果存在，回调返回true；否则返回false。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -279,14 +293,14 @@ declare function access(path: string, mode?: AccessModeType): Promise<boolean>;
 declare function access(path: string, callback: AsyncCallback<boolean>): void;
 
 /**
- * 检查文件或目录是否在本地，或校验操作权限，使用promise异步回调。
+ * 检查文件或目录是否在本地，或校验操作权限。使用Promise异步回调。
  *
  * 校验读、写或读写权限不通过会抛出13900012（Permission denied）错误码。
  *
- * @param { string } path - 文件或目录应用沙箱路径。
+ * @param { string } path - 文件或目录的应用沙箱路径。
  * @param { AccessModeType } mode - 文件或目录校验的权限。
  * @param { AccessFlagType } flag - 文件或目录校验的位置。
- * @returns { Promise<boolean> } Promise对象。返回布尔值。返回true，表示文件或目录在本地且校验权限存在；返回false，表示文件或目录不存在或者文件或目录在云端或其他分布式设备上。
+ * @returns { Promise<boolean> } Promise对象。返回true表示文件或目录在本地且校验权限存在；返回false表示文件或目录不存在或者文件或目录在云端或其他分布式设备上。
  * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900005 - I/O error
@@ -308,9 +322,9 @@ declare function access(path: string, mode: AccessModeType, flag: AccessFlagType
  *
  * 校验读、写或读写权限不通过会抛出13900012（Permission denied）错误码。
  *
- * @param { string } path - 文件或目录应用沙箱路径。
+ * @param { string } path - 文件或目录的应用沙箱路径。
  * @param { AccessModeType } [mode] - 文件或目录校验的权限。不填该参数则默认校验文件或目录是否存在。 [since 12]
- * @returns { boolean } 返回true，表示文件存在；返回false，表示文件不存在。
+ * @returns { boolean } 返回true，表示文件或目录存在；返回false，表示文件或目录不存在。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -335,10 +349,10 @@ declare function accessSync(path: string, mode?: AccessModeType): boolean;
  *
  * 校验读、写或读写权限不通过会抛出13900012（Permission denied）错误码。
  *
- * @param { string } path - 文件应用沙箱路径。
+ * @param { string } path - 文件或目录的应用沙箱路径。
  * @param { AccessModeType } mode - 文件或目录校验的权限。
  * @param { AccessFlagType } flag - 文件或目录校验的位置。
- * @returns { boolean } 返回true，表示文件在本地且校验权限存在；返回false，表示文件不存在或者文件在云端或其他分布式设备上。
+ * @returns { boolean } 返回true，表示文件或目录在本地且校验权限存在；返回false，表示文件或目录不存在或者文件或目录在云端或其他分布式设备上。
  * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900005 - I/O error
@@ -356,9 +370,9 @@ declare function accessSync(path: string, mode?: AccessModeType): boolean;
 declare function accessSync(path: string, mode: AccessModeType, flag: AccessFlagType): boolean;
 
 /**
- * 关闭文件或目录，使用promise异步回调。
+ * 关闭文件或目录，关闭后文件描述符fd失效，不可再用于读写等操作。使用Promise异步回调。
  *
- * @param { number | File } file - 已打开的File对象或已打开的文件描述符fd。关闭后file对象或文件描述符fd不再具备实际意义，不可再用于进行读写等操作。
+ * @param { number | File } file - 已打开的File对象或已打开的文件描述符fd。关闭后File对象或文件描述符fd不可再用于读写等操作，继续使用可能导致错误或操作失败。
  * @returns { Promise<void> } Promise对象。无返回值。
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -374,10 +388,10 @@ declare function accessSync(path: string, mode: AccessModeType, flag: AccessFlag
 declare function close(file: number | File): Promise<void>;
 
 /**
- * 关闭文件或目录，使用callback异步回调。
+ * 关闭文件或目录，关闭后文件描述符fd失效，不可再用于读写等操作。使用callback异步回调。
  *
- * @param { number | File } file - 已打开的File对象或已打开的文件描述符fd。关闭后file对象或文件描述符fd不再具备实际意义，不可再用于进行读写等操作。
- * @param { AsyncCallback<void> } callback - 异步关闭文件或目录之后的回调。
+ * @param { number | File } file - 已打开的File对象或已打开的文件描述符fd。关闭后File对象或文件描述符fd不可再用于读写等操作，继续使用可能导致错误或操作失败。
+ * @param { AsyncCallback<void> } callback - 回调函数。当异步关闭文件或目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -392,9 +406,9 @@ declare function close(file: number | File): Promise<void>;
 declare function close(file: number | File, callback: AsyncCallback<void>): void;
 
 /**
- * 以同步方法关闭文件或目录。
+ * 以同步方法关闭文件或目录，关闭后文件描述符fd失效，不可再用于读写等操作。
  *
- * @param { number | File } file - 已打开的File对象或已打开的文件描述符fd。关闭后file对象或文件描述符fd不再具备实际意义，不可再用于进行读写等操作。
+ * @param { number | File } file - 已打开的File对象或已打开的文件描述符fd。关闭后File对象或文件描述符fd不可再用于读写等操作，继续使用可能导致错误或操作失败。
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -409,7 +423,7 @@ declare function close(file: number | File, callback: AsyncCallback<void>): void
 declare function closeSync(file: number | File): void;
 
 /**
- * 拷贝文件或目录，使用promise异步回调。
+ * 拷贝文件或目录。使用Promise异步回调。
  *
  * 支持跨设备拷贝。强制覆盖拷贝。入参支持文件或目录URI。
  *
@@ -452,7 +466,7 @@ declare function closeSync(file: number | File): void;
 declare function copy(srcUri: string, destUri: string, options?: CopyOptions): Promise<void>;
 
 /**
- * 拷贝文件或者目录，使用callback异步回调。
+ * 拷贝文件或者目录。使用callback异步回调。
  *
  * 支持跨设备拷贝。强制覆盖拷贝。入参支持文件或目录URI。
  *
@@ -460,7 +474,7 @@ declare function copy(srcUri: string, destUri: string, options?: CopyOptions): P
  *
  * @param { string } srcUri - 待复制文件或目录的URI。
  * @param { string } destUri - 目标文件或目录的URI。
- * @param { AsyncCallback<void> } callback - 异步拷贝之后的回调。
+ * @param { AsyncCallback<void> } callback - 回调函数。当拷贝成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -493,7 +507,7 @@ declare function copy(srcUri: string, destUri: string, options?: CopyOptions): P
 declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<void>): void;
 
 /**
- * 拷贝文件或者目录，使用callback异步回调。
+ * 拷贝文件或者目录。使用callback异步回调。
  *
  * 支持跨设备拷贝。强制覆盖拷贝。入参支持文件或目录URI。
  *
@@ -502,7 +516,7 @@ declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<v
  * @param { string } srcUri - 待复制文件或目录的URI。
  * @param { string } destUri - 目标文件或目录的URI。
  * @param { CopyOptions } options - 拷贝进度回调。
- * @param { AsyncCallback<void> } callback - 异步拷贝之后的回调。
+ * @param { AsyncCallback<void> } callback - 回调函数。当拷贝成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
  *     <br>2.Incorrect parameter types.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -535,11 +549,11 @@ declare function copy(srcUri: string, destUri: string, callback: AsyncCallback<v
 declare function copy(srcUri: string, destUri: string, options: CopyOptions, callback: AsyncCallback<void>): void;
 
 /**
- * 复制源目录至目标路径下，使用promise异步回调。
+ * 复制源目录及其内容至目标路径下，可设置冲突处理模式。使用Promise异步回调。
  *
  * @param { string } src - 源目录的应用沙箱路径。
  * @param { string } dest - 目标目录的应用沙箱路径。
- * @param { number } [mode] - 复制模式，默认值为0。<br/>- mode为0，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部移动至目标目录
+ * @param { number } [mode] - 复制模式，默认值为0。<br/>- mode为0，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部拷贝至目标目录
  *     下，目标目录下未冲突文件将继续保留，且冲突文件信息将在抛出异常的data属性中以Array<[ConflictFiles]{@link ConflictFiles}>形式提供。<br/>- mode为1，文件级别强制覆盖。目
  *     标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件，未冲突文件将继续保留。
  * @returns { Promise<void> } Promise对象。无返回值。
@@ -568,11 +582,11 @@ declare function copy(srcUri: string, destUri: string, options: CopyOptions, cal
 declare function copyDir(src: string, dest: string, mode?: number): Promise<void>;
 
 /**
- * 复制源目录至目标路径下，使用callback异步回调。
+ * 复制源目录及其内容至目标路径下。使用callback异步回调。
  *
  * @param { string } src - 源目录的应用沙箱路径。
  * @param { string } dest - 目标目录的应用沙箱路径。
- * @param { AsyncCallback<void> } callback - 异步复制目录之后的回调。
+ * @param { AsyncCallback<void> } callback - 回调函数。当复制目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -597,9 +611,9 @@ declare function copyDir(src: string, dest: string, mode?: number): Promise<void
 declare function copyDir(src: string, dest: string, callback: AsyncCallback<void>): void;
 
 /**
- * 复制源目录至目标路径下，使用callback异步回调。
+ * 复制源目录至目标路径下。使用callback异步回调。
  *
- * 如果目标目录下有与源目录名冲突的目录，且冲突目录下有同名文件，则抛出异常。源目录下未冲突的文件全部移动至目标目录下，目标目录下未冲突文件将继续保留，且冲突文件信息将在抛出异常的data属性中以Array\<
+ * 如果目标目录下有与源目录名冲突的目录，且冲突目录下有同名文件，则抛出异常。源目录下未冲突的文件全部拷贝至目标目录下，目标目录下未冲突文件将继续保留，且冲突文件信息将在抛出异常的data属性中以Array\<
  * [ConflictFiles]{@link ConflictFiles}>形式提供。
  *
  * @param { string } src - 源目录的应用沙箱路径。
@@ -613,14 +627,14 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
 declare function copyDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
- * 复制源目录至目标路径下，可设置复制模式。使用callback异步回调。
+ * 复制源目录及其内容至目标路径下，可设置冲突处理模式。使用callback异步回调。
  *
  * @param { string } src - 源目录的应用沙箱路径。
  * @param { string } dest - 目标目录的应用沙箱路径。
- * @param { number } mode - 复制模式，默认值为0。<br/>- mode为0，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部移动至目标目录下，
+ * @param { number } mode - 复制模式。<br/>- mode为0，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部拷贝至目标目录下，
  *     目标目录下未冲突文件将继续保留，且冲突文件信息将在抛出异常的data属性中以Array<[ConflictFiles]{@link ConflictFiles}>形式提供。<br/>- mode为1，文件级别强制覆盖。目标目
  *     录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件，未冲突文件将继续保留。
- * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - 异步复制目录之后的回调。
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - 回调函数。当复制目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -645,14 +659,14 @@ declare function copyDir(src: string, dest: string, callback: AsyncCallback<void
 declare function copyDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
 /**
- * 复制源目录至目标路径下，可设置复制模式。使用callback异步回调。
+ * 复制源目录及其内容至目标路径下，可设置冲突处理模式。使用callback异步回调。
  *
  * @param { string } src - 源目录的应用沙箱路径。
  * @param { string } dest - 目标目录的应用沙箱路径。
- * @param { number } mode - 复制模式，默认值为0。<br/>- mode为0，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部移动至目标目录下，
+ * @param { number } mode - 复制模式。<br/>- mode为0，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部拷贝至目标目录下，
  *     目标目录下未冲突文件将继续保留，且冲突文件信息将在抛出异常的data属性中以Array<[ConflictFiles]{@link ConflictFiles}>形式提供。<br/>- mode为1，文件级别强制覆盖。目标目
  *     录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件，未冲突文件将继续保留。
- * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - 异步复制目录之后的回调。
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - 回调函数。当复制目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform [since 20]
@@ -665,7 +679,7 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
  *
  * @param { string } src - 源目录的应用沙箱路径。
  * @param { string } dest - 目标目录的应用沙箱路径。
- * @param { number } [mode] - 复制模式，默认值为0。<br/>- mode为0，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部移动至目标目录
+ * @param { number } [mode] - 复制模式，默认值为0。<br/>- mode为0，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部拷贝至目标目录
  *     下，目标目录下未冲突文件将继续保留，且冲突文件信息将在抛出异常的data属性中以Array<[ConflictFiles]{@link ConflictFiles}>形式提供。<br/>- mode为1，文件级别强制覆盖。目
  *     标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件，未冲突文件将继续保留。
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -694,11 +708,11 @@ declare function copyDir(src: string, dest: string, mode: number, callback: Asyn
 declare function copyDirSync(src: string, dest: string, mode?: number): void;
 
 /**
- * 复制文件，使用promise异步回调。
+ * 复制文件。使用Promise异步回调。
  *
  * @param { string | number } src - 待复制文件的路径或待复制文件的文件描述符。
  * @param { string | number } dest - 目标文件路径或目标文件的文件描述符。
- * @param { number } [mode] - mode提供覆盖文件的选项，当前仅支持0，且默认为0。<br/>0：完全覆盖目标文件，未覆盖部分将被裁切掉。
+ * @param { number } [mode] - mode提供覆盖文件的选项，当前仅支持0，且默认为0。<br/>0：完全覆盖目标文件，未覆盖部分将被裁剪掉。
  * @returns { Promise<void> } Promise对象。无返回值。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -726,7 +740,7 @@ declare function copyDirSync(src: string, dest: string, mode?: number): void;
 declare function copyFile(src: string | number, dest: string | number, mode?: number): Promise<void>;
 
 /**
- * 复制文件，覆盖方式为完全覆盖目标文件，未覆盖部分将被裁切。使用callback异步回调。
+ * 复制文件，覆盖方式为完全覆盖目标文件，未覆盖部分将被裁剪。使用callback异步回调。
  *
  * @param { string | number } src - 待复制文件的路径或待复制文件的文件描述符。
  * @param { string | number } dest - 目标文件路径或目标文件的文件描述符。
@@ -756,11 +770,11 @@ declare function copyFile(src: string | number, dest: string | number, mode?: nu
 declare function copyFile(src: string | number, dest: string | number, callback: AsyncCallback<void>): void;
 
 /**
- * 复制文件，可设置覆盖文件的方式，使用callback异步回调。
+ * 复制文件，可设置覆盖文件的方式。使用callback异步回调。
  *
  * @param { string | number } src - 待复制文件的路径或待复制文件的文件描述符。
  * @param { string | number } dest - 目标文件路径或目标文件的文件描述符。
- * @param { number } [mode] - mode提供覆盖文件的选项，当前仅支持0，且默认为0。<br/>0：完全覆盖目标文件，未覆盖部分将被裁切掉。
+ * @param { number } mode - mode提供覆盖文件的选项，当前仅支持0，且默认为0。<br/>0：完全覆盖目标文件，未覆盖部分将被裁剪掉。
  * @param { AsyncCallback<void> } callback - 异步复制文件之后的回调。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -796,7 +810,7 @@ declare function copyFile(
  *
  * @param { string | number } src - 待复制文件的路径或待复制文件的文件描述符。
  * @param { string | number } dest - 目标文件路径或目标文件的文件描述符。
- * @param { number } [mode] - mode提供覆盖文件的选项，当前仅支持0，且默认为0。<br/>0：完全覆盖目标文件，未覆盖部分将被裁切掉。
+ * @param { number } [mode] - mode提供覆盖文件的选项，当前仅支持0，且默认为0。<br/>0：完全覆盖目标文件，未覆盖部分将被裁剪掉。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -823,7 +837,7 @@ declare function copyFile(
 declare function copyFileSync(src: string | number, dest: string | number, mode?: number): void;
 
 /**
- * 基于文件路径创建文件流，使用promise异步回调。需要配合[Stream]{@link Stream}中的close()函数关闭文件流。
+ * 基于文件路径创建文件流。使用Promise异步回调。需要配合[Stream]{@link Stream}中的close()函数关闭文件流。
  *
  * @param { string } path - 文件的应用沙箱路径。
  * @param { string } mode - - r：打开只读文件，该文件必须存在。<br/>- r+：打开可读写的文件，该文件必须存在。<br/>- w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
@@ -865,13 +879,13 @@ declare function copyFileSync(src: string | number, dest: string | number, mode?
 declare function createStream(path: string, mode: string): Promise<Stream>;
 
 /**
- * 基于文件路径创建文件流，使用callback异步回调。需要配合[Stream]{@link Stream}中的close()函数关闭文件流。
+ * 基于文件路径创建文件流，需要配合[Stream]{@link Stream}中的close()函数关闭文件流。使用callback异步回调。
  *
  * @param { string } path - 文件的应用沙箱路径。
  * @param { string } mode - - r：打开只读文件，该文件必须存在。<br/>- r+：打开可读写的文件，该文件必须存在。<br/>- w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
  *     建立该文件。<br/>- w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>- a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
  *     文件尾，即文件原先的内容会被保留。<br/>- a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
- * @param { AsyncCallback<Stream> } callback - 异步打开文件流之后的回调。
+ * @param { AsyncCallback<Stream> } callback - 回调函数，返回Stream对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -948,7 +962,7 @@ declare function createStream(path: string, mode: string, callback: AsyncCallbac
 declare function createStreamSync(path: string, mode: string): Stream;
 
 /**
- * 基于文件路径或文件对象创建RandomAccessFile对象，使用promise异步回调。
+ * 基于文件路径或文件对象创建RandomAccessFile对象。使用Promise异步回调。
  *
  * @param { string | File } file - 文件的应用沙箱路径或已打开的File对象。
  * @param { number } [mode] - 创建文件RandomAccessFile对象的
@@ -959,8 +973,8 @@ declare function createStreamSync(path: string, mode: string): Stream;
  *     - OpenMode.NONBLOCK(0o4000)：如果path指向FIFO、块特殊文件或字符特殊文件，则本次打开及后续IO进行非阻塞操作。<br/>- OpenMode.DIR(0o200000)：如果path不指向
  *     目录，则出错。不允许附加写权限。<br/>- OpenMode.NOFOLLOW(0o400000)：如果path指向符号链接，则出错。<br/>- OpenMode.SYNC(0o4010000)：以同步IO的方式创建
  *     RandomAccessFile对象。
- * @param { RandomAccessFileOptions } [options] - 支持如下选项：<br/>- start，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。<br/>-
- *     end，number类型，表示期望读取结束的位置，单位为Byte。可选，默认文件末尾。<br/>此选项仅对[getreadstream]{@link RandomAccessFile.getReadStream}及
+ * @param { RandomAccessFileOptions } [options] - 支持如下选项：<br/>- start，number类型，表示文件的起始偏移位置，单位为Byte。可选，默认文件当前位置。<br/>-
+ *     end，number类型，表示文件的结束偏移位置，单位为Byte。可选，默认文件末尾。<br/>此选项仅对[getreadstream]{@link RandomAccessFile.getReadStream}及
  *     [getwritestream]{@link RandomAccessFile.getWriteStream}获取的文件流对象生效。 [since 12]
  * @returns { Promise<RandomAccessFile> } Promise对象。返回RandomAccessFile对象的结果。
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -998,10 +1012,10 @@ declare function createRandomAccessFile(file: string | File, mode?: number,
   options?: RandomAccessFileOptions): Promise<RandomAccessFile>;
 
 /**
- * 基于文件路径或文件对象，以只读方式创建RandomAccessFile对象，使用callback异步回调。
+ * 基于文件路径或文件对象，以只读方式创建RandomAccessFile对象。使用callback异步回调。
  *
  * @param { string | File } file - 文件的应用沙箱路径或已打开的File对象。
- * @param { AsyncCallback<RandomAccessFile> } callback - 异步创建RandomAccessFile对象之后的回调。
+ * @param { AsyncCallback<RandomAccessFile> } callback - 回调函数，返回RandomAccessFile对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1035,10 +1049,10 @@ declare function createRandomAccessFile(file: string | File, mode?: number,
 declare function createRandomAccessFile(file: string | File, callback: AsyncCallback<RandomAccessFile>): void;
 
 /**
- * 基于文件路径或文件对象创建RandomAccessFile对象，使用callback异步回调。
+ * 基于文件路径或文件对象创建RandomAccessFile对象。使用callback异步回调。
  *
  * @param { string | File } file - 文件的应用沙箱路径或已打开的File对象。
- * @param { number } [mode] - 创建文件RandomAccessFile对象的
+ * @param { number } mode - 创建文件RandomAccessFile对象的
  *     [选项](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#openmode)，仅当传入文件沙箱路径时生效，必须指定如下选项中的一个，默认以只读方式创建：<br
  *     />- OpenMode.READ_ONLY(0o0)：只读创建。<br/>- OpenMode.WRITE_ONLY(0o1)：只写创建。<br/>- OpenMode.READ_WRITE(0o2)：读写创建。<br/>给
  *     定如下功能选项，以按位或的方式追加，默认不给定任何额外选项：<br/>- OpenMode.CREATE(0o100)：若文件不存在，则创建文件。<br/>- OpenMode.TRUNC(0o1000)：如果
@@ -1046,7 +1060,7 @@ declare function createRandomAccessFile(file: string | File, callback: AsyncCall
  *     - OpenMode.NONBLOCK(0o4000)：如果path指向FIFO、块特殊文件或字符特殊文件，则本次打开及后续IO进行非阻塞操作。<br/>- OpenMode.DIR(0o200000)：如果path不指向
  *     目录，则出错。不允许附加写权限。<br/>- OpenMode.NOFOLLOW(0o400000)：如果path指向符号链接，则出错。<br/>- OpenMode.SYNC(0o4010000)：以同步IO的方式创建
  *     RandomAccessFile对象。
- * @param { AsyncCallback<RandomAccessFile> } callback - 异步创建RandomAccessFile对象之后的回调。
+ * @param { AsyncCallback<RandomAccessFile> } callback - 回调函数，返回RandomAccessFile对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1091,8 +1105,8 @@ declare function createRandomAccessFile(file: string | File, mode: number, callb
  *     - OpenMode.NONBLOCK(0o4000)：如果path指向FIFO、块特殊文件或字符特殊文件，则本次打开及后续IO进行非阻塞操作。<br/>- OpenMode.DIR(0o200000)：如果path不指向
  *     目录，则出错。不允许附加写权限。<br/>- OpenMode.NOFOLLOW(0o400000)：如果path指向符号链接，则出错。<br/>- OpenMode.SYNC(0o4010000)：以同步IO的方式创建
  *     RandomAccessFile对象。
- * @param { RandomAccessFileOptions } [options] - 支持如下选项：<br/>- start，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。<br/>-
- *     end，number类型，表示期望读取结束的位置，单位为Byte。可选，默认文件末尾。<br/>此选项仅对[getreadstream]{@link RandomAccessFile.getReadStream}及
+ * @param { RandomAccessFileOptions } [options] - 支持如下选项：<br/>- start，number类型，表示文件的起始偏移位置，单位为Byte。可选，默认文件当前位置。<br/>-
+ *     end，number类型，表示文件的结束偏移位置，单位为Byte。可选，默认文件末尾。<br/>此选项仅对[getreadstream]{@link RandomAccessFile.getReadStream}及
  *     [getwritestream]{@link RandomAccessFile.getWriteStream}获取的文件流对象生效。 [since 12]
  * @returns { RandomAccessFile } 返回RandomAccessFile对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -1190,9 +1204,9 @@ declare function createReadStream(path: string, options?: ReadStreamOptions): Re
 declare function createWriteStream(path: string, options?: WriteStreamOptions): WriteStream;
 
 /**
- * 创建Watcher对象，监听文件或目录变动。
+ * 创建Watcher对象，用于监听文件或目录的创建、删除、修改等变动事件。
  *
- * @param { string } path - 监听文件或目录的沙箱路径。
+ * @param { string } path - 监听文件或目录的应用沙箱路径。
  * @param { number } events - 监听变动的事件集，多个事件通过或(|)的方式进行集合。<br/>- 0x1: IN_ACCESS， 文件被访问。<br/>- 0x2: IN_MODIFY，文件内容被修改。<br/
  *     >- 0x4: IN_ATTRIB，文件元数据被修改。<br/>- 0x8: IN_CLOSE_WRITE，文件在打开时进行了写操作，然后被关闭。<br/>- 0x10: IN_CLOSE_NOWRITE，文件或目录在打开时未
  *     进行写操作，然后被关闭。<br/>- 0x20: IN_OPEN，文件或目录被打开。 <br/>- 0x40: IN_MOVED_FROM，监听目录中文件被移动走。<br/>- 0x80: IN_MOVED_TO，监听目录中文
@@ -1237,9 +1251,9 @@ declare function createWatcher(path: string, events: number, listener: WatchEven
 declare function dup(fd: number): File;
 
 /**
- * 实现文件内容数据同步，使用promise异步回调。
+ * 实现文件内容数据同步。使用Promise异步回调。
  *
- * @param { number } fd - 已打开的文件描述符。
+ * @param { number } fd - 已打开的文件描述符fd。
  * @returns { Promise<void> } Promise对象。无返回值。
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1255,10 +1269,10 @@ declare function dup(fd: number): File;
 declare function fdatasync(fd: number): Promise<void>;
 
 /**
- * 实现文件内容数据同步，使用callback异步回调。
+ * 实现文件内容数据同步。使用callback异步回调。
  *
- * @param { number } fd - 已打开的文件描述符。
- * @param { AsyncCallback<void> } callback - 异步将文件内容数据同步之后的回调。
+ * @param { number } fd - 已打开的文件描述符fd。
+ * @param { AsyncCallback<void> } callback - 回调函数。当文件内容数据同步成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1275,7 +1289,7 @@ declare function fdatasync(fd: number, callback: AsyncCallback<void>): void;
 /**
  * 以同步方法实现文件内容的数据同步。
  *
- * @param { number } fd - 已打开的文件描述符。
+ * @param { number } fd - 已打开的文件描述符fd。
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1290,9 +1304,9 @@ declare function fdatasync(fd: number, callback: AsyncCallback<void>): void;
 declare function fdatasyncSync(fd: number): void;
 
 /**
- * 基于文件描述符打开文件流，使用promise异步回调。需要配合[Stream]{@link Stream}中的close()函数关闭文件流。
+ * 基于文件描述符打开文件流。使用Promise异步回调。需要配合[Stream]{@link Stream}中的close()函数关闭文件流。
  *
- * @param { number } fd - 已打开的文件描述符。
+ * @param { number } fd - 已打开的文件描述符fd。
  * @param { string } mode - - r：打开只读文件，该文件必须存在。<br/>- r+：打开可读写的文件，该文件必须存在。<br/>- w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
  *     建立该文件。<br/>- w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>- a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
  *     文件尾，即文件原先的内容会被保留。<br/>- a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
@@ -1332,13 +1346,13 @@ declare function fdatasyncSync(fd: number): void;
 declare function fdopenStream(fd: number, mode: string): Promise<Stream>;
 
 /**
- * 基于文件描述符打开文件流，使用callback异步回调。需要配合[Stream]{@link Stream}中的close()函数关闭文件流。
+ * 基于文件描述符打开文件流，需要配合[Stream]{@link Stream}中的close()函数关闭文件流。使用callback异步回调。
  *
- * @param { number } fd - 已打开的文件描述符。
+ * @param { number } fd - 已打开的文件描述符fd。
  * @param { string } mode - - r：打开只读文件，该文件必须存在。<br/>- r+：打开可读写的文件，该文件必须存在。<br/>- w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
  *     建立该文件。<br/>- w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>- a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
  *     文件尾，即文件原先的内容会被保留。<br/>- a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
- * @param { AsyncCallback<Stream> } callback - 异步打开文件流之后的回调。
+ * @param { AsyncCallback<Stream> } callback - 回调函数，返回Stream对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -1376,7 +1390,7 @@ declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<
 /**
  * 以同步方法基于文件描述符打开文件流。需要配合[Stream]{@link Stream}中的close()函数关闭文件流。
  *
- * @param { number } fd - 已打开的文件描述符。
+ * @param { number } fd - 已打开的文件描述符fd。
  * @param { string } mode - - r：打开只读文件，该文件必须存在。<br/>- r+：打开可读写的文件，该文件必须存在。<br/>- w：打开只写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则
  *     建立该文件。<br/>- w+：打开可读写文件，若文件存在则文件长度清0，即该文件内容会消失。若文件不存在则建立该文件。<br/>- a：以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到
  *     文件尾，即文件原先的内容会被保留。<br/>- a+：以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。
@@ -1416,9 +1430,9 @@ declare function fdopenStream(fd: number, mode: string, callback: AsyncCallback<
 declare function fdopenStreamSync(fd: number, mode: string): Stream;
 
 /**
- * 将文件系统缓存数据写入磁盘，使用promise异步回调。
+ * 将文件系统缓存数据写入磁盘。使用Promise异步回调。
  *
- * @param { number } fd - 已打开的文件描述符。
+ * @param { number } fd - 已打开的文件描述符fd。
  * @returns { Promise<void> } Promise对象。无返回值。
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1434,10 +1448,10 @@ declare function fdopenStreamSync(fd: number, mode: string): Stream;
 declare function fsync(fd: number): Promise<void>;
 
 /**
- * 将文件系统缓存数据写入磁盘，使用callback异步回调。
+ * 将文件系统缓存数据写入磁盘。使用callback异步回调。
  *
- * @param { number } fd - 已打开的文件描述符。
- * @param { AsyncCallback<void> } callback - 异步将文件数据同步之后的回调。
+ * @param { number } fd - 已打开的文件描述符fd。
+ * @param { AsyncCallback<void> } callback - 回调函数。当文件系统缓存数据写入磁盘成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1454,7 +1468,7 @@ declare function fsync(fd: number, callback: AsyncCallback<void>): void;
 /**
  * 以同步方法将文件系统缓存数据写入磁盘。
  *
- * @param { number } fd - 已打开的文件描述符。
+ * @param { number } fd - 已打开的文件描述符fd。
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900020 - Invalid argument
@@ -1469,9 +1483,9 @@ declare function fsync(fd: number, callback: AsyncCallback<void>): void;
 declare function fsyncSync(fd: number): void;
 
 /**
- * 默认列出当前目录下所有文件名和目录名。支持过滤。使用promise异步回调。
+ * 默认列出当前目录下所有文件名和目录名，返回文件名数组，支持按后缀、文件名等条件过滤。使用Promise异步回调。
  *
- * 可通过配置options中recursion参数实现递归列出所有文件的相对路径，相对路径以“/”开头。
+ * 可通过配置ListFileOptions中recursion参数实现递归列出所有文件的相对路径，相对路径以“/”开头。
  *
  * @param { string } path - 目录的应用沙箱路径。
  * @param { object } [options] - Options for filtering files. The files are not filtered by default. [since 9 - 10]
@@ -1494,9 +1508,7 @@ declare function listFile(
 ): Promise<string[]>;
 
 /**
- * 默认列出当前目录下所有文件名和目录名。支持过滤。使用callback异步回调。
- *
- * 可通过配置options中recursion参数实现递归列出所有文件的相对路径，相对路径以“/”开头。
+ * 默认列出当前目录下所有文件名和目录名，返回文件名数组。使用callback异步回调。
  *
  * @param { string } path - 目录的应用沙箱路径。
  * @param { AsyncCallback<string[]> } callback - 异步列出文件名数组之后的回调，默认以'utf-8'编码。
@@ -1513,13 +1525,13 @@ declare function listFile(
 declare function listFile(path: string, callback: AsyncCallback<string[]>): void;
 
 /**
- * 默认列出当前目录下所有文件名和目录名。支持过滤。使用callback异步回调。
+ * 默认列出当前目录下所有文件名和目录名，返回文件名数组，支持按后缀、文件名等条件过滤。使用callback异步回调。
  *
- * 可通过配置options中recursion参数实现递归列出所有文件的相对路径，相对路径以“/”开头。
+ * 可通过配置ListFileOptions中recursion参数实现递归列出所有文件的相对路径，相对路径以“/”开头。
  *
  * @param { string } path - 目录的应用沙箱路径。
- * @param { object } [options] - Options for filtering files. The files are not filtered by default. [since 9 - 10]
- * @param { ListFileOptions } [options] - 文件过滤选项。默认不进行过滤。 [since 11]
+ * @param { object } options - Options for filtering files. The files are not filtered by default. [since 9 - 10]
+ * @param { ListFileOptions } options - 文件过滤选项。默认不进行过滤。 [since 11]
  * @param { AsyncCallback<string[]> } callback - 异步列出文件名数组之后的回调，默认以'utf-8'编码。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1538,9 +1550,9 @@ declare function listFile(
 ): void;
 
 /**
- * 默认以同步方式列出当前目录下所有文件名和目录名。支持过滤。
+ * 默认以同步方式列出当前目录下所有文件名和目录名，返回文件名数组，支持按后缀、文件名等条件过滤。
  *
- * 可通过配置options中recursion参数实现递归列出所有文件的相对路径，相对路径以“/”开头。
+ * 可通过配置ListFileOptions中recursion参数实现递归列出所有文件的相对路径，相对路径以“/”开头。
  *
  * @param { string } path - 目录的应用沙箱路径。
  * @param { object } [options] - Options for filtering files. The files are not filtered by default. [since 9 - 10]
@@ -1562,12 +1574,12 @@ declare function listFileSync(
 ): string[];
 
 /**
- * 列出目录下所有文件名，使用Promise异步回调。
- * 该接口支持通过自定义过滤函数对文件名进行过滤。
+ * 列出目录下所有文件名，支持递归列出和自定义文件名过滤。使用Promise异步回调。
+ *
  * 可通过配置options中recursion参数实现递归列出所有文件的相对路径，相对路径以“/”开头。
  *
  * @param { string } path - 目录的应用沙箱路径。
- * @param { ListFileExtOptions } [options] - 文件过滤选项。默认不进行过滤。
+ * @param { ListFileExtOptions } [options] - 文件列出选项。默认为空，表示不递归、不限制列出数量、不进行过滤。
  * @returns { Promise<string[]> } Promise used to return the file names listed.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1583,11 +1595,12 @@ declare function listFileExt(
 ): Promise<string[]>;
 
 /**
- * 以同步方法列出目录下所有文件名，支持通过自定义过滤函数对文件名进行过滤。
+ * 以同步方式列出目录下所有文件名，支持递归列出和自定义文件名过滤。
+ *
  * 可通过配置options中recursion参数实现递归列出所有文件的相对路径，相对路径以“/”开头。
  *
  * @param { string } path - 目录的应用沙箱路径。
- * @param { ListFileExtOptions } [options] - 文件过滤选项。默认不进行过滤。
+ * @param { ListFileExtOptions } [options] - 文件列出选项。默认为空，表示不递归、不限制列出数量、不进行过滤。
  * @returns { string[] } List of the file names obtained.
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1621,9 +1634,9 @@ declare function listFileExtSync(
 declare function lseek(fd: number, offset: number, whence?: WhenceType): number;
 
 /**
- * 获取符号链接文件信息，使用promise异步回调。
+ * 获取符号链接文件信息，返回符号链接本身的属性而非目标文件的属性。使用Promise异步回调。
  *
- * @param { string } path - 文件的应用沙箱路径path或URI。<br>**说明**：从API version 22开始，支持传入URI。
+ * @param { string } path - 文件的应用沙箱路径或URI。<br>**说明**：从API version 22开始，支持传入URI。
  * @returns { Promise<Stat> } Promise对象。返回Stat对象，表示文件的具体信息，详情见Stat。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1642,10 +1655,10 @@ declare function lseek(fd: number, offset: number, whence?: WhenceType): number;
 declare function lstat(path: string): Promise<Stat>;
 
 /**
- * 获取符号链接文件信息，使用callback异步回调。
+ * 获取符号链接文件信息，返回符号链接本身的属性而非目标文件的属性。使用callback异步回调。
  *
- * @param { string } path - 文件的应用沙箱路径path或URI。<br>**说明**：从API version 22开始，支持传入URI。
- * @param { AsyncCallback<Stat> } callback - 异步获取文件具体信息之后的回调。
+ * @param { string } path - 文件的应用沙箱路径或URI。<br>**说明**：从API version 22开始，支持传入URI。
+ * @param { AsyncCallback<Stat> } callback - 回调函数，返回Stat对象。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
  * @throws { BusinessError } 13900011 - Out of memory
@@ -1663,9 +1676,9 @@ declare function lstat(path: string): Promise<Stat>;
 declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
 
 /**
- * 以同步方法获取符号链接文件信息。
+ * 以同步方法获取符号链接文件信息，返回符号链接本身的属性而非目标文件的属性。
  *
- * @param { string } path - 文件的应用沙箱路径path或URI。<br>**说明**：从API version 22开始，支持传入URI。
+ * @param { string } path - 文件的应用沙箱路径或URI。<br>**说明**：从API version 22开始，支持传入URI。
  * @returns { Stat } 表示文件的具体信息。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1684,7 +1697,7 @@ declare function lstat(path: string, callback: AsyncCallback<Stat>): void;
 declare function lstatSync(path: string): Stat;
 
 /**
- * 创建目录，使用promise异步回调。
+ * 创建单层目录，若父目录不存在则会报错。使用Promise异步回调。
  *
  * @param { string } path - 目录的应用沙箱路径。
  * @returns { Promise<void> } Promise对象。无返回值。
@@ -1711,7 +1724,7 @@ declare function lstatSync(path: string): Stat;
 declare function mkdir(path: string): Promise<void>;
 
 /**
- * 创建目录，使用promise异步回调。当recursion指定为true时，可递归创建目录。
+ * 创建目录。使用Promise异步回调。当recursion指定为true时，可递归创建目录。
  *
  * @param { string } path - 目录的应用沙箱路径。
  * @param { boolean } recursion - 是否递归创建目录。recursion指定为true时，可递归创建目录。recursion指定为false时，仅可创建单层目录。
@@ -1739,10 +1752,10 @@ declare function mkdir(path: string): Promise<void>;
 declare function mkdir(path: string, recursion: boolean): Promise<void>;
 
 /**
- * 创建目录，使用callback异步回调。
+ * 创建单层目录，若父目录不存在则会报错。使用callback异步回调。
  *
  * @param { string } path - 目录的应用沙箱路径。
- * @param { AsyncCallback<void> } callback - 异步创建目录操作完成之后的回调。
+ * @param { AsyncCallback<void> } callback - 回调函数。当创建目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1766,11 +1779,11 @@ declare function mkdir(path: string, recursion: boolean): Promise<void>;
 declare function mkdir(path: string, callback: AsyncCallback<void>): void;
 
 /**
- * 创建目录，使用callback异步回调。当recursion指定为true，可递归创建目录。
+ * 创建目录，当recursion指定为true，可递归创建目录。使用callback异步回调。
  *
  * @param { string } path - 目录的应用沙箱路径。
  * @param { boolean } recursion - 是否递归创建目录。recursion指定为true时，可递归创建目录。recursion指定为false时，仅可创建单层目录。
- * @param { AsyncCallback<void> } callback - 异步创建目录操作完成之后的回调。
+ * @param { AsyncCallback<void> } callback - 回调函数。当创建目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1794,7 +1807,7 @@ declare function mkdir(path: string, callback: AsyncCallback<void>): void;
 declare function mkdir(path: string, recursion: boolean, callback: AsyncCallback<void>): void;
 
 /**
- * 以同步方法创建目录。
+ * 以同步方法创建单层目录，若父目录不存在则会报错。
  *
  * @param { string } path - 目录的应用沙箱路径。
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -1847,7 +1860,7 @@ declare function mkdirSync(path: string): void;
 declare function mkdirSync(path: string, recursion: boolean): void;
 
 /**
- * 创建临时目录，使用promise异步回调。
+ * 创建临时目录。使用Promise异步回调。
  *
  * @param { string } prefix - 指定目录路径，命名时需要以"XXXXXX"作为结尾。路径末尾的"XXXXXX"字符串将被替换为随机字符，以创建唯一的目录名。
  * @returns { Promise<string> } Promise对象。返回生成的唯一目录路径。
@@ -1873,10 +1886,10 @@ declare function mkdirSync(path: string, recursion: boolean): void;
 declare function mkdtemp(prefix: string): Promise<string>;
 
 /**
- * 创建临时目录，使用callback异步回调。
+ * 创建临时目录。使用callback异步回调。
  *
  * @param { string } prefix - 指定目录路径，命名时需要以"XXXXXX"作为结尾。路径末尾的"XXXXXX"字符串将被替换为随机字符，以创建唯一的目录名。
- * @param { AsyncCallback<string> } callback - 异步创建临时目录之后的回调。
+ * @param { AsyncCallback<string> } callback - 回调函数，返回临时目录路径。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -1899,7 +1912,7 @@ declare function mkdtemp(prefix: string): Promise<string>;
 declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
 
 /**
- * 以同步的方法创建临时目录。
+ * 以同步方法创建临时目录。
  *
  * @param { string } prefix - 指定目录路径，命名时需要以"XXXXXX"作为结尾。路径末尾的"XXXXXX"字符串将被替换为随机字符，以创建唯一的目录名。
  * @returns { string } 产生的唯一目录路径。
@@ -1925,11 +1938,13 @@ declare function mkdtemp(prefix: string, callback: AsyncCallback<string>): void;
 declare function mkdtempSync(prefix: string): string;
 
 /**
- * 基于文件描述符或文件对象创建文件映射对象，使用promise异步回调。将文件内容映射到内存，以实现文件的高效读写访问。
- * 注意：读写模式（MappingMode.READ_WRITE）下，若映射范围超过原始文件大小，将自动扩展文件大小。
- * > **说明**
- * > 注意：在读写模式（MappingMode.READ_WRITE）下，如果映射范围超过原始文件大小，则文件大小
- * > 将自动展开。
+ * 基于文件描述符或文件对象创建文件映射对象，实现文件的高效读写访问。使用Promise异步回调。
+ *
+ * > **说明：**
+ * >
+ * > 1. 仅支持对常规文件（regular file）进行内存映射，不支持管道、socket、设备文件等非常规文件类型。可通过[statSync](#fileiostatsync)获取文件属性后调用[Stat.isFile()](#isfile)判断文件是否为常规文件。
+ * > 2. 若映射范围超过原始文件大小且文件具有写权限，将自动扩展映射文件大小。
+ * > 3. 对于外部存储或网络文件等，由于底层文件系统的差异，映射的建立及对映射内存的访问行为不做保证，可能导致应用异常终止。建议此类场景优先使用[read](#fileioread)、[write](#fileiowrite)或[Stream](#stream)等其他文件访问接口。
  *
  * @param { number | File } file - 已打开的File对象或已打开的文件描述符fd。
  * @param { MappingMode } mode - 创建文件内存映射对象的选项，必须指定如下选项中的一个：
@@ -1937,8 +1952,8 @@ declare function mkdtempSync(prefix: string): string;
  *     <br>MappingMode.READ_WRITE(1)：读写映射模式。修改会写入文件映射区，后续由操作系统同步到文件（非实时）。
  *     <br>MappingMode.PRIVATE(2)：私有映射模式。是一种写时复制的映射机制，对映射区的修改仅对当前进程可见，不会影响原始文件。
  * @param { number } offset - 文件映射区的起始位置，单位为Byte。
- * @param { number } size - 文件映射区的大小，单位为Byte。
- * @returns { Promise<FileMapping> } Promise对象。返回FileMapping对象。
+ * @param { number } size - 文件映射区的大小，取值范围(0, INT32_MAX]，单位为Byte。
+ * @returns { Promise<FileMapping> } Promise对象，返回文件映射对象。返回的对象初始状态：position为0，limit和capacity均等于size。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -1962,8 +1977,13 @@ declare function mkdtempSync(prefix: string): string;
 declare function mmap(file: number | File, mode: MappingMode, offset: number, size: number): Promise<FileMapping>;
 
 /**
- * 以同步方法基于文件描述符或文件对象创建文件映射对象。将文件内容映射到内存，以实现文件的高效读写访问。
- * 注意：读写模式（MappingMode.READ_WRITE）下，若映射范围超过原始文件大小，将自动扩展文件大小。
+ * 以同步方法基于文件描述符或文件对象创建文件映射对象，实现文件的高效读写访问。
+ *
+ * > **说明：**
+ * >
+ * > 1. 仅支持对常规文件（regular file）进行内存映射，不支持管道、socket、设备文件等非常规文件类型。可通过[statSync](#fileiostatsync)获取文件属性后调用[Stat.isFile()](#isfile)判断文件是否为常规文件。
+ * > 2. 若映射范围超过原始文件大小且文件具有写权限，将自动扩展映射文件大小。
+ * > 3. 对于外部存储或网络文件等，由于底层文件系统的差异，映射的建立及对映射内存的访问行为不做保证，可能导致应用异常终止。建议此类场景优先使用[read](#fileioread)、[write](#fileiowrite)或[Stream](#stream)等其他文件访问接口。
  *
  * @param { number | File } file - 已打开的File对象或已打开的文件描述符fd。
  * @param { MappingMode } mode - 创建文件内存映射对象的选项，必须指定如下选项中的一个：
@@ -1971,8 +1991,8 @@ declare function mmap(file: number | File, mode: MappingMode, offset: number, si
  *     <br>MappingMode.READ_WRITE(1)：读写映射模式。修改会写入文件映射区，后续由操作系统同步到文件（非实时）。
  *     <br>MappingMode.PRIVATE(2)：私有映射模式。是一种写时复制的映射机制，对映射区的修改仅对当前进程可见，不会影响原始文件。
  * @param { number } offset - 文件映射区的起始位置，单位为Byte。
- * @param { number } size - 文件映射区的大小，单位为Byte。
- * @returns { FileMapping } - FileMapping object.
+ * @param { number } size - 文件映射区的大小，取值范围(0, INT32_MAX]，单位为Byte。
+ * @returns { FileMapping } 创建的文件映射对象。返回的对象初始状态：position为0，limit和capacity均等于size。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -1996,7 +2016,7 @@ declare function mmap(file: number | File, mode: MappingMode, offset: number, si
 declare function mmapSync(file: number | File, mode: MappingMode, offset: number, size: number): FileMapping;
 
 /**
- * 移动源目录至目标路径下，使用promise异步回调。
+ * 移动源目录及其内容至目标路径下。使用Promise异步回调。
  *
  * > **说明：**
  * >
@@ -2035,11 +2055,17 @@ declare function mmapSync(file: number | File, mode: MappingMode, offset: number
 declare function moveDir(src: string, dest: string, mode?: number): Promise<void>;
 
 /**
- * Moves the source directory to the destination directory. This API uses an asynchronous callback to return the result.
+ * 移动源目录及其内容至目标路径下。使用callback异步回调。
+ *
+ * 移动模式为目录级别抛异常。当目标目录下存在与源目录名冲突的目录，则抛出异常。
+ *
+ * > **说明：**
+ * >
+ * > 该接口不支持在分布式文件路径下操作。
  *
  * @param { string } src - 源目录的应用沙箱路径。
  * @param { string } dest - 目标目录的应用沙箱路径。
- * @param { AsyncCallback<void> } callback - 异步移动目录之后的回调。
+ * @param { AsyncCallback<void> } callback - 回调函数。当移动目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2065,7 +2091,7 @@ declare function moveDir(src: string, dest: string, mode?: number): Promise<void
 declare function moveDir(src: string, dest: string, callback: AsyncCallback<void>): void;
 
 /**
- * 移动源目录至目标路径下。使用callback异步回调。
+ * 移动源目录及其内容至目标路径下。使用callback异步回调。
  *
  * 移动模式为目录级别抛异常。当目标目录下存在与源目录名冲突的目录，则抛出异常。
  *
@@ -2075,7 +2101,7 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
  *
  * @param { string } src - 源目录的应用沙箱路径。
  * @param { string } dest - 目标目录的应用沙箱路径。
- * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - 异步移动目录之后的回调。
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - 回调函数。当移动目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform [since 20]
@@ -2084,15 +2110,15 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
 declare function moveDir(src: string, dest: string, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
- * 移动源目录至目标路径下，支持设置移动模式。使用callback异步回调。
+ * 移动源目录及其内容至目标路径下，支持设置冲突处理模式。使用callback异步回调。
  *
  * @param { string } src - 源目录的应用沙箱路径。
  * @param { string } dest - 目标目录的应用沙箱路径。
- * @param { number } mode - 移动模式，默认值为0。<br/>- mode为0，目录级别抛异常。若目标目录下存在与源目录名冲突的非空目录，则抛出异常。<br/>- mode为1，文件级别抛异常。目标目录下存在与
- *     源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部移动至目标目录下，目标目录下未冲突文件将继续保留，且冲突文件信息将在抛出异常的data属性中以Array<
- *     [ConflictFiles]{@link ConflictFiles}>形式提供。<br/>- mode为2，文件级别强制覆盖。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件
- *     ，未冲突文件将继续保留。<br/>- mode为3，目录级别强制覆盖。移动源目录至目标目录下，目标目录下移动的目录内容与源目录完全一致。若目标目录下存在与源目录名冲突的目录，该目录下的所有原始文件将被删除。
- * @param { AsyncCallback<void> } callback - Return the callback function.
+ * @param { number } mode - 移动模式。<br/>- mode为0，目录级别抛异常。若目标目录下存在与源目录名冲突的目录，则抛出异常。<br/>
+ *     - mode为1，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部移动至目标目录下，目标目录下未冲突文件将继续保留。<br/>
+ *     - mode为2，文件级别强制覆盖。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件，未冲突文件将继续保留。<br/>
+ *     - mode为3，目录级别强制覆盖。移动源目录至目标目录下，目标目录下移动的目录内容与源目录完全一致。若目标目录下存在与源目录名冲突的目录，该目录下所有原始文件将被删除。
+ * @param { AsyncCallback<void> } callback - 回调函数。当移动目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2118,7 +2144,7 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
 declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
 /**
- * 移动源目录至目标路径下，支持设置移动模式。使用callback异步回调。
+ * 移动源目录及其内容至目标路径下，支持设置冲突处理模式。使用callback异步回调。
  *
  * > **说明：**
  * >
@@ -2126,11 +2152,12 @@ declare function moveDir(src: string, dest: string, mode: number, callback: Asyn
  *
  * @param { string } src - 源目录的应用沙箱路径。
  * @param { string } dest - 目标目录的应用沙箱路径。
- * @param { number } mode - 移动模式，默认值为0。<br/>- mode为0，目录级别抛异常。若目标目录下存在与源目录名冲突的非空目录，则抛出异常。<br/>- mode为1，文件级别抛异常。目标目录下存在与
- *     源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部移动至目标目录下，目标目录下未冲突文件将继续保留，且冲突文件信息将在抛出异常的data属性中以Array<
- *     [ConflictFiles]{@link ConflictFiles}>形式提供。<br/>- mode为2，文件级别强制覆盖。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件
- *     ，未冲突文件将继续保留。<br/>- mode为3，目录级别强制覆盖。移动源目录至目标目录下，目标目录下移动的目录内容与源目录完全一致。若目标目录下存在与源目录名冲突的目录，该目录下的所有原始文件将被删除。
- * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - 异步移动目录之后的回调。
+ * @param { number } mode - 移动模式。<br/>- mode为0，目录级别抛异常。若目标目录下存在与源目录名冲突的目录，则抛出异常。<br/>
+ *     - mode为1，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部移动至目标目录下，目标目录下未冲突文件将继续保留，
+ *     且冲突文件信息将在抛出异常的data属性中以Array<[ConflictFiles]{@link ConflictFiles}>形式提供。<br/>
+ *     - mode为2，文件级别强制覆盖。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件
+ *     ，未冲突文件将继续保留。<br/>- mode为3，目录级别强制覆盖。移动源目录至目标目录下，目标目录下移动的目录内容与源目录完全一致。若目标目录下存在与源目录名冲突的目录，该目录下所有原始文件将被删除。
+ * @param { AsyncCallback<void, Array<ConflictFiles>> } callback - 回调函数。当移动目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900015 - File exists
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform [since 20]
@@ -2139,7 +2166,7 @@ declare function moveDir(src: string, dest: string, mode: number, callback: Asyn
 declare function moveDir(src: string, dest: string, mode: number, callback: AsyncCallback<void, Array<ConflictFiles>>): void;
 
 /**
- * 以同步方法移动源目录至目标路径下。
+ * 以同步方法移动源目录及其内容至目标路径下。
  *
  * > **说明：**
  * >
@@ -2147,10 +2174,10 @@ declare function moveDir(src: string, dest: string, mode: number, callback: Asyn
  *
  * @param { string } src - 源目录的应用沙箱路径。
  * @param { string } dest - 目标目录的应用沙箱路径。
- * @param { number } [mode] - 移动模式，默认值为0。<br/>- mode为0，目录级别抛异常。若目标目录下存在与源目录名冲突的非空目录，则抛出异常。<br/>- mode为1，文件级别抛异常。目标目录下存在与
+ * @param { number } [mode] - 移动模式，默认值为0。<br/>- mode为0，目录级别抛异常。若目标目录下存在与源目录名冲突的目录，则抛出异常。<br/>- mode为1，文件级别抛异常。目标目录下存在与
  *     源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部移动至目标目录下，目标目录下未冲突文件将继续保留，且冲突文件信息将在抛出异常的data属性中以Array<
  *     [ConflictFiles]{@link ConflictFiles}>形式提供。<br/>- mode为2，文件级别强制覆盖。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件
- *     ，未冲突文件将继续保留。<br/>- mode为3，目录级别强制覆盖。移动源目录至目标目录下，目标目录下移动的目录内容与源目录完全一致。若目标目录下存在与源目录名冲突的目录，该目录下的所有原始文件将被删除。
+ *     ，未冲突文件将继续保留。<br/>- mode为3，目录级别强制覆盖。移动源目录至目标目录下，目标目录下移动的目录内容与源目录完全一致。若目标目录下存在与源目录名冲突的目录，该目录下所有原始文件将被删除。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2177,7 +2204,7 @@ declare function moveDir(src: string, dest: string, mode: number, callback: Asyn
 declare function moveDirSync(src: string, dest: string, mode?: number): void;
 
 /**
- * 移动文件，使用promise异步回调。
+ * 移动文件至目标路径，支持设置冲突处理模式。使用Promise异步回调。
  *
  * > **说明：**
  * >
@@ -2221,7 +2248,7 @@ declare function moveFile(src: string, dest: string, mode?: number): Promise<voi
  *
  * @param { string } src - 源文件的应用沙箱路径。
  * @param { string } dest - 目标文件的应用沙箱路径。
- * @param { AsyncCallback<void> } callback - 异步移动文件之后的回调。
+ * @param { AsyncCallback<void> } callback - 回调函数。当移动文件成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2248,7 +2275,7 @@ declare function moveFile(src: string, dest: string, mode?: number): Promise<voi
 declare function moveFile(src: string, dest: string, callback: AsyncCallback<void>): void;
 
 /**
- * 移动文件，支持设置移动模式。使用callback异步回调。
+ * 移动文件至目标路径，支持设置冲突处理模式。使用callback异步回调。
  *
  * > **说明：**
  * >
@@ -2256,8 +2283,8 @@ declare function moveFile(src: string, dest: string, callback: AsyncCallback<voi
  *
  * @param { string } src - 源文件的应用沙箱路径。
  * @param { string } dest - 目标文件的应用沙箱路径。
- * @param { number } [mode] - 移动模式。若mode为0，移动位置存在同名文件时，强制移动覆盖。若mode为1，移动位置存在同名文件时，抛出异常。默认为0。
- * @param { AsyncCallback<void> } callback - 异步移动文件之后的回调。
+ * @param { number } mode - 移动模式。若mode为0，移动位置存在同名文件时，强制移动覆盖。若mode为1，移动位置存在同名文件时，抛出异常。默认为0。
+ * @param { AsyncCallback<void> } callback - 回调函数。当移动文件成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2284,7 +2311,7 @@ declare function moveFile(src: string, dest: string, callback: AsyncCallback<voi
 declare function moveFile(src: string, dest: string, mode: number, callback: AsyncCallback<void>): void;
 
 /**
- * 以同步方式移动文件。
+ * 以同步方式移动文件至目标路径。
  *
  * > **说明：**
  * >
@@ -2319,7 +2346,7 @@ declare function moveFile(src: string, dest: string, mode: number, callback: Asy
 declare function moveFileSync(src: string, dest: string, mode?: number): void;
 
 /**
- * 打开文件或目录，使用promise异步回调。支持使用URI打开文件。
+ * 打开文件或目录，支持使用URI打开文件。使用Promise异步回调。
  *
  * @param { string } path - 文件或目录的应用沙箱路径或文件URI。
  * @param { number } [mode] - 打开文件或目录的[选项](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#openmode)，必须指定如下选项中
@@ -2365,10 +2392,10 @@ declare function moveFileSync(src: string, dest: string, mode?: number): void;
 declare function open(path: string, mode?: number): Promise<File>;
 
 /**
- * 打开文件或目录，使用callback异步回调。支持使用URI打开文件。
+ * 打开文件或目录，支持使用URI打开文件。使用callback异步回调。
  *
  * @param { string } path - 文件或目录的应用沙箱路径或URI。
- * @param { AsyncCallback<File> } callback - 异步打开文件之后的回调。
+ * @param { AsyncCallback<File> } callback - 回调函数，返回File对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2408,14 +2435,14 @@ declare function open(path: string, callback: AsyncCallback<File>): void;
  * 支持使用URI打开文件。
  *
  * @param { string } path - 文件或目录的应用沙箱路径或URI。
- * @param { number } [mode] - 打开文件或目录的[选项](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#openmode)，必须指定如下选项中
+ * @param { number } mode - 打开文件或目录的[选项](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#openmode)，必须指定如下选项中
  *     的一个，默认以只读方式打开：<br/>- OpenMode.READ_ONLY(0o0)：只读打开。<br/>- OpenMode.WRITE_ONLY(0o1)：只写打开。<br/>- OpenMode.READ_WRITE
  *     (0o2)：读写打开。<br/>给定如下功能选项，以按位或的方式追加，默认不给定任何额外选项：<br/>- OpenMode.CREATE(0o100)：若文件不存在，则创建文件。<br/>- OpenMode.TRUNC(0
  *     o1000)：如果文件存在且文件具有写权限，则将其长度裁剪为零。<br/>- OpenMode.APPEND(0o2000)：以追加方式打开，后续写将追加到文件末尾。<br/>- OpenMode.NONBLOCK(0o400
  *     0)：如果path指向FIFO、块特殊文件或字符特殊文件，则本次打开及后续IO进行非阻塞操作。<br/>- OpenMode.DIR(0o200000)：如果path不指向目录，则出错。不允许附加写权限。<br/>-
  *     OpenMode.NOFOLLOW(0o400000)：如果path指向符号链接，则出错。<br/>- OpenMode.SYNC(0o4010000)：以同步IO的方式打开文件。<br/>- OpenMode.UNCACHE(0o10000000000)：
  *     读写文件不进行页缓存，从API版本26.0.0开始支持此选项。
- * @param { AsyncCallback<File> } callback - 异步打开文件之后的回调。
+ * @param { AsyncCallback<File> } callback - 回调函数，返回File对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2496,14 +2523,11 @@ declare function open(path: string, mode: number, callback: AsyncCallback<File>)
 declare function openSync(path: string, mode?: number): File;
 
 /**
- * 读取文件数据，使用promise异步回调。
+ * 从文件读取数据，返回实际读取的字节数。使用Promise异步回调。
  *
- * @param { number } fd - 已打开的文件描述符。
+ * @param { number } fd - 已打开的文件描述符fd。
  * @param { ArrayBuffer } buffer - 用于保存读取到的文件数据的缓冲区。
- * @param { object } [options] - The options are as follows:<br>- **offset** (number): position of the data to read in
- *     the file, in bytes. This parameter is optional. By default, data is read from the current position.<br>-
- *     **length** (number): length of the data to read, in bytes. This parameter is optional. The default value is the
- *     buffer length. [since 9 - 10]
+ * @param { object } [options] - 读取配置。 [since 9 - 10]
  * @param { ReadOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。<br/>- length，
  *     number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。 [since 11]
  * @returns { Promise<number> } Promise对象。返回实际读取的数据长度，单位为Byte。
@@ -2529,11 +2553,11 @@ declare function read(
 ): Promise<number>;
 
 /**
- * 从文件读取数据，使用callback异步回调。
+ * 从文件读取数据，返回实际读取的字节数。使用callback异步回调。
  *
- * @param { number } fd - 已打开的文件描述符。
+ * @param { number } fd - 已打开的文件描述符fd。
  * @param { ArrayBuffer } buffer - 用于保存读取到的文件数据的缓冲区。
- * @param { AsyncCallback<number> } callback - 异步读取数据之后的回调。返回实际读取的数据长度，单位为Byte。
+ * @param { AsyncCallback<number> } callback - 回调函数。返回实际读取的数据长度，单位为Byte。
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2551,15 +2575,12 @@ declare function read(
 declare function read(fd: number, buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
 
 /**
- * 从文件读取数据，使用callback异步回调。
+ * 从文件读取数据，支持配置读取选项（如偏移位置和读取长度），返回实际读取的字节数。使用callback异步回调。
  *
- * @param { number } fd - 已打开的文件描述符。
+ * @param { number } fd - 已打开的文件描述符fd。
  * @param { ArrayBuffer } buffer - 用于保存读取到的文件数据的缓冲区。
- * @param { object } [options] - The options are as follows:<br>- **offset** (number): position of the data to read in
- *     the file, in bytes. This parameter is optional. By default, data is read from the current position.<br>-
- *     **length** (number): length of the data to read, in bytes. This parameter is optional. The default value is the
- *     buffer length. [since 9 - 10]
- * @param { ReadOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。<br/>- length，
+ * @param { object } options - 读取配置。 [since 9 - 10]
+ * @param { ReadOptions } options - 支持如下选项：<br/>- offset，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。<br/>- length，
  *     number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。 [since 11]
  * @param { AsyncCallback<number> } callback - 异步读取数据之后的回调。返回实际读取的数据长度，单位为Byte。
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2584,14 +2605,11 @@ declare function read(
 ): void;
 
 /**
- * 以同步方法从文件读取数据。
+ * 以同步方法从文件读取数据，返回实际读取的字节数。
  *
- * @param { number } fd - 已打开的文件描述符。
+ * @param { number } fd - 已打开的文件描述符fd。
  * @param { ArrayBuffer } buffer - 用于保存读取到的文件数据的缓冲区。
- * @param { object } [options] - The options are as follows:<br>- **offset** (number): position of the data to read in
- *     the file, in bytes. This parameter is optional. By default, data is read from the current position.<br>-
- *     **length** (number): length of the data to read, in bytes. This parameter is optional. The default value is the
- *     buffer length. [since 9 - 10]
+ * @param { object } [options] - 读取配置。 [since 9 - 10]
  * @param { ReadOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。<br/>- length，
  *     number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。 [since 11]
  * @returns { number } 返回实际读取的数据长度，单位为Byte。
@@ -2617,7 +2635,7 @@ declare function readSync(
 ): number;
 
 /**
- * 逐行读取文件文本内容，使用promise异步回调。只支持读取utf-8格式文件。
+ * 逐行读取文件文本内容，只支持读取utf-8格式文件。使用promise异步回调。
  *
  * @param { string } filePath - 文件的应用沙箱路径。
  * @param { Options } [options] - 可选项。支持以下选项：<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认'utf-8'，仅支持'utf-8'
@@ -2643,10 +2661,10 @@ declare function readSync(
 declare function readLines(filePath: string, options?: Options): Promise<ReaderIterator>;
 
 /**
- * 逐行读取文件文本内容，使用callback异步回调，只支持读取utf-8格式文件。
+ * 逐行读取文件文本内容，只支持读取utf-8格式文件。使用callback异步回调。
  *
  * @param { string } filePath - 文件的应用沙箱路径。
- * @param { AsyncCallback<ReaderIterator> } callback - 逐行读取文件文本内容回调。返回文件读取迭代器。
+ * @param { AsyncCallback<ReaderIterator> } callback - 回调函数，返回文件读取迭代器。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900012 - Permission denied
  * @throws { BusinessError } 13900015 - File exists
@@ -2666,11 +2684,11 @@ declare function readLines(filePath: string, options?: Options): Promise<ReaderI
 declare function readLines(filePath: string, callback: AsyncCallback<ReaderIterator>): void;
 
 /**
- * 逐行读取文件文本内容，使用callback异步回调，只支持读取utf-8格式文件。
+ * 逐行读取文件文本内容，可配置读取选项，只支持读取utf-8格式文件。使用callback异步回调。
  *
  * @param { string } filePath - 文件的应用沙箱路径。
  * @param { Options } options - 可选项。支持以下选项：<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认'utf-8'，仅支持'utf-8'。
- * @param { AsyncCallback<ReaderIterator> } callback - 逐行读取文件文本内容回调。返回文件读取迭代器。
+ * @param { AsyncCallback<ReaderIterator> } callback - 回调函数，返回文件读取迭代器。
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900012 - Permission denied
  * @throws { BusinessError } 13900015 - File exists
@@ -2690,7 +2708,7 @@ declare function readLines(filePath: string, callback: AsyncCallback<ReaderItera
 declare function readLines(filePath: string, options: Options, callback: AsyncCallback<ReaderIterator>): void;
 
 /**
- * 以同步方式逐行读取文件的文本内容。
+ * 以同步方式逐行读取文件的文本内容，只支持读取utf-8格式文件。
  *
  * @param { string } filePath - 文件的应用沙箱路径。
  * @param { Options } [options] - 可选项。支持以下选项：<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认'utf-8'，仅支持'utf-8'
@@ -2716,16 +2734,12 @@ declare function readLines(filePath: string, options: Options, callback: AsyncCa
 declare function readLinesSync(filePath: string, options?: Options): ReaderIterator;
 
 /**
- * 基于文本方式读取文件（即直接读取文件的文本内容），使用promise异步回调。
+ * 基于文本方式读取文件（即直接读取文件的文本内容）。使用Promise异步回调。
  *
  * @param { string } filePath - 文件的应用沙箱路径。
- * @param { object } [options] - The options are as follows:<br>- **offset** (number): position of the data to read in
- *     the file, in bytes. This parameter is optional. By default, data is read from the current position.<br>-
- *     **length** (number): length of the data to read, in bytes. This parameter is optional. The default value is the
- *     file length.<br>- **encoding** (string): format of the data to be encoded.<br>It is valid only when the data is
- *     of the string type. The default value is **'utf-8'**, which is the only value supported. [since 9 - 10]
+ * @param { object } [options] - 读取配置。 [since 9 - 10]
  * @param { ReadTextOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读取。<br/>- length
- *     ，number类型，表示期望读取数据，单位为Byte。可选，默认文件长度。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认'utf-8'，仅支持'utf-8'
+ *     ，number类型，表示期望读取数据的长度，单位为Byte。可选，默认文件长度。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认'utf-8'，仅支持'utf-8'
  *     。 [since 11]
  * @returns { Promise<string> } Promise对象。返回读取文件的内容。
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -2753,7 +2767,7 @@ declare function readText(
 ): Promise<string>;
 
 /**
- * 基于文本方式读取文件内容，使用callback异步回调。
+ * 基于文本方式读取文件内容。使用callback异步回调。
  *
  * @param { string } filePath - 文件的应用沙箱路径。
  * @param { AsyncCallback<string> } callback - 回调函数，返回读取文件的内容。
@@ -2778,16 +2792,12 @@ declare function readText(
 declare function readText(filePath: string, callback: AsyncCallback<string>): void;
 
 /**
- * 基于文本方式读取文件内容，使用callback异步回调。
+ * 基于文本方式读取文件内容，支持配置读取选项。使用callback异步回调。
  *
  * @param { string } filePath - 文件的应用沙箱路径。
- * @param { object } [options] - The options are as follows:<br>- **offset** (number): position of the data to read in
- *     the file, in bytes. This parameter is optional. By default, data is read from the current position.<br>-
- *     **length** (number): length of the data to read, in bytes. This parameter is optional. The default value is the
- *     file length.<br>- **encoding** (string): format of the data to be encoded. The default value is **'utf-8'**,
- *     which is the only value supported. [since 9 - 10]
- * @param { ReadTextOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读取。<br/>- length
- *     ，number类型，表示期望读取数据，单位为Byte。可选，默认文件长度。<br/>- encoding，string类型，表示数据的编码方式，默认'utf-8'，仅支持'utf-8'。 [since 11]
+ * @param { object } options - 读取配置。 [since 9 - 10]
+ * @param { ReadTextOptions } options - 支持如下选项：<br/>- offset，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读取。<br/>- length
+ *     ，number类型，表示期望读取数据的长度，单位为Byte。可选，默认文件长度。<br/>- encoding，string类型，表示数据的编码方式，默认'utf-8'，仅支持'utf-8'。 [since 11]
  * @param { AsyncCallback<string> } callback - 回调函数，返回读取文件的内容。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2817,14 +2827,10 @@ declare function readText(
  * 以同步方法基于文本方式读取文件（即直接读取文件的文本内容）。
  *
  * @param { string } filePath - 文件的应用沙箱路径。
- * @param { object } [options] - The options are as follows:<br>- **offset** (number): position of the data to read in
- *     the file, in bytes. This parameter is optional. By default, data is read from the current position.<br>-
- *     **length** (number): length of the data to read, in bytes. This parameter is optional. The default value is the
- *     file length.<br>- **encoding** (string): format of the data to be encoded.<br>It is valid only when the data is
- *     of the string type. The default value is **'utf-8'**, which is the only value supported. [since 9 - 10]
- * @param { ReadTextOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读取。<br/>- length
- *     ，number类型，表示期望读取数据，单位为Byte。可选，默认文件长度。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认'utf-8'，仅支持'utf-8'
- *     。 [since 11]
+ * @param { object } [options] - 读取配置。 [since 9 - 10]
+ * @param { ReadTextOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读取。<br/>
+ *     - length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认文件长度。<br/>
+ *     - encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认'utf-8'，仅支持'utf-8'。 [since 11]
  * @returns { string } 返回读取文件的内容。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -2851,14 +2857,14 @@ declare function readTextSync(
 ): string;
 
 /**
- * 重命名文件或目录，使用promise异步回调。
+ * 重命名文件或目录。使用Promise异步回调。
  *
  * > **说明：**
  * >
  * > 该接口不支持在分布式文件路径下操作。
  *
- * @param { string } oldPath - 文件的应用沙箱原路径。
- * @param { string } newPath - 文件的应用沙箱新路径。
+ * @param { string } oldPath - 文件或目录的应用沙箱原路径。
+ * @param { string } newPath - 文件或目录的应用沙箱新路径。
  * @returns { Promise<void> } Promise对象。无返回值。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
@@ -2887,15 +2893,15 @@ declare function readTextSync(
 declare function rename(oldPath: string, newPath: string): Promise<void>;
 
 /**
- * 重命名文件或目录，使用callback异步回调。
+ * 重命名文件或目录。使用callback异步回调。
  *
  * > **说明：**
  * >
  * > 该接口不支持在分布式文件路径下操作。
  *
- * @param { string } oldPath - 文件的应用沙箱原路径。
- * @param { string } newPath - 文件的应用沙箱新路径。
- * @param { AsyncCallback<void> } callback - 异步重命名文件之后的回调。
+ * @param { string } oldPath - 文件或目录的应用沙箱原路径。
+ * @param { string } newPath - 文件或目录的应用沙箱新路径。
+ * @param { AsyncCallback<void> } callback - 回调函数。当重命名文件成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2929,8 +2935,8 @@ declare function rename(oldPath: string, newPath: string, callback: AsyncCallbac
  * >
  * > 该接口不支持在分布式文件路径下操作。
  *
- * @param { string } oldPath - 文件的应用沙箱原路径。
- * @param { string } newPath - 文件的应用沙箱新路径。
+ * @param { string } oldPath - 文件或目录的应用沙箱原路径。
+ * @param { string } newPath - 文件或目录的应用沙箱新路径。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -2958,7 +2964,7 @@ declare function rename(oldPath: string, newPath: string, callback: AsyncCallbac
 declare function renameSync(oldPath: string, newPath: string): void;
 
 /**
- * 删除目录及其所有子目录和文件，使用promise异步回调。
+ * 删除目录及其所有子目录和文件。使用Promise异步回调。
  *
  * > **说明：**
  * >
@@ -2986,14 +2992,14 @@ declare function renameSync(oldPath: string, newPath: string): void;
 declare function rmdir(path: string): Promise<void>;
 
 /**
- * 删除目录及其所有子目录和文件，使用callback异步回调。
+ * 删除目录及其所有子目录和文件。使用callback异步回调。
  *
  * > **说明：**
  * >
  * > 该接口支持删除单个文件，但不推荐使用此方法删除单个文件，推荐使用unlink接口删除单个文件。
  *
  * @param { string } path - 目录的应用沙箱路径。
- * @param { AsyncCallback<void> } callback - 异步删除目录之后的回调。
+ * @param { AsyncCallback<void> } callback - 回调函数。当删除目录成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900011 - Out of memory
@@ -3041,7 +3047,7 @@ declare function rmdir(path: string, callback: AsyncCallback<void>): void;
 declare function rmdirSync(path: string): void;
 
 /**
- * 获取文件或目录详细属性信息，使用promise异步回调。
+ * 获取文件或目录详细属性信息，返回包含文件大小、权限模式、访问时间、修改时间等属性的Stat对象。使用Promise异步回调。
  *
  * @param { string | number } file - 文件或目录的应用沙箱路径path、URI或已打开的文件描述符fd。<br>**说明**：从API version 22开始，支持传入URI。
  * @returns { Promise<Stat> } Promise对象。返回文件或目录的具体信息。
@@ -3066,7 +3072,7 @@ declare function rmdirSync(path: string): void;
 declare function stat(file: string | number): Promise<Stat>;
 
 /**
- * 获取文件或目录的详细属性信息，使用callback异步回调。
+ * 获取文件或目录的详细属性信息，返回包含文件大小、权限模式、访问时间、修改时间等属性的Stat对象。使用callback异步回调。
  *
  * @param { string | number } file - 文件或目录的应用沙箱路径path、URI或已打开的文件描述符fd。<br>**说明**：从API version 22开始，支持传入URI。
  * @param { AsyncCallback<Stat> } callback - 异步获取文件或目录的信息之后的回调。
@@ -3091,7 +3097,7 @@ declare function stat(file: string | number): Promise<Stat>;
 declare function stat(file: string | number, callback: AsyncCallback<Stat>): void;
 
 /**
- * 以同步方法获取文件或目录详细属性信息。
+ * 以同步方法获取文件或目录详细属性信息，返回包含文件大小、权限模式、访问时间、修改时间等属性的Stat对象。
  *
  * @param { string | number } file - 文件或目录的应用沙箱路径path、URI或已打开的文件描述符fd。<br>**说明**：从API version 22开始，支持传入URI。
  * @returns { Stat } 表示文件或目录的具体信息。
@@ -3116,7 +3122,7 @@ declare function stat(file: string | number, callback: AsyncCallback<Stat>): voi
 declare function statSync(file: string | number): Stat;
 
 /**
- * 基于文件路径创建符号链接，使用promise异步回调。
+ * 基于文件路径创建符号链接。使用Promise异步回调。
  *
  * > **说明：**
  * >
@@ -3145,7 +3151,7 @@ declare function statSync(file: string | number): Stat;
 declare function symlink(target: string, srcPath: string): Promise<void>;
 
 /**
- * 基于文件路径创建符号链接，使用callback异步回调。
+ * 基于文件路径创建符号链接。使用callback异步回调。
  *
  * > **说明：**
  * >
@@ -3153,7 +3159,7 @@ declare function symlink(target: string, srcPath: string): Promise<void>;
  *
  * @param { string } target - 要链接的目标文件的应用沙箱路径。
  * @param { string } srcPath - 符号链接文件的应用沙箱路径。
- * @param { AsyncCallback<void> } callback - 异步创建符号链接信息之后的回调。
+ * @param { AsyncCallback<void> } callback - 回调函数。当创建符号链接成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3202,7 +3208,7 @@ declare function symlink(target: string, srcPath: string, callback: AsyncCallbac
 declare function symlinkSync(target: string, srcPath: string): void;
 
 /**
- * 截断文件，使用promise异步回调。
+ * 截断文件，将文件大小调整为指定长度，超出部分的内容将被删除。使用Promise异步回调。
  *
  * @param { string | number } file - 文件的应用沙箱路径或已打开的文件描述符fd。
  * @param { number } [len] - 文件截断后的长度，单位为Byte。默认为0。
@@ -3231,10 +3237,10 @@ declare function symlinkSync(target: string, srcPath: string): void;
 declare function truncate(file: string | number, len?: number): Promise<void>;
 
 /**
- * 截断文件，使用callback异步回调。
+ * 截断文件，删除文件内容。使用callback异步回调。
  *
  * @param { string | number } file - 文件的应用沙箱路径或已打开的文件描述符fd。
- * @param { AsyncCallback<void> } callback - 回调函数，本调用无返回值。
+ * @param { AsyncCallback<void> } callback - 回调函数。当截断文件成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3259,12 +3265,12 @@ declare function truncate(file: string | number, len?: number): Promise<void>;
 declare function truncate(file: string | number, callback: AsyncCallback<void>): void;
 
 /**
- * 截断文件，使用callback异步回调。
+ * 截断文件，将文件大小调整为指定长度，超出部分的内容将被删除。使用callback异步回调。
  *
  * @param { string | number } file - 文件的应用沙箱路径或已打开的文件描述符fd。
  * @param { number } [len] - 文件截断后的长度，单位为Byte。默认为0。 [since 9 - 10]
  * @param { number } len - 文件截断后的长度，单位为Byte。默认为0。 [since 11]
- * @param { AsyncCallback<void> } callback - 回调函数，本调用无返回值。
+ * @param { AsyncCallback<void> } callback - 回调函数。当截断文件成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3289,7 +3295,7 @@ declare function truncate(file: string | number, callback: AsyncCallback<void>):
 declare function truncate(file: string | number, len: number, callback: AsyncCallback<void>): void;
 
 /**
- * 以同步方法截断文件内容。
+ * 以同步方法截断文件内容，将文件大小调整为指定长度，超出部分的内容将被删除。
  *
  * @param { string | number } file - 文件的应用沙箱路径或已打开的文件描述符fd。
  * @param { number } [len] - 文件截断后的长度，单位为Byte。默认为0。
@@ -3317,7 +3323,7 @@ declare function truncate(file: string | number, len: number, callback: AsyncCal
 declare function truncateSync(file: string | number, len?: number): void;
 
 /**
- * 删除单个文件，使用promise异步回调。
+ * 删除单个文件，仅适用于文件，不可用于删除目录。使用Promise异步回调。
  *
  * @param { string } path - 文件的应用沙箱路径。
  * @returns { Promise<void> } Promise对象。无返回值。
@@ -3344,10 +3350,10 @@ declare function truncateSync(file: string | number, len?: number): void;
 declare function unlink(path: string): Promise<void>;
 
 /**
- * 删除文件，使用callback异步回调。
+ * 删除单个文件，仅适用于文件，不可用于删除目录。使用callback异步回调。
  *
  * @param { string } path - 文件的应用沙箱路径。
- * @param { AsyncCallback<void> } callback - 异步删除文件之后的回调。
+ * @param { AsyncCallback<void> } callback - 回调函数。当删除文件成功，err为undefined，否则为错误对象。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900005 - I/O error
@@ -3371,7 +3377,7 @@ declare function unlink(path: string): Promise<void>;
 declare function unlink(path: string, callback: AsyncCallback<void>): void;
 
 /**
- * 以同步方法删除文件。
+ * 以同步方法删除单个文件，仅适用于文件，不可用于删除目录。
  *
  * @param { string } path - 文件的应用沙箱路径。
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -3397,7 +3403,7 @@ declare function unlink(path: string, callback: AsyncCallback<void>): void;
 declare function unlinkSync(path: string): void;
 
 /**
- * 更改文件上次修改该文件的时间。
+ * 更改文件的上次修改时间。
  *
  * @param { string } path - 文件的应用沙箱路径。
  * @param { number } mtime - 待更新的时间戳。自1970年1月1日起至目标时间的毫秒数。仅支持更改上次修改该文件的时间属性。
@@ -3414,18 +3420,13 @@ declare function unlinkSync(path: string): void;
 declare function utimes(path: string, mtime: number): void;
 
 /**
- * 将数据写入文件，使用promise异步回调。
+ * 将数据写入文件，返回实际写入的字节数。使用Promise异步回调。
  *
- * @param { number } fd - 已打开的文件描述符。
+ * @param { number } fd - 已打开的文件描述符fd。
  * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
- * @param { object } [options] - The options are as follows:<br>- **offset** (number): start position to write the data
- *     in the file, in bytes. This parameter is optional. By default, data is written from the current position.<br>-
- *     **length** (number): length of the data to write, in bytes. This parameter is optional. The default value is the
- *     buffer length.<br>- **encoding** (string): format of the data to be encoded when the data is a string. The
- *     default value is **'utf-8'**, which is the only value supported currently. [since 9 - 10]
+ * @param { object } [options] - 写入配置。 [since 9 - 10]
  * @param { WriteOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写入。<br/>- length，
- *     number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认'utf-8'。当前仅支持?'utf-
- *     8'。 [since 11]
+ *     number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认'utf-8'。当前仅支持'utf-8'。 [since 11]
  * @returns { Promise<number> } Promise对象。返回实际写入的数据长度，单位为Byte。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3451,11 +3452,11 @@ declare function write(
 ): Promise<number>;
 
 /**
- * 将数据写入文件，使用callback异步回调。
+ * 将数据写入文件，返回实际写入的字节数。使用callback异步回调。
  *
- * @param { number } fd - 已打开的文件描述符。
+ * @param { number } fd - 已打开的文件描述符fd。
  * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
- * @param { AsyncCallback<number> } callback - 异步将数据写入完成后执行的回调函数。返回实际写入的数据长度，单位为Byte。
+ * @param { AsyncCallback<number> } callback - 回调函数，返回实际写入的数据长度，单位为Byte。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3476,19 +3477,15 @@ declare function write(
 declare function write(fd: number, buffer: ArrayBuffer | string, callback: AsyncCallback<number>): void;
 
 /**
- * 将数据写入文件，使用callback异步回调。
+ * 将数据写入文件，支持配置写入选项（如偏移位置和写入长度），返回实际写入的字节数。使用callback异步回调。
  *
- * @param { number } fd - 已打开的文件描述符。
+ * @param { number } fd - 已打开的文件描述符fd。
  * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
- * @param { object } [options] - The options are as follows:<br>- **offset** (number): start position to write the data
- *     in the file, in bytes. This parameter is optional. By default, data is written from the current position.<br>-
- *     **length** (number): length of the data to write, in bytes. This parameter is optional. The default value is the
- *     buffer length.<br>- **encoding** (string): format of the data to be encoded when the data is a string. The
- *     default value is **'utf-8'**, which is the only value supported currently. [since 9 - 10]
- * @param { WriteOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>- length，
- *     number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认'utf-8'。当前仅支持?'utf-
- *     8'。 [since 11]
- * @param { AsyncCallback<number> } callback - 异步将数据写入完成后执行的回调函数。返回实际写入的数据长度，单位为Byte。
+ * @param { object } options - 写入配置。[since 9 - 10]
+ * @param { WriteOptions } options - 支持如下选项：<br/>- offset，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>- length，
+ *     number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，
+ *     默认'utf-8'。当前仅支持'utf-8'。 [since 11]
+ * @param { AsyncCallback<number> } callback - 回调函数，返回实际写入的数据长度，单位为Byte。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
  * @throws { BusinessError } 13900005 - I/O error
@@ -3514,18 +3511,14 @@ declare function write(
 ): void;
 
 /**
- * 以同步方法将数据写入文件。
+ * 以同步方法将数据写入文件，返回实际写入的字节数。
  *
- * @param { number } fd - 已打开的文件描述符。
+ * @param { number } fd - 已打开的文件描述符fd。
  * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
- * @param { object } [options] - The options are as follows:<br>- **offset** (number): start position to write the data
- *     in the file, in bytes. This parameter is optional. By default, data is written from the current position.<br>-
- *     **length** (number): length of the data to write, in bytes. This parameter is optional. The default value is the
- *     buffer length.<br>- **encoding** (string): format of the data to be encoded when the data is a string. The
- *     default value is **'utf-8'**, which is the only value supported currently. [since 9 - 10]
- * @param { WriteOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>- length，
- *     number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认'utf-8'。当前仅支持?'utf-
- *     8'。 [since 11]
+ * @param { object } [options] - 写入配置。 [since 9 - 10]
+ * @param { WriteOptions } [options] - 支持如下选项：<br/>- offset，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>
+ *     - length，number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>
+ *     - encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认'utf-8'。当前仅支持'utf-8'。 [since 11]
  * @returns { number } 返回实际写入的数据长度，单位为Byte。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900004 - Interrupted system call
@@ -3771,7 +3764,7 @@ interface CopyOptions {
 type ProgressListener = (progress: Progress) => void;
 
 /**
- * 由open接口打开的File对象。
+ * 由open接口打开的File对象，持有文件描述符fd，提供文件锁和获取父目录等能力。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform [since 10]
@@ -3780,13 +3773,13 @@ type ProgressListener = (progress: Progress) => void;
  */
 declare interface File {
   /**
-   * 打开的文件描述符。
-   *
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform [since 10]
-   * @atomicservice [since 11]
-   * @since 9 dynamic
-   */
+ * 已打开的文件描述符fd。
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ */
   readonly fd: number;
 
   /**
@@ -3811,7 +3804,7 @@ declare interface File {
   readonly name: string;
 
   /**
-   * 获取File对象对应文件父目录。
+   * 获取File对象对应文件的父目录路径。
    *
    * @returns { string } 返回父目录路径。
    * @throws { BusinessError } 13900005 - I/O error
@@ -3824,9 +3817,9 @@ declare interface File {
   getParent(): string;
 
   /**
-   * 对文件阻塞式施加共享锁或独占锁，使用promise异步回调。
+   * 对文件阻塞式施加共享锁或独占锁。使用Promise异步回调。
    *
-   * @param { boolean } exclusive - 是否施加独占锁，默认false。true：施加独占锁；false：不施加独占锁。
+   * @param { boolean } [exclusive] - 是否施加独占锁，默认false。true：施加独占锁；false：不施加独占锁。
    * @returns { Promise<void> } Promise对象。无返回值。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -3840,9 +3833,9 @@ declare interface File {
   lock(exclusive?: boolean): Promise<void>;
 
   /**
-   * 对文件阻塞式施加共享锁或独占锁，使Callback异步回调。
-   *
-   * @param { AsyncCallback<void> } callback - 异步文件上锁之后的回调。
+ * 对文件阻塞式施加共享锁。使用callback异步回调。
+ *
+ * @param { AsyncCallback<void> } callback - 回调函数。当文件上锁成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -3855,10 +3848,10 @@ declare interface File {
   lock(callback: AsyncCallback<void>): void;
 
   /**
-   * 对文件阻塞式施加共享锁或独占锁，使Callback异步回调。
-   *
-   * @param { boolean } exclusive - 是否施加独占锁，默认false。true：施加独占锁；false：不施加独占锁。
-   * @param { AsyncCallback<void> } callback - 异步文件上锁之后的回调。
+ * 对文件阻塞式施加共享锁或独占锁。使用callback异步回调。
+ *
+ * @param { boolean } exclusive - 是否施加独占锁。true：施加独占锁；false：不施加独占锁。
+ * @param { AsyncCallback<void> } callback - 回调函数。当文件上锁成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -3873,7 +3866,7 @@ declare interface File {
   /**
    * 文件非阻塞式施加共享锁或独占锁。
    *
-   * @param { boolean } exclusive - 是否施加独占锁，默认false。true：施加独占锁；false：不施加独占锁。
+   * @param { boolean } [exclusive] - 是否施加独占锁，默认false。true：施加独占锁；false：不施加独占锁。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900008 - Bad file descriptor
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -3901,7 +3894,7 @@ declare interface File {
 }
 
 /**
- * 文件映射对象，在调用FileMapping的方法前，需要先通过mmap()方法（同步或异步）构建一个FileMapping实例。
+ * 文件映射对象，在调用FileMapping的方法前，需要先通过[mmap()]{@link mmap}或方法[mmapSync()]{@link mmapSync}构建一个FileMapping实例。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @stagemodelonly
@@ -3911,7 +3904,7 @@ declare interface FileMapping {
   /**
    * 设置文件映射区的当前位置。
    *
-   * @param { number } position - 期望设置的目标位置，单位为Byte。必须为非负数且不大于当前可读写上限（limit）。
+   * @param { number } position - 期望设置的目标位置，单位为Byte。必须为非负数且不大于当前可读写上界的limit，可通过[getLimit()]{@link FileMapping.getLimit}获得可读写上界的limit。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -3922,9 +3915,9 @@ declare interface FileMapping {
   setPosition(position: number): void;
 
   /**
-   * 获取文件映射区的当前位置，单位为Byte。
+   * 获取文件映射区的当前位置。
    *
-   * @returns { number } - Current location of the file mapping area.
+   * @returns { number } 文件映射区的当前位置，单位为Byte。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -3935,9 +3928,9 @@ declare interface FileMapping {
   getPosition(): number;
 
   /**
-   * 获取文件映射区的容量，单位为Byte。
+   * 获取文件映射区的容量。
    *
-   * @returns { number } - Size of the file mapping area, in bytes.
+   * @returns { number } 文件映射区的容量，单位为Byte。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -3948,9 +3941,10 @@ declare interface FileMapping {
   capacity(): number;
 
   /**
-   * 设置文件映射区可读写区域的上界。该上界不会超过映射区的总容量（0 ≤ limit ≤ capacity）。
+   * 设置文件映射区可读写区域的上界。
    *
-   * @param { number } limit - 要设置的可读写区域上界值，单位为Byte。如果当前位置大于新上界，则会被自动调整为 limit。
+   * @param { number } limit - 要设置的可读写区域上界值，单位为Byte。取值需大于等于0，且小于等于当前[capacity]{@link FileMapping.capacity}。
+   *     若所设值小于文件映射区的当前位置，则当前位置将自动调整至该值。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -3963,7 +3957,7 @@ declare interface FileMapping {
   /**
    * 获取文件映射区可读写区域的上界。
    *
-   * @returns { number } - 当前可读写区域上界值，单位为Byte。
+   * @returns { number } 当前可读写区域上界值，单位为Byte。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -3974,7 +3968,9 @@ declare interface FileMapping {
   getLimit(): number;
 
   /**
-   * 模式翻转。即将 limit 属性设置为当前 position，再将当前 position 设置为0。
+   * 翻转文件映射区，将写入准备状态切换为读取准备状态。调用后，limit被设置为当前position的值，position被重置为0。
+
+   * 推荐在一系列[write()]{@link FileMapping.write}操作完成后，调用此方法准备后续的[read()]{@link FileMapping.read}操作。
    *
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
@@ -3986,9 +3982,9 @@ declare interface FileMapping {
   flip(): void;
 
   /**
-   * 获取从当前位置（pisition）到可读写区域的上界（limit）之间的剩余字节数。
+   * 获取从当前位置（position）到可读写区域的上界（limit）之间的剩余字节数。
    *
-   * @returns { number } - 剩余可读或可写的字节数，单位为Byte。
+   * @returns { number } 剩余可读或可写的字节数，单位为Byte。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900052 - Mmap buffer released
@@ -4002,8 +3998,8 @@ declare interface FileMapping {
    * 从当前位置读取数据，并将位置后移实际读取的字节数。
    *
    * @param { ArrayBuffer } buffer - 用于保存读取到的文件数据的缓冲区。
-   * @param { number } [length] - 期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。
-   * @returns { number } - 返回实际读取的数据长度，单位为Byte。
+   * @param { number } [length] - 期望读取数据的长度，单位为Byte。默认缓冲区长度。
+   * @returns { number } 返回实际读取的数据长度，单位为Byte。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
@@ -4016,12 +4012,12 @@ declare interface FileMapping {
   read(buffer: ArrayBuffer, length?: number): number;
 
   /**
-   * 从指定位置读取数据，不影响当前位置。
+   * 从指定位置读取数据，当前位置不会发生移动。
    *
-   * @param { number } position - 期望读取的起始位置。
+   * @param { number } position - 期望读取的起始位置，单位为Byte。
    * @param { ArrayBuffer } buffer - 用于保存读取到的文件数据的缓冲区。
-   * @param { number } [length] - 期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。
-   * @returns { number } - 返回实际读取的数据长度，单位为Byte。
+   * @param { number } [length] - 期望读取数据的长度，单位为Byte。默认缓冲区长度。
+   * @returns { number } 返回实际读取的数据长度，单位为Byte。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
@@ -4037,8 +4033,8 @@ declare interface FileMapping {
    * 从当前位置写入数据，并将位置后移实际写入的字节数。
    *
    * @param { ArrayBuffer } data - 待写入文件的缓冲区数据。
-   * @param { number } [length] - 期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。
-   * @returns { number } - 返回实际写入的长度，单位为Byte。
+   * @param { number } [length] - 期望写入数据的长度，单位为Byte。默认缓冲区长度。
+   * @returns { number } 返回实际写入的长度，单位为Byte。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
@@ -4052,12 +4048,12 @@ declare interface FileMapping {
   write(data: ArrayBuffer, length?: number): number;
 
   /**
-   * 从指定位置写入数据，不影响当前位置。
+   * 从指定位置写入数据，当前位置不会发生移动。
    *
    * @param { number } position - 期望写入的起始位置，单位为Byte。
    * @param { ArrayBuffer } data - 待写入文件的缓冲区数据。
    * @param { number } [length] - 期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。
-   * @returns { number } - 返回实际写入的长度，单位为Byte。
+   * @returns { number } 返回实际写入的长度，单位为Byte。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @throws { BusinessError } 13900051 - Buffer read/write out of bounds
@@ -4071,10 +4067,10 @@ declare interface FileMapping {
   write(position: number, data: ArrayBuffer, length?: number): number;
 
   /**
-   * 将整个文件映射区的脏页数据同步到磁盘文件，使用promise异步回调。
+   * 将整个文件映射区的数据同步到磁盘文件。使用Promise异步回调。
    * 注意：如果文件不在本地设备上，调用此接口不保证所有更改都已持久化存储。
    *
-   * @returns { Promise<void> } - Promise对象。无返回值。
+   * @returns { Promise<void> } Promise对象。无返回值。
    * @throws { BusinessError } 13900011 - Out of memory
    * @throws { BusinessError } 13900014 - Device or resource busy
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -4088,12 +4084,12 @@ declare interface FileMapping {
   msync(): Promise<void>;
 
   /**
-   * 将文件映射区指定范围内的脏页数据同步到磁盘文件，使用promise异步回调。
+   * 将文件映射区指定范围内的数据同步到磁盘文件。使用Promise异步回调。
    * 注意：如果文件不在本地设备上，调用此接口不保证所有更改都已持久化存储。
    *
    * @param { number } position - 期望同步的起始位置，单位为Byte。
    * @param { number } length - 期望同步的数据长度，单位为Byte。
-   * @returns { Promise<void> } - Promise对象。无返回值。
+   * @returns { Promise<void> } Promise对象。无返回值。
    * @throws { BusinessError } 13900011 - Out of memory
    * @throws { BusinessError } 13900014 - Device or resource busy
    * @throws { BusinessError } 13900020 - Invalid argument
@@ -4107,7 +4103,7 @@ declare interface FileMapping {
   msync(position: number, length: number): Promise<void>;
 
   /**
-   * 以同步方法将整个文件映射区的脏页数据同步到磁盘文件。
+   * 以同步方法将整个文件映射区的数据同步到磁盘文件。
    * 注意：如果文件不在本地设备上，调用此接口不保证所有更改都已持久化存储。
    *
    * @throws { BusinessError } 13900011 - Out of memory
@@ -4123,7 +4119,7 @@ declare interface FileMapping {
   msyncSync(): void;
 
   /**
-   * 以同步方法将文件映射区指定范围内的脏页数据同步到磁盘文件。
+   * 以同步方法将文件映射区指定范围内的数据同步到磁盘文件。
    * 注意：如果文件不在本地设备上，调用此接口不保证所有更改都已持久化存储。
    *
    * @param { number } position - 期望同步的起始位置，单位为Byte。
@@ -4141,9 +4137,9 @@ declare interface FileMapping {
   msyncSync(position: number, length: number): void;
 
   /**
-   * 释放文件映射区，使用promise异步回调。
+   * 释放文件映射区。使用Promise异步回调。调用后，position、limit和capacity均被重置为0，FileMapping对象不可再进行任何操作。
    *
-   * @returns { Promise<void> } - Promise对象。无返回值。
+   * @returns { Promise<void> } Promise对象。无返回值。
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
    * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4153,7 +4149,7 @@ declare interface FileMapping {
   unmap(): Promise<void>;
 
   /**
-   * 以同步方法释放文件映射区。
+   * 以同步方法释放文件映射区。调用后，position、limit和capacity均被重置为0，FileMapping对象不可再进行任何操作。
    *
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900050 - Internal resource error
@@ -4165,7 +4161,7 @@ declare interface FileMapping {
 }
 
 /**
- * 随机读写文件流。在调用RandomAccessFile的方法前，需要先通过createRandomAccessFile()方法（同步或异步）来构建一个RandomAccessFile实例。
+ * 随机读写文件流，提供基于偏移指针的随机读写能力。在调用RandomAccessFile的方法前，需要先通过createRandomAccessFile()方法（同步或异步）来构建一个RandomAccessFile实例。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform [since 20]
@@ -4174,16 +4170,16 @@ declare interface FileMapping {
 declare interface RandomAccessFile {
 
   /**
-   * 打开的文件描述符。
-   *
-   * @syscap SystemCapability.FileManagement.File.FileIO
-   * @crossplatform [since 20]
-   * @since 10 dynamic
-   */
+ * 已打开的文件描述符fd。
+ *
+ * @syscap SystemCapability.FileManagement.File.FileIO
+ * @crossplatform [since 20]
+ * @since 10 dynamic
+ */
   readonly fd: number;
 
   /**
-   * RandomAccessFile对象的偏移指针，单位为Byte。
+   * RandomAccessFile对象的偏移指针，表示当前读写位置，单位为Byte。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform [since 20]
@@ -4192,7 +4188,7 @@ declare interface RandomAccessFile {
   readonly filePointer: number;
 
   /**
-   * 设置文件偏移指针。
+   * 设置文件偏移指针，用于指定后续读写等操作的起始位置。
    *
    * @param { number } filePointer - RandomAccessFile对象的偏移指针，单位为Byte。
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -4207,7 +4203,7 @@ declare interface RandomAccessFile {
   setFilePointer(filePointer: number): void;
 
   /**
-   * 以同步方式关闭RandomAccessFile对象。
+   * 以同步方式关闭RandomAccessFile对象，关闭后不可再用于读写等操作。
    *
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4222,14 +4218,12 @@ declare interface RandomAccessFile {
   close(): void;
 
   /**
-   * 将数据写入文件，使用promise异步回调。
+ * 将数据写入文件。使用Promise异步回调。
    *
    * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
-   * @param { object } [options] - The options are as follows:<br>- **length** (number): length of the data to write, in
-   *     bytes. The default value is the buffer length.<br>- **offset** (number): start position to write the data, in
-   *     bytes (it is determined by **filePointer** plus **offset**). This parameter is optional. By default, data is
-   *     written from the **filePointer**.<br>- **encoding** (string): format of the data to be encoded when the data is
-   *     a string. The default value is **'utf-8'**, which is the only value supported. [since 10 - 10]
+   * @param { object } [options] - 支持如下选项：<br/>- length，number类型，表示期望写入数据的长度，单位为Byte。默认缓冲区长度。<br/>- offset，number类
+   *     型，表示期望写入文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从偏移指针（filePointer）开始写。<br/>- encoding，string类型，当数据是string
+   *     类型时有效，表示数据的编码方式，默认'utf-8'。仅支持'utf-8'。 [since 10 - 10]
    * @param { WriteOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望写入数据的长度，单位为Byte。默认缓冲区长度。<br/>- offset，number类
    *     型，表示期望写入文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从偏移指针（filePointer）开始写。<br/>- encoding，string类型，当数据是string
    *     类型时有效，表示数据的编码方式，默认'utf-8'。仅支持'utf-8'。 [since 11]
@@ -4256,10 +4250,10 @@ declare interface RandomAccessFile {
   ): Promise<number>;
 
   /**
-   * 将数据写入文件，使用callback异步回调。
+   * 将数据写入文件。使用callback异步回调。
    *
    * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
-   * @param { AsyncCallback<number> } callback - 异步写入完成后执行的回调函数。返回实际写入数据长度，单位为Byte。
+   * @param { AsyncCallback<number> } callback - 回调函数，返回实际写入数据长度，单位为Byte。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4279,19 +4273,14 @@ declare interface RandomAccessFile {
   write(buffer: ArrayBuffer | string, callback: AsyncCallback<number>): void;
 
   /**
-   * 将数据写入文件，使用callback异步回调。
-   *
-   * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
-   * @param { object } [options] - The options are as follows:<br>- **length** (number): length of the data to write, in
-   *     bytes. This parameter is optional. The default value is the buffer length.<br>- **offset** (number): start
-   *     position to write the data, in bytes (it is determined by **filePointer** plus **offset**). This parameter is
-   *     optional. By default, data is written from the **filePointer**.<br>- **encoding** (string): format of the data
-   *     to be encoded when the data is a string. The default value is **'utf-8'**, which is the only value
-   *     supported. [since 10 - 10]
-   * @param { WriteOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望写入数据的长度，单位为Byte。可选，默认为缓冲区长度。<br/>- offset，
+ * 将数据写入文件，支持配置写入选项。使用callback异步回调。
+ *
+ * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
+ * @param { object } options - 写入配置。 [since 10 - 10]
+   * @param { WriteOptions } options - 支持如下选项：<br/>- length，number类型，表示期望写入数据的长度，单位为Byte。可选，默认为缓冲区长度。<br/>- offset，
    *     number类型，表示期望写入文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从偏移指针（filePointer）开始写。<br/>- encoding，string类型，当数据
    *     是string类型时有效，表示数据的编码方式，默认'utf-8'。仅支持'utf-8'。 [since 11]
-   * @param { AsyncCallback<number> } callback - 异步写入完成后执行的回调函数。返回实际写入数据长度，单位为Byte。
+   * @param { AsyncCallback<number> } callback - 回调函数，返回实际写入数据长度，单位为Byte。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -4315,15 +4304,10 @@ declare interface RandomAccessFile {
   ): void;
 
   /**
-   * 以同步方法将数据写入文件。
-   *
-   * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
-   * @param { object } [options] - The options are as follows:<br>- **length** (number): length of the data to write, in
-   *     bytes. This parameter is optional. The default value is the buffer length.<br>- **offset** (number): start
-   *     position to write the data, in bytes (it is determined by **filePointer** plus **offset**). This parameter is
-   *     optional. By default, data is written from the **filePointer**.<br>- **encoding** (string): format of the data
-   *     to be encoded when the data is a string. The default value is **'utf-8'**, which is the only value
-   *     supported. [since 10 - 10]
+ * 以同步方法将数据写入文件。
+ *
+ * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
+ * @param { object } [options] - 写入配置。 [since 10 - 10]
    * @param { WriteOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- offset，
    *     number类型，表示期望写入文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从偏移指针（filePointer）开始写。<br/>- encoding，string类型，当数据
    *     是string类型时有效，表示数据的编码方式，默认'utf-8'。仅支持'utf-8'。 [since 11]
@@ -4350,13 +4334,10 @@ declare interface RandomAccessFile {
   ): number;
 
   /**
-   * 从文件读取数据，使用promise异步回调。
+   * 从文件读取数据，返回实际读取的字节数。使用Promise异步回调。
    *
    * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
-   * @param { object } [options] - The options are as follows:<br>- **length** (number): length of the data to read, in
-   *     bytes. This parameter is optional. The default value is the buffer length.<br>- **offset** (number): start
-   *     position to read the data, in bytes (it is determined by **filePointer** plus **offset**). This parameter is
-   *     optional. By default, data is read from the **filePointer**. [since 10 - 10]
+   * @param { object } [options] - 读取配置。 [since 10 - 10]
    * @param { ReadOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认为缓冲区长度。<br/>- offset，
    *     number类型，表示期望读取文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从偏移指针（filePointer）开始读。 [since 11]
    * @returns { Promise<number> } Promise对象。返回读取的结果，单位为Byte。
@@ -4380,10 +4361,10 @@ declare interface RandomAccessFile {
   ): Promise<number>;
 
   /**
-   * 从文件读取数据，使用callback异步回调。
-   *
-   * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
-   * @param { AsyncCallback<number> } callback - 异步读取完成后的回调。返回实际读取的数据长度，单位为Byte。
+ * 从文件读取数据，返回实际读取的字节数。使用callback异步回调。
+ *
+ * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
+ * @param { AsyncCallback<number> } callback - 回调函数，返回实际读取的数据长度，单位为Byte。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4400,16 +4381,13 @@ declare interface RandomAccessFile {
   read(buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
 
   /**
-   * 从文件读取数据，使用callback异步回调。
-   *
-   * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
-   * @param { object } [options] - The options are as follows:<br>- **length** (number): length of the data to read, in
-   *     bytes. This parameter is optional. The default value is the buffer length.<br>- **offset** (number): start
-   *     position to read the data, in bytes (it is determined by **filePointer** plus **offset**). This parameter is
-   *     optional. By default, data is read from the **filePointer**. [since 10 - 10]
-   * @param { ReadOptions } [options] - 支持如下选项：<br/>- length，number类型，表示读取数据的长度，单位为Byte。可选，默认为缓冲区长度。<br/>- offset，number
+ * 从文件读取数据，支持配置读取选项，返回实际读取的字节数。使用callback异步回调。
+ *
+ * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
+ * @param { object } options - 读取配置。 [since 10 - 10]
+   * @param { ReadOptions } options - 支持如下选项：<br/>- length，number类型，表示读取数据的长度，单位为Byte。可选，默认为缓冲区长度。<br/>- offset，number
    *     类型，表示读取文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从filePointer开始读。 [since 11]
-   * @param { AsyncCallback<number> } callback - 异步读取完成后的回调。返回实际读取的数据长度，单位为Byte。
+   * @param { AsyncCallback<number> } callback - 回调函数，返回实际读取的数据长度，单位为Byte。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -4430,13 +4408,10 @@ declare interface RandomAccessFile {
   ): void;
 
   /**
-   * 以同步方法从文件读取数据。
+ * 以同步方法从文件读取数据，返回实际读取的字节数。
    *
    * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
-   * @param { object } [options] - The options are as follows:<br>- **length** (number): length of the data to read, in
-   *     bytes. This parameter is optional. The default value is the buffer length.<br>- **offset** (number): start
-   *     position to read the data, in bytes (it is determined by **filePointer** plus **offset**). This parameter is
-   *     optional. By default, data is read from the **filePointer**.<br> [since 10 - 10]
+   * @param { object } [options] - 读取配置。 [since 10 - 10]
    * @param { ReadOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- offset，
    *     number类型，表示期望读取文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从偏移指针（filePointer）开始读。<br/> [since 11]
    * @returns { number } 实际读取的长度，单位为Byte。
@@ -4460,7 +4435,7 @@ declare interface RandomAccessFile {
   ): number;
 
   /**
-   * 获取当前 RandomAccessFile 的一个 ReadStream 实例。
+   * 获取当前RandomAccessFile的一个ReadStream实例，用于流式读取文件数据。
    *
    * @returns { ReadStream } 文件可读流。
    * @throws { BusinessError } 401 - Parameter error
@@ -4475,7 +4450,7 @@ declare interface RandomAccessFile {
   getReadStream(): ReadStream;
 
   /**
-   * 获取当前 RandomAccessFile 的一个 WriteStream 实例。
+   * 获取当前RandomAccessFile的一个WriteStream实例，用于流式写入文件数据。
    *
    * @returns { WriteStream } 文件可写流。
    * @throws { BusinessError } 401 - Parameter error
@@ -4531,10 +4506,9 @@ declare class ReadStream extends stream.Readable {
   /**
    * 调整可读流偏移指针位置。
    *
-   * @param { number } offset - Relative offset, in bytes.
-   * @param { WhenceType } [whence] - Where to start the offset. The default value is **SEEK_SET**, which indicates the
-   *     beginning of the file.
-   * @returns { number } Position of the current offset pointer (offset relative to the file header, in bytes).
+   * @param { number } offset - 相对偏移位置，单位为Byte。
+   * @param { WhenceType } [whence] - 偏移指针相对位置类型。默认值：SEEK_SET，文件起始位置处。
+   * @returns { number } 当前可读流偏移指针位置（相对于文件头的偏移量，单位为Byte）。
    * @throws { BusinessError } 401 - Parameter error
    * @throws { BusinessError } 13900020 - Invalid argument
    * @throws { BusinessError } 13900026 - Illegal seek
@@ -4572,7 +4546,7 @@ declare class ReadStream extends stream.Readable {
  */
 declare class WriteStream extends stream.Writable {
   /**
-   * The WriteStream constructor.
+   * 构建一个WriteStream实例。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform [since 20]
@@ -4633,7 +4607,7 @@ declare class WriteStream extends stream.Writable {
 }
 
 /**
- * AtomicFile是一个用于对文件进行原子读写操作的类。
+ * AtomicFile是一个用于对文件进行原子读写等操作的类。
  *
  * 在写操作时，通过写入临时文件，并在写入成功后将其重命名到原始文件位置来确保写入文件的完整性；而在写入失败时删除临时文件，不修改原始文件内容。
  *
@@ -4753,7 +4727,7 @@ export class AtomicFile {
 }
 
 /**
- * 文件具体信息，在调用Stat的方法前，需要先通过[stat()](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#fileiostat)方法（同步或异步）构建一个
+ * 文件具体信息，包含文件大小、权限模式、访问时间、修改时间等属性。在调用Stat的方法前，需要先通过[stat()](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#fileiostat)方法（同步或异步）构建一个
  * Stat实例。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
@@ -4991,7 +4965,7 @@ declare interface Stat {
 }
 
 /**
- * 文件流，在调用Stream的方法前，需要先通过
+ * 文件流，提供流式读写文件数据的能力，使用完毕后需调用close关闭。在调用Stream的方法前，需要先通过
  * [fileIo.createStream](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#fileiocreatestream)方法或者
  * [fileIo.fdopenStream](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#fileiofdopenstream)（同步或异步）来构建一个Stream
  * 实例。
@@ -5003,7 +4977,7 @@ declare interface Stat {
  */
 declare interface Stream {
   /**
-   * 关闭文件流，使用promise异步回调。
+   * 关闭文件流，关闭后不可再用于读写等操作。使用Promise异步回调。
    *
    * @returns { Promise<void> } Promise对象。无返回值。
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -5020,9 +4994,9 @@ declare interface Stream {
   close(): Promise<void>;
 
   /**
-   * 异步关闭文件流，使用callback异步回调。
-   *
-   * @param { AsyncCallback<void> } callback - 异步关闭文件流之后的回调。
+ * 关闭文件流，关闭后不可再用于读写等操作。使用callback异步回调。
+ *
+ * @param { AsyncCallback<void> } callback - 回调函数。当关闭文件流成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -5037,7 +5011,7 @@ declare interface Stream {
   close(callback: AsyncCallback<void>): void;
 
   /**
-   * 同步关闭文件流。
+   * 同步关闭文件流，关闭后不可再用于读写等操作。
    *
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -5053,7 +5027,7 @@ declare interface Stream {
   closeSync(): void;
 
   /**
-   * 刷新文件流，使用promise异步回调。
+   * 刷新文件流。使用Promise异步回调。
    *
    * @returns { Promise<void> } Promise对象。返回表示异步刷新文件流的结果。
    * @throws { BusinessError } 13900001 - Operation not permitted
@@ -5076,7 +5050,7 @@ declare interface Stream {
   flush(): Promise<void>;
 
   /**
-   * 异步刷新文件流，使用callback异步回调。
+   * 异步刷新文件流。使用callback异步回调。
    *
    * @param { AsyncCallback<void> } callback - 异步刷新文件流后的回调函数。
    * @throws { BusinessError } 13900001 - Operation not permitted
@@ -5121,14 +5095,10 @@ declare interface Stream {
   flushSync(): void;
 
   /**
-   * 将数据写入流文件，使用promise异步回调。
+   * 将数据写入流文件，返回实际写入的字节数。使用Promise异步回调。
    *
    * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
-   * @param { object } [options] - The options are as follows:<br>- **length** (number): length of the data to write, in
-   *     bytes. The default value is the buffer length.<br>- **offset** (number): start position to write the data in
-   *     the file, in bytes. This parameter is optional. By default, data is written from the current position.<br>-
-   *     **encoding** (string): format of the data to be encoded when the data is a string. The default value is
-   *     **'utf-8'**, which is the only value supported. [since 9 - 10]
+   * @param { object } [options] - 写入配置。 [since 9 - 10]
    * @param { WriteOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望写入数据的长度，单位为Byte。默认缓冲区长度。<br/>- offset，number类
    *     型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认'utf-8'。仅支持'utf-8'
    *     。 [since 11]
@@ -5156,10 +5126,10 @@ declare interface Stream {
   ): Promise<number>;
 
   /**
-   * 将数据写入流文件，使用callback异步回调。
+   * 将数据写入流文件，返回实际写入的字节数。使用callback异步回调。
    *
    * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
-   * @param { AsyncCallback<number> } callback - 异步写入完成后执行的回调函数。返回实际写入的数据长度，单位为Byte。
+   * @param { AsyncCallback<number> } callback - 回调函数，返回实际写入的数据长度，单位为Byte。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -5180,18 +5150,14 @@ declare interface Stream {
   write(buffer: ArrayBuffer | string, callback: AsyncCallback<number>): void;
 
   /**
-   * 将数据写入流文件，使用callback异步回调。
+   * 将数据写入流文件，支持配置写入选项，返回实际写入的字节数。使用callback异步回调。
    *
    * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
-   * @param { object } [options] - The options are as follows:<br>- **length** (number): length of the data to write, in
-   *     bytes. This parameter is optional. The default value is the buffer length.<br>- **offset** (number): start
-   *     position to write the data in the file, in bytes. This parameter is optional. By default, data is written from
-   *     the current position.<br>- **encoding** (string): format of the data to be encoded when the data is a string.
-   *     The default value is **'utf-8'**, which is the only value supported. [since 9 - 10]
-   * @param { WriteOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- offset，
-   *     number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认'utf-8'。仅支持?'
-   *     utf-8'。 [since 11]
-   * @param { AsyncCallback<number> } callback - 异步写入完成后执行的回调函数。返回实际写入的数据长度，单位为Byte。
+   * @param { object } options - 写入配置。 [since 9 - 10]
+   * @param { WriteOptions } options - 支持如下选项：<br/>- length，number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>
+   *    - offset，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>
+   *    - encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认'utf-8'。仅支持'utf-8'。 [since 11]
+   * @param { AsyncCallback<number> } callback - 回调函数，返回实际写入的数据长度，单位为Byte。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -5216,17 +5182,13 @@ declare interface Stream {
   ): void;
 
   /**
-   * 以同步方法将数据写入流文件。
+   * 以同步方法将数据写入流文件，返回实际写入的字节数。
    *
    * @param { ArrayBuffer | string } buffer - 待写入文件的数据，可来自缓冲区或字符串。
-   * @param { object } [options] - The options are as follows:<br>- **length** (number): length of the data to write, in
-   *     bytes. This parameter is optional. The default value is the buffer length.<br>- **offset** (number): start
-   *     position to write the data in the file, in bytes. This parameter is optional. By default, data is written from
-   *     the current position.<br>- **encoding** (string): format of the data to be encoded when the data is a string.
-   *     The default value is **'utf-8'**, which is the only value supported. [since 9 - 10]
-   * @param { WriteOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- offset，
-   *     number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>- encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认'utf-8'。仅支持?'
-   *     utf-8'。 [since 11]
+   * @param { object } [options] - 写入配置。 [since 9 - 10]
+   * @param { WriteOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望写入数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>
+   *     - offset，number类型，表示期望写入文件的位置，单位为Byte。可选，默认从当前位置开始写。<br/>
+   *     - encoding，string类型，当数据是string类型时有效，表示数据的编码方式，默认'utf-8'。仅支持'utf-8'。 [since 11]
    * @returns { number } 实际写入的长度，单位为Byte。
    * @throws { BusinessError } 13900001 - Operation not permitted
    * @throws { BusinessError } 13900004 - Interrupted system call
@@ -5251,13 +5213,10 @@ declare interface Stream {
   ): number;
 
   /**
-   * 从流文件读取数据，使用promise异步回调。
+   * 从流文件读取数据，返回实际读取的字节数。使用Promise异步回调。
    *
    * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
-   * @param { object } [options] - The options are as follows:<br>- **length** (number): length of the data to read, in
-   *     bytes. This parameter is optional. The default value is the buffer length.<br>- **offset** (number): position
-   *     of the data to read in the file, in bytes. This parameter is optional. By default, data is read from the
-   *     current position. [since 9 - 10]
+   * @param { object } [options] - 读取配置。 [since 9 - 10]
    * @param { ReadOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- offset，
    *     number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。 [since 11]
    * @returns { Promise<number> } Promise对象。返回读取的结果，单位为Byte。
@@ -5282,10 +5241,10 @@ declare interface Stream {
   ): Promise<number>;
 
   /**
-   * 从流文件读取数据，使用callback异步回调。
-   *
-   * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
-   * @param { AsyncCallback<number> } callback - 异步读取完成后的回调。返回读取的结果，单位为Byte。
+ * 从流文件读取数据，返回实际读取的字节数。使用callback异步回调。
+ *
+ * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
+ * @param { AsyncCallback<number> } callback - 回调函数，返回读取的结果，单位为Byte。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -5303,16 +5262,13 @@ declare interface Stream {
   read(buffer: ArrayBuffer, callback: AsyncCallback<number>): void;
 
   /**
-   * 从流文件读取数据，使用callback异步回调。
-   *
-   * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
-   * @param { object } [options] - The options are as follows:<br>- **length** (number): length of the data to read, in
-   *     bytes. This parameter is optional. The default value is the buffer length.<br>- **offset** (number): position
-   *     of the data to read in the file, in bytes. This parameter is optional. By default, data is read from the
-   *     current position. [since 9 - 10]
-   * @param { ReadOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- offset，
+ * 从流文件读取数据，支持配置读取选项，返回实际读取的字节数。使用callback异步回调。
+ *
+ * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
+ * @param { object } options - 读取配置。 [since 9 - 10]
+   * @param { ReadOptions } options - 支持如下选项：<br/>- length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- offset，
    *     number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读取。 [since 11]
-   * @param { AsyncCallback<number> } callback - 异步读取完成后的回调。返回读取的结果，单位为Byte。
+   * @param { AsyncCallback<number> } callback - 回调函数，返回读取的结果，单位为Byte。
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
    * @throws { BusinessError } 13900008 - Bad file descriptor
@@ -5334,13 +5290,10 @@ declare interface Stream {
   ): void;
 
   /**
-   * 以同步方法从流文件读取数据。
+   * 以同步方法从流文件读取数据，返回实际读取的字节数。
    *
    * @param { ArrayBuffer } buffer - 用于读取文件的缓冲区。
-   * @param { object } [options] - The options are as follows:<br>- **length** (number): length of the data to read, in
-   *     bytes. This parameter is optional. The default value is the buffer length.<br>- **offset** (number): position
-   *     of the data to read in the file, in bytes. This parameter is optional. By default, data is read from the
-   *     current position.<br> [since 9 - 10]
+   * @param { object } [options] - 读取配置。 [since 9 - 10]
    * @param { ReadOptions } [options] - 支持如下选项：<br/>- length，number类型，表示期望读取数据的长度，单位为Byte。可选，默认缓冲区长度。<br/>- offset，
    *     number类型，表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。<br/> [since 11]
    * @returns { number } 实际读取的长度，单位为Byte。
@@ -5367,7 +5320,7 @@ declare interface Stream {
 
 /**
  *
- * 事件监听类。
+ * 事件监听类，当监听的文件或目录发生变动事件时触发回调。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform [since 20]
@@ -5375,9 +5328,9 @@ declare interface Stream {
  */
 export interface WatchEventListener {
   /**
-   * Specifies the callback function to be invoked.
+   * 文件或目录发生变动事件时触发的回调。
    *
-   * @param { WatchEvent } event - Event for the callback to invoke.
+   * @param { WatchEvent } event - 回调的事件类。
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform [since 20]
    * @since 10 dynamic
@@ -5456,7 +5409,7 @@ export interface WatchEvent {
  */
 export interface Watcher {
   /**
-   * 开启监听。
+   * 开启监听文件或目录变动事件。
    *
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900005 - I/O error
@@ -5479,7 +5432,7 @@ export interface Watcher {
   start(): void;
 
   /**
-   * 停止监听并移除Watcher对象。
+   * 停止监听文件或目录变动事件并移除Watcher对象。
    *
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900005 - I/O error
@@ -5606,7 +5559,7 @@ export interface Filter {
    */
   lastModifiedAfter?: number;
   /**
-   * 是否排除Media中已有的文件。true：排除Media中已有的文件；false：不排除Media中已有的文件。
+   * 是否排除Media中已有的文件。true：排除Media中已有的文件；false：不排除Media中已有的文件。预留字段，暂不支持使用。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform [since 11]
@@ -5671,7 +5624,7 @@ export interface Options {
  */
 export interface ReadOptions {
   /**
-   * 期望读取文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从偏移指针（filePointer）开始读。
+   * 期望读取文件位置，单位为Byte。可选，默认从当前位置开始读。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform [since 20]
@@ -5691,7 +5644,7 @@ export interface ReadOptions {
 }
 
 /**
- * 可选项类型，支持readText接口使用，ReadTextOptions继承至[ReadOptions]{@link ReadOptions}。
+ * 可选项类型，支持readText接口使用，ReadTextOptions继承自[ReadOptions]{@link ReadOptions}。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform [since 20]
@@ -5711,7 +5664,7 @@ export interface ReadTextOptions extends ReadOptions {
 }
 
 /**
- * 可选项类型，支持write接口使用，WriteOptions继承至[Options]{@link Options}。
+ * 可选项类型，支持write接口使用，WriteOptions继承自[Options]{@link Options}。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform [since 20]
@@ -5720,7 +5673,7 @@ export interface ReadTextOptions extends ReadOptions {
  */
 export interface WriteOptions extends Options {
   /**
-   * 期望写入文件位置，单位为Byte（基于当前filePointer加上offset的位置）。可选，默认从偏移指针（filePointer）开始写。
+   * 期望写入文件位置，单位为Byte。可选，默认从当前位置开始写。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform [since 20]
@@ -5740,7 +5693,7 @@ export interface WriteOptions extends Options {
 }
 
 /**
- * 可选项类型，支持ListFile接口使用。
+ * 可选项类型，支持listFile接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @atomicservice
@@ -5756,8 +5709,8 @@ export interface ListFileOptions {
    */
   recursion?: boolean;
 
-  /**
-   * 列出文件名数量。可选，当设置0时，列出所有文件，默认为0。
+   /**
+    * 列出文件名数量。可选，当设置0时，列出所有文件，默认为0。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
@@ -5766,7 +5719,7 @@ export interface ListFileOptions {
   listNum?: number;
 
   /**
-   * 文件过滤配置项。 可选，设置过滤条件。
+    * 文件过滤配置项。 可选，设置过滤条件。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @atomicservice
@@ -5776,7 +5729,7 @@ export interface ListFileOptions {
 }
 
 /**
- * 文件名过滤器，支持listFileExt接口使用。
+ * 文件名过滤器接口，可通过该接口自定义文件名过滤规则。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @stagemodelonly
@@ -5784,12 +5737,12 @@ export interface ListFileOptions {
  */
 export interface FileFilter {
   /**
-   * 过滤函数，判断指定的文件名是否应该包含在文件列表中。
+   * 用于[listFileExt]{@link listFileExt}或[listFileExtSync]{@link listFileExtSync}接口的文件过滤，判断指定文件名是否应包含在返回的文件列表中。
    *
    * 注意：此函数被频繁调用。尽量避免文件I/O、网络请求等耗时操作。
    *
-   * @param { string } name - 需要过滤的文件名。
-   * @returns { boolean } 如果应该包含文件，则返回true，否则返回false。
+   * @param { string } name - 待过滤的文件名或文件相对路径。递归模式下为文件的相对路径，相对路径以"/"开头。
+   * @returns { boolean } 表示是否包含在返回的文件列表中。true：包含该文件；false：不包含该文件。
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @stagemodelonly
    * @since 26.0.0 dynamic
@@ -5798,7 +5751,7 @@ export interface FileFilter {
 }
 
 /**
- * 可选项类型，支持listFileExt接口使用自定义过滤规则。
+ * 可选项类型，支持listFileExt接口使用。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @stagemodelonly
@@ -5806,7 +5759,7 @@ export interface FileFilter {
  */
 export interface ListFileExtOptions {
   /**
-   * 是否递归子目录下文件名。可选，默认为false。当recursion为false时，返回当前目录下满足过滤要求的文件名及目录名。当recursion为true时，返回此目录下所有满足过滤要求的文件的相对路径（以“/”开头）。
+   * 是否递归子目录下的文件名，默认为false。<br>false：返回当前目录下满足过滤要求的文件名及目录名。<br>true：返回该目录下所有符合过滤条件的文件的相对路径，相对路径以"/"开头。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @stagemodelonly
@@ -5815,8 +5768,7 @@ export interface ListFileExtOptions {
   recursion?: boolean;
 
   /**
-   * 列出文件名数量。可选，当设置0时，列出所有文件，默认为0。
-   * 取值限定为整数。
+    * 列出文件名数量，默认为0，表示列出所有文件。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @stagemodelonly
@@ -5825,7 +5777,7 @@ export interface ListFileExtOptions {
   listNum?: number;
 
   /**
-   * 文件名过滤器接口。可选，设置自定义文件名过滤规则。
+    * 自定义文件名过滤的规则，默认为空，表示不进行过滤。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @stagemodelonly
@@ -5843,7 +5795,7 @@ export interface ListFileExtOptions {
  */
 export interface RandomAccessFileOptions {
   /**
-   * 表示期望读取文件的位置，单位为Byte。可选，默认从当前位置开始读。
+   * 表示文件的起始偏移位置，单位为Byte。可选，默认从当前位置开始读。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform [since 20]
@@ -5852,7 +5804,7 @@ export interface RandomAccessFileOptions {
   start?: number;
 
   /**
-   * 表示期望读取结束的位置，单位为Byte。可选，默认文件末尾。
+   * 表示文件的结束偏移位置，单位为Byte。可选，默认文件末尾。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform [since 20]
@@ -5956,7 +5908,7 @@ export interface DfsListeners {
 }
 
 /**
- * 枚举，文件内存映射模式类型，支持mmap接口使用。
+ * 文件内存映射模式类型的枚举。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @stagemodelonly

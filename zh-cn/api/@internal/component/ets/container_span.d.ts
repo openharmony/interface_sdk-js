@@ -46,7 +46,7 @@ interface ContainerSpanInterface {
 /**
  * 仅支持以下属性：
  * 
- * 不支持[通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)。
+ * 不支持[通用事件]{@link CommonMethod}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

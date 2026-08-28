@@ -193,7 +193,7 @@ declare namespace buffer {
    * 根据不同的编码格式，返回指定数据的字节数。
    *
    * @param { string | Buffer | TypedArray | DataView | ArrayBuffer } doc - 要计算字节长度的字符串或其他数据对象。
-   * @param { BufferEncoding } [encoding] - 编码格式。默认值：'utf8'。
+   * @param { BufferEncoding } [encoding] - 编码格式（doc参数为string类型时才有意义）。默认值：'utf8'。
    * @returns { int } 返回指定字符串的字节数
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -599,9 +599,9 @@ declare namespace buffer {
     indexOf(value: string | int | double | long | Buffer | Uint8Array, byteOffset?: int, encoding?: BufferEncoding): int;
 
     /**
-     * 返回一个包含字节索引（key）和字节值（value）的迭代器。
+     * 返回包含key值的迭代器。
      *
-     * @returns { IterableIterator<int> } 返回包含Buffer中每个字节值的迭代器。
+     * @returns { IterableIterator<int> } 返回一个包含key值的迭代器。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -1063,7 +1063,7 @@ declare namespace buffer {
     /**
      * 将当前对象中指定位置的数据转成指定编码格式的字符串并返回。
      *
-     * @param { string } [encoding] - 字符编码格式（`value`参数为string时才有意义）。默认值：'utf8'。
+     * @param { string } [encoding] - 字符编码格式，支持的格式范围为BufferEncoding。默认值：'utf8'。
      * @param { number } [start] - 开始位置，单位：字节。默认值：0。
      * @param { number } [end] - 结束位置。默认值：Buffer.length。
      * @returns { string } 字符串。当start >= Buffer.length或start > end时返回空字符串。
@@ -1502,7 +1502,6 @@ declare namespace buffer {
    * @since 23 static
    */
   interface BlobOptions {
-+
     /**
      * Blob的内容类型。其目的是让类型传达数据的MIME媒体类型，但是不执行类型格式的验证。此参数非必填，默认参数为''。
      *
@@ -1535,7 +1534,6 @@ declare namespace buffer {
    * @since 23 static
    */
   class Blob {
-+
     /**
      * 根据传入的数据源和可选配置项创建Blob对象，Blob实例将包含数据源中的内容。
      *

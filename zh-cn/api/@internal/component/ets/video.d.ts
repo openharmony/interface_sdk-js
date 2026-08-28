@@ -298,7 +298,7 @@ interface PlaybackInfo {
 declare interface PosterOptions {
   /**
    * 当前视频是否配置首帧送显，当开启首帧送显时，
-   * [VideoOptions对象](docroot://reference/apis-arkui/arkui-ts/ts-media-components-video.md#videooptions对象说明)中的previewUri
+   * [VideoOptions]{@link VideoOptions}中的previewUri
    * 字段不生效。
    * 
    * true：开启首帧送显；false：关闭首帧送显。
@@ -316,7 +316,7 @@ declare interface PosterOptions {
 
   /**
    * 当前视频的预览图内容变化时的转场动效。配置showFirstFrame为true（即配置开启首帧送显时），或未配置有效的
-   * [VideoOptions对象](docroot://reference/apis-arkui/arkui-ts/ts-media-components-video.md#videooptions对象说明)的previewUri
+   * [VideoOptions]{@link VideoOptions}的previewUri
    * 时，该字段不生效。
    * 
    * 默认值：ContentTransitionEffect.IDENTITY
@@ -1024,7 +1024,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * 启用后，视频播放暂停时自动进入分析状态，开始分析当前画面帧，视频继续播放后自动退出分析状态。
    * 
    * 不支持与[overlay]{@link CommonMethod#overlay}属性同时使用，两者同时设置时[overlay]{@link CommonMethod#overlay}中
-   * [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)属性会失效。
+   * [CustomBuilder]{@link CustomBuilder}属性会失效。
    * 
    * > **说明：**
    * >
@@ -1035,7 +1035,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    *     <br>默认值：false
    *     <br>**说明：**
    *     <br>不支持与[overlay]{@link CommonMethod#overlay}属性同时使用，两者同时设置时[overlay]{@link CommonMethod#overlay}中
-   *     [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)属性会失效。
+   *     [CustomBuilder]{@link CustomBuilder}属性会失效。
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

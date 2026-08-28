@@ -1333,7 +1333,7 @@ declare enum AnimationStatus {
 }
 
 /**
- * 插值曲线，动效请参考<!--RP1-->[贝塞尔曲线](docroot://../design/ux-design/animation-attributes.md)<!--RP1End-->。
+ * 插值曲线，动效请参考<!--RP1-->[贝塞尔曲线]{@link @ohos.curves}<!--RP1End-->。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -5146,7 +5146,7 @@ declare enum ResponseType {
    * @atomicservice
    * @since 11 dynamic
    */
-  RightClick,
+  RightClick = 0,
 
   /**
    * Long press.
@@ -5172,7 +5172,7 @@ declare enum ResponseType {
    * @atomicservice
    * @since 11 dynamic
    */
-  LongPress,
+  LongPress = 1
 }
 
 /**

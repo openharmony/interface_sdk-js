@@ -26,12 +26,12 @@ import { AttributeModifier, CommonMethod } from './common';
  * 初始化后，动态修改子组件的宽度不生效，分割线位置保持不变，可以通过拖动相邻分割线改变子组件宽度。
  *
  * 初始化后，动态修改
- * [margin](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#margin)、
- * [border](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#border)、
- * [padding](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#padding)
+ * [margin]{@link CommonMethod#margin}、
+ * [border]{@link CommonMethod#border}、
+ * [padding]{@link CommonMethod#padding}
  * 通用属性导致子组件宽度大于相邻分割线间距的异常情况下，不支持拖动分割线改变子组件的宽度。
  *
- * RowSplit组件[形状裁剪](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-sharp-clipping.md)的默认值为true。
+ * RowSplit组件[形状裁剪]{@link ./common}的默认值为true。
  *
  * @extends CommonMethod
  * @interface RowSplitAttribute

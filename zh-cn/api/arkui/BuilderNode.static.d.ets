@@ -126,7 +126,7 @@ export interface RenderOptions {
 
   /**
    * 纹理接收方的surfaceId。纹理接收方一般为
-   * [OH_NativeImage](docroot://reference/apis-arkgraphics2d/capi-oh-nativeimage-oh-nativeimage.md)。
+   * [OH_NativeImage](docroot://reference/apis-arkgraphics2d/c-apis/capi-oh-nativeimage.md)。
    *
    * surfaceId仅当type为NodeRenderType.RENDER_TYPE_TEXTURE时生效。
    *
@@ -212,7 +212,7 @@ export declare class BuilderNode<T = undefined> {
   constructor(uiContext: UIContext, options?: RenderOptions);
 
   /**
-   * 依照传入的无参数[CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuildertt23)创建组件树，并持有组件树的根节点。
+   * 依照传入的无参数[CustomBuilder]{@link CustomBuilder}创建组件树，并持有组件树的根节点。
    *
    * > **说明：**
    * >
@@ -298,7 +298,7 @@ export declare class BuilderNode<T = undefined> {
    *
    * OffsetA为buildNode相对于父组件的偏移量，可以通过FrameNode中的[getPositionToParent]{@link FrameNode:FrameNode#getPositionToParent}获取。
    * OffsetB为point点相对于buildNode的偏移量，可以通过
-   * [TouchEvent](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-touch.md#touchevent对象说明) 获取。OffsetC为
+   * [TouchEvent]{@link TouchEvent} 获取。OffsetC为
    * OffsetA与OffsetB的和，是传给postTouchEvent的最终结果。
    *
    * ![postTouchEvent](docroot://reference/apis-arkui/figures/postTouchEvent.PNG)
@@ -345,7 +345,7 @@ export declare class BuilderNode<T = undefined> {
    *
    * @param { RecordData } [param] - 用于复用BuilderNode的参数。该参数将直接用于BuilderNode中所有顶层自定义组件的复用，应该包含每个自定义组件的构造函数参数所需内容，否则，会导致未定
    *     义行为。调用此方法将同步触发内部自定义组件的
-   *     [aboutToReuse](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoreuse10)生命周期回调，并
+   *     [aboutToReuse]{@link aboutToReuse}生命周期回调，并
    *     将该参数作为回调的入参。默认值为undefined，此时BuilderNode中的自定义组件将直接使用构造时的数据源。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -520,7 +520,7 @@ export declare class ReactiveBuilderNode {
   constructor(uiContext: UIContext, options?: RenderOptions);
 
   /**
-   * 依照传入的[CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)创建组件树，并持有组件树的根节点。支持响应式状态管理。
+   * 依照传入的[CustomBuilder]{@link CustomBuilder}创建组件树，并持有组件树的根节点。支持响应式状态管理。
    *
    * > **说明：**
    * >
@@ -551,7 +551,7 @@ export declare class ReactiveBuilderNode {
    *
    * OffsetA为buildNode相对于父组件的偏移量，可以通过FrameNode中的[getPositionToParent]{@link FrameNode:FrameNode#getPositionToParent}获取。
    * OffsetB为point点相对于buildNode的偏移量，可以通过
-   * [TouchEvent](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-touch.md#touchevent对象说明)获取。OffsetC为OffsetA
+   * [TouchEvent]{@link TouchEvent}获取。OffsetC为OffsetA
    * 与OffsetB的和，是传给postTouchEvent的最终结果。
    *
    * ![postTouchEvent](docroot://reference/apis-arkui/figures/postTouchEvent.PNG)
@@ -603,7 +603,7 @@ export declare class ReactiveBuilderNode {
    *
    * @param { RecordData } [param] - 用于复用[ReactiveBuilderNode]{@link ReactiveBuilderNode}的参数。该参数将直接用于
    *     [ReactiveBuilderNode]{@link ReactiveBuilderNode}中所有顶层自定义组件的复用，应该包含每个自定义组件的构造函数参数所需内容，否则，会导致未定义行为。调用此方法将同步触发内部自定
-   *     义组件的[aboutToReuse](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoreuse10)生命周期
+   *     义组件的[aboutToReuse]{@link aboutToReuse}生命周期
    *     回调，并将该参数作为回调的入参。默认值为undefined，此时ReactiveBuilderNode中的自定义组件将直接使用构造时的数据源。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -669,7 +669,7 @@ export declare class ReactiveBuilderNode {
    * > 传入的坐标值需要转换为px，坐标转换示例可以参考下面示例代码。
    * >
    * > 鼠标左键点击事件将转换为触摸事件，转发时应注意不在外层且绑定触摸事件与鼠标事件，否则可能导致坐标偏移。这是由于在事件转换过程中，事件的
-   * > [SourceType](docroot://reference/apis-arkui/arkui-ts/ts-gesture-settings.md#sourcetype枚举说明8)不会发生变化，规格可查看
+   * > [SourceType]{@link SourceType}不会发生变化，规格可查看
    * > [onTouch]{@link CommonMethod#onTouch}。
    * >
    * > 注入事件为轴事件[（AxisEvent）]{@link AxisEvent}时，由于轴事件中缺少旋转轴信息，因此注入的事件无法触发[RotationGesture]{@link gesture}。

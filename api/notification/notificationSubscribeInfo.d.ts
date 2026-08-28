@@ -80,10 +80,10 @@ export interface NotificationSubscribeInfo {
    * - **0**: All notifications are included in the subscription.
    * - **1**: Filter out notifications whose slot type is 
    * [SOCIAL_COMMUNICATION]{@link ./../@ohos.notificationManager:notificationManager.SlotType} and 
-   * [userInput]{@link notificationActionButton:NotificationActionButton} is empty.
+   * [userInput]{@link ./notificationActionButton:NotificationActionButton} is empty.
    * - **2**: Filter out notifications whose slot type is 
    * [SOCIAL_COMMUNICATION]{@link ./../@ohos.notificationManager:notificationManager.SlotType} and 
-   * [userInput]{@link notificationActionButton:NotificationActionButton} is not empty.
+   * [userInput]{@link ./notificationActionButton:NotificationActionButton} is not empty.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

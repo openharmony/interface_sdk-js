@@ -212,7 +212,7 @@ export declare enum NavigationTitleMode {
    * 标题随着内容滚动大小联动的动效在title设置为ResourceStr和NavigationCommonTitle时生效，设置成其余自定义节点类型时字体样式无法变化，下拉时只影响标题栏偏移。
    *
    * 可滚动组件不满一屏时，如果想使用联动效果，就要使用滚动组件提供的
-   * [edgeEffect](docroot://reference/apis-arkui/arkui-ts/ts-container-list.md#edgeeffect)接口将options参数设置为true。未滚动状态，标题
+   * [edgeEffect]{@link CommonMethod#edgeEffect}接口将options参数设置为true。未滚动状态，标题
    * 栏高度与Full模式一致；滚动时，标题栏的最小高度与Mini模式一致。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -275,9 +275,9 @@ export declare interface NavigationMenuItem {
    * 菜单栏单个选项的symbol资源（优先级高于icon）。
    * **说明：**
    * 不支持通过[SymbolGlyphModifier]{@link ./../SymbolGlyphModifier:SymbolGlyphModifier}对象的
-   * [fontSize](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-symbolGlyph.md#fontsize)属性修改图标大小、
-   * [effectStrategy](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-symbolGlyph.md#effectstrategy)属性修改动效
-   * 、[symbolEffect](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-symbolGlyph.md#symboleffect12)属性修改动效类
+   * [fontSize]{@link SymbolGlyphAttribute#fontSize}属性修改图标大小、
+   * [effectStrategy]{@link SymbolGlyphAttribute#effectStrategy}属性修改动效
+   * 、[symbolEffect]{@link SymbolGlyphAttribute#symbolEffect}属性修改动效类
    * 型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -637,7 +637,7 @@ export declare class NavPathStack {
    *
    * > **说明：**
    * >
-   * > 不建议在[aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear)中使用栈
+   * > 不建议在[aboutToAppear]{@link aboutToAppear}中使用栈
    * > 操作，此时的页面还未构建完成，会导致白屏或跳转失败等问题。
    *
    * @param { NavPathInfo } info - NavDestination页面的信息。
@@ -661,7 +661,7 @@ export declare class NavPathStack {
    *
    * > **说明：**
    * >
-   * > 不建议在[aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear)中使用栈
+   * > 不建议在[aboutToAppear]{@link aboutToAppear}中使用栈
    * > 操作，此时的页面还未构建完成，会导致白屏或跳转失败等问题。
    *
    * @param { NavPathInfo } info - NavDestination页面的信息。
@@ -714,7 +714,7 @@ export declare class NavPathStack {
    *
    * > **说明：**
    * >
-   * > 不建议在[aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear)中使用栈
+   * > 不建议在[aboutToAppear]{@link aboutToAppear}中使用栈
    * > 操作，此时的页面还未构建完成，会导致白屏或跳转失败等问题。
    *
    * @param { string } name - NavDestination页面名称。
@@ -739,7 +739,7 @@ export declare class NavPathStack {
    *
    * > **说明：**
    * >
-   * > 不建议在[aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear)中使用栈
+   * > 不建议在[aboutToAppear]{@link aboutToAppear}中使用栈
    * > 操作，此时的页面还未构建完成，会导致白屏或跳转失败等问题。
    *
    * @param { string } name - NavDestination页面名称。
@@ -840,7 +840,7 @@ export declare class NavPathStack {
 
   /**
    * 将路由栈内指定navDestinationId的NavDestination页面删除。navDestinationId可以在NavDestination的
-   * [onReady](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navdestination.md#onready11)回调中获取，也可以在
+   * [onReady]{@link onReady}回调中获取，也可以在
    * [NavDestinationInfo]{@link ./../../@ohos.arkui.observer:uiObserver.NavDestinationInfo}中获取。
    *
    * @param { string } navDestinationId - 删除的NavDestination页面的唯一标识符navDestinationId。
@@ -1378,9 +1378,9 @@ export declare interface ToolbarItem {
    * 工具栏单个选项处于ACTIVE态时的symbol资源（优先级高于activeIcon）。
    * **说明：**
    * 不支持通过[SymbolGlyphModifier]{@link ./../SymbolGlyphModifier:SymbolGlyphModifier}对象的
-   * [fontSize](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-symbolGlyph.md#fontsize)属性修改图标大小、
-   * [effectStrategy](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-symbolGlyph.md#effectstrategy)属性修改动效
-   * 、[symbolEffect](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-symbolGlyph.md#symboleffect12)属性修改动效类
+   * [fontSize]{@link SymbolGlyphAttribute#fontSize}属性修改图标大小、
+   * [effectStrategy]{@link SymbolGlyphAttribute#effectStrategy}属性修改动效
+   * 、[symbolEffect]{@link SymbolGlyphAttribute#symbolEffect}属性修改动效类
    * 型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1864,9 +1864,9 @@ export declare interface NavigationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 不支持通过[SymbolGlyphModifier]{@link ./../SymbolGlyphModifier:SymbolGlyphModifier}对象的
-   * > [fontSize](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-symbolGlyph.md#fontsize)属性修改图标大小、
-   * > [effectStrategy](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-symbolGlyph.md#effectstrategy)属性修改
-   * > 动效、[symbolEffect](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-symbolGlyph.md#symboleffect12)属性修
+   * > [fontSize]{@link SymbolGlyphAttribute#fontSize}属性修改图标大小、
+   * > [effectStrategy]{@link SymbolGlyphAttribute#effectStrategy}属性修改
+   * > 动效、[symbolEffect]{@link SymbolGlyphAttribute#symbolEffect}属性修
    * > 改动效类型。
    *
    * @param { string | PixelMap | Resource | SymbolGlyphModifier } icon - 标题栏中返回键图标。<br/>取值为undefined时，显示返回键图标。
@@ -1897,7 +1897,7 @@ export declare interface NavigationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 12开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle | undefined } value
@@ -1964,9 +1964,9 @@ export declare interface NavigationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 不支持通过[SymbolGlyphModifier]{@link ./../SymbolGlyphModifier:SymbolGlyphModifier}对象的
-   * > [fontSize](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-symbolGlyph.md#fontsize)属性修改图标大小、
-   * > [effectStrategy](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-symbolGlyph.md#effectstrategy)属性修改
-   * > 动效、[symbolEffect](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-symbolGlyph.md#symboleffect12)属性修
+   * > [fontSize]{@link SymbolGlyphAttribute#fontSize}属性修改图标大小、
+   * > [effectStrategy]{@link SymbolGlyphAttribute#effectStrategy}属性修改
+   * > 动效、[symbolEffect]{@link SymbolGlyphAttribute#symbolEffect}属性修
    * > 改动效类型。
    *
    * @param { Array<NavigationMenuItem> | CustomBuilder | undefined } items
@@ -1984,14 +1984,14 @@ export declare interface NavigationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { Array<ToolbarItem> | CustomBuilder | undefined } value - 工具栏内容，使用Array<[ToolbarItem]{@link ToolbarItem}>
    *     设置的工具栏有如下特性：<br/>工具栏所有选项均分底部工具栏，在每个均分内容区布局文本和图标。<br/>竖屏模式最多支持显示5个图标，多余的图标会被放入自动生成的更多图标。横屏模式时，如果为
    *     [Split]{@link NavigationMode}模式，仍按照竖屏模式显示，如果为[Stack]{@link NavigationMode}模式需配合menus属性的Array<
    *     [NavigationMenuItem]{@link NavigationMenuItem}>使用，底部工具栏会自动隐藏，同时底部工具栏所有选项移动至页面右上角菜单。<br/>使用
-   *     [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)写法为用户自定义工具栏选项，不具备以上功能。<br/
+   *     [CustomBuilder]{@link CustomBuilder}写法为用户自定义工具栏选项，不具备以上功能。<br/
    *     >取值为undefined时，无工具栏。
    * @param { NavigationToolbarOptions | undefined } [options] - 工具栏选项。 包含工具栏背景颜色、工具栏背景模糊样式及模糊选项、工具栏背景属性、工具栏布局方式、是否隐藏工
    *     具栏的文本、工具栏更多图标的菜单选项。<br/>取值为undefined时，按NavigationToolbarOptions中的默认值处理。
@@ -2094,7 +2094,7 @@ export declare interface NavigationAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { function | undefined } delegate - 自定义转场动画的回调函数。<br/>from：退场Destination的页面信息。<br/>to：进场Destination的页面信息。<
@@ -2137,7 +2137,7 @@ export declare interface NavigationAttribute extends CommonMethod {
    * >
    * >
    * > 从API version 20开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { SystemBarStyle | undefined } style - 系统状态栏样式。<br/>取值为undefined时，无样式。
@@ -2198,14 +2198,14 @@ export declare interface NavigationAttribute extends CommonMethod {
   default enableModeChangeAnimation(isEnabled: boolean | undefined): this;
 
   /**
-   * 设置是否启用[NavDestination]{@link ./../../@internal/component/ets/nav_destination}页面
-   * [onHidden](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navdestination.md#onhidden10)、
-   * [onShown](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navdestination.md#onshown10)生命周期与全模态的联动触发。
+   * 设置是否启用[NavDestination]{@link ./navDestination}页面
+   * [onHidden]{@link onHidden}、
+   * [onShown]{@link onShown}生命周期与全模态的联动触发。
    *
    * > **说明：**
    * >
    * > 从API version 23开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { boolean | undefined } isEnabled - 是否启用NavDestination页面onShown、onHidden生命周期与全模态的联动触发。<br/>默认值：true<br/>

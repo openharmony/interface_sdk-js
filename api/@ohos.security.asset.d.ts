@@ -161,8 +161,9 @@ declare namespace asset {
    *     and custom data.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000006 - Insufficient memory.
@@ -190,8 +191,9 @@ declare namespace asset {
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000006 - Insufficient memory.
@@ -240,8 +242,9 @@ declare namespace asset {
    * @param { AssetMap } query - Attributes of the asset to remove, such as the asset alias, access control attributes,
    *     and custom data.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000006 - Insufficient memory.
@@ -378,8 +381,8 @@ declare namespace asset {
   function updateSync(query: AssetMap, attributesToUpdate: AssetMap): void;
 
   /**
-   * Performs preprocessing for the asset query. This API is used when user authentication is required for the access to
-   * the asset. After the user authentication is successful, call [asset.query]{@link asset.query} and
+   * Performs preprocessing for the asset query. This API is used when user authentication is required for the access
+   * to the asset. After the user authentication is successful, call [asset.query]{@link asset.query} and
    * [asset.postQuery]{@link asset.postQuery}. This API uses a promise to return the result.
    *
    * @param { AssetMap } query - Attributes of the asset to query, such as the asset alias, access control attributes,
@@ -387,8 +390,9 @@ declare namespace asset {
    * @returns { Promise<Uint8Array> } Promise used to return a challenge value.
    *     <br>**Note**: The challenge value is used for subsequent user authentication.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000005 - The screen lock status does not match.
@@ -424,8 +428,9 @@ declare namespace asset {
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000005 - The screen lock status does not match.
@@ -446,8 +451,8 @@ declare namespace asset {
   function preQueryAsUser(userId: number, query: AssetMap): Promise<Uint8Array>;
 
   /**
-   * Performs preprocessing for the asset query. This API is used when user authentication is required for the access to
-   * the asset. After the user authentication is successful, call [asset.querySync]{@link asset.querySync} and
+   * Performs preprocessing for the asset query. This API is used when user authentication is required for the access
+   * to the asset. After the user authentication is successful, call [asset.querySync]{@link asset.querySync} and
    * [asset.postQuerySync]{@link asset.postQuerySync}. This API returns the result synchronously.
    *
    * @param { AssetMap } query - Attributes of the asset to query, such as the asset alias, access control attributes,
@@ -455,8 +460,9 @@ declare namespace asset {
    * @returns { Uint8Array } Challenge value.
    *     <br>**Note**: The challenge value is used for subsequent user authentication.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000005 - The screen lock status does not match.
@@ -490,8 +496,9 @@ declare namespace asset {
    *     and custom data.
    * @returns { Promise<Array<AssetMap>> } Promise used to return the result obtained.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000004 - Access denied.
@@ -527,8 +534,9 @@ declare namespace asset {
    * @throws { BusinessError } 201 - The caller doesn't have the permission.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000004 - Access denied.
@@ -562,8 +570,9 @@ declare namespace asset {
    *     and custom data.
    * @returns { Array<AssetMap> } Array of query results.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Incorrect parameter types.
-   *     2. Parameter verification failed.
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 24000001 - The ASSET service is unavailable.
    * @throws { BusinessError } 24000002 - The asset is not found.
    * @throws { BusinessError } 24000004 - Access denied.
@@ -959,7 +968,7 @@ declare namespace asset {
   }
 
   /**
-   * Result object containing batch operation,including {@link batchAdd},{@link batchUpdate},{@link batchRemove}.
+   * Result object containing batch operation,including {@link batchAdd} and {@link batchUpdate}.
    *
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
@@ -1317,7 +1326,7 @@ declare namespace asset {
      * @syscap SystemCapability.Security.Asset
      * @since 18
      */
-    WRAP_TYPE = TagType.NUMBER | 0x49,
+    WRAP_TYPE = TagType.NUMBER | 0x49
   }
 
   /**

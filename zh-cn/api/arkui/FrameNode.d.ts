@@ -103,11 +103,11 @@ declare interface CrossLanguageOptions {
    * 默认值为false。
    *
    * **说明：** 当FrameNode启用了跨ArkTS语言进行组件树操作的选项后，支持该FrameNode跨ArkTS语言调用
-   * [addChild](docroot://reference/apis-arkui/capi-arkui-nativemodule-arkui-nativenodeapi-1.md#addchild)、
-   * [insertChildAfter](docroot://reference/apis-arkui/capi-arkui-nativemodule-arkui-nativenodeapi-1.md#insertchildafter)
-   * 、[insertChildAt](docroot://reference/apis-arkui/capi-arkui-nativemodule-arkui-nativenodeapi-1.md#insertchildat)、
-   * [insertChildBefore](docroot://reference/apis-arkui/capi-arkui-nativemodule-arkui-nativenodeapi-1.md#insertchildbefore)
-   * 和[removeChild](docroot://reference/apis-arkui/capi-arkui-nativemodule-arkui-nativenodeapi-1.md#removechild)。
+   * [addChild](docroot://reference/apis-arkui/c-apis/capi-arkui-nativemodule-arkui-nativenodeapi-1.md#addchild)、
+   * [insertChildAfter](docroot://reference/apis-arkui/c-apis/capi-arkui-nativemodule-arkui-nativenodeapi-1.md#insertchildafter)
+   * 、[insertChildAt](docroot://reference/apis-arkui/c-apis/capi-arkui-nativemodule-arkui-nativenodeapi-1.md#insertchildat)、
+   * [insertChildBefore](docroot://reference/apis-arkui/c-apis/capi-arkui-nativemodule-arkui-nativenodeapi-1.md#insertchildbefore)
+   * 和[removeChild](docroot://reference/apis-arkui/c-apis/capi-arkui-nativemodule-arkui-nativenodeapi-1.md#removechild)。
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full

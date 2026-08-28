@@ -23,10 +23,9 @@
  */
 
 /**
- * 任务回调函数已更改。
  *
  * @typedef { function } NotifyMissionsChangedCallback
- * @param { string } deviceId - Indicates the deviceId mission changed.
+ * @param { string } deviceId - 设备ID，表示发生任务变化的远程设备。
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @stagemodelonly
@@ -36,11 +35,10 @@
 type NotifyMissionsChangedCallback = (deviceId: string) => void;
 
 /**
- * 快照更改时的回调函数。
  *
  * @typedef { function } NotifySnapshotCallback
- * @param { string } deviceId - Indicates the deviceId snapshot changed.
- * @param { int } mission - Indicates the id of mission.
+ * @param { string } deviceId - 设备ID，表示快照发生变化的远程设备。
+ * @param { int } mission - 任务ID，表示快照发生变化的任务。
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @stagemodelonly
@@ -50,11 +48,10 @@ type NotifyMissionsChangedCallback = (deviceId: string) => void;
 type NotifySnapshotCallback = (deviceId: string, mission: int) => void;
 
 /**
- * 断开连接时的回调函数。
  *
  * @typedef { function } NotifyNetDisconnectCallback
- * @param { string } deviceId - Indicates the deviceId network disconnect.
- * @param { int } state - Indicates the state of network.
+ * @param { string } deviceId - 设备ID，表示网络断开的远程设备。
+ * @param { int } state - 网络连接状态，固定为0，表示网络断开。
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
  * @systemapi
  * @stagemodelonly
@@ -64,7 +61,7 @@ type NotifySnapshotCallback = (deviceId: string, mission: int) => void;
 type NotifyNetDisconnectCallback = (deviceId: string, state: int) => void;
 
 /**
- * 任务回调已注册
+ * 作为可以[registerMissionListener]的入参，表示开始同步后，建立的回调函数，用于监听任务状态变化，包含任务列表变化通知、任务快照通知和断开连接通知等功能。
  *
  * @interface MissionCallback
  * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -75,7 +72,7 @@ type NotifyNetDisconnectCallback = (deviceId: string, state: int) => void;
  */
 export interface MissionCallback {
   /**
-   * 任务变更时由系统调用。
+   * notifyMissionsChanged是任务监听的callback函数，用于通知任务变化。用于在多设备协同场景下，监听远程设备的任务状态变化，如任务管理器、多屏协同等场景。当远程设备的任务列表发生增、删、排序等变化时，触发此回调通知。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -87,7 +84,7 @@ export interface MissionCallback {
   notifyMissionsChanged: NotifyMissionsChangedCallback;
 
   /**
-   * 快照发生更改时，系统会调用此函数。
+   * notifySnapshot是任务监听的callback函数，用于通知任务快照变化。当任务的快照（即任务当前界面状态的快照）发生变化时触发该回调。用于在多设备协同场景下，监听远程设备任务界面状态变化，如多屏协同中界面同步更新等场景。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
@@ -99,7 +96,7 @@ export interface MissionCallback {
   notifySnapshot: NotifySnapshotCallback;
 
   /**
-   * Called by system when network disconnect.
+   * notifyNetDisconnect是任务监听的callback函数，用于通知断开连接。用于在多设备协同场景下，监听远程设备的网络连接状态变化，当设备断开连接时触发回调通知。开发者应在此回调中清理资源、提示用户网络断开，并释放与该设备相关的会话资源。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission

@@ -21,9 +21,13 @@
 import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * 该模块提供空间查询相关的常用功能：包括对内外卡的空间查询、对应用分类数据统计的查询、对应用数据的查询等。
+ * 该模块提供空间查询相关的常用功能：包括对内置存储和外置存储卡的空间查询、对应用分类数据统计的查询、
+ * 对应用数据的查询、对文件系统inode资源（总量、剩余量及当前应用占用量）的查询等。适用于存储空间管理、
+ * 系统监控、应用存储优化等场景，帮助开发者实时掌握设备存储和inode资源使用情况，合理规划存储策略，
+ * 避免因存储空间或inode资源不足导致应用异常。
  *
  * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+ * @crossplatform [since 26.1.0]
  * @since 8 dynamic
  * @since 23 static
  */
@@ -115,6 +119,7 @@ declare namespace storageStatistics {
    * 获取捆绑包统计信息。
    *
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @crossplatform [since 26.1.0]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -124,6 +129,7 @@ declare namespace storageStatistics {
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+     * @crossplatform [since 26.1.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -134,6 +140,7 @@ declare namespace storageStatistics {
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+     * @crossplatform [since 26.1.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -144,6 +151,7 @@ declare namespace storageStatistics {
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+     * @crossplatform [since 26.1.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -206,6 +214,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @crossplatform [since 26.1.0]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -220,6 +229,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
+   * @crossplatform [since 26.1.0]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -430,6 +440,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 9 - 14]
    * @publicapi [since 15]
+   * @crossplatform [since 26.1.0]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -437,26 +448,17 @@ declare namespace storageStatistics {
   /**
    * 获取内置存储的总空间大小（单位为Byte），以Promise方式返回。
    *
-   * @permission ohos.permission.STORAGE_MANAGER
+   * @permission ohos.permission.STORAGE_MANAGER [since 9 - 14]
    * @returns { Promise<long> } Promise对象，返回内置存储的总空间大小（单位为Byte）。
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-  parameters are left unspecified;
+   * @throws { BusinessError } 201 - Permission verification failed. [since 9 - 14]
+   * @throws { BusinessError } 202 - The caller is not a system application. [since 9 - 14]
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * 获取内置存储的总空间大小（单位为Byte），以Promise方式返回。
-   *
-   * @returns { Promise<long> } Promise对象，返回内置存储的总空间大小（单位为Byte）。 (Unit: Byte)
-   * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15 dynamic
+   * @systemapi [since 9 - 14]
+   * @publicapi [since 15]
+   * @crossplatform [since 26.1.0]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getTotalSize(): Promise<long>;
@@ -473,6 +475,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 10 - 14]
    * @publicapi [since 15]
+   * @crossplatform [since 26.1.0]
    * @since 10 dynamic
    * @since 23 static
    */
@@ -492,6 +495,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 9 - 14]
    * @publicapi [since 15]
+   * @crossplatform [since 26.1.0]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -500,26 +504,17 @@ declare namespace storageStatistics {
   /**
    * 获取内置存储的可用空间大小（单位为Byte），以Promise方式返回。
    *
-   * @permission ohos.permission.STORAGE_MANAGER
+   * @permission ohos.permission.STORAGE_MANAGER [since 9 - 14]
    * @returns { Promise<long> } Promise对象，返回内置存储的可用空间大小（单位为Byte）。
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 401 - The input parameter is invalid.Possible causes:Mandatory
-  parameters are left unspecified;
+   * @throws { BusinessError } 201 - Permission verification failed. [since 9 - 14]
+   * @throws { BusinessError } 202 - The caller is not a system application. [since 9 - 14]
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * 获取内置存储的可用空间大小（单位为Byte），以Promise方式返回。
-   *
-   * @returns { Promise<long> } Promise对象，返回内置存储的可用空间大小（单位为Byte）。 (Unit: Byte)
-   * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13900042 - Unknown error.
-   * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @since 15 dynamic
+   * @systemapi [since 9 - 14]
+   * @publicapi [since 15]
+   * @crossplatform [since 26.1.0]
+   * @since 9 dynamic
    * @since 23 static
    */
   function getFreeSize(): Promise<long>;
@@ -536,6 +531,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 10 - 14]
    * @publicapi [since 15]
+   * @crossplatform [since 26.1.0]
    * @since 10 dynamic
    * @since 23 static
    */
@@ -706,6 +702,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600016 - Failed to query the inode information of the data partition.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @since 24 dynamic&static
    */
   function getTotalInodes(): Promise<long>;
@@ -717,6 +714,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600016 - Failed to query the inode information of the data partition.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @since 24 dynamic&static
    */
   function getFreeInodes(): Promise<long>;
@@ -729,6 +727,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600017 - Failed to query the inode information of the application.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @since 24 dynamic&static
    */
   function getCurrentBundleInodes(): Promise<long>;

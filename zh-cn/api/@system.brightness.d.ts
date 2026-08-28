@@ -19,7 +19,7 @@
  */
 
 /**
- * 该模块提供屏幕亮度和模式的查询、调节接口。
+ * 该模块提供屏幕亮度和模式的查询、调节接口，以及屏幕常亮的设置接口。
  * 
  * > **说明：**
  * >
@@ -43,7 +43,7 @@
  */
 export interface BrightnessResponse {
   /**
-   * 屏幕亮度，范围：1到255。
+   * 屏幕亮度，范围为1到255的整数。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @FaAndStageModel
@@ -87,7 +87,7 @@ export interface GetBrightnessOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * 接口调用结束的回调函数。
+   * 接口调用结束的回调函数，无论接口调用成功或失败都会执行。当需要在操作完成后执行清理或状态更新等逻辑时传入，不传入时不执行结束回调逻辑。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @FaAndStageModel
@@ -148,7 +148,7 @@ export interface SetBrightnessOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * 接口调用结束的回调函数。
+   * 接口调用结束的回调函数，无论接口调用成功或失败都会执行。当需要在操作完成后执行清理或状态更新等逻辑时传入，不传入时不执行结束回调逻辑。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @FaAndStageModel
@@ -214,7 +214,7 @@ export interface GetBrightnessModeOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * 接口调用结束的回调函数。
+   * 接口调用结束的回调函数，无论接口调用成功或失败都会执行。当需要在操作完成后执行清理或状态更新等逻辑时传入，不传入时不执行结束回调逻辑。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @FaAndStageModel
@@ -269,7 +269,7 @@ export interface SetBrightnessModeOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * 接口调用结束的回调函数。
+   * 接口调用结束的回调函数，无论接口调用成功或失败都会执行。当需要在操作完成后执行清理或状态更新等逻辑时传入，不传入时不执行结束回调逻辑。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @FaAndStageModel
@@ -291,7 +291,7 @@ export interface SetBrightnessModeOptions {
  */
 export interface SetKeepScreenOnOptions {
   /**
-   * true表示保持屏幕常亮，false表示取消屏幕常亮。
+   * true表示保持屏幕常亮（仅阻止系统无活动超时灭屏，无法阻止用户主动操作或常亮时刻结束等导致的灭屏），false表示取消屏幕常亮。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @FaAndStageModel
@@ -324,7 +324,7 @@ export interface SetKeepScreenOnOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * 接口调用结束的回调函数。
+   * 接口调用结束的回调函数，无论接口调用成功或失败都会执行。当需要在操作完成后执行清理或状态更新等逻辑时传入，不传入时不执行结束回调逻辑。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @FaAndStageModel
@@ -336,7 +336,7 @@ export interface SetKeepScreenOnOptions {
 }
 
 /**
- * 该模块提供屏幕亮度和模式的查询、调节接口。
+ * 提供屏幕亮度、模式的查询、调节接口，以及屏幕常亮的设置接口。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
  * @FaAndStageModel
@@ -346,9 +346,9 @@ export interface SetKeepScreenOnOptions {
  */
 export default class Brightness {
   /**
-   * 获得设备当前的屏幕亮度值。
+   * 获取设备当前的屏幕亮度值。
    *
-   * @param { GetBrightnessOptions } options 获取屏幕亮度的参数对象。可选，默认为空。
+   * @param { GetBrightnessOptions } options 获取屏幕亮度的参数对象。可选，默认为空。不传入此参数时，将无法通过回调接收亮度查询结果。
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @FaAndStageModel
    * @since 3 dynamiconly
@@ -358,9 +358,9 @@ export default class Brightness {
   static getValue(options?: GetBrightnessOptions): void;
 
   /**
-   * 设置设备当前的屏幕亮度值。
+   * 设置设备当前的屏幕亮度值。设置的亮度值会被系统校正：超出1-255范围的值自动调整至有效范围，小数截断为整数。详见SetBrightnessOptions中value参数说明。
    *
-   * @param { SetBrightnessOptions } options 设置屏幕亮度的参数对象。可选，默认为空。
+   * @param { SetBrightnessOptions } options 设置屏幕亮度的参数对象。可选，默认为空。不传入此参数时，无法设置亮度值，接口调用无实际效果。
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @FaAndStageModel
    * @since 3 dynamiconly
@@ -371,9 +371,9 @@ export default class Brightness {
   static setValue(options?: SetBrightnessOptions): void;
 
   /**
-   * 获得当前屏幕亮度模式。
+   * 获取设备当前的屏幕亮度模式。
    *
-   * @param { GetBrightnessModeOptions } options 获取屏幕亮度模式的参数对象。可选，默认为空。
+   * @param { GetBrightnessModeOptions } options 获取屏幕亮度模式的参数对象。可选，默认为空。不传入此参数时，将无法通过回调接收模式查询结果。
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @FaAndStageModel
    * @since 3 dynamiconly
@@ -383,9 +383,9 @@ export default class Brightness {
   static getMode(options?: GetBrightnessModeOptions): void;
 
   /**
-   * 设置设备当前的屏幕亮度模式。
+   * 设置设备当前的屏幕亮度模式。支持手动调节（mode=0）和自动调节（mode=1）两种模式。详见SetBrightnessModeOptions中mode参数说明。
    *
-   * @param { SetBrightnessModeOptions } options 设置屏幕亮度模式的参数对象。可选，默认为空。
+   * @param { SetBrightnessModeOptions } options 设置屏幕亮度模式的参数对象。可选，默认为空。不传入此参数时，无法设置亮度模式，接口调用无实际效果。
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @FaAndStageModel
    * @since 3 dynamiconly
@@ -403,7 +403,7 @@ export default class Brightness {
    *
    * - 在Lite Wearable上，该接口仅能阻止系统无活动超时灭屏（自动），无法阻止用户主动操作（如盖屏）、常亮时刻结束等导致的灭屏。
    *
-   * @param { SetKeepScreenOnOptions } options 设置屏幕常亮的参数对象。可选，默认为空。
+   * @param { SetKeepScreenOnOptions } options 设置屏幕常亮的参数对象。可选，默认为空。不传入此参数时，无法设置屏幕常亮状态，接口调用无实际效果。
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
    * @FaAndStageModel
    * @since 3 dynamiconly

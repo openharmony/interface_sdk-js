@@ -14,10 +14,9 @@
  */
 
 /**
- * The **touchEvent** module provides touch events reported by a device. It is inherited from 
- * [InputEvent]{@link @ohos.multimodalInput.inputEvent:InputEvent}.
+ * 设备上报的触屏输入事件，继承自[InputEvent]{@link @ohos.multimodalInput.inputEvent:InputEvent}。
  *
- * @file Touch Event
+ * @file 触屏输入事件
  * @kit InputKit
  */
 
@@ -69,7 +68,7 @@ export declare enum Action {
   UP = 3,
 
   /**
-   * 触屏开始拖拽。
+   * 触屏开始拖拽。<br/>**起始版本：** 26.0.0<br/>**模型约束：** 此接口仅可在Stage模型下使用。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -78,7 +77,7 @@ export declare enum Action {
   PULL_DOWN = 4,
 
   /**
-   * 触屏拖拽移动。
+   * 触屏拖拽移动。<br/>**起始版本：** 26.0.0<br/>**模型约束：** 此接口仅可在Stage模型下使用。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -87,7 +86,7 @@ export declare enum Action {
   PULL_MOVE = 5,
 
   /**
-   * 触屏结束拖拽。
+   * 触屏结束拖拽。<br/>**起始版本：** 26.0.0<br/>**模型约束：** 此接口仅可在Stage模型下使用。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -179,7 +178,7 @@ export declare enum ToolType {
 }
 
 /**
- * 触屏来源的设备类型，当前仅支持触摸屏、触控板类型上报。
+ * 触屏来源的设备类型，当前支持触屏、手写笔、触控板类型上报。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
@@ -216,8 +215,8 @@ export declare enum SourceType {
 }
 
 /**
- * 修正坐标的模式。
- * 
+ * 修正坐标的模式。默认值为NONE。
+ *
  * **系统API**: 此接口为系统接口。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -420,7 +419,7 @@ export declare interface Touch {
   toolType: ToolType;
 
   /**
-   * 适配单手模式下screenX坐标的修正值，单位为像素（px）。
+   * 适配单手模式下screenX坐标的修正值，单位为像素（px）。默认值为0。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -430,7 +429,7 @@ export declare interface Touch {
   fixedDisplayX?: int;
 
   /**
-   * 适配单手模式下screenY坐标的修正值，单位为像素（px）。
+   * 适配单手模式下screenY坐标的修正值，单位为像素（px）。默认值为0。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -462,7 +461,7 @@ export declare interface Touch {
   globalY?: int;
 
   /**
-   * 触摸点属性标识。当前仅支持单指触摸：左手触摸为1，右手触摸为2。
+   * 触摸点属性标识。当前仅支持单指触摸：左手触摸为1，右手触摸为2。默认值为系统自动识别。默认情况下不设置此属性。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -518,7 +517,7 @@ export declare interface TouchEvent extends InputEvent {
   sourceType: SourceType;
 
   /**
-   * 修正坐标的模式。
+   * 修正坐标的模式。默认值为FixedMode.NONE。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -528,7 +527,7 @@ export declare interface TouchEvent extends InputEvent {
   fixedMode?: FixedMode;
 
   /**
-   * 表示该触屏输入事件是否为注入事件。注入事件详细介绍可参考
+   * 表示该触屏输入事件是否为注入事件。默认值为false。注入事件详细介绍可参考
    * [@ohos.multimodalInput.inputEventClient]{@link @ohos.multimodalInput.inputEventClient:inputEventClient}。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core

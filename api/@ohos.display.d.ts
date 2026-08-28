@@ -208,8 +208,7 @@ declare namespace display {
    * @param { Array<string> } displayAttributeOption - Attribute names. Only attributes contained in
    *     [Display]{@link display.Display} are supported.
    * @param { Callback<long> } callback - Callback used to return the ID of the display, which is an integer.
-   * @throws { BusinessError } 801 - Capability not supported. Function onChangeWithAttribute can not work correctly
-   *     due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    *     Possible causes: Internal IPC error.
    * @syscap SystemCapability.Window.SessionManager
@@ -552,7 +551,7 @@ declare namespace display {
    *
    * @param { 'captureStatusChange' } type - Event type. The event **'captureStatusChange'** is triggered when the
    *     screen capture status changes.
-   * @param { Callback<boolean> } callback - Callback used to return the result indicating whether the device's screen
+   * @param { Callback<boolean> } [callback] - Callback used to return the result indicating whether the device's screen
    *     content is being captured. **true** is returned when screen content is being captured (including active screen
    *     capture, casting, recording, or the creation of a virtual screen that could be captured). **false** is returned
    *     when screen content is no longer being captured. In the case of screen capture, **true** is returned only once.
@@ -738,8 +737,7 @@ declare namespace display {
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported. Function createVirtualScreen can not work correctly due
-   *     to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @syscap  SystemCapability.Window.SessionManager
    * @since 16 dynamic
@@ -758,8 +756,7 @@ declare namespace display {
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported. Function destroyVirtualScreen can not work correctly due
-   *     to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap  SystemCapability.Window.SessionManager
@@ -806,8 +803,7 @@ declare namespace display {
    *     In independent display mode, the surfaceRegion is valid.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Function addVirtualScreenSurface
-   *     can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
@@ -828,8 +824,7 @@ declare namespace display {
    *     parameter is 4096 bytes. If it goes beyond that, only the first 4096 bytes are used.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Function removeVirtualScreenSurface
-   *     can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
@@ -851,8 +846,7 @@ declare namespace display {
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Function makeUnique can not work correctly due to limited
-   *     device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
@@ -873,8 +867,7 @@ declare namespace display {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Function addVirtualScreenBlocklist can not work correctly
-   *     due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
@@ -895,8 +888,7 @@ declare namespace display {
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported. Function removeVirtualScreenBlocklist
-   *     can not work correctly due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
@@ -950,8 +942,7 @@ declare namespace display {
    *
    * @param { long } displayId - Display ID. The value must be an integer greater than or equal to 0.
    * @returns { BrightnessInfo } Screen brightness information.
-   * @throws { BusinessError } 801 - Capability not supported. Function getBrightnessInfo can not work correctly due to
-   *     limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
@@ -982,8 +973,7 @@ declare namespace display {
    *     that the screen brightness information is changed.
    * @param { BrightnessCallback<long, BrightnessInfo> } callback - Callback used to return the display ID (parameter 1)
    *     and the corresponding screen brightness information (parameter 2).
-   * @throws { BusinessError } 801 - Capability not supported. Function on('brightnessInfoChange') can not work
-   *     correctly due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
@@ -1000,8 +990,7 @@ declare namespace display {
    * @param { BrightnessCallback<long, BrightnessInfo> } [callback] - Callback used to return the display ID (parameter
    *     1) and the corresponding screen brightness information (parameter 2). If this parameter is not specified, all
    *     subscriptions to the specified event are canceled.
-   * @throws { BusinessError } 801 - Capability not supported. Function off('brightnessInfoChange') can not work
-   *     correctly due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
@@ -1015,8 +1004,7 @@ declare namespace display {
    *
    * @param { BrightnessCallback<long, BrightnessInfo> } callback - Callback used to return the display if and
    *     corresponding brightness info.
-   * @throws { BusinessError } 801 - Capability not supported. Function onBrightnessInfoChange can not work
-   *     correctly due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
@@ -1029,8 +1017,7 @@ declare namespace display {
    *
    * @param { BrightnessCallback<long, BrightnessInfo> } [callback] - Callback used to return the display corresponding
    *     brightness info. If not provided, all callbacks for the given event type will be removed.
-   * @throws { BusinessError } 801 - Capability not supported. Function offBrightnessInfoChange can not work
-   *     correctly due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1. Invalid parameter range.
    * @syscap SystemCapability.Window.SessionManager
@@ -2013,8 +2000,7 @@ declare namespace display {
      * @param { AsyncCallback<boolean> } callback - Callback used to return the result. **true** if the display contains
      *     an immersive window, **false** otherwise.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -2030,8 +2016,7 @@ declare namespace display {
      * @returns { Promise<boolean> } Promise used to return the result. **true** if the display contains an immersive
      *     window, **false** otherwise.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -2054,8 +2039,7 @@ declare namespace display {
      * you can use the width and height attributes in Display.
      *
      * @returns { Promise<Rect> } Promise used to return the available area, which is a rectangle.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 1400001 - Invalid display or screen. Possible cause:
      *     1. This display is abnormal.
      *     2. Internal task error.
@@ -2070,8 +2054,7 @@ declare namespace display {
      * Obtains the live crease region of the foldable device in the current display mode.
      *
      * @returns { FoldCreaseRegion } Live crease region of the device.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @crossplatform [since 26.1.0]
@@ -2158,8 +2141,7 @@ declare namespace display {
      * Get current display capability, including foldstatus, displaymode, rotation, and orientation information.
      *
      * @returns { string } Indicates the current foldstatus, displaymode, rotation, and orientation information.
-     * @throws { BusinessError } 801 - Capability not supported.Function getDisplayCapability can not work correctly due
-     *     to limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
@@ -2233,8 +2215,7 @@ declare namespace display {
      * rounded corner information; otherwise, an empty array is returned. Virtual displays always return an empty array.
      *
      * @returns { Array<RoundedCorner> } Rounded corner information.
-     * @throws { BusinessError } 801 - Capability not supported. Function getRoundedCorner can not work correctly due to
-     *     limited device capabilities.
+     * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 1400001 - Invalid display or screen.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager

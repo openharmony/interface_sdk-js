@@ -39,7 +39,7 @@ declare enum PanDirection {
   None,
 
   /**
-   * 水平方向。
+   * Sliding horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -49,7 +49,7 @@ declare enum PanDirection {
   Horizontal,
 
   /**
-   * 向左滑动。
+   * Sliding left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -59,7 +59,7 @@ declare enum PanDirection {
   Left,
 
   /**
-   * 向右滑动。
+   * Sliding right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -69,7 +69,7 @@ declare enum PanDirection {
   Right,
 
   /**
-   * 竖直方向。
+   * 垂直滑动
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -79,7 +79,7 @@ declare enum PanDirection {
   Vertical,
 
   /**
-   * 向上滑动。
+   * Sliding up.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -89,7 +89,7 @@ declare enum PanDirection {
   Up,
 
   /**
-   * 向下滑动。
+   * Sliding Down.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -99,7 +99,7 @@ declare enum PanDirection {
   Down,
 
   /**
-   * 所有方向。
+   * Sliding in all directions.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -130,7 +130,7 @@ declare enum SwipeDirection {
   None,
 
   /**
-   * 水平方向，手指滑动方向与x轴夹角小于45度时触发。
+   * Sliding horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -140,7 +140,7 @@ declare enum SwipeDirection {
   Horizontal,
 
   /**
-   * 竖直方向，手指滑动方向与y轴夹角小于45度时触发。
+   * 垂直滑动
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -150,7 +150,7 @@ declare enum SwipeDirection {
   Vertical,
 
   /**
-   * 所有方向。
+   * Sliding in all directions.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -183,7 +183,7 @@ declare enum GestureMode {
   Sequence,
 
   /**
-   * 并行识别，注册的手势同时识别，直到所有手势识别结束，手势识别互相不影响。
+   * Simultaneous recognition. Registration gestures participate in recognition. Everything can be triggered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -193,7 +193,7 @@ declare enum GestureMode {
   Parallel,
 
   /**
-   * 互斥识别，注册的手势同时识别，若有一个手势识别成功，则结束手势识别，其他手势识别均失败。
+   * Mutually exclusive recognition. Only one gesture is successfully recognized.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -224,7 +224,7 @@ declare enum GestureMask {
   Normal,
 
   /**
-   * 屏蔽子组件的手势，包括子组件上系统内置的手势，如子组件为List组件时，内置的滑动手势同样会被屏蔽。 若父子组件区域存在部分重叠，则只会屏蔽父子组件重叠的部分。
+   * Ignore internal gestures and recognize the current gesture first.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2215,7 +2215,7 @@ declare class TapGestureHandler extends GestureHandler<TapGestureHandler> {
   /**
    * 点击手势处理器的构造函数。
    *
-   * @param { TapGestureHandlerOptions } options - 点击手势处理器配置参数。
+   * @param { TapGestureHandlerOptions } [options] - 点击手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2328,7 +2328,7 @@ declare class LongPressGestureHandler extends GestureHandler<LongPressGestureHan
   /**
    * 长按手势处理器的构造函数。
    *
-   * @param { LongPressGestureHandlerOptions } options - 长按手势处理器配置参数。
+   * @param { LongPressGestureHandlerOptions } [options] - 长按手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2446,7 +2446,7 @@ interface PanGestureHandlerOptions extends BaseHandlerOptions {
    * 取值范围：[0, +∞)，当设定的值小于0时，按默认值处理。
    * 
    * 从API version 19开始，手写笔默认值为8，单位为vp。
-   * 
+   *
    * 使用[gestureModifier]{@link CommonMethod#gestureModifier}配置该字段时，单位为px。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2487,7 +2487,7 @@ declare class PanGestureHandler extends GestureHandler<PanGestureHandler> {
   /**
    * 滑动手势处理器的构造函数。
    *
-   * @param { PanGestureHandlerOptions } options - 滑动手势处理器配置参数。
+   * @param { PanGestureHandlerOptions } [options] - 滑动手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2634,7 +2634,7 @@ declare class SwipeGestureHandler extends GestureHandler<SwipeGestureHandler> {
   /**
    * 快滑手势处理器的构造函数。
    *
-   * @param { SwipeGestureHandlerOptions } options - 快滑手势处理器配置参数。
+   * @param { SwipeGestureHandlerOptions } [options] - 快滑手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2717,7 +2717,7 @@ declare class PinchGestureHandler extends GestureHandler<PinchGestureHandler> {
   /**
    * 捏合手势处理器的构造函数。
    *
-   * @param { PinchGestureHandlerOptions } options - 捏合手势处理器配置参数。
+   * @param { PinchGestureHandlerOptions } [options] - 捏合手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2853,7 +2853,7 @@ declare class RotationGestureHandler extends GestureHandler<RotationGestureHandl
   /**
    * 旋转手势处理器的构造函数。
    *
-   * @param { RotationGestureHandlerOptions } options - 旋转手势处理器配置参数。
+   * @param { RotationGestureHandlerOptions } [options] - 旋转手势处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2983,7 +2983,7 @@ declare class GestureGroupHandler extends GestureHandler<GestureGroupHandler> {
   /**
    * 手势组处理器的构造函数。
    *
-   * @param { GestureGroupGestureHandlerOptions } options - 手势组处理器配置参数。
+   * @param { GestureGroupGestureHandlerOptions } [options] - 手势组处理器配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

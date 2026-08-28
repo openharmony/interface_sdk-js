@@ -36,7 +36,7 @@
 declare namespace faceAuth {
   /**
    * Provides APIs for facial authentication management. It provides management features during face enrollment,
-   * including setting the surface ID of the face preview page.
+   * including setting the **SurfaceId** of the face preview page.
    *
    * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
    * @systemapi Hide this for inner system use.
@@ -55,10 +55,10 @@ declare namespace faceAuth {
     constructor();
 
     /**
-     * Sets the surface ID of the face preview page during face enrollment. This API must be used together with
-     * [addCredential]{@link @ohos.account.osAccount:osAccount.UserIdentityManager#addCredential} to display the face
-     * preview page through the surface of the
-     * [getXComponentSurfaceId]{@link XComponentController#getXComponentSurfaceId} component.
+     * Sets the **SurfaceId** of the face preview page during face enrollment. This API must be used together with
+     * [addCredential]{@link @ohos.account.osAccount:osAccount.UserIdentityManager#addCredential}. Use the
+     * [getXComponentSurfaceId]{@link XComponentController#getXComponentSurfaceId} method to obtain the **SurfaceId** of
+     * the **XComponent** component to display the face preview page.
      *
      * @permission ohos.permission.MANAGE_USER_IDM
      * @param { string } surfaceId - ID of the surface held by [XComponent]{@link ./@internal/component/ets/xcomponent}.

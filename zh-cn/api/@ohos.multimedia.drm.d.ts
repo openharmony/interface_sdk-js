@@ -14,7 +14,7 @@
 */
 
 /**
- * @file Defines the DRM capability.
+ * @file
  * @kit DrmKit
  */
 
@@ -42,7 +42,7 @@ declare namespace drm {
      */
     enum DrmErrorCode {
       /**
-       * 未知错误。
+       * 未知错误，当发生无法归类的异常时返回。建议检查输入参数是否合法、DRM服务是否正常运行。
        *
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @atomicservice [since 14]
@@ -51,7 +51,7 @@ declare namespace drm {
        */
       ERROR_UNKNOWN = 24700101,
       /**
-       * MediaKeySystem实例数量超过上限（64个）。
+       * MediaKeySystem实例数量超过上限（64个）。请调用[destroy]{@link @ohos.multimedia.drm:drm.MediaKeySystem.destroy}方法销毁不需要的MediaKeySystem实例后重试。
        *
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @atomicservice [since 14]
@@ -60,7 +60,7 @@ declare namespace drm {
        */
       MAX_SYSTEM_NUM_REACHED = 24700103,
       /**
-       * MediaKeySession实例数量超过上限（64个）。
+       * MediaKeySession实例数量超过上限（64个）。请调用[destroy]{@link @ohos.multimedia.drm:drm.MediaKeySession.destroy}方法销毁不需要的MediaKeySession实例后重试。
        *
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @atomicservice [since 14]
@@ -69,7 +69,7 @@ declare namespace drm {
        */
       MAX_SESSION_NUM_REACHED = 24700104,
       /**
-       * DRM服务异常。
+       * DRM服务异常，当DRM服务发生致命错误时返回。可能原因：系统资源不足、DRM服务进程崩溃或系统异常。建议重启应用或重启设备后重试。
        *
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @atomicservice [since 14]
@@ -423,7 +423,7 @@ declare namespace drm {
        */
       data: Uint8Array;
       /**
-       * Provision服务（设备证书请求服务）URL。
+       * Provision服务（设备证书请求服务）URL。需符合URL格式规范，建议使用HTTPS协议。
        *
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @atomicservice [since 14]
@@ -626,7 +626,7 @@ declare namespace drm {
      */
     interface MediaKeySystemInfo {
       /**
-       * Drm system ID.
+       * DRM内容保护系统的唯一标识，必须为有效的UUID格式。传入无效UUID时，接口返回失败。
        *
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @atomicservice [since 12]
@@ -635,7 +635,7 @@ declare namespace drm {
        */
       uuid: string;
       /**
-       * PSSH(protection scheme specific header) contain drm info.
+       * DRM内容保护系统专用头，包含DRM相关的元数据和初始化数据的字节数组。具体结构由DRM方案定义。
        *
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @atomicservice [since 12]
@@ -655,7 +655,7 @@ declare namespace drm {
      */
     interface MediaKeySystemDescription {
       /**
-       * Name of DRM plugin.
+       * 插件名称，用于标识DRM插件的名称字符串。通常由DRM方案提供商定义。
        *
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @atomicservice [since 14]
@@ -664,7 +664,7 @@ declare namespace drm {
        */
       name: string;
       /**
-       * UUID supported by DRM plugin.
+       * 插件唯一标识码，必须为有效的UUID格式。传入无效UUID时，接口返回失败。
        *
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @atomicservice [since 14]
@@ -675,10 +675,10 @@ declare namespace drm {
     }
   
     /**
-     * Get a MediaKeySystem's UUID.
+     * 获取DRM解决方案支持的DRM内容保护系统唯一标识。
      *
-     * @param { string } name - The Digital Right Management solution name.
-     * @returns { string } The MediaKeySystem uuid.
+     * @param { string } name - DRM解决方案名称。可通过[getMediaKeySystems]{@link @ohos.multimedia.drm:drm.getMediaKeySystems}接口获取设备支持的DRM解决方案名称，如"com.clearplay.drm"。
+     * @returns { string } DRM内容保护系统的唯一标识。
      * @throws { BusinessError } 401 - The parameter check failed.Possibly because:
      *     <br>1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
@@ -691,9 +691,9 @@ declare namespace drm {
     function getMediaKeySystemUuid(name: string): string;
   
     /**
-     * Get all media key systems supported.
+     * 获取设备支持的插件信息列表。
      *
-     * @returns { MediaKeySystemDescription[] } The MediaKeySystem name and uuid info list.
+     * @returns { MediaKeySystemDescription[] } 设备支持的插件信息列表。
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -704,10 +704,10 @@ declare namespace drm {
     function getMediaKeySystems(): MediaKeySystemDescription[];
   
     /**
-     * Creates a MediaKeySystem instance.
+     * 创建MediaKeySystem实例。最多可以创建64个MediaKeySystem实例。超过上限时，会抛出错误码24700103。建议及时调用[destroy]{@link @ohos.multimedia.drm:drm.MediaKeySystem.destroy}接口释放不再使用的MediaKeySystem实例。
      *
-     * @param { string } name - Used to point a Digital Right Management solution.
-     * @returns { MediaKeySystem } The MediaKeySystem instance.
+     * @param { string } name - DRM解决方案名称。可通过[getMediaKeySystems]{@link @ohos.multimedia.drm:drm.getMediaKeySystems}接口获取设备支持的DRM解决方案名称，如"com.clearplay.drm"。
+     * @returns { MediaKeySystem } MediaKeySystem实例。
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
      *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
@@ -720,10 +720,10 @@ declare namespace drm {
     function createMediaKeySystem(name: string): MediaKeySystem;
   
     /**
-     * Creates a MediaKeySystem instance.
+     * 创建MediaKeySystem实例。
      *
-     * @param { string } name - Used to point a Digital Right Management solution.
-     * @returns { MediaKeySystem | undefined } The MediaKeySystem instance or undefined.
+     * @param { string } name - DRM解决方案名称。
+     * @returns { MediaKeySystem | undefined } MediaKeySystem实例或undefined。
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
      *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
@@ -735,12 +735,12 @@ declare namespace drm {
     function createMediaKeySystem(name: string): MediaKeySystem | undefined;
   
     /**
-     * Judge whether a system that specifies name, mimetype and content protection level is supported.
+     * 判断设备是否支持指定的DRM解决方案、媒体类型及内容保护级别。
      *
-     * @param { string } name - Used to point a Digital Right Management solution.
-     * @param { string } mimeType - Used to specifies the media type.
-     * @param { ContentProtectionLevel } level - Used to specifies the ContentProtectionLevel.
-     * @returns { boolean } Whether these conditions will be met.
+     * @param { string } name - DRM解决方案名称。可通过[getMediaKeySystems]{@link @ohos.multimedia.drm:drm.getMediaKeySystems}接口获取设备支持的DRM解决方案名称，如"com.clearplay.drm"。
+     * @param { string } mimeType - 媒体类型，支持的媒体类型取决于DRM解决方案。
+     * @param { ContentProtectionLevel } level - 内容保护级别，用于指定DRM内容的安全保护程度，不同级别对应不同的解密能力和安全要求。
+     * @returns { boolean } 返回是否支持指定的DRM解决方案、媒体类型以及内容保护级别。当name、mimeType和level都支持时返回true，否则返回false。
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
      *     1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      *     3.Parameter verification failed.
@@ -754,11 +754,11 @@ declare namespace drm {
     function isMediaKeySystemSupported(name: string, mimeType: string, level: ContentProtectionLevel): boolean;
   
     /**
-     * Judge whether a system that specifies name, mimetype is supported.
+     * 判断设备是否支持指定的DRM解决方案及媒体类型。
      *
-     * @param { string } name - Used to point a Digital Right Management solution.
-     * @param { string } mimeType - Used to specifies the media type.
-     * @returns { boolean } Whether these conditions will be met.
+     * @param { string } name - DRM解决方案名称。从API版本12开始，可通过[getMediaKeySystems]{@link @ohos.multimedia.drm:drm.getMediaKeySystems}接口获取设备支持的DRM解决方案名称，如"com.clearplay.drm"。
+     * @param { string } mimeType - 媒体类型，支持的媒体类型取决于DRM解决方案，如：video/avc、video/hevc。
+     * @returns { boolean } 返回是否支持指定的DRM解决方案及媒体类型。当name和mimeType都支持时返回true，否则返回false。
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
      *     1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      *     3.Parameter verification failed.
@@ -772,10 +772,10 @@ declare namespace drm {
     function isMediaKeySystemSupported(name: string, mimeType: string): boolean;
   
     /**
-     * Judge whether a system that specifies name is supported.
+     * 判断设备是否支持指定的DRM解决方案。
      *
-     * @param { string } name - Used to point a Digital Right Management solution.
-     * @returns { boolean } Whether these conditions will be met.
+     * @param { string } name - DRM解决方案名称，长度不超过4096字节。可通过[getMediaKeySystems]{@link @ohos.multimedia.drm:drm.getMediaKeySystems}接口获取设备支持的DRM解决方案名称，如"com.clearplay.drm"。
+     * @returns { boolean } 返回是否支持指定的DRM解决方案。true表示支持，false表示不支持。
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
      *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed,
      *     the param name's length is zero or too big(exceeds 4096 Bytes).
@@ -959,9 +959,9 @@ declare namespace drm {
       on(type: 'keySystemRequired', callback: (eventInfo: EventInfo) => void): void;
   
       /**
-       * Register keySystemRequired events.
+       * 监听设备证书请求事件，获取事件信息。使用callback异步回调。
        *
-       * @param { function } callback - Used to listen for the key system required event.
+       * @param { function } callback - 回调函数，返回事件信息。只要有该事件返回就证明需请求设备证书。
        * @throws { BusinessError } 24700101 - All unknown errors.
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @since 23 static
@@ -985,9 +985,9 @@ declare namespace drm {
       off(type: 'keySystemRequired', callback?: (eventInfo: EventInfo) => void): void;
   
       /**
-       * Unregister keySystemRequired events.
+       * 注销设备证书请求事件的监听。使用callback异步回调。
        *
-       * @param { function } [callback] - Used to listen for the key system required event.
+       * @param { function } [callback] - 回调函数，返回事件信息。可选参数，不传时注销该事件类型的所有监听。
        * @throws { BusinessError } 24700101 - All unknown errors.
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @since 23 static
@@ -1012,10 +1012,10 @@ declare namespace drm {
       createMediaKeySession(level: ContentProtectionLevel): MediaKeySession;
   
       /**
-       * Create a MediaKeySession instance with level.
+       * 创建指定内容保护级别的MediaKeySession实例。
        *
-       * @param { ContentProtectionLevel } level - Used to specify the content protection level.
-       * @returns { MediaKeySession | undefined } A MediaKeySession instance or undefined.
+       * @param { ContentProtectionLevel } level - 内容保护级别。
+       * @returns { MediaKeySession | undefined } MediaKeySession实例或undefined。
        * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
        *     1.Mandatory parameters are left unspecified. 2.The param level exceeds reasonable range,
        *     please use value in ContentProtectionLevel.
@@ -1041,9 +1041,9 @@ declare namespace drm {
       createMediaKeySession(): MediaKeySession;
   
       /**
-       * Create a MediaKeySession instance.
+       * 创建DRM解决方案默认内容保护级别的MediaKeySession实例。
        *
-       * @returns { MediaKeySession | undefined } A MediaKeySession instance or undefined.
+       * @returns { MediaKeySession | undefined } MediaKeySession实例或undefined。
        * @throws { BusinessError } 24700101 - All unknown errors.
        * @throws { BusinessError } 24700104 - Meet max MediaKeySession num limit.
        * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
@@ -1290,9 +1290,9 @@ declare namespace drm {
       on(type: 'keyRequired', callback: (eventInfo: EventInfo) => void): void;
   
       /**
-       * Register keyRequired event.
+       * 监听密钥请求事件。使用callback异步回调。
        *
-       * @param { function } callback - used to listen for the key required event.
+       * @param { function } callback - 回调函数，返回事件信息。
        * @throws { BusinessError } 24700101 - All unknown errors.
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @since 23 static
@@ -1317,9 +1317,9 @@ declare namespace drm {
       off(type: 'keyRequired', callback?: (eventInfo: EventInfo) => void): void;
   
       /**
-       * Unregister keyRequired event.
+       * 注销密钥请求事件监听。使用callback异步回调。
        *
-       * @param { function } [callback] - used to listen for the key required event.
+       * @param { function } [callback] - 回调函数，返回事件信息。可选参数，不传时注销该事件类型的所有监听。
        * @throws { BusinessError } 24700101 - All unknown errors.
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @since 23 static
@@ -1342,9 +1342,9 @@ declare namespace drm {
       on(type: 'keyExpired', callback: (eventInfo: EventInfo) => void): void;
   
       /**
-       * Register keyExpired event.
+       * 监听密钥过期事件。使用callback异步回调。
        *
-       * @param { function } callback - Used to listen for the key required event.
+       * @param { function } callback - 回调函数，返回事件信息。
        * @throws { BusinessError } 24700101 - All unknown errors.
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @since 23 static
@@ -1367,9 +1367,9 @@ declare namespace drm {
       off(type: 'keyExpired', callback?: (eventInfo: EventInfo) => void): void;
   
       /**
-       * Unregister keyExpired event.
+       * 注销密钥过期事件监听。使用callback异步回调。
        *
-       * @param { function } [callback] - Used to listen for the key required event.
+       * @param { function } [callback] - 回调函数，返回事件信息。可选参数，不传时注销该事件类型的所有监听。
        * @throws { BusinessError } 24700101 - All unknown errors.
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @since 23 static
@@ -1392,9 +1392,9 @@ declare namespace drm {
       on(type: 'vendorDefined', callback: (eventInfo: EventInfo) => void): void;
   
       /**
-       * Register vendorDefined event.
+       * 监听DRM解决方案自定义事件。使用callback异步回调。
        *
-       * @param { function } callback - Used to listen for the vendor defined event.
+       * @param { function } callback - 回调函数，返回事件信息。
        * @throws { BusinessError } 24700101 - All unknown errors.
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @since 23 static
@@ -1417,9 +1417,9 @@ declare namespace drm {
       off(type: 'vendorDefined', callback?: (eventInfo: EventInfo) => void): void;
   
       /**
-       * Unregister vendorDefined event.
+       * 注销DRM解决方案自定义事件监听。使用callback异步回调。
        *
-       * @param { function } [callback] - Used to listen for the vendor defined event.
+       * @param { function } [callback] - 回调函数，返回事件信息。可选参数，不传时注销该事件类型的所有监听。
        * @throws { BusinessError } 24700101 - All unknown errors.
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @since 23 static
@@ -1442,9 +1442,9 @@ declare namespace drm {
       on(type: 'expirationUpdate', callback: (eventInfo: EventInfo) => void): void;
   
       /**
-       * Register expirationUpdate event.
+       * 监听密钥过期更新事件。使用callback异步回调。
        *
-       * @param { function } callback - Used to listen for expiration update event.
+       * @param { function } callback - 回调函数，返回事件信息。
        * @throws { BusinessError } 24700101 - All unknown errors.
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @since 23 static
@@ -1467,9 +1467,9 @@ declare namespace drm {
       off(type: 'expirationUpdate', callback?: (eventInfo: EventInfo) => void): void;
   
       /**
-       * Unregister expirationUpdate event.
+       * 注销过期更新事件监听。使用callback异步回调。
        *
-       * @param { function } [callback] - Used to listen for expiration update event.
+       * @param { function } [callback] - 回调函数，返回事件信息。可选参数，不传时注销该事件类型的所有监听。
        * @throws { BusinessError } 24700101 - All unknown errors.
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @since 23 static
@@ -1492,9 +1492,9 @@ declare namespace drm {
       on(type: 'keysChange', callback: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
   
       /**
-       * Register keysChange event.
+       * 监听密钥变化事件。使用callback异步回调。
        *
-       * @param { function } callback - Used to listen for keys change event.
+       * @param { function } callback - 回调函数，返回事件信息，包含密钥标识和密钥状态描述的列表及密钥是否可用。
        * @throws { BusinessError } 24700101 - All unknown errors.
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @since 23 static
@@ -1517,9 +1517,9 @@ declare namespace drm {
       off(type: 'keysChange', callback?: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
   
       /**
-       * Unregister keysChange event.
+       * 注销密钥变化事件监听。使用callback异步回调。
        *
-       * @param { function } [callback] - Used to listen for keys change event.
+       * @param { function } [callback] - 回调函数，返回事件信息，包含密钥标识和密钥状态描述的列表及密钥是否可用。可选参数，不传时注销该事件类型的所有监听。
        * @throws { BusinessError } 24700101 - All unknown errors.
        * @syscap SystemCapability.Multimedia.Drm.Core
        * @since 23 static

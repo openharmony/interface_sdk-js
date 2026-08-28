@@ -202,7 +202,7 @@ declare namespace config {
    */
   const repeatClickInterval: Config<RepeatClickInterval>;
   /**
-   * Indicates the configuration of screen magnification.
+   * 表示屏幕放大功能启用状态。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -358,10 +358,10 @@ declare namespace config {
   function on(type: 'enabledAccessibilityExtensionListChange', callback: Callback<void>): void;
 
   /**
-   * Register the listener that watches for changes in the enabled status of accessibility extensions.
+   * 添加启用的辅助扩展的列表变化监听。使用callback异步回调。
    *
    * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
-   * @param { Callback<void> } callback Indicates the listener.
+   * @param { Callback<void> } callback - 回调函数，在启用的辅助扩展的列表变化时通过此函数进行通知。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -395,10 +395,10 @@ declare namespace config {
   function on(type: 'installedAccessibilityListChange', callback: Callback<void>): void;
 
   /**
-   * Register the listener that watches for changes in the installed status of accessibility extensions.
+   * 添加已安装的辅助扩展的列表变化监听。使用callback异步回调。
    *
    * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
-   * @param { Callback<void> } callback Indicates the listener.
+   * @param { Callback<void> } callback - 回调函数，在已安装的辅助扩展的列表变化时通过此函数进行通知。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -430,10 +430,11 @@ declare namespace config {
   function off(type: 'enabledAccessibilityExtensionListChange', callback?: Callback<void>): void;
 
   /**
-   * Unregister listener that watches for changes in the enabled status of accessibility extensions.
+   * 取消启用的辅助扩展的列表变化监听。使用callback异步回调。
    *
    * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
-   * @param { Callback<void> } [callback] Indicates the listener.
+   * @param { Callback<void> } callback - 取消指定callback对象的事件响应。需与onEnabledAccessibilityExtensionListChange的callback一致。缺省
+   *     时，表示注销所有已注册事件。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -465,10 +466,11 @@ declare namespace config {
   function off(type: 'installedAccessibilityListChange', callback?: Callback<void>): void;
 
   /**
-   * Unregister listener that watches for changes in the installed status of accessibility extensions.
+   * 取消已安装的辅助扩展的列表变化监听。使用callback异步回调。
    *
    * @permission ohos.permission.READ_ACCESSIBILITY_CONFIG
-   * @param { Callback<void> } [callback] Indicates the listener.
+   * @param { Callback<void> } callback - 取消指定callback对象的事件响应。需与onInstalledAccessibilityListChange的callback一致。缺省时，表示注销所有
+   *     已注册事件。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -813,6 +815,8 @@ declare namespace config {
   type OnDisconnectCallback = () => void;
 
   /**
+   * 用于不同色弱类型的校正颜色滤镜。
+   * 
    * 色彩校正功能启用时（[daltonizationState]{@link config.daltonizationState}设置为true）配置生效；色彩校正功能未启用时（
    * [daltonizationState]{@link config.daltonizationState}设置为false）显示为正常类型。
    *
@@ -841,6 +845,8 @@ declare namespace config {
   type ClickResponseTime = 'Short' | 'Medium' | 'Long';
 
   /**
+   * 用于不同时间间隔的忽略重复点击。
+   * 
    * 忽略重复点击功能启用时（[ignoreRepeatClick]{@link config.ignoreRepeatClick}设置为true）配置生效；忽略重复点击功能未启用时（
    * [ignoreRepeatClick]{@link config.ignoreRepeatClick}设置为false）不生效。
    *

@@ -144,13 +144,13 @@ export type OnAlphabetIndexerPopupSelectCallback = (index: int) => void;
 export type OnAlphabetIndexerRequestPopupDataCallback = (index: int) => Array<string>;
 
 /**
- * [width](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#width)属性设置"auto"时表示自适应宽度，宽度会随索引项最大宽度变
+ * [width]{@link CommonMethod#width}属性设置"auto"时表示自适应宽度，宽度会随索引项最大宽度变
  * 化。
  * 
- * [padding](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#padding)属性默认为4vp。
+ * [padding]{@link CommonMethod#padding}属性默认为4vp。
  * 
- * 文本最大的字体缩放倍数[maxFontScale](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#maxfontscale12)和最小的字体缩放
- * 倍数[minFontScale](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#minfontscale12)皆为1，不跟随系统字体大小调节变化
+ * 文本最大的字体缩放倍数[maxFontScale]{@link maxFontScale}和最小的字体缩放
+ * 倍数[minFontScale]{@link minFontScale}皆为1，不跟随系统字体大小调节变化
  * 。
  * 
  * 除支持[通用属性]{@link ./../../@internal/component/ets/common}外，还支持以下属性：
@@ -301,8 +301,8 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      *
    * @param { string | double | undefined } value
    索引项区域大小，索引项区域为正方形，即正方形边长。不支持设置为百分比。<br/>实际取值会受到组件尺寸的约束，索引项宽度最大为组件宽
-     *     度-左右[padding](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#padding)，索引项高度最大为（组件高度-
-     *     上下[padding](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#padding)）/索引项个数。传入值小于等于0时
+     *     度-左右[padding]{@link CommonMethod#padding}，索引项高度最大为（组件高度-
+     *     上下[padding]{@link CommonMethod#padding}）/索引项个数。传入值小于等于0时
      *     ，按照默认值处理。<br/>默认值：16.0<br/>单位：vp<br/>取值为undefined时，按默认值处理。
    * @returns { AlphabetIndexerAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -404,7 +404,7 @@ export declare interface AlphabetIndexerAttribute extends CommonMethod {
      * > **说明：**
      * >
      * > 从API version 12开始，该接口支持在
-     * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+     * > [attributeModifier]{@link CommonMethod#attributeModifier}
      * > 中调用。
      *
    * @param { boolean | undefined } value - 是否使用自适应折叠模式。<br/>默认值：<br />API version 12之前：false，不使用自适应折叠模式。<br />API

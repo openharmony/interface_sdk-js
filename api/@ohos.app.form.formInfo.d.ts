@@ -1374,7 +1374,7 @@ declare namespace formInfo {
      */
     INTERNAL_ERROR = 3,
     /**
-     * Indicates that the host does not support the form dimension.
+     * Indicates that the host does not support the form.
      *
      * @syscap SystemCapability.Ability.Form
      * @systemapi

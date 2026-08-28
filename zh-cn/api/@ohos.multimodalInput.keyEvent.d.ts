@@ -14,10 +14,9 @@
  */
 
 /**
- * The **keyEvent** module provides key events reported by a device. It is inherited from 
- * [InputEvent]{@link @ohos.multimodalInput.inputEvent:InputEvent}.
+ * 设备上报的按键事件，继承自[InputEvent]{@link @ohos.multimodalInput.inputEvent:InputEvent}。
  *
- * @file Key Event
+ * @file 按键输入事件
  * @kit InputKit
  */
 
@@ -160,9 +159,7 @@ export declare interface KeyEvent extends InputEvent {
   keys: Key[];
 
   /**
-   * 当前ctrlKey是否处于按下状态。 
-   * 
-   * true表示处于按下状态，false表示处于抬起状态。
+   * 当前ctrlKey是否处于按下状态。 <br/>true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -172,9 +169,7 @@ export declare interface KeyEvent extends InputEvent {
   ctrlKey: boolean;
 
   /**
-   * 当前altKey是否处于按下状态。 
-   * 
-   * true表示处于按下状态，false表示处于抬起状态。
+   * 当前altKey是否处于按下状态。 <br/>true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -184,9 +179,7 @@ export declare interface KeyEvent extends InputEvent {
   altKey: boolean;
 
   /**
-   * 当前shiftKey是否处于按下状态。 
-   * 
-   * true表示处于按下状态，false表示处于抬起状态。
+   * 当前shiftKey是否处于按下状态。 <br/>true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -196,9 +189,7 @@ export declare interface KeyEvent extends InputEvent {
   shiftKey: boolean;
 
   /**
-   * 当前logoKey是否处于按下状态。 
-   * 
-   * true表示处于按下状态，false表示处于抬起状态。
+   * 当前logoKey是否处于按下状态。 <br/>true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -208,9 +199,7 @@ export declare interface KeyEvent extends InputEvent {
   logoKey: boolean;
 
   /**
-   * 当前fnKey是否处于按下状态。 
-   * 
-   * true表示处于按下状态，false表示处于抬起状态。
+   * 当前fnKey是否处于按下状态。 <br/>true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -220,9 +209,7 @@ export declare interface KeyEvent extends InputEvent {
   fnKey: boolean;
 
   /**
-   * 当前capsLock是否处于使能状态。 
-   * 
-   * true表示处于使能状态，false表示处于未使能状态。
+   * 当前capsLock是否处于使能状态。 <br/>true表示处于使能状态，false表示处于未使能状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -232,9 +219,7 @@ export declare interface KeyEvent extends InputEvent {
   capsLock: boolean;
 
   /**
-   * 当前numLock是否处于使能状态。 
-   * 
-   * true表示处于使能状态，false表示处于未使能状态。
+   * 当前numLock是否处于使能状态。 <br/>true表示处于使能状态，false表示处于未使能状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -244,9 +229,7 @@ export declare interface KeyEvent extends InputEvent {
   numLock: boolean;
 
   /**
-   * 当前scrollLock是否处于使能状态。 
-   * 
-   * true表示处于使能状态，false表示处于未使能状态。
+   * 当前scrollLock是否处于使能状态。 <br/>true表示处于使能状态，false表示处于未使能状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]

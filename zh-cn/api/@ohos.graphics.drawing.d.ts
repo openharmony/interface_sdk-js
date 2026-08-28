@@ -3614,7 +3614,7 @@ declare namespace drawing {
      * > **说明：**
      * >
      * > 此接口用于测量原始字符串的文本宽度，若想测量排版后的文本宽度，建议使用
-     * > [measure.measureText](docroot://reference/apis-arkui/arkts-apis-uicontext-measureutils.md#measuretext12)替代。
+     * > [measure.measureText]{@link ohos.arkui.UIContext:MeasureUtils#measureText}替代。
      *
      * @param { string } text - 待测量的文本内容，将按encoding指定的编码方式进行解析。
      * @param { TextEncoding } encoding - 指定文本的编码格式。

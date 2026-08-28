@@ -192,7 +192,7 @@ export declare class UIInspector {
  * >
  * > - 本Class首批接口从API version 10开始支持。
  * >
- * > - 以下API需先使用UIContext中的[getRouter()](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter)方法获取
+ * > - 以下API需先使用UIContext中的[getRouter()]{@link UIContext#getRouter}方法获取
  * > 到Router对象，再通过该对象调用对应方法。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

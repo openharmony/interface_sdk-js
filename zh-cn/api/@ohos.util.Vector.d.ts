@@ -87,7 +87,7 @@ declare class Vector<T> {
    */
   has(element: T): boolean;
   /**
-   * 获取指定下标对应的元素。
+   * 根据下标值获取Vector实例中的元素，index取值范围为[0, length-1]。Vector为空或下标越界时返回undefined。
    *
    * @param { number } index - 查找的下标值，取值范围：0 ≤ index < length。
    * @returns { T } 返回获取到的元素。
@@ -198,7 +198,7 @@ declare class Vector<T> {
    */
   removeByRange(fromIndex: number, toIndex: number): void;
   /**
-   * 对Vector中的所有元素进行替换，并返回替换后的元素。
+   * 通过回调函数操作Vector中的元素，用回调函数返回的元素替换原元素。
    *
    * @param { function } callbackFn - 回调函数，用于操作Vector中的元素，并用操作后的结果替换原元素。
    * @param { Object } thisArg - callbackFn被调用时用作this值，默认值为当前实例对象。

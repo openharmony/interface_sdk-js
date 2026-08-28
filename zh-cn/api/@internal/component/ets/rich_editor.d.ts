@@ -103,7 +103,7 @@ declare enum RichEditorSpanType {
   MIXED = 2,
 
   /**
-   * Span类型为BuilderSpan。
+   * Span类型为自定义布局。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -114,7 +114,7 @@ declare enum RichEditorSpanType {
   BUILDER = 3,
 
   /**
-   * 注册此类型的菜单，但未注册TEXT、IMAGE、MIXED、BUILDER菜单时，文字类型、图像类型、图文混合类型、BuilderSpan类型都会触发并显示此类型对应的菜单。
+   * 注册此类型的菜单，但未注册TEXT、IMAGE、MIXED、BUILDER菜单时，文字类型、图像类型、图文混合类型、自定义布局类型都会触发并显示此类型对应的菜单。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -820,6 +820,17 @@ declare interface RichEditorImageSpanStyle {
    * @since 11 dynamic
    */
   layoutStyle?: RichEditorLayoutStyle;
+
+  /**
+   * 图片拉伸选项。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  resizable?: ResizableOptions;
 }
 
 /**
@@ -910,6 +921,25 @@ declare interface RichEditorSymbolSpanStyle {
  * 在RichEditorTextStyle中，fontWeight是设置字体粗细的输入参数。
  * 
  * 而在RichEditorTextStyleResult中，会将之前设置的字体粗细转换为数字后返回。
+ * 
+ * 转换关系如下：
+ * | RichEditorTextStyle中的fontWeight | RichEditorTextStyleResult中的fontWeight |
+ * | ---- | ----------------------------------- |
+ * | 100   | 0 |
+ * | 200   | 1 |
+ * | 300   | 2 |
+ * | 400   | 3 |
+ * | 500   | 4 |
+ * | 600   | 5 |
+ * | 700   | 6 |
+ * | 800   | 7 |
+ * | 900   | 8 |
+ * | Lighter   | 12 |
+ * | Normal   | 10 |
+ * | Regular   | 14 |
+ * | Medium   | 13 |
+ * | Bold   | 9 |
+ * | Bolder   | 11 |
  * 
  * RichEditorSymbolSpanStyle和RichEditorSymbolSpanStyleResult中fontWeight的转换关系，与RichEditorTextStyle和
  * RichEditorTextStyleResult中fontWeight的转换关系一致。
@@ -1066,7 +1096,7 @@ declare interface RichEditorTextStyleResult {
   /**
    * 文本描边宽度。
    * 
-   * 单位为[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
+   * 单位为[vp]{@link Length}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1386,6 +1416,17 @@ declare interface RichEditorImageSpanStyleResult {
    * @since 12 dynamic
    */
   layoutStyle?: RichEditorLayoutStyle;
+
+  /**
+   * 图片拉伸选项。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  resizable?: ResizableOptions;
 }
 
 /**
@@ -1561,7 +1602,7 @@ declare interface RichEditorGesture {
   onClick?: Callback<ClickEvent>;
 
   /**
-   * [GestureEvent](docroot://reference/apis-arkui/arkui-ts/ts-gesture-common.md#gestureevent对象说明)为用户长按事件。
+   * [GestureEvent]{@link GestureEvent}为用户长按事件。
    * 
    * 长按完成时回调事件。
    *
@@ -1577,7 +1618,7 @@ declare interface RichEditorGesture {
 
   /**
    * 双击事件回调函数，在用户双击操作完成时触发。回调参数为
-   * [GestureEvent](docroot://reference/apis-arkui/arkui-ts/ts-gesture-common.md#gestureevent对象说明)对象，包含手势事件信息。
+   * [GestureEvent]{@link GestureEvent}对象，包含手势事件信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1737,7 +1778,7 @@ declare interface RichEditorImageSpanOptions {
 }
 
 /**
- * 设置builder的偏移位置和样式。
+ * 设置builder插入的偏移位置和样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3280,7 +3321,7 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * 
    * 该接口依赖设备底层具有文本识别能力，否则设置不会生效。
    *
-   * @param { boolean | undefined } enable - 是否启用选择文本识别，true表示启用，false表示不启用。
+   * @param { boolean | undefined } enable - 是否启用文本选择AI菜单功能，true表示启用，false表示不启用。
    *     <br>默认值：true。
    *     <br>设置为undefined或null时，取默认值。
    * @returns { RichEditorAttribute }

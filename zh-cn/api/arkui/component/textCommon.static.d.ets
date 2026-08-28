@@ -202,8 +202,8 @@ export declare interface TextLayoutOptions {
 }
 
 /**
- * 文本识别配置项。该配置只支持[Text](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md)组件和
- * [RichEditor](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-richeditor.md)组件。
+ * 文本识别配置项。该配置只支持[Text]{@link ./text}组件和
+ * [RichEditor]{@link ./richEditor}组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -262,7 +262,7 @@ export declare interface TextDataDetectorConfig {
    *
    * 默认值：false
    *
-   * 当[copyOptions](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-richeditor.md#copyoptions)设置为None时，若
+   * 当[copyOptions]{@link copyOptions}设置为None时，若
    * enablePreviewMenu设置为true，长按AI实体也不能显示预览菜单。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -476,9 +476,9 @@ export declare enum AutoCapitalizationMode {
  */
 export declare interface MaxLinesOptions {
   /**
-   * `overflowMode`可配置[TextArea](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textarea.md)组件的非内联模式。当超出设置的
+   * `overflowMode`可配置[TextArea]{@link ./textArea}组件的非内联模式。当超出设置的
    * `maxLines`最大行数时，会启用滚动效果。需同时配置
-   * [textOverflow](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textarea.md#textoverflow12)，且仅当
+   * [textOverflow]{@link textOverflow}，且仅当
    * `textOverflow`为None或Clip时，`MaxLinesMode`才能生效。默认情况下，`MaxLinesMode`的值为Clip，超出`maxLines`后文本会被截断。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -825,7 +825,7 @@ export declare interface TextBaseController {
    * @param { int } selectionStart - 选中开始位置。<br/>取值小于0时，按0处理。
    * @param { int } selectionEnd - 选中结束位置。<br/>取值大于文本长度时，按当前文本长度处理。
    * @param { SelectionOptions } [options] - 选择项配置。 默认值继承
-   *     [SelectionOptions](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-text-style.md#selectionoptions12对象说明)。
+   *     [SelectionOptions]{@link SelectionOptions}。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -944,7 +944,7 @@ export declare interface StyledStringController {
    * 设置富文本组件显示的属性字符串。
    *
    * @param { StyledString } styledString - 属性字符串。<br/>**说明：** <br/>StyledString的子类
-   *     [MutableStyledString](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#mutablestyledstring)
+   *     [MutableStyledString]{@link MutableStyledString}
    *     也可以作为入参值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1045,8 +1045,8 @@ export declare interface LayoutManager {
   /**
    * 获取较为接近给定坐标的字形的位置信息。
    *
-   * @param { double } x - 相对于组件的横坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
-   * @param { double } y - 相对于组件的纵坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
+   * @param { double } x - 相对于组件的横坐标。<br/>单位：[px]{@link Length}。
+   * @param { double } y - 相对于组件的纵坐标。<br/>单位：[px]{@link Length}。
    * @returns { PositionWithAffinity | undefined } 字形位置信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1057,8 +1057,8 @@ export declare interface LayoutManager {
   /**
    * 获取距离指定坐标最近的字符的位置信息。
    *
-   * @param { double } x - 相对于组件的横坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
-   * @param { double } y - 相对于组件的纵坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
+   * @param { double } x - 相对于组件的横坐标。<br/>单位：[px]{@link Length}。
+   * @param { double } y - 相对于组件的纵坐标。<br/>单位：[px]{@link Length}。
    * @returns { PositionWithAffinity | undefined } 字符的位置信息。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，该接口会返回
    *     undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1070,8 +1070,8 @@ export declare interface LayoutManager {
   /**
    * 根据指定编码类型，获取距离指定坐标最近的字符位置信息。
    *
-   * @param { double } x - 相对于组件的横坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
-   * @param { double } y - 相对于组件的纵坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
+   * @param { double } x - 相对于组件的横坐标。<br/>单位：[px]{@link Length}。
+   * @param { double } y - 相对于组件的纵坐标。<br/>单位：[px]{@link Length}。
    * @param { TextEncoding } [encoding] - 字符位置使用的编码类型，默认值为TextEncoding.TEXT_ENCODING_UTF8。
    * @returns { PositionWithAffinity | undefined } 字符的位置信息。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，该接口会返回
    *     undefined。
@@ -1649,9 +1649,9 @@ export declare class LinearGradientStyle extends ShaderStyle {
   /**
    * 显示为线性渐变效果。
    *
-   * [LinearGradientOptions](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-gradient-color.md#lineargradientoptions18对象说明)
+   * [LinearGradientOptions]{@link LinearGradientOptions}
    * 中的direction默认值按
-   * [GradientDirection](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#gradientdirection)中的NONE处理。
+   * [GradientDirection]{@link GradientDirection}中的NONE处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1720,7 +1720,7 @@ export declare class ColorShaderStyle extends ShaderStyle {
  */
 export declare interface FontSettingOptions {
   /**
-   * 是否启用可变字重调节。字体配置项作为[fontWeight](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#fontweight12)接
+   * 是否启用可变字重调节。字体配置项作为[fontWeight]{@link fontWeight}接
    * 口的入参，fontWeight接口中weight取值为[100, 900]内非整百数值时，enableVariableFontWeight用于设置weight的值是否生效。
    *
    * 默认值：false
@@ -1836,10 +1836,10 @@ export declare enum TextMenuShowMode {
    *
    * 在[UIExtension](docroot://reference/apis-arkui/js-apis-arkui-uiExtension.md)中不支持将文本选择菜单显示在独立窗口中。
    *
-   * 当文本类组件已经显示在子窗类型的[Popup](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-Popup.md)、
-   * [Dialog](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-Dialog.md)、
+   * 当文本类组件已经显示在子窗类型的[Popup]{@link @ohos.arkui.advanced.Popup}、
+   * [Dialog]{@link @ohos.arkui.advanced.Dialog}、
    * [Toast](docroot://ui/arkts-create-toast.md)、
-   * [Menu](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-menu.md)中时，不支持将其对应的文本选择菜单显示在独立窗口中。
+   * [Menu]{@link Menu}中时，不支持将其对应的文本选择菜单显示在独立窗口中。
    *
    * 当TextInput、TextArea可支持拉起AutoFill时，不支持将其对应的文本选择菜单显示在独立窗口中。
    *
@@ -2015,7 +2015,7 @@ export declare class ContentTransition {}
 
 /**
  * 数字翻牌动效。仅限正整数，不支持小数和负数。不支持渐变色和Text跑马灯模式。不支持选中，
- * [copyOption](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#copyoption9)属性无效。当文本存在子组件时或通过属性字符串设置
+ * [copyOption]{@link copyOption}属性无效。当文本存在子组件时或通过属性字符串设置
  * 时，数字翻牌失效。
  *
  * NumericTextTransition继承自[ContentTransition]{@link ContentTransition}。

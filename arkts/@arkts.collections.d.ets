@@ -23,6 +23,28 @@ import lang from './@arkts.lang'
 /*** endif */
 
 /**
+ * The built-in Array type.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamiconly
+ */
+type BuiltinArray<T> = Array<T>;
+
+/**
+ * The built-in Map type.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamiconly
+ */
+type BuiltinMap<K, V> = Map<K, V>;
+
+/**
  * The collections module provides ArkTS containers for efficient data transfer in concurrency scenarios. The ArkTS
  * containers provide similar functionalities as their JavaScript counterparts, except that their properties cannot be
  * added or updated through `.` or `[]`.
@@ -32,19 +54,19 @@ import lang from './@arkts.lang'
  * ArkTS containers are not thread-safe. They adopt the fail-fast approach. An exception is thrown if multiple
  * concurrent instances make structural changes to a container instance at the same time. Therefore, in multi-thread
  * read/write scenarios, you must use the ArkTS asynchronous lock to ensure secure access to the ArkTS containers.
- * Currently, the following ArkTS containers are provided: [Array]{@link ./arkts/@arkts.collections:collections},
- * [Map]{@link ./arkts/@arkts.collections:collections}, [Set]{@link ./arkts/@arkts.collections:collections}, TypedArray
- * ([Int8Array]{@link ./arkts/@arkts.collections:collections},
- * [Uint8Array]{@link ./arkts/@arkts.collections:collections},
- * [Int16Array]{@link ./arkts/@arkts.collections:collections},
- * [Uint16Array]{@link ./arkts/@arkts.collections:collections},
- * [Int32Array]{@link ./arkts/@arkts.collections:collections},
- * [Uint32Array]{@link ./arkts/@arkts.collections:collections},
- * [Uint8ClampedArray]{@link ./arkts/@arkts.collections:collections} and
- * [Float32Array]{@link ./arkts/@arkts.collections:collections}),
- * [ArrayBuffer]{@link ./arkts/@arkts.collections:collections},
- * [BitVector]{@link ./arkts/@arkts.collections:collections}, and
- * [ConcatArray]{@link ./arkts/@arkts.collections:collections}.
+ * Currently, the following ArkTS containers are provided: [Array]{@link collections.Array},
+ * [Map]{@link collections.Map}, [Set]{@link collections.Set}, TypedArray
+ * ([Int8Array]{@link collections.Int8Array},
+ * [Uint8Array]{@link collections.Uint8Array},
+ * [Int16Array]{@link collections.Int16Array},
+ * [Uint16Array]{@link collections.Uint16Array},
+ * [Int32Array]{@link collections.Int32Array},
+ * [Uint32Array]{@link collections.Uint32Array},
+ * [Uint8ClampedArray]{@link collections.Uint8ClampedArray} and
+ * [Float32Array]{@link collections.Float32Array}),
+ * [ArrayBuffer]{@link collections.ArrayBuffer},
+ * [BitVector]{@link collections.BitVector}, and
+ * [ConcatArray]{@link collections.ConcatArray}.
  *
  * > **NOTE**
  * >
@@ -164,6 +186,20 @@ declare namespace collections {
    */
   type ArrayPredicateFn<ElementType, ArrayType> =
     (value: ElementType, index: number, array: ArrayType) => boolean;
+
+  /**
+   * Defines the ArkTS Array predicate function, which is used by the 'retainAll'
+   * API of the Array class to determine whether array elements meet certain test conditions.
+   *
+   * @param { ElementType } value - Element that is being processed.
+   * @returns { boolean } True if the value meets the predicate, otherwise false.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  type ArrayElementPredicateFn<ElementType> = (value: ElementType) => boolean;
 
   /**
    * Defines the ArkTS Array reduction function, which is used by the 'reduceRight' API of the Array class.
@@ -665,6 +701,81 @@ declare namespace collections {
      */
     includes(searchElement: T, fromIndex?: number): boolean;
     /**
+     * Checks whether all elements in a specified ArkTS Array are contained in this ArkTS Array.
+     *
+     * @param { Array<T> } elements - ArkTS Array whose elements are to be checked.
+     * @returns { boolean } Check result. The value **true** is returned if all elements are contained in this ArkTS
+     *     array; otherwise, **false** is returned.
+     * @throws { BusinessError } 10200011 - The containsAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    containsAll(elements: Array<T>): boolean;
+    /**
+     * Checks whether all elements in a specified built-in Array are contained in this ArkTS Array.
+     *
+     * @param { BuiltinArray<T> } elements - Built-in Array whose elements are to be checked.
+     * @returns { boolean } Check result. The value **true** is returned if all elements are contained in this ArkTS
+     *     array; otherwise, **false** is returned.
+     * @throws { BusinessError } 10200011 - The containsAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    containsAll(elements: BuiltinArray<T>): boolean;
+    /**
+     * Retains only the elements in this ArkTS Array that are contained in the specified ArkTS Array.
+     *
+     * @param { Array<T> } elements - ArkTS Array whose elements are to be retained.
+     * @returns { boolean } Operation result. The value **true** is returned if any elements are removed from this ArkTS
+     *     array; otherwise, **false** is returned.
+     * @throws { BusinessError } 10200011 - The retainAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    retainAll(elements: Array<T>): boolean;
+    /**
+     * Retains only the elements in this ArkTS Array that are contained in the specified built-in Array.
+     *
+     * @param { BuiltinArray<T> } elements - Built-in Array whose elements are to be retained.
+     * @returns { boolean } Operation result. The value **true** is returned if any elements are removed from this ArkTS
+     *     array; otherwise, **false** is returned.
+     * @throws { BusinessError } 10200011 - The retainAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    retainAll(elements: BuiltinArray<T>): boolean;
+    /**
+     * Retains only the elements in this ArkTS Array that satisfy the specified predicate.
+     *
+     * @param { ArrayElementPredicateFn<T> } predicate - Predicate function used to test each element.
+     * @returns { boolean } Operation result. The value **true** is returned if any elements are removed from this ArkTS
+     *     array; otherwise, **false** is returned.
+     * @throws { BusinessError } 10200011 - The retainAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    retainAll(predicate: ArrayElementPredicateFn<T>): boolean;
+    /**
      * Returns the index of the first element that passes a test provided by a callback function. If none of the
      * elements pass the test, **-1** is returned.
      *
@@ -923,7 +1034,7 @@ declare namespace collections {
     toLocaleString(): string;
     /**
      * This API is similar to the
-     * [reduceRight]{@link collections.Array#reduceRight(callbackFn: ArrayReduceCallback<T, T, Array<T>>)} API, but it
+     * [reduceRight]{@link collections.Array.reduceRight(callbackFn: ArrayReduceCallback<T, T, Array<T>>)} API, but it
      * takes an initial value as the second parameter to initialize the accumulator before the array traversal starts
      * from right to left.
      *
@@ -1074,6 +1185,21 @@ declare namespace collections {
      */
     clear(): void;
     /**
+     * Checks whether this ArkTS map maps one or more keys to the specified value.
+     *
+     * @param { V } value - Target value.
+     * @returns { boolean } Check result. The value **true** is returned if the value exists; otherwise, **false** is
+     *     returned.
+     * @throws { BusinessError } 10200011 - The containsValue method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    containsValue(value: V): boolean;
+    /**
      * Deletes a specified key from this ArkTS map.
      *
      * @param { K } key - Key to delete.
@@ -1087,6 +1213,26 @@ declare namespace collections {
      * @since 12 dynamiconly
      */
     delete(key: K): boolean;
+    /**
+     * Removes the specified key and its corresponding value from this ArkTS map.
+     *
+     * > **NOTE**
+     * >
+     * > - When **undefined** is returned, you cannot directly distinguish whether the key does not exist or the
+     * >   key exists but its value is **undefined**. Before calling this API, you can use **has** to check whether
+     * >   the key exists, so that you can distinguish the case of the returned **undefined**.
+     *
+     * @param { K } key - Target key.
+     * @returns { V | undefined } Value removed. If the key is not found, **undefined** is returned.
+     * @throws { BusinessError } 10200011 - The remove method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    remove(key: K): V | undefined;
     /**
      * Calls a callback function for each key-value pair in this ArkTS map.
      *
@@ -1126,6 +1272,54 @@ declare namespace collections {
      * @since 12 dynamiconly
      */
     has(key: K): boolean;
+    /**
+     * Adds or updates a key-value pair to this ArkTS map and returns the previous value associated with the key.
+     *
+     * > **NOTE**
+     * >
+     * > - When **undefined** is returned, you cannot directly distinguish whether the key does not exist or the
+     * >   key exists but its value is **undefined**. Before calling this API, you can use **has** to check whether
+     * >   the key exists, so that you can distinguish the case of the returned **undefined**.
+     *
+     * @param { K } key - Target key.
+     * @param { V } value - Target value.
+     * @returns { V | undefined } Previous value associated with the key. If the key is not found, **undefined** is
+     *     returned.
+     * @throws { BusinessError } 10200011 - The put method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    put(key: K, value: V): V | undefined;
+    /**
+     * Updates this ArkTS map with key-value pairs from the specified ArkTS Map.
+     *
+     * @param { Map<K, V> } from - ArkTS Map that provides key-value pairs.
+     * @throws { BusinessError } 10200011 - The putAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    putAll(from: Map<K, V>): void;
+    /**
+     * Updates this ArkTS map with key-value pairs from the specified built-in Map.
+     *
+     * @param { BuiltinMap<K, V> } from - Built-in Map that provides key-value pairs.
+     * @throws { BusinessError } 10200011 - The putAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    putAll(from: BuiltinMap<K, V>): void;
     /**
      * Adds or updates a key-value pair to this ArkTS map.
      *
@@ -1312,14 +1506,14 @@ declare namespace collections {
     has(value: T): boolean;
   }
   /**
-   * Underlying data structure of the ArkTS TypedArray ([Int8Array]{@link ./arkts/@arkts.collections:collections},
-   * [Uint8Array]{@link ./arkts/@arkts.collections:collections},
-   * [Int16Array]{@link ./arkts/@arkts.collections:collections},
-   * [Uint16Array]{@link ./arkts/@arkts.collections:collections},
-   * [Int32Array]{@link ./arkts/@arkts.collections:collections},
-   * [Uint32Array]{@link ./arkts/@arkts.collections:collections},
-   * [Uint8ClampedArray]{@link ./arkts/@arkts.collections:collections}, and
-   * [Float32Array]{@link ./arkts/@arkts.collections:collections}).
+   * Underlying data structure of the ArkTS TypedArray ([Int8Array]{@link collections.Int8Array},
+   * [Uint8Array]{@link collections.Uint8Array},
+   * [Int16Array]{@link collections.Int16Array},
+   * [Uint16Array]{@link collections.Uint16Array},
+   * [Int32Array]{@link collections.Int32Array},
+   * [Uint32Array]{@link collections.Uint32Array},
+   * [Uint8ClampedArray]{@link collections.Uint8ClampedArray}, and
+   * [Float32Array]{@link collections.Float32Array}).
    *
    * > **NOTE**
    * >
@@ -1372,7 +1566,7 @@ declare namespace collections {
   }
 
   /**
-   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}.
+   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link collections.ArrayBuffer}.
    *
    * > **NOTE**
    * >
@@ -1999,7 +2193,7 @@ declare namespace collections {
  }
 
   /**
-   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}.
+   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link collections.ArrayBuffer}.
    *
    * > **NOTE**
    * >
@@ -2607,7 +2801,7 @@ declare namespace collections {
  }
 
   /**
-   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}.
+   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link collections.ArrayBuffer}.
    *
    * > **NOTE**
    * >
@@ -3229,7 +3423,7 @@ declare namespace collections {
  }
 
   /**
-   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}.
+   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link collections.ArrayBuffer}.
    *
    * > **NOTE**
    * >
@@ -3855,7 +4049,7 @@ declare namespace collections {
  }
 
   /**
-   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}.
+   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link collections.ArrayBuffer}.
    *
    * > **NOTE**
    * >
@@ -4476,7 +4670,7 @@ declare namespace collections {
  }
 
   /**
-   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}.
+   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link collections.ArrayBuffer}.
    *
    * > **NOTE**
    * >
@@ -5098,7 +5292,7 @@ declare namespace collections {
  }
 
   /**
-   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}.
+   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link collections.ArrayBuffer}.
    *
    * > **NOTE**
    * >
@@ -5719,7 +5913,7 @@ declare namespace collections {
  }
 
   /**
-   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}.
+   * A linear data structure that is implemented on [ArkTS ArrayBuffer]{@link collections.ArrayBuffer}.
    *
    * > **NOTE**
    * >

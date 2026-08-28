@@ -201,7 +201,7 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
    *
    * @param { FlexAlign } value - 子组件在垂直方向上的对齐格式。
    *     <br>默认值：FlexAlign.Start
-   *     <br>**说明：** 若子组件不设置[flexShrink]{@link CommonMethod#flexShrink}，FlexAlign.Center和FlexAlign.End可能失效，详见下方说明。设置为
+   *     <br>**说明：** 若子组件不设置[flexShrink]{@link CommonController#flexShrink}，FlexAlign.Center和FlexAlign.End可能失效，详见下方说明。设置为
    *     FlexAlign.SpaceBetween、FlexAlign.SpaceAround、FlexAlign.SpaceEvenly时，[space]{@link ColumnOptions}属性不生效。
    * @returns { ColumnAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

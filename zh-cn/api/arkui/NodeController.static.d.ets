@@ -111,7 +111,7 @@ export declare abstract class NodeController {
    * > > 由于rebuild方法为应用主动调用的方法，且该操作与UI相关。需要开发者自行保证调用该接口时UI上下文有效，即与绑定的NodeContainer保持UI上下文一致。
    * >
    * > 监听回调等[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)时，可以通过[UIContext]{@link @ohos.arkui.UIContext}的
-   * > [runScopedTask](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#runscopedtask)方法明确调用时的UI上下文。
+   * > [runScopedTask]{@link UIContext#runScopedTask}方法明确调用时的UI上下文。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

@@ -14,6 +14,10 @@
  */
 
 /**
+ * GesturePath表示手势路径信息。
+ * 
+ * 本模块用于创建手势路径信息，供辅助功能注入手势使用。
+ * 
  * @file 手势路径
  * @kit AccessibilityKit
  */
@@ -21,9 +25,7 @@
 import type { GesturePoint } from './@ohos.accessibility.GesturePoint';
 
 /**
- * GesturePath表示手势路径信息。
- * 
- * 本模块用于创建手势路径信息，供辅助功能注入手势使用。
+ * 表示手势路径信息，用于无障碍服务中模拟用户触摸手势（如点击、滑动等）。
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamiconly

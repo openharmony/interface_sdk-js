@@ -233,8 +233,8 @@ declare namespace emitter {
   /**
    * Unsubscribes from an event with the specified event ID and processed by the specified callback. This API takes 
    * effect only when **Callback\<EventData>** has been registered through the 
-   * [on]{@link emitter.on(event: InnerEvent, callback: Callback<EventData>)} or 
-   * [once]{@link emitter.once(event: InnerEvent, callback: Callback<EventData>)} API. Otherwise, no processing is 
+   * [on]{@link ./@ohos.events.emitter:on(event: InnerEvent, callback: Callback<EventData>)} or 
+   * [once]{@link ./@ohos.events.emitter:once(event: InnerEvent, callback: Callback<EventData>)} API. Otherwise, no processing is 
    * performed.
    *
    * After this API is used to unsubscribe from an event, the event that has been published through the 
@@ -254,8 +254,8 @@ declare namespace emitter {
   /**
    * Unsubscribes from an event with the specified event ID and processed by the specified callback. This API takes 
    * effect only when **Callback\<EventData>** has been registered through the 
-   * [on]{@link emitter.on(eventId: string, callback: Callback<EventData>)} or 
-   * [once]{@link emitter.once(eventId: string, callback: Callback<EventData>)} API. Otherwise, no processing is 
+   * [on]{@link ./@ohos.events.emitter:on(eventId: string, callback: Callback<EventData>)} or 
+   * [once]{@link ./@ohos.events.emitter:once(eventId: string, callback: Callback<EventData>)} API. Otherwise, no processing is 
    * performed.
    *
    * After this API is used to unsubscribe from an event, the event that has been published through the 
@@ -288,8 +288,8 @@ declare namespace emitter {
   /**
    * Unsubscribes from an event with the specified event ID and processed by the specified callback. This API takes 
    * effect only when **Callback\<EventData>** has been registered through the 
-   * [on]{@link emitter.on<T>(eventId: string, callback: Callback<GenericEventData<T>>)} or 
-   * [once]{@link emitter.once<T>(eventId: string, callback: Callback<GenericEventData<T>>)} API. Otherwise, no 
+   * [on]{@link emitter.Emitter.on} or 
+   * [once]{@link emitter.Emitter.once} API. Otherwise, no 
    * processing is performed.
    *
    * After this API is used to unsubscribe from an event, the event that has been published through the 
@@ -849,8 +849,8 @@ declare namespace emitter {
 
     /**
      * Unsubscribes from an event of the Emitter instance. This API takes effect only when the 
-     * [on]{@link emitter.Emitter#on<T>(eventId: string, callback: Callback<GenericEventData<T>>)} or 
-     * [once]{@link emitter.Emitter#once<T>(eventId: string, callback: Callback<GenericEventData<T>>)} API is used to 
+     * [on]{@link emitter.Emitter.on} or 
+     * [once]{@link emitter.Emitter.once} API is used to 
      * subscribe to the event with specified event ID and a callback is used to process the event.
      *
      * After this API is used to unsubscribe from an event, the event that has been published through the 

@@ -853,7 +853,7 @@ declare class ColorMetrics {
    * @param { number } red - Red component of the color. The value is an integer ranging from 0 to 255.
    * @param { number } green - Green component of the color. The value is an integer ranging from 0 to 255.
    * @param { number } blue - Blue component of the color. The value is an integer ranging from 0 to 255.
-   * @param { number } alpha - Alpha component of the color. The value is a floating point number ranging from 0.0 to 1.
+   * @param { number } [alpha] - Alpha component of the color. The value is a floating point number ranging from 0.0 to 1.
    *     0. The default value is **1.0** (fully opaque).
    *     <br> Note: If alpha is less than 0, the color is fully transparent. If alpha is greater than 1, the color is
    *     opaque.

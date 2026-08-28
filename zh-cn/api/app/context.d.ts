@@ -241,7 +241,6 @@ export interface Context extends BaseContext {
    * @famodelonly
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.window:window.WindowStage.setShowOnLockScreen
    */
   setShowOnLockScreen(show: boolean, callback: AsyncCallback<void>): void;
 
@@ -254,7 +253,6 @@ export interface Context extends BaseContext {
    * @famodelonly
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.window:window.WindowStage.setShowOnLockScreen
    */
   setShowOnLockScreen(show: boolean): Promise<void>;
 

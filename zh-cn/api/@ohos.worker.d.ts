@@ -1014,7 +1014,7 @@ declare namespace worker {
      *     支持的序列化类型请参考序列化支持类型。
      *     支持的共享类型请参考Sendable支持的数据类型。
      * @param { ArrayBuffer[] } [transfer] - 表示可转移的ArrayBuffer实例对象数组，该数组中对象的所有权
-     *     会被转移到Worker线程，转移后该对象仅在Worker线程中可用。该数组不可传入null。默认值为空数组。
+     *     会被转移到Worker线程，转移后该对象仅在Worker线程中可用。该数组不可传入null。默认值为undefined。
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @syscap SystemCapability.Utils.Lang
@@ -1163,7 +1163,8 @@ declare namespace worker {
      * RestrictedWorker构造函数。使用其他方法前，均需先构造RestrictedWorker实例。
      *
      * @param { string } scriptURL - Worker线程文件的路径，路径规则详细参考文件路径注意事项。
-     * @param { WorkerOptions } [options] - 构造RestrictedWorker时的选项。
+     * @param { WorkerOptions } [options] - 构造RestrictedWorker时的选项。type默认值为'classic'，name默认'undefined'，
+     *     shared默认'undefined'，priority默认'MEDIUM'。
      * @throws { BusinessError } 10200003 - Worker initialization failure.
      * @throws { BusinessError } 10200007 - The worker file path is invalid.
      * @syscap SystemCapability.Utils.Lang

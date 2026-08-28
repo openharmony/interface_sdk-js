@@ -71,11 +71,11 @@ export declare interface CircleAttribute extends CommonShapeMethod {
     default setCircleOptions(options?: CircleOptions): this;
 
     /**
-     * 设置边框颜色，支持[attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)动态设置属性方法，
+     * 设置边框颜色，支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性方法，
      * 不设置时，默认边框透明度为0，即没有边框。
      *
-     * @param { ResourceColor | ColorMetrics | undefined } value - 边框颜色。<br/>默认值：[Color](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#color).Transparent<br/>异常值undefined和null按照默认值处理，
-     *     NaN和Infinity按照[Color](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#color).Black处理。
+     * @param { ResourceColor | ColorMetrics | undefined } value - 边框颜色。<br/>默认值：[Color]{@link Color}.Transparent<br/>异常值undefined和null按照默认值处理，
+     *     NaN和Infinity按照[Color]{@link Color}.Black处理。
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -84,10 +84,10 @@ export declare interface CircleAttribute extends CommonShapeMethod {
     default stroke(value: ResourceColor | ColorMetrics| undefined): this;
 
     /**
-     * 设置填充区域的颜色，支持[attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)动态设置属性方法，
+     * 设置填充区域的颜色，支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性方法，
      * 异常值按照默认值处理。与通用属性foregroundColor同时设置时，后设置的属性生效。
      *
-     * @param { ResourceColor | ColorMetrics| undefined } value - 填充区域颜色。<br/>默认值：[Color](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#color).Black <br/>异常值undefined、null、NaN和Infinity按照默认值处理。
+     * @param { ResourceColor | ColorMetrics| undefined } value - 填充区域颜色。<br/>默认值：[Color]{@link Color}.Black <br/>异常值undefined、null、NaN和Infinity按照默认值处理。
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly

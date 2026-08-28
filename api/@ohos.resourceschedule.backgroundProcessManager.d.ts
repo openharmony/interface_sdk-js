@@ -22,7 +22,7 @@
  * The **backgroundProcessManager** module provides APIs for background child process management. You can use these APIs
  * to suppress and unsuppress child processes to prevent child processes from occupying too many system resources and 
  * causing system stuttering. The APIs take effect only for the child processes created through 
- * [OH_Ability_StartNativeChildProcess](docroot://reference/apis-ability-kit/capi-native-child-process-h.md#oh_ability_startnativechildprocess)
+ * [OH_Ability_StartNativeChildProcess](docroot://reference/apis-ability-kit/c-apis/capi-native-child-process-h.md#oh_ability_startnativechildprocess)
  * .
  *
  * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
@@ -95,7 +95,7 @@ declare namespace backgroundProcessManager {
      *
      * @param { int } pid - ID of the child process to be suppressed, which is the **pid** parameter after the child
      *     process is created through the
-     *     [OH_Ability_StartNativeChildProcess](docroot://reference/apis-ability-kit/capi-native-child-process-h.md#oh_ability_startnativechildprocess)
+     *     [OH_Ability_StartNativeChildProcess](docroot://reference/apis-ability-kit/c-apis/capi-native-child-process-h.md#oh_ability_startnativechildprocess)
      *     API.
      * @param { ProcessPriority } priority - Suppression priority.
      * @returns { Promise<void> } Promise that returns no value.
@@ -112,7 +112,7 @@ declare namespace backgroundProcessManager {
      * , the child process changes with the main process. The effect is the same as calling **resetProcessPriority**.
      *
      * @param { int } pid - ID of the child process, which is the **pid** parameter of the
-     *     [OH_Ability_StartNativeChildProcess](docroot://reference/apis-ability-kit/capi-native-child-process-h.md#oh_ability_startnativechildprocess)
+     *     [OH_Ability_StartNativeChildProcess](docroot://reference/apis-ability-kit/c-apis/capi-native-child-process-h.md#oh_ability_startnativechildprocess)
      *     API.
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
@@ -158,7 +158,7 @@ declare namespace backgroundProcessManager {
      *     is in power saving mode; the value **false** means the opposite.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
-     *     <br> 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+     *     <br> 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 20 dynamic
@@ -174,7 +174,7 @@ declare namespace backgroundProcessManager {
      * @returns { Promise<PowerSaveMode> } Promise that returns the power saving mode of a process.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
-     *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+     *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 23 dynamic&static

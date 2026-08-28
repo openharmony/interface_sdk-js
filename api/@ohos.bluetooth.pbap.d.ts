@@ -27,7 +27,6 @@ import type constant from './@ohos.bluetooth.constant';
  *
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @since 11 dynamic
- * @since 26.0.0 static
  */
 declare namespace pbap {
   /**
@@ -35,7 +34,6 @@ declare namespace pbap {
    *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 11 dynamic
-   * @since 26.0.0 static
    */
   type BaseProfile = baseProfile.BaseProfile;
 
@@ -45,7 +43,6 @@ declare namespace pbap {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 26.0.0 static
    */
   type AccessAuthorization = constant.AccessAuthorization;
 
@@ -55,7 +52,6 @@ declare namespace pbap {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
-   * @since 26.0.0 static
    */
   enum ShareType {
     /**
@@ -64,7 +60,6 @@ declare namespace pbap {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 26.0.0 static
      */
     SHARE_NAME_AND_PHONE_NUMBER = 0,
     /**
@@ -73,7 +68,6 @@ declare namespace pbap {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 26.0.0 static
      */
     SHARE_ALL = 1,
     /**
@@ -82,7 +76,6 @@ declare namespace pbap {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 26.0.0 static
      */
     SHARE_NOTHING = 2
   }
@@ -96,7 +89,6 @@ declare namespace pbap {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 11 dynamic
-   * @since 26.0.0 static
    */
   function createPbapServerProfile(): PbapServerProfile;
 
@@ -105,7 +97,6 @@ declare namespace pbap {
    *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 11 dynamic
-   * @since 26.0.0 static
    */
   interface PbapServerProfile extends BaseProfile {
     /**
@@ -125,7 +116,6 @@ declare namespace pbap {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 26.0.0 static
      */
     disconnect(deviceId: string): void;
 
@@ -148,7 +138,6 @@ declare namespace pbap {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 26.0.0 static
      */
     setShareType(deviceId: string, type: ShareType, callback: AsyncCallback<void>): void;
 
@@ -171,7 +160,6 @@ declare namespace pbap {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 26.0.0 static
      */
     setShareType(deviceId: string, type: ShareType): Promise<void>;
 
@@ -193,7 +181,6 @@ declare namespace pbap {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 26.0.0 static
      */
     getShareType(deviceId: string, callback: AsyncCallback<ShareType>): void;
 
@@ -215,7 +202,6 @@ declare namespace pbap {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 26.0.0 static
      */
     getShareType(deviceId: string): Promise<ShareType>;
 
@@ -238,7 +224,6 @@ declare namespace pbap {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 26.0.0 static
      */
     setPhoneBookAccessAuthorization(
       deviceId: string,
@@ -265,7 +250,6 @@ declare namespace pbap {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 26.0.0 static
      */
     setPhoneBookAccessAuthorization(deviceId: string, authorization: AccessAuthorization): Promise<void>;
 
@@ -287,7 +271,6 @@ declare namespace pbap {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 26.0.0 static
      */
     getPhoneBookAccessAuthorization(deviceId: string, callback: AsyncCallback<AccessAuthorization>): void;
 
@@ -309,7 +292,6 @@ declare namespace pbap {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
-     * @since 26.0.0 static
      */
     getPhoneBookAccessAuthorization(deviceId: string): Promise<AccessAuthorization>;
   }

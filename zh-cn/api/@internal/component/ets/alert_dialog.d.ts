@@ -915,9 +915,9 @@ declare interface AlertDialogParam {
    * 
    * **说明：**
    * 
-   * - 默认值：[ImmersiveOptions](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersiveoptions)的style为
+   * - 默认值：[ImmersiveOptions]{@link @ohos.arkui.uiMaterial.ImmersiveOptions}的style为
    * ImmersiveStyle.ULTRA_THICK的
-   * [ImmersiveMaterial](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivematerial)对象。设置undefined时与默认值保持
+   * [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial.}对象。设置undefined时与默认值保持
    * 一致。
    * - 不同的材质具有不同的效果，该接口影响背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、背景模糊
    * [backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions)}
@@ -1027,7 +1027,7 @@ declare interface DismissDialogAction {
 declare interface AlertDialogParamWithButtons extends AlertDialogParam {
   /**
    * 主要Button的使能状态、默认焦点、按钮风格、文本内容、文本色、按钮背景色和点击回调。在弹窗获焦且未进行tab键走焦时，该按钮默认响应Enter键，且多重弹窗可自动获焦连续响应。默认响应Enter键能力在defaultFocus
-   * 为true时不生效。 具体使用方式请参考[示例7](docroot://reference/apis-arkui/arkui-ts/ts-methods-alert-dialog-box.md#示例7自定义背景模糊效果参数) 。
+   * 为true时不生效。 具体使用方式请参考[示例7]{@link AlertDialog} 。
    *
    * @type { object } [since 7 - 17]
    * @type { AlertDialogButtonBaseOptions } [since 18]

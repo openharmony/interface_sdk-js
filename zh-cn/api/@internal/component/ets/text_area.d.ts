@@ -279,9 +279,9 @@ declare enum TextAreaType {
 declare type TextAreaSubmitCallback = (enterKeyType: EnterKeyType, event?: SubmitEvent) => void;
 
 /**
- * 除支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)外，还支持以下属性。 
+ * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性。 
  * 
- * 除支持[通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)外，还支持以下事件。
+ * 除支持[通用事件]{@link CommonMethod}外，还支持以下事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -471,7 +471,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * 设置首行文本缩进。未通过该接口设置时，默认首行文本缩进为0。
    *
    * @param { Dimension } value - 首行文本缩进。
-   *     <br>单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位) 
+   *     <br>单位：[vp]{@link Length} 
    *     <br>取值范围：大于等于0。设置负数时，按默认值处理。
    * @returns { TextAreaAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -731,7 +731,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * InputCounterOptions，当thresholdPercentage数值在有效区间内且输入字符数超过最大字符数时，边框和计数器下标将变为红色，框体抖动。计数器默认显示红色边框；highlightBorder设置为
    * false时，则不显示红色边框。内联模式下字符计数器不显示。
    * 
-   * [示例2（设置计数器）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textarea.md#示例2设置计数器)展示了设置showCounter的效果。
+   * [示例2（设置计数器）]{@link ./textArea}展示了设置showCounter的效果。
    *
    * @param { boolean } value - 是否显示计数器。
    *     <br>true表示显示计数器，false表示不显示。
@@ -815,7 +815,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { number | string | Resource } value - 文本最小显示字号。
    *     <br>需配合maxFontSize以及maxLines或布局大小限制使用，单独设置不生效。
    *     <br>取值范围：(0, maxFontSize]。超出取值范围时按照fontSize属性值生效。
-   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[fp]{@link Length}
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -839,7 +839,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @param { number | string | Resource } value - 文本最大显示字号。
    *     <br>需配合minFontSize以及maxLines或布局大小限制使用，单独设置不生效。
    *     <br>取值范围：(0, +∞)。超出取值范围时按照fontSize属性值生效。
-   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[fp]{@link Length}
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1029,7 +1029,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    *
    * @param { number | string | Resource } value - 文本字符间距。
    *     <br>设置为百分比时按默认值处理；设置为0时使用默认值；负值会导致文字压缩，过小时可能无内容显示。
-   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[fp]{@link Length}
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1373,7 +1373,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    *     <br>**说明：** 
    *     <br>设置的值小于0时，按值为0处理。设置的值大于1，按值为1处理。异常值默认不生效。
    *     <br>使用前需在工程中配置configuration.json文件和app.json5文件，具体详见
-   *     [示例17（设置最小字体范围与最大字体范围）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textarea.md#示例17设置最小字体范围与最大字体范围)。
+   *     [示例17（设置最小字体范围与最大字体范围）]{@link ./textArea}。
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1453,7 +1453,7 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    *     <br>**说明：** 
    *     <br>设置的值小于1时，按值为1处理。异常值默认不生效。
    *     <br>使用前需在工程中配置configuration.json文件和app.json5文件，具体详见
-   *     [示例17（设置最小字体范围与最大字体范围）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textarea.md#示例17设置最小字体范围与最大字体范围)。
+   *     [示例17（设置最小字体范围与最大字体范围）]{@link ./textArea}。
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

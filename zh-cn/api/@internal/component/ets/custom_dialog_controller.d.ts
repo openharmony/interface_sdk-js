@@ -681,9 +681,9 @@ declare interface CustomDialogControllerOptions {
    * 
    * **说明：**
    * 
-   * - 默认值：[ImmersiveOptions](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersiveoptions)的style为
+   * - 默认值：[ImmersiveOptions]{@link @ohos.arkui.uiMaterial.ImmersiveOptions}的style为
    * ImmersiveStyle.ULTRA_THICK的
-   * [ImmersiveMaterial](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivematerial)对象。设置undefined时与默认值保持
+   * [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial.ImmersiveMaterial}对象。设置undefined时与默认值保持
    * 一致。
    * - 不同的材质具有不同的效果，该接口影响背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、背景模糊
    * [backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions)}
@@ -778,7 +778,7 @@ declare type PromptActionCommonState = import('../api/@ohos.promptAction').promp
  * > - CustomDialogController仅在作为@CustomDialog和@Component struct成员变量，且在@Component struct内部定义时赋值才有效，具体用法可参考下方示例。
  * >
  * > - 若尝试在CustomDialog中传入多个其他的Controller，以实现在CustomDialog中打开另一个或另一些CustomDialog，那么此处需要将指向自己的controller放在所有controller的后
- * > 面。详细用法可参考[示例1（弹出嵌套弹窗）](docroot://reference/apis-arkui/arkui-ts/ts-methods-custom-dialog-box.md#示例1弹出嵌套弹窗)。
+ * > 面。详细用法可参考[示例1（弹出嵌套弹窗）]{@link CustomDialogController}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

@@ -14,22 +14,27 @@
  */
 
 /**
+ * @file
+ * @kit NetworkKit
+ */
+
+/**
  * This module provides the Network Response.
- * @interface NetworkResponse
  * @syscap SystemCapability.Communication.NetManager.Core
  * @since 3
  */
 export interface NetworkResponse {
   /**
-   * Network type. The values can be 2G, 3G, 4G, WiFi, or none.
-   * @type {string}
+   * Network type. The value can be **2G**, **3G**, **4G**, **5G**, **WiFi**, or **none**.
+   *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
    */
   type: string;
   /**
-   * Whether the billing is based on the data volume.
-   * @type {boolean}
+   * Whether to charge by traffic. The value **true** means to charge by traffic, and the value **false** means the
+   * opposite.
+   *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
    */
@@ -37,12 +42,14 @@ export interface NetworkResponse {
 }
 
 /**
+ *
  * @syscap SystemCapability.Communication.NetManager.Core
  * @since 3
  */
 export default class Network {
   /**
    * Obtains the network type.
+   *
    * @param { object } options - Options.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
@@ -70,6 +77,7 @@ export default class Network {
 
   /**
    * Listens to the network connection state. If this method is called multiple times, the last call takes effect.
+   *
    * @param { object } options - Options.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
@@ -91,6 +99,7 @@ export default class Network {
 
   /**
    * Cancels listening to the network connection state.
+   *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 3
    */

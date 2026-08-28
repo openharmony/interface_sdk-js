@@ -152,7 +152,7 @@ export interface SegmentButtonV2ItemOptions {
 
   /**
    * 分段按钮选项的无障碍文本
-   * [accessibilityText](docroot://reference/apis-arkui-static/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitytext)。
+   * [accessibilityText]{@link CommonMethod#accessibilityText}。
    * 默认值：""
    * 值为undefined时，按默认值处理。
    *
@@ -165,7 +165,7 @@ export interface SegmentButtonV2ItemOptions {
 
   /**
    * 分段按钮选项的无障碍说明
-   * [accessibilityDescription](docroot://reference/apis-arkui-static/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitydescription)。
+   * [accessibilityDescription]{@link CommonMethod#accessibilityDescription}。
    * 默认值：""
    * 值为undefined时，按默认值处理。
    *
@@ -178,7 +178,7 @@ export interface SegmentButtonV2ItemOptions {
 
   /**
    * 分段按钮选项的无障碍重要性
-   * [accessibilityLevel](docroot://reference/apis-arkui-static/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitylevel)。
+   * [accessibilityLevel]{@link CommonMethod#accessibilityLevel}。
    * 默认值："auto"
    * 值为undefined时，按默认值处理。
    *
@@ -329,7 +329,7 @@ export declare class SegmentButtonV2Item {
 
   /**
    * 分段按钮选项的无障碍文本
-   * [accessibilityText](docroot://reference/apis-arkui-static/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitytext)。
+   * [accessibilityText]{@link CommonMethod#accessibilityText}。
    * 默认值：""
    * 值为undefined时，按默认值处理。
    *
@@ -343,7 +343,7 @@ export declare class SegmentButtonV2Item {
 
   /**
    * 分段按钮选项的无障碍说明
-   * [accessibilityDescription](docroot://reference/apis-arkui-static/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitydescription)。
+   * [accessibilityDescription]{@link CommonMethod#accessibilityDescription}。
    * 默认值：""
    * 值为undefined时，按默认值处理。
    *
@@ -357,7 +357,7 @@ export declare class SegmentButtonV2Item {
 
   /**
    * 分段按钮选项的无障碍重要性
-   * [accessibilityLevel](docroot://reference/apis-arkui-static/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitylevel)。
+   * [accessibilityLevel]{@link CommonMethod#accessibilityLevel}。
    * 默认值："auto"
    * 值为undefined时，按默认值处理。
    *
@@ -1723,4 +1723,4 @@ export declare struct MultiCapsuleSegmentButtonV2 {
    */
   @Builder
   build(): void;
-}
+}

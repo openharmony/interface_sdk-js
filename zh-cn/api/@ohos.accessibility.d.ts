@@ -24,7 +24,7 @@ import type { AsyncCallback } from './@ohos.base';
 import type { Callback } from './@ohos.base';
 
 /**
- * 辅助功能
+ * 本模块提供辅助功能相关能力，包括获取辅助应用列表、获取辅助应用启用状态、获取无障碍字幕配置、发送无障碍事件、监听辅助应用状态变化等。
  * 
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @crossplatform [since 20]
@@ -446,9 +446,9 @@ declare namespace accessibility {
   function on(type: 'accessibilityStateChange', callback: Callback<boolean>): void;
 
   /**
-   * Register the observe of the accessibility state changed.
+   * 监听辅助应用启用状态变化事件。使用callback异步回调。
    *
-   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @param { Callback<boolean> } callback - 回调函数，在辅助应用启用状态变化时将状态通过此函数进行通知。此状态为全局辅助应用启用状态。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
    * @form
@@ -486,9 +486,9 @@ declare namespace accessibility {
   function on(type: 'touchGuideStateChange', callback: Callback<boolean>): void;
 
   /**
-   * Register the observe of the touchGuide state changed.
+   * 监听触摸浏览功能启用状态变化事件。使用callback异步回调。
    *
-   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @param { Callback<boolean> } callback - 回调函数，在触摸浏览启用状态变化时将状态通过此函数进行通知。
    * @syscap SystemCapability.BarrierFree.Accessibility.Vision
    * @crossplatform
    * @form
@@ -520,9 +520,10 @@ declare namespace accessibility {
   function off(type: 'accessibilityStateChange', callback?: Callback<boolean>): void;
 
   /**
-   * Unregister the observe of the accessibility state changed.
+   * 取消监听辅助应用启用状态变化事件。使用callback异步回调。
    *
-   * @param { Callback<boolean> } [callback] Asynchronous callback interface.
+   * @param { Callback<boolean> } [callback] - 回调函数，取消指定callback对象的事件响应。需与accessibility.onAccessibilityStateChange的
+   *     callback一致。缺省时，表示注销所有已注册事件。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
    * @form
@@ -551,9 +552,10 @@ declare namespace accessibility {
   function off(type: 'touchGuideStateChange', callback?: Callback<boolean>): void;
 
   /**
-   * Unregister the observe of the touchGuide state changed.
+   * 取消监听触摸浏览启用状态变化事件。使用callback异步回调。
    *
-   * @param { Callback<boolean> } [callback] Asynchronous callback interface.
+   * @param { Callback<boolean> } [callback] - 回调函数，取消指定callback对象的事件响应。需与accessibility.onTouchGuideStateChange的callback
+   *     一致。缺省时，表示注销所有已注册事件。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @form
    * @atomicservice
@@ -627,9 +629,9 @@ declare namespace accessibility {
     on(type: 'enableChange', callback: Callback<boolean>): void;
 
     /**
-     * Register the observe of the enable state.
+     * 监听字幕配置启用状态变化事件。使用callback异步回调。
      *
-     * @param { Callback<boolean> } callback
+     * @param { Callback<boolean> } callback - 回调函数，在启用状态变化时将状态通过此函数进行通知。
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 23 static
      */
@@ -659,9 +661,9 @@ declare namespace accessibility {
     on(type: 'styleChange', callback: Callback<CaptionsStyle>): void;
 
     /**
-     * Register the observer of the style.
+     * 监听字幕风格变化事件。使用callback异步回调。
      *
-     * @param { Callback<CaptionsStyle> } callback
+     * @param { Callback<CaptionsStyle> } callback - 回调函数，在字幕风格变化时通过此函数进行通知。
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 23 static
      */
@@ -685,9 +687,9 @@ declare namespace accessibility {
     off(type: 'enableChange', callback?: Callback<boolean>): void;
 
     /**
-     * Unregister the observe of the enable state.
+     * 取消监听字幕配置启用状态变化事件。使用callback异步回调。
      *
-     * @param { Callback<boolean> } [callback]
+     * @param { Callback<boolean> } [callback] - 回调函数，取消指定callback对象的事件响应。需与onEnableChange的callback一致。缺省时，表示注销所有已注册事件。
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 23 static
      */
@@ -711,9 +713,10 @@ declare namespace accessibility {
     off(type: 'styleChange', callback?: Callback<CaptionsStyle>): void;
 
     /**
-     * Unregister the observer of the style.
+     * 取消字幕风格变化监听事件。使用callback异步回调。
      *
-     * @param { Callback<CaptionsStyle> } [callback]
+     * @param { Callback<CaptionsStyle> } [callback] - 回调函数，取消指定callback对象的事件响应。需与onStyleChange的callback一致。缺省时，表示注销所有已注册
+     *     事件。
      * @syscap SystemCapability.BarrierFree.Accessibility.Hearing
      * @since 23 static
      */
@@ -999,7 +1002,7 @@ declare namespace accessibility {
     constructor(jsonObject: Object);
 
     /**
-     * A constructor used to create a EventInfo object.
+     * 构造函数。
      *
      * @syscap SystemCapability.BarrierFree.Accessibility.Core
      * @form
@@ -1302,9 +1305,10 @@ declare namespace accessibility {
   function off(type: 'screenReaderStateChange', callback?: Callback<boolean>): void;
 
   /**
-   * Unregister the observe of the screen reader state changed.
+   * 取消监听屏幕朗读启用状态变化事件。使用callback异步回调。
    *
-   * @param { Callback<boolean> } [callback] callback Asynchronous callback interface.
+   * @param { Callback<boolean> } [callback] - 回调函数，取消指定callback对象的事件响应。需与accessibility.onScreenReaderStateChange的
+   *     callback一致。缺省时，表示注销所有已注册事件。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
    * @form
@@ -1338,9 +1342,9 @@ declare namespace accessibility {
   function on(type: 'touchModeChange', callback: Callback<string>): void;
 
   /**
-   * Register the observe of the touch mode changed.
+   * 监听触摸浏览功能下的单击/双击操作模式变化事件。使用callback异步回调。
    *
-   * @param { Callback<string> } callback callback Asynchronous callback interface.
+   * @param { Callback<string> } callback - 回调函数，在触摸浏览功能下的单击/双击操作模式变化时将状态通过此函数进行通知。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
    * @form
@@ -1367,9 +1371,10 @@ declare namespace accessibility {
   function off(type: 'touchModeChange', callback?: Callback<string>): void;
 
   /**
-   * Unregister the observe of the touch mode changed.
+   * 取消监听触摸浏览功能下的单击/双击操作模式变化事件。使用callback异步回调。
    *
-   * @param { Callback<string> } [callback] callback Asynchronous callback interface.
+   * @param { Callback<string> } [callback] - 回调函数。取消指定callback对象的事件响应。需与accessibility.onTouchModeChange的callback一致。缺省时，
+   *     表示注销所有已注册事件。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
    * @form
@@ -2523,8 +2528,8 @@ export enum AccessibilityAction {
   SET_TEXT = 10,
 
   /**
-   * 表示向前滚动组件（向内容末尾方向滚动）。需配置参数[Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.scrollType，参数值为'
-   * fullScreen'或'halfScreen'。
+   * 表示向前滚动组件（向内容末尾方向滚动）。需配置参数[Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.scrollType，参数值为
+   * 'fullScreen'或'halfScreen'。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2534,8 +2539,8 @@ export enum AccessibilityAction {
   SCROLL_FORWARD = 11,
 
   /**
-   * 表示向后滚动组件（向内容起始方向滚动）。需配置参数[Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.scrollType，参数值为'
-   * fullScreen'或'halfScreen'。
+   * 表示向后滚动组件（向内容起始方向滚动）。需配置参数[Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.scrollType，参数值为
+   * 'fullScreen'或'halfScreen'。
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi

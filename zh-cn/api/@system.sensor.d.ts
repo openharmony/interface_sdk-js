@@ -101,16 +101,11 @@ export interface AccelerometerResponse {
 export interface subscribeAccelerometerOptions {
   /**
    * 频率参数，加速度的回调函数执行频率。
-   *
-   * 默认值：'normal'。
-   *
-   * 可选值：
-   *
-   * -'game'：极高的回调频率，20ms/次，适用于游戏场景。
-   *
-   * -'ui'：较高的回调频率，60ms/次，适用于UI更新场景。
-   *
-   * -'normal'：普通的回调频率，200ms/次，适用于低功耗场景。
+   * <br/>默认值：'normal'。
+   * <br/>可选值：
+   * <br/>-'game'：极高的回调频率，20ms/次，适用于游戏场景。
+   * <br/>-'ui'：较高的回调频率，60ms/次，适用于UI更新场景。
+   * <br/>-'normal'：普通的回调频率，200ms/次，适用于低功耗场景。
    *
    * @permission ohos.permission.ACCELEROMETER
    * @syscap SystemCapability.Sensors.Sensor.Lite
@@ -212,6 +207,8 @@ export interface SubscribeCompassOptions {
 /**
  * 距离感应数据改变后的回调函数的响应对象，包含可见物体相对于设备显示屏的接近或远离状态数据。
  *
+ * **设备行为差异**：该接口在Wearable、Lite Wearable中可正常调用，在其他设备类型中无效果。
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @famodelonly
  * @since 3 dynamiconly
@@ -235,6 +232,8 @@ export interface ProximityResponse {
 
 /**
  * 用于设置距离传感器订阅的参数，包括回调函数。
+ *
+ * **设备行为差异**：该接口在Wearable、Lite Wearable中可正常调用，在其他设备类型中无效果。
  *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @famodelonly
@@ -272,6 +271,8 @@ export interface SubscribeProximityOptions {
 /**
  * 光线感应数据改变后的回调函数的响应对象，包含环境光线强度数据。
  *
+ * **设备行为差异**：该接口在Wearable、Lite Wearable中可正常调用，在其他设备类型中无效果。
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @famodelonly
  * @since 3 dynamiconly
@@ -295,6 +296,8 @@ export interface LightResponse {
 
 /**
  * 用于设置环境光传感器订阅的参数，包括回调函数。
+ *
+ * **设备行为差异**：该接口在Wearable、Lite Wearable中可正常调用，在其他设备类型中无效果。
  *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @famodelonly
@@ -630,6 +633,8 @@ export interface GetOnBodyStateOptions {
 /**
  * 设备方向传感器数据变化后的回调函数的响应对象，包含设备方向的三个旋转角度数据。
  *
+ * **设备行为差异**：该接口在Wearable、Lite Wearable中可正常调用，在其他设备类型中无效果。
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @famodelonly
  * @since 6 dynamiconly
@@ -678,6 +683,8 @@ export interface DeviceOrientationResponse {
 /**
  * 用于设置设备方向传感器订阅的参数，包括回调频率和回调函数。
  *
+ * **设备行为差异**：该接口在Wearable、Lite Wearable中可正常调用，在其他设备类型中无效果。
+ *
  * @syscap SystemCapability.Sensors.Sensor.Lite
  * @famodelonly
  * @since 6 dynamiconly
@@ -688,16 +695,11 @@ export interface DeviceOrientationResponse {
 export interface SubscribeDeviceOrientationOptions {
   /**
    * 频率参数，设备方向传感器的回调函数执行频率。
-   *
-   * 默认值：'normal'。
-   *
-   * 可选值：
-   *
-   * -'game'：极高的回调频率，20ms/次，适用于游戏场景。
-   *
-   * -'ui'：较高的回调频率，60ms/次，适用于UI更新场景。
-   *
-   * -'normal'：普通的回调频率，200ms/次，适用于低功耗场景。
+   * <br/>默认值：'normal'。
+   * <br/>可选值：
+   * <br/>-'game'：极高的回调频率，20ms/次，适用于游戏场景。
+   * <br/>-'ui'：较高的回调频率，60ms/次，适用于UI更新场景。
+   * <br/>-'normal'：普通的回调频率，200ms/次，适用于低功耗场景。
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @famodelonly
@@ -799,16 +801,11 @@ export interface GyroscopeResponse {
 export interface SubscribeGyroscopeOptions {
   /**
    * 频率参数，陀螺仪的回调函数执行频率。
-   *
-   * 默认值：'normal'。
-   *
-   * 可选值：
-   *
-   * -'game'：极高的回调频率，20ms/次，适用于游戏场景。
-   *
-   * -'ui'：较高的回调频率，60ms/次，适用于UI更新场景。
-   *
-   * -'normal'：普通的回调频率，200ms/次，适用于低功耗场景。
+   * <br/>默认值：'normal'。
+   * <br/>可选值：
+   * <br/>-'game'：极高的回调频率，20ms/次，适用于游戏场景。
+   * <br/>-'ui'：较高的回调频率，60ms/次，适用于UI更新场景。
+   * <br/>-'normal'：普通的回调频率，200ms/次，适用于低功耗场景。
    *
    * @permission ohos.permission.GYROSCOPE
    * @syscap SystemCapability.Sensors.Sensor.Lite
@@ -952,6 +949,8 @@ export default class Sensor {
    * > [PROXIMITY]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback: Callback<ProximityResponse>, options?: Options)}
    * >  替代。
    *
+   * **设备行为差异**：该接口在Wearable、Lite Wearable中可正常调用，在其他设备类型中无效果。
+   *
    * @param { SubscribeProximityOptions } options - 用于设置距离传感器订阅的参数，包括回调函数。
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @famodelonly
@@ -973,6 +972,8 @@ export default class Sensor {
    * > [PROXIMITY]{@link @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_PROXIMITY, callback?: Callback<ProximityResponse>)}
    * >  替代。
    *
+   * **设备行为差异**：该接口在Wearable、Lite Wearable中可正常调用，在其他设备类型中无效果。
+   *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @famodelonly
    * @since 3 dynamiconly
@@ -992,6 +993,8 @@ export default class Sensor {
    * > 除Lite Wearable外，从API version 8开始，建议使用
    * > [AMBIENT_LIGHT]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback: Callback<LightResponse>, options?: Options)}
    * > 替代。
+   *
+   * **设备行为差异**：该接口在Wearable、Lite Wearable中可正常调用，在其他设备类型中无效果。
    *
    * @param { SubscribeLightOptions } options - 当环境光传感器数据发生变化时调用。
    * @syscap SystemCapability.Sensors.Sensor.Lite
@@ -1013,6 +1016,8 @@ export default class Sensor {
    * > 除Lite Wearable外，从API version 8开始，建议使用
    * > [AMBIENT_LIGHT]{@link @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_AMBIENT_LIGHT, callback?: Callback<LightResponse>)}
    * > 替代。
+   *
+   * **设备行为差异**：该接口在Wearable、Lite Wearable中可正常调用，在其他设备类型中无效果。
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @famodelonly
@@ -1217,6 +1222,8 @@ export default class Sensor {
    * > [ORIENTATION]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback: Callback<OrientationResponse>, options?: Options)}
    * > 替代。
    *
+   * **设备行为差异**：该接口在Wearable、Lite Wearable中可正常调用，在其他设备类型中无效果。
+   *
    * @param { SubscribeDeviceOrientationOptions } options - 用于设置设备方向传感器订阅的参数，包括回调频率和回调函数。
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @famodelonly
@@ -1237,6 +1244,8 @@ export default class Sensor {
    * > 除Lite Wearable外，从API version 8开始，建议使用
    * > [ORIENTATION]{@link @ohos.sensor:sensor.off(type: SensorType.SENSOR_TYPE_ID_ORIENTATION, callback?: Callback<OrientationResponse>)}
    * > 替代。
+   *
+   * **设备行为差异**：该接口在Wearable、Lite Wearable中可正常调用，在其他设备类型中无效果。
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
    * @famodelonly

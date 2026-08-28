@@ -14,115 +14,81 @@
  */
 
 /**
- * @file
+ * @file Standard NFC
  * @kit ConnectivityKit
  */
 
 import { Callback } from './@ohos.base';
 
 /**
- * Provides methods to operate or manage NFC.
+ * The **nfcController** module provides APIs for opening and closing Near-Field Communication (NFC) and reading the NFC
+ * state.
  *
- * @namespace nfcController
  * @syscap SystemCapability.Communication.NFC.Core
- * @since 7
- */
-/**
- * Provides methods to operate or manage NFC.
- *
- * @namespace nfcController
- * @syscap SystemCapability.Communication.NFC.Core
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 7 dynamic
  * @since 23 static
  */
 declare namespace nfcController {
   /**
-   * NFC changed states.
+   * Enumerates the NFC states.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.NFC.Core
-   * @since 7
-   */
-  /**
-   * NFC changed states.
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Communication.NFC.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    * @since 23 static
    */
   enum NfcState {
     /**
-     * Indicates that NFC is disabled.
+     * NFC is closed (OFF).
      *
      * @syscap SystemCapability.Communication.NFC.Core
-     * @since 7
-     */
-    /**
-     * Indicates that NFC is disabled.
-     *
-     * @syscap SystemCapability.Communication.NFC.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     STATE_OFF = 1,
 
     /**
-     * Indicates that NFC is being enabled.
+     * NFC is turning on.
      *
      * @syscap SystemCapability.Communication.NFC.Core
-     * @since 7
-     */
-    /**
-     * Indicates that NFC is being enabled.
-     *
-     * @syscap SystemCapability.Communication.NFC.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     STATE_TURNING_ON = 2,
 
     /**
-     * Indicates that NFC is enabled.
+     * NFC is open (ON).
      *
      * @syscap SystemCapability.Communication.NFC.Core
-     * @since 7
-     */
-    /**
-     * Indicates that NFC is enabled.
-     *
-     * @syscap SystemCapability.Communication.NFC.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     STATE_ON = 3,
 
     /**
-     * Indicates that NFC is being disabled.
+     * NFC is turning off.
      *
      * @syscap SystemCapability.Communication.NFC.Core
-     * @since 7
-     */
-    /**
-     * Indicates that NFC is being disabled.
-     *
-     * @syscap SystemCapability.Communication.NFC.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 7 dynamic
      * @since 23 static
      */
     STATE_TURNING_OFF = 4
   }
 
   /**
-   * Checks whether a device supports NFC.
+   * Checks whether the device supports NFC.
    *
-   * @returns { boolean } Returns {@code true} if the device supports NFC; returns {@code false} otherwise.
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 7 and deprecated since API version 9. Use
+   * > [canIUse("SystemCapability.Communication.NFC.Core")](docroot://reference/common/init.md#caniuse) instead.
+   *
+   * @returns { boolean } Returns **true** if the device supports NFC; returns **false** otherwise.
    * @syscap SystemCapability.Communication.NFC.Core
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -131,9 +97,9 @@ declare namespace nfcController {
   function isNfcAvailable(): boolean;
 
   /**
-   * Checks whether a device supports NFC.
+   * Checks whether the device supports NFC.
    *
-   * @returns { boolean } Returns {@code true} if the device supports NFC; returns {@code false} otherwise.
+   * @returns { boolean } Returns **true** if the device supports NFC; returns **false** otherwise.
    * @syscap SystemCapability.Communication.NFC.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -141,23 +107,15 @@ declare namespace nfcController {
   function isNfcSupported(): boolean;
 
   /**
-   * register nfc state changed event.
+   * Enables listening for NFC state changes. This API uses an asynchronous callback to return the result.
    *
-   * @param { 'nfcStateChange' } type The type to register.
-   * @param { Callback<NfcState> } callback Callback used to listen to the nfc state changed event.
+   * @param { 'nfcStateChange' } type - Event type. The value is **nfcStateChange**.
+   * @param { Callback<NfcState> } callback - Callback used to return the NFC state.
    * @syscap SystemCapability.Communication.NFC.Core
-   * @since 7
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    */
-  /**
-   * register nfc state changed event.
-   *
-   * @param { 'nfcStateChange' } type The type to register.
-   * @param { Callback<NfcState> } callback Callback used to listen to the nfc state changed event.
-   * @syscap SystemCapability.Communication.NFC.Core
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  function on(type: 'nfcStateChange', callback: Callback<NfcState>): void;
+  function on(type: "nfcStateChange", callback: Callback<NfcState>): void;
 
   /**
    * register nfc state changed event.
@@ -169,23 +127,17 @@ declare namespace nfcController {
   function onNfcStateChange(callback: Callback<NfcState>): void;
 
   /**
-   * unregister nfc state changed event.
+   * Unsubscribes from the NFC state changes. Upon successful unsubscription, the subscriber will not receive NFC state
+   * change notifications. This API uses an asynchronous callback to return the result.
    *
-   * @param { 'nfcStateChange' } type The type to unregister.
-   * @param { Callback<NfcState> }  callback Callback used to listen to the nfc state changed event.
+   * @param { 'nfcStateChange' } type - Event type. The value is **nfcStateChange**.
+   * @param { Callback<NfcState> }  callback - Callback for the NFC state changes. This parameter can be left blank. If
+   *     this parameter is not specified, this API unregisters all callbacks for the specified event.
    * @syscap SystemCapability.Communication.NFC.Core
-   * @since 7
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    */
-  /**
-   * unregister nfc state changed event.
-   *
-   * @param { 'nfcStateChange' } type The type to unregister.
-   * @param { Callback<NfcState> }  callback Callback used to listen to the nfc state changed event.
-   * @syscap SystemCapability.Communication.NFC.Core
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  function off(type: 'nfcStateChange', callback?: Callback<NfcState>): void;
+  function off(type: "nfcStateChange", callback?: Callback<NfcState>): void;
 
   /**
    * unregister nfc state changed event.
@@ -197,10 +149,15 @@ declare namespace nfcController {
   function offNfcStateChange(callback?: Callback<NfcState>): void;
 
   /**
-   * Enables NFC.
+   * Opens NFC.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 7 and deprecated since API version 9. Use
+   * > [enableNfc]{@link nfcController.enableNfc} instead.
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-   * @returns { boolean } Returns {@code true} if NFC is enabled or has been enabled; returns {@code false} otherwise.
+   * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
    * @syscap SystemCapability.Communication.NFC.Core
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -209,8 +166,7 @@ declare namespace nfcController {
   function openNfc(): boolean;
 
   /**
-   * Enables NFC.
-   * This API can be called only by system applications
+   * Enables NFC. This API can be called only by system applications.
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @throws { BusinessError } 201 - Permission denied.
@@ -223,10 +179,15 @@ declare namespace nfcController {
   function enableNfc(): void;
 
   /**
-   * Disables NFC.
+   * Closes NFC.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 7 and deprecated since API version 9. Use
+   * > [disableNfc]{@link nfcController.disableNfc} instead.
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
-   * @returns { boolean } Returns {@code true} if NFC is disabled or has been disabled; returns {@code false} otherwise.
+   * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
    * @syscap SystemCapability.Communication.NFC.Core
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -235,8 +196,7 @@ declare namespace nfcController {
   function closeNfc(): boolean;
 
   /**
-   * Disables NFC.
-   * This API can be called only by system applications
+   * Disables NFC. This API can be called only by system applications.
    *
    * @permission ohos.permission.MANAGE_SECURE_SETTINGS
    * @throws { BusinessError } 201 - Permission denied.
@@ -249,45 +209,23 @@ declare namespace nfcController {
   function disableNfc(): void;
 
   /**
-   * Checks whether NFC is enabled.
+   * Checks whether NFC is open.
    *
-   * @returns { boolean } Returns {@code true} if NFC is enabled; returns {@code false} otherwise.
+   * @returns { boolean } Returns **true** if NFC is open; returns **false** otherwise.
    * @syscap SystemCapability.Communication.NFC.Core
-   * @since 7
-   */
-  /**
-   * Checks whether NFC is enabled.
-   *
-   * @returns { boolean } Returns {@code true} if NFC is enabled; returns {@code false} otherwise.
-   * @syscap SystemCapability.Communication.NFC.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    * @since 23 static
    */
   function isNfcOpen(): boolean;
 
   /**
-   * Obtains the NFC status.
-   * <p>The NFC status can be any of the following: <ul><li>{@link #STATE_OFF}: Indicates that NFC
-   * is disabled. <li>{@link #STATE_TURNING_ON}: Indicates that NFC is being enabled.
-   * <li>{@link #STATE_ON}: Indicates that NFC is enabled. <li>{@link #STATE_TURNING_OFF}: Indicates
-   * that NFC is being disabled.</ul>
+   * Obtains the NFC state.
    *
-   * @returns { NfcState } Returns the NFC status.
+   * @returns { NfcState } NFC state obtained. For details, see [NfcState]{@link nfcController.NfcState}.
    * @syscap SystemCapability.Communication.NFC.Core
-   * @since 7
-   */
-  /**
-   * Obtains the NFC status.
-   * <p>The NFC status can be any of the following: <ul><li>{@link #STATE_OFF}: Indicates that NFC
-   * is disabled. <li>{@link #STATE_TURNING_ON}: Indicates that NFC is being enabled.
-   * <li>{@link #STATE_ON}: Indicates that NFC is enabled. <li>{@link #STATE_TURNING_OFF}: Indicates
-   * that NFC is being disabled.</ul>
-   *
-   * @returns { NfcState } Returns the NFC status.
-   * @syscap SystemCapability.Communication.NFC.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    * @since 23 static
    */
   function getNfcState(): NfcState;

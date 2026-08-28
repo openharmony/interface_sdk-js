@@ -20,10 +20,10 @@
 
 /**
  * 用于画布绘制
- * [CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)、
- * [OffscreenCanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-offscreencanvasrenderingcontext2d.md)、
- * [CanvasPattern](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-canvaspattern.md)和
- * [Path2D](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-path2d.md)的矩阵对象，
+ * [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}、
+ * [OffscreenCanvasRenderingContext2D]{@link OffscreenCanvasRenderingContext2D}、
+ * [CanvasPattern]{@link CanvasPattern}和
+ * [Path2D]{@link Path2D}的矩阵对象，
  * 可以对矩阵进行缩放、旋转和平移等变换。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -242,7 +242,7 @@ declare class Matrix2D {
    * 构造二维变换矩阵对象，默认值是属性全为0的矩阵，支持配置Matrix2D对象的单位模式。
    *
    * @param { LengthMetricsUnit } [unit] - 用来配置Matrix2D对象的单位模式，配置后无法动态更改，
-   *     配置方法同[CanvasRenderingContext2D](docroot://reference/apis-arkui/arkui-ts/ts-canvasrenderingcontext2d.md)。
+   *     配置方法同[CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
    *     <br>异常值NaN和Infinity按默认值处理。<br>默认值：DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

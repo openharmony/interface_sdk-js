@@ -186,7 +186,7 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
     default selectedColor(value: ResourceColor | undefined): this;
     /**
      * 设置非选中状态边框颜色。与
-     * [unselectedColor](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-checkboxgroup copy.md#unselectedcolor10)
+     * [unselectedColor]{@link unselectedColor}
      * <sup>10+</sup>相比，resColor参数新增了对undefined类型的支持。
      *
      * @param { ResourceColor | undefined } value - 非选中状态边框颜色。<br/>当value的值为undefined时，默认值：$r('
@@ -219,7 +219,7 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
     default onChange(callback: OnCheckboxGroupChangeCallback | undefined): this;
     /**
      * 设置CheckboxGroup组件形状，包括圆形和圆角方形。与
-     * [checkboxShape](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-checkboxgroup copy.md#checkboxshape12)
+     * [checkboxShape]{@link checkboxShape}
      * <sup>12+</sup>相比，shape参数新增了对undefined类型的支持。
      *
      * @param { CheckBoxShape | undefined } value - 设置CheckboxGroup组件形状，包括圆形和圆角方形。<br/>当shape的值为undefined时，默认值为

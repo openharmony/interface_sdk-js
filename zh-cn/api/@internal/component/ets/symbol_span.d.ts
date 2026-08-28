@@ -54,9 +54,9 @@ interface SymbolSpanInterface {
 }
 
 /**
- * 不支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)，支持以下属性。
+ * 不支持[通用属性]{@link CommonMethod}，支持以下属性。
  * 
- * 不支持[通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)。
+ * 不支持[通用事件]{@link CommonMethod}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -76,7 +76,7 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    *
    * @param { number | string | Resource } value - SymbolSpan组件大小。
    *     <br>取值范围：[0, +∞)
-   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>单位：[fp]{@link Length}
    * @returns { SymbolSpanAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

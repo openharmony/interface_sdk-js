@@ -39,13 +39,14 @@ export const ATOMICSERVICE_BUNDLE_TYPE: string = 'atomicService';
 export const ATOMICSERVICE_TAG_CHECK_NAME: string = 'atomicservice';
 export const ATOMICSERVICE_TAG_CHECK_ERROR: string = "'{0}' can't support atomicservice application.";
 export const SINCE_TAG_NAME: string = 'since';
-export const SINCE_TAG_CHECK_ERROR: string =
-  "The '{0}' API is supported since SDK version $SINCE1. However, the current compatible SDK version is $SINCE2.";
+export const SINCE_TAG_CHECK_ERROR: string = `The '{0}' API is supported since SDK version $SINCE1. However, the current compatible SDK version is $SINCE2.
+ It is recommended to use apiAvailable to safeguard API compatibility.`;
 export const ATOMICSERVICE_TAG_CHECK_VERSION: number = 11;
 export const FIND_MODULE_WARNING: string = "Cannot find name '{0}'.";
 
 export const AVAILABLE_TAG_NAME: string = 'available';
-export const AVAILABLE_DECORATOR_WARNING: string = `The '{0}' API is available since SDK version $SINCE1. However, the current compatible SDK version is $SINCE2.`;
+export const AVAILABLE_DECORATOR_WARNING: string = `The '{0}' API is available since SDK version $SINCE1. However, the current compatible SDK version is $SINCE2.
+ It is recommended to use apiAvailable to safeguard API compatibility.`;
 export const AVAILABLE_FILE_NAME: string = '@ohos.annotation.d.ets';
 export const AVAILABLE_VERSION_FORMAT_ERROR_PREFIX: string =
   'The runtime OS for the current project is $RUNTIMEOS. The OS version number $VERSION is invalid.';
@@ -67,7 +68,7 @@ export const APIAVAILABLE_STRING_DISTRIBUTIONOS_FORMAT_ERROR: string = 'Only dig
 export const APIAVAILABLE_CHECK_NUMBER_STRING_ERROR = 'numberOrStringFormat';
 export const APIAVAILABLE_NULLORUNDEFINED_FORMAT_ERROR: string = 'Null and undefined are not allowed for parameters.';
 export const API_INTERFACE_WHITE_LIST: Map<string, string[]> = new Map([
-  ['@ohos.deviceInfo.d.ts', ['apiAvailable']]
+  ['@ohos.deviceInfo.d.ets', ['apiAvailable']]
 ]);
 export const MSF_INTEGER_VERSION: number = 26;
 export const MSF_SANDF_VERSION: number = 99;

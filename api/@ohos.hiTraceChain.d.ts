@@ -284,7 +284,7 @@ declare namespace hiTraceChain {
    * @param { string } name - Traced service name.
    *     It is recommended that the length of this parameter be less than or equal to 63 bytes. The excess part will
    *     be truncated.
-   * @param { int } flags - Trace flag combination. For details, see [HiTraceFlag]{@link hiTraceChain.HiTraceFlag}. The
+   * @param { int } [flags] - Trace flag combination. For details, see [HiTraceFlag]{@link hiTraceChain.HiTraceFlag}. The
    *     default value is **0**.
    * @returns { HiTraceId } **HiTraceId** instance.
    * @syscap SystemCapability.HiviewDFX.HiTrace
@@ -373,7 +373,7 @@ declare namespace hiTraceChain {
    * @param { HiTraceCommunicationMode } mode - Communication mode for the trace point.
    * @param { HiTraceTracepointType } type - Trace point type.
    * @param { HiTraceId } id - **HiTraceId** instance for trace point triggering.
-   * @param { string } msg - Trace description information passed by the HiTraceMeter logging. The default value is "".
+   * @param { string } [msg] - Trace description information passed by the HiTraceMeter logging. The default value is "".
    * @syscap SystemCapability.HiviewDFX.HiTrace
    * @since 8 dynamic
    * @since 23 static

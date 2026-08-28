@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Standard NFC Tag Session
  * @kit ConnectivityKit
  */
 
@@ -22,31 +22,31 @@ import tag from '../@ohos.nfc.tag';
 import { AsyncCallback } from '../@ohos.base';
 
 /**
- * Controls tag read and write.
- * <p>Classes for different types of tags inherit from this abstract class to control connections to
- * tags, read data from tags, and write data to tags.
+ * The **tagSession** module provides common APIs for establishing connections and transferring data.
  *
- * @typedef TagSession
- * @syscap SystemCapability.Communication.NFC.Tag
- * @since 7
- */
-/**
- * Controls tag read and write.
- * <p>Classes for different types of tags inherit from this abstract class to control connections to
- * tags, read data from tags, and write data to tags.
+ * > **NOTE**
+ * >
+ * > If an error is reported while importing the tag module editor, the capabilities of a specific device model may
+ * > exceed the capability set defined for the default device. To use these capabilities, configure a custom SysCap by
+ * > following instructions in
+ * > [SystemCapability](https://developer.huawei.com/consumer/en/doc/harmonyos-references/syscap).
  *
- * @typedef TagSession
  * @syscap SystemCapability.Communication.NFC.Tag
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 7 dynamic
  * @since 23 static
  */
 export interface TagSession {
   /**
-   * Obtains the tag information.
+   * Obtains the **tagInfo** object provided by the NFC service when the tag is dispatched.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 7 and deprecated since API version 9. Use
+   * > [tag.getTagInfo]{@link @ohos.nfc.tag:tag.getTagInfo} instead.
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { tag.TagInfo } Returns the tag information, which is a {@link TagInfo} object.
+   * @returns { tag.TagInfo } **Taginfo** object obtained.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -55,11 +55,15 @@ export interface TagSession {
   getTagInfo(): tag.TagInfo;
 
   /**
-   * Connects to a tag.
-   * <p>This method must be called before data is read from or written to the tag.
+   * Connects to this tag. Call this API to set up a connection before reading data from or writing data to a tag.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 7 and deprecated since API version 9. Use
+   * > [tagSession.connect]{@link TagSession.connect} instead.
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { boolean } Returns {@code true} if the connection is set up; returns {@code false} otherwise.
+   * @returns { boolean } Returns **true** if the operation is successful; returns **false** otherwise.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -68,31 +72,26 @@ export interface TagSession {
   connectTag(): boolean;
 
   /**
-   * Connects to a tag. Must be called before data is read from or written to the tag.
-   *
-   * @permission ohos.permission.NFC_TAG
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 9
-   */
-  /**
-   * Connects to a tag. Must be called before data is read from or written to the tag.
+   * Connects to this tag. Call this API to set up a connection before reading data from or writing data to a tag.
    *
    * @permission ohos.permission.NFC_TAG
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   connect(): void;
 
   /**
-   * Resets a connection with a tag and restores the default timeout duration for writing data to the tag.
+   * Resets the connection to this tag.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 7 and deprecated since API version 9. Use
+   * > [tagSession.resetConnection]{@link TagSession.resetConnection} instead.
    *
    * @permission ohos.permission.NFC_TAG
    * @syscap SystemCapability.Communication.NFC.Tag
@@ -103,34 +102,28 @@ export interface TagSession {
   reset(): void;
 
   /**
-   * Resets a connection with a tag and restores the default timeout duration for writing data to the tag.
-   *
-   * @permission ohos.permission.NFC_TAG
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 9
-   */
-  /**
-   * Resets a connection with a tag and restores the default timeout duration for writing data to the tag.
+   * Resets the connection to this tag.
    *
    * @permission ohos.permission.NFC_TAG
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   resetConnection(): void;
 
   /**
-   * Checks whether a connection has been set up with a tag.
+   * Checks whether the tag is connected.
    *
-   * @returns { boolean } Returns {@code true} if a connection has been set up with the tag;
-   * returns {@code false} otherwise.
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 7 and deprecated since API version 9. Use
+   * > [tagSession.isConnected]{@link TagSession.isConnected} instead.
+   *
+   * @returns { boolean } Returns **true** if the tag is connected; returns **false** otherwise.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -139,32 +132,29 @@ export interface TagSession {
   isTagConnected(): boolean;
 
   /**
-   * Checks whether a connection has been set up with a tag.
+   * Checks whether the tag is connected. If you receive a message indicating that the tag has not been connected, call
+   * [tagSession.connect]{@link TagSession.connect} to connect the tag.
    *
-   * @returns { boolean } Returns true if tag connected, otherwise false.
+   * @returns { boolean } Returns **true** if the tag is connected; returns **false** otherwise.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 9
-   */
-  /**
-   * Checks whether a connection has been set up with a tag.
-   *
-   * @returns { boolean } Returns true if tag connected, otherwise false.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @syscap SystemCapability.Communication.NFC.Tag
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   isConnected(): boolean;
 
   /**
-   * Sets the timeout duration (ms) for sending data to a tag.
-   * <p>If data is not sent to the tag within the duration, data sending fails.
+   * Sets the maximum time allowed for sending data to this tag, in ms.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 7 and deprecated since API version 9. Use
+   * > [tagSession.setTimeout]{@link TagSession.setTimeout} instead.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } timeout Indicates the timeout duration to be set.
-   * @returns { boolean } Returns {@code true} if the setting is successful; returns {@code false} otherwise.
+   * @param { number } timeout - Timeout period to set, in milliseconds. The value cannot be a negative number.
+   * @returns { boolean } Returns **true** if the timeout period is set successfully; returns **false** otherwise.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -173,44 +163,34 @@ export interface TagSession {
   setSendDataTimeout(timeout: number): boolean;
 
   /**
-   * Sets the timeout duration (ms) for sending data to a tag.
+   * Sets the maximum time allowed for sending data to this tag, in ms.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number } timeout Indicates the timeout duration to be set.
+   * @param { int } timeout - Timeout period to set, in milliseconds. The value cannot be a negative number.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 9
-   */
-  /**
-   * Sets the timeout duration (ms) for sending data to a tag.
-   *
-   * @permission ohos.permission.NFC_TAG
-   * @param { int } timeout Indicates the timeout duration to be set.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   setTimeout(timeout: int): void;
 
   /**
-   * Queries the timeout duration (ms) for sending data to a tag.
+   * Obtains the timeout period for sending data to this tag, in milliseconds.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 7 and deprecated since API version 9. Use
+   * > [tagSession.getTimeout]{@link TagSession.getTimeout} instead.
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { number } Returns the timeout duration.
+   * @returns { number } Timeout period obtained, in milliseconds. The value cannot be a negative number.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -219,38 +199,33 @@ export interface TagSession {
   getSendDataTimeout(): number;
 
   /**
-   * Obtains the timeout duration (ms) for sending data to a tag.
+   * Obtains the timeout period for sending data to this tag, in milliseconds.
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { number } Returns the timeout duration.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 9
-   */
-  /**
-   * Obtains the timeout duration (ms) for sending data to a tag.
-   *
-   * @permission ohos.permission.NFC_TAG
-   * @returns { int } Returns the timeout duration.
+   * @returns { int } Timeout period obtained, in milliseconds. The value cannot be a negative number.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   getTimeout(): int;
 
   /**
-   * Writes data to a tag.
+   * Sends data to the tag. This API uses a promise to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 7 and deprecated since API version 9. Use
+   * > [tagSession.transmit]{@link TagSession.transmit(data: int[])} instead.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number[] } data Indicates the data to be written to the tag.
-   * @returns { Promise<number[]> } Returns bytes received in response. Or bytes with a length of 0 if the
-   * data fails to be written to the tag.
+   * @param { number[] } data - Data to send. The data consists of hexadecimal numbers ranging from **0x00** to
+   *     **0xFF**.
+   * @returns { Promise<number[]> } Promise used to return the response from the tag. The response consists of
+   *     hexadecimal numbers ranging from **0x00** to **0xFF**.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -259,12 +234,18 @@ export interface TagSession {
   sendData(data: number[]): Promise<number[]>;
 
   /**
-   * Writes data to a tag.
+   * Sends data to the tag. This API uses an asynchronous callback to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > This parameter is supported since API version 7 and deprecated since API version 9. Use
+   * > [tagSession.transmit]{@link TagSession.transmit(data: int[], callback: AsyncCallback<int[]>)} instead.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number[] } data Indicates the data to be written to the tag.
-   * @param { AsyncCallback<number[]> } callback The callback.
-   * data fails to be written to the tag.
+   * @param { number[] } data - Data to send. The data consists of hexadecimal numbers ranging from **0x00** to
+   *     **0xFF**.
+   * @param { AsyncCallback<number[]> } callback - Callback used to return the response from the tag. The response
+   *     consists of hexadecimal numbers ranging from **0x00** to **0xFF**.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -273,86 +254,59 @@ export interface TagSession {
   sendData(data: number[], callback: AsyncCallback<number[]>): void;
 
   /**
-   * Writes data to a tag.
+   * Sends data to the tag. This API uses a promise to return the result.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number[] } data Indicates the data to be written to the tag.
-   * @returns { Promise<number[]> } Returns bytes received in response. Or bytes with a length of 0 if the
-   * data fails to be written to the tag.
+   * @param { int[] } data - Data to send. The data consists of hexadecimal numbers ranging from **0x00** to **0xFF**.
+   * @returns { Promise<int[]> } Promise used to return the response from the tag. The response consists of hexadecimal
+   *     numbers ranging from **0x00** to **0xFF**.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 9
-   */
-  /**
-   * Writes data to a tag.
-   *
-   * @permission ohos.permission.NFC_TAG
-   * @param { int[] } data Indicates the data to be written to the tag.
-   * @returns { Promise<int[]> } Returns bytes received in response. Or bytes with a length of 0 if the
-   * data fails to be written to the tag.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
-   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed. [since 12]
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   transmit(data: int[]): Promise<int[]>;
 
   /**
-   * Writes data to a tag.
+   * Sends data to the tag. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number[] } data Indicates the data to be written to the tag.
-   * @param { AsyncCallback<number[]> } callback The callback.
+   * @param { int[] } data - Data to send. The data consists of hexadecimal numbers ranging from **0x00** to **0xFF**.
+   * @param { AsyncCallback<int[]> } callback - Callback used to return the response from the tag. The response consists
+   *     of hexadecimal numbers ranging from **0x00** to **0xFF**.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 9
-   */
-  /**
-   * Writes data to a tag.
-   *
-   * @permission ohos.permission.NFC_TAG
-   * @param { int[] } data Indicates the data to be written to the tag.
-   * @param { AsyncCallback<int[]> } callback The callback.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
-   * @throws { BusinessError } 3100204 - The tag I/O operation failed.
+   * @throws { BusinessError } 3100204 - The tag I/O operation failed. [since 12]
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   transmit(data: int[], callback: AsyncCallback<int[]>): void;
 
   /**
-   * Queries the maximum length of data that can be sent to a tag.
+   * Obtains the maximum length of the data that can be sent to this tag.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 7 and deprecated since API version 9. Use
+   * > [tagSession.getMaxTransmitSize]{@link TagSession.getMaxTransmitSize} instead.
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { number } Returns the maximum length of the data to be sent to the tag.
+   * @returns { number } Maximum data length obtained. The value cannot be a negative number.
    * @syscap SystemCapability.Communication.NFC.Tag
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -361,27 +315,16 @@ export interface TagSession {
   getMaxSendLength(): number;
 
   /**
-   * Obtains the maximum length of data that can be sent to a tag.
+   * Obtains the maximum length of the data that can be sent to this tag.
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { number } Returns the maximum length of the data to be sent to the tag.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 3100201 - Tag running state is abnormal in service.
-   * @syscap SystemCapability.Communication.NFC.Tag
-   * @since 9
-   */
-  /**
-   * Obtains the maximum length of data that can be sent to a tag.
-   *
-   * @permission ohos.permission.NFC_TAG
-   * @returns { int } Returns the maximum length of the data to be sent to the tag.
+   * @returns { int } Maximum data length obtained. The value cannot be a negative number.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3100201 - The tag running state is abnormal in the service.
    * @syscap SystemCapability.Communication.NFC.Tag
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   getMaxTransmitSize(): int;

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Defines 3D post process related interfaces
+ * @file
  * @kit ArkGraphics3D
  */
 
@@ -37,7 +37,7 @@ export enum ToneMappingType {
   ACES = 0,
 
   /**
-   * The tone mapping type is ACES_2020.
+   * ACES_2020.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -46,7 +46,7 @@ export enum ToneMappingType {
   ACES_2020 = 1,
 
   /**
-   * The tone mapping type is FILMIC.
+   * Filmic.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -86,9 +86,8 @@ export interface ToneMappingSettings {
 }
 
 /**
- * Describes the settings for bloom effects.
- * It is unavailable when RenderingPipelineType is set to FORWARD_LIGHTWEIGHT.
- * 
+ * Describes the settings for bloom effects. It is unavailable when RenderingPipelineType is set to FORWARD_LIGHTWEIGHT.
+* 
  * @typedef BloomSettings
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 18 dynamic
@@ -147,8 +146,7 @@ export interface BloomSettings {
 export interface VignetteSettings {
   /**
    * Application scope. The value range is [0, 1].
-   * When the value is 0, the application scope is minimized.
-   * When the value is 1, the application scope is global.
+   * When the value is 0, the application scope is minimized. When the value is 1, the application scope is global.
    * The default value is sqrt(0.5).
    *
    * @type { ?double }
@@ -196,8 +194,7 @@ export interface ColorFringeSettings {
 
 /**
  * Post-processing settings, which are used to configure the image processing effect after camera rendering,
- * including tone mapping, bloom, vignetting, and chromatic aberration.
- * This is used as the postProcess attribute of Camera.
+ * including tone mapping, bloom, vignetting, and chromatic aberration. This is used as the postProcess attribute of Camera.
  *
  * @typedef PostProcessSettings 
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -206,7 +203,7 @@ export interface ColorFringeSettings {
  */
 export interface PostProcessSettings {
   /**
-   * Tone mapping settings of the post processing settings. The default value is undefined.
+   * Tone mapping settings. The default value is undefined.
    *
    * @type { ?ToneMappingSettings }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -216,7 +213,7 @@ export interface PostProcessSettings {
   toneMapping?: ToneMappingSettings;
 
   /**
-   * Bloom settings of the post processing settings. The default value is undefined.
+   * Bloom settings. The default value is undefined.
    * 
    * @type { ?BloomSettings }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -226,7 +223,7 @@ export interface PostProcessSettings {
   bloom?: BloomSettings;
 
   /**
-   * Vignette settings of the post processing settings.
+   * Vignette settings. The default value is undefined.
    *
    * @type { ?VignetteSettings }
    * @default undefined
@@ -237,7 +234,7 @@ export interface PostProcessSettings {
   vignette?: VignetteSettings;
 
   /**
-   * Color fringe settings of the post processing settings.
+   * Color fringing settings. The default value is undefined.
    *
    * @type { ?ColorFringeSettings }
    * @default undefined

@@ -358,8 +358,8 @@ declare class TabsController {
    * > **说明：**
    *
    * > 当使用
-   * > [bindTabsToScrollable](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#bindtabstoscrollable13)或
-   * > [bindTabsToNestedScrollable](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#bindtabstonestedscrollable13)
+   * > [bindTabsToScrollable]{@link UIContext#bindTabsToScrollable}或
+   * > [bindTabsToNestedScrollable]{@link UIContext#bindTabsToNestedScrollable}
    * > 等接口绑定了Tabs组件和可滚动容器组件后，在滑动可滚动容器组件时，会触发所有与其绑定的Tabs组件的TabBar的显示和隐藏动效，调用setTabBarTranslate接口设置的TabBar平移距离会失效。因此不建议同时使
    * > 用bindTabsToScrollable、bindTabsToNestedScrollable和setTabBarTranslate接口。
    *
@@ -378,8 +378,8 @@ declare class TabsController {
    * > **说明：**
    *
    * > 当使用
-   * > [bindTabsToScrollable](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#bindtabstoscrollable13)或
-   * > [bindTabsToNestedScrollable](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#bindtabstonestedscrollable13)
+   * > [bindTabsToScrollable]{@link UIContext#bindTabsToScrollable}或
+   * > [bindTabsToNestedScrollable]{@link UIContext#bindTabsToNestedScrollable}
    * > 等接口绑定了Tabs组件和可滚动容器组件后，在滑动可滚动容器组件时，会触发所有与其绑定的Tabs组件的TabBar的显示和隐藏动效，调用setTabBarOpacity接口设置的TabBar不透明度会失效。因此不建议同时使用
    * > bindTabsToScrollable、bindTabsToNestedScrollable和setTabBarOpacity接口。
    *
@@ -1738,7 +1738,7 @@ declare interface TabContentTransitionProxy {
 * > Tabs子组件设置了通用属性[visibility]{@link CommonMethod#visibility}的值为None，或者设置值为Hidden时，对应子组件不显示，但依然会在视窗内占位。
 * >
 * > 已经显示的Tabs子组件TabContent后续隐藏时不会被销毁，若需要页面懒加载和释放，可以参考
-* > [示例13](docroot://reference/apis-arkui/arkui-ts/ts-container-tabs.md#示例13页面懒加载和释放)。
+* > [示例13]{@link ./tabs}。
 * >
 * > Tabs设置[height]{@link CommonMethod#height(value: Length)}为auto时，可根据子组件高度自适应高度大小。设置
 * > [width]{@link CommonMethod#width(value: Length)}为auto时，可根据子组件宽度自适应宽度大小。

@@ -21,6 +21,7 @@
 import type { AsyncCallback } from './@ohos.base';
 import type { ChildProcessArgs } from './@ohos.app.ability.ChildProcessArgs';
 import type { ChildProcessOptions } from './@ohos.app.ability.ChildProcessOptions';
+import type { ChildProcessInformation as _ChildProcessInformation } from './application/ChildProcessInformation';
 
 /**
  * The childProcessManager module provides the child process management capability. Currently, it provides APIs to
@@ -66,6 +67,15 @@ declare namespace childProcessManager {
      */
     APP_SPAWN_FORK = 1
   }
+
+  /**
+   * Defines the child process information.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export type ChildProcessInformation = _ChildProcessInformation;
 
   /**
    * Starts an [ArkTS child process](docroot://application-models/ability-terminology.md#arkts-child-process). This API
@@ -232,6 +242,33 @@ declare namespace childProcessManager {
    * @since 26.0.0 dynamic&static
    */
   function isNativeChildProcessSupported(): boolean;
+
+  /**
+   * Obtains the information about the child processes of the current application. This API uses a promise to return
+   * the result.
+   * The returned child processes include those created through
+   * [startChildProcess]{@link @ohos.app.ability.childProcessManager:childProcessManager.startChildProcess} (in
+   * APP_SPAWN_FORK mode),
+   * [startArkChildProcess]{@link @ohos.app.ability.childProcessManager:childProcessManager.startArkChildProcess}, and
+   * [startNativeChildProcess]{@link @ohos.app.ability.childProcessManager:childProcessManager.startNativeChildProcess}.
+   * [OH_Ability_CreateNativeChildProcess]
+   * [OH_Ability_CreateNativeChildProcessWithConfigs]
+   * [OH_Ability_StartNativeChildProcess]
+   * [OH_Ability_StartNativeChildProcessWithConfigs]
+   *
+   * > **NOTE**
+   * >
+   * > The child process started in SELF_FORK mode is not included in the returned list.
+   * > If no child processes exist, an empty array is returned.
+   *
+   * @returns { Promise<Array<ChildProcessInformation>> } Promise used to return the information about the child
+   *     processes of the current application.
+   * @throws { BusinessError } 16000050 - Connect to system service failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function getChildProcessInfos(): Promise<Array<ChildProcessInformation>>;
 }
 
 export default childProcessManager;

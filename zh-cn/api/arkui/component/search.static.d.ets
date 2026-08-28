@@ -30,19 +30,19 @@ import { ComponentContentBase } from '../ComponentContent';
 
 /**
  * Search组件的控制器继承自
- * [TextContentControllerBase](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-text-style.md#textcontentcontrollerbase)，
+ * [TextContentControllerBase]{@link TextContentControllerBase}，
  * 涉及的接口有
- * [getTextContentRect](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-text-style.md#gettextcontentrect)
+ * [getTextContentRect]{@link getTextContentRect}
  * 、
- * [getTextContentLineCount](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-text-style.md#gettextcontentlinecount)
- * 、[getCaretOffset](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-text-style.md#getcaretoffset11)、
- * [addText](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-text-style.md#addtext15)、
- * [deleteText](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-text-style.md#deletetext15)、
- * [getSelection](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-text-style.md#getselection15)、
- * [clearPreviewText](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-text-style.md#clearpreviewtext17)、
- * [setStyledPlaceholder](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-text-style.md#setstyledplaceholder22)
- * 、[deleteBackward](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-text-style.md#deletebackward23)、
- * [scrollToVisible](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-text-style.md#scrolltovisible23)<!-
+ * [getTextContentLineCount]{@link getTextContentLineCount}
+ * 、[getCaretOffset]{@link getCaretOffset}、
+ * [addText]{@link addText}、
+ * [deleteText]{@link deleteText}、
+ * [getSelection]{@link getSelection}、
+ * [clearPreviewText]{@link clearPreviewText}、
+ * [setStyledPlaceholder]{@link setStyledPlaceholder}
+ * 、[deleteBackward]{@link deleteBackward}、
+ * [scrollToVisible]{@link scrollToVisible}<!-
  * -Del-->以及系统接口[getText](docroot://reference/apis-arkui/arkui-ts/ts-text-common-sys.md#gettext19)<!--DelEnd-->。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -227,7 +227,7 @@ export declare interface SearchOptions {
    *
    * **说明：**
    *
-   * icon的数据源支持[使用相对路径显示图片](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#示例25使用相对路径显示图片)和网络图片。
+   * icon的数据源支持[使用相对路径显示图片]{@link ./image}和网络图片。
    *
    * - 支持的图片格式包括png、jpg、bmp、svg、gif、pixelmap和heif。
    *
@@ -392,7 +392,7 @@ export interface CancelButtonSymbolOptions {
  */
 export type SearchSubmitCallback = (searchContent: string, event?: SubmitEvent) => void;
 /**
- * 除支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)外，还支持以下属性：
+ * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -467,13 +467,13 @@ export declare interface SearchAttribute extends CommonMethod {
    * 启用后可识别选区中的邮件、电话、网址、日期、地址等，并在文本选择菜单中展示对应的AI菜单项。默认启用AI菜单功能。
    *
    * AI菜单功能启用时，在组件中选中文本后，文本选择菜单能够展示对应的AI菜单项，包括
-   * [TextMenuItemId](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#textmenuitemid12)中的url（打开链接）、email（新建邮
+   * [TextMenuItemId]{@link TextMenuItemId}中的url（打开链接）、email（新建邮
    * 件）、phoneNumber（呼叫）、address（导航前往）、dateTime（新建日程）。
    *
    * AI菜单生效时，选中范围内需包括且仅包括一个完整的AI实体，才能展示对应的选项。该菜单项与
-   * [TextMenuItemId](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#textmenuitemid12)中的askAI菜单项不同时出现。
+   * [TextMenuItemId]{@link TextMenuItemId}中的askAI菜单项不同时出现。
    *
-   * 需要[CopyOptions](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#copyoptions9)为
+   * 需要[CopyOptions]{@link CopyOptions}为
    * CopyOptions.LocalDevice或CopyOptions.CROSS_DEVICE时，本功能生效。
    *
    * @param { boolean | undefined } enable - 开启选中文本实体识别。<br/>true：开启识别，false：关闭识别。默认值为：true。
@@ -489,7 +489,7 @@ export declare interface SearchAttribute extends CommonMethod {
    * 设置首行文本缩进。
    *
    * @param { Dimension | undefined } value - 首行文本缩进。<br/>默认值：0 <br/>单位：
-   *     [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位) <br/>取值范围：大于等于0。设置负数时，按默认值处理。<br/>设置
+   *     [vp]{@link Length} <br/>取值范围：大于等于0。设置负数时，按默认值处理。<br/>设置
    *     undefined时按默认值处理。
    * @returns { SearchAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -749,7 +749,7 @@ export declare interface SearchAttribute extends CommonMethod {
    * minFontSize小于或等于0时，自适应字号不生效，此时按照[textFont]{@link textFont}属性里面size的取值生效，未设置时按照其默认值生效。
    *
    * @param { double | string | Resource | undefined } value - 文本最小显示字号。<br/>单位：
-   *     [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)<br/>取值为undefined时，自适应字号不生效，此时按照
+   *     [fp]{@link Length}<br/>取值为undefined时，自适应字号不生效，此时按照
    *     [textFont]{@link textFont}属性里面size的取值生效，未设置时按照其默认值生效。<br/>取值范围：大于0。
    * @returns { SearchAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -767,7 +767,7 @@ export declare interface SearchAttribute extends CommonMethod {
    * maxFontSize小于等于0或者maxFontSize小于minFontSize时，自适应字号不生效，此时按照[textFont]{@link textFont}属性里面size的取值生效，未设置时按照其默认值生效。
    *
    * @param { double | string | Resource | undefined } value - 文本最大显示字号。<br/>单位：
-   *     [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)<br/>取值为undefined时，自适应字号不生效，此时按照
+   *     [fp]{@link Length}<br/>取值为undefined时，自适应字号不生效，此时按照
    *     [textFont]{@link textFont}属性里面size的取值生效，未设置时按照其默认值生效。<br/>取值范围：大于0。
    * @returns { SearchAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -810,17 +810,17 @@ export declare interface SearchAttribute extends CommonMethod {
    *
    * 如果设备支持拍摄输入，设置自定义键盘后，该输入框会不支持拍摄输入。
    *
-   * 当设置自定义键盘时，可以通过绑定[onKeyPreIme](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-key.md#onkeypreime12)事件
+   * 当设置自定义键盘时，可以通过绑定[onKeyPreIme]{@link CommonMethod#onKeyPreIme}事件
    * 规避物理键盘的输入。
    *
    * 从API version 23开始，自定义键盘可以通过
-   * [setCustomKeyboardContinueFeature](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#setcustomkeyboardcontinuefeature23)
+   * [setCustomKeyboardContinueFeature]{@link UIContext#setCustomKeyboardContinueFeature}
    * 开启接续，在切换至其他自定义键盘时，会直接切换，不会触发键盘关闭和拉起动画。
    *
    * > **说明：**
    * >
    * > 该接口不支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { CustomBuilder | ComponentContentBase | undefined } value - 自定义键盘，值为undefined时使用默认键盘。
@@ -853,7 +853,7 @@ export declare interface SearchAttribute extends CommonMethod {
    * 对每个字符生效，包括行尾字符。
    *
    * @param { double | string | Resource | undefined } value - 文本字符间距。<br/>默认值：0<br/>单位：
-   *     [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)<br/>取值为undefined时，按默认值处理。
+   *     [fp]{@link Length}<br/>取值为undefined时，按默认值处理。
    * @returns { SearchAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -953,8 +953,8 @@ export declare interface SearchAttribute extends CommonMethod {
    * [setKeyboardAppearanceConfig](docroot://reference/apis-arkui/js-apis-arkui-UIContext-sys.md#setkeyboardappearanceconfig20)
    * 设置键盘的样式。<!--DelEnd-->
    *
-   * 从API version 22开始，调用[IMEClient](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#imeclient20)的
-   * [setExtraConfig](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#setextraconfig22)方法可以设置输入法扩展信息。在绑定输入法成
+   * 从API version 22开始，调用[IMEClient]{@link IMEClient}的
+   * [setExtraConfig]{@link setExtraConfig}方法可以设置输入法扩展信息。在绑定输入法成
    * 功后，输入法会收到扩展信息，输入法可以依据此信息实现自定义功能。
    *
    * IMEClient仅在onWillAttachIME执行期间有效，不可进行异步调用。
@@ -962,7 +962,7 @@ export declare interface SearchAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 该接口不支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { Callback<IMEClient> | undefined } callback - 在搜索框将要绑定输入法前触发该回调。<br/>取值为undefined时，不使用回调函数。
@@ -979,7 +979,7 @@ export declare interface SearchAttribute extends CommonMethod {
    * [disableMenuItems](docroot://reference/apis-arkui/arkts-apis-uicontext-textmenucontroller.md#disablemenuitems20)或
    * [disableSystemServiceMenuItems](docroot://reference/apis-arkui/arkts-apis-uicontext-textmenucontroller.md#disablesystemservicemenuitems20)
    * 接口屏蔽文本选择菜单内的系统服务菜单项时，editMenuOptions接口内回调方法
-   * [onCreateMenu](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#oncreatemenu12)的入参列表中不包含被屏蔽的菜单选项。
+   * [onCreateMenu]{@link onCreateMenu}的入参列表中不包含被屏蔽的菜单选项。
    *
    * @param { EditMenuOptions | undefined } editMenu - 扩展菜单选项。<br/>取值为undefined时，显示系统文本选择菜单。
    * @returns { SearchAttribute }
@@ -1128,7 +1128,7 @@ export declare interface SearchAttribute extends CommonMethod {
    * 设置文本描边拐角样式。
    *
    * @param { StrokeJoinStyle | undefined } strokeJoinStyle - 文本描边拐角样式。<br/>值为undefined时，按照StrokeJoinStyle.MITER_JOIN处
-   *     理，请参考[StrokeJoinStyle](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#strokejoinstyle)，文本拐角处表现为锐角。
+   *     理，请参考[StrokeJoinStyle]{@link StrokeJoinStyle}，文本拐角处表现为锐角。
    * @returns { SearchAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

@@ -180,7 +180,7 @@ declare class ArrayList<T> {
    * 遍历ArrayList中的每个元素，对每个元素执行回调函数，用回调函数返回的值替换原元素。
    *
    * @param { function } callbackFn - 用于操作元素并返回替换值的回调函数。
-   * @param { Object } [thisArg] - callbackFn被调用时用作this值。当回调函数需要引用外部对象作为this上下文时传入此参数，不传入时默认值为当前实例对象。
+   * @param { Object } [thisArg] - callbackFn被调用时用作this值。当回调函数需要引用外部对象作为this上下文时传入此参数，不传入时默认值为undefined。
    * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]

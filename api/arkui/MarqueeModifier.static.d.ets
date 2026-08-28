@@ -20,12 +20,7 @@
  * @kit ArkUI
  */
 
-import { AttributeModifier } from '@ohos.arkui.component';
-
-import { MarqueeAttribute } from '@ohos.arkui.component';
-
 import { AttributeModifier } from './component/common';
-
 import { MarqueeAttribute } from './component/marquee';
 
 /**

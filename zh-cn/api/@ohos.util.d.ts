@@ -319,7 +319,7 @@ declare namespace util {
      * 用于创建 **TextDecoder** 对象的构造函数。
      *
      * @param { string } encoding - 编码格式。默认格式为 **'utf-8'**。
-     * @param { object } options - 解码相关的选项，包含 **fatal** 和 **ignoreBOM**。
+     * @param { object } options - 解码相关的选项，包含 **fatal** 和 **ignoreBOM**。此参数不填时，对应各属性取其默认值 **false**。
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
      * @deprecated since 9

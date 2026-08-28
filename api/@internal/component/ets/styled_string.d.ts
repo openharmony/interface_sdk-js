@@ -2281,6 +2281,17 @@ declare class ImageAttachment {
    * @since 22 dynamic
    */
   readonly supportSvg2?: boolean;
+
+  /**
+   * Resizable image options of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  readonly resizable?: ResizableOptions;
 }
 
 /**
@@ -2395,6 +2406,17 @@ declare interface ResourceImageAttachmentOptions {
    * @since 22 dynamic
    */
   supportSvg2?: boolean;
+
+  /**
+   * Resizable image options of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  resizable?: ResizableOptions;
 }
 
 /**
@@ -2481,6 +2503,17 @@ declare interface ImageAttachmentInterface {
    * @since 15 dynamic
    */
   colorFilter?: ColorFilterType;
+
+  /**
+   * Resizable image options of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  resizable?: ResizableOptions;
 }
 
 /**

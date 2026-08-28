@@ -47,7 +47,7 @@ export declare interface LayoutAlgorithm {}
  * > **说明：**
  * >
  * > CustomLayoutAlgorithm类对象可以作为
- * > [DynamicLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-dynamiclayout.md)组件的入参指定布局算法。
+ * > [DynamicLayout]{@link CommonMethod#DynamicLayout}组件的入参指定布局算法。
  *
  * @implements LayoutAlgorithm
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -68,7 +68,7 @@ export declare class CustomLayoutAlgorithm implements LayoutAlgorithm {
      * > 调用[FrameNode](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#framenode-1)的
      * > [measure()](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#measure12)方法测量子组件大小，
      * > 参考DynamicLayout组件
-     * > [示例1（自定义布局算法实现瀑布流布局）](docroot://reference/apis-arkui/arkui-ts/ts-container-dynamiclayout.md#示例1自定义布局算法实现瀑布流布局)。
+     * > [示例1（自定义布局算法实现瀑布流布局）]{@link @ohos.arkui.components.ArkDynamicLayout}。
      *
      * @param { FrameNode } self - 动态布局组件在组件树上的实体节点。
      * @param { LayoutConstraint } constraint - 动态布局组件进行测量时使用的布局约束。
@@ -89,7 +89,7 @@ export declare class CustomLayoutAlgorithm implements LayoutAlgorithm {
      * > 调用[FrameNode](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#framenode-1)的
      * > [layout()](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#layout12)方法设置子组件位置，
      * > 参考DynamicLayout组件
-     * > [示例1（自定义布局算法实现瀑布流布局）](docroot://reference/apis-arkui/arkui-ts/ts-container-dynamiclayout.md#示例1自定义布局算法实现瀑布流布局)。
+     * > [示例1（自定义布局算法实现瀑布流布局）]{@link @ohos.arkui.components.ArkDynamicLayout}。
      *
      * @param { FrameNode } self - 动态布局组件在组件树上的实体节点。
      * @param { NodePosition } position - 动态布局组件进行布局时使用的位置信息。
@@ -157,7 +157,7 @@ interface ColumnLayoutAlgorithmOptions {
  * > **说明：**
  * >
  * > ColumnLayoutAlgorithm类对象可以作为
- * > [DynamicLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-dynamiclayout.md)组件的入参指定布局算法。
+ * > [DynamicLayout]{@link CommonMethod#DynamicLayout}组件的入参指定布局算法。
  *
  * @implements LayoutAlgorithm
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -256,8 +256,8 @@ interface RowLayoutAlgorithmOptions {
      * 子组件在水平方向上的排列是否反转。
      * 取值为true表示子组件在水平方向上反转排列，
      * 由于水平方向受通用属性
-     * [direction](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-location.md#direction)影响，
-     * 如果[direction](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-location.md#direction)属性生效，
+     * [direction]{@link CommonMethod#direction}影响，
+     * 如果[direction]{@link CommonMethod#direction}属性生效，
      * 再做一次反转。
      * 取值为false表示子组件在水平方向上正序排列。
      * 非法值：按默认值处理。
@@ -276,7 +276,7 @@ interface RowLayoutAlgorithmOptions {
  * > **说明：**
  * >
  * > RowLayoutAlgorithm类对象可以作为
- * > [DynamicLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-dynamiclayout.md)组件的入参指定布局算法。
+ * > [DynamicLayout]{@link CommonMethod#DynamicLayout}组件的入参指定布局算法。
  *
  * @implements LayoutAlgorithm
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -324,8 +324,8 @@ export declare class RowLayoutAlgorithm implements LayoutAlgorithm {
      * 子组件在水平方向上的排列是否反转。
      * 取值为true表示子组件在水平方向上反转排列，
      * 由于水平方向受通用属性
-     * [direction](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-location.md#direction)影响，
-     * 如果[direction](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-location.md#direction)属性生效，
+     * [direction]{@link CommonMethod#direction}影响，
+     * 如果[direction]{@link CommonMethod#direction}属性生效，
      * 再做一次反转。
      * 取值为false表示子组件在水平方向上正序排列。
      * 非法值：按默认值处理。
@@ -363,7 +363,7 @@ interface StackLayoutAlgorithmOptions {
  * > **说明：**
  * >
  * > StackLayoutAlgorithm类对象可以作为
- * > [DynamicLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-dynamiclayout.md)组件的入参指定布局算法。
+ * > [DynamicLayout]{@link CommonMethod#DynamicLayout}组件的入参指定布局算法。
  *
  * @implements LayoutAlgorithm
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -436,7 +436,7 @@ interface GridLayoutAlgorithmOptions {
  * > **说明：**
  * >
  * > GridLayoutAlgorithm类对象可以作为
- * > [DynamicLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-dynamiclayout.md)组件的入参指定布局算法。
+ * > [DynamicLayout]{@link CommonMethod#DynamicLayout}组件的入参指定布局算法。
  *
  * @implements LayoutAlgorithm
  * @syscap SystemCapability.ArkUI.ArkUI.Full

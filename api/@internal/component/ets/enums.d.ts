@@ -6539,7 +6539,7 @@ declare enum EdgeLightPosition {
    */
   TOP = 4,
   /**
-   * The light effect starts from the bottom edge.
+   * Edge light effect is on the bottom edge.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

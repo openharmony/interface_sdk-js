@@ -147,7 +147,7 @@ interface CheckboxGroupInterface {
    * 创建多选框群组，用于控制群组内Checkbox的全选或取消全选状态，具有相同group值的Checkbox和CheckboxGroup属于同一群组。
    * 
    * 在结合带缓存功能的组件使用时（如[List]{@link list}），未被创建的Checkbox选中状态需要应用手动控制。详细示例请参考
-   * [示例4](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-checkboxgroup.md#示例4设置全选)。
+   * [示例4]{@link CheckboxGroup}。
    *
    * @param { CheckboxGroupOptions } options - 配置多选框群组参数。 <br/> 未设置时，按照CheckboxGroupOptions中各参数的默认值配置。
    * @returns { CheckboxGroupAttribute }

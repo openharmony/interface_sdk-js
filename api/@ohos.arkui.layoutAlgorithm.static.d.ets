@@ -20,6 +20,7 @@
  */
 
 export {
-  RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLayoutAlgorithm, CustomLayoutAlgorithm
+  RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLayoutAlgorithm, CustomLayoutAlgorithm,
+  ColumnLayoutAlgorithmOptions, RowLayoutAlgorithmOptions, StackLayoutAlgorithmOptions, GridLayoutAlgorithmOptions
 } from './arkui/LayoutAlgorithm';
 export type { LayoutAlgorithm } from './arkui/LayoutAlgorithm';

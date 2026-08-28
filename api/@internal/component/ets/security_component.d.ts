@@ -639,7 +639,6 @@ declare class SecurityComponentMethod<T> {
    * If the security component text is not fully displayed, clicking does not trigger authorization. Whether the text is
    * fully displayed depends on attributes such as **heightAdaptivePolicy**, **minFontSize**, **maxFontSize**,
    * **maxLines**, **width**, and **height**.
-   * For details, see [Example](docroot://reference/apis-arkui/arkui-ts/ts-securitycomponent-attributes.md#example-3)
    *
    * @param { TextHeightAdaptivePolicy } policy - Policy for text height adaptation.
    *     <br>Default value: TextHeightAdaptivePolicy.MAX_LINES_FIRST.

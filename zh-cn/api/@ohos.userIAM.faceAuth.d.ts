@@ -33,7 +33,7 @@
  */
 declare namespace faceAuth {
   /**
-   * 人脸认证管理器对象。用于提供人脸录入过程中的管理功能，目前支持设置人脸预览界面的Surface ID。
+   * 人脸认证管理器对象。用于提供人脸录入过程中的管理功能，目前支持设置人脸预览界面的SurfaceId。
    *
    * @syscap SystemCapability.UserIAM.UserAuth.FaceAuth
    * @systemapi Hide this for inner system use.
@@ -52,9 +52,9 @@ declare namespace faceAuth {
     constructor();
 
     /**
-     * 用于在录入人脸时设置人脸预览界面的Surface ID。该接口需要配合
+     * 用于在录入人脸时设置人脸预览界面的SurfaceId。该接口需要配合
      * [addCredential]{@link @ohos.account.osAccount:osAccount.UserIdentityManager#addCredential}使用，通过
-     * [getXComponentSurfaceId]{@link XComponentController#getXComponentSurfaceId}组件的Surface来显示人脸预览画面。
+     * [getXComponentSurfaceId]{@link XComponentController#getXComponentSurfaceId}方法获取XComponent组件的SurfaceId来显示人脸预览画面。
      *
      * @permission ohos.permission.MANAGE_USER_IDM
      * @param { string } surfaceId - [XComponent]{@link ./@internal/component/ets/xcomponent}持有Surface的ID。用于在人脸录入过程中显示人脸

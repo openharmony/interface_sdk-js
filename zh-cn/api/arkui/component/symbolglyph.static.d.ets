@@ -417,7 +417,7 @@ export declare class ReplaceSymbolEffect extends SymbolEffect {
 export declare class PulseSymbolEffect extends SymbolEffect {}
 
 /**
- * 支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)，不支持文本通用属性，仅支持以下特有属性：
+ * 支持[通用属性]{@link CommonMethod}，不支持文本通用属性，仅支持以下特有属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -433,7 +433,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 12开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { double | string | Resource | undefined } value
@@ -449,7 +449,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 12开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { Array<ResourceColor> | undefined } value - SymbolGlyph组件字体颜色。<br/> 当value为undefined时，使用图标的默认颜色，默认颜色跟随主题。
@@ -476,19 +476,19 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
   /**
    * 设置SymbolGlyph组件的渐变色效果。
    *
-   * 可以显示为径向渐变[RadialGradientStyle](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#radialgradientstyle20)或线
-   * 性渐变[LinearGradientStyle](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#lineargradientstyle20)或纯色
-   * [ColorShaderStyle](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#colorshaderstyle20)的效果，shaderStyle的优
-   * 先级高于[fontColor](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-symbolSpan.md#fontcolor)和AI识别，纯色建议使用
-   * [fontColor](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-symbolSpan.md#fontcolor)。
+   * 可以显示为径向渐变[RadialGradientStyle]{@link RadialGradientStyle}或线
+   * 性渐变[LinearGradientStyle]{@link LinearGradientStyle}或纯色
+   * [ColorShaderStyle]{@link ColorShaderStyle}的效果，shaderStyle的优
+   * 先级高于[fontColor]{@link fontColor}和AI识别，纯色建议使用
+   * [fontColor]{@link fontColor}。
    *
    * @param { Array<ShaderStyle | undefined> | ShaderStyle | undefined } shader - 径向渐变或线性渐变或纯色。<br/>传入ShaderStyle时，覆盖所
    *     有层；传入数组时，数据项是ShaderStyle，则应用该层；数组项是undefined，则该层使用SymbolGlyph默认颜色，未设置的层也应用默认颜色。根据传入的参数区分处理径向渐变
-   *     [RadialGradientStyle](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#radialgradientstyle20)或线性渐变
-   *     [LinearGradientStyle](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#lineargradientstyle20)或纯色
-   *     [ColorShaderStyle](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#colorshaderstyle20)，最终设置到
+   *     [RadialGradientStyle]{@link RadialGradientStyle}或线性渐变
+   *     [LinearGradientStyle]{@link LinearGradientStyle}或纯色
+   *     [ColorShaderStyle]{@link ColorShaderStyle}，最终设置到
    *     SymbolGlyph组件上显示为渐变色效果。<br/>取值为undefined时，按无渐变色效果处理。
-   *     <br>**说明：** <br/>单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>**说明：** <br/>单位：[vp]{@link Length}
    *     <br>中心点请按百分比使用。如果使用的是非百分比（例如10PX），效果等同于设置1000%。
    *     <br>半径建议使用百分比。
    *     <br>百分比是基于图标大小的百分比，建议取值范围[0, 1)。
@@ -507,7 +507,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 12开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { int | FontWeight | string | undefined } value - SymbolGlyph组件字体粗细。<br/>默认值：FontWeight.Normal<br/>取值为
@@ -541,7 +541,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 12开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { SymbolEffectStrategy | undefined } value
@@ -557,7 +557,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 12开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { SymbolRenderingStrategy | undefined } value
@@ -631,7 +631,7 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
    * 设置SymbolGlyph组件的阴影效果。
    *
    * @param { ShadowOptions | undefined } shadow - SymbolGlyph组件的阴影效果。
-   *     <br>单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位) <br/>值为undefined时，与传以下值的效果一致：{
+   *     <br>单位：[vp]{@link Length} <br/>值为undefined时，与传以下值的效果一致：{
    *     <br>radius：0,
    *     <br>color：Color.Black,
    *     <br>offsetX：0,

@@ -197,7 +197,7 @@ export declare enum TimeFormat {
  * > **说明：**
  * >
  * > - Date的使用请参考
- * > [TimePickerOptions](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-timepicker.md#timepickeroptions)。
+ * > [TimePickerOptions]{@link TimePickerOptions}。
  * >
  * > - DatePickerComponent的字体字号在14vp至16vp范围内自适应变化，当组件宽度过窄时，可能出现文本显示截断的情况。
  * >

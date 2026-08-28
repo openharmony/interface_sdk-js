@@ -80,7 +80,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     VENDOR_BEGIN = 10000
-    }
+  }
 
   /**
    * Enumerates device ID types. They are used to define the device service identifier type. System-defined types and
@@ -113,7 +113,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     VENDOR_BEGIN = 10000
-    }
+  }
 
   /**
    * Selects the purpose of the companion device.
@@ -159,7 +159,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     VENDOR_BEGIN = 10000
-    }
+  }
 
   /**
    * Defines the device service ID. It uniquely identifies a device and its user, including the device ID type, device
@@ -204,7 +204,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     deviceUserId: int;
-    }
+  }
 
   /**
    * Defines the device status information. It describes the current status of the companion device, including the
@@ -280,7 +280,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     supportedBusinessIds: int[];
-    }
+  }
 
   /**
    * Describes the complete status information about a registered companion device authentication template, including
@@ -372,7 +372,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     deviceStatus: DeviceStatus;
-    }
+  }
 
   /**
    * Defines the callback triggered for receiving notifications of template status changes. When the template status
@@ -448,7 +448,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     templateId?: Uint8Array;
-    }
+  }
 
   /**
    * Status monitor object. It is used to listen for or obtain information such as the template status, continuous
@@ -567,7 +567,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     offContinuousAuthChange(callback?: ContinuousAuthStatusCallback): void;
-    }
+  }
 
   /**
    * Obtains the status monitor. This API is used to obtain the status monitor object of a specified user. The object
@@ -628,7 +628,7 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     selectionContext?: Uint8Array;
-    }
+  }
 
   /**
    * Defines the callback triggered for the companion device selection. When the system requires the user to select a
@@ -710,6 +710,85 @@ declare namespace companionDeviceAuth {
    * @since 23 dynamic&static
    */
   function updateEnabledBusinessIds(templateId: Uint8Array, enabledBusinessIds: int[]): Promise<void>;
+  /**
+   * Defines the callback used to submit a passcode entered by the user.
+   *
+   * @param { Uint8Array } passcode - Passcode entered by the user (for example, the Passcode of a USB
+   *     security key).
+   * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  type PasscodeSubmitCallback = (passcode: Uint8Array) => void;
+
+  /**
+   * Params carried by the framework when prompting for a companion device passcode.
+   *
+   * @interface PasscodePromptParams
+   * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface PasscodePromptParams {
+    /**
+     * Challenge carried by the framework when prompting for a companion device passcode.
+     *
+     * @type { Uint8Array }
+     * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    challenge: Uint8Array;
+  }
+
+  /**
+   * Defines the callback invoked when the framework needs a passcode for a companion device.
+   *
+   * @param { PasscodeSubmitCallback } submit - Callback used to submit the passcode entered by
+   *     the user.
+   * @param { PasscodePromptParams } params - Params carrying contextual information of this
+   *     prompt request.
+   * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  type PasscodePromptCallback =
+      (submit: PasscodeSubmitCallback, params: PasscodePromptParams) => void;
+
+  /**
+   * Registers the callback invoked when the framework needs a companion device passcode.
+   * If a callback has already been registered, the new one replaces it.
+   *
+   * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+   * @param { PasscodePromptCallback } callback - Callback invoked by the framework when a
+   *     passcode is required.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 32600001 - The system service is not working properly. Please try again later.
+   * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function registerPasscodePromptCallback(callback: PasscodePromptCallback): void;
+
+  /**
+   * Unregisters the callback used to prompt for a companion device passcode.
+   *
+   * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 32600001 - The system service is not working properly. Please try again later.
+   * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function unregisterPasscodePromptCallback(): void;
 }
 
 export default companionDeviceAuth;

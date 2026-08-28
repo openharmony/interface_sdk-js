@@ -33,7 +33,7 @@ import { AttributeModifier, CommonMethod } from './common';
 export declare interface BlankAttribute extends CommonMethod {
     /**
      * 设置空白填充的填充颜色，支持
-     * [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifiert)
+     * [attributeModifier]{@link CommonMethod#attributeModifier}
      * 动态设置属性方法。
      *
      * @param { ResourceColor | undefined } value - 空白填充的填充颜色。<br>
@@ -72,13 +72,13 @@ export declare interface BlankAttribute extends CommonMethod {
 
 /**
  * 空白填充组件，在容器主轴方向上，空白填充组件具有自动填充容器空余部分的能力。
- * 仅当父组件为[Row](docroot://reference/apis-arkui/arkui-ts/ts-container-row.md)/
- * [Column](docroot://reference/apis-arkui/arkui-ts/ts-container-column.md)/
- * [Flex](docroot://reference/apis-arkui/arkui-ts/ts-container-flex.md)时生效。
+ * 仅当父组件为[Row]{@link ./row}/
+ * [Column]{@link ./column}/
+ * [Flex]{@link ./flex}时生效。
  *
  * @param { double | string } [min] - 空白填充组件在容器主轴上的最小大小。<br>
  *    默认值：0，number类型单位为vp，string类型可以显式指定
- *    [像素单位](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md)，
+ *    [像素单位]{@link Length}，
  *    如'10px'。不指定像素单位时，默认单位vp，如'10'，等同于10vp。<br>
  *    非法值：按默认值处理。<br>
  *    **说明：**<br>

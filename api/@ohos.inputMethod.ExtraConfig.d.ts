@@ -14,12 +14,16 @@
  */
 
 /**
- * This module manages input method extension information. It enables the ArkUI editor to pass such information to the 
- * input method application when the input method is launched. After processing the extension information, the input 
- * method application can retrieve the details added by the host application. The total length of the information cannot
- * exceed 32 KB.
+ * This module manages input method extension information. It enables the ArkUI editor to pass such information to the
+ * input method application when the input method is launched. After processing the extension information,
+ * the input method application can retrieve the details added by the host application.
+ * The total length of the information cannot exceed 32 KB.<br>
+ * <br> > **NOTE**
+ * <br> >
+ * <br> >The initial APIs of this module are supported since API version 22.
+ *  Newly added APIs will be marked with a superscript to indicate their earliest API version.
  *
- * @file The extra config of edit box.
+ * @file Input Method Extension Information
  * @kit IMEKit
  */
 

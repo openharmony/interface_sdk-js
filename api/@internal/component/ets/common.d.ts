@@ -22284,12 +22284,11 @@ declare class CommonMethod<T> {
   offset(value: Position | Edges | LocalizedEdges): T;
 
   /**
-   * Sets whether the component responds to user interactions. If **enabled** is not set, the component responds to user
-   * interactions by default.
+   * If the value is true, the component is available and can respond to operations such as clicking.
+   * If it is set to false, click operations are not responded.
    *
-   * @param { boolean } value - Whether the component responds to user interactions, including clicks and touches. The
-   *     value **true** means that the component responds to user interactions, and **false** means the opposite.
-   * @returns { T } Current component.
+   * @param { boolean } value
+   * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -22770,7 +22769,7 @@ declare class CommonMethod<T> {
    *     keyboard navigation. Using **CustomBuilder** will cause the overlay content to be destroyed and recreated on
    *     page refresh, which may incur performance overhead. For scenarios with frequent page updates, using
    *     **ComponentContent** is recommended. [since 12]
-   * @param { OverlayOptions } options - Options for positioning the overlay.<br>**NOTE**<br>In versions earlier than
+   * @param { OverlayOptions } [options] - Options for positioning the overlay.<br>**NOTE**<br>In versions earlier than
    *     API version 12, **options** is defined as follows:<br>{<br>align?: [Alignment]{@link Alignment}, <br>offset?: {
    *     x?: number, y?: number}<br>} [since 12]
    * @returns { T } Current component.
@@ -23390,7 +23389,7 @@ declare class CommonMethod<T> {
    *
    * @param { { value: ResourceStr; icon?: ResourceStr; action: () => void }[] | CustomBuilder } content
    *     action: () => void }[] | CustomBuilder } content - Indicates the content of menu. [since 7 - 10]
-   * @param { MenuOptions } options - Indicates the options of menu.
+   * @param { MenuOptions } [options] - Indicates the options of menu.
    * @param { Array<MenuElement> | CustomBuilder } content - Indicates the content of menu. [since 11]
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -23405,7 +23404,7 @@ declare class CommonMethod<T> {
    *
    * @param { boolean } isShow true means display menu, false means hide menu, default is false.
    * @param { Array<MenuElement> | CustomBuilder } content - Indicates the content of menu.
-   * @param { MenuOptions } options - Indicates the options of menu.
+   * @param { MenuOptions } [options] - Indicates the options of menu.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -23422,7 +23421,7 @@ declare class CommonMethod<T> {
    * @param { CustomBuilder } content - Indicates the content of context menu.
    * @param { ResponseType } responseType - Indicates response type of context menu, Long pressing with a mouse device
    *     is not supported.
-   * @param { ContextMenuOptions } options - Indicates the options of context menu.
+   * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -23541,7 +23540,7 @@ declare class CommonMethod<T> {
    *     -way binding through
    *     [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
    * @param { CustomBuilder } builder - Content of the modal. The root node in **builder** must be unique.
-   * @param { ModalTransition } type - System transition mode of the modal.<br> Default value:
+   * @param { ModalTransition } [type] - System transition mode of the modal.<br> Default value:
    *     **ModalTransition.DEFAULT**.<br>**NOTE**<br> This property has no effect when it is set together with
    *     **transition**.
    * @returns { T } Current component.
@@ -23563,7 +23562,7 @@ declare class CommonMethod<T> {
    *     -way binding through
    *     [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
    * @param { CustomBuilder } builder - Content of the modal.
-   * @param { ContentCoverOptions } options - Optional attributes of the modal.
+   * @param { ContentCoverOptions } [options] - Optional attributes of the modal.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -23585,7 +23584,7 @@ declare class CommonMethod<T> {
    *     [$$](docroot://ui/state-management/arkts-two-way-sync.md).<br>Since API version 18, this attribute supports two
    *     -way binding through [!!](docroot://ui/state-management/arkts-new-binding.md).
    * @param { CustomBuilder } builder - Content of the sheet.
-   * @param { SheetOptions } options - Optional attributes of the sheet.
+   * @param { SheetOptions } [options] - Optional attributes of the sheet.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24410,7 +24409,7 @@ declare class CommonMethod<T> {
    * Sets the background brightness of the component.
    *
    * @param { BackgroundBrightnessOptions } params - Parameters for setting the background brightness.
-   * @returns { T }
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice

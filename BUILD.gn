@@ -754,6 +754,31 @@ ohos_copy("api_check_plugin") {
   module_install_name = ""
 }
 
+action("gen_api_transform") {
+  external_deps = [ "ace_ets2bundle:ohos_ets_ui_plugins" ]
+  npm_path = "//prebuilts/build-tools/common/nodejs/current/bin/npm"
+  script = "build_api_check_plugin.py"
+  args = [
+    "--source_path",
+    rebase_path(
+        get_path_info("./build-tools/compile-plugins/api-transform-static",
+                      "abspath")),
+    "--output_path",
+    rebase_path("${target_gen_dir}/${target_name}"),
+    "--npm",
+    rebase_path(npm_path),
+  ]
+  outputs = [ "${target_gen_dir}/${target_name}" ]
+}
+
+ohos_copy("api-transform-plugin") {
+  deps = [ ":gen_api_transform" ]
+  sources = [ rebase_path("${target_gen_dir}/gen_api_transform") ]
+  outputs = [ "${target_out_dir}/${target_name}" ]
+  module_source_dir = "${target_out_dir}/${target_name}"
+  module_install_name = ""
+}
+
 # static interop工具的SDK输入
 group("ohos_ets_static") {
   deps = [

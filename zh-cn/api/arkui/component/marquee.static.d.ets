@@ -58,7 +58,7 @@ export interface MarqueeOptions {
    *
    * 默认值：6
    *
-   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 单位：[vp]{@link VP}
    *
    * @default 6
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -138,7 +138,7 @@ export interface MarqueeOptions {
 }
 
 /**
- * 除支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)外，还支持以下属性：
+ * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

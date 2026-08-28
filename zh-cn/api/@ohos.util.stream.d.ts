@@ -225,7 +225,7 @@ declare namespace stream {
     doInitialize(callback: Function): void;
 
     /**
-     * 数据写入API。需要由开发者实现此API，但不要直接调用。此API在写入数据时自动调用。使用异步回调返回结果。
+     * 提供一个数据写出接口供开发者实现，该接口函数会在数据被成功写出时自动调用，无需手动触发。使用callback异步回调。
      *
      * @param { string | Uint8Array } chunk - 要写出的数据。
      * @param { string } encoding - 字符编码类型。当前版本支持'utf8'、'gb18030'、'gbk'以及'gb2312'。
@@ -239,7 +239,7 @@ declare namespace stream {
     doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void;
 
     /**
-     * 批量数据写入API。需要由开发者实现此API，但不要直接调用。此API在写入数据时自动调用。使用异步回调返回结果。
+     * 提供一个数据批量写出接口供开发者实现，该接口函数会在数据被成功写出时自动调用，无需开发者手动触发。使用callback异步回调。
      *
      * @param { string[] | Uint8Array[] } chunks - 待批量写出的数据块数组。
      * @param { Function } callback - 回调函数。
@@ -529,7 +529,7 @@ declare namespace stream {
     off(event: string, callback?: Function): void;
 
     /**
-     * 需要由开发者实现此API。在可读流首次调用[on]{@link stream.Writable#on(event: string, callback: Callback<emitter.EventData>)}时调用此API。使用异步回调返回结果。
+     * 需要由开发者实现此API。在可读流首次调用[on]{@link stream.Readable#on(event: string, callback: Callback<emitter.EventData>)}时调用此API。使用异步回调返回结果。
      *
      * @param { Function } callback - 回调函数。
      * @syscap SystemCapability.Utils.Lang
@@ -649,7 +649,7 @@ declare namespace stream {
 
   /**
    * 既可读又可写的流。双工流允许数据双向传输，即可读可写。
-   * **Duplex**类继承自[Readable]{@link stream.ReadableOptions}，支持**Readable**中的所有API。
+   * **Duplex**类继承自[Readable]{@link stream.Readable}，支持**Readable**中的所有API。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -744,7 +744,7 @@ declare namespace stream {
     uncork(): boolean;
 
     /**
-     * 数据写入API。需要由开发者实现此API，但不要直接调用。此API在写入数据时自动调用。使用异步回调返回结果。
+     * 数据写出接口是一个由开发者实现的函数，在数据被写出时自动调用，而不需要开发者手动调用。使用callback异步回调。
      *
      * @param { string | Uint8Array } chunk - 要写出的数据。
      * @param { string } encoding - 字符编码类型。当前版本支持'utf8'、'gb18030'、'gbk'以及'gb2312'。
@@ -758,7 +758,7 @@ declare namespace stream {
     doWrite(chunk: string | Uint8Array, encoding: string, callback: Function): void;
 
     /**
-     * 批量数据写入API。需要由开发者实现此API，但不要直接调用。此API在写入数据时自动调用。使用异步回调返回结果。
+     * 数据分批写出接口是一个由开发者实现的函数，在数据被写出时自动调用，而不需要开发者手动调用。使用callback异步回调。
      *
      * @param { string[] | Uint8Array[] } chunks - 待批量写出的数据块数组。
      * @param { Function } callback - 回调函数。

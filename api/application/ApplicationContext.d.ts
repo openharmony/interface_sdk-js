@@ -21,6 +21,7 @@
 import Context from './Context';
 import { AsyncCallback } from '../@ohos.base';
 import { ProcessInformation } from './ProcessInformation';
+import { ChildProcessInformation } from './ChildProcessInformation';
 import type ConfigurationConstant from '../@ohos.app.ability.ConfigurationConstant';
 import Want from '../@ohos.app.ability.Want';
 import window from '../@ohos.window';
@@ -392,6 +393,21 @@ declare class ApplicationContext extends Context {
   getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 
   /**
+   * Obtains the information about the UIAbility child processes of the current application. This API uses a promise
+   * to return the result.
+   * The returned child processes are created via startAbility with ProcessMode.NEW_PROCESS_ATTACH_TO_PARENT.
+   *
+   * @returns { Promise<Array<ChildProcessInformation>> } Promise used to return the information about the UIAbility
+   *     child processes of the current application. If no child processes exist, an empty array is returned.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Connect to system service failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  getUIAbilityChildProcessInfos(): Promise<Array<ChildProcessInformation>>;
+
+  /**
    * Kills all processes of this application. The application will not execute the normal lifecycle when exiting. This
    * API uses a promise to return the result. It can be called only on the main thread.
    *
@@ -462,7 +478,7 @@ declare class ApplicationContext extends Context {
    * >
    * > Before calling this API, ensure that the window has been created and the page corresponding to the UIAbility has
    * > been loaded (using the
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9) API in the
+   * > [loadContent()]{@link ./../@ohos.window:WindowStage.loadContent} API in the
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate} lifecycle).
    *
    * @param { ConfigurationConstant.ColorMode } colorMode - Dark/light color mode, which can be dark mode, light mode,
@@ -486,7 +502,8 @@ declare class ApplicationContext extends Context {
    * >
    * > Before calling this API, ensure that the window has been created and the page corresponding to the UIAbility has
    * > been loaded (using the
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9) API in the
+   * >  [loadContent()]{@link ./../@ohos.window:WindowStage.loadContent}
+   * > API in the
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate} lifecycle).
    *
    * @param { string } language - Target language. The list of supported languages can be obtained by calling
@@ -665,7 +682,7 @@ declare class ApplicationContext extends Context {
    * >
    * > Before calling this API, ensure that the window has been created and the page corresponding to the UIAbility has
    * > been loaded (using the
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9) API in the
+   * > [loadContent()]{@link ./../@ohos.window:WindowStage.loadContent} API in the
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate} lifecycle).
    *
    * @param { string } font - Font, which can be registered by calling

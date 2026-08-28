@@ -309,7 +309,7 @@ export declare interface UIScrollEvent extends UIScrollableCommonEvent {
  *
  * > 2、Scroller控制器与滚动容器组件绑定后才可以正常调用Scroller方法，否则根据调用接口不同会不生效或者抛异常。
  *
- * > 3、以[aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear)为例，
+ * > 3、以[aboutToAppear]{@link aboutToAppear}为例，
  * > aboutToAppear在创建自定义组件的新实例后，在执行其build()方法之前执行。因此如果滚动组件在自定义组件build内，在该自定义组件aboutToAppear执行时，内部滚动组件还没有创建，是不能正常调用上述
  * > Scroller方法的。
  *
@@ -441,12 +441,12 @@ export declare class Scroller {
    * > 口。
    * >
    * > 3.从API version 11开始，在List中支持
-   * > [contentStartOffset](docroot://reference/apis-arkui/arkui-ts/ts-container-list.md#contentstartoffset11)和
-   * > [contentEndOffset](docroot://reference/apis-arkui/arkui-ts/ts-container-list.md#contentendoffset11)。从API
+   * > [contentStartOffset]{@link CommonMethod#contentStartOffset}和
+   * > [contentEndOffset]{@link CommonMethod#contentEndOffset}。从API
    * > version 22开始，在Grid和Waterflow组件中支持设置
-   * > [contentStartOffset](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#contentstartoffset22)
+   * > [contentStartOffset]{@link CommonMethod#contentStartOffset}
    * > 和
-   * > [contentEndOffset](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#contentendoffset22)。
+   * > [contentEndOffset]{@link CommonMethod#contentEndOffset}。
    * >
    * > - 当滚动容器组件设置contentStartOffset时，如果ScrollAlign设置为START，滚动结束时，指定item首部会与滚动容器组件contentStartOffset处对齐。
    * >
@@ -791,7 +791,7 @@ export interface OnScrollFrameBeginHandlerResult {
 export type OnScrollFrameBeginCallback = (offset: double, state: ScrollState) => OnScrollFrameBeginHandlerResult;
 
 /**
- * 除支持[通用属性]{@link common}和[滚动组件通用属性](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#属性)外，还支持
+ * 除支持[通用属性]{@link CommonMethod}和[滚动组件通用属性]{@link ScrollableCommonMethod}外，还支持
  * 以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -925,8 +925,8 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
    * @param { OnScrollEdgeCallback | undefined } event - 滚动到的边缘位置。<br/>当Scroll设置为水平方向滚动时，上报[Edge.Center]{@link Edge}表示
    *     水平方向起始位置，上报[Edge.Baseline]{@link Edge}表示水平方向末尾位置。由于[Edge.Center]{@link Edge}和[Edge.Baseline]{@link Edge}枚举值已经
    *     废弃，推荐使用
-   *     [onReachStart](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onreachstart11)、
-   *     [onReachEnd](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onreachend11)事件监听是否滚动到
+   *     [onReachStart]{@link UIScrollableCommonEvent#onReachStart}、
+   *     [onReachEnd]{@link UIScrollableCommonEvent#onReachEnd}事件监听是否滚动到
    *     边界。<br/>取值为undefined时，不使用回调函数。
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1075,7 +1075,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
    *
    * 若通过onScrollFrameBegin事件和[scrollBy]{@link Scroller#scrollBy}方法实现容器嵌套滚动，需设置子滚动节点的[EdgeEffect]{@link edgeEffect}为
    * None。如Scroll嵌套List滚动时，List组件的
-   * [edgeEffect](docroot://reference/apis-arkui/arkui-ts/ts-container-list.md#edgeeffect)属性需设置为EdgeEffect.None，否则抛滑
+   * [edgeEffect]{@link CommonMethod#edgeEffect}属性需设置为EdgeEffect.None，否则抛滑
    * List，会触发List的边缘回弹动画，导致嵌套滚动失效。
    *
    * 满足以下任一条件时触发该事件：
@@ -1202,7 +1202,7 @@ export declare interface ScrollAttribute extends ScrollableCommonMethod {
  * Scroll滚动时触发的回调。
  * > **说明：**
  * > 若通过[onScrollFrameBegin]{@link onScrollFrameBegin}事件和[scrollBy]{@link Scroller#scrollBy}方法实现容器嵌套滚动，需设置子滚动节点的
- * > EdgeEffect为None。如Scroll嵌套List滚动时，List组件的[edgeEffect](docroot://reference/apis-arkui/arkui-ts/ts-container-list.md#edgeeffect)
+ * > EdgeEffect为None。如Scroll嵌套List滚动时，List组件的[edgeEffect]{@link CommonMethod#edgeEffect}
  * > 属性需设置为EdgeEffect.None。
  *
  * @param { double } xOffset - 相对于上一帧水平方向的偏移量，Scroll中的内容向左滚动时偏移量为正，向右滚动时偏移量为负。<br/>单位vp。

@@ -23,22 +23,44 @@ import lang from './@arkts.lang'
 /*** endif */
 
 /**
+ * 内建Array类型。
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamiconly
+ */
+type BuiltinArray<T> = Array<T>;
+
+/**
+ * 内建Map类型。
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamiconly
+ */
+type BuiltinMap<K, V> = Map<K, V>;
+
+/**
  * 本模块提供的ArkTS容器集，可以用于并发场景下的高性能数据传递。功能与JavaScript内建的对应容器类似，但ArkTS容器实例无法通过`"."`或者`"[]"`添加或更新属性。
  * ArkTS容器在多个并发实例间传递时，其默认行为是引用传递，支持多个并发实例可以同时操作同一个容器实例。另外，也支持拷贝传递，即每个并发实例持有一个ArkTS容器实例。
  * ArkTS容器并不是线程安全的，内部使用了fail-fast（快速失败）机制：当检测多个并发实例同时对容器进行结构性改变时，会触发异常。因此，在多线程读写容器时，容器使用方需要使用ArkTS提供的异步锁机制保证ArkTS容器的安全访问。
- * 当前ArkTS容器集主要包含以下几种容器：[Array]{@link ./arkts/@arkts.collections:collections},
- * [Map]{@link ./arkts/@arkts.collections:collections}, [Set]{@link ./arkts/@arkts.collections:collections}, TypedArray
- * ([Int8Array]{@link ./arkts/@arkts.collections:collections},
- * [Uint8Array]{@link ./arkts/@arkts.collections:collections},
- * [Int16Array]{@link ./arkts/@arkts.collections:collections},
- * [Uint16Array]{@link ./arkts/@arkts.collections:collections},
- * [Int32Array]{@link ./arkts/@arkts.collections:collections},
- * [Uint32Array]{@link ./arkts/@arkts.collections:collections},
- * [Uint8ClampedArray]{@link ./arkts/@arkts.collections:collections} and
- * [Float32Array]{@link ./arkts/@arkts.collections:collections}),
- * [ArrayBuffer]{@link ./arkts/@arkts.collections:collections},
- * [BitVector]{@link ./arkts/@arkts.collections:collections}, and
- * [ConcatArray]{@link ./arkts/@arkts.collections:collections}.
+ * 当前ArkTS容器集主要包含以下几种容器：[Array]{@link collections.Array},
+ * [Map]{@link collections.Map}, [Set]{@link collections.Set}, TypedArray
+ * ([Int8Array]{@link collections.Int8Array},
+ * [Uint8Array]{@link collections.Uint8Array},
+ * [Int16Array]{@link collections.Int16Array},
+ * [Uint16Array]{@link collections.Uint16Array},
+ * [Int32Array]{@link collections.Int32Array},
+ * [Uint32Array]{@link collections.Uint32Array},
+ * [Uint8ClampedArray]{@link collections.Uint8ClampedArray} and
+ * [Float32Array]{@link collections.Float32Array}),
+ * [ArrayBuffer]{@link collections.ArrayBuffer},
+ * [BitVector]{@link collections.BitVector}, and
+ * [ConcatArray]{@link collections.ConcatArray}.
  *
  * > **说明**
  * >
@@ -157,6 +179,19 @@ declare namespace collections {
    */
   type ArrayPredicateFn<ElementType, ArrayType> =
     (value: ElementType, index: number, array: ArrayType) => boolean;
+
+  /**
+   * ArkTS Array判定函数类型，被Array类的'retainAll'接口使用，用来判断数组元素是否满足测试条件。
+   *
+   * @param { ElementType } value - 当前正在处理的元素。
+   * @returns { boolean } 判定函数的结果，若当前元素满足判定函数则为真，否则为假。
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  type ArrayElementPredicateFn<ElementType> = (value: ElementType) => boolean;
 
   /**
    * ArkTS Array归约函数类型，被Array类的'reduceRight'接口使用。
@@ -649,6 +684,81 @@ declare namespace collections {
      */
     includes(searchElement: T, fromIndex?: number): boolean;
     /**
+     * 检查指定ArkTS Array中的所有元素是否均包含在此ArkTS Array中。
+     *
+     * @param { Array<T> } elements - 要检查的ArkTS Array。
+     * @returns { boolean } 检查结果。如果指定的所有元素均包含在此Array中，则返回**true**；
+     *     否则返回**false**。
+     * @throws { BusinessError } 10200011 - The containsAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    containsAll(elements: Array<T>): boolean;
+    /**
+     * 检查指定内建Array中的所有元素是否均包含在此ArkTS Array中。
+     *
+     * @param { BuiltinArray<T> } elements - 要检查的内建Array。
+     * @returns { boolean } 检查结果。如果指定的所有元素均包含在此Array中，则返回**true**；
+     *     否则返回**false**。
+     * @throws { BusinessError } 10200011 - The containsAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    containsAll(elements: BuiltinArray<T>): boolean;
+    /**
+     * 仅保留此ArkTS Array中包含在指定ArkTS Array中的元素。
+     *
+     * @param { Array<T> } elements - 允许保留元素的ArkTS Array。
+     * @returns { boolean } 操作结果。如果从此Array中移除了任意元素，则返回**true**；
+     *     否则返回**false**。
+     * @throws { BusinessError } 10200011 - The retainAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    retainAll(elements: Array<T>): boolean;
+    /**
+     * 仅保留此ArkTS Array中包含在指定内建Array中的元素。
+     *
+     * @param { BuiltinArray<T> } elements - 允许保留元素的内建Array。
+     * @returns { boolean } 操作结果。如果从此Array中移除了任意元素，则返回**true**；
+     *     否则返回**false**。
+     * @throws { BusinessError } 10200011 - The retainAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    retainAll(elements: BuiltinArray<T>): boolean;
+    /**
+     * 仅保留此ArkTS Array中满足指定判定函数的元素。
+     *
+     * @param { ArrayElementPredicateFn<T> } predicate - 用于测试每个元素的判定函数。
+     * @returns { boolean } 操作结果。如果从此Array中移除了任意元素，则返回**true**；
+     *     否则返回**false**。
+     * @throws { BusinessError } 10200011 - The retainAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    retainAll(predicate: ArrayElementPredicateFn<T>): boolean;
+    /**
      * 返回通过回调函数测试的第一个元素的索引，如果所有元素都不满足，则返回**-1**。
      *
      * @param { function } predicate - 一个接受三个参数的函数，用于筛选元素。返回值为
@@ -802,12 +912,12 @@ declare namespace collections {
     /**
      * 从ArkTS Array指定范围内的元素依次拷贝到目标位置。
      *
-     * @param { number } target - 目标起始位置的下标。如果传入负数，则指代
-     *     `target + array.length`位置的下标。
-     * @param { number } start - 源起始位置下标。如果传入负数，则指代
-     *     **start + array.length**位置的下标。
-     * @param { number } end - 源终止位置下标。如果传入负数，则指代 `end
-     *     + array.length`位置的下标。默认值为ArkTS Array的长度。
+     * @param { number } target - 目标起始位置的下标，如果`target < 0`，则会从`target + array.length`位置开始。
+     *     取值应为整数，当输入浮点数时会向下取整。
+     * @param { number } start - 源起始位置下标，如果`start < 0`，则会从`start + array.length`位置开始。
+     *     取值应为整数，当输入浮点数时会向下取整。拷贝过程中包含start位置下标所在的元素。
+     * @param { number } [end] - 源终止位置下标，如果`end < 0`，则会从`end + array.length`位置终止。
+     *     默认为ArkTS Array的长度。取值应为整数，当输入浮点数时会向下取整。拷贝过程中不包含end位置下标所在的元素。
      * @returns { Array<T> } 修改后的ArkTS Array。可能的原因：
      *     1. 必填参数未指定。
      *     2. 参数类型不正确。
@@ -836,7 +946,7 @@ declare namespace collections {
      * 返回ArkTS Array实例中最后一次出现指定值的索引。
      *
      * @param { T } searchElement - 要搜索的值。
-     * @param { number } fromIndex - 开始搜索的索引。默认值为ArkTS Array长度减1（即从末尾开始）。如果索引大于或等于
+     * @param { number } [fromIndex] - 开始搜索的索引。默认值为ArkTS Array长度减1（即从末尾开始）。如果索引大于或等于
      *     ArkTS Array的长度，则返回**-1**。如果传入负数，则指代
      *     **fromIndex + array.length**位置的下标。
      * @returns { number } 元素最后一次出现的索引；如果不存在，则返回**-1**。
@@ -903,7 +1013,7 @@ declare namespace collections {
     toLocaleString(): string;
     /**
      * 此API与
-     * [reduceRight]{@link collections.Array#reduceRight(callbackFn: ArrayReduceCallback<T, T, Array<T>>)}方法类似，
+     * [reduceRight]{@link collections.Array.reduceRight(callbackFn: ArrayReduceCallback<T, T, Array<T>>)}方法类似，
      * 但它接受一个初始值作为第二个参数，用于在Array从右到左顺序遍历开始前初始化累加器。
      *
      * @param { ArrayReduceCallback<U, T, Array<T>> } callbackFn - 一个接受四个参数的函数，用于对
@@ -1052,6 +1162,21 @@ declare namespace collections {
      */
     clear(): void;
     /**
+     * 判断该Map中是否存在一个或多个键映射到指定值。
+     *
+     * @param { V } value - 指定值。
+     * @returns { boolean } 检查结果。如果存在指定值，则返回**true**；否则返回
+     *     **false**。
+     * @throws { BusinessError } 10200011 - The containsValue method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    containsValue(value: V): boolean;
+    /**
      * 删除该Map中指定键对应的元素。
      *
      * @param { K } key - 待删除元素的键。
@@ -1065,6 +1190,25 @@ declare namespace collections {
      * @since 12 dynamiconly
      */
     delete(key: K): boolean;
+    /**
+     * 删除该Map中的指定键及其对应值。
+     *
+     * > **NOTE**
+     * >
+     * > - 返回**undefined**时无法直接区分是键不存在还是键存在但值为**undefined**，可在使用本接口前先使用
+     * >   **has**接口判断键是否存在，进而区分返回的**undefined**所属情况。
+     *
+     * @param { K } key - 指定键。
+     * @returns { V | undefined } 被删除的值。如果键在Map对象中找不到，则返回**undefined**。
+     * @throws { BusinessError } 10200011 - The remove method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    remove(key: K): V | undefined;
     /**
      * 按插入顺序对该Map中的每个键值对执行一次回调函数。
      *
@@ -1104,6 +1248,52 @@ declare namespace collections {
      * @since 12 dynamiconly
      */
     has(key: K): boolean;
+    /**
+     * 向该Map添加或更新一个指定的键值对，并返回该键之前关联的值。
+     *
+     * > **NOTE**
+     * >
+     * > - 返回**undefined**时无法直接区分是键不存在还是键存在但值为**undefined**，可在使用本接口前先使用
+     * >   **has**接口判断键是否存在，进而区分返回的**undefined**所属情况。
+     *
+     * @param { K } key - 添加或更新指定元素的键。
+     * @param { V } value - 添加或更新指定元素的值。
+     * @returns { V | undefined } 该键之前关联的值。如果键在Map对象中找不到，则返回**undefined**。
+     * @throws { BusinessError } 10200011 - The put method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    put(key: K, value: V): V | undefined;
+    /**
+     * 使用指定ArkTS Map中的键值对更新该Map。
+     *
+     * @param { Map<K, V> } from - 提供键值对的ArkTS Map。
+     * @throws { BusinessError } 10200011 - The putAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    putAll(from: Map<K, V>): void;
+    /**
+     * 使用指定内建Map中的键值对更新该Map。
+     *
+     * @param { BuiltinMap<K, V> } from - 提供键值对的内建Map。
+     * @throws { BusinessError } 10200011 - The putAll method cannot be bound.
+     * @throws { BusinessError } 10200201 - Concurrent modification exception
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.1.0 dynamiconly
+     */
+    putAll(from: BuiltinMap<K, V>): void;
     /**
      * 向该Map添加或更新一个指定的键值对。
      *
@@ -1283,14 +1473,14 @@ declare namespace collections {
     has(value: T): boolean;
   }
   /**
-   * ArkTS TypedArray（[Int8Array]{@link ./arkts/@arkts.collections:collections}、
-   * [Uint8Array]{@link ./arkts/@arkts.collections:collections}、
-   * [Int16Array]{@link ./arkts/@arkts.collections:collections}、
-   * [Uint16Array]{@link ./arkts/@arkts.collections:collections}、
-   * [Int32Array]{@link ./arkts/@arkts.collections:collections}、
-   * [Uint32Array]{@link ./arkts/@arkts.collections:collections}、
-   * [Uint8ClampedArray]{@link ./arkts/@arkts.collections:collections}、
-   * [Float32Array]{@link ./arkts/@arkts.collections:collections}）的底层数据结构。
+   * ArkTS TypedArray（[Int8Array]{@link collections.Int8Array}、
+   * [Uint8Array]{@link collections.Uint8Array}、
+   * [Int16Array]{@link collections.Int16Array}、
+   * [Uint16Array]{@link collections.Uint16Array}、
+   * [Int32Array]{@link collections.Int32Array}、
+   * [Uint32Array]{@link collections.Uint32Array}、
+   * [Uint8ClampedArray]{@link collections.Uint8ClampedArray}、
+   * [Float32Array]{@link collections.Float32Array}）的底层数据结构。
    *
    * > **说明**
    * >
@@ -1329,7 +1519,7 @@ declare namespace collections {
      * 返回一个新的ArkTS ArrayBuffer对象，其包含原ArkTS ArrayBuffer指定范围的内容。
      *
      * @param { number } begin - 开始索引。如果`begin < 0`，则会从`begin + arrayBuffer.byteLength`位置开始。
-     * 如果`begin < -arrayBuffer.byteLength`，则从0开始。默认值为0。
+     * 如果`begin < -arrayBuffer.byteLength`，则从0开始。
      * @param { number } [end] - 结束索引（不包括该元素）。如果`end < 0`，则会到`end + arrayBuffer.byteLength`位置结束。
      * 如果`end > arrayBuffer.byteLength`，则截取到arrayBuffer.byteLength位置。默认为原ArkTS ArrayBuffer的长度。
      * @returns { ArrayBuffer } collections.ArrayBuffer。
@@ -1344,7 +1534,7 @@ declare namespace collections {
   }
 
   /**
-   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}实现。
+   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link collections.ArrayBuffer}实现。
    *
    * > **说明**
    * >
@@ -1853,7 +2043,7 @@ declare namespace collections {
      * 返回ArkTS Int8Array实例中最后一次出现searchElement的索引，如果不存在，则返回-1。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始索引，从该位置开始往前查找。默认值为ArkTS Int8Array长度减1（即从末尾开始）。如果索引大于等于ArkTS Int8Array的长度，
+     * @param { number } [fromIndex] - 搜索的起始索引，从该位置开始往前查找。默认值为ArkTS Int8Array长度减1（即从末尾开始）。如果索引大于等于ArkTS Int8Array的长度，
      * 则从末尾开始往前查找。如果提供的索引值是负数，则被当作距离数组尾部的偏移，从后到前搜索。
      * @returns { number } 数组中给定元素的最后一个索引；没有找到，则返回-1。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -1937,7 +2127,7 @@ declare namespace collections {
  }
 
   /**
-   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}实现。
+   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link collections.ArrayBuffer}实现。
    *
    * > **说明**
    * >
@@ -2431,7 +2621,7 @@ declare namespace collections {
      * 返回ArkTS Uint8ClampedArray实例中最后一次出现searchElement的索引，如果对象不包含，则为-1。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 从后到前搜索的起始下标。默认值为ArkTS Uint8ClampedArray的长度减1。如果提供的下标值是负数，则被当做距离数组尾部的偏移。
+     * @param { number } [fromIndex] - 从后到前搜索的起始下标。默认值为ArkTS Uint8ClampedArray的长度减1。如果提供的下标值是负数，则被当做距离数组尾部的偏移。
      * 如果fromIndex的值导致搜索区间和数组范围没有重叠，则返回-1。
      * @returns { number } 数组中给定元素的最后一个索引；没有找到，则返回-1。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -2514,7 +2704,7 @@ declare namespace collections {
  }
 
   /**
-   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}实现。
+   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link collections.ArrayBuffer}实现。
    *
    * > **说明**
    * >
@@ -3033,7 +3223,7 @@ declare namespace collections {
      * 返回ArkTS Uint8Array实例中最后一次出现指定值的索引。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Uint16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Uint8Array的长度，
+     * @param { number } [fromIndex] - 搜索的起始下标。默认值为ArkTS Uint8Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Uint8Array的长度，
      *     则返回**-1**。如果传入负数，则从后到前从ArkTS Uint8Array末尾开始搜索。
      * @returns { number } 该值最后一次出现的索引。如果未找到该值，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -3119,7 +3309,7 @@ declare namespace collections {
  }
 
   /**
-   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}实现。
+   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link collections.ArrayBuffer}实现。
    *
    * > **说明**
    * >
@@ -3632,7 +3822,7 @@ declare namespace collections {
      * 返回ArkTS Int16Array中最后一次出现指定值的索引。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Int16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Int16Array的长度，
+     * @param { number } [fromIndex] - 搜索的起始下标。默认值为ArkTS Int16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Int16Array的长度，
      *     则返回**-1**。如果提供的下标值是负数，则被当做距离数组尾部的偏移，从后到前搜索。
      * @returns { number } 元素最后一次出现的索引；如果不存在，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -3718,7 +3908,7 @@ declare namespace collections {
     static of(...items: number[]): Int16Array;
  }
   /**
-   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}实现。
+   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link collections.ArrayBuffer}实现。
    *
    * > **说明**
    * >
@@ -4221,7 +4411,7 @@ declare namespace collections {
      * 返回ArkTS Uint16Array实例中最后一次出现searchElement的索引，如果不包含该元素，则返回-1。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Uint16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Uint16Array的长度，则返回**-1**。
+     * @param { number } [fromIndex] - 搜索的起始下标。默认值为ArkTS Uint16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Uint16Array的长度，则返回**-1**。
      *     如果提供的下标值是负数，则被当做距离数组尾部的偏移，从后到前搜索。
      * @returns { number } 数组中给定元素的最后一个索引；没有找到，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -4303,7 +4493,7 @@ declare namespace collections {
     static of(...items: number[]): Uint16Array;
  }
   /**
-   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}实现。
+   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link collections.ArrayBuffer}实现。
    *
    * > **说明**
    * >
@@ -4804,7 +4994,7 @@ declare namespace collections {
      * 返回ArkTS Int32Array实例中最后一次出现searchElement的索引，如果对象不包含，则为**-1**。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Uint16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Int32Array的长度，
+     * @param { number } [fromIndex] - 搜索的起始下标。默认值为ArkTS Int32Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Int32Array的长度，
      *     则返回**-1**。如果传入负数，则从ArkTS Int32Array末尾开始搜索。
      * @returns { number } 数组中给定元素的最后一个索引；如果未找到，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -4888,7 +5078,7 @@ declare namespace collections {
     static of(...items: number[]): Int32Array;
  }
   /**
-   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}实现。
+   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link collections.ArrayBuffer}实现。
    *
    * > **说明**
    * >
@@ -5391,7 +5581,7 @@ declare namespace collections {
      * 返回ArkTS Uint32Array实例中最后一次出现给定元素的索引，如果不存在，则返回**-1**。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Uint16Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Uint32Array的长度，
+     * @param { number } [fromIndex] - 搜索的起始下标。默认值为ArkTS Uint32Array长度减1（即从末尾开始）。如果下标大于等于ArkTS Uint32Array的长度，
      *     则返回**-1**。如果传入负数，则从ArkTS Uint32Array的末尾开始向前搜索。
      * @returns { number } 数组中给定元素的最后一个索引；如果不存在，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.
@@ -5476,7 +5666,7 @@ declare namespace collections {
  }
 
   /**
-   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link ./arkts/@arkts.collections:collections}实现。
+   * 一种线性数据结构，底层基于[ArkTS ArrayBuffer]{@link collections.ArrayBuffer}实现。
    *
    * > **说明：**
    * >
@@ -5960,7 +6150,7 @@ declare namespace collections {
      * 返回ArkTS Float32Array实例中最后一次出现searchElement的索引，如果对象不包含，则为**-1**。
      *
      * @param { number } searchElement - 待索引的值。
-     * @param { number } fromIndex - 搜索的起始下标。默认值为ArkTS Uint16Array长度减1（即从末尾开始）。
+     * @param { number } [fromIndex] - 搜索的起始下标。默认值为ArkTS Float32Array长度减1（即从末尾开始）。
      *     如果下标大于等于ArkTS Float32Array的长度，则返回**-1**。如果提供的下标值是负数，则被当做距离数组尾部的偏移，从后到前搜索。
      * @returns { number } 数组中给定元素的最后一个索引；没有找到，则返回**-1**。
      * @throws { BusinessError } 10200011 - The lastIndexOf method cannot be bound.

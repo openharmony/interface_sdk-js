@@ -354,7 +354,7 @@ declare namespace hilog {
    *     list is set to DEFAULT, and the output type for the remaining domainIDs is set to the currently
    *     specified output type; if isExclude is false, the output type for the domainID list is set to the
    *     currently specified output type, and the output type for the remaining domainIDs is set to DEFAULT
-   * @param { bool } isExclude - determine whether the domainIDs take effect for the currently specified output type.
+   * @param { boolean } isExclude - determine whether the domainIDs take effect for the currently specified output type.
    * @returns { OutputType } previous value of output type.
    * @syscap SystemCapability.HiviewDFX.HiLog
    * @FaAndStageModel

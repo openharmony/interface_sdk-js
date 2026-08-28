@@ -84,10 +84,10 @@ export declare interface PathOptions {
 export declare interface PathAttribute extends CommonShapeMethod {
     /**
      * 设置符合
-     * [SVG路径描述规范](docroot://reference/apis-arkui/arkui-ts/ts-drawing-components-path.md#svg路径描述规范)
+     * [SVG路径描述规范]{@link Path}
      * 的命令字符串，单位为px。
      * 像素单位转换方法请参考
-     * [像素单位转换](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md)。
+     * [像素单位转换]{@link Length}。
      *
      * @param { ResourceStr | undefined } value - 线条绘制的路径。
      *     <br>默认值：空字符串<br>默认单位：px

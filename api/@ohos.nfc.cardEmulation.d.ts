@@ -14,7 +14,124 @@
  */
 
 /**
- * @file
+ * ###### HCE and AID Declaration
+ * 
+ * Before developing an application related to HCE, you must declare NFC-related attributes in the **module.json5** 
+ * file.
+ * 
+ * ```json5
+ * // Applicable to devices other than lite wearables
+ * {
+ *   "module": {
+ *     // Other declared attributes
+ *     "abilities": [
+ *       {
+ *         // Other declared attributes
+ *         "skills": [
+ *           {
+ *             "actions": [
+ *               "ohos.nfc.cardemulation.action.HOST_APDU_SERVICE"
+ *             ]
+ *           }
+ *         ],
+ *         "metadata": [
+ *           {
+ *             "name": "payment-aid",
+ *             "value": "your payment aid"
+ *           },
+ *           {
+ *             "name": "other-aid",
+ *             "value": "your other aid"
+ *           }
+ *         ]
+ *       }
+ *     ],
+ *     "requestPermissions": [
+ *       {
+ *         "name": "ohos.permission.NFC_CARD_EMULATION",
+ *         // Set reason to card_emulation_reason.
+ *         "reason": "$string:card_emulation_reason"
+ *       }
+ *     ]
+ *   }
+ * }
+ * ```
+ * 
+ * ```json5
+ * // Applicable to lite wearables
+ * {
+ *   "module": {
+ *     // Other declared attributes
+ *     "abilities": [
+ *       {
+ *         // Other declared attributes
+ *         "metaData": {
+ *           "customizeData": [
+ *             {
+ *               "name": "paymentAid",
+ *               "value": "A0000000041012"
+ *             },
+ *             {
+ *               "name": "otherAid",
+ *               "value": "A0000000041010"
+ *             }
+ *           ]
+ *         },
+ *         "skills": [
+ *           {
+ *             "entities": [
+ *               "ohos.nfc.cardemulation.action.HOST_APDU_SERVICE"
+ *             ],
+ *             "actions": [
+ *               "ohos.nfc.cardemulation.action.HOST_APDU_SERVICE"
+ *             ]
+ *           }
+ *         ]
+ *       }
+ *     ],
+ *     "reqPermissions": [
+ *       {
+ *         "name": "ohos.permission.NFC_CARD_EMULATION",
+ *         // Set reason to card_emulation_reason.
+ *         "reason": "$string:card_emulation_reason",
+ *         "usedScene":{
+ *           "ability":[
+ *             "FormAbility"
+ *           ],
+ *           "when":"always"
+ *         }
+ *       },
+ *       {
+ *         "name": "ohos.permission.NFC_TAG",
+ *         // Set reason to card_emulation_reason.
+ *         "reason": "$string:card_emulation_reason",
+ *         "usedScene":{
+ *           "ability":[
+ *             "FormAbility"
+ *           ],
+ *           "when":"always"
+ *         }
+ *       }
+ *     ]
+ *   }
+ * }
+ * ```
+ * 
+ * > **NOTE**
+ * >
+ * > 1. The **actions** field must contain **ohos.nfc.cardemulation.action.HOST_APDU_SERVICE** and cannot be changed.
+ * >
+ * > 2. When declaring an AID (in compliance with ISO/IEC 7816-4), ensure that **name** is set to **payment-aid** or 
+ * > **other-aid**. Incorrect setting will cause a parsing failure.
+ * >
+ * > 3. The **name** field of **requestPermissions** must be **ohos.permission.NFC_CARD_EMULATION** and cannot be 
+ * > changed.
+ * >
+ * > 4. Lite wearables support only the [FA Model](docroot://application-models/ability-terminology.md#fa-model), with 
+ * > attribute configurations and API invocation methods differing from those of other device types. Refer to the 
+ * > example code for detailed implementations.
+ *
+ * @file Standard NFC Card Emulation
  * @kit ConnectivityKit
  */
 
@@ -23,27 +140,27 @@ import { ElementName } from './bundleManager/ElementName';
 import type { AbilityInfo } from './bundleManager/AbilityInfo';
 
 /**
- * Provides methods to operate or manage NFC card emulation.
+ * The **cardEmulation** module implements Near-Field Communication (NFC) card emulation. You can use the APIs provided
+ * by this module to determine the card emulation type supported and implement Host Card Emulation (HCE).
  *
- * @namespace cardEmulation
- * @syscap SystemCapability.Communication.NFC.CardEmulation
- * @since 6
- */
-/**
- * Provides methods to operate or manage NFC card emulation.
+ * HCE provides card emulation that does not depend on a secure element. It allows an application to emulate a card and
+ * communicate with an NFC card reader through the NFC service.
  *
- * @namespace cardEmulation
  * @syscap SystemCapability.Communication.NFC.CardEmulation
  * @FaAndStageModel
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 6 dynamic
  * @since 23 static
  */
 declare namespace cardEmulation {
   /**
-   * Defines the capability type.
+   * Enumerates the NFC card emulation types.
    *
-   * @enum { number }
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 6 and deprecated since API version 9. Use
+   * > [hasHceCapability]{@link cardEmulation.hasHceCapability} instead.
+   *
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @stagemodelonly
    * @since 6 dynamiconly
@@ -52,7 +169,7 @@ declare namespace cardEmulation {
    */
   enum FeatureType {
     /**
-     * This constant is used to check whether HCE card emulation is supported.
+     * HCE.
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @stagemodelonly
@@ -63,7 +180,7 @@ declare namespace cardEmulation {
     HCE = 0,
 
     /**
-     * This constant is used to check whether SIM card emulation is supported.
+     * Subscriber identity module (SIM) card emulation.
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @stagemodelonly
@@ -74,7 +191,7 @@ declare namespace cardEmulation {
     UICC = 1,
 
     /**
-     * This constant is used to check whether eSE card emulation is supported.
+     * Embedded Secure Element (eSE) emulation.
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @stagemodelonly
@@ -86,64 +203,49 @@ declare namespace cardEmulation {
   }
 
   /**
-   * Define the card emulation type, payment or other.
+   * Enumerates the types of services used by the card emulation application.
    *
-   * @enum { string }
-   * @syscap SystemCapability.Communication.NFC.CardEmulation
-   * @since 9
-   */
-  /**
-   * Define the card emulation type, payment or other.
-   *
-   * @enum { string }
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   enum CardType {
     /**
-     * Payment type of card emulation
-     *
-     * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @since 9
-     */
-    /**
-     * Payment type of card emulation
+     * Payment service.
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @FaAndStageModel
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
-    PAYMENT = 'payment',
+    PAYMENT = "payment",
 
     /**
-     * Other type of card emulation
-     *
-     * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @since 9
-     */
-    /**
-     * Other type of card emulation
+     * Other services.
      *
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @FaAndStageModel
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
-    OTHER = 'other'
+    OTHER = "other"
   }
 
   /**
-   * Checks whether a specified type of card emulation is supported.
-   * <p>This method is used to check Whether the host or secure element supports card emulation.
+   * Checks whether a certain type of card emulation is supported.
    *
-   * @param { number } feature Indicates the card emulation type, {@code HCE}, {@code UICC}, or {@code ESE}.
-   * @returns { boolean } Returns true if the specified type of card emulation is supported; returns false otherwise.
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 6 and deprecated since API version 9. Use
+   * > [hasHceCapability]{@link cardEmulation.hasHceCapability} instead.
+   *
+   * @param { number } feature - Card emulation type to check. For details, see
+   *     [FeatureType]{@link cardEmulation.FeatureType}.
+   * @returns { boolean } Returns **true** if the card emulation type is supported; returns **false** otherwise.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @stagemodelonly
    * @since 6 dynamiconly
@@ -153,72 +255,51 @@ declare namespace cardEmulation {
   function isSupported(feature: number): boolean;
 
   /**
-   * Checks whether Host Card Emulation(HCE) capability is supported.
+   * Checks whether the device supports HCE.
    *
    * @permission ohos.permission.NFC_CARD_EMULATION
-   * @returns { boolean } Returns true if HCE is supported, otherwise false.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @syscap SystemCapability.Communication.NFC.CardEmulation
-   * @since 9
-   */
-  /**
-   * Checks whether Host Card Emulation(HCE) capability is supported.
-   *
-   * @permission ohos.permission.NFC_CARD_EMULATION
-   * @returns { boolean } Returns true if HCE is supported, otherwise false.
+   * @returns { boolean } Returns **true** if HCE is supported; returns **false** otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   function hasHceCapability(): boolean;
 
   /**
-   * Checks whether a service is default for given type.
+   * Checks whether an application is the default application of the specified service type.
    *
    * @permission ohos.permission.NFC_CARD_EMULATION
-   * @param { ElementName } elementName - The element name of the service ability
-   * @param { CardType } type - The type to query, payment or other.
-   * @returns { boolean } Returns true if the service is default, otherwise false.
+   * @param { ElementName } elementName - Information about the page, on which the application declares the NFC card
+   *     emulation capability. It must contain at least **bundleName** and **abilityName** and cannot be empty.
+   * @param { CardType } type - Card emulation service type. Currently, only the default payment application can be
+   *     queried.
+   * @returns { boolean } Returns **true** if the application is the default payment application; returns **false**
+   *     otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @syscap SystemCapability.Communication.NFC.CardEmulation
-   * @since 9
-   */
-  /**
-   * Checks whether a service is default for given type.
-   *
-   * @permission ohos.permission.NFC_CARD_EMULATION
-   * @param { ElementName } elementName - The element name of the service ability
-   * @param { CardType } type - The type to query, payment or other.
-   * @returns { boolean } Returns true if the service is default, otherwise false.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   function isDefaultService(elementName: ElementName, type: CardType): boolean;
 
   /**
-   * Gets all payment services.
+   * Obtains all payment services. If an application declares the support for the HCE feature and **payment-aid**, the
+   * application is contained in the payment service list. For details, see
+   * [HCE and AID Declaration](docroot://reference/apis-connectivity-kit/js-apis-cardEmulation.md#hce-and-aid-declaration).
    *
    * @permission ohos.permission.NFC_CARD_EMULATION
-   * @returns { AbilityInfo[] } Returns all payment services.
+   * @returns { AbilityInfo[] } List of payment services obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -231,31 +312,28 @@ declare namespace cardEmulation {
   function getPaymentServices(): AbilityInfo[];
 
   /**
-   * A class for NFC host application.
-   * <p>The NFC host application use this class, then Nfc service can access the application
-   * installation information and connect to services of the application.
-   *
-   * @syscap SystemCapability.Communication.NFC.CardEmulation
-   * @since 8
-   */
-  /**
-   * A class for NFC host application.
-   * <p>The NFC host application use this class, then Nfc service can access the application
-   * installation information and connect to services of the application.
+   * Provides APIs for implementing HCE, including receiving Application Protocol Data Units (APDUs) from the peer card
+   * reader and sending a response. Before using HCE-related APIs, check whether the device supports HCE.
    *
    * @syscap SystemCapability.Communication.NFC.CardEmulation
    * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    * @since 23 static
    */
   export class HceService {
     /**
-     * start HCE
+     * Starts HCE, including enabling this application to run in the foreground preferentially and dynamically
+     * registering the AID list.
+     *
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. Use
+     * > [start]{@link cardEmulation.HceService#start} instead.
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { string[] } aidList - The aid list to be registered by this service
-     * @returns { boolean } Returns true if HCE is enabled or has been enabled; returns false otherwise.
+     * @param { string[] } aidList - List of AIDs to register.
+     * @returns { boolean } Returns **true** if HCE is started or has been started; returns **false** otherwise.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @stagemodelonly
      * @since 8 dynamiconly
@@ -265,47 +343,39 @@ declare namespace cardEmulation {
     startHCE(aidList: string[]): boolean;
 
     /**
-     * Starts the HCE, register more aids and allows this application to be preferred while in foreground.
+     * Starts HCE, including enabling this application to run in the foreground preferentially and dynamically
+     * registering the AID list.
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { ElementName } elementName - The element name of the service ability
-     * @param { string[] } aidList - The aid list to be registered by this service, allowed to be empty.
+     * @param { ElementName } elementName - Information about the page, on which the application declares the NFC card
+     *     emulation capability. It must contain at least **bundleName** and **abilityName** and cannot be empty.
+     * @param { string[] } aidList - List of AIDs to register. This parameter can be left empty.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
-     * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @since 9
-     */
-    /**
-     * Starts the HCE, register more aids and allows this application to be preferred while in foreground.
-     *
-     * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { ElementName } elementName - The element name of the service ability
-     * @param { string[] } aidList - The aid list to be registered by this service, allowed to be empty.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @FaAndStageModel
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     start(elementName: ElementName, aidList: string[]): void;
 
     /**
-     * stop HCE
+     * Stops HCE, including exiting the current application from the foreground, releasing the dynamically registered
+     * AID list, and canceling the subscription of **hceCmd**.
+     *
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. Use
+     * > [stop]{@link cardEmulation.HceService#stop} instead.
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @returns { boolean } Returns true if HCE is disabled or has been disabled; returns false otherwise.
+     * @returns { boolean } **true** if HCE is stopped or disabled; **false** otherwise.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @stagemodelonly
      * @since 8 dynamiconly
@@ -315,62 +385,43 @@ declare namespace cardEmulation {
     stopHCE(): boolean;
 
     /**
-     * Stops the HCE, and unset the preferred service while in foreground.
+     * Stops HCE, including canceling the subscription of APDU data, exiting this application from the foreground, and
+     * releasing the dynamically registered AID list. The application needs to call this API in **onDestroy** of the HCE
+     * page.
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { ElementName } elementName - The element name of the service ability
+     * @param { ElementName } elementName - Information about the page, on which the application declares the NFC card
+     *     emulation capability. It must contain at least **bundleName** and **abilityName** and cannot be empty.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
-     * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @since 9
-     */
-    /**
-     * Stops the HCE, and unset the preferred service while in foreground.
-     *
-     * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { ElementName } elementName - The element name of the service ability
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @FaAndStageModel
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     stop(elementName: ElementName): void;
 
     /**
-     * register HCE event to receive the APDU data.
+     * Subscribes to events indicating receiving of APDUs from the peer card reader. The application needs to call this
+     * API in **onCreate()** of the HCE page. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { 'hceCmd' } type The type to register.
-     * @param { AsyncCallback<number[]> } callback Callback used to listen to HCE data that local device received.
-     * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @since 8
-     */
-    /**
-     * register HCE event to receive the APDU data.
-     *
-     * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { 'hceCmd' } type The type to register.
-     * @param { AsyncCallback<int[]> } callback Callback used to listen to HCE data that local device received.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @param { 'hceCmd' } type - Event type. It has a fixed value of **hceCmd**.
+     * @param { AsyncCallback<int[]> } callback - Event callback used to return the data array that complies with the
+     *     APDU. Each number is represented in hexadecimal notation, with values ranging from 0x00 to 0xFF.
+     * @throws { BusinessError } 201 - Permission denied. [since 12]
+     * @throws { BusinessError } 401 - Invalid parameter. [since 12]
+     * @throws { BusinessError } 801 - Capability not supported. [since 12]
      * @syscap SystemCapability.Communication.NFC.CardEmulation
      * @FaAndStageModel
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 8 dynamic
      */
     on(type: 'hceCmd', callback: AsyncCallback<int[]>): void;
 
@@ -392,11 +443,82 @@ declare namespace cardEmulation {
     onHceCmd(callback: AsyncCallback<int[]>): void;
 
     /**
-     * Unsubscribe the event to receive the APDU data.
+     * Sends a response to the peer card reader.
+     *
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. Use
+     * > [transmit]{@link cardEmulation.HceService#transmit(response: int[])} instead.
      *
      * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { 'hceCmd' } type - The type to unregister event.
-     * @param { AsyncCallback<int[]> } callback - The callback used to listen for the event.
+     * @param { number[] } responseApdu - Response APDU sent to the peer card reader. The value consists of hexadecimal
+     *     numbers ranging from **0x00** to **0xFF**.
+     * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @stagemodelonly
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     * @useinstead ohos.nfc.cardEmulation/cardEmulation.HceService#transmit
+     */
+    sendResponse(responseApdu: number[]): void;
+
+    /**
+     * Transmits an APDU to the peer card reader. This API uses a promise to return the result. The application calls
+     * this API only after receiving an APDU sent by the card reader via
+     * [on]{@link cardEmulation.HceService#on(type: 'hceCmd', callback: AsyncCallback<int[]>)}.
+     *
+     * @permission ohos.permission.NFC_CARD_EMULATION
+     * @param { int[] } response - Response APDU sent to the peer card reader. The value consists of hexadecimal numbers
+     *     ranging from **0x00** to **0xFF**.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
+     * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @FaAndStageModel
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    transmit(response: int[]): Promise<void>;
+
+    /**
+     * Sends APDU data to the peer card reader. The application can call this API only after receiving an APDU sent by
+     * the card reader via [on]{@link cardEmulation.HceService#on(type: 'hceCmd', callback: AsyncCallback<int[]>)}. This
+     * API uses an asynchronous callback to return the result.
+     *
+     * @permission ohos.permission.NFC_CARD_EMULATION
+     * @param { int[] } response - Response APDU sent to the peer card reader. The value consists of hexadecimal numbers
+     *     ranging from **0x00** to **0xFF**.
+     * @param { AsyncCallback<void> } callback - Callback used to return the operation result. If the operation is
+     *     successful, **err** is **undefined**; otherwise, **err** is an error object.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
+     * @syscap SystemCapability.Communication.NFC.CardEmulation
+     * @FaAndStageModel
+     * @atomicservice [since 12]
+     * @since 9 dynamic
+     * @since 23 static
+     */
+    transmit(response: int[], callback: AsyncCallback<void>): void;
+
+    /**
+     * Unsubscribes from events indicating receiving of APDUs from the peer card reader. This API uses an asynchronous
+     * callback to return the result.
+     *
+     * @permission ohos.permission.NFC_CARD_EMULATION
+     * @param { 'hceCmd' } type - Event type. It has a fixed value of **hceCmd**.
+     * @param { AsyncCallback<int[]> } callback - Event callback. Each number is represented in hexadecimal notation,
+     *     with values ranging from 0x00 to 0xFF. If this parameter is not set, this API unregisters the callback for
+     *     the specified **type**.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.NFC.CardEmulation
@@ -418,94 +540,6 @@ declare namespace cardEmulation {
      * @since 23 static
      */
     offHceCmd(callback?: AsyncCallback<int[]>): void;
-
-    /**
-     * Sends a response APDU to the remote device.
-     * <p>This method is used by a host application when swiping card.
-     *
-     * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { number[] } responseApdu Indicates the response, which is a byte array.
-     * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @stagemodelonly
-     * @since 8 dynamiconly
-     * @deprecated since 9
-     * @useinstead ohos.nfc.cardEmulation/cardEmulation.HceService#transmit
-     */
-    sendResponse(responseApdu: number[]): void;
-
-    /**
-     * Sends a response APDU to the remote device.
-     *
-     * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { number[] } response Indicates the response to send, which is a byte array.
-     * @returns { Promise<void> } The void
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
-     * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @since 9
-     */
-    /**
-     * Sends a response APDU to the remote device.
-     *
-     * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { int[] } response Indicates the response to send, which is a byte array.
-     * @returns { Promise<void> } The void
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
-     * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @FaAndStageModel
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 23 static
-     */
-    transmit(response: int[]): Promise<void>;
-
-    /**
-     * Sends a response APDU to the remote device.
-     *
-     * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { number[] } response Indicates the response to send, which is a byte array.
-     * @param { AsyncCallback<void> } callback The callback
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
-     * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @since 9
-     */
-    /**
-     * Sends a response APDU to the remote device.
-     *
-     * @permission ohos.permission.NFC_CARD_EMULATION
-     * @param { int[] } response Indicates the response to send, which is a byte array.
-     * @param { AsyncCallback<void> } callback The callback
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3100301 - Card emulation running state is abnormal in service.
-     * @syscap SystemCapability.Communication.NFC.CardEmulation
-     * @FaAndStageModel
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 23 static
-     */
-    transmit(response: int[], callback: AsyncCallback<void>): void;
   }
 }
 export default cardEmulation;

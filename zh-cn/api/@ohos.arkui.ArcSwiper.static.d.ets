@@ -256,7 +256,7 @@ export declare interface ArcSwiperContentAnimatedTransition {
 
   /**
    * ArcSwiper自定义切换动画超时时间。从页面执行默认动画（页面滑动）至移出视窗外的第一帧开始计时，如果到达该时间后，开发者仍未调用
-   * [SwiperContentTransitionProxy](docroot://reference/apis-arkui/arkui-ts/ts-container-arcswiper copy.md#swipercontenttransitionproxy)
+   * [SwiperContentTransitionProxy]{@link ./swiper.SwiperContentTransitionProxy}
    * 的[finishTransition]{@link ArcSwiperContentTransitionProxy.finishTransition}接口通知ArcSwiper组件此页面的自定义动画已结束，那么组件就会认为此页面的
    * 自定义动画已结束，立即在该页面节点下渲染树。<br/>单位：ms<br/>默认值：0。
    *
@@ -484,7 +484,7 @@ export declare interface ArcSwiperAttribute extends CommonMethod {
    * 自定义ArcSwiper页面切换动画。在页面跟手滑动和离手后执行切换动画的过程中，会对视窗内所有页面逐帧触发回调，开发者可在回调中设置透明度、缩放比例、位移等属性。
    *
    * 在页面跟手滑动和离手后执行切换动画的过程中，会对视窗内所有页面逐帧触发
-   * [SwiperContentTransitionProxy](docroot://reference/apis-arkui/arkui-ts/ts-container-arcswiper copy.md#swipercontenttransitionproxy)
+   * [SwiperContentTransitionProxy]{@link ./swiper.SwiperContentTransitionProxy}
    * 回调。例如，当视窗内有下标为0、1的两个页面时，会每帧触发两次index值分别为0和1的回调。
    *
    * @param { ArcSwiperContentAnimatedTransition | undefined } transition - ArcSwiper自定义切换动画相关信息。<br/>取值为undefined时，无回调。

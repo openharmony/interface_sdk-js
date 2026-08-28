@@ -1399,7 +1399,7 @@ declare class PersistentStorage {
 declare const appStorage: AppStorage;
 
 /**
- * LocalStorage是页面级的UI状态存储，通过[@Entry](docroot://reference/apis-arkui/arkui-ts/ts-universal-entry.md#entry)装饰器接收的参数可以在页面内
+ * LocalStorage是页面级的UI状态存储，通过[@Entry]{@link ./common.Entry}装饰器接收的参数可以在页面内
  * 共享同一个LocalStorage实例。具体UI使用说明，详见[LocalStorage：页面级UI状态存储](docroot://ui/state-management/arkts-localstorage.md)。
  * 
  * > **说明：**

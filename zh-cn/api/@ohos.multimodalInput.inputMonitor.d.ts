@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Input Monitor
+ * @file 输入监听
  * @kit InputKit
  */
 
@@ -38,14 +38,6 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 
 /**
  * 输入监听模块，提供了监听输入设备事件的能力。输入设备事件当前包括触屏输入事件、鼠标输入事件和触控板输入事件。
- * 
- * > **说明：**
- * >
- * > - 本模块同时支持ArkTS-Dyn、ArkTS-Sta。
- * >
- * > - 文档中“全局”表示整个触控屏或触控板。如监听全局触屏输入事件，表示触摸触控板任何位置时，整个触控板的触屏输入事件均被监听。
- * >
- * > - 本模块接口均为系统接口。
  *
  * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
  * @systemapi hide for inner use
@@ -86,7 +78,7 @@ declare namespace inputMonitor {
    * 监听全局触屏事件。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { TouchEventReceiver } receiver - 回调函数，异步上报触摸屏输入事件。
+   * @param { TouchEventReceiver } receiver - 回调函数，返回触摸屏输入事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -117,7 +109,7 @@ declare namespace inputMonitor {
    * 监听全局鼠标事件。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { Callback<MouseEvent> } receiver - 回调函数，异步上报鼠标输入事件。
+   * @param { Callback<MouseEvent> } receiver - 回调函数，返回鼠标输入事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -150,7 +142,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { display.Rect[] } rect - 可以触发回调任务的矩形区域，可传入1至2个。
-   * @param { Callback<MouseEvent> } receiver - 回调函数，异步上报鼠标输入事件。
+   * @param { Callback<MouseEvent> } receiver - 回调函数，返回鼠标输入事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -243,7 +235,7 @@ declare namespace inputMonitor {
    * 监听全局触控板的捏合事件。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { Callback<Pinch> } receiver - 回调函数，异步上报捏合输入事件。
+   * @param { Callback<Pinch> } receiver - 回调函数，返回捏合输入事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -306,8 +298,8 @@ declare namespace inputMonitor {
    * 监听全局触控板的捏合事件。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { int } fingers - 捏合的手指数，手指数不能小于0，当前仅支持收到捏合手势的回调。
-   * @param { Callback<Pinch> } receiver - 回调函数，异步上报捏合输入事件。
+   * @param { int } fingers - 捏合的手指数，取值范围：大于等于2。
+   * @param { Callback<Pinch> } receiver - 回调函数，返回捏合输入事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -339,7 +331,7 @@ declare namespace inputMonitor {
    * 取消监听全局触控板的捏合事件。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { int } fingers - 捏合的手指数，手指数不能小于0，当前仅支持收到捏合手势的回调。
+   * @param { int } fingers - 捏合的手指数，取值范围：大于等于2。
    * @param { Callback<Pinch> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
@@ -372,8 +364,8 @@ declare namespace inputMonitor {
    * 监听全局触控板的旋转事件。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { int } fingers - 旋转的手指数，手指数不能小于0，当前仅支持收到旋转手势的回调。
-   * @param { Callback<Rotate> } receiver - 回调函数，异步上报旋转输入事件。
+   * @param { int } fingers - 旋转的手指数，目前支持监听手指数是2。
+   * @param { Callback<Rotate> } receiver - 回调函数，返回旋转输入事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -405,8 +397,8 @@ declare namespace inputMonitor {
    * 取消监听全局触控板的旋转事件。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { int } fingers - 旋转的手指数，手指数不能小于0，当前仅支持收到旋转手势的回调。
-   * @param { Callback<Rotate> }[receiver] - Callback used to receive the reported data.
+   * @param { int } fingers - 旋转的手指数，目前支持监听手指数是2。
+   * @param { Callback<Rotate> }[receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -437,7 +429,7 @@ declare namespace inputMonitor {
    * 监听全局触控板的三指滑动事件。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { Callback<ThreeFingersSwipe> } receiver - 回调函数，异步上报三指滑动输入事件。
+   * @param { Callback<ThreeFingersSwipe> } receiver - 回调函数，返回三指滑动输入事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -499,7 +491,7 @@ declare namespace inputMonitor {
    * 监听全局触控板的四指滑动事件。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { Callback<FourFingersSwipe> } receiver - 回调函数，异步上报四指滑动输入事件。
+   * @param { Callback<FourFingersSwipe> } receiver - 回调函数，返回四指滑动输入事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -561,7 +553,7 @@ declare namespace inputMonitor {
    * 监听全局触控板的三指轻点事件。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { Callback<ThreeFingersTap> } receiver - 回调函数，异步上报三指轻点输入事件。
+   * @param { Callback<ThreeFingersTap> } receiver - 回调函数，返回三指轻点输入事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -623,7 +615,7 @@ declare namespace inputMonitor {
    * 监听指纹手势输入事件。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { Callback<FingerprintEvent> } receiver - 用于接收上报数据的回调函数。
+   * @param { Callback<FingerprintEvent> } receiver - 回调函数，返回指纹器件手势输入事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -669,7 +661,7 @@ declare namespace inputMonitor {
    * 监听向内滑动事件。使用callback异步回调。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { 'swipeInward' } type - 输入事件类型，取唯一值'SwipeInward'。
+   * @param { 'swipeInward' } type - 输入事件类型，取唯一值'swipeInward'。
    * @param { Callback<SwipeInward> } receiver - 回调函数，返回向内滑动事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
@@ -684,7 +676,7 @@ declare namespace inputMonitor {
    * 监听向内滑动事件。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { Callback<SwipeInward> } receiver - 用于接收上报数据的回调函数。
+   * @param { Callback<SwipeInward> } receiver - 回调函数，返回向内滑动事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
    * @throws { BusinessError } 401 - Parameter error.
@@ -747,7 +739,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { int } fingers - 滑动手势的手指数，取值范围：[3,5]。
-   * @param { Callback<TouchGestureEvent> } receiver - 回调函数，异步上报触摸屏滑动手势事件。
+   * @param { Callback<TouchGestureEvent> } receiver - 回调函数，返回触摸屏滑动手势事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -821,7 +813,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { int } fingers - 捏合手势的手指数，取值范围：[4,5]。
-   * @param { Callback<TouchGestureEvent> } receiver - 回调函数，异步上报触摸屏捏合手势事件。
+   * @param { Callback<TouchGestureEvent> } receiver - 回调函数，返回触摸屏捏合手势事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -877,7 +869,7 @@ declare namespace inputMonitor {
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'keyPressed' } type - 按键事件类型，取唯一值'keyPressed'。
    * @param { Array<KeyCode> }  keys - 键值，支持如下键值：KEYCODE_META_LEFT、KEYCODE_META_RIGHT、KEYCODE_POWER、KEYCODE_VOLUME_DOWN、
-   *     KEYCODE_VOLUME_UP。
+   * KEYCODE_VOLUME_UP。
    * @param { Callback<KeyEvent> } receiver - 回调函数，返回按键输入事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -894,9 +886,9 @@ declare namespace inputMonitor {
    * 监听指定按键的按下抬起事件，支持监听META_LEFT键、META_RIGHT键、电源键、音量键。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { Array<KeyCode> }  keys - 按键码列表，支持如下取值：KEYCODE_META_LEFT、KEYCODE_META_RIGHT、KEYCODE_POWER、
-   *     KEYCODE_VOLUME_DOWN、KEYCODE_VOLUME_UP。
-   * @param { Callback<KeyEvent> } receiver - 用于接收上报数据的回调函数。
+   * @param { Array<KeyCode> }  keys - 键值，支持如下键值：KEYCODE_META_LEFT、KEYCODE_META_RIGHT、KEYCODE_POWER、
+   * KEYCODE_VOLUME_DOWN、KEYCODE_VOLUME_UP。
+   * @param { Callback<KeyEvent> } receiver - 回调函数，返回按键输入事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -943,16 +935,16 @@ declare namespace inputMonitor {
    * 查询最近的触屏输入事件，最多支持查询100条事件，从API版本26.0.0开始，最多支持查询60条事件，使用Promise异步回调。
    *
    * @permission ohos.permission.INPUT_MONITORING
-   * @param { int } count - 需要查询的触屏输入事件数量，取值范围为0到100的整数。小于0时取值为0、大于100时取值为100。从API版本26.0.0开始，大于60时取值为60。如果实际触屏输入事件只有30个，
-   *     但该参数取值为50 ，则仅支持查询到30个触屏输入事件。
+   * @param { int } count - 需要查询的触屏输入事件数量，取值范围为[0, 100]的整数。小于0时取值为0、大于100时取值为100。从API版本26.0.0开始，大于60时取值为60。如果实际触屏输入事件只有30个，
+   * 但该参数取值为50 ，则仅支持查询到30个触屏输入事件。
    * @returns { Promise<Array<TouchEvent>> } Promise对象，返回查询到的触屏输入事件。包含以下有效信息，其余均为无效信息：<br/>- actionTime：触屏输入事件发生的时间，表示系统
-   *     启动运行至今逝去的微秒数，单位为微秒（μs）。<br/>- [SourceType]{@link @ohos.multimodalInput.touchEvent:SourceType}：触摸来源的设备类型。<br/>-
-   *     [isInject]{@link @ohos.multimodalInput.touchEvent:TouchEvent}：表示该触屏输入事件是否为注入事件。<br/>- pressure：压力值，取值范围是
-   *     [0.0, 1.0]，0.0表示不支持。<br/>- tiltX：相对YZ平面的角度，取值的范围[-90, 90]，其中正值是向右倾斜。<br/>- tiltY：相对XZ平面的角度，取值的范围[-90, 90]，其中正值是
-   *     向下倾斜。<br/>从API version 23开始，可以额外获取以下有效信息：<br/>- [Action]{@link @ohos.multimodalInput.touchEvent:Action}：触屏输入事件类
-   *     型。<br/>- screenX：相对于屏幕左上角的X轴坐标，单位为像素，取值范围[0, 屏幕宽度]，向右递增。仅限指定应用获取。<br/>- screenY：相对于屏幕左上角的Y轴坐标，单位为像素，取值范围
-   *     [0, 屏幕高度]，向下递增。仅限指定应用获取。<br/>从API版本26.0.0开始，最多支持查询60条事件，且不会返回MOVE和PULL_MOVE类型的事件。screenX和screenY不再限制指定应用获取，所有系统
-   *     应用均可获取。同时可以额外获取以下有效信息：<br/>- screenId：目标屏幕ID。
+   * 启动运行至今逝去的微秒数，单位为微秒（μs）。<br/>- [SourceType]{@link @ohos.multimodalInput.touchEvent:SourceType}：触摸来源的设备类型。<br/>-
+   * [isInject]{@link @ohos.multimodalInput.touchEvent:TouchEvent}：表示该触屏输入事件是否为注入事件。<br/>- pressure：压力值，取值范围是
+   * [0.0, 1.0]，0.0表示不支持。<br/>- tiltX：相对YZ平面的角度，取值的范围[-90, 90]，其中正值是向右倾斜。<br/>- tiltY：相对XZ平面的角度，取值的范围[-90, 90]，其中正值是
+   * 向下倾斜。<br/>从API version 23开始，可以额外获取以下有效信息：<br/>- [Action]{@link @ohos.multimodalInput.touchEvent:Action}：触屏输入事件类
+   * 型。<br/>- screenX：相对于屏幕左上角的X轴坐标，单位为像素，取值范围[0, 屏幕宽度]，向右递增。仅限指定应用获取。<br/>- screenY：相对于屏幕左上角的Y轴坐标，单位为像素，取值范围
+   * [0, 屏幕高度]，向下递增。仅限指定应用获取。<br/>从API版本26.0.0开始，最多支持查询60条事件，且不会返回MOVE和PULL_MOVE类型的事件。screenX和screenY不再限制指定应用获取，所有系统
+   * 应用均可获取。同时可以额外获取以下有效信息：<br/>- screenId：目标屏幕ID。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor

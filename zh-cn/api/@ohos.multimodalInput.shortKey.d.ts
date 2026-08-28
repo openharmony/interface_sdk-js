@@ -14,10 +14,9 @@
 */
 
 /**
- * The **shortKey** module provides APIs to set the delay for starting an ability using a shortcut key. For example, you
- * can set the delay to 3 seconds so that a screenshot is taken when you press and hold the shortcut key for 3 seconds.
+ * 通过本模块接口，可以设置快捷键拉起Ability的延迟时间，如设置长按快捷键3s后再截屏等。
  *
- * @file Preset Global Shortcut Keys
+ * @file 系统预置全局快捷键
  * @kit InputKit
  */
 
@@ -25,10 +24,7 @@ import type { AsyncCallback } from './@ohos.base';
 
 /**
  * 通过本模块接口，可以设置快捷键拉起Ability的延迟时间，如设置长按快捷键3s后再截屏等。
- * 
- * > **说明：**
- * >
- * > - 本模块接口为系统接口。
+ *
  * @syscap SystemCapability.MultimodalInput.Input.ShortKey
  * @systemapi hide for inner use
  * @since 10 dynamic
@@ -57,7 +53,7 @@ declare namespace shortKey {
    *
    * @param { string } businessKey - 业务在多模侧注册的唯一标识，与ability_launch_config.json中的businessId对应。调用接口前自行查询。
    * @param { int } delay - 按下快捷键多长时间后拉起Ability，单位：ms，仅支持快捷键按下触发。
-   * @returns { Promise<void> } Returns the result through a promise.
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -68,8 +64,6 @@ declare namespace shortKey {
    */
   function setKeyDownDuration(businessKey: string, delay: int): Promise<void>;
 }
-
-export default shortKey;
 
 /**
  * 指纹手势事件类型的枚举。
@@ -172,3 +166,5 @@ export declare interface FingerprintEvent {
    */
   distanceY: double;
 }
+
+export default shortKey;

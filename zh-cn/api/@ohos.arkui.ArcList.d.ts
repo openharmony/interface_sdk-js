@@ -147,7 +147,7 @@ export interface ArcListItemInterface {
 
 /**
  * 除支持[通用属性]{@link ./@internal/component/ets/common}外，还支持以下属性（不支持
- * [滚动组件通用属性](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#属性)）：
+ * [滚动组件通用属性]{@link ScrollableCommonMethod}）：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform

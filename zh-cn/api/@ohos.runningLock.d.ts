@@ -21,8 +21,8 @@
 import { AsyncCallback, BusinessError } from './@ohos.base';
 
 /**
- * 该模块为RunningLock锁相关操作的接口，提供使能接近光亮灭屏或者设备熄屏后阻止进入睡眠的能力，包括创建、查询、持锁、释放锁等操作，类型详情见
- * [RunningLockType]{@link runningLock.RunningLockType}。
+ * 该模块为RunningLock锁相关操作的接口，提供阻止系统睡眠和使能接近光控制亮灭屏的能力，适用于设备灭屏后保持后台任务持续运行、接近光控制亮灭屏、以及阻止系统闲时自动睡眠等场景，保证关键任务的持续执行。
+ * 包括创建、查询、持锁、释放锁等操作，类型详情见[RunningLockType]{@link runningLock.RunningLockType}。
  *
  * @syscap SystemCapability.PowerManager.PowerManager.Core
  * @since 7 dynamic
@@ -31,7 +31,8 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
 declare namespace runningLock {
 
   /**
-   * 阻止系统睡眠的锁。
+   * 阻止系统睡眠或使能接近光控制亮灭屏的锁，不同的锁类型具有不同的功能，详见[RunningLockType]{@link runningLock.RunningLockType}。
+   * 需结合[create]{@link create}创建锁、[hold]{@link hold}持锁、[unhold]{@link unhold}释放锁使用。具体使用方法见示例。
    *
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamic
@@ -39,7 +40,7 @@ declare namespace runningLock {
    */
   class RunningLock {
     /**
-     * 锁定和持有RunningLock。
+     * 持有RunningLock锁。
      *
      * @permission ohos.permission.RUNNING_LOCK
      * @param { number } timeout - 锁定和持有RunningLock的时长，单位：毫秒。
@@ -51,13 +52,15 @@ declare namespace runningLock {
     lock(timeout: number): void;
 
     /**
-     * 锁定和持有RunningLock。
+     * 锁定和持有RunningLock。适用于应用需要在后台持续运行（如后台下载、长时间定位追踪等）时阻止系统睡眠的场景或通话时需要接近光控制亮灭屏的场景等。调用此方法后，
+     * 必须在使用完毕时调用unhold()释放锁，或者在调用时设置超时释放时间由系统自动释放，与unhold()方法配对使用。未释放锁会导致阻止睡眠或者控制亮灭屏功能持续生效。
      *
      * @permission ohos.permission.RUNNING_LOCK
-     * @param { int } timeout - 锁定和持有RunningLock的时长，单位：毫秒。<br>该参数必须为数字类型：<br>**-1**：永久持锁，需要主动释放。<br>**0**：默认3s后超时释放。<br>
+     * @param { int } timeout - 锁定和持有RunningLock的时长，单位：毫秒。<br>**-1**：永久持锁，需要主动释放。<br>**0**：默认3s后超时释放。<br>
      *     **>0**：按传入值超时释放。
      * @throws { BusinessError } 201 - If the permission is denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+     *     2. Parameter verification failed.
      * @syscap SystemCapability.PowerManager.PowerManager.Core
      * @since 9 dynamic
      * @since 23 static
@@ -97,7 +100,7 @@ declare namespace runningLock {
     unlock(): void;
 
     /**
-     * 释放RunningLock锁。
+     * 释放RunningLock锁。此方法与hold()配对使用，在调用hold()锁定后调用此方法释放锁。
      *
      * @permission ohos.permission.RUNNING_LOCK
      * @throws { BusinessError } 201 - If the permission is denied.
@@ -175,7 +178,7 @@ declare namespace runningLock {
   /**
    * 查询系统是否支持该类型的锁。
    *
-   * @param { RunningLockType } type - 需要查询的锁的类型；该参数必须是一个枚举类。
+   * @param { RunningLockType } type - 需要查询的锁的类型。
    * @returns { boolean } 返回true表示支持，返回false表示不支持。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    *     2. Parameter verification failed.
@@ -191,8 +194,7 @@ declare namespace runningLock {
    * @permission ohos.permission.RUNNING_LOCK
    * @param { string } name - 锁的名字。建议使用包名或类名加后缀的方式命名。
    * @param { RunningLockType } type - 要创建的锁的类型。
-   * @param { AsyncCallback<RunningLock> } callback - 回调函数。当创建锁成功，err为undefined，data为创建的RunningLock；否则为错误对象；
-   *     AsyncCallback封装了一个RunningLock类型的类。
+   * @param { AsyncCallback<RunningLock> } callback - 回调函数。当创建锁成功，err为undefined，data为创建的RunningLock；否则为错误对象。
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -215,15 +217,15 @@ declare namespace runningLock {
   function createRunningLock(name: string, type: RunningLockType): Promise<RunningLock>;
 
   /**
-   * 创建RunningLock锁。使用callback异步回调。
+   * 创建RunningLock锁对象。使用callback异步回调。创建锁对象后，需调用hold()方法锁定和持有该锁，才能使锁功能生效。
    *
    * @permission ohos.permission.RUNNING_LOCK
-   * @param { string } name - 锁的名字；该参数必须为字符串类型。
-   * @param { RunningLockType } type - 要创建的锁的类型；该参数必须是一个枚举类。
-   * @param { AsyncCallback<RunningLock> } callback - 回调函数。当创建锁成功，err为undefined，data为创建的RunningLock；否则为错误对象；
-   *     AsyncCallback封装了一个RunningLock类型的类。
+   * @param { string } name - 锁的名字。建议使用包名或类名加后缀的方式命名。
+   * @param { RunningLockType } type - 要创建的锁的类型。不同锁类型有不同的使用注意事项，详见RunningLockType。
+   * @param { AsyncCallback<RunningLock> } callback - 回调函数。当创建锁成功，err为undefined，data为创建的RunningLock；否则为错误对象。
    * @throws { BusinessError } 201 - If the permission is denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9 dynamic
    * @since 23 static
@@ -231,14 +233,15 @@ declare namespace runningLock {
   function create(name: string, type: RunningLockType, callback: AsyncCallback<RunningLock>): void;
 
   /**
-   * 创建RunningLock锁。使用Promise异步回调。
+   * 创建RunningLock锁对象。使用Promise异步回调。创建锁对象后，需调用hold()方法锁定和持有该锁，才能使锁功能生效。
    *
    * @permission ohos.permission.RUNNING_LOCK
-   * @param { string } name - 锁的名字；该参数必须为字符串类型。
-   * @param { RunningLockType } type - 要创建的锁的类型；该参数必须是一个枚举类。
-   * @returns { Promise<RunningLock> } Promise对象，返回RunningLock锁对象。
+   * @param { string } name - 锁的名字。建议使用包名或类名加后缀的方式命名。
+   * @param { RunningLockType } type - 要创建的锁的类型。不同锁类型有不同的使用注意事项，详见RunningLockType。
+   * @returns { Promise<RunningLock> } Promise对象。创建成功时返回RunningLock锁对象；创建失败时返回错误对象。
    * @throws { BusinessError } 201 - If the permission is denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
+   *     2. Parameter verification failed.
    * @syscap SystemCapability.PowerManager.PowerManager.Core
    * @since 9 dynamic
    * @since 23 static

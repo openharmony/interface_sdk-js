@@ -170,7 +170,7 @@ export declare interface CheckboxAttribute extends CommonMethod {
     default selectedColor(value: ResourceColor | undefined): this;
     /**
      * 设置CheckBox组件形状，包括圆形和圆角方形。如果想要调整当前CheckBox的样式，需使用
-     * [contentModifier](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-checkbox copy.md#contentmodifier12)
+     * [contentModifier]{@link contentModifier}
      * 属性自定义CheckBox样式。
      *
      * @param { CheckBoxShape | undefined } value - CheckBox组件形状，包括圆形和圆角方形。<br/>当value的值为undefined时，默认值为
@@ -182,9 +182,7 @@ export declare interface CheckboxAttribute extends CommonMethod {
      */
     default shape(value: CheckBoxShape | undefined): this;
     /**
-     * 设置多选框非选中状态的边框颜色。与
-     * [unselectedColor](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-checkbox copy.md#unselectedcolor10)
-     * 相比，value参数新增了对undefined类型的支持。
+     * 设置多选框非选中状态的边框颜色。
      *
      * @param { ResourceColor | undefined } value - 多选框非选中状态边框颜色。<br/>当value的值为undefined时取默认值$r('
      *     sys.color.ohos_id_color_switch_outline_off')
@@ -195,8 +193,7 @@ export declare interface CheckboxAttribute extends CommonMethod {
      */
     default unselectedColor(value: ResourceColor | undefined): this;
     /**
-     * 设置多选框内部图标的样式。与[mark](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-checkbox copy.md#mark10)相比，value
-     * 参数新增了对undefined类型的支持。
+     * 设置多选框内部图标的样式。
      *
      * @param { MarkStyle | undefined } value - 多选框内部图标样式。 从API version 12开始，设置了indicatorBuilder时，按照indicatorBuilder中的内容
      *     显示。取值为undefined时，按默认值处理。<br/>默认值：{<br/>strokeColor : `$r('sys.color.ohos_id_color_foreground_contrary')`,<br/
@@ -219,7 +216,7 @@ export declare interface CheckboxAttribute extends CommonMethod {
     default onChange(callback: OnCheckboxChangeCallback | undefined): this;
     /**
      * 定制CheckBox内容区的方法。与
-     * [contentModifier](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-checkbox copy.md#contentmodifier12)
+     * [contentModifier]{@link contentModifier}
      * 相比，modifier参数新增了对undefined类型的支持。设置该属性时，会导致其他属性设置失效。
      *
      * @param { ContentModifier<CheckBoxConfiguration> | undefined } modifier - 在CheckBox组件上，定制内容区的方法。<br/>modifier：内容修改

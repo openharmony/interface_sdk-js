@@ -37,7 +37,7 @@ import uiMaterial from './@ohos.arkui.uiMaterial';
 export interface IconOptions {
 
   /**
-   * 图标图片或图片地址引用请参考[Image](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#image-1)。
+   * 图标图片或图片地址引用请参考[Image]{@link ./image}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
