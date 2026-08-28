@@ -418,14 +418,14 @@ declare namespace floatingBall {
      * Sets whether the floating ball is visible in the application. This API uses a promise to return the result.
      *
      * - When the application is on the recent tasks screen (the
-     * [lifecycle state](docroot://windowmanager/window-overview.md#lifecycle-states) is **PAUSED**), the floating ball
+     * [lifecycle state](docroot://windowmanager/window-lifecycle.md#lifecycle-states-of-an-apps-main-window) is **PAUSED**), the floating ball
      * is invisible.
      * - By default (when this API is not called) or when this API is called with the value **true** passed in, the
      * floating ball is visible except on the recent tasks screen.
      * - When this API is called with the value **false** passed in, the floating ball is invisible when the application
-     * is in the foreground (the [lifecycle state](docroot://windowmanager/window-overview.md#lifecycle-states) is
+     * is in the foreground (the [lifecycle state](docroot://windowmanager/window-lifecycle.md#lifecycle-states-of-an-apps-main-window) is
      * **SHOWN** or **RESUMED**) and is visible when the application is in the background (the
-     * [lifecycle state](docroot://windowmanager/window-overview.md#lifecycle-states) is **HIDDEN**).
+     * [lifecycle state](docroot://windowmanager/window-lifecycle.md#lifecycle-states-of-an-apps-main-window) is **HIDDEN**).
      *
      * @param { boolean } isVisible - **true** indicates that the floating ball is visible in the application, and
      *     **false** indicates the opposite.
