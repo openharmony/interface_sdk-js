@@ -364,19 +364,22 @@ declare namespace media {
   type OnAdsEventAdsStartedHandle = (adsId: string, duration: int) => void;
 
   /**
-   * 广告内容控制接口
-   *
+   * 广告内容控制接口，用于管理广告播放控制器中的广告资源及监听广告事件，支持添加和移除广告源、跳过当前广告、禁用剩余广告等，适用于需要在视频播放过程中插入和管理广告内容的场景。
+   * 通过[createAVAdsController]{@link media.createAVAdsController(player: AVPlayer)}创建实例。
+   * 
    * @syscap SystemCapability.Multimedia.Media.AVPlayer
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  interface AVAdsController {  
+  interface AVAdsController {
     /**
-     * 向广告控制器添加广告媒体源，指定广告在主媒体资源播放进度中的插入位置。使用Promise异步回调。
+     * 向广告控制器添加广告媒体源，指定广告在主媒体资源播放进度中的插入位置。
+     * 例如，可在视频播放器中的主内容播放前插入片头广告，或在播放过程中插入片间广告。如果同一位置插入多个广告，则按添加顺序依次播放。使用Promise异步回调。
      *
      * @param { MediaSource } src - 要插入到主内容中播放的媒体源。
      * @param { int } start - 广告媒体源在主媒体资源播放进度中的插入位置，从主媒体资源开始播放时计算。
-     *     <br>Unit: 单位为毫秒（ms）。
+     *     <br>单位为毫秒（ms）。
+     *     <br>取值限定为非负整数，且不得超过主媒体资源的总时长，否则会触发错误码5400108。
      * @returns { Promise<string> } Promise对象，返回添加到广告控制器中的媒体源ID，removeAdsMediaSource接口可用该ID移除对应的广告源。
      * @throws { BusinessError } 5400108 - Insert a media asset whose start value exceeds the value of the main content.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
@@ -5814,6 +5817,7 @@ declare namespace media {
    * 
    * > **说明：**
    * >
+   * > - 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
    * > - 本Interface首批接口从API version 12开始支持。
    *
    * @syscap SystemCapability.Multimedia.Media.Core
@@ -11874,6 +11878,8 @@ declare namespace media {
 
   /**
    * 离线下载任务管理接口，用于管理媒体资源的离线下载任务，包括创建、暂停、恢复、移除下载任务以及监听下载状态和进度变化事件。
+   * 适用于需要在应用内支持流媒体资源离线缓存、实现无网络环境下播放等场景，可帮助用户节省流量并提升弱网或离线场景下的媒体播放体验。
+   * 通过[createAVDownloaderManager]{@link media.createAVDownloaderManager()}创建实例。
    *
    * @syscap SystemCapability.Multimedia.Media.Core
    * @stagemodelonly
@@ -11884,7 +11890,7 @@ declare namespace media {
     /**
      * 设置是否允许在蜂窝网络环境下进行下载。默认情况下仅在Wi-Fi环境下进行下载。如果设置不允许在蜂窝网络下载，但网络环境为蜂窝网络环境时，下载任务将暂停等待Wi-Fi环境可用后继续。
      *
-     * @param { boolean } value - 	是否允许在蜂窝网络环境下进行下载。true：允许在蜂窝网络环境下下载。- false：不允许在蜂窝网络环境下下载（默认）。
+     * @param { boolean } value - 是否允许在蜂窝网络环境下进行下载。true：允许在蜂窝网络环境下下载。- false：不允许在蜂窝网络环境下下载（默认）。
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -11894,10 +11900,11 @@ declare namespace media {
     /**
      * 设置HTTP请求的网络超时时间。超时后下载任务将失败。
      *
-     * @param { int } timeout - 	超时时间，单位为毫秒。
+     * @param { int } timeout - 超时时间，单位为毫秒。
      *     <br>取值限定为整数。
      *     <br>如果值大于0，表示超时时间，取值范围(0, +∞)。
      *     <br>如果值小于等于0，表示无超时限制，建议根据业务场景设置合理的超时时间以避免任务长时间挂起。
+     *     <br>如果不设置，使用默认超时时间，默认时间为60000毫秒。
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -11930,6 +11937,7 @@ declare namespace media {
 
     /**
      * 暂停指定离线下载任务，已下载的部分数据将保留，恢复后可从断点继续下载。
+     * 任务需处于下载中状态，否则会返回错误码5400102。不指定任务ID时，暂停所有离线下载任务。暂停后的任务可通过resumeDownloadTask恢复。
      *
      * @param { string } [taskId] - 要暂停的离线下载任务ID。
      *     <br>默认值：不指定此参数时，暂停所有下载任务。
@@ -11942,7 +11950,7 @@ declare namespace media {
     pauseDownloadTask(taskId?: string): void;
 
     /**
-     * 恢复指定离线下载任务，从上次暂停的断点处继续下载。
+     * 恢复指定离线下载任务，从上次暂停的断点处继续下载。任务需处于暂停的状态，否则会返回错误码5400102。不指定任务ID时，恢复所有已暂停的离线下载任务。
      *
      * @param { string } [taskId] - 要恢复的离线下载任务ID，任务需处于已暂停状态。
      *     <br>默认值：不指定此参数时，恢复所有已暂停的离线下载任务。

@@ -13167,6 +13167,193 @@ declare interface SheetOptions extends BindOptions {
    * @since 26.0.0 dynamic
    */
   blurSnapshot?: BlurSnapshotOptions;
+
+  /**
+   * Background blur effect of the title bar.
+   * Supports customizing blur parameters via options.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  titleBarBackgroundBlur?: SheetTitleBarBackgroundBlurOptions;
+
+  /**
+   * Title bar hover mode.
+   * - STANDARD: The title bar and content are arranged vertically without overlapping.
+   * - STACK: The title bar overlays on top of the content. Developers need to add padding to avoid occlusion.
+   * Default value: **SheetTitleBarHoverMode.STANDARD**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  titleBarHoverMode?: SheetTitleBarHoverMode;
+
+  /**
+   * Scroll bar display state of the built-in Scroll component in bindSheet.
+   * Default value: **BarState.Off**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  scrollBarState?: BarState;
+
+  /**
+   * System material effect of the close button.
+   * Default value: **undefined**, indicating that no material is set.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  closeButtonMaterial?: SystemUiMaterial;
+}
+
+/**
+ * Enum of title bar background blur styles.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamiconly
+ */
+declare enum SheetTitleBarBackgroundBlur {
+  /**
+   * No blur effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  NONE = 0,
+
+  /**
+   * Gradient blur: fades from the top of the title bar downward to transparent.
+   * The gradient range adapts to the title bar height, using system preset values.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  GRADIENT = 1
+}
+
+/**
+ * Custom options for title bar background blur.
+ * All sub-properties are optional; unset properties use system default values.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamiconly
+ */
+declare interface SheetTitleBarBackgroundBlurOptions {
+  /**
+   * Blur style.
+   * Set to GRADIENT to enable gradient blur effect.
+   * Default value: **SheetTitleBarBackgroundBlur.NONE**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  blurStyle?: SheetTitleBarBackgroundBlur;
+
+  /**
+   * Extra height of the gradient mask.
+   * Additional mask coverage height beyond the title bar height.
+   * Default value: **32vp**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  maskExtraHeight?: LengthMetrics;
+
+  /**
+   * Base color of the gradient mask.
+   * This color serves as the maximum color at the top of the mask.
+   * The system applies a built-in transparency curve to gradually fade it from top to bottom.
+   * When not set:
+   * on mid-to-high-performance devices: #CCF1F3F5 is used in light mode,
+   * and #66202224 is used in dark mode.
+   * On low-performance devices: #F2F1F3F5 is used in light mode,
+   * and #E5202224 is used in dark mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  maskColor?: ResourceColor;
+
+  /**
+   * Sliding distance required for the blur effect to transition from fully hidden to fully visible.
+   * Value range: greater than or equal to 0; values less than 0 are treated as 0.
+   * Default value: **8vp**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  effectiveDistance?: LengthMetrics;
+}
+
+/**
+ * Enum of title bar hover modes.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamiconly
+ */
+declare enum SheetTitleBarHoverMode {
+  /**
+   * Standard mode: The title bar and content are arranged vertically without overlapping.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  STANDARD = 0,
+
+  /**
+   * Stack mode: The title bar overlays on top of the content.
+   * Developers need to add padding at the top of the content to avoid occlusion.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  STACK = 1
 }
 
 /**
