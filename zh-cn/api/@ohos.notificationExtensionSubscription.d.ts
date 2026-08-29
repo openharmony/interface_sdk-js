@@ -83,8 +83,8 @@ declare namespace notificationExtensionSubscription {
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
-   * @see [unsubscribe]{@link notificationExtensionSubscription.unsubscribe(): Promise<void>} 取消通知扩展订阅。
-   * @see [getSubscribeInfo]{@link notificationExtensionSubscription.getSubscribeInfo(): Promise<NotificationExtensionSubscriptionInfo[]>} 获取应用通知扩展订阅信息。
+   * @see [unsubscribe]{@link notificationExtensionSubscription.unsubscribe()} 取消通知扩展订阅。
+   * @see [getSubscribeInfo]{@link notificationExtensionSubscription.getSubscribeInfo()} 获取应用通知扩展订阅信息。
    */
   function subscribe(info: NotificationExtensionSubscriptionInfo[]): Promise<void>;
 
@@ -99,7 +99,7 @@ declare namespace notificationExtensionSubscription {
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
-   * @see [subscribe]{@link notificationExtensionSubscription.subscribe(info: NotificationExtensionSubscriptionInfo[]): Promise<void>} 订阅通知扩展。
+   * @see [subscribe]{@link notificationExtensionSubscription.subscribe(info: NotificationExtensionSubscriptionInfo[])} 订阅通知扩展。
    */
   function unsubscribe(): Promise<void>;
 
@@ -116,7 +116,7 @@ declare namespace notificationExtensionSubscription {
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
-   * @see [subscribe]{@link notificationExtensionSubscription.subscribe(info: NotificationExtensionSubscriptionInfo[]): Promise<void>} 订阅通知扩展。
+   * @see [subscribe]{@link notificationExtensionSubscription.subscribe(info: NotificationExtensionSubscriptionInfo[])} 订阅通知扩展。
    */
   function getSubscribeInfo(): Promise<NotificationExtensionSubscriptionInfo[]>;
 

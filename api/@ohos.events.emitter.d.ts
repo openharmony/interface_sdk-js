@@ -203,7 +203,7 @@ declare namespace emitter {
    * Unsubscribes from all events with the specified event ID.
    *
    * After this API is used to unsubscribe from an event, the event that has been published through the 
-   * [emit]{@link emitter.emit(eventId: string)} API but has not been executed will be unsubscribed.
+   * [emit]{@link emitter#emit(event: InnerEvent, data?: EventData)} API but has not been executed will be unsubscribed.
    *
    * @param { long } eventId - Event ID.
    * @syscap SystemCapability.Notification.Emitter
@@ -233,12 +233,12 @@ declare namespace emitter {
   /**
    * Unsubscribes from an event with the specified event ID and processed by the specified callback. This API takes 
    * effect only when **Callback\<EventData>** has been registered through the 
-   * [on]{@link ./@ohos.events.emitter:on(event: InnerEvent, callback: Callback<EventData>)} or 
-   * [once]{@link ./@ohos.events.emitter:once(event: InnerEvent, callback: Callback<EventData>)} API. Otherwise, no processing is 
+   * [on]{@link emitter#on(event: InnerEvent, callback: Callback<EventData>)} or 
+   * [once]{@link emitter#once(event: InnerEvent, callback: Callback<EventData>)} API. Otherwise, no processing is 
    * performed.
    *
    * After this API is used to unsubscribe from an event, the event that has been published through the 
-   * [emit]{@link emitter.emit(eventId: string)} API but has not been executed will be unsubscribed.
+   * [emit]{@link emitter#emit(event: InnerEvent, data?: EventData)} API but has not been executed will be unsubscribed.
    *
    * @param { long } eventId - Event ID.
    * @param { Callback<EventData> } callback - Callback to unregister, which must be the same as the callback used
@@ -254,12 +254,12 @@ declare namespace emitter {
   /**
    * Unsubscribes from an event with the specified event ID and processed by the specified callback. This API takes 
    * effect only when **Callback\<EventData>** has been registered through the 
-   * [on]{@link ./@ohos.events.emitter:on(eventId: string, callback: Callback<EventData>)} or 
-   * [once]{@link ./@ohos.events.emitter:once(eventId: string, callback: Callback<EventData>)} API. Otherwise, no processing is 
+   * [on]{@link emitter#on(eventId: string, callback: Callback<EventData>)} or 
+   * [once]{@link emitter#once(eventId: string, callback: Callback<EventData>)} API. Otherwise, no processing is 
    * performed.
    *
    * After this API is used to unsubscribe from an event, the event that has been published through the 
-   * [emit]{@link emitter.emit(eventId: string)} API but has not been executed will be unsubscribed.
+   * [emit]{@link emitter#emit(eventId: string)} API but has not been executed will be unsubscribed.
    *
    * @param { string } eventId - Event ID, which cannot be empty or exceed 10,240 bytes. Excess content will be
    *     truncated.
@@ -288,12 +288,12 @@ declare namespace emitter {
   /**
    * Unsubscribes from an event with the specified event ID and processed by the specified callback. This API takes 
    * effect only when **Callback\<EventData>** has been registered through the 
-   * [on]{@link emitter.Emitter.on} or 
-   * [once]{@link emitter.Emitter.once} API. Otherwise, no 
+   * [on]{@link emitter#on(eventId: string, callback: Callback<GenericEventData<T>>)} or 
+   * [once]{@link emitter#once(eventId: string, callback: Callback<GenericEventData<T>>)} API. Otherwise, no 
    * processing is performed.
    *
    * After this API is used to unsubscribe from an event, the event that has been published through the 
-   * [emit]{@link emitter.emit(eventId: string)} API but has not been executed will be unsubscribed.
+   * [emit]{@link emitter#emit(eventId: string)} API but has not been executed will be unsubscribed.
    *
    * @param { string } eventId - Event ID, which cannot be empty or exceed 10,240 bytes. Excess content will be
    *     truncated.
@@ -849,12 +849,12 @@ declare namespace emitter {
 
     /**
      * Unsubscribes from an event of the Emitter instance. This API takes effect only when the 
-     * [on]{@link emitter.Emitter.on} or 
-     * [once]{@link emitter.Emitter.once} API is used to 
+     * [on]{@link emitter.Emitter#on(eventId: string, callback: Callback<GenericEventData<T>>)} or 
+     * [once]{@link emitter.Emitter#once(eventId: string, callback: Callback<GenericEventData<T>>)} API is used to 
      * subscribe to the event with specified event ID and a callback is used to process the event.
      *
      * After this API is used to unsubscribe from an event, the event that has been published through the 
-     * [emit]{@link emitter.Emitter#emit<T>(eventId: string, data?: GenericEventData<T>)} API but has not been executed 
+     * [emit]{@link emitter.Emitter#emit(eventId: string, data?: GenericEventData<T>)} API but has not been executed 
      * will be unsubscribed.
      *
      * @param { string } eventId - Event ID, which cannot be empty or exceed 10,240 bytes. Excess content will be
