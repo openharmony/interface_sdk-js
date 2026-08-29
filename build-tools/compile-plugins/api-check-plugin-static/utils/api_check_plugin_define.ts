@@ -138,10 +138,10 @@ export type ValueCheckerFunction = (
 export type FormatCheckerFunction = (version: string) => VersionValidationResult;
 
 export const SUPPRESSWARNINGS_RULE_INFO: Map<string, string> = new Map([
-  [SINCE_TAG_NAME, 'SuppressWarnings'],
-  [AVAILABLE_TAG_NAME, 'SuppressWarnings'],
-  [SYSCAP_TAG_CHECK_NAME, 'SuppressWarnings'],
-  [PERMISSION_TAG_CHECK_NAME, 'SuppressWarnings']
+  [SINCE_TAG_NAME, 'SuppressWarningsType.COMPATIBILITY'],
+  [AVAILABLE_TAG_NAME, 'SuppressWarningsType.COMPATIBILITY'],
+  [SYSCAP_TAG_CHECK_NAME, 'SuppressWarningsType.SYSCAP'],
+  [PERMISSION_TAG_CHECK_NAME, 'SuppressWarningsType.PERMISSION']
 ]);
 
 export const ERROR_CODE_INFO: Map<string, Omit<SdkHvigorLogInfo, 'cause' | 'position'>> = new Map([

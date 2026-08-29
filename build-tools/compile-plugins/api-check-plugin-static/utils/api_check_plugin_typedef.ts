@@ -236,3 +236,12 @@ export interface ApiAvailableResult {
   message: string,
   type: DiagnosticCategory.ERROR
 }
+interface ChainedModel {
+  isChain: boolean
+  chainNode: arkts.AstNode
+}
+
+export interface NodeParentModel {
+  node: arkts.AstNode
+  isChainedCall: ChainedModel
+}

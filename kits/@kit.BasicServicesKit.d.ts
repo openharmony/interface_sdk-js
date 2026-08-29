@@ -114,11 +114,12 @@ import distributedAccount from '@ohos.account.distributedAccount';
 import osAccount from '@ohos.account.osAccount';
 import authorization from '@ohos.account.osAccount.authorization';
 import intelligentScene from '@ohos.intelligentScene';
-import { Available } from '@ohos.annotation';
+import { Available, SuppressWarnings, SuppressWarningsType } from '@ohos.annotation';
 
 export {
   zlib, configPolicy, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, customConfig, systemDateTime,
   deviceInfo,systemTimer, systemLoad, request, commonEventManager, emitter, StaticSubscriberExtensionAbility,
-  StaticSubscriberExtensionContext, appAccount, distributedAccount, osAccount, authorization, intelligentScene, Available
+  StaticSubscriberExtensionContext, appAccount, distributedAccount, osAccount, authorization, intelligentScene, Available,
+  SuppressWarnings, SuppressWarningsType
 };
 /*** endif */

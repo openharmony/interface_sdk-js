@@ -47,7 +47,8 @@ import {
   SYSCAP_TAG_CHECK_NAME,
   AVAILABLE_DECORATOR_WARNING,
   PermissionValidTokenState,
-  ERROR_CODE_INFO
+  ERROR_CODE_INFO,
+  SINCE_TAG_NAME
 } from './api_check_plugin_define';
 import {
   CurrentAddress,
@@ -65,6 +66,7 @@ import { SinceJSDocChecker } from './validators/since_version_checker';
 import { SinceWarningSuppressor } from './validators/since_warning_suppressor';
 import { AvailableAnnotationChecker } from './validators/available_comparison_validator';
 import { AvailableWarningSuppressor } from './validators/available_warning_suppressor';
+import { PermissionWarningSuppressor } from './validators/permission_warning_suppressor';
 import {
   initComparisonFunctions,
 } from './api_check_base_utils';
@@ -72,44 +74,82 @@ import { getGlobalMonitor } from './performance_monitor';
 import { PERF } from './perf_constants';
 
 function isVersionRangeIntersect(start1: string, end1: string, start2: number, end2: number): boolean {
-  const numStart1 = parseVersion(start1);
-  const numEnd1 = parseVersion(end1);
-  const numStart2 = start2;
-  const numEnd2 = end2;
+  // Convert version strings to numeric representations
+  const range1StartNum = parseVersion(start1);
+  const range1EndNum = parseVersion(end1);
+  const range2StartNum = start2;
+  const range2EndNum = end2;
 
-  const aStart = Math.min(numStart1, numEnd1);
-  const aEnd = Math.max(numStart1, numEnd1);
-  const bStart = numStart2;
-  const bEnd = numEnd2;
+  // Normalize ranges to ensure start <= end
+  const normalizedRange1Start = Math.min(range1StartNum, range1EndNum);
+  const normalizedRange1End = Math.max(range1StartNum, range1EndNum);
+  const normalizedRange2Start = Math.min(range2StartNum, range2EndNum);
+  const normalizedRange2End = Math.max(range2StartNum, range2EndNum);
 
-  return !(aEnd < bStart || bEnd < aStart);
+  // Check for range intersection
+  const rangesIntersect = (normalizedRange1End < normalizedRange2Start || normalizedRange2End < normalizedRange1Start);
+
+  return rangesIntersect;
 }
 
-function parseVersion(s: string): number {
-  const pattern1 = /^(\d+)\.(\d+)\.(\d+)\((\d+)\)$/;
-  const pattern2 = /^\d{1,2}$/;
-  const pattern3 = /^(\d{1,2})\.(\d{1,2})\.(\d{1,2})$/;
+function parseVersion(versionStr: string): number {
 
-  if (pattern1.test(s)) {
-    const match = s.match(pattern1);
-    const buildNumber = parseInt(match![4], 10);
+  // Regular expressions for different version formats
+  const distributionOSVersionPattern = getBuildVersionRegex(SINCE_TAG_NAME, 'getBuildVersionRegex'); // Matches x.y.z(w) format
+  const simpleNumberPattern = /^\d{1,2}$/; // Matches 1-2 digit number
+  const semanticVersionPattern = /^(\d{1,2})\.(\d{1,2})\.(\d{1,2})$/; // Matches x.y.z format
+
+  // Check for build version format (x.y.z(w))
+  if (distributionOSVersionPattern !== undefined && distributionOSVersionPattern.test(versionStr)) {
+    const matchResult = versionStr.match(distributionOSVersionPattern);
+    const buildNumber = matchResult ? parseInt(matchResult[4]) : 0; // Extract number in parentheses
     return buildNumber * 10000;
   }
 
-  if (pattern2.test(s)) {
-    const number = parseInt(s, 10);
-    return number * 10000;
+  // Check for simple number format
+  if (simpleNumberPattern.test(versionStr)) {
+    const numberValue = parseInt(versionStr);
+    return numberValue * 10000;
   }
 
-  if (pattern3.test(s)) {
-    const parts = s.split('.');
-    const major = parseInt(parts[0], 10);
-    const minor = parseInt(parts[1], 10);
-    const patch = parseInt(parts[2], 10);
-    return major * 10000 + minor * 100 + patch;
+  // Check for semantic version format (x.y.z)
+  if (semanticVersionPattern.test(versionStr)) {
+    const versionParts = versionStr.split('.');
+    const majorVersion = parseInt(versionParts[0]);
+    const minorVersion = parseInt(versionParts[1]);
+    const patchVersion = parseInt(versionParts[2]);
+    return majorVersion * 10000 + minorVersion * 100 + patchVersion;
   }
 
+  // Return 0 for unrecognized format
   return 0;
+}
+
+/**
+ * Gets the build version regex.
+ * @param tag - The tag name.
+ * @param retype - The retry type name.
+ * @returns Returns the regex from external plugins.
+ */
+function getBuildVersionRegex(tag: string, functionType: string) : RegExp | undefined {
+  const tagName = `${globalObject.projectConfig.runtimeOS}/${tag}/${functionType}`;
+  const externalCheckers = externalApiCheckPlugin.get(tagName);
+  if (!externalCheckers || externalCheckers.length === 0) {
+    return undefined;
+  }
+  for (const plugin of externalCheckers) {
+    try {
+      const externalModule = require(plugin.path);
+      const externalMethod = externalModule[plugin.functionName];
+
+      if (typeof externalMethod === 'function') {
+        return externalMethod();
+      }
+    } catch (error) {
+      return undefined;
+    }
+  }
+  return undefined;
 }
 
 export function checkSystemApiTag(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem): boolean {
@@ -207,286 +247,6 @@ function getJSDocTag(JSDocTags: readonly JSDocTag[], tagName: string): JSDocTag 
     return item.tag === tagName;
   });
   return jsDocTag;
-}
-
-/**
- * 验证API文档注释中配置的permission是否被应用permission集合支持。
- * STEP1. 解析permission信息；
- * STEP2. 递归验证permission；
- * 
- * @param { string } comment jsdoc中comment信息
- * @param { string[] } permissionsArray 应用permission集合
- * @returns { boolean } 若应用权限集合满足注释中的权限表达式，返回 true；否则返回 false
- */
-function validPermission(comment: string, permissionsArray: string[]): boolean {
-  const permissionsItem: string[] = getSplitsArrayWithDesignatedCharAndStr(comment ?? '', ' ')
-    .filter((item) => {
-      return item !== '';
-    });
-  const permissionsQueue: string[] = [];
-  permissionsItem.forEach((item: string) => {
-    // STEP1.1 Parse'('
-    const leftParenthesisItem: string[] = getSplitsArrayWithDesignatedCharAndArrayStr([item], '(');
-    // STEP1.2 Parse')'
-    const rightParenthesisItem: string[] = getSplitsArrayWithDesignatedCharAndArrayStr(leftParenthesisItem, ')');
-    permissionsQueue.push(...rightParenthesisItem);
-  });
-  // STEP2
-  const calcValidResult: PermissionVaildCalcInfo = {
-    valid: false,
-    currentToken: PermissionValidTokenState.Init,
-    finish: false,
-    currentPermissionMatch: true,
-  };
-  validPermissionRecursion(permissionsQueue, permissionsArray, calcValidResult);
-  return calcValidResult.valid;
-}
-
-/**
- * 该函数是权限验证的核心递归入口，若权限队列中包含括号，则先按括号分组处理，再验证分组结果；
- * 若不包含括号，则直接调用getPermissionVaildAtoms处理。
- * 
- * @param { string[] } permissionsQueue 权限表达式队列，包含权限项、逻辑运算符（and/or）及括号（()）
- * @param { string[] } permissions 项目配置的权限列表，用于验证权限项是否有效
- * @param { PermissionVaildCalcInfo } calcValidResult 权限验证计算信息对象，存储中间状态和最终结果
- */
-function validPermissionRecursion(permissionsQueue: string[], permissions: string[],
-  calcValidResult: PermissionVaildCalcInfo): void {
-  if (permissionsQueue.some(item => ['(', ')'].includes(item))) {
-    const groups: PermissionValidCalcGroup[] = groupWithParenthesis(permissionsQueue);
-    const groupJoin: string[] = getGroupItemPermission(groups, calcValidResult, permissions);
-    getPermissionVaildAtoms(groupJoin, calcValidResult, permissions ?? []);
-  } else {
-    getPermissionVaildAtoms(permissionsQueue, calcValidResult, permissions ?? []);
-  }
-}
-
-/**
- * 按指定字符分割字符串，并去除每个分割项的首尾空格。
- * 
- * @param { string } permission 需要分割的权限表达式字符串（如"(perm1 or perm2) and perm3"）
- * @param { string } designatedChar 用于分割的指定字符（如'and'、'or'、'('等）
- * @returns { string[] } 分割后的字符串数组，每个元素已去除首尾空格
- */
-function getSplitsArrayWithDesignatedCharAndStr(permission: string, designatedChar: string): string[] {
-  return permission.split(designatedChar).map(item => item.trim());
-}
-
-/**
- * 处理groupWithParenthesis返回的分组，对包含括号的子分组递归验证，
- * 并将验证结果转换为特定标识（空字符串表示有效，'NA'表示无效），用于上层表达式验证。
- * 
- * @param { PermissionValidCalcGroup[] } groups 由groupWithParenthesis返回的分组数组
- * @param { PermissionVaildCalcInfo } calcValidResult 权限验证计算信息对象（用于传递上下文）
- * @param { string[] } permissions 配置的权限列表，用于验证子分组中的权限项
- * @returns { string[] } 处理后的中间结果数组，包含非括号分组的原始项和括号分组的验证标识（''或'NA'）
- */
-function getGroupItemPermission(
-  groups: PermissionValidCalcGroup[],
-  calcValidResult: PermissionVaildCalcInfo,
-  permissions: string[]): string[] {
-  const groupJoin: string[] = [];
-  groups.forEach((groupItem: PermissionValidCalcGroup) => {
-    if (groupItem.includeParenthesis) {
-      const calcValidResultItem: PermissionVaildCalcInfo = {
-        ...calcValidResult,
-      };
-      const subStack: string[] = groupItem.subQueue.slice(1, groupItem.subQueue.length - 1);
-      validPermissionRecursion(subStack, permissions, calcValidResultItem);
-      if (calcValidResultItem.valid) {
-        groupJoin.push('');
-      } else {
-        groupJoin.push('NA');
-      }
-    } else {
-      groupJoin.push(...groupItem.subQueue);
-    }
-  });
-  return groupJoin;
-}
-
-/**
- * 根据括号对权限队列进行分组，支持嵌套括号，生成包含分组信息的数组。
- * 该函数通过计数器跟踪括号的嵌套层级，将连续的括号及其中间内容划分为一个分组，
- * 非括号内容划分为普通分组，用于处理带优先级的权限表达式。
- * 
- * @param { string[] } stack 权限表达式队列，包含权限项、逻辑运算符（and/or）及括号（'('或')'）
- * @returns { PermissionValidCalcGroup[] } 分组数组，每个元素包含分组的子队列和是否含括号的标识
- */
-function groupWithParenthesis(stack: string[]): PermissionValidCalcGroup[] {
-  let currentLeftParenthesisCount: number = 0;
-  const groups: PermissionValidCalcGroup[] = [];
-  let currentGroupItem: PermissionValidCalcGroup = {
-    subQueue: [],
-    includeParenthesis: false,
-  };
-  stack.forEach((item: string, index: number) => {
-    if (item === '(') {
-      if (currentLeftParenthesisCount === 0) {
-        groups.push(currentGroupItem);
-        currentGroupItem = {
-          subQueue: [item],
-          includeParenthesis: true
-        };
-      } else {
-        currentGroupItem.subQueue.push(item);
-      }
-      currentLeftParenthesisCount++;
-    } else if (item === ')') {
-      currentLeftParenthesisCount--;
-      currentGroupItem.subQueue.push(item);
-      if (currentLeftParenthesisCount === 0) {
-        groups.push(currentGroupItem);
-        currentGroupItem = {
-          subQueue: [],
-          includeParenthesis: false,
-        };
-      }
-    } else {
-      currentGroupItem.subQueue.push(item);
-      if (index === stack.length - 1) {
-        groups.push(currentGroupItem);
-      }
-    }
-  });
-  return groups;
-}
-
-/**
- * 深度优先递归处理权限原子栈，根据逻辑运算符（and/or）验证权限匹配结果，并将结果存入calcValidResult对象中。
- * 
- * @param { string[] } atomStacks 权限atomStacks，包含权限项（如"perm1"）和逻辑运算符（"and"/"or"），按表达式顺序排列
- * @param { PermissionVaildCalcInfo } calcValidResult 权限验证计算信息对象，用于存储中间状态和最终结果
- * @param { string[] } configPermissions 项目配置的权限列表，用于验证单个权限项是否有效
- */
-function getPermissionVaildAtoms(atomStacks: string[], calcValidResult: PermissionVaildCalcInfo,
-  configPermissions: string[]): void {
-  if (calcValidResult.finish) {
-    return;
-  }
-  if (atomStacks[0] === 'and') {
-    calcValidResult.currentToken = PermissionValidTokenState.And;
-  } else if (atomStacks[0] === 'or') {
-    calcValidResult.currentToken = PermissionValidTokenState.Or;
-  } else {
-    if (calcValidResult.currentToken === PermissionValidTokenState.Or) {
-      if (inValidOrExpression(
-        atomStacks,
-        calcValidResult,
-        configPermissions
-      )) {
-        calcValidResult.currentPermissionMatch = false;
-      }
-    } else if (calcValidResult.currentToken === PermissionValidTokenState.And) {
-      if (inValidAndExpression(
-        atomStacks,
-        calcValidResult,
-        configPermissions
-      )) {
-        calcValidResult.currentPermissionMatch = false;
-      }
-    } else {
-      calcValidResult.currentPermissionMatch =
-        validPermissionItem(atomStacks[0], configPermissions);
-    }
-  }
-  if (atomStacks.length > 1) {
-    getPermissionVaildAtoms(
-      atomStacks.slice(1),
-      calcValidResult,
-      configPermissions
-    );
-  } else {
-    calcValidResult.valid = calcValidResult.currentPermissionMatch;
-    calcValidResult.finish = true;
-  }
-}
-
-/**
- * 验证Or逻辑表达式的有效性
- * 
- * @param { string[] } atomStacks 权限atomStacks，当前处理的元素为需要验证的权限项（atomStacks[0]）
- * @param { PermissionVaildCalcInfo } calcValidResult 权限限验证计算信息对象，存储中间状态
- * @param { string[] } configPermissions 项目配置的权限列表，用于验证权限项是否存在
- * @returns { boolean } 若Or表达式无效（所有条件均不满足），返回true；否则返回false
- */
-function inValidOrExpression(
-  atomStacks: string[],
-  calcValidResult: PermissionVaildCalcInfo,
-  configPermissions: string[]): boolean {
-  if (
-    !calcValidResult.currentPermissionMatch &&
-    !validPermissionItem(atomStacks[0], configPermissions)
-  ) {
-    calcValidResult.valid = false;
-    return true;
-  }
-  calcValidResult.currentPermissionMatch = true;
-  return false;
-}
-
-/**
- * 验证And逻辑表达式的有效性
- * 
- * @param { string[] } atomStacks 权限atomStacks，当前处理的元素为需要验证的权限项（atomStacks[0]）
- * @param { PermissionVaildCalcInfo } calcValidResult 权限验证计算信息对象，存储中间状态
- * @param { string[] } configPermissions 项目配置的权限列表，用于验证权限项是否存在
- * @returns { boolean } 若And表达式无效（存在不满足的条件），返回true；否则返回false
- */
-function inValidAndExpression(
-  atomStacks: string[],
-  calcValidResult: PermissionVaildCalcInfo,
-  configPermissions: string[]): boolean {
-  if (
-    !calcValidResult.currentPermissionMatch ||
-    !validPermissionItem(atomStacks[0], configPermissions)
-  ) {
-    calcValidResult.valid = false;
-    return true;
-  }
-  calcValidResult.currentPermissionMatch =
-    validPermissionItem(atomStacks[0], configPermissions);
-  return false;
-}
-
-/**
- * 基础校验PermissionItem
- * 
- * @param { string } atomStackItem 待校验的atomStackItem（如具体的权限名称）
- * @param { string[] } configPermissions 项目配置的权限列表，用于校验atomStackItem是否存在
- * @returns { boolean } 若atomStackItem为空字符串或存在于配置列表中，返回true；否则返回false
- */
-function validPermissionItem(atomStackItem: string, configPermissions: string[]): boolean {
-  return atomStackItem === '' || configPermissions.includes(atomStackItem);
-}
-
-/**
- * 将字符串数组中的每个元素按指定字符（如括号、逻辑运算符）拆分，
- * 对拆分后产生的空值用指定字符替换，最终返回拆分后的扁平数组，支持处理嵌套拆分场景。
- * 
- * @param { string[] } leftParenthesisItems 需要拆分的字符串数组
- * @param { string } designatedChar 用于拆分的指定字符（如'('、')'、'and'等）
- * @returns { string[] } 拆分后的字符串数组，空值被替换为指定字符
- */
-function getSplitsArrayWithDesignatedCharAndArrayStr(
-  leftParenthesisItems: string[],
-  designatedChar: string
-): string[] {
-  const rightParenthesisItems: string[] = [];
-
-  leftParenthesisItems.forEach((leftParenthesisItem: string) => {
-    if (!leftParenthesisItem.includes(designatedChar)) {
-      rightParenthesisItems.push(leftParenthesisItem);
-      return;
-    }
-    const rightParenthesis: string[] = getSplitsArrayWithDesignatedCharAndStr(leftParenthesisItem, designatedChar);
-
-    rightParenthesis.forEach((item: string) => {
-      rightParenthesisItems.push(item === '' ? designatedChar : item);
-    });
-  });
-
-  return rightParenthesisItems;
 }
 
 /**
@@ -1013,22 +773,390 @@ export function readFile(dir: string, utFiles: string[]): void {
 }
 
 /**
-*  解析最新版本JSDoc中的@permission标签内容，验证表达式是否与项目配置的权限集合匹配，
-* 若不匹配则返回true（表示需要检查提示），并更新错误信息。
-*
-* @param { JSDoc[] } jsDocs JSDoc注释对象数组，用于获取最新版本的注释
-* @param { JsDocNodeCheckConfigItem } config 检查配置对象，用于存储错误提示信息
-* @returns { boolean } 若@permission标签不存在、表达式为空或不满足权限要求，返回true；否则返回false
-*/
-export function checkPermissionTag(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem): boolean {
-  const jsDocTag: JSDocTag | undefined = getJSDocTag(jsDocTags, PERMISSION_TAG_CHECK_NAME);
-  if (!jsDocTag) {
+ * 从注释字符串中提取版本范围
+ * 
+ * @param { string } commentText - 包含版本范围的注释字符串
+ * @returns {{ start: string, end: string } | undefined} 版本范围对象，包含start和end版本；若无法提取则返回undefined
+ */
+function extractVersionRange(commentText: string): { start: string, end: string } | undefined {
+  if (typeof commentText !== 'string' || !commentText) {
+    return undefined;
+  }
+
+  const VERSION_RANGE_PATTERN: RegExp = /\[since (.*?)\]/;
+
+  if (!commentText.match(VERSION_RANGE_PATTERN)) {
+    return undefined;
+  }
+
+  const rawVersionRange: string = commentText.match(VERSION_RANGE_PATTERN)![0]
+    .replace('since', '')
+    .replace('[', '')
+    .replace(']', '')
+    .trim();
+
+  const versionParts: string[] = rawVersionRange.split('-');
+  if (versionParts.length !== 2) {
+    return undefined;
+  }
+
+  return {
+    start: versionParts[0].trim(),
+    end: versionParts[1].trim()
+  };
+}
+
+/**
+ * 验证API文档注释中配置的permission是否被应用permission集合支持。
+ * STEP1. 解析permission信息；
+ * STEP2. 递归验证permission；
+ * 
+ * @param { string } comment jsdoc中comment信息
+ * @param { string[] } permissionsArray 应用permission集合
+ * @returns { boolean } 若应用权限集合满足注释中的权限表达式，返回 true；否则返回 false
+ */
+function validPermission(comment: string, permissionsArray: string[]): boolean {
+  const permissionsItem: string[] = getSplitsArrayWithDesignatedCharAndStr(comment ?? '', ' ')
+    .filter((item) => {
+      return item !== '';
+    });
+  const permissionsQueue: string[] = [];
+  permissionsItem.forEach((item: string) => {
+    // STEP1.1 Parse'('
+    const leftParenthesisItem: string[] = getSplitsArrayWithDesignatedCharAndArrayStr([item], '(');
+    // STEP1.2 Parse')'
+    const rightParenthesisItem: string[] = getSplitsArrayWithDesignatedCharAndArrayStr(leftParenthesisItem, ')');
+    // STEP1.3 Parse'\n'
+    const wrapItem: string[] = getSplitsArrayWithDesignatedCharAndArrayStr(rightParenthesisItem, '\n');
+    permissionsQueue.push(...wrapItem);
+  });
+  // STEP2
+  const calcValidResult: PermissionVaildCalcInfo = {
+    valid: false,
+    currentToken: PermissionValidTokenState.Init,
+    finish: false,
+    currentPermissionMatch: true,
+  };
+  validPermissionRecursion(permissionsQueue, permissionsArray, calcValidResult);
+  return calcValidResult.valid;
+}
+
+/**
+ * 该函数是权限验证的核心递归入口，若权限队列中包含括号，则先按括号分组处理，再验证分组结果；
+ * 若不包含括号，则直接调用getPermissionVaildAtoms处理。
+ * 
+ * @param { string[] } permissionsQueue 权限表达式队列，包含权限项、逻辑运算符（and/or）及括号（()）
+ * @param { string[] } permissions 项目配置的权限列表，用于验证权限项是否有效
+ * @param { PermissionVaildCalcInfo } calcValidResult 权限验证计算信息对象，存储中间状态和最终结果
+ */
+function validPermissionRecursion(permissionsQueue: string[], permissions: string[],
+  calcValidResult: PermissionVaildCalcInfo): void {
+  if (permissionsQueue.some(item => ['(', ')'].includes(item))) {
+    const groups: PermissionValidCalcGroup[] = groupWithParenthesis(permissionsQueue);
+    const groupJoin: string[] = getGroupItemPermission(groups, calcValidResult, permissions);
+    getPermissionVaildAtoms(groupJoin, calcValidResult, permissions ?? []);
+  } else {
+    getPermissionVaildAtoms(permissionsQueue, calcValidResult, permissions ?? []);
+  }
+}
+
+/**
+ * 按指定字符分割字符串，并去除每个分割项的首尾空格。
+ * 
+ * @param { string } permission 需要分割的权限表达式字符串（如"(perm1 or perm2) and perm3"）
+ * @param { string } designatedChar 用于分割的指定字符（如'and'、'or'、'('等）
+ * @returns { string[] } 分割后的字符串数组，每个元素已去除首尾空格
+ */
+function getSplitsArrayWithDesignatedCharAndStr(permission: string, designatedChar: string): string[] {
+  return permission.split(designatedChar).map(item => item.trim());
+}
+
+/**
+ * 处理groupWithParenthesis返回的分组，对包含括号的子分组递归验证，
+ * 并将验证结果转换为特定标识（空字符串表示有效，'NA'表示无效），用于上层表达式验证。
+ * 
+ * @param { PermissionValidCalcGroup[] } groups 由groupWithParenthesis返回的分组数组
+ * @param { PermissionVaildCalcInfo } calcValidResult 权限验证计算信息对象（用于传递上下文）
+ * @param { string[] } permissions 配置的权限列表，用于验证子分组中的权限项
+ * @returns { string[] } 处理后的中间结果数组，包含非括号分组的原始项和括号分组的验证标识（''或'NA'）
+ */
+function getGroupItemPermission(
+  groups: PermissionValidCalcGroup[],
+  calcValidResult: PermissionVaildCalcInfo,
+  permissions: string[]): string[] {
+  const groupJoin: string[] = [];
+  groups.forEach((groupItem: PermissionValidCalcGroup) => {
+    if (groupItem.includeParenthesis) {
+      const calcValidResultItem: PermissionVaildCalcInfo = {
+        ...calcValidResult,
+      };
+      const subStack: string[] = groupItem.subQueue.slice(1, groupItem.subQueue.length - 1);
+      validPermissionRecursion(subStack, permissions, calcValidResultItem);
+      if (calcValidResultItem.valid) {
+        groupJoin.push('');
+      } else {
+        groupJoin.push('NA');
+      }
+    } else {
+      groupJoin.push(...groupItem.subQueue);
+    }
+  });
+  return groupJoin;
+}
+
+/**
+ * 根据括号对权限队列进行分组，支持嵌套括号，生成包含分组信息的数组。
+ * 该函数通过计数器跟踪括号的嵌套层级，将连续的括号及其中间内容划分为一个分组，
+ * 非括号内容划分为普通分组，用于处理带优先级的权限表达式。
+ * 
+ * @param { string[] } stack 权限表达式队列，包含权限项、逻辑运算符（and/or）及括号（'('或')'）
+ * @returns { PermissionValidCalcGroup[] } 分组数组，每个元素包含分组的子队列和是否含括号的标识
+ */
+function groupWithParenthesis(stack: string[]): PermissionValidCalcGroup[] {
+  let currentLeftParenthesisCount: number = 0;
+  const groups: PermissionValidCalcGroup[] = [];
+  let currentGroupItem: PermissionValidCalcGroup = {
+    subQueue: [],
+    includeParenthesis: false,
+  };
+  stack.forEach((item: string, index: number) => {
+    if (item === '(') {
+      if (currentLeftParenthesisCount === 0) {
+        groups.push(currentGroupItem);
+        currentGroupItem = {
+          subQueue: [item],
+          includeParenthesis: true
+        };
+      } else {
+        currentGroupItem.subQueue.push(item);
+      }
+      currentLeftParenthesisCount++;
+    } else if (item === ')') {
+      currentLeftParenthesisCount--;
+      currentGroupItem.subQueue.push(item);
+      if (currentLeftParenthesisCount === 0) {
+        groups.push(currentGroupItem);
+        currentGroupItem = {
+          subQueue: [],
+          includeParenthesis: false,
+        };
+      }
+    } else {
+      currentGroupItem.subQueue.push(item);
+      if (index === stack.length - 1) {
+        groups.push(currentGroupItem);
+      }
+    }
+  });
+  return groups;
+}
+
+/**
+ * 深度优先递归处理权限原子栈，根据逻辑运算符（and/or）验证权限匹配结果，并将结果存入calcValidResult对象中。
+ * 
+ * @param { string[] } atomStacks 权限atomStacks，包含权限项（如"perm1"）和逻辑运算符（"and"/"or"），按表达式顺序排列
+ * @param { PermissionVaildCalcInfo } calcValidResult 权限验证计算信息对象，用于存储中间状态和最终结果
+ * @param { string[] } configPermissions 项目配置的权限列表，用于验证单个权限项是否有效
+ */
+function getPermissionVaildAtoms(atomStacks: string[], calcValidResult: PermissionVaildCalcInfo,
+  configPermissions: string[]): void {
+  if (calcValidResult.finish) {
+    return;
+  }
+  if (atomStacks[0] === 'and') {
+    calcValidResult.currentToken = PermissionValidTokenState.And;
+  } else if (atomStacks[0] === 'or') {
+    calcValidResult.currentToken = PermissionValidTokenState.Or;
+  } else {
+    if (calcValidResult.currentToken === PermissionValidTokenState.Or) {
+      if (inValidOrExpression(
+        atomStacks,
+        calcValidResult,
+        configPermissions
+      )) {
+        calcValidResult.currentPermissionMatch = false;
+      }
+    } else if (calcValidResult.currentToken === PermissionValidTokenState.And) {
+      if (inValidAndExpression(
+        atomStacks,
+        calcValidResult,
+        configPermissions
+      )) {
+        calcValidResult.currentPermissionMatch = false;
+      }
+    } else {
+      calcValidResult.currentPermissionMatch =
+        validPermissionItem(atomStacks[0], configPermissions);
+    }
+  }
+  if (atomStacks.length > 1) {
+    getPermissionVaildAtoms(
+      atomStacks.slice(1),
+      calcValidResult,
+      configPermissions
+    );
+  } else {
+    calcValidResult.valid = calcValidResult.currentPermissionMatch;
+    calcValidResult.finish = true;
+  }
+}
+
+/**
+ * 验证Or逻辑表达式的有效性
+ * 
+ * @param { string[] } atomStacks 权限atomStacks，当前处理的元素为需要验证的权限项（atomStacks[0]）
+ * @param { PermissionVaildCalcInfo } calcValidResult 权限限验证计算信息对象，存储中间状态
+ * @param { string[] } configPermissions 项目配置的权限列表，用于验证权限项是否存在
+ * @returns { boolean } 若Or表达式无效（所有条件均不满足），返回true；否则返回false
+ */
+function inValidOrExpression(
+  atomStacks: string[],
+  calcValidResult: PermissionVaildCalcInfo,
+  configPermissions: string[]): boolean {
+  if (
+    !calcValidResult.currentPermissionMatch &&
+    !validPermissionItem(atomStacks[0], configPermissions)
+  ) {
+    calcValidResult.valid = false;
+    return true;
+  }
+  calcValidResult.currentPermissionMatch = true;
+  return false;
+}
+
+/**
+ * 验证And逻辑表达式的有效性
+ * 
+ * @param { string[] } atomStacks 权限atomStacks，当前处理的元素为需要验证的权限项（atomStacks[0]）
+ * @param { PermissionVaildCalcInfo } calcValidResult 权限验证计算信息对象，存储中间状态
+ * @param { string[] } configPermissions 项目配置的权限列表，用于验证权限项是否存在
+ * @returns { boolean } 若And表达式无效（存在不满足的条件），返回true；否则返回false
+ */
+function inValidAndExpression(
+  atomStacks: string[],
+  calcValidResult: PermissionVaildCalcInfo,
+  configPermissions: string[]): boolean {
+  if (
+    !calcValidResult.currentPermissionMatch ||
+    !validPermissionItem(atomStacks[0], configPermissions)
+  ) {
+    calcValidResult.valid = false;
+    return true;
+  }
+  calcValidResult.currentPermissionMatch =
+    validPermissionItem(atomStacks[0], configPermissions);
+  return false;
+}
+
+/**
+ * 基础校验PermissionItem
+ * 
+ * @param { string } atomStackItem 待校验的atomStackItem（如具体的权限名称）
+ * @param { string[] } configPermissions 项目配置的权限列表，用于校验atomStackItem是否存在
+ * @returns { boolean } 若atomStackItem为空字符串或存在于配置列表中，返回true；否则返回false
+ */
+function validPermissionItem(atomStackItem: string, configPermissions: string[]): boolean {
+  return atomStackItem === '' || configPermissions.includes(atomStackItem);
+}
+
+/**
+ * 将字符串数组中的每个元素按指定字符（如括号、逻辑运算符）拆分，
+ * 对拆分后产生的空值用指定字符替换，最终返回拆分后的扁平数组，支持处理嵌套拆分场景。
+ * 
+ * @param { string[] } leftParenthesisItems 需要拆分的字符串数组
+ * @param { string } designatedChar 用于拆分的指定字符（如'('、')'、'and'等）
+ * @returns { string[] } 拆分后的字符串数组，空值被替换为指定字符
+ */
+function getSplitsArrayWithDesignatedCharAndArrayStr(
+  leftParenthesisItems: string[],
+  designatedChar: string
+): string[] {
+  const rightParenthesisItems: string[] = [];
+  leftParenthesisItems.forEach((leftParenthesisItem: string) => {
+    if (leftParenthesisItem.includes(designatedChar)) {
+      const rightParenthesis: string[] =
+        getSplitsArrayWithDesignatedCharAndStr(
+          leftParenthesisItem,
+          designatedChar
+        );
+      rightParenthesis.forEach((item: string) => {
+        if (item === '') {
+          rightParenthesisItems.push(designatedChar);
+        } else {
+          rightParenthesisItems.push(item);
+        }
+      });
+    } else {
+      rightParenthesisItems.push(leftParenthesisItem);
+    }
+  });
+  return rightParenthesisItems;
+}
+
+/**
+ * 解析最新版本JSDoc中的@permission标签内容，验证表达式是否与项目配置的权限集合匹配，
+ * 若不匹配则返回true（表示需要检查提示），并更新错误信息。
+ *
+ * 支持多个permission标签，支持版本范围检查，支持警告抑制器。
+ *
+ * @param { JSDocTag[] } jsDocTags JSDoc标签数组
+ * @param { JsDocNodeCheckConfigItem } config 检查配置对象，用于存储错误提示信息
+ * @param { arkts.AstNode } [node] 可选的AST节点，用于警告抑制检查
+ * @param { arkts.AstNode } [declaration] 可选的声明节点
+ * @returns { boolean } 若@permission标签不存在、表达式为空或不满足权限要求，返回true；否则返回false
+ */
+export function checkPermissionTag(
+  jsDocTags: readonly JSDocTag[],
+  config: JsDocNodeCheckConfigItem,
+  node?: arkts.AstNode,
+  declaration?: arkts.AstNode
+): boolean {
+  const permissionTags: JSDocTag[] = jsDocTags.filter((tag: JSDocTag) => {
+    return tag.tag === PERMISSION_TAG_CHECK_NAME;
+  });
+
+  if (permissionTags.length === 0) {
     return false;
   }
-  const permissionExpression: string = jsDocTag.comment ?? '';
-  config.message = PERMISSION_TAG_CHECK_ERROR.replace('$DT', permissionExpression);
-  return permissionExpression !== '' &&
-    !validPermission(permissionExpression, globalObject.projectConfig.permissionsArray);
+
+  let commentAll: string = '';
+
+  for (const permissionTag of permissionTags) {
+    let comment: string = permissionTag.comment ?? '';
+
+    if (comment === '') {
+      continue;
+    }
+
+    const versionRange = extractVersionRange(comment);
+
+    if (versionRange) {
+      if (checkVersionRangeIntersection(versionRange)) {
+        comment = comment.replace(/\[since (.*?)\]/, '').trim();
+      } else {
+        continue;
+      }
+    }
+
+    if (validPermission(comment, globalObject.projectConfig.permissionsArray)) {
+      continue;
+    }
+
+    const suppressor = new PermissionWarningSuppressor();
+    if (node && suppressor.isApiVersionHandled(node)) {
+      continue;
+    }
+
+    commentAll += `${comment} and `;
+  }
+
+  if (commentAll !== '') {
+    commentAll = PERMISSION_TAG_CHECK_ERROR.replace('$DT', commentAll);
+    config.message = commentAll.replace(/\s*and\s*$/, '').trim();
+    return true;
+  }
+
+  return false;
 }
 
 /**
