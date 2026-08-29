@@ -1174,7 +1174,8 @@ declare namespace installer {
      * ohos.bms.param.originalInstallSource"：用于指定待安装应用的原始安装来源，对应value取值范围为
      * [ApplicationInfo]{@link ./bundleManager/ApplicationInfo:ApplicationInfo}中的installSource字段取值。使用该参数安装的应用，其安装来源
      * installSource会被设置为指定的value值。参数生效条件：待安装应用必须未在设备上安装；当value指定为应用包名时，要求指定的应用必须已安装且为系统应用。从API version 23开始支持。</br> - "
-     * ohos.bms.param.deviceModeDistributionPolicy"：value值为[DeviceModeDistributionPolicy]{@link @ohos.bundle.bundleManager:bundleManager.DeviceModeDistributionPolicy}
+     * ohos.bms.param.deviceModeDistributionPolicy"：value值为
+     * [DeviceModeDistributionPolicy]{@link @ohos.bundle.bundleManager:bundleManager.DeviceModeDistributionPolicy}
      * 枚举值的十进制字符串（例如**"4"**）。用于指定正在安装应用的设备模式分发策略（自API version 26.1.0起支持）。若未传入该键，则策略默认为**UNSPECIFIED**（0）。
      * 若值非法（不是十进制整数字符串或超出[0, 8]范围），则忽略该键，策略默认为**UNSPECIFIED**。
      *
