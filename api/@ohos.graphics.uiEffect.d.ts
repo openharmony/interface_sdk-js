@@ -476,6 +476,52 @@ declare namespace uiEffect {
      * @since 26.0.0 dynamiconly
      */
     blurBubblesRise(param: BlurBubblesRiseEffectParam): Filter;
+
+    /**
+     * Applies a soft halo bloom effect to the image, creating a gentle glow around bright areas.
+     *
+     * @param { Color } tintColor - Specifies the color tint applied to the halo bloom.
+     *     The value is unrestricted, with a recommended range of [0, 1). The alpha channel has no effect.
+     *     Values below 0 or greater than or equal to 1 have no meaningful effect.
+     *     When all red, green, and blue are set to 0, no tint is applied and the halo bloom retains its original color.
+     * @param { double } bloomFactor - Controls the brightness of the halo bloom.
+     *     The value is unrestricted, with a recommended range of [0, 10].
+     *     When set to 0, the halo bloom produces no visible effect.
+     * @param { double } glowExposure - Controls how far the halo bloom spreads.
+     *     The value is unrestricted, with a recommended range of [0, 10].
+     *     When set to 0, the halo bloom produces no visible effect.
+     * @param { Mask } [alphaMask] - An optional mask that controls the effect's transparency.
+     *     Create a Mask instance using a mask creation method, such as createRippleMask or createRadialGradientMask.
+     *     If omitted, the effect uses its default transparency.
+     * @returns { Filter } - Returns the Filter with the halo bloom effect attached.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    haloBloom(tintColor: Color, bloomFactor: double, glowExposure: double, alphaMask?: Mask): Filter;
+
+    /**
+     * Applies a spin blur effect to the image, creating rotational motion trails around a specified center.
+     *
+     * @param { common2D.Point } center - Specifies the blur center in normalized coordinates.
+     *     [0, 0] represents the top-left corner, [0.5, 0.5] the center, and [1, 1] the bottom-right corner.
+     * @param { double } angle - Specifies the angular range of the spin blur in radians.
+     *     The value is unrestricted, with a recommended range of [-2π, 2π].
+     *     Positive values rotate clockwise, while negative values rotate counterclockwise.
+     * @param { int } samples - Specifies the number of samples used for the spin blur.
+     *     The value is clamped to the range [0, 128].
+     *     Higher values produce smoother results but increase processing cost; 32 is usually sufficient.
+     * @param { Mask } [alphaMask] - An optional mask that controls the effect's transparency.
+     *     Create a Mask instance using a mask creation method, such as createRippleMask or createRadialGradientMask.
+     *     If omitted, the effect uses its default transparency.
+     * @returns { Filter } - Returns the Filter with the spin blur effect attached.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    spinBlur(center: common2D.Point, angle: double, samples: int, alphaMask?: Mask): Filter;
   }
 
   /**
@@ -720,6 +766,32 @@ declare namespace uiEffect {
      */
     liquidMaterial(param : LiquidMaterialEffectParam, useEffectMask: Mask, distortMask?: Mask,
       brightnessParam?: BrightnessParam): VisualEffect;
+
+    /**
+     * Adds a celia glass ball effect to the component.
+     *
+     * @param { double } progress - The warp animation progress in seconds, equivalent to Shadertoy's iTime.
+     *     The value is unbounded; increasing or decreasing it advances the animation forward or backward, respectively.
+     * @param { Color } tintColor - Specifies the color tint applied to the effect.
+     *     The value is unrestricted, with a recommended range of [0, 1]. The alpha channel has no effect.
+     * @param { CeliaBallEffectParam } param - Configures the glass ball's material.
+     * @param { Mask } useEffectMask - Specifies whether blur caching is used.
+     *     The mask takes effect only when an ancestor is an EffectComponent with a blur effect configured
+     *     or alwaysSnapshot(true) enabled. Use createUseEffectMask(true) to reuse blur results
+     *     and improve performance, or createUseEffectMask(false) when the blur effect changes frequently.
+     * @param { Mask } contentMask - Specifies the content displayed within the glass.
+     *     Create the mask from a pixel map using createPixelMapMask().
+     * @param { Mask } [shapeMask] - Specifies an optional mask that defines the glass shape.
+     *     Create the mask from a pixel map using createPixelMapMask().
+     *     If not set, the glass uses its default spherical shape.
+     * @returns { VisualEffect } - Returns the VisualEffect with the celia glass ball effect attached.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    celiaBall(progress: double, tintColor: Color, param: CeliaBallEffectParam, useEffectMask: Mask,
+      contentMask: Mask, shapeMask?: Mask): VisualEffect;
 
     /**
      * Adds a nonlinear deformation effect to the component. Typical application scenarios include
@@ -1086,6 +1158,290 @@ declare namespace uiEffect {
   }
 
   /**
+   * CeliaBallEffectParam specifies the glass's material.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface CeliaBallEffectParam {
+
+    /**
+     * Controls the radius of the glass content.
+     * The value is unrestricted, with a recommended range of [0, 1]. Values outside this range have no meaningful effect.
+     * Higher values produce a larger glass content area.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    contentRadius: double;
+
+    /**
+     * Specifies whether the bloom effect is enabled.
+     * It is not recommended to enable this option, as it may have a significant processing cost.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    enableBloom: boolean;
+
+    /**
+     * Controls how quickly the bloom fades with distance.
+     * The value is unrestricted, with a recommended range of (0, 1]. Values outside this range have no meaningful effect.
+     * Lower values produce a faster falloff.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    bloomFalloff: double;
+
+    /**
+     * Controls the intensity of the bloom effect.
+     * The value is unrestricted, with a recommended range of [0, 5]. Values outside this range have no meaningful effect.
+     * Higher values produce a brighter bloom.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    bloomIntensity: double;
+
+    /**
+     * Controls the radius of the bloom effect.
+     * The value is unrestricted, with a recommended range of [0, 0.05]. Values outside this range have no meaningful effect.
+     * Higher values produce a wider bloom.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    bloomRadius: double;
+
+    /**
+     * Specifies whether the glass effect is enabled.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    enableGlass: boolean;
+
+    /**
+     * Controls the radius of the glass.
+     * The value is unrestricted, with a recommended range of (0, 1]. Values outside this range have no meaningful effect.
+     * Higher values produce a larger glass area.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    glassRadius: double;
+
+    /**
+     * Controls the refractive index of the glass.
+     * The value is unrestricted, with a recommended range of [1, 3]. Values outside this range have no meaningful effect.
+     * Higher values bend light more strongly.
+     * Typical values are 1.0 for air, 1.33 for water, 1.8 for glass, and 2.4 for diamond.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    refractionIndex: double;
+
+    /**
+     * Controls the refraction thickness of the glass.
+     * The value is unrestricted, with a recommended range of [0, 1]. Values outside this range have no meaningful effect.
+     * Higher values produce stronger refraction.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    refractionThickness: double;
+
+    /**
+     * Controls the strength of color dispersion in the glass.
+     * The value is unrestricted, with a recommended range of [0, 0.1]. Values outside this range have no meaningful effect.
+     * Higher values produce greater color separation.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    dispersionStrength: double;
+
+    /**
+     * Controls the opacity of the shadow.
+     * The value is unrestricted, with a recommended range of [0, 1]. Values outside this range have no meaningful effect.
+     * Higher values make the shadow more opaque.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shadowOpacity: double;
+
+    /**
+     * Specifies the shadow offset relative to the glass.
+     * The value is unrestricted, with a recommended range of [-0.5, 0.5]. Values outside this range have no meaningful effect.
+     * Positive values move the shadow upward, while negative values move it downward.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shadowOffset: double;
+
+    /**
+     * Controls the size of the shadow.
+     * The value is unrestricted, with a recommended range of [0.5, 2]. Values outside this range have no meaningful effect.
+     * Higher values produce larger shadows.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shadowSize: double;
+
+    /**
+     * Controls the brightness of the shadow.
+     * The value is unrestricted, with a recommended range of [0, 1]. Values outside this range have no meaningful effect.
+     * Higher values produce brighter shadows.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shadowBrightness: double;
+
+    /**
+     * Controls the size of the caustic pattern.
+     * The value is unrestricted, with a recommended range of [0, 2]. Values outside this range have no meaningful effect.
+     * Higher values produce larger caustics, while 0 has no effect.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    causticSize: double;
+
+    /**
+     * Controls the intensity of the caustic effect.
+     * The value is unrestricted, with a recommended range of [0, 1]. Values outside this range have no meaningful effect.
+     * Higher values produce brighter caustics, while 0 has no effect.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    causticIntensity: double;
+
+    /**
+     * Controls the additive contribution of the caustic effect.
+     * The value is unrestricted, with a recommended range of [-1, 1]. Values outside this range have no meaningful effect.
+     * Positive values brighten the glass, negative values darken it, while 0 has no effect.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    causticMixFactor: double;
+  }
+
+  /**
+   * WarpedRingParam specifies the ring's radius, width, variation, 3D orientation, and rotation speed.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface WarpedRingParam {
+
+    /**
+     * Defines the radius of the ring.
+     * The value is unrestricted, with a recommended range of [0, 1]. Values below 0 have no meaningful effect.
+     * When set to 1, the ring's diameter equals the minimum of the component's width and height.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    radius: double;
+
+    /**
+     * Defines the base thickness of the ring as a half-width.
+     * The value is unrestricted, with a recommended range of [0, 0.5]. Values below 0 have no meaningful effect.
+     * When adjusting the effect, a step size of 0.01 is recommended for better results.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    baseHalfWidth: double;
+
+    /**
+     * Defines the amount of variation along the ring's circumference.
+     * The value is unrestricted, with a recommended range of [0, 1]. Values below 0 have no meaningful effect.
+     * Values closer to 0 produce a more circular ring.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    widthVariation: double;
+
+    /**
+     * Defines the rotation speed of the ring.
+     * The value is unrestricted, with a recommended range of [-5, 5].
+     * Positive values rotate the ring clockwise, while negative values rotate it counterclockwise.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    rotateSpeed: double;
+
+    /**
+     * Defines the progress of the ring's 3D orientation cycle.
+     * The input value is reduced modulo 1 to the range [0, 1).
+     * A value of 0 represents the original position, while 1 represents the position after one full rotation.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    rotate3DProgress: double;
+  }
+
+  /**
    * Blender type, used to describe the blending effect.
    *
    * @unionmember { BrightnessBlender } Brightness blender
@@ -1320,7 +1676,7 @@ declare namespace uiEffect {
     blue: double;
 
     /**
-     * Alpha component of the color (transparency).
+     * alpha channel of the color (transparency).
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1328,6 +1684,124 @@ declare namespace uiEffect {
      * @since 23 static
      */
     alpha: double;
+  }
+
+  /**
+   * Enumerates the prism shape types for SweepRefractionMask.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum PrismShapeType {
+  
+    /**
+     * Rounded rectangle prism shape.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    ROUNDED_RECT = 0,
+
+    /**
+     * Ellipse prism shape.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    ELLIPSE = 1
+  }
+
+  /**
+   * Optional parameters for creating a SweepRefractionMask.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface SweepRefractionMaskOptions {
+
+    /**
+     * Prism shape type.
+     *
+     * @default {PrismShapeType.ROUNDED_RECT}
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shapeType?: PrismShapeType;
+
+    /**
+     * Normalized corner radius of the prism shape, effective when shapeType is ROUNDED_RECT.
+     * The value range is [0, 1], and values outside the range will be clamped during implementation.
+     *
+     * @default {0.16}
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    cornerRadius?: double;
+
+    /**
+     * Normalized width of the prism.
+     * The value range is [0.01, 2], and values outside the range will be clamped during implementation.
+     * When the prismWidth is 1.0, it equals to the component width.
+     *
+     * @default {1.0}
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    prismWidth?: double;
+
+    /**
+     * Normalized height of the prism.
+     * The value range is [0.01, 2], and values outside the range will be clamped during implementation.
+     * When the prismHeight is 1.0, it equals to the component height.
+     *
+     * @default {1.0}
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    prismHeight?: double;
+
+    /**
+     * Normalized X coordinate of the sweep center.
+     * The value range is [0, 1], and values outside the range will be clamped during implementation.
+     * 0.0 refers to the left edge, 1.0 refers to the right edge, default value is 0.0.
+     *
+     * @default {0.0}
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    sweepCenterX?: double;
+
+    /**
+     * Normalized Y coordinate of the sweep center.
+     * The value range is [0, 1], and values outside the range will be clamped during implementation.
+     * 0.0 refers to the top edge, 1.0 refers to the bottom edge, default value is 0.0.
+     *
+     * @default {0.0}
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    sweepCenterY?: double ;
   }
 
   /**
@@ -1489,6 +1963,95 @@ declare namespace uiEffect {
      * @since 23 static
      */
     static createUseEffectMask(useEffect: boolean): Mask;
+
+    /**
+     * Creates a sweep refraction mask Mask instance that simulates a prism-like chromatic dispersion effect.
+     * The mask generates a sweeping light band with color separation across the component.
+     *
+     * @param { double } maskRadius - Sets the normalized radius of the prism mask.
+     *     The value range is [0, 10], and values outside the range will be clamped during implementation.
+     *     When the maskRadius is 1.0, it equals to the component height.
+     * @param { double } edgeThickness - Sets the normalized edge thickness of the prism.
+     *     The value range is [1, 1000], and values outside the range will be clamped during implementation.
+     * @param { double } refractAmount - Sets the refraction intensity of the prism.
+     *     The value range is [0, 1], and values outside the range will be clamped during implementation.
+     * @param { double } rippleWidth - Sets the width of the sweep ripple.
+     *     The value range is [0.01, 1], and values outside the range will be clamped during implementation.
+     * @param { double } sweepOffset - Sets the angular offset of the sweep.
+     *     The value range is [-2, 2], and values outside the range will be clamped during implementation.
+     * @param { double } chromaDelta - Sets the chromatic dispersion delta.
+     *     The value range is [0, 0.5], and values outside the range will be clamped during implementation.
+     * @param { SweepRefractionMaskOptions } [options] - Optional parameters for the sweep refraction mask,
+     *     including prism shape, corner radius, prism dimensions, and sweep center.
+     * @returns { Mask } - Returns a Mask with the sweep refraction effect.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */   
+    static createSweepRefractionMask(maskRadius: double, edgeThickness: double, refractAmount: double,
+      rippleWidth: double, sweepOffset: double, chromaDelta: double,
+      options?: SweepRefractionMaskOptions): Mask;
+
+    /**
+     * Creates a Mask instance representing a warped ring.
+     *
+     * @param { double } progress - Defines the evolution progress of the noise pattern.
+     *     The value is unbounded.
+     * @param { WarpedRingParam } ringParam - Configures the warped ring's shape, 3D orientation, and rotation speed.
+     * @returns { Mask } - Returns a Mask with the warped ring mask effect.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    static createWarpedRingMask(progress: double, ringParam: WarpedRingParam): Mask;
+
+    /**
+      * Creates a fractal glass mask. It performs periodic horizontal displacement sampling on the input texture
+      * via fractal stripes to produce a glass‑refraction‑like distortion effect.
+      * Distortion can be made symmetric around the image vertical axis.
+      * Combined with displacementDistort, it produces a grating refraction visual effect.
+      *
+      * @param { int } glassNum - Number of fractal glass stripes.
+      *    Value range: [0, 100]; out‑of‑range values will be clamped internally.
+      * @param { double } glassStrength - Distortion strength of the fractal glass.
+      *    Value range: [0, 10]; out‑of‑range values will be clamped internally.
+      * @param { double } glassSoftness - Edge softness of fractal glass stripes.
+      *    Value range: [0, 0.01]; out‑of‑range values will be clamped internally.
+      * @param { boolean } isSymmetric - Whether to enable symmetric distortion.
+      *    "Symmetric" refers to centering around the vertical axis of the image.
+      * @param { image.PixelMap } [refractMask] - PixelMap instance created by the image module.
+      *    Optional parameter to control the effective region of the fractal effect.
+      *    If provided, glassNum no longer denotes stripe quantity; glassNum and glassStrength jointly determine refraction intensity.
+      * @returns { Mask } - Mask instance carrying the fractal‑glass mask effect.
+      * @syscap SystemCapability.Graphics.Drawing
+      * @stagemodelonly
+      * @systemapi
+      * @since 26.1.0 dynamic&static
+      */
+    static createFractalGlassMask(glassNum: int, glassStrength: double, glassSoftness: double,
+      isSymmetric: boolean, refractMask?: image.PixelMap): Mask;
+
+    /**
+     * Creates a binocular mask. Generates a left‑right symmetric dual‑elliptical‑arc mask shape,
+     * which is used together with the maskDispersion filter to control the area and direction of the dispersion effect.
+     *
+     * @param { double } radiusX - Semi‑major axis of the binocular ellipses.
+     *     Value range: [0, 1.0]; out‑of‑range values will be clamped internally.
+     * @param { double } radiusY - Semi‑minor axis of the binocular ellipses.
+     *     Value range: [0, 1.0]; out‑of‑range values will be clamped internally.
+     * @param { double } gap - Horizontal offset of each ellipse center from origin.
+     *     Value range: [0, 1.0]; out‑of‑range values will be clamped internally.
+     * @param { double } softness - Edge softness of the binocular mask shape.
+     *     Value range: [0, 1.0]; out‑of‑range values will be clamped internally.
+     * @returns { Mask } - Mask instance carrying the binocular mask effect.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    static createBinocularMask(radiusX: double, radiusY: double, gap: double, softness: double): Mask;
   }
 
   /**
