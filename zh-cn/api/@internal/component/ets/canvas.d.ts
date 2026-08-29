@@ -175,7 +175,7 @@ declare class CanvasGradient {
   /**
    * 设置渐变断点值，包括偏移和颜色。调用多次addColorStop可设置多个断点，断点按offset值从小到大排序，渲染时在相邻断点间进行颜色插值。
    *
-   * @param { number } offset - 设置渐变点距离起点的位置占总体长度的比例，范围为[0, 1]。
+   * @param { number } offset - 设置渐变断点距离起点的位置占总体长度的比例，范围为[0, 1]。
    *     <br>设置offset<0或offset>1无渐变效果。
    *     <br>异常值undefined和null按无效值处理，不添加该断点。NaN会导致CanvasGradient对象异常，无法正常生成渐变效果；Infinity会导致整个CanvasGradient不生效。
    * @param { string } color - 设置渐变的颜色。string类型支持'rgb(255, 255, 255)'、'rgba(255, 255, 255, 1.0)'、'#RGB'、'#ARGB'、'#RRGGBB
