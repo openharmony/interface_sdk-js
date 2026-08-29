@@ -638,7 +638,7 @@ export class CommentSuppressWarningsValidator extends BaseValidator implements N
     if (!arkts.isIdentifier(node)) {
       return null;
     }
-    // 初始化节点信息，默认不是链式调用场景
+
     let nodeStatement: NodeParentModel = {
       node: node,
       isChainedCall: { isChain: false, chainNode: node }
@@ -648,20 +648,17 @@ export class CommentSuppressWarningsValidator extends BaseValidator implements N
     if (!arkts.isMemberExpression(current) || !current.object) {
       return nodeStatement;
     }
-    
-    // 向上遍历 AST 树，直到遇到 BlockStatement 或 AnnotationDeclaration
+
     while (nodeStatement.node &&
       !arkts.isBlockStatement(nodeStatement.node) &&
       !arkts.isImportDeclaration(nodeStatement.node) &&
       !arkts.isAnnotationDeclaration(nodeStatement.node) &&
       nodeStatement.node.parent
     ) {
-      // 检查是否是链式调用场景：MemberExpression 且其 object 是 CallExpression
       if (arkts.isMemberExpression(nodeStatement.node)) {
         const memberExpr = nodeStatement.node as arkts.MemberExpression;
         if (memberExpr.object && arkts.isCallExpression(memberExpr.object)) {
           const findcallExpreNode: arkts.AstNode | null = this.findChainCallRoot(memberExpr.object);
-          // 如果当前 MemberExpression 节点有注释，记录它并停止遍历
           if (this.hasChainCallNodeComment(findcallExpreNode)) {
             nodeStatement.isChainedCall.chainNode = findcallExpreNode;
             nodeStatement.isChainedCall.isChain = true;
@@ -669,8 +666,7 @@ export class CommentSuppressWarningsValidator extends BaseValidator implements N
           }
         }
       }
-      // 检查当前节点是否有注释，有则停止遍历
-      if (arkts.isIdentifier(nodeStatement.node) &&this.hasChainCallNodeComment(nodeStatement.node)) {
+      if (arkts.isIdentifier(nodeStatement.node) && this.hasChainCallNodeComment(nodeStatement.node)) {
         nodeStatement.isChainedCall.chainNode = nodeStatement.node;
         nodeStatement.isChainedCall.isChain = true;
         break;
@@ -717,26 +713,22 @@ export class CommentSuppressWarningsValidator extends BaseValidator implements N
     }
     const chainBakNode: arkts.Node = node.node;
     let chainCallNode: NodeParentModel = node;
-    
-    // 检查是否在箭头函数内（链式调用场景）
+
     const isInArrowFunction = this.checkIsInArrowFunction(chainCallNode.node);
-    
-    // 如果已经是链式调用场景，或者不在箭头函数内，直接返回
+
     if (chainCallNode.isChainedCall.isChain || !isInArrowFunction) {
       return chainCallNode;
     }
-    
-    // 从当前节点向上查找 ArrowFunctionExpression
+
     let arrowFuncNode: arkts.AstNode | null = chainCallNode.node;
     while (arrowFuncNode && !arkts.isArrowFunctionExpression(arrowFuncNode)) {
       arrowFuncNode = arrowFuncNode.parent;
     }
-    
+
     if (!arrowFuncNode || !arrowFuncNode.parent) {
       return chainCallNode;
     }
-    
-    // 从 ArrowFunctionExpression 向上查找 CallExpression（如 .onClick()）
+
     let callExpr: arkts.AstNode | null = arrowFuncNode.parent;
     if (this.hasChainCallNodeComment(callExpr.callee)) {
       chainCallNode.isChainedCall.chainNode = callExpr.callee;
@@ -746,22 +738,18 @@ export class CommentSuppressWarningsValidator extends BaseValidator implements N
     while (callExpr && !arkts.isCallExpression(callExpr)) {
       callExpr = callExpr.parent;
     }
-    
-    // 检查 CallExpression 是否是链式调用（expression 是 MemberExpression）
-    if (callExpr && arkts.isCallExpression(callExpr) && 
-        callExpr.callee && arkts.isMemberExpression(callExpr.callee)) {
-      
-      // 如果箭头函数体内（chainBakNode）有注释，直接使用它
+
+    if (callExpr && arkts.isCallExpression(callExpr) &&
+      callExpr.callee && arkts.isMemberExpression(callExpr.callee)) {
+
       if (this.hasChainCallNodeComment(chainBakNode)) {
         chainCallNode.isChainedCall.chainNode = chainBakNode;
         chainCallNode.isChainedCall.isChain = true;
         return chainCallNode;
       }
-      
-      // 向上遍历链式调用，找到有注释的节点或链式调用的根节点
+
       const chainNode = this.findChainCallRoot(callExpr);
-      
-      // 如果找到了有注释的节点，标记为链式调用场景
+
       if (this.hasChainCallNodeComment(chainNode)) {
         chainCallNode.isChainedCall.chainNode = chainNode;
         chainCallNode.isChainedCall.isChain = true;
@@ -769,11 +757,10 @@ export class CommentSuppressWarningsValidator extends BaseValidator implements N
       }
       return chainCallNode;
     }
-    
+
     return chainCallNode;
   }
 
-  // 检查节点是否在箭头函数内
   private checkIsInArrowFunction(node: arkts.AstNode): boolean {
     let current: arkts.AstNode | null = node;
     while (current) {
@@ -781,7 +768,6 @@ export class CommentSuppressWarningsValidator extends BaseValidator implements N
         return true;
       }
       if (arkts.isBlockStatement(current)) {
-        // 检查 BlockStatement 的 parent 是否是 ArrowFunctionExpression
         if (current.parent && arkts.isArrowFunctionExpression(current.parent)) {
           return true;
         }
@@ -796,7 +782,7 @@ export class CommentSuppressWarningsValidator extends BaseValidator implements N
       return null;
     }
     let current: arkts.AstNode = node;
-    while(arkts.isCallExpression(current) && current.callee && arkts.isMemberExpression(current.callee) && current.callee.object){
+    while (arkts.isCallExpression(current) && current.callee && arkts.isMemberExpression(current.callee) && current.callee.object) {
       current = current.callee.object;
     }
     return current;
@@ -841,7 +827,7 @@ export class CommentSuppressWarningsValidator extends BaseValidator implements N
       )
     );
   }
-  
+
   /**
    * check is not support scene.
    * 
