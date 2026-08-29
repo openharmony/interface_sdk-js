@@ -125,6 +125,7 @@ declare namespace formAgent {
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
@@ -155,6 +156,8 @@ declare namespace formAgent {
    * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed.
    * @throws { BusinessError } 16501017 - There is no space to publish the form.
    * @throws { BusinessError } 16501018 - This form does not support publishing.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly

@@ -1765,6 +1765,7 @@ declare namespace formHost {
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
@@ -1782,6 +1783,7 @@ declare namespace formHost {
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16501019 - A form service not owned by you cannot be unregistered.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
