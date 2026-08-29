@@ -1518,6 +1518,98 @@ declare namespace bundleManager {
   }
 
   /**
+   * 定义设备模式分发策略枚举，用于指定应用程序如何分发到设备上。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum DeviceModeDistributionPolicy {
+    /**
+     * 未指定设备模式分发策略。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    UNSPECIFIED = 0,
+    /**
+     * 该应用程序仅在主模式下可用。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    MAIN_ONLY = 1,
+    /**
+     * 该应用程序仅在副模式下可用。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SUB_ONLY = 2,
+    /**
+     * 应用程序在两种模式下都可用，具有相同的包体。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    UNIVERSAL_IDENTICAL_PACKAGE = 3,
+    /**
+     * 应用程序在两种模式下都可用，具有不同的包体。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    UNIVERSAL_DIFFERENT_PACKAGE = 4,
+    /**
+     * 该应用程序在不同模式之间以相同包体方式部分兼容。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    PARTIAL_COMPATIBLE_IDENTICAL_PACKAGE = 5,
+    /**
+     * 应用程序在不同模式之间以不同包体部分兼容。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    PARTIAL_COMPATIBLE_DIFFERENT_PACKAGE = 6,
+    /**
+     * 应用程序在不同模式之间以相同包体完全兼容。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    FULL_COMPATIBLE_IDENTICAL_PACKAGE = 7,
+    /**
+     * 应用程序在不同模式之间以不同的包体方式完全兼容。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    FULL_COMPATIBLE_DIFFERENT_PACKAGE = 8,
+  }
+
+  /**
    * 根据给定的bundleFlags获取当前应用的BundleInfo。使用Promise异步回调。
    *
    * @param { int } bundleFlags - 指定返回的BundleInfo所包含的信息。
@@ -4276,6 +4368,36 @@ declare namespace bundleManager {
    * @since 26.0.0 dynamic&static
    */
   function getInstalledBundleList(bundleFlags: int): Promise<Array<BundleInfo>>;
+
+  /**
+   * 支持按设备模式分发策略过滤应用列表。该接口使用promise返回结果。
+   * 
+   * > **说明：**
+   * >
+   * > 入参不能为空。所有值必须在的枚举值范围内。
+   * > DeviceModeDistributePolicy，以及所有不同套餐的策略（通用差分包、部分兼容差分包和全兼容差分包）必须包含。
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { Array<DeviceModeDistributionPolicy> } policies - DeviceModeDistributionPolicy值的数组。
+   * @returns { Promise<void> } Promise 对象，无返回值。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
+   * @throws { BusinessError } 17700097 - The device does not support the dual mode.
+   * @throws { BusinessError } 17700098 - The input parameter is invalid. It is either outside the range of valid
+   *     enum values or does not include the following required enum values: [
+   *     DeviceModeDistributionPolicy.UNIVERSAL_DIFFERENT_PACKAGE,
+   *     DeviceModeDistributionPolicy.PARTIAL_COMPATIBLE_DIFFERENT_PACKAGE,
+   *     DeviceModeDistributionPolicy.FULL_COMPATIBLE_DIFFERENT_PACKAGE].
+   * @throws { BusinessError } 17700099 - The device is installing or uninstalling an application,
+   *     or a previous API call is still being processed. Please try again.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function filterBundleListByDeviceModeDistributionPolicies(
+    policies: Array<DeviceModeDistributionPolicy>
+  ): Promise<void>;
 
   /**
    * 应用程序信息。

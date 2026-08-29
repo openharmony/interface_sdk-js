@@ -1241,6 +1241,12 @@ declare namespace installer {
      * certificate distribution type set to **app_gallery** or the signing certificate type set to **debug** support
      * downgrade installation. To use downgrade installation, you must request the ohos.permission.INSTALL_BUNDLE and
      * ohos.permission.INSTALL_ALLOW_DOWNGRADE permissions.
+     * - **ohos.bms.param.deviceModeDistributionPolicy**: The value is a decimal string of a
+     * [DeviceModeDistributionPolicy]{@link @ohos.bundle.bundleManager:bundleManager.DeviceModeDistributionPolicy}
+     * enum value (for example, **"4"**). It specifies the device mode distribution policy for the application
+     * being installed (supported since API version 26.1.0). If this key is not present, the policy defaults to
+     * **UNSPECIFIED** (0). If the value is invalid (not a decimal string integer or out of range [0, 8]), this key
+     * is ignored and the policy defaults to **UNSPECIFIED**.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
