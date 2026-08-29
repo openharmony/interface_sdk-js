@@ -3138,6 +3138,18 @@ declare namespace commonEventManager {
     COMMON_EVENT_VOLUME_ENCRYPTION_POLICY_SET = 'usual.event.VOLUME_ENCRYPTION_POLICY_SET',
 
     /**
+     * PC场景在有扩展数据磁盘场景下，表示特定卷是否为可使用的状态。在开机扩展磁盘挂载完成或者用户解锁后广播。
+     *
+     * 此事件仅在PC/2in1设备上支持。
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_DATA_VOLUME_STATUS_REPORT = 'usual.event.DATA_VOLUME_STATUS_REPORT',
+
+    /**
      * 表示设备上已安装新的沙箱应用的公共事件.
      *
      * @syscap SystemCapability.Notification.CommonEvent
