@@ -5302,8 +5302,8 @@ declare namespace window {
     minimizeOnStart?: boolean;
 
     /**
-     * Whether to hide the Dock icon and the hover thumbnail preview.
-     * If true, the current window will not display its icon and hover thumbnail preview on the Dock.
+     * Whether to hide the dock icon and the hover thumbnail preview.
+     * If true, the current window will not display its icon and hover thumbnail preview on the dock.
      * This parameter only takes effect within the same application, applies exclusively to PC/2in1 devices, and requires binding to a tray icon.
      *
      * @default false
