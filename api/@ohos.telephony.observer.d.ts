@@ -826,7 +826,7 @@ declare namespace observer {
    * > you do not pass the callback, you will cancel listening for all events.
    *
    * @param { 'callStateChange' } type - Call status change event. This field has a fixed value of **callStateChange**.
-   * @param { Callback<CallStateInfo> } callback - Callback function used to return the call status information object.
+   * @param { Callback<CallStateInfo> } [callback] - Callback function used to return the call status information object.
    *     For details, see [CallState]{@link @ohos.telephony.call:call.CallState}.
    *     <br>**number**: phone number.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
