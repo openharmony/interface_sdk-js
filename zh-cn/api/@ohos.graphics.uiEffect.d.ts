@@ -1376,7 +1376,7 @@ declare namespace uiEffect {
     refractAmount: double;
 
     /**
-     * 设置扫描波纹的宽度。
+     * 设置扫光波纹的宽度。
      * 取值范围为 [0.01, 1]，超出范围的值在实现时会被截断。
      * 
      * @syscap SystemCapability.Graphics.Drawing
@@ -1387,7 +1387,7 @@ declare namespace uiEffect {
     rippleWidth: double;
 
     /**
-     * 设置扫描的位置偏移。
+     * 设置扫光的位置偏移。
      * 取值范围为 [-2, 2]，超出范围的值在实现时会被截断。
      * 
      * @syscap SystemCapability.Graphics.Drawing
@@ -1470,7 +1470,7 @@ declare namespace uiEffect {
     prismHeight?: double;
 
     /**
-     * 扫描中心的归一化 X 坐标。
+     * 扫光中心的归一化 X 坐标。
      * 取值范围为 [0, 1]，超出范围的值将在实现时被截断。
      * 0.0 表示左边缘，1.0 表示右边缘，默认值为 0.0。
      *
@@ -1483,7 +1483,7 @@ declare namespace uiEffect {
     sweepCenterX?: double;
 
     /**
-     * 扫描中心的归一化 Y 坐标。
+     * 扫光中心的归一化 Y 坐标。
      * 取值范围为 [0, 1]，超出范围的值将在实现时被截断。
      * 0.0 表示上边缘，1.0 表示下边缘，默认值为 0.0。
      *
@@ -1623,13 +1623,13 @@ declare namespace uiEffect {
     static createUseEffectMask(useEffect: boolean): Mask;
 
     /**
-     * 创建一个模拟棱镜色散效果的扫描折射遮罩 Mask 实例。
-     * 该遮罩会在组件上生成一条带有颜色分离效果的扫描光带。
-     * @param { SweepRefractionParam } param - 扫描折射遮罩的必选参数，
+     * 创建一个模拟棱镜色散效果的扫光折射遮罩 Mask 实例。
+     * 该遮罩会在组件上生成一条带有颜色分离效果的扫光光带。
+     * @param { SweepRefractionParam } param - 扫光折射遮罩的必选参数，
      * 包括mask半径、棱镜边缘厚度、折射强度、波纹宽度、扫光偏移和色散偏移.
-     * @param { SweepRefractionMaskOptions } [options] - 扫描折射遮罩的可选参数，
-     * 包括棱镜形状、圆角半径、棱镜尺寸和扫描中心。
-     * @returns { Mask } - 返回带有扫描折射效果的 Mask。
+     * @param { SweepRefractionMaskOptions } [options] - 扫光折射遮罩的可选参数，
+     * 包括棱镜形状、圆角半径、棱镜尺寸和扫光中心。
+     * @returns { Mask } - 返回带有扫光折射效果的 Mask。
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
