@@ -1342,9 +1342,10 @@ declare namespace uiEffect {
   interface SweepRefractionParam {
 
     /**
-     * 设置棱镜遮罩的归一化半径.
-     * 取值范围为 [0, 10]，超出范围的值在实现时会被截断.
-     * 当 maskRadius等于1.0时, 等于组件宽度.
+     * 设置棱镜遮罩的归一化半径。
+     * 取值范围为 [0, 10]，超出范围的值在实现时会被截断。
+     * 当 maskRadius等于1.0时, 等于组件宽度。
+     * 
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -1353,8 +1354,9 @@ declare namespace uiEffect {
     maskRadius: double;
 
     /**
-     * 设置棱镜的归一化边缘厚度.
-     * 取值范围为 [1, 1000]，超出范围的值在实现时会被截断.
+     * 设置棱镜的归一化边缘厚度。
+     * 取值范围为 [1, 1000]，超出范围的值在实现时会被截断。
+     * 
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -1363,8 +1365,9 @@ declare namespace uiEffect {
     edgeThickness: double;
 
     /**
-     * 设置棱镜的折射强度.
-     * 取值范围为 [0, 1]，超出范围的值在实现时会被截断.
+     * 设置棱镜的折射强度。
+     * 取值范围为 [0, 1]，超出范围的值在实现时会被截断。
+     * 
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -1373,8 +1376,9 @@ declare namespace uiEffect {
     refractAmount: double;
 
     /**
-     * 设置扫描波纹的宽度.
-     * 取值范围为 [0.01, 1]，超出范围的值在实现时会被截断.
+     * 设置扫描波纹的宽度。
+     * 取值范围为 [0.01, 1]，超出范围的值在实现时会被截断。
+     * 
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -1383,8 +1387,9 @@ declare namespace uiEffect {
     rippleWidth: double;
 
     /**
-     * 设置扫描的位置偏移.
-     * 取值范围为 [-2, 2]，超出范围的值在实现时会被截断.
+     * 设置扫描的位置偏移。
+     * 取值范围为 [-2, 2]，超出范围的值在实现时会被截断。
+     * 
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -1393,8 +1398,9 @@ declare namespace uiEffect {
     sweepOffset: double;
 
     /**
-     * 设置色散偏移量.
-     * 取值范围为 [0, 0.5]，超出范围的值在实现时会被截断.
+     * 设置色散偏移量。
+     * 取值范围为 [0, 0.5]，超出范围的值在实现时会被截断。
+     * 
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
