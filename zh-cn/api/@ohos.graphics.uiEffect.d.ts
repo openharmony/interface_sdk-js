@@ -664,32 +664,6 @@ declare namespace uiEffect {
       brightnessParam?: BrightnessParam): VisualEffect;
 
     /**
-     * 为组件添加 celia 玻璃球效果。
-     *
-     * @param { double } progress - 扭曲动画的进度，单位为秒，等同于 Shadertoy 的 iTime。
-     *     该值无边界限制；增大或减小该值分别使动画向前或向后推进。
-     * @param { Color } tintColor - 指定应用于该效果的颜色色调。
-     *     该值无限制，推荐范围为 [0, 1]。Alpha 分量无效。
-     * @param { CeliaBallEffectParam } param - 配置玻璃球的材质。
-     * @param { Mask } useEffectMask - 指定是否使用模糊缓存。
-     *     仅当祖先节点为配置了模糊效果或启用了 alwaysSnapshot(true) 的 EffectComponent 时，该遮罩才生效。
-     *     使用 createUseEffectMask(true) 可复用模糊结果以提升性能，
-     *     当模糊效果频繁变化时使用 createUseEffectMask(false)。
-     * @param { Mask } contentMask - 指定玻璃内部显示的内容。
-     *     可通过 createPixelMapMask() 从像素图创建该遮罩。
-     * @param { Mask } [shapeMask] - 指定可选的遮罩，用于定义玻璃的形状。
-     *     可通过 createPixelMapMask() 从像素图创建该遮罩。
-     *     若未设置，玻璃将使用默认的球形形状。
-     * @returns { VisualEffect } - 返回附加了 celia 玻璃球效果的 VisualEffect。
-     * @syscap SystemCapability.Graphics.Drawing
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.1.0 dynamic&static
-     */
-    celiaBall(progress: double, tintColor: Color, param: CeliaBallEffectParam, useEffectMask: Mask,
-      contentMask: Mask, shapeMask?: Mask): VisualEffect;
-
-    /**
      * 为组件添加非线性形变效果。典型应用场景包括页面坍塌动画、窗口关闭特效、卡片翻转动画、场景过渡效果等。
      *
      * 1. 该视效支持控件范围外的绘制，但仍会受到父控件Clip的影响。
@@ -1516,102 +1490,6 @@ declare namespace uiEffect {
     sweepCenterY?: double;
   }
 
-  /**
-   * 枚举 SweepRefractionMask 的棱镜形状类型。
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Graphics.Drawing
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.1.0 dynamic&static
-   */
-  enum PrismShapeType {
-    ROUNDED_RECT = 0,
-    ELLIPSE = 1
-  }
-
-  /**
-   * 创建 SweepRefractionMask 的可选参数。
-   *
-   * @default {shapeType:0, cornerRadius:0.16, prismWidth:1.0, prismHeight:1.0, sweepCenterX:0.0, sweepCenterY:0.0} 
-   * @syscap SystemCapability.Graphics.Drawing
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.1.0 dynamic&static
-   */
-  interface SweepRefractionMaskOptions {
-
-    /**
-     * 棱镜形状类型。
-     *
-     * @default {0}
-     * @syscap SystemCapability.Graphics.Drawing
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.1.0 dynamic&static
-     */
-    shapeType?: PrismShapeType;
-
-    /**
-     * 棱镜形状的归一化圆角半径，仅在 shapeType 为 ROUNDED_RECT 时生效。
-     * 取值范围为 [0, 1]，超出范围的值在实现时会被截断。
-     *
-     * @default {0.16}
-     * @syscap SystemCapability.Graphics.Drawing
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.1.0 dynamic&static
-     */
-    cornerRadius?: double;
-
-    /**
-     * 棱镜的归一化宽度。
-     * 取值范围为 [0.01, 2]，超出范围的值在实现时会被截断。
-     *
-     * @default {1.0}
-     * @syscap SystemCapability.Graphics.Drawing
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.1.0 dynamic&static
-     */
-    prismWidth?: double;
-
-    /**
-     * 棱镜的归一化高度。
-     * 取值范围为 [0.01, 2]，超出范围的值在实现时会被截断。
-     *
-     * @default {1.0}
-     * @syscap SystemCapability.Graphics.Drawing
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.1.0 dynamic&static
-     */
-    prismHeight?: number;
-
-    /**
-     * 扫描中心的归一化 X 坐标。
-     * 取值范围为 [0, 1]，超出范围的值在实现时会被截断。
-     *
-     * @default {0.0}
-     * @syscap SystemCapability.Graphics.Drawing
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.1.0 dynamic&static
-     */
-    sweepCenterX?: number;
-
-    /**
-     * 扫描中心的归一化 Y 坐标。
-     * 取值范围为 [0, 1]，超出范围的值在实现时会被截断。
-     *
-     * @default {0.0}
-     * @syscap SystemCapability.Graphics.Drawing
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.1.0 dynamic&static
-     */
-    sweepCenterY?: number;
-  }
   /**
    * Mask效果类，作为Filter以及VisualEffect的输入使用。不同类型的Mask提供不同的灰度分布模式，如波环遮罩、径向渐变、像素图遮罩等。
    *
