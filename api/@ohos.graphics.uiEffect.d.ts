@@ -770,6 +770,32 @@ declare namespace uiEffect {
       brightnessParam?: BrightnessParam): VisualEffect;
 
     /**
+     * Adds a celia glass ball effect to the component.
+     *
+     * @param { double } progress - The warp animation progress in seconds, equivalent to Shadertoy's iTime.
+     *     The value is unbounded; increasing or decreasing it advances the animation forward or backward, respectively.
+     * @param { Color } tintColor - Specifies the color tint applied to the effect.
+     *     The value is unrestricted, with a recommended range of [0, 1]. The alpha channel has no effect.
+     * @param { CeliaBallEffectParam } param - Configures the glass ball's material.
+     * @param { Mask } useEffectMask - Specifies whether blur caching is used.
+     *     The mask takes effect only when an ancestor is an EffectComponent with a blur effect configured
+     *     or alwaysSnapshot(true) enabled. Use createUseEffectMask(true) to reuse blur results
+     *     and improve performance, or createUseEffectMask(false) when the blur effect changes frequently.
+     * @param { Mask } contentMask - Specifies the content displayed within the glass.
+     *     Create the mask from a pixel map using createPixelMapMask().
+     * @param { Mask } [shapeMask] - Specifies an optional mask that defines the glass shape.
+     *     Create the mask from a pixel map using createPixelMapMask().
+     *     If not set, the glass uses its default spherical shape.
+     * @returns { VisualEffect } - Returns the VisualEffect with the celia glass ball effect attached.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    celiaBall(progress: double, tintColor: Color, param: CeliaBallEffectParam, useEffectMask: Mask,
+      contentMask: Mask, shapeMask?: Mask): VisualEffect;
+
+    /**
      * Adds a nonlinear deformation effect to the component. Typical application scenarios include
      * page collapse animations, window close effects, card flip animations, scene transition effects, etc.
      *
@@ -1450,7 +1476,7 @@ declare namespace uiEffect {
     blue: double;
 
     /**
-     * Alpha component of the color (transparency).
+     * alpha channel of the color (transparency).
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
