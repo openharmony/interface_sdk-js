@@ -990,6 +990,7 @@ declare namespace uiEffect {
 
   /**
    * WarpedRingParam 用于指定光环的半径、宽度、变化量、旋转、3D 朝向和噪声演化。
+   * 
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @stagemodelonly
@@ -1334,6 +1335,7 @@ declare namespace uiEffect {
 
   /**
    * 创建 SweepRefractionMask 的必选参数。
+   * 
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @stagemodelonly
@@ -1624,6 +1626,7 @@ declare namespace uiEffect {
     /**
      * 创建一个模拟棱镜色散效果的扫光折射遮罩 Mask 实例。
      * 该遮罩会在组件上生成一条带有颜色分离效果的扫光光带。
+     * 
      * @param { SweepRefractionParam } param - 扫光折射遮罩的必选参数，
      * 包括mask半径、棱镜边缘厚度、折射强度、波纹宽度、扫光偏移和色散偏移.
      * @param { SweepRefractionMaskOptions } [options] - 扫光折射遮罩的可选参数，
