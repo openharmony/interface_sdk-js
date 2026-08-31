@@ -1611,8 +1611,7 @@ declare namespace uiEffect {
      *     用于声明材质效果是否使用模糊缓存以提升性能。将此Mask实例用于其他Filter或VisualEffect方法时，
      *     useEffect属性可能不生效。
      *
-     * @param { boolean } useEffect 
-     * 标记是否使用模糊缓存。值为true，表示使用，会正常显示模糊效果，值为false，表示不使用，不显示模糊效果。
+     * @param { boolean } useEffect - 标记是否使用模糊缓存。值为true，表示使用，会正常显示模糊效果；值为false，表示不使用，不显示模糊效果。
      * @returns { Mask } - 返回标记是否使用模糊缓存的Mask实例。
      * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Graphics.Drawing
