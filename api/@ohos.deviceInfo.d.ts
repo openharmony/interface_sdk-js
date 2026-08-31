@@ -399,7 +399,13 @@ declare namespace deviceInfo {
   const sdkApiVersion: number;
 
   /**
-   * Obtains the SDK Minor API version.
+   * Starting from API version 26.0.0, the minor version is introduced as part of semantic versioning.
+   * It is the middle field in the semantic version and is an integer.
+   * The complete API version is represented by sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
+   *
+   * Example:
+   * If the API version of the system software is 26.0.1, sdkMinorApiVersion is 0.
+   * If the API version of the system software is 26.1.0, sdkMinorApiVersion is 1.
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @stagemodelonly
@@ -410,7 +416,13 @@ declare namespace deviceInfo {
   const sdkMinorApiVersion: number;
 
   /**
-   * Obtains the SDK Patch API version.
+   * Starting from API version 26.0.0, the patch version is introduced as part of semantic versioning.
+   * It is the third field in the semantic version and is an integer.
+   * The complete API version is represented by sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
+   *
+   * Example:
+   * If the API version of the system software is 26.0.1, sdkPatchApiVersion is 1.
+   * If the API version of the system software is 26.1.0, sdkPatchApiVersion is 0.
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @stagemodelonly
