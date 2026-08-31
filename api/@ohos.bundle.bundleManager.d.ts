@@ -4147,8 +4147,6 @@ declare namespace bundleManager {
    * @since 11 dynamic
    * @since 23 static
    */
-  function setAdditionalInfo(bundleName: string, additionalInfo: string): void;
-
   /**
    * Sets additional information for an application. This API can be called only by AppGallery.
    *
