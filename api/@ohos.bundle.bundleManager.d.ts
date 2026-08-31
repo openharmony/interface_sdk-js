@@ -4136,6 +4136,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name.
    * @param { string } additionalInfo - Additional information to set.
+   * @param { int } [appIndex] - Index of the application mode.The value must be equal to 0 or 10000.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -4146,23 +4147,6 @@ declare namespace bundleManager {
    * @systemapi
    * @since 11 dynamic
    * @since 23 static
-   */
-  /**
-   * Sets additional information for an application. This API can be called only by AppGallery.
-   *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Bundle name.
-   * @param { string } additionalInfo - Additional information to set.
-   * @param { int } [appIndex] - Index of the application mode.The value must be equal to 0 or 10000.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter bundleName is empty.
-   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
-   * @throws { BusinessError } 17700053 - The caller is not AppGallery.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
-   * @since 26.1.0 dynamic&static
    */
   function setAdditionalInfo(bundleName: string, additionalInfo: string, appIndex?: int): void;
 
