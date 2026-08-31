@@ -24,8 +24,9 @@
  * 
  * > **说明：**
  * >
- * > - SplitLayout不支持设置[通用属性]{@link ./@internal/component/ets/common}和[通用事件]{@link ./@internal/component/ets/common}。
- * > 如果设置，编译工具链会额外生成__Common__节点，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到SplitLayout本身，导致设置的属性或事件不生效。
+ * > - 如果SplitLayout设置[通用属性]{@link CommonMethod}或[通用事件]{@link CommonMethod}，
+ * > 编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到SplitLayout本身。
+ * > 这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议SplitLayout设置通用属性和通用事件。
  *
  * ## 导入模块
  *

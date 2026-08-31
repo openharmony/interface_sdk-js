@@ -304,6 +304,10 @@ export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void;
  * >
  * > - 窗口宽度小于等于600vp时默认使用二分栏，窗口宽度大于600vp时在上下分栏的同时可支持扩展区域，窗口宽度大于600vp且在横屏半折状态下可触发悬停态布局。悬停态布局时会增加折痕区的避让并且扩展区域不可以贯穿折痕区，悬停态可
  * > 设置不展示扩展区域，详情请参考[示例]{@link @ohos.arkui.advanced.FoldSplitContainer}。
+ * >
+ * > - 如果FoldSplitContainer设置[通用属性]{@link CommonMethod}或[通用事件]{@link CommonMethod}，
+ * > 编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到FoldSplitContainer本身。
+ * > 这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议FoldSplitContainer设置通用属性和通用事件。
  *
  * ## 导入模块
  *

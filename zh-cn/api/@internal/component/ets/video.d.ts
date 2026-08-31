@@ -781,9 +781,9 @@ interface VideoInterface {
 }
 
 /**
- * 除支持[通用属性]{@link ./common}外，还支持以下属性：
+ * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性：
  * 
- * 除支持[通用事件]{@link ./common}外，还支持以下事件：
+ * 除支持[通用事件]{@link CommonMethod}外，还支持以下事件：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1111,7 +1111,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
  * 
  * 使用网络视频时，需要申请权限ohos.permission.INTERNET。具体申请方式请参考[声明权限](docroot://security/AccessToken/declare-permissions.md)。
  * 
- * ###### 子组件
+ * ## 子组件
  * 
  * 不支持子组件。
  *

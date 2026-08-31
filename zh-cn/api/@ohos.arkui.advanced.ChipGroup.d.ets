@@ -870,7 +870,13 @@ export declare struct IconGroupSuffix {
 
 /**
  * ChipGroup组件提供操作块群组能力，支持单选或多选模式，可自定义样式、图标和间距，支持选中状态管理和事件回调。适用于文件分类、资源筛选、标签选择、内容分组等多种场景，帮助开发者快速实现选择功能，提供统一的视觉和交互体验。
-*
+ *
+ * > **说明：**
+ * >
+ * > - 如果ChipGroup设置[通用属性]{@link CommonMethod}或[通用事件]{@link CommonMethod}，
+ * > 编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到ChipGroup本身。
+ * > 这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议ChipGroup设置通用属性和通用事件。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

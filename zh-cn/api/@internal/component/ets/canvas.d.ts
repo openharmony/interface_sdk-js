@@ -3101,7 +3101,7 @@ interface CanvasInterface {
 }
 
 /**
- * 除支持[通用属性]{@link ./common}外，还支持以下属性：
+ * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性：
  * 
  * 设置组件支持AI分析，当前支持主体识别、文字识别和对象查找等功能，支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性方法。
  * 
@@ -3113,7 +3113,7 @@ interface CanvasInterface {
  * [ImageAnalyzerController.getImageAnalyzerSupportTypes]{@link ImageAnalyzerController#getImageAnalyzerSupportTypes}接口查
  * 询设备支持的分析类型。
  * 
- * 除支持[通用事件]{@link ./common}外，还支持如下事件：
+ * 除支持[通用事件]{@link CommonMethod}外，还支持如下事件：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -3201,7 +3201,7 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
  * >
  * > 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * 
- * ###### 子组件
+ * ## 子组件
  * 
  * 不支持。
  *
@@ -3222,7 +3222,7 @@ declare const Canvas: CanvasInterface;
  * >
  * > 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * 
- * ###### 子组件
+ * ## 子组件
  * 
  * 不支持。
  *

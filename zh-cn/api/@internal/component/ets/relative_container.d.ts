@@ -385,9 +385,9 @@ declare interface LocalizedBarrierStyle {
 }
 
 /**
- * 除支持[通用属性]{@link ./common}外，还支持如下属性：
+ * 除支持[通用属性]{@link CommonMethod}外，还支持如下属性：
  * 
- * 支持[通用事件]{@link ./common}。
+ * 支持[通用事件]{@link CommonMethod}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -463,7 +463,7 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
  * > * RelativeContainer中子组件的[margin]{@link CommonMethod#margin}不同于通用属性margin，指子组件到该方向上锚点的距离。例如，当alignRules设置了left锚点时，
  * > margin.left表示子组件到left锚点的距离。若alignRules未设置某个边界方向的锚点（如未设置left或right锚点），则该方向的margin不生效。
  * 
- * ###### 子组件
+ * ## 子组件
  * 
  * 支持多个子组件。
  *
