@@ -16642,7 +16642,16 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
-    FRIEND_ID_ATTR = 'friend_id'
+    FRIEND_ID_ATTR = 'friend_id',
+    /**
+     * The album contact_info operation attribute.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    CONTACT_INFO_ATTR = 'contact_info'
   }
 
   /**
@@ -16684,7 +16693,7 @@ declare namespace photoAccessHelper {
   }
 
   /**
-   * Album operation info.
+   * Represents an album operation configuration.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
@@ -16711,8 +16720,8 @@ declare namespace photoAccessHelper {
      */
     type: AlbumOperationType;
     /**
-     * The album operation parameters. The maximum length is 20, The array can contain a maximum of 20 strings, and
-     *     each string must not exceed 500 characters in length.
+     * The album operation parameters. The array can contain a maximum of 20 strings, and
+     *     each string must not exceed 8KB.
      * 
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi

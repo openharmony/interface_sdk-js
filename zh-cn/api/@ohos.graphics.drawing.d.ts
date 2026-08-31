@@ -1907,6 +1907,96 @@ declare namespace drawing {
     value: double;
   }
 
+  * 描述一组已录制的绘制指令。
+   * @syscap SystemCapability.Graphics.Drawing
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface RecordCmd { }
+
+  /**
+   * 该类提供了一组录制回放命令的操作。
+   * @syscap SystemCapability.Graphics.Drawing
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  class RecordCmdUtils {
+    /**
+     * 获取记录绘制命令的画布。
+     *
+     * @param { number } width - 录制画布的宽度。
+     *     <br>单位: px
+     *     <br>取值范围:大于0的整数。
+     *     <br>宽度值必须大于0。
+     * @param { number } height - 录制画布的高度。
+     *     <br>单位: px
+     *     <br>取值范围:大于0的整数。
+     *     <br>高度值必须大于0。
+     * @returns { Canvas } 返回用于录制绘制指令的画布对象。
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.1.0 dynamic
+     */
+    beginRecording(width: number, height: number): Canvas;
+
+    /**
+     * 获取记录绘制命令的画布。
+     *
+     * @param { int } width - 录制画布的宽度。
+     *     <br>单位: px。取值限定为整数。
+     *     <br>取值范围:大于0的整数。
+     *     <br>宽度值必须大于0。
+     * @param { int } height - 录制画布的高度。
+     *     <br>单位: px。取值限定为整数。
+     *     <br>取值范围:大于0的整数。
+     *     <br>高度值必须大于0。
+     * @returns { Canvas | undefined } 返回用于录制绘制指令的画布对象。
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    beginRecording(width: int, height: int): Canvas | undefined;
+
+    /**
+     * 结束录制，返回录制的绘制指令对象。
+     * @returns { RecordCmd } 返回已录制的绘制指令对象。
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.1.0 dynamic
+     */
+    finishRecording(): RecordCmd;
+
+    /**
+     *  结束录制，返回录制的绘制指令对象。
+     *
+     * @returns { RecordCmd | undefined } 返回已录制的绘制指令对象。
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    finishRecording(): RecordCmd | undefined;
+
+    /**
+     * 获取录制画布的高度。
+     * @returns { int } 返回录制画布的高度。
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    getHeight(): int;
+
+    /**
+     * 获取录制画布的宽度。
+     * @returns { int } 返回录制画布的宽度。
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    getWidth(): int;
+  }
+
   /**
    * 承载绘制内容与绘制状态的载体。Canvas提供矩形、圆形、椭圆、弧线、路径、文字、图片等多种图形的绘制能力，支持通过画笔和画刷设置绘制样式，支持画布裁剪、矩阵变换、画布状态保存与恢复等功能。
    * 
@@ -2445,6 +2535,15 @@ declare namespace drawing {
      * @since 23 static
      */
     attachPen(pen: Pen): void;
+
+    /**
+     * 回放已录制的绘制指令。
+     * @param { RecordCmd } recordCmd - 已录制的绘制指令对象。
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    drawRecordCmd(recordCmd: RecordCmd): void;
 
     /**
      * 绑定画刷到画布上，在画布上进行绘制时，将使用画刷的样式对绘制图形形状的内部进行填充。调用本方法后，画刷将持续生效于后续所有绘制操作，直至调用
