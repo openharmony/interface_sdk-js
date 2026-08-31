@@ -3586,7 +3586,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or
    *     (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
-   * @param { int } [userId] - User ID on the device.
+   * @param { int } userId - User ID on the device.
    * @returns { Promise<Array<AppProvisionInfo>> } Promise used to return the provision profile obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
@@ -3605,7 +3605,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name.
-   * @param { int } [userId] - User ID on the device.
+   * @param { int } userId - User ID on the device.
    * @returns { Promise<AppProvisionInfo> } Promise used to return the provision profile obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -3615,8 +3615,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
-   * @since 10 dynamic
-   * @since 23 static
+   * @since 26.1.0 dynamic&static
    */
   function getAppProvisionInfoInDevice(bundleName: string, userId: int): Promise<AppProvisionInfo>;
 

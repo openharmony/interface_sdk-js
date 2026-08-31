@@ -175,7 +175,7 @@ export interface AppProvisionInfo {
    * @systemapi
    * @since 26.1.0 dynamic&static
    */
-  readonly appServiceCapabilities: string;
+  readonly appServiceCapabilities?: string;
 
   /**
    * Index of the application.
@@ -184,7 +184,7 @@ export interface AppProvisionInfo {
    * @systemapi
    * @since 26.1.0 dynamic&static
    */
-  readonly appIndex: int;
+  readonly appIndex?: int;
 
   /**
    * Specified distribution type of the application.
@@ -193,7 +193,7 @@ export interface AppProvisionInfo {
    * @systemapi
    * @since 26.1.0 dynamic&static
    */
-  readonly specifiedDistributionType: string;
+  readonly specifiedDistributionType?: string;
 
   /**
    * Additional of the application.
@@ -202,7 +202,7 @@ export interface AppProvisionInfo {
    * @systemapi
    * @since 26.1.0 dynamic&static
    */
-  readonly additional: string;
+  readonly additional?: string;
 }
 
 /**
