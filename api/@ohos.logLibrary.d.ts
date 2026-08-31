@@ -110,7 +110,7 @@ declare namespace logLibrary {
    *     <br>1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types.
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 21300001 - Source file does not exists
+   * @throws { BusinessError } 21300001 - Source file does not exist
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10 dynamic
@@ -138,7 +138,7 @@ declare namespace logLibrary {
    *     <br>1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types.
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 21300001 - Source file does not exists
+   * @throws { BusinessError } 21300001 - Source file does not exist
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10 dynamic
@@ -166,7 +166,7 @@ declare namespace logLibrary {
    *     <br>1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types.
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 21300001 - Source file does not exists
+   * @throws { BusinessError } 21300001 - Source file does not exist
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10 dynamic
@@ -194,7 +194,7 @@ declare namespace logLibrary {
    *     <br>1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types.
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 21300001 - Source file does not exists
+   * @throws { BusinessError } 21300001 - Source file does not exist
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10 dynamic
@@ -214,7 +214,7 @@ declare namespace logLibrary {
    *     <br>1. Mandatory parameters are left unspecified.
    *     <br>2. Incorrect parameter types.
    *     <br>3. Parameter verification failed.
-   * @throws { BusinessError } 21300001 - Source file does not exists
+   * @throws { BusinessError } 21300001 - Source file does not exist
    * @syscap SystemCapability.HiviewDFX.Hiview.LogLibrary
    * @systemapi
    * @since 10 dynamic
