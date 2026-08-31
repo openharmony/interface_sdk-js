@@ -666,7 +666,7 @@ export class CommentSuppressWarningsValidator extends BaseValidator implements N
           }
         }
       }
-      if (arkts.isIdentifier(nodeStatement.node) && this.hasChainCallNodeComment(nodeStatement.node)) {
+      if ((arkts.isIdentifier(nodeStatement.node) || arkts.isVariableDeclarator(nodeStatement.node)) && this.hasChainCallNodeComment(nodeStatement.node)) {
         nodeStatement.isChainedCall.chainNode = nodeStatement.node;
         nodeStatement.isChainedCall.isChain = true;
         break;
@@ -711,7 +711,7 @@ export class CommentSuppressWarningsValidator extends BaseValidator implements N
     if (!node) {
       return null;
     }
-    const chainBakNode: arkts.Node = node.node;
+    const chainBakNode: arkts.AstNode = node.node;
     let chainCallNode: NodeParentModel = node;
 
     const isInArrowFunction = this.checkIsInArrowFunction(chainCallNode.node);
@@ -850,7 +850,6 @@ export class CommentSuppressWarningsValidator extends BaseValidator implements N
    * @returns - Return the corresponding result based on the annotation information of the input parameter.
    */
   private hasNotSupportScene(comments: string[]): boolean {
-    let isSupportScene = false;
     const mulitiLineCommentScene = /\/\*+/g;
     for (const item of comments) {
       if (/^\/\/\s*@SuppressWarnings\s*(\/+)/.test(item)) {
@@ -861,7 +860,7 @@ export class CommentSuppressWarningsValidator extends BaseValidator implements N
         return true;
       }
     }
-    return isSupportScene;
+    return false;
   }
 }
 
