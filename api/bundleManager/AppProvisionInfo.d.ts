@@ -202,7 +202,7 @@ export interface AppProvisionInfo {
    * @systemapi
    * @since 26.1.0 dynamic&static
    */
-  readonly additional?: string;
+  readonly additionalInfo?: string;
 }
 
 /**

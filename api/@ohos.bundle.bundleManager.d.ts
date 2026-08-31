@@ -3584,8 +3584,8 @@ declare namespace bundleManager {
    * Obtains the [provision]{@link bundleManager/AppProvisionInfo} configuration file information of all applications
    * based in the device on the given user ID. This API uses a promise to return the result.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or
-   *     (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST or
+   *     (ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
    * @param { int } userId - User ID on the device.
    * @returns { Promise<Array<AppProvisionInfo>> } Promise used to return the provision profile obtained.
    * @throws { BusinessError } 201 - Permission denied.
@@ -3593,6 +3593,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 17700004 - The specified user id is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
+   * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
   function getAllAppProvisionInfoInDevice(userId: int): Promise<Array<AppProvisionInfo>>;
@@ -3603,14 +3604,13 @@ declare namespace bundleManager {
    *
    * No permission is required for obtaining the caller's own information.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST or
+   *     (ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
    * @param { string } bundleName - Bundle name.
    * @param { int } userId - User ID on the device.
    * @returns { Promise<AppProvisionInfo> } Promise used to return the provision profile obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter bundleName is empty.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
    * @throws { BusinessError } 17700004 - The specified user ID is not found.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
