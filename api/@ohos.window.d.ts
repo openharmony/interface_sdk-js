@@ -7514,7 +7514,7 @@ declare namespace window {
      * @param { 'uiExtensionSecureLimitChange' } eventType - Event type. The value is fixed at
      *     **'uiExtensionSecureLimitChange'**, indicating that the UIExtensionAbility security restrictions in the
      *     window changes.
-     * @param { Callback<boolean> } callback - Callback used to return the result. If a value is passed in, the
+     * @param { Callback<boolean> } [callback] - Callback used to return the result. If a value is passed in, the
      *     corresponding subscription is canceled. If no value is passed in, all subscriptions to the specified event
      *     are canceled.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -7979,7 +7979,7 @@ declare namespace window {
      * the callback.
      *
      * @param { string } name - Name of the named route page.
-     * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to transfer the state attribute
+     * @param { LocalStorage } [storage] - Page-level UI state storage unit, which is used to transfer the state attribute
      *     for the page.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
@@ -8553,7 +8553,7 @@ declare namespace window {
      *
      * @param { 'touchOutside' } type - Event type. The value is fixed at **'touchOutside'**, indicating the touch event
      *     outside this window.
-     * @param { Callback<void> } callback - Callback used to return the touch event outside this window. If a value is
+     * @param { Callback<void> } [callback] - Callback used to return the touch event outside this window. If a value is
      *     passed in, the corresponding subscription is canceled. If no value is passed in, all subscriptions to the
      *     specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
@@ -8961,7 +8961,7 @@ declare namespace window {
      *
      * @param { 'noInteractionDetected' } type - Event type. The value is fixed at **'noInteractionDetected'**,
      *     indicating that there is no interaction event in the window within the specified period.
-     * @param { Callback<void> } callback - Callback invoked when there is no interaction event in the current window
+     * @param { Callback<void> } [callback] - Callback invoked when there is no interaction event in the current window
      *     within the specified period. If a value is passed in, the corresponding subscription is canceled. If no value
      *     is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
@@ -9133,7 +9133,7 @@ declare namespace window {
      *
      * @param { 'dialogTargetTouch' } type - Event type. The value is fixed at **'dialogTargetTouch'**, indicating the
      *     touch event of the target window in the modal window mode.
-     * @param { Callback<void> } callback - Callback invoked when the touch event occurs in the target window of the
+     * @param { Callback<void> } [callback] - Callback invoked when the touch event occurs in the target window of the
      *     modal window mode. If a value is passed in, the corresponding subscription is canceled. If no value is passed
      *     in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
@@ -9185,7 +9185,7 @@ declare namespace window {
      *
      * @param { 'windowEvent' } type - Event type. The value is fixed at **'windowEvent'**, indicating the window
      *     lifecycle change event.
-     * @param { Callback<WindowEventType> } callback - Callback used to return the window lifecycle state. If a value is
+     * @param { Callback<WindowEventType> } [callback] - Callback used to return the window lifecycle state. If a value is
      *     passed in, the corresponding subscription is canceled. If no value is passed in, all subscriptions to the
      *     specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
@@ -14168,7 +14168,7 @@ declare namespace window {
      * before loading the new content. Exercise caution when using it.
      *
      * @param { string } path of the page to which the content will be loaded
-     * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
+     * @param { LocalStorage } [storage] The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
      * @throws { BusinessError } 401 - Parameter error. Possible cause:
      *     1. Mandatory parameters are left unspecified;
@@ -14262,7 +14262,7 @@ declare namespace window {
      * Loads content by named router
      *
      * @param { string } name - name of the page to which the content will be loaded.
-     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
+     * @param { LocalStorage } [storage] - The data object shared within the content instance loaded by the window.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
@@ -14329,7 +14329,7 @@ declare namespace window {
      *
      * @param { 'windowStageEvent' } eventType Event type.
      *     The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
-     * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
+     * @param { Callback<WindowStageEventType> } [callback] Callback used to return the window stage lifecycle state.
      *     If a value is passed in, the corresponding subscription is canceled.
      *     If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;

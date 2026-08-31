@@ -7096,7 +7096,7 @@ declare namespace window {
      *
      * @param { 'uiExtensionSecureLimitChange' } eventType - 监听事件，固定为'uiExtensionSecureLimitChange'，即窗口内uiExtension安全限制变
      *     化事件。
-     * @param { Callback<boolean> } callback - 回调函数。若传入参数，则关闭该监听。若未传入参数，则关闭所有窗口安全限制变化的监听。
+     * @param { Callback<boolean> } [callback] - 回调函数。若传入参数，则关闭该监听。若未传入参数，则关闭所有窗口安全限制变化的监听。
      * @throws { BusinessError } 801 - Capability not supported.
      *     Function off('uiExtensionSecureLimitChange') cannot work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -7517,7 +7517,7 @@ declare namespace window {
      * 当前UI的执行上下文可能不明确，所以不建议在本接口的回调函数中做UI相关的操作。
      *
      * @param { string } name - 命名路由页面的名称。
-     * @param { LocalStorage } storage - 页面级UI状态存储单元，这里用于为加载到窗口的页面内容传递状态属性，默认值为空。
+     * @param { LocalStorage } [storage] - 页面级UI状态存储单元，这里用于为加载到窗口的页面内容传递状态属性，默认值为空。
      * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
@@ -8071,7 +8071,7 @@ declare namespace window {
      * 关闭本窗口区域范围外的点击事件的监听。
      *
      * @param { 'touchOutside' } type - 监听事件，固定为'touchOutside'，即本窗口范围外的点击事件。
-     * @param { Callback<void> } callback - 回调函数。当点击事件发生在本窗口范围之外的回调。如果传入参数，则关闭该监听。如果未传入参数，则关闭所有本窗口区域范围外的点击事件的监听。
+     * @param { Callback<void> } [callback] - 回调函数。当点击事件发生在本窗口范围之外的回调。如果传入参数，则关闭该监听。如果未传入参数，则关闭所有本窗口区域范围外的点击事件的监听。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *     2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -8414,7 +8414,7 @@ declare namespace window {
      * 关闭本窗口在指定超时时间内无交互事件的监听，交互事件支持物理键盘输入事件和屏幕触控点击事件，不支持软键盘输入事件。
      *
      * @param { 'noInteractionDetected' } type - 监听事件，固定为'noInteractionDetected'，即本窗口在指定超时时间内无交互的事件。
-     * @param { Callback<void> } callback - 回调函数，当本窗口在指定超时时间内无交互事件时的回调。如果传入参数，则关闭该监听。如果未传入参数，则关闭所有本窗口在指定超时时间内无交互事件的监听。
+     * @param { Callback<void> } [callback] - 回调函数，当本窗口在指定超时时间内无交互事件时的回调。如果传入参数，则关闭该监听。如果未传入参数，则关闭所有本窗口在指定超时时间内无交互事件的监听。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *     2. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -8559,7 +8559,7 @@ declare namespace window {
      * 关闭模态窗口目标窗口的点击事件的监听。
      *
      * @param { 'dialogTargetTouch' } type - 监听事件，固定为'dialogTargetTouch'，即模态窗口目标窗口的点击事件。
-     * @param { Callback<void> } callback - 回调函数。当点击事件发生在模态窗口目标窗口的回调。若传入参数，则关闭该监听。若未传入参数，则关闭所有模态窗口目标窗口的点击事件的监听。
+     * @param { Callback<void> } [callback] - 回调函数。当点击事件发生在模态窗口目标窗口的回调。若传入参数，则关闭该监听。若未传入参数，则关闭所有模态窗口目标窗口的点击事件的监听。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *     2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -8606,7 +8606,7 @@ declare namespace window {
      * 关闭窗口生命周期变化的监听。
      *
      * @param { 'windowEvent' } type - 监听事件，固定为'windowEvent'，即窗口生命周期变化事件。
-     * @param { Callback<WindowEventType> } callback - 回调函数。返回当前的窗口生命周期状态。若传入参数，则关闭该监听。若未传入参数，则关闭所有窗口生命周期变化的监听。
+     * @param { Callback<WindowEventType> } [callback] - 回调函数。返回当前的窗口生命周期状态。若传入参数，则关闭该监听。若未传入参数，则关闭所有窗口生命周期变化的监听。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *     2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -13030,7 +13030,7 @@ declare namespace window {
      * 建议在UIAbility启动过程中调用该接口，重复调用将首先销毁旧的页面内容（即UIContent）再加载新页面内容，请谨慎使用。当前UI的执行上下文可能不明确，所以不建议在回调函数中做UI相关的操作。
      *
      * @param { string } path 要加载到窗口中的页面内容的路径，该路径需添加到工程的main_pages.json文件中。不支持相对路径写法，需与main_pages.json中的src取值保持一致。
-     * @param { LocalStorage } storage 页面级UI状态存储单元，为加载到窗口的页面内容传递状态属性，默认值为空。
+     * @param { LocalStorage } [storage] 页面级UI状态存储单元，为加载到窗口的页面内容传递状态属性，默认值为空。
      * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible cause:
      *     1. Mandatory parameters are left unspecified;
@@ -13118,7 +13118,7 @@ declare namespace window {
      * Loads content by named router
      *
      * @param { string } name - name of the page to which the content will be loaded.
-     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
+     * @param { LocalStorage } [storage] - The data object shared within the content instance loaded by the window.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
@@ -13185,7 +13185,7 @@ declare namespace window {
      * 如果没有调用[on('windowStageEvent')](#onwindowstageevent9)接口开启监听就关闭，程序正常执行不会抛出异常。
      *
      * @param { 'windowStageEvent' } eventType 监听事件，固定为'windowStageEvent'，即WindowStage生命周期变化事件。
-     * @param { Callback<WindowStageEventType> } callback 回调函数。返回当前的WindowStage生命周期状态。若传入参数，则关闭该监听。若未传入参数，则关闭所有WindowStage生命周期变化的监听。
+     * @param { Callback<WindowStageEventType> } [callback] 回调函数。返回当前的WindowStage生命周期状态。若传入参数，则关闭该监听。若未传入参数，则关闭所有WindowStage生命周期变化的监听。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *     2. Parameter verification failed.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
