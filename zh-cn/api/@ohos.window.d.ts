@@ -2918,7 +2918,7 @@ declare namespace window {
    * 创建子窗口或者系统窗口，使用callback异步回调。
    * 
    * 非[自由窗口](docroot://windowmanager/window-terminology.md#自由窗口)状态下，子窗口创建后默认是
-   * [沉浸式布局](docroot://windowmanager/window-terminology.md#沉浸式布局)。
+   * [沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)。
    * 
    * 自由窗口状态下，子窗口参数[decorEnabled]{@link @ohos.window:window.Configuration}为false时，子窗口创建后为沉浸式布局；子窗口参数decorEnabled为true，子窗口
    * 创建后为非沉浸式布局。
@@ -2953,7 +2953,7 @@ declare namespace window {
    * 创建子窗口或者系统窗口，使用Promise异步回调。
    * 
    * 非[自由窗口](docroot://windowmanager/window-terminology.md#自由窗口)状态下，子窗口创建后默认是
-   * [沉浸式布局](docroot://windowmanager/window-terminology.md#沉浸式布局)。
+   * [沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)。
    * 
    * 自由窗口状态下，子窗口参数[decorEnabled]{@link @ohos.window:window.Configuration}为false时，子窗口创建后为沉浸式布局；子窗口参数decorEnabled为true，子窗口
    * 创建后为非沉浸式布局。
@@ -2987,7 +2987,7 @@ declare namespace window {
   /**
    * 创建子窗口，使用callback异步回调。
    * 
-   * 子窗口创建后默认是[沉浸式布局](docroot://windowmanager/window-terminology.md#沉浸式布局)。
+   * 子窗口创建后默认是[沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)。
    * 
    * > **说明：**
    * >
@@ -3008,7 +3008,7 @@ declare namespace window {
   /**
    * 创建子窗口，使用Promise异步回调。
    * 
-   * 子窗口创建后默认是[沉浸式布局](docroot://windowmanager/window-terminology.md#沉浸式布局)。
+   * 子窗口创建后默认是[沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)。
    * 
    * > **说明：**
    * >
@@ -3130,7 +3130,7 @@ declare namespace window {
    * 查找指定名称对应的窗口。
    *
    * @param { string } name - 窗口名称。查找子窗口或系统窗口时使用[Configuration]{@link @ohos.window:window.Configuration}中的窗口名称；查找主窗口时使用
-   *     [getWindowName](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getwindowname12)获取当前实例的窗口名称。
+   *     [getWindowName]{@link UIContext.getWindowName(): string | undefined}获取当前实例的窗口名称。
    * @returns { Window } 当前查找的窗口对象。如果查找指定名称对应的窗口不存在，会抛出1300002错误码
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
@@ -3534,7 +3534,7 @@ declare namespace window {
   /**
    * 主窗口和子窗口可正常调用，用于将鼠标输入事件从源窗口转移到目标窗口。使用Promise异步回调。
    * 
-   * 源窗口仅在[onTouch](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-touch.md#ontouch)事件（事件类型必须为
+   * 源窗口仅在[onTouch]{@link CommonMethod#onTouch}事件（事件类型必须为
    * TouchType.Down）的回调方法中调用此接口才会有鼠标输入事件转移效果，成功调用此接口后，系统会向源窗口补发鼠标按键抬起（TouchType.Up）事件，并且向目标窗口补发鼠标按键按下（TouchType.Down）事件。
    *
    * @param { int } sourceWindowId - 源窗口id。推荐使用
@@ -3567,7 +3567,7 @@ declare namespace window {
   /**
    * 主窗口和子窗口可正常调用，用于将触屏输入事件从源窗口转移到目标窗口。使用Promise异步回调。
    * 
-   * 源窗口仅在[onTouch](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-touch.md#ontouch)事件（事件类型必须为
+   * 源窗口仅在[onTouch]{@link CommonMethod#onTouch}事件（事件类型必须为
    * TouchType.Down）的回调方法中调用此接口才会有触屏输入事件转移效果，成功调用此接口后，系统会向源窗口补发触屏抬起（TouchType.Up）事件，并且向目标窗口补发触屏按下（TouchType.Down）事件。
    *
    * @param { int } sourceWindowId - 源窗口id。推荐使用
@@ -3577,7 +3577,7 @@ declare namespace window {
    *     [getWindowProperties()]{@link @ohos.window:window.Window.getWindowProperties}方法获取窗口id属性。该参数应为大于0的整数，小于等于0时会返回错误
    *     码1300016。
    * @param { int } fingerId - 触屏事件的手指唯一标识符。推荐使用
-   *     [TouchEvent](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-touch.md#touchevent对象说明)对象中touches属性获取
+   *     [TouchEvent]{@link TouchEvent}对象中touches属性获取
    *     id。该参数应为大于等于0的整数，小于0时会返回错误码1300016。
    * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 801 - Capability not supported.
@@ -5337,7 +5337,7 @@ declare namespace window {
      * 
      * > **说明：**
      * >
-     * > 调用该接口前，建议先通过[loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)方法或者
+     * > 调用该接口前，建议先通过[loadContent]{@link window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}方法或者
      * > [setUIContent]{@link @ohos.window:window.Window.setUIContent(path: string)}方法完成页面加载。如果应用主窗口没有完成页面加载，直接调用该接口，界面会
      * > 一直显示启动界面；如果系统窗口、应用子窗口、模态窗和全局悬浮窗没有完成页面加载，直接调用该接口，窗口会处于前台，但不可见。
      *
@@ -5356,7 +5356,7 @@ declare namespace window {
      * 
      * > **说明：**
      * >
-     * > 调用该接口前，建议优先通过[loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)方法或者
+     * > 调用该接口前，建议优先通过[loadContent]{@link window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}方法或者
      * > [setUIContent]{@link @ohos.window:window.Window.setUIContent(path: string)}方法完成页面加载。如果应用主窗口没有完成页面加载，直接调用该接口，界面会
      * > 一直显示启动界面；如果系统窗口、应用子窗口、模态窗和全局悬浮窗没有完成页面加载，直接调用该接口，窗口会处于前台，但不可见。
      *
@@ -8844,7 +8844,7 @@ declare namespace window {
      * 
      * 该接口触发的回调函数是异步执行。子窗口的同步关闭事件监听参考
      * [on('subWindowClose')]{@link window.Window.on(type: 'subWindowClose', callback: Callback<void>)}方法。主窗口的同步关闭事件监听参考
-     * [on('windowStageClose')](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#onwindowstageclose14)方法。
+     * [on('windowStageClose')]{@link window.WindowStage.on(type: 'windowStageClose', callback: Callback<void>)}方法。
      *
      * @param { 'windowWillClose' } type - 监听事件，固定为'windowWillClose'，即窗口关闭事件。
      * @param { Callback<void, Promise<boolean>> } callback - 回调函数。当点击窗口系统提供的右上角关闭按钮事件发生时的回调。该回调函数不返回任何参数。回调函数内部逻辑需要有
@@ -12035,7 +12035,7 @@ declare namespace window {
      *
      * @param { string } name - 子窗口的名字。
      * @param { SubWindowOptions } options - 子窗口参数。decorEnabled为true时，子窗口为非
-     *     [沉浸式布局](docroot://windowmanager/window-terminology.md#沉浸式布局)；decorEnabled为false时，子窗口为沉浸式布局。
+     *     [沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)；decorEnabled为false时，子窗口为沉浸式布局。
      * @returns { Promise<Window> } Promise对象。返回当前Window下创建的子窗口对象。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
@@ -12860,7 +12860,8 @@ declare namespace window {
     /**
      * 获取该WindowStage实例下的主窗口，使用Promise异步回调。
      * 
-     * 调用该接口前，建议先通过[loadContent](../apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)方法或者[setUIContent](arkts-apis-window-Window.md#setuicontent9-1)方法完成页面加载。
+     * 调用该接口前，建议先通过[loadContent]{@link window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}方法
+     * 或者[setUIContent]{@link window.Window.setUIContent(path: string, callback: AsyncCallback<void>): void}方法完成页面加载。
      *
      * @returns { Promise<Window> } Promise对象。返回当前WindowStage下的主窗口对象。
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -12877,7 +12878,8 @@ declare namespace window {
     /**
      * 获取该WindowStage实例下的主窗口，使用callback异步回调。
      *
-     * 调用该接口前，建议先通过[loadContent](../apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)方法或者[setUIContent](arkts-apis-window-Window.md#setuicontent9-1)方法完成页面加载。
+     * 调用该接口前，建议先通过[loadContent]{@link window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}方法
+     * 或者[setUIContent]{@link window.Window.setUIContent(path: string, callback: AsyncCallback<void>): void}方法完成页面加载。
      *
      * @param { AsyncCallback<Window> } callback 回调函数。返回当前WindowStage下的主窗口对象。
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -12909,7 +12911,7 @@ declare namespace window {
     /**
      * 创建该WindowStage实例下的子窗口，使用Promise异步回调。
      * 
-     * 子窗口创建后默认是[沉浸式布局](../../windowmanager/window-terminology.md#沉浸式布局)。
+     * 子窗口创建后默认是[沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)。
      *
      * @param { string } name 子窗口的名字。
      * @returns { Promise<Window> } Promise对象。返回当前WindowStage下的子窗口对象。
@@ -12928,7 +12930,7 @@ declare namespace window {
     /**
      * 创建该WindowStage实例下的子窗口，使用callback异步回调。
      * 
-     * 子窗口创建后默认是[沉浸式布局](../../windowmanager/window-terminology.md#沉浸式布局)。
+     * 子窗口创建后默认是[沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)。
      *
      * @param { string } name 子窗口的名字。
      * @param { AsyncCallback<Window> } callback 回调函数。返回当前WindowStage下的子窗口对象。
@@ -12947,9 +12949,10 @@ declare namespace window {
     /**
      * 创建该WindowStage实例下的子窗口，使用Promise异步回调。
      * 
-     * 非[自由窗口](../../windowmanager/window-terminology.md#自由窗口)状态下，子窗口创建后默认是[沉浸式布局](../../windowmanager/window-terminology.md#沉浸式布局)。
+     * 非[自由窗口](docroot://windowmanager/window-terminology.md#自由窗口)状态下，
+     * 子窗口创建后默认是[沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)。
      *
-     * 自由窗口状态下，子窗口参数[decorEnabled](arkts-apis-window-i.md#subwindowoptions11)为false时，子窗口创建后为沉浸式布局；子窗口参数decorEnabled为true，子窗口创建后为非沉浸式布局。
+     * 自由窗口状态下，子窗口参数[decorEnabled]{@link window.SubWindowOptions}为false时，子窗口创建后为沉浸式布局；子窗口参数decorEnabled为true，子窗口创建后为非沉浸式布局。
      * @param { string } name - 子窗口的名字。
      * @param { SubWindowOptions } options - 子窗口参数。
      * @returns { Promise<Window> } Promise used to return the subwindow.

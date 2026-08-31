@@ -3202,7 +3202,7 @@ declare namespace window {
    *
    * @param { string } name - Window name. When searching for a child window or system window, use the window name in
    *     [Configuration]{@link @ohos.window:window.Configuration}. When searching for the main window, use
-   *     [getWindowName](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getwindowname12) to obtain the
+   *     [getWindowName]{@link UIContext.getWindowName(): string | undefined} to obtain the
    *     window name of the current instance.
    * @returns { Window } Window found. If the window with the specified name does not exist, error code 1300002
    *     is thrown.
@@ -3616,7 +3616,7 @@ declare namespace window {
    * for the main window and its child windows. This API uses a promise to return the result.
    *
    * To transfer mouse input events, the source window must call this API within the callback of the
-   * [onTouch]{@link onTouch} event (the event type must
+   * [onTouch]{@link CommonMethod#onTouch} event (the event type must
    * be **TouchType.Down**). After a successful call, the system sends a **TouchType.Up** event to the source window and
    * a **TouchType.Down** event to the target window.
    *
@@ -3652,7 +3652,7 @@ declare namespace window {
    * only for the main window and its child windows. This API uses a promise to return the result.
    *
    * To transfer touchscreen input events, the source window must call this API within the callback of the
-   * [onTouch]{@link onTouch} event (the event type must
+   * [onTouch]{@link CommonMethod#onTouch} event (the event type must
    * be **TouchType.Down**). After a successful call, the system sends a **TouchType.Up** event to the source window and
    * a **TouchType.Down** event to the target window.
    *
@@ -9483,7 +9483,7 @@ declare namespace window {
      * The callback function in this API is executed asynchronously. For synchronous close events of child windows,
      * refer to [on('subWindowClose')]{@link window.Window.on(type: 'subWindowClose', callback: Callback<void>)}. For
      * synchronous close events of the main window, refer to
-     * [on('windowStageClose')]{@link window.Window.on(type: 'windowStageClose', callback: Callback<void>)}.
+     * [on('windowStageClose')]{@link window.WindowStage.on(type: 'windowStageClose', callback: Callback<void>)}.
      *
      * @param { 'windowWillClose' } type - Event type. The value is fixed at **'windowWillClose'**, indicating the
      *     window close event.
