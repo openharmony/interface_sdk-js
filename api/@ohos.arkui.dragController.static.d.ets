@@ -423,7 +423,9 @@ declare namespace dragController {
      */
     export interface DragSpringLoadingConfiguration {
         /**
-         * Time interval to maintain a stationary state before entering spring loading. Default: 500 ms.
+         * Time (in ms) required to remain stationary to enter the BEGIN state of hover detection. Value range: integer in
+         * the [0, 2<sup>31</sup>-1] range. Floating-point number inputs will be truncated to integers. Invalid values (
+         * negative numbers, **null**, **undefined**, **NaN**) are treated as the default value **500**.
          *
          * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -443,7 +445,10 @@ declare namespace dragController {
         updateInterval?: int;
 
         /**
-         * Maximum number of update notifications to report while in the spring loading state. Default: 3.
+         * Maximum number of update notifications after hover detection enters the UPDATE state. Value range: integer in the
+         * [0, 2<sup>31</sup>-1] range. Floating-point number inputs will be truncated to integers. Invalid values (negative
+         * numbers, **null**, **undefined**, **NaN**) are treated as the default value **3**. A value of **0** means no
+         * UPDATE notifications are sent, and the END state is triggered immediately after BEGIN.
          *
          * @type { ?int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -515,8 +520,7 @@ declare namespace dragController {
          */
         state: DragSpringLoadingState;
         /**
-         * Sequence number of the current spring loading state notification. Begins at 0 for BEGIN and increments
-         * with each callback.
+         * Callback notification sequence number in the current hover detection cycle. The value is zero-based.
          *
          * @type { int }
          * @syscap SystemCapability.ArkUI.ArkUI.Full

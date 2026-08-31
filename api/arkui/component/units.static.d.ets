@@ -1832,7 +1832,7 @@ export declare interface CacheCountInfo {
  */
 export declare interface Coordinate2D {
   /**
-   * Horizontal coordinate.
+   * Horizontal coordinate, in vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1840,7 +1840,7 @@ export declare interface Coordinate2D {
    */
   x: double;
   /**
-   * Vertical coordinate.
+   * Vertical coordinate, in vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
