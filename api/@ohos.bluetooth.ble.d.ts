@@ -1919,19 +1919,6 @@ declare namespace ble {
     on(type: 'serviceChange', callback: Callback<void>): void;
 
     /**
-     * Subscribe to GATT service changed event. Receiving this event indicates that
-     * the peer GATT database has been refreshed, and it is necessary to re-fetch the GATT service list.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { Callback<void> } callback - Callback used to listen for the service changed event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @stagemodelonly
-     */
-    onServiceChange(callback: Callback<void>): void;
-
-    /**
      * Unsubscribe to GATT service changed event.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH
