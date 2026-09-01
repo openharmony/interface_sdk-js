@@ -655,15 +655,13 @@ export class CommentSuppressWarningsValidator extends BaseValidator implements N
       !arkts.isAnnotationDeclaration(nodeStatement.node) &&
       nodeStatement.node.parent
     ) {
-      if (arkts.isMemberExpression(nodeStatement.node)) {
-        const memberExpr = nodeStatement.node as arkts.MemberExpression;
-        if (memberExpr.object && arkts.isCallExpression(memberExpr.object)) {
-          const findcallExpreNode: arkts.AstNode | null = this.findChainCallRoot(memberExpr.object);
-          if (this.hasChainCallNodeComment(findcallExpreNode)) {
-            nodeStatement.isChainedCall.chainNode = findcallExpreNode;
-            nodeStatement.isChainedCall.isChain = true;
-            break;
-          }
+      const memberExpr = nodeStatement.node;
+      if (arkts.isMemberExpression(memberExpr) && memberExpr.object && arkts.isCallExpression(memberExpr.object)) {
+        const findcallExpreNode: arkts.AstNode | null = this.findChainCallRoot(memberExpr.object);
+        if (this.hasChainCallNodeComment(findcallExpreNode)) {
+          nodeStatement.isChainedCall.chainNode = findcallExpreNode;
+          nodeStatement.isChainedCall.isChain = true;
+          break;
         }
       }
       if ((arkts.isIdentifier(nodeStatement.node) || arkts.isVariableDeclarator(nodeStatement.node)) && this.hasChainCallNodeComment(nodeStatement.node)) {
