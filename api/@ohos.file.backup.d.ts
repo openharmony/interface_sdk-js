@@ -18,7 +18,7 @@
  * @kit CoreFileKit
  */
 
-import type { AsyncCallback, Callback } from './@ohos.base';
+import type { AsyncCallback, Callback, BusinessError } from './@ohos.base';
 
 /**
  * Module providing backup and restore capabilities.
