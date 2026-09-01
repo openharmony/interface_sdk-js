@@ -24868,6 +24868,20 @@ declare class CommonMethod<T> {
   systemMaterial(material: SystemUiMaterial | undefined): T;
 
   /**
+   * Marks the node as an independent render layer. Once marked, the component and its child components are rendered
+   * independently, so that when a popup is displayed above it, the component itself does not need to be rendered again.
+   *
+   * @param { boolean | undefined } value - Whether to mark the node as an independent render layer. The value **true**
+   *     means to mark the node as an independent render layer, and **false** or **undefined** means to cancel the mark.
+   * @returns { T } Current component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamiconly
+   */
+  markLayeredRender(value: boolean | undefined): T;
+
+  /**
    * Called when component is focused, the return value indicates whether keyboard is needed.
    *
    * @param { OnNeedSoftkeyboardCallback | undefined } onNeedSoftkeyboardCallback - Callback executed when an event is
