@@ -2169,13 +2169,13 @@ declare namespace backgroundTaskManager {
     /**
      * USB.
      * 
-     * Use scenario: An application transitions into the background during the process of file transfer using NearLink.
+     * Use scenario: An application transitions into the background during the process of audio play using USB.
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    MODE_NEARLINK = 16,
+    MODE_USB = 16
   }
 
   
