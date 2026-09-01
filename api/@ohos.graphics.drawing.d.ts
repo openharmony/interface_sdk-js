@@ -1976,6 +1976,97 @@ declare namespace drawing {
   }
 
   /**
+   * Describes a list of recorded drawing commands.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface RecordCmd { }
+
+  /**
+   * This class offers a set of operations to generate drawing commands.
+   * @syscap SystemCapability.Graphics.Drawing
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  class RecordCmdUtils {
+    /**
+     * Gets the canvas that records the drawing commands.
+     *
+     * @param { number } width - Indicates the width of the canvas object.
+     *     <br>Unit: px.
+     *     <br>Value range: An integer greater than 0.
+     *     <br>The width value must be greater than 0.
+     * @param { number } height - Indicates the height of the canvas object.
+     *     <br>Unit: px.
+     *     <br>Value range: An integer greater than 0.
+     *     <br>The height value must be greater than 0.
+     * @returns { Canvas } Returns the canvas that records the drawing commands.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.1.0 dynamic
+     */
+    beginRecording(width: number, height: number): Canvas;
+
+    /**
+     * Gets the canvas that records the drawing commands.
+     *
+     * @param { int } width - Indicates the width of the canvas object.
+     *     <br>Unit: px. The value should be an integer.
+     *     <br>Value range: An integer greater than 0.
+     *     <br>The width value must be greater than 0.
+     * @param { int } height - Indicates the height of the canvas object.
+     *     <br>Unit: px. The value should be an integer.
+     *     <br>Value range: An integer greater than 0.
+     *     <br>The height value must be greater than 0.
+     * @returns { Canvas | undefined } Returns the canvas that records the drawing commands.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    beginRecording(width: int, height: int): Canvas | undefined;
+
+    /**
+     * Finishes recording and returns the recorded command object.
+     * @returns { RecordCmd } Returns the recorded drawing commands.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.1.0 dynamic
+     */
+    finishRecording(): RecordCmd;
+
+    /**
+     * Finishes recording and returns the recorded command object.
+     *
+     * @returns { RecordCmd | undefined } Returns the recorded drawing commands.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    finishRecording(): RecordCmd | undefined;
+
+    /**
+     * Gets the height of the recording canvas.
+     * @returns { int } Returns the height of recording canvas.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    getHeight(): int;
+
+    /**
+     * Gets the width of the recording canvas.
+     * @returns { int } Returns the width of recording canvas.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    getWidth(): int;
+  }
+
+  /**
    * A carrier that carries the drawn content and drawing status.
    *
    * > **NOTE**
@@ -2556,6 +2647,15 @@ declare namespace drawing {
      * @since 23 static
      */
     drawRegion(region: Region): void;
+
+    /**
+     * Replays drawing commands.
+     * @param { RecordCmd } recordCmd - Recorded drawing command.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    drawRecordCmd(recordCmd: RecordCmd): void;
 
     /**
      * Attaches a pen to the canvas. When you draw on the canvas, the pen's style is used to outline shapes.
