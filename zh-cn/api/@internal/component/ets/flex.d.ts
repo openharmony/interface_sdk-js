@@ -250,9 +250,9 @@ interface FlexInterface {
 }
 
 /**
- * 支持[通用属性]{@link ./common}。
+ * 支持[通用属性]{@link CommonMethod}。
  * 
- * 支持[通用事件]{@link ./common}。
+ * 支持[通用事件]{@link CommonMethod}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -292,7 +292,7 @@ declare class FlexAttribute extends CommonMethod<FlexAttribute> {
  * > - 主轴长度可设置为auto使Flex自适应子组件布局，自适应时，Flex长度受[constraintSize]{@link CommonMethod#constraintSize}属性以及父容器传递的最大最小长度限制，且
  * > constraintSize属性优先级更高。
  * 
- * ###### 子组件
+ * ## 子组件
  * 
  * 可以包含子组件。
  *

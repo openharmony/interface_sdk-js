@@ -127,7 +127,7 @@ export interface ContainerReaderInterface {
 
 
 /**
- * 除支持[通用属性]{@link common}外，还支持以下属性：
+ * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -166,7 +166,7 @@ export declare class ContainerReaderAttribute extends CommonMethod<ContainerRead
  * >
  * > - 更多关于容器断点的开发指导和完整示例，可参考[容器断点 (ContainerReader)]{@link @ohos.arkui.components.ContainerReader}。
  *
- * ###### 子组件
+ * ## 子组件
  *
  * 可以包含子组件。
  *

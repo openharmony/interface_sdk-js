@@ -136,7 +136,7 @@ interface PathInterface {
 }
 
 /**
- * 除支持[通用属性]{@link ./common}以及[图形绘制通用属性](docroot://reference/apis-arkui/arkui-ts/ts-drawing-components-common.md)外，还支持以下
+ * 除支持[通用属性]{@link CommonMethod}以及[图形绘制通用属性](docroot://reference/apis-arkui/arkui-ts/ts-drawing-components-common.md)外，还支持以下
  * 属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -180,7 +180,7 @@ declare class PathAttribute extends CommonShapeMethod<PathAttribute> {
  * > 该组件从API version 20开始支持使用[AttributeUpdater]{@link ../../../arkui/AttributeUpdater}类的
  * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#属性)接口更新构造参数。
  * 
- * ###### 子组件
+ * ## 子组件
  * 
  * 无
  * 
