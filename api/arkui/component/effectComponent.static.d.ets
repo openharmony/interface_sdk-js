@@ -20,7 +20,6 @@
 
 import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
-import { CustomBuilder } from '@ohos.arkui.component';
 
 /**
  * Effect layer enum.
