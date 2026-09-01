@@ -14648,7 +14648,7 @@ declare namespace window {
      *     The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300005 - This window stage is abnormal. Possible cause:
-     *     The window is not created or destroyed. [since 20]
+     *     The window stage is not created or destroyed. [since 20]
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @atomicservice
