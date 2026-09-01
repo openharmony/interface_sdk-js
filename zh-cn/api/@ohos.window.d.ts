@@ -8812,7 +8812,7 @@ declare namespace window {
      * 关闭子窗口关闭事件的监听。
      *
      * @param { 'subWindowClose' } type - 监听事件，固定为'subWindowClose'，即子窗口关闭事件。
-     * @param { Callback<void> } callback - 回调函数。当点击子窗口右上角关闭按钮事件发生时的回调。该回调函数不返回任何参数。回调函数内部逻辑的返回值决定当前子窗是否继续关闭，如果返回boolean
+     * @param { Callback<void> } [callback] - 回调函数。当点击子窗口右上角关闭按钮事件发生时的回调。该回调函数不返回任何参数。回调函数内部逻辑的返回值决定当前子窗是否继续关闭，如果返回boolean
      *     类型的true表示不关闭子窗，返回false或者其他非boolean类型表示关闭子窗。如果传入参数，则关闭该监听。如果未传入参数，则关闭所有子窗口关闭的监听。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *     2. Parameter verification failed.
@@ -8829,7 +8829,7 @@ declare namespace window {
     /**
      * 关闭子窗口关闭事件的监听。
      *
-     * @param { Callback<void> } [callback ] - 回调函数。若传入参数，则关闭该监听；若未传入参数，则关闭所有子窗口关闭事件的监听。
+     * @param { Callback<void> } [callback] - 回调函数。若传入参数，则关闭该监听；若未传入参数，则关闭所有子窗口关闭事件的监听。
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal.
@@ -8878,7 +8878,7 @@ declare namespace window {
      * 用于关闭主窗口或子窗口关闭事件的监听。
      *
      * @param { 'windowWillClose' } type - 监听事件，固定为'windowWillClose'，即窗口关闭事件。
-     * @param { Callback<void, Promise<boolean>> } callback - 回调函数。当点击窗口系统提供的右上角关闭按钮事件发生时的回调。该回调函数不返回任何参数。回调函数内部逻辑需要有
+     * @param { Callback<void, Promise<boolean>> } [callback] - 回调函数。当点击窗口系统提供的右上角关闭按钮事件发生时的回调。该回调函数不返回任何参数。回调函数内部逻辑需要有
      *     Promise<boolean>类型的返回值。在返回的Promise函数里，执行resolve(true) 方法表示不关闭当前窗口，执行resolve(false) 方法或者reject方法均表示关闭当前窗口。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *     2. Parameter verification failed.
@@ -11472,7 +11472,7 @@ declare namespace window {
      *
      * @param { boolean } isMaximizeButtonVisible - 设置最大化按钮是否可见，true为可见，false为隐藏。如果最大化按钮隐藏，那么在最大化场景下，也隐藏对应的还原按钮。
      * @param { boolean } isMinimizeButtonVisible - 设置最小化按钮是否可见，true为可见，false为隐藏。
-     * @param { boolean } isCloseButtonVisible - 设置关闭按钮是否可见，true为可见，false为隐藏，默认值true。
+     * @param { boolean } [isCloseButtonVisible] - 设置关闭按钮是否可见，true为可见，false为隐藏，默认值true。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -11655,7 +11655,7 @@ declare namespace window {
      * 或[setUIContent()]{@link window.Window.setUIContent(path: string, callback: AsyncCallback<void>)}调用生效后使用。
      *
      * @param { 'windowTitleButtonRectChange' } type - 监听事件，固定为'windowTitleButtonRectChange'，即标题栏上的最小化、最大化、关闭按钮矩形区域变化事件。
-     * @param { Callback<TitleButtonRect> } callback - 回调函数。返回当前标题栏上的最小化、最大化、关闭按钮矩形区域。如果传入参数，则关闭该监听。如果未传入参数，则关闭所有标题栏上的最小
+     * @param { Callback<TitleButtonRect> } [callback] - 回调函数。返回当前标题栏上的最小化、最大化、关闭按钮矩形区域。如果传入参数，则关闭该监听。如果未传入参数，则关闭所有标题栏上的最小
      *     化、最大化、关闭按钮矩形区域变化的监听。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *     2. Parameter verification failed.
@@ -13315,7 +13315,7 @@ declare namespace window {
      * 关闭主窗口关闭事件的监听。
      *
      * @param { 'windowStageClose' } eventType 监听事件，固定为'windowStageClose'，即关闭主窗口关闭事件的监听。
-     * @param { Callback<void> } callback 回调函数。当点击主窗口右上角关闭按钮事件发生时的回调。该回调函数不返回任何参数。
+     * @param { Callback<void> } [callback] 回调函数。当点击主窗口右上角关闭按钮事件发生时的回调。该回调函数不返回任何参数。
      *     回调函数内部逻辑需要有boolean类型的返回值，该返回值决定当前主窗是否继续关闭，true表示不关闭，false表示关闭。如果传入
      *     参数，则关闭该监听。如果未传入参数，则关闭所有主窗口关闭的监听。
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
