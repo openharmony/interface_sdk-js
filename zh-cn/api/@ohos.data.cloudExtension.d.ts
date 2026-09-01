@@ -14,7 +14,389 @@
  */
 
 /**
- * @file
+ * ###### 完整示例
+ * 
+ * 以上示例中的类均采用implements实现，示例代码不能单独编译，需要实现父类中的所有方法才能使用，提供完整示例以作参考。
+ * 
+ * ```ts
+ * import { Want, ServiceExtensionAbility } from '@kit.AbilityKit';
+ * import { rpc } from '@kit.IPCKit';
+ * import { cloudData, cloudExtension } from '@kit.ArkData';
+ * type Participant = cloudData.sharing.Participant;
+ * let testLockId: number = 1;
+ * let testTime: number = 10;
+ * let testSpace: number = 100;
+ * let testUserId: number = 1;
+ * class MyCloudDB implements cloudExtension.CloudDB {
+ *   async generateId(count: number): Promise<cloudExtension.Result<Array<string>>> {
+ *     console.info(`generate id, count: ${count}`);
+ *     let result = new Array<string>();
+ *     // ...
+ *     // 返回创建Id的结果
+ *     return {
+ *       code: cloudExtension.ErrorCode.SUCCESS,
+ *       description: 'generateId succeeded',
+ *       value: result
+ *     };
+ *   }
+ *   async update(table: string, values: Array<Record<string,
+ *     cloudExtension.CloudType>>, extensions: Array<Record<string, cloudExtension.CloudType>>):
+ * 　　Promise<Array<cloudExtension.Result<Record<string, cloudExtension.CloudType>>>> {
+ *     console.info(`update, table: ${table}`);
+ *     let updateRes: Array<cloudExtension.Result<Record<string, cloudExtension.CloudType>>> = [];
+ *     // ...
+ *     // 返回更新数据的结果
+ *     return updateRes;
+ *   }
+ *   async insert(table: string, values: Array<Record<string, cloudExtension.CloudType>>,
+ *     extensions: Array<Record<string, cloudExtension.CloudType>>): Promise<Array<cloudExtension.Result<Record<string, cloudExtension.CloudType>>>> {
+ *     console.info(`insert, table: ${table}`);
+ *     let insertRes: Array<cloudExtension.Result<Record<string, cloudExtension.CloudType>>> = [];
+ *     // ...
+ *     // 返回插入数据的结果
+ *     return insertRes;
+ *   }
+ *   async delete(table: string, extensions: Array<Record<string, cloudExtension.CloudType>>):
+ * 　　Promise<Array<cloudExtension.Result<Record<string, cloudExtension.CloudType>>>> {
+ *     console.info(`delete, table: ${table}`);
+ *     let deleteRes: Array<cloudExtension.Result<Record<string, cloudExtension.CloudType>>> = [];
+ *     // ...
+ *     // 返回删除数据的结果
+ *     return deleteRes;
+ *   }
+ *   async query(table: string, fields: Array<string>, queryCount: number, queryCursor: string): Promise<cloudExtension.Result<cloudExtension.CloudData>> {
+ *     console.info(`query, table: ${table}`);
+ *     // ...
+ *     // 返回查询数据的结果
+ *     return {
+ *       code: cloudExtension.ErrorCode.SUCCESS,
+ *       description: 'query succeeded',
+ *       value: {
+ *         nextCursor: "test_nextCursor",
+ *         hasMore: true,
+ *         values: []
+ *       }
+ *     };
+ *   }
+ *   async lock(): Promise<cloudExtension.Result<cloudExtension.LockInfo>> {
+ *     console.info(`DB lock`);
+ *     // ...
+ *     // 返回锁定数据的结果
+ *     return {
+ *       code: cloudExtension.ErrorCode.SUCCESS,
+ *       description: 'lock succeeded',
+ *       value: {
+ *         interval: testTime,
+ *         lockId: testLockId
+ *       }
+ *     };
+ *   }
+ *   async heartbeat(lockId: number): Promise<cloudExtension.Result<cloudExtension.LockInfo>> {
+ *     console.info(`heartbeat lock`);
+ *     // ...
+ *     // 返回心跳检测的结果
+ *     return {
+ *       code: cloudExtension.ErrorCode.SUCCESS,
+ *       description: 'heartbeat succeeded',
+ *       value: {
+ *         interval: testTime,
+ *         lockId: testLockId
+ *       }
+ *     };
+ *   }
+ *   async unlock(lockId: number): Promise<cloudExtension.Result<boolean>> {
+ *     console.info(`unlock`);
+ *     // ...
+ *     // 返回解锁数据的结果
+ *     return {
+ *       code: cloudExtension.ErrorCode.SUCCESS,
+ *       description: 'unlock succeeded',
+ *       value: false
+ *     };
+ *   }
+ * }
+ * class MyAssetLoader implements cloudExtension.AssetLoader {
+ *   async download(table: string, gid: string, prefix: string,
+ *     assets: Array<cloudExtension.CloudAsset>): Promise<Array<cloudExtension.Result<cloudExtension.CloudAsset>>> {
+ *     console.info(`download asset loader, table: ${table}, gid: ${gid}, prefix: ${prefix}`);
+ *     let downloadRes = Array<cloudExtension.Result<cloudExtension.CloudAsset>>();
+ *     // ...
+ *     return downloadRes;
+ *   }
+ *   async upload(table: string, gid: string, assets: Array<cloudExtension.CloudAsset>): Promise<Array<cloudExtension.Result<cloudExtension.CloudAsset>>> {
+ *     console.info(`upload asset loader, table: ${table}, gid: ${gid}`);
+ *     let uploadRes = Array<cloudExtension.Result<cloudExtension.CloudAsset>>();
+ *     // ...
+ *     return uploadRes;
+ *   }
+ * }
+ * class MyShareCenter implements cloudExtension.ShareCenter {
+ *   constructor() {
+ *   }
+ *   async share(userId: number, bundleName: string, sharingResource: string, participants: Array<Participant>):
+ *     Promise<cloudExtension.Result<Array<cloudExtension.Result<Participant>>>> {
+ *     console.info(`share, bundle: ${bundleName}`);
+ *     // 对接云共享服务端，并获得共享的返回值
+ *     // ...
+ *     // 返回服务端发起共享的返回结果
+ *     let result: Array<cloudExtension.Result<Participant>> = [];
+ *     participants.forEach(() => {
+ *       result.push({
+ *         code: cloudData.sharing.SharingCode.SUCCESS,
+ *         description: 'share succeeded'
+ *       });
+ *     });
+ *     return {
+ *       code: cloudData.sharing.SharingCode.SUCCESS,
+ *       description: 'share succeeded',
+ *       value: result
+ *     };
+ *   }
+ *   async unshare(userId: number, bundleName: string, sharingResource: string, participants: Array<Participant>):
+ *     Promise<cloudExtension.Result<Array<cloudExtension.Result<Participant>>>> {
+ *     console.info(`unshare, bundle: ${bundleName}`);
+ *     // 对接云共享服务端，并获得取消共享的返回值
+ *     // ...
+ *     // 返回服务端取消共享的返回结果
+ *     let result: Array<cloudExtension.Result<Participant>> = [];
+ *     participants.forEach(() => {
+ *       result.push({
+ *         code: cloudData.sharing.SharingCode.SUCCESS,
+ *         description: 'unshare succeeded'
+ *       });
+ *     });
+ *     return {
+ *       code: cloudData.sharing.SharingCode.SUCCESS,
+ *       description: 'unshare succeeded',
+ *       value: result
+ *     };
+ *   }
+ *   async exit(userId: number, bundleName: string, sharingResource: string):
+ *     Promise<cloudExtension.Result<void>> {
+ *     console.info(`exit share, bundle: ${bundleName}`);
+ *     // 对接云共享服务端，并获得退出共享的返回值
+ *     // ...
+ *     // 返回服务端退出共享的返回结果
+ *     return {
+ *       code: cloudData.sharing.SharingCode.SUCCESS,
+ *       description: 'exit share succeeded'
+ *     };
+ *   }
+ *   async changePrivilege(userId: number, bundleName: string, sharingResource: string, participants: Array<Participant>):
+ *     Promise<cloudExtension.Result<Array<cloudExtension.Result<Participant>>>> {
+ *     console.info(`change privilege, bundle: ${bundleName}`);
+ *     // 对接云共享服务端，并获得更改权限的返回值
+ *     // ...
+ *     // 返回服务端更改权限的返回结果
+ *     let result: Array<cloudExtension.Result<Participant>> = [];
+ *     participants.forEach(() => {
+ *       result.push({
+ *         code: cloudData.sharing.SharingCode.SUCCESS,
+ *         description: 'change privilege succeeded'
+ *       });
+ *     });
+ *     return {
+ *       code: cloudData.sharing.SharingCode.SUCCESS,
+ *       description: 'change privilege succeeded',
+ *       value: result
+ *     };
+ *   }
+ *   async queryParticipants(userId: number, bundleName: string, sharingResource: string):
+ *     Promise<cloudExtension.Result<Array<Participant>>> {
+ *     console.info(`query participants, bundle: ${bundleName}`);
+ *     // 对接云共享服务端，并获得查询参与者的返回值
+ *     // ...
+ *     // 返回服务端查询参与者的返回结果
+ *     let participants = new Array<cloudData.sharing.Participant>();
+ *     participants.push({
+ *       identity: '000000000',
+ *       role: cloudData.sharing.Role.ROLE_INVITEE,
+ *       state: cloudData.sharing.State.STATE_ACCEPTED,
+ *       privilege: {
+ *         writable: false,
+ *         readable: true,
+ *         creatable: false,
+ *         deletable: false,
+ *         shareable: false
+ *       },
+ *       attachInfo: ''
+ *     });
+ *     participants.push({
+ *       identity: '111111111',
+ *       role: cloudData.sharing.Role.ROLE_INVITEE,
+ *       state: cloudData.sharing.State.STATE_ACCEPTED,
+ *       privilege: {
+ *         writable: false,
+ *         readable: true,
+ *         creatable: false,
+ *         deletable: false,
+ *         shareable: false
+ *       },
+ *       attachInfo: ''
+ *     });
+ *     return {
+ *       code: cloudData.sharing.SharingCode.SUCCESS,
+ *       description: 'query participants succeeded',
+ *       value: participants
+ *     };
+ *   }
+ *   async queryParticipantsByInvitation(userId: number, bundleName: string, invitationCode: string):
+ *     Promise<cloudExtension.Result<Array<Participant>>> {
+ *     console.info(`query participants by invitation, bundle: ${bundleName}`);
+ *     // 对接云共享服务端，并获得查询参与者的返回值
+ *     // ...
+ *     // 返回服务端查询参与者的返回结果
+ *     let participants = new Array<cloudData.sharing.Participant>();
+ *     participants.push({
+ *       identity: '000000000',
+ *       role: cloudData.sharing.Role.ROLE_INVITEE,
+ *       state: cloudData.sharing.State.STATE_ACCEPTED,
+ *       privilege: {
+ *         writable: false,
+ *         readable: true,
+ *         creatable: false,
+ *         deletable: false,
+ *         shareable: false
+ *       },
+ *       attachInfo: ''
+ *     });
+ *     participants.push({
+ *       identity: '111111111',
+ *       role: cloudData.sharing.Role.ROLE_INVITEE,
+ *       state: cloudData.sharing.State.STATE_ACCEPTED,
+ *       privilege: {
+ *         writable: false,
+ *         readable: true,
+ *         creatable: false,
+ *         deletable: false,
+ *         shareable: false
+ *       },
+ *       attachInfo: ''
+ *     });
+ *     return {
+ *       code: cloudData.sharing.SharingCode.SUCCESS,
+ *       description: 'query participants by invitation succeeded',
+ *       value: participants
+ *     };
+ *   }
+ *   async confirmInvitation(userId: number, bundleName: string, invitationCode: string, state: cloudData.sharing.State):
+ *     Promise<cloudExtension.Result<string>> {
+ *     console.info(`confirm invitation, bundle: ${bundleName}`);
+ *     // 对接云共享服务端，并获得确认共享邀请的返回值
+ *     // ...
+ *     // 返回服务端确认共享邀请的返回结果
+ *     return {
+ *       code: cloudData.sharing.SharingCode.SUCCESS,
+ *       description: 'confirm invitation succeeded',
+ *       value: 'sharing_resource_test'
+ *     };
+ *   }
+ *   async changeConfirmation(userId: number, bundleName: string, sharingResource: string, state: cloudData.sharing.State):
+ *     Promise<cloudExtension.Result<void>> {
+ *     console.info(`change confirm, bundle: ${bundleName}`);
+ *     // 对接云共享服务端，并获得更改共享邀请的返回值
+ *     // ...
+ *     // 返回服务端更改共享邀请的返回结果
+ *     return {
+ *       code: cloudData.sharing.SharingCode.SUCCESS,
+ *       description: 'change confirm succeeded'
+ *     };
+ *   }
+ * }
+ * class MyCloudService implements cloudExtension.CloudService {
+ *   constructor() {
+ *   }
+ *   async getServiceInfo(): Promise<cloudExtension.ServiceInfo> {
+ *     console.info(`get service info`);
+ *     // ...
+ *     return {
+ *       enableCloud: true,
+ *       id: "test_id",
+ *       totalSpace: testSpace,
+ *       remainingSpace: testSpace,
+ *       user: testUserId,
+ *     };
+ *   }
+ *   async getAppBriefInfo(): Promise<Record<string, cloudExtension.AppBriefInfo>> {
+ *     console.info(`get app brief info`);
+ *     // ...
+ *     return {
+ *       "test_bundle":
+ *       {
+ *         appId: "test_appID",
+ *         bundleName: "test_bundlename",
+ *         cloudSwitch: true,
+ *         instanceId: 0,
+ *       }
+ *     };
+ *   }
+ *   async getAppSchema(bundleName: string): Promise<cloudExtension.Result<cloudExtension.AppSchema>> {
+ *     console.info(`get app schema, bundleName:${bundleName}`);
+ *     // ...
+ *     return {
+ *       code: cloudExtension.ErrorCode.SUCCESS,
+ *       description: "get app schema success",
+ *       value: {
+ *         bundleName: "test_bundleName",
+ *         version: 1,
+ *         databases: []
+ *       }
+ *     };
+ *   }
+ *   async subscribe(subInfo: Record<string, Array<cloudExtension.Database>>,
+ *     expirationTime: number): Promise<cloudExtension.Result<cloudExtension.SubscribeInfo>> {
+ *     console.info(`subscribe expirationTime: ${expirationTime}`);
+ *     // ...
+ *     return {
+ *       code: cloudExtension.ErrorCode.SUCCESS,
+ *       description: "subscribe success",
+ *       value: {
+ *         expirationTime: testTime,
+ *         subscribe: {}
+ *       }
+ *     };
+ *   }
+ *   async unsubscribe(unsubscribeInfo: Record<string, Array<string>>): Promise<number> {
+ *     console.info(`unsubscribe`);
+ *     // ...
+ *     return cloudExtension.ErrorCode.SUCCESS;
+ *   }
+ *   async connectDB(bundleName: string, database: cloudExtension.Database): Promise<rpc.RemoteObject> {
+ *     console.info(`connect DB, bundleName: ${bundleName}`);
+ *     return cloudExtension.createCloudDBStub(new MyCloudDB());
+ *   }
+ *   async connectAssetLoader(bundleName: string, database: cloudExtension.Database): Promise<rpc.RemoteObject> {
+ *     return cloudExtension.createAssetLoaderStub(new MyAssetLoader());
+ *   }
+ *   async connectShareCenter(userId: number, bundleName: string): Promise<rpc.RemoteObject> {
+ *     console.info(`connect share center, bundle: ${bundleName}`);
+ *     // ...
+ *     return cloudExtension.createShareServiceStub(new MyShareCenter());
+ *   }
+ * }
+ * export default class MyServiceExtension extends ServiceExtensionAbility {
+ *   onCreate(want: Want) {
+ *     console.info(`onCreate: ${want}`);
+ *   }
+ *   onRequest(want: Want, startId: number) {
+ *     console.info(`onRequest: ${want} ${startId}`);
+ *   }
+ *   onConnect(want: Want): rpc.RemoteObject | Promise<rpc.RemoteObject> {
+ *     console.info(`onConnect: ${want}`);
+ *     return cloudExtension.createCloudServiceStub(new MyCloudService());
+ *   }
+ *   onDisconnect(want: Want) {
+ *     console.info(`onDisconnect: ${want}`);
+ *   }
+ *   onDestroy() {
+ *     console.info('onDestroy');
+ *   }
+ * }
+ * ```
+ * 
+ * <!--no_check-->
+ *
+ * @file 端云共享Extension
  * @kit ArkData
  */
 
@@ -23,13 +405,18 @@ import type cloudData from './@ohos.data.cloudData';
 import type relationalStore from './@ohos.data.relationalStore';
 
 /**
- * 端云共享Extension，提供第三方厂商适配共享云服务的能力。
- * 通过实现端云共享Extension提供的接口，将端侧的数据共享到服务端，实现端云共享的发起、取消或退出，更改共享数据的操作权限、查询共享参与者、根据共享邀请码查询共享参与者、确认或更改共享邀请，并支持返回共享云服务的相关结果。
- * 其中，端云共享资源标识是指：对于应用发起共享的每一条数据记录，该条数据在进行端云同步时会生成唯一的共享资源标识（字符串类型的值），此标识作为该条数据记录共享时的识别标识。
- * 端云共享参与者是指：共享发起者根据好友列表选中的参与当前数据共享的所有人员。
- * 端云共享邀请码是指：共享发起后，在共享的服务端会生成当前共享操作的邀请码，并将该邀请码附加到当前共享邀请中，通过推送消息推送到被邀请者的设备端，被邀请者可以通过该邀请码进行邀请的确认。
- * 同步云是指：端云同步的服务端，即同应用同账号跨设备的同步。
- * 共享云是指：端云共享的服务端，即同应用跨账号跨设备的共享。
+ * 端云共享Extension，提供第三方厂商适配共享云服务的能力。通过实现端云共享Extension提供的接口，将端侧的数据共享到服务端，实现端云共享的发起、取消或退出，更改共享数据的操作权限、查询共享参与者、根据共享邀请码查询共享参与
+ * 者、确认或更改共享邀请，并支持返回共享云服务的相关结果。
+ * <br>
+ * <br>其中，端云共享资源标识是指：对于应用发起共享的每一条数据记录，该条数据在进行端云同步时会生成唯一的共享资源标识（字符串类型的值），此标识作为该条数据记录共享时的识别标识。
+ * <br>
+ * <br>端云共享参与者是指：共享发起者根据好友列表选中的参与当前数据共享的所有人员。
+ * <br>
+ * <br>端云共享邀请码是指：共享发起后，在共享的服务端会生成当前共享操作的邀请码，并将该邀请码附加到当前共享邀请中，通过推送消息推送到被邀请者的设备端，被邀请者可以通过该邀请码进行邀请的确认。
+ * <br>
+ * <br>同步云是指：端云同步的服务端，即同应用同账号跨设备的同步。
+ * <br>
+ * <br>共享云是指：端云共享的服务端，即同应用跨账号跨设备的共享。
  *
  * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
  * @since 11 dynamic
@@ -67,7 +454,7 @@ declare namespace cloudExtension {
   }
 
   /**
-   * 表示CloudAsset类型的数组。
+   * 表示[CloudAsset](#cloudasset)类型的数组
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
@@ -79,14 +466,14 @@ declare namespace cloudExtension {
   /**
    * 表示云数据字段可使用的类型。各接口参数的实际类型视其功能而定。
    *
-   * @unionmember { null } 表示值的类型为空。
-   * @unionmember { long } 表示值的类型为数字类型。
-   * @unionmember { double } 表示值的类型为数字类型。
-   * @unionmember { string } 表示值的类型为字符串类型。
-   * @unionmember { boolean } 表示值的类型为布尔类型。
-   * @unionmember { Uint8Array } 表示值的类型为Uint8Array类型。
-   * @unionmember { CloudAsset } 表示值的类型为云资产类型。
-   * @unionmember { CloudAssets } 表示值的类型为云资产数组类型。
+   * @unionmember { null } The value is null.
+   * @unionmember { long } The value is a 64-bit integer (int64_t).
+   * @unionmember { double } The value is a floating-point number (float).
+   * @unionmember { string } The value is a string.
+   * @unionmember { boolean } The value is true or false.
+   * @unionmember { Uint8Array } The value is a Uint8 array.
+   * @unionmember { CloudAsset } The value is of the cloud asset type.
+   * @unionmember { CloudAssets } The value is an array of cloud assets.
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
@@ -126,7 +513,7 @@ declare namespace cloudExtension {
   }
 
   /**
-   * 云服务信息
+   * 云服务信息。
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
@@ -135,7 +522,7 @@ declare namespace cloudExtension {
    */
   export interface ServiceInfo {
     /**
-     * 表示是否启用了云服务。true表示启用云服务，false表示未启用
+     * 表示是否启用了云服务。true表示启用云服务，false表示未启用。
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
@@ -175,7 +562,7 @@ declare namespace cloudExtension {
     remainingSpace: long;
 
     /**
-     * 设备的当前用户ID。
+     * 设备的当前用户账号ID。
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
@@ -536,7 +923,7 @@ declare namespace cloudExtension {
     hasMore: boolean;
 
     /**
-     * 需要查询数据的数组，包括数据记录的实际值和ExtensionValue（扩展值）。
+     * 需要查询数据的数组，包括数据记录的实际值和[ExtensionValue]{@link cloudExtension.ExtensionValue}（扩展值）。
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
@@ -547,7 +934,7 @@ declare namespace cloudExtension {
   }
 
   /**
-   * 订阅信息
+   * 订阅信息。
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
@@ -846,10 +1233,12 @@ declare namespace cloudExtension {
   }
 
   /**
-   * 根据ShareCenter类的实例创建对应的RemoteObject对象，系统内部通过该对象调用ShareCenter的实现接口，使用Promise异步回调。
+   * 根据[ShareCenter]{@link cloudExtension.ShareCenter}类的实例创建对应的[RemoteObject]{@link @ohos.rpc:rpc.RemoteObject}对象，系统内部通过
+   * 该对象调用[ShareCenter]{@link cloudExtension.ShareCenter}的实现接口，使用Promise异步回调。
    *
-   * @param { ShareCenter } instance - ShareCenter类的实例。
-   * @returns { Promise<rpc.RemoteObject> } Promise对象，返回ShareCenter的RemoteObject对象。
+   * @param { ShareCenter } instance - [ShareCenter]{@link cloudExtension.ShareCenter}类的实例。
+   * @returns { Promise<rpc.RemoteObject> } Promise对象，返回[ShareCenter]{@link cloudExtension.ShareCenter}的
+   *     [RemoteObject]{@link @ohos.rpc:rpc.RemoteObject}对象。
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
@@ -858,10 +1247,12 @@ declare namespace cloudExtension {
   function createShareServiceStub(instance: ShareCenter): Promise<rpc.RemoteObject>;
 
   /**
-   * 根据CloudService类的实例创建对应的RemoteObject对象，系统内部通过该对象调用CloudService的实现接口。使用Promise异步回调。
+   * 根据[CloudService]{@link cloudExtension.CloudService}类的实例创建对应的[RemoteObject]{@link @ohos.rpc:rpc.RemoteObject}对象，系统内部
+   * 通过该对象调用[CloudService]{@link cloudExtension.CloudService}的实现接口。使用Promise异步回调。
    *
-   * @param { CloudService } instance - CloudService类的实例。
-   * @returns { Promise<rpc.RemoteObject> } Promise对象，返回CloudService的RemoteObject对象。
+   * @param { CloudService } instance - [CloudService]{@link cloudExtension.CloudService}类的实例。
+   * @returns { Promise<rpc.RemoteObject> } Promise对象，返回[CloudService]{@link cloudExtension.CloudService}的
+   *     [RemoteObject]{@link @ohos.rpc:rpc.RemoteObject}对象。
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
@@ -870,10 +1261,12 @@ declare namespace cloudExtension {
   function createCloudServiceStub(instance: CloudService): Promise<rpc.RemoteObject>;
 
   /**
-   * 根据CloudDB类的实例创建对应的RemoteObject对象，系统内部通过该对象调用CloudDB的实现接口，使用Promise异步回调。
+   * 根据[CloudDB]{@link cloudExtension.CloudDB}类的实例创建对应的[RemoteObject]{@link @ohos.rpc:rpc.RemoteObject}对象，系统内部通过该对象调用
+   * [CloudDB]{@link cloudExtension.CloudDB}的实现接口，使用Promise异步回调。
    *
-   * @param { CloudDB } instance - CloudDB类的实例。
-   * @returns { Promise<rpc.RemoteObject> } Promise对象，返回CloudDB的rpc.RemoteObject对象。
+   * @param { CloudDB } instance - [CloudDB]{@link cloudExtension.CloudDB}类的实例。
+   * @returns { Promise<rpc.RemoteObject> } Promise对象，返回[CloudDB]{@link cloudExtension.CloudDB}的
+   *     [rpc.RemoteObject]{@link @ohos.rpc:rpc.RemoteObject}对象。
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
@@ -882,10 +1275,12 @@ declare namespace cloudExtension {
   function createCloudDBStub(instance: CloudDB): Promise<rpc.RemoteObject>;
 
   /**
-   * 根据AssetLoader类的实例创建对应的RemoteObject对象，系统内部通过该对象调用AssetLoader的实现接口，使用Promise异步回调。
+   * 根据[AssetLoader]{@link cloudExtension.AssetLoader}类的实例创建对应的[RemoteObject]{@link @ohos.rpc:rpc.RemoteObject}对象，系统内部通过
+   * 该对象调用[AssetLoader]{@link cloudExtension.AssetLoader}的实现接口，使用Promise异步回调。
    *
-   * @param { AssetLoader } instance - 表示一个AssetLoader类型的实例。
-   * @returns { Promise<rpc.RemoteObject> } Promise对象，返回AssetLoader的rpc.RemoteObject对象。
+   * @param { AssetLoader } instance - 表示一个[AssetLoader]{@link cloudExtension.AssetLoader}类型的实例。
+   * @returns { Promise<rpc.RemoteObject> } Promise对象，返回[AssetLoader]{@link cloudExtension.AssetLoader}的
+   *     [rpc.RemoteObject]{@link @ohos.rpc:rpc.RemoteObject}对象。
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
@@ -906,7 +1301,8 @@ declare namespace cloudExtension {
      * 为插入的云数据生成具有唯一性的ID。使用Promise异步回调。
      *
      * @param { int } count - 表示要生成ID的数量。取值范围大于等于1。
-     * @returns { Promise<Result<Array<string>>> } Promise对象，以Result结构将生成的ID以数组形式返回。
+     * @returns { Promise<Result<Array<string>>> } Promise对象，以
+     *     [Result](docroot://reference/apis-arkdata/js-apis-data-cloudExtension-sys.md#resultt)结构将生成的ID以数组形式返回。
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
@@ -995,7 +1391,7 @@ declare namespace cloudExtension {
     /**
      * 延长数据库的加锁时效。使用Promise异步回调。
      *
-     * @param { int } lockId - 表示需要延时的锁ID，取值为lock方法返回的LockInfo中的lockId。
+     * @param { int } lockId - 表示需要延时的锁ID，取值为[lock]{@link cloudExtension.CloudDB.lock}方法返回的LockInfo中的lockId。
      * @returns { Promise<Result<LockInfo>> } Promise对象，返回锁的信息，包含加锁时长和锁的ID。
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
@@ -1007,7 +1403,7 @@ declare namespace cloudExtension {
     /**
      * 为云数据库解锁。使用Promise异步回调。
      *
-     * @param { int } lockId - 表示锁的ID，取值为lock方法返回的LockInfo中的lockId。
+     * @param { int } lockId - 表示锁的ID，取值为[lock]{@link cloudExtension.CloudDB.lock}方法返回的LockInfo中的lockId。
      * @returns { Promise<Result<boolean>> } Promise对象，返回解锁结果，true表示解锁成功，false表示解锁失败。
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
@@ -1239,8 +1635,8 @@ declare namespace cloudExtension {
     /**
      * 获取简要应用信息。使用Promise异步回调。
      *
-     * @returns { Promise<Record<string, AppBriefInfo>> } Promise对象，返回以bundleName为键、AppBriefInfo为值的键值对。
-     *     in KV pairs.
+     * @returns { Promise<Record<string, AppBriefInfo>> } Promise对象，返回以bundleName为键、
+     *     [AppBriefInfo]{@link cloudExtension.AppBriefInfo}为值的键值对。
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
@@ -1289,11 +1685,13 @@ declare namespace cloudExtension {
     unsubscribe(unsubscribeInfo: Record<string, Array<string>>): Promise<int>;
 
     /**
-     * 系统内部通过该接口获取CloudDB的RemoteObject对象，可以通过createCloudDBStub接口进行创建，使用Promise异步回调。
+     * 系统内部通过该接口获取[CloudDB]{@link cloudExtension.CloudDB}的[RemoteObject]{@link @ohos.rpc:rpc.RemoteObject}对象，可以通过
+     * [createCloudDBStub]{@link cloudExtension.createCloudDBStub}接口进行创建，使用Promise异步回调。
      *
      * @param { string } bundleName - 应用包名。
      * @param { Database } database - 需要连接的数据库。
-     * @returns { Promise<rpc.RemoteObject> } Promise对象，返回CloudDB的RemoteObject对象。
+     * @returns { Promise<rpc.RemoteObject> } Promise对象，返回[CloudDB]{@link cloudExtension.CloudDB}的
+     *     [RemoteObject]{@link @ohos.rpc:rpc.RemoteObject}对象。
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
@@ -1302,11 +1700,13 @@ declare namespace cloudExtension {
     connectDB(bundleName: string, database: Database): Promise<rpc.RemoteObject>;
 
     /**
-     * 系统内部通过该接口获取AssetLoader的RemoteObject对象，可以通过createAssetLoaderStub接口进行创建，使用Promise异步回调。
+     * 系统内部通过该接口获取[AssetLoader]{@link cloudExtension.AssetLoader}的[RemoteObject]{@link @ohos.rpc:rpc.RemoteObject}对象，可以通
+     * 过[createAssetLoaderStub]{@link cloudExtension.createAssetLoaderStub}接口进行创建，使用Promise异步回调。
      *
      * @param { string } bundleName - 应用包名。
      * @param { Database } database - 需要连接的数据库。
-     * @returns { Promise<rpc.RemoteObject> } Promise对象，返回AssetLoader的RemoteObject对象。
+     * @returns { Promise<rpc.RemoteObject> } Promise对象，返回[AssetLoader]{@link cloudExtension.AssetLoader}的
+     *     [RemoteObject]{@link @ohos.rpc:rpc.RemoteObject}对象。
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
@@ -1315,11 +1715,13 @@ declare namespace cloudExtension {
     connectAssetLoader(bundleName: string, database: Database): Promise<rpc.RemoteObject>;
 
     /**
-     * 系统内部通过该接口获取ShareCenter的RemoteObject对象，可以通过createShareServiceStub接口进行创建，使用Promise异步回调。
+     * 系统内部通过该接口获取[ShareCenter]{@link cloudExtension.ShareCenter}的[RemoteObject]{@link @ohos.rpc:rpc.RemoteObject}对象，可以通
+     * 过[createShareServiceStub]{@link cloudExtension.createShareServiceStub}接口进行创建，使用Promise异步回调。
      *
      * @param { int } userId - 表示用户账号ID。
      * @param { string } bundleName - 应用包名。
-     * @returns { Promise<rpc.RemoteObject> } Promise对象，返回ShareCenter的RemoteObject对象。
+     * @returns { Promise<rpc.RemoteObject> } Promise对象，返回[ShareCenter]{@link cloudExtension.ShareCenter}的
+     *     [RemoteObject]{@link @ohos.rpc:rpc.RemoteObject}对象。
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic

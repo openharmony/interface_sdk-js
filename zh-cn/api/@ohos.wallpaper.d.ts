@@ -1,4 +1,4 @@
-./*
+/*
  * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,10 +23,6 @@ import image from './@ohos.multimedia.image';
 
 /**
  * 壁纸管理服务为OpenHarmony系统服务，提供壁纸切换功能。从API 9开始壁纸管理的接口调整为系统API，壁纸的切换只能通过系统应用来完成。壁纸管理提供壁纸切换通道，使用壁纸的应用（如：桌面）需订阅壁纸变化通知并刷新壁纸显示。
- * 
- * > **说明：**
- * >
- * > 当前页面仅包含本模块的系统接口，其他公开接口参见[@ohos.wallpaper (壁纸)]{@link wallpaper}。
  *
  * @syscap SystemCapability.MiscServices.Wallpaper
  * @since 7 dynamic
@@ -35,8 +31,11 @@ import image from './@ohos.multimedia.image';
 declare namespace wallpaper {
   /**
    * 定义壁纸颜色信息结构。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
-   * @typedef RgbaColor
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -45,7 +44,6 @@ declare namespace wallpaper {
     /**
      * 表示红色值，范围为 0 到 255。
      *
-     * @type { long }
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -54,7 +52,6 @@ declare namespace wallpaper {
     /**
      * 表示绿色值，范围为 0 到 255。
      *
-     * @type { long }
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -63,7 +60,6 @@ declare namespace wallpaper {
     /**
      * 表示蓝色值，范围为 0 到 255。
      *
-     * @type { long }
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -72,7 +68,6 @@ declare namespace wallpaper {
     /**
      * 表示 alpha 值，范围为 0 到 255。
      *
-     * @type { long }
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -83,7 +78,6 @@ declare namespace wallpaper {
   /**
    * 定义壁纸的枚举类型。
    *
-   * @enum { int } WallpaperType
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamic
    * @since 23 static
@@ -135,7 +129,7 @@ declare namespace wallpaper {
      */
     rotateState: RotateState;
     /**
-     * 表示壁纸资源uri，只支持应用沙箱目录。
+     * 表示壁纸资源Uri，只支持应用沙箱目录。
      *
      * @syscap SystemCapability.MiscServices.Wallpaper
      * @systemapi Hide this for inner system use.
@@ -260,10 +254,14 @@ declare namespace wallpaper {
   }
 
   /**
-   * 获取指定类型壁纸的主要颜色信息。
+   * 获取指定类型壁纸的主要颜色信息。使用callback异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
-   * @param { WallpaperType } WallpaperType -  壁纸类型。
-   * @param { AsyncCallback<Array<RgbaColor>> } callback - 回调函数，返回壁纸的主要颜色信息。
+   * @param { WallpaperType } wallpaperType - 壁纸类型。
+   * @param { AsyncCallback<Array<RgbaColor>> } callback - 回调函数。当获取壁纸主要颜色信息成功，err为undefined，data为获取到的壁纸主要颜色信息；否则为错误对象。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -271,10 +269,14 @@ declare namespace wallpaper {
   function getColors(wallpaperType: WallpaperType, callback: AsyncCallback<Array<RgbaColor>>): void;
 
   /**
-   *获取指定类型壁纸的主要颜色信息。
+   * 获取指定类型壁纸的主要颜色信息。使用Promise异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
-   * @param { WallpaperType } WallpaperType - 壁纸类型。
-   * @returns { Promise<Array<RgbaColor>> } 返回壁纸的主要颜色信息。
+   * @param { WallpaperType } wallpaperType - 壁纸类型。
+   * @returns { Promise<Array<RgbaColor>> } Promise对象，返回壁纸的主要颜色信息。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -283,12 +285,12 @@ declare namespace wallpaper {
 
   /**
    * 获取指定类型壁纸的主要颜色信息。
-   * 
+   * <br>
    * > **说明：**
    * >
    * > 从 API version 9开始支持，从API version 23开始废弃。
    *
-   * @param { WallpaperType } WallpaperType - 壁纸类型。
+   * @param { WallpaperType } wallpaperType - 壁纸类型。
    * @returns { Array<RgbaColor> } 返回壁纸的主要颜色信息。
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -302,10 +304,14 @@ declare namespace wallpaper {
   function getColorsSync(wallpaperType: WallpaperType): Array<RgbaColor>;
 
   /**
-   * 获取指定类型壁纸的ID。
+   * 获取指定类型壁纸的ID。使用callback异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
-   * @param { WallpaperType } 壁纸类型。
-   * @param { AsyncCallback<number> } 回调函数，返回壁纸的ID。如果配置了指定类型的壁纸就返回一个大于等于0的数，否则返回-1。取值范围是-1到（2^31-1）。
+   * @param { WallpaperType } wallpaperType - 壁纸类型。
+   * @param { AsyncCallback<number> } callback - 回调函数。当获取壁纸ID成功，err为undefined，data为获取到的壁纸ID；否则为错误对象。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -313,10 +319,14 @@ declare namespace wallpaper {
   function getId(wallpaperType: WallpaperType, callback: AsyncCallback<number>): void;
 
   /**
-   * 获取指定类型壁纸的ID。
+   * 获取指定类型壁纸的ID。使用Promise异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
-   * @param { WallpaperType } 壁纸类型。
-   * @returns { Promise<number> } 壁纸的ID。如果配置了这种壁纸类型的壁纸就返回一个大于等于0的数，否则返回-1。取值范围是-1到（2^31-1）。
+   * @param { WallpaperType } wallpaperType - 壁纸类型。
+   * @returns { Promise<number> } Promise对象，返回壁纸的ID。如果配置了这种壁纸类型的壁纸就返回一个大于等于0的数，否则返回-1。取值范围是-1到（2^31-1）。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -324,11 +334,15 @@ declare namespace wallpaper {
   function getId(wallpaperType: WallpaperType): Promise<number>;
 
   /**
-   * 获取指定类型的壁纸文件。
+   * 获取指定类型的壁纸文件。使用callback异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WALLPAPER
-   * @param { WallpaperType } 壁纸类型。
-   * @param { AsyncCallback<number> } 回调函数，调用成功则返回壁纸文件描述符ID，调用失败则返回error信息。
+   * @param { WallpaperType } wallpaperType - 壁纸类型。
+   * @param { AsyncCallback<number> } callback - 回调函数。当获取壁纸文件成功，err为undefined，data为获取到的壁纸文件描述符ID；否则为错误对象。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -336,11 +350,15 @@ declare namespace wallpaper {
   function getFile(wallpaperType: WallpaperType, callback: AsyncCallback<number>): void;
 
   /**
-   * 获取指定类型的壁纸文件。
+   * 获取指定类型的壁纸文件。使用Promise异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WALLPAPER
-   * @param { WallpaperType } 壁纸类型。
-   * @returns { Promise<number> } 调用成功则返回壁纸文件描述符ID，调用失败则返回error信息。
+   * @param { WallpaperType } wallpaperType - 壁纸类型。
+   * @returns { Promise<number> } Promise对象，返回壁纸文件描述符ID。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -348,9 +366,13 @@ declare namespace wallpaper {
   function getFile(wallpaperType: WallpaperType): Promise<number>;
 
   /**
-   * 获取壁纸的最小高度值。
+   * 获取壁纸的最小高度值。使用callback异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
-   * @param { AsyncCallback<number> } 回调函数，返回壁纸的最小高度值，单位是像素。如果返回值等于0，说明没有设置壁纸，调用者应该使用默认显示的高度值代替。
+   * @param { AsyncCallback<number> } callback - 回调函数。当获取壁纸的最小高度值（单位为像素）成功，err为undefined，data为获取到的壁纸的最小高度值；否则为错误对象。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -358,9 +380,13 @@ declare namespace wallpaper {
   function getMinHeight(callback: AsyncCallback<number>): void;
 
   /**
-   * 获取壁纸的最小高度值。
+   * 获取壁纸的最小高度值。使用Promise异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
-   * @returns { Promise<number> } 返回壁纸的最小高度值，单位是像素。如果返回值等于0，说明没有设置壁纸，调用者应该使用默认显示的高度值代替。
+   * @returns { Promise<number> } Promise对象，返回壁纸的最小高度值，单位为像素。如果返回值等于0，说明没有设置壁纸，调用者应该使用默认显示的高度值代替。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -381,9 +407,13 @@ declare namespace wallpaper {
   function getMinHeightSync(): int;
 
   /**
-   * 获取壁纸的最小宽度值。
+   * 获取壁纸的最小宽度值。使用callback异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
-   * @param { AsyncCallback<number> } 回调函数，壁纸的最小宽度值，单位是像素。如果返回值等于0，说明没有设置壁纸，调用者应该使用默认显示的宽度值代替。
+   * @param { AsyncCallback<number> } callback - 回调函数。当获取壁纸的最小宽度值（单位为像素）成功，err为undefined，data为获取到的壁纸的最小宽度值；否则为错误对象。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -391,9 +421,13 @@ declare namespace wallpaper {
   function getMinWidth(callback: AsyncCallback<number>): void;
 
   /**
-   * 获取壁纸的最小宽度值。
+   * 获取壁纸的最小宽度值。使用Promise异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
-   * @returns { Promise<number> } 壁纸的最小宽度值，单位是像素。如果返回值等于0，说明没有设置壁纸，调用者应该使用默认显示的宽度值代替。
+   * @returns { Promise<number> } Promise对象，返回壁纸的最小宽度值（单位为像素）。如果返回值等于0，说明没有设置壁纸，调用者应该使用默认显示的宽度值代替。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -414,9 +448,13 @@ declare namespace wallpaper {
   function getMinWidthSync(): int;
 
   /**
-   * 是否允许应用改变当前用户的壁纸。
+   * 是否允许应用改变当前用户的壁纸。使用callback异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
-   * @param { AsyncCallback<boolean> } 回调函数，返回是否允许应用改变当前用户的壁纸。如果允许返回true，否则返回false。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示允许应用改变当前用户的壁纸；返回false表示不允许。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -424,9 +462,13 @@ declare namespace wallpaper {
   function isChangePermitted(callback: AsyncCallback<boolean>): void;
 
   /**
-   * 是否允许应用改变当前用户的壁纸。
+   * 是否允许应用改变当前用户的壁纸。使用Promise异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
-   * @returns { Promise<boolean> } 返回是否允许应用改变当前用户的壁纸。如果允许返回true，否则返回false。
+   * @returns { Promise<boolean> } Promise对象。返回true表示允许应用改变当前用户的壁纸；返回false表示不允许。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -434,9 +476,13 @@ declare namespace wallpaper {
   function isChangePermitted(): Promise<boolean>;
 
   /**
-   * 是否允许用户设置壁纸。
+   * 是否允许用户设置壁纸。使用callback异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
-   * @param { AsyncCallback<boolean> } 回调函数，返回是否允许用户设置壁纸。如果允许返回true，否则返回false。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示允许用户设置壁纸；返回false表示不允许。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -444,9 +490,13 @@ declare namespace wallpaper {
   function isOperationAllowed(callback: AsyncCallback<boolean>): void;
 
   /**
-   * 是否允许用户设置壁纸。
+   * 是否允许用户设置壁纸。使用Promise异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
-   * @returns { Promise<boolean> } 异步回调函数，返回是否允许用户设置壁纸。如果允许返回true，否则返回false。
+   * @returns { Promise<boolean> } Promise对象。返回true表示允许用户设置壁纸；返回false表示不允许。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -454,11 +504,15 @@ declare namespace wallpaper {
   function isOperationAllowed(): Promise<boolean>;
 
   /**
-   * 移除指定类型的壁纸，恢复为默认显示的壁纸。
+   * 移除指定类型的壁纸，恢复为默认显示的壁纸。使用callback异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.SET_WALLPAPER
-   * @param { WallpaperType } WallpaperType - 壁纸类型。
-   * @param { AsyncCallback<void> } callback - 回调函数，移除壁纸成功，error为undefined，否则返回error信息。
+   * @param { WallpaperType } wallpaperType - 壁纸类型。
+   * @param { AsyncCallback<void> } callback - 回调函数。当移除壁纸成功，err为undefined，否则为错误对象。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -466,11 +520,15 @@ declare namespace wallpaper {
   function reset(wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
 
   /**
-   * 移除指定类型的壁纸，恢复为默认显示的壁纸。
+   * 移除指定类型的壁纸，恢复为默认显示的壁纸。使用Promise异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.SET_WALLPAPER
-   * @param { WallpaperType } WallpaperType - 壁纸类型。
-   * @returns { Promise<void> } 无返回结果的Promise对象。
+   * @param { WallpaperType } wallpaperType - 壁纸类型。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -481,8 +539,8 @@ declare namespace wallpaper {
    * 移除指定类型的壁纸，恢复为默认显示的壁纸。使用callback异步回调。
    *
    * @permission ohos.permission.SET_WALLPAPER
-   * @param { WallpaperType } WallpaperType - 壁纸类型。
-   * @param { AsyncCallback<void> } callback - 回调函数，移除壁纸成功，error为undefined，否则返回error信息。
+   * @param { WallpaperType } wallpaperType - 壁纸类型。
+   * @param { AsyncCallback<void> } callback - 回调函数。当移除壁纸成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
@@ -496,11 +554,11 @@ declare namespace wallpaper {
   function restore(wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
 
   /**
-   * 移除指定类型的壁纸，恢复为默认显示的壁纸。使用promise异步回调。
+   * 移除指定类型的壁纸，恢复为默认显示的壁纸。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_WALLPAPER
-   * @param { WallpaperType } WallpaperType - 壁纸类型。
-   * @returns { Promise<void> } 无返回结果的Promise对象。
+   * @param { WallpaperType } wallpaperType - 壁纸类型。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
@@ -514,12 +572,16 @@ declare namespace wallpaper {
   function restore(wallpaperType: WallpaperType): Promise<void>;
 
   /**
-   * 将指定资源设置为指定类型的壁纸。
+   * 将指定资源设置为指定类型的壁纸。使用callback异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.SET_WALLPAPER
-   * @param { string | image.PixelMap } PEG或PNG文件的Uri路径，或者PNG格式文件的位图。
-   * @param { WallpaperType } WallpaperType - 壁纸类型。
-   * @param { AsyncCallback<void> } callback - 回调函数，设置壁纸成功，error为undefined，否则返回error信息。
+   * @param { string | image.PixelMap } source - JPEG或PNG文件的Uri路径，或者PNG格式文件的位图。
+   * @param { WallpaperType } wallpaperType - 壁纸类型。
+   * @param { AsyncCallback<void> } callback - 回调函数。当设置壁纸成功，err为undefined，否则为错误对象。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -531,12 +593,16 @@ declare namespace wallpaper {
   ): void;
 
   /**
-   * 将指定资源设置为指定类型的壁纸。
+   * 将指定资源设置为指定类型的壁纸。使用Promise异步回调。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.SET_WALLPAPER
-   * @param { string | image.PixelMap } JPEG或PNG文件的Uri路径，或者PNG格式文件的位图。
-   * @param { WallpaperType } WallpaperType - 壁纸类型。
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string | image.PixelMap } source - JPEG或PNG文件的Uri路径，或者PNG格式文件的位图。
+   * @param { WallpaperType } wallpaperType - 壁纸类型。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -549,7 +615,7 @@ declare namespace wallpaper {
    * @permission ohos.permission.SET_WALLPAPER
    * @param { string | image.PixelMap } source - JPEG或PNG文件的Uri路径，或者PNG格式文件的位图。
    * @param { WallpaperType } wallpaperType - 壁纸类型。
-   * @param { AsyncCallback<void> } callback - 回调函数，设置壁纸成功，error为undefined，否则返回error信息。
+   * @param { AsyncCallback<void> } callback - 回调函数。当设置壁纸成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
@@ -563,12 +629,12 @@ declare namespace wallpaper {
   function setImage(source: string | image.PixelMap, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
 
   /**
-   * 将指定资源设置为指定类型的壁纸。使用promise异步回调。
+   * 将指定资源设置为指定类型的壁纸。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_WALLPAPER
    * @param { string | image.PixelMap } source - JPEG或PNG文件的Uri路径，或者PNG格式文件的位图。
    * @param { WallpaperType } wallpaperType - 壁纸类型。
-   * @returns { Promise<void> } 无返回结果的Promise对象。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
@@ -582,15 +648,15 @@ declare namespace wallpaper {
   function setImage(source: string | image.PixelMap, wallpaperType: WallpaperType): Promise<void>;
 
   /**
-   * 获取壁纸图片的像素图。
-   * 
+   * 获取壁纸图片的像素图。使用callback异步回调。
+   * <br>
    * > **说明：**
    * >
    * > 从 API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WALLPAPER
    * @param { WallpaperType } wallpaperType - 壁纸类型。
-   * @param { AsyncCallback<image.PixelMap> } callback - 回调函数，调用成功则返回壁纸图片的像素图对象，调用失败则返回error信息。
+   * @param { AsyncCallback<image.PixelMap> } callback - 回调函数。当获取壁纸图片的像素图对象成功，err为undefined，data为获取到的像素图对象；否则为错误对象。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -599,15 +665,15 @@ declare namespace wallpaper {
   function getPixelMap(wallpaperType: WallpaperType, callback: AsyncCallback<image.PixelMap>): void;
 
   /**
-   * 获取壁纸图片的像素图。
-   * 
+   * 获取壁纸图片的像素图。使用Promise异步回调。
+   * <br>
    * > **说明：**
    * >
    * > 从 API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WALLPAPER
    * @param { WallpaperType } wallpaperType - 壁纸类型。
-   * @returns { Promise<image.PixelMap> } 调用成功则返回壁纸图片的像素图对象，调用失败则返回error信息。
+   * @returns { Promise<image.PixelMap> } Promise对象，返回壁纸图片的像素图对象。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -620,7 +686,7 @@ declare namespace wallpaper {
    *
    * @permission ohos.permission.GET_WALLPAPER
    * @param { WallpaperType } wallpaperType - 壁纸类型。
-   * @param { AsyncCallback<image.PixelMap> } callback - 回调函数，调用成功则返回壁纸图片的像素图对象，调用失败则返回error信息。
+   * @param { AsyncCallback<image.PixelMap> } callback - 回调函数。当获取壁纸图片的像素图对象成功，err为undefined，data为获取到的像素图对象；否则为错误对象。
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
@@ -634,11 +700,11 @@ declare namespace wallpaper {
   function getImage(wallpaperType: WallpaperType, callback: AsyncCallback<image.PixelMap>): void;
 
   /**
-   * 获取壁纸图片的像素图，且只能获取使用setImage设置的静态壁纸。使用promise异步回调。
+   * 获取壁纸图片的像素图，且只能获取使用setImage设置的静态壁纸。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_WALLPAPER
    * @param { WallpaperType } wallpaperType - 壁纸类型。
-   * @returns { Promise<image.PixelMap> } 调用成功则返回壁纸图片的像素图对象，调用失败则返回error信息。
+   * @returns { Promise<image.PixelMap> } Promise对象，返回壁纸图片的像素图对象。
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
@@ -657,7 +723,7 @@ declare namespace wallpaper {
    * @permission ohos.permission.SET_WALLPAPER
    * @param { string } source - mp4文件的Uri路径。
    * @param { WallpaperType } wallpaperType - 壁纸类型。
-   * @param { AsyncCallback<void> } callback - 回调函数，设置壁纸成功，error为undefined，否则返回error信息。
+   * @param { AsyncCallback<void> } callback - 回调函数。当设置动态壁纸成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
@@ -671,12 +737,12 @@ declare namespace wallpaper {
   function setVideo(source: string, wallpaperType: WallpaperType, callback: AsyncCallback<void>): void;
 
   /**
-   * 将视频资源设置为桌面或锁屏的动态壁纸。使用promise异步回调。
+   * 将视频资源设置为桌面或锁屏的动态壁纸。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_WALLPAPER
    * @param { string } source - mp4文件的Uri路径。
    * @param { WallpaperType } wallpaperType - 壁纸类型。
-   * @returns { Promise<void> } 无返回结果的Promise对象。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
@@ -694,9 +760,9 @@ declare namespace wallpaper {
    * 录获取设置的资源。使用callback异步回调。
    *
    * @permission ohos.permission.SET_WALLPAPER
-   * @param { string } source - 指定的zip资源包。
+   * @param { string } source - 指定的zip资源路径。
    * @param { WallpaperType } wallpaperType - 壁纸类型。
-   * @param { AsyncCallback<void> } callback - 回调函数，设置壁纸成功，error为undefined，否则返回error信息。
+   * @param { AsyncCallback<void> } callback - 回调函数。当设置壁纸资源成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
@@ -714,9 +780,9 @@ declare namespace wallpaper {
    * 录获取设置的资源。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_WALLPAPER
-   * @param { string } source - 指定的zip资源包。
+   * @param { string } source - 指定的zip资源路径。
    * @param { WallpaperType } wallpaperType - 壁纸类型。
-   * @returns { Promise<void> } 无返回结果的Promise对象。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 201 - permission denied.
@@ -731,9 +797,14 @@ declare namespace wallpaper {
 
   /**
    * 订阅壁纸颜色变化结果上报事件。不支持多线程并发调用。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
-   * @param { 'colorChange' } 取值为'colorChange'，表示壁纸颜色变化结果上报事件。
-   * @param { function } 壁纸颜色变化触发该回调方法，返回壁纸类型和壁纸的主要颜色信息。<br/>- colors：壁纸的主要颜色信息，其类型见RgbaColor。<br/>- resourceType：壁纸资源类型。
+   * @param { 'colorChange' } type - 取值为'colorChange'，表示壁纸颜色变化结果上报事件。
+   * @param { function } callback - 壁纸颜色变化触发该回调方法，返回壁纸类型和壁纸的主要颜色信息。<br/>- colors<br/>  壁纸的主要颜色信息，其类型见
+   *     [RgbaColor]{@link wallpaper.RgbaColor}。<br/>- wallpaperType<br/>  壁纸类型。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -774,7 +845,7 @@ declare namespace wallpaper {
   /**
    * 订阅壁纸变化通知事件。不支持多线程并发调用。
    *
-   * @param { WallpaperChangeObserver } 表示壁纸变换的回调实例。
+   * @param { WallpaperChangeObserver } callback - 表示壁纸变换的回调实例。
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses
    *     system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -785,10 +856,14 @@ declare namespace wallpaper {
 
   /**
    * 取消订阅壁纸颜色变化结果上报事件。不支持多线程并发调用。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 7开始支持，从API version 9开始废弃。
    *
-   * @param { 'colorChange' } 取值为'colorChange'，表示取消订阅壁纸颜色变化结果上报事件。
-   * @param { function } 表示要取消的壁纸颜色变化的回调，不填写该参数则取消订阅该type对应的所有回调。<br/>- colors：壁纸的主要颜色信息，其类型见RgbaColor。
-   *     <br/>- resourceType：壁纸资源类型。
+   * @param { 'colorChange' } type - 取值为'colorChange'，表示取消订阅壁纸颜色变化结果上报事件。
+   * @param { function } callback - 表示要取消的壁纸颜色变化的回调，不填写该参数则取消订阅该type对应的所有回调。<br/>- colors<br/>  壁纸的主要颜色信息，其类型见
+   *     [RgbaColor]{@link wallpaper.RgbaColor}。<br/>- wallpaperType<br/>  壁纸类型。
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -817,7 +892,7 @@ declare namespace wallpaper {
   /**
    * 取消订阅壁纸变化通知事件。不支持多线程并发调用。
    *
-   * @param { WallpaperChangeObserver } 需要取消监听的事件回调，若不设置，则取消对该事件的所有监听。
+   * @param { WallpaperChangeObserver } [callback] - 需要取消监听的事件回调，若不设置，则取消对该事件的所有监听。
    * @throws { BusinessError } 202 - permission verification failed, application which is not a system application uses 
    *     system API.
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -827,12 +902,12 @@ declare namespace wallpaper {
   function offWallpaperChange(callback?: WallpaperChangeObserver): void;
 
   /**
-   * 设置设备所有形态的壁纸。使用promise异步回调。（包括折展状态、横竖屏状态、资源路径，其中NORMAL-PORT为必选）
+   * 设置设备所有形态的壁纸。使用Promise异步回调。（包括折展状态、横竖屏状态、资源路径，其中NORMAL-PORT为必选）
    *
    * @permission ohos.permission.SET_WALLPAPER
    * @param { Array<WallpaperInfo> } wallpaperInfos - 所有壁纸的信息结构。
    * @param { WallpaperType } wallpaperType - 壁纸类型。
-   * @returns { Promise<void> } 无返回结果的Promise对象。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified.
    *     2.The first parameter type must be Array<WallpaperInfo>. The second type must be WallpaperType.
@@ -849,13 +924,13 @@ declare namespace wallpaper {
   function setAllWallpapers(wallpaperInfos: Array<WallpaperInfo>, wallpaperType: WallpaperType): Promise<void>;
 
   /**
-   * 获取指定壁纸类型、折展态、横竖屏的壁纸图片的像素图，如果指定的壁纸不存在，会逐步降级匹配，unfolded-land -> unfolded-port ->normal-port。使用promise异步回调。
+   * 获取指定壁纸类型、折展态、横竖屏的壁纸图片的像素图，如果指定的壁纸不存在，会逐步降级匹配，unfolded-land -> unfolded-port ->normal-port。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_WALLPAPER
    * @param { WallpaperType } wallpaperType - 壁纸类型。
    * @param { FoldState } foldState - 折展状态类型。
    * @param { RotateState } rotateState - 横竖屏状态类型。
-   * @returns { Promise<image.PixelMap> } 调用成功则返回壁纸图片的像素图对象，调用失败则返回error信息。
+   * @returns { Promise<image.PixelMap> } Promise对象，返回壁纸图片的像素图对象。
    * @throws { BusinessError } 401 - parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified.
    *     2.The type must be WallpaperType, parameter range must be WALLPAPER_LOCKSCREEN or WALLPAPER_SYSTEM.
