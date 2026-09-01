@@ -27,7 +27,8 @@
  * results.
  *
  * @syscap SystemCapability.Global.FontManager
- * @systemapi
+ * @systemapi [since 19 - 26.0.0]
+ * @publicapi [since 26.1.0]
  * @since 19 dynamic
  * @since 23 static
  */
@@ -195,25 +196,28 @@ declare namespace fontManager {
    * Enumerates the font scopes.
    *
    * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
-  enum FontScope {
+  enum FontScope {  
     /**
      * Application-level font. The font is cleared when the application exits, the font service exits,
      * the account is stopping, or the device restarts.
      *
      * @syscap SystemCapability.Global.FontManager
+     * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
-    app = 0,
+    APP = 0,
 
     /**
      * Session-level font. The font is cleared when the account is stopping or the device restarts.
      *
      * @syscap SystemCapability.Global.FontManager
+     * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
-    session = 1
+    SESSION = 1
   }
 
   /**
@@ -221,13 +225,15 @@ declare namespace fontManager {
    * {@link FontClientObserver.onServiceDied} callback is invoked.
    *
    * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
-  interface FontClientObserver {
+  interface FontClientObserver {  
     /**
      * Called when the font service is died.
      *
      * @syscap SystemCapability.Global.FontManager
+     * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
     onServiceDied(): void;
@@ -240,44 +246,38 @@ declare namespace fontManager {
    * @permission ohos.permission.UPDATE_SCOPE_FONT
    * @param { string } url - Path to the font file to be installed. Only .ttf and .ttc font files are supported.
    * @param { FontScope } scope - Font scope. The value must be an enumerated value of {@link FontScope}.
-   * @returns { Promise<int> } Promise used to return the installation result.
-   *     <br>- The value **0** indicates that the installation is successful and the font has been added to the system
-   *     font library.
-   *     <br>- Any other value indicates that the installation failed. Troubleshoot based on the error code.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 31100101 - The font does not exist.
    * @throws { BusinessError } 31100102 - The font is not supported.
    * @throws { BusinessError } 31100103 - Failed to copy the font file.
    * @throws { BusinessError } 31100104 - The font file is installed.
    * @throws { BusinessError } 31100105 - Exceeded the maximum number of installed files.
    * @throws { BusinessError } 31100110 - Call failed due to system error.
-   * @throws { BusinessError } 31100115 - Font observer not registered.
+   * @throws { BusinessError } 31100115 - The font observer is not registered.
    * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
-  function installScopeFont(url: string, scope: FontScope): Promise<int>;
+  function installScopeFont(url: string, scope: FontScope): Promise<void>;
 
   /**
    * Uninstalls a scope font file from the system font library by URL. This API uses a promise to return the result.
    *
    * @permission ohos.permission.UPDATE_SCOPE_FONT
    * @param { string } url - URL of the font to be uninstalled.
-   * @returns { Promise<int> } Promise used to return the uninstallation result.
-   *     <br>- The value **0** indicates that the uninstallation is successful and the font has been removed from the
-   *     system font library.
-   *     <br>- Any other value indicates that the uninstallation failed. Troubleshoot based on the error code.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 31100108 - Failed to delete the font file.
    * @throws { BusinessError } 31100110 - Call failed due to system error.
    * @throws { BusinessError } 31100112 - The scope font is not found.
    * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
-  function uninstallScopeFont(url: string): Promise<int>;
+  function uninstallScopeFont(url: string): Promise<void>;
 
   /**
    * Queries the scope of a font by URL. This API uses a promise to return the result.
@@ -286,12 +286,12 @@ declare namespace fontManager {
    * @param { string } url - URL of the font to query.
    * @returns { Promise<FontScope> } Promise used to return the query result.
    *     <br>- The {@link FontScope} value is returned.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 31100110 - Call failed due to system error.
    * @throws { BusinessError } 31100112 - The scope font is not found.
    * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
   function getFontScope(url: string): Promise<FontScope>;
@@ -302,13 +302,13 @@ declare namespace fontManager {
    *
    * @permission ohos.permission.UPDATE_SCOPE_FONT
    * @param { FontClientObserver } observer - Font service death observer.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 31100110 - Call failed due to system error.
-   * @throws { BusinessError } 31100113 - Font observer already registered.
-   * @throws { BusinessError } 31100114 - Exceeded maximum number of font observers.
+   * @throws { BusinessError } 31100113 - The font observer is already registered.
+   * @throws { BusinessError } 31100114 - The maximum number of font observers has been reached.
    * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
   function onFontObserver(observer: FontClientObserver): void;
@@ -318,12 +318,12 @@ declare namespace fontManager {
    *
    * @permission ohos.permission.UPDATE_SCOPE_FONT
    * @param { FontClientObserver } observer - Font service death observer.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2. Incorrect parameter types.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 31100110 - Call failed due to system error.
-   * @throws { BusinessError } 31100115 - Font observer not registered.
+   * @throws { BusinessError } 31100115 - The font observer is not registered.
    * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
   function offFontObserver(observer: FontClientObserver): void;
