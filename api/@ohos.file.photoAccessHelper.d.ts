@@ -334,6 +334,14 @@ declare namespace photoAccessHelper {
      */
     BURST = 4,
     /**
+     * Cinematic video file.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 26.1.0 dynamic&static
+     */
+    CINEMATIC_VIDEO = 5,
+    /**
      * Slow-motion video file.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -351,6 +359,14 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     SPATIAL_3DGS = 7,
+    /**
+     * Cinematic version 2 video file. Compared to CINEMATIC_VIDEO, it adds more effects such as Hitchcock.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 26.1.0 dynamic&static
+     */
+    CINEMATIC_VIDEO_V2 = 8,
   }
 
   /**
