@@ -284,6 +284,18 @@ declare interface DepthComponentOptions {
   depthSpace?: DepthSpaceType;
 
   /**
+   * Color space of the background.
+   *
+   * @default colorSpaceManager.ColorSpace.SRGB
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  colorSpace?: import('../api/@ohos.graphics.colorSpaceManager').default.ColorSpace;
+
+  /**
    * Scale factor for 3D rendering window, applied to both width and height. The value range is (0.0, 1.0]. Values
    * outside this range are invalid and the default value is used.
    *

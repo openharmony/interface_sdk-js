@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Bundle Management
  * @kit MDMKit
  */
 
@@ -22,17 +22,20 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * The **bundleManager** module provides APIs for bundle management, including adding, obtaining, and removing a list of
- * bundles that are allowed to install.
+ * This module provides package management capabilities, including installing and uninstalling application packages, and
+ * managing the installation trustlist, installation blocklist, uninstallation blocklist, and distribution types of
+ * installable applications. In enterprise device management scenarios, these capabilities enable fine-grained control
+ * over application installation and uninstallation, preventing unauthorized installations and uninstallations, thereby
+ * safeguarding enterprise device security and reducing security risks.
  *
  * > **NOTE**
- * >
- * > The APIs of this module can be used only in the stage model.
  * >
  * > The APIs of this module can be called only by a device administrator application that is enabled. For details, see
  * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 10 - 11]
+ * @publicapi [since 12]
  * @since 10
  */
 declare namespace bundleManager {
@@ -56,11 +59,8 @@ declare namespace bundleManager {
     /**
      * Installation flag.
      *
-     * - **0**: initial installation.
-     * - **1**: overwrite installation.
-     * - **2**: installation-free.
-     *
-     * Default value: **0**
+     * **0** (default value) indicates fresh installation of the application, **1** indicates overlay installation of
+     * the application, and **2** indicates installation-free.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @StageModelOnly
@@ -523,8 +523,7 @@ declare namespace bundleManager {
 
     /**
      * Access token ID of the application, which is used in the
-     * [application access control verification API](docroot://reference/apis-ability-kit/js-apis-abilityAccessCtrl.md#checkaccesstoken9)
-     * .
+     * [checkAccessToken]{@link @ohos.abilityAccessCtrl:abilityAccessCtrl.AtManager.checkAccessToken}.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -664,7 +663,7 @@ declare namespace bundleManager {
   }
 
   /**
-   * Statistics of the bundle.
+   * Storage usage information of the application.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -672,7 +671,7 @@ declare namespace bundleManager {
    */
   interface BundleStorageStats {
     /**
-     * The bundle name of the application.
+     * Bundle name of the application.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -681,7 +680,11 @@ declare namespace bundleManager {
     bundleName: string;
 
     /**
-     * The size of the application's installation data.
+     * Size of the application installation files, in bytes.
+     *
+     * Application installation file directory:
+     *
+     * /data/storage/el1/bundle
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -690,7 +693,22 @@ declare namespace bundleManager {
     appSize: number;
 
     /**
-     * The size of the application's local data, distributed data, and database data.
+     * Size of the local data, distributed data, and database data of the application, in bytes.
+     *
+     * Local file directory (parent directory of the cache file directory):
+     *
+     * /data/storage/${el1-el5}/base
+     *
+     * Distributed file directory:
+     *
+     * /data/storage/el2/distributedfiles
+     *
+     * Database file directory:
+     *
+     * /data/storage/${el1-el5}/database
+     *
+     * **Note**: **${el1-el5}** refers to the directories
+     * [el1, el2, el3, el4, el5](docroot://file-management/app-sandbox-directory.md#application-file-directory-and-application-file-path)
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -706,9 +724,9 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
-   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
-   *     versions, only **appId** can be passed.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: From API version 21 onwards, the **appId** and **appIdentifier** of the app can be passed.
+   *     **appIdentifier** is recommended. In API version 20 and earlier versions, only **appId** can be passed.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -734,9 +752,9 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
-   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
-   *     versions, only **appId** can be passed.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: From API version 21 onwards, the **appId** and **appIdentifier** of the app can be passed.
+   *     **appIdentifier** is recommended. In API version 20 and earlier versions, only **appId** can be passed.
    * @param { number } userId - User ID, which must be greater than or equal to 0.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
@@ -763,12 +781,12 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
-   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
-   *     versions, only **appId** can be passed.
-   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
-   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
-   *     user.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: From API version 21 onwards, the **appId** and **appIdentifier** of the app can be passed.
+   *     **appIdentifier** is recommended. In API version 20 and earlier versions, only **appId** can be passed.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.
+   *     <br> - If **userId** is passed in, this API applies to the specified user.
+   *     <br> - If **userId** is not passed in, this API applies to the current user.
    * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -794,13 +812,15 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
-   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
-   *     versions, only **appId** can be passed.
-   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: From API version 21 onwards, the **appId** and **appIdentifier** of the app can be passed.
+   *     **appIdentifier** is recommended. In API version 20 and earlier versions, only **appId** can be passed.
+   * @param { number } [accountId] - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
-   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   *     **@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -820,10 +840,10 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
-   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
-   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
-   *     transferred.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: Since API version 21, elements in the array can use **appId** and **appIdentifier**. Only the input
+   *     **appId** or **appIdentifier** is removed. **appIdentifier** or **appId** of the same app will not be removed.
+   *     In API version 20 and earlier versions, only **appId** can be transferred.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -849,10 +869,10 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
-   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
-   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
-   *     transferred.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: Since API version 21, elements in the array can use **appId** and **appIdentifier**. Only the input
+   *     **appId** or **appIdentifier** is removed. **appIdentifier** or **appId** of the same app will not be removed.
+   *     In API version 20 and earlier versions, only **appId** can be transferred.
    * @param { number } userId - User ID, which must be greater than or equal to 0.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
@@ -879,13 +899,13 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
-   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
-   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
-   *     transferred.
-   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
-   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
-   *     user.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: Since API version 21, elements in the array can use **appId** and **appIdentifier**. Only the input
+   *     **appId** or **appIdentifier** is removed. **appIdentifier** or **appId** of the same app will not be removed.
+   *     In API version 20 and earlier versions, only **appId** can be transferred.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.
+   *     <br> - If **userId** is passed in, this API applies to the specified user.
+   *     <br> - If **userId** is not passed in, this API applies to the current user.
    * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -909,14 +929,16 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
-   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
-   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
-   *     transferred.
-   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: Since API version 21, elements in the array can use **appId** and **appIdentifier**. Only the input
+   *     **appId** or **appIdentifier** is removed. **appIdentifier** or **appId** of the same app will not be removed.
+   *     In API version 20 and earlier versions, only **appId** can be transferred.
+   * @param { number } [accountId] - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
-   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   *     **@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -981,15 +1003,15 @@ declare namespace bundleManager {
   function getAllowedInstallBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Obtains the applications that can be installed by the current or specified user. This API uses a promise to return
-   * the result.
+   * Obtains the list of applications that are allowed to be installed by the current or specified user. This API uses a
+   * promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
-   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
-   *     user.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.
+   *     <br> - If **userId** is passed in, this API applies to the specified user.
+   *     <br> - If **userId** is not passed in, this API applies to the current user.
    * @returns { Promise<Array<string>> } Promise used to return the applications that can be installed by the current or
    *     specified user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1013,15 +1035,14 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
-   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
-   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   *     **@ohos.account.osAccount** to obtain the account ID.
+   *     <br> - If **accountId** is passed in, this API applies to the
+   *     specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @returns { Array<string> } Array of applications that can be installed by the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1033,6 +1054,33 @@ declare namespace bundleManager {
    * @stagemodelonly
    * @since 12
    */
+  function getAllowedInstallBundlesSync(admin: Want, accountId?: number): Array<string>;
+
+  /**
+   * Obtains the applications that can be installed by the current or specified user.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { number } [accountId] - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
+   * @returns { Array<string> } List of bundles that are allowed to be installed by the current or specified user.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
   function getAllowedInstallBundlesSync(admin: Want | null, accountId?: number): Array<string>;
 
   /**
@@ -1042,9 +1090,9 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
-   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
-   *     versions, only **appId** can be passed.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: From API version 21 onwards, the **appId** and **appIdentifier** of the app can be passed.
+   *     **appIdentifier** is recommended. In API version 20 and earlier versions, only **appId** can be passed.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1070,9 +1118,9 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
-   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
-   *     versions, only **appId** can be passed.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: From API version 21 onwards, the **appId** and **appIdentifier** of the app can be passed.
+   *     **appIdentifier** is recommended. In API version 20 and earlier versions, only **appId** can be passed.
    * @param { number } userId - User ID, which must be greater than or equal to 0.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
@@ -1099,12 +1147,12 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
-   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
-   *     versions, only **appId** can be passed.
-   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
-   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
-   *     user.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: From API version 21 onwards, the **appId** and **appIdentifier** of the app can be passed.
+   *     **appIdentifier** is recommended. In API version 20 and earlier versions, only **appId** can be passed.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.
+   *     <br> - If **userId** is passed in, this API applies to the specified user.
+   *     <br> - If **userId** is not passed in, this API applies to the current user.
    * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1130,13 +1178,15 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
-   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
-   *     versions, only **appId** can be passed.
-   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: From API version 21 onwards, the **appId** and **appIdentifier** of the app can be passed.
+   *     **appIdentifier** is recommended. In API version 20 and earlier versions, only **appId** can be passed.
+   * @param { number } [accountId] - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
-   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   *     **@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1156,10 +1206,10 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
-   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
-   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
-   *     transferred.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: Since API version 21, elements in the array can use **appId** and **appIdentifier**. Only the input
+   *     **appId** or **appIdentifier** is removed. **appIdentifier** or **appId** of the same app will not be removed.
+   *     In API version 20 and earlier versions, only **appId** can be transferred.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1185,10 +1235,10 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
-   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
-   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
-   *     transferred.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: Since API version 21, elements in the array can use **appId** and **appIdentifier**. Only the input
+   *     **appId** or **appIdentifier** is removed. **appIdentifier** or **appId** of the same app will not be removed.
+   *     In API version 20 and earlier versions, only **appId** can be transferred.
    * @param { number } userId - User ID, which must be greater than or equal to 0.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
@@ -1215,13 +1265,13 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
-   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
-   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
-   *     transferred.
-   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
-   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
-   *     user.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: Since API version 21, elements in the array can use **appId** and **appIdentifier**. Only the input
+   *     **appId** or **appIdentifier** is removed. **appIdentifier** or **appId** of the same app will not be removed.
+   *     In API version 20 and earlier versions, only **appId** can be transferred.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.
+   *     <br> - If **userId** is passed in, this API applies to the specified user.
+   *     <br> - If **userId** is not passed in, this API applies to the current user.
    * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1245,14 +1295,16 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
-   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
-   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
-   *     transferred.
-   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: Since API version 21, elements in the array can use **appId** and **appIdentifier**. Only the input
+   *     **appId** or **appIdentifier** is removed. **appIdentifier** or **appId** of the same app will not be removed.
+   *     In API version 20 and earlier versions, only **appId** can be transferred.
+   * @param { number } [accountId] - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
-   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   *     **@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1317,15 +1369,15 @@ declare namespace bundleManager {
   function getDisallowedInstallBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Obtains the applications that cannot be installed by the current or specified user. This API uses a promise to
-   * return the result.
+   * Obtains the list of applications that are not allowed to be installed by the current or specified user. This API
+   * uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
-   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
-   *     user.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.
+   *     <br> - If **userId** is passed in, this API applies to the specified user.
+   *     <br> - If **userId** is not passed in, this API applies to the current user.
    * @returns { Promise<Array<string>> } Promise used to return the applications that cannot be installed by the current
    *     or specified user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1349,15 +1401,14 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
-   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
-   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   *     **@ohos.account.osAccount** to obtain the account ID.
+   *     <br> - If **accountId** is passed in, this API applies to the
+   *     specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @returns { Array<string> } Array of applications that cannot be installed by the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1369,6 +1420,33 @@ declare namespace bundleManager {
    * @stagemodelonly
    * @since 12
    */
+  function getDisallowedInstallBundlesSync(admin: Want, accountId?: number): Array<string>;
+
+  /**
+   * Obtains the applications that cannot be installed by the current or specified user.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { number } [accountId] - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
+   * @returns { Array<string> } List of bundles that are not allowed to be installed by the current or specified user.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
   function getDisallowedInstallBundlesSync(admin: Want | null, accountId?: number): Array<string>;
 
   /**
@@ -1378,9 +1456,9 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
-   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
-   *     versions, only **appId** can be passed.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: From API version 21 onwards, the **appId** and **appIdentifier** of the app can be passed.
+   *     **appIdentifier** is recommended. In API version 20 and earlier versions, only **appId** can be passed.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1406,9 +1484,9 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
-   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
-   *     versions, only **appId** can be passed.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: From API version 21 onwards, the **appId** and **appIdentifier** of the app can be passed.
+   *     **appIdentifier** is recommended. In API version 20 and earlier versions, only **appId** can be passed.
    * @param { number } userId - User ID, which must be greater than or equal to 0.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
@@ -1435,12 +1513,12 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
-   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
-   *     versions, only **appId** can be passed.
-   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
-   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
-   *     user.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: From API version 21 onwards, the **appId** and **appIdentifier** of the app can be passed.
+   *     **appIdentifier** is recommended. In API version 20 and earlier versions, only **appId** can be passed.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.
+   *     <br> - If **userId** is passed in, this API applies to the specified user.
+   *     <br> - If **userId** is not passed in, this API applies to the current user.
    * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1464,16 +1542,19 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Value range: The total number of entries in this list for a
-   *     single user must not exceed 200. For example, if user 100 already has 50 entries and user 101 has none, user 10
-   *     0 can add up to 150 more entries, while user 101 can add up to 200 entries. You are advised to configure a
-   *     maximum of 50 entries at a time to prevent potential performance problems.<br>Note: From API version 21 onwards
-   *     , the **appId** and **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API
-   *     version 20 and earlier versions, only **appId** can be passed.
-   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Value range: The total number of entries in this list for a single user must not exceed 200. For example,
+   *     if user 100 already has 50 entries and user 101 has none, user 100 can add up to 150 more entries, while user 1
+   *     01 can add up to 200 entries. You are advised to configure a maximum of 50 entries at a time to prevent
+   *     potential performance problems.
+   *     <br>Note: From API version 21 onwards, the **appId** and **appIdentifier** of the app can be passed.
+   *     **appIdentifier** is recommended. In API version 20 and earlier versions, only **appId** can be passed.
+   * @param { number } [accountId] - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
-   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   *     **@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1493,10 +1574,10 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
-   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
-   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
-   *     transferred.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: Since API version 21, elements in the array can use **appId** and **appIdentifier**. Only the input
+   *     **appId** or **appIdentifier** is removed. **appIdentifier** or **appId** of the same app will not be removed.
+   *     In API version 20 and earlier versions, only **appId** can be transferred.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1522,10 +1603,10 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
-   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
-   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
-   *     transferred.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: Since API version 21, elements in the array can use **appId** and **appIdentifier**. Only the input
+   *     **appId** or **appIdentifier** is removed. **appIdentifier** or **appId** of the same app will not be removed.
+   *     In API version 20 and earlier versions, only **appId** can be transferred.
    * @param { number } userId - User ID, which must be greater than or equal to 0.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
@@ -1552,13 +1633,13 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
-   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
-   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
-   *     transferred.
-   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
-   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
-   *     user.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: Since API version 21, elements in the array can use **appId** and **appIdentifier**. Only the input
+   *     **appId** or **appIdentifier** is removed. **appIdentifier** or **appId** of the same app will not be removed.
+   *     In API version 20 and earlier versions, only **appId** can be transferred.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.
+   *     <br> - If **userId** is passed in, this API applies to the specified user.
+   *     <br> - If **userId** is not passed in, this API applies to the current user.
    * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1583,15 +1664,18 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Value range: You are advised to configure a maximum of 50
-   *     entries at a time to prevent potential performance problems.<br>Note: Since API version 21, elements in the
-   *     array can use **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed.
-   *     **appIdentifier** or **appId** of the same app will not be removed. In API version 20 and earlier versions,
-   *     only **appId** can be transferred.
-   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Value range: You are advised to configure a maximum of 50 entries at a time to prevent potential
+   *     performance problems.
+   *     <br>Note: Since API version 21, elements in the array can use **appId** and **appIdentifier**. Only the input
+   *     **appId** or **appIdentifier** is removed. **appIdentifier** or **appId** of the same app will not be removed.
+   *     In API version 20 and earlier versions, only **appId** can be transferred.
+   * @param { number } [accountId] - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
-   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   *     **@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1656,15 +1740,15 @@ declare namespace bundleManager {
   function getDisallowedUninstallBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Obtains the applications that cannot be uninstalled by the current or specified user. This API uses a promise to
-   * return the result.
+   * Obtains the list of applications that are not allowed to be uninstalled by the current or specified user. This API
+   * uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
-   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
-   *     user.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.
+   *     <br> - If **userId** is passed in, this API applies to the specified user.
+   *     <br> - If **userId** is not passed in, this API applies to the current user.
    * @returns { Promise<Array<string>> } Promise used to return the applications that cannot be uninstalled by the
    *     current or specified user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1688,15 +1772,14 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
-   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
-   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   *     **@ohos.account.osAccount** to obtain the account ID.
+   *     <br> - If **accountId** is passed in, this API applies to the
+   *     specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @returns { Array<string> } Array of bundles that cannot be uninstalled by the user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1708,6 +1791,33 @@ declare namespace bundleManager {
    * @stagemodelonly
    * @since 12
    */
+  function getDisallowedUninstallBundlesSync(admin: Want, accountId?: number): Array<string>;
+
+  /**
+   * Obtains the bundles that are not allowed to be uninstalled by the current or specified user.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { number } [accountId] - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
+   * @returns { Array<string> } List of bundles that are not allowed to be uninstalled by the user.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
   function getDisallowedUninstallBundlesSync(admin: Want | null, accountId?: number): Array<string>;
 
   /**
@@ -1718,8 +1828,7 @@ declare namespace bundleManager {
    * >
    * > Error code **401** will be returned if this API is called to uninstall an application that is either a non-
    * > removable pre-installed application or one configured as non-uninstallable via the
-   * > [addDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addDisallowedUninstallBundlesSync}
-   * > API.
+   * > [addDisallowedUninstallBundlesSync]{@link bundleManager.addDisallowedUninstallBundlesSync} API.
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -1751,8 +1860,7 @@ declare namespace bundleManager {
    * >
    * > Error code **401** will be returned if this API is called to uninstall an application that is either a non-
    * > removable pre-installed application or one configured as non-uninstallable via the
-   * > [addDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addDisallowedUninstallBundlesSync}
-   * > API.
+   * > [addDisallowedUninstallBundlesSync]{@link bundleManager.addDisallowedUninstallBundlesSync} API.
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -1785,8 +1893,7 @@ declare namespace bundleManager {
    * >
    * > Error code **401** will be returned if this API is called to uninstall an application that is either a non-
    * > removable pre-installed application or one configured as non-uninstallable via the
-   * > [addDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addDisallowedUninstallBundlesSync}
-   * > API.
+   * > [addDisallowedUninstallBundlesSync]{@link bundleManager.addDisallowedUninstallBundlesSync} API.
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -1820,8 +1927,7 @@ declare namespace bundleManager {
    * >
    * > Error code **401** will be returned if this API is called to uninstall an application that is either a non-
    * > removable pre-installed application or one configured as non-uninstallable via the
-   * > [addDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addDisallowedUninstallBundlesSync}
-   * > API.
+   * > [addDisallowedUninstallBundlesSync]{@link bundleManager.addDisallowedUninstallBundlesSync} API.
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -1849,23 +1955,23 @@ declare namespace bundleManager {
   function uninstall(admin: Want, bundleName: string, userId: number, isKeepData: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Uninstalls an application of the current or specified user. The **isKeepData** parameter specifies whether to
-   * retain the bundle data. This API uses a promise to return the result.
+   * Uninstalls a specified bundle of the current or specified user. The **isKeepData** parameter specifies whether to
+   * retain the bundle data. This API uses a promise to return the result. After the API is successfully called, the
+   * application is uninstalled, and the data is retained or deleted based on the **isKeepData** parameter.
    *
    * > **NOTE**
    * >
    * > Error code **401** will be returned if this API is called to uninstall an application that is either a non-
    * > removable pre-installed application or one configured as non-uninstallable via the
-   * > [addDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addDisallowedUninstallBundlesSync}
-   * > API.
+   * > [addDisallowedUninstallBundlesSync]{@link bundleManager.addDisallowedUninstallBundlesSync} API.
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { string } bundleName - Bundle name of an application.
-   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
-   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
-   *     user.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.
+   *     <br> - If **userId** is passed in, this API applies to the specified user.
+   *     <br> - If **userId** is not passed in, this API applies to the current user.
    * @param { boolean } [isKeepData] - Whether to retain the bundle data. The value **true** means to retain the bundle
    *     data; the value **false** means the opposite.
    * @returns { Promise<void> } Promise that returns no value. An error object will be thrown if the application fails
@@ -1940,9 +2046,10 @@ declare namespace bundleManager {
    *
    * This API can be used to install only applications of the **enterprise_mdm** (MDM application) or
    * **enterprise_normal** (common enterprise application) distribution type. You can call the
-   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)} API
-   * to query the [BundleInfo]{@link ./bundleManager/BundleInfo} of an application, where
-   * **BundleInfo.appInfo.appDistributionType** indicates the distribution type.
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf} API to query the
+   * [BundleInfo]{@link ./bundleManager/BundleInfo} of an application, where **BundleInfo.appInfo.appDistributionType**
+   * indicates the distribution type. Since API version 26.0.0, you are advised to use
+   * [installForResult]{@link bundleManager.installForResult} to obtain more detailed error code return values.
    *
    * > **NOTE**
    * >
@@ -1955,8 +2062,7 @@ declare namespace bundleManager {
    * @param { Array<string> } hapFilePaths - Applications to install. The app bundle must be stored in the path that the
    *     app has the permission to access, such as the app sandbox path. For details about the mapping between the app
    *     sandbox path and the actual physical path, see
-   *     [Mappings Between App Sandbox Paths and Physical Paths](docroot://file-management/app-sandbox-directory.md#mappings-between-application-sandbox-paths-and-physical-paths)
-   *     .
+   *     [Mappings Between App Sandbox Paths and Physical Paths](docroot://file-management/app-sandbox-directory.md#mappings-between-application-sandbox-paths-and-physical-paths).
    * @param { InstallParam } [installParam] - Application installation parameters.
    * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1973,16 +2079,29 @@ declare namespace bundleManager {
   function install(admin: Want, hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
 
   /**
-   * Install an application.
+   * Installs the application bundle in the specified path and returns the installation result. This API uses a promise
+   * to return the result.
+   *
+   * This API can be used to install only applications of the **enterprise_mdm** (MDM application) or
+   * **enterprise_normal** (common enterprise application) distribution type. You can call the
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf} API to query the
+   * [BundleInfo]{@link ./bundleManager/BundleInfo} of an application, where **BundleInfo.appInfo.appDistributionType**
+   * indicates the distribution type.
+   *
+   * > **NOTE**
+   * >
+   * > This API is time-consuming. Subsequent calls to other synchronous APIs in the application main thread must wait
+   * > for the asynchronous return of this API.
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } hapFilePaths - indicates the path of the application to be installed.
-   * @param { InstallParam } [installParam] - installParam indicates the installation parameters.
-   *                                        It may contain two fields: userId and installFlag.
-   *                                        The flag can only be one of correct flags.
-   * @returns { Promise<void> } the promise of installing application result.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } hapFilePaths - Applications to install. The app bundle must be stored in the path that the
+   *     app has the permission to access, such as the app sandbox path. For details about the mapping between the app
+   *     sandbox path and the actual physical path, see
+   *     [Mappings Between App Sandbox Paths and Physical Paths](docroot://file-management/app-sandbox-directory.md#mappings-between-application-sandbox-paths-and-physical-paths).
+   * @param { InstallParam } [installParam] - Application installation parameters.
+   * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201002 - Failed to install the application.
@@ -2014,7 +2133,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 26.0.0
    */
   function installForResult(admin: Want, hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
@@ -2073,11 +2192,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 20 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @returns { Array<AppDistributionType> } Distribution types of the application signing certificate.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -2087,6 +2202,25 @@ declare namespace bundleManager {
    * @stagemodelonly
    * @since 20
    */
+  function getInstallationAllowedAppDistributionTypes(admin: Want): Array<AppDistributionType>;
+
+  /**
+   * Obtains the distribution type of the signing certificate used by applications that can be installed.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @returns { Array<AppDistributionType> } Distribution types of the application signing certificate.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
   function getInstallationAllowedAppDistributionTypes(admin: Want | null): Array<AppDistributionType>;
 
   /**
@@ -2095,9 +2229,10 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { number } accountId - Account ID. The value is a positive integer greater than or equal to 0.<br> You can call
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
-   *     ohos.account.osAccount to obtain the account ID.
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the user ID.
    * @returns { Promise<Array<BundleInfo>> } Promise used to return the bundle information of the installed application.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -2116,12 +2251,11 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { int } accountId - Account ID.
-   *     <br>The value must be an integer greater than or equal to 0.
-   *     <br> You can call [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}
-   *     of @ ohos.account.osAccount to obtain the account ID.
-   * @param { int } bundleInfoGetFlag - Type of the bundle information to obtain
-   *     <br>The value range is all integers.
+   * @param { int } accountId - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the user ID.
+   * @param { int } bundleInfoGetFlag - Type of the bundle information to obtain.
    * @returns { Promise<Array<BundleInfo>> } Promise used to return the bundle information of the installed application.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -2141,8 +2275,8 @@ declare namespace bundleManager {
    * > After this API is successfully called, an application download task is generated on the home screen. The task is
    * > the same as that created during download from AppGallery. Upon completion of the download and installation, the
    * > installation result is returned through the
-   * > [EnterpriseAdminExtensionAbility.onMarketAppInstallResult]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility.onMarketAppInstallResult}
-   * > callback.<!--RP1--><!--RP1End-->
+   * > [EnterpriseAdminExtensionAbility.onMarketAppInstallResult]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility#onMarketAppInstallResult}
+   * > callback.
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -2163,16 +2297,34 @@ declare namespace bundleManager {
   function installMarketApps(admin: Want, bundleNames: Array<string>): void;
 
   /**
-   * Get the storage statistics of installed bundles on the device.
+   * Obtains the storage usage of installed applications of a specified user on a device. This API uses a promise to
+   * return the result.
+   *
+   * > **NOTE**
+   * >
+   * > 1. Only the storage usage of installed applications can be obtained.
+   * >
+   * > 2. If **bundleNames** is empty or all bundle names passed are of uninstalled applications, error code 9200012
+   * > will be returned.
+   * >
+   * > 3. If some of the applications specified in the **bundleNames** parameter are installed and some are not, the API
+   * > returns normally. For installed applications, their actual storage usage information is returned. For uninstalled
+   * > applications, **0** is returned as their storage usage.
+   * >
+   * > 4. This API supports cross-user queries. For example, user 100 can query the storage usage of some applications
+   * > of user 101.
    *
    * @permission ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { Array<string> } bundleNames - bundleNames indicates the list of application bundle names.
-   * @param { number } accountId - Account ID.
-   *     <br>The value must be an integer greater than or equal to 0.
-   *     <br> You can call [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}
-   *     of @ ohos.account.osAccount to obtain the account ID.
-   * @returns { Promise<Array<BundleStorageStats>> } Returns the bundle statistics of the installed applications.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } bundleNames - Application bundle name list. The list must contain no more than 200 bundle
+   *     names.
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the user ID.
+   * @returns { Promise<Array<BundleStorageStats>> } Promise used to return the storage usage information of the
+   *     installed applications.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.

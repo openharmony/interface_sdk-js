@@ -124,8 +124,9 @@ export declare interface ImageSpanAttribute extends BaseSpan {
      * @param { ResourceStr | PixelMap } value - ImageSpan constructor options
      * @returns { ImageSpanAttribute } Returns the instance of the ImageSpanAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setImageSpanOptions(value: ResourceStr | PixelMap): this;
 }
@@ -251,8 +252,9 @@ export declare function ImageSpan(
  * @param { CustomBuilderT<ImageSpanAttribute> } style - ImageSpan attribute instance
  * @returns { ImageSpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

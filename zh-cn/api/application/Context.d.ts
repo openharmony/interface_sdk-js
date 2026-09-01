@@ -309,7 +309,7 @@ declare class Context extends BaseContext {
    *
    * @param { string } bundleName - Bundle名称。
    * @param { string } moduleName - 模块名。
-   * @returns { resmgr.ResourceManager } Returns the system HSP module resource manager.
+   * @returns { resmgr.ResourceManager } 系统HSP模块资源管理对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    * @throws { BusinessError } 16400001 - The input bundleName is not a system HSP.
@@ -375,7 +375,7 @@ declare class Context extends BaseContext {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle名称。
    * @param { string } moduleName - 模块名。
-   * @returns { resmgr.ResourceManager } Object for resource management.
+   * @returns { resmgr.ResourceManager } 资源管理对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.

@@ -373,6 +373,26 @@ declare namespace PiPWindow {
      * @since 26.0.0 static
      */
     VIDEO_LIVE = 3,
+
+    /**
+     * 表示车载影像画中画模板类型，系统依此加载车载影像模板。
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    VIDEO_DRIVE = 4,
+
+    /**
+     * 表示车载导航画中画模版类型，系统依此加载车载导航模板。
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @systemapi Hide this for inner system use
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    VIDEO_NAVIGATION = 5
   }
 
   /**
@@ -859,10 +879,10 @@ declare namespace PiPWindow {
   type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: int) => void;
 
   /**
-   * Describe picture-in-picture stage change event callback.
+   * 描述画中画生命周期状态变化事件回调。
    *
    * @param { PiPState } state - 画中画窗口状态。
-   * @param { string } reason - the reason of state change
+   * @param { string } reason - 当前生命周期的切换原因。
    * @syscap SystemCapability.Window.SessionManager
    * @since 26.0.0 static
    */
@@ -916,9 +936,16 @@ declare namespace PiPWindow {
      * 启动画中画，使用Promise异步回调。
      *
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * @throws { BusinessError } 1300012 - The PiP window state is abnormal.
-     * @throws { BusinessError } 1300013 - Failed to create the PiP window.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300012 - The PiP window state is abnormal. Possible causes:
+     *     <br>1.The PiP controller has been destroyed.
+     *     <br>2.The PiP window is not created or has been destroyed.
+     * @throws { BusinessError } 1300013 - Failed to create the PiP window. Possible causes:
+     *     <br>1.PiP configuration parameters are invalid, such as pipOption or context is null.
+     *     <br>2.The XComponentController or main window is null.
+     *     <br>3.The main window is not shown (non-auto-start scenario).
+     *     <br>4.Navigation component operation failed.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible cause:
+     *     Internal error, failed to show the PiP window. such as insufficient resources or abnormal window service.
      * @throws { BusinessError } 1300015 - Repeated PiP operation.
      * @throws { BusinessError } 1300034 - This operation conflicts with other floating windows. Possible cause:
      *     App has already started float view. [since 26.0.0]
@@ -933,8 +960,10 @@ declare namespace PiPWindow {
      * 停止画中画，使用Promise异步回调。
      *
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * @throws { BusinessError } 1300011 - Failed to destroy the PiP window.
-     * @throws { BusinessError } 1300012 - The PiP window state is abnormal.
+     * @throws { BusinessError } 1300011 - Failed to destroy the PiP window. Possible cause:
+     *     Internal error, the window type is not a PiP window.
+     * @throws { BusinessError } 1300012 - The PiP window state is abnormal. Possible cause:
+     *     The PiP window is not created or has been destroyed.
      * @throws { BusinessError } 1300015 - Repeated PiP operation.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
@@ -989,7 +1018,8 @@ declare namespace PiPWindow {
      * @returns { Promise<void> } 无返回结果的Promise对象。
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible cause:
+     *     The PiP controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 18 dynamic
@@ -1015,7 +1045,9 @@ declare namespace PiPWindow {
      * @returns { Promise<PiPWindowInfo> } Promise对象，返回当前画中画窗口信息。
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible causes:
+     *     <br>1.The PiP controller has been destroyed.
+     *     <br>2.The PiP window is not created or has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
@@ -1029,7 +1061,8 @@ declare namespace PiPWindow {
      * @returns { Promise<boolean> } Promise对象，返回当前自动启动画中画开关状态，true表示开启，false表示关闭。
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible cause:
+     *     The PiP controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 20 dynamic
@@ -1042,7 +1075,9 @@ declare namespace PiPWindow {
      *
      * @returns { Promise<boolean> } Promise对象，返回当前画中画的隐藏状态。true表示前台可见，false表示前台不可见（收入侧边栏）。画中画生命周期不为
      *     [STARTED]{@link PiPWindow.PiPState}时调用本接口总是返回false。
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible causes:
+     *     <br>1.The PiP controller has been destroyed.
+     *     <br>2.The PiP window is not created or has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 23 dynamic
@@ -1072,9 +1107,9 @@ declare namespace PiPWindow {
     on(type: 'stateChange', callback: (state: PiPState, reason: string) => void): void;
 
     /**
-     * Register picture-in-picture control state change listener.
+     * 开启画中画生命周期状态变化的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。
      *
-     * @param { StateChangeCallback } callback - Used to handle {'stateChange'} command
+     * @param { StateChangeCallback } callback - 描述画中画生命周期状态变化回调。
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.0.0 static
      */
@@ -1091,7 +1126,7 @@ declare namespace PiPWindow {
     off(type: 'stateChange'): void;
 
     /**
-     * Unregister picture-in-picture lifecycle state change listener.
+     * 关闭画中画生命周期状态变化的监听。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.0.0 static
@@ -1113,7 +1148,7 @@ declare namespace PiPWindow {
     on(type: 'controlPanelActionEvent', callback: ControlPanelActionEventCallback): void;
 
     /**
-     * Register picture-in-picture control panel action event listener.
+     * 开启画中画控制面板控件动作事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。推荐使用[onControlEvent](#oncontrolevent)来开启画中画控制面板控件动作事件的监听。
      *
      * @param { ControlPanelActionEventCallback } callback - Used to handle {'controlPanelActionEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
@@ -1134,7 +1169,7 @@ declare namespace PiPWindow {
     off(type: 'controlPanelActionEvent'): void;
 
     /**
-     * Unregister picture-in-picture lifecycle event listener
+     * 关闭画中画控制面板控件动作事件的监听。推荐使用[offControlEvent](#offcontrolevent)来关闭画中画控制面板控件动作事件的监听。
      *
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.0.0 static
@@ -1153,9 +1188,9 @@ declare namespace PiPWindow {
     on(type: 'controlEvent', callback: Callback<ControlEventParam>): void;
 
     /**
-     * Register picture-in-picture control event listener.
+     * 开启画中画控制面板控件动作事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。
      *
-     * @param { Callback<ControlEventParam> } callback - Used to handle {'controlEvent'} command.
+     * @param { Callback<ControlEventParam> } callback - 描述画中画控制面板控件动作事件回调。
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.0.0 static
      */
@@ -1173,10 +1208,9 @@ declare namespace PiPWindow {
     off(type: 'controlEvent', callback?: Callback<ControlEventParam>): void;
 
     /**
-     * Unregister picture-in-picture control event listener
+     * 关闭画中画控制面板控件动作事件的监听。
      *
-     * @param { Callback<ControlEventParam> } [callback] - Used to handle {'controlEvent'} command.
-     *     If not provided, all callbacks for the given event type will be removed.
+     * @param { Callback<ControlEventParam> } [callback] - 描述画中画控制面板控件动作事件回调。如果未传入参数，解除画中画控制面板控件动作事件的所有回调。
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.0.0 static
      */
@@ -1197,12 +1231,13 @@ declare namespace PiPWindow {
     on(type: 'pipWindowSizeChange', callback: Callback<PiPWindowSize>): void;
 
     /**
-     * Register picture-in-picture window size change event listener
+     * 开启画中画窗口尺寸变化事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。
      *
-     * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
+     * @param { Callback<PiPWindowSize> } callback - 回调函数。返回当前画中画窗口的尺寸。
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible cause:
+     *     The PiP controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.0.0 static
      */
@@ -1223,10 +1258,10 @@ declare namespace PiPWindow {
     off(type: 'pipWindowSizeChange', callback?: Callback<PiPWindowSize>): void;
 
     /**
-     * Unregister picture-in-picture window size change event listener
+     * 关闭画中画窗口尺寸变化事件的监听。
      *
-     * @param { Callback<PiPWindowSize> } [callback] - Callback used to return the picture-in-picture window size.
-     *     If not provided, all callbacks for the given event type will be removed.
+     * @param { Callback<PiPWindowSize> } [callback] - 回调函数。返回当前画中画窗口的尺寸。
+     *     如果传入参数，则关闭该监听。如果未传入参数，解除窗口尺寸变化事件的所有回调。
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @syscap SystemCapability.Window.SessionManager
@@ -1246,14 +1281,14 @@ declare namespace PiPWindow {
     on(type: 'activeStatusChange', callback: Callback<boolean>): void;
 
     /**
-     * Register picture-in-picture active status change listener.
+     * 开启画中画窗口隐藏状态变化事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。
      *
-     * @param { Callback<boolean> } callback - Used to handle {'activeStatusChange'} command.
-     *     True indicates that the pip is onscreen, and vice verse.
+     * @param { Callback<boolean> } callback - 返回当前画中画的隐藏状态。true表示前台可见，false表示前台不可见（收入侧边栏）。
      *     <br>画中画显示状态变化回调函数
      * @throws { BusinessError } 801 - Capability not supported.
      *     function onActiveStatusChange(callback) can not work correctly due to limited device capabilities.
-     * @throws { BusinessError } 1300014 - PiP internal error.
+     * @throws { BusinessError } 1300014 - PiP internal error. Possible cause:
+     *     The PiP controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.0.0 static
      */
@@ -1272,10 +1307,10 @@ declare namespace PiPWindow {
     off(type: 'activeStatusChange', callback?: Callback<boolean>): void;
 
     /**
-     * Unregister picture-in-picture active status change listener
+     * 关闭画中画窗口隐藏状态变化事件的监听。
      *
-     * @param { Callback<boolean> } [callback] - Used to handle {'activeStatusChange'} command. If not provided,
-     *     all callbacks for the given event type will be removed.
+     * @param { Callback<boolean> } [callback] - 返回当前画中画的隐藏状态。true表示前台可见，false表示前台不可见（收入侧边栏）。
+     *     如果未传入参数，解除画中画窗口隐藏状态变化事件的所有回调。
      * @throws { BusinessError } 801 - Capability not supported.
      *     function offActiveStatusChange(callback) can not work correctly due to limited device capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
@@ -1285,9 +1320,9 @@ declare namespace PiPWindow {
     offActiveStatusChange(callback?: Callback<boolean>): void;
 
     /**
-     * Returns a Boolean value that indicates whether picture-in-picture is supported
+     * 判断当前设备是否支持画中画功能。
      *
-     * @returns { boolean } - True if picture-in-picture is supported, otherwise false
+     * @returns { boolean } - 当前设备是否支持画中画功能。true表示支持，false表示不支持。
      * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager

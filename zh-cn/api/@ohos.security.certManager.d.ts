@@ -1645,7 +1645,7 @@ declare namespace certificateManager {
   }
 
   /**
-   * 安装用户CA证书。当入参certificate.certFormat为P7B时，输入的P7B证书文件中最多只能包含20本证书。使用Promise异步回调。
+   * 安装用户CA证书。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
    * @param { CertBlob } certificate - 表示证书信息。

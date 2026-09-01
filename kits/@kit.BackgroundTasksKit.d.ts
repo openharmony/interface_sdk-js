@@ -30,10 +30,12 @@ import workScheduler from '@ohos.resourceschedule.workScheduler';
 import WorkSchedulerExtensionAbility, {
   WorkSchedulerExtensionContext
 } from '@ohos.WorkSchedulerExtensionAbility';
+import backgroundLoader from '@ohos.resourceschedule.backgroundLoader';
 
 export {
   WorkSchedulerExtensionAbility, WorkSchedulerExtensionContext, backgroundTaskManager, bundleState,
-  deviceStandby, reminderAgent, reminderAgentManager, usageStatistics, workScheduler, backgroundProcessManager
+  deviceStandby, reminderAgent, reminderAgentManager, usageStatistics, workScheduler, backgroundProcessManager,
+  backgroundLoader
 };
 /*** endif */
 
@@ -47,9 +49,10 @@ import workScheduler from '@ohos.resourceschedule.workScheduler';
 import WorkSchedulerExtensionAbility, {
   WorkSchedulerExtensionContext
 } from '@ohos.WorkSchedulerExtensionAbility';
+import backgroundLoader from '@ohos.resourceschedule.backgroundLoader';
 
 export {
   backgroundTaskManager, deviceStandby, reminderAgentManager, usageStatistics, workScheduler, backgroundProcessManager,
-  WorkSchedulerExtensionAbility, WorkSchedulerExtensionContext
+  WorkSchedulerExtensionAbility, WorkSchedulerExtensionContext, backgroundLoader
 };
 /*** endif */

@@ -409,7 +409,7 @@ declare class ApplicationContext extends Context {
    * >
    * > 调用该接口前，需要确保窗口已完成创建、且UIAbility对应的页面已完成加载，即在
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate}生命周期中通过
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)方法加载页面之后调用。
+   * > [loadContent]{@link ./../@ohos.window:WindowStage.loadContent}方法加载页面之后调用。
    *
    * @param { ConfigurationConstant.ColorMode } colorMode - 深浅色模式，包括：深色模式、浅色模式、未设置颜色模式（默认）。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -431,7 +431,7 @@ declare class ApplicationContext extends Context {
    * >
    * > 调用该接口前，需要确保窗口已完成创建、且UIAbility对应的页面已完成加载，即在
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate}生命周期中通过
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)方法加载页面之后调用。
+   * > [loadContent()]{@link ./../@ohos.window:WindowStage.loadContent}方法加载页面之后调用。
    *
    * @param { string } language - 设置语言，当前支持的语言列表可以通过
    *     [getSystemLanguages()]{@link ./../@ohos.i18n:i18n.System.getSystemLanguages}获取。
@@ -497,9 +497,9 @@ declare class ApplicationContext extends Context {
    * >
    * > 在原子化服务调用本接口成功后的3秒内，再次调用本接口、
    * > [restartSelfAtomicService()]{@link ./../@ohos.app.ability.abilityManager:abilityManager.restartSelfAtomicService}
-   * > 或[UIAbilityContext.restartApp()]{@link UIAbilityContext:UIAbilityContext.restartApp}接口中的任一接口，系统将返回错误码16000064。
+   * > 或[UIAbilityContext.restartApp()]{@link ./UIAbilityContext:UIAbilityContext.restartApp}接口中的任一接口，系统将返回错误码16000064。
    * >
-   * > 在应用调用本接口成功后的3秒内，若再次调用本接口或[UIAbilityContext.restartApp()]{@link UIAbilityContext:UIAbilityContext.restartApp}接口中的任
+   * > 在应用调用本接口成功后的3秒内，若再次调用本接口或[UIAbilityContext.restartApp()]{@link ./UIAbilityContext:UIAbilityContext.restartApp}接口中的任
    * > 一接口，系统将返回错误码16000064。
    *
    * @param { Want } want - Want information about the UIAbility to start. No verification is performed on the bundle
@@ -520,11 +520,15 @@ declare class ApplicationContext extends Context {
   restartApp(want: Want): void;
 
   /**
-   * Preload UIExtensionAbility.
+   * 预加载指定UIExtensionAbility实例。使用Promise异步回调。
+   * 
+   * 被预加载的UIExtensionAbility实例会执行到UIExtensionAbility的onCreate生命周期，然后等待被当前应用正式加载。
+   * 
+   * 被预加载的UIExtensionAbility实例会执行到UIExtensionAbility的onCreate生命周期，然后等待被当前应用正式加载。
    *
    * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
-   * @param { Want } want - Indicates the want of target UIExtensionAbility.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } want - 预加载UIExtensionAbility的want信息。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -577,10 +581,10 @@ declare class ApplicationContext extends Context {
    * >
    * > 调用该接口前，需要确保窗口已完成创建、且UIAbility对应的页面已完成加载，即在
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate}生命周期中通过
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)方法加载页面之后调用。
+   * > [loadContent()]{@link ./../@ohos.window:WindowStage.loadContent}方法加载页面之后调用。
    *
    * @param { string } font - 设置字体类型，字体可以通过
-   *     [UIContext.registerFont](docroot://reference/apis-arkui/arkts-apis-uicontext-font.md#registerfont)方法进行注册使用。
+   *     [UIContext.registerFont]{@link ./../@ohos.arkui.UIContext:Font.registerfont}方法进行注册使用。
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -693,6 +697,156 @@ declare class ApplicationContext extends Context {
    * @since 24 dynamic&static
    */
   offSystemConfigurationUpdated(callback?: systemConfiguration.UpdatedCallback): void;
+
+  /**
+   * 注册监听应用内UIAbility的生命周期。使用callback异步回调。
+   *
+   * <p>**说明：**:
+   * <br>仅支持主线程调用。
+   * </p>
+   *
+   * @param { AbilityLifecycleCallback } abilityLifecycleCallback - UIAbility生命周期变化时触发的回调方法。
+   * @returns { number } 返回此次注册的callbackID，该ID用于在
+   *     [ApplicationContext.unregisterAbilityLifecycleCallback()]{@link ApplicationContext#unregisterAbilityLifecycleCallback}
+   *     方法中取消注册对应的callback。
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback)
+   */
+  registerAbilityLifecycleCallback(abilityLifecycleCallback: AbilityLifecycleCallback): number;
+
+  /**
+   * 取消监听应用内UIAbility的生命周期。使用callback异步回调。
+   *
+   * <p>**说明：**:
+   * <br>仅支持主线程调用。
+   * </p>
+   *
+   * @param { number } callbackId - 通过
+   *     [ApplicationContext.registerAbilityLifecycleCallback]{@link ApplicationContext#registerAbilityLifecycleCallback}
+   *     接口注册监听应用内UIAbility的生命周期时返回的ID。
+   * @param { AsyncCallback<void> } callback - 回调方法。当取消监听应用内生命周期成功，err为undefined，否则为错误对象。
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>)
+   */
+  unregisterAbilityLifecycleCallback(callbackId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * 取消监听应用内UIAbility的生命周期。使用Promise异步回调。
+   *
+   * <p>**说明：**:
+   * <br>仅支持主线程调用。
+   * </p>
+   *
+   * @param { number } callbackId - 通过
+   *     [ApplicationContext.registerAbilityLifecycleCallback]{@link ApplicationContext#registerAbilityLifecycleCallback}
+   *     接口注册监听应用内UIAbility的生命周期时返回的ID。
+   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'abilityLifecycle', callbackId: number): Promise<void>;
+   */
+  unregisterAbilityLifecycleCallback(callbackId: number): Promise<void>;
+
+  /**
+   * 注册对系统环境变化的监听。使用callback异步回调。
+   * 
+   * <p>**说明：**:
+   * <br>仅支持主线程调用。
+   * </p>
+   *
+   * @param { EnvironmentCallback } environmentCallback - 系统环境变化时触发的回调方法。
+   * @returns { number } 返回此次注册的callbackID，该ID用于在
+   *     [ApplicationContext.unregisterEnvironmentCallback]{@link ApplicationContext#unregisterEnvironmentCallback}
+   *     方法中取消注册对应的callback。
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#on(type: 'environment', callback: EnvironmentCallback)
+   */
+  registerEnvironmentCallback(environmentCallback: EnvironmentCallback): number;
+
+  /**
+   * 取消对系统环境变化的监听。使用callback异步回调。
+   * 
+   * <p>**说明：**:
+   * <br>仅支持主线程调用。
+   * </p>
+   *
+   * @param { number } callbackId - 通过
+   *     [ApplicationContext.registerEnvironmentCallback]{@link ApplicationContext#registerEnvironmentCallback}
+   *     接口注册监听系统环境变化时返回的ID。
+   * @param { AsyncCallback<void> } envcallback - 回调方法。当取消对系统环境变化的监听成功，err为undefined，否则为错误对象。
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'environment', callbackId: number, callback: AsyncCallback<void>)
+   */
+  unregisterEnvironmentCallback(callbackId: number, envcallback: AsyncCallback<void>): void;
+
+  /**
+   * 取消对系统环境变化的监听。使用Promise异步回调。
+   *
+   * @param { number } callbackId - 通过
+   *     [ApplicationContext.registerEnvironmentCallback]{@link ApplicationContext#registerEnvironmentCallback}
+   *     接口注册监听系统环境变化时返回的ID。
+   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'environment', callbackId: number): Promise<void>;
+   */
+  unregisterEnvironmentCallback(callbackId: number): Promise<void>;
+
+  /**
+   * 获取运行中的进程信息。使用Promise异步回调。
+   *
+   * @returns { Promise<Array<ProcessInformation>> } Promise对象，返回接口运行结果及有关运行进程的信息，可进行错误处理或其他自定义处理。
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#getRunningProcessInformation
+   */
+  getProcessRunningInformation(): Promise<Array<ProcessInformation>>;
+
+  /**
+   * 获取运行中的进程信息。使用callback异步回调。
+   *
+   * @param { AsyncCallback<Array<ProcessInformation>> } callback - 回调函数，返回有关运行进程的信息。
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#getRunningProcessInformation
+   */
+  getProcessRunningInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
 }
 
 export default ApplicationContext;

@@ -310,7 +310,7 @@ export declare interface WaterFlowOptions {
 export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
 
   /**
-   * 设置[onWillScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onwillscroll12)事件的回调。
+   * 设置[onWillScroll]{@link UIScrollableCommonEvent#onWillScroll}事件的回调。
    *
    * 方法入参为undefined时，会重置事件回调。
    *
@@ -322,7 +322,7 @@ export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
 
   /**
-   * 设置[onDidScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#ondidscroll12)事件的回调。
+   * 设置[onDidScroll]{@link UIScrollableCommonEvent#onDidScroll}事件的回调。
    *
    * 方法入参为undefined时，会重置事件回调。
    *
@@ -358,7 +358,7 @@ export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
 export declare type OnWaterFlowScrollIndexCallback = (first: int, last: int) => void;
 
 /**
- * 除支持[通用属性]{@link common}和[滚动组件通用属性](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#属性)外，还支持
+ * 除支持[通用属性]{@link common}和[滚动组件通用属性]{@link ScrollableCommonMethod}外，还支持
  * 以下属性：
  *
  * > **说明：**
@@ -481,7 +481,7 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
    * 设置预加载的FlowItem数量，并配置是否显示预加载节点。
    *
    * 配合[clip]{@link CommonMethod#clip(value: boolean)}或
-   * [clipContent](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#clipcontent14)属性可以显示出预加载节
+   * [clipContent]{@link CommonMethod#clipContent}属性可以显示出预加载节
    * 点。
    *
    * 只在[LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)和开启了

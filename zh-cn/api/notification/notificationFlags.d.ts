@@ -14,8 +14,6 @@
  */
 
 /**
- * 描述通知标志的实例。
- * 
  * @file Some states and flags for notifications
  * @kit NotificationKit
  */
@@ -31,7 +29,7 @@
  */
 export enum NotificationFlagStatus {
   /**
-   * 默认标志，与TYPE_OPEN效果相同。
+   * 未设置标志时的默认值，与TYPE_OPEN效果相同。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi [since 8 - 10]

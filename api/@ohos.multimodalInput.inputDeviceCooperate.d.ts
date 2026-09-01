@@ -257,7 +257,7 @@ declare namespace inputDeviceCooperate {
    * result.
    *
    * @param { 'cooperation' } type - Event type. The value is **cooperation**.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   * @param { AsyncCallback<void> } [callback] - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**. Otherwise, **err** is undefined. If this parameter is not specified, all callbacks
    *     registered by the current application are unregistered.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;

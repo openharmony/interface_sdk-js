@@ -21,28 +21,17 @@
  */
 
 import window from '../../@ohos.window';
-
 import { Resource } from '../../global/resource';
-
 import { TextModifier } from '../../arkui/TextModifier';
-
 import { LengthMetrics } from '../../arkui/Graphics';
-
 import { Callback, BlurStyle, CommonMethod, LayoutSafeAreaType, LayoutSafeAreaEdge, BackgroundEffectOptions, 
   BackgroundBlurStyleOptions, PixelMap, Bindable, AttributeModifier } from './common';
-
 import { Builder, CustomBuilder, CustomBuilderT, PageMapBuilder } from './builder';
-
 import { Length, ResourceStr, ResourceColor, Dimension, VoidCallback } from './units';
-
 import { TitleHeight } from './enums';
-
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
-
 import { NavDestinationContext, NavDestinationMode } from './navDestination';
-
 import { ComponentBuilder } from './builder';
-
 import { ComponentContent } from '@ohos.arkui.node';
 
 import uiMaterial from '../../@ohos.arkui.uiMaterial';
@@ -128,7 +117,7 @@ export declare enum NavigationMode {
    * @stagemodelonly
    * @since 23 static
    */
-  Stack = 0,
+  Stack,
 
   /**
    * The navigation bar and the content area are displayed side by side.
@@ -137,7 +126,7 @@ export declare enum NavigationMode {
    * @stagemodelonly
    * @since 23 static
    */
-  Split = 1,
+  Split,
 
   /**
    * If the window width is greater than the sum of minNavBarWidth and minContentWidth, the navigation component is
@@ -148,7 +137,7 @@ export declare enum NavigationMode {
    * @stagemodelonly
    * @since 23 static
    */
-  Auto = 2,
+  Auto,
 
   /**
    * If the navigation width is greater than the sum of minNavBarWidth and minContentWidth,
@@ -159,7 +148,7 @@ export declare enum NavigationMode {
    * @stagemodelonly
    * @since 24 static
    */
-  AUTO_WITH_ASPECT_RATIO = 3
+  AUTO_WITH_ASPECT_RATIO
 }
 
 /**
@@ -178,7 +167,7 @@ export declare enum NavBarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  Start = 0,
+  Start,
 
   /**
    * The navigation bar is on the End of the container
@@ -187,7 +176,7 @@ export declare enum NavBarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  End = 1
+  End
 }
 
 /**
@@ -215,7 +204,7 @@ export declare enum NavigationTitleMode {
    * @stagemodelonly
    * @since 23 static
    */
-  Full = 1,
+  Full,
 
   /**
    * The title is mini mode.
@@ -224,7 +213,7 @@ export declare enum NavigationTitleMode {
    * @stagemodelonly
    * @since 23 static
    */
-  Mini = 2
+  Mini
 }
 
 /**
@@ -477,7 +466,8 @@ export declare enum LaunchMode {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
+ * @unpublished
  */
 export declare interface NavigationModuleInfo {
 
@@ -486,7 +476,8 @@ export declare interface NavigationModuleInfo {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   moduleName: string;
 
@@ -495,7 +486,8 @@ export declare interface NavigationModuleInfo {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   pagePath: string;
 
@@ -506,7 +498,8 @@ export declare interface NavigationModuleInfo {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   isUserCreateStack?: boolean;
 }
@@ -519,7 +512,6 @@ export declare interface NavigationModuleInfo {
  * @since 23 static
  */
 export declare interface NavigationOptions {
-
   /**
    * Indicates the launchMode of stack operation.
    * Default value: LaunchMode.STANDARD.
@@ -538,6 +530,24 @@ export declare interface NavigationOptions {
    * @since 23 static
    */
   animated?: boolean;
+}
+
+/**
+ * Indicates options for preloading a page.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.1.0 static
+ */
+export declare interface PreloadOptions {
+  /**
+   * Callback when preloaded page is destroyed by the system.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.1.0 static
+   */
+  onDestroy?: VoidCallback;
 }
 
 /**
@@ -982,6 +992,25 @@ export declare class NavPathStack {
    * @since 23 static
    */
   setPathStack(pathStack: Array<NavPathInfo>, animated?: boolean): void;
+
+
+  /**
+   * Preloads navigation destination page specified by **info**.
+   * The preload page will not be displayed immediately, but will be cached.
+   * When **pushPath** is called later with matching parameters, preloaded instance
+   * will be used for fast display.
+   *
+   * @param { NavPathInfo } info - Indicates NavDestination to be preloaded.
+   * @param { PreloadOptions } [options] - Indicates options for preloading.
+   * @returns { Promise<void> } The promise returned by function.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100005 - Builder function not registered.
+   * @throws { BusinessError } 100006 - NavDestination not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.1.0 static
+   */
+  preloadPath(info: NavPathInfo, options?: PreloadOptions): Promise<void>;
 }
 
 /**
@@ -1336,7 +1365,6 @@ export declare interface ScrollEffectOptions {
  * @since 23 static
  */
 export declare interface NavigationTitleOptions {
-
   /**
    * Background color.
    *
@@ -1465,7 +1493,6 @@ export declare interface NavigationTitleOptions {
  * @since 23 static
  */
 export declare enum BarStyle {
-
   /**
    * Standard style means that the bar and content area are column layouts.
    *
@@ -1502,7 +1529,6 @@ export declare enum BarStyle {
  * @since 23 static
  */
 export declare interface NavigationToolbarOptions {
-
   /**
    * Background color.
    *
@@ -1598,7 +1624,6 @@ export declare interface NavigationMenuOptions {
  * @since 23 static
  */
 export declare interface MoreButtonOptions {
-
   /**
    * Background blur style.
    *
@@ -1653,6 +1678,33 @@ export declare interface NavigationConfiguration {
    * @since 26.0.0 static
    */
   stackSizeLimit?: int;
+
+  /**
+   * Whether to clear the content stack when navigation is triggered from the primary side.
+   *
+   * In Navigation split mode, when enabled, navigaiton triggered from the primary side clears old
+   * NavDestination after the Primary/Home node while preserving all NavDestinations created by
+   * the current operation.
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.1.0 static
+   */
+  clearContentStackOnPrimaryNavigation?: boolean;
+
+  /**
+   * Whether to recycle invisible pages when a low memory signal is received.
+   *
+   * When enabled, Navigation recycles invisible NavDestination page instance after receiving
+   * low memory pressure notifications. NavPathInfo is preserved, and the page can be reconstructed later.
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.1.0 static
+   */
+  recyclePagesOnLowMemory?: boolean;
 }
 
 /**
@@ -1663,7 +1715,6 @@ export declare interface NavigationConfiguration {
  * @since 23 static
  */
 export declare interface NavigationAttribute extends CommonMethod {
-
   /**
    * Sets the width of navigation bar.
    *
@@ -1733,7 +1784,7 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @since 23 static
    */
   default backButtonIcon(icon: string | PixelMap | Resource | SymbolGlyphModifier | undefined, accessibilityText?: ResourceStr | undefined): this;
-
+  
   /**
    * Hide the NavBar, which includes title bar, the child of Navigation and tool bar. Supported in all mode.
    * It will show top page in the NavPathStack directly or empty if there is no page in the NavPathStack.
@@ -1757,7 +1808,7 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @since 23 static
    */
   default title(value: ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle | undefined, options?: NavigationTitleOptions | undefined): this;
-
+  
   /**
    * Hide navigation title bar
    *
@@ -1814,7 +1865,7 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @since 23 static
    */
   default menus(items: Array<NavigationMenuItem> | CustomBuilder | undefined, options?: NavigationMenuOptions | undefined): this;
-
+  
   /**
    * Configure toolbar with default style parameter or custom parameter.
    *
@@ -1826,7 +1877,7 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @since 23 static
    */
   default toolbarConfiguration(value: Array<ToolbarItem> | CustomBuilder | undefined, options?: NavigationToolbarOptions | undefined): this;
-
+  
   /**
    * Hide tool bar
    *
@@ -1915,7 +1966,7 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @since 23 static
    */
   default customNavContentTransition(delegate: ((from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation) => NavigationAnimatedTransition | undefined) | undefined): this;
-
+  
   /**
    * Set navigation content expand types and edges.
    *
@@ -1927,7 +1978,7 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @since 23 static
    */
   default ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType> | undefined, edges?: Array<LayoutSafeAreaEdge> | undefined): this;
-
+  
   /**
    * Set the style of system bar
    *
@@ -1965,14 +2016,14 @@ export declare interface NavigationAttribute extends CommonMethod {
   /**
    * Set the navigation divider style in split mode.
    *
-   * @param { NavigationDividerStyle | null } style - navigation divider style in split mode.
+   * @param { NavigationDividerStyle | null | undefined } style - navigation divider style in split mode.
    *      null indicates that the divider is hidden.
    * @returns { NavigationAttribute } - Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  default divider(style: NavigationDividerStyle | null): this;
+  default divider(style: NavigationDividerStyle | null | undefined): this;
 
   /**
    * whether to enable modeChangeAnimation
@@ -2020,7 +2071,8 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @returns { NavigationAttribute } Returns instance of NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   default setNavigationOptions(pathInfos?: NavPathStack, homeDestination?: HomePathInfo, moduleInfo?: NavigationModuleInfo): this;
 
@@ -2032,7 +2084,8 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @returns { NavigationAttribute } Returns instance of NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   default setNavigationOptions(pathInfos?: NavPathStack,  moduleInfo?: NavigationModuleInfo): this;
 
@@ -2051,13 +2104,13 @@ export declare interface NavigationAttribute extends CommonMethod {
   /**
    * Set placeholder in split mode.
    *
-   * @param { ComponentContent<T> } placeholder - Set placeholder in split mode.
+   * @param { ComponentContent<Object> | undefined } placeholder - Set placeholder in split mode.
    * @returns { NavigationAttribute } - Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
-  default splitPlaceholder<T extends Object>(placeholder: ComponentContent<T>): this;
+  default splitPlaceholder(placeholder: ComponentContent<Object> | undefined): this;
 }
 
 /**
@@ -2068,7 +2121,6 @@ export declare interface NavigationAttribute extends CommonMethod {
  * @since 23 static
  */
 export declare interface NavigationAnimatedTransition {
-
   /**
    * This method is called after the transition ends to notify whether the transition was successful.
    *
@@ -2119,7 +2171,6 @@ export declare interface NavigationAnimatedTransition {
  * @since 23 static
  */
 export declare interface NavigationTransitionProxy {
-
   /**
    * From navigation content info.
    *
@@ -2317,9 +2368,9 @@ export declare function Navigation(
  */
 @ComponentBuilder
 export declare function Navigation(
-   pathInfos?: NavPathStack, 
-   homeDestination?: HomePathInfo,
-   content_?: CustomBuilder
+    pathInfos?: NavPathStack, 
+    homeDestination?: HomePathInfo,
+    content_?: CustomBuilder
 ): NavigationAttribute;
 
 /**
@@ -2330,7 +2381,8 @@ export declare function Navigation(
  * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
+ * @unpublished
  */
 @Builder
 export declare function Navigation(

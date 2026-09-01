@@ -167,6 +167,7 @@ declare namespace dialogRequest {
    * Provides a callback for setting the modal dialog box request result.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    */

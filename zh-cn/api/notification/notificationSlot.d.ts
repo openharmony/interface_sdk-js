@@ -34,9 +34,7 @@ import type notificationManager from '../@ohos.notificationManager';
  */
 export interface NotificationSlot {
   /**
-   * 通道类型。
-   * 
-   * 从API version 7开始支持，从API version 11开始废弃，建议使用notificationType替代。
+   * 渠道类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamiconly
@@ -46,7 +44,7 @@ export interface NotificationSlot {
   type?: notification.SlotType;
 
   /**
-   * 通道类型。
+   * 渠道类型。不同渠道类型的通知提醒方式不同。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 11 dynamic
@@ -56,8 +54,6 @@ export interface NotificationSlot {
 
   /**
    * 通知级别。
-   * 
-   * 从API version 7开始支持，从API version 20开始废弃，建议使用notificationLevel替代。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamiconly
@@ -67,7 +63,7 @@ export interface NotificationSlot {
   level?: notification.SlotLevel;
 
   /**
-   * 通知级别。
+   * 通知级别，用于描述该渠道类型通知的显示优先级和提醒强度。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 20 dynamic
@@ -76,7 +72,7 @@ export interface NotificationSlot {
   notificationLevel?: notificationManager.SlotLevel;
 
   /**
-   * 通知渠道描述信息。大小不超过243字节，超出部分会被截取。
+   * 通知渠道描述信息。大小不超过243字节，超出部分会被截断。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -85,10 +81,10 @@ export interface NotificationSlot {
   desc?: string;
 
   /**
-   * 是否显示角标。
+   * 是否显示角标。默认值为true。
    * 
-   * - true：是。
-   * - false：否。默认值为true。
+   * - true：显示角标。
+   * - false：不显示角标。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -97,10 +93,10 @@ export interface NotificationSlot {
   badgeFlag?: boolean;
 
   /**
-   * 是否在系统中绕过免打扰模式。
+   * 是否在系统中绕过免打扰模式。默认值为false。
    * 
-   * - true：是。
-   * - false：否。默认值为false。
+   * - true：绕过免打扰模式，免打扰模式下仍会提醒。
+   * - false：不绕过免打扰模式，免打扰模式下不提醒。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -118,10 +114,10 @@ export interface NotificationSlot {
   lockscreenVisibility?: int;
 
   /**
-   * 是否可振动。
+   * 是否可振动。默认值为false。
    * 
-   * - true：是。
-   * - false：否。默认值为false。
+   * - true：可振动。
+   * - false：不可振动。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -130,7 +126,7 @@ export interface NotificationSlot {
   vibrationEnabled?: boolean;
 
   /**
-   * 该渠道的通知的自定义铃声文件名。该文件放在resources/rawfile目录下，支持m4a、aac、mp3、ogg、wav、flac、amr等格式。大小不超过243字节，超出部分会被截取。
+   * 该渠道的通知的自定义铃声文件名。该文件放在resources/rawfile目录下，支持m4a、aac、mp3、ogg、wav、flac、amr等格式。大小不超过243字节，超出部分会被截断。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -139,10 +135,10 @@ export interface NotificationSlot {
   sound?: string;
 
   /**
-   * 是否闪灯。
+   * 是否闪灯。默认值为false。
    * 
-   * - true：是。
-   * - false：否。默认值为false。
+   * - true：闪灯。
+   * - false：不闪灯。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -169,10 +165,10 @@ export interface NotificationSlot {
   vibrationValues?: Array<long>;
 
   /**
-   * 表示是否允许发布此通知渠道的通知。
+   * 是否允许发布此通知渠道类型的通知。
    * 
-   * - true：允许。
-   * - false：禁止。
+   * - true：允许发布通知。
+   * - false：禁止发布通知。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic

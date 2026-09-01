@@ -26,7 +26,7 @@
  * @publicapi [since 26.0.0]
  * @stagemodelonly
  * @atomicservice
- * @since 26.0.0 dynamic&static
+ * @since 23 dynamic&static
  */
 export enum AutoFillTriggerType {
     /**
@@ -38,7 +38,7 @@ export enum AutoFillTriggerType {
      * @publicapi [since 26.0.0]
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 23 dynamic&static
      */
     AUTO_REQUEST = 0,
 
@@ -51,7 +51,7 @@ export enum AutoFillTriggerType {
      * @publicapi [since 26.0.0]
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 23 dynamic&static
      */
     MANUAL_REQUEST = 1,
 
@@ -64,7 +64,7 @@ export enum AutoFillTriggerType {
      * @publicapi [since 26.0.0]
      * @stagemodelonly
      * @atomicservice
-     * @since 26.0.0 dynamic&static
+     * @since 23 dynamic&static
      */
     PASTE_REQUEST = 2,
 }

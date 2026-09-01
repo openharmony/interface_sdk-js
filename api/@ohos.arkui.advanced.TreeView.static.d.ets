@@ -1,4 +1,4 @@
-'use static'
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -15,6 +15,14 @@
  */
 
 /**
+ * ###### Child Components
+ * 
+ * Not supported
+ * 
+ * ###### Events
+ * 
+ * The [universal events]{@link ./@internal/component/ets/common} are not supported.
+ *
  * @file
  * @kit ArkUI
  */
@@ -22,57 +30,60 @@ import { ResourceStr } from '@ohos.arkui.component';
 import { Component } from '@ohos.arkui.component';
 import { SymbolGlyphModifier } from 'arkui.SymbolGlyphModifier';
 import { Builder } from '@ohos.arkui.component';
+
 /**
- * Control style of operation element
+ * Enumerates the listening types of tree view nodes.
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 export declare enum TreeListenType {
-    /**
-     * register listener after a node is clicked.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    NODE_CLICK = 'NodeClick',
-    /**
-     * register listener after a node is add.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    NODE_ADD = 'NodeAdd',
-    /**
-     * register listener after a node is delected.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    NODE_DELETE = 'NodeDelete',
-    /**
-     * register listener after a node is modified.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    NODE_MODIFY = 'NodeModify',
-    /**
-     * register listener after a node is moved.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    NODE_MOVE = 'NodeMove',
+  /**
+   * Listens for click events of nodes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  NODE_CLICK = 'NodeClick',
+  /**
+   * Listens for add events of nodes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  NODE_ADD = 'NodeAdd',
+  /**
+   * Listens for delete events of nodes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  NODE_DELETE = 'NodeDelete',
+  /**
+   * Listens for modify events of nodes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  NODE_MODIFY = 'NodeModify',
+  /**
+   * Listens for move events of nodes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  NODE_MOVE = 'NodeMove'
 }
 /**
  * Callback method of Event registration and processing.
  *
- * @typedef { function } OnChangedCallback
  * @param { CallbackParam } callbackParam - The result of event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -81,75 +92,91 @@ export declare enum TreeListenType {
  */
 declare type OnChangedCallback = (callbackParam: CallbackParam) => void;
 /**
- * Declare class TreeListener
+ * Listener of the tree view component. You can bind it to the **TreeView** component and use it to listen for changes
+ * of tree nodes. One listener can be bound to only one **TreeView** component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 export declare class TreeListener {
-    /**
-     * Event registration and processing.
-     * The event will not be destroyed after being processed.
-     *
-     * @param { TreeListenType } type - Registered Events.
-     * @param { OnChangedCallback } callback
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    public on(type: TreeListenType, callback: OnChangedCallback): void;
-    /**
-     * Event registration and processing.
-     * After the event is processed once, it will be destroyed.
-     *
-     * @param { TreeListenType } type - Registered Events.
-     * @param { OnChangedCallback } callback
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    public once(type: TreeListenType, callback: OnChangedCallback): void;
-    /**
-     * Destroy event.
-     *
-     * @param { TreeListenType } type - Registered Events.
-     * @param { OnChangedCallback } [callback]
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    public off(type: TreeListenType, callback?: OnChangedCallback): void;
+  /**
+   * Register a listener.
+   *
+   * @param { TreeListenType } type - Listening type.
+   * @param { OnChangedCallback } callback - Node information.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  public on(type: TreeListenType, callback: OnChangedCallback): void;
+  /**
+   * Registers a one-off listener.
+   *
+   * @param { TreeListenType } type - Listening type.
+   * @param { OnChangedCallback } callback - Node information.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  public once(type: TreeListenType, callback: OnChangedCallback): void;
+  /**
+   * Unregisters a listener.
+   *
+   * @param { TreeListenType } type - Listening type.
+   * @param { OnChangedCallback } [callback] - Node information.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  public off(type: TreeListenType, callback?: OnChangedCallback): void;
 }
 /**
- * Declare class TreeListenerManager
+ * Implements a **TreeListenerManager** object, which can be bound to a **TreeView** component to listen for changes of
+ * tree nodes. One **TreeListenerManager** object can be bound to only one tree view component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 export declare class TreeListenerManager {
-    /**
-     * Get instance of treeListenerManager.
-     * @returns { TreeListenerManager } Returns the treeListenerManager instance.
-     * @static
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    static getInstance(): TreeListenerManager;
-    /**
-     * Get treeListener.
-     * @returns { TreeListener } Returns the treeListener object.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    public getTreeListener(): TreeListener;
+  /**
+   * Obtains a **TreeListenerManager** singleton object.
+   *
+   * @returns { TreeListenerManager } **TreeListenerManager** singleton object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  static getInstance(): TreeListenerManager;
+  /**
+   * Obtains a listener.
+   *
+   * @returns { TreeListener } Obtained listener.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  public getTreeListener(): TreeListener;
 }
 /**
- * Declare TreeView Component
- * @struct { TreeView }
+ * The **TreeView** component represents a tree view used to display a hierarchical list of items. Each item can contain
+ * subitems, which may be expanded or collapsed.
+ *
+ * This component is applicable in productivity applications, such as side navigation bars in notepad, email, and
+ * Gallery applications.
+ *
+ * > **NOTE**
+ * >
+ * > - If the **TreeView** component has [universal attributes]{@link ./@internal/component/ets/common} and
+ * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
+ * > generates an additional **__Common__** node and mounts the universal attributes and universal events on this node
+ * > rather than the **TreeView** component itself. As a result, the configured universal attributes and universal
+ * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events
+ * > with the **TreeView** component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -157,222 +184,261 @@ export declare class TreeListenerManager {
  */
 @Component
 export declare struct TreeView {
-    /**
-     * Node data source of TreeView.
-     * @type { TreeController }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    treeController: TreeController;
-    /**
-     * The method to build component.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 staticonly
-     */
-    @Builder build(): void;
+  /**
+   * Node information of the tree view.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  treeController: TreeController;
+  /**
+   * The method to build component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 staticonly
+   */
+  @Builder
+  build(): void;
 }
 /**
  * Declare CallbackParam
- * @typedef CallbackParam
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 export interface CallbackParam {
-    /**
-     * Get the currentNodeId.
-     * @type { int }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    currentNodeId: int,
-    /**
-     * Get the parentNodeId.
-     * @type { ?int }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    parentNodeId?: int,
-    /**
-     * Get the childIndex.
-     * @type { ?int }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    childIndex?: int
+  /**
+   * ID of the current child node.
+   *
+   * The value must be greater than or equal to 0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  currentNodeId: int;
+  /**
+   * ID of the current parent node.
+   *
+   * The value must be greater than or equal to -1.
+   *
+   * Default value: **-1**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  parentNodeId?: int;
+  /**
+   * Child index.
+   *
+   * The value must be greater than or equal to -1.
+   *
+   * Default value: **-1**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  childIndex?: int;
 }
 /**
  * Declare NodeParam
- * @typedef NodeParam
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 export interface NodeParam {
-    /**
-     * Set the parentNodeId.
-     * @type { ?int }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    parentNodeId?: int,
-    /**
-     * Set currentNodeId.
-     * @type { ?int }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    currentNodeId?: int,
-    /**
-     * Set catalog whether is folder.
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    isFolder?: boolean;
-    /**
-     * Set the icon resource.
-     * @type { ?ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    icon?: ResourceStr;
-    /**
-     * Set the symbol resource.
-     *
-     * @type { ?SymbolGlyphModifier }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    symbolIconStyle?: SymbolGlyphModifier;
-    /**
-     * Set selected icon resource.
-     * @type { ?ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    selectedIcon?: ResourceStr;
-    /**
-     * Set selected symbol resource.
-     *
-     * @type { ?SymbolGlyphModifier }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    symbolSelectedIconStyle?: SymbolGlyphModifier;
-    /**
-     * Set edit icon resource.
-     *
-     * @type { ?ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    editIcon?: ResourceStr;
-    /**
-     * Set edit symbol resource.
-     *
-     * @type { ?SymbolGlyphModifier }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    symbolEditIconStyle?: SymbolGlyphModifier;
-    /**
-     * Set primary title content.
-     * @type { ?ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    primaryTitle?: ResourceStr;
-    /**
-     * Set secondary title content.
-     * @type { ?ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    secondaryTitle?: ResourceStr;
-    /**
-     * set subcomponent binded on tree item.
-     * @type { ?function }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    container?: () => void;
+  /**
+   * ID of the parent node.
+   *
+   * The value must be greater than or equal to -1.
+   *
+   * Default value: -1. The root node ID is -1. If the value is less than -1, the setting does not take effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  parentNodeId?: int;
+  /**
+   * Current child node ID.
+   *
+   * The value must be greater than or equal to -1.
+   *
+   * The value cannot be the root node ID or null. Otherwise, an exception is thrown. In addition, duplicate
+   * **currentNodeId** values are not allowed.
+   *
+   * Default value: **-1**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  currentNodeId?: int;
+  /**
+   * Whether the node is a directory.
+   *
+   * Default value: **false**.
+   *
+   * **true**: The node is a directory. **false**: The node is not a directory.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  isFolder?: boolean;
+  /**
+   * Icon.
+   *
+   * The default value is an empty string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  icon?: ResourceStr;
+  /**
+   * Symbol icon, which has higher priority than **icon**.
+   *
+   * Default value: **undefined**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  symbolIconStyle?: SymbolGlyphModifier;
+  /**
+   * Icon of the selected node.
+   *
+   * The default value is an empty string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  selectedIcon?: ResourceStr;
+  /**
+   * Symbol icon of the selected node., which has higher priority than **selectedIcon**.
+   *
+   * Default value: **undefined**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  symbolSelectedIconStyle?: SymbolGlyphModifier;
+  /**
+   * Edit icon.
+   *
+   * The default value is an empty string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  editIcon?: ResourceStr;
+  /**
+   * Symbol edit icon, which has a higher priority than **editIcon**.
+   *
+   * Default value: **undefined**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  symbolEditIconStyle?: SymbolGlyphModifier;
+  /**
+   * Primary title.
+   *
+   * The default value is an empty string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  primaryTitle?: ResourceStr;
+  /**
+   * Secondary title.
+   *
+   * The default value is an empty string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  secondaryTitle?: ResourceStr;
+  /**
+   * Right-click child component bound to the node. The child component is decorated with @Builder.
+   *
+   * Default value: **() => void**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  container?: () => void;
 }
 /**
- * Declare TreeController
+ * Implements a **TreeController** object, which can be bound to a tree view component to control the node information
+ * of the component. One **TreeController** object can be bound to only one tree view component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 export declare class TreeController {
-    /**
-     * Delete a node.
-     * Register an ON_ITEM_DELETE callback through the ListTreeListener mechanism to obtain the IDs of all deleted
-     * nodes.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    public removeNode(): void;
-    /**
-     * Modify the node name.
-     * Register an ON_ITEM_MODIFY callback to obtain the ID, parent node ID, and node name of the modified node.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    public modifyNode(): void;
-    /**
-     * Initialize the interface of the tree view. This interface is used to generate ListNodeDataSource data.
-     * addNode is only designed for initialization. It can only be invoked during initialization.
-     * A maximum of 50 directory levels can be added.
-     * For details, see the comment description of NodeParam.
-     *
-     * @param { NodeParam } [nodeParam] Configuration information of the newly added node.
-     * @returns { TreeController } ListTreeNode Tree view component proxy class.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    public addNode(nodeParam?: NodeParam): TreeController;
-    /**
-     * This interface is called when a secondaryTitle needs to be updated
-     *
-     * @param { int } parentId - ID of the parent node.
-     * @param { ResourceStr } parentSubTitle - secondaryTitle of parent node.
-     * @param { ResourceStr } currentSubtitle - secondaryTitle of current node.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    public refreshNode(parentId: int, parentSubTitle: ResourceStr, currentSubtitle: ResourceStr): void;
-    /**
-     * After the initialization is complete by calling the addNode interface,
-     * call this interface to complete initialization.
-     * This interface must be called when you finish initializing the ListTreeView by addNode.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    public buildDone(): void;
+  /**
+   * Removes the selected node.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  public removeNode(): void;
+  /**
+   * Modifies the selected node.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  public modifyNode(): void;
+  /**
+   * Adds a child node to the selected node.
+   *
+   * @param { NodeParam } [nodeParam] - Node information.
+   * @returns { TreeController } Controller of the **TreeView** component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  public addNode(nodeParam?: NodeParam): TreeController;
+  /**
+   * Refreshes the tree view. You can call this API to update the information about the current node.
+   *
+   * @param { int } parentId - ID of the parent node.
+   *     <br>The value must be greater than or equal to -1.
+   * @param { ResourceStr } parentSubTitle - Secondary text of the parent node.
+   * @param { ResourceStr } currentSubtitle - Secondary text of the current node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  public refreshNode(parentId: int, parentSubTitle: ResourceStr, currentSubtitle: ResourceStr): void;
+  /**
+   * Builds a tree view. After a node is added, this API must be called to save the tree information.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  public buildDone(): void;
 }

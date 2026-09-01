@@ -22,9 +22,7 @@ import type ExtensionContext from './application/ExtensionContext';
 /**
  * NotificationSubscriberExtensionContext模块提供通知订阅者扩展能力。
  * 
- * > **说明**
- * >
- * > 本模块接口仅可在Stage模型下使用。
+ * NotificationSubscriberExtensionContext继承自ExtensionContext类，是NotificationSubscriberExtensionAbility的上下文。
  *
  * @syscap SystemCapability.Notification.Notification
  * @stagemodelonly

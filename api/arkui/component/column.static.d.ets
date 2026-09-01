@@ -126,8 +126,9 @@ export declare interface ColumnAttribute extends CommonMethod {
      * @param { ColumnOptions | ColumnOptionsV2 } [options] - Column constructor options
      * @returns { ColumnAttribute } Returns the instance of the ColumnAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setColumnOptions(options?: ColumnOptions | ColumnOptionsV2): this;
     /**
@@ -166,8 +167,9 @@ export declare function Column(
  * @param { CustomBuilder } [content_] - container
  * @returns { ColumnAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

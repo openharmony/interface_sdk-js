@@ -41,14 +41,14 @@ interface EllipseOptions {
    * **Infinity** values are invalid and treated as the default value.
    * The Resource type is supported since API version 20. Default value: **0**.
    *
-   * @type { ?(string | number) } [since 18 - 19]
+   * @type { ?(string | number) } [since 7 - 19]
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   width?: Length;
 
@@ -58,14 +58,14 @@ interface EllipseOptions {
    * values are invalid and treated as the default value.
    * The Resource type is supported since API version 20. Default value: **0**.
    *
-   * @type { ?(string | number) } [since 18 - 19]
+   * @type { ?(string | number) } [since 7 - 19]
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   height?: Length;
 }

@@ -14,11 +14,8 @@
  */
 
 /**
- * The **AccessibilityExtensionContext** module, inherited from **ExtensionContext**, provides context for 
- * **AccessibilityExtensionAbility**.
- * 
- * You can use the APIs of this module to configure the concerned information, obtain root information, and inject 
- * gestures.
+ * The Accessibility Extension Context module provides a context environment, supporting accessibility apps in 
+ * configuring information types of interest, querying node information, gesture injection, and more.
  *
  * @file Provides accessibility extension context
  * @kit AccessibilityKit
@@ -32,25 +29,43 @@ import type { GesturePath } from '../@ohos.accessibility.GesturePath';
 /*** endif */
 import type Want from '../@ohos.app.ability.Want';
 import { AccessibilityAction, FocusMoveResultCode, InjectActionType,
-    AccessibilityFocusScene, FocusRuleType, OperateVirtualNodeResult,
-    AccessibilitySourceType } from '../@ohos.accessibility';
+  AccessibilityFocusScene, FocusRuleType, OperateVirtualNodeResult,
+  AccessibilitySourceType } from '../@ohos.accessibility';
 
 /**
- * The accessibility extension context. Used to configure, query information, and inject gestures.
+ * The **AccessibilityExtensionContext** module, inherited from **ExtensionContext**, provides context for 
+ * **AccessibilityExtensionAbility**.
  * 
+ * The Accessibility Extension Context module provides capabilities related to the accessibility extension, including 
+ * configuring concerned information types, querying node information, and gesture injection.
+ * 
+ * ###### Usage
+ * 
+ * Before using AccessibilityExtensionContext, obtain an AccessibilityExtensionContext instance through an 
+ * AccessibilityExtensionAbility subclass instance.
+ * 
+ * ```ts
+ * import { AccessibilityExtensionAbility } from '@kit.AccessibilityKit';
+ * class EntryAbility extends AccessibilityExtensionAbility {
+ *   onConnect(): void {
+ *     let axContext = this.context; 
+ *   } 
+ * }
+ * ```
+ *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamic
  * @since 23 static
  */
 declare class AccessibilityExtensionContext extends ExtensionContext {
   /**
-   * Sets the concerned target bundle. This API uses an asynchronous callback to return the result.
+   * Sets the bundle name of the concerned app. This API uses an asynchronous callback to return the result.
    *
-   * @param { Array<string> } targetNames - Bundle name of the concerned target application. The service receives
-   *     accessibility events of the concerned application. By default, accessibility events of all applications are
-   *     received. Pass in an empty array if there is no concerned application.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, **err** that
-   *     contains data is returned.
+   * @param { Array<string> } targetNames - Package name of the app to focus on. After setting, the service receives
+   *     accessibility events only from the focused app. If not set, accessibility events from all apps are received by
+   *     default. To cancel the focus on an app, pass an empty array.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the target package name is set
+   *     successfully, **err** is **undefined**; otherwise, it is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -62,11 +77,11 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   setTargetBundleName(targetNames: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the concerned target bundle. This API uses a promise to return the result.
+   * Sets the bundle name of the concerned app. This API uses a promise to return the result.
    *
-   * @param { Array<string> } targetNames - Bundle name of the concerned target application. The service receives
-   *     accessibility events of the concerned application. By default, accessibility events of all applications are
-   *     received. Pass in an empty array if there is no concerned application.
+   * @param { Array<string> } targetNames - Sets the package names of the apps of interest. After setting, the service
+   *     receives only accessibility events of the apps of interest. If not set, the service receives accessibility
+   *     events of all apps by default. To cancel the focus on apps, pass an empty array.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -81,9 +96,11 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   /**
    * Obtains the focus element. This API uses an asynchronous callback to return the result.
    *
-   * @param { boolean } isAccessibilityFocus - Whether the obtained focus element is an accessibility focus. The value
-   *     **True** means that the obtained focus element is an accessibility focus, and **False** means the opposite.
-   * @param { AsyncCallback<AccessibilityElement> } callback - Callback used to return the current focus element.
+   * @param { boolean } isAccessibilityFocus - Whether the element obtained is an accessibility focus element. The value
+   *     **true** indicates that it is an accessibility focus element, and **false** indicates the opposite.
+   * @param { AsyncCallback<AccessibilityElement> } callback - Callback invoked to return the result. If the focus
+   *     element is obtained successfully, **err** is **undefined** and **data** is the corresponding focus element;
+   *     otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -98,9 +115,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   /**
    * Obtains the focus element. This API uses a promise to return the result.
    *
-   * @param { boolean } isAccessibilityFocus - Whether the obtained element is an accessibility focus. The value
-   *     **true** indicates that the element is an accessibility focus, and **false** indicates the opposite.<br>Default
-   *     value: **false**.
+   * @param { boolean } isAccessibilityFocus - Whether to obtain the accessibility focus element. The value **true**
+   *     indicates that it is an accessibility focus element, and **false** indicates that it is not an accessibility
+   *     focus element. Default value: **false**.
    * @returns { Promise<AccessibilityElement> } Promise used to return the current focus element.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -116,7 +133,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   /**
    * Obtains the focus element. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<AccessibilityElement> } callback - Callback used to return the current focus element.
+   * @param { AsyncCallback<AccessibilityElement> } callback - Callback used to return the focus element. If the
+   *     operation is successful, **err** is **undefined** and **data** is the current focus element; otherwise, **err**
+   *     is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -129,11 +148,12 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   getFocusElement(callback: AsyncCallback<AccessibilityElement>): void;
 
   /**
-   * Obtains the root element of a window. This API uses an asynchronous callback to return the result.
+   * Obtains the root element of the specified window. This API uses an asynchronous callback to return the result.
    *
-   * @param { int } windowId - ID of the window whose root element is to be obtained. If this parameter is not specified
-   *     , it indicates the current active window.
-   * @param { AsyncCallback<AccessibilityElement> } callback - Callback used to return the root element.
+   * @param { int } windowId - Number of the specified window.
+   * @param { AsyncCallback<AccessibilityElement> } callback - Callback used to return the result. If the root node
+   *     element is obtained successfully, **err** is **undefined** and **data** is the root node element of the
+   *     specified window; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -146,10 +166,10 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   getWindowRootElement(windowId: int, callback: AsyncCallback<AccessibilityElement>): void;
 
   /**
-   * Obtains the root element of a window. This API uses a promise to return the result.
+   * Obtains the root element of the specified window. This API uses a promise to return the result.
    *
-   * @param { int } windowId - ID of the window whose root element is to be obtained. If this parameter is not specified
-   *     , it indicates the current active window.
+   * @param { int } windowId - ID of the window whose root element is to be obtained. If this parameter is not
+   *     specified, it indicates the current active window.
    * @returns { Promise<AccessibilityElement> } Promise used to return the root element of the specified window.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -163,9 +183,12 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   getWindowRootElement(windowId?: int): Promise<AccessibilityElement>;
 
   /**
-   * Obtains the root element of a window. This API uses an asynchronous callback to return the result.
+   * Obtains the root element of the currently active window. This API uses an asynchronous callback to return the 
+   * result.
    *
-   * @param { AsyncCallback<AccessibilityElement> } callback - Callback used to return the root element.
+   * @param { AsyncCallback<AccessibilityElement> } callback - Callback invoked to return the result. If the root node
+   *     element is obtained successfully, err is undefined and data is the root node element of the currently active
+   *     window; otherwise, err is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -178,11 +201,12 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   getWindowRootElement(callback: AsyncCallback<AccessibilityElement>): void;
 
   /**
-   * Obtains the list of windows on a display. This API uses an asynchronous callback to return the result.
+   * Obtains all windows on the specified display. This API uses an asynchronous callback to return the result.
    *
-   * @param { long } displayId - ID of the display from which the window information is obtained. If this parameter is
-   *     not specified, it indicates the default main display.
-   * @param { AsyncCallback<Array<AccessibilityElement>> } callback - Callback used to return the window list.
+   * @param { long } displayId - ID of the specified screen, used to identify the screen for which to obtain windows.
+   * @param { AsyncCallback<Array<AccessibilityElement>> } callback - Callback used to return the result. If the windows
+   *     are obtained successfully, **err** is **undefined** and **data** is all windows on the specified screen;
+   *     otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -195,7 +219,7 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   getWindows(displayId: long, callback: AsyncCallback<Array<AccessibilityElement>>): void;
 
   /**
-   * Obtains the list of windows on a display. This API uses a promise to return the result.
+   * Obtains all windows on the specified display. This API uses a promise to return the result.
    *
    * @param { long } displayId - ID of the display from which the window information is obtained. If this parameter is
    *     not specified, it indicates the default main display.
@@ -212,9 +236,11 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   getWindows(displayId?: long): Promise<Array<AccessibilityElement>>;
 
   /**
-   * Obtains the list of windows on a display. This API uses an asynchronous callback to return the result.
+   * Obtains all windows on the default main display. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<Array<AccessibilityElement>> } callback - Callback used to return the window list.
+   * @param { AsyncCallback<Array<AccessibilityElement>> } callback - Callback invoked to return the result. If the
+   *     window is obtained successfully, **err** is **undefined** and **data** is all windows of the default home
+   *     screen; otherwise, it is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -227,10 +253,12 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   getWindows(callback: AsyncCallback<Array<AccessibilityElement>>): void;
 
   /**
-   * Injects a gesture. This API uses an asynchronous callback to return the result.
+   * Injects a gesture, applicable to scenarios where an accessibility app performs touch interactions on behalf of the 
+   * user, such as tap and swipe operations. This API uses an asynchronous callback to return the result.
    *
    * @param { GesturePath } gesturePath - Path of the gesture to inject.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the gesture injection is
+   *     successful, **err** is **undefined**; otherwise, it is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -244,7 +272,8 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   injectGesture(gesturePath: GesturePath, callback: AsyncCallback<void>): void;
 
   /**
-   * Injects a gesture. This API uses a promise to return the result.
+   * Injects a gesture, applicable to scenarios where an accessibility app performs touch interactions on behalf of the 
+   * user, such as tap and swipe operations. This API uses a promise to return the result.
    *
    * @param { GesturePath } gesturePath - Path of the gesture to inject.
    * @returns { Promise<void> } Promise that returns no value.
@@ -261,7 +290,8 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   injectGesture(gesturePath: GesturePath): Promise<void>;
 
   /**
-   * Injects a gesture.
+   * Injects a gesture, applicable to scenarios where an accessibility app performs touch interactions on behalf of the 
+   * user, such as tap and swipe operations.
    *
    * @param { GesturePath } gesturePath - Path of the gesture to inject.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -276,9 +306,10 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   injectGestureSync(gesturePath: GesturePath): void;
 
   /**
-   * Starts the foreground page. This API uses a promise to return the result.
+   * Starts a foreground page. This API uses a promise to return the result.
    *
-   * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
+   * @param { Want } want - Want type parameter, which passes in the information about the ability to start, such as the
+   *     ability name and bundle name.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -293,13 +324,15 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   startAbility(want: Want): Promise<void>;
 
   /**
-   * Obtains node elements in batches. This API uses a promise to return the result.
+   * Queries all descendant accessibility nodes in a specified window or under a specified node in batches. This API 
+   * uses a promise to return the result.
    *
-   * @param { int } windowId - Window ID to be obtained.
-   * @param { long } elementId - Element ID to be obtained. If this parameter is passed in, the list of all child nodes
-   *     under the current node is obtained. Otherwise, all nodes in the window are obtained. The default value is
-   *     **-1**.
-   * @returns { Promise<Array<AccessibilityElement>> } Promise used to return the result.
+   * @param { int } windowId - ID of the window to query.
+   * @param { long } elementId - ID of the node to query. If this parameter is passed, all child nodes under this node (
+   *     excluding the node itself) are queried. If this parameter is not passed or **-1** is passed, the complete node
+   *     tree (including the root node) in the specified window is queried. The default value is **-1**.
+   * @returns { Promise<Array<AccessibilityElement>> } Promise used to return the list of all child nodes in the current
+   *     window or under the current node.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -314,10 +347,14 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   getElements(windowId: int, elementId?: long): Promise<Array<AccessibilityElement>>;
 
   /**
-   * Obtains the custom default focuses of an application. This API uses a promise to return the result.
+   * Queries the list of default focus element IDs customized by the app. This API uses a promise to return the result.
+   * 
+   * Default focus refers to the element that the accessibility service prioritizes for focusing when a window is 
+   * opened.
    *
-   * @param { int } windowId - Window ID to be obtained.
-   * @returns { Promise<Array<long>> } Promise used to return the result.
+   * @param { int } windowId - ID of the window to query.
+   * @returns { Promise<Array<long>> } Promise used to return the list of custom default focus IDs in the current
+   *     window.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -332,7 +369,9 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   getDefaultFocusedElementIds(windowId: int): Promise<Array<long>>;
 
   /**
-   * Holds the running lock. After the lock is held, the screen will not turn off automatically.
+   * Holds the RunningLock. After the lock is held, the screen will not automatically turn off. After this method is 
+   * called, call [unholdRunningLockSync]{@link AccessibilityExtensionContext#unholdRunningLockSync} to release the lock
+   * and restore the automatic screen-off mechanism when the screen no longer needs to stay on.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
@@ -346,7 +385,8 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   holdRunningLockSync(): void;
 
   /**
-   * Releases the running lock. After the lock is released, the screen will automatically turn off.
+   * Releases the RunningLock and restores automatic screen-off. Used in pair with 
+   * [holdRunningLockSync]{@link AccessibilityExtensionContext#holdRunningLockSync}.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
@@ -360,18 +400,19 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   unholdRunningLockSync(): void;
 
   /**
-   * Subscribes to the pre-disconnection event of the accessibility extension service. This API is called when the 
-   * accessibility extension service is about to be disconnected. This API uses an asynchronous callback to return the 
-   * result.
+   * Registers a callback with the accessibility service, which is invoked before the accessibility service closes this 
+   * Accessibility Extension Service. This API uses an asynchronous callback to return the result.
    * 
-   * Used together with [notifyDisconnect]{@link AccessibilityExtensionContext.notifyDisconnect}; otherwise, the 
-   * accessibility extension service is automatically disconnected 30 seconds later by default.
+   * This registration function must be used together with 
+   * [notifyDisconnect]{@link AccessibilityExtensionContext#notifyDisconnect}. If 
+   * [notifyDisconnect]{@link AccessibilityExtensionContext#notifyDisconnect} is not called, the Accessibility Extension
+   * Service is automatically closed after a default wait of 30 seconds.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { 'preDisconnect' } type - Name of the event to listen for. The value is fixed at **'preDisconnect'**,
-   *     indicating that the accessibility extension service is about to be disconnected.
-   * @param { Callback<void> } callback - Callback to be invoked when the accessibility extension service is about to be
-   *     disconnected.
+   * @param { 'preDisconnect' } type - Listening event name, which is fixed to 'preDisconnect', indicating the event
+   *     that the Accessibility Extension Service is about to be closed.
+   * @param { Callback<void> } callback - Callback invoked when the Accessibility Extension Service is about to be
+   *     closed.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -396,16 +437,17 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   onPreDisconnect(callback: Callback<void>): void;
 
   /**
-   * Unsubscribes from the pre-disconnection event of the accessibility extension service. This API is not called until 
-   * the accessibility extension service is disconnected. This API uses an asynchronous callback to return the result.
+   * Unregisters the pre-disconnect callback registered with the accessibility service. This callback must be registered
+   * via on('preDisconnect') before it can be unregistered. After unregistration, the callback will no longer be 
+   * executed before the accessibility service closes this extension service.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { 'preDisconnect' } type - Name of the event to listen for. The value is fixed at **'preDisconnect'**,
-   *     indicating that the accessibility extension service is about to be disconnected.
-   * @param { Callback<void> } [callback] - Callback to unregister, which must be the same as that of
+   * @param { 'preDisconnect' } type - Event name, which is fixed to 'preDisconnect', indicating that the accessibility
+   *     extension service is about to be closed.
+   * @param { Callback<void> } [callback] - Callback for the event that the accessibility extension service is about to
+   *     be closed. It must be the same as the callback in
    *     [on('preDisconnect')]{@link AccessibilityExtensionContext#on(type: 'preDisconnect', callback: Callback<void>)}.
-   *     If this parameter is not specified, listening will be disabled for all callbacks corresponding to the specified
-   *     type.
+   *     If this parameter is not specified, all registered events are unregistered.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -430,11 +472,11 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   offPreDisconnect(callback?: Callback<void>): void;
 
   /**
-   * Notifies the accessibility service that the accessibility extension service can be disconnected.
+   * Notifies the accessibility service that the accessibility extension service can be closed.
    * 
-   * This API must be used together with the 
-   * [on('preDisconnect')]{@link AccessibilityExtensionContext#on(type: 'preDisconnect', callback: Callback<void>)} API.
-   * If the **on('preDisconnect')** API is not called, this API does not take effect.
+   * This function must be used together with the pre-disconnection registration API 
+   * [on('preDisconnect')]{@link AccessibilityExtensionContext#on(type: 'preDisconnect', callback: Callback<void>)}. If 
+   * the pre-disconnection registration function has not been called, calling this function directly has no effect.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
@@ -448,10 +490,13 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   notifyDisconnect(): void;
 
   /**
-   * Obtains the element that is currently focused. This API uses a promise to return the result.
+   * Obtains the element that currently has the accessibility focus. This API uses a promise to return the result.
+   * 
+   * The accessibility focus refers to the node currently focused by the accessibility service, which is different from 
+   * the input focus.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @returns { Promise<AccessibilityElement> } Promise used to return the result.
+   * @returns { Promise<AccessibilityElement> } Promise used to return the element that currently has the focus.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -465,11 +510,15 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   getAccessibilityFocusedElement(): Promise<AccessibilityElement>;
 
   /**
-   * Obtains the root element of an active window. This API uses a promise to return the result.
+   * Obtains the root element of the accessibility node tree of the active window. This API uses a promise to return the
+   * result.
+   * 
+   * The active window refers to the foreground app window that currently gains focus.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { int } windowId Indicates the window ID.
-   * @returns { Promise<AccessibilityElement> } Promise used to return the result.
+   * @param { int } windowId - ID of the window to query. If this parameter is not provided, the root element of the
+   *     active window is queried by default.
+   * @returns { Promise<AccessibilityElement> } Promise used to return the root element of the active window.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -483,11 +532,10 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   getRootInActiveWindow(windowId?: int): Promise<AccessibilityElement>;
 
   /**
-   * Obtains the accessibility windows.
+   * Obtains the list of all accessibility-accessible windows on the current display device.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { long } displayId Indicates the display ID. If this parameter is not provided, indicates the default
-   *     displayId.
+   * @param { long } displayId - Display ID. If this parameter is not provided, the default displayId is used.
    * @returns { Array<AccessibilityElement> } List of windows.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
@@ -501,14 +549,14 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   getAccessibilityWindowsSync(displayId?: long): Array<AccessibilityElement>;
 
   /**
-   * Add accessibility virtual nodes.
+   * Adds a virtual accessibility node tree. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { long } elementId - Indicates the id of the node to which the accessibility virtual node tree belongs
-   * @param { int } windowId - Indicates the window id
-   *     <br>The value range is all integers.
-   * @param { Array<AccessibilityVirtualNode> } nodes - Indicates accessibility virtual node tree.
-   * @returns { Promise<OperateVirtualNodeResult> } Promise used to return the result code.
+   * @param { long } elementId - Parent node ID of the virtual node tree to add.
+   * @param { int } windowId - Parent window ID of the virtual node tree to add.
+   * @param { Array<AccessibilityVirtualNode> } nodes - Array of virtual nodes to add. The virtual nodes in the array
+   *     are organized into a tree based on the parentId and childNodeIds parent-child relationships.
+   * @returns { Promise<OperateVirtualNodeResult> } Promise used to return the execution result.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -526,14 +574,16 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   addAccessibilityVirtualNodes(elementId: long, windowId: int, nodes: Array<AccessibilityVirtualNode>): Promise<OperateVirtualNodeResult>;
 
   /**
-   * Update accessibility element property.
+   * Modifies the accessibility node property. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { long } elementId - Indicates the id of the accessibility element to be updated
-   * @param { int } windowId - Indicates the window id
-   *     <br>The value range is all integers.
-   * @param { AccessibilityVirtualNode } node - Indicates accessibility virtual node to be updated.
-   * @returns { Promise<OperateVirtualNodeResult> } Promise used to return the result code.
+   * @param { long } elementId - ID of the accessibility node to modify.
+   * @param { int } windowId - ID of the window of the accessibility node to modify.
+   * @param { AccessibilityVirtualNode } node - Property values of the accessibility node to modify. The modifiable
+   *     properties include:
+   *     <br>accessibilityText, accessibilityGroup, accessibilityLevel, checkable, checked, selected, clickable,
+   *     enabled, customComponentType.
+   * @returns { Promise<OperateVirtualNodeResult> } Promise used to return the execution result.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -551,13 +601,12 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
   updateAccessibilityElementProperty(elementId: long, windowId: int, node: AccessibilityVirtualNode): Promise<OperateVirtualNodeResult>;
 
   /**
-   * Remove accessibility virtual nodes.
+   * Deletes the added accessibility virtual node tree. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { long } elementId - Indicates the id of the accessibility element to be removed.
-   * @param { int } windowId - Indicates the window id.
-   *     <br>The value range is all integers.
-   * @returns { Promise<OperateVirtualNodeResult> } Promise used to return the result code.
+   * @param { long } elementId - ID of the node where the virtual node tree to be deleted is located.
+   * @param { int } windowId - ID of the window where the virtual node tree to be deleted is located.
+   * @returns { Promise<OperateVirtualNodeResult> } Promise used to return the execution result.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -574,14 +623,18 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    */
   removeAccessibilityVirtualNodes(elementId: long, windowId: int): Promise<OperateVirtualNodeResult>;
 }
+
 export default AccessibilityExtensionContext;
 
 /**
- * Defines the **AccessibilityElement**. Before calling APIs of **AccessibilityElement**, you must call 
- * [AccessibilityExtensionContext.getFocusElement()]{@link AccessibilityExtensionContext#getFocusElement(isAccessibilityFocus?: boolean)}
+ * An accessibility node element that provides capabilities such as querying parent/child elements, finding elements by 
+ * content or focus direction, and performing accessibility actions. It is applicable to scenarios where an 
+ * accessibility app needs to interact with and operate on UI nodes.
+ * 
+ * Before calling methods of AccessibilityElement, obtain an AccessibilityElement instance through 
+ * [AccessibilityExtensionContext.getAccessibilityFocusedElement()]{@link AccessibilityExtensionContext.getAccessibilityFocusedElement}
  * or 
- * [AccessibilityExtensionContext.getWindowRootElement()]{@link AccessibilityExtensionContext#getWindowRootElement(windowId?: int)}
- * to obtain an **AccessibilityElement** instance.
+ * [AccessibilityExtensionContext.getRootInActiveWindow()]{@link AccessibilityExtensionContext.getRootInActiveWindow}.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @stagemodelonly
@@ -590,9 +643,11 @@ export default AccessibilityExtensionContext;
  */
 export declare interface AccessibilityElement {
   /**
-   * Obtains all attribute names of this element. This API uses an asynchronous callback to return the result.
+   * Obtains all attribute names of the node element. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<Array<T>> } callback - Callback used to return all attribute names of the element.
+   * @param { AsyncCallback<Array<T>> } callback - Callback invoked to return the result. If the attribute names are
+   *     obtained successfully, **err** is undefined and **data** contains all attribute names of the node element;
+   *     otherwise, **err** is an error object.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
@@ -600,7 +655,7 @@ export declare interface AccessibilityElement {
   attributeNames<T extends keyof ElementAttributeValues>(callback: AsyncCallback<Array<T>>): void;
 
   /**
-   * Obtains all attribute names of this element. This API uses a promise to return the result.
+   * Obtains all attribute names of the node element. This API uses a promise to return the result.
    *
    * @returns { Promise<Array<T>> } Promise used to return all attribute names of the element.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -614,7 +669,9 @@ export declare interface AccessibilityElement {
    * result.
    *
    * @param { T } attributeName - Attribute name.
-   * @param { AsyncCallback<ElementAttributeValues[T]> } callback - Callback used to return the attribute value.
+   * @param { AsyncCallback<ElementAttributeValues[T]> } callback - Callback used to return the result. If the attribute
+   *     value is obtained successfully, err is undefined and data is the value of the corresponding attribute;
+   *     otherwise, the value is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -630,7 +687,7 @@ export declare interface AccessibilityElement {
   ): void;
 
   /**
-   * Obtains the attribute value based on an attribute name. This API uses a promise to return the result.
+   * Obtains the attribute value based on the attribute name. This API uses a promise to return the result.
    *
    * @param { T } attributeName - Attribute name.
    * @returns { Promise<ElementAttributeValues[T]> } Promise used to return the attribute value.
@@ -646,11 +703,12 @@ export declare interface AccessibilityElement {
   attributeValue<T extends keyof ElementAttributeValues>(attributeName: T): Promise<ElementAttributeValues[T]>;
 
   /**
-   * Obtains the names of all actions supported by this element. This API uses an asynchronous callback to return the 
-   * result.
+   * Obtains the names of all actions supported by the node element. This API uses an asynchronous callback to return 
+   * the result.
    *
-   * @param { AsyncCallback<Array<string>> } callback - Callback used to return the names of all actions supported by
-   *     the element.
+   * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the action names are
+   *     obtained successfully, **err** is **undefined** and **data** contains all action names supported by the node
+   *     element; otherwise, **err** is an error object.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
@@ -658,7 +716,7 @@ export declare interface AccessibilityElement {
   actionNames(callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Obtains the names of all actions supported by this element. This API uses a promise to return the result.
+   * Obtains the names of all actions supported by the node element. This API uses a promise to return the result.
    *
    * @returns { Promise<Array<string>> } Promise used to return the names of all actions supported by the element.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -668,12 +726,17 @@ export declare interface AccessibilityElement {
   actionNames(): Promise<Array<string>>;
 
   /**
-   * Performs an action based on the specified action name. This API uses an asynchronous callback to return the result.
+   * Performs the specified action on the accessibility node element. This API uses an asynchronous callback to return 
+   * the result.
    *
-   * @param { string } actionName - Action name. For details, see
-   *     [Action]{@link ./../@ohos.accessibility:accessibility.Action}.
-   * @param { object } parameters - Parameters required for performing the target action. Empty by default.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } actionName - Name of the action. For the value range, see
+   *     [Action]{@link @ohos.accessibility:accessibility.Action}.
+   * @param { object } parameters - Parameters required for executing the action. Different action types require
+   *     different parameter structures. For details about the parameter format, see the description of each Action. For
+   *     example, setSelection requires the selectTextBegin, selectTextEnd, and selectTextInForWard parameters, and
+   *     setCursorPosition requires the offset parameter.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the action is executed
+   *     successfully, err is undefined; otherwise, err is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -686,11 +749,14 @@ export declare interface AccessibilityElement {
   performAction(actionName: string, parameters: object, callback: AsyncCallback<void>): void;
 
   /**
-   * Performs an action based on the specified action name. This API uses a promise to return the result.
+   * Performs the specified action on the accessibility node element. This API uses a promise to return the result.
    *
-   * @param { string } actionName - Action name. For details, see
-   *     [Action]{@link ./../@ohos.accessibility:accessibility.Action}.
-   * @param { object } parameters - Parameters required for performing the target action. Empty by default.
+   * @param { string } actionName - Name of the action. For the value range, see
+   *     [Action]{@link @ohos.accessibility:accessibility.Action}.
+   * @param { object } parameters - Parameters required for executing the action. Different actions require different
+   *     parameter key names and value types. For details about the value principles, see the definition of each Action.
+   *     For example, setSelection requires the selectTextBegin, selectTextEnd, and selectTextInForWard parameters, and
+   *     setCursorPosition requires the offset parameter. If not passed, this parameter is empty by default.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -704,11 +770,13 @@ export declare interface AccessibilityElement {
   performAction(actionName: string, parameters?: object): Promise<void>;
 
   /**
-   * Performs an action based on the specified action name. This API uses an asynchronous callback to return the result.
+   * Performs the specified action on the accessibility node element. This API uses an asynchronous callback to return 
+   * the result.
    *
-   * @param { string } actionName - Action name. For details, see
-   *     [Action]{@link ./../@ohos.accessibility:accessibility.Action}.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { string } actionName - Name of the action. For the value range, see
+   *     [Action]{@link @ohos.accessibility:accessibility.Action}.
+   * @param { AsyncCallback<void> } callback - Callback invoked when the operation is executed. If the operation
+   *     succeeds, **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -721,9 +789,11 @@ export declare interface AccessibilityElement {
   performAction(actionName: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Obtains the cursor position in the **Text** component. This API uses an asynchronous callback to return the result.
+   * Obtains the cursor position in a text component. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<int> } callback - Callback function used to return the result.
+   * @param { AsyncCallback<int> } callback - Callback used to return the result. If the cursor position is obtained
+   *     successfully, **err** is undefined and **data** is the position index of the cursor in the text; otherwise,
+   *     **err** is an error object.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
@@ -732,9 +802,9 @@ export declare interface AccessibilityElement {
   getCursorPosition(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the cursor position in the **Text** component. This API uses a promise to return the result.
+   * Obtains the cursor position in a text component. This API uses a promise to return the result.
    *
-   * @returns { Promise<int> } Promise used to return the result.
+   * @returns { Promise<int> } Promise used to return the current cursor position.
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @since 12 dynamic
@@ -743,9 +813,11 @@ export declare interface AccessibilityElement {
   getCursorPosition(): Promise<int>;
 
   /**
-   * Enables or disables the screen curtain.
+   * Enables or disables the screen curtain. When the screen curtain is enabled, the screen content is hidden (the 
+   * screen dims), but the device still responds to operations normally.
    *
-   * @param { boolean } isEnable - The value **true** indicates enabled; **false** indicates disabled.
+   * @param { boolean } isEnable - Whether to enable the screen curtain. The value `true` means to enable the screen
+   *     curtain, and `false` means to disable it.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -762,9 +834,11 @@ export declare interface AccessibilityElement {
   /**
    * Finds an element based on the content type. This API uses an asynchronous callback to return the result.
    *
-   * @param { 'content' } type - Type of element finding. The value is fixed at **'content'**.
-   * @param { string } condition - Search criteria.
-   * @param { AsyncCallback<Array<AccessibilityElement>> } callback - Callback used to return the result.
+   * @param { 'content' } type - Fixed to 'content', which means the search type is node element content.
+   * @param { string } condition - Keyword condition for searching, used to match the text content of node elements.
+   * @param { AsyncCallback<Array<AccessibilityElement>> } callback - Callback used to return the result. If the node
+   *     elements are found successfully, **err** is **undefined** and **data** is all node elements that meet the
+   *     specified search keyword; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -776,10 +850,11 @@ export declare interface AccessibilityElement {
   findElement(type: 'content', condition: string, callback: AsyncCallback<Array<AccessibilityElement>>): void;
 
   /**
-   * Finds an element based on the content type. This API uses a promise to return the result.
+   * Finds all node elements based on the node content. This API uses a promise to return the result.
    *
-   * @param { 'content' } type - Type of element finding. The value is fixed at **'content'**.
-   * @param { string } condition - Search criteria.
+   * @param { 'content' } type - The value is fixed at 'content', indicating that the search type is node element
+   *     content.
+   * @param { string } condition - Keyword condition for the search, used to match the text content of the node element.
    * @returns { Promise<Array<AccessibilityElement>> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
@@ -792,11 +867,13 @@ export declare interface AccessibilityElement {
   findElement(type: 'content', condition: string): Promise<Array<AccessibilityElement>>;
 
   /**
-   * Finds an element based on the focus type. This API uses an asynchronous callback to return the result.
+   * Finds a node element based on the focus element type. This API uses an asynchronous callback to return the result.
    *
    * @param { 'focusType' } type - Type of element finding. The value is fixed at **'focusType'**.
    * @param { FocusType } condition - Focus type.
-   * @param { AsyncCallback<AccessibilityElement> } callback - Callback used to return the result.
+   * @param { AsyncCallback<AccessibilityElement> } callback - Callback invoked to return the result. If the node
+   *     element is found, **err** is **undefined** and **data** is the node element that matches the specified query
+   *     focus element type; otherwise, an error object is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -808,7 +885,7 @@ export declare interface AccessibilityElement {
   findElement(type: 'focusType', condition: FocusType, callback: AsyncCallback<AccessibilityElement>): void;
 
   /**
-   * Finds an element based on the focus type. This API uses a promise to return the result.
+   * Finds a node element based on the focus element type. This API uses a promise to return the result.
    *
    * @param { 'focusType' } type - Type of element finding. The value is fixed at **'focusType'**.
    * @param { FocusType } condition - Focus type.
@@ -824,11 +901,15 @@ export declare interface AccessibilityElement {
   findElement(type: 'focusType', condition: FocusType): Promise<AccessibilityElement>;
 
   /**
-   * Finds an element based on the focus direction. This API uses an asynchronous callback to return the result.
+   * Finds a node element based on the next focus element direction. This API uses an asynchronous callback to return 
+   * the result.
    *
-   * @param { 'focusDirection' } type - Type of element finding. The value is fixed at **'focusDirection'**.
-   * @param { FocusDirection } condition - Direction of the next focus element.
-   * @param { AsyncCallback<AccessibilityElement> } callback - Callback used to return the result.
+   * @param { 'focusDirection' } type - Fixed value **'focusDirection'**, representing the query type as the direction
+   *     of the next focus element of the node.
+   * @param { FocusDirection } condition - Direction for querying the next focus element.
+   * @param { AsyncCallback<AccessibilityElement> } callback - Callback invoked to return the result. If the node
+   *     element is found successfully, **err** is **undefined** and **data** is the node element that meets the
+   *     specified direction for querying the next focus element; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -840,7 +921,7 @@ export declare interface AccessibilityElement {
   findElement(type: 'focusDirection', condition: FocusDirection, callback: AsyncCallback<AccessibilityElement>): void;
 
   /**
-   * Finds an element based on the focus direction. This API uses a promise to return the result.
+   * Finds a node element based on the next focus element direction. This API uses a promise to return the result.
    *
    * @param { 'focusDirection' } type - Type of element finding. The value is fixed at **'focusDirection'**.
    * @param { FocusDirection } condition - Focus direction.
@@ -856,12 +937,14 @@ export declare interface AccessibilityElement {
   findElement(type: 'focusDirection', condition: FocusDirection): Promise<AccessibilityElement>;
 
   /**
-   * Finds all node elements based on the **accessibilityTextHint** text type configured for a node. This API uses a 
-   * promise to return the result.
+   * Searches for all node elements based on the accessibility text type configured in the component's 
+   * accessibilityTextHint attribute. This API uses a promise to return the result.
    *
-   * @param { 'textType' } type - Type of element finding. The value is fixed at **'textType'**.
-   * @param { string } condition - Search criteria.
-   * @returns { Promise<Array<AccessibilityElement>> } Promise used to return the result.
+   * @param { 'textType' } type - Fixed to 'textType', indicating that elements are searched by text type.
+   * @param { string } condition - Accessibility text type condition for the search. All node elements whose
+   *     accessibilityTextHint attribute matches this text type will be returned.
+   * @returns { Promise<Array<AccessibilityElement>> } Promise used to return all node elements that match the specified
+   *     accessibility text type.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -885,12 +968,17 @@ export declare interface AccessibilityElement {
   findElementByTextType(condition: string): Promise<Array<AccessibilityElement>>;
 
   /**
-   * Finds the node element of the current active window based on the element ID. This API uses a promise to return the 
-   * result.
+   * Queries the node element in the current active window based on the element ID. This API uses a promise to return 
+   * the result.
+   * 
+   * This method and [findElementById]{@link AccessibilityElement.findElementById} both find a node element by element 
+   * ID. They are functionally equivalent. It is recommended to use findElementById.
    *
-   * @param { 'elementId' } type - Type of element finding. The value is fixed at **'elementId'**.
-   * @param { long } condition - **elementId** of the node element.
-   * @returns { Promise<AccessibilityElement> } Promise used to return the result.
+   * @param { 'elementId' } type - Fixed value **'elementId'**, indicating that the node element in the current active
+   *     window is queried by element ID.
+   * @param { long } condition - Element ID of the node element to query.
+   * @returns { Promise<AccessibilityElement> } Promise used to return the result, which is the node element that meets
+   *     the specified query condition.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -914,8 +1002,8 @@ export declare interface AccessibilityElement {
   findElementByElementId(condition: long): Promise<AccessibilityElement>;
 
   /**
-   * Whether the element is focused for accessibility purposes. The value **true** indicates that the element is focused
-   * , and **false** indicates the opposite.
+   * Whether the element gains focus for accessibility purposes. The value **true** indicates that the element has 
+   * gained focus, and **false** indicates the opposite.
    * 
    * Default value: **false**.
    *
@@ -925,7 +1013,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   accessibilityFocused?: boolean;
-
   /**
    * Bundle name.
    *
@@ -935,7 +1022,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   bundleName?: string;
-
   /**
    * Whether the element is checkable. The value **true** indicates that the element is checkable, and **false** 
    * indicates the opposite.
@@ -948,7 +1034,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   checkable?: boolean;
-
   /**
    * Whether the element is checked. The value **true** indicates that the element is checked, and **false** indicates 
    * the opposite.
@@ -961,7 +1046,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   checked?: boolean;
-
   /**
    * Whether the element is clickable. The value **true** indicates that the element is clickable, and **false** 
    * indicates the opposite.
@@ -974,7 +1058,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   clickable?: boolean;
-
   /**
    * ID of the component to which the element belongs.
    * 
@@ -986,7 +1069,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   componentId?: long;
-
   /**
    * Type of the component to which the element belongs.
    *
@@ -996,9 +1078,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   componentType?: string;
-
   /**
-   * Content displayed in the element.
+   * Content displayed by the element. Default value: empty array.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1006,7 +1087,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   contents?: Array<string>;
-
   /**
    * Index of the current item.
    * 
@@ -1018,7 +1098,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   currentIndex?: int;
-
   /**
    * Description of the element.
    *
@@ -1028,7 +1107,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   description?: string;
-
   /**
    * Whether the element is editable. The value **true** indicates that the element is editable, and **false** indicates
    * the opposite.
@@ -1041,7 +1119,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   editable?: boolean;
-
   /**
    * Index of the last list item displayed on the screen.
    * 
@@ -1053,9 +1130,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   endIndex?: int;
-
   /**
-   * Error status of the element.
+   * Error state of the element.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1063,10 +1139,9 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   error?: string;
-
   /**
-   * Whether the element is focusable. The value **true** indicates that the element is focusable, and **false** 
-   * indicates the opposite.
+   * Whether the element can gain focus (here it refers to accessibility focus, which is different from input focus). 
+   * The value **true** indicates that the element can gain focus, and **false** indicates the opposite.
    * 
    * Default value: **false**.
    *
@@ -1076,7 +1151,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   focusable?: boolean;
-
   /**
    * Hint text.
    *
@@ -1086,9 +1160,10 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   hintText?: string;
-
   /**
-   * Type of the input text.
+   * Type of the input text. Different values correspond to different input modes: **0** indicates no specific type; 
+   * **1** indicates text; **2** indicates email; **3** indicates date; **4** indicates time; **5** indicates number; 
+   * **6** indicates password; **7** indicates phone number; **8** indicates username; **9** indicates new password.
    * 
    * Default value: **0**.
    *
@@ -1098,7 +1173,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   inputType?: int;
-
   /**
    * Inspector key.
    *
@@ -1108,7 +1182,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   inspectorKey?: string;
-
   /**
    * Whether the element is active. The value **true** indicates that the element is active, and **false** indicates the
    * opposite.
@@ -1121,7 +1194,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   isActive?: boolean;
-
   /**
    * Whether the element is enabled. The value **true** indicates that the element is enabled, and **false** indicates 
    * the opposite.
@@ -1134,7 +1206,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   isEnable?: boolean;
-
   /**
    * Whether the element is a hint. The value **true** indicates that the element is a hint, and **false** indicates the
    * opposite.
@@ -1147,10 +1218,9 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   isHint?: boolean;
-
   /**
-   * Whether the element is focused. The value **true** indicates that the element is focused, and **false** indicates 
-   * the opposite.
+   * Whether the element has gained focus (here it refers to accessibility focus, which is different from input focus). 
+   * The value **true** indicates that the element has gained focus, and **false** indicates the opposite.
    * 
    * Default value: **false**.
    *
@@ -1160,7 +1230,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   isFocused?: boolean;
-
   /**
    * Whether the element is a password. The value **true** indicates that the element is a password, and **false** 
    * indicates the opposite.
@@ -1173,7 +1242,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   isPassword?: boolean;
-
   /**
    * Whether the element is visible. The value **true** indicates that the element is visible, and **false** indicates 
    * the opposite.
@@ -1186,7 +1254,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   isVisible?: boolean;
-
   /**
    * Total number of items.
    * 
@@ -1198,9 +1265,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   itemCount?: int;
-
   /**
-   * Last item.
+   * Content of the last item.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1208,7 +1274,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   lastContent?: string;
-
   /**
    * Display layer of the element.
    *
@@ -1218,9 +1283,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   layer?: int;
-
   /**
-   * Whether the element can be long-pressed. The value **true** indicates that the element can be long-pressed, and 
+   * Whether the element is long-clickable. The value **true** indicates that the element is long-clickable, and 
    * **false** indicates the opposite.
    * 
    * Default value: **false**.
@@ -1231,7 +1295,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   longClickable?: boolean;
-
   /**
    * Page ID.
    * 
@@ -1243,10 +1306,9 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   pageId?: int;
-
   /**
-   * Whether the element supports multiple lines of text. The value **true** indicates that the element supports 
-   * multiple lines of text, and **false** indicates the opposite.
+   * Whether the element supports multi-line text. The value **true** indicates that the element supports multi-line 
+   * text, and **false** indicates the opposite.
    * 
    * Default value: **false**.
    *
@@ -1256,9 +1318,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   pluralLineSupported?: boolean;
-
   /**
-   * Rectangular area for the element.
+   * Area of the element.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1266,7 +1327,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   rect?: Rect;
-
   /**
    * Resource name of the element.
    *
@@ -1276,9 +1336,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   resourceName?: string;
-
   /**
-   * Rectangular area for the element to display.
+   * Display area of the element.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1286,10 +1345,10 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   screenRect?: Rect;
-
   /**
    * Whether the element is scrollable. The value **true** indicates that the element is scrollable, and **false** 
-   * indicates the opposite.
+   * indicates the opposite. When the value conflicts with that of accessibilityScrollable, the value of 
+   * accessibilityScrollable prevails.
    * 
    * Default value: **false**.
    *
@@ -1299,7 +1358,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   scrollable?: boolean;
-
   /**
    * Whether the element is selected. The value **true** indicates that the element is selected, and **false** indicates
    * the opposite.
@@ -1312,9 +1370,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   selected?: boolean;
-
   /**
-   * Index of the first item on the screen.
+   * Index of the first list item on the screen.
    * 
    * Default value: **0**.
    *
@@ -1324,9 +1381,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   startIndex?: int;
-
   /**
-   * Text content of an element.
+   * Text content of the element.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1334,9 +1390,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   text?: string;
-
   /**
-   * Maximum text length of an element.
+   * Maximum text length of the element. Default value: **0**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1344,9 +1399,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   textLengthLimit?: int;
-
   /**
-   * Movement unit for traversing and reading text.
+   * Movement unit for text reading.
    * 
    * Default value: **char**.
    *
@@ -1356,7 +1410,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   textMoveUnit?: accessibility.TextMoveUnit;
-
   /**
    * Action that triggers the element event.
    *
@@ -1366,9 +1419,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   triggerAction?: AccessibilityAction;
-
   /**
-   * Window type of an element.
+   * Window type of the element.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1376,7 +1428,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   type?: WindowType;
-
   /**
    * Maximum value.
    * 
@@ -1388,7 +1439,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   valueMax?: double;
-
   /**
    * Minimum value.
    * 
@@ -1400,7 +1450,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   valueMin?: double;
-
   /**
    * Current value.
    * 
@@ -1412,7 +1461,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   valueNow?: double;
-
   /**
    * Window ID.
    * 
@@ -1424,10 +1472,9 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   windowId?: int;
-
   /**
-   * Pixel offset of the content area relative to the top coordinate of a scrollable component (such as List and Grid). 
-   * The unit is pixel (px).
+   * Pixel offset of the content area relative to the top coordinate of the scrollable component (such as List and Grid
+   * ), in pixels (px).
    * 
    * Default value: **0**.
    *
@@ -1437,10 +1484,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   offset?: double;
-
   /**
-   * Accessibility text type of an element, which is configured by the **accessibilityTextHint** attribute of the 
-   * component.
+   * Accessibility text type of the element, configured by the accessibilityTextHint attribute of the component.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1448,9 +1493,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   textType?: string;
-
   /**
-   * Accessibility text information of an element.
+   * Accessibility text information of the element.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1458,9 +1502,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   accessibilityText?: string;
-
   /**
-   * Custom accessibility state broadcast text of an element.
+   * Custom accessibility state announcement text of the element.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1468,10 +1511,9 @@ export declare interface AccessibilityElement {
    * @since 23 dynamic&static
    */
   accessibilityStateDescription?: string;
-
   /**
-   * Whether the element is mandatory for the user. The value **true** indicates that the element is mandatory, and the 
-   * value **false** indicates that the element is not mandatory. The default value is **false**.
+   * Whether the element is essential to the user. The value **true** indicates that the element is essential, and 
+   * **false** indicates the opposite. Default value: **false**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1479,9 +1521,8 @@ export declare interface AccessibilityElement {
    * @since 26.0.0 dynamic&static
    */
   isEssential?: boolean;
-
   /**
-   * Component tree ID that the element belongs to. The default value is **-1**.
+   * ID of the component tree to which the element belongs. Default value: **-1**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1489,9 +1530,8 @@ export declare interface AccessibilityElement {
    * @since 26.0.0 dynamic&static
    */
   belongTreeId?: int;
-
   /**
-   * Child component tree ID of the element. The default value is **-1**.
+   * ID of the child component tree of the element. Default value: **-1**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1499,9 +1539,8 @@ export declare interface AccessibilityElement {
    * @since 26.0.0 dynamic&static
    */
   childrenTreeId?: int;
-
   /**
-   * Hot area of an element.
+   * Touchable area of the element.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1509,9 +1548,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   hotArea?: Rect;
-
   /**
-   * Custom component type.
+   * Custom component type. Corresponds to the [AccessibilityRoleType]{@link ./../@internal/component/ets/common:AccessibilityRoleType} type of the element.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1519,9 +1557,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   customComponentType?: string;
-
   /**
-   * ID of the next component to obtain the focus.
+   * ID of the next component to gain focus.
    * 
    * Default value: **-1**.
    *
@@ -1531,9 +1568,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   accessibilityNextFocusId?: long;
-
   /**
-   * ID of the previous component to obtain the focus.
+   * ID of the previous component to gain focus.
    * 
    * Default value: **-1**.
    *
@@ -1543,9 +1579,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   accessibilityPreviousFocusId?: long;
-
   /**
-   * Additional information about an element. The value is a JSON string.
+   * Extra information of the element. The value is a JSON string.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1553,14 +1588,14 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   extraInfo?: string;
-
   /**
-   * Whether the element can be scrolled for accessibility purposes. This attribute has a higher priority than 
-   * **scrollable**.
+   * Whether the element is scrollable for accessibility purposes. This attribute has a higher priority than scrollable.
+   * That is, when the value of accessibilityScrollable conflicts with that of scrollable, the value of 
+   * accessibilityScrollable prevails.
    * 
    * The value **true** indicates that the element is scrollable, and **false** indicates the opposite.
    * 
-   * Default value: **true**.
+   * Default value: **false**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1568,9 +1603,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   accessibilityScrollable?: boolean;
-
   /**
-   * Supported action names.
+   * Supported action names. Default value: empty array.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1578,7 +1612,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   supportedActionNames?: Array<string>;
-
   /**
    * Whether the element is an accessibility group. The value **true** indicates that the element is an accessibility 
    * group, and **false** indicates the opposite.
@@ -1591,19 +1624,18 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   accessibilityGroup?: boolean;
-
   /**
-   * Accessibility level of a component.
+   * Accessibility level of the component.
    * 
-   * **auto**: The accessibility grouping service and ArkUI jointly determine whether the current component can be 
-   * identified by accessibility services.
+   * **'auto'**: The accessibility grouping service and ArkUI jointly determine whether the component can be recognized 
+   * by accessibility.
    * 
-   * **yes**: The component can be identified by accessibility services.
+   * **'yes'**: The component can be recognized by accessibility.
    * 
-   * **no**: The component cannot be identified by accessibility services.
+   * **'no'**: The component cannot be recognized by accessibility.
    * 
-   * **no-hide-descendants**: The current component and all its child components cannot be identified by accessibility 
-   * services.
+   * **'no-hide-descendants'**: The component and all its child components cannot be recognized by accessibility. 
+   * Default value: **'auto'**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1611,9 +1643,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   accessibilityLevel?: string;
-
   /**
-   * Destination ID of a component for navigation.
+   * Navigation destination ID of the component. Default value: **-1**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1621,7 +1652,6 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   navDestinationId?: long;
-
   /**
    * Current item in the component grid.
    *
@@ -1631,9 +1661,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   currentItem?: AccessibilityGrid;
-
   /**
-   * Span array of a component.
+   * Array of accessibility hyperlink text information of the component. Default value: empty array.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1641,10 +1670,9 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   spans?: AccessibilitySpan[];
-
   /**
-   * Whether the component is visible for accessibility purposes. The value **true** indicates that the component is 
-   * visible, and **false** indicates the opposite.
+   * Whether the component is visible for accessibility. The value **true** indicates that the component is visible, and
+   * **false** indicates the opposite. Default value: **true**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1652,9 +1680,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   accessibilityVisible?: boolean;
-
   /**
-   * Main window ID of a component.
+   * Main window ID of the component. Default value: **-1**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1662,10 +1689,9 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   mainWindowId?: int;
-
   /**
-   * Whether the component needs to be clipped. The value **true** indicates that the component needs to be clipped, and
-   * **false** indicates the opposite.
+   * Whether the component needs clipping. The value **true** indicates that clipping is needed, and **false** indicates
+   * the opposite. Default value: **false**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1673,9 +1699,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   clip?: boolean;
-
   /**
-   * Parent element ID of a component.
+   * Parent element ID of the component. Default value: **-1**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1683,9 +1708,8 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   parentId?: long;
-
   /**
-   * List of child element IDs of a component.
+   * List of child element IDs of the component. Default value: empty array.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1693,18 +1717,18 @@ export declare interface AccessibilityElement {
    * @since 23 static
    */
   childrenIds?: Array<long>;
-
   /**
-   * Indicates the custom actions supported by the component.
+   * List of custom actions supported by the element.
+   *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   customActions?: Array<string>;
-
   /**
-   * Indicates the source of this element.
+   * Source type of the component, used to distinguish default components from newly added or modified virtual 
+   * components.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1713,13 +1737,16 @@ export declare interface AccessibilityElement {
    */
   sourceType?: AccessibilitySourceType;
 
-/**
-   * Executes a specific action based on the specified action type and input parameters. This API uses a promise to 
-   * return the result.
+  /**
+   * Performs an action on an accessibility node element based on the action type and parameters specified. This API 
+   * uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { AccessibilityAction } action - Executable action for the accessibility node.
-   * @param { Parameter } parameters - Parameters set for the action. This parameter is left empty by default.
+   * @param { AccessibilityAction } action - Action that can be performed on the accessibility node.
+   * @param { Parameter } parameters - Parameter value set when performing the action. This parameter is passed when
+   *     performing actions that require additional parameter configuration (such as SET_SELECTION, SET_CURSOR_POSITION,
+   *     etc.); it is not required when performing parameterless actions (such as CLICK, etc.). Defaults to empty if not
+   *     passed.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
@@ -1736,7 +1763,7 @@ export declare interface AccessibilityElement {
    * Obtains the parent element of an accessibility node. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @returns { Promise<AccessibilityElement> } Promise used to return the result.
+   * @returns { Promise<AccessibilityElement> } Promise used to return the parent element of the current element.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1748,10 +1775,11 @@ export declare interface AccessibilityElement {
   getParent(): Promise<AccessibilityElement>;
 
   /**
-   * Obtains the child elements of an element. This API uses a promise to return the result.
+   * Obtains the list of child elements of this element. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @returns { Promise<Array<AccessibilityElement>> } Promise used to return the result.
+   * @returns { Promise<Array<AccessibilityElement>> } Promise used to return the list of child elements of the current
+   *     element.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1763,10 +1791,10 @@ export declare interface AccessibilityElement {
   getChildren(): Promise<Array<AccessibilityElement>>;
 
   /**
-   * Obtains the root element of an active window. This API uses a promise to return the result.
+   * Obtains the root element of the active window. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @returns { Promise<AccessibilityElement> } Promise used to return the result.
+   * @returns { Promise<AccessibilityElement> } Promise used to return the root element of the active window.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1778,11 +1806,14 @@ export declare interface AccessibilityElement {
   getRoot(): Promise<AccessibilityElement>;
 
   /**
-   * Finds elements based on the content. This API uses a promise to return the result.
+   * Searches for node elements by their content text, and returns all node elements that contain the specified text. 
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { string } condition - Content.
-   * @returns { Promise<Array<AccessibilityElement>> } Promise used to return the result.
+   * @param { string } condition - Content text of the element to find. After this parameter is set, all node elements
+   *     that contain this text content are returned.
+   * @returns { Promise<Array<AccessibilityElement>> } Promise used to return the result. The value is a list of
+   *     elements that contain the specified content.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1795,11 +1826,18 @@ export declare interface AccessibilityElement {
   findElementByContent(condition: string): Promise<Array<AccessibilityElement>>;
 
   /**
-   * Finds elements based on the focus direction. This API uses a promise to return the result.
+   * Searches for an element based on the focus direction. This API uses a promise to return the result.
+   * 
+   * Compared with 
+   * [findElementsByCondition]{@link AccessibilityElement.findElementsByCondition(rule: FocusRule, condition: FocusCondition)},
+   * this method is mainly used to search for web components, while findElementsByCondition is mainly used to search for
+   * UI components.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { FocusDirection } condition - Focus direction.
-   * @returns { Promise<AccessibilityElement> } Promise used to return the result.
+   * @param { FocusDirection } condition - Focus direction, which specifies the search direction for finding elements.
+   *     For example, 'forward' indicates forward search and 'backward' indicates backward search.
+   * @returns { Promise<AccessibilityElement> } Promise used to return the result. The element in the specified focus
+   *     direction.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1812,12 +1850,14 @@ export declare interface AccessibilityElement {
   findElementByFocusDirection(condition: FocusDirection): Promise<AccessibilityElement>;
 
   /**
-   * Finds elements based on the focus direction. This API uses a promise to return the result.
+   * Searches for an element based on the focus direction and focus rule type. This API uses a promise to return the 
+   * result.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
    * @param { FocusDirection } condition - Focus direction.
-   * @param { FocusRuleType } type - Type for finding a focusable node.
-   * @returns { Promise<AccessibilityElement> } Promise used to return the result.
+   * @param { FocusRuleType } type - Focus rule type.
+   * @returns { Promise<AccessibilityElement> } Promise used to return the element that matches the focus rule type in
+   *     the specified focus direction.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1830,11 +1870,13 @@ export declare interface AccessibilityElement {
   findElementByFocusDirection(condition: FocusDirection, type: FocusRuleType): Promise<AccessibilityElement>;
 
   /**
-   * Finds elements based on the hint text. This API uses a promise to return the result.
+   * Searches for elements by hint text, and returns all node elements whose accessibilityTextHint attribute matches the
+   * text. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { string } condition - Hint text.
-   * @returns { Promise<Array<AccessibilityElement>> } Promise used to return the result.
+   * @param { string } condition - Hint text of the element to find.
+   * @returns { Promise<Array<AccessibilityElement>> } Promise used to return the list of elements with the specified
+   *     hint text.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1847,11 +1889,15 @@ export declare interface AccessibilityElement {
   findElementsByAccessibilityHintText(condition: string): Promise<Array<AccessibilityElement>>;
 
   /**
-   * Finds elements based on element ID. This API uses a promise to return the result.
+   * Searches for a node element in the active window by element ID. This API uses a promise to return the result.
+   * 
+   * This method is functionally equivalent to 
+   * [findElement('elementId')]{@link AccessibilityElement.findElement(type: 'elementId', condition: long)} and is 
+   * recommended for priority use.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { long } condition - Element ID.
-   * @returns { Promise<AccessibilityElement> } Promise used to return the result.
+   * @param { long } condition - ID of the node element to query.
+   * @returns { Promise<AccessibilityElement> } Promise used to return the element with the specified ID.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1864,12 +1910,18 @@ export declare interface AccessibilityElement {
   findElementById(condition: long): Promise<AccessibilityElement>;
 
   /**
-   * Finds a focusable node by conditions. This API uses a promise to return the result.
+   * Queries focusable nodes that meet the conditions. This API uses a promise to return the result.
+   * 
+   * Compared with 
+   * [findElementByFocusDirection]{@link AccessibilityElement.findElementByFocusDirection(condition: FocusDirection)}, 
+   * this method is mainly used to find UI components, while findElementByFocusDirection is mainly used to find Web 
+   * components.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { FocusRule } rule - Rule for checking the current node and its descendants.
-   * @param { FocusCondition } condition - Condition for finding a focusable node.
-   * @returns { Promise<FocusMoveResult> } Promise used to return the result.
+   * @param { FocusRule } rule - Rule for checking the current node and its child nodes.
+   * @param { FocusCondition } condition - Mode for querying focusable nodes.
+   * @returns { Promise<FocusMoveResult> } Promise used to return the result. The FocusMoveResult object contains the
+   *     queried accessibility node list and the query result status code.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1880,13 +1932,14 @@ export declare interface AccessibilityElement {
   findElementsByCondition(rule: FocusRule, condition: FocusCondition): Promise<FocusMoveResult>;
 
   /**
-   * Finds a focusable node by conditions. This API uses a promise to return the result.
+   * Searches for focusable nodes of the target type based on the rule and query condition. This API uses a promise to 
+   * return the result.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
-   * @param { FocusRule } rule - Rule for checking the current node and its descendants.
-   * @param { FocusCondition } condition - Condition for finding a focusable node.
-   * @param { FocusRuleType } type - Type for finding a focusable node.
-   * @returns { Promise<FocusMoveResult> } Promise used to return the result.
+   * @param { FocusRule } rule - Rule for checking the current node and its child nodes.
+   * @param { FocusCondition } condition - Method for querying focusable nodes.
+   * @param { FocusRuleType } type - Focus type.
+   * @returns { Promise<FocusMoveResult> } Promise used to return the query result object.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -1899,7 +1952,7 @@ export declare interface AccessibilityElement {
 }
 
 /**
- * Defines accessibility grid information. For details, see the currentItem attribute in 
+ * Accessibility grid information. For details, see the property currentItem in 
  * [AccessibilityElement]{@link AccessibilityElement}.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -1909,7 +1962,7 @@ export declare interface AccessibilityElement {
  */
 interface AccessibilityGrid {
   /**
-   * Row index.
+   * Grid row index.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1918,7 +1971,7 @@ interface AccessibilityGrid {
    */
   rowIndex: int;
   /**
-   * Column index.
+   * Grid column index.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1929,7 +1982,7 @@ interface AccessibilityGrid {
 }
 
 /**
- * Defines the information about the hyperlink wrapped by the span tag. For details, see the spans attribute in 
+ * Hyperlink text information for accessibility. For details, see the attribute spans in 
  * [AccessibilityElement]{@link AccessibilityElement}.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
@@ -1939,7 +1992,7 @@ interface AccessibilityGrid {
  */
 interface AccessibilitySpan {
   /**
-   * Hyperlink ID.
+   * Hyperlink text number.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1948,7 +2001,7 @@ interface AccessibilitySpan {
    */
   spanId: int;
   /**
-   * Text content of the hyperlink.
+   * Text content of the hyperlink text.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1957,7 +2010,7 @@ interface AccessibilitySpan {
    */
   spanText: string;
   /**
-   * Accessibility text of the hyperlink.
+   * Accessibility text of the hyperlink text.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1966,7 +2019,7 @@ interface AccessibilitySpan {
    */
   accessibilityText: string;
   /**
-   * Accessibility description of the hyperlink.
+   * Accessibility description of the hyperlink text.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1975,7 +2028,9 @@ interface AccessibilitySpan {
    */
   accessibilityDescription: string;
   /**
-   * Accessibility level of the hyperlink.
+   * Accessibility level of the hyperlink text. 'auto': whether the text can be identified by accessibility is 
+   * determined by the system; 'yes': can be identified by accessibility; 'no': cannot be identified by accessibility; '
+   * no-hide-descendants': the current text and its child content cannot be identified by accessibility.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1986,9 +2041,10 @@ interface AccessibilitySpan {
 }
 
 /**
- * Sets the parameter for a specific operation when the accessibility node element executes this operation. For details,
- * see [AccessibilityAction]{@link ./../@ohos.accessibility:AccessibilityAction} (executable actions for accessibility 
- * node elements).
+ * Provides parameter values for specific settings when an accessibility node element performs a specific action. 
+ * Different action types require different parameter fields. For details about the mapping between action types and 
+ * parameter fields, see [AccessibilityAction]{@link @ohos.accessibility:AccessibilityAction} (actions that can be 
+ * performed by an accessibility node element).
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -1997,7 +2053,8 @@ interface AccessibilitySpan {
  */
 export declare class Parameter {
   /**
-   * Text content of the component.
+   * Configured when executing [AccessibilityAction]{@link @ohos.accessibility:AccessibilityAction}.SET_TEXT. Text 
+   * content to set for the component.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2006,7 +2063,9 @@ export declare class Parameter {
    */
   setText?: string;
   /**
-   * Start coordinate of the selected text in the component, for example, **'2'**.
+   * Configured when executing [AccessibilityAction]{@link @ohos.accessibility:AccessibilityAction}.SET_SELECTION. Start
+   * coordinate for selecting text within the component, for example, '2'. Must be set together with selectTextEnd and 
+   * selectTextInForWard.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2015,7 +2074,9 @@ export declare class Parameter {
    */
   selectTextBegin?: string;
   /**
-   * End coordinate of the selected text in the component, for example, **'8'**.
+   * Configured when executing [AccessibilityAction]{@link @ohos.accessibility:AccessibilityAction}.SET_SELECTION. End 
+   * coordinate for selecting text within the component, for example, '8'. Must be set together with selectTextBegin and
+   * selectTextInForWard.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2024,8 +2085,9 @@ export declare class Parameter {
    */
   selectTextEnd?: string;
   /**
-   * Whether to forward select the text within the component. The value **true** indicates to forward select the text, 
-   * and the value **false** indicates the opposite.
+   * Configured when executing [AccessibilityAction]{@link @ohos.accessibility:AccessibilityAction}.SET_SELECTION. 
+   * Whether to select forward when selecting text within the component. The value true means forward selection, and 
+   * false means backward selection. Must be set together with selectTextBegin and selectTextEnd.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2034,7 +2096,8 @@ export declare class Parameter {
    */
   selectTextInForWard?: boolean;
   /**
-   * Cursor offset, for example, **'1'**.
+   * Configured when executing [AccessibilityAction]{@link @ohos.accessibility:AccessibilityAction}.SET_CURSOR_POSITION.
+   * Character offset for setting the cursor, for example, '1'.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2043,7 +2106,8 @@ export declare class Parameter {
    */
   offset?: string;
   /**
-   * ID of the hyperlink wrapped by the span tag.
+   * Configured when executing [AccessibilityAction]{@link @ohos.accessibility:AccessibilityAction}.SPAN_CLICK. Text ID 
+   * for tapping the hyperlink text.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2052,7 +2116,9 @@ export declare class Parameter {
    */
   spanId?: string;
   /**
-   * Scroll type of the component. The options are **'fullScreen'** and **'halfScreen'**.
+   * Configured when executing [AccessibilityAction]{@link @ohos.accessibility:AccessibilityAction}.SCROLL_FORWARD or 
+   * SCROLL_BACKWARD. Component scroll type. The value 'fullScreen' means full-screen scrolling, and 'halfScreen' means 
+   * half-screen scrolling.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2061,7 +2127,8 @@ export declare class Parameter {
    */
   scrollType?: string;
   /**
-   * Injection action.
+   * Sets the injected action type. Configured when executing 
+   * [AccessibilityAction]{@link @ohos.accessibility:AccessibilityAction}.INJECT_ACTION.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2070,7 +2137,8 @@ export declare class Parameter {
    */
   injectActionType?: InjectActionType;
   /**
-   * Indicates the action for AccessibilityAction.EXECUTE_CUSTOM_ACTION.
+   * Configured when executing [AccessibilityAction]{@link @ohos.accessibility:AccessibilityAction}.
+   * EXECUTE_CUSTOM_ACTION. Name of the custom action.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2079,7 +2147,8 @@ export declare class Parameter {
    */
   customAction?: string;
   /**
-   * Indicates the scene for AccessibilityAction.ACCESSIBILITY_FOCUS.
+   * Configured when executing [AccessibilityAction]{@link @ohos.accessibility:AccessibilityAction}.ACCESSIBILITY_FOCUS.
+   * Accessibility focus scenario.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2098,10 +2167,8 @@ export declare class Parameter {
  */
 export interface ElementAttributeValues {
   /**
-   * Whether the element is focused for accessibility purposes. The value **true** indicates that the element is focused
-   * , and **false** indicates the opposite.
-   * 
-   * Default value: **false**.
+   * Whether the element is in the accessibility focus state. The value **true** indicates that the element is in the 
+   * accessibility focus state, and **false** indicates the opposite. The default value is **false**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -2116,9 +2183,7 @@ export interface ElementAttributeValues {
   bundleName: string;
   /**
    * Whether the element is checkable. The value **true** indicates that the element is checkable, and **false** 
-   * indicates the opposite.
-   * 
-   * Default value: **false**.
+   * indicates the opposite. The default value is **false**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -2126,9 +2191,7 @@ export interface ElementAttributeValues {
   checkable: boolean;
   /**
    * Whether the element is checked. The value **true** indicates that the element is checked, and **false** indicates 
-   * the opposite.
-   * 
-   * Default value: **false**.
+   * the opposite. The default value is **false**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -2161,8 +2224,7 @@ export interface ElementAttributeValues {
    */
   componentId: long;
   /**
-   * Type of the component to which the element belongs, for example, **Button** for the button component and **Image** 
-   * for the image component.
+   * Component type of the element, for example, 'Button' for the Button component and 'Image' for the Image component.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -2176,9 +2238,7 @@ export interface ElementAttributeValues {
    */
   contents: Array<string>;
   /**
-   * Index of the current item. 
-   * 
-   * Default value: **0**.
+   * Index of the current item. The value range is greater than or equal to 0. The default value is **0**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -2202,9 +2262,8 @@ export interface ElementAttributeValues {
    */
   editable: boolean;
   /**
-   * Index of the last list item displayed on the screen. 
-   * 
-   * Default value: **0**.
+   * List index of the last displayed item on the screen. The value range is greater than or equal to 0. The default 
+   * value is **0**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -2235,9 +2294,10 @@ export interface ElementAttributeValues {
    */
   hintText: string;
   /**
-   * Type of the input text. 
-   * 
-   * Default value: **0**.
+   * Type of the input text. Different values correspond to different input modes: **0** indicates no specific type; 
+   * **1** indicates text; **2** indicates email; **3** indicates date; **4** indicates time; **5** indicates number; 
+   * **6** indicates password; **7** indicates phone number; **8** indicates username; **9** indicates new password. The
+   * default value is **0**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -2311,23 +2371,21 @@ export interface ElementAttributeValues {
    */
   isVisible: boolean;
   /**
-   * Total number of items. 
-   * 
-   * Default value: **0**.
+   * Total number of items. The value range is greater than or equal to 0. The default value is **0**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    */
   itemCount: int;
   /**
-   * Last content.
+   * Content of the last item in a list or scrollable control.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    */
   lastContent: string;
   /**
-   * Display layer of the element.
+   * Display layer of the element. The value range is greater than or equal to 0. The default value is **0**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -2335,18 +2393,14 @@ export interface ElementAttributeValues {
   layer: int;
   /**
    * Whether the element is long-clickable. The value **true** indicates that the element is long-clickable, and 
-   * **false** indicates the opposite.
-   * 
-   * Default value: **false**.
+   * **false** indicates the opposite. The default value is **false**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    */
   longClickable: boolean;
   /**
-   * Page ID. 
-   * 
-   * Default value: **-1**.
+   * Page ID. The default value is **-1**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -2370,7 +2424,7 @@ export interface ElementAttributeValues {
    */
   pluralLineSupported: boolean;
   /**
-   * Area of the element.
+   * Rectangular area of the element, including position and size information.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -2384,7 +2438,7 @@ export interface ElementAttributeValues {
    */
   resourceName: string;
   /**
-   * Root element of the window element.
+   * Root node element of the window element.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -2399,9 +2453,8 @@ export interface ElementAttributeValues {
   screenRect: Rect;
   /**
    * Whether the element is scrollable. The value **true** indicates that the element is scrollable, and **false** 
-   * indicates the opposite.
-   * 
-   * Default value: **false**.
+   * indicates the opposite. The default value is **false**. In accessibility mode, when the values of 
+   * accessibilityScrollable and scrollable conflict, the accessibilityScrollable attribute takes precedence.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -2418,9 +2471,8 @@ export interface ElementAttributeValues {
    */
   selected: boolean;
   /**
-   * Index of the first list item on the screen. 
-   * 
-   * Default value: **0**.
+   * List index of the first item on the screen. The value range is greater than or equal to 0. The default value is 
+   * **0**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -2434,7 +2486,8 @@ export interface ElementAttributeValues {
    */
   text: string;
   /**
-   * Maximum text length of the element.
+   * Maximum length limit of the element text. The value range is greater than or equal to 0. The default value is 
+   * **0**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
@@ -2523,7 +2576,7 @@ export interface ElementAttributeValues {
    */
   accessibilityText: string;
   /**
-   * Custom accessibility state broadcast text of an element.
+   * Custom accessibility status announcement text information of the element.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2539,95 +2592,72 @@ export interface ElementAttributeValues {
    */
   hotArea: Rect;
   /**
-   * ID of the next component to be focused on. You can use **findElement('elementId')** to obtain the value of this 
-   * attribute set on the component from the **AccessibilityElementInfo** object. 
-   * 
-   * Default value: **-1**.
+   * ID of the next component to be focused. This attribute value set by the user on the control can be obtained from 
+   * the AccessibilityElement object queried through findElement('elementId'). The default value is **-1**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 18 dynamiconly
    */
   accessibilityNextFocusId?: long;
   /**
-   * Custom component type. It corresponds to 
-   * [AccessibilityRoleType Enumeration Description]{@link ./../@internal/component/ets/common:AccessibilityRoleType} of
-   * the element.
+   * Custom component type. Corresponds to the [AccessibilityRoleType]{@link ./../@internal/component/ets/common:AccessibilityRoleType} of the element. The 
+   * default value is an empty string.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 18 dynamiconly
    */
   customComponentType?: string;
   /**
-   * Extended attributes, which are used to define the attributes of specific components, including:
+   * Extended attribute used to define properties of specific components. The default value is an empty string. It 
+   * includes:
    * 
-   * - **CheckboxGroupSelectedStatus**: selection status of the **CheckboxGroup** component. The options are as follows:
-   * 
-   * **0**: selected
-   * 
-   * **1**: partially selected
-   * 
-   * **2**: not selected
-   * 
-   * - **Row**: row where a focused item is located in **Grid**.
-   * - **Column**: column where a focused item is located in **Grid**.
-   * - **ListItemIndex**: row where a focused item is located in **List**.
-   * - **SideBarContainerStates**: expansion state of the expandable components (such as **SideBarContainer** and 
-   * **Select**). The options are as follows:
-   * 
-   * **0**: collapsed
-   * 
-   * **1**: expanded
-   * 
-   * - **ToggleType**: type of the **Toggle** component. The options are as follows:
-   * 
-   * **0**: checkbox
-   * 
-   * **1**: switch
-   * 
-   * **2**: button
-   * 
-   * - **BindSheet**: position of the **BindSheet** component on the screen. The options are as follows:
-   * 
-   * **0**: high
-   * 
-   * **1**: middle
-   * 
-   * **2**: low
-   * 
-   * - **hasRegisteredHover**: whether the component has registered the **onAccessibilityHover** event callback. The 
-   * value **1** indicates that the component has registered the event callback; otherwise, this field is not used.
-   * - **direction**: layout direction of the **List** component. The value can be **vertical** or **horizontal**.
-   * - **expandedState**: expanded state of list items in the **List** component. The value can be **expanded** or 
-   * **collapsed**.
-   * - **componentTypeDescription**: detailed information about the component type.
+   * - CheckboxGroupSelectedStatus: indicates the selection state of the CheckboxGroup component, where **0** indicates 
+   * selected, **1** indicates partially selected, and **2** indicates unselected.
+   * - Row: row information of the focused item in the Grid component, indicating the row number of the item.
+   * - Column: column information of the focused item in the Grid component, indicating the column number of the item.
+   * - ListItemIndex: row information of the focused item in the List component, indicating the row number of the 
+   * current item.
+   * - SideBarContainerStates: indicates the expanded state of expandable components (SideBarContainer, Select), where 
+   * **0** indicates collapsed and **1** indicates expanded.
+   * - ToggleType: indicates the specific type of the Toggle component, where **0** indicates Checkbox, **1** indicates 
+   * Switch, and **2** indicates Button.
+   * - BindSheet: indicates the display height state of the BindSheet half-modal dialog box component, where **0** 
+   * indicates large height display state, **1** indicates medium height display state, and **2** indicates small height
+   * display state.
+   * - hasRegisteredHover: indicates whether the component has registered the onAccessibilityHover event callback. The 
+   * value **1** indicates that the component has registered the event callback. This field is not used if the callback 
+   * is not registered.
+   * - direction: indicates the layout direction of the List component, where "vertical" indicates vertical and "
+   * horizontal" indicates horizontal.
+   * - expandedState: indicates the expanded state of a ListItem in the List component, where "expanded" indicates 
+   * expanded and "collapsed" indicates collapsed.
+   * - componentTypeDescription: detailed information about the component type, serving as a supplementary description 
+   * for componentType.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 18 dynamiconly
    */
   extraInfo?: string;
   /**
-   * ID of the previous component to be focused on. You can use **findElement('elementId')** to obtain the value of this
-   * attribute set on the component from the **AccessibilityElementInfo** object. 
-   * 
-   * Default value: **-1**.
+   * ID of the previously focused component. This attribute value set by the user on the control can be obtained from 
+   * the AccessibilityElement object queried through findElement('elementId'). The default value is **-1**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 18 dynamiconly
    */
   accessibilityPreviousFocusId?: long;
   /**
-   * Whether an element is scrollable for accessibility. This attribute has a higher priority than **scrollable**. 
-   * 
-   * - **true** (default): the element is scrollable.
-   * - **false**: the element is not scrollable.
+   * Whether the element is scrollable in accessibility mode. This attribute takes precedence over scrollable, meaning 
+   * the accessibilityScrollable attribute value prevails. The value **true** indicates scrollable, and **false** 
+   * indicates not scrollable. The default value is **true**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 18 dynamiconly
    */
   accessibilityScrollable?: boolean;
   /**
-   * Whether the element is mandatory for the user. The value **true** indicates that the element is mandatory, and the 
-   * value **false** indicates that the element is not mandatory. The default value is **false**.
+   * Whether the element is essential to the user. The value **true** means the element is essential, and **false** 
+   * means the opposite. The default value is **false**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2636,7 +2666,7 @@ export interface ElementAttributeValues {
    */
   isEssential?: boolean;
   /**
-   * Component tree ID that the element belongs to. The default value is **-1**.
+   * ID of the component tree to which the element belongs. The default value is **-1**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2646,7 +2676,7 @@ export interface ElementAttributeValues {
   belongTreeId?: int;
 
   /**
-   * Child component tree ID of the element. The default value is **-1**.
+   * ID of the child component tree of the element. The default value is **-1**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2655,7 +2685,7 @@ export interface ElementAttributeValues {
    */
   childrenTreeId?: int;
   /**
-   * Position of the current element in the grid.
+   * Current item in the component grid.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2664,7 +2694,7 @@ export interface ElementAttributeValues {
    */
   currentItem?: AccessibilityGrid;
   /**
-   * Array of the row and column ranges spanned by the element in the grid layout.
+   * Array of hyperlink text information of the element.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2673,7 +2703,7 @@ export interface ElementAttributeValues {
    */
   span?: AccessibilitySpan[];
   /**
-   * ID of the child component of the element.
+   * List of child component IDs of the element.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2700,8 +2730,8 @@ export interface ElementAttributeValues {
    */
   mainWindowId?: int;
   /**
-   * Whether the element is accessibility visible. **true** means the element is accessibility visible and **false** 
-   * means the element is accessibility invisible. The default value is **true**.
+   * Whether the element is accessibility visible. The value **true** means the element is accessibility visible, and 
+   * **false** means the opposite. The default value is **true**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2710,7 +2740,7 @@ export interface ElementAttributeValues {
    */
   accessibilityVisible?: boolean;
   /**
-   * ID of the navigation target associated with the element. The default value is **-1**.
+   * ID of the navigation destination associated with the element. The default value is **-1**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2719,7 +2749,8 @@ export interface ElementAttributeValues {
    */
   navDestinationId?: long;
   /**
-   * Indicates the custom actions supported by the component.
+   * List of custom actions supported by the element.
+   *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
    * @stagemodelonly
@@ -2727,7 +2758,8 @@ export interface ElementAttributeValues {
    */
   customActions?: Array<string>;
   /**
-   * Indicates the source of this element.
+   * Source type of the component, used to distinguish default components from newly added or modified virtual 
+   * components.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2738,7 +2770,7 @@ export interface ElementAttributeValues {
 }
 
 /**
- * Defines the **AccessibilityVirtualNode**.
+ * Defines an accessibility virtual node.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -2747,8 +2779,7 @@ export interface ElementAttributeValues {
  */
 export declare interface AccessibilityVirtualNode {
   /**
-   * ID of the accessibility virtual node.
-   * Default value: **-1**.
+   * Custom virtual node ID of the element.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2757,7 +2788,7 @@ export declare interface AccessibilityVirtualNode {
    */
   virtualNodeId: long;
   /**
-   * Text of the accessibility virtual node.
+   * Text content of the element.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2766,7 +2797,7 @@ export declare interface AccessibilityVirtualNode {
    */
   text?: string;
   /**
-   * Accessibility text information of an accessibility virtual node.
+   * Accessibility text information of the element.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2775,8 +2806,10 @@ export declare interface AccessibilityVirtualNode {
    */
   accessibilityText?: string;
   /**
-   * Whether the accessibility virtual node is an accessibility group.
-   * The value **true** indicates that the element is an accessibility group, and **false** indicates the opposite.
+   * Whether the element is an accessibility group. The value true indicates that the element is an accessibility group,
+   * and false indicates that the element is not an accessibility group.
+   * 
+   * Default value: true.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2785,7 +2818,16 @@ export declare interface AccessibilityVirtualNode {
    */
   accessibilityGroup?: boolean;
   /**
-   * This property determines whether the component can be recognized by accessibility services.
+   * Accessibility level of the component.
+   * 
+   * 'auto': The accessibility grouping service and ArkUI jointly determine whether the component can be identified by 
+   * accessibility.
+   * 
+   * 'yes': The component can be identified by accessibility.
+   * 
+   * 'no': The component cannot be identified by accessibility.
+   * 
+   * 'no-hide-descendants': The component and all its child components cannot be identified by accessibility.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2794,7 +2836,7 @@ export declare interface AccessibilityVirtualNode {
    */
   accessibilityLevel?: string;
   /**
-   * Area of the accessibility virtual node.
+   * Area of the element (relative to the parent node).
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2803,8 +2845,10 @@ export declare interface AccessibilityVirtualNode {
    */
   rect?: Rect;
   /**
-   * Whether the accessibility virtual node is checkable. The value **true** indicates that the node is checkable,
-   * and **false** indicates the opposite.
+   * Whether the element is checkable. The value true indicates that the element is checkable, and false indicates that 
+   * the element is not checkable.
+   * 
+   * Default value: false.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2813,8 +2857,10 @@ export declare interface AccessibilityVirtualNode {
    */
   checkable?: boolean;
   /**
-   * Whether the accessibility virtual node is checked. The value **true** indicates that the node is checked,
-   * and **false** indicates the opposite.
+   * Whether the element is checked. The value true indicates that the element is checked, and false indicates that the 
+   * element is not checked.
+   * 
+   * Default value: false.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2823,8 +2869,10 @@ export declare interface AccessibilityVirtualNode {
    */
   checked?: boolean;
   /**
-   * Whether the accessibility virtual node is clickable. The value **true** indicates that the node is clickable,
-   * and **false** indicates the opposite.
+   * Whether the element is clickable. The value true indicates that the element is clickable, and false indicates that 
+   * the element is not clickable.
+   * 
+   * Default value: false.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2833,8 +2881,10 @@ export declare interface AccessibilityVirtualNode {
    */
   clickable?: boolean;
   /**
-   * Whether the accessibility virtual node is enabled. The value **true** indicates that the node is enabled,
-   * and **false** indicates the opposite.
+   * Whether the element is enabled. The value true indicates that the element is enabled, and false indicates that the 
+   * element is not enabled.
+   * 
+   * Corresponds to the isEnable attribute of AccessibilityElement. Default value: false.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2843,8 +2893,10 @@ export declare interface AccessibilityVirtualNode {
    */
   enabled?: boolean;
   /**
-   * Whether the accessibility virtual node is selected. The value **true** indicates that the node is selected,
-   * and **false** indicates the opposite.
+   * Whether the element is selected. The value true indicates that the element is selected, and false indicates that 
+   * the element is not selected.
+   * 
+   * Default value: false.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2853,7 +2905,7 @@ export declare interface AccessibilityVirtualNode {
    */
   selected?: boolean;
   /**
-   * Component type of the accessibility virtual node.
+   * Custom component type.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2862,7 +2914,7 @@ export declare interface AccessibilityVirtualNode {
    */
   customComponentType?: string;
   /**
-   * Click position of the accessibility virtual node.
+   * Simulated touch position.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2871,8 +2923,10 @@ export declare interface AccessibilityVirtualNode {
    */
   touchPosition?: TouchPosition;
   /**
-   * Whether the accessibility virtual node is focused for accessibility purposes.
-   * The value **true** indicates that the element is focused, and **false** indicates the opposite.
+   * Whether the element has gained focus for accessibility purposes. The value true indicates that the element has 
+   * gained focus, and false indicates that the element has not gained focus.
+   * 
+   * Default value: false.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2881,7 +2935,7 @@ export declare interface AccessibilityVirtualNode {
    */
   accessibilityFocused?: boolean;
   /**
-   * Parent element id of the accessibility element.
+   * Parent element ID of the component.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2890,7 +2944,7 @@ export declare interface AccessibilityVirtualNode {
    */
   parentId?: long;
   /**
-   * List of child accessibility virtual node ids of a component.
+   * List of child element IDs of the component.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2899,7 +2953,9 @@ export declare interface AccessibilityVirtualNode {
    */
   childNodeIds?: Array<long>;
   /**
-   * The id of accessibility element.
+   * ID of the component to which the element belongs.
+   * 
+   * Default value: -1.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -2934,17 +2990,20 @@ export declare interface AccessibilityVirtualNode {
 export type FocusDirection = 'up' | 'down' | 'left' | 'right' | 'forward' | 'backward';
 
 /**
- * Defines a condition for querying the focusable node.
+ * Describes the method for querying focusable nodes.
  *
- * @unionmember { 'forward' } Queries the next focusable node. The value is fixed at **'forward'**.
- * @unionmember { 'backward' } Queries the next focusable node. The value is fixed at **'backward'**.
- * @unionmember { 'findLast' } Queries the last child node of the start node. The value is fixed at **'findLast'**.
- * @unionmember { 'getForwardScrollAncestor' } Queries the parent component that supports forward scrolling. The value
- *     is fixed at **'getForwardScrollAncestor'**.
- * @unionmember { 'getBackwardScrollAncestor' } Queries the parent component that supports backward scrolling. The value
- *     is fixed at **'getBackwardScrollAncestor'**.
- * @unionmember { 'getScrollableAncestor' } Queries the parent component that supports scrolling in any direction. The
- *     value is fixed at **'getScrollableAncestor'**.
+ * @unionmember { 'forward' } The next focusable node after the current node. The value is fixed to the 'forward'
+ *     string.
+ * @unionmember { 'backward' } The previous focusable node before the current node. The value is fixed to the 'backward'
+ *     string.
+ * @unionmember { 'findLast' } The last node among the child nodes of the starting node. The value is fixed to the '
+ *     findLast' string.
+ * @unionmember { 'getForwardScrollAncestor' } The scrollable parent component that supports forward scrolling. The
+ *     value is fixed to the 'getForwardScrollAncestor' string.
+ * @unionmember { 'getBackwardScrollAncestor' } The scrollable parent component that supports backward scrolling. The
+ *     value is fixed to the 'getBackwardScrollAncestor' string.
+ * @unionmember { 'getScrollableAncestor' } The scrollable parent component that supports scrolling in any direction.
+ *     The value is fixed to the 'getScrollableAncestor' string.
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
  * @since 23 dynamic&static
@@ -2974,15 +3033,17 @@ export type FocusType = 'accessibility' | 'normal';
 export type WindowType = 'application' | 'system';
 
 /**
- * Defines a focus rule for determining the start node and its descendants when searching for a focusable node.
+ * Describes how to determine the focus capability of the starting node and its child nodes when searching for focusable
+ * nodes.
  *
- * @unionmember { 'bypassSelf' } Checks only the descendants of the start node. The value is fixed at **'bypassSelf'**.
- * @unionmember { 'bypassSelfDescendants' } Skips the check on the start node and all its descendants. The value is
- *     fixed at **'bypassSelfDescendants'**.
- * @unionmember { 'checkSelf' } Checks whether the start node is focusable. If yes, use this node; otherwise, checks its
- *     descendants. The value is fixed at **'checkSelf'**.
- * @unionmember { 'checkSelfBypassDescendants' } Checks whether the start node is focusable. If yes, use this node;
- *     otherwise, skips the check on all its descendants. The value is fixed at **'checkSelfBypassDescendants'**.
+ * @unionmember { 'bypassSelf' } Skips the check on the starting node and only checks its child nodes. The value is
+ *     fixed to the 'bypassSelf' string.
+ * @unionmember { 'bypassSelfDescendants' } Skips the check on the starting node and all its child nodes. The value is
+ *     fixed to the 'bypassSelfDescendants' string.
+ * @unionmember { 'checkSelf' } Checks whether the starting node can gain focus first. If yes, uses it directly; if not,
+ *     continues to check its child nodes. The value is fixed to the 'checkSelf' string.
+ * @unionmember { 'checkSelfBypassDescendants' } Checks whether the starting node can gain focus first. If yes, uses it;
+ *     if not, skips the check on all child nodes. The value is fixed to the 'checkSelfBypassDescendants' string.
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
  * @since 23 dynamic&static
@@ -3033,7 +3094,7 @@ export interface Rect {
 }
 
 /**
- * Queries the return value type of the target accessibility nodes.
+ * Return value type of the accessibility node query.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -3041,7 +3102,7 @@ export interface Rect {
  */
 export declare interface FocusMoveResult {
   /**
-   * Target accessibility nodes.
+   * List of accessibility nodes returned by the query.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -3050,7 +3111,7 @@ export declare interface FocusMoveResult {
   target: Array<AccessibilityElement>;
 
   /**
-   * Type of the return value.
+   * Result type of the accessibility node query.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -3060,7 +3121,7 @@ export declare interface FocusMoveResult {
 }
 
 /**
- * Indicates touch position of accessibility virtual node.
+ * Touch tap position.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @systemapi
@@ -3069,8 +3130,7 @@ export declare interface FocusMoveResult {
  */
 export declare interface TouchPosition {
   /**
-   * X coordinate of the touch position on the virtual accessibility node, in pixels (px).
-   * Unit: px, The value range is all integers.
+   * X-coordinate of the tap position, in px.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -3079,8 +3139,7 @@ export declare interface TouchPosition {
    */
   x: int;
   /**
-   * Y coordinate of the touch position on the virtual accessibility node, in pixels (px).
-   * Unit: px, The value range is all integers.
+   * Y-coordinate of the tap position, in px.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi

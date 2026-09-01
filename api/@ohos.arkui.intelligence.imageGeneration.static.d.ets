@@ -26,6 +26,7 @@ import { UIContext } from './@ohos.arkui.UIContext';
 import type Want from './@ohos.app.ability.Want';
 import { Resource } from './global/resource';
 import { ResourceStr } from './@ohos.arkui.component';
+import common from './@ohos.app.ability.common';
 
 /**
  * Module for AI-generated images using UI Component.
@@ -902,6 +903,17 @@ declare namespace imageGeneration {
      * @since 26.0.0 static
      */
     minimizeDuringGeneration?: boolean;
+   /**
+     * Whether to recover from cache for AI image generation.
+     * The persistent cache file is used to store configuration parameters for AI image generation.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    recoverFromCache?: boolean;
    }
 
    /**
@@ -968,7 +980,7 @@ declare namespace imageGeneration {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   function closeGeneratorDialog(uiContext: UIContext): Promise<void>;
   /**
@@ -994,13 +1006,26 @@ declare namespace imageGeneration {
    */
   function restoreGeneratorDialog(uiContext: UIContext): Promise<void>;
   /**
+   * Start the smart canvas service.
+   *
+   * @param { common.ServiceExtensionContext | common.UIAbilityContext | common.UIExtensionContext } context - different
+   *     ability context.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 static
+   */
+  function startSmartCanvasService(
+    context: common.ServiceExtensionContext | common.UIAbilityContext | common.UIExtensionContext): Promise<void>;
+  /**
    * Parameters used to open the NodeGraphComponent.
    *
    * @interface GeneratorNodeGraphOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   interface GeneratorNodeGraphOptions {
     /**
@@ -1010,7 +1035,7 @@ declare namespace imageGeneration {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     customIcons?: Array<GeneratorResultPageIcon>;
     /**
@@ -1020,7 +1045,7 @@ declare namespace imageGeneration {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     imageGenerationModel?: ImageGenerationModel;
     /**
@@ -1030,7 +1055,7 @@ declare namespace imageGeneration {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     textGenerationModel?: TextGenerationModel;
     /**
@@ -1063,7 +1088,7 @@ declare namespace imageGeneration {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   function openGeneratorNodeGraph(uiContext: UIContext, options?: GeneratorNodeGraphOptions): Promise<void>;
 
@@ -1075,7 +1100,7 @@ declare namespace imageGeneration {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   function closeGeneratorNodeGraph(uiContext: UIContext): Promise<void>;
   /**
@@ -1100,6 +1125,17 @@ declare namespace imageGeneration {
    * @since 26.0.0 static
    */
   function restoreGeneratorNodeGraph(uiContext: UIContext): Promise<void>;
+  /**
+   * Whether to recover from cache for AI image generation.
+   * The persistent cache file is used to store configuration parameters for AI image generation.
+   *
+   * @type { ?boolean }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  recoverFromCache?: boolean;
 }
 
 export default imageGeneration;

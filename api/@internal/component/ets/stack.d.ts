@@ -43,7 +43,7 @@ declare interface StackOptions {
    * @crossplatform [since 10]
    * @form [since 9]
    * @atomicservice [since 11]
-   * @since 18 dynamic
+   * @since 7 dynamic
    */
   alignContent?: Alignment;
 }

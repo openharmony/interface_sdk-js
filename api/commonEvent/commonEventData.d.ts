@@ -23,7 +23,10 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * Describes the data of a common event.
+ * Describes the data of a common event. The **CommonEventData** module is used to carry the common event data
+ * received by subscribers in common event subscription scenarios. The data includes the event name, publisher
+ * bundle name, code, data, and additional parameters. This module is applicable to scenarios where apps
+ * subscribe to and process common events and parse the data carried in the events.
  *
  * @syscap SystemCapability.Notification.CommonEvent
  * @crossplatform [since 11]
@@ -44,9 +47,10 @@ export interface CommonEventData {
   event: string;
 
   /**
-   * Bundle name. The default value is an empty string.
+   * Bundle name of the common event publisher. The default value is an empty string.
    *
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 7 dynamic
    * @since 23 static
@@ -55,12 +59,14 @@ export interface CommonEventData {
 
   /**
    * Common event data received by the subscriber. The value of this field is the same as that of the **code** field in 
-   * [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} when the publisher uses 
-   * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
-   * to publish a common event. The default value is **0**.
+   * [CommonEventPublishData]{@link commonEventPublishData.CommonEventPublishData} when the publisher uses 
+   * [commonEventManager.publish]{@link ../@ohos.commonEventManager:commonEventManager.publish}
+   * to publish a common event. The value ranges from –2147483648 to 2147483647.
+   * The default value is **0**.
    *
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 7 dynamic
    * @since 23 static
@@ -68,9 +74,10 @@ export interface CommonEventData {
   code?: int;
 
   /**
-   * Common event data received by the subscriber. The value of this field is the same as that of the **data** field in 
-   * [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} when the publisher uses 
-   * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
+   * Common event data received by the subscriber. The data size cannot exceed 64 KB.
+   * The value of this field is the same as that of the **data** field in
+   * [CommonEventPublishData]{@link commonEventPublishData.CommonEventPublishData} when the publisher uses
+   * [commonEventManager.publish]{@link ../@ohos.commonEventManager:commonEventManager.publish}
    * to publish a common event.
    *
    * @syscap SystemCapability.Notification.CommonEvent
@@ -83,12 +90,13 @@ export interface CommonEventData {
 
   /**
    * Additional information about the common event received by the subscriber. The value of this field is the same as 
-   * that of the **parameters** field in [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} 
+   * that of the **parameters** field in [CommonEventPublishData]{@link commonEventPublishData.CommonEventPublishData} 
    * when the publisher uses 
-   * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
+   * [commonEventManager.publish]{@link ../@ohos.commonEventManager:commonEventManager.publish}
    * to publish a common event.
    *
    * @syscap SystemCapability.Notification.CommonEvent
+   * @crossplatform [since 26.1.0]
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
@@ -98,7 +106,7 @@ export interface CommonEventData {
    * Additional information about the common event received by the subscriber. The value of this field is the same as 
    * that of the **parameters** field in [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} 
    * when the publisher uses 
-   * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
+   * [commonEventManager.publish]{@link ../@ohos.commonEventManager:commonEventManager.publish}
    * to publish a common event.
    *
    * @syscap SystemCapability.Notification.CommonEvent

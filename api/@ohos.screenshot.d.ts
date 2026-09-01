@@ -34,7 +34,9 @@ declare namespace screenshot {
    * Obtains a screenshot. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
-   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22]
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 24]
+   * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CAPTURE_SCREEN or
+   *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.0.0]
    * @param { ScreenshotOptions } options - Information about the snapshot. If the screen to capture is a virtual screen
    *     , the snapshot is a white screen.
    * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return a PixelMap object. The size of the
@@ -56,7 +58,9 @@ declare namespace screenshot {
    * Obtains a screenshot. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
-   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22]
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 24]
+   * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CAPTURE_SCREEN or
+   *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.0.0]
    * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return a PixelMap object.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -72,7 +76,9 @@ declare namespace screenshot {
    * Obtains a screenshot. This API uses a promise to return the result.
    *
    * @permission ohos.permission.CAPTURE_SCREEN [since 7 - 21]
-   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22]
+   * @permission ohos.permission.CAPTURE_SCREEN or ohos.permission.CUSTOM_SCREEN_RECORDING [since 22 - 24]
+   * @permission ohos.permission.CUSTOM_SCREEN_CAPTURE or ohos.permission.CAPTURE_SCREEN or
+   *     ohos.permission.CUSTOM_SCREEN_RECORDING [since 26.0.0]
    * @param { ScreenshotOptions } options - Information about the snapshot. If the screen to capture is a virtual screen
    *     , the snapshot is a white screen. [since 7 - 21]
    * @param { ScreenshotOptions } [options] - Information about the snapshot. If the screen to capture is a virtual
@@ -112,8 +118,7 @@ declare namespace screenshot {
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-   *     capabilities.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400001 - Invalid display or screen.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @throws { BusinessError } 1400004 - Parameter error. Possible cause: 1.Invalid parameter range.
@@ -143,7 +148,7 @@ declare namespace screenshot {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Incorrect parameter types.
    *     2.Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
@@ -158,7 +163,7 @@ declare namespace screenshot {
    * uses a promise to return the result.
    *
    * @returns { Promise<PickInfo> } Promise used to return the PickInfo object.
-   * @throws { BusinessError } 801 - Capability not supported on this device.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1400003 - This display manager service works abnormally.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
    * @atomicservice
@@ -207,7 +212,7 @@ declare namespace screenshot {
    */
   interface Rect {
     /**
-     * Left boundary of the screen region to capture, in px. The value must be an integer.
+     * Left boundary of the screen region to capture, in px. The value must be a non-negative integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -217,7 +222,7 @@ declare namespace screenshot {
     left: long;
 
     /**
-     * Top boundary of the screen region to capture, in px. The value must be an integer.
+     * Top boundary of the screen region to capture, in px. The value must be a non-negative integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -227,7 +232,7 @@ declare namespace screenshot {
     top: long;
 
     /**
-     * Width of the screen region to capture, in px. The value must be an integer.
+     * Width of the screen region to capture, in px. The value must be a positive integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -237,7 +242,7 @@ declare namespace screenshot {
     width: long;
 
     /**
-     * Height of the screen region to capture, in px. The value must be an integer.
+     * Height of the screen region to capture, in px. The value must be a positive integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
@@ -257,7 +262,7 @@ declare namespace screenshot {
    */
   interface Size {
     /**
-     * Width of the screen region to capture, in px. The value must be an integer.
+     * Width of the screen region to capture, in px. The value must be a positive integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -267,7 +272,7 @@ declare namespace screenshot {
     width: long;
 
     /**
-     * Height of the screen region to capture, in px. The value must be an integer.
+     * Height of the screen region to capture, in px. The value must be a positive integer.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
@@ -288,7 +293,7 @@ declare namespace screenshot {
   interface CaptureOption {
     /**
      * ID of the [display]{@link @ohos.display:display.DisplayState} to capture. The default value is **0**. The value
-     * must be an integer greater than or equal to 0. If a non-integer is passed, a parameter error is reported.
+     * must be an integer greater than or equal to 0. If a non-integer is passed, error code 401 is reported.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice

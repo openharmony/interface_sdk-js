@@ -1298,7 +1298,7 @@ declare namespace util {
    *
    * @returns { string } Return a stack trace of main thread.
    * @syscap SystemCapability.Utils.Lang
-   * @since 24 static
+   * @since 26.0.0 static
    */
   function getMainThreadStackTrace(): string;
 

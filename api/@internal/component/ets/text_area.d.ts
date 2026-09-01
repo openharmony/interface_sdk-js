@@ -31,6 +31,12 @@
  * [setStyledPlaceholder]{@link TextContentControllerBase#setStyledPlaceholder}, and
  * [deleteBackward]{@link TextContentControllerBase#deleteBackward}.
  *
+ * ###### Objects to Import
+ *
+ * ```ts
+ * controller: TextAreaController = new TextAreaController();
+ * ```
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full [since 10]
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -284,9 +290,12 @@ declare enum TextAreaType {
 declare type TextAreaSubmitCallback = (enterKeyType: EnterKeyType, event?: SubmitEvent) => void;
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * In addition to the
+ * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
+ * attributes are supported.
  *
- * In addition to the [universal events]{@link common}, the following events are supported.
+ * In addition to the [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md), the
+ * following events are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -554,20 +563,6 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   onSubmit(callback: (enterKey: EnterKeyType) => void): TextAreaAttribute;
 
   /**
-   * Called when the Enter key on the soft keyboard is pressed, providing methods to maintain the editing state of the
-   * **TextArea** component upon submission.
-   *
-   * @param { TextAreaSubmitCallback } callback - Called when the Enter key on the soft keyboard is pressed.
-   * @returns { TextAreaAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
-   */
-  onSubmit(callback: TextAreaSubmitCallback): TextAreaAttribute;
-
-  /**
    * Called when the input in the text box changes.
    *
    * In this callback, if caret operations are performed, you must adjust the caret logic based on the **previewText**
@@ -640,8 +635,6 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   /**
    * Called before a copy operation is performed.
    *
-   * **Since**: 26.0.0
-   *
    * @param { Callback<string, boolean> } callback - Callback invoked before a copy operation. The callback parameter of
    *     the string type indicates the text content to be copied. The callback parameter of the boolean type indicates
    *     whether the selected text is allowed to be copied. **true**: The text is allowed to be copied. **false**: The
@@ -669,8 +662,6 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
 
   /**
    * Called before a cut operation is performed.
-   *
-   * **Since**: 26.0.0
    *
    * @param { Callback<string, boolean> } callback - Callback invoked before a cut operation. The callback parameter of
    *     the string type indicates the text content to be cut. The callback parameter of the boolean type indicates
@@ -885,38 +876,6 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   maxFontSize(value: number | string | Resource): TextAreaAttribute;
 
   /**
-   * Sets the minimum font scale factor for text.
-   *
-   * @param { Optional<number | Resource> } scale - Minimum font scale factor for text. The **undefined** type is
-   *     supported.<br>Value range: [0, 1]<br>**NOTE**<br>A value less than 0 is handled as **0**. A value greater than
-   *     1 is handled as **1**. Abnormal values are ineffective by default.<br>Before use, the **configuration.json**
-   *     file and **app.json5** file must be configured in the project. For details, see
-   *     [Example 17: Setting the Minimum and Maximum Font Scale Factors](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textarea.md#example-17-setting-the-minimum-and-maximum-font-scale-factors).
-   * @returns { TextAreaAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform [since 20]
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  minFontScale(scale: Optional<number|Resource>): TextAreaAttribute;
-
-  /**
-   * Sets the maximum font scale factor for text.
-   *
-   * @param { Optional<number | Resource> } scale - Maximum font scale factor for text. The **undefined** type is
-   *     supported.<br>Value range:
-   *     [1, +∞)<br>**NOTE**<br>Values less than 1 are treated as **1**. Abnormal values are ineffective by default.<br>Before use, the **configuration.json** file and **app.json5** file must be configured in the project. For details, see [Example 17: Setting the Minimum and Maximum Font Scale Factors](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textarea.md#example-17-setting-the-minimum-and-maximum-font-scale-factors).
-   * @returns { TextAreaAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform [since 20]
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  maxFontScale(scale: Optional<number|Resource>): TextAreaAttribute;
-
-  /**
    * Sets how the adaptive height is determined for the text.
    *
    * When this attribute is set to **TextHeightAdaptivePolicy.MAX_LINES_FIRST**, the
@@ -966,6 +925,22 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   maxLines(value: number): TextAreaAttribute;
 
   /**
+   * Sets the minimum number of lines displayed for the component. When
+   * [constraintSize]{@link CommonMethod#constraintSize} is set, the component's final height respects the defined
+   * constraints.
+   *
+   * @param { Optional<number> } lines - Minimum number of lines.<br>Default value: **1**<br>Value range: [1, INT32_MAX]
+   *     <br>Values less than 1 are treated as the default value.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  minLines(lines: Optional<number>): TextAreaAttribute;
+
+  /**
    * Sets the maximum number of visible lines when used with [textOverflow]{@link TextAreaAttribute#textOverflow}.
    * Excess content can be truncated or made scrollable based on configuration. Without **textOverflow**:
    *
@@ -984,22 +959,6 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 20 dynamic
    */
   maxLines(lines: number, options: MaxLinesOptions): TextAreaAttribute;
-
-  /**
-   * Sets the minimum number of lines displayed for the component. When
-   * [constraintSize]{@link CommonMethod#constraintSize} is set, the component's final height respects the defined
-   * constraints.
-   *
-   * @param { Optional<number> } lines - Minimum number of lines.<br>Default value: **1**<br>Value range: [1, INT32_MAX]
-   *     <br>Values less than 1 are treated as the default value.
-   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  minLines(lines: Optional<number>): TextAreaAttribute;
 
   /**
    * Sets the word break rule. This attribute does not take effect for the placeholder text.
@@ -1119,6 +1078,23 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 12 dynamic
    */
   lineSpacing(value: LengthMetrics): TextAreaAttribute;
+
+  /**
+   * Sets the line spacing for text. When **LineSpacingOptions** is not specified, line spacing is applied above the
+   * first line and below the last line by default.
+   *
+   * @param { LengthMetrics } value - Line spacing. Values less than or equal to 0 are treated as the default value
+   *     **0**.
+   * @param { LineSpacingOptions } options - Line spacing configuration options.<br>Default value:
+   *     **{ onlyBetweenLines: false }**.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  lineSpacing(value: LengthMetrics, options?: LineSpacingOptions): TextAreaAttribute;
 
   /**
    * Text line height. If the value is less than or equal to 0, the line height is not limited and the font size is
@@ -1278,6 +1254,32 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   onDidDelete(callback: Callback<DeleteValue>): TextAreaAttribute;
 
   /**
+   * Called when the input box is about to be bound to an input method.
+   *
+   * <!--Del-->
+   *
+   * Before the input box is bound to an input method, you can use the
+   * [setKeyboardAppearanceConfig]{@link @ohos.arkui.UIContext:UIContext#setKeyboardAppearanceConfig} API of
+   * **UIContext** to set the keyboard style.<!--DelEnd-->
+   *
+   * From API version 22, the [setExtraConfig]{@link IMEClient.setExtraConfig} method of [IMEClient]{@link IMEClient}
+   * can be called to set input method extension information. After the input method is bound, it receives this
+   * extension information which can be used to implement custom functionality.
+   *
+   * **IMEClient** is valid only during the execution of **onWillAttachIME** and cannot be called asynchronously.
+   *
+   * @param { Callback<IMEClient> | undefined } callback - Callback invoked when the input box is about to be bound to
+   *     an input method.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  onWillAttachIME(callback: Callback<IMEClient> | undefined): TextAreaAttribute;
+
+  /**
    * Sets the extended options of the custom context menu on selection, including the text content, icon, and callback.
    *
    * When
@@ -1316,6 +1318,20 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   enablePreviewText(enable: boolean): TextAreaAttribute;
 
   /**
+   * Sets the auto-capitalization text mode. This API provides the capability, but actual implementation depends on the
+   * input method application.
+   *
+   * @param { AutoCapitalizationMode } mode - Auto-capitalization mode. The default state is inactive.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  autoCapitalizationMode(mode: AutoCapitalizationMode): TextAreaAttribute;
+
+  /**
    * Specifies whether to enable haptic feedback.
    *
    * To enable haptic feedback, you must declare the **ohos.permission.VIBRATE** permission under **requestPermissions**
@@ -1333,18 +1349,64 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   enableHapticFeedback(isEnabled: boolean): TextAreaAttribute;
 
   /**
-   * Sets the auto-capitalization text mode. This API provides the capability, but actual implementation depends on the
-   * input method application.
+   * Sets the keyboard appearance for the text box. This setting takes effect only after input method adaptation. For
+   * details, see
+   * [Immersive Mode of the Input Method Application](docroot://inputmethod/inputmethod-immersive-mode-guide.md).
    *
-   * @param { AutoCapitalizationMode } mode - Auto-capitalization mode. The default state is inactive.
+   * @param { Optional<KeyboardAppearance> } appearance - Appearance of the keyboard.<br>Default value:
+   *     **KeyboardAppearance.NONE_IMMERSIVE**
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextAreaAttribute;
+
+  /**
+   * Sets the minimum font scale factor for text.
+   *
+   * @param { Optional<number | Resource> } scale - Minimum font scale factor for text. The **undefined** type is
+   *     supported.<br>Value range: [0, 1]<br>**NOTE**<br>A value less than 0 is handled as **0**. A value greater than
+   *     1 is handled as **1**. Abnormal values are ineffective by default.<br>Before use, the **configuration.json**
+   *     file and **app.json5** file must be configured in the project. For details, see
+   *     [Example 17: Setting the Minimum and Maximum Font Scale Factors](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textarea.md#example-17-setting-the-minimum-and-maximum-font-scale-factors).
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
-  autoCapitalizationMode(mode: AutoCapitalizationMode): TextAreaAttribute;
+  minFontScale(scale: Optional<number|Resource>): TextAreaAttribute;
+
+  /**
+   * Set voice button options.
+   *
+   * @param { Optional<VoiceButtonOptions> } options - Indicates the options of the voice button.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  voiceButton(options: Optional<VoiceButtonOptions>): TextAreaAttribute;
+
+  /**
+   * Sets whether to prevent the back key event from being propagated.
+   *
+   * @param { Optional<boolean> } isStopped - Whether to prevent the back button press from being propagated to other
+   *     components or applications.<br>**true**: Propagation is prevented. **false**: Propagation is allowed.<br>
+   *     Default value: **true** The default value is used for abnormal values.
+   * @returns { TextAreaAttribute } - returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 23]
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  stopBackPress(isStopped: Optional<boolean>): TextAreaAttribute;
 
   /**
    * Enables half leading for text, which splits the leading equally between the top and bottom of the line.
@@ -1380,19 +1442,19 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   ellipsisMode(mode: Optional<EllipsisMode>): TextAreaAttribute;
 
   /**
-   * Sets whether to prevent the back key event from being propagated.
+   * Sets the maximum font scale factor for text.
    *
-   * @param { Optional<boolean> } isStopped - Whether to prevent the back button press from being propagated to other
-   *     components or applications.<br>**true**: Propagation is prevented. **false**: Propagation is allowed.<br>
-   *     Default value: **true** The default value is used for abnormal values.
-   * @returns { TextAreaAttribute } - returns the instance of the TextAreaAttribute.
+   * @param { Optional<number | Resource> } scale - Maximum font scale factor for text. The **undefined** type is
+   *     supported.<br>Value range:
+   *     [1, +∞)<br>**NOTE**<br>Values less than 1 are treated as **1**. Abnormal values are ineffective by default.<br>Before use, the **configuration.json** file and **app.json5** file must be configured in the project. For details, see [Example 17: Setting the Minimum and Maximum Font Scale Factors](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textarea.md#example-17-setting-the-minimum-and-maximum-font-scale-factors).
+   * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform [since 23]
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 15 dynamic
+   * @since 18 dynamic
    */
-  stopBackPress(isStopped: Optional<boolean>): TextAreaAttribute;
+  maxFontScale(scale: Optional<number|Resource>): TextAreaAttribute;
 
   /**
    * Called when the text content is about to change.
@@ -1412,19 +1474,32 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   onWillChange(callback: Callback<EditableTextChangeValue, boolean>): TextAreaAttribute;
 
   /**
-   * Sets the keyboard appearance for the text box. This setting takes effect only after input method adaptation. For
-   * details, see
-   * [Immersive Mode of the Input Method Application](docroot://inputmethod/inputmethod-immersive-mode-guide.md).
+   * Called when the Enter key on the soft keyboard is pressed, providing methods to maintain the editing state of the
+   * **TextArea** component upon submission.
    *
-   * @param { Optional<KeyboardAppearance> } appearance - Appearance of the keyboard.<br>Default value:
-   *     **KeyboardAppearance.NONE_IMMERSIVE**
+   * @param { TextAreaSubmitCallback } callback - Called when the Enter key on the soft keyboard is pressed.
+   * @returns { TextAreaAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 14 dynamic
+   */
+  onSubmit(callback: TextAreaSubmitCallback): TextAreaAttribute;
+
+  /**
+   * Sets whether to enable automatic spacing between Chinese and Western characters.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable automatic spacing between Chinese and Western characters.<
+   *     br>**true** to enable, **false** otherwise.<br>Default value: **false**
    * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
-   * @since 15 dynamic
+   * @since 20 dynamic
    */
-  keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextAreaAttribute;
+  enableAutoSpacing(enabled: Optional<boolean>): TextAreaAttribute;
 
   /**
    * Sets the text stroke width.
@@ -1455,65 +1530,35 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   strokeColor(color: Optional<ResourceColor>): TextAreaAttribute;
 
   /**
-   * Sets whether to enable automatic spacing between Chinese and Western characters.
+   * Sets the drag preview style for text being dragged in the multi-line text box.
    *
-   * @param { Optional<boolean> } enabled - Whether to enable automatic spacing between Chinese and Western characters.<
-   *     br>**true** to enable, **false** otherwise.<br>Default value: **false**
-   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  enableAutoSpacing(enabled: Optional<boolean>): TextAreaAttribute;
-
-  /**
-   * Sets whether to enable leading punctuation compression.
-   *
-   * > **NOTE**
-   * >
-   * > - Leading punctuation is not compressed by default.
-   * >
-   * > - For the list of punctuation marks that support compression, see the punctuation range at the beginning of a
-   * > line in [ParagraphStyle]{@link @ohos.graphics.text:text.ParagraphStyle}.
-   *
-   * @param { Optional<boolean> } enabled - Whether to enable leading punctuation compression.<br>**true**: Leading
-   *     punctuation compression is enabled. **false**: Leading punctuation compression is disabled.
-   * @returns { TextAreaAttribute } - returns the instance of the TextAreaAttribute.
+   * @param { SelectedDragPreviewStyle | undefined } value - Drag preview style for text being dragged in the multi-line
+   *     text box.<br>If this parameter is set to **undefined**, the drag preview follows the theme: white in light mode
+   *     and black in dark mode.
+   * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
    */
-  compressLeadingPunctuation(enabled: Optional<boolean>): TextAreaAttribute;
+  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): TextAreaAttribute;
 
   /**
-   * Called when the input box is about to be bound to an input method.
+   * Specifies the text layout direction. If this attribute is not set, the default text layout direction follows the
+   * component layout direction.
    *
-   * <!--Del-->
-   *
-   * Before the input box is bound to an input method, you can use the
-   * [setKeyboardAppearanceConfig]{@link @ohos.arkui.UIContext:UIContext#setKeyboardAppearanceConfig} API of
-   * **UIContext** to set the keyboard style.<!--DelEnd-->
-   *
-   * From API version 22, the [setExtraConfig]{@link IMEClient.setExtraConfig} method of [IMEClient]{@link IMEClient}
-   * can be called to set input method extension information. After the input method is bound, it receives this
-   * extension information which can be used to implement custom functionality.
-   *
-   * **IMEClient** is valid only during the execution of **onWillAttachIME** and cannot be called asynchronously.
-   *
-   * @param { Callback<IMEClient> | undefined } callback - Callback invoked when the input box is about to be bound to
-   *     an input method.
+   * @param { TextDirection | undefined } direction - Text layout direction.<br>If this parameter is set to
+   *     **undefined**, the text layout direction follows the component layout direction as defined by
+   *     **TextDirection.DEFAULT**.
    * @returns { TextAreaAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 22 dynamic
+   * @since 23 dynamic
    */
-  onWillAttachIME(callback: Callback<IMEClient> | undefined): TextAreaAttribute;
+  textDirection(direction: TextDirection | undefined): TextAreaAttribute;
 
   /**
    * Sets whether to add spacing to the first and last lines to avoid text truncation. If this attribute is not set, no
@@ -1549,71 +1594,25 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
   fallbackLineSpacing(enabled: Optional<boolean>): TextAreaAttribute;
 
   /**
-   * Sets the drag preview style for text being dragged in the multi-line text box.
-   *
-   * @param { SelectedDragPreviewStyle | undefined } value - Drag preview style for text being dragged in the multi-line
-   *     text box.<br>If this parameter is set to **undefined**, the drag preview follows the theme: white in light mode
-   *     and black in dark mode.
-   * @returns { TextAreaAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): TextAreaAttribute;
-
-  /**
-   * Specifies the text layout direction. If this attribute is not set, the default text layout direction follows the
-   * component layout direction.
-   *
-   * @param { TextDirection | undefined } direction - Text layout direction.<br>If this parameter is set to
-   *     **undefined**, the text layout direction follows the component layout direction as defined by
-   *     **TextDirection.DEFAULT**.
-   * @returns { TextAreaAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  textDirection(direction: TextDirection | undefined): TextAreaAttribute;
-
-  /**
-   * Set voice button options.
-   *
-   * @param { Optional<VoiceButtonOptions> } options - Indicates the options of the voice button.
-   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  voiceButton(options: Optional<VoiceButtonOptions>): TextAreaAttribute;
-
-  /**
-   * Sets whether to enable horizontal scrolling when the text is wider than the view. If this attribute is not set,
-   * horizontal scrolling is disabled.
+   * Sets whether to enable leading punctuation compression.
    *
    * > **NOTE**
    * >
-   * > Horizontal scrolling is not supported in the following scenarios:
-   * > [inline mode](docroot://ui/arkts-common-components-text-input.md#inline-mode)<!--Del-->;
-   * > [voiceButton](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textarea-sys.md#voicebutton23) enabled<
-   * > !--DelEnd-->.
+   * > - Leading punctuation is not compressed by default.
+   * >
+   * > - For the list of punctuation marks that support compression, see the punctuation range at the beginning of a
+   * > line in [ParagraphStyle]{@link @ohos.graphics.text:text.ParagraphStyle}.
    *
-   * @param { Optional<boolean> } enabled - Whether to enable horizontal scrolling.<br>**true**: Horizontal scrolling is
-   *     enabled. **false**: Horizontal scrolling is disabled, and text is wrapped.
-   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @param { Optional<boolean> } enabled - Whether to enable leading punctuation compression.<br>**true**: Leading
+   *     punctuation compression is enabled. **false**: Leading punctuation compression is disabled.
+   * @returns { TextAreaAttribute } - returns the instance of the TextAreaAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 24 dynamic
+   * @since 23 dynamic
    */
-  horizontalScrolling(enabled: Optional<boolean>): TextAreaAttribute;
-
+  compressLeadingPunctuation(enabled: Optional<boolean>): TextAreaAttribute;
   /**
    * Sets whether to enable orphan character optimization during text layout. If this attribute is not set, orphan
    * character optimization is disabled by default.
@@ -1636,6 +1635,27 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 26.0.0 dynamic
    */
   orphanCharOptimization(enabled: Optional<boolean>): TextAreaAttribute;
+  /**
+   * Sets whether to enable horizontal scrolling when the text is wider than the view. If this attribute is not set,
+   * horizontal scrolling is disabled.
+   *
+   * > **NOTE**
+   * >
+   * > Horizontal scrolling is not supported in the following scenarios:
+   * > [inline mode](docroot://ui/arkts-common-components-text-input.md#inline-mode)<!--Del-->;
+   * > [voiceButton](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textarea-sys.md#voicebutton23) enabled<
+   * > !--DelEnd-->.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable horizontal scrolling.<br>**true**: Horizontal scrolling is
+   *     enabled. **false**: Horizontal scrolling is disabled, and text is wrapped.
+   * @returns { TextAreaAttribute } returns the instance of the TextAreaAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  horizontalScrolling(enabled: Optional<boolean>): TextAreaAttribute;
 
   /**
    * Sets the join style of the text stroke.
@@ -1690,23 +1710,6 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
    * @since 26.0.0 dynamic
    */
   punctuationOverflow(enabled: Optional<boolean>): TextAreaAttribute;
-
-  /**
-   * Sets the line spacing for text. When **LineSpacingOptions** is not specified, line spacing is applied above the
-   * first line and below the last line by default.
-   *
-   * @param { LengthMetrics } value - Line spacing. Values less than or equal to 0 are treated as the default value
-   *     **0**.
-   * @param { LineSpacingOptions } options - Line spacing configuration options.<br>Default value:
-   *     **{ onlyBetweenLines: false }**.
-   * @returns { TextAreaAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  lineSpacing(value: LengthMetrics, options?: LineSpacingOptions): TextAreaAttribute;
 }
 
 /**
@@ -1715,8 +1718,6 @@ declare class TextAreaAttribute extends CommonMethod<TextAreaAttribute> {
  *
  * If the component does not have its height set, it adapts its height to the content. If the component does not have
  * its width set, it stretches to fill the maximum available width.
- *
- * > **NOTE**
  *
  * ###### Child Components
  *

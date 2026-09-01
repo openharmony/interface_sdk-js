@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 /**
- * 以垂直列表形式显示的菜单。
+ * 以垂直列表形式显示的菜单。Menu组件支持配置菜单项、子菜单、图标、分隔线等内容，可用于展示操作选项、功能入口等场景。
  * 
  * > **说明：**
  * 
@@ -133,9 +133,9 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      */
     fontSize(value: Length): MenuAttribute;
     /**
-     * 统一设置Menu中所有文本的尺寸。
+     * 统一设置Menu中所有文本的字体样式。
      *
-     * @param { Font } value - Menu中所有文本的尺寸。<br/>默认值：<br/>{<br/>      size: 16,<br/>      family: 'HarmonyOS Sans',<br/>
+     * @param { Font } value - Menu中所有文本的字体样式。<br/>默认值：<br/>{<br/>      size: 16,<br/>      family: 'HarmonyOS Sans',<br/>
      *          weight: FontWeight.Medium,<br/>      style: FontStyle.Normal<br/>}
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -172,13 +172,11 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      */
     radius(value: Dimension | BorderRadiuses): MenuAttribute;
     /**
-     * 设置menuItem分割线样式，不设置该属性则不展示分割线。
-     * 
-     * startMargin + endMargin 超过组件宽度后startMargin和endMargin会被置0。
+     * 设置MenuItem分割线样式，不设置该属性则不展示分割线。
      *
-     * @param { DividerStyleOptions | undefined } options - 设置menuItem分割线样式。<br />-strokeWidth：分割线的线宽。<br />-color：分割线的颜
-     *     色。<br />-startMargin：分割线与menuItem侧边起始端的距离。<br />-endMargin：分割线与menuItem侧边结束端的距离。<br />-mode：分割线的模式，默认值为
-     *     FLOATING_ABOVE_MENU。
+     * startMargin + endMargin超过组件宽度后startMargin和endMargin会被置0。
+     *
+     * @param { DividerStyleOptions | undefined } options - 设置MenuItem分割线样式。<br />-strokeWidth：分割线的线宽，默认值是1px。<br />-color：分割线的颜色，默认值是#33000000。<br />-startMargin：分割线与MenuItem侧边起始端的距离，默认为16vp，单位为vp。<br />-endMargin：分割线与MenuItem侧边结束端的距离，默认为16vp，单位为vp。<br />-mode：分割线的模式，默认值为FLOATING_ABOVE_MENU。<br />startMargin + endMargin超过组件宽度后startMargin和endMargin会被置0。
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -188,11 +186,9 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      */
     menuItemDivider(options: DividerStyleOptions | undefined): MenuAttribute;
     /**
-     * 设置menuItemGroup上下分割线的样式，不设置该属性则默认展示分割线。
+     * 设置MenuItemGroup顶部和底部分割线的样式，不设置该属性则默认展示分割线。
      *
-     * @param { DividerStyleOptions | undefined } options - 设置menuItemGroup顶部和底部分割线样式。<br />-strokeWidth：分割线的线宽，默认值是1px。
-     *     <br />-color：分割线的颜色，默认值是 #33000000。<br />-startMargin：分割线与menuItemGroup侧边起始端的距离，默认为16vp，单位为vp。<br />-
-     *     endMargin：分割线与menuItemGroup侧边结束端的距离，默认为16vp，单位为vp。<br />-mode：分割线的模式，默认值为FLOATING_ABOVE_MENU。
+     * @param { DividerStyleOptions | undefined } options - 设置MenuItemGroup顶部和底部分割线样式。<br />-strokeWidth：分割线的线宽，默认值是1px。<br />-color：分割线的颜色，默认值是#33000000。<br />-startMargin：分割线与MenuItemGroup侧边起始端的距离，默认为16vp，单位为vp。<br />-endMargin：分割线与MenuItemGroup侧边结束端的距离，默认为16vp，单位为vp。<br />-mode：分割线的模式，默认值为FLOATING_ABOVE_MENU。<br />startMargin + endMargin超过组件宽度后startMargin和endMargin会被置0。
      * @returns { MenuAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -214,7 +210,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
      */
     subMenuExpandingMode(mode: SubMenuExpandingMode): MenuAttribute;
     /**
-     * 设置Menu子菜单展开符号。
+     * 设置Menu子菜单展开符号。仅在SubMenuExpandingMode.EMBEDDED_EXPAND或SubMenuExpandingMode.STACK_EXPAND模式下显示，SubMenuExpandingMode.SIDE_EXPAND模式下不显示。
      *
      * @param { SymbolGlyphModifier } symbol - Menu子菜单展开符号。<br/>1、子菜单的展开样式为SubMenuExpandingMode.SIDE_EXPAND时，不显示展开符号。<br
      *     />2、子菜单的展开样式为SubMenuExpandingMode.EMBEDDED_EXPAND时，展开时展开符号会顺时针旋转180°。<br/>默认值：
@@ -231,7 +227,7 @@ declare class MenuAttribute extends CommonMethod<MenuAttribute> {
 }
 
 /**
- * 以垂直列表形式显示的菜单。
+ * 以垂直列表形式显示的菜单。Menu组件支持配置菜单项、子菜单、图标、分隔线等内容，可用于展示操作选项、功能入口等场景。
  * 
  * > **说明：**
  * 

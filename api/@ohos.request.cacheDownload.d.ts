@@ -30,8 +30,9 @@ import { Callback } from './@ohos.base';
  * files in the application sandbox directory.
  * - The cached data can be used by specific ArkUI components (such as **Image**) to improve resource loading 
  * efficiency. Check whether the ArkUI components support this function by referring to the ArkUI component topics.
- *
+ * 
  * @syscap SystemCapability.Request.FileTransferAgent
+ * @crossplatform [since 26.1.0]
  * @since 18 dynamic
  * @since 23 static
  */
@@ -40,6 +41,7 @@ declare namespace cacheDownload {
      * Enumerates secure communication protocols.
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 21 dynamic
      * @since 23 static
      */
@@ -48,6 +50,7 @@ declare namespace cacheDownload {
          * TLS.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 21 dynamic
          * @since 23 static
          */
@@ -56,6 +59,7 @@ declare namespace cacheDownload {
          * TLCP.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 21 dynamic
          * @since 23 static
          */
@@ -66,6 +70,7 @@ declare namespace cacheDownload {
      * Enumerates cache update strategies.
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     enum CacheStrategy {
@@ -73,6 +78,7 @@ declare namespace cacheDownload {
          * Forcibly updates the cache, regardless of whether the cache already exists.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 23 dynamic&static
          */
         FORCE = 0,
@@ -80,6 +86,7 @@ declare namespace cacheDownload {
          * Updates the cache only when the cache does not exist.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 23 dynamic&static
          */
         LAZY = 1,
@@ -89,6 +96,7 @@ declare namespace cacheDownload {
      * Enumerates the specific types of returned error code.
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     enum ErrorCode {  
@@ -96,6 +104,7 @@ declare namespace cacheDownload {
          * Other types of errors that are not classified.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 23 dynamic&static
          */
         OTHERS = 0xFF,
@@ -104,6 +113,7 @@ declare namespace cacheDownload {
          * DNS-related errors.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 23 dynamic&static
          */
         DNS = 0x00,
@@ -112,6 +122,7 @@ declare namespace cacheDownload {
          * TCP-related errors.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 23 dynamic&static
          */
         TCP = 0x10,
@@ -120,6 +131,7 @@ declare namespace cacheDownload {
          * SSL-related errors.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 23 dynamic&static
          */
         SSL = 0x20,
@@ -128,6 +140,7 @@ declare namespace cacheDownload {
          * HTTP-related errors.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 23 dynamic&static
          */
         HTTP = 0x30,
@@ -138,6 +151,7 @@ declare namespace cacheDownload {
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @stagemodelonly
+     * @crossplatform [since 26.1.0]
      * @since 26.0.0 dynamic&static
      */
     interface TimeoutOptions {  
@@ -151,6 +165,7 @@ declare namespace cacheDownload {
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @stagemodelonly
+       * @crossplatform [since 26.1.0]
        * @since 26.0.0 dynamic&static
        */
       networkCheckTimeout?: int;
@@ -162,6 +177,7 @@ declare namespace cacheDownload {
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @stagemodelonly
+       * @crossplatform [since 26.1.0]
        * @since 26.0.0 dynamic&static
        */
       httpTotalTimeout?: int;
@@ -172,6 +188,7 @@ declare namespace cacheDownload {
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @stagemodelonly
+     * @crossplatform [since 26.1.0]
      * @since 26.0.0 dynamic&static
      */
     interface RetryOptions {
@@ -184,6 +201,7 @@ declare namespace cacheDownload {
        *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @stagemodelonly
+       * @crossplatform [since 26.1.0]
        * @since 26.0.0 dynamic&static
        */
       maxRetryCount?: int;
@@ -194,6 +212,7 @@ declare namespace cacheDownload {
      * options.
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 18 dynamic
      * @since 23 static
      */
@@ -202,6 +221,7 @@ declare namespace cacheDownload {
          * Request header used by a download task during HTTP transfer. The default value is empty.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 18 dynamic
          * @since 23 static
          */
@@ -211,6 +231,7 @@ declare namespace cacheDownload {
          * support two-way authentication.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 21 dynamic
          * @since 23 static
          */
@@ -220,6 +241,7 @@ declare namespace cacheDownload {
          * system is used by default.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 21 dynamic
          * @since 23 static
          */
@@ -228,6 +250,7 @@ declare namespace cacheDownload {
          * Cache update strategies, including **FORCE** or **LAZY**. The **FORCE** policy is used by default.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 23 dynamic&static
          */
         cacheStrategy?: CacheStrategy;
@@ -236,6 +259,7 @@ declare namespace cacheDownload {
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @stagemodelonly
+         * @crossplatform [since 26.1.0]
          * @since 26.0.0 dynamic&static
          */
         retry?: RetryOptions;
@@ -244,6 +268,7 @@ declare namespace cacheDownload {
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @stagemodelonly
+         * @crossplatform [since 26.1.0]
          * @since 26.0.0 dynamic&static
          */
         timeout?: TimeoutOptions;
@@ -253,6 +278,7 @@ declare namespace cacheDownload {
      * Describes the pre-downloaded resource information.
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 20 dynamic
      * @since 23 static
      */
@@ -262,6 +288,7 @@ declare namespace cacheDownload {
          * resource is successfully downloaded; if the value is **-1**, the resource fails to be downloaded.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -272,6 +299,7 @@ declare namespace cacheDownload {
      * Describes the pre-downloaded network information.
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 20 dynamic
      * @since 23 static
      */
@@ -280,6 +308,7 @@ declare namespace cacheDownload {
          * DNS servers used for downloading resources.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -289,6 +318,7 @@ declare namespace cacheDownload {
          * undefined.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 23 dynamic&static
          */
         readonly ip?: string;
@@ -298,6 +328,7 @@ declare namespace cacheDownload {
      * Describes the pre-downloaded performance information.
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 20 dynamic
      * @since 23 static
      */
@@ -306,6 +337,7 @@ declare namespace cacheDownload {
          * Time taken from DNS startup to resolution completion, in milliseconds.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -314,6 +346,7 @@ declare namespace cacheDownload {
          * Time taken from TCP startup to connection completion, in milliseconds.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -322,6 +355,7 @@ declare namespace cacheDownload {
          * Time taken from TLS startup to connection completion, in milliseconds.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -330,6 +364,7 @@ declare namespace cacheDownload {
          * Time taken from startup to sending the first byte, in milliseconds.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -338,6 +373,7 @@ declare namespace cacheDownload {
          * Time taken from startup to receiving the first byte, in milliseconds.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -346,6 +382,7 @@ declare namespace cacheDownload {
          * Time taken from startup to request completion, in milliseconds.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -354,6 +391,7 @@ declare namespace cacheDownload {
          * Time taken from startup to redirection completion, in milliseconds.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -364,6 +402,7 @@ declare namespace cacheDownload {
      * Describes the pre-downloaded download information.
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 20 dynamic
      * @since 23 static
      */
@@ -372,6 +411,7 @@ declare namespace cacheDownload {
          * Pre-downloaded resource information.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -380,6 +420,7 @@ declare namespace cacheDownload {
          * Pre-downloaded network information.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -388,6 +429,7 @@ declare namespace cacheDownload {
          * Pre-downloaded performance information.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 20 dynamic
          * @since 23 static
          */
@@ -398,6 +440,7 @@ declare namespace cacheDownload {
      * Describes the error message returned when a pre-download error occurs.
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     interface DownloadError {
@@ -405,6 +448,7 @@ declare namespace cacheDownload {
          * Specific error type returned by the pre-download error callback.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 23 dynamic&static
          */
         readonly errorCode: ErrorCode;
@@ -413,6 +457,7 @@ declare namespace cacheDownload {
          * [HTTP error code](docroot://reference/apis-network-kit/errorcode-net-http.md) is returned.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
+         * @crossplatform [since 26.1.0]
          * @since 23 dynamic&static
          */
         readonly message: string;
@@ -441,6 +486,7 @@ declare namespace cacheDownload {
      *     <br> 2. Incorrect parameter type.
      *     <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 18 dynamic
      * @since 23 static
      */
@@ -459,6 +505,7 @@ declare namespace cacheDownload {
      *     <br> 2. Incorrect parameter type.
      *     <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 18 dynamic
      * @since 23 static
      */
@@ -478,6 +525,7 @@ declare namespace cacheDownload {
      *     <br> 2. Incorrect parameter type.
      *     <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 18 dynamic
      * @since 23 static
      */
@@ -498,6 +546,7 @@ declare namespace cacheDownload {
      *     <br> 2. Incorrect parameter type.
      *     <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 18 dynamic
      * @since 23 static
      */
@@ -520,6 +569,7 @@ declare namespace cacheDownload {
      *     is successful; returns **undefined** if the specified URL does not exist.
      * @throws { BusinessError } 201 - permission denied.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 20 dynamic
      * @since 23 static
      */
@@ -537,6 +587,7 @@ declare namespace cacheDownload {
      * @param { long } size - Size of the download information list. The value ranges from 0 to 8192. The default value
      *     is **0**, indicating that no download information is stored.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 20 dynamic
      * @since 23 static
      */
@@ -546,6 +597,7 @@ declare namespace cacheDownload {
      * Clears this memory cache.
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     function clearMemoryCache(): void;
@@ -554,6 +606,7 @@ declare namespace cacheDownload {
      * Clears this file cache.
      *
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     function clearFileCache(): void;
@@ -563,6 +616,7 @@ declare namespace cacheDownload {
      * @param { string } url - Callback URL to be registered, with a maximum of 8,192 bytes.
      * @param { Callback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     function onDownloadSuccess(url: string, callback: Callback<void>): void;
@@ -574,6 +628,7 @@ declare namespace cacheDownload {
      * @param { Callback<DownloadError> } callback - Callback used to return the error information about the pre-
      *     download.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     function onDownloadError(url: string, callback: Callback<DownloadError>): void;
@@ -586,6 +641,7 @@ declare namespace cacheDownload {
      * @param { Callback<void> } [callback] - Callback to unregister. If this parameter is left blank, all completion
      *     callback functions of the URL are unregistered.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     function offDownloadSuccess(url: string, callback?: Callback<void>): void;
@@ -597,6 +653,7 @@ declare namespace cacheDownload {
      * @param { Callback<DownloadError> } [callback] - Callback used to return the error information about the pre-
      *     download. If this parameter is left blank, all error callback functions of the URL are unregistered.
      * @syscap SystemCapability.Request.FileTransferAgent
+     * @crossplatform [since 26.1.0]
      * @since 23 dynamic&static
      */
     function offDownloadError(url: string, callback?: Callback<DownloadError>): void;
@@ -609,6 +666,7 @@ declare namespace cacheDownload {
      *     <br>Default value: Refer to the default value of RetryOptions.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @stagemodelonly
+     * @crossplatform [since 26.1.0]
      * @since 26.0.0 dynamic&static
      */
     function setGlobalRetryOptions(options?: RetryOptions): void;
@@ -621,6 +679,7 @@ declare namespace cacheDownload {
      *     <br>Default value: Refer to the default value of TimeoutOptions.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @stagemodelonly
+     * @crossplatform [since 26.1.0]
      * @since 26.0.0 dynamic&static
      */
     function setGlobalTimeoutOptions(options?: TimeoutOptions): void;

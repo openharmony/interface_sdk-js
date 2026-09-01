@@ -18,53 +18,50 @@
  */
 import { OperationOption } from '@ohos.arkui.advanced.SubHeader';
 /**
- * Callback when the Select option is clicked.
+ * Called when an item in the drop-down list box is selected.
  *
- * @typedef { function } OnSelectCallback
- * @param { number } index - Indicates the index of the selected item.
- * @param { string } [selectValue] - Indicates the value of the selected item.
+ * @param { number } index - Index of the selected option. The index is zero-based.
+ * @param { string } [selectValue] - Value of the selected option.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
  */
 declare type OnSelectCallback = (index: number, selectValue: string) => void;
 /**
- * Callback when text is pasted into the search box.
+ * Called when a paste operation is performed.
  *
- * @typedef { function } OnPasteCallback
- * @param { string } pasteValue - Indicates the text content to be pasted.
- * @param { PasteEvent } event - Indicates a user-defined paste event.
+ * @param { string } pasteValue - Text to be pasted.
+ * @param { PasteEvent } event - Custom paste event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
  */
 declare type OnPasteCallback = (pasteValue: string, event: PasteEvent) => void;
 /**
- * Callback when the position of the cursor entered in the search box changes.
+ * Called when the position of the text selection changes or when the cursor position changes during the editing state.
  *
- * @typedef { function } OnTextSelectionChangeCallback
- * @param { number } selectionStart - Indicates the start position of the text selection area. 
- * @param { number } selectionEnd - Indicates end position of the text selection area.
+ * @param { number } selectionStart - Start position of the text to be selected.
+ * @param { number } selectionEnd - End position of the text to be selected.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
  */
 declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionEnd: number) => void;
 /**
- * Callback when the content in the search box scrolls.
+ * Called when the text content is scrolled.
  *
- * @typedef { function } OnContentScrollCallback
- * @param { number } totalOffsetX - Indicates horizontal coordinate offset of the text in the content area, in px.
- * @param { number } totalOffsetY - Indicates the vertical coordinate offset of the text in the content area, in px. 
+ * @param { number } totalOffsetX - Offset of the horizontal coordinate of the upper left corner of the text relative to
+ *     the horizontal coordinate of the upper left corner of the entire content input area.
+ * @param { number } totalOffsetY - Offset of the vertical coordinate of the upper left corner of the text relative to
+ *     the vertical coordinate of the upper left corner of the entire content input area.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
  */
 declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: number) => void;
 /**
- * Defines the InputFilter parameters.
+ * Sets regular expression for input filtering.
  *
- * @typedef InputFilterParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
@@ -73,16 +70,15 @@ export interface InputFilterParams {
   /**
    * Regular expression.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   inputFilterValue: ResourceStr;
   /**
-   * If the regular expression matching fails, the filtered content is returned.
+   * Callback used to return the filtered-out content when regular expression matching fails. Default value:
+   * **undefined**.
    *
-   * @type { ?Callback<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -90,27 +86,24 @@ export interface InputFilterParams {
   error?: Callback<string>;
 }
 /**
- * Defines the SearchButton parameters.
+ * Sets the search button located next to the search text box.
  *
- * @typedef SearchButtonParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
  */
 export interface SearchButtonParams {
   /**
-   * Indicates the text of the search button.
+   * Text on the search button located next to the search text box.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   searchButtonValue: ResourceStr;
   /**
-   * Indicates the fontSize and fontColor of the search button.
+   * Font of the search text box. Default value: **{fontSize: '16fp',fontColor: '#ff3f97e9'}**
    *
-   * @type { ?SearchButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -118,28 +111,25 @@ export interface SearchButtonParams {
   options?: SearchButtonOptions;
 }
 /**
- * Defines the MenuAlign parameters.
+ * Sets the alignment between the drop-down list button and the drop-down list box.
  *
- * @typedef MenuAlignParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
  */
 export interface MenuAlignParams {
   /**
-   * Indicates the fontSize and fontColor of the search button.
+   * Alignment type. Default value: **MenuAlignType.START**
    *
-   * @type { MenuAlignType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   alignType: MenuAlignType;
   /**
-   * Offset of the drop-down menu relative to the drop-down button.
-   * after alignment based on the alignment type.
+   * Offset of the drop-down list box relative to the drop-down list button after alignment based on the alignment type.
+   * Default value: **{dx: 0, dy: 0}**
    *
-   * @type { ?Offset }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -147,382 +137,385 @@ export interface MenuAlignParams {
   offset?: Offset;
 }
 /**
- * Events and styles supported by the search area.
+ * Provides optional attributes for the search area.
  *
- * @typedef SearchParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
  */
 export interface SearchParams {
   /**
-   * Used to identify a unique search component.
+   * Search key used to find a unique **search** component. Default value: **undefined**.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   searchKey?: ResourceStr;
   /**
-   * Indicates the background color of a component.
+   * Background color of a component. Default value: **$r('sys.color.ohos_id_color_text_field_sub_bg')**.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   componentBackgroundColor?: ResourceColor;
   /**
-   * Background color when pressed.
+   * Background color of the pressed component. Default value: **$r('sys.color.ohos_id_color_click_effect')**.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   pressedBackgroundColor?: ResourceColor;
   /**
-   * Set the search button text, fontSize and fontColor.
+   * Search button located next to the search text box. Clicking the search button triggers both **onSubmit** and
+   * **onClick** callbacks.
    *
-   * @type { ?SearchButtonParams }
+   * - **value**: Text on the search button located next to the search text box.
+   * - **option**: Font of the search text box. Default value: **{fontSize: '16fp', fontColor: '#ff3f97e9'}**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   searchButton?: SearchButtonParams;
   /**
-   * Set the place hold text color.
+   * Placeholder text color. Default value: **$r('sys.color.ohos_id_color_text_secondary')**.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   placeholderColor?: ResourceColor;
   /**
-   * Set the font used for place holder text.
+   * Placeholder text style, including the font size, font weight, font family, and font style. Default value:
+   * **{size: $r('sys_float.ohos_id_text_size_body1')}**.
    *
-   * @type { ?Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   placeholderFont?: Font;
   /**
-   * Set enter key type of soft keyboard.
+   * Style of the text entered in the search box, including the font size, font width, font family, and font style.
+   * Currently, only the default font family is supported. Default value:
+   * **{size: $r('sys_float.ohos_id_text_size_body1')}**.
    *
-   * @type { ?Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   textFont?: Font;
   /**
-   * Called when the text align is set.
+   * Text alignment mode in the search text box. Default value: **TextAlign.Start**.
    *
-   * @type { ?TextAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   textAlign?: TextAlign;
   /**
-   * Called when the copy option is set.
+   * Whether the input text can be copied. Default value: **CopyOptions.LocalDevice**.
    *
-   * @type { ?CopyOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   copyOptions?: CopyOptions;
   /**
-   * Set the search icon style.
+   * Style of the search icon on the left.
    *
-   * @type { ?(IconOptions | SymbolGlyphModifier) }
+   * Default value in light mode: **{size: '16vp', color: '#99182431', src:' '}**.
+   *
+   * Default value in dark mode: **{size: '16vp', color: '#99ffffff', src:' '}**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   searchIcon?: IconOptions | SymbolGlyphModifier;
   /**
-   * Set the cancel button style.
+   * Style of the cancel button on the right. Default value:
+   * **{style: CancelButtonStyle.INPUT, icon: {size: '16vp', color: '#99ffffff', src:' '}}**.
    *
-   * @type { ?IconOptions }
+   * When style is set to **CancelButtonStyle.CONSTANT**, the cancel button is displayed in a default style.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   cancelIcon?: IconOptions;
   /**
-   * Set the SearchButton fontColor.
+   * Font color of the input text. Default value: **$r('sys.color.ohos_id_color_text_secondary')**.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   fontColor?: ResourceColor;
   /**
-   * Set the cursor style.
+   * Pointer style. Default value: **{width: '1.5vp', color: '#007DFF'}**.
    *
-   * @type { ?CaretStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   caretStyle?: CaretStyle;
   /**
-   * Sets whether request keyboard or not when on focus.
+   * Whether to automatically open the soft keyboard when the **Search** component gains focus. The value **true** means
+   * to automatically open the soft keyboard when the **Search** component gains focus. Default value: **true**.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   enableKeyboardOnFocus?: boolean;
   /**
-   * Controls whether the selection menu pops up.
+   * Whether to hide the system text selection menu.
    *
-   * @type { ?boolean }
+   * **true**: The system text selection menu does not appear under the following circumstances: clicking the text box
+   * cursor, long-pressing the text box, double-tapping the text box, triple-tapping the text box, or right-clicking the
+   * text box. **false**: The system text selection menu appears under the following circumstances: clicking the text
+   * box cursor, long-pressing the text box, double-tapping the text box, triple-tapping the text box, or right-clicking
+   * the text box. Default value: **false**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   hideSelectionMenu?: boolean;
   /**
-   * Called when the search type is set.
+   * Text box type. Default value: **SearchType.Normal**.
    *
-   * @type { ?SearchType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   type?: SearchType;
   /**
-   * Called when the input of maximum text length is set.
+   * Maximum number of characters in the text input. By default, there is no maximum number of characters. When the
+   * maximum number is reached, no more characters can be entered. Default value: **-1**.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   maxLength?: number;
   /**
-   * Set enter key type of soft keyboard.
+   * Type of the Enter key. Default value: **EnterKeyType.Search**.
    *
-   * @type { ?EnterKeyType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   enterKeyType?: EnterKeyType;
   /**
-   * Called when the text decoration of the text is set.
+   * Text decorative line options. Default value:
+   * **{type: TextDecorationType.None, color: Color.Black, style: TextDecorationStyle.SOLID}**.
    *
-   * @type { ?TextDecorationOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   decoration?: TextDecorationOptions;
   /**
-   * Called when the distance between text fonts is set.
+   * Letter spacing. A positive value causes characters to spread farther apart, and a negative value bring characters
+   * closer together. The value for floating point numbers is **0.0**, in units of px. If the input is not a number and
+   * cannot be parsed as a number, the default value will be used.
    *
-   * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   letterSpacing?: number | string | Resource;
   /**
-   * Set font feature.
-   * normal | <feature-tag-value>,
-   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
-   * the values of <feature-tag-value> reference to doc of search component
-   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * Font feature, for example, monospaced digits.
    *
-   * @type { ?ResourceStr }
+   * Format: normal | <feature-tag-value>
+   *
+   * Syntax for **<feature-tag-value>**: <string> [ <integer> | on | off ]
+   *
+   * There can be multiple **<feature-tag-value>** values, which are separated by commas (,).
+   *
+   * For example, the input format for monospaced digits is "ss01" on. Default value: **undefined**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   fontFeature?: ResourceStr;
   /**
-   * Define the text selected background color of the text input.
+   * Background color of the selected text. By default, a 20% opacity is applied.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   selectedBackgroundColor?: ResourceColor;
   /**
-   * Called when the inputFilter of text is set.
+   * Regular expression for input filtering. Only inputs that comply with the regular expression can be displayed. Other
+   * inputs are filtered out. The specified regular expression can match single characters, but not strings. Default
+   * value: **undefined**.
    *
-   * @type { ?InputFilterParams }
+   * - **value**: regular expression.
+   * - **error**: Filtered-out content to return when regular expression matching fails.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   inputFilter?: InputFilterParams;
   /**
-   * Specify the indentation of the first line in a text-block.
+   * Indent of the first line text. Default value: **0**.
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   textIndent?: Dimension;
   /**
-   * Called when the minimum font size of the font is set.
+   * Minimum font size. For the setting to take effect, this attribute must be used together with **maxFontSize** or
+   * layout constraint settings. Default value: **undefined**.
    *
-   * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   minFontSize?: number | string | Resource;
   /**
-   * Called when the maximum font size of the font is set.
+   * Maximum font size. For the setting to take effect, this attribute must be used together with **minFontSize** or
+   * layout constraint settings. Default value: **undefined**.
    *
-   * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   maxFontSize?: number | string | Resource;
   /**
-   * Set the custom text menu.
+   * Extended options of the custom context menu on selection, including the text content, icon, and callback. Default
+   * value: **undefined**.
    *
-   * @type { ?EditMenuOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   editMenuOptions?: EditMenuOptions;
   /**
-   * Define the preview text mode of the text input.
+   * Whether to enable preview text. The value **true** means to enable preview text. Default value: **true**.
    *
-   * @type { ?boolean }
+   * Preview text of the input method should be enabled. Preview text is in a temporary state and does not support text
+   * interception. As such, it does not trigger **onWillInsert** and **onDidInsert** callbacks.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   enablePreviewText?: boolean;
   /**
-   * Enable or disable haptic feedback.
+   * Whether to enable haptic feedback. The value **true** means to enable haptic feedback. Default value: **true**.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   enableHapticFeedback?: boolean;
   /**
-   * Call the function when clicked the search button.
+   * Callback triggered when users click the search icon or the search button, or touch the search button on a soft
+   * keyboard. Default value: **undefined**.
    *
-   * @type { ?(Callback<string> | SearchSubmitCallback) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   onSubmit?: Callback<string> | SearchSubmitCallback;
   /**
-   * Call the function when editing the input text.
+   * Callback triggered when the content in the text box changes. Default value: **undefined**.
    *
-   * @type { ?EditableTextOnChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   onChange?: EditableTextOnChangeCallback;
   /**
-   * Called when using the Clipboard menu.
+   * Callback triggered when a copy operation is performed. Default value: **undefined**.
    *
-   * @type { ?Callback<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   onCopy?: Callback<string>;
   /**
-   * Called when using the Clipboard menu.
+   * Callback triggered when a cut operation is performed. Default value: **undefined**.
    *
-   * @type { ?Callback<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   onCut?: Callback<string>;
   /**
-   * Called when using the Clipboard menu.
+   * Callback triggered when a paste operation is performed. Default value: **undefined**.
    *
-   * @type { ?OnPasteCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   onPaste?: OnPasteCallback;
   /**
-   * Called when the text selection changes.
+   * Callback triggered when the position of the text selection changes or when the cursor position changes during the
+   * editing state. Default value: **undefined**.
    *
-   * @type { ?OnTextSelectionChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   onTextSelectionChange?: OnTextSelectionChangeCallback;
   /**
-   * Called when the content scrolls.
+   * Callback triggered when the text content is scrolled. Default value: **undefined**.
    *
-   * @type { ?OnContentScrollCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   onContentScroll?: OnContentScrollCallback;
   /**
-   * Called when judging whether the text editing change finished.
+   * Callback triggered when the input status changes. If a cursor is displayed, that is, the value of **isEditing** is
+   * **true**, the text box is in the editing state. Default value: **undefined**.
    *
-   * @type { ?Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   onEditChange?: Callback<boolean>;
   /**
-   * Get text value information when about to input.
+   * Callback triggered when text is about to be inserted. **true**: Insert the input content into the result string.
+   * **false**: Do not insert the input content into the result string. Default value: **undefined**.
    *
-   * @type { ?Callback<InsertValue, boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   onWillInsert?: Callback<InsertValue, boolean>;
   /**
-   * Get text value information when completed input.
+   * Callback triggered when text is inserted. Default value: **undefined**.
    *
-   * @type { ?Callback<InsertValue> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   onDidInsert?: Callback<InsertValue>;
   /**
-   * Get text value information when about to delete.
+   * Callback triggered when text is about to be deleted. **true**: Delete the text. **false**: Do not delete the text.
+   * Default value: **undefined**.
    *
-   * @type { ?Callback<DeleteValue, boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   onWillDelete?: Callback<DeleteValue, boolean>;
   /**
-   * Get text value information when the deletion has been completed.
+   * Callback triggered when text is deleted. Default value: **undefined**.
    *
-   * @type { ?Callback<DeleteValue> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -530,9 +523,8 @@ export interface SearchParams {
   onDidDelete?: Callback<DeleteValue>;
 }
 /**
- * Contents, events, and styles of the select area.
+ * Provides optional attributes for the selection area.
  *
- * @typedef SelectParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
@@ -541,7 +533,6 @@ export interface SelectParams {
   /**
    * SubOption array of the select.
    *
-   * @type { ?Array<SelectOption> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -550,7 +541,6 @@ export interface SelectParams {
   /**
    * The default selected index.
    *
-   * @type { ?number }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -559,7 +549,6 @@ export interface SelectParams {
   /**
    * The default text value.
    *
-   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -568,7 +557,6 @@ export interface SelectParams {
   /**
    * Callback when the select is selected.
    *
-   * @type { ?OnSelectCallback }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -577,7 +565,6 @@ export interface SelectParams {
   /**
    * Register a ContentModifier for each menu item.
    *
-   * @type { ?ContentModifier<MenuItemConfiguration> }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -586,7 +573,6 @@ export interface SelectParams {
   /**
    * Sets the divider of select.
    *
-   * @type { ?(Optional<DividerOptions> | null) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -595,7 +581,6 @@ export interface SelectParams {
   /**
    * Sets the text properties of the select button itself.
    *
-   * @type { ?Font }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -604,7 +589,6 @@ export interface SelectParams {
   /**
    * Sets the text color of the select button itself.
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -613,7 +597,6 @@ export interface SelectParams {
   /**
    * Sets the background color of the selected items in the select.
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -622,7 +605,6 @@ export interface SelectParams {
   /**
    * Sets the text style of the selected items in the select.
    *
-   * @type { ?Font }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -631,7 +613,6 @@ export interface SelectParams {
   /**
    * Sets the text color of the selected item in the select.
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -640,7 +621,6 @@ export interface SelectParams {
   /**
    * Sets the background color of the select item.
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -649,7 +629,6 @@ export interface SelectParams {
   /**
    * Sets the text style for select items.
    *
-   * @type { ?Font }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -658,7 +637,6 @@ export interface SelectParams {
   /**
    * Sets the text color for select items.
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -667,7 +645,6 @@ export interface SelectParams {
   /**
    * Set the width of each option and set whether the option width fit the trigger.
    *
-   * @type { ?(Dimension | OptionWidthMode) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -676,7 +653,6 @@ export interface SelectParams {
   /**
    * Set the height of each option.
    *
-   * @type { ?Dimension }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -685,7 +661,6 @@ export interface SelectParams {
   /**
    * Set the space for text and icon in select.
    *
-   * @type { ?Length }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -694,7 +669,6 @@ export interface SelectParams {
   /**
    * Set the layout direction for text and arrow in select.
    *
-   * @type { ?ArrowPosition }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -703,7 +677,6 @@ export interface SelectParams {
   /**
    * Set the alignment between select and menu.
    *
-   * @type { ?MenuAlignParams }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -712,7 +685,6 @@ export interface SelectParams {
   /**
    * Set the menu's background color.
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -721,7 +693,6 @@ export interface SelectParams {
   /**
    * Set menu background blur Style.
    *
-   * @type { ?BlurStyle }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -729,27 +700,24 @@ export interface SelectParams {
   menuBackgroundBlurStyle?: BlurStyle;
 }
 /**
- * Function settings in the selection area (right).
+ * Sets initialization parameters of the function area.
  *
- * @typedef OperationParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
  */
 export interface OperationParams {
   /**
-   * Function bits attached to the search area (right).
+   * Auxiliary item on the right of the search area. Default value: **undefined**.
    *
-   * @type { ?OperationOption }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
    */
   auxiliaryItem?: OperationOption;
   /**
-   * Function bits independent of search area (right).
+   * Independent item on the right of the search area. Default value: **undefined**.
    *
-   * @type { ?OperationOption }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -757,9 +725,9 @@ export interface OperationParams {
   independentItem?: OperationOption;
 }
 /**
- * Defines AtomicServiceSearch.
+ * **AtomicServiceSearch** allows you to customize the default search area, customizable selection area, and function
+ * area (a maximum of two).
  *
- * @struct {AtomicServiceSearch}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @atomicservice
  * @since 18 dynamiconly
@@ -769,7 +737,6 @@ export declare struct AtomicServiceSearch {
   /**
    * Sets the search text content that is currently displayed.
    *
-   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -780,7 +747,6 @@ export declare struct AtomicServiceSearch {
    * Indicates default prompt text displayed in the search box.
    * The default value is Search, which supports globalization.
    *
-   * @type { ?ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -790,7 +756,6 @@ export declare struct AtomicServiceSearch {
   /**
    * Events and styles supported by the search area.
    *
-   * @type { ?SearchParams }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -800,7 +765,6 @@ export declare struct AtomicServiceSearch {
   /**
    * Contents, events, and styles of the select area.
    *
-   * @type { ?SelectParams }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -810,7 +774,6 @@ export declare struct AtomicServiceSearch {
   /**
    * Function settings in the selection area (right).
    *
-   * @type { ?OperationParams }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly
@@ -819,7 +782,6 @@ export declare struct AtomicServiceSearch {
   /**
    * Set the Search component controller.
    *
-   * @type { ?SearchController }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice
    * @since 18 dynamiconly

@@ -2537,7 +2537,7 @@ declare class UIAbilityContext extends Context {
    * >
    * > - Before calling this API, ensure that the window has been created and the page corresponding to the UIAbility 
    * > has been loaded (using the 
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9) API in the 
+   * > [loadContent]{@link ./../@ohos.window:WindowStage.loadContent} API in the 
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate} lifecycle).
    * >
    * > - After this API is called, a new resource manager object is created. If a resource manager was previously cached
@@ -2929,7 +2929,7 @@ declare class UIAbilityContext extends Context {
    *
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 801 - Capability not supported, because starting self to foreground
-   *     from background is not supported in current devive or current UIAbility is a non-native UIAbility.
+   *     from background is not supported in current device or current UIAbility is a non-native UIAbility.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error. Connect to system service failed.
    * @throws { BusinessError } 16000082 - The UIAbility is being started.

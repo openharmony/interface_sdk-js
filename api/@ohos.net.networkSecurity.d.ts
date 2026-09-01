@@ -14,30 +14,32 @@
  */
 
 /**
- * @file
+ * @file Network Security
  * @kit NetworkKit
  */
 
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * Provides networkSecurity related APIs.
- * @namespace networkSecurity
+ * The **networkSecurity** module provides the network security verification capability. Specifically, it provides APIs
+ * for applications to verify the certificates in use.
+ *
  * @syscap SystemCapability.Communication.NetStack
  * @since 11 dynamic
  * @since 23 static
  */
 declare namespace networkSecurity {
   /**
-   * Defines the certificate type.
-   * @enum {int}
+   * Enumerates certificate types.
+   *
    * @syscap SystemCapability.Communication.NetStack
    * @since 11 dynamic
    * @since 23 static
    */
   export enum CertType {
     /**
-     * PEM type certificate.
+     * PEM certificate
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @since 11 dynamic
      * @since 23 static
@@ -45,7 +47,8 @@ declare namespace networkSecurity {
     CERT_TYPE_PEM = 0,
 
     /**
-     * DER type certificate.
+     * DER certificate.
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @since 11 dynamic
      * @since 23 static
@@ -54,16 +57,16 @@ declare namespace networkSecurity {
   }
 
   /**
-   * Define the certificate content.
-   * @interface CertBlob
+   * Defines the certificate data.
+   *
    * @syscap SystemCapability.Communication.NetStack
-  * @since 11 dynamic
-  * @since 23 static
+   * @since 11 dynamic
+   * @since 23 static
    */
   export interface CertBlob {
     /**
      * Certificate type.
-     * @type { CertType }
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @since 11 dynamic
      * @since 23 static
@@ -72,7 +75,7 @@ declare namespace networkSecurity {
 
     /**
      * Certificate data.
-     * @type {string | ArrayBuffer}
+     *
      * @syscap SystemCapability.Communication.NetStack
      * @since 11 dynamic
      * @since 23 static
@@ -81,11 +84,13 @@ declare namespace networkSecurity {
   }
 
   /**
-   * Certificate verification to the server.
-   * @param { CertBlob } cert - Certificates to be verified.
-   * @param { CertBlob } [caCert] - Incoming custom CA cert.
-   * @returns { Promise<int> } The promise returned by the function.
-   * Number equals 0 if verify of certification from server succeed, else verify failed.
+   * Verifies the certificate passed by the application using the preset CA certificate and the CA certificate installed
+   * by the user in the certificate management. This API uses a promise to return the result.
+   *
+   * @param { CertBlob } cert - Certificate to be verified.
+   * @param { CertBlob } [caCert] - Custom CA certificate.
+   * @returns { Promise<int> } Promise used to return the result. The value **0** indicates that the certificate
+   *     verification is successful, and a non-0 value indicates that the verification has failed.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2305001 - Unspecified error.
    * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
@@ -102,44 +107,22 @@ declare namespace networkSecurity {
    * @throws { BusinessError } 2305023 - Certificate has been revoked.
    * @throws { BusinessError } 2305024 - Invalid certificate authority (CA).
    * @throws { BusinessError } 2305027 - Certificate is untrusted.
+   * @throws { BusinessError } 2305018 - Self-signed certificate. [since 12]
+   * @throws { BusinessError } 2305069 - Invalid certificate verification context. [since 12]
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * Certificate verification to the server.
-   * @param { CertBlob } cert - Certificates to be verified.
-   * @param { CertBlob } [caCert] - Incoming custom CA cert.
-   * @returns { Promise<int> } The promise returned by the function.
-   * Number equals 0 if verify of certification from server succeed, else verify failed.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2305001 - Unspecified error.
-   * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
-   * @throws { BusinessError } 2305003 - Unable to get certificate revocation list (CRL).
-   * @throws { BusinessError } 2305004 - Unable to decrypt certificate signature.
-   * @throws { BusinessError } 2305005 - Unable to decrypt CRL signature.
-   * @throws { BusinessError } 2305006 - Unable to decode issuer public key.
-   * @throws { BusinessError } 2305007 - Certificate signature failure.
-   * @throws { BusinessError } 2305008 - CRL signature failure.
-   * @throws { BusinessError } 2305009 - Certificate is not yet valid.
-   * @throws { BusinessError } 2305010 - Certificate has expired.
-   * @throws { BusinessError } 2305011 - CRL is not yet valid.
-   * @throws { BusinessError } 2305012 - CRL has expired.
-   * @throws { BusinessError } 2305018 - Self-signed certificate.
-   * @throws { BusinessError } 2305023 - Certificate has been revoked.
-   * @throws { BusinessError } 2305024 - Invalid certificate authority (CA).
-   * @throws { BusinessError } 2305027 - Certificate is untrusted.
-   * @throws { BusinessError } 2305069 - Invalid certificate verification context.
-   * @syscap SystemCapability.Communication.NetStack
-   * @since 12 dynamic
+   * @since 11 dynamic
    * @since 23 static
    */
   export function certVerification(cert: CertBlob, caCert?: CertBlob): Promise<int>;
 
   /**
-   * Certificate verification to the server.
-   * @param { CertBlob } cert - Certificates to be verified.
-   * @param { CertBlob } [caCert] - Incoming custom CA cert.
-   * @returns { int } Returns 0 if verify of certification from server succeed, else verify failed.
+   * Verifies the certificate passed by the application using the preset CA certificate and the CA certificate installed
+   * by the user in the certificate management. This API returns the result synchronously.
+   *
+   * @param { CertBlob } cert - Certificate to be verified.
+   * @param { CertBlob } [caCert] - Custom CA certificate.
+   * @returns { int } Certificate verification result. The value **0** indicates that the certificate verification is
+   *     successful, and a non-0 value indicates that the verification has failed.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 2305001 - Unspecified error.
    * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
@@ -156,34 +139,10 @@ declare namespace networkSecurity {
    * @throws { BusinessError } 2305023 - Certificate has been revoked.
    * @throws { BusinessError } 2305024 - Invalid certificate authority (CA).
    * @throws { BusinessError } 2305027 - Certificate is untrusted.
+   * @throws { BusinessError } 2305018 - Self-signed certificate. [since 12]
+   * @throws { BusinessError } 2305069 - Invalid certificate verification context. [since 12]
    * @syscap SystemCapability.Communication.NetStack
-   * @since 11
-   */
-  /**
-   * Certificate verification to the server.
-   * @param { CertBlob } cert - Certificates to be verified.
-   * @param { CertBlob } [caCert] - Incoming custom CA cert.
-   * @returns { int } Returns 0 if verify of certification from server succeed, else verify failed.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2305001 - Unspecified error.
-   * @throws { BusinessError } 2305002 - Unable to get issuer certificate.
-   * @throws { BusinessError } 2305003 - Unable to get certificate revocation list (CRL).
-   * @throws { BusinessError } 2305004 - Unable to decrypt certificate signature.
-   * @throws { BusinessError } 2305005 - Unable to decrypt CRL signature.
-   * @throws { BusinessError } 2305006 - Unable to decode issuer public key.
-   * @throws { BusinessError } 2305007 - Certificate signature failure.
-   * @throws { BusinessError } 2305008 - CRL signature failure.
-   * @throws { BusinessError } 2305009 - Certificate is not yet valid.
-   * @throws { BusinessError } 2305010 - Certificate has expired.
-   * @throws { BusinessError } 2305011 - CRL is not yet valid.
-   * @throws { BusinessError } 2305012 - CRL has expired.
-   * @throws { BusinessError } 2305018 - Self-signed certificate.
-   * @throws { BusinessError } 2305023 - Certificate has been revoked.
-   * @throws { BusinessError } 2305024 - Invalid certificate authority (CA).
-   * @throws { BusinessError } 2305027 - Certificate is untrusted.
-   * @throws { BusinessError } 2305069 - Invalid certificate verification context.
-   * @syscap SystemCapability.Communication.NetStack
-   * @since 12 dynamic
+   * @since 11 dynamic
    * @since 23 static
    */
   export function certVerificationSync(cert: CertBlob, caCert?: CertBlob): int;
@@ -210,28 +169,33 @@ declare namespace networkSecurity {
    * @throws { BusinessError } 2305069 - Invalid certificate verification context.
    * @syscap SystemCapability.Communication.NetStack
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
-  export function verifyCertChain(cert: CertBlob[], caCert?: CertBlob, hostname?: string): Promise<CertBlob[]>
+  export function verifyCertChain(cert: CertBlob[], caCert?: CertBlob, hostname?: string): Promise<CertBlob[]>;
 
   /**
-   * Checks whether the Cleartext traffic is permitted.
-   * To invoke this method, you must have the {@code ohos.permission.INTERNET} permission.
+   * Checks whether plaintext HTTP access is allowed from the preset **network_config.json** file of the application. By
+   * default, plaintext HTTP access is allowed.
+   *
    * @permission ohos.permission.INTERNET
-   * @returns { boolean } Returns true if the Cleartext traffic is permitted, else returns false.
+   * @returns { boolean } Boolean value indicating whether plaintext HTTP is allowed. The value **true** indicates that
+   *     plaintext HTTP is allowed, and the value **false** indicates the opposite. The default value is **true**.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Communication.NetStack
    * @since 18 dynamic
    * @since 23 static
    */
   export function isCleartextPermitted(): boolean;
- 
+
   /**
-   * Checks whether the Cleartext traffic for a specified hostname is permitted.
-   * To invoke this method, you must have the {@code ohos.permission.INTERNET} permission.
+   * Checks whether host name–based plaintext HTTP access is allowed from the preset **network_config.json** file of the
+   * application. By default, plaintext HTTP access is allowed.
+   *
    * @permission ohos.permission.INTERNET
-   * @param { string } hostName - Indicates the host name. 
-   * @returns { boolean } Returns true if the Cleartext traffic is permitted, else returns false.
+   * @param { string } hostName - Host name.
+   * @returns { boolean } Boolean value indicating whether host name–based plaintext HTTP is allowed. The value **true**
+   *     indicates that plaintext HTTP is allowed, and the value **false** indicates the opposite. The default value is
+   *     **true**.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.Communication.NetStack
    * @since 18 dynamic

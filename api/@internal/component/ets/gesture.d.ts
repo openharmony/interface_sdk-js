@@ -2324,7 +2324,7 @@ declare class TapGestureHandler extends GestureHandler<TapGestureHandler> {
   /**
    * Constructor used to create a tap gesture handler instance.
    *
-   * @param { TapGestureHandlerOptions } options - Parameters of the tap gesture handler.
+   * @param { TapGestureHandlerOptions } [options] - Parameters of the tap gesture handler.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2433,7 +2433,7 @@ declare class LongPressGestureHandler extends GestureHandler<LongPressGestureHan
   /**
    * Constructor used to create a long press gesture handler instance.
    *
-   * @param { LongPressGestureHandlerOptions } options - Parameters of the long press gesture handler.
+   * @param { LongPressGestureHandlerOptions } [options] - Parameters of the long press gesture handler.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2589,7 +2589,7 @@ declare class PanGestureHandler extends GestureHandler<PanGestureHandler> {
   /**
    * Constructor used to create a pan gesture handler instance.
    *
-   * @param { PanGestureHandlerOptions } options - Parameters of the pan gesture handler.
+   * @param { PanGestureHandlerOptions } [options] - Parameters of the pan gesture handler.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2733,7 +2733,7 @@ declare class SwipeGestureHandler extends GestureHandler<SwipeGestureHandler> {
   /**
    * Constructor used to create a swipe gesture handler instance.
    *
-   * @param { SwipeGestureHandlerOptions } options - Parameters of the swipe gesture handler.
+   * @param { SwipeGestureHandlerOptions } [options] - Parameters of the swipe gesture handler.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2813,7 +2813,7 @@ declare class PinchGestureHandler extends GestureHandler<PinchGestureHandler> {
   /**
    * Constructor used to create a pinch gesture handler instance.
    *
-   * @param { PinchGestureHandlerOptions } options - Parameters of the pinch gesture handler.
+   * @param { PinchGestureHandlerOptions } [options] - Parameters of the pinch gesture handler.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2949,7 +2949,7 @@ declare class RotationGestureHandler extends GestureHandler<RotationGestureHandl
   /**
    * Constructor used to create a rotation gesture handler instance.
    *
-   * @param { RotationGestureHandlerOptions } options - Parameters of the rotation gesture handler.
+   * @param { RotationGestureHandlerOptions } [options] - Parameters of the rotation gesture handler.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3079,7 +3079,7 @@ declare class GestureGroupHandler extends GestureHandler<GestureGroupHandler> {
   /**
    * Constructor used to create a gesture group handler instance.
    *
-   * @param { GestureGroupGestureHandlerOptions } options - Parameters of the gesture group handler.
+   * @param { GestureGroupGestureHandlerOptions } [options] - Parameters of the gesture group handler.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

@@ -91,6 +91,9 @@ declare namespace notificationExtensionSubscription {
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
+   * @see [unsubscribe]{@link notificationExtensionSubscription.unsubscribe()} unsubscribes from the notification extension.
+   * @see [getSubscribeInfo]{@link notificationExtensionSubscription.getSubscribeInfo()} obtains all 
+   *     applications that have requested the ohos.permission.SUBSCRIBE_NOTIFICATION permission and implemented.
    */
   function subscribe(info: NotificationExtensionSubscriptionInfo[]): Promise<void>;
 
@@ -105,6 +108,8 @@ declare namespace notificationExtensionSubscription {
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
+   * @see [subscribe]{@link notificationExtensionSubscription.subscribe(info: _NotificationExtensionSubscriptionInfo[])} subscribes to the 
+   *     notification extension. 
    */
   function unsubscribe(): Promise<void>;
 
@@ -114,7 +119,7 @@ declare namespace notificationExtensionSubscription {
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @returns { Promise<NotificationExtensionSubscriptionInfo[]> } Promise used to return the
-   *     [NotificationExtensionSubscriptionInfo[]]{@link ./notification/NotificationExtensionSubscriptionInfo:NotificationExtensionSubscriptionInfo}
+   *     [NotificationExtensionSubscriptionInfo]{@link ./notification/NotificationExtensionSubscriptionInfo:NotificationExtensionSubscriptionInfo}
    *     array.
    * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -122,6 +127,8 @@ declare namespace notificationExtensionSubscription {
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
+   * @see [subscribe]{@link notificationExtensionSubscription.subscribe(info: NotificationExtensionSubscriptionInfo[])} subscribes
+   *     from the notification extension.
    */
   function getSubscribeInfo(): Promise<NotificationExtensionSubscriptionInfo[]>;
 
@@ -230,11 +237,11 @@ declare namespace notificationExtensionSubscription {
   function getUserGrantedEnabledBundles(targetBundle: BundleOption): Promise<BundleOption[]>;
 
   /**
-   * Obtains the applications that are allowed to access device notifications. This API uses a promise to return the 
-   * result.
+   * Obtains the applications that are allowed to access device notifications for the current application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
-   * @returns { Promise<GrantedBundleInfo[]> } Promise used to return the applications obtained.
+   * @returns { Promise<GrantedBundleInfo[]> } Promise used to return the list of applications that are allowed to
+   *     access device notifications for the current application.
    * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.

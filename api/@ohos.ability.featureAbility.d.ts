@@ -18,6 +18,12 @@
  * @kit AbilityKit
  */
 
+/**
+ * # Constraints
+ * 
+ * The APIs of the FeatureAbility module can be called only by PageAbilities.
+ */
+
 import { AsyncCallback } from './@ohos.base';
 import { Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
@@ -31,52 +37,66 @@ import { ProcessInfo as _ProcessInfo } from './app/processInfo';
 import window from './@ohos.window';
 
 /**
- * A Feature Ability represents an ability with a UI and is designed to interact with users.
+ * The FeatureAbility module provides APIs that enable user interaction. You can use the APIs to start or terminate an
+ * ability, obtain a dataAbilityHelper object, obtain the window corresponding to the current ability, and connect to or
+ * disconnect from a ServiceAbility.
  *
- * @namespace featureAbility
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @FAModelOnly
+ * @famodelonly
  * @since 6 dynamiconly
  */
 declare namespace featureAbility {
   /**
-   * Obtain the want sent from the source ability.
+   * Obtains the Want corresponding to the ability to start. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { AsyncCallback<Want> } callback - Indicates the ability to start.
+   * @param { AsyncCallback<Want> } callback - Callback used to return the Want.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 6 dynamiconly
    */
   function getWant(callback: AsyncCallback<Want>): void;
 
   /**
-   * Obtain the want sent from the source ability.
+   * Obtains the Want corresponding to the ability to start. This API uses a promise to return the result.
    *
-   * @returns { Promise<Want> } The promise form returns the Want result
+   * @returns { Promise<Want> } Promise used to return the Want.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 6 dynamiconly
    */
   function getWant(): Promise<Want>;
 
   /**
-   * Starts a new ability.
+   * Starts an ability. This API uses an asynchronous callback to return the result.
    *
-   * @param { StartAbilityParameter } parameter - Indicates the ability to start.
-   * @param { AsyncCallback<number> } callback - Returns the result of starting Ability in the form of callback.
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the FA model, see
+   * > [Component Startup Rules (FA Model)](docroot://application-models/component-startup-rules-fa.md).
+   *
+   * @param { StartAbilityParameter } parameter - Ability to start.
+   * @param { AsyncCallback<number> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined** and **data** is **0**; otherwise, **err** is a non-zero value.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 6 dynamiconly
    */
   function startAbility(parameter: StartAbilityParameter, callback: AsyncCallback<number>): void;
 
   /**
-   * Starts a new ability.
+   * Starts an ability. This API uses a promise to return the result.
    *
-   * @param { StartAbilityParameter } parameter - Indicates the ability to start.
-   * @returns { Promise<number> } The promise form returns the Ability result
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the FA model, see
+   * > [Component Startup Rules (FA Model)](docroot://application-models/component-startup-rules-fa.md).
+   *
+   * @param { StartAbilityParameter } parameter - Ability to start.
+   * @returns { Promise<number> } Promise used to return the result. If the operation is successful, **0** is returned;
+   *     otherwise, a non-zero value is returned.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 6 dynamiconly
    */
   function startAbility(parameter: StartAbilityParameter): Promise<number>;
@@ -84,273 +104,334 @@ declare namespace featureAbility {
   /**
    * Obtains the application context.
    *
-   * @returns { Context } Returns the application context.
+   * @returns { Context } Application context.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 6 dynamiconly
    */
   function getContext(): Context;
 
   /**
-   * Starts an ability and returns the execution result when the ability is destroyed.
+   * Starts an ability. This API uses an asynchronous callback to return the result. The following situations may be
+   * possible for a started ability:
    *
-   * @param { StartAbilityParameter } parameter - Indicates the ability to start.
-   * @param { AsyncCallback<AbilityResult> } callback - Returns the result of starting Ability in the form of callback.
+   * - Normally, you can call
+   * [terminateSelfWithResult]{@link featureAbility.terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
+   * to terminate the ability. The result is returned to the caller.
+   * - If an exception occurs, for example, the ability is killed, an exception message, in which **resultCode** is
+   * **-1**, is returned to the caller.
+   * - If different applications call this API to start an ability that uses the singleton mode and then call
+   * [terminateSelfWithResult]{@link featureAbility.terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
+   * to terminate the ability, the normal result is returned to the last caller, and an exception message, in which
+   * **resultCode** is **-1**, is returned to others.
+   *
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the FA model, see
+   * > [Component Startup Rules (FA Model)](docroot://application-models/component-startup-rules-fa.md).
+   *
+   * @param { StartAbilityParameter } parameter - Ability to start.
+   * @param { AsyncCallback<AbilityResult> } callback - Callback used to return the result. If the operation is
+   *     successful, **err** is **undefined** and **data** is an AbilityResult object; otherwise, err is an error
+   *     object.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function startAbilityForResult(parameter: StartAbilityParameter, callback: AsyncCallback<AbilityResult>): void;
 
   /**
-   * Starts an ability and returns the execution result when the ability is destroyed.
+   * Starts an ability. This API uses a promise to return the result. The following situations may be possible for a
+   * started ability:
    *
-   * @param { StartAbilityParameter } parameter - Indicates the ability to start.
-   * @returns { Promise<AbilityResult> } Returns the {@link AbilityResult}.
+   * - Normally, you can call
+   * [terminateSelfWithResult]{@link featureAbility.terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
+   * to terminate the ability. The result is returned to the caller.
+   * - If an exception occurs, for example, the ability is killed, an exception message, in which **resultCode** is
+   * **-1**, is returned to the caller.
+   * - If different applications call this API to start an ability that uses the singleton mode and then call
+   * [terminateSelfWithResult]{@link featureAbility.terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
+   * to terminate the ability, the normal result is returned to the last caller, and an exception message, in which
+   * **resultCode** is **-1**, is returned to others.
+   *
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the FA model, see
+   * > [Component Startup Rules (FA Model)](docroot://application-models/component-startup-rules-fa.md).
+   *
+   * @param { StartAbilityParameter } parameter - Ability to start.
+   * @returns { Promise<AbilityResult> } Promise used to return the result.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function startAbilityForResult(parameter: StartAbilityParameter): Promise<AbilityResult>;
 
   /**
-   * Destroys the Page ability while returning the specified result code and data to the caller.
+   * Terminates this ability. This API uses an asynchronous callback to return the result. If the ability is started by
+   * calling
+   * [startAbilityForResult]{@link featureAbility.startAbilityForResult(parameter: StartAbilityParameter, callback: AsyncCallback<AbilityResult>)}
+   * , the result is returned to the caller when **terminateSelfWithResult** is called. Otherwise, no result is returned
+   * to the caller when **terminateSelfWithResult** is called.
    *
-   * @param { AbilityResult } parameter - Indicates the result to return.
-   * @param { AsyncCallback<void> } callback - Return the result of stopping Ability in the form of callback.
+   * @param { AbilityResult } parameter - Result returned after the ability is terminated.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**; otherwise, **err** is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>): void;
 
   /**
-   * Destroys the Page ability while returning the specified result code and data to the caller.
+   * Terminates this ability. This API uses a promise to return the result. If the ability is started by calling
+   * [startAbilityForResult]{@link featureAbility.startAbilityForResult(parameter: StartAbilityParameter, callback: AsyncCallback<AbilityResult>)}
+   * , the result is returned to the caller when **terminateSelfWithResult** is called. Otherwise, no result is returned
+   * to the caller when **terminateSelfWithResult** is called.
    *
-   * @param { AbilityResult } parameter - Indicates the result to return.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { AbilityResult } parameter - Result returned after the ability is terminated.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function terminateSelfWithResult(parameter: AbilityResult): Promise<void>;
 
   /**
-   * Destroys this Page ability.
+   * Terminates this ability. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - Returns the stop ability result in the form of a callback.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**; otherwise, **err** is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function terminateSelf(callback: AsyncCallback<void>): void;
 
   /**
-   * Destroys this Page ability.
+   * Terminates this ability. This API uses a promise to return the result.
    *
-   * @returns { Promise<void> } the promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function terminateSelf(): Promise<void>;
 
   /**
-   * Obtains the dataAbilityHelper.
+   * Obtains a dataAbilityHelper object.
    *
-   * @param { string } uri - Indicates the path of the file to open.
-   * @returns { DataAbilityHelper } Returns the dataAbilityHelper.
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the FA model, see
+   * > [Component Startup Rules (FA Model)](docroot://application-models/component-startup-rules-fa.md).
+   * >
+   * > To access a DataAbility of another application, the target application must be configured with associated startup
+   * > (**AssociateWakeUp** set to **true**).
+   *
+   * @param { string } uri - URI of the file to open.
+   * @returns { DataAbilityHelper } A utility class used to help other abilities access the Data ability.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function acquireDataAbilityHelper(uri: string): DataAbilityHelper;
 
   /**
-   * Checks whether the main window of this ability has window focus.
+   * Checks whether the main window of this ability has the focus. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { AsyncCallback<boolean> } callback - Returns the result in the form of callback.If this ability currently
-   *                                              has window focus,return true otherwise,return false.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.<br>If the main window has the
+   *     focus, **true** is returned. Otherwise, **false** is returned.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function hasWindowFocus(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Checks whether the main window of this ability has window focus.
+   * Checks whether the main window of this ability has the focus. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } Returns {@code true} if this ability currently has window focus;
-   *                               returns {@code false} otherwise.
+   * @returns { Promise<boolean> } Promise used to return the result. If the main window has the focus, **true** is
+   *     returned. Otherwise, **false** is returned.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function hasWindowFocus(): Promise<boolean>;
 
   /**
-   * Connects the current ability to an ability using the AbilityInfo.AbilityType.SERVICE template.
+   * Connects this ability to a ServiceAbility.
    *
-   * @param { Want } request - The element name of the service ability
-   * @param { ConnectOptions } options - The remote object instance
-   * @returns { number } Returns the number code of the ability connected
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the FA model, see
+   * > [Component Startup Rules (FA Model)](docroot://application-models/component-startup-rules-fa.md).
+   * > > To connect to a ServiceAbility of another application, the target application must be configured with
+   * > associated startup (**AssociateWakeUp** set to **true**).
+   *
+   * @param { Want } request - ServiceAbility to connect.
+   * @param { ConnectOptions } options - Connection options.
+   * @returns { number } ID of the connected ServiceAbility. The ID starts from 0 and is incremented by 1 each time a
+   *     connection is set up.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function connectAbility(request: Want, options: ConnectOptions): number;
 
   /**
-   * Disconnects ability to a Service ability.
+   * Disconnects this ability from a specific ServiceAbility. This API uses an asynchronous callback to return the
+   * result.
    *
-   * @param { number } connection - The number code of the ability connected
-   * @param { AsyncCallback<void> } callback - Returns the disconnection result in the form of callback.
+   * @param { number } connection - ID of the ServiceAbility to disconnect.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the disconnection is successful,
+   *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function disconnectAbility(connection: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Disconnects ability to a Service ability.
+   * Disconnects this ability from a specific ServiceAbility. This API uses a promise to return the result.
    *
-   * @param { number } connection - The number code of the ability connected
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { number } connection - ID of the ServiceAbility to disconnect.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function disconnectAbility(connection: number): Promise<void>;
 
   /**
-   * Obtains the window corresponding to the current ability.
+   * Obtains the window corresponding to this ability. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<window.Window> } callback - Returns the window corresponding to the current ability
-   *                                                    in the form of callback.
+   * @param { AsyncCallback<window.Window> } callback - Callback used to return the window.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function getWindow(callback: AsyncCallback<window.Window>): void;
 
   /**
-   * Obtains the window corresponding to the current ability.
+   * Obtains the window corresponding to this ability. This API uses a promise to return the result.
    *
-   * @returns { Promise<window.Window> } Returns the window corresponding to the current ability.
+   * @returns { Promise<window.Window> } Promise used to return the window.
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   function getWindow(): Promise<window.Window>;
 
   /**
-   * Enum for the window configuration.
+   * Defines the window configuration corresponding to this ability. The configuration is obtained through
+   * **featureAbility.AbilityWindowConfiguration**.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   export enum AbilityWindowConfiguration {
     /**
-     * Undefined window format.
+     * The PageAbility is in an undefined window display mode.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @FAModelOnly
+     * @famodelonly
      * @since 7 dynamiconly
      */
     WINDOW_MODE_UNDEFINED = 0,
 
     /**
-     * Full screen.
+     * The PageAbility is in full screen mode.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @FAModelOnly
+     * @famodelonly
      * @since 7 dynamiconly
      */
     WINDOW_MODE_FULLSCREEN = 1,
 
     /**
-     * If the screen is horizontally oriented, it indicates left split, and if the screen is vertically oriented,
-     * it indicates upper split.
+     * The left screen in horizontal direction or the upper screen in vertical direction is the primary window.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @FAModelOnly
+     * @famodelonly
      * @since 7 dynamiconly
      */
     WINDOW_MODE_SPLIT_PRIMARY = 100,
 
     /**
-     * If the screen is horizontally oriented, it indicates right split, and if the screen is vertically oriented,
-     * it indicates bottom split.
+     * The right screen in horizontal direction or the lower screen in vertical direction is the secondary window.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @FAModelOnly
+     * @famodelonly
      * @since 7 dynamiconly
      */
     WINDOW_MODE_SPLIT_SECONDARY = 101,
 
     /**
-     * Suspended window.
+     * The PageAbility is displayed in floating window mode.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @FAModelOnly
+     * @famodelonly
      * @since 7 dynamiconly
      */
     WINDOW_MODE_FLOATING = 102
   }
 
   /**
-   * Enum for the special start setting used in starting ability.
+   * Defines the window property corresponding to this ability. The **abilityStartSetting** property is an object
+   * defined in the format of [**key: string]: any**, where **key** is an enumerated value of **
+   * AbilityStartSetting** and **value** is an enumerated value of **AbilityWindowConfiguration**.
    *
-   * @enum { string }
+   * The value is obtained through **featureAbility.AbilityStartSetting**.
+   *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   export enum AbilityStartSetting {
     /**
-     * The parameter name for the window display size attribute.
+     * Ability window size.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @FAModelOnly
+     * @famodelonly
      * @since 7 dynamiconly
      */
     BOUNDS_KEY = 'abilityBounds',
 
     /**
-     * The parameter name of the window display mode attribute.
+     * Ability window display mode.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @FAModelOnly
+     * @famodelonly
      * @since 7 dynamiconly
      */
     WINDOW_MODE_KEY = 'windowMode',
 
     /**
-     * The window displays the parameter name of the device ID attribute.
+     * Display device ID.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @FAModelOnly
+     * @famodelonly
      * @since 7 dynamiconly
      */
     DISPLAY_ID_KEY = 'displayId'
   }
 
   /**
-   * Enum for the error code.
+   * Enumerates the error codes that may be returned when an ability is started.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   export enum ErrorCode {
     /**
-     * There are no errors.
+     * No error.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @FAModelOnly
+     * @famodelonly
      * @since 7 dynamiconly
      */
     NO_ERROR = 0,
@@ -359,16 +440,16 @@ declare namespace featureAbility {
      * Invalid parameter.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @FAModelOnly
+     * @famodelonly
      * @since 7 dynamiconly
      */
     INVALID_PARAMETER = -1,
 
     /**
-     * Unable to find ABILITY.
+     * The ability is not found.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @FAModelOnly
+     * @famodelonly
      * @since 7 dynamiconly
      */
     ABILITY_NOT_FOUND = -2,
@@ -377,66 +458,63 @@ declare namespace featureAbility {
      * Permission denied.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @FAModelOnly
+     * @famodelonly
      * @since 7 dynamiconly
      */
     PERMISSION_DENY = -3
   }
 
   /**
-   * Enum for the operation type of data.
+   * Enumerates the operation types of a DataAbility. The DataAbility can use an enumerated value to specify the
+   * operation type when operating data in batches.
    *
-   * @enum { number }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @FAModelOnly
+   * @famodelonly
    * @since 7 dynamiconly
    */
   export enum DataAbilityOperationType {
     /**
-     * Insert type.
+     * Insert operation.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @FAModelOnly
+     * @famodelonly
      * @since 7 dynamiconly
      */
     TYPE_INSERT = 1,
 
     /**
-     * Modify the type.
+     * Update operation.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @FAModelOnly
+     * @famodelonly
      * @since 7 dynamiconly
      */
     TYPE_UPDATE = 2,
 
     /**
-     * Delete type.
+     * Deletion operation.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @FAModelOnly
+     * @famodelonly
      * @since 7 dynamiconly
      */
     TYPE_DELETE = 3,
 
     /**
-     * Declaration type.
+     * Assert operation.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-     * @FAModelOnly
+     * @famodelonly
      * @since 7 dynamiconly
      */
     TYPE_ASSERT = 4
   }
 
   /**
-   * The context of an ability or an application. It allows access to
-   * application-specific resources, request and verification permissions.
-   * Can only be obtained through the ability.
+   * Defines the Context module.
    *
-   * @typedef { _Context }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
+   * @famodelonly
    * @since 9 dynamiconly
    */
   export type Context = _Context;
@@ -444,21 +522,20 @@ declare namespace featureAbility {
   /**
    * Defines an AppVersionInfo object.
    *
-   * @typedef { _AppVersionInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
+   * @famodelonly
    * @since 9 dynamiconly
    */
   export type AppVersionInfo = _AppVersionInfo;
 
   /**
-   * This process information about an application.
+   * Defines a ProcessInfo object.
    *
-   * @typedef { _ProcessInfo }
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @FAModelOnly
+   * @famodelonly
    * @since 9 dynamiconly
    */
   export type ProcessInfo = _ProcessInfo;
 }
+
 export default featureAbility;

@@ -106,18 +106,6 @@ declare namespace dialog {
     enabled?: boolean;
 
     /**
-     * 按钮是否为默认焦点。
-     *
-     * @default false
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.1.0 dynamic
-     */
-    defaultFocus?: boolean;
-
-    /**
      * 定义按钮是否默认响应回车/空格键。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -653,7 +641,7 @@ declare namespace dialog {
     /**
      * 设置对话框的edgeLight动画模式。
      *
-     * @default EdgeLightMode.EDGELIGHT_DISABLED
+     * @default EdgeLightMode.EDGELIGHT_AUTO
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly

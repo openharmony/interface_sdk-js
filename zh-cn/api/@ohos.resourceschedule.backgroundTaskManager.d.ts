@@ -319,6 +319,115 @@ declare namespace backgroundTaskManager {
      * @since 26.0.0 dynamic&static
      */
     checkSpecialScenarioAuthResult(context: Context): Promise<UserAuthResult>;
+
+    /**
+     * 通知进度信息。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic
+     */
+    progressInfo?: ProgressInfo;
+
+    /**
+     * 通知进度信息。
+     *
+     * @param { ProgressInfo | undefined } value - 通知进度信息。
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    set progressInfo(value: ProgressInfo | undefined);
+
+    /**
+     * 通知进度信息。
+     *
+     * @returns { ProgressInfo | undefined } 通知进度信息。
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    get progressInfo(): ProgressInfo | undefined;
+  }
+
+  /**
+   * 通知进度信息。
+   *
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export interface ProgressInfo {  
+    /**
+     * 通知标题。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    title: string;
+    /**
+     * 通知内容。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    fileName: string;
+    /**
+     * 通知进度。如果该字段不存在，则不显示通知进度环，显示为普通通知。
+     * 取值限定为整数。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    progressValue?: int;
+    /**
+     * 下载进度达到100%时是否静音。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    isMute?: boolean;
+  }
+
+  /**
+   * 长时任务通知进度信息。
+   *
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export interface DataTransferProgress {  
+    /**
+     * 长时任务ID。
+     * 取值限定为整数。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    continuousTaskId: int;
+
+    /**
+     * 通知参数，用于指定点击长时任务通知后跳转的界面。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    wantAgent?: WantAgent;
+
+    /**
+     * 通知进度信息。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    progressInfo: ProgressInfo;
   }
 
   /**
@@ -1153,6 +1262,23 @@ declare namespace backgroundTaskManager {
   function updateBackgroundRunning(context: Context, request: ContinuousTaskRequest): Promise<ContinuousTaskNotification>;
 
   /**
+   * 更新通知。仅支持数据传输类型长时任务。
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { Context } context - 应用运行的上下文。
+   * @param { DataTransferProgress } progressInfo - 长时任务通知进度信息。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
+   * @throws { BusinessError } 9800007 - Continuous task storage failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function updateDataTransferProgress(context: Context, progressInfo: DataTransferProgress): void;
+
+  /**
    * 取消当前UIAbility（FA模型则为ServiceAbility）下所有长时任务，使用callback异步回调。也可以通过
    * [stopBackgroundRunning]{@link backgroundTaskManager.stopBackgroundRunning(context: Context, continuousTaskId: int)}
    * 接口取消指定Id的长时任务。
@@ -1442,7 +1568,7 @@ declare namespace backgroundTaskManager {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { 'continuousTaskCancel' } type  - 取消长时任务，固定取值为'continuousTaskCancel'。
-   * @param { Callback<ContinuousTaskCancelInfo> } callback  - 需要取消监听的回调函数，未传入则取消所有注册回调。
+   * @param { Callback<ContinuousTaskCancelInfo> } [callback]  - 需要取消监听的回调函数，未传入则取消所有注册回调。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
    *     <br> 2. Unregister type has not register; 3. Parameter verification failed.
@@ -2350,15 +2476,6 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_DATA_TRANSFER_LOW_SPEED = 4,
   
     /**
-     * 申请AUDIO_PLAYBACK类型长时任务，但是未接入[AVSession](docroot://media/avsession/avsession-overview.md)。
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
-  
-    /**
      * 申请AUDIO_PLAYBACK类型长时任务，但是未播放音视频。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -2687,16 +2804,11 @@ declare namespace backgroundTaskManager {
      * 
      * 当接收到以下公共事件时，相关授权记录将被清除：
      * 
-     * [COMMON_EVENT_PACKAGE_ADDED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_package_added)
-     * 、
-     * [COMMON_EVENT_PACKAGE_REMOVED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_package_removed)
-     * 、
-     * [COMMON_EVENT_BUNDLE_REMOVED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_bundle_removed)
-     * 、
-     * [COMMON_EVENT_PACKAGE_FULLY_REMOVED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_package_fully_removed)
-     * 、
-     * [COMMON_EVENT_PACKAGE_CHANGED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_package_changed)
-     * 。
+     * [COMMON_EVENT_PACKAGE_ADDED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_ADDED}、
+     * [COMMON_EVENT_PACKAGE_REMOVED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_REMOVED}、
+     * [COMMON_EVENT_BUNDLE_REMOVED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_BUNDLE_REMOVED}、
+     * [COMMON_EVENT_PACKAGE_FULLY_REMOVED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_FULLY_REMOVED}、
+     * [COMMON_EVENT_PACKAGE_CHANGED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_CHANGED}。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic

@@ -14,26 +14,12 @@
  */
 
 /**
- * Used in conjunction with **LazyForEach**, the **Prefetcher** module provides content prefetching capabilities for 
- * container components such as **List**, **Grid**, **WaterFlow**, and **Swiper** during scrolling, to enhance the user 
- * browsing experience.
- * 
- * > **NOTE**
- * >
- * > - The APIs of this module cannot be used in the Previewer.
- * 
- * ###### Supplementary Notes
- * 
- * You can also use the OpenHarmony third-party library 
- * [@netteam/prefetcher](https://ohpm.openharmony.cn/#/en/detail/@netteam%2Fprefetcher) to implement the prefetching 
- * functionality. This library provides additional APIs for more convenient and efficient data prefetching.
- *
  * @file Prefetching
  * @kit ArkUI
  */
 
 /**
- * Extends the [IDataSource]{@link IDataSource} API to add data prefetching capability to your data source.
+ * Extends the [IDataSource]{@link IDataSource} API to provide a data source that can be prefetched.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -42,11 +28,12 @@
  * @since 12 dynamic
  */
 export interface IDataSourcePrefetching extends IDataSource {
-
   /**
-   * Prefetches a specified data item from the dataset. This API can be either synchronous or asynchronous.
+   * Prefetches a specified data item from the dataset. This API can be either synchronous or asynchronous. When the
+   * visible area changes, the prefetching algorithm calls this API if it determines that the data item about to enter
+   * the visible area needs to be prefetched.
    *
-   * @param { number } index - Index of the data item to prefetch.
+   * @param { number } index - Index of the data item to be prefetched. The value range is [0, **totalCount()** – 1].
    * @returns { Promise<void> | void } Promise when this API is executed asynchronously; no return value when this API
    *     is executed synchronously. The promise only indicates that the operation is completed and contains no actual
    *     return content.
@@ -60,9 +47,11 @@ export interface IDataSourcePrefetching extends IDataSource {
 
   /**
    * Cancels the prefetching of a specified data item from the dataset. This API can be either synchronous or
-   * asynchronous.
+   * asynchronous. This API is optional. If the data source does not implement this API, the prefetching cancellation
+   * operation will not be performed.
    *
-   * @param { number } index - Index of the data item to cancel prefetching for.
+   * @param { number } index - Index of the data item whose prefetching is to be canceled. The value range is
+   *     [0, **totalCount()** – 1].
    * @returns { Promise<void> | void } Promise when this API is executed asynchronously; no return value when this API
    *     is executed synchronously. The promise only indicates that the operation is completed and contains no actual
    *     return content.
@@ -76,7 +65,8 @@ export interface IDataSourcePrefetching extends IDataSource {
 }
 
 /**
- * Provides prefetching capabilities.
+ * Provides the prefetching capability. It works with **LazyForEach** to prefetch data items when users swipe through
+ * container components such as **List** and **Grid**, improving user browsing experience.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -85,7 +75,6 @@ export interface IDataSourcePrefetching extends IDataSource {
  * @since 12 dynamic
  */
 export interface IPrefetcher {
-
   /**
    * Sets the prefetching-capable data source to bind to the **Prefetcher**.
    *
@@ -99,11 +88,13 @@ export interface IPrefetcher {
   setDataSource(dataSource: IDataSourcePrefetching): void;
 
   /**
-   * Called when the boundaries of the visible area change. This API works with the **List**, **Grid**, **WaterFlow**,
-   * and **Swiper** components.
+   * Called when the boundary of the visible area changes. It notifies **Prefetcher** of the current visible area range
+   * so that **Prefetcher** can determine whether to prefetch or cancel the prefetching of data items. Before calling
+   * this API, you need to set a data source using **setDataSource**. This API works with the **List**, **Grid**,
+   * **WaterFlow**, and **Swiper** components.
    *
-   * @param { number } minVisible - Upper bound of the visible area.
-   * @param { number } maxVisible - Lower bound of the visible area.
+   * @param { number } minVisible - Index of the first data item in the current visible area.
+   * @param { number } maxVisible - Index of the last data item in the current visible area.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -128,11 +119,12 @@ export interface IPrefetcher {
  * @since 12 dynamic
  */
 export class BasicPrefetcher implements IPrefetcher {
-
   /**
-   * A constructor used to create a prefetching-capable data source to bind to the **Prefetcher**.
+   * Passes the data source that supports prefetching and binds it to **Prefetcher** when an object is created. If no
+   * data source is passed during the creation, you can use **setDataSource** to set a data source after the creation.
    *
-   * @param { IDataSourcePrefetching } dataSource - Prefetching-capable data source.
+   * @param { IDataSourcePrefetching } dataSource - Prefetching-capable data source. If this parameter is not specified,
+   *     the value is empty by default. You can set a data source using **setDataSource** later.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -154,11 +146,13 @@ export class BasicPrefetcher implements IPrefetcher {
   setDataSource(dataSource: IDataSourcePrefetching): void;
 
   /**
-   * Called when the boundaries of the visible area change. This API works with the **List**, **Grid**, **WaterFlow**,
-   * and **Swiper** components.
+   * Called when the boundary of the visible area changes. It notifies **Prefetcher** of the current visible area range
+   * so that **Prefetcher** can determine whether to prefetch or cancel the prefetching of data items. Before calling
+   * this API, ensure that the data source has been set using the constructor or the **setDataSource** API. This API
+   * works with the **List**, **Grid**, **WaterFlow**, and **Swiper** components.
    *
-   * @param { number } minVisible - Upper bound of the visible area.
-   * @param { number } maxVisible - Lower bound of the visible area.
+   * @param { number } minVisible - Index of the first data item in the current visible area.
+   * @param { number } maxVisible - Index of the last data item in the current visible area.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

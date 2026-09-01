@@ -14,14 +14,16 @@
  */
 
 /**
- * @file
+ * @file @ohos.file.statvfs (文件系统空间统计)
  * @kit CoreFileKit
  */
 
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * 该模块提供文件系统相关存储信息的功能：向应用程序提供获取文件系统总字节数、空闲字节数的JS接口。
+ * 该模块向应用程序提供获取文件系统总字节数、空闲字节数的ArkTS接口。通过该模块，开发者可以实时掌握文件系统存储状况，避免因存储空间不足导致的应用崩溃，提升用户体验和系统稳定性。
+
+ * 使用场景包括：文件下载前检查存储空间、应用安装前进行磁盘空间预估、缓存管理中的空间监控等。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform [since 20]
@@ -30,10 +32,10 @@ import type { AsyncCallback } from './@ohos.base';
  */
 declare namespace statfs {
   /**
-   * 异步方法获取指定文件系统空闲字节数，以Promise形式返回结果。
+   * 获取指定文件或目录所在文件系统的空闲字节数。使用Promise异步回调。
    *
-   * @param { string } path - 需要查询的文件系统的文件路径。
-   * @returns { Promise<long> } Promise对象，返回空闲字节数。
+   * @param { string } path - 文件或目录的应用沙箱路径。
+   * @returns { Promise<long> } Promise对象，返回空闲字节数，单位为Byte。
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -55,10 +57,10 @@ declare namespace statfs {
   function getFreeSize(path: string): Promise<long>;
 
   /**
-   * 异步方法获取指定文件系统空闲字节数，使用callback形式返回结果。
+   * 获取指定文件或目录所在文件系统的空闲字节数。使用callback异步回调。
    *
-   * @param { string } path - 需要查询的文件系统的文件路径。
-   * @param { AsyncCallback<long> } [callback] - 异步获取空闲字节数之后的回调。
+   * @param { string } path - 文件或目录的应用沙箱路径。
+   * @param { AsyncCallback<long> } callback - 回调函数，返回空闲字节数，单位为Byte。
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -80,10 +82,10 @@ declare namespace statfs {
   function getFreeSize(path: string, callback: AsyncCallback<long>): void;
 
   /**
-   * 以同步方法获取指定文件系统空闲字节数。
+   * 以同步方法获取指定文件或目录所在文件系统的空闲字节数。
    *
-   * @param { string } path - 需要查询的文件系统的文件路径。
-   * @returns { long } 返回空闲字节数。
+   * @param { string } path - 文件或目录的应用沙箱路径。
+   * @returns { long } 返回空闲字节数，单位为Byte。
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -105,10 +107,10 @@ declare namespace statfs {
   function getFreeSizeSync(path: string): long;
 
   /**
-   * 异步方法获取指定文件系统总字节数，以Promise形式返回结果。
+   * 获取指定文件或目录所在文件系统的总字节数。使用Promise异步回调。
    *
-   * @param { string } path - 需要查询的文件系统的文件路径。
-   * @returns { Promise<long> } Promise对象，返回总字节数。
+   * @param { string } path - 文件或目录的应用沙箱路径。
+   * @returns { Promise<long> } Promise对象，返回总字节数，单位为Byte。
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -130,10 +132,10 @@ declare namespace statfs {
   function getTotalSize(path: string): Promise<long>;
 
   /**
-   * 异步方法获取指定文件系统总字节数，使用callback形式返回结果。
+   * 获取指定文件或目录所在文件系统的总字节数。使用callback异步回调。
    *
-   * @param { string } path - 需要查询的文件系统的文件路径。
-   * @param { AsyncCallback<long> } [callback] - 异步获取总字节数之后的回调。
+   * @param { string } path - 文件或目录的应用沙箱路径。
+   * @param { AsyncCallback<long> } callback - 回调函数，返回总字节数，单位为Byte。
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error
@@ -155,10 +157,10 @@ declare namespace statfs {
   function getTotalSize(path: string, callback: AsyncCallback<long>): void;
 
   /**
-   * 以同步方法获取指定文件系统总字节数。
+   * 以同步方法获取指定文件或目录所在文件系统的总字节数。
    *
-   * @param { string } path - 需要查询的文件系统的文件路径。
-   * @returns { long } 返回总字节数。
+   * @param { string } path - 文件或目录的应用沙箱路径。
+   * @returns { long } 返回总字节数，单位为Byte。
    * @throws { BusinessError } 13900002 - No such file or directory
    * @throws { BusinessError } 13900004 - Interrupted system call
    * @throws { BusinessError } 13900005 - I/O error

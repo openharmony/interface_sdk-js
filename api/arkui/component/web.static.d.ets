@@ -2611,6 +2611,14 @@ export declare class WebResourceError {
      * @since 23 static
      */
     getErrorCode(): int;
+    /**
+      * Gets the custom error code of the Web resource.
+      *
+      * @returns { int } Return the custom error code of the Web resource.
+      * @syscap SystemCapability.Web.Webview.Core
+      * @since 26.1.0 static
+      */
+    getCustomErrorCode(): int;
 }
 /**
  * Defines the js geolocation request.
@@ -5622,7 +5630,7 @@ export declare interface WebAttribute extends CommonMethod {
      *
      * @param { int | undefined } size - Font size.
      *     <br>Value constraint:In actual rendering, the value that exceeds 72px is rendered as 72px,
-     *     and the value that is less than 1px is rendered as 1px.
+     *     and the value that is less than 1px is rendered as 1px.Unit:px.
      *     <br>Value range:[-2^31, 2^31-1].Unit:px.
      * @returns { WebAttribute }
      * @syscap SystemCapability.Web.Webview.Core
@@ -6685,6 +6693,20 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default enableFullscreenVideoOverlay(enabled: boolean | undefined): this;
+
+    /**
+     * Set whether to enable media network proxy for Web components.
+     * When enabled, network requests for media resources are routed through the web components network stack.
+     * This attribute takes effect for HLS media, other media formats are unaffected.
+     *
+     * @param { boolean | undefined } enabled - {@code true} to enable media network proxy, {@code false} to disable it.
+     *     The default value is false.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default enableMediaNetworkProxy(enabled: boolean | undefined): this;
 }
 
 /**

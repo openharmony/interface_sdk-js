@@ -19,7 +19,7 @@
  */
 
 /**
- * Web net error list.
+ * ArkWeb的网络协议栈错误列表。
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 23]
@@ -119,7 +119,7 @@ export declare enum WebNetErrorList {
   ERR_FILE_TOO_LARGE = -8,
 
   /**
-   * 遇到了一个未被预期或未被特定处理的问题。
+   * 遇到了未被预期或未被特定处理的问题。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -169,7 +169,7 @@ export declare enum WebNetErrorList {
   ERR_OUT_OF_MEMORY = -13,
 
   /**
-   * 上传文件失败因为文件的修改时间不符合预期。
+   * 上传文件失败，因为文件的修改时间不符合预期。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -249,7 +249,7 @@ export declare enum WebNetErrorList {
   ERR_NETWORK_CHANGED = -21,
 
   /**
-   *  被管理员阻止。
+   * 被管理员阻止。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -269,7 +269,7 @@ export declare enum WebNetErrorList {
   ERR_SOCKET_CONNECTED = -23,
 
   /**
-   * 上传重传不支持。
+   * 由于重试或重定向，需要重新读取上传流，但上传流不支持该操作，因此上传失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -289,7 +289,7 @@ export declare enum WebNetErrorList {
   ERR_CONTEXT_SHUT_DOWN = -26,
 
   /**
-   *请求失败，因为响应不满足要求（例如“X-Frame-Options”和“Content Security Policy”检查以及“Cross Origin Resource Policy”）。
+   * 请求失败，因为响应不满足要求（例如“X-Frame-Options”和“Content Security Policy”检查以及“Cross Origin Resource Policy”）。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -589,7 +589,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_DECOMPRESSION_FAILURE_ALERT = -125,
 
   /**
-   * SSL对等端向本端发送了致命的bad_record_mac警报。一个对DELEGATE支持有问题的服务器可能发生这个情况。
+   * SSL对等端向本端发送了致命的bad_record_mac警报。一个对DEFLATE支持有问题的服务器可能发生这个情况。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -659,7 +659,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_CLIENT_AUTH_CERT_NO_PRIVATE_KEY = -135,
 
   /**
-   *  HTTPS 代理提供的证书无效。
+   * HTTPS 代理提供的证书无效。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -729,7 +729,7 @@ export declare enum WebNetErrorList {
   ERR_MSG_TOO_BIG = -142,
 
   /**
-   * Websocket协议错误。表示由于帧格式错误或其他协议冲突，正在终止连接。
+   * WebSocket协议错误。表示由于帧格式错误或其他协议冲突，正在终止连接。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -901,7 +901,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_SERVER_CERT_BAD_FORMAT = -167,
 
   /**
-   * Certificate Transparency：解析signed tree head失败。
+   * Certificate Transparency: 解析signed tree head失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1092,7 +1092,7 @@ export declare enum WebNetErrorList {
 
   /**
    * 未信任的证书签发机构。这可能意味着：
-   * 1.攻击者用真实证书代替了包含其公钥并由其表亲签名的证书。
+   * 1.攻击者已将真实的证书替换为包含其公钥并由其同伙签名的证书。
    * 2.服务器操作员拥有来自本端不知道但应该信任的CA的合法证书。
    * 3.服务器提供了一个自签名证书，无法抵御主动攻击者。
    *
@@ -1147,7 +1147,7 @@ export declare enum WebNetErrorList {
   ERR_CERT_REVOKED = -206,
 
   /**
-   * 证书非法。
+   * 证书无效。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1157,7 +1157,7 @@ export declare enum WebNetErrorList {
   ERR_CERT_INVALID = -207,
 
   /**
-   * 服务器以使用弱签名算法签名的证书作为响应。
+   * 服务器使用弱签名算法签名的证书作为响应。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1217,7 +1217,7 @@ export declare enum WebNetErrorList {
   ERR_CERTIFICATE_TRANSPARENCY_REQUIRED = -214,
 
   /**
-   * 该证书链接到不再受信任的旧赛门铁克根目录。
+   * 证书链接到不再受信任的旧版Symantec根证书。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1297,7 +1297,7 @@ export declare enum WebNetErrorList {
   ERR_INVALID_REDIRECT = -303,
 
   /**
-   * 重定向过多。 
+   * 重定向过多。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1377,7 +1377,7 @@ export declare enum WebNetErrorList {
   ERR_EMPTY_RESPONSE = -324,
 
   /**
-   * 返回体中 headers 太大。
+   * HTTP响应标头过大。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1387,7 +1387,7 @@ export declare enum WebNetErrorList {
   ERR_RESPONSE_HEADERS_TOO_BIG = -325,
 
   /**
-   * pac 脚本错误。
+   * PAC 脚本错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1477,7 +1477,7 @@ export declare enum WebNetErrorList {
   ERR_NO_SUPPORTED_PROXIES = -336,
 
   /**
-   * There is an HTTP/2 protocol error.
+   * HTTP/2协议错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1487,7 +1487,7 @@ export declare enum WebNetErrorList {
   ERR_HTTP2_PROTOCOL_ERROR = -337,
 
   /**
-   * HTTP/2协议错误。
+   * 无效的身份验证凭据。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1527,7 +1527,7 @@ export declare enum WebNetErrorList {
   ERR_MISSING_AUTH_CREDENTIALS = -341,
 
   /**
-   * 意外的安全库状态。 
+   * 意外的安全库状态。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1567,7 +1567,7 @@ export declare enum WebNetErrorList {
   ERR_RESPONSE_BODY_TOO_BIG_TO_DRAIN = -345,
 
   /**
-   * 响应 headers 多个内容长度。
+   * HTTP响应包含了多个不同的Content-Length响应头。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1577,7 +1577,7 @@ export declare enum WebNetErrorList {
   ERR_RESPONSE_HEADERS_MULTIPLE_CONTENT_LENGTH = -346,
 
   /**
-   * 不完整的 HTTP/2 headers。
+   * 不完整的HTTP/2标头。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1587,7 +1587,7 @@ export declare enum WebNetErrorList {
   ERR_INCOMPLETE_HTTP2_HEADERS = -347,
 
   /**
-   * pac 不在 dhcp 中。
+   * PAC 不在 DHCP 中。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2198,7 +2198,7 @@ export declare enum WebNetErrorList {
   ERR_FTP_BAD_COMMAND_SEQUENCE = -607,
 
   /**
-   *由于密码不正确，PKCS #12 导入失败。
+   * 由于密码不正确，PKCS #12 导入失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2422,8 +2422,7 @@ export declare enum WebNetErrorList {
   ERR_DNS_SECURE_RESOLVER_HOSTNAME_RESOLUTION_FAILED = -808,
 
   /**
-   * DNS已识别请求因不安全的连接（http/ws）而被禁止。应用程序应该像处理HTTP重定向一样处理这个错误，将连接重定向到
-   * 安全的https或wss。
+   * DNS已识别请求因不安全的连接（HTTP/WS）而被禁止。应用程序应该像处理HTTP重定向一样处理这个错误，将连接重定向到安全的HTTPS或WSS。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2443,7 +2442,7 @@ export declare enum WebNetErrorList {
   ERR_DNS_REQUEST_CANCELED = -810,
 
   /**
-   * HTTPS记录的主机名解析预期未能使用受支持协议的ALPN值进行解析。
+   * HTTPS记录的主机名解析未能使用受支持协议的ALPN值进行解析。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]

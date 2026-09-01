@@ -14,8 +14,8 @@
  */
 
 /**
- * Describes the bundle information of an application.
- * 
+ * The **NotificationCommonDef** module defines the common data structures used in notification-related APIs.
+ *
  * @file Some common definitions
  * @kit NotificationKit
  */
@@ -38,7 +38,8 @@ export interface BundleOption {
   bundle: string;
 
   /**
-   * UID of the application, which is obtained from [ApplicationInfo](@link ./bundleManager/ApplicationInfo::ApplicationInfo). The default value is **0**. This parameter is mandatory in application clone<!--Del--> or telematics device<!--DelEnd--> scenarios.
+   * UID of the application, which is obtained from ApplicationInfo. The default value is **0**. This parameter is
+   * mandatory in application clone scenarios.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 9 dynamic
@@ -65,9 +66,8 @@ export interface GrantedBundleInfo {
   bundleName: string;
 
   /**
-   * Index of an application clone, which takes effect only for application clones.
-   * The value is obtained from the **appIndex** of 
-   * [ApplicationInfo](@link ./bundleManager/ApplicationInfo::ApplicationInfo).
+   * Index of an application clone, which takes effect only for application clones. The value is obtained from the
+   * **appIndex** of ApplicationInfo.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
@@ -76,8 +76,7 @@ export interface GrantedBundleInfo {
   readonly appIndex: int;
 
   /**
-   * Application name, which is obtained from the **label** of 
-   * [ApplicationInfo](@link ./bundleManager/ApplicationInfo::ApplicationInfo).
+   * Application name, which is obtained from the **label** of ApplicationInfo.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic

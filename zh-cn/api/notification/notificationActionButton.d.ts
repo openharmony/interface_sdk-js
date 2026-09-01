@@ -28,7 +28,9 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * 描述通知中显示的操作按钮。
+ * NotificationActionButton模块定义了通知中显示的操作按钮，用于在[NotificationRequest](@link ./notificationRequest::NotificationRequest)中添加
+ * 交互式操作按钮，让用户通过点击按钮触发WantAgent动作。当开发者需要在通知中提供交互式操作
+ * 按钮（如"回复"、"标记已读"等）时使用此模块。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
@@ -36,7 +38,7 @@ import { RecordData } from '../@ohos.base';
  */
 export interface NotificationActionButton {
   /**
-   * 按钮标题。字符串长度不超过200字节，超出部分会被截断；也不可为空字符串。
+   * 按钮标题，显示在通知的操作按钮上。字符串长度不超过202字节，超出部分会被截断。不可为空字符串。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -45,7 +47,8 @@ export interface NotificationActionButton {
   title: string;
 
   /**
-   * 点击按钮时触发的WantAgent。
+   * 点击按钮时触发的WantAgent，封装了应用的行为意图。用户点击按钮后，系统将按WantAgent指定的方式
+   * 执行动作（如跳转至指定UIAbility或发送公共事件）。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -54,7 +57,8 @@ export interface NotificationActionButton {
   wantAgent: WantAgent;
 
   /**
-   * 按钮扩展信息。预留能力，暂未支持。
+   * 按钮扩展信息。默认为空。
+   * 用于存储按钮的自定义扩展数据，应用可按需添加任意键值对信息，如按钮的特定标识、附加数据等。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -62,7 +66,8 @@ export interface NotificationActionButton {
   extras?: { [key: string]: any };
 
   /**
-   * 按钮扩展信息。预留能力，暂未支持。
+   * 按钮扩展信息。默认为空。
+   * 用于存储按钮的自定义扩展数据，应用可按需添加任意键值对信息，如按钮的特定标识、附加数据等。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 23 static

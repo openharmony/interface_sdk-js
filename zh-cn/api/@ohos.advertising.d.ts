@@ -383,6 +383,12 @@ declare namespace advertising {
   /**
    * 展示全屏广告。
    *
+   * > **说明：**
+   * >
+   * > 1. 为了保证广告能正确展示，该接口必须和请求广告接口配套使用。
+   * >
+   * > 2. 该接口仅支持展示激励广告和插屏广告。
+   * 
    * @param { Advertisement } ad - 广告对象。
    * @param { AdDisplayOptions } options - 广告展示参数。
    * @param { common.UIAbilityContext } context - UIAbility的上下文环境，不设置从api:

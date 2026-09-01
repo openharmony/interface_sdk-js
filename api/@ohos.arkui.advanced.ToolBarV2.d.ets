@@ -23,7 +23,6 @@ import { ColorMetrics, LengthMetrics } from './@ohos.arkui.node';
 /**
  * Declare enum ToolBarV2ItemState
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -77,7 +76,6 @@ export class ToolBarV2SymbolGlyph {
   /**
    * Modifier of toolbarV2's normal symbol.
    *
-   * @type { SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -89,7 +87,6 @@ export class ToolBarV2SymbolGlyph {
   /**
    * Modifier of toolbarV2's activated symbol.
    *
-   * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -114,7 +111,6 @@ export class ToolBarV2SymbolGlyph {
 /**
  * Declare the options of ToolBarV2SymbolGlyph
  *
- * @interface ToolBarV2SymbolGlyphOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -125,7 +121,6 @@ export interface ToolBarV2SymbolGlyphOptions {
   /**
    * Modifier of toolbarV2's normal symbol.
    *
-   * @type { SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -136,7 +131,6 @@ export interface ToolBarV2SymbolGlyphOptions {
   /**
    * Modifier of toolbarV2's activated symbol.
    *
-   * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -149,19 +143,18 @@ export interface ToolBarV2SymbolGlyphOptions {
 /**
  * Declare type ToolBarV2ItemText
  *
- * @class ToolBarV2ItemText
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @class ToolBarV2ItemText
  */
 @ObservedV2
 export declare class ToolBarV2ItemText {
   /**
    * Define text content.
    *
-   * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -173,7 +166,6 @@ export declare class ToolBarV2ItemText {
   /**
    * Define text fontColor.
    *
-   * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -185,7 +177,6 @@ export declare class ToolBarV2ItemText {
   /**
    * Text fontColor when the item is activated.
    *
-   * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -210,7 +201,6 @@ export declare class ToolBarV2ItemText {
 /**
  * Declare the options of ToolBarV2ItemText
  *
- * @interface ToolBarV2ItemTextOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -221,7 +211,6 @@ export interface ToolBarV2ItemTextOptions {
   /**
    * Define text content.
    *
-   * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -232,7 +221,6 @@ export interface ToolBarV2ItemTextOptions {
   /**
    * Define text fontColor.
    *
-   * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -243,7 +231,6 @@ export interface ToolBarV2ItemTextOptions {
   /**
    * Text fontColor when the item is activated.
    *
-   * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -267,19 +254,18 @@ export declare type ToolBarV2ItemIconType = ToolBarV2ItemImage | ToolBarV2Symbol
 /**
  * Declare type ToolBarV2ItemImage
  *
- * @class ToolBarV2ItemImage
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @class ToolBarV2ItemImage
  */
 @ObservedV2
 export declare class ToolBarV2ItemImage {
   /**
    * Define icon resource.
    *
-   * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -291,7 +277,6 @@ export declare class ToolBarV2ItemImage {
   /**
    * Define icon fillColor.
    *
-   * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -303,7 +288,6 @@ export declare class ToolBarV2ItemImage {
   /**
    * Icon fillColor when the item is activated.
    *
-   * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -328,7 +312,6 @@ export declare class ToolBarV2ItemImage {
 /**
  * Declare the options of ToolBarV2ItemImage
  *
- * @interface ToolBarV2ItemImageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -339,7 +322,6 @@ export interface ToolBarV2ItemImageOptions {
   /**
    * Define icon resource.
    *
-   * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -350,7 +332,6 @@ export interface ToolBarV2ItemImageOptions {
   /**
    * Define icon fillColor.
    *
-   * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -361,7 +342,6 @@ export interface ToolBarV2ItemImageOptions {
   /**
    * Icon fillColor when the item is activated.
    *
-   * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -374,19 +354,18 @@ export interface ToolBarV2ItemImageOptions {
 /**
  * Declare type ToolBarV2Item
  *
- * @class ToolBarV2Item
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @class ToolBarV2Item
  */
 @ObservedV2
 export declare class ToolBarV2Item {
   /**
    * Define text content.
    *
-   * @type { ToolBarV2ItemText }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -398,7 +377,6 @@ export declare class ToolBarV2Item {
   /**
    * Define the action event.
    *
-   * @type { ?ToolBarV2ItemAction }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -410,7 +388,6 @@ export declare class ToolBarV2Item {
   /**
    * Define icon resource.
    *
-   * @type { ?ToolBarV2ItemIconType }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -422,7 +399,6 @@ export declare class ToolBarV2Item {
   /**
    * Define item type.
    *
-   * @type { ?ToolBarV2ItemState }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -434,7 +410,6 @@ export declare class ToolBarV2Item {
   /**
    * The accessibilityText of item.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -446,7 +421,6 @@ export declare class ToolBarV2Item {
   /**
    * The accessibilityDescription of item.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -458,7 +432,6 @@ export declare class ToolBarV2Item {
   /**
    * The accessibilityLevel of item.
    *
-   * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -484,7 +457,6 @@ export declare class ToolBarV2Item {
 /**
  * Declare the options of ToolBarV2Item
  *
- * @interface ToolBarV2ItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -495,7 +467,6 @@ export interface ToolBarV2ItemOptions {
   /**
    * Define text content.
    *
-   * @type { ToolBarV2ItemText }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -506,7 +477,6 @@ export interface ToolBarV2ItemOptions {
   /**
    * Define the action event.
    *
-   * @type { ?ToolBarV2ItemAction }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -517,7 +487,6 @@ export interface ToolBarV2ItemOptions {
   /**
    * Define icon resource.
    *
-   * @type { ?ToolBarV2ItemIconType }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -528,7 +497,6 @@ export interface ToolBarV2ItemOptions {
   /**
    * Define item type.
    *
-   * @type { ?ToolBarV2ItemState }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -539,7 +507,6 @@ export interface ToolBarV2ItemOptions {
   /**
    * The accessibilityText of item.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -550,7 +517,6 @@ export interface ToolBarV2ItemOptions {
   /**
    * The accessibilityDescription of item.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -561,7 +527,6 @@ export interface ToolBarV2ItemOptions {
   /**
    * The accessibilityLevel of item.
    *
-   * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -646,7 +611,6 @@ export declare class ToolBarV2Modifier {
 /**
  * Declare Component ToolBarV2
  *
- * @struct { ToolBarV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -658,7 +622,6 @@ export declare struct ToolBarV2 {
   /**
    * Define toolbarV2 item list.
    *
-   * @type { ToolBarV2Item[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -671,7 +634,6 @@ export declare struct ToolBarV2 {
   /**
    * Define toolbarV2 activate item index, default is -1.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -683,23 +645,23 @@ export declare struct ToolBarV2 {
   /**
    * Define divider Modifier.
    *
-   * @type { ?DividerModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
-  @Param dividerModifier?: DividerModifier;
+  @Param
+  dividerModifier?: DividerModifier;
   /**
    * Define toolbarV2 modifier.
    *
-   * @type { ?ToolBarV2Modifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
-  @Param toolBarModifier?: ToolBarV2Modifier;
+  @Param
+  toolBarModifier?: ToolBarV2Modifier;
 }

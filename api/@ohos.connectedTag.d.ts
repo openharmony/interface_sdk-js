@@ -14,25 +14,31 @@
  */
 
 /**
- * @file
+ * @file Active Tags
  * @kit ConnectivityKit
  */
 
 import type { AsyncCallback, BusinessError, Callback } from './@ohos.base';
 
 /**
- * Provides methods to operate or manage Connected Tag.
+ * The **connectedTag** module provides APIs for using active tags. You can use the APIs to initialize the active tag
+ * chip and read and write active tags.
  *
- * @namespace connectedTag
  * @syscap SystemCapability.Communication.ConnectedTag
  * @since 8 dynamic
  */
 declare namespace connectedTag {
   /**
-   * Initializes Connected Tag.
+   * Initializes the active tag chip.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 8 and deprecated since API version 9. Use
+   * > [initialize]{@link connectedTag.initialize} instead.
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { boolean } Returns true if init success, otherwise returns false.
+   * @returns { boolean } **true**: The initialization is successful.
+   *     <br>**false**: The initialization fails.
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -41,7 +47,7 @@ declare namespace connectedTag {
   function init(): boolean;
 
   /**
-   * Initializes the connected NFC tag.
+   * Initializes the active tag chip.
    *
    * @permission ohos.permission.NFC_TAG
    * @throws { BusinessError } 201 - Permission denied.
@@ -53,10 +59,16 @@ declare namespace connectedTag {
   function initialize(): void;
 
   /**
-   * UnInitializes Connected Tag.
+   * Uninitializes the active tag resources.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 8 and deprecated since API version 9. Use
+   * > [uninitialize]{@link connectedTag.uninitialize} instead.
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { boolean } Returns true if uninit success, otherwise returns false.
+   * @returns { boolean } **true**: The uninstallation is successful.
+   *     <br>**false**: The uninstallation fails.
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -65,7 +77,7 @@ declare namespace connectedTag {
   function uninit(): boolean;
 
   /**
-   * Uninitializes the connected NFC tag.
+   * Uninitializes the active tag resources.
    *
    * @permission ohos.permission.NFC_TAG
    * @throws { BusinessError } 201 - Permission denied.
@@ -77,10 +89,15 @@ declare namespace connectedTag {
   function uninitialize(): void;
 
   /**
-   * Reads the NDEF Data.
+   * Reads the content of this active tag. This API uses a promise to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 8 and deprecated since API version 9. Use
+   * > [uninitialize]{@link connectedTag.uninitialize} instead.
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { Promise<string> } Returns the NDEF Data.
+   * @returns { Promise<string> } Promise used to return the content of the active tag.
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -89,10 +106,15 @@ declare namespace connectedTag {
   function readNdefTag(): Promise<string>;
 
   /**
-   * Reads the NDEF Data.
+   * Reads the content of this active tag. This API uses an asynchronous callback to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 8 and deprecated since API version 9. Use
+   * > [uninitialize]{@link connectedTag.uninitialize} instead.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { AsyncCallback<string> } callback
+   * @param { AsyncCallback<string> } callback - Callback used to return the active tag content obtained.
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -101,10 +123,10 @@ declare namespace connectedTag {
   function readNdefTag(callback: AsyncCallback<string>): void;
 
   /**
-   * Reads the NDEF data from the connected NFC tag.
+   * Reads the content of this active tag. This API uses a promise to return the result.
    *
    * @permission ohos.permission.NFC_TAG
-   * @returns { Promise<number[]> } The reponse NDEF data.
+   * @returns { Promise<number[]> } Promise used to return the content of the active tag.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
@@ -114,10 +136,10 @@ declare namespace connectedTag {
   function read(): Promise<number[]>;
 
   /**
-   * Reads the NDEF data from the connected NFC tag.
+   * Reads the content of this active tag. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { AsyncCallback<number[]> } callback The callback to receive the data.
+   * @param { AsyncCallback<number[]> } callback - Callback used to return the active tag content obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
@@ -127,11 +149,16 @@ declare namespace connectedTag {
   function read(callback: AsyncCallback<number[]>): void;
 
   /**
-   * Writes the NDEF Data.
+   * Writes data to this active tag. This API uses a promise to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 8 and deprecated since API version 9. Use
+   * > [connectedTag.write]{@link connectedTag.write} instead.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { string } data The Data to write.
-   * @returns { Promise<void> } The void.
+   * @param { string } data - Data to be written to the active tag. The maximum length is 1024 bytes.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -140,11 +167,16 @@ declare namespace connectedTag {
   function writeNdefTag(data: string): Promise<void>;
 
   /**
-   * Writes the NDEF Data.
+   * Writes data to this active tag. This API uses an asynchronous callback to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 8 and deprecated since API version 9. Use
+   * > [connectedTag.write]{@link connectedTag.write} instead.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { string } data The Data to write.
-   * @param { AsyncCallback<void> } callback
+   * @param { string } data - Data to be written to the active tag. The maximum length is 1024 bytes.
+   * @param { AsyncCallback<void> } callback - Callback used to return the active tag content obtained.
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -153,16 +185,17 @@ declare namespace connectedTag {
   function writeNdefTag(data: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Writes the NDEF data to the connected NFC tag.
+   * Writes data to this active tag. This API uses a promise to return the result.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number[] } data Indicates the NDEF data to send, which is a byte array.
-   * @returns { Promise<void> } The void.
+   * @param { number[] } data - Data to be written to the active tag. The value is a hexadecimal number ranging from 0x00
+   *     to 0xFF.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.ConnectedTag
@@ -171,16 +204,17 @@ declare namespace connectedTag {
   function write(data: number[]): Promise<void>;
 
   /**
-   * Writes the NDEF data to the connected NFC tag.
+   * Writes data to this active tag. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { number[] } data Indicates the NDEF data to send, which is a byte array.
-   * @param { AsyncCallback<void> } callback
+   * @param { number[] } data - Data to be written to the active tag. The value is a hexadecimal number ranging from 0x00
+   *     to 0xFF.
+   * @param { AsyncCallback<void> } callback - Callback used to return the active tag content obtained.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 3200101 - Connected NFC tag running state is abnormal in service.
    * @syscap SystemCapability.Communication.ConnectedTag
@@ -189,38 +223,37 @@ declare namespace connectedTag {
   function write(data: number[], callback: AsyncCallback<void>): void;
 
   /**
-   * Subscribes NFC RF status change events.
+   * Registers the NFC field strength state events.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param {'notify'} type The callback type. 
-   * @param { Callback<number> } callback The callback function to be registered.
+   * @param {'notify'} type - Event type. This parameter has a fixed value of **notify**.
+   * @param { Callback<number> } callback - Callback used to return the [NfcRfType]{@link connectedTag.NfcRfType}.
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamic
    */
-  function on(type: 'notify', callback: Callback<number>): void;
+  function on(type: "notify", callback: Callback<number>): void;
 
   /**
-   * Unsubscribes NFC RF status change events.
-   * <p>All callback functions will be unregistered If there is no specific callback parameter.</p>
+   * Unregisters the NFC field strength state events.
    *
    * @permission ohos.permission.NFC_TAG
-   * @param { 'notify' } type The callback type.
-   * @param { Callback<number> } callback The callback function to be unregistered.
+   * @param { 'notify' } type - Event type. This parameter has a fixed value of **notify**.
+   * @param { Callback<number> } [callback] - Callback used to return the field strength state. If this parameter is not
+   *     specified, all callbacks associated with the specified event will be unregistered.
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamic
    */
-  function off(type: 'notify', callback?: Callback<number>): void;
+  function off(type: "notify", callback?:Callback<number>): void;
 
   /**
-   * Describes the NFC RF type.
+   * Enumerates the NFC field strength states.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.ConnectedTag
    * @since 8 dynamic
    */
   enum NfcRfType {
     /**
-     * NFC RF LEAVE
+     * NFC exit.
      *
      * @syscap SystemCapability.Communication.ConnectedTag
      * @since 8 dynamic
@@ -228,7 +261,7 @@ declare namespace connectedTag {
     NFC_RF_LEAVE = 0,
 
     /**
-     * NFC RF ENTER
+     * NFC entry.
      *
      * @syscap SystemCapability.Communication.ConnectedTag
      * @since 8 dynamic

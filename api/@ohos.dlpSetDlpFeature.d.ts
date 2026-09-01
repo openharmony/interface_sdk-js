@@ -19,8 +19,10 @@
  */
 
 /**
- * This module controls the Data Loss Prevention (DLP) feature, including enabling or disabling DLP and returning the 
- * DLP status.
+ * 
+ * This module provides APIs for controlling the Data Loss Prevention (DLP) feature, including enabling or disabling
+ * the DLP feature and returning the DLP status. It helps enterprises meet data security compliance requirements and
+ * implement access control and encryption protection for confidential files.
  * 
  * **Use scenarios**
  * 
@@ -120,9 +122,10 @@ declare namespace dlpSetDlpFeature {
      * @param { DlpFeatureStatus } status - DLP status. The value **ENABLED_FEATURE** indicates the DLP feature is
      *     enabled, and the encryption option is displayed in the menu. The value **NOT_ENABLED_FEATURE**
      *     indicates the DLP feature is disabled, and the encryption option  is not displayed in the menu.
-     *     If the value is out of range, error code 19100001 is thrown.
+     *     If the value is out of range, error code 401 is thrown.
      * @returns { Promise<StatusInfoResult> } Promise used to return the DLP status that is set.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention

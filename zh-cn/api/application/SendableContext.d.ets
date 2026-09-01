@@ -21,9 +21,9 @@
 import lang from '../../arkts/@arkts.lang';
 
 /**
- * SendableContext符合[Sendable协议](docroot://arkts-utils/arkts-sendable.md#sendable协议)，继承自
- * [lang.ISendable](docroot://reference/apis-arkts/js-apis-arkts-lang.md#langisendable)。
- *
+ * SendableContext符合[Sendable协议](docroot://arkts-utils/arkts-sendable.md#sendable协议)，
+ * 可以与Context对象相互转换，用于ArkTS并发实例间（包括主线程、TaskPool&Worker工作线程）的数据传递。
+ * 
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice

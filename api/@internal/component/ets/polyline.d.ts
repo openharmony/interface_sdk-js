@@ -40,14 +40,14 @@ declare interface PolylineOptions {
    * Unit: vp, The value must be greater than or equal to 0, The **undefined**, **null**, **NaN**, and **Infinity**
    * values are invalid and treated as the default value. Default value: **0**.
    *
-   * @type { ?(string | number) } [since 18 - 19]
+   * @type { ?(string | number) } [since 7 - 19]
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   width?: Length;
 
@@ -56,14 +56,14 @@ declare interface PolylineOptions {
    * Unit: vp, The value must be greater than or equal to 0, The **undefined**, **null**, **NaN**, and
    * **Infinity** values are invalid and treated as the default value. Default value: **0**.
    *
-   * @type { ?(string | number) } [since 18 - 19]
+   * @type { ?(string | number) } [since 7 - 19]
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   height?: Length;
 }

@@ -20,6 +20,44 @@
  */
 
 /**
+ * Interface representing a view of an ArrayBuffer.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export interface ArrayBufferView {
+    /**
+     * The ArrayBuffer instance referenced by the array.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    readonly buffer: ArrayBuffer;
+
+    /**
+     * The length in bytes of the array.
+     * The value must be an integer greater than or equal to 0.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    readonly byteLength: int;
+
+    /**
+     * The offset in bytes of the array.
+     * The value must be an integer greater than or equal to 0.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    readonly byteOffset: int;
+}
+
+/**
  * JS ArrayBuffer API-compatible class.
  * Used to represent a generic, fixed-length raw binary data buffer.
  *
@@ -27,15 +65,15 @@
  * @stagemodelonly
  * @since 24 staticonly
  */
-class ArrayBuffer {
+export class ArrayBuffer {
 
     /**
      * Creates an ArrayBuffer with size equal to the length parameter.
      *
-     * @param { int } length - The size of the ArrayBuffer in bytes
-     *     <br>The value range is all integers.
-     * @param { int } [maxByteLength] - Optional maximum size the ArrayBuffer can be resized to
-     *     <br>The value range is all integers.
+     * @param { int } length - The size of the ArrayBuffer in bytes.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } [maxByteLength] - Optional maximum size the ArrayBuffer can be resized to.
+     *     <br>The value must be an integer greater than or equal to 0.
      * @throws { RangeError } Throws - if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
@@ -44,14 +82,39 @@ class ArrayBuffer {
     constructor(length: int, maxByteLength?: int);
 
     /**
+     * Creates an ArrayBuffer with size equal to the length parameter.
+     *
+     * @param { double } length - The size of the ArrayBuffer in bytes.
+     *     <br>The value must be greater than or equal to 0.
+     * @param { double } [maxByteLength] - Optional maximum size the ArrayBuffer can be resized to.
+     *     <br>The value must be greater than or equal to 0.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public constructor(length: double, maxByteLength?: double);
+
+    /**
+     * Checks if the passed object is one of the ArrayBuffer views.
+     *
+     * @param { Object } obj - The object to check.
+     * @returns { boolean } Returns true if the object is a view; otherwise false.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static isView(obj: Object): boolean;
+
+    /**
      * Atomically adds a value to the element at the specified index.
      *
-     * @param { int } index - The index to access
-     *     <br>The value range is all integers.
-     * @param { int } byteOffset - The byte offset
-     *     <br>The value range is all integers.
+     * @param { int } index - The index to access.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { byte } value - The value to add.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -62,11 +125,12 @@ class ArrayBuffer {
      * Atomically performs a bitwise AND operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { byte } value - The value to AND with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -77,12 +141,13 @@ class ArrayBuffer {
      * Atomically compares and exchanges the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { byte } expectedValue - The expected value.
      * @param { byte } replacementValue - The replacement value.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -93,11 +158,12 @@ class ArrayBuffer {
      * Atomically exchanges the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { byte } value - The value to exchange.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -108,10 +174,11 @@ class ArrayBuffer {
      * Atomically loads the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
-     * @returns { long } The loaded value.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -122,11 +189,12 @@ class ArrayBuffer {
      * Atomically performs a bitwise OR operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { byte } value - The value to OR with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -137,11 +205,12 @@ class ArrayBuffer {
      * Atomically stores a value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { byte } value - The value to store.
      * @returns { long } The stored value.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -152,11 +221,12 @@ class ArrayBuffer {
      * Atomically subtracts a value from the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { byte } value - The value to subtract.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -167,11 +237,12 @@ class ArrayBuffer {
      * Atomically performs a bitwise XOR operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { byte } value - The value to XOR with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -182,11 +253,12 @@ class ArrayBuffer {
      * Atomically adds a value to the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { short } value - The value to add.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -197,11 +269,12 @@ class ArrayBuffer {
      * Atomically performs a bitwise AND operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { short } value - The value to AND with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -212,12 +285,13 @@ class ArrayBuffer {
      * Atomically compares and exchanges the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { short } expectedValue - The expected value.
      * @param { short } replacementValue - The replacement value.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -228,11 +302,12 @@ class ArrayBuffer {
      * Atomically exchanges the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { short } value - The value to exchange.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -243,10 +318,11 @@ class ArrayBuffer {
      * Atomically loads the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
-     * @returns { long } The loaded value.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -257,11 +333,12 @@ class ArrayBuffer {
      * Atomically performs a bitwise OR operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { short } value - The value to OR with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -272,11 +349,12 @@ class ArrayBuffer {
      * Atomically stores a value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { short } value - The value to store.
      * @returns { long } The stored value.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -287,11 +365,12 @@ class ArrayBuffer {
      * Atomically subtracts a value from the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { short } value - The value to subtract.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -302,11 +381,12 @@ class ArrayBuffer {
      * Atomically performs a bitwise XOR operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { short } value - The value to XOR with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -317,12 +397,13 @@ class ArrayBuffer {
      * Atomically adds a value to the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { int } value - The value to add.
      *     <br>The value should be an integer.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -333,12 +414,13 @@ class ArrayBuffer {
      * Atomically performs a bitwise AND operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { int } value - The value to AND with.
      *     <br>The value should be an integer.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -349,14 +431,15 @@ class ArrayBuffer {
      * Atomically compares and exchanges the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { int } expectedValue - The expected value.
      *     <br>The value should be an integer.
      * @param { int } replacementValue - The replacement value.
      *     <br>The value should be an integer.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -367,12 +450,13 @@ class ArrayBuffer {
      * Atomically exchanges the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { int } value - The value to exchange.
      *     <br>The value should be an integer.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -383,10 +467,11 @@ class ArrayBuffer {
      * Atomically loads the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
-     * @returns { long } The loaded value.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -397,12 +482,13 @@ class ArrayBuffer {
      * Atomically performs a bitwise OR operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { int } value - The value to OR with.
      *     <br>The value should be an integer.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -413,12 +499,13 @@ class ArrayBuffer {
      * Atomically stores a value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { int } value - The value to store.
      *     <br>The value should be an integer.
      * @returns { long } The stored value.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -429,12 +516,13 @@ class ArrayBuffer {
      * Atomically subtracts a value from the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { int } value - The value to subtract.
      *     <br>The value should be an integer.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -445,12 +533,13 @@ class ArrayBuffer {
      * Atomically performs a bitwise XOR operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { int } value - The value to XOR with.
      *     <br>The value should be an integer.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -461,11 +550,12 @@ class ArrayBuffer {
      * Atomically adds a value to the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { long } value - The value to add.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -476,11 +566,12 @@ class ArrayBuffer {
      * Atomically performs a bitwise AND operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { long } value - The value to AND with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -491,12 +582,13 @@ class ArrayBuffer {
      * Atomically compares and exchanges the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { long } expectedValue - The expected value.
      * @param { long } replacementValue - The replacement value.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -507,11 +599,12 @@ class ArrayBuffer {
      * Atomically exchanges the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { long } value - The value to exchange.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -522,10 +615,11 @@ class ArrayBuffer {
      * Atomically loads the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
-     * @returns { long } The loaded value.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -536,11 +630,12 @@ class ArrayBuffer {
      * Atomically performs a bitwise OR operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { long } value - The value to OR with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -551,11 +646,12 @@ class ArrayBuffer {
      * Atomically stores a value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { long } value - The value to store.
      * @returns { long } The stored value.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -566,11 +662,12 @@ class ArrayBuffer {
      * Atomically subtracts a value from the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { long } value - The value to subtract.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -581,11 +678,12 @@ class ArrayBuffer {
      * Atomically performs a bitwise XOR operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { long } value - The value to XOR with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -596,11 +694,12 @@ class ArrayBuffer {
      * Atomically adds a value to the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { byte } value - The value to add.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -611,11 +710,12 @@ class ArrayBuffer {
      * Atomically performs a bitwise AND operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { byte } value - The value to AND with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -626,12 +726,13 @@ class ArrayBuffer {
      * Atomically compares and exchanges the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { byte } expectedValue - The expected value.
      * @param { byte } replacementValue - The replacement value.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -642,11 +743,12 @@ class ArrayBuffer {
      * Atomically exchanges the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { byte } value - The value to exchange.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -657,10 +759,11 @@ class ArrayBuffer {
      * Atomically loads the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
-     * @returns { long } The loaded value.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -671,11 +774,12 @@ class ArrayBuffer {
      * Atomically performs a bitwise OR operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { byte } value - The value to OR with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -686,11 +790,12 @@ class ArrayBuffer {
      * Atomically stores a value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { byte } value - The value to store.
      * @returns { long } The stored value.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -701,11 +806,12 @@ class ArrayBuffer {
      * Atomically subtracts a value from the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { byte } value - The value to subtract.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -716,11 +822,12 @@ class ArrayBuffer {
      * Atomically performs a bitwise XOR operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { byte } value - The value to XOR with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -731,11 +838,12 @@ class ArrayBuffer {
      * Atomically adds a value to the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { short } value - The value to add.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -746,11 +854,12 @@ class ArrayBuffer {
      * Atomically performs a bitwise AND operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { short } value - The value to AND with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -761,12 +870,13 @@ class ArrayBuffer {
      * Atomically compares and exchanges the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { short } expectedValue - The expected value.
      * @param { short } replacementValue - The replacement value.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -777,11 +887,12 @@ class ArrayBuffer {
      * Atomically exchanges the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { short } value - The value to exchange.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -792,10 +903,11 @@ class ArrayBuffer {
      * Atomically loads the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
-     * @returns { long } The loaded value.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -806,11 +918,12 @@ class ArrayBuffer {
      * Atomically performs a bitwise OR operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { short } value - The value to OR with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -821,11 +934,12 @@ class ArrayBuffer {
      * Atomically stores a value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { short } value - The value to store.
      * @returns { long } The stored value.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -836,11 +950,12 @@ class ArrayBuffer {
      * Atomically subtracts a value from the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { short } value - The value to subtract.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -851,11 +966,12 @@ class ArrayBuffer {
      * Atomically performs a bitwise XOR operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { short } value - The value to XOR with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -866,12 +982,13 @@ class ArrayBuffer {
      * Atomically adds a value to the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { int } value - The value to add.
      *     <br>The value should be an integer.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -882,12 +999,13 @@ class ArrayBuffer {
      * Atomically performs a bitwise AND operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { int } value - The value to AND with.
      *     <br>The value should be an integer.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -898,14 +1016,15 @@ class ArrayBuffer {
      * Atomically compares and exchanges the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { int } expectedValue - The expected value.
      *     <br>The value should be an integer.
      * @param { int } replacementValue - The replacement value.
      *     <br>The value should be an integer.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -916,12 +1035,13 @@ class ArrayBuffer {
      * Atomically exchanges the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { int } value - The value to exchange.
      *     <br>The value should be an integer.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -932,10 +1052,11 @@ class ArrayBuffer {
      * Atomically loads the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
-     * @returns { long } The loaded value.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -946,12 +1067,13 @@ class ArrayBuffer {
      * Atomically performs a bitwise OR operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { int } value - The value to OR with.
      *     <br>The value should be an integer.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -962,12 +1084,13 @@ class ArrayBuffer {
      * Atomically stores a value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { int } value - The value to store.
      *     <br>The value should be an integer.
      * @returns { long } The stored value.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -978,12 +1101,13 @@ class ArrayBuffer {
      * Atomically subtracts a value from the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { int } value - The value to subtract.
      *     <br>The value should be an integer.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -994,12 +1118,13 @@ class ArrayBuffer {
      * Atomically performs a bitwise XOR operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { int } value - The value to XOR with.
      *     <br>The value should be an integer.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -1010,11 +1135,12 @@ class ArrayBuffer {
      * Atomically adds a value to the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { long } value - The value to add.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -1025,11 +1151,12 @@ class ArrayBuffer {
      * Atomically performs a bitwise AND operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { long } value - The value to AND with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -1040,12 +1167,13 @@ class ArrayBuffer {
      * Atomically compares and exchanges the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { long } expectedValue - The expected value.
      * @param { long } replacementValue - The replacement value.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -1056,11 +1184,12 @@ class ArrayBuffer {
      * Atomically exchanges the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { long } value - The value to exchange.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -1071,10 +1200,11 @@ class ArrayBuffer {
      * Atomically loads the value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
-     * @returns { long } The loaded value.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -1085,11 +1215,12 @@ class ArrayBuffer {
      * Atomically performs a bitwise OR operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { long } value - The value to OR with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -1100,11 +1231,12 @@ class ArrayBuffer {
      * Atomically stores a value at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { long } value - The value to store.
      * @returns { long } The stored value.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -1115,11 +1247,12 @@ class ArrayBuffer {
      * Atomically subtracts a value from the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { long } value - The value to subtract.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -1130,14 +1263,255 @@ class ArrayBuffer {
      * Atomically performs a bitwise XOR operation on the element at the specified index.
      *
      * @param { int } index - The index to access.
-     *     <br>The value should be an integer.
-     * @param { int } byteOffset - The byte offset.
-     *     <br>The value should be an integer.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @param { int } byteOffset - The byte offset within the ArrayBuffer (unit: byte).
+     *     <br>The value must be an integer greater than or equal to 0.
      * @param { long } value - The value to XOR with.
-     * @returns { long } The result of the operation.
+     * @returns { long } The value after the operation.
+     * @throws { IndexOutOfBoundsError } if length or maxByteLength is negative, or length > maxByteLength.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 26.0.0 staticonly
      */
     public atomicXorU64(index: int, byteOffset: int, value: long): long;
+
+    /**
+     * Returns the string representation of the ArrayBuffer.
+     *
+     * @returns { string } The string representation of the ArrayBuffer.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public toString(): string;
+
+    /**
+     * Returns the byte at the specified index.
+     *
+     * @param { int } pos - The position in the buffer.
+     *     <br>The value should be an integer.
+     * @returns { byte } The byte value.
+     * @throws { IndexOutOfBoundsError } Throws - if pos is out of bounds.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public at(pos: int): byte;
+
+    /**
+     * Sets the byte value at the specified index.
+     *
+     * @param { int } pos - The position in the buffer.
+     *     <br>The value should be an integer.
+     * @param { byte } val - The byte value to set.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public set(pos: int, val: byte): void;
+
+    /**
+     * Returns the length of the ArrayBuffer in bytes.
+     *
+     * @returns { int } The byte length.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public getByteLength(): int;
+
+    /**
+     * Resizes the ArrayBuffer to the specified length.
+     *
+     * @param { int } newLen - The new byte length.
+     *     <br>The value must be an integer greater than or equal to 0.
+     * @throws { TypeError } Throws - if the buffer is detached or not resizable.
+     * @throws { RangeError } Throws - if the new length is invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public resize(newLen : int): void;
+
+    /**
+     * Read-only property for the byte length of the ArrayBuffer.
+     *
+     * @returns { int } The byte length.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    get byteLength(): int;
+
+    /**
+     * Returns true if the ArrayBuffer has been detached.
+     *
+     * @returns { boolean } True if the ArrayBuffer has been detached.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    get detached(): boolean;
+
+    /**
+     * Returns true if the ArrayBuffer can be resized.
+     *
+     * @returns { boolean } True if the ArrayBuffer can be resized.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    get resizable(): boolean;
+
+    /**
+     * Creates a new ArrayBuffer from an array of bytes.
+     *
+     * @param { FixedArray<byte> } arr - Source byte array.
+     * @returns { ArrayBuffer } The new ArrayBuffer.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static from(arr: FixedArray<byte>): ArrayBuffer;
+
+    /**
+     * Creates a new ArrayBuffer from a Uint8Array.
+     *
+     * @param { Uint8Array } u8arr - Source typed array.
+     * @returns { ArrayBuffer } The new ArrayBuffer.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static from(u8arr: Uint8Array): ArrayBuffer;
+
+    /**
+     * Creates a new ArrayBuffer from an array of numbers.
+     *
+     * @param { double[] } array - Source number array.
+     * @returns { ArrayBuffer } The new ArrayBuffer.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static from(array: double[]): ArrayBuffer;
+
+    /**
+     * Creates a new ArrayBuffer from a string with specific encoding.
+     *
+     * @param { string } str - Source string.
+     * @param { string } encoding - String encoding (e.g., "utf8").
+     * @returns { ArrayBuffer } The new ArrayBuffer.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static from(str: string, encoding: string): ArrayBuffer;
+
+    /**
+     * Creates a new ArrayBuffer from a segment of an existing ArrayBuffer.
+     *
+     * @param { ArrayBuffer } buff - Source buffer.
+     * @param { int } byteOffset - Start offset in source.
+     *     <br>The value should be an integer.
+     * @param { int } length - Number of bytes to copy.
+     *     <br>The value should be an integer.
+     * @returns { ArrayBuffer } The new ArrayBuffer.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static from(buff: ArrayBuffer, byteOffset: int, length: int): ArrayBuffer;
+
+    /**
+     * Creates a new ArrayBuffer from a segment of an existing ArrayBuffer with number parameters.
+     *
+     * @param { ArrayBuffer } buffer - Source buffer.
+     * @param { double } [byteOffset] - Start offset.
+     * @param { double } [length] - Byte length.
+     * @returns { ArrayBuffer } The new ArrayBuffer.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static from(buffer: ArrayBuffer, byteOffset?: double, length?: double): ArrayBuffer;
+
+    /**
+     * Creates a new ArrayBuffer from an object.
+     *
+     * @param { Object } obj - Source object (string or ArrayBuffer).
+     * @param { int | string } byteOffsetOrEncoding - Byte offset or encoding string.
+     * @param { int } length - Length to copy.
+     *     <br>The value should be an integer.
+     * @returns { ArrayBuffer } The new ArrayBuffer.
+     * @throws { Error } Throws - if arguments are incorrect.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static fromObject(obj: Object, byteOffsetOrEncoding: int | string, length: int): ArrayBuffer;
+
+    /**
+     * Returns the byte length of a string in a given encoding.
+     *
+     * @param { string } text - Source string.
+     * @param { string } encoding - Encoding type.
+     * @returns { int } Calculated byte length.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static bytesLength(text: string, encoding: string): int;
+
+    /**
+     * Converts a segment of an ArrayBuffer to a string.
+     *
+     * @param { ArrayBuffer } buffer - Source buffer.
+     * @param { string } encoding - Encoding to use.
+     * @param { int } start - Start index.
+     *     <br>The value should be an integer.
+     * @param { int } end - End index.
+     *     <br>The value should be an integer.
+     * @returns { string } Decoded string.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static stringify(buffer: ArrayBuffer, encoding: string, start: int, end: int): string;
+
+    /**
+     * Creates a new ArrayBuffer with a copy of bytes in the range [begin, end).
+     *
+     * @param { int } begin - An inclusive index to start copying from.
+     *     <br>The value should be an integer.
+     * @param { int } [end] - An exclusive index to stop copying.
+     *     <br>The value should be an integer.
+     * @returns { ArrayBuffer } The new ArrayBuffer.
+     * @throws { TypeError } Throws - if the ArrayBuffer is detached.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public slice(begin: int, end?: int): ArrayBuffer;
+
+    /**
+     * Creates a new ArrayBuffer with a copy of bytes in the range [begin, end).
+     *
+     * @param { double } begin - An inclusive index to start copying from.
+     * @param { double } [end] - An exclusive index to stop copying.
+     * @returns { ArrayBuffer } The new ArrayBuffer.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public slice(begin: double, end?: double): ArrayBuffer;
 }
+
+/**
+ * Define the alias ArrayBufferLike on ArrayBuffer.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export type ArrayBufferLike = ArrayBuffer;

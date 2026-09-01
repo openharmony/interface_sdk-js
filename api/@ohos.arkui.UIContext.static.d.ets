@@ -54,7 +54,7 @@ import { Scroller } from '@ohos.arkui.component';
 
 import { KeyProcessingMode } from '@ohos.arkui.component';
 
-import { TextMenuOptions, TextLayoutOptions, StyledString, Paragraph } from '@ohos.arkui.component';
+import { TextMenuOptions, TextLayoutOptions, StyledString, Paragraph, TextMenuItemId } from '@ohos.arkui.component';
 
 import { SmartGestureAction, OperateIntention } from '@ohos.arkui.component';
 
@@ -716,6 +716,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   showDialog(options: promptAction.ShowDialogOptions,
@@ -732,6 +733,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   showDialog(options: promptAction.ShowDialogOptions): Promise<promptAction.ShowDialogSuccessResponse>;
@@ -747,6 +749,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   showActionMenu(options: promptAction.ActionMenuOptions,
@@ -763,6 +766,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   showActionMenu(options: promptAction.ActionMenuOptions): Promise<promptAction.ActionMenuSuccessResponse>;
@@ -780,6 +784,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>,
@@ -799,6 +804,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent<T>,
@@ -852,6 +858,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   openCustomDialog(options: promptAction.CustomDialogOptions): Promise<int>;
@@ -869,6 +876,7 @@ export declare class PromptAction {
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   presentCustomDialog(builder: CustomBuilder | CustomBuilderT<int>, controller?: promptAction.DialogController,
@@ -1110,6 +1118,18 @@ export interface PageInfo {
 }
 
 /**
+ * Defines the callback type for intercepting a back-press event on an overlay.
+ *
+ * @returns { boolean } Whether to intercept the back-press event.
+ *     If **true** is returned, the event is intercepted and is prevented from reaching the lower-layer component.
+ *     If **false** is returned, the event is transparently transmitted to the lower-layer component.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+type OnOverlayBackPressCallback = () => boolean;
+
+/**
  * the property of OverlayManager.
  *
  * @interface OverlayManagerOptions
@@ -1140,6 +1160,23 @@ export interface OverlayManagerOptions {
    * @since 23 static
    */
   enableBackPressedEvent?: boolean;
+
+  /**
+   * Callback for intercepting back-press events on an overlay.
+   * 
+   * **NOTE**
+   * 1. When this callback is registered and **enableBackPressedEvent** is set to **true**,
+   *    the back-press event will not close the overlay automatically. Instead, the overlay invokes this callback
+   *    to decide whether the event should be propagated to the underlying components.
+   * 2. Return **true** to intercept the event (the event is consumed and will not be passed
+   *    to lower layers), or **false** to allow the event to propagate through to the components
+   *    below the overlay.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onBackPress?: OnOverlayBackPressCallback;
 }
 
 /**
@@ -3974,6 +4011,7 @@ export declare class UIContext {
    * Dispach keyboard event to the frameNode with inspector key.
    *
    * @param { int | string } node - The uniqueId or inspector key of the target FrameNode.
+   * @param { KeyEvent } event - The keyboard event.
    * @returns { boolean } Returns whether the key event is consumed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4586,6 +4624,23 @@ export declare class UIContext {
   static destroyUIContextWithoutWindow(): void;
 
   /**
+   * Set the upper limit for the cache count of HSP resource management objects.
+   * 
+   * If the upper limit of the cache is set too high, there is a risk of excessive memory overhead.
+   * It is recommended to configure it according to actual needs.
+   *
+   * @param { int } count - The cache limit of resource manager for HSP, must be non negative integers.
+   * @throws { BusinessError } 100101 - The parameter is less than 0.
+   * @throws { BusinessError } 100102 - The parameter value cannot be a floating point number.
+   * @throws { BusinessError } 100103 - The function cannot be called from a non main thread.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static setResourceManagerCacheMaxCountForHSP(count: int): void;
+
+  /**
    * Thread-safe UI state variables updates interface.
    *
    * @param { VoidCallback } callback - The callback function to be executed in the UI thread.
@@ -4840,6 +4895,17 @@ export declare class TextMenuController {
    * @since 23 static
    */
   static disableSystemServiceMenuItems(disable: boolean): void;
+
+  /**
+   * Disable menu action by action id.
+   *
+   * @param { Array<TextMenuItemId> } items - menu item id to disable
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static disableMenuItems(items: Array<TextMenuItemId>): void;
 }
 
 /**

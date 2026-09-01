@@ -22,8 +22,10 @@ import lang from '../../arkts/@arkts.lang';
 import collections from '../../arkts/@arkts.collections';
 
 /**
- * The **SendableResource** module provides sendable resource information, such as the application bundle name, 
- * application module name, and resource ID.
+ * This module provides information related to `SendableResource`, including the application bundle package name,
+ * application module name, and resource type. `SendableResource` implements the 
+ * [ISendable](docroot://arkts-utils/arkts-sendable.md#isendable) API 
+ * and supports cross-thread transmission, enabling access to application resources in multi-thread scenarios.
  *
  * @syscap SystemCapability.Global.ResourceManager
  * @crossplatform
@@ -33,7 +35,7 @@ import collections from '../../arkts/@arkts.collections';
 interface SendableResource extends lang.ISendable {
 
   /**
-   * Bundle name of the application.
+   * Application bundle name.
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
@@ -43,7 +45,7 @@ interface SendableResource extends lang.ISendable {
   bundleName: string;
 
   /**
-   * Module name of the application.
+   * Application module name.
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
@@ -53,9 +55,10 @@ interface SendableResource extends lang.ISendable {
   moduleName: string;
 
   /**
-   * Resource ID. The value can be:
-   * <br>- Application resource range: [0x01000000, 0x06FFFFFF] and [0x08000000, 0xFFFFFFFF]
-   * <br>- System resource range: [0x07000000, 0x07FFFFFF]
+   * Resource ID. The value ranges are as follows:
+   * <br>- Application resource ranges: [0x01000000, 0x06FFFFFF] and [0x08000000, 0xFFFFFFFF], indicating the resource 
+   * IDs of the application itself.
+   * <br>- System resource range: [0x07000000, 0x07FFFFFF], indicating the resource IDs preset by the system.
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform
@@ -65,8 +68,10 @@ interface SendableResource extends lang.ISendable {
   id: number;
 
   /**
-   * Other resource parameters, including the resource name, substitution value for the formatting API, and quantifier 
-   * for the singular-plural formatting API.
+   * Resource parameters, including the resource name (string type), replacement values for formatting APIs (string or 
+   * number in the order of placeholders), and plural quantifier (number type, indicating the quantity). The 
+   * replacement value of the formatting API is used for parameter substitution during string formatting, while the 
+   * quantifier of the plural API is used to select the plural form in multilingual environments.
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform

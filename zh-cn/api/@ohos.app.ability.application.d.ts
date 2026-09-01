@@ -92,7 +92,7 @@ declare namespace application {
 
   /**
    * 创建指定模块的上下文。创建出的模块上下文中[resourceManager.Configuration]{@link @ohos.resourceManager:resourceManager.Configuration}资源继承
-   * 自入参上下文，便于开发者获取[跨HAP/HSP包应用资源](docroot://quick-start/resource-categories-and-access.md#跨haphsp包应用资源)。使用Promise异步回调。
+   * 自入参上下文，便于开发者获取[跨HAP/HSP包资源](docroot://quick-start/resource-categories-and-access.md#跨haphsp包应用资源)。使用Promise异步回调。
    * 
    * > **说明：**
    * >
@@ -112,6 +112,26 @@ declare namespace application {
   export function createModuleContext(context: Context, moduleName: string): Promise<Context>;
 
   /**
+    * 创建指定模块的上下文。创建出的模块上下文中[resourceManager.Configuration]{@link @ohos.resourceManager:resourceManager.Configuration}资源继承
+    * 自入参上下文，便于开发者获取[跨HAP/HSP包应用资源](docroot://quick-start/resource-categories-and-access.md#跨haphsp包应用资源)。
+    * 
+    * > **说明：**
+    * >
+    * > 由于创建模块上下文的过程涉及资源查询与初始化，耗时相对较长，在对应用流畅性要求较高的场景下，不建议频繁或多次调用createModuleContext接口创建多个Context实例，以免影响用户体验。
+    * 
+    * @param { Context } context - 表示应用上下文。
+    * @param { string } moduleName - 表示应用模块名。
+    * @returns { Context } 返回创建的上下文。
+    * @throws { BusinessError } 16000011 - The context does not exist.
+    * @throws { BusinessError } 16000021 - The module does not exist.
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @stagemodelonly
+    * @atomicservice
+    * @since 26.1.0 dynamic&static
+    */
+   export function createModuleContextSync(context: Context, moduleName: string): Context;
+
+  /**
    * 根据入参Context创建相应模块的Context。使用Promise异步回调。
    * 
    * > **说明：**
@@ -125,7 +145,7 @@ declare namespace application {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Context } context - 表示应用上下文。
-   * @param { string } bundleName - 表示应用包名。取值为空字符串时，默认为当前应用。
+   * @param { string } bundleName - 表示应用包名。取值为空字符串时，默认取当前应用的包名。
    * @param { string } moduleName - 表示应用模块名。
    * @returns { Promise<Context> } Promise对象。返回创建的Context。
    * @throws { BusinessError } 201 - Permission denied.
@@ -155,7 +175,7 @@ declare namespace application {
   export function createPluginModuleContext(context: Context, pluginBundleName: string, pluginModuleName: string): Promise<Context>;
 
   /**
-   * 根据入参Context、插件包名和插件模块名和应用包名，创建对应插件的Context，用于获取插件的基本信息。使用Promise异步回调。
+   * 根据入参Context、插件包名、插件模块名和安装插件的应用包名，创建对应插件的Context，用于获取插件的基本信息。使用Promise异步回调。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { Context } context - 表示应用上下文。
@@ -182,7 +202,7 @@ declare namespace application {
    * >
    * > 从API version 18开始，Context支持获取当前应用的进程名
    * > [processName](docroot://reference/apis-ability-kit/js-apis-inner-application-context.md#context)。
-   * > createBundleContext创建的Context中的processName属性与入参Context中的processName属性一致，其他属性根据入参Context、bundleName和moduleName获得相应
+   * > createBundleContext创建的Context中的processName属性与入参Context中的processName属性一致，其他属性根据入参Context和bundleName获得相应
    * > 的属性值。
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -215,7 +235,7 @@ declare namespace application {
   export function getApplicationContext(): ApplicationContext;
 
   /**
-   * 获取应用上下文。开发者使用该接口时，无需依赖Context基类。
+   * 获取应用上下文实例。开发者使用该接口时，无需依赖Context基类。
    * 重复调用该接口，将获取同一个ApplicationContext实例。
    *
    * @returns { ApplicationContext } 应用上下文。

@@ -28,7 +28,7 @@
  */
 declare enum RouteType {
   /**
-   * 页面未重定向。如Push和Pop描述中RouteType为None的情形，即页面进场时PageTransitionEnter的转场效果生效；退场时PageTransitionExit的转场效果生效。
+   * 页面未重定向。如Push和Pop描述中RouteType为None的情形，即页面入场时PageTransitionEnter的转场效果生效；退场时PageTransitionExit的转场效果生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -38,8 +38,8 @@ declare enum RouteType {
   None = 0,
 
   /**
-   * 跳转到下一页面。PageA跳转到下一个新的界面PageB。对于PageA，指定RouteType为None或者Push的PageTransitionExit组件样式生效，对于PageB，指定RouteType为None或者Push
-   * 的PageTransitionEnter组件样式生效。
+   * 跳转到下一页面，例如从PageA跳转到PageB。对于PageA，指定RouteType为None或Push的PageTransitionExit组件样式生效；对于PageB，指定RouteType为None或Push的
+   * PageTransitionEnter组件样式生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -49,7 +49,7 @@ declare enum RouteType {
   Push = 1,
 
   /**
-   * 重定向指定页面。从PageB回退到之前的页面PageA。对于PageB，指定RouteType为None或者Pop的PageTransitionExit组件样式生效，对于PageA，指定RouteType为None或者Pop的
+   * 回退到上一页面，例如从PageB回退到PageA。对于PageB，指定RouteType为None或Pop的PageTransitionExit组件样式生效；对于PageA，指定RouteType为None或Pop的
    * PageTransitionEnter组件样式生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -70,7 +70,7 @@ declare enum RouteType {
  */
 declare enum SlideEffect {
   /**
-   * 设置到入场时表示从左边滑入，出场时表示滑出到左边。
+   * 设置到入场时表示从左边滑入，退场时表示滑出到左边。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -80,7 +80,7 @@ declare enum SlideEffect {
   Left = 0,
 
   /**
-   * 设置到入场时表示从右边滑入，出场时表示滑出到右边。
+   * 设置到入场时表示从右边滑入，退场时表示滑出到右边。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -90,7 +90,7 @@ declare enum SlideEffect {
   Right = 1,
 
   /**
-   * 设置到入场时表示从上边滑入，出场时表示滑出到上边。
+   * 设置到入场时表示从上边滑入，退场时表示滑出到上边。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -100,7 +100,7 @@ declare enum SlideEffect {
   Top = 2,
 
   /**
-   * 设置到入场时表示从下边滑入，出场时表示滑出到下边。
+   * 设置到入场时表示从下边滑入，退场时表示滑出到下边。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -110,7 +110,7 @@ declare enum SlideEffect {
   Bottom = 3,
 
   /**
-   * 设置LTR入场时表示从左边滑入，出场时表示滑出到左边。RTL入场时表示从右边滑入，出场时表示滑出到右边。
+   * 设置LTR入场时表示从左边滑入，退场时表示滑出到左边。RTL入场时表示从右边滑入，退场时表示滑出到右边。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -121,7 +121,7 @@ declare enum SlideEffect {
   START = 5,
 
   /**
-   * 设置LTR入场时表示从右边滑入，出场时表示滑出到右边。RTL入场时表示从左边滑入，出场时表示滑出到左边。
+   * 设置LTR入场时表示从右边滑入，退场时表示滑出到右边。RTL入场时表示从左边滑入，退场时表示滑出到左边。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -129,11 +129,15 @@ declare enum SlideEffect {
    * @atomicservice
    * @since 12 dynamic
    */
-  END = 6
+  END = 6,
 }
 
 /**
- * 页面转场通用动效。
+ * 页面转场通用动效，通过
+ * [PageTransitionEnter]{@link PageTransitionEnter}和
+ * [PageTransitionExit]{@link PageTransitionExit}继承使用，
+ * 需在pageTransition()函数中配置，slide与translate均涉及位置移动：slide适用于需要沿预置方向（左/右/上/下/START/END）滑入滑出的场景，使用简单；translate适用于需要自定义平移距离的场
+ * 景，灵活性更高。当slide和translate同时设置时，默认生效slide。scale、opacity分别设置缩放和透明度效果，可与上述效果组合使用。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -152,10 +156,10 @@ declare class CommonTransition<T> {
   constructor();
 
   /**
-   * 设置页面转场时的滑入滑出效果。
+   * 设置页面转场时的滑入滑出效果，和translate同时设置时默认生效slide。
    *
    * @param { SlideEffect } value - 页面转场时的滑入滑出效果。
-   * @returns { T } 返回当前组件。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -166,11 +170,15 @@ declare class CommonTransition<T> {
   /**
    * 设置页面转场时的平移效果。
    *
-   * @param { object } value - 设置页面转场时的平移效果，为入场时起点和退场时终点的值，和slide同时设置时默认生效slide。<br/>- x：横向的平移距离。<br/>- y：纵向的平移距离。<br/>-
-   *      z：竖向的平移距离。 [since 7 - 17]
-   * @param { TranslateOptions } value - 设置页面转场时的平移效果，为入场时起点和退场时终点的值，和slide同时设置时默认生效slide。<br/>- x：横向的平移距离。<br/>- y：纵向的平
-   *     移距离。<br/>- z：竖向的平移距离。 [since 18]
-   * @returns { T } 返回当前组件。
+   * @param { object } value - 设置页面转场时的平移效果，为入场时起点和退场时终点的值，和slide同时设置时默认生效slide。
+   *     <br>- x：横向的平移距离。
+   *     <br>- y：纵向的平移距离。
+   *     <br>- z：竖向的平移距离。 [since 7 - 17]
+   * @param { TranslateOptions } value - 设置页面转场时的平移效果，为入场时起点和退场时终点的值，和slide同时设置时默认生效slide。
+   *     <br>- x：横向的平移距离。
+   *     <br>- y：纵向的平移距离。
+   *     <br>- z：竖向的平移距离。 [since 18]
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -181,13 +189,19 @@ declare class CommonTransition<T> {
   /**
    * 设置页面转场时的缩放效果。
    *
-   * @param { object } value - 设置页面转场时的缩放效果，为入场时起点和退场时终点的值。<br/>- x：横向放大倍数（或缩小比例）。<br/>- y：纵向放大倍数（或缩小比例）。<br/>- z：竖向放大倍数
-   *     （或缩小比例）。<br/>- centerX、centerY缩放中心点。centerX和centerY默认值是"50%"，即默认以页面的中心点为旋转中心点。<br/>- 中心点为(0, 0)代表页面的左上
-   *     角。 [since 7 - 17]
-   * @param { ScaleOptions } value - 设置页面转场时的缩放效果，为入场时起点和退场时终点的值。<br/>- x：横向放大倍数（或缩小比例）。<br/>- y：纵向放大倍数（或缩小比例）。<br/>- z：
-   *     竖向放大倍数（或缩小比例）。<br/>- centerX、centerY缩放中心点。centerX和centerY默认值是"50%"，即默认以页面的中心点为旋转中心点。<br/>- 中心点为(0, 0)代表页面的左上
-   *     角。 [since 18]
-   * @returns { T } 返回当前组件。
+   * @param { object } value - 设置页面转场时的缩放效果，为入场时起点和退场时终点的值。
+   *     <br>- x：横向放大倍数（或缩小比例）。
+   *     <br>- y：纵向放大倍数（或缩小比例）。
+   *     <br>- z：竖向放大倍数（或缩小比例）。
+   *     <br>- centerX、centerY缩放中心点。centerX和centerY默认值是"50%"，即默认以页面的中心点为缩放中心点。
+   *     <br>- 中心点为(0, 0)代表页面的左上角。 [since 7 - 17]
+   * @param { ScaleOptions } value - 设置页面转场时的缩放效果，为入场时起点和退场时终点的值。
+   *     <br>- x：横向放大倍数（或缩小比例）。
+   *     <br>- y：纵向放大倍数（或缩小比例）。
+   *     <br>- z：竖向放大倍数（或缩小比例）。
+   *     <br>- centerX、centerY缩放中心点。centerX和centerY默认值是"50%"，即默认以页面的中心点为缩放中心点。
+   *     <br>- 中心点为(0, 0)代表页面的左上角。 [since 18]
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -198,8 +212,9 @@ declare class CommonTransition<T> {
   /**
    * 设置入场的起点透明度值或者退场的终点透明度值。
    *
-   * @param { number } value - 设置入场的起点透明度值或者退场的终点透明度值。<br/>取值范围：[0, 1]
-   * @returns { T } 返回当前组件。
+   * @param { number } value - 设置入场的起点透明度值或者退场的终点透明度值。
+   *     <br>取值范围：[0, 1]
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -209,7 +224,7 @@ declare class CommonTransition<T> {
 }
 
 /**
- * 退场/进场动效的参数。
+ * 退场/入场动效的参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -221,6 +236,15 @@ declare interface PageTransitionOptions {
    * 页面转场效果生效的路由类型。
    * 
    * 默认值：RouteType.None。
+   * 
+   * **说明：**
+   * 
+   * 当pageTransition函数中配置了多个[PageTransitionEnter]{@link PageTransitionEnter}或[PageTransitionExit]{@link PageTransitionExit}时，按
+   * 照RouteType匹配规则生效：系统会根据当前路由操作类型（Push或Pop）从所有配置的PageTransitionEnter/PageTransitionExit中选择最后一个匹配的组件生效；若没有匹配的组件，则使用系统默认
+   * 的页面转场效果（根据设备可能会有差异）。如果存在多个匹配相同RouteType的PageTransitionEnter，则最后配置的生效；如果存在多个匹配相同RouteType的PageTransitionExit，则最后配置的生
+   * 效。RouteType.None与所有路由类型均匹配。
+   * 
+   * 取值原则：None表示对所有路由类型生效；Push仅对push路由生效；Pop仅对pop路由生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -249,7 +273,7 @@ declare interface PageTransitionOptions {
    * 推荐以Curve或ICurve形式指定。
    * 
    * 当类型为string时，为动画插值曲线，取值参考
-   * [AnimateParam](docroot://reference/apis-arkui/arkui-ts/ts-explicit-animation.md#animateparam对象说明)的curve参数。
+   * [AnimateParam]{@link AnimateParam}的curve参数。
    * 
    * 默认值：Curve.Linear
    *
@@ -268,10 +292,6 @@ declare interface PageTransitionOptions {
    * 单位：毫秒
    * 
    * 默认值：0
-   * 
-   * **说明：** 
-   * 
-   * 没有匹配时使用系统默认的页面转场效果(根据设备可能会有差异)，如需禁用系统默认页面转场效果，可以指定duration为0。
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -285,8 +305,8 @@ declare interface PageTransitionOptions {
 /**
  * 页面转场事件回调。
  *
- * @param { RouteType } type - transition route type
- * @param { number } progress - transition progess
+ * @param { RouteType } type - 页面转场效果生效的路由类型。
+ * @param { number } progress - 转场进度。progress从0变化到1。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -296,8 +316,10 @@ declare interface PageTransitionOptions {
 declare type PageTransitionCallback = (type: RouteType, progress: number) => void;
 
 /**
- * 当前页面的自定义入场动效。继承自[CommonTransition]{@link CommonTransition}。
- * 
+ * 当前页面的自定义入场动效。
+ *
+ * @extends CommonTransition<PageTransitionEnterInterface>
+ * @interface PageTransitionEnterInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -306,9 +328,9 @@ declare type PageTransitionCallback = (type: RouteType, progress: number) => voi
  */
 interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEnterInterface> {
   /**
-   * 设置当前页面的自定义入场动效。
+   * 设置当前页面的自定义入场动效，需在pageTransition()函数中配置，继承自[CommonTransition]{@link CommonTransition}。
    *
-   * @param { PageTransitionOptions } value - 配置入场动效的参数。
+   * @param { PageTransitionOptions } value - 配置入场动效的参数，包含页面转场效果的路由类型(type)、动画时长(duration)、动画曲线(curve)、动画延迟时长(delay)配置项。
    * @returns { PageTransitionEnterInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -318,10 +340,11 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
   (value: PageTransitionOptions): PageTransitionEnterInterface;
 
   /**
-   * 逐帧回调，直到入场动画结束，progress从0变化到1。
+   * 逐帧回调，直到入场动画结束，progress从0变化到1。与slide、translate、scale、opacity等预设动效方法配合使用时，onEnter在预设动效基础上提供逐帧自定义逻辑；也可单独
+   * 使用onEnter实现完全自定义的入场动画效果。
    *
-   * @param { function } event - 入场动画的逐帧回调直到入场动画结束，progress从0变化到1。 [since 7 - 17]
-   * @param { PageTransitionCallback } event - 入场动画的逐帧回调直到入场动画结束，progress从0变化到1。 [since 18]
+   * @param { function } event - 入场动画的逐帧回调，直到动画结束，progress从0变化到1。该回调仅在配置的type与实际路由类型匹配时触发。 [since 7 - 17]
+   * @param { PageTransitionCallback } event - 入场动画的逐帧回调，直到动画结束，progress从0变化到1。该回调仅在配置的type与实际路由类型匹配时触发。 [since 18]
    * @returns { PageTransitionEnterInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -332,8 +355,10 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
 }
 
 /**
- * 当前页面的自定义退场动效。继承自[CommonTransition]{@link CommonTransition}。
+ * 当前页面的自定义退场动效。
  *
+ * @extends CommonTransition<PageTransitionExitInterface>
+ * @interface PageTransitionExitInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -342,9 +367,9 @@ interface PageTransitionEnterInterface extends CommonTransition<PageTransitionEn
  */
 interface PageTransitionExitInterface extends CommonTransition<PageTransitionExitInterface> {
   /**
-   * 设置当前页面的自定义退场动效。
+   * 设置当前页面的自定义退场动效，需在pageTransition()函数中配置，继承自[CommonTransition]{@link CommonTransition}。
    *
-   * @param { PageTransitionOptions } value - 配置退场动效的参数。
+   * @param { PageTransitionOptions } value - 配置退场动效的参数，包含页面转场效果的路由类型(type)、动画时长(duration)、动画曲线(curve)、动画延迟时长(delay)配置项。
    * @returns { PageTransitionExitInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -354,10 +379,11 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
   (value: PageTransitionOptions): PageTransitionExitInterface;
 
   /**
-   * 逐帧回调，直到出场动画结束，progress从0变化到1。
+   * 逐帧回调，直到退场动画结束，progress从0变化到1。与slide、translate、scale、opacity等预设动效方法配合使用时，onExit在预设动效基础上提供逐帧自定义逻辑；也可单独
+   * 使用onExit实现完全自定义的退场动画效果。
    *
-   * @param { function } event - 出场动画的逐帧回调直到出场动画结束，progress从0变化到1。 [since 7 - 17]
-   * @param { PageTransitionCallback } event - 出场动画的逐帧回调直到出场动画结束，progress从0变化到1。 [since 18]
+   * @param { function } event - 退场动画的逐帧回调，直到动画结束，progress从0变化到1。该回调仅在配置的type与实际路由类型匹配时触发。 [since 7 - 17]
+   * @param { PageTransitionCallback } event - 退场动画的逐帧回调，直到动画结束，progress从0变化到1。该回调仅在配置的type与实际路由类型匹配时触发。 [since 18]
    * @returns { PageTransitionExitInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -368,7 +394,7 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
 }
 
 /**
- * Defines PageTransitionEnter Component.
+ * 定义PageTransitionEnter组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -379,7 +405,7 @@ interface PageTransitionExitInterface extends CommonTransition<PageTransitionExi
 declare const PageTransitionEnter: PageTransitionEnterInterface;
 
 /**
- * Defines PageTransitionExit Component.
+ * 定义PageTransitionExit组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]

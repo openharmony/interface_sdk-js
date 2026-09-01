@@ -43,10 +43,6 @@ import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './noti
 /**
  * The **notificationSubscribe** module provides APIs for notification subscription, notification unsubscription, 
  * subscription removal, and more. In general cases, only system applications can call these APIs.
- * 
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -55,7 +51,7 @@ import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './noti
  */
 declare namespace notificationSubscribe {
   /**
-   * Notification key.
+   * Defines the notification key value.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -85,7 +81,7 @@ declare namespace notificationSubscribe {
   }
 
   /**
-   * Reason for removing the notification.
+   * Defines the reasons for notification removal.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -572,7 +568,7 @@ declare namespace notificationSubscribe {
   function distributeOperation(hashcode: string, operationInfo?: OperationInfo): Promise<void>;
 
   /**
-   * Cross-device operation information.
+   * Defines cross-device collaborative operation information.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

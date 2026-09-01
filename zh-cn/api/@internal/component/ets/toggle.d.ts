@@ -37,7 +37,7 @@
  */
 declare enum ToggleType {
   /**
-   * 提供单选框样式。
+   * 提供勾选框样式。
    * 
    * **说明：**
    * 
@@ -234,9 +234,7 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
   enabled: boolean;
 
   /**
-   * 触发switch选中状态变化。
-   * 
-   * true：状态从关切换为开；false：状态从开切换为关。
+   * 用于触发Toggle开关状态变化的回调函数，通常在自定义ContentModifier中通过编程方式改变开关状态。调用此回调并传入true可将开关状态设置为打开，传入false可将开关状态设置为关闭。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -248,7 +246,7 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
 }
 
 /**
- * Toggle的信息。
+ * Toggle组件的配置信息。
  * 
  * > **说明：**
  * >
@@ -298,7 +296,7 @@ declare interface ToggleOptions {
 }
 
 /**
- * 组件提供勾选框样式、状态按钮样式和开关样式。
+ * 组件提供勾选框样式、状态按钮样式和开关样式，适用于需要快速切换状态或进行单选确认的场景，能够有效提升交互体验与界面的直观性。
  * 
  * > **说明：**
  * 
@@ -423,7 +421,7 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
 }
 
 /**
- * 组件提供勾选框样式、状态按钮样式和开关样式。
+ * 组件提供勾选框样式、状态按钮样式和开关样式，适用于需要快速切换状态或进行单选确认的场景，能够有效提升交互体验与界面的直观性。
  * 
  * > **说明：**
  * 

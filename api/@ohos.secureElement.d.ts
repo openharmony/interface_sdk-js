@@ -14,33 +14,41 @@
  */
 
 /**
- * @file
+ * @file SE Management
  * @kit ConnectivityKit
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * Provides APIs for mobile applications to access different SEs in mobile devices, such as SIMs or embedded SEs.
- * See "Open Mobile API Specification".
+ * The **secureElement** module provides APIs for managing secure elements (SEs). SEs include the Embedded SE (eSE) and
+ * SIM on a device. The SE service mentioned in this topic is an **SEService** instance. For details, see
+ * [createService]{@link omapi.createService}.
  *
- * @namespace omapi
  * @syscap SystemCapability.Communication.SecureElement
  * @since 10 dynamic
  */
 declare namespace omapi {
   /**
-   * Establish a new connection that can be used to connect to all the SEs available in the system.
-   * The connection process can be quite long, so it happens in an asynchronous way. It is usable only
-   * if the specified callback is called or if isConnected() returns true.
+   * Creates an **SEService** instance for connecting to all available SEs in the system. The connection is time-
+   * consuming. Therefore, this API supports only the asynchronous mode. This API uses an asynchronous callback to
+   * return the result.
    *
-   * @param { 'serviceState' } type nfc serviceState
-   * @param { Callback<ServiceState> } callback - The callback to return the service.
-   * @returns { SEService } The new SEService instance.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * The returned **SEService** instance is available only when **true** is returned by the specified callback or
+   * [isConnected]{@link omapi.SEService.isConnected}.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 10 and deprecated since API version 12. Use
+   * > [createService]{@link omapi.createService} instead.
+   *
+   * @param { 'serviceState' } type - Type of the SE service to create. It has a fixed value of **'serviceState'**.
+   * @param { Callback<ServiceState> } callback - Callback used to return the SE service state.
+   * @returns { SEService } **SEService** instance created.
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
    * @since 10 dynamiconly
@@ -50,11 +58,12 @@ declare namespace omapi {
   function newSEService(type: 'serviceState', callback: Callback<ServiceState>): SEService;
 
   /**
-   * Establish a new connection that can be used to connect to all the SEs available in the system.
-   * The connection process can be quite long, so it happens in an asynchronous way. It is usable only
-   * if isConnected() returns true.
+   * Creates an **SEService** instance for connecting to all available SEs in the system. The connection is time-
+   * consuming. Therefore, only asynchronous APIs are provided. This API uses a promise to return the result.
    *
-   * @returns { Promise<SEService> } Returns the created SEService instance.
+   * The **SEService** object is available only when [isConnected]{@link omapi.SEService.isConnected} returns **true**.
+   *
+   * @returns { Promise<SEService> } Promise used to return the **SEService** instance created.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.SecureElement
    * @since 12 dynamic
@@ -62,40 +71,17 @@ declare namespace omapi {
   function createService(): Promise<SEService>;
 
   /**
-   * Register the service state changed event.
+   * **SEService** indicates the connection service used to connect to all available SEs in the system. You can use
+   * [createService]{@link omapi.createService} to create an **SEService** instance.
    *
-   * @param { 'stateChanged' } type - The type to register.
-   * @param { Callback<ServiceState> } callback - The callback used to listen for the state change event.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @syscap SystemCapability.Communication.SecureElement
-   * @since 18 dynamic
-   */
-  function on(type: 'stateChanged', callback: Callback<ServiceState>): void;
-
-  /**
-   * Unsubscribe the service state changed event.
-   *
-   * @param { 'stateChanged' } type - The type to unregister.
-   * @param { Callback<ServiceState> } callback - The callback used to listen for the state change event.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @syscap SystemCapability.Communication.SecureElement
-   * @since 18 dynamic
-   */
-  function off(type: 'stateChanged', callback?: Callback<ServiceState>): void;
-
-  /**
-   * SEService realizes the communication to available SEs on the device.
-   * 
-   * @typedef SEService
    * @syscap SystemCapability.Communication.SecureElement
    * @since 10 dynamic
    */
   export interface SEService {
     /**
-     * Returns the list of available SE readers. There must be no duplicated objects in the returned list.
-     * All available readers SHALL be listed even if no card is inserted.
+     * Obtains available SE readers, which include all the SEs on the device.
      *
-     * @returns { Reader[] } The list of available SE readers.
+     * @returns { Reader[] } Available readers obtained.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -103,9 +89,9 @@ declare namespace omapi {
     getReaders(): Reader[];
 
     /**
-     * Checks whether or not the service is connected.
+     * Checks whether this SE service is connected.
      *
-     * @returns { boolean } True if the service is connected.
+     * @returns { boolean } **true** if the SE service is connected; **false** otherwise.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -113,7 +99,8 @@ declare namespace omapi {
     isConnected(): boolean;
 
     /**
-     * Releases all SE resources allocated by this SEService. As a result isConnected() will return false.
+     * Releases all SE resources allocated to this SE service. After that,
+     * [isConnected]{@link omapi.SEService.isConnected} returns **false**.
      *
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
@@ -122,9 +109,9 @@ declare namespace omapi {
     shutdown(): void;
 
     /**
-     * Returns the version of the Open Mobile API Specification this implementation is based on.
+     * Obtains the version of the Open Mobile API (OMAPI) specification used.
      *
-     * @returns { string } The Open Mobile API version (e.g. “3.3” for Open Mobile API Specification version 3.3).
+     * @returns { string } OMAPI version obtained. For example, **3.3** indicates Open Mobile API Specification v3.3.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -133,19 +120,19 @@ declare namespace omapi {
   }
 
   /**
-   * Reader represents the SE readers supported by this device.
-   * 
-   * @typedef Reader
+   * Obtains the SE supported by the device. If eSE, SIM, and SIM2 are supported, three instances will be returned. SIM2
+   * is supported since API version 22. You can use [SEService.getReaders]{@link omapi.SEService.getReaders} to obtain a
+   * **Reader** instance.
+   *
    * @syscap SystemCapability.Communication.SecureElement
    * @since 10 dynamic
    */
   export interface Reader {
     /**
-     * Returns the name of this reader.
-     * If this reader is a SIM reader, then its name must be "SIM[slot]".
-     * If the reader is an embedded SE reader, then its name must be "eSE[slot]".
+     * Obtains the name of this reader. The name is **SIM** for a SIM reader, **SIM2** for a SIM2 reader, and **eSE**
+     * for an eSE.
      *
-     * @returns { string } The reader name, as a String.
+     * @returns { string } [Reader]{@link omapi.Reader} name obtained.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -153,9 +140,9 @@ declare namespace omapi {
     getName(): string;
 
     /**
-     * Checks if a SE is present in this reader.
+     * Checks whether the SE corresponding to this reader is available.
      *
-     * @returns { boolean } True if the SE is present, false otherwise.
+     * @returns { boolean } **true** if the SE is available; **false** otherwise.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
      * @syscap SystemCapability.Communication.SecureElement
@@ -164,11 +151,9 @@ declare namespace omapi {
     isSecureElementPresent(): boolean;
 
     /**
-     * Connects to a SE in this reader.
-     * This method prepares (initializes) the SE for communication before the session object is returned.
-     * There might be multiple sessions opened at the same time on the same reader.
+     * Opens a session to connect to an SE in this reader. Multiple sessions can be opened on a reader at the same time.
      *
-     * @returns { Session } A Session object to be used to create channels.
+     * @returns { Session } Session instance opened.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
@@ -178,7 +163,7 @@ declare namespace omapi {
     openSession(): Session;
 
     /**
-     * Close all the sessions opened on this reader. All the channels opened by all these sessions will be closed.
+     * Closes all sessions opened on this reader. All channels opened by these sessions will be closed.
      *
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
@@ -189,19 +174,17 @@ declare namespace omapi {
   }
 
   /**
-   * Session represent a connection session to one of the SEs available on the device. These objects
-   * can be used to get a communication channel with an applet in the SE. This channel can be the basic channel
-   * or a logical channel.
+   * A **Session** instance indicates a session created on an SE **Reader** instance. You can use
+   * [Reader.openSession]{@link omapi.Reader.openSession} to obtain a **Session** instance.
    *
-   * @typedef Session
    * @syscap SystemCapability.Communication.SecureElement
    * @since 10 dynamic
    */
   export interface Session {
     /**
-     * Get the reader that provides this session.
+     * Obtains the reader that provides this session.
      *
-     * @returns { Reader } The Reader object.
+     * @returns { Reader } Reader instance obtained.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -209,10 +192,10 @@ declare namespace omapi {
     getReader(): Reader;
 
     /**
-     * Get the ATR of this SE.
-     * A empty array SHALL be returned if the ATR for this SE is not available.
+     * Obtains the Answer to Reset (ATR) of this SE. If the ATR of this SE is not available, an empty array will be
+     * returned.
      *
-     * @returns { number[] } The ATR as a number array or empty array.
+     * @returns { number[] } ATR if the SE has an available ATR; an empty array otherwise.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
      * @syscap SystemCapability.Communication.SecureElement
@@ -221,7 +204,7 @@ declare namespace omapi {
     getATR(): number[];
 
     /**
-     * Close the connection with the SE. This will close any channels opened by this application with this SE.
+     * Closes the session with the SE. All channels opened by this session will be closed.
      *
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
@@ -241,7 +224,7 @@ declare namespace omapi {
     isClosed(): boolean;
 
     /**
-     * Close any channels opened on this session.
+     * Closes all channels opened on this session.
      *
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 3300101 - IllegalStateError, service state exception.
@@ -251,20 +234,23 @@ declare namespace omapi {
     closeChannels(): void;
 
     /**
-     * This method is provided to ease the development of mobile applications and for backward compatibility with
-     * existing applications. This method is equivalent to openBasicChannel(aid, P2=0x00).
+     * Opens a basic channel, as defined in ISO/IEC 7816-4. If the SE cannot provide the basic channel or the
+     * application does not have the permission to access the SE, null is returned. This API uses a promise to return
+     * the result.
      *
-     * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array,
-     * or Null if no applet is to be selected.
-     * @returns { Promise<Channel> } An instance of channel if available. Null if the SE is unable to provide.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     * @param { number[] } aid - AID of the Applet to be selected on this channel as a byte array, or an empty array if no
+     *     Applet is to be selected.
+     * @returns { Promise<Channel> } Promise used to return the basic channel instance obtained.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been
+     *     closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected.
-     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
+     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID
+     *     or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -272,20 +258,23 @@ declare namespace omapi {
     openBasicChannel(aid: number[]): Promise<Channel>;
 
     /**
-     * This method is provided to ease the development of mobile applications and for backward compatibility with
-     * existing applications. This method is equivalent to openBasicChannel(aid, P2=0x00).
+     * Opens a basic channel, as defined in ISO/IEC 7816-4. If the SE cannot provide the basic channel or the
+     * application does not have the permission to access the SE, null is returned. This API uses an asynchronous
+     * callback to return the result.
      *
-     * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array,
-     * or Null if no applet is to be selected.
-     * @param { AsyncCallback<Channel> } callback - The callback to return the Channel object. Null if the SE is unable to provide.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     * @param { number[] } aid - AID of the Applet to be selected on this channel as a byte array, or an empty array if no
+     *     Applet is to be selected.
+     * @param { AsyncCallback<Channel> } callback - Callback used to return the basic channel instance obtained.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been
+     *     closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected.
-     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
+     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID
+     *     or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -293,27 +282,24 @@ declare namespace omapi {
     openBasicChannel(aid: number[], callback: AsyncCallback<Channel>): void;
 
     /**
-     * Get access to the basic channel, as defined in [ISO 7816-4] (the one that has number 0). The obtained object
-     * is an instance of the channel class.
-     * Once this channel has been opened by a device application, it is considered as ‘locked’ by this device
-     * application, and other calls to this method SHALL return Null, until the channel is closed.
-     * Some SE plug-ins, such as those handling UICC, may prevent the use of the Basic Channel. In these cases,
-     * a Null value SHALL be returned.
-     * P2 is normally 0x00. The device SHOULD allow any value for P2 and SHALL allow the following values:
-     * 0x00, 0x04, 0x08, 0x0C (as defined in [ISO 7816-4]).
+     * Opens a basic channel, as defined in ISO/IEC 7816-4. If the SE cannot provide the basic channel or the
+     * application does not have the permission to access the SE, null is returned. This API uses a promise to return
+     * the result.
      *
-     * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array,
-     * or Null if no applet is to be selected.
-     * @param { number } p2 - The P2 parameter of the SELECT APDU executed on this channel.
-     * @returns { Promise<Channel> } An instance of channel if available. Null if the SE is unable to provide.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     * @param { number[] } aid - AID of the Applet to be selected on this channel as a byte array, or an empty array if no
+     *     Applet is to be selected.
+     * @param { number } p2 - P2 parameter of the **SELECT APDU** command executed on this channel.
+     * @returns { Promise<Channel> } Promise used to return the basic channel instance obtained.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been
+     *     closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected.
-     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
+     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID
+     *     or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -321,27 +307,24 @@ declare namespace omapi {
     openBasicChannel(aid: number[], p2: number): Promise<Channel>;
 
     /**
-     * Get access to the basic channel, as defined in [ISO 7816-4] (the one that has number 0). The obtained object
-     * is an instance of the channel class.
-     * Once this channel has been opened by a device application, it is considered as ‘locked’ by this device
-     * application, and other calls to this method SHALL return Null, until the channel is closed.
-     * Some SE plug-ins, such as those handling UICC, may prevent the use of the Basic Channel. In these cases,
-     * a Null value SHALL be returned.
-     * P2 is normally 0x00. The device SHOULD allow any value for P2 and SHALL allow the following values:
-     * 0x00, 0x04, 0x08, 0x0C (as defined in [ISO 7816-4]).
+     * Opens a basic channel, as defined in ISO/IEC 7816-4. If the SE cannot provide the basic channel or the
+     * application does not have the permission to access the SE, null is returned. This API uses an asynchronous
+     * callback to return the result.
      *
-     * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array,
-     * or Null if no applet is to be selected.
-     * @param { number } p2 - The P2 parameter of the SELECT APDU executed on this channel.
-     * @param { AsyncCallback<Channel> } callback - The callback to return the Channel object. Null if the SE is unable to provide.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     * @param { number[] } aid - AID of the Applet to be selected on this channel as a byte array, or an empty array if no
+     *     Applet is to be selected.
+     * @param { number } p2 - P2 parameter of the **SELECT APDU** command executed on this channel.
+     * @param { AsyncCallback<Channel> } callback - Callback used to return the basic channel instance obtained.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been
+     *     closed.
      * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected.
-     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
+     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID
+     *     or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -349,21 +332,25 @@ declare namespace omapi {
     openBasicChannel(aid: number[], p2: number, callback: AsyncCallback<Channel>): void;
 
     /**
-     * This method is provided to ease the development of mobile applications and for backward compatibility with
-     * existing applications. This method is equivalent to openLogicalChannel(aid, P2=0x00).
+     * Opens a logical channel, as defined in ISO/IEC 7816-4. If the SE cannot provide the logical channel or the
+     * application does not have the permission to access the SE, null is returned. This API uses a promise to return
+     * the result.
      *
-     * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array.
-     * @returns {  Promise<Channel> } An instance of channel if available. Null if the SE is unable to provide.
-     * A new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     * @param { number[] } aid - AID of the Applet to be selected on this channel as a byte array, or an empty array if no
+     *     Applet is to be selected.
+     * @returns {  Promise<Channel> } Promise used to return the logical channel instance obtained.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
-     * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected or
-     *                                     a logical channel is already open to a non-multi-selectable applet.
-     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been
+     *     closed.
+     * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected
+     *     or
+     *     a logical channel is already open to a non-multi-selectable applet.
+     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID
+     *     or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -371,21 +358,25 @@ declare namespace omapi {
     openLogicalChannel(aid: number[]): Promise<Channel>;
 
     /**
-     * This method is provided to ease the development of mobile applications and for backward compatibility with
-     * existing applications. This method is equivalent to openLogicalChannel(aid, P2=0x00).
+     * Opens a logical channel, as defined in ISO/IEC 7816-4. If the SE cannot provide the logical channel or the
+     * application does not have the permission to access the SE, null is returned. This API uses an asynchronous
+     * callback to return the result.
      *
-     * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array.
-     * @param { AsyncCallback<Channel> } callback - The callback to return the Channel object. Null if the SE is unable to provide.
-     * A new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     * @param { number[] } aid - AID of the Applet to be selected on this channel as a byte array, or an empty array if no
+     *     Applet is to be selected.
+     * @param { AsyncCallback<Channel> } callback - Callback used to return the logical channel instance obtained.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
-     * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected or
-     *                                     a logical channel is already open to a non-multi-selectable applet.
-     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been
+     *     closed.
+     * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected
+     *     or
+     *     a logical channel is already open to a non-multi-selectable applet.
+     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID
+     *     or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -393,28 +384,26 @@ declare namespace omapi {
     openLogicalChannel(aid: number[], callback: AsyncCallback<Channel>): void;
 
     /**
-     * Open a logical channel with the SE, selecting the applet represented by the given AID (when the AID is not
-     * Null and the length of the AID is not 0).
-     * If the length of the AID is 0, the method will select the Issuer Security Domain of the SE by sending a SELECT
-     * command with 0 length AID as defined in [GPCS].
-     * If the AID is Null, the method SHALL only send a MANAGE CHANNEL Open and SHALL NOT send a
-     * SELECT command. In this case, the default applet associated to the logical channel will be selected by default.
-     * P2 is normally 0x00. The device SHOULD allow any value for P2 and SHALL allow the following values:
-     * 0x00, 0x04, 0x08, 0x0C (as defined in [ISO 7816-4]).
+     * Opens a logical channel, as defined in ISO/IEC 7816-4. If the SE cannot provide the logical channel or the
+     * application does not have the permission to access the SE, null is returned. This API uses a promise to return
+     * the result.
      *
-     * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array.
-     * @param { number } p2 - The P2 parameter of the SELECT APDU executed on this channel.
-     * @returns { Promise<Channel> } An instance of channel if available. Null if the SE is unable to provide.
-     * A new logical channel or is unable to retrieve Access Control rules due to the lack of an available logical channel.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     * @param { number[] } aid - AID of the Applet to be selected on this channel as a byte array, or an empty array if no
+     *     Applet is to be selected.
+     * @param { number } p2 - P2 parameter of the **SELECT APDU** command executed on this channel.
+     * @returns { Promise<Channel> } Promise used to return the logical channel instance obtained.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
-     * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected or
-     *                                     a logical channel is already open to a non-multi-selectable applet.
-     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been
+     *     closed.
+     * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected
+     *     or
+     *     a logical channel is already open to a non-multi-selectable applet.
+     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID
+     *     or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -422,27 +411,26 @@ declare namespace omapi {
     openLogicalChannel(aid: number[], p2: number): Promise<Channel>;
 
     /**
-     * Open a logical channel with the SE, selecting the applet represented by the given AID (when the AID is not
-     * Null and the length of the AID is not 0).
-     * If the length of the AID is 0, the method will select the Issuer Security Domain of the SE by sending a SELECT
-     * command with 0 length AID as defined in [GPCS].
-     * If the AID is Null, the method SHALL only send a MANAGE CHANNEL Open and SHALL NOT send a
-     * SELECT command. In this case, the default applet associated to the logical channel will be selected by default.
-     * P2 is normally 0x00. The device SHOULD allow any value for P2 and SHALL allow the following values:
-     * 0x00, 0x04, 0x08, 0x0C (as defined in [ISO 7816-4]).
+     * Opens a logical channel, as defined in ISO/IEC 7816-4. If the SE cannot provide the logical channel or the
+     * application does not have the permission to access the SE, null is returned. This API uses an asynchronous
+     * callback to return the result.
      *
-     * @param { number[] } aid - The AID of the applet to be selected on this channel, as a byte array.
-     * @param { number } p2 - The P2 parameter of the SELECT APDU executed on this channel.
-     * @param { AsyncCallback<Channel> } callback - The callback to return the instance of channel. Null if the SE is unable to provide.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     * @param { number[] } aid - AID of the Applet to be selected on this channel as a byte array, or an empty array if no
+     *     Applet is to be selected.
+     * @param { number } p2 - P2 parameter of the **SELECT APDU** command executed on this channel.
+     * @param { AsyncCallback<Channel> } callback - Callback used to return the logical channel instance obtained.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been closed.
-     * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected or
-     *                                     a logical channel is already open to a non-multi-selectable applet.
-     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID or the default applet on this session.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session that has been
+     *     closed.
+     * @throws { BusinessError } 3300102 - NoSuchElementError, the AID on the SE is not available or cannot be selected
+     *     or
+     *     a logical channel is already open to a non-multi-selectable applet.
+     * @throws { BusinessError } 3300103 - SecurityError, the calling application cannot be granted access to this AID
+     *     or the default applet on this session.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -451,17 +439,18 @@ declare namespace omapi {
   }
 
   /**
-   * Channel represents an [ISO 7816-4] channel opened to a SE. It can be either a logical channel or the basic channel.
-   * 
-   * @typedef Channel
+   * A **Channel** instance indicates a channel set up by a **Session** instance. The channel can be a basic channel or
+   * a logical channel. You can use [Session.openBasicChannel]{@link omapi.Session.openBasicChannel(aid: number[])} or
+   * [Session.openLogicalChannel]{@link omapi.Session.openLogicalChannel(aid: number[])} to obtain a channel instance.
+   *
    * @syscap SystemCapability.Communication.SecureElement
    * @since 10 dynamic
    */
   export interface Channel {
     /**
-     * Get the session that has opened this channel.
+     * Obtains the session used to open this channel.
      *
-     * @returns { Session } The Session object this channel is bound to.
+     * @returns { Session } Session instance obtained.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -469,8 +458,7 @@ declare namespace omapi {
     getSession(): Session;
 
     /**
-     * Closes this channel to the SE.
-     * If the method is called when the channel is already closed, this method SHALL be ignored.
+     * Closes this channel.
      *
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
@@ -479,9 +467,9 @@ declare namespace omapi {
     close(): void;
 
     /**
-     * Checks whether this channel is the basic channel.
+     * Checks whether this channel is a basic channel.
      *
-     * @returns { boolean } True if this channel is a basic channel, false otherwise.
+     * @returns { boolean } **true** if the channel is a basic channel; **false** otherwise.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -489,9 +477,9 @@ declare namespace omapi {
     isBasicChannel(): boolean;
 
     /**
-     * Checks if this channel is closed.
+     * Checks whether this channel is closed.
      *
-     * @returns { boolean } True if the channel is closed, false otherwise.
+     * @returns { boolean } **true** if the channel is closed; **false** otherwise.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -499,10 +487,9 @@ declare namespace omapi {
     isClosed(): boolean;
 
     /**
-     * Returns the data as received from the application select command, including the status word received
-     * at applet selection.
+     * Obtains the response data including the status word of **SELECT Applet**.
      *
-     * @returns { number[] } The data as returned by the application select command inclusive of the status word.
+     * @returns { number[] } Response data including the status word obtained.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -510,16 +497,18 @@ declare namespace omapi {
     getSelectResponse(): number[];
 
     /**
-     * Transmit an APDU command (as per ISO/IEC 7816) to the SE.
+     * Transmits APDU data (as per ISO/IEC 7816) to the SE. This API uses a promise to return the result.
      *
-     * @param { number[] } command - The APDU command to be transmitted, as a byte array.
-     * @returns { Promise<number[]> } The response received, as a byte array.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     * @param { number[] } command - APDU data to send.
+     * @returns { Promise<number[]> } Promise used to return the response received, in a number array. If the chip captures
+     *     an exception, an all zero value is returned.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that
+     *     has been closed.
      * @throws { BusinessError } 3300103 - SecurityError, the command is filtered by the security policy.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
@@ -528,16 +517,18 @@ declare namespace omapi {
     transmit(command: number[]): Promise<number[]>;
 
     /**
-     * Transmit an APDU command (as per ISO/IEC 7816) to the SE.
+     * Transmits APDU data (as per ISO/IEC 7816) to the SE. This API uses an asynchronous callback to return the result.
      *
-     * @param { number[] } command - The APDU command to be transmitted, as a byte array.
-     * @param { AsyncCallback<number[]> } callback - The callback to return the response received, as a byte array.
-     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
+     * @param { number[] } command - APDU data to send.
+     * @param { AsyncCallback<number[]> } callback - Callback used to return the response received, in a number array. If
+     *     the chip captures an exception, an all zero value is returned.
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes:
+     *     <br> 1. Mandatory parameters are left unspecified.
+     *     <br> 2. Incorrect parameters types.
+     *     <br> 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that has been closed.
+     * @throws { BusinessError } 3300101 - IllegalStateError, an attempt is made to use an SE session or channel that
+     *     has been closed.
      * @throws { BusinessError } 3300103 - SecurityError, the command is filtered by the security policy.
      * @throws { BusinessError } 3300104 - IOError, there is a communication problem to the reader or the SE.
      * @syscap SystemCapability.Communication.SecureElement
@@ -547,15 +538,14 @@ declare namespace omapi {
   }
 
   /**
-   * Secure Element service state definition.
+   * Enumerates the SE service states.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.SecureElement
    * @since 10 dynamic
    */
   enum ServiceState {
     /**
-     * Service is disconnected.
+     * The SE service is disconnected.
      *
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
@@ -563,12 +553,38 @@ declare namespace omapi {
     DISCONNECTED = 0,
 
     /**
-     * Service is connected.
+     * The SE service is connected.
      *
      * @syscap SystemCapability.Communication.SecureElement
      * @since 10 dynamic
      */
     CONNECTED = 1
   }
+
+  /**
+   * Disables listening for service status change events.
+   *
+   * @param { 'stateChanged' } type - Event type. It has a fixed value of **stateChanged**.
+   * @param { Callback<ServiceState> } callback - Callback invoked to return the SE service status. If this parameter is
+   *     left empty, all callbacks corresponding to the type will be unsubscribed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Communication.SecureElement
+   * @since 18 dynamic
+   */
+  function off(type: 'stateChanged', callback?: Callback<ServiceState>): void;
+
+  /**
+   * Enables listening for service status change events.
+   *
+   * Call this API to register a callback after you use [omapi.newSEService]{@link omapi.newSEService} or
+   * [omapi.createService]{@link omapi.createService} to create a service.
+   *
+   * @param { 'stateChanged' } type - Event type. It has a fixed value of **stateChanged**.
+   * @param { Callback<ServiceState> } callback - Callback used to return the SE service state.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Communication.SecureElement
+   * @since 18 dynamic
+   */
+  function on(type: 'stateChanged', callback: Callback<ServiceState>): void;
 }
 export default omapi;

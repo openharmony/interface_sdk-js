@@ -44,7 +44,7 @@ declare namespace reminderAgent {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<int>)
+   * @useinstead reminderAgentManager.publishReminder
    */
   function publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<number>): void;
 
@@ -59,7 +59,7 @@ declare namespace reminderAgent {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.publishReminder(reminderReq: ReminderRequest)
+   * @useinstead reminderAgentManager.publishReminder
    */
   function publishReminder(reminderReq: ReminderRequest): Promise<number>;
 
@@ -71,7 +71,7 @@ declare namespace reminderAgent {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.cancelReminder(reminderId: int, callback: AsyncCallback<void>)
+   * @useinstead reminderAgentManager.cancelReminder
    */
   function cancelReminder(reminderId: number, callback: AsyncCallback<void>): void;
 
@@ -83,7 +83,7 @@ declare namespace reminderAgent {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.cancelReminder(reminderId: int)
+   * @useinstead reminderAgentManager.cancelReminder
    */
   function cancelReminder(reminderId: number): Promise<void>;
 
@@ -94,7 +94,7 @@ declare namespace reminderAgent {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.getValidReminders(callback: AsyncCallback<Array<ReminderRequest>>)
+   * @useinstead reminderAgentManager.getValidReminders
    */
   function getValidReminders(callback: AsyncCallback<Array<ReminderRequest>>): void;
 
@@ -105,7 +105,7 @@ declare namespace reminderAgent {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.getValidReminders()
+   * @useinstead reminderAgentManager.getValidReminders
    */
   function getValidReminders(): Promise<Array<ReminderRequest>>;
 
@@ -116,7 +116,7 @@ declare namespace reminderAgent {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.cancelAllReminders(callback: AsyncCallback<void>)
+   * @useinstead reminderAgentManager.cancelAllReminders
    */
   function cancelAllReminders(callback: AsyncCallback<void>): void;
 
@@ -127,7 +127,7 @@ declare namespace reminderAgent {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.cancelAllReminders()
+   * @useinstead reminderAgentManager.cancelAllReminders
    */
   function cancelAllReminders(): Promise<void>;
 
@@ -139,7 +139,7 @@ declare namespace reminderAgent {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.addNotificationSlot(slot: NotificationSlot, callback: AsyncCallback<void>)
+   * @useinstead reminderAgentManager.addNotificationSlot
    */
   function addNotificationSlot(slot: NotificationSlot, callback: AsyncCallback<void>): void;
 
@@ -151,7 +151,7 @@ declare namespace reminderAgent {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.addNotificationSlot(slot: NotificationSlot)
+   * @useinstead reminderAgentManager.addNotificationSlot
    */
   function addNotificationSlot(slot: NotificationSlot): Promise<void>;
 
@@ -163,7 +163,7 @@ declare namespace reminderAgent {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.removeNotificationSlot(slotType: notification.SlotType, callback: AsyncCallback<void>)
+   * @useinstead reminderAgentManager.removeNotificationSlot
    */
   function removeNotificationSlot(slotType: notification.SlotType, callback: AsyncCallback<void>): void;
 
@@ -175,7 +175,7 @@ declare namespace reminderAgent {
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 7 dynamiconly
    * @deprecated since 9
-   * @useinstead @ohos.reminderAgentManager:reminderAgentManager.removeNotificationSlot(slotType: notification.SlotType)
+   * @useinstead reminderAgentManager.removeNotificationSlot
    */
   function removeNotificationSlot(slotType: notification.SlotType): Promise<void>;
 

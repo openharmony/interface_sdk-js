@@ -513,7 +513,7 @@ declare namespace bundleManager {
     INPUT_METHOD = 2,
 
     /**
-     * [ServiceExtensionAbility]{@link @ohos.app.ability.ServiceExtensionAbility:ServiceExtensionAbility}：后台服务扩展能力，提供后台运
+     * ServiceExtensionAbility：后台服务扩展能力，提供后台运
      * 行并对外提供相应能力。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -532,7 +532,7 @@ declare namespace bundleManager {
     ACCESSIBILITY = 4,
 
     /**
-     * [DataShareExtensionAbility]{@link @ohos.application.DataShareExtensionAbility}：数据共享扩展能力，用于对外提供数据读写服务。
+     * DataShareExtensionAbility：数据共享扩展能力，用于对外提供数据读写服务。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
@@ -550,8 +550,7 @@ declare namespace bundleManager {
     FILE_SHARE = 6,
 
     /**
-     * [StaticSubscriberExtensionAbility]{@link @ohos.application.StaticSubscriberExtensionAbility:StaticSubscriberExtensionAbility}
-     * ：静态广播扩展能力，用于处理静态事件，比如开机事件。
+     * StaticSubscriberExtensionAbility：静态广播扩展能力，用于处理静态事件，比如开机事件。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
@@ -578,7 +577,7 @@ declare namespace bundleManager {
     BACKUP = 9,
 
     /**
-     * [WindowExtensionAbility]{@link @ohos.application.WindowExtensionAbility}：界面组合扩展能力，允许系统应用进行跨应用的界面拉起和嵌入。
+     * WindowExtensionAbility：界面组合扩展能力，允许系统应用进行跨应用的界面拉起和嵌入。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 9 dynamic
@@ -760,7 +759,7 @@ declare namespace bundleManager {
     LIVE_FORM = 30,
 
     /**
-     * [SelectionExtensionAbility]{@link @ohos.selectionInput.SelectionExtensionAbility:SelectionExtensionAbility}：为开发者提
+     * SelectionExtensionAbility：为开发者提
      * 供划词弹窗能力的ExtensionAbility。
      *
      * **模型约束**：此接口仅可在Stage模型下使用。
@@ -1516,6 +1515,98 @@ declare namespace bundleManager {
      * @since 23 dynamic&static
      */
     BUNDLE_INSTALLED = 3
+  }
+
+  /**
+   * 定义设备模式分发策略枚举，用于指定应用程序如何分发到设备上。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum DeviceModeDistributionPolicy {
+    /**
+     * 未指定设备模式分发策略。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    UNSPECIFIED = 0,
+    /**
+     * 该应用程序仅在主模式下可用。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    MAIN_ONLY = 1,
+    /**
+     * 该应用程序仅在副模式下可用。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SUB_ONLY = 2,
+    /**
+     * 应用程序在两种模式下都可用，具有相同的包体。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    UNIVERSAL_IDENTICAL_PACKAGE = 3,
+    /**
+     * 应用程序在两种模式下都可用，具有不同的包体。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    UNIVERSAL_DIFFERENT_PACKAGE = 4,
+    /**
+     * 该应用程序在不同模式之间以相同包体方式部分兼容。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    PARTIAL_COMPATIBLE_IDENTICAL_PACKAGE = 5,
+    /**
+     * 应用程序在不同模式之间以不同包体部分兼容。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    PARTIAL_COMPATIBLE_DIFFERENT_PACKAGE = 6,
+    /**
+     * 应用程序在不同模式之间以相同包体完全兼容。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    FULL_COMPATIBLE_IDENTICAL_PACKAGE = 7,
+    /**
+     * 应用程序在不同模式之间以不同的包体方式完全兼容。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    FULL_COMPATIBLE_DIFFERENT_PACKAGE = 8,
   }
 
   /**
@@ -2851,7 +2942,7 @@ declare namespace bundleManager {
   function getLaunchWantForBundleSync(bundleName: string, userId?: int): Want;
 
   /**
-   * 获取本应用[入口UIAbility](docroot://quick-start/application-package-glossary.md#uiability)的Want参数。
+   * 获取本应用[入口UIAbility](docroot://application-models/ability-terminology.md#uiability)的Want参数。
    *
    * @returns { Want } 返回仅包含bundleName和abilityName的Want对象。
    * @throws { BusinessError } 17700072 - The launch want is not found.
@@ -4277,6 +4368,36 @@ declare namespace bundleManager {
    * @since 26.0.0 dynamic&static
    */
   function getInstalledBundleList(bundleFlags: int): Promise<Array<BundleInfo>>;
+
+  /**
+   * 支持按设备模式分发策略过滤应用列表。该接口使用promise返回结果。
+   * 
+   * > **说明：**
+   * >
+   * > 入参不能为空。所有值必须在的枚举值范围内。
+   * > DeviceModeDistributePolicy，以及所有不同套餐的策略（通用差分包、部分兼容差分包和全兼容差分包）必须包含。
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { Array<DeviceModeDistributionPolicy> } policies - DeviceModeDistributionPolicy值的数组。
+   * @returns { Promise<void> } Promise 对象，无返回值。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
+   * @throws { BusinessError } 17700097 - The device does not support the dual mode.
+   * @throws { BusinessError } 17700098 - The input parameter is invalid. It is either outside the range of valid
+   *     enum values or does not include the following required enum values: [
+   *     DeviceModeDistributionPolicy.UNIVERSAL_DIFFERENT_PACKAGE,
+   *     DeviceModeDistributionPolicy.PARTIAL_COMPATIBLE_DIFFERENT_PACKAGE,
+   *     DeviceModeDistributionPolicy.FULL_COMPATIBLE_DIFFERENT_PACKAGE].
+   * @throws { BusinessError } 17700099 - The device is installing or uninstalling an application,
+   *     or a previous API call is still being processed. Please try again.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function filterBundleListByDeviceModeDistributionPolicies(
+    policies: Array<DeviceModeDistributionPolicy>
+  ): Promise<void>;
 
   /**
    * 应用程序信息。

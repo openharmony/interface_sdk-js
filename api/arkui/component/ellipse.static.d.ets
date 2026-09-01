@@ -61,11 +61,12 @@ export declare interface EllipseAttribute extends CommonShapeMethod {
     /**
  	 * Set Ellipse options.
  	 *
- 	 * @param { EllipseOptions } [options] - Ellipse constructor options
- 	 * @returns { EllipseAttribute } Returns the instance of the EllipseAttribute.
- 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
- 	 * @stagemodelonly
- 	 * @since 26.0.0 staticonly
+     * @param { EllipseOptions } [options] - Ellipse constructor options.
+     * @returns { EllipseAttribute } Returns the instance of the EllipseAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
+     * @stagemodelonly
+     * @since 26.1.0 staticonly
  	 */
  	default setEllipseOptions(options?: EllipseOptions): this;
     /**
@@ -101,8 +102,9 @@ export declare function Ellipse(
  * @param { CustomBuilderT<EllipseAttribute> } style - the callback to set up component's attributes.
  * @returns { EllipseAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

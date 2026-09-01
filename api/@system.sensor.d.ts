@@ -40,6 +40,7 @@
  *
  * @permission ohos.permission.ACCELEROMETER
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -51,6 +52,7 @@ export interface AccelerometerResponse {
    *
    * @permission ohos.permission.ACCELEROMETER
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -63,6 +65,7 @@ export interface AccelerometerResponse {
    *
    * @permission ohos.permission.ACCELEROMETER
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -75,6 +78,7 @@ export interface AccelerometerResponse {
    *
    * @permission ohos.permission.ACCELEROMETER
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -88,6 +92,7 @@ export interface AccelerometerResponse {
  *
  * @permission ohos.permission.ACCELEROMETER
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -105,6 +110,7 @@ export interface subscribeAccelerometerOptions {
    *
    * @permission ohos.permission.ACCELEROMETER
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -117,6 +123,7 @@ export interface subscribeAccelerometerOptions {
    *
    * @permission ohos.permission.ACCELEROMETER
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -129,6 +136,7 @@ export interface subscribeAccelerometerOptions {
    *
    * @permission ohos.permission.ACCELEROMETER
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -141,6 +149,7 @@ export interface subscribeAccelerometerOptions {
  * Defines a **CompassResponse** object.
  *
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -151,6 +160,7 @@ export interface CompassResponse {
    * Direction of the device, in degrees.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -163,6 +173,7 @@ export interface CompassResponse {
  * Defines the type of data to return for a subscription to data changes of the compass sensor.
  *
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -173,6 +184,7 @@ export interface SubscribeCompassOptions {
    * Callback invoked when the compass sensor data changes.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -184,6 +196,7 @@ export interface SubscribeCompassOptions {
    * Callback invoked when an API call fails.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -196,6 +209,7 @@ export interface SubscribeCompassOptions {
  * Callback invoked when the proximity sensor data changes.
  *
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -206,6 +220,7 @@ export interface ProximityResponse {
    * Distance between a visible object and the device screen.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -218,6 +233,7 @@ export interface ProximityResponse {
  * Defines the type of data to return for a subscription to data changes of the proximity sensor.
  *
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -228,6 +244,7 @@ export interface SubscribeProximityOptions {
    * Defines a **ProximityResponse** object.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -239,6 +256,7 @@ export interface SubscribeProximityOptions {
    * Callback invoked when an API call fails.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -251,6 +269,7 @@ export interface SubscribeProximityOptions {
  * Defines a **LightResponse** object.
  *
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -261,6 +280,7 @@ export interface LightResponse {
    * Light intensity, in lux.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -273,6 +293,7 @@ export interface LightResponse {
  * Defines the type of data to return for a subscription to data changes of the ambient light sensor.
  *
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -283,6 +304,7 @@ export interface SubscribeLightOptions {
    * Callback invoked when the ambient light sensor data changes.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -294,6 +316,7 @@ export interface SubscribeLightOptions {
    * Callback invoked when an API call fails.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -307,6 +330,7 @@ export interface SubscribeLightOptions {
  *
  * @permission ohos.permission.ACTIVITY_MOTION
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -318,6 +342,7 @@ export interface StepCounterResponse {
    *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -331,6 +356,7 @@ export interface StepCounterResponse {
  *
  * @permission ohos.permission.ACTIVITY_MOTION
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -342,6 +368,7 @@ export interface SubscribeStepCounterOptions {
    *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -354,6 +381,7 @@ export interface SubscribeStepCounterOptions {
    *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -366,6 +394,7 @@ export interface SubscribeStepCounterOptions {
  * Defines a **BarometerResponse** object.
  *
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -376,6 +405,7 @@ export interface BarometerResponse {
    * Pressure, in pascal.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -388,6 +418,7 @@ export interface BarometerResponse {
  * Defines the type of data to return for a subscription to data changes of the barometer sensor.
  *
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -398,6 +429,7 @@ export interface SubscribeBarometerOptions {
    * Callback invoked when the barometer sensor data changes.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -409,6 +441,7 @@ export interface SubscribeBarometerOptions {
    * Callback invoked when an API call fails.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -422,6 +455,7 @@ export interface SubscribeBarometerOptions {
  *
  * @permission ohos.permission.READ_HEALTH_DATA
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -433,6 +467,7 @@ export interface HeartRateResponse {
    *
    * @permission ohos.permission.READ_HEALTH_DATA
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -446,6 +481,7 @@ export interface HeartRateResponse {
  *
  * @permission ohos.permission.READ_HEALTH_DATA
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -457,6 +493,7 @@ export interface SubscribeHeartRateOptions {
    *
    * @permission ohos.permission.READ_HEALTH_DATA
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -469,6 +506,7 @@ export interface SubscribeHeartRateOptions {
    *
    * @permission ohos.permission.READ_HEALTH_DATA
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -481,6 +519,7 @@ export interface SubscribeHeartRateOptions {
  * Specifies whether the device that houses the sensor is worn.
  *
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -492,6 +531,7 @@ export interface OnBodyStateResponse {
    * value **false** indicates the opposite.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -504,6 +544,7 @@ export interface OnBodyStateResponse {
  * Defines the callback invoked upon change in the wearing state of the device that houses the sensor.
  *
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -514,6 +555,7 @@ export interface SubscribeOnBodyStateOptions {
    * Callback invoked when the wearing state of the device that houses the sensor is successfully obtained.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -525,6 +567,7 @@ export interface SubscribeOnBodyStateOptions {
    * Callback invoked when an API call fails.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -537,6 +580,7 @@ export interface SubscribeOnBodyStateOptions {
  * Defines the callback invoked upon change in the wearing state of the device that houses the sensor.
  *
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -547,6 +591,7 @@ export interface GetOnBodyStateOptions {
    * Callback upon a successful API call.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -558,6 +603,7 @@ export interface GetOnBodyStateOptions {
    * Callback invoked when an API call fails.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -569,6 +615,7 @@ export interface GetOnBodyStateOptions {
    * Callback invoked when the API call is complete.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -581,6 +628,7 @@ export interface GetOnBodyStateOptions {
  * Defines a **DeviceOrientationResponse** object.
  *
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 6 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -591,6 +639,7 @@ export interface DeviceOrientationResponse {
    * Rotation angle around the Z axis when the X/Y axis of the device coincides with the X/Y axis of the earth.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -602,6 +651,7 @@ export interface DeviceOrientationResponse {
    * Rotation angle around the X axis when the Y/Z axis of the device coincides with the Y/Z axis of the earth.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -613,6 +663,7 @@ export interface DeviceOrientationResponse {
    * Rotation angle around the Y axis when the X/Z axis of the device coincides with the X/Z axis of the earth.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -625,6 +676,7 @@ export interface DeviceOrientationResponse {
  * Defines the type of data to return for a subscription to data changes of the device orientation sensor.
  *
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 6 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -641,6 +693,7 @@ export interface SubscribeDeviceOrientationOptions {
    * - **normal**: called at an interval of 200 ms, which is applicable to power-saving scenarios.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -652,6 +705,7 @@ export interface SubscribeDeviceOrientationOptions {
    * Callback invoked when the device orientation sensor data changes.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -663,6 +717,7 @@ export interface SubscribeDeviceOrientationOptions {
    * Callback invoked when an API call fails.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -676,6 +731,7 @@ export interface SubscribeDeviceOrientationOptions {
  *
  * @permission ohos.permission.GYROSCOPE
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 6 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -687,6 +743,7 @@ export interface GyroscopeResponse {
    *
    * @permission ohos.permission.GYROSCOPE
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -699,6 +756,7 @@ export interface GyroscopeResponse {
    *
    * @permission ohos.permission.GYROSCOPE
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -711,6 +769,7 @@ export interface GyroscopeResponse {
    *
    * @permission ohos.permission.GYROSCOPE
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -724,6 +783,7 @@ export interface GyroscopeResponse {
  *
  * @permission ohos.permission.GYROSCOPE
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 6 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -741,6 +801,7 @@ export interface SubscribeGyroscopeOptions {
    *
    * @permission ohos.permission.GYROSCOPE
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -753,6 +814,7 @@ export interface SubscribeGyroscopeOptions {
    *
    * @permission ohos.permission.GYROSCOPE
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -765,6 +827,7 @@ export interface SubscribeGyroscopeOptions {
    *
    * @permission ohos.permission.GYROSCOPE
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -776,6 +839,7 @@ export interface SubscribeGyroscopeOptions {
 /**
  *
  * @syscap SystemCapability.Sensors.Sensor.Lite
+ * @famodelonly
  * @since 6 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -795,6 +859,7 @@ export default class Sensor {
    * @permission ohos.permission.ACCELEROMETER
    * @param { subscribeAccelerometerOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -813,6 +878,7 @@ export default class Sensor {
    *
    * @permission ohos.permission.ACCELEROMETER
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -832,6 +898,7 @@ export default class Sensor {
    *
    * @param { SubscribeCompassOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -849,6 +916,7 @@ export default class Sensor {
    * > instead.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -868,6 +936,7 @@ export default class Sensor {
    *
    * @param { SubscribeProximityOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -885,6 +954,7 @@ export default class Sensor {
    * >  instead. since API Version 8.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -904,6 +974,7 @@ export default class Sensor {
    *
    * @param { SubscribeLightOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -921,6 +992,7 @@ export default class Sensor {
    * > instead. since API Version 8.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -941,6 +1013,7 @@ export default class Sensor {
    * @permission ohos.permission.ACTIVITY_MOTION
    * @param { SubscribeStepCounterOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -959,6 +1032,7 @@ export default class Sensor {
    *
    * @permission ohos.permission.ACTIVITY_MOTION
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -978,6 +1052,7 @@ export default class Sensor {
    *
    * @param { SubscribeBarometerOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -995,6 +1070,7 @@ export default class Sensor {
    * > instead. since API Version 8.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -1015,6 +1091,7 @@ export default class Sensor {
    * @permission ohos.permission.READ_HEALTH_DATA
    * @param { SubscribeHeartRateOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -1033,6 +1110,7 @@ export default class Sensor {
    *
    * @permission ohos.permission.READ_HEALTH_DATA
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -1052,6 +1130,7 @@ export default class Sensor {
    *
    * @param { SubscribeOnBodyStateOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -1069,6 +1148,7 @@ export default class Sensor {
    * > instead. since API Version 8.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -1082,6 +1162,7 @@ export default class Sensor {
    * @param { GetOnBodyStateOptions } options - Callback invoked when obtaining the wearing state of the device that
    *     houses the sensor.
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -1103,6 +1184,7 @@ export default class Sensor {
    *
    * @param { SubscribeDeviceOrientationOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -1120,6 +1202,7 @@ export default class Sensor {
    * > instead. since API Version 8.
    *
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -1142,6 +1225,7 @@ export default class Sensor {
    * @permission ohos.permission.GYROSCOPE
    * @param { SubscribeGyroscopeOptions } options - Type of data to return.
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -1160,6 +1244,7 @@ export default class Sensor {
    *
    * @permission ohos.permission.GYROSCOPE
    * @syscap SystemCapability.Sensors.Sensor.Lite
+   * @famodelonly
    * @since 6 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]

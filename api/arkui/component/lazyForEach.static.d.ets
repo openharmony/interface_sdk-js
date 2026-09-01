@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,7 +28,6 @@ import { DynamicNode } from './common';
 /**
  * Defines type for memory optimization strategy.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -42,7 +42,7 @@ export enum LazyForEachMemOptStrategy {
      */
     DEFAULT = 0,
     /**
-     * LazyForEach handle the memory optimization.
+     * LazyForEach handles memory optimization.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -694,8 +694,9 @@ export interface LazyForEachAttribute extends DynamicNode {
    * @param { KeyGeneratorFunc<T> } [keyGenerator] - Key generator function.
    * @returns { this } LazyForEachAttribute instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   setLazyForEachOptions<T>(dataSource: IDataSource<T>,
         itemGenerator: ItemGeneratorFunc<T>,
@@ -710,8 +711,9 @@ export interface LazyForEachAttribute extends DynamicNode {
    * @param { LazyForEachOptions } [options] - options for LazyForEach behavior
    * @returns { this } LazyForEachAttribute instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   setLazyForEachOptions<T>(dataSource: IDataSource<T>,
         itemGenerator: ItemGeneratorFunc<T>,
@@ -722,8 +724,9 @@ export interface LazyForEachAttribute extends DynamicNode {
    * Notify LazyForEach has finished setting up its attributes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   applyAttributesFinish(): void;
 }
@@ -791,14 +794,15 @@ export declare function LazyForEach<T = Any>(dataSource: IDataSource<T>,
 ): LazyForEachAttribute;
 
 /**
- * Defines LazyForEach Component. It requires call setLazyForEachOptions at start of component attribute set-up,
- * and it requires call applyAttributeFinish at end of component attribute set-up.
+ * Defines LazyForEach Component. It requires calling setLazyForEachOptions at start of component attribute set-up,
+ * and it requires calling applyAttributesFinish at end of component attribute set-up.
  *
  * @param { CustomBuilderT<LazyForEachAttribute> } style - callback to set up LazyForEach's attributes.
  * @returns { LazyForEachAttribute } The attribute of LazyForEach.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function LazyForEach<T = Any>(

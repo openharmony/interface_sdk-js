@@ -68,7 +68,13 @@ export declare interface SymbolSpanAttribute {
      * Used to set the font weight of SymbolSpan.
      *
      * @param { int | FontWeight | ResourceStr | undefined } value - the SymbolSpan font weight.
+     *     For the int type, the value range is [100, 900]. When enableVariableFontWeight in
+     *     fontWeightConfigs is **false**, the value must be a multiple of 100; when **true**,
+     *     any integer within [100, 900] is supported.
+     *     The default value is FontWeight.Normal. Passing `undefined` resets it to the default value.
      * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+     *     If not specified, the default values of FontWeightConfigs are used:
+     *     enableVariableFontWeight defaults to **false**, and enableDeviceFontWeightCategory defaults to **true**.
      * @returns { SymbolSpanAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -144,8 +150,9 @@ export declare interface SymbolSpanAttribute {
      * @param { Resource } value - symbol span value
      * @returns { SymbolSpanAttribute } Returns the instance of the SymbolSpanAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setSymbolSpanOptions(value: Resource): this;
 
@@ -153,8 +160,9 @@ export declare interface SymbolSpanAttribute {
      * Notify the component is finished setting up its attributes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default applyAttributesFinish(): void;
 }
@@ -180,8 +188,9 @@ export declare function SymbolSpan(
  * @param { CustomBuilderT<SymbolSpanAttribute> } style - SymbolSpan attribute instance
  * @returns { SymbolSpanAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

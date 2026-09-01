@@ -266,7 +266,7 @@ export declare enum GridItemAlignment {
 export declare interface ComputedBarAttribute {
 
   /**
-   * The offset of the grid.
+   * The offset of the grid, in vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -275,7 +275,7 @@ export declare interface ComputedBarAttribute {
   totalOffset: double;
 
   /**
-   * The range of the grid.
+   * The range of the grid, in vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -800,8 +800,9 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
    * @param { GridLayoutOptions } [layoutOptions] - The options to help grid layout
    * @returns { GridAttribute } Returns the instance of the GridAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setGridOptions(scroller?: Scroller, layoutOptions?: GridLayoutOptions): this;
 
@@ -904,8 +905,9 @@ export declare abstract class ExtendableGrid implements GridAttribute {
  * @param { CustomBuilder } [content_]
  * @returns { GridAttribute } The attribute of the Grid.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

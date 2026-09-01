@@ -130,8 +130,9 @@ export declare interface UnionEffectContainerAttribute extends CommonMethod {
      * @returns { UnionEffectContainerAttribute } Returns instance of  UnionEffectContainerAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setUnionEffectContainerOptions(options?: UnionEffectContainerOptions): this;
 }
@@ -162,8 +163,9 @@ export declare function UnionEffectContainer(
  * @returns { UnionEffectContainerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function UnionEffectContainer(

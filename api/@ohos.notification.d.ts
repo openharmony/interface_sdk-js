@@ -36,13 +36,6 @@ import { NotificationUserInput } from './notification/notificationUserInput';
 /**
  * The **Notification** module provides notification management capabilities, covering notifications, notification slots
  * , notification subscription, notification enabled status, and notification badge status.
- * 
- * > **NOTE**
- * >
- * > The APIs of this module are deprecated since API version 9. You are advised to use 
- * > [@ohos.notificationManager]{@link @ohos.notificationManager:notificationManager} instead.
- * >
- * > Notification subscription and unsubscription APIs are available only to system applications.
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 7
@@ -1091,7 +1084,7 @@ declare namespace notification {
    * return the result.
    *
    * @param { string } groupName - Name of the notification group, which is specified through
-   *     [NotificationRequest]{@link notification.requestEnableNotification(callback: AsyncCallback<void>)} when the
+   *     [NotificationRequest]{@link notification.requestEnableNotification} when the
    *     notification is published.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.Notification.Notification
@@ -1285,7 +1278,7 @@ declare namespace notification {
 
   /**
    * Checks whether a specified template is supported before using
-   * [NotificationTemplate](@link ./notification/notificationTemplate:NotificationTemplate) to publish a notification.
+   * [NotificationTemplate]{@link ./notification/notificationTemplate:NotificationTemplate} to publish a notification.
    * This API uses an asynchronous callback to return the result.
    *
    * @param { string } templateName - Template name. Currently, only **downloadTemplate** is supported.
@@ -1299,7 +1292,7 @@ declare namespace notification {
 
   /**
    * Checks whether a specified template is supported before using
-   * [NotificationTemplate](@link ./notification/notificationTemplate:NotificationTemplate) to publish a notification.
+   * [NotificationTemplate]{@link ./notification/notificationTemplate:NotificationTemplate} to publish a notification.
    * This API uses a promise to return the result.
    *
    * @param { string } templateName - Template name. Currently, only **downloadTemplate** is supported.
@@ -1475,10 +1468,7 @@ declare namespace notification {
   function getDeviceRemindType(): Promise<DeviceRemindType>;
 
   /**
-   *
-   * > **NOTE**
-   * > This API is supported since API version 7 and deprecated since API version 9.
-   * You are advised to use [notificationManager.BundleOption]{@link ./notification/NotificationCommonDef:BundleOption} instead.
+   * Describes the **BundleOption** information, that is, the bundle information of an application.
    * 
    * @syscap SystemCapability.Notification.Notification
    * @since 7
@@ -1508,15 +1498,11 @@ declare namespace notification {
   }
 
   /**
-   * > **NOTE**
-   * > This API is supported since API version 7 and deprecated since API version 9. <!--Del-->You are advised to use 
-   * > [notificationManager.NotificationKey]{@link @ohos.notificationSubscribe:notificationSubscribe.NotificationKey}.<!
-   * > --DelEnd-->
+   * Notification key.
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7
    * @deprecated since 9
-   * @useinstead ohos.notificationManager/notificationManager#NotificationKey
    */
   export interface NotificationKey {
     /**
@@ -1541,9 +1527,7 @@ declare namespace notification {
   }
 
   /**
-   * > **NOTE**<br>
-   * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [notificationManager.DoNotDisturbType]{@link @ohos.notificationManager:notificationManager.DoNotDisturbType} instead.
+   * Defines the DND time type.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1598,9 +1582,7 @@ declare namespace notification {
   }
 
   /**
-   * > **NOTE**<br>
-   * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [notificationManager.DoNotDisturbDate]{@link @ohos.notificationManager:notificationManager.DoNotDisturbDate} instead.
+   * Defines the DND time.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1644,9 +1626,7 @@ declare namespace notification {
   }
 
   /**
-   * > **NOTE**<br>
-   * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > notificationManager.DeviceRemindType instead.
+   * Defines the notification reminder type.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1701,9 +1681,7 @@ declare namespace notification {
   }
 
   /**
-   * > **NOTE**<br>
-   * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > notificationManager.SourceType instead.
+   * Defines the notification source type.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -1747,9 +1725,7 @@ declare namespace notification {
   }
 
   /**
-   * > **NOTE**<br>
-   * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
-   * > notificationManager.RemoveReason instead.
+   * Reason for removing the notification.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

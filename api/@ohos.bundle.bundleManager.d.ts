@@ -45,7 +45,8 @@ import { AbilityInfo as _AbilityInfo, WindowSize as _WindowSize } from './bundle
 import { AppProvisionInfo as _AppProvisionInfo, Validity as _Validity } from './bundleManager/AppProvisionInfo';
 import { BundleInfo as _BundleInfo, UsedScene as _UsedScene, ReqPermissionDetail as _ReqPermissionDetail,
   SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity, DynamicIconInfo as _DynamicIconInfo,
-  BundleOptions as _BundleOptions, AlternateIconInfo as _AlternateIconInfo } from './bundleManager/BundleInfo';
+  BundleOptions as _BundleOptions, AlternateIconInfo as _AlternateIconInfo,
+  AppClonePreference as _AppClonePreference } from './bundleManager/BundleInfo';
 import { HapModuleInfo as _HapModuleInfo, PreloadItem as _PreloadItem, Dependency as _Dependency,
   RouterItem as _RouterItem, DataItem as _DataItem } from './bundleManager/HapModuleInfo';
 import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundleManager/ExtensionAbilityInfo';
@@ -308,7 +309,7 @@ declare namespace bundleManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-     GET_BUNDLE_INFO_WITH_SANDBOX_CLONE = 0x00100000
+    GET_BUNDLE_INFO_WITH_SANDBOX_CLONE = 0x00100000,
   }
 
   /**
@@ -565,7 +566,7 @@ declare namespace bundleManager {
     INPUT_METHOD = 2,
 
     /**
-     * [ServiceExtensionAbility]{@link @ohos.app.ability.ServiceExtensionAbility:ServiceExtensionAbility}: provides
+     * ServiceExtensionAbility: provides
      * extended capabilities related to background services.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -585,7 +586,7 @@ declare namespace bundleManager {
     ACCESSIBILITY = 4,
 
     /**
-     * [DataShareExtensionAbility]{@link @ohos.application.DataShareExtensionAbility}: provides extended capabilities
+     * DataShareExtensionAbility: provides extended capabilities
      * related to data sharing, providing data reading and writing services.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -605,8 +606,7 @@ declare namespace bundleManager {
     FILE_SHARE = 6,
 
     /**
-     * [StaticSubscriberExtensionAbility]{@link @ohos.application.StaticSubscriberExtensionAbility:StaticSubscriberExtensionAbility}
-     * : provides extended capabilities related to static broadcast, used to handle static events such as startup
+     * StaticSubscriberExtensionAbility: provides extended capabilities related to static broadcast, used to handle static events such as startup
      * events.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -636,7 +636,7 @@ declare namespace bundleManager {
     BACKUP = 9,
 
     /**
-     * [WindowExtensionAbility]{@link @ohos.application.WindowExtensionAbility}: provides extended capabilities that
+     * WindowExtensionAbility: provides extended capabilities that
      * allow system applications to pull up and embed UIs of other applications.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -773,7 +773,7 @@ declare namespace bundleManager {
     FENCE = 24,
 
     /**
-     * Indicates extension info with type of CALLER_INFO_QUERY
+     * CallerInfoQueryExtensionAbility: provides the capability of querying incoming and outgoing call information.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 19 dynamic
@@ -834,7 +834,7 @@ declare namespace bundleManager {
     LIVE_FORM = 30,
 
     /**
-     * Indicates extension info with type of the selection
+     * SelectionExtensionAbility: provides extended capabilities for text selection popup.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @stagemodelonly
@@ -892,7 +892,9 @@ declare namespace bundleManager {
     PARTNER_AGENT = 36,
 
     /**
-     * Indicates extension info with type of the agent.
+     * AgentExtensionAbility: provides extended capabilities for agents, including lifecycle callback APIs for agent
+     * service creation, destruction, connection and disconnection, as well as callback APIs for receiving data sent
+     * by clients and security authentication.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @stagemodelonly
@@ -901,7 +903,7 @@ declare namespace bundleManager {
     AGENT = 37,
 
     /**
-     * Indicates extension info with type of the agent UI extension.
+     * AgentUIExtensionAbility: provides the Agent UI display capability on the access device.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @stagemodelonly
@@ -1374,7 +1376,7 @@ declare namespace bundleManager {
     INTENT_PROFILE = 1,
 
     /**
-     * Indicates the JSON profile of the cloud.
+     * Device-Cloud Sync configuration file.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1556,7 +1558,8 @@ declare namespace bundleManager {
    * Enumerates the application installation statuses.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @systemapi [since 23 - 26.0.0]
+   * @publicapi [since 26.1.0]
    * @since 23 dynamic&static
    */
   export enum BundleInstallStatus {
@@ -1564,7 +1567,8 @@ declare namespace bundleManager {
      * The application is not installed.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @systemapi
+     * @systemapi [since 23 - 26.0.0]
+     * @publicapi [since 26.1.0]
      * @since 23 dynamic&static
      */
     BUNDLE_NOT_EXIST = 1,
@@ -1573,7 +1577,8 @@ declare namespace bundleManager {
      * The application is being installed.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @systemapi
+     * @systemapi [since 23 - 26.0.0]
+     * @publicapi [since 26.1.0]
      * @since 23 dynamic&static
      */
     BUNDLE_INSTALLING = 2,
@@ -1582,10 +1587,144 @@ declare namespace bundleManager {
      * The application has been installed.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @systemapi
+     * @systemapi [since 23 - 26.0.0]
+     * @publicapi [since 26.1.0]
      * @since 23 dynamic&static
      */
     BUNDLE_INSTALLED = 3
+  }
+
+  /**
+   * Enumerates the application clone preference modes.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum AppClonePreferenceMode {
+    /**
+     * Always prompts the user to select an application.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ALWAYS_ASK = 0,
+
+    /**
+     * Uses the main application by default.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MAIN_APP = 1,
+
+    /**
+     * Uses the application clone by default.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CLONE_APP = 2
+  }
+
+  /**
+   * Define the enumeration of device mode distribution policies, which is used to specify how an application
+   * is distributed on a device.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum DeviceModeDistributionPolicy {
+    /**
+     * Unspecified device mode distribution policy.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    UNSPECIFIED = 0,
+    /**
+     * The application is only available in primary mode.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    MAIN_ONLY = 1,
+    /**
+     * The application is only available in secondary mode.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SUB_ONLY = 2,
+    /**
+     * The application is available in both modes with identical package body.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    UNIVERSAL_IDENTICAL_PACKAGE = 3,
+    /**
+     * The application is available in both modes with different package body.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    UNIVERSAL_DIFFERENT_PACKAGE = 4,
+    /**
+     * The application is partially compatible across modes with identical package body.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    PARTIAL_COMPATIBLE_IDENTICAL_PACKAGE = 5,
+    /**
+     * The application is partially compatible across modes with different package body.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    PARTIAL_COMPATIBLE_DIFFERENT_PACKAGE = 6,
+    /**
+     * The application is fully compatible across modes with identical package body.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    FULL_COMPATIBLE_IDENTICAL_PACKAGE = 7,
+    /**
+     * The application is fully compatible across modes with different package body.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    FULL_COMPATIBLE_DIFFERENT_PACKAGE = 8
   }
 
   /**
@@ -1697,7 +1836,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Bundle name.
    * @param { int } bundleFlags - Type of the bundle information to obtain.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Promise<BundleInfo> } Promise used to return the bundle information obtained.
@@ -1776,7 +1915,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { string } bundleName - Bundle name.
    * @param { int } appFlags - Type of the application information to obtain.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Promise<ApplicationInfo> } Promise used to return the application information.
@@ -1844,7 +1983,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @param { int } bundleFlags - Type of the bundle information to obtain.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Promise<Array<BundleInfo>> } Promise used to return an array of bundle information.
@@ -1911,7 +2050,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
    * @param { int } appFlags - Type of the application information to obtain.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Promise<Array<ApplicationInfo>> } Promise used to return the array of application information obtained.
@@ -1996,7 +2135,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Want containing the bundle name to query.
    * @param { int } abilityFlags - Type of the ability information to obtain.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Promise<Array<AbilityInfo>> } Promise used to return the array of ability information obtained.
@@ -2102,7 +2241,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { Want } want - Want containing the bundle name to query.
    * @param { int } abilityFlags - Type of the ability information to obtain.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Array<AbilityInfo> } An array of ability information.
@@ -2194,7 +2333,7 @@ declare namespace bundleManager {
    * @param { Want } want - Want containing the bundle name to query.
    * @param { ExtensionAbilityType } extensionAbilityType - Type of the ExtensionAbility.
    * @param { int } extensionAbilityFlags - Type of the ExtensionAbility information to obtain.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Promise<Array<ExtensionAbilityInfo>> } Promise used to return the array of ExtensionAbility information
@@ -2225,7 +2364,7 @@ declare namespace bundleManager {
    * @param { Want } want - Want containing the bundle name to query.
    * @param { ExtensionAbilityType } extensionAbilityType - Type of the ExtensionAbility.
    * @param { int } extensionAbilityFlags - Type of the ExtensionAbility information to obtain.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Array<ExtensionAbilityInfo> } An array of ExtensionAbility information.
@@ -2257,7 +2396,7 @@ declare namespace bundleManager {
    * @param { string } extensionAbilityType - Type of the custom ExtensionAbility.
    * @param { int } extensionAbilityFlags - Information flags to be contained in the returned ExtensionAbilityInfo
    *     object.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Array<ExtensionAbilityInfo> } An array of ExtensionAbility information obtained.
@@ -2288,7 +2427,7 @@ declare namespace bundleManager {
    * @param { string } extensionAbilityType - Type of the custom ExtensionAbility.
    * @param { int } extensionAbilityFlags - Information flags to be contained in the returned ExtensionAbilityInfo
    *     object.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Array<ExtensionAbilityInfo> } An array of ExtensionAbility information obtained.
@@ -2558,15 +2697,18 @@ declare namespace bundleManager {
   function setApplicationEnabled(bundleName: string, appIndex: int, isEnabled: boolean): Promise<void>;
 
   /**
-   * Set whether an application is enabled or disabled, with control over whether the process is killed when disabled.
+   * Sets the enabled or disabled state of a specified application or application clone, and controls whether
+   * to exit the application process when the application is disabled. This API uses a promise to return the result.
    *
    * @permission ohos.permission.CHANGE_ABILITY_ENABLED_STATE
-   * @param { string } bundleName - Indicates the bundle name.
-   * @param { int } appIndex - Indicates the index of clone app.
-   * @param { boolean } isEnabled - The value true means to enable the application, and the value false means to
-   *     disable the application.
-   * @param { boolean } killProcess - The value true indicates that the application process will be killed when
-   *     disabled, while the value false indicates that the application process will not be killed when disabled.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { int } appIndex - Application index. The value is an integer ranging from 0 to 5. The value 0 indicates
+   *     the main application, and the values 1 to 5 indicate the application clone indexes.
+   * @param { boolean } isEnabled - Whether to enable the application. The value true indicates that the application
+   *     is enabled, and false indicates that the application is disabled.
+   * @param { boolean } killProcess - Whether to exit the application process when the application is disabled. The
+   *     value true indicates that the application process exits when the application is disabled, and false
+   *     indicates that the application process does not exit when the application is disabled.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
@@ -2938,7 +3080,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Promise<Want> } Promise used to return the Want object obtained.
@@ -2964,7 +3106,7 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or
    *     (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS) [since 24]
    * @param { string } bundleName - Bundle name.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Want } Want object.
@@ -2985,7 +3127,7 @@ declare namespace bundleManager {
 
   /**
    * Obtains the **Want** parameters of the
-   * [entry UIAbility](docroot://quick-start/application-package-glossary.md#uiability) of the current application.
+   * [entry UIAbility](docroot://application-models/ability-terminology.md#uiability) of the current application.
    *
    * @returns { Want } Want object that contains only the bundle name and ability name.
    * @throws { BusinessError } 17700072 - The launch want is not found.
@@ -3043,7 +3185,7 @@ declare namespace bundleManager {
    *
    * @param { string } moduleName - Module name.
    * @param { string } abilityName - Name of the UIAbility component.
-   * @param { string } metadataName - Metadata name of the UIAbility component, that is, **name** of the **metadata**
+   * @param { string } [metadataName] - Metadata name of the UIAbility component, that is, **name** of the **metadata**
    *     tag under [abilities](docroot://quick-start/module-configuration-file.md#abilities) in the **module.json5**
    *     file. The default value is null.
    * @returns { Promise<Array<string>> } Promise used to return the array of JSON strings obtained.
@@ -3068,7 +3210,7 @@ declare namespace bundleManager {
    *
    * @param { string } moduleName - Module name.
    * @param { string } abilityName - Name of the UIAbility component.
-   * @param { string } metadataName - Metadata name of the UIAbility component, that is, **name** of the **metadata**
+   * @param { string } [metadataName] - Metadata name of the UIAbility component, that is, **name** of the **metadata**
    *     tag under [abilities](docroot://quick-start/module-configuration-file.md#abilities) in the **module.json5**
    *     file. The default value is null.
    * @returns { Array<string> } An array of JSON strings.
@@ -3120,7 +3262,7 @@ declare namespace bundleManager {
    *
    * @param { string } moduleName - Module name.
    * @param { string } extensionAbilityName - Name of the ExtensionAbility component.
-   * @param { string } metadataName - Metadata name of the ExtensionAbility component, that is, **name** of the
+   * @param { string } [metadataName] - Metadata name of the ExtensionAbility component, that is, **name** of the
    *     **metadata** tag under
    *     [extensionAbilities](docroot://quick-start/module-configuration-file.md#extensionabilities) in the
    *     **module.json5** file. The default value is null.
@@ -3145,7 +3287,7 @@ declare namespace bundleManager {
    *
    * @param { string } moduleName - Module name.
    * @param { string } extensionAbilityName - Name of the ExtensionAbility component.
-   * @param { string } metadataName - Metadata name of the ExtensionAbility component, that is, **name** of the
+   * @param { string } [metadataName] - Metadata name of the ExtensionAbility component, that is, **name** of the
    *     **metadata** tag under
    *     [extensionAbilities](docroot://quick-start/module-configuration-file.md#extensionabilities) in the
    *     **module.json5** file. The default value is null.
@@ -3306,15 +3448,16 @@ declare namespace bundleManager {
   function getAbilityLabelSync(bundleName: string, moduleName: string, abilityName: string): string;
 
   /**
-   * Obtains the icon of a specified ability.
+   * Obtains the PixelMap of an icon based on the bundle name, module name, and ability name.
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
-   * @param { string } moduleName - Indicates the module name.
-   * @param { string } abilityName - Indicates the ability name.
+   * @param { string } bundleName - Bundle name of the application to be queried.
+   * @param { string } moduleName - Module name of the application to be queried.
+   * @param { string } abilityName - Ability component name to be queried.
    * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the result. If
-   *     getAbilityIcon is successful, **err** is **undefined**, and PixelMap is
-   *     getAbilityIcon obtained. Otherwise, **err** is an error object.
+   *     getApplicationInfos is successful, **err** is **undefined**, and PixelMap as the input parameter
+   *     for starting the application. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -3332,13 +3475,14 @@ declare namespace bundleManager {
   function getAbilityIcon(bundleName: string, moduleName: string, abilityName: string, callback: AsyncCallback<image.PixelMap>): void;
 
   /**
-   * Obtains the icon of a specified ability.
+   * Obtains the PixelMap of an icon based on the bundle name, module name, and ability name.
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
-   * @param { string } bundleName - Indicates the bundle name of the application to which the ability belongs.
-   * @param { string } moduleName - Indicates the module name.
-   * @param { string } abilityName - Indicates the ability name.
-   * @returns { Promise<image.PixelMap> } Promise used to return PixelMap.
+   * @param { string } bundleName - Bundle name of the application to be queried.
+   * @param { string } moduleName - Module name of the application to be queried.
+   * @param { string } abilityName - Ability component name to be queried.
+   * @returns { Promise<image.PixelMap> } Promise used to return the PixelMap.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -3604,7 +3748,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { Promise<AppProvisionInfo> } Promise used to return the provision profile obtained.
@@ -3629,7 +3773,7 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
    * @param { string } bundleName - Bundle name.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0.
    * @returns { AppProvisionInfo } Provision profile.
@@ -3669,10 +3813,12 @@ declare namespace bundleManager {
   function getSpecifiedDistributionType(bundleName: string): string;
 
   /**
-   * Obtains the install information of all apps.
+   * Obtains the extended install information about all applications in the system.
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST
-   * @returns { Promise<Array<Record<string, Object>>> } The install information.
+   * @returns { Promise<Array<Record<string, Object>>> } Promise used to return the list of
+   *     extended install information set of all applications.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -3724,9 +3870,9 @@ declare namespace bundleManager {
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
    * @param { ProfileType } profileType - Type of the profile.
    * @param { string } bundleName - Bundle name of the application.
-   * @param { string } moduleName - Module name of the application. If this parameter is not passed in, the entry module
+   * @param { string } [moduleName] - Module name of the application. If this parameter is not passed in, the entry module
    *     is used.
-   * @param { int } userId - User ID, which can be obtained by calling
+   * @param { int } [userId] - User ID, which can be obtained by calling
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
    *     . The default value is the user ID of the caller. The value must be greater than or equal to 0. [since 12]
    * @returns { string } JSON string of the profile.
@@ -3936,9 +4082,11 @@ declare namespace bundleManager {
   function getAllDynamicIconInfo(userId?: int): Promise<Array<DynamicIconInfo>>;
 
   /**
-   * Get all alternate icon info configured by the application itself.
+   * Queries the alternate icon information configured in the alternateIcons in the app.json5
+   * of the current application. This API uses a promise to return the result.
    *
-   * @returns { Promise<Array<AlternateIconInfo>> } Returns a list of AlternateIconInfo objects.
+   * @returns { Promise<Array<AlternateIconInfo>> } Promise used to return the list of alternate
+   *     icons of the current application.
    * @throws { BusinessError } 17700311 - Failed to obtain the alternate icon.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
@@ -3947,13 +4095,13 @@ declare namespace bundleManager {
   function getAlternateIcons(): Promise<Array<AlternateIconInfo>>;
 
   /**
-   * Set the alternate icon for the current application.
-   * If you need to restore the app's default icon, please input an empty value for the icon name parameter.
+   * Sets the alternate icon of the caller based on the given alternate icon name.
+   * This API uses a promise to return the result.
    *
-   * @param { string } alternateIconName - Indicates the alternate icon name.
-   *     This value matches the name field under alternateIcons in the app.json5 file.
-   *     If an empty string is passed, the app's default icon will be restored.
-   * @returns { Promise<void> } Returns the result of setAlternateIcon.
+   * @param { string } alternateIconName - Name of the alternate icon to be set.
+   *     The alternate icon name must be in the name field of alternateIcons in app.json5.
+   *     If alternateIconName is left empty, the alternate icon is canceled.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 17700308 - The alternateIconName must match the name field under alternateIcons
    *     in the app.json5 file.
    * @throws { BusinessError } 17700309 - No alternate icon is enabled.
@@ -4130,7 +4278,7 @@ declare namespace bundleManager {
    * [distribution type]{@link bundleManager.AppDistributionType}.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { int } appDistributionType - Application distribution type. If this parameter is not specified, a list of
+   * @param { int } [appDistributionType] - Application distribution type. If this parameter is not specified, a list of
    *     developer IDs of all applications is returned.
    * @returns { Array<string> } An array of strings.
    * @throws { BusinessError } 201 - Permission denied.
@@ -4255,6 +4403,43 @@ declare namespace bundleManager {
    * @since 23 static
    */
   function getAppCloneIdentity(uid: int): Promise<AppCloneIdentity>;
+
+  /**
+   * Obtains the application clone preference configuration based on the given bundle name.
+   *
+   * @permission ohos.permission.MANAGE_CLONE_BUNDLE_PREFERENCES
+   * @param { string } bundleName - Bundle name of the target application.
+   * @returns { Promise<AppClonePreference> } Promise used to return the application clone preference configuration.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700095 - The specified bundle not found app clone preference.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getAppClonePreference(bundleName: string): Promise<AppClonePreference>;
+
+  /**
+   * Sets the application clone preference configuration.
+   *
+   * @permission ohos.permission.MANAGE_CLONE_BUNDLE_PREFERENCES
+   * @param { string } bundleName - Bundle name of the target application.
+   * @param { AppClonePreference } appClonePreference - Application clone preference configuration to set.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @throws { BusinessError } 17700094 - The specified bundle did not create a clone.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function setAppClonePreference(bundleName: string, appClonePreference: AppClonePreference): Promise<void>;
 
   /**
    * Obtains all the plugin information in the system based on the given host bundle name and user ID. This API uses a
@@ -4412,15 +4597,17 @@ declare namespace bundleManager {
    * @param { string } bundleName - Bundle name.
    * @returns { BundleInstallStatus } Application installation status.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API. [since 23 - 26.0.0]
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @systemapi
+   * @systemapi [since 23 - 26.0.0]
+   * @publicapi [since 26.1.0]
    * @since 23 dynamic&static
    */
   function getBundleInstallStatus(bundleName: string): BundleInstallStatus;
 
   /**
-   * Check whether a specified application is forbidden to be disabled.
+   * Synchronously queries whether a specified application or application clone of a specified user
+   * is set to forbid being disabled.
    * If you need to check whether an application is forbidden to be disabled under the current user,
    * ohos.permission.GET_BUNDLE_INFO_PRIVILEGED needs to be applied for.
    * If you need to check whether an application is forbidden to be disabled under other users,
@@ -4429,10 +4616,14 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or
    *     (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
-   * @param { string } bundleName - Indicates the bundle name.
-   * @param { int } userId - Indicates the user ID.
-   * @param { int } appIndex - Indicates the index of clone app.
-   * @returns { boolean } Returns true if the application is forbidden to be disabled; returns false otherwise.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { int } userId - User ID, which can be obtained by calling getOsAccountLocalId. The value
+   *     is greater than or equal to 0.
+   * @param { int } appIndex - Index of the application. The value ranges from 0 to 5. The value 0
+   *     indicates the main application, and the values 1 to 5 indicate the indexes of application clones.
+   * @returns { boolean } Whether a specified application is set to forbid being disabled.
+   *     The value true indicates that the specified application is set to forbid being disabled, and false
+   *     indicates that the specified application is not set to forbid being disabled.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
    * @throws { BusinessError } 17700001 - The specified bundle is not found.
@@ -4446,12 +4637,15 @@ declare namespace bundleManager {
   function isApplicationDisableForbidden(bundleName: string, userId: int, appIndex: int): boolean;
 
   /**
-   * Obtains the label of a specified application.
+   * Obtains the name of an application with the specified package name and clone index.
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { int } appIndex - Indicates the index of clone app.
-   * @returns { Promise<string> } Returns label of specified application.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { int } appIndex - Index of the application. The value ranges from 0 to 5.
+   *     The value 0 indicates the main application, and the values 1 to 5 indicate the indexes of application clones.
+   * @returns { Promise<string> } Promise used to return the result. If the operation is successful, the application
+   *     name is returned. Otherwise, an error object is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 17700001 - The specified bundle is not found.
    * @throws { BusinessError } 17700061 - The specified app index is invalid.
@@ -4476,18 +4670,52 @@ declare namespace bundleManager {
   function getAllNewPreinstalledApplicationInfo(): Promise<Array<PreinstalledApplicationInfo>>;
 
   /**
-   * Obtains BundleInfo of all bundles available in the system.
+   * Obtains all the bundle information in the system based on the given bundle flags.
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_GET_INSTALLED_BUNDLE_LIST
-   * @param { int } bundleFlags - {@link BundleFlag} - Indicates the flag used to specify information
-   *     contained in the BundleInfo that will be returned.
-   * @returns { Promise<Array<BundleInfo>> } Returns a list of BundleInfo objects.
+   * @param { int } bundleFlags - Information contained in the returned BundleInfo. For
+   *     details, see {@link BundleFlag}.
+   * @returns { Promise<Array<BundleInfo>> } Promise used to return the list of
+   *     installed applications.
    * @throws { BusinessError } 201 - Permission denied.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function getInstalledBundleList(bundleFlags: int): Promise<Array<BundleInfo>>;
+
+  /**
+   * Filters the bundle list by device mode distribution policies.
+   * This API uses a promise to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > The input parameter cannot be empty. All values must be within the range of the enumerated values of
+   * > DeviceModeDistributionPolicy, and the policies for all different packages
+   * > (UNIVERSAL_DIFFERENT_PACKAGE, PARTIAL_COMPATIBLE_DIFFERENT_PACKAGE, and FULL_COMPATIBLE_DIFFERENT_PACKAGE)
+   * > must be included.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { Array<DeviceModeDistributionPolicy> } policies - Array of DeviceModeDistributionPolicy values.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
+   * @throws { BusinessError } 17700097 - The device does not support the dual mode.
+   * @throws { BusinessError } 17700098 - The input parameter is invalid. It is either outside the range of valid
+   *     enum values or does not include the following required enum values: [
+   *     DeviceModeDistributionPolicy.UNIVERSAL_DIFFERENT_PACKAGE,
+   *     DeviceModeDistributionPolicy.PARTIAL_COMPATIBLE_DIFFERENT_PACKAGE,
+   *     DeviceModeDistributionPolicy.FULL_COMPATIBLE_DIFFERENT_PACKAGE].
+   * @throws { BusinessError } 17700099 - The device is installing or uninstalling an application,
+   *     or a previous API call is still being processed. Please try again.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function filterBundleListByDeviceModeDistributionPolicies(
+    policies: Array<DeviceModeDistributionPolicy>): Promise<void>;
 
   /**
    * Defines the application information.
@@ -4879,6 +5107,26 @@ declare namespace bundleManager {
   export type SkillUrl = _SkillUri;
 
   /**
+   * Defines the AppClonePreference information.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  export type AppClonePreference = _BundleInfo.AppClonePreference;
+
+  /**
+   * Defines the AppClonePreference information.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  export type AppClonePreference = _AppClonePreference;
+
+  /**
    * Defines the preinstalled application information.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -4945,7 +5193,7 @@ declare namespace bundleManager {
   export type BundleOptions = _BundleOptions;
 
   /**
-   * Indicates the alternate icon configured by the application.
+   * Describes the alternate icon information of an application.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
@@ -4954,7 +5202,7 @@ declare namespace bundleManager {
   export type AlternateIconInfo = _BundleInfo.AlternateIconInfo;
 
   /**
-   * Indicates the alternate icon configured by the application.
+   * Describes the alternate icon information of an application.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly

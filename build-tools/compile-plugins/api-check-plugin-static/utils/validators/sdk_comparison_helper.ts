@@ -30,10 +30,11 @@ import {
   comparePointVersion,
   checkMSFVersionMajor,
   checkIntegerMoreVersion,
-  isApiAvailableStatement,
-  isCheckDistributionOSVersion
+  isCheckDistributionOSVersion,
+  isOpenHarmonyRuntime
 } from '../api_check_base_utils';
 import { globalObject } from '../../index';
+import { validateApiAvailableArgument } from './apiAvailable_validate_utils';
 
 export const SDK_CONSTANTS = {
   OTHER_SOURCE_DEVICE_INFO: 'distributionOSApiVersion',
@@ -123,49 +124,64 @@ export class SdkComparisonHelper {
     if (!matchedEntry) {
       return false;
     }
+    const [matchedApi] = matchedEntry;
+    if (!this.validateApiAvailablePreCheck(expression, matchedApi)) {
+      return false;
+    }
 
+    if (!this.validateApiAvailableExpression(expression)) {
+      return false;
+    }
+
+    return this.compareApiAvailableVersion(expression as arkts.CallExpression, matchedApi);
+  }
+
+  private validateApiAvailablePreCheck(expression: arkts.Expression, matchedApi: string): boolean {
+    const runtimeType = globalObject.projectConfig.runtimeOS;
     if (!arkts.isCallExpression(expression)) {
       return false;
     }
 
-    if (!isApiAvailableStatement(expression)) {
+    if (!expression.arguments || expression.arguments.length !== 1) {
       return false;
     }
 
-    const [matchedApi] = matchedEntry;
     if (runtimeType === this.openSourceRuntime && matchedApi === this.otherSourceDeviceInfo) {
       return false;
     }
 
+    return true;
+  }
+
+  private validateApiAvailableExpression(expression: arkts.Expression): boolean {
+    const validationResult = validateApiAvailableArgument({
+      node: expression as arkts.CallExpression,
+      isOpenHarmonyRuntime,
+      isCheckDistributionOSVersion
+    });
+
+    return validationResult.valid;
+  }
+
+  private compareApiAvailableVersion(expression: arkts.CallExpression, matchedApi: string): boolean {
+    const runtimeType = globalObject.projectConfig.runtimeOS;
     const distributeResult: DistributionOSApiAvailableVersionResult = this.distributionVersionFormat();
-    if (!expression.arguments || expression.arguments.length !== 1) {
-      return false;
-    }
-    const arg = expression.arguments[0];
-    const sinceValue: string = this.getNodeText(arg);
+    const sinceValue: string = expression.arguments[0].dumpSrc().trim();
     const sinceFormat: string = sinceValue.replace(/[\'|\"|\`]/g, '');
     const sincePointVersion: string[] = sinceFormat.split('.');
-    
+
     if (sincePointVersion.length === 1 || runtimeType === this.openSourceRuntime) {
       return this.checkMajorNumberVersion(sinceFormat, sincePointVersion, distributeResult);
     }
-    
+
     if (!checkMSFVersionMajor(sinceFormat)) {
-      const distributionOSCheck: DistributionOSApiAvailableVersionResult = isCheckDistributionOSVersion(SINCE_TAG_NAME, sinceFormat);
-      if (!distributionOSCheck.valid) {
-        return false;
-      } else {
-        const scenario = matchedApi === SDK_CONSTANTS.OPEN_SOURCE_APIAVAILABLE_INFO
-          ? ComparisonSenario.SuppressByOHVersion
-          : ComparisonSenario.SuppressByOtherOSVersion;
-        const distributionOSResult: VersionValidationResult = this.valueChecker(this.minRequiredVersion, sinceFormat, scenario);
-        return distributionOSResult.result;
-      }
+      return this.checkDistributionOSVersion(sinceFormat, matchedApi);
     }
 
     if (!checkIntegerMoreVersion(sinceFormat)) {
       return false;
     }
+
     return comparePointVersion(sinceFormat, distributeResult.version) !== ComparisonResult.Less;
   }
 
@@ -187,6 +203,18 @@ export class SdkComparisonHelper {
       default:
         return false;
     }
+  }
+
+  private checkDistributionOSVersion(sinceFormat: string, matchedApi: string): boolean {
+    const distributionOSCheck: DistributionOSApiAvailableVersionResult = isCheckDistributionOSVersion(SINCE_TAG_NAME, sinceFormat);
+    if (!distributionOSCheck.valid) {
+      return false;
+    }
+    const scenario = matchedApi === SDK_CONSTANTS.OPEN_SOURCE_APIAVAILABLE_INFO
+      ? ComparisonSenario.SuppressByOHVersion
+      : ComparisonSenario.SuppressByOtherOSVersion;
+    const distributionOSResult: VersionValidationResult = this.valueChecker(this.minRequiredVersion, sinceFormat, scenario);
+    return distributionOSResult.result;
   }
 
   private distributionVersionFormat(): DistributionOSApiAvailableVersionResult {

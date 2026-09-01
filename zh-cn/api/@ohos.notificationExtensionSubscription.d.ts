@@ -71,8 +71,7 @@ declare namespace notificationExtensionSubscription {
   function openSubscriptionSettingsWithResult(context: UIAbilityContext): Promise<UserGrantSetting>;
 
   /**
-   * 订阅通知扩展。使用[蓝牙模块](docroot://connectivity/connectivity-kit-intro.md#蓝牙简介)相关接口获取蓝牙设备的唯一地址后
-   * 方可订阅。使用Promise异步回调。
+   * 订阅通知扩展。使用蓝牙模块相关接口获取蓝牙设备的唯一地址后方可订阅。使用Promise异步回调。
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
    * @param { NotificationExtensionSubscriptionInfo[] } info - 订阅的信息列表（数组）。
@@ -84,6 +83,8 @@ declare namespace notificationExtensionSubscription {
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
+   * @see [unsubscribe]{@link notificationExtensionSubscription.unsubscribe()} 取消通知扩展订阅。
+   * @see [getSubscribeInfo]{@link notificationExtensionSubscription.getSubscribeInfo()} 获取应用通知扩展订阅信息。
    */
   function subscribe(info: NotificationExtensionSubscriptionInfo[]): Promise<void>;
 
@@ -98,6 +99,7 @@ declare namespace notificationExtensionSubscription {
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
+   * @see [subscribe]{@link notificationExtensionSubscription.subscribe(info: NotificationExtensionSubscriptionInfo[])} 订阅通知扩展。
    */
   function unsubscribe(): Promise<void>;
 
@@ -114,6 +116,7 @@ declare namespace notificationExtensionSubscription {
    * @syscap SystemCapability.Notification.Notification
    * @since 22 dynamic
    * @since 23 static
+   * @see [subscribe]{@link notificationExtensionSubscription.subscribe(info: NotificationExtensionSubscriptionInfo[])} 订阅通知扩展。
    */
   function getSubscribeInfo(): Promise<NotificationExtensionSubscriptionInfo[]>;
 
@@ -123,7 +126,9 @@ declare namespace notificationExtensionSubscription {
    * 使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @returns { Promise<BundleOption[]> } Promise对象，返回所有具有ohos.permission.SUBSCRIBE_NOTIFICATION的应用列表。
+   * @returns { Promise<BundleOption[]> } Promise对象，返回所有具有
+   *     ohos.permission.SUBSCRIBE_NOTIFICATION权限并且实现了
+   *     NotificationSubscriberExtensionAbility的应用列表。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error.
@@ -154,7 +159,7 @@ declare namespace notificationExtensionSubscription {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } targetBundle - 需要查询的目标应用信息。应用需要具有ohos.permission.SUBSCRIBE_NOTIFICATION权限，
-   * 并且实现[NotificationSubscriberExtensionAbility]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility},
+   * 并且实现[NotificationSubscriberExtensionAbility]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility}，
    * 否则返回1600022错误码。
    * @returns { Promise<boolean> } Promise对象，返回true表示目标应用的“允许获取本机通知”状态已启用；
    * 返回false表示目标应用的“允许获取本机通知”状态未启用。
@@ -175,7 +180,7 @@ declare namespace notificationExtensionSubscription {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } targetBundle - 需要设置的目标应用信息。应用需要具有ohos.permission.SUBSCRIBE_NOTIFICATION权限，
-   * 并且实现[NotificationSubscriberExtensionAbility]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility},
+   * 并且实现[NotificationSubscriberExtensionAbility]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility}，
    * 否则返回1600022错误码。
    * @param { boolean } enabled - 表示应用的“允许获取本机通知”的开关状态，true表示启用，false表示未启用。
    * @returns { Promise<void> } Promise对象，无返回结果。
@@ -195,8 +200,8 @@ declare namespace notificationExtensionSubscription {
    * 获取指定应用中“已获取的本机通知”通知开关开启的应用列表。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { BundleOption } targetBundle -  需要设置的目标应用信息。应用需要具有ohos.permission.SUBSCRIBE_NOTIFICATION权限，
-   * 并且实现[NotificationSubscriberExtensionAbility]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility},
+   * @param { BundleOption } targetBundle - 需要查询的目标应用信息。应用需要具有ohos.permission.SUBSCRIBE_NOTIFICATION权限，
+   * 并且实现[NotificationSubscriberExtensionAbility]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility}，
    * 否则返回1600022错误码。
    * @returns { Promise<BundleOption[]> } Promise对象，返回指定应用中“已获取的本机通知”通知开关开启的应用列表。
    * @throws { BusinessError } 201 - Permission denied.
@@ -212,10 +217,10 @@ declare namespace notificationExtensionSubscription {
   function getUserGrantedEnabledBundles(targetBundle: BundleOption): Promise<BundleOption[]>;
 
   /**
-   * 获取指定应用中“已获取的本机通知”通知开关开启的应用列表。使用Promise异步回调。
+   * 获取本应用中“已获取的本机通知”通知开关开启的应用列表。使用Promise异步回调。
    *
    * @permission ohos.permission.SUBSCRIBE_NOTIFICATION
-   * @returns { Promise<GrantedBundleInfo[]> } Promise对象，返回获取指定应用中“已获取的本机通知”通知开关开启的应用列表。
+   * @returns { Promise<GrantedBundleInfo[]> } Promise对象，返回本应用中“已获取的本机通知”通知开关开启的应用列表。
    * @throws { BusinessError } 201 - Permission denied or current device not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
@@ -230,7 +235,7 @@ declare namespace notificationExtensionSubscription {
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
    * @param { BundleOption } targetBundle - 需要设置的目标应用信息。应用需要具有ohos.permission.SUBSCRIBE_NOTIFICATION权限，
-   * 并且实现[NotificationSubscriberExtensionAbility]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility},
+   * 并且实现[NotificationSubscriberExtensionAbility]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility}，
    * 否则返回1600022错误码。
    * @param { BundleOption[] } enabledBundles - 被授权的应用信息列表。
    * @param { boolean } enabled - 表示“已获取的本机通知”的应用授权状态是否启用，true表示已启用，false表示未启用。

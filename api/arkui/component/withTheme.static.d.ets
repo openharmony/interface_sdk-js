@@ -80,7 +80,8 @@ export declare interface WithThemeAttribute {
    * @returns { WithThemeAttribute } Returns instance of WithThemeAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   default setWithThemeOptions(options: WithThemeOptions | undefined): this;
 
@@ -89,7 +90,8 @@ export declare interface WithThemeAttribute {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   default applyAttributesFinish(): void;
 }
@@ -119,8 +121,9 @@ export declare function WithTheme(
  * @returns { WithThemeAttribute } WithThemeAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
+ * @unpublished
  */
 @Builder
 export declare function WithTheme(

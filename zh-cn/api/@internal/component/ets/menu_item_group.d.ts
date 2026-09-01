@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 /**
- * 菜单MenuItem分组的标题和尾部信息。
+ * MenuItem分组的标题和尾部信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -28,9 +28,9 @@
  */
 declare interface MenuItemGroupOptions {
     /**
-     * 设置对应group的标题显示信息。 
+     * 设置分组的标题，显示在分组中所有菜单项的顶部。 
      * 
-     * 未设置时，不显示标题信息。
+     * 未设置时，不显示标题。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
@@ -40,9 +40,9 @@ declare interface MenuItemGroupOptions {
      */
     header?: ResourceStr | CustomBuilder;
     /**
-     * 设置对应group的尾部显示信息。 
+     * 设置分组的菜单页脚，显示在分组中所有菜单项的底部。 
      * 
-     * 未设置时，不显示尾部信息。
+     * 未设置时，不显示菜单页脚。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
@@ -54,7 +54,7 @@ declare interface MenuItemGroupOptions {
 }
 
 /**
- * 该组件用来展示菜单MenuItem的分组。
+ * 该组件用于展示MenuItem的分组，支持设置分组的标题和尾部信息，用于组织和管理菜单项的分类结构。适用于需要在菜单中按类别组织多个菜单项的场景，通过分组清晰地展示菜单的层次结构，提升菜单的可读性和用户体验。
  * 
  * > **说明：**
  * 
@@ -70,7 +70,7 @@ declare interface MenuItemGroupOptions {
 interface MenuItemGroupInterface {
     /**
      *
-     * @param { MenuItemGroupOptions } value - 包含设置MenuItemGroup的标题和尾部显示信息。<br/> 未设置时，不显示标题和尾部信息。
+     * @param { MenuItemGroupOptions } value - 设置MenuItemGroup的标题和尾部信息。<br/> 未设置时，不显示标题和尾部信息。
      * @returns { MenuItemGroupAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
@@ -93,7 +93,7 @@ interface MenuItemGroupInterface {
 declare class MenuItemGroupAttribute extends CommonMethod<MenuItemGroupAttribute> {}
 
 /**
- * 该组件用来展示菜单MenuItem的分组。
+ * 该组件用于展示MenuItem的分组，支持设置分组的标题和尾部信息，用于组织和管理菜单项的分类结构。适用于需要在菜单中按类别组织多个菜单项的场景，通过分组清晰地展示菜单的层次结构，提升菜单的可读性和用户体验。
  * 
  * > **说明：**
  * 

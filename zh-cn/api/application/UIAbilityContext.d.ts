@@ -2304,7 +2304,7 @@ declare class UIAbilityContext extends Context {
    * >
    * > - 调用该接口前，需要确保窗口已完成创建、且UIAbility对应的页面已完成加载，即在
    * > [onWindowStageCreate()]{@link ./../@ohos.app.ability.UIAbility:UIAbility.onWindowStageCreate}生命周期中通过
-   * > [loadContent](docroot://reference/apis-arkui/arkts-apis-window-WindowStage.md#loadcontent9)方法加载页面之后调用。
+   * > [loadContent]{@link ./../@ohos.window:WindowStage.loadContent}方法加载页面之后调用。
    * >
    * > - 调用该接口后会创建新的资源管理器对象，如果此前有缓存资源管理器，需要进行更新。
    * >

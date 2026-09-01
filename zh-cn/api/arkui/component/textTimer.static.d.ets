@@ -183,9 +183,9 @@ export interface TextTimerOptions {
 export type TimerCallback = (utc: long, elapsedTime: long) => void;
 
 /**
- * 除支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)外，还支持以下属性。
+ * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性。
  *
- * 除支持[通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)外，还支持以下事件。
+ * 除支持[通用事件]{@link CommonMethod}外，还支持以下事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -219,7 +219,7 @@ export declare interface TextTimerAttribute extends CommonMethod {
      * 设置字体大小。
      *
      * @param { Length | undefined } value - 字体大小。value为Length中的number类型时，单位为fp。字体大小默认为16fp。value为Length中的string类型时，设置值为
-     *     非数字开头的字符串时，按0fp处理；设置值为数字开头的字符串时，如果数字后内容包含除[像素单位](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md)
+     *     非数字开头的字符串时，按0fp处理；设置值为数字开头的字符串时，如果数字后内容包含除[像素单位]{@link Length}
      *     外的字符（如字母、特殊符号等），则取值字符串开头的数字部分，单位为fp。例如设置值为"abc"时取值为0fp，设置值为"10vp"时取值为10vp，设置值为"10vp11abc"时取值
      *     为10fp。不支持设置百分比字符串。<br/>设置undefined时按默认值处理。
      * @returns { TextTimerAttribute }

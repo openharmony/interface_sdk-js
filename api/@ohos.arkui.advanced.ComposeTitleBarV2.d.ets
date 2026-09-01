@@ -21,7 +21,6 @@
 /**
  * Declare the type of callback function when clicking on this menu item.
  *
- * @typedef { function } OnActionCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -250,7 +249,6 @@ export declare class ComposeTitleBarV2MenuItem {
  * subtitle (optional), and profile picture (optional). It can come with a Back button for switching between pages of
  * different levels.
  *
- * @struct { ComposeTitleBarV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

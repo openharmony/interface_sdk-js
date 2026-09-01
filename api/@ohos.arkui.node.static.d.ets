@@ -1,5 +1,6 @@
+'use static';
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,13 +21,16 @@
 /**
  * Export NodeRenderType, RenderOptions, BuilderNode, ReactiveBuilderNode, which is used to create a node trees by
  * builder function and manage the update of the tree.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export { NodeRenderType, RenderOptions, BuilderNode, ReactiveBuilderNode } from 'arkui.BuilderNode';
+
 /**
  * Export BuildOptions which is used to create a node trees by builder function and manage the update of the tree.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -43,6 +47,7 @@ export { BuildOptions } from 'arkui.BuilderNode';
  * @since 23 static
  */
 export { NodeController } from 'arkui.NodeController';
+
 /**
  * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
  *
@@ -51,14 +56,16 @@ export { NodeController } from 'arkui.NodeController';
  * @since 23 static
  */
 export { FrameNode, LayoutConstraint, ExpandMode, CrossLanguageOptions } from 'arkui.FrameNode';
+
 /**
- * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
+ * Export UIState.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 24 static
  */
 export { UIState } from 'arkui.FrameNode';
+
 /**
  * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
  *
@@ -94,6 +101,7 @@ export { LengthUnit, SizeT, PositionT, LengthMetrics, ColorMetrics } from 'arkui
  * @since 23 static
  */
 export { RenderNode } from 'arkui.RenderNode';
+
 /**
  * Export Content.
  *
@@ -102,6 +110,7 @@ export { RenderNode } from 'arkui.RenderNode';
  * @since 23 static
  */
 export { Content } from 'arkui.Content';
+
 /**
  * Export ComponentContent, ComponentContentBase and ReactiveComponentContent.
  *
@@ -110,6 +119,7 @@ export { Content } from 'arkui.Content';
  * @since 23 static
  */
 export { ComponentContent, ComponentContentBase, ReactiveComponentContent } from 'arkui.ComponentContent';
+
 /**
  * Export NodeContent.
  *

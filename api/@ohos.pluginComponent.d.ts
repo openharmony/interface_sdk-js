@@ -14,7 +14,24 @@
  */
 
 /**
- * @file
+ * The **PluginComponentManager** module provides APIs for the **PluginComponent** user to request components and data
+ * and send component templates and data.
+ *
+ * ###### About the external.json File
+ *
+ * The **external.json** file is created by developers. It stores component names and template paths in key-value pairs.
+ * The component name is used as the keyword, and the corresponding template path is used as the value.
+ *
+ * **Example**
+ *
+ * ```json
+ * {
+ *   "PluginProviderExample": "ets/pages/PluginProviderExample.js",
+ *   "plugintemplate2": "ets/pages/plugintemplate2.js"
+ * }
+ * ```
+ *
+ * @file PluginComponentManager
  * @kit ArkUI
  */
 
@@ -22,195 +39,108 @@ import { AsyncCallback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 
 /**
- * Plugin component template property.
+ * Describes the **PluginComponent** template parameters.
  *
- * @interface PluginComponentTemplate
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Plugin component template property.
- *
- * @interface PluginComponentTemplate
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 8 dynamic
  */
 interface PluginComponentTemplate {
   /**
-   * Defines the source
+   * Component template name.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Defines the source
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   source: string;
 
   /**
-   * Defines the ability
+   * Bundle name of the provider ability.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Defines the ability
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   ability: string;
 }
 
 /**
- * Plugin component manager interface.
+ * Implements a plugin component manager.
  *
- * @namespace pluginComponentManager
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Plugin component manager interface.
- *
- * @namespace pluginComponentManager
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 8 dynamic
  */
 declare namespace pluginComponentManager {
   /**
-   * Defines KVObject
+   * Defines a key-value pair data structure that conforms to JSON format.
    *
-   * @typedef { object } KVObject
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
-  /**
-   * Defines KVObject
-   *
-   * @typedef { object } KVObject
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  type KVObject = { [key: string]: number | string | boolean | [] | KVObject }
+  type KVObject = { [key: string]: number | string | boolean | [] | KVObject };
 
   /**
-   * Plugin component push parameters.
+   * Defines the parameters required when using the **PluginManager.Push** API.
    *
-   * @interface PushParameters
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Plugin component push parameters.
-   *
-   * @interface PushParameters
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   interface PushParameters {
     /**
-     * Defines want.
+     * Ability information of the component user.
      *
-     * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */    
-    /**
-     * Defines want.
-     *
-     * @type { Want }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12 dynamic
-     */    
+     * @atomicservice [since 12]
+     * @since 8 dynamic
+     */
     want: Want;
 
     /**
-     * Defines name.
+     * Component name.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */ 
-    /**
-     * Defines name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12 dynamic
-     */ 
+     * @atomicservice [since 12]
+     * @since 8 dynamic
+     */
     name: string;
 
     /**
-     * Defines data.
+     * Component data.
      *
-     * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */ 
-    /**
-     * Defines data.
-     *
-     * @type { KVObject }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12 dynamic
-     */ 
+     * @atomicservice [since 12]
+     * @since 8 dynamic
+     */
     data: KVObject;
 
     /**
-     * Defines extraData.
+     * Extra data.
      *
-     * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */ 
-    /**
-     * Defines extraData.
-     *
-     * @type { KVObject }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12 dynamic
-     */ 
+     * @atomicservice [since 12]
+     * @since 8 dynamic
+     */
     extraData: KVObject;
 
     /**
-     * Defines jsonPath.
+     * Path to the
+     * [external.json](docroot://reference/apis-arkui/js-apis-plugincomponent.md#about-the-externaljson-file) file that
+     * stores the template path.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */ 
-    /**
-     * Defines jsonPath.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12 dynamic
-     */ 
+     * @atomicservice [since 12]
+     * @since 8 dynamic
+     */
     jsonPath?: string;
   }
 
   /**
    * Plugin component push parameters which is used in push function.
    *
-   * @interface PushParameterForStage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 9 dynamic
@@ -219,153 +149,108 @@ declare namespace pluginComponentManager {
     /**
      * Defines owner.
      *
-     * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 9 dynamic
-     */  
+     */
     owner: Want;
 
     /**
      * Defines target.
      *
-     * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 9 dynamic
-     */  
+     */
     target: Want;
 
     /**
      * Defines name.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 9 dynamic
-     */  
+     */
     name: string;
 
     /**
      * Defines data.
      *
-     * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 9 dynamic
-     */  
+     */
     data: KVObject;
 
     /**
      * Defines extraData.
      *
-     * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 9 dynamic
-     */  
+     */
     extraData: KVObject;
 
     /**
      * Defines jsonPath.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 9 dynamic
-     */  
+     */
     jsonPath?: string;
   }
 
   /**
-   * Plugin component request parameters.
+   * Defines the parameters required when using the **PluginManager.Request** API.
    *
-   * @interface RequestParameters
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Plugin component request parameters.
-   *
-   * @interface RequestParameters
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   interface RequestParameters {
     /**
-     * Defines want.
+     * Ability information of the component user.
      *
-     * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */  
-    /**
-     * Defines want.
-     *
-     * @type { Want }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12 dynamic
-     */  
+     * @atomicservice [since 12]
+     * @since 8 dynamic
+     */
     want: Want;
 
     /**
-     * Defines name.
+     * Component name.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */  
-    /**
-     * Defines name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12 dynamic
-     */  
+     * @atomicservice [since 12]
+     * @since 8 dynamic
+     */
     name: string;
-  
+
     /**
-     * Defines data.
+     * Component data.
      *
-     * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */  
-    /**
-     * Defines data.
-     *
-     * @type { KVObject }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12 dynamic
-     */  
+     * @atomicservice [since 12]
+     * @since 8 dynamic
+     */
     data: KVObject;
 
     /**
-     * Defines jsonPath.
+     * Path to the
+     * [external.json](docroot://reference/apis-arkui/js-apis-plugincomponent.md#about-the-externaljson-file) file that
+     * stores the template path.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */ 
-    /**
-     * Defines jsonPath.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12 dynamic
-     */ 
+     * @atomicservice [since 12]
+     * @since 8 dynamic
+     */
     jsonPath?: string;
   }
 
   /**
    * Plugin component request parameters which is used in request function.
    *
-   * @interface RequestParameterForStage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 9 dynamic
@@ -374,261 +259,169 @@ declare namespace pluginComponentManager {
     /**
      * Defines owner.
      *
-     * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 9 dynamic
-     */    
+     */
     owner: Want;
 
     /**
      * Defines target.
      *
-     * @type { Want }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 9 dynamic
-     */  
+     */
     target: Want;
     /**
      * Defines name.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 9 dynamic
-     */  
+     */
     name: string;
 
     /**
      * Defines data.
      *
-     * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 9 dynamic
-     */  
+     */
     data: KVObject;
 
     /**
      * Defines jsonPath.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @since 9 dynamic
-     */  
+     */
     jsonPath?: string;
   }
 
   /**
-   * Plugin component request callback parameters.
+   * Provides the result returned after the **PluginManager.Request** API is called.
    *
-   * @interface RequestCallbackParameters
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Plugin component request callback parameters.
-   *
-   * @interface RequestCallbackParameters
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   interface RequestCallbackParameters {
 
     /**
-     * Defines componentTemplate.
+     * Component template.
      *
-     * @type { PluginComponentTemplate }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */ 
-    /**
-     * Defines componentTemplate.
-     *
-     * @type { PluginComponentTemplate }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12 dynamic
-     */ 
+     * @atomicservice [since 12]
+     * @since 8 dynamic
+     */
     componentTemplate: PluginComponentTemplate;
-  
+
     /**
-     * Defines data.
+     * Component data.
      *
-     * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */ 
-    /**
-     * Defines data.
-     *
-     * @type { KVObject }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12 dynamic
-     */ 
+     * @atomicservice [since 12]
+     * @since 8 dynamic
+     */
     data: KVObject;
 
     /**
-     * Defines extraData.
+     * Extra data.
      *
-     * @type { KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */ 
-    /**
-     * Defines extraData.
-     *
-     * @type { KVObject }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12 dynamic
-     */ 
+     * @atomicservice [since 12]
+     * @since 8 dynamic
+     */
     extraData: KVObject;
   }
 
   /**
-   * Plugin component request event result value.
+   * Provides the result returned after the request listener is registered and the requested event is received.
    *
-   * @interface RequestEventResult
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Plugin component request event result value.
-   *
-   * @interface RequestEventResult
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   interface RequestEventResult {
     /**
-     * Defines template.
+     * Component template.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */ 
-    /**
-     * Defines template.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12 dynamic
-     */ 
+     * @atomicservice [since 12]
+     * @since 8 dynamic
+     */
     template?: string;
 
     /**
-     * Defines data.
+     * Component data.
      *
-     * @type { ?KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */ 
-    /**
-     * Defines data.
-     *
-     * @type { ?KVObject }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12 dynamic
-     */ 
+     * @atomicservice [since 12]
+     * @since 8 dynamic
+     */
     data?: KVObject;
 
     /**
-     * Defines extraData.
+     * Extra data.
      *
-     * @type { ?KVObject }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */ 
-    /**
-     * Defines extraData.
-     *
-     * @type { ?KVObject }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 12 dynamic
-     */ 
+     * @atomicservice [since 12]
+     * @since 8 dynamic
+     */
     extraData?: KVObject;
   }
 
   /**
-   * Plugin component push event callback.
+   * Registers the listener for the push event.
    *
-   * @typedef { function } OnPushEventCallback
+   * @param { Want } source - Information about the push request sender.
+   * @param { PluginComponentTemplate } template - Name of the requested component template.
+   * @param { KVObject } data - Data.
+   * @param { KVObject } extraData - Extra data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Plugin component push event callback.
-   *
-   * @typedef { function } OnPushEventCallback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   type OnPushEventCallback = (source: Want, template: PluginComponentTemplate, data: KVObject,
     extraData: KVObject) => void;
 
   /**
-   * Plugin component request event callback.
+   * Registers the listener for the request event.
    *
-   * @typedef { function } OnRequestEventCallback
+   * @param { Want } source - Information about the request sender.
+   * @param { string } name - Template name.
+   * @param { KVObject } data - Data.
+   * @returns { RequestEventResult } Provides the result returned after the request listener is registered and the
+   *     requested event is received. [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Plugin component request event callback.
-   *
-   * @typedef { function } OnRequestEventCallback
-   * @returns { RequestEventResult } Returns the request event result.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   type OnRequestEventCallback = (source: Want, name: string, data: KVObject) => RequestEventResult;
 
   /**
-   * Plugin component push method.
+   * Pushes the component and data to the component user.
    *
    * @param { PushParameters } param
    * @param { AsyncCallback<void> } callback
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Plugin component push method.
-   *
-   * @param { PushParameters } param
-   * @param { AsyncCallback<void> } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   function push(param: PushParameters, callback: AsyncCallback<void>): void;
 
   /**
-   * Plugin component request method.
+   * Requests the component from the component provider.
    *
-   * @param { RequestParameters } param
-   * @param { AsyncCallback<RequestCallbackParameters> } callback
+   * @param { RequestParameters } param - Information about the component request.
+   * @param { AsyncCallback<RequestCallbackParameters> } callback - Asynchronous callback used to return the requested
+   *     data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Plugin component request method.
-   *
-   * @param { RequestParameters } param
-   * @param { AsyncCallback<RequestCallbackParameters> } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   function request(param: RequestParameters, callback: AsyncCallback<RequestCallbackParameters>): void;
 
@@ -657,24 +450,22 @@ declare namespace pluginComponentManager {
   function request(param: RequestParameterForStage, callback: AsyncCallback<RequestCallbackParameters>): void;
 
   /**
-   * Plugin component event listener.
+   * Listens for events of the request type and returns the requested data, or listens for events of the push type and
+   * receives the data pushed by the provider.
    *
-   * @param { string } eventType
-   * @param { OnPushEventCallback | OnRequestEventCallback } callback
+   * @param { string } eventType - Type of the event to listen for. The options are as follows:<br>**"push"**: The
+   *     component provider pushes data to the component user.<br>**"request"**: The component user proactively requests
+   *     data from the component provider.
+   * @param { OnPushEventCallback | OnRequestEventCallback } callback - Callback used to return the result. The type is
+   *     [OnPushEventCallback]{@link pluginComponentManager.OnPushEventCallback} for the push event and
+   *     [OnRequestEventCallback]{@link pluginComponentManager.OnRequestEventCallback} for the request event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Plugin component event listener.
-   *
-   * @param { string } eventType
-   * @param { OnPushEventCallback | OnRequestEventCallback } callback
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 8 dynamic
    */
   function on(eventType: string, callback: OnPushEventCallback | OnRequestEventCallback): void;
 }
 
 export default pluginComponentManager;
+
 export type { PluginComponentTemplate };

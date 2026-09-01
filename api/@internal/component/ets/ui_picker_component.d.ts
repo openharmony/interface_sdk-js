@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -28,7 +28,6 @@
  * @since 22 dynamic
  */
 declare interface UIPickerComponentOptions {
-
   /**
    * Index of the selected item.
    *
@@ -89,7 +88,6 @@ declare interface UIPickerComponentOptions {
  * @since 22 dynamic
  */
 interface UIPickerComponentInterface {
-
   /**
    * Creates a **UIPickerComponent** container, whose selected item is determined by the **selectedIndex** attribute in
    * the **options** parameter.
@@ -131,7 +129,6 @@ declare type OnUIPickerComponentCallback = (selectedIndex: number) => void;
  * @since 22 dynamic
  */
 declare enum PickerIndicatorType {
-
   /**
    * Identifies the selected item by adding a background to it.
    *
@@ -142,7 +139,6 @@ declare enum PickerIndicatorType {
    * @since 22 dynamic
    */
   BACKGROUND = 0,
-
   /**
    * Identifies the selected item by adding dividers above and below its edges.
    *
@@ -165,7 +161,6 @@ declare enum PickerIndicatorType {
  * @since 22 dynamic
  */
 declare interface PickerIndicatorStyle {
-
   /**
    * Type of the selected item indicator.
    *
@@ -333,7 +328,6 @@ declare interface PickerIndicatorStyle {
  * @since 22 dynamic
  */
 declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentAttribute> {
-
   /**
    * Triggered when the selected item changes.
    *
@@ -448,7 +442,6 @@ declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentA
    * @since 26.0.0 dynamic
    */
   itemHeight(height: Optional<LengthMetrics>): UIPickerComponentAttribute;
-
   /**
    * Sets the total number of visible items.
    *

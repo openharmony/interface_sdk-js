@@ -22,12 +22,17 @@ import type NotificationSubscriberExtensionContext from './@ohos.application.Not
 import { NotificationInfo } from './notification/NotificationInfo'
 
 /**
- * NotificationSubscriberExtensionAbility is the base class for notification subscription extensions, providing the core
- * functionality for subscribing to notifications.
- * 
- * > **NOTE**
- * >
- * > The APIs of this module can be used only in the stage model.
+ * NotificationSubscriberExtensionAbility is the base class for notification subscriber extension abilities, providing
+ * notification subscription-related functionality. Third-party wearable apps (such as companion applications for
+ * watches)implement callback logic by inheriting this class, receiving notification information when notifications
+ * are published on the local device and forwarding them to the wearable device via Bluetooth, and receiving callbacks
+ * for notification cancellation when local notifications are cancelled and forwarding them to the wearable device to
+ * delete the corresponding notifications.
+ *
+ * Use this module when your wearable application needs to obtain local notifications and sync them to a paired wearable
+ * device. This module is used together with the notificationExtensionSubscription module. This module is responsible
+ * for receiving and processing notification data in callbacks, while the notificationExtensionSubscription module is
+ * responsible for management operations such as authorization, subscription, and unsubscription.
  *
  * @syscap SystemCapability.Notification.Notification
  * @stagemodelonly
@@ -58,9 +63,8 @@ declare class NotificationSubscriberExtensionAbility {
   /**
    * Called when a notification is received.
    *
-   * @param { NotificationInfo } notificationInfo - Notification information delivered to the
-   *     [onReceiveMessage]{@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility.onReceiveMessage}
-   *     callback of ExtensionAbility for notification subscriptions.
+   * @param { NotificationInfo } notificationInfo - Callback information about the notification received in the
+   *     notification subscription extension capability.
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
    * @since 22 dynamic
@@ -71,7 +75,8 @@ declare class NotificationSubscriberExtensionAbility {
   /**
    * Called when notifications are canceled.
    *
-   * @param { Array<string> } hashCodes - Array of hash codes representing the notifications to be canceled.
+   * @param { Array<string> } hashCodes - List of hash codes of the notifications to cancel, obtained through
+   *     {@link @ohos.application.NotificationSubscriberExtensionAbility:NotificationSubscriberExtensionAbility.onReceiveMessage}.
    * @syscap SystemCapability.Notification.Notification
    * @stagemodelonly
    * @since 22 dynamic

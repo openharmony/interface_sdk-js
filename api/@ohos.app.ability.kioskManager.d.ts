@@ -46,7 +46,7 @@ declare namespace kioskManager {
    * @throws { BusinessError } 16000050 - Failed to connect to the system service.
    * @throws { BusinessError } 16000110 - The current application is not in Kiosk app list and cannot enter Kiosk mode.
    * @throws { BusinessError } 16000111 - The system is already in Kiosk mode and cannot enter Kiosk mode again.
-   * @throws { BusinessError } 16000113 - Current ability is not in foreground.
+   * @throws { BusinessError } 16000113 - Current ability is not in foreground. [since 20 - 26.0.0]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 20 dynamic

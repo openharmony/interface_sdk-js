@@ -1,4 +1,4 @@
-'use static'
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -26,9 +26,14 @@ import { DividerModifier } from './arkui/DividerModifier';
 import { ColorMetrics, LengthMetrics } from './arkui/Graphics';
 import { Builder } from '@ohos.arkui.component';
 /**
- * Declare enum ToolBarV2ItemState.
+ * Enumerates the states of the toolbar item.
  *
- * @enum { int }.
+ * | Name      | Value| Description             |
+ * | -------- | - | --------------- |
+ * | ENABLE   | 1 | The toolbar item is enabled. |
+ * | DISABLE  | 2 | The toolbar item is disabled.  |
+ * | ACTIVATE | 3 | The toolbar item is activated.|
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -61,7 +66,7 @@ export declare enum ToolBarV2ItemState {
   ACTIVATE = 3
 }
 /**
- * Defines toolBarV2 symbolGlyph.
+ * Defines the icon symbol options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -71,9 +76,10 @@ export declare enum ToolBarV2ItemState {
 @ObservedV2
 export declare class ToolBarV2SymbolGlyph {
   /**
-   * Modifier of toolbarV2's normal symbol.
+   * Icon symbol of the toolbar item in normal state.
    *
-   * @type { SymbolGlyphModifier }
+   * Decorator: @Trace
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -81,9 +87,14 @@ export declare class ToolBarV2SymbolGlyph {
   @Trace
   public normal: SymbolGlyphModifier;
   /**
-   * Modifier of toolbarV2's activated symbol.
+   * Icon symbol of the toolbar item in activated state.
    *
-   * @type { ?SymbolGlyphModifier }
+   * Default value:
+   *
+   * **fontColor**: **$r('sys.color.icon_emphasize')**, **fontSize**: **24vp**
+   *
+   * Decorator: @Trace
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -91,7 +102,7 @@ export declare class ToolBarV2SymbolGlyph {
   @Trace
   public activated?: SymbolGlyphModifier;
   /**
-   * The constructor used to create a ToolBarV2SymbolGlyph object.
+   * A constructor used to create a **ToolBarV2SymbolGlyph** object.
    *
    * @param { ToolBarV2SymbolGlyphOptions } options - symbol info.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -101,9 +112,8 @@ export declare class ToolBarV2SymbolGlyph {
   constructor(options: ToolBarV2SymbolGlyphOptions);
 }
 /**
- * Declare the options of ToolBarV2SymbolGlyph.
+ * Defines the options for initializing a **ToolBarV2SymbolGlyph** object.
  *
- * @interface ToolBarV2SymbolGlyphOptions.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -113,7 +123,6 @@ export interface ToolBarV2SymbolGlyphOptions {
   /**
    * Modifier of toolbarV2's normal symbol.
    *
-   * @type { SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -122,7 +131,6 @@ export interface ToolBarV2SymbolGlyphOptions {
   /**
    * Modifier of toolbarV2's activated symbol.
    *
-   * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -130,20 +138,21 @@ export interface ToolBarV2SymbolGlyphOptions {
   activated?: SymbolGlyphModifier;
 }
 /**
- * Declare type ToolBarV2ItemText.
+ * Defines the text of a toolbar item.
  *
- * @class ToolBarV2ItemText.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
+ * @class ToolBarV2ItemText.
  */
 @ObservedV2
 export declare class ToolBarV2ItemText {
   /**
-   * Define text content.
+   * Text of the toolbar item.
    *
-   * @type { ResourceStr }
+   * Decorator: @Trace
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -151,9 +160,12 @@ export declare class ToolBarV2ItemText {
   @Trace
   public text: ResourceStr;
   /**
-   * Define text fontColor.
+   * Font color of the toolbar item.
    *
-   * @type { ?ColorMetrics }
+   * Default value: **$r('sys.color.font_primary')**.
+   *
+   * Decorator: @Trace
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -161,9 +173,12 @@ export declare class ToolBarV2ItemText {
   @Trace
   public color?: ColorMetrics;
   /**
-   * Text fontColor when the item is activated.
+   * Font color of the toolbar item in the activated state.
    *
-   * @type { ?ColorMetrics }
+   * </div>Default value: **$r('sys.color.font_emphasize')**.
+   *
+   * Decorator: @Trace
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -171,7 +186,7 @@ export declare class ToolBarV2ItemText {
   @Trace
   public activatedColor?: ColorMetrics;
   /**
-   * The constructor used to create a ToolBarV2ItemText object.
+   * A constructor used to create a **ToolBarV2ItemText** instance.
    *
    * @param { ToolBarV2ItemTextOptions } options - text info.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -181,9 +196,8 @@ export declare class ToolBarV2ItemText {
   constructor(options: ToolBarV2ItemTextOptions);
 }
 /**
- * Declare the options of ToolBarV2ItemText.
+ * Defines the options for initializing a **ToolBarV2ItemText** object.
  *
- * @interface ToolBarV2ItemTextOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -191,57 +205,61 @@ export declare class ToolBarV2ItemText {
  */
 export interface ToolBarV2ItemTextOptions {
   /**
-   * Define text content.
+   * Text of the toolbar item.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   text: ResourceStr;
   /**
-   * Define text fontColor.
+   * Font color of the toolbar item.
    *
-   * @type { ?ColorMetrics }
+   * Default value: **$r('sys.color.font_primary')**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   color?: ColorMetrics;
   /**
-   * Text fontColor when the item is activated.
+   * Font color of the toolbar item in the activated state.
    *
-   * @type { ?ColorMetrics }
+   * Default value: **$r('sys.color.font_emphasize')**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   activatedColor?: ColorMetrics;
 }
+
 /**
  * Defines the icon type of ToolBarV2 item.
- * @typedef { ToolBarV2ItemImage | ToolBarV2SymbolGlyph } ToolBarV2ItemIconType
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 export declare type ToolBarV2ItemIconType = ToolBarV2ItemImage | ToolBarV2SymbolGlyph;
+
 /**
- * Declare type ToolBarV2ItemImage.
+ * Defines the icon content of a toolbar item.
  *
- * @class ToolBarV2ItemImage.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
+ * @class ToolBarV2ItemImage.
  */
 @ObservedV2
 export declare class ToolBarV2ItemImage {
   /**
-   * Define icon resource.
+   * Icon of the toolbar item.
    *
-   * @type { ResourceStr }
+   * Decorator: @Trace
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -249,9 +267,12 @@ export declare class ToolBarV2ItemImage {
   @Trace
   public src: ResourceStr;
   /**
-   * Define icon fillColor.
+   * Color of the icon.
    *
-   * @type { ?ColorMetrics }
+   * Default value: **$r('sys.color.icon_primary')**.
+   *
+   * Decorator: @Trace
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -259,9 +280,12 @@ export declare class ToolBarV2ItemImage {
   @Trace
   public color?: ColorMetrics;
   /**
-   * Icon fillColor when the item is activated.
+   * Color of the icon when the toolbar item is activated.
    *
-   * @type { ?ColorMetrics }
+   * Default value: **$r('sys.color.icon_emphasize')**.
+   *
+   * Decorator: @Trace
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -269,7 +293,7 @@ export declare class ToolBarV2ItemImage {
   @Trace
   public activatedColor?: ColorMetrics;
   /**
-   * The constructor used to create a ToolBarV2ItemImage object.
+   * A constructor used to create a **ToolBarV2ItemImage** instance.
    *
    * @param { ToolBarV2ItemImageOptions } options - text info.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -279,9 +303,8 @@ export declare class ToolBarV2ItemImage {
   constructor(options: ToolBarV2ItemImageOptions);
 }
 /**
- * Declare the options of ToolBarV2ItemImage.
+ * Defines the options for initializing a **ToolBarV2ItemImage** object.
  *
- * @interface ToolBarV2ItemImageOptions.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -289,27 +312,28 @@ export declare class ToolBarV2ItemImage {
  */
 export interface ToolBarV2ItemImageOptions {
   /**
-   * Define icon resource.
+   * Icon of the toolbar item.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   src: ResourceStr;
   /**
-   * Define icon fillColor.
+   * Color of the icon.
    *
-   * @type { ?ColorMetrics }
+   * Default value: **$r('sys.color.icon_primary')**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   color?: ColorMetrics;
   /**
-   * Icon fillColor when the item is activated.
+   * Color of the icon when the toolbar item is activated.
    *
-   * @type { ?ColorMetrics }
+   * Default value: **$r('sys.color.icon_emphasize')**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -317,20 +341,19 @@ export interface ToolBarV2ItemImageOptions {
   activatedColor?: ColorMetrics;
 }
 /**
- * Declare type ToolBarV2Item.
+ * Defines an item in the toolbar.
  *
- * @class ToolBarV2Item
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
+ * @class ToolBarV2Item
  */
 @ObservedV2
 export declare class ToolBarV2Item {
   /**
    * Define text content.
    *
-   * @type { ToolBarV2ItemText }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -340,7 +363,6 @@ export declare class ToolBarV2Item {
   /**
    * Define the action event.
    *
-   * @type { ?ToolBarV2ItemAction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -350,7 +372,6 @@ export declare class ToolBarV2Item {
   /**
    * Define icon resource.
    *
-   * @type { ?ToolBarV2ItemIconType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -360,7 +381,6 @@ export declare class ToolBarV2Item {
   /**
    * Define item type.
    *
-   * @type { ?ToolBarV2ItemState }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -370,7 +390,6 @@ export declare class ToolBarV2Item {
   /**
    * The accessibilityText of item.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -380,7 +399,6 @@ export declare class ToolBarV2Item {
   /**
    * The accessibilityDescription of item.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -390,7 +408,6 @@ export declare class ToolBarV2Item {
   /**
    * The accessibilityLevel of item.
    *
-   * @type { ?string }
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -399,7 +416,7 @@ export declare class ToolBarV2Item {
   @Trace
   public accessibilityLevel?: string;
   /**
-   * The constructor used to create a ToolBarV2Item object.
+   * A constructor used to create a **ToolBarV2Item** instance.
    *
    * @param { ToolBarV2ItemOptions } options - text info.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -409,9 +426,8 @@ export declare class ToolBarV2Item {
   constructor(options: ToolBarV2ItemOptions);
 }
 /**
- * Declare the options of ToolBarV2Item.
+ * Defines the options for initializing a **ToolBarV2Item** object.
  *
- * @interface ToolBarV2ItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -419,63 +435,88 @@ export declare class ToolBarV2Item {
  */
 export interface ToolBarV2ItemOptions {
   /**
-   * Define text content.
+   * Text of the toolbar item.
    *
-   * @type { ToolBarV2ItemText }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   content: ToolBarV2ItemText;
   /**
-   * Define the action event.
+   * Click event of the toolbar item.
    *
-   * @type { ?ToolBarV2ItemAction }
+   * By default, there is no click event.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   action?: ToolBarV2ItemAction;
   /**
-   * Define icon resource.
+   * Icon of the toolbar item.
    *
-   * @type { ?ToolBarV2ItemIconType }
+   * By default, there is no icon.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   icon?: ToolBarV2ItemIconType;
   /**
-   * Define item type.
+   * State of the toolbar item.
    *
-   * @type { ?ToolBarV2ItemState }
+   * Default value: **ToolBarV2ItemState.ENABLE**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   state?: ToolBarV2ItemState;
   /**
-   * The accessibilityText of item.
+   * Accessibility text, that is, accessible label name, of the toolbar item. If a component does not contain text
+   * information, it will not be announced by the screen reader when selected. In this case, the screen reader user
+   * cannot know which component is selected. To solve this problem, you can set accessibility text for components
+   * without text information. When such a component is selected, the screen reader announces the specified
+   * accessibility text, informing the user which component is selected.
    *
-   * @type { ?ResourceStr }
+   * Default value: value of **content**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   accessibilityText?: ResourceStr;
   /**
-   * The accessibilityDescription of item.
+   * Accessible description of the toolbar item. You can provide comprehensive text explanations to help users
+   * understand the operation they are about to perform and its potential consequences, especially when these cannot be
+   * inferred from the component's attributes and accessibility text alone. If a component contains both text
+   * information and the accessible description, the text is announced first and then the accessible description, when
+   * the component is selected.
    *
-   * @type { ?ResourceStr }
+   * Default value: **"Double-tap to activate"**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   accessibilityDescription?: ResourceStr;
   /**
-   * The accessibilityLevel of item.
+   * Accessibility level of the toolbar item. It determines whether the component can be recognized by accessibility
+   * services.
    *
-   * @type { ?string }
+   * The options are as follows:
+   *
+   * **"auto"**: This option is treated as "yes" by the system for this component.
+   *
+   * **"yes"**: The component can be recognized by accessibility services.
+   *
+   * **"no"**: The component cannot be recognized by accessibility services.
+   *
+   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility
+   * services.
+   *
+   * Default value: **"auto"**
+   *
    * @default "auto".
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -484,9 +525,10 @@ export interface ToolBarV2ItemOptions {
   accessibilityLevel?: string;
 }
 /**
- * Defines the action callback of ToolBarV2Item.
- * @typedef { function } ToolBarV2ItemAction
- * @param { int } index - toolBarV2's ItemAction.
+ * Defines the callback for the click event of a toolbar item.
+ *
+ * @param { int } index - Index of the toolbar item that triggers the click event.
+ *     <br>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -494,7 +536,9 @@ export interface ToolBarV2ItemOptions {
  */
 export type ToolBarV2ItemAction = (index: int) => void;
 /**
- * Declare ToolBarV2Modifier used in ToolBar.
+ * Provides APIs for setting the height (**height**), background color (**backgroundColor**), left and right padding (
+ * **padding**, which only takes effect when there are fewer than five items) of the toolbar, and whether to display the
+ * pressed state effect (**stateEffect**).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -503,39 +547,42 @@ export type ToolBarV2ItemAction = (index: int) => void;
  */
 export declare class ToolBarV2Modifier {
   /**
-   * Sets the height of the toolBarV2.
+   * Sets the height of the toolbar. By overriding this API, you can implement custom drawing for the height of the
+   * toolbar, which does not include the height of the divider.
    *
    * @param { LengthMetrics } height - toolBarV2's height.
-   * @returns { ToolBarV2Modifier } returns the instance of the ToolBarV2Modifier.
+   * @returns { ToolBarV2Modifier } **ToolBarV2Modifier** object after the height is set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   public height(height: LengthMetrics): ToolBarV2Modifier;
   /**
-   * Sets the backgroundColor of the toolBarV2.
+   * Sets the background color of the toolbar. By overriding this API, you can implement custom drawing for the
+   * background color of the toolbar.
    *
    * @param { ColorMetrics } backgroundColor - toolBarV2's backgroundColor.
-   * @returns { ToolBarV2Modifier } returns the instance of the ToolBarV2Modifier.
+   * @returns { ToolBarV2Modifier } **ToolBarV2Modifier** object after the background color is set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 23 static
    */
   public backgroundColor(backgroundColor: ColorMetrics): ToolBarV2Modifier;
   /**
-   * Sets the left and right padding of the toolbarV2.
+   * Sets the left and right padding of the toolbar. By overriding this API, you can implement custom drawing for the
+   * left and right padding of the toolbar.
    *
    * @param { LengthMetrics } padding - left and right padding.
-   * @returns { ToolBarV2Modifier } returns the instance of the ToolBarV2Modifier.
+   * @returns { ToolBarV2Modifier } **ToolBarV2Modifier** object after the padding is set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   public padding(padding: LengthMetrics): ToolBarV2Modifier;
   /**
-   * Sets whether or not to display the press status effect.
+   * Sets whether to display the pressed state effect.
    *
    * @param { boolean } stateEffect - press status effect.
-   * @returns { ToolBarV2Modifier } returns the instance of the ToolBarV2Modifier.
+   * @returns { ToolBarV2Modifier } **ToolBarV2Modifier** object after the pressed state effect is set.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -543,9 +590,30 @@ export declare class ToolBarV2Modifier {
   public stateEffect(stateEffect: boolean): ToolBarV2Modifier;
 }
 /**
- * Declare Component ToolBarV2
+ * The **Toolbar** component is designed to present a set of action options related to the current screen, displayed at
+ * the bottom of the screen. It can display up to five child components. If there are six or more child components, the
+ * first four are shown directly, and the additional ones are grouped under a **More** item on the rightmost side of the
+ * toolbar.
  *
- * @struct { ToolBarV2 }.
+ * This component is implemented based on
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v2). Compared
+ * with [state management V1](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v1), V2
+ * offers a higher level of observation and management over data objects beyond the component level. You can now more
+ * easily manage toolbar data and states with greater flexibility, leading to faster UI updates.
+ *
+ * > **NOTE**
+ * >
+ * > - This component can be used only in the stage model.
+ * >
+ * > - If the **ToolBarV2** component has [universal attributes]{@link ./@internal/component/ets/common} and
+ * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
+ * > generates an additional **__Common__** node and mounts the universal attributes and universal events on this node
+ * > rather than the **ToolBarV2** component itself. As a result, the configured universal attributes and universal
+ * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events
+ * > with the **ToolBarV2** component.
+ * >
+ * > - The toolbar background color does not automatically switch when the system changes between light and dark modes.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -556,7 +624,6 @@ export declare struct ToolBarV2 {
   /**
    * Define toolbarV2 item list.
    *
-   * @type { ToolBarV2Item[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -567,7 +634,6 @@ export declare struct ToolBarV2 {
   /**
    * Define toolbarV2 activate item index, default is -1.
    *
-   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -577,7 +643,6 @@ export declare struct ToolBarV2 {
   /**
    * Define divider Modifier.
    *
-   * @type { ?DividerModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -587,7 +652,6 @@ export declare struct ToolBarV2 {
   /**
    * Define toolbarV2 modifier.
    *
-   * @type { ?ToolBarV2Modifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -596,6 +660,7 @@ export declare struct ToolBarV2 {
   toolBarModifier?: ToolBarV2Modifier;
   /**
    * The method to build component.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 staticonly

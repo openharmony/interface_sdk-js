@@ -21,7 +21,6 @@
 /**
  * Declare enum IconTypeV2
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -61,6 +60,7 @@ export declare enum IconTypeV2 {
   SYSTEM_ICON = 3,
   /**
    * HeadSculpture type.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -70,6 +70,7 @@ export declare enum IconTypeV2 {
   HEAD_SCULPTURE = 4,
   /**
    * App icon type.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -79,6 +80,7 @@ export declare enum IconTypeV2 {
   APP_ICON = 5,
   /**
    * Preview type.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -88,6 +90,7 @@ export declare enum IconTypeV2 {
   PREVIEW = 6,
   /**
    * Longitudinal type.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -97,6 +100,7 @@ export declare enum IconTypeV2 {
   LONGITUDINAL = 7,
   /**
    * Vertical type.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -107,7 +111,7 @@ export declare enum IconTypeV2 {
 }
 /**
  * Callback function when operate the icon.
- * @typedef { function } OnActionCallback
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -118,7 +122,6 @@ declare type OnActionCallback = () => void;
 /**
  * Callback function when operate the checkbox/switch/radio.
  *
- * @typedef { function } OnChangeCallback
  * @param { boolean } value - The value  of checkbox/switch/radio.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -208,6 +211,7 @@ export interface OperateIconV2Options {
 
 /**
  * Declare type OperateIconV2
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -218,6 +222,7 @@ export interface OperateIconV2Options {
 export declare class OperateIconV2 {
   /**
    * The content of text or the address of icon.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -370,6 +375,7 @@ export interface OperateCheckV2Options {
 
 /**
  * Declare type OperateCheckV2
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -381,7 +387,6 @@ export declare class OperateCheckV2 {
   /**
    * Whether is checked on default.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -511,6 +516,7 @@ export interface OperateButtonV2Options {
 
 /**
  * Declare type OperateButtonV2
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -625,11 +631,12 @@ export interface ContentItemV2Options {
   symbolStyle?: SymbolGlyphModifier;
 
   /**
-   * Sets the primaryText
+   * Sets the primaryText.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @atomicservice
    * @since 26.0.0 dynamic
    */
   primaryText?: ResourceStr;
@@ -659,6 +666,7 @@ export interface ContentItemV2Options {
 
 /**
  * Declare ContentItemV2
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -709,6 +717,7 @@ export declare class ContentItemV2 {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @atomicservice
    * @since 26.0.0 dynamic
    */
   @Trace
@@ -874,6 +883,7 @@ export interface OperateItemV2Options {
 
 /**
  * Declare OperateItemV2
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1017,7 +1027,7 @@ export declare class OperateItemV2 {
 
 /**
  * Declare ComposeListItemV2
- * @struct { ComposeListItemV2 }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

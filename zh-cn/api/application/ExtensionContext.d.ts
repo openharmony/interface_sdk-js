@@ -36,7 +36,7 @@ import { ExtensionAbilityInfo } from '../bundleManager/ExtensionAbilityInfo';
  */
 declare class ExtensionContext extends Context {
   /**
-   * 所属Hap包的信息。
+   * 当前ExtensionAbility所属HAP模块的信息，包含模块名称、类型、描述等。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -47,7 +47,7 @@ declare class ExtensionContext extends Context {
   currentHapModuleInfo: HapModuleInfo;
 
   /**
-   * 所属Module的配置信息。
+   * 当前ExtensionAbility的配置信息，可用于获取语言、颜色模式等配置。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -58,7 +58,7 @@ declare class ExtensionContext extends Context {
   config: Configuration;
 
   /**
-   * 所属[ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}的信息。
+   * 当前[ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}的信息，包含名称、类型、标签ID等。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

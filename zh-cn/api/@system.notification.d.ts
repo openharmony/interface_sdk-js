@@ -14,10 +14,6 @@
  */
 
 /**
- * > **说明：**
- * >
- * > - 从API Version 7 开始，该接口不再维护，推荐使用新接口[@ohos.notification (Notification模块)]{@link @ohos.notification:notification}。
- *
  * @file
  * @kit NotificationKit
  */

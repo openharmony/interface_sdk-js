@@ -23,10 +23,6 @@ import type ExtensionContext from './application/ExtensionContext';
  * The **NotificationSubscriberExtensionContext** module provides the context
  * for the **NotificationSubscriberExtensionAbility**.
  * 
- * > **NOTE**
- * > 
- * > The APIs of this module can be used only in the stage model.
- *
  * @syscap SystemCapability.Notification.Notification
  * @stagemodelonly
  * @since 22 dynamic

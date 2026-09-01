@@ -18,403 +18,226 @@
  * @kit ArkUI
  */
 
-
-
-
-
 /**
  * Declaration of the menu item on the right side.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declaration of the menu item on the right side.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * Declaration of the menu item on the right side.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
+ * @crossplatform [since 22]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export declare class TabTitleBarMenuItem {
   /**
-   * Icon resource for this menu item.
-   * @type { ResourceStr }.
+   * Icon resource.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Icon resource for this menu item.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Icon resource for this menu item.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   value: ResourceStr;
 
   /**
-   * Symbol resource for this menu item.
-   * @type { ?SymbolGlyphModifier }.
+   * Icon label.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  /**
-   * Symbol resource for this menu item.
-   * @type { ?SymbolGlyphModifier }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  symbolStyle?: SymbolGlyphModifier;
-
-  /**
-   * Icon label for this menu item.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 13 dynamic
-   */
-  /**
-   * Icon label for this menu item.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   label?: ResourceStr;
 
   /**
-   * Whether to enable this menu item.
-   * @type { ?boolean }.
+   * Whether to enable the item. Default value: **false**. The value **true** means to enable the item, and **false**
+   * means the opposite.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Whether to enable this menu item.
-   * @type { ?boolean }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Whether to enable this menu item.
-   * @type { ?boolean }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   isEnabled?: boolean;
 
   /**
-   * Callback function when click on this menu item.
-   * @type { ?() => void }.
+   * Action to perform.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Callback function when click on this menu item.
-   * @type { ?() => void }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Callback function when click on this menu item.
-   * @type { ?() => void }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   action?: () => void;
 
   /**
-   * The accessibilityText of this menu item.
-   * @type { ?ResourceStr }
+   * Accessibility text, that is, accessibility label name. If a component does not contain text information, it will
+   * not be announced by the screen reader when selected. In this case, the screen reader user cannot know which
+   * component is selected. To solve this problem, you can set accessibility text for components without text
+   * information. When such a component is selected, the screen reader announces the specified accessibility text,
+   * informing the user which component is selected.
+   *
+   * Default value: value of the **label** property if it is set and an empty string otherwise.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 18 dynamic
-   */
-  /**
-   * The accessibilityText of this menu item.
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   accessibilityText?: ResourceStr;
 
   /**
-   * The accessibilityDescription of this menu item.
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  /**
-   * The accessibilityDescription of this menu item.
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  accessibilityDescription?: ResourceStr;
-
-  /**
-   * The accessibilityLevel of this menu item.
-   * @type { ?string }
+   * Accessibility level. It determines whether the component can be recognized by accessibility services.
+   *
+   * The options are as follows:
+   *
+   * **"auto"**: It is treated as "yes" by the system.
+   *
+   * **"yes"**: The component can be recognized by accessibility services.
+   *
+   * **"no"**: The component cannot be recognized by accessibility services.
+   *
+   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility
+   * services.
+   *
+   * Default value: **"auto"**
+   *
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 18 dynamic
-   */
-  /**
-   * The accessibilityLevel of this menu item.
-   * @type { ?string }
-   * @default "auto"
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   accessibilityLevel?: string;
+
+  /**
+   * Symbol icon resource, which has higher priority than **value**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  symbolStyle?: SymbolGlyphModifier;
+
+  /**
+   * Accessible description. You can provide comprehensive text explanations to help users understand the operation they
+   * are about to perform and its potential consequences, especially when these cannot be inferred from the component's
+   * attributes and accessibility text alone. If a component contains both text information and the accessible
+   * description, the text is announced first and then the accessible description, when the component is selected.
+   *
+   * Default value: **"Double-tap to activate"**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  accessibilityDescription?: ResourceStr;
 }
 
 /**
  * Declaration of the tab item.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declaration of the tab item.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * Declaration of the tab item.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
+ * @crossplatform [since 22]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export declare class TabTitleBarTabItem {
   /**
-   * Text description for this tab item.
-   * @type { ResourceStr }.
+   * Text of the tab.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Text description for this tab item.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Text description for this tab item.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   title: ResourceStr;
 
   /**
-   * Icon resource for this tab item.
-   * @type { ?ResourceStr }.
+   * Icon of the tab.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Icon resource for this tab item.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Icon resource for this tab item.
-   * @type { ?ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   icon?: ResourceStr;
 
   /**
-   * Symbol resource for this tab item.
-   * @type { ?SymbolGlyphModifier }.
+   * Symbol icon of the tab, which has higher priority than **icon**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 18 dynamic
-   */
-  /**
-   * Symbol resource for this tab item.
-   * @type { ?SymbolGlyphModifier }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   symbolStyle?: SymbolGlyphModifier;
 }
 
 /**
- * Declaration of the tabbed title bar.
+ * The **TabTitleBar** component is a tab title bar used to switch between tabs pages. It is applicable only to level-1
+ * pages.
+ *
+ * > **NOTE**
+ * >
+ * > - If the **TabTitleBar** component has [universal attributes]{@link ./@internal/component/ets/common} and
+ * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
+ * > generates an additional **__Common__** node and mounts the universal attributes and universal events on this node
+ * > rather than the **TabTitleBar** component itself. As a result, the configured universal attributes and universal
+ * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events
+ * > with the **TabTitleBar** component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declaration of the tabbed title bar.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * Declaration of the tabbed title bar.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
+ * @crossplatform [since 22]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 @Component
 export declare struct TabTitleBar {
   /**
-   * Tab items on the left side.
-   * @type { ?Array<TabTitleBarItem> }.
+   * List of tab items on the left of the title bar.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Tab items on the left side.
-   * @type { ?Array<TabTitleBarItem> }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Tab items on the left side.
-   * @type { ?Array<TabTitleBarItem> }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   tabItems: Array<TabTitleBarTabItem>;
 
   /**
-   * Menu items on the right side.
-   * @type { Array<TabTitleBarMenuItem> }.
+   * List of menu items on the right of the title bar.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Menu items on the right side.
-   * @type { Array<TabTitleBarMenuItem> }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Menu items on the right side.
-   * @type { Array<TabTitleBarMenuItem> }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   menuItems?: Array<TabTitleBarMenuItem>;
 
   /**
-   * Content builder. Each component corresponds to a tab item.
-   * The builder needs to be transferred.
-   * @type { () => void }.
+   * Constructor for page content pertaining to the tab list.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Content builder. Each component corresponds to a tab item.
-   * The builder needs to be transferred.
-   * @type { () => void }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Content builder. Each component corresponds to a tab item.
-   * The builder needs to be transferred.
-   * @type { () => void }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   @BuilderParam
   swiperContent: () => void;

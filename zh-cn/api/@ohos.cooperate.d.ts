@@ -37,10 +37,6 @@ declare namespace cooperate {
   /**
    * 键鼠穿越的消息通知。
    *
-   * > **说明：**
-   * >
-   * > 从API version 10开始不再维护。建议使用[CooperateState]{@link cooperate.CooperateState}替代
-   *
    * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
    * @systemapi Hide this for inner system use.
    * @since 10 dynamiconly
@@ -327,10 +323,6 @@ declare namespace cooperate {
   /**
    * 准备键鼠穿越，使用Promise异步方式返回结果。
    *
-   * > **说明：**
-   * >
-   * > 从API version 10开始不再维护。建议使用[cooperate.prepareCooperate]{@link cooperate.prepareCooperate()}替代
-   *
    * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error.Possible causes:
@@ -384,11 +376,6 @@ declare namespace cooperate {
   /**
    * 取消键鼠穿越准备，使用Callback异步回调。
    *
-   * > **说明：**
-   * >
-   * > 从API version 10开始不再维护。建议使用
-   * > [cooperate.unprepareCooperate]{@link cooperate.unprepareCooperate(callback: AsyncCallback<void>)}替代
-   *
    * @param { AsyncCallback<void> } callback - 回调函数，取消键鼠穿越准备成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -405,10 +392,6 @@ declare namespace cooperate {
 
   /**
    * 取消键鼠穿越准备，使用Promise异步回调。
-   *
-   * > **说明：**
-   * >
-   * > 从API version 10开始不再维护。建议使用[cooperate.unprepareCooperate]{@link cooperate.unprepareCooperate()}替代
    *
    * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -459,12 +442,6 @@ declare namespace cooperate {
   /**
    * 启动键鼠穿越，使用Callback异步回调。
    *
-   * > **说明：**
-   * >
-   * > 从API version 10开始不再维护。建议使用
-   * > [cooperate.activateCooperate]{@link cooperate.activateCooperate(targetNetworkId: string, inputDeviceId: int, callback: AsyncCallback<void>)}
-   * > 替代
-   *
    * @param { string } targetNetworkId - 键鼠穿越目标设备描述符。
    * @param { number } inputDeviceId - 待穿越输入设备标识符。
    * @param { AsyncCallback<void> } callback - 回调函数，键鼠穿越启动成功时，err为undefined，否则为错误对象。
@@ -486,11 +463,6 @@ declare namespace cooperate {
 
   /**
    * 启动键鼠穿越，使用Promise异步回调。
-   *
-   * > **说明：**
-   * >
-   * > 从API version 10开始不再维护。建议使用
-   * > [cooperate.activateCooperate]{@link cooperate.activateCooperate(targetNetworkId: string, inputDeviceId: int)}替代
    *
    * @param { string } targetNetworkId - 键鼠穿越目标设备描述符。
    * @param { number }inputDeviceId - Identifier of the input device for screen hopping.
@@ -560,12 +532,6 @@ declare namespace cooperate {
   /**
    * 停止键鼠穿越，使用Callback异步回调。
    *
-   * > **说明：**
-   * >
-   * > 从API version 10开始不再维护。建议使用
-   * > [cooperate.deactivateCooperate]{@link cooperate.deactivateCooperate(isUnchained: boolean, callback: AsyncCallback<void>)}
-   * > 替代
-   *
    * @param { boolean } isUnchained - 是否关闭跨设备链路。<br> true表示关闭跨设备链路，false表示不关闭。
    * @param { AsyncCallback<void> } callback - 回调函数，键鼠穿越停止成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -583,11 +549,6 @@ declare namespace cooperate {
 
   /**
    * 停止键鼠穿越，使用Promise异步回调。
-   *
-   * > **说明：**
-   * >
-   * > 从API version 10开始不再维护。建议使用
-   * > [cooperate.deactivateCooperate]{@link cooperate.deactivateCooperate(isUnchained: boolean)}替代
    *
    * @param { boolean } isUnchained - 是否关闭跨设备链路。<br> true表示关闭跨设备链路，false表示不关闭。
    * @returns { Promise<void> } 无返回结果的Promise对象。
@@ -637,12 +598,6 @@ declare namespace cooperate {
   /**
    * 获取目标设备键鼠穿越开关的状态，使用Callback异步回调。
    *
-   * > **说明：**
-   * >
-   * > 从API version 10开始不再维护。建议使用
-   * > [cooperate.getCooperateSwitchState]{@link cooperate.getCooperateSwitchState(networkId: string, callback: AsyncCallback<boolean>)}
-   * > 替代
-   *
    * @param { string } networkId - 键鼠穿越目标设备描述符。
    * @param { AsyncCallback<boolean> } callback - 回调函数，返回true表示目标设备键鼠穿越的开关开启，
    *     返回false表示开关未开启。
@@ -661,11 +616,6 @@ declare namespace cooperate {
 
   /**
    * 获取目标设备键鼠穿越开关的状态，使用Promise异步方式返回结果。
-   *
-   * > **说明：**
-   * >
-   * > 从API version 10开始不再维护。建议使用
-   * > [cooperate.getCooperateSwitchState]{@link cooperate.getCooperateSwitchState(networkId: string)}替代
    *
    * @param { string } networkId - 键鼠穿越目标设备描述符。
    * @returns { Promise<boolean> } Promise对象，返回true表示目标设备键鼠穿越的开关开启，返回false表示开关未开启。
@@ -724,10 +674,6 @@ declare namespace cooperate {
   /**
    * 注册监听键鼠穿越状态。
    *
-   * > **说明：**
-   * >
-   * > 从API version 10开始不再维护。建议使用[on('cooperateMessage')]{@link cooperate.on_cooperateMessage}替代
-   *
    * @param { 'cooperate' } type - 监听类型，取值为'cooperate'
    * @param { Callback<{ networkId: string, msg: CooperateMsg }> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -745,10 +691,6 @@ declare namespace cooperate {
 
   /**
    * 取消监听键鼠穿越状态。
-   *
-   * > **说明：**
-   * >
-   * > 从API version 10开始不再维护。建议使用[off('cooperateMessage')]{@link cooperate.off_cooperateMessage}替代
    *
    * @param { 'cooperate' } type - 监听类型，取值为'cooperate'。
    * @param { Callback<void> } callback - 需要取消注册的回调函数，若无此参数，则取消当前应用注册的所有回调函数。

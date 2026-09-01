@@ -25,6 +25,16 @@
  * [onProcessCreated](docroot://reference/apis-ability-kit/js-apis-inner-application-applicationStateObserver.md#applicationstateobserveronprocesscreated)
  * 等方法回调给开发者。
  *
+ * > **说明：**
+ * > 
+ * > 本模块首批接口从API version 14开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * 
+ * ## 导入模块
+ * 
+ * ```ts
+ * import { appManager } from '@kit.AbilityKit';
+ * ```
+ * 
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @since 14 dynamic
  * @since 23 static
@@ -58,7 +68,7 @@ declare class ProcessData {
   uid: int;
 
   /**
-   * 应用的状态，取值及对应的状态为：
+   * 进程的状态，取值及对应的状态为：
    * 
    * 0 - 初始化状态，进程正在初始化，
    * 
@@ -86,7 +96,7 @@ declare class ProcessData {
   isContinuousTask: boolean;
 
   /**
-   * 是否为常驻进程，true表示是，false表示不是
+   * 是否为常驻进程，true表示是，false表示不是。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic

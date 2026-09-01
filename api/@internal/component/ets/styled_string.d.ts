@@ -690,6 +690,19 @@ declare interface TextStyleInterface {
   fontStyle?: FontStyle;
 
   /**
+   * Superscript or subscript for the text.
+   *
+   * Default value: **SuperscriptStyle.NORMAL**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  superscript?: SuperscriptStyle;
+
+  /**
    * Text stroke width. If **unit** of **LengthMetrics** is percent, the setting does not take effect, and 0 is used
    * instead.
    *
@@ -717,19 +730,6 @@ declare interface TextStyleInterface {
    * @since 20 dynamic
    */
   strokeColor?: ResourceColor;
-
-  /**
-   * Superscript or subscript for the text.
-   *
-   * Default value: **SuperscriptStyle.NORMAL**.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  superscript?: SuperscriptStyle;
 
   /**
    * Font configuration. The default value is inherited from [FontConfigs]{@link FontConfigs}.
@@ -2281,6 +2281,17 @@ declare class ImageAttachment {
    * @since 22 dynamic
    */
   readonly supportSvg2?: boolean;
+
+  /**
+   * Resizable image options of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  readonly resizable?: ResizableOptions;
 }
 
 /**
@@ -2395,6 +2406,17 @@ declare interface ResourceImageAttachmentOptions {
    * @since 22 dynamic
    */
   supportSvg2?: boolean;
+
+  /**
+   * Resizable image options of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  resizable?: ResizableOptions;
 }
 
 /**
@@ -2481,6 +2503,17 @@ declare interface ImageAttachmentInterface {
    * @since 15 dynamic
    */
   colorFilter?: ColorFilterType;
+
+  /**
+   * Resizable image options of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  resizable?: ResizableOptions;
 }
 
 /**
@@ -2699,8 +2732,6 @@ declare interface CustomSpanMeasureInfo {
    *
    * Unit: [px]{@link common}
    *
-   * **Since**: 26.0.0
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2715,8 +2746,6 @@ declare interface CustomSpanMeasureInfo {
    * **NOTE**
    *
    * When the value is **null** or **undefined**, the parent component does not have a width layout policy set.
-   *
-   * **Since**: 26.0.0
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

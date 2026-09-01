@@ -23,7 +23,6 @@
  *
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @since 21 dynamic
- * @since 26.0.0 static
  */
 declare namespace common {
   /**
@@ -31,7 +30,6 @@ declare namespace common {
    *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 21 dynamic
-   * @since 26.0.0 static
    */
   export interface BluetoothAddress {
     /**
@@ -39,7 +37,6 @@ declare namespace common {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 21 dynamic
-     * @since 26.0.0 static
      */
     address: string;
     /**
@@ -47,7 +44,6 @@ declare namespace common {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 21 dynamic
-     * @since 26.0.0 static
      */
     addressType: BluetoothAddressType;
     /**
@@ -56,7 +52,6 @@ declare namespace common {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 23 dynamic
-     * @since 26.0.0 static
      */
     rawAddressType?: BluetoothRawAddressType;
   }
@@ -66,7 +61,6 @@ declare namespace common {
    *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 21 dynamic
-   * @since 26.0.0 static
    */
   export enum BluetoothAddressType {
     /**
@@ -74,7 +68,6 @@ declare namespace common {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 21 dynamic
-     * @since 26.0.0 static
      */
     VIRTUAL = 1,
     /**
@@ -82,7 +75,6 @@ declare namespace common {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 21 dynamic
-     * @since 26.0.0 static
      */
     REAL = 2
   }
@@ -93,7 +85,6 @@ declare namespace common {
    *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 23 dynamic
-   * @since 26.0.0 static
    */
   export enum BluetoothRawAddressType {
     /**
@@ -101,7 +92,6 @@ declare namespace common {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 23 dynamic
-     * @since 26.0.0 static
      */
     PUBLIC = 0,
     /**
@@ -109,7 +99,6 @@ declare namespace common {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 23 dynamic
-     * @since 26.0.0 static
      */
     RANDOM = 1
   }

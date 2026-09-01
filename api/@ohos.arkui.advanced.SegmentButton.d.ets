@@ -1229,7 +1229,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   /**
    * Adds the specified elements to the end of this array and returns the new length of the array.
    *
-   * @param { SegmentButtonItemArray } items - Elements to add to the end of the array.<br>Default value: array with 0
+   * @param { SegmentButtonItemArray } items - Elements to add to the end of the array.
+   *     <br>Default value: array with 0
    *     new button information items
    * @returns { number } Length of the array after the elements are added.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1267,7 +1268,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   /**
    * Adds an element to the beginning of this array and returns the new length of the array.
    *
-   * @param { SegmentButtonItemArray } items - Elements to add to the beginning of the array.<br>Default value: array
+   * @param { SegmentButtonItemArray } items - Elements to add to the beginning of the array.
+   *     <br>Default value: array
    *     with 0 new button information items
    * @returns { number } Length of the array after the elements are added.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1284,7 +1286,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    *
    * @param { number } start - Index of the position starting from which elements are to be removed.
    * @param { number } deleteCount - Number of elements to remove.
-   * @param { SegmentButtonItemOptions[] } items - Element to be added to the array from start.<br>Default value: If no
+   * @param { SegmentButtonItemOptions[] } items - Element to be added to the array from start.
+   *     <br>Default value: If no
    *     element is specified, the element is deleted from the array.
    * @returns { SegmentButtonItemOptions[] } An array containing the removed elements.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1727,7 +1730,7 @@ declare class SegmentButtonOptions {
  * 
  * >**NOTE**
  * >
- * > - The **SegmentButton** component does not support [universal attributes]{@link CommonMethod}.
+ * > - The **SegmentButton** component does not support [universal attributes](ts-component-general-attributes.md).
  * The component occupies the maximum available width within its content area and distributes this width evenly among
  * its items. It adapts its height automatically to the content (text and images), the minimum height being 28 vp.
  * >

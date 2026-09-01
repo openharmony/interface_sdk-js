@@ -52,55 +52,39 @@ declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').
 declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
 
 /**
- * Defines the options of Component ClassDecorator.
+ * 自定义组件参数，用于配置是否支持组件冻结和全局复用池，适用于需要优化自定义组件性能表现和提升组件复用效率的场景。
  *
- * @interface ComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
- * Defines the options of Component ClassDecorator.
- *
- * @interface ComponentOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface ComponentOptions {
-
   /**
-   * freeze UI state.
+   * 配置自定义组件支持组件冻结。true：开启组件冻结，false：不开启组件冻结。当开发者未指定ComponentOptions时，freezeWhenInactive将使用false作为默认值。
+   * 
+   * 从API version 11开始，支持通过此参数配置[@Component](docroot://ui/state-management/arkts-create-custom-components.md#component)组
+   * 件冻结。示例可见[自定义组件冻结](docroot://ui/state-management/arkts-custom-components-freeze.md)。
+   * 
+   * 从API version 12开始，支持通过此参数配置
+   * [@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md#componentv2)组件冻结。示例可见
+   * [自定义组件冻结](docroot://ui/state-management/arkts-custom-components-freezeV2.md)。
    *
-   * @type { boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * freeze UI state.
-   *
-   * @type { boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   freezeWhenInactive : boolean;
 
   /**
-   * 自定义组件的重用类型。
+   * 在自定义组件上配置全局复用池的类型，适用于应用中存在多个同类型可复用自定义组件、需要在组件实例间共享或隔离复用资源以提升复用效率的场景。如果不传入，则全局复用池不会生效。reusePool需与poolAccepts配合使用，
+   * reusePool参数被设置时，poolAccepts必须为非空数组，否则全局复用不生效。
    *
    * @default perInstance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -113,7 +97,8 @@ declare interface ComponentOptions {
   reusePool?: ReusePoolOwnership;
 
   /**
-   * 要重用的自定义组件集合。
+   * 指定全局复用池可以接纳（即允许被复用）的自定义组件名称列表。当reusePool参数被设置时，系统会根据poolAccepts中列出的组件名称，将匹配的可复用组件缓存到该全局复用池中供后续复用。reusePool参数被设置时，
+   * poolAccepts必须为非空数组，单独设置poolAccepts不会使全局复用生效。当poolAccepts和reusePool都没有赋值时，全局复用不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -126,7 +111,7 @@ declare interface ComponentOptions {
 }
 
 /**
- * 定义自定义组件的重用类型。
+ * 全局复用池的持有类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -137,7 +122,7 @@ declare interface ComponentOptions {
 declare type ReusePoolOwnership = 'shared' | 'perInstance';
 
 /**
- * 定义内存优化策略的类型。
+ * 可复用自定义组件内存优化策略枚举。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -148,7 +133,7 @@ declare type ReusePoolOwnership = 'shared' | 'perInstance';
 declare enum ReusableMemOptStrategy {
 
   /**
-   * 没有内存优化。
+   * 无内存优化策略。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -158,7 +143,18 @@ declare enum ReusableMemOptStrategy {
   DEFAULT = 0,
 
   /**
-   * CustomComponent负责内存优化。
+   * 自动内存优化策略。建议在需要降低可复用自定义组件内存使用量的场景下使用此策略。
+   * 
+   * 满足以下任一条件时，释放复用池内的所有该类型自定义组件：
+   * 
+   * - 应用退后台时。
+   * - 复用池所在组件不可见时（[visibility]{@link CommonMethod#visibility}属性设置为[Visible]{@link Visibility}以外的值，或组件面积为0，不考虑遮挡）。
+   * - 整机低内存时（[MemoryLevel]{@link @ohos.app.ability.AbilityConstant:AbilityConstant.MemoryLevel}达到MEMORY_LEVEL_LOW或
+   * MEMORY_LEVEL_CRITICAL）。
+   * 
+   * 当复用池中相同ReuseId的该类型自定义组件数量超过8，且5分钟内不再增加时，保留8个组件，释放其余组件。
+   * 
+   * 在释放节点时，会触发[自定义组件生命周期](docroot://ui/state-management/arkts-page-custom-components-lifecycle.md)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -169,7 +165,7 @@ declare enum ReusableMemOptStrategy {
 }
 
 /**
- * 定义组件复用类装饰器的选项。
+ * 可复用自定义组件的参数，用于配置内存优化策略，适用于需要降低可复用自定义组件内存使用量的场景。
  *
  * @interface ReusableOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -178,9 +174,9 @@ declare enum ReusableMemOptStrategy {
  * @since 26.0.0 dynamic
  */
 declare interface ReusableOptions {
-
   /**
-   * CustomComponent重用的内存优化策略
+   * 可复用自定义组件的内存优化策略。该参数在创建可复用自定义组件时设定，不支持动态修改。传入[ENABLE_AUTO_CACHE_OPTIMIZATION]{@link ReusableMemOptStrategy}时可启用自动内存优
+   * 化，在应用退后台、组件不可见或整机低内存等场景下自动释放复用池中的组件；不传入时使用默认值[DEFAULT]{@link ReusableMemOptStrategy}（无内存优化策略）。
    *
    * @type { ?ReusableMemOptStrategy }
    * @default ReusableMemOptStrategy.DEFAULT
@@ -367,166 +363,92 @@ declare interface TextDecorationOptions {
 }
 
 /**
- * 定义组件类装饰器
+ * \@Component装饰器能装饰struct关键字声明的结构体。struct被\@Component装饰后具备组件化的能力，可实现UI的封装与复用，适用于构建可复用的自定义组件、拆分复杂界面等场景。
+ * 使用时需要实现build方法描述UI，一个struct只能被一个\@Component装饰。
+ * 
+ * 开发指南参考：[创建自定义组件](docroot://ui/state-management/arkts-create-custom-components.md)。
+ * 
+ * > **说明：**
+ * >
+ * > - 从API version 11开始，\@Component可以接受一个可选的[ComponentOptions]{@link ComponentOptions}类型参数。
+ * >
+ * > - 从API版本26.0.0开始，ComponentOptions中可以接受可选参数`reusePool`和`poolAccepts`，用于配置全局复用池，
+ * > 开发指南参考：[全局复用：集中化的组件回收与复用](docroot://ui/state-management/arkts-global-reuse-pool.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义组件类装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义组件类装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义组件类装饰器
- *
- * Component is a ClassDecorator and it supports ComponentOptions as parameters.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
- * 定义ComponentV2类装饰器
- * ComponentV2是一个ClassDecorator，它支持ComponentOptions作为参数。
+ * @ComponentV2主要配合状态管理V2使用，相比[\@Component](docroot://ui/state-management/arkts-create-custom-components.md#component)，
+ * @ComponentV2支持对象的深度观测和深度监听，装饰器易用性高、拓展性强，适用于需要深度观测嵌套对象状态的场景。除非特别说明，@ComponentV2装饰的自定义组件将与@Component装饰的自定义组件保持相同的行为。
+ *
+ * 开发指南参考：[\@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md#componentv2)。
+ *
+ * > **说明：**
+ * >
+ * > - 从API版本26.0.0开始，\@ComponentV2的[ComponentOptions]{@link ComponentOptions}参数支持
+ * > 可选属性`reusePool`和`poolAccepts`，用于配置全局复用池，
+ * > 开发指南参考：[全局复用：集中化的组件回收与复用](docroot://ui/state-management/arkts-global-reuse-pool.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义ComponentV2类装饰器
- * ComponentV2是一个ClassDecorator，它支持ComponentOptions作为参数。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const ComponentV2: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
- * 定义Entry类装饰器的选项。
+ * 页面入口配置选项，用于在\@Entry装饰页面时配置路由名称、状态存储和共享存储等参数。
  *
- * @interface EntryOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 23]
  * @form
- * @since 10
- */
-/**
- * 定义Entry类装饰器的选项。
- *
- * @interface EntryOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @form
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * 定义Entry类装饰器的选项。
- *
- * @interface EntryOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface EntryOptions {
-
   /**
-   * 命名路由名称。
+   * 表示作为命名路由页面的名称。当需要通过命名路由方式跳转到此页面时，需设置此参数作为路由名称。不传入时，该页面不会注册为命名路由页面，无法通过命名路由方式跳转访问，仅作为默认入口页面加载。
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 23]
    * @form
-   * @since 10
-   */
-  /**
-   * 命名路由名称。
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * 命名路由名称。
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   routeName? : string;
 
   /**
-   * 要传递的LocalStorage。
+   * 页面级的UI状态存储。当需要在页面外部预先创建并管理UI状态、或需要将已有的LocalStorage实例绑定到此页面以实现状态共享时，传入此参数。当未传入时，框架会创建一个新的LocalStorage实例作为默认值。当
+   * useSharedStorage设置为true且storage已赋值时，useSharedStorage的值优先级更高。
    *
-   * @type { ?LocalStorage }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 23]
    * @form
-   * @since 10
-   */
-  /**
-   * 要传递的LocalStorage。
-   *
-   * @type { ?LocalStorage }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * 要传递的LocalStorage。
-   *
-   * @type { ?LocalStorage }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   storage? : LocalStorage;
 
   /**
-   * Determines whether to use the LocalStorage instance object returned by the LocalStorage.getShared() interface.
+   * 是否使用
+   * [loadContent]{@link @ohos.window:window.WindowStage.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}
+   * 传入的LocalStorage实例。默认值false。true：使用共享的LocalStorage实例（前提条件：需确保loadContent接口已传入LocalStorage实例；若未传入，则创建新的LocalStorage实例
+   * ）。false：不使用共享的LocalStorage实例。当useSharedStorage设置为true且storage已赋值时，useSharedStorage的值优先级更高。
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -538,92 +460,46 @@ declare interface EntryOptions {
 }
 
 /**
- * 定义Entry类Decorator。
+ * \@Entry装饰的自定义组件将作为UI页面的入口，被框架识别为页面的根组件，适用于构建独立UI页面的场景。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义Entry类Decorator。
- *
- * Entry is a ClassDecorator and it supports LocalStorage as parameters.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义Entry类Decorator。
- *
- * Entry is a ClassDecorator and it supports LocalStorage or EntryOptions as parameters.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义Entry类Decorator。
- *
- * Entry is a ClassDecorator and it supports LocalStorage or EntryOptions as parameters.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) => ClassDecorator);
 
 /**
- * 定义观察类装饰器。
+ * \@Observed是类装饰器，用于状态管理V1中，观察嵌套类对象的属性变化。
+ * 
+ * 开发指南参考：[\@Observed装饰器和\@ObjectLink装饰器：嵌套类对象属性变化](docroot://ui/state-management/arkts-observed-and-objectlink.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义观察类装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义观察类装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义观察类装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Observed: ClassDecorator;
 
 /**
- * Defining ObservedV2 ClassDecorator.
+ * @ObservedV2是类装饰器，用于状态管理V2中。@ObservedV2与@Trace配套使用，装饰类以及类中的属性，使得被装饰的类和属性具有深度观测的能力。相较于状态管理V1的@Observed，
+ * @ObservedV2提供了更细粒度的属性级深度观测能力，适用于需要精确追踪嵌套对象属性变化并驱动UI更新的场景，能够有效提升状态管理的性能和灵活性。
+ *
+ * 开发指南参考：[\@ObservedV2装饰器和\@Trace装饰器：类属性变化观测](docroot://ui/state-management/arkts-new-observedV2-and-trace.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 declare const ObservedV2: ClassDecorator;
 
@@ -632,39 +508,29 @@ declare const ObservedV2: ClassDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义预览类装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义预览类装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义预览类装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
 
 /**
- * Defining Require PropertyDecorator.
+ * \@Require装饰器用于校验[\@Prop](docroot://ui/state-management/arkts-prop.md)、
+ * [\@State](docroot://ui/state-management/arkts-state.md)、
+ * [\@Provide](docroot://ui/state-management/arkts-provide-and-consume.md)、
+ * [\@BuilderParam](docroot://ui/state-management/arkts-builderparam.md)、
+ * [\@Param](docroot://ui/state-management/arkts-new-param.md)和普通变量（无状态装饰器装饰的变量）是否需要构造传参。
+ * 使用该装饰器装饰的变量，要求父组件在构造子组件时必须传入对应参数，否则在编译阶段报错，从而避免因参数缺失导致的运行时异常，适用于需要确保自定义组件必需参数被正确初始化的场景。
+ *
+ * 开发指南参考：[\@Require装饰器：校验构造传参](docroot://ui/state-management/arkts-require.md)。
+ *
+ * > **说明：**
+ * >
+ * > - 从API version 11开始对\@Prop/\@BuilderParam进行校验。
+ * >
+ * > - 从API version 12开始对\@State/\@Provide/\@Param/普通变量（无状态装饰器装饰的变量）进行校验。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -672,188 +538,128 @@ declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorato
  * @form
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare const Require: PropertyDecorator;
 
 /**
- * 定义BuilderParam属性装饰器
+ * \@BuilderParam用于装饰指向[@Builder]{@link Builder}函数的变量，使自定义组件能够接收外部传入的\@Builder函数，实现UI内容的自定义渲染。
+ * 适用于需要将父组件的UI构建逻辑传递给子组件、实现组件内容动态定制的场景。
+ * 
+ * 开发指南参考：[@BuilderParam装饰器：引用@Builder函数](docroot://ui/state-management/arkts-builderparam.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义BuilderParam属性装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义BuilderParam属性装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义BuilderParam属性装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const BuilderParam: PropertyDecorator;
 
 /**
- * 定义@Local装饰器，用于表示自定义组件内部状态
+ * @Local用于状态管理V2中，表示组件内部的状态，使得自定义组件内部的变量具有观测能力。适用于需要在自定义组件内部维护和观测局部状态的场景（如计数器、开关状态等）。使用@Local可以简化组件内部状态管理逻辑，
+ * 当状态变化时自动触发UI刷新，无需手动管理。
+ *
+ * 开发指南参考：[@Local装饰器：组件内部状态](docroot://ui/state-management/arkts-new-local.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义@Local装饰器，用于表示自定义组件内部状态
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const Local: PropertyDecorator;
 
 /**
- * 定义@Param装饰器，用于接受外部参数的装饰器
+ * @Param在状态管理V2中用于接收外部输入，实现父子组件之间的单向数据同步。适用于父组件需要向子组件单向传递状态数据的场景，能够简化组件间通信，保证数据流向清晰。@Param装饰的变量不允许在组件内部直接修改，
+ * 如需子组件向父组件同步数据，请配合@Event使用。
+ * 
+ * 开发指南参考：[@Param：组件外部输入](docroot://ui/state-management/arkts-new-param.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义@Param装饰器，用于接受外部参数的装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const Param: PropertyDecorator;
 
 /**
- * 定义@Once装饰器，用于跟@Param一起使用
+ * @Once作为辅助装饰器，用于状态管理V2中，需要搭配[@Param](docroot://ui/state-management/arkts-new-param.md)使用，适用于仅从外部初始化一次且不接受后续同步变化的场景。
+ * 若未与@Param配合使用，@Once单独使用将编译报错。
+ *
+ * 开发指南参考：[@Once：初始化同步一次](docroot://ui/state-management/arkts-new-once.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义@Once装饰器，用于跟@Param一起使用
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const Once: PropertyDecorator;
 
 /**
- * 定义@Event装饰器，用于自定义组件的输出
+ * @Event装饰回调方法，用于状态管理V2中，作为自定义组件的输出。@Event通常与@Param配合使用，@Param负责由父组件向子组件传递数据，@Event负责定义子组件向父组件传递消息的回调接口，
+ * 适用于需要在子组件中触发父组件状态变更或事件处理的场景。
+ *
+ * 开发指南参考：[@Event：规范组件输出](docroot://ui/state-management/arkts-new-event.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义@Event装饰器，用于自定义组件的输出
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const Event: PropertyDecorator;
 
 /**
- * 定义StatePropertyDecorator。
+ * @State用于[状态管理V1](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v1)，将自定义组件内的普通变量转变为状态变量，
+ * 当状态变量变化时，触发组件内UI重新渲染。适用于需要在组件内管理可变状态的场景。
+ *
+ * 开发指南参考：[@State装饰器：组件内状态](docroot://ui/state-management/arkts-state.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义StatePropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义StatePropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义StatePropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const State: PropertyDecorator;
 
 /**
- * Defining Track PropertyDecorator.
+ * @Track用于状态管理V1中，通过装饰class对象的指定属性实现属性级精准观测。当被@Track装饰的属性发生变化时，系统仅更新依赖该属性的UI组件，从而减少不必要的UI重渲染。适用于class对象包含较多属性，
+ * 需要减少冗余UI刷新、优化渲染性能的场景。
+ *
+ * 开发指南参考：[@Track装饰器：class对象属性级更新](docroot://ui/state-management/arkts-track.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
- * Defining Track PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const Track: PropertyDecorator;
 
 /**
- * Defining Trace PropertyDecorator.
+ * @Trace是属性装饰器，用于[状态管理V2](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)中。
+ * [@ObservedV2]{@link ObservedV2}与@Trace配套使用，装饰类以及类中的属性，使被装饰的类和属性具有深度观测能力，即能够深度观测嵌套对象中属性值的变化，并触发UI自动刷新，
+ * 适用于需要精确观测和管理类属性变化状态的场景。
+ *
+ * 开发指南参考：[@ObservedV2装饰器和@Trace装饰器：类属性变化观测](docroot://ui/state-management/arkts-new-observedV2-and-trace.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -861,121 +667,62 @@ declare const Track: PropertyDecorator;
  * @form
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 declare const Trace: PropertyDecorator;
 
 /**
- * 定义propPropertyDecorator。
+ * @Prop用于[状态管理V1](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v1)，接收外部传入值，并与父组件建立单向同步关系。
+ * 当父组件中[@State]{@link State}等装饰的状态变量发生变化时，会同步更新到子组件中对应的@Prop变量，触发子组件重新渲染。@Prop采用单向数据流机制，子组件对@Prop变量的修改仅在子组件内部生效，
+ * 不会反向同步到父组件。适用于子组件需要响应父组件状态变化但不需要反向修改的场景。
+ *
+ * 开发指南参考：[@Prop装饰器：父子单向同步](docroot://ui/state-management/arkts-prop.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义propPropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义propPropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义propPropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Prop: PropertyDecorator;
 
 /**
- * 定义链接属性装饰器。
+ * @Link用于[状态管理V1](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v1)，接收父组件传入的状态变量的引用，
+ * 建立父子组件间的双向数据绑定。适用于需要在子组件中直接修改父组件状态、简化父子组件通信的场景。
+ *
+ * 开发指南参考：[@Link装饰器：父子双向同步](docroot://ui/state-management/arkts-link.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义链接属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义链接属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义链接属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Link: PropertyDecorator;
 
 /**
- * 定义ObjectLink属性装饰器。
+ * @ObjectLink用于状态管理V1中，接收\@Observed装饰的类的实例，并与父组件中的数据源建立双向数据绑定，适用于在子组件中独立观察并监听嵌套类属性并触发UI刷新的场景。
+ *
+ * 开发指南参考：[\@Observed装饰器和\@ObjectLink装饰器：嵌套类对象属性变化](docroot://ui/state-management/arkts-observed-and-objectlink.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义ObjectLink属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义ObjectLink属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义ObjectLink属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const ObjectLink: PropertyDecorator;
 
 /**
- * Defines the options of Provide PropertyDecorator.
+ * ProvideOptions是\@Provide的选项。允许在同一组件树上通过allowOverride重写同名的\@Provide，适用于子组件需要覆盖父组件同名\@Provide值的场景，提高了跨层级状态管理的灵活性。具体例子可见
+ * [\@Provide支持allowOverride参数](docroot://ui/state-management/arkts-provide-and-consume.md#provide支持allowoverride参数)。
  *
- * @interface ProvideOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -984,12 +731,11 @@ declare const ObjectLink: PropertyDecorator;
  * @since 11 dynamic
  */
 declare interface ProvideOptions {
-
   /**
-   * Override the @Provide of any parent or parent of parent @Component.@Provide({allowOverride: "name"}) is
-   * also allowed to be used even when there is no ancestor @Component whose @Provide would be overridden.
+   * 允许@Provide重写的别名。允许在同一组件树下通过allowOverride重写同名的@Provide。
+   * 
+   * 缺省时表示@Provide不允许重写。若在未设置allowOverride的情况下定义同名@Provide，运行时会报错。
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1001,64 +747,41 @@ declare interface ProvideOptions {
 }
 
 /**
- * 定义属性装饰器。
+ * \@Provide和[@Consume]{@link Consume}配套使用，
+ * 用于[状态管理V1](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v1)，实现跨组件层级的双向同步，适用于需要跨越多层组件传递状态、
+ * 避免逐层传递的场景，能够解决组件层级较深时状态传递繁琐的问题。\@Provide装饰的变量作为数据源，通过别名或变量名与\@Consume装饰的变量建立双向绑定关系。
+ * 当\@Provide或\@Consume装饰的变量发生变化时，变化会自动同步到对方。
+ * 
+ * 开发指南参考：[@Provide装饰器和@Consume装饰器：与后代组件双向同步](docroot://ui/state-management/arkts-provide-and-consume.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
 /**
- * 在定义提供者属性装饰器时，`aliasName` 是唯一的匹配键。如果 `aliasName` 是默认值，则默认属性名称将被视为 `aliasName`。
+ * @Provider和@Consumer搭配使用，用于状态管理V2中，实现跨组件层级的数据双向同步。@Provider装饰数据提供方，为子组件提供数据，适用于组件层级较深、需要跨多层组件共享状态且避免逐层传递数据的场景，
+ * 可简化状态管理流程，降低组件间的耦合度。
+ *
+ * 开发指南参考：[@Provider装饰器和@Consumer装饰器：跨组件层级双向同步](docroot://ui/state-management/arkts-new-provider-and-consumer.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 在定义提供者属性装饰器时，`aliasName` 是唯一的匹配键。如果 `aliasName` 是默认值，则默认属性名称将被视为 `aliasName`。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const Provider: (aliasName?: string) => PropertyDecorator;
 
 /**
- * 定义System Env Key的类。
+ * 系统环境变量Key对应的类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1069,7 +792,7 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
 declare class SystemEnvKey<T> {
 
   /**
-   * 系统env key对应的类型。
+   * 系统环境变量Key对应值的数据类型，默认值为undefined。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1080,7 +803,7 @@ declare class SystemEnvKey<T> {
   private type?: T;
 
   /**
-   * 构造函数。
+   * 用于创建该类的实例对象。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1092,7 +815,7 @@ declare class SystemEnvKey<T> {
 }
 
 /**
- * 定义可写的系统环境变量键。
+ * 定义可写的系统环境变量Key，继承自[SystemEnvKey\<T\>]{@link SystemEnvKey}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1103,7 +826,7 @@ declare class SystemEnvKey<T> {
 declare class WritableSystemEnvKey<T> extends SystemEnvKey<T> {}
 
 /**
- * 定义只读的系统环境变量键。
+ * 定义只读的系统环境变量Key，继承自[SystemEnvKey\<T\>]{@link SystemEnvKey}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1114,7 +837,7 @@ declare class WritableSystemEnvKey<T> extends SystemEnvKey<T> {}
 declare class ReadonlySystemEnvKey<T> extends SystemEnvKey<T> {}
 
 /**
- * 定义自定义环境Key。
+ * 自定义环境变量的Key的类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1125,7 +848,7 @@ declare class ReadonlySystemEnvKey<T> extends SystemEnvKey<T> {}
 declare class CustomEnvKey<S> {
 
   /**
-   * 自定义env key对应的类型。
+   * 自定义环境变量Key的类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1136,9 +859,9 @@ declare class CustomEnvKey<S> {
   private type?: S;
 
   /**
-   * 创建自定义环境密钥
+   * 创建一个自定义环境变量Key，作为\@CustomEnv装饰器的参数。
    *
-   * @returns { 自定义EnvKey<T> } 自定义EnvKey
+   * @returns { CustomEnvKey<T> } 自定义环境变量Key，用于标识要获取的自定义环境变量。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1148,7 +871,7 @@ declare class CustomEnvKey<S> {
   static create<T>(): CustomEnvKey<T>;
 
   /**
-   * 构造函数。
+   * 用于创建该类的实例对象。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1160,7 +883,10 @@ declare class CustomEnvKey<S> {
 }
 
 /**
- * 定义系统环境键。
+ * 定义可写的系统环境变量Key集合，用于通过@Env装饰器获取对应的系统环境变量。可通过
+ * [WithEnv]{@link CommonMethod#WithEnv}中的
+ * [env]{@link CommonMethod#env}方法设置局部环境变量值以影响后代组件渲染，具体示例请参见
+ * [示例2（设置局部布局方向）](docroot://reference/apis-arkui/arkui-ts/ts-container-with-env.md#示例2设置局部布局方向)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1171,7 +897,11 @@ declare class CustomEnvKey<S> {
 declare class WritableEnvKey {
 
   /**
-   * 定义系统环境键方向。
+   * [@Env](docroot://reference/apis-arkui/arkui-ts/ts-env-system-property.md#env)变量参数，通过@Env(WritableEnvKey.DIRECTION)可
+   * 获取[Direction]{@link Direction}枚举类型的值。
+   * 
+   * 当该装饰器声明在[@Component](docroot://ui/state-management/arkts-create-custom-components.md#component)或
+   * [@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md#componentv2)中时，用于获取窗口所在屏幕的布局方向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1182,7 +912,11 @@ declare class WritableEnvKey {
   static readonly DIRECTION: WritableSystemEnvKey<Direction>;
 
   /**
-   * 定义系统环境键fontScale。
+   * [@Env](docroot://reference/apis-arkui/arkui-ts/ts-env-system-property.md#env)变量参数，通过@Env(WritableEnvKey.FONT_SCALE)
+   * 可获取number类型的值，取值无上限，小于等于0的值按0处理。
+   * 
+   * 当该装饰器声明在[@Component](docroot://ui/state-management/arkts-create-custom-components.md#component)或
+   * [@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md#componentv2)中时，用于为后代组件提供局部字体缩放倍数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1209,6 +943,7 @@ declare class ReadonlyEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1219,6 +954,7 @@ declare class ReadonlyEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1229,6 +965,7 @@ declare class ReadonlyEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1239,6 +976,7 @@ declare class ReadonlyEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1282,12 +1020,13 @@ declare class ReadonlyEnvKey {
    */
   static readonly WINDOW_IS_HIGHLIGHTED: ReadonlySystemEnvKey<boolean>;
 }
-
 /**
- * 定义自定义环境PropertyDecorator。
+ * 用于获取自定义环境变量。
+ * 
+ * 开发者指南见：[\@CustomEnv开发者指南](docroot://ui/arkts-custom-env-property.md)。
  *
- * @param { CustomEnvKey<T> } key - 自定义环境密钥
- * @returns { PropertyDecorator } CustomEnv装饰器
+ * @param { CustomEnvKey<T> } key - 自定义环境变量Key，用于标识要获取的自定义环境变量。
+ * @returns { PropertyDecorator } 属性装饰器，开发者无需关注该返回值。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1297,11 +1036,10 @@ declare class ReadonlyEnvKey {
 declare function CustomEnv<T>(key: CustomEnvKey<T>): PropertyDecorator;
 
 /**
- * 定义Env装饰器类型
+ * 定义EnvDecorator属性装饰器类型。
  *
- * @typedef { function } EnvDecorator
- * @param { SystemProperties } value - 用户输入的环境变量key值
- * @returns { PropertyDecorator } Env装饰器
+ * @param { SystemProperties } value - 环境变量属性名，用于指定要获取的系统环境变量。
+ * @returns { PropertyDecorator } 属性装饰器，开发者无需关注该返回值。
  * @throws { BusinessError } 140000 - Invalid key for @Env
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1330,6 +1068,7 @@ declare function Env<T>(key: SystemEnvKey<T> | SystemProperties): PropertyDecora
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 26.1.0]
  * @atomicservice
  * @since 22 dynamic
  */
@@ -1357,6 +1096,7 @@ declare enum SystemProperties {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1374,6 +1114,7 @@ declare enum SystemProperties {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1391,6 +1132,7 @@ declare enum SystemProperties {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1408,6 +1150,7 @@ declare enum SystemProperties {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1415,211 +1158,129 @@ declare enum SystemProperties {
 }
 
 /**
- * 定义消费属性装饰器。
+ * [@Provide]{@link Provide}和\@Consume配套使用，
+ * 用于[状态管理V1](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v1)，实现跨组件层级的双向同步，
+ * 适用于需要在多层嵌套组件间共享状态的场景，能够避免逐层传递的繁琐，简化组件间的通信逻辑。\@Consume装饰的变量作为数据消费方，通过别名或变量名与\@Provide装饰的变量建立双向绑定关系。
+ * 当\@Provide或\@Consume装饰的变量发生变化时，变化会自动同步到对方。匹配规则：优先使用别名匹配，若未设置别名则使用变量名匹配。
+ *
+ * 开发指南参考：[@Provide装饰器和@Consume装饰器：与后代组件双向同步](docroot://ui/state-management/arkts-provide-and-consume.md)。
+ *
+ * > **说明：**
+ * >
+ * > 从API version 20开始，@Consume装饰的变量支持设置默认值。当查找不到@Provide的匹配结果时，@Consume装饰的变量会使用默认值进行初始化；当查找到@Provide的匹配结果时，
+ * > @Consume装饰的变量会优先使用@Provide匹配结果的值，默认值不生效。
+ * >
+ * > 从API version 20开始，支持跨BuilderNode配对@Provide/@Consume。在BuilderNode场景下，BuilderNode会在上树前构造节点，
+ * > 所以BuilderNode内部定义的@Consume需要设置默认值，并在BuilderNode上树后，重新获取最近的@Provide数据，与之建立双向同步关系。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defining Consume PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defining Consume PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defining Consume PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
 
 /**
- * 定义消费者属性装饰器时，`aliasName` 是唯一的匹配键。如果 `aliasName` 是默认值，则默认属性名称将被视为 `aliasName`。
- * 此外，`@Consumer` 会找到最近的 `@Provider`。
+ * [@Provider]{@link Provider}和@Consumer搭配使用，
+ * 用于[状态管理V2](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)中，实现跨组件层级的数据双向同步。
+ * @Consumer装饰数据消费方，从数据源获取数据，适用于多层嵌套组件间需要共享和同步状态的场景，可避免通过多层组件逐级传递数据的繁琐操作，简化跨组件层级状态管理。如果@Consumer在组件树中未找到别名匹配的@Provider，
+ * 将使用自身初始值，不进行数据同步。
+ *
+ * 开发指南参考：[@Provider装饰器和@Consumer装饰器：跨组件层级双向同步](docroot://ui/state-management/arkts-new-provider-and-consumer.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义消费者属性装饰器时，`aliasName` 是唯一的匹配键。如果 `aliasName` 是默认值，则默认属性名称将被视为 `aliasName`。
- * 此外，`@Consumer` 会找到最近的 `@Provider`。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const Consumer: (aliasName?: string) => PropertyDecorator;
 
 /**
- * 定义@Computed装饰器，用于减少重复计算
+ * @Computed为方法装饰器，用于状态管理V2中，装饰getter方法，使其变为计算属性，其返回值会被缓存，仅当依赖的源数据发生变化时才重新计算，减少重复计算带来的开销。
+ *
+ * 开发指南参考：[@Computed装饰器：计算属性](docroot://ui/state-management/arkts-new-computed.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义@Computed装饰器，用于减少重复计算
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const Computed: MethodDecorator;
 
 /**
- * 定义StorageProp属性装饰器。
+ * @StorageProp用于状态管理V1中，与AppStorage中对应的属性建立单向数据同步。AppStorage中对应属性的变化会同步到@StorageProp装饰的变量，
+ * 但仅修改@StorageProp装饰的变量不会同步回AppStorage。适用于需要跨页面、跨Ability感知AppStorage全局状态变化且仅保持单向数据流的场景，可避免不必要的数据回写。
+ *
+ * 开发指南参考：[AppStorage：应用全局的UI状态存储](docroot://ui/state-management/arkts-appstorage.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义StorageProp属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * 定义StorageProp属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const StorageProp: (value: string) => PropertyDecorator;
 
 /**
- * 定义StorageLink属性装饰器。
+ * @StorageLink是状态管理V1的装饰器，用于与AppStorage中指定键名的属性建立双向数据同步：当@StorageLink装饰的变量发生变化时，变更会同步到AppStorage中该键名对应的属性；
+ * 当AppStorage中该键名对应的属性发生变化时，变更也会同步回@StorageLink装饰的变量。适用于需要跨页面、跨Ability共享AppStorage全局状态并与AppStorage保持双向数据同步的场景，
+ * 可避免逐层传递状态数据，保证数据一致性。
+ *
+ * 开发指南参考：[AppStorage：应用全局的UI状态存储](docroot://ui/state-management/arkts-appstorage.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义StorageLink属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * 定义StorageLink属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const StorageLink: (value: string) => PropertyDecorator;
 
 /**
- * 定义Watch PropertyDecorator。
+ * @Watch装饰器用于状态管理V1中，监听状态变量的变化，并在变量变化时触发指定回调函数。适用于状态变量变化时需要自动执行联动逻辑、数据同步或计算衍生值的场景。
+ *
+ * 开发指南参考：[@Watch装饰器：状态变量更改通知](docroot://ui/state-management/arkts-watch.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义Watch PropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义Watch PropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义Watch PropertyDecorator。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Watch: (value: string) => PropertyDecorator;
 
 /**
- * 定义生成器方法装饰器
+ * \@Builder装饰的函数也称为“自定义构建函数”，用于封装可复用的UI构建逻辑，可在自定义组件中多次调用，从而减少代码重复、提升UI构建的可维护性，适用于需要复用相同UI结构的场景。
+ *
+ * 开发指南参考：[@Builder装饰器：自定义构建函数](docroot://ui/state-management/arkts-builder.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义生成器方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义生成器方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义生成器方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Builder: MethodDecorator;
 
 /**
- * Defining LocalBuilder MethodDecorator
+ * `@LocalBuilder`拥有和局部[`@Builder`]{@link Builder}相同的功能，且比局部`@Builder`能够更好地确定组件的父子关系和状态管理的父子关系。
+ * 适用于需要在自定义构建函数中维持组件父子关系，并保持状态管理同步的场景。
+ * 开发指南参考：[`@LocalBuilder`装饰器：维持组件关系](docroot://ui/state-management/arkts-localBuilder.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1627,78 +1288,37 @@ declare const Builder: MethodDecorator;
  * @form
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 declare const LocalBuilder: MethodDecorator;
 
 /**
- * 定义样式方法装饰器
+ * \@Styles装饰器用于将多条样式设置提炼为一个方法，在组件声明处直接调用，实现自定义样式的定义与复用。适用于多个组件需要共享相同样式、减少重复代码、提升样式一致性维护效率的场景。
+ *
+ * 开发指南参考：[\@Styles装饰器：定义组件重用样式](docroot://ui/state-management/arkts-style.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * 定义样式方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义样式方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义样式方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 declare const Styles: MethodDecorator;
 
 /**
- * 定义扩展方法装饰器
+ * \@Extend装饰器用于扩展指定组件的样式，支持在装饰的函数中统一定义多个样式属性，并可通过参数传递实现样式的灵活复用，适用于需要将相同样式应用到多个组件、减少样式代码重复的场景。
+ *
+ * 开发指南参考：[\@Extend装饰器：定义扩展组件样式（ArkTS-Dyn）](docroot://ui/state-management/arkts-extend.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义扩展方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义扩展方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义扩展方法装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 
@@ -1715,74 +1335,44 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 declare const AnimatableExtend: MethodDecorator & ((value: Object) => MethodDecorator);
 
 /**
- * 定义@Monitor装饰器，用于监听V2的状态变量的变化
+ * @Monitor装饰器在状态管理V2中用于监听状态变量修改，使得状态变量支持深度监听。适用于需要在状态变量或其嵌套属性发生变化时执行自定义逻辑（如数据同步、UI刷新、日志记录等）的场景。相比状态管理V1的@Watch，
+ * @Monitor支持深度监听嵌套对象属性的变化，并从API版本26.0.0开始支持通配符能力，可更灵活地匹配状态变量路径。
+ *
+ * 开发指南参考：[@Monitor装饰器：状态变量修改异步监听](docroot://ui/state-management/arkts-new-monitor.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义@Monitor装饰器，用于监听V2的状态变量的变化
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @noninterop
  */
 declare const Monitor: MonitorDecorator;
 
 /**
- * 定义@Monitor的装饰器类型
+ * @Monitor装饰器的实际类型。
  *
- * @typedef { function } MonitorDecorator
- * @param { string } value - Monitored path input by the user
- * @param { string[] } args - 用户输入的监控路径
- * @returns { MethodDecorator } 监视器装饰器
+ * @param { string } value - Monitored path input by the user [since 12 - 24]
+ * @param { string[] } args - 用于监听的状态变量名路径数组，路径以点号（.）分隔表示嵌套属性（如'a.b.c'），内容由开发者指定。
+ *     当开发者已使用MonitorDecoratorOptions或传入多个字符串时，入参为该类型。不传该参数时默认为空，当value为string类型时，仅监听value参数指定的状态变量路径；
+ *     当value为MonitorDecoratorOptions类型时，需通过该参数指定监听的状态变量路径。传入undefined时，对应的监听不生效。
+ * @param { string | MonitorDecoratorOptions } value - 从API版本26.0.0开始，该参数也可以为MonitorDecoratorOptions类型的对象，
+ *     用于配置通配符能力。 [since 26.0.0]
+ * @returns { MethodDecorator } 方法装饰器，开发者无需关注该返回值。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * 定义@Monitor的装饰器类型
- *
- * @typedef { function } MonitorDecorator
- * @param { string } value - Monitored path input by the user
- * @param { string[] } args - 用户输入的监控路径
- * @returns { MethodDecorator } 监视器装饰器
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
- */
-/**
- * Defines Monitor Decorator type
- *
- * @typedef { function } MonitorDecorator
- * @param { string | MonitorDecoratorOptions } value - 由用户或配置选项输入的监视路径。
- * @param { string[] } args - 用户输入的监控路径
- * @returns { MethodDecorator } 监视器装饰器
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 26.0.0 dynamic
  * @noninterop
  */
 declare type MonitorDecorator = (value: string | MonitorDecoratorOptions, ...args: string[]) => MethodDecorator;
 
 /**
- * 定义MonitorDecoratorOptions接口
+ * @Monitor装饰器的配置选项。
  *
- * @interface MonitorDecoratorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1791,13 +1381,9 @@ declare type MonitorDecorator = (value: string | MonitorDecoratorOptions, ...arg
  * @since 26.0.0 dynamic
  */
 declare interface MonitorDecoratorOptions {
-
   /**
-   * 启用通配符功能。
-   * 设置为true可启用通配符功能，设置为false可禁用通配符功能。
-   * <br>默认值为true。
+   * 是否支持通配符能力。true：使能通配符能力，路径中可使用通配符（'*'）进行模糊监听；false：关闭通配符能力。默认值为true。
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1809,184 +1395,104 @@ declare interface MonitorDecoratorOptions {
 }
 
 /**
- * 定义IMonitor接口
+ * 当监听的状态变量变化时，状态管理框架侧将回调开发者注册的函数，并传入变化信息。变化信息的类型为IMonitor。
  *
- * @interface IMonitor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
  */
-/**
- * 定义IMonitor接口
- *
- * @interface IMonitor
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
- */
 declare interface IMonitor {
-
   /**
-   * 变化的状态变量路径数组集合
+   * 被监听的状态变量中发生变化的属性路径数组，路径格式与@Monitor装饰器指定的状态变量名路径一致，支持点号分隔的嵌套属性路径（如'a.b.c'）。从API版本26.0.0开始，当通配符能力开启时，该数组中可能包含通配符路径，
+   * 通过[value]{@link IMonitor#value}()方法查询通配符路径将返回undefined。
    *
-   * @type { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 23]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * 变化的状态变量路径数组集合
-   *
-   * @type { Array<string> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
    */
   dirty: Array<string>;
 
   /**
-   * 返回给定路径上最近一次更改前的值与当前值的对应关系。
-   * 如果路径不存在，则返回未定义；如果未指定路径，则返回 `dirty` 中第一个路径对应的值对。
+   * 获取指定path的变化信息。
    *
-   * @param { string } [path]
-   * @returns { IMonitorValue<T> | undefined }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { string } [path] - 被监听的状态变量路径名。未指定时默认使用变化路径数组dirty中的第一个路径。从API版本26.0.0开始，默认使用dirty中第一个非通配符路径。
+   *     当指定路径为通配符路径时，返回undefined。
+   * @returns { IMonitorValue<T> | undefined } @Monitor监听状态变量的路径以及变化前后值信息。
+   *     <br>T为监听状态变量的类型。
+   *     <br>当监听的路径不存在时，返回undefined。
+   *     <br>API版本26.0.0之前，当未指定路径时，默认返回变化路径数组dirty中第一个路径对应的信息。
+   *     <br>从API版本26.0.0开始，当未指定路径时，默认返回变化路径数组dirty中第一个非通配符路径对应的信息。
+   *     <br>当指定路径为通配符路径时，返回undefined。
+   *     <br>当未指定路径，且变化路径数组dirty中所有路径均为通配符路径时，返回undefined。
    * @stagemodelonly
    * @crossplatform
+   * @form [since 23]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Return the pair of the value before the most recent change and current value for given path.
-   * If path does not exist, return undefined; If path is not specified, return the value pair
-   * corresponding to the first path in dirty.
-   *
-   * @param { string } [path]
-   * @returns { IMonitorValue<T> | undefined }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
    */
   value<T>(path?: string): IMonitorValue<T> | undefined;
 }
 
 /**
- * 定义IMonitorValue的接口
+ * @Monitor监听状态变量变化的具体信息，通过IMonitor的value接口获取。T为状态变量类型。
  *
- * @interface IMonitorValue<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
  */
-/**
- * 定义IMonitorValue的接口
- *
- * @interface IMonitorValue<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
- */
 declare interface IMonitorValue<T> {
-
   /**
-   * 获取之前的值
+   * 状态变量变化前的值。
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 23]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * 获取之前的值
-   *
-   * @type { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
    */
   before: T;
 
   /**
-   * 获取当前的值
+   * 状态变量当前的值。
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 23]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * 获取当前的值
-   *
-   * @type { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
    */
   now: T;
 
   /**
-   * 监听状态变量路径
+   * 状态变量的路径。
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 23]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * 监听状态变量路径
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
    */
   path: string;
 }
 
 /**
- * 定义 SyncMonitor 方法装饰器。装饰器的路径参数与 Monitor 中定义的相同。
- * 该函数装饰器在功能上等同于启用了 isSynchronous 选项的 UIUtils.addMonitor API。
- * SyncMonitor 必须至少包含一个路径项，多个路径项之间用逗号分隔。
- * 路径项可以是被观察的属性名称，也可以是数组项的索引。SyncMonitor 中的路径
- * 支持在路径项末尾使用通配符，但路径项绝不能出现在路径的开头或中间。
- * 使用一个或多个通配符的其他所有路径都是无效的。
+ * @SyncMonitor用于[状态管理V2](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)，同步监听状态变量修改，使得状态变量
+ * 支持深度监听。适用于需要精确监听对象嵌套属性变化、数组元素修改等深层状态变化的场景，解决了传统监听方式无法感知深层属性变化的问题，提升状态管理的精确性和开发效率。
  *
- * 被 @SyncMonitor 装饰的函数可以在 @ObservedV2 对象和 @ComponentV2 中使用。
+ * 开发指南参考：[@SyncMonitor装饰器：状态变量修改同步监听](docroot://ui/state-management/arkts-new-syncmonitor.md)。
  *
- * @type { MonitorDecorator }
  * @throws { BusinessError } 130001 - The path is invalid.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2008,10 +1514,10 @@ declare const SyncMonitor: MonitorDecorator;
  */
 declare interface AnimatableArithmetic<T> {
   /**
-   * 定义数据类型的加法运算规则。
+   * 定义该数据类型的加法运算规则。需与AnimatableArithmetic\<T\>接口的其他方法一同实现，才能使自定义数据类型参与动画的插值运算。
    *
-   * @param { AnimatableArithmetic<T> } rhs - 加法运算的对象。
-   * @returns { AnimatableArithmetic<T> } 加法运算的结果。
+   * @param { AnimatableArithmetic<T> } rhs - 与自身进行加法运算的另一个数据对象，应与当前对象为相同的具体类型实例。
+   * @returns { AnimatableArithmetic<T> } 加法运算的结果，用于动画插值过程中计算两个数据之间的中间值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2021,10 +1527,10 @@ declare interface AnimatableArithmetic<T> {
   plus(rhs: AnimatableArithmetic<T>): AnimatableArithmetic<T>;
 
   /**
-   * 定义该数据类型的减法运算规则。
+   * 定义该数据类型的减法运算规则，在动画插值运算中用于计算起始值与目标值之间的差值，差值将作为乘法运算的输入。需与AnimatableArithmetic\<T\>接口的其他方法一同实现，才能使自定义数据类型参与动画的插值运算。
    *
-   * @param { AnimatableArithmetic<T> } rhs - 减法运算的对象。
-   * @returns { AnimatableArithmetic<T> } 减法运算的结果。
+   * @param { AnimatableArithmetic<T> } rhs - 与自身进行减法运算的另一个数据对象，应与当前对象为相同的具体类型实例。
+   * @returns { AnimatableArithmetic<T> } 减法运算的结果，用于动画插值过程中计算数据差值以得到中间帧数据。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2034,10 +1540,11 @@ declare interface AnimatableArithmetic<T> {
   subtract(rhs: AnimatableArithmetic<T>): AnimatableArithmetic<T>;
 
   /**
-   * 定义该数据类型的乘法运算规则。
+   * 定义该数据类型的乘法运算规则，在动画插值运算中用于按动画进度比例（0到1之间）对差值进行缩放，缩放后的差值将通过plus运算加到起始值上。需与AnimatableArithmetic\<T\>接口的其他方法一同实现，才能使自定义数
+   * 据类型参与动画的插值运算。
    *
-   * @param { number } scale - 乘法运算的系数。
-   * @returns { AnimatableArithmetic<T> } 乘法运算的结果。
+   * @param { number } scale - 乘法运算的系数，取值范围为[0, +∞)，动画插值时典型取值范围为[0, 1]。
+   * @returns { AnimatableArithmetic<T> } 乘法运算的结果，用于动画插值过程中按系数缩放数据以计算中间帧数据。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2047,9 +1554,9 @@ declare interface AnimatableArithmetic<T> {
   multiply(scale: number): AnimatableArithmetic<T>;
 
   /**
-   * 定义该数据类型的相等判断规则。
+   * 定义该数据类型的相等判断规则，在动画过程中用于识别数据是否发生改变，若当前值与目标值相等则不再触发动画过渡。需与AnimatableArithmetic\<T\>接口的其他方法一同实现，才能使自定义数据类型参与动画的插值运算。
    *
-   * @param { AnimatableArithmetic<T> } rhs - 和自身比较相等的另一个数据对象。
+   * @param { AnimatableArithmetic<T> } rhs - 与当前对象判断是否相等的另一个数据对象。
    * @returns { boolean } 是否相等。返回true表示相等，返回false表示不相等。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2123,57 +1630,33 @@ declare const Sendable: ClassDecorator;
 declare const CustomDialog: ClassDecorator;
 
 /**
- * 定义LocalStorageLink属性装饰器。
+ * @LocalStorageLink在状态管理V1中使用，用于与LocalStorage中指定键名对应的属性建立双向数据同步：@LocalStorageLink装饰的变量与LocalStorage中对应属性任一方发生变化时，
+ * 变更均会同步到另一方。适用于需要在多个组件间共享UI状态并与LocalStorage保持数据实时同步的场景，可避免逐层传递数据，保证跨组件数据一致性。
+ *
+ * 开发指南参考：[LocalStorage：页面级UI状态存储](docroot://ui/state-management/arkts-localstorage.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 9
- */
-/**
- * 定义LocalStorageLink属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * 定义LocalStorageLink属性装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @noninterop
  */
 declare const LocalStorageLink: (value: string) => PropertyDecorator;
 
 /**
- * 定义LocalStorageProp属性装饰器
+ * @LocalStorageProp在状态管理V1中使用，用于与LocalStorage中指定键名对应的属性建立单向数据同步：LocalStorage中对应属性值的变更会同步到@LocalStorageProp装饰的变量，
+ * 但仅修改@LocalStorageProp装饰的变量不会同步回LocalStorage。适用于需要在多个组件间共享LocalStorage且仅保持单向数据流的场景，可避免不必要的数据回写。
+ *
+ * 开发指南参考：[LocalStorage：页面级UI状态存储](docroot://ui/state-management/arkts-localstorage.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
+ * @crossplatform [since 10]
  * @form
- * @since 9
- */
-/**
- * 定义LocalStorageProp属性装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义LocalStorageProp属性装饰器
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
+ * @noninterop
  */
 declare const LocalStorageProp: (value: string) => PropertyDecorator;
 
@@ -2233,37 +1716,27 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
 declare function getContext(component?: Object): Context;
 
 /**
- * 定义组件复用的类装饰器。
+ * 为了降低反复创建销毁自定义组件带来的性能开销，开发者可以使用\@Reusable装饰\@Component装饰的自定义组件，实现组件复用。\@Reusable支持通过reuseId标识不同类型的可复用组件，提供
+ * aboutToReuse回调接收复用参数，并支持配置内存优化策略。该装饰器适用于列表滚动、频繁切换组件显示与隐藏等需要反复创建销毁组件的场景。
+ * 
+ * 开发指南参考：[@Reusable装饰器：组件复用](docroot://ui/state-management/arkts-reusable.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * 定义组件复用的类装饰器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  * @noninterop
- */
-/**
- * 定义组件复用的类装饰器。
- *
- * Reusable is a ClassDecorator and it supports ReusableOptions as a parameters.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
  */
 declare const Reusable: ClassDecorator & ((options: ReusableOptions) => ClassDecorator);
 
 /**
+ * 为了降低反复创建销毁自定义组件带来的性能开销，开发者可以使用\@ReusableV2装饰[\@ComponentV2]{@link ComponentV2}装饰的自定义组件，达成组件复用的效果，
+ * 适用于列表滚动、频繁切换组件显示/隐藏等需要反复创建和销毁组件的场景，支持通过参数配置内存优化策略。
+ * 
+ * 开发指南参考：[\@ReusableV2装饰器：组件复用](docroot://ui/state-management/arkts-new-reusableV2.md)。
+ * 
+ * 组件复用的原理与适用场景参考：[组件复用最佳实践](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-component-reuse)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2272,23 +1745,14 @@ declare const Reusable: ClassDecorator & ((options: ReusableOptions) => ClassDec
  * @since 18 dynamic
  * @noninterop
  */
-/**
- *
- * ReusableV2 is a ClassDecorator and it supports ReusableOptions as a parameters.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
- */
 declare const ReusableV2: ClassDecorator & ((options: ReusableOptions) => ClassDecorator);
 
 /**
- * ReuseId callback type. It is used to compute reuseId.
+ * 获取复用标识ID的回调方法。
  *
- * @typedef { function } ReuseIdCallback
- * @returns { string }
+ * @returns { string } 复用标识ID，由开发者指定。
+ *     <br>未指定或使用空字符串`''`作为复用标识ID时，将默认使用自定义组件名。
+ *     <br>在API版本26.0.0之前，当该回调不是显式返回字符串字面量时，实际复用标识ID将为自定义组件名，回调返回值不生效；在API版本26.0.0及以后，回调的实际返回结果将作为复用标识ID。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2298,9 +1762,8 @@ declare const ReusableV2: ClassDecorator & ((options: ReusableOptions) => ClassD
 declare type ReuseIdCallback = () => string;
 
 /**
- * Defining the reusable configuration parameters.
+ * 复用选项，用于配置复用标识ID，相同复用标识ID的组件会被互相复用，提高复用匹配的精确度。
  *
- * @interface ReuseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2308,11 +1771,15 @@ declare type ReuseIdCallback = () => string;
  * @since 18 dynamic
  */
 declare interface ReuseOptions {
-
   /**
-   * Defining reuseId function. The default reuseId is the custom component name.
+   * 复用标识ID，相同复用标识ID的V2自定义组件会被互相复用。默认的复用标识ID为自定义组件名。
+   * 
+   * 在API版本26.0.0之前，当reuseId不是显式返回字符串字面量的回调方法时，实际的复用标识ID为该自定义组件的名称。例如，`Child().reuse({ reuseId: () => getReuseId() })`的实
+   * 际复用标识ID为`"Child"`。
+   * 
+   * 在API版本26.0.0及以后，支持将非显式返回字符串字面量形式的reuseId作为实际的复用标识ID。例如，`Child().reuse({ reuseId: () => getReuseId() })`的实际复用标识ID为
+   * `getReuseId()`的返回结果。
    *
-   * @type { ?ReuseIdCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2321,33 +1788,14 @@ declare interface ReuseOptions {
    */
   reuseId? : ReuseIdCallback;
 }
-
 /**
  * Get context.
  *
- * @typedef { import('../api/application/Context').default } Context
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
- * @since 9
- */
-/**
- * Get context.
- *
- * @typedef { import('../api/application/Context').default } Context
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @StageModelOnly
- * @crossplatform
- * @since 10
- */
-/**
- * Get context.
- *
- * @typedef { import('../api/application/Context').default } Context
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @StageModelOnly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare type Context = import('../api/application/Context').default;
 
@@ -2700,7 +2148,7 @@ declare interface ExpectedFrameRateRange {
   /**
    * 期望的最大帧率，单位为帧/秒（fps）。
    * 
-   * 取值范围为[min, 设备最大帧率]。
+   * 取值范围为[min, 设备最大帧率]。设备最大帧率取决于设备屏幕的刷新率，例如60Hz屏幕的设备最大帧率为60fps，120Hz屏幕的设备最大帧率为120fps。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2712,7 +2160,7 @@ declare interface ExpectedFrameRateRange {
   /**
    * 期望的最优帧率，单位为帧/秒（fps）。
    * 
-   * 取值范围为[min, max]。设置为0时，将跟随应用的帧率。
+   * 取值范围为[min, max]，超出范围时不生效。设置为0时，将跟随应用的帧率。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4376,7 +3824,7 @@ declare type AccessibilityActionInterceptCallback = (action: AccessibilityAction
  */
 declare enum FinishCallbackType {
   /**
-   * 当整个动画结束并立即删除时，将触发回调。
+   * 当整个动画结束并被移除时，将触发回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4387,7 +3835,7 @@ declare enum FinishCallbackType {
    */
   REMOVED = 0,
   /**
-   * 当动画在逻辑上处于下降状态，但可能仍处于其长尾状态时，将触发回调。
+   * 当动画在逻辑上已经完成但可能仍处于长尾状态时触发回调。即动画的主要运动逻辑已完成时触发onFinish回调，但动画可能仍有长尾效果（如弹簧曲线的余震衰减）继续运行，此回调在逻辑完成时即触发，而非等待长尾效果完全消失。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4450,6 +3898,16 @@ declare enum TouchTestStrategy {
 
 /**
  * 动画效果相关参数。
+ * 
+ * > **PlayMode说明：**
+ * >
+ * > - PlayMode推荐使用PlayMode.Normal和PlayMode.Alternate，此场景下动画的第一轮是正向播放的。如使用PlayMode.Reverse和PlayMode.AlternateReverse，则动画
+ * > 的第一轮是逆向播放的，在动画刚开始时会跳变到终止状态，然后逆向播放动画。
+ * >
+ * > - 使用PlayMode.Alternate或PlayMode.AlternateReverse时，开发者应保证动画最终状态和状态变量的取值一致，即应保证动画的最后一轮是正向播放的。使用PlayMode.Alternate时，
+ * > iterations应为奇数，否则动画最终状态和状态变量的取值可能不一致。使用PlayMode.AlternateReverse时，iterations应为偶数，否则动画最终状态和状态变量的取值可能不一致。
+ * >
+ * > - 不推荐使用PlayMode.Reverse，此场景下不仅会导致动画刚开始就跳变到终止状态，也会导致动画最终状态和状态变量的取值不同。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -4459,7 +3917,9 @@ declare enum TouchTestStrategy {
  */
 declare interface AnimateParam {
   /**
-   * 动画持续时间，单位为毫秒。
+   * 动画持续时间，单位为ms（毫秒）。
+   * 
+   * 取值范围：[0, +∞)
    * 
    * 默认值：1000
    * 
@@ -4467,8 +3927,8 @@ declare interface AnimateParam {
    * 
    * 2. 可以通过在持续时间为0的动画闭包函数中改变属性，以实现停止该属性动画的效果。
    * 3. 设置小于0的值时按0处理。
-   * 4. 设置浮点型类型的值时，向下取整。例如，设置值为1.2，按照1处理。
-   * 5. curve配置[springMotion]{@link @ohos.curves:curves.springMotion}、[responsiveSpringMotion]{@link @ohos.curves:curves.responsiveSpringMotion}、[interpolatingSpring]{@link @ohos.curves:curves.interpolatingSpring}曲线时，duration不生效。
+   * 4. 设置浮点类型的值时，截断取整。例如，设置值为1.2，按照1处理。
+   * 5. curve配置[springMotion]{@link @ohos.curves:curves.springMotion}、[responsiveSpringMotion]{@link @ohos.curves:curves.responsiveSpringMotion}、[interpolatingSpring]{@link @ohos.curves:curves.interpolatingSpring}曲线时，duration不生效，动画持续时间由弹簧曲线自身的物理参数（mass、stiffness、damping等）决定。
    *
    * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4481,7 +3941,7 @@ declare interface AnimateParam {
   /**
    * 动画播放速度，值越大动画播放越快，值越小播放越慢，为0时无动画效果。
    * 
-   * 当设置为+∞时，动画会在当帧结束，动画结束回调会立即执行。
+   * 当设置为+∞时，动画会在当前帧结束，动画结束回调会立即执行。
    * 
    * 默认值：1.0
    * 
@@ -4505,7 +3965,7 @@ declare interface AnimateParam {
    * 
    * "linear"：动画线性变化。
    * 
-   * "ease"：动画开始和结束时的速度较慢，cubic-bezier(0.25、0.1、0.25、1.0)。
+   * "ease"：动画开始和结束时的速度较慢，cubic-bezier(0.25, 0.1, 0.25, 1.0)。
    * 
    * "ease-in"：动画播放速度先慢后快，cubic-bezier(0.42, 0.0, 1.0, 1.0)。
    * 
@@ -4545,6 +4005,9 @@ declare interface AnimateParam {
    * [curves.springMotion]{@link @ohos.curves:curves.springMotion}。
    * 
    * 默认值：Curve.EaseInOut
+   * 
+   * **说明：** 当curve传入的string值不在上述可选值范围内时，使用默认值Curve.EaseInOut。当curve配置为弹簧类曲线（interpolating-spring、responsive-spring-
+   * motion、spring-motion）时，duration参数不生效。
    *
    * @type { ?(Curve | string) } [since 7 - 8]
    * @type { ?(Curve | string | ICurve) } [since 9]
@@ -4558,16 +4021,16 @@ declare interface AnimateParam {
   curve?: Curve | string | ICurve;
 
   /**
-   * 动画延迟播放时间，单位为ms(毫秒)，默认不延时播放。
+   * 动画延迟播放时间，单位为ms（毫秒），默认不延迟播放。
    * 
    * 默认值：0
    * 
    * 取值范围：(-∞, +∞)
    * 
    * **说明**：1.delay>=0为延迟播放，delay<0表示提前播放。对于delay<0的情况：当delay的绝对值小于实际动画时长，动画将在开始后第一帧直接运动到delay绝对值的时刻的状态；当delay的绝对值大于等于实际
-   * 动画时长，动画将在开始后第一帧直接运动到终点状态。其中实际动画时长等于单次动画时长乘以动画播放次数。
+   * 动画时长，动画将在开始后第一帧直接运动到终点状态。其中实际动画时长等于单次动画时长乘以动画播放次数，同时受tempo（播放速度）影响。
    * 
-   * 2. 设置浮点型类型的值时，向下取整。例如，设置值为1.2，按照1处理。
+   * 2. 设置浮点类型的值时，截断取整。例如，设置值为1.2，按照1处理。
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4578,13 +4041,14 @@ declare interface AnimateParam {
   delay?: number;
 
   /**
-   * 动画播放次数。默认播放一次，设置为-1时表示无限次播放。设置为0时表示无动画效果。
+   * 动画播放次数。默认播放一次，设置为-1时表示无限次播放。设置为0时表示无动画效果。使用PlayMode.Alternate时iterations应为奇数，使用PlayMode.AlternateReverse时iterations
+   * 应为偶数，以保证动画最终状态和状态变量的取值一致，详见PlayMode说明。
    * 
    * 默认值：1 
    * 
    * 取值范围：[-1, +∞)
    * 
-   * **说明**：设置浮点型类型的值时，向下取整。例如，设置值为1.2，按照1处理。
+   * **说明**：设置浮点类型的值时，截断取整。例如，设置值为1.2，按照1处理。
    *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4595,21 +4059,12 @@ declare interface AnimateParam {
   iterations?: number;
 
   /**
-   * 动画播放模式，默认播放完成后从头开始播放。
+   * 动画播放模式。各模式完整行为说明：PlayMode.Normal每轮正向播放，播放完成后从头开始重复；PlayMode.Alternate正逆交替播放，第一轮正向，第二轮逆向，依次交替；PlayMode.Reverse每轮逆向播
+   * 放，动画开始时跳变到终止状态后逆向播放；PlayMode.AlternateReverse逆正交替播放，第一轮逆向（动画开始时跳变到终止状态），第二轮正向，依次交替。
    * 
    * 默认值：PlayMode.Normal
    * 
    * 相关使用约束请参考PlayMode说明。
-   * 
-   * > **PlayMode说明：**
-   * >
-   * > - PlayMode推荐使用PlayMode.Normal和PlayMode.Alternate，此场景下动画的第一轮是正向播放的。如使用PlayMode.Reverse和PlayMode.AlternateReverse，则动画
-   * > 的第一轮是逆向播放的，在动画刚开始时会跳变到终止状态，然后逆向播放动画。
-   * >
-   * > - 使用PlayMode.Alternate或PlayMode.AlternateReverse时，开发者应保证动画最终状态和状态变量的取值一致，即应保证动画的最后一轮是正向播放的。使用PlayMode.Alternate时，
-   * > iterations应为奇数。使用PlayMode.AlternateReverse时，iterations应为偶数。
-   * >
-   * > - 不推荐使用PlayMode.Reverse，此场景下不仅会导致动画刚开始就跳变到终止状态，也会导致动画最终状态和状态变量的取值不同。
    *
    * @default PlayMode.Normal
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4621,9 +4076,9 @@ declare interface AnimateParam {
   playMode?: PlayMode;
 
   /**
-   * 动画播放完成回调。UIAbility从前台切换至后台时会立即结束仍在步进中的有限循环动画，触发播放完成回调。
+   * 动画播放完成回调，回调触发时机受finishCallbackType参数影响，详见finishCallbackType说明。UIAbility从前台切换至后台时会立即结束仍在步进中的有限循环动画，触发播放完成回调。
    * 
-   * 在设置的开发者选项中关闭过渡动画，以及tempo设置为+∞时，动画播放完成回调会立即执行。
+   * 在系统设置的开发者选项中关闭过渡动画，以及tempo设置为+∞时，动画播放完成回调会立即执行。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4634,7 +4089,7 @@ declare interface AnimateParam {
   onFinish?: () => void;
 
   /**
-   * 在动画中定义onFinish回调的类型。
+   * 在动画中定义onFinish回调的类型，需先设置onFinish回调，此参数才有效。
    * 
    * 默认值：FinishCallbackType.REMOVED
    *
@@ -4648,7 +4103,7 @@ declare interface AnimateParam {
   finishCallbackType?: FinishCallbackType;
 
   /**
-   * 设置动画的期望帧率。
+   * 设置动画的期望帧率。相关使用约束请参考ExpectedFrameRateRange说明。设置为0时，期望帧率将跟随应用的帧率；超出取值范围时自动修正为边界值。未设置时，动画将按应用默认帧率运行。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4669,10 +4124,13 @@ declare interface AnimateParam {
  */
 interface ICurve {
   /**
-   * 插值曲线的插值计算函数，可以通过传入的归一化时间参数返回当前的插值
+   * 插值曲线的插值计算函数，可以通过传入的归一化时间参数返回当前的插值。
    *
-   * @param { number } fraction - 当前的归一化时间参数。<br/>取值范围：[0,1]<br/>**说明：** <br/>设置的值小于0时，按0处理；设置的值大于1时，按1处理。
-   * @returns { number } 返回归一化time时间点对应的曲线插值。
+   * @param { number } fraction - 当前的归一化时间参数。
+   *     <br>取值范围：[0,1]
+   *     <br>**说明：** 
+   *     <br>设置的值小于0时，按0处理；设置的值大于1时，按1处理。
+   * @returns { number } 返回归一化时间点对应的曲线插值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form
@@ -4683,7 +4141,7 @@ interface ICurve {
 }
 
 /**
- * 设置组件的运动路径。
+ * 路径动画的运动路径参数选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -4692,11 +4150,11 @@ interface ICurve {
  */
 declare interface MotionPathOptions {
   /**
-   * 位移动画的运动路径，使用[svg路径字符串](docroot://reference/apis-arkui/arkui-ts/ts-drawing-components-path.md#svg路径描述规范)。path中支持使用
+   * 位移动画的运动路径，使用[svg路径字符串]{@link PathOptions#commands}。path中支持使用
    * start和end进行起点和终点的替代，如：'Mstart.x start.y L50 50 Lend.x end.y Z'，更多说明请参考
    * [绘制路径](docroot://ui/ui-js-components-svg-path.md)。
    * 
-   * 设置为空字符串时相当于不设置路径动画。
+   * 设置为空字符串时相当于不设置路径动画，传入不符合SVG路径规范的字符串时路径动画不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4706,13 +4164,15 @@ declare interface MotionPathOptions {
   path: string;
 
   /**
-   * 运动路径的起点。
+   * 运动路径的起点位置比例。
    * 
    * 默认值：0.0
    * 
    * 取值范围：[0.0, 1.0]
    * 
    * 设置小于0.0或大于1.0的值时，按默认值0.0处理。
+   * 
+   * from的处理值会约束to的取值，需满足to值 >= from的处理值。当from等于to时（无论是开发者主动设置还是因超出范围被修正），组件在路径上不产生位移。
    *
    * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4723,13 +4183,16 @@ declare interface MotionPathOptions {
   from?: number;
 
   /**
-   * 运动路径的终点。
+   * 运动路径的终止位置比例。
+   * 
+   * 取值原则：数值表示路径上的比例位置，0.0为路径起点，1.0为路径终点，中间值为路径上的对应比例位置。
    * 
    * 默认值：1.0
    * 
    * 取值范围：[0.0, 1.0]
    * 
-   * 设置小于0.0或大于1.0的值时，按默认值1.0处理，且满足to值 >= 异常值处理后的from值。
+   * 设置小于0.0或大于1.0的值时，按默认值1.0处理，且满足to值 >= 异常值处理后的from值。当处理后的to值小于异常值处理后的from值时，to值会被修正为等于异常值处理后的from值，即to被向上修正至与from相同。当
+   * from等于to时（无论是开发者主动设置还是因超出范围被修正），组件在路径上不产生位移。
    *
    * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4740,7 +4203,7 @@ declare interface MotionPathOptions {
   to?: number;
 
   /**
-   * 是否跟随路径进行旋转。true代表跟随路径进行旋转，false代表不跟随路径进行旋转。
+   * 是否跟随路径进行旋转。true代表组件沿运动方向自动旋转（旋转角度由路径切线方向决定），false代表不跟随路径进行旋转。
    * 
    * 默认值：false
    *
@@ -4754,14 +4217,15 @@ declare interface MotionPathOptions {
 }
 
 /**
- * 共享元素转场动画参数。
+ * 共享元素转场动效参数。
  * 
  * > **说明：**
  * >
  * > type为SharedTransitionEffectType.Exchange时motionPath才会生效。
  * >
- * > type为SharedTransitionEffectType.Exchange时，效果为对匹配的共享元素产生位置、大小的过渡（可通过配置组件的border观察），不支持内容的过渡效果。例如，Text组件在两个页面上使用不同的
- * > fontSize属性值，即绘制内容有大小差异，在sharedTransition动画结束后的最后一帧，Text的fontSize效果会突变为跳转目标页fontSize的效果。
+ * > type为SharedTransitionEffectType.Exchange时，效果为对匹配的共享元素产生位置、大小的过渡（可通过配置组件的border观察），不支持组件绘制内容的过渡效果（可通过为共享元素组件配置border
+ * > 属性来观察位置和大小变化的过渡范围）。例如，Text组件在两个页面上使用不同的fontSize属性值，即绘制内容有大小差异，在sharedTransition动画结束后的最后一帧，Text的fontSize效果会突变为跳转目标页
+ * > fontSize的效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -4792,7 +4256,7 @@ declare interface sharedTransitionOptions {
    * 推荐以Curve或ICurve形式指定。
    * 
    * 当类型为string时，为动画插值曲线，取值参考
-   * [AnimateParam](docroot://reference/apis-arkui/arkui-ts/ts-explicit-animation.md#animateparam对象说明)的curve参数。
+   * [AnimateParam]{@link AnimateParam}的curve参数。
    * 
    * 默认值：Curve.Linear
    *
@@ -4822,7 +4286,7 @@ declare interface sharedTransitionOptions {
   delay?: number;
 
   /**
-   * 运动路径信息。
+   * 运动路径信息，用于定义共享元素转场时的运动轨迹。不设置时不启用运动路径效果。仅在type为SharedTransitionEffectType.Exchange时生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4832,11 +4296,14 @@ declare interface sharedTransitionOptions {
   motionPath?: MotionPathOptions;
 
   /**
-   * 设置Z轴。
+   * 设置共享元素在转场动画期间的Z轴堆叠顺序。
    * 
    * 取值范围：(-∞, +∞)
    * 
    * 默认值：0
+   * 
+   * 数值越大，该共享元素在转场过程中越靠前（显示在上层），越不容易被其他共享元素遮挡。此zIndex仅在共享元素转场动画期间生效，控制共享元素相对于其他同时参与转场的共享元素在Z轴上的堆叠顺序，不参与页面内普通组件的静态布局层级控制（
+   * 页面内组件的静态布局层级由组件通用属性[zIndex]{@link CommonMethod#zIndex}控制）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4846,7 +4313,8 @@ declare interface sharedTransitionOptions {
   zIndex?: number;
 
   /**
-   * 动画类型。
+   * 动画类型，决定共享元素转场时的过渡方式。Exchange类型产生位置、大小的过渡动画（不支持内容过渡效果），其他类型详见
+   * [SharedTransitionEffectType]{@link SharedTransitionEffectType}。
    * 
    * 默认值：SharedTransitionEffectType.Exchange
    *
@@ -4861,7 +4329,6 @@ declare interface sharedTransitionOptions {
 
 /**
  *
- * @interface GeometryTransitionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4870,7 +4337,7 @@ declare interface sharedTransitionOptions {
  */
 declare interface GeometryTransitionOptions {
   /**
-   * 仅用于if范式下标记始终在组件树上的组件是否跟随做共享动画。true代表跟随做共享动画，false代表不跟随做共享动画。
+   * 仅用于if范式下标记始终在组件树上的组件是否跟随共享元素转场。if范式是指在build()方法中使用if条件语句控制组件显隐的声明式UI开发模式。true表示跟随共享元素转场，false表示不跟随共享元素转场。
    * 
    * 默认值：false
    *
@@ -4882,7 +4349,6 @@ declare interface GeometryTransitionOptions {
    * @since 11 dynamic
    */
   follow?: boolean;
-
   /**
    * 决定共享元素动画过程中in/out组件在组件树上层级位置的移动策略，默认值：TransitionHierarchyStrategy.ADAPTIVE。
    * 
@@ -4903,13 +4369,12 @@ declare interface GeometryTransitionOptions {
 }
 
 /**
-* 线性渐变的参数。
-*
-* > **说明：**
-* >
-* > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
-*
- * @interface LinearGradientOptions
+ * 线性渐变的参数。
+ * 
+ * > **说明：**
+ * >
+ * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4918,255 +4383,86 @@ declare interface GeometryTransitionOptions {
  * @since 18 dynamic
  */
 declare interface LinearGradientOptions {
-
   /**
-   * angle: Angle of Linear Gradient. The default value is 180;
+   * 线性渐变的角度，number类型时单位为度（°）。角度为0度时渐变方向从下往上，顺时针旋转为正向角度。
+   * 
+   * 取值范围：(-∞,+∞)，设置的值大于0时，按顺时针方向，小于0时，按逆时针方向。
+   * 
+   * 默认值：180
+   * 
+   * 角度为字符串时，合法的取值为数字（默认单位为度，即deg）或数字后带"deg"（度）、"rad"（弧度）、"grad"（梯度）、"turn"（圈）单位，例如："90"、 "90deg"、"1.57rad"。传入非法格式的字符串时，
+   * 按默认值180处理。
    *
-   * @type { ?(number | string) }
+   * @default 180 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * angle: Angle of Linear Gradient. The default value is 180;
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * angle: Angle of Linear Gradient. The default value is 180;
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * angle: Angle of Linear Gradient. The default value is 180;
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * angle: Angle of Linear Gradient. The default value is 180;
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines starting angle of linear gradient.
-   *
-   * Anonymous Object Rectification.
-   * @type { ?(number | string) }
-   * @default 180
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   angle?: number | string;
 
   /**
-   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
+   * 线性渐变的方向，设置angle为非undefined后，direction不生效。设置为GradientDirection.None时，按默认方向渐变。默认值：GradientDirection.Bottom。
    *
-   * @type { ?GradientDirection }
+   * @default GradientDirection.Bottom [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
-   *
-   * @type { ?GradientDirection }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
-   *
-   * @type { ?GradientDirection }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
-   *
-   * @type { ?GradientDirection }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
-   *
-   * @type { ?GradientDirection }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines the direction of linear gradient.
-   *
-   * Anonymous Object Rectification.
-   * @type { ?GradientDirection }
-   * @default GradientDirection.Bottom
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   direction?: GradientDirection;
 
   /**
-   * colors: Color description for gradients.
+   * 指定渐变色和其对应的百分比位置的数组，设置不符合ResourceColor格式要求的颜色值时，该颜色项直接跳过不生效。设置metricsColors时此参数失效。ResourceColor表示颜色，number表示该颜色所处的位
+   * 置，取值范围为[0, 1.0]，设置的值小于0时，按0处理，设置的值大于1.0时，按1.0处理。0表示需要设置渐变色的开始处，1.0表示渐变色的结束处。为了实现多个颜色渐变效果，多个数组中的number类型参数应递增设置。如果后一
+   * 个数组中的number类型参数小于前一个数组的number类型参数，将按照等于前一个数组number值处理。
+   * 
+   * 默认值：[]，无渐变效果。
    *
-   * @type { Array<[ResourceColor, number]> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * colors: Color description for gradients.
-   *
-   * @type { Array<[ResourceColor, number]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * colors: Color description for gradients.
-   *
-   * @type { Array<[ResourceColor, number]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * colors: Color description for gradients.
-   *
-   * @type { Array<[ResourceColor, number]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * colors: Color description for gradients.
-   *
-   * @type { Array<[ResourceColor, number]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines color description for gradients.
-   *
-   * Anonymous Object Rectification.
-   * @type { Array<[ResourceColor, number]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   colors: Array<[ResourceColor, number]>;
 
   /**
-   * repeating: repeating. The default value is false
+   * 设置渐变颜色是否在组件范围内循环重复填充。
+   * 
+   * 默认值：false。
+   * 
+   * true：渐变效果在组件范围内循环重复。
+   * 
+   * false：渐变效果仅在指定范围内显示一次。
    *
-   * @type { ?boolean }
+   * @default false [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * repeating: repeating. The default value is false
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * repeating: repeating. The default value is false
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * repeating: repeating. The default value is false
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * repeating: repeating. The default value is false
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines gradient colors with repeated coloring.
-   *
-   * Anonymous Object Rectification.
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   repeating?: boolean;
 }
 
 /**
-* 角度渐变参数。
-*
-* > **说明：**
-* >
-* > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
-*
-* > **说明：**
-* >
-* > metricsColors参数的约束：
-* >
-* > [ColorMetrics]{@link Graphics:ColorMetrics}表示填充的颜色，可以使用[colorWithSpace]{@link Graphics:ColorMetrics#colorWithSpace}
-* > 方法构造指定色域属性的颜色。number表示指定颜色所处的位置，取值范围为[0, 1.0]，0表示需要设置渐变色的容器开始处，1.0表示容器的结束处。为了实现多个颜色渐变效果，多个数组中的number类型参数应递增设置。如果后一个
-* > 数组中的number类型参数小于前一个数组的number类型参数，将按照等于前一个数组number值处理。
-*
- * @interface SweepGradientOptions
+ * 角度渐变参数。
+ * 
+ * > **说明：**
+ * >
+ * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
+ * > > **说明：**
+ * >
+ * > metricsColors参数的约束：
+ * >
+ * > [ColorMetrics]{@link ../../../arkui/Graphics:ColorMetrics}表示填充的颜色，可以使用
+ * > [colorWithSpace]{@link ../../../arkui/Graphics:ColorMetrics#colorWithSpace}方法构造指定色域属性的颜色。number表示指定颜色所处的位置，取值范围为
+ * > [0, 1.0]，设置的值小于0时，按0处理，设置的值大于1.0时，按1.0处理。0表示当前组件渐变区域的开始处，1.0表示渐变区域的结束处。为了实现多个颜色渐变效果，多个数组中的number类型参数应递增设置。如果后一个数组中的
+ * > number类型参数小于前一个数组的number类型参数，将按照等于前一个数组number值处理。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5175,305 +4471,99 @@ declare interface LinearGradientOptions {
  * @since 18 dynamic
  */
 declare interface SweepGradientOptions {
-
   /**
-   * center:is the center point of the angle gradient
+   * 为角度渐变的中心点，即相对于当前组件左上角的坐标，number类型时单位为vp。
    *
-   * @type { [Length, Length] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * center:is the center point of the angle gradient
-   *
-   * @type { [Length, Length] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * center:is the center point of the angle gradient
-   *
-   * @type { [Length, Length] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * center:is the center point of the angle gradient
-   *
-   * @type { [Length, Length] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * center:is the center point of the angle gradient
-   *
-   * @type { [Length, Length] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines center point for angle gradient.
-   *
-   * Anonymous Object Rectification.
-   * @type { [Length, Length] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   center: [Length, Length];
 
   /**
-   * start:Start point of angle gradient. The default value is 0
+   * 角度渐变的起点。未设置start时，默认值为0，即起始角度为0度。
+   * 
+   * 角度为字符串时，合法的取值为数字（默认单位为度，即deg）或数字后带"deg"（度）、"rad"（弧度）、"grad"（梯度）、"turn"（圈）单位。例如："90"、 "90deg"、"1.57rad"。传入非法格式的字符串时，
+   * 按默认值0处理。取值有0到360度的限制，转换为度的单位之后，值在0到360度之间，设置为小于0度的值时，按值为0度处理，设置为大于360度的值时，按值为360度处理。
    *
-   * @param { ?(number | string) }
+   * @default 0 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * start:Start point of angle gradient. The default value is 0
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Angle Gradient
-   * start:Start point of angle gradient. The default value is 0
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * start:Start point of angle gradient. The default value is 0
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * start:Start point of angle gradient. The default value is 0
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines the starting point of angle gradient.
-   *
-   * Anonymous Object Rectification.
-   * @type { ?(number | string) }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   start?: number | string;
 
   /**
-   * end:End point of angle gradient. The default value is 0
+   * 角度渐变的终点。取值范围：[0, 360]。转换为度的单位之后，设置为小于0度的值时，按值为0度处理，设置为大于360度的值时，按值为360度处理。默认值：0。
+   * 
+   * 角度为字符串时，合法的取值为数字（默认单位为度，即deg）或数字后带"deg"（度）、"rad"（弧度）、"grad"（梯度）、"turn"（圈）单位。例如："90"、 "90deg"、"1.57rad"。传入非法格式的字符串时，
+   * 按默认值0处理。
    *
-   * @type { ?(number | string) }
+   * @default 0 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * end:End point of angle gradient. The default value is 0
-   *
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * end:End point of angle gradient. The default value is 0
-   *
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * end:End point of angle gradient. The default value is 0
-   *
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * end:End point of angle gradient. The default value is 0
-   *
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines end point of angle gradient.
-   *
-   * Anonymous Object Rectification.
-   * @type { ?(number | string) }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   end?: number | string;
 
   /**
-   * rotating:rotating. The default value is 0
+   * 角度渐变的旋转角度。未设置rotation时，默认值为0，即不旋转。
+   * 
+   * 角度为字符串时，合法的取值为数字或数字后带"deg"（度）、"rad"（弧度）、"grad"（梯度）、"turn"（圈）单位。例如："90"、 "90deg"、"1.57rad"。传入非法格式的字符串时，按默认值0处理。取值有0到
+   * 360度的限制，转换为度的单位之后，值在0到360度之间，设置为小于0度的值时，按值为0度处理，设置为大于360度的值时，按值为360度处理。
    *
-   * @type { ?(number | string) }
+   * @default 0 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * rotating:rotating. The default value is 0
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * rotating:rotating. The default value is 0
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * rotating:rotating. The default value is 0
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * rotating:rotating. The default value is 0
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines the rotation angle of the gradient.
-   *
-   * Anonymous Object Rectification.
-   * @type { ?(number | string) }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   rotation?: number | string;
 
   /**
-   * colors:Color description for gradients
+   * 指定渐变色和其对应的百分比位置的数组，设置不符合ResourceColor格式要求的颜色值时，该颜色项直接跳过不生效。设置metricsColors时此参数失效。ResourceColor表示颜色。number表示该颜色所处的位
+   * 置，取值范围为[0, 1.0]，设置的值小于0时，按0处理，设置的值大于1.0时，按1.0处理。0表示需要设置渐变色的开始处，1.0表示渐变色的结束处。为了实现多个颜色渐变效果，多个数组中的number类型参数应递增设置。如果后一
+   * 个数组中的number类型参数小于前一个数组的number类型参数，将按照等于前一个数组number值处理。
+   * 
+   * 默认值：[]，无渐变效果。
    *
-   * @type { Array<[ResourceColor, number]> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * colors:Color description for gradients
-   *
-   * @type { Array<[ResourceColor, number]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * colors:Color description for gradients
-   *
-   * @type { Array<[ResourceColor, number]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * colors:Color description for gradients
-   *
-   * @type { Array<[ResourceColor, number]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * colors:Color description for gradients
-   *
-   * @type { Array<[ResourceColor, number]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines color description for gradients.
-   *
-   * Anonymous Object Rectification.
-   * @type { Array<[ResourceColor, number]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   colors: Array<[ResourceColor, number]>;
 
   /**
-   * Defines color description in ColorMetrics format for gradients.
-   * This parameter takes precedence over colors parameter.
+   * 设置渐变颜色是否在组件范围内循环重复填充。
+   * 
+   * 默认值：false。
+   * 
+   * true：渐变效果在组件范围内循环重复。
+   * 
+   * false：渐变效果仅在指定范围内显示一次。
    *
-   * @type { ?Array<[ColorMetrics, number]> }
+   * @default false [since 18]
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   */
+  repeating?: boolean;
+
+  /**
+   * 指定渐变颜色和其对应的百分比位置的数组，设置非法颜色直接跳过。当需要使用广色域（如P3色域）颜色时，应使用metricsColors代替colors。设置metricsColors时colors失效。每个渐变
+   * ColorMetrics的色域属性应当统一，设置不同色域属性则认为非法。使用广色域（如DISPLAY_P3）时，需先通过setColorSpace接口将当前窗口设置为广色域。默认不设置，不设置时使用colors参数。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5481,81 +4571,21 @@ declare interface SweepGradientOptions {
    * @since 20 dynamic
    */
   metricsColors?: Array<[ColorMetrics, number]>;
-
-  /**
-   * repeating:repeating. The default value is false
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * repeating:repeating. The default value is false
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * repeating:repeating. The default value is false
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * repeating:repeating. The default value is false
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * repeating:repeating. The default value is false
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines gradient colors with repeated coloring.
-   *
-   * Anonymous Object Rectification.
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  repeating?: boolean;
 }
 
 /**
-* 径向渐变参数。
-*
-* > **说明：**
-* >
-* > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
-*
-* > **说明：**
-* >
-* > colors参数的约束：
-* >
-* > [ResourceColor]{@link ResourceColor}表示填充的颜色，number表示指定颜色所处的位置，取值范围为[0,1.0]，0表示需要设置渐变色的容器的开始处，1.0表示容器的结尾处。想要实现多个颜色渐变
-* > 效果时，多个数组中number参数建议递增设置，如后一个数组number参数比前一个数组number小的话，按照等于前一个数组number的值处理。
-*
- * @interface RadialGradientOptions
+ * 径向渐变参数。
+ * 
+ * > **说明：**
+ * >
+ * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
+ * > > **说明：**
+ * >
+ * > colors参数的约束：
+ * >
+ * > [ResourceColor]{@link ResourceColor}表示填充的颜色，number表示指定颜色所处的位置，取值范围为[0,1.0]，设置的值小于0时，按0处理，设置的值大于1.0时，按1.0处理。0表示当前组件渐
+ * > 变区域的开始处，1.0表示渐变区域的结尾处。为了实现多个颜色渐变效果，多个数组中的number类型参数应递增设置，如果后一个数组中的number类型参数小于前一个数组的number类型参数，将按照等于前一个数组number值处理。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5564,248 +4594,68 @@ declare interface SweepGradientOptions {
  * @since 18 dynamic
  */
 declare interface RadialGradientOptions {
-
   /**
-   * center:Center point of radial gradient
+   * 径向渐变的中心点，即相对于当前组件左上角的坐标，number类型时单位为vp。第一个元素为x坐标，第二个元素为y坐标。
    *
-   * @type { [Length, Length] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * center:Center point of radial gradient
-   *
-   * @type { [Length, Length] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * center:Center point of radial gradient
-   *
-   * @type { [Length, Length] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * center:Center point of radial gradient
-   *
-   * @type { [Length, Length] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * center:Center point of radial gradient
-   *
-   * @type { [Length, Length] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines center point for radial gradient.
-   *
-   * Anonymous Object Rectification.
-   * @type { [Length, Length] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   center: [Length, Length];
 
   /**
-   * radius:Radius of Radial Gradient. value range [0, +∞)
+   * 径向渐变的半径，number类型时单位为vp。
+   * 
+   * 取值范围：[0,+∞)。设置的值小于0时，按值为0处理。设置的值为undefined时，系统将根据组件尺寸自动计算渐变半径。
    *
-   * @type { number | string }
+   * @type { number | string } [since 7 - 17]
+   * @type { Length } [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * radius:Radius of Radial Gradient. value range [0, +∞)
-   *
-   * @type { number | string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * radius:Radius of Radial Gradient. value range [0, +∞)
-   *
-   * @type { number | string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * radius:Radius of Radial Gradient. value range [0, +∞)
-   *
-   * @type { number | string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * radius:Radius of Radial Gradient. value range [0, +∞)
-   *
-   * @type { number | string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines radius of the radial gradient.
-   *
-   * Anonymous Object Rectification.
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   radius: Length;
 
   /**
-   * colors:Color description for gradients
+   * 指定渐变色和其对应的百分比位置的数组，设置非法颜色直接跳过。ResourceColor表示颜色，number表示该颜色所处的位置，取值范围为[0, 1.0]，设置的值小于0时，按0处理，设置的值大于1.0时，按1.0处理。0表示需
+   * 要设置渐变色的开始处，1.0表示渐变色的结束处。为了实现多个颜色渐变效果，多个数组中的number类型参数应递增设置。如果后一个数组中的number类型参数小于前一个数组的number类型参数，将按照等于前一个数组number值处
+   * 理。
+   * 
+   * 默认值：[]，无渐变效果。
    *
-   * @type { Array<[ResourceColor, number]> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * colors:Color description for gradients
-   *
-   * @type { Array<[ResourceColor, number]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * colors:Color description for gradients
-   *
-   * @type { Array<[ResourceColor, number]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * colors:Color description for gradients
-   *
-   * @type { Array<[ResourceColor, number]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * colors:Color description for gradients
-   *
-   * @type { Array<[ResourceColor, number]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines color description for gradients.
-   *
-   * Anonymous Object Rectification.
-   * @type { Array<[ResourceColor, number]> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   colors: Array<[ResourceColor, number]>;
 
   /**
-   * repeating: Refill. The default value is false
+   * 设置渐变颜色是否在组件范围内循环重复填充。
+   * 
+   * 默认值：false。
+   * 
+   * true：渐变效果在组件范围内循环重复。
+   * 
+   * false：渐变效果仅在指定范围内显示一次。
    *
-   * @type { ?boolean } value
+   * @default false [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * repeating: Refill. The default value is false
-   *
-   * @type { ?boolean } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * repeating: Refill. The default value is false
-   *
-   * @type { ?boolean } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * repeating: Refill. The default value is false
-   *
-   * @type { ?boolean } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * repeating: Refill. The default value is false
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Defines gradient colors with repeated coloring.
-   *
-   * Anonymous Object Rectification.
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   repeating?: boolean;
 }
 
 /**
  * 共享元素动画过程中in/out组件层级位置移动策略枚举。
- * 
- * | 名称   | 值 | 说明 |
- * | ------ | - | ---- |
- * | NONE  | 0 | 无层级提拉，in/out组件保持原来的层级位置，受父组件scale、position影响。 |
- * | ADAPTIVE | 1 | 有层级提拉，in/out组件中相对低层级的组件被提拉至组件树上in/out组件相对高层级的位置上。
- * 
- * 此模式还会导致被提拉的组件与父组件解绑，不受父组件scale、position影响。
- * 
- * 例如in组件层级高于out组件，开启层级提拉后会在动画过程中将out组件从自己的父组件处解耦，并提拉至in组件的层级位置处，in组件层级位置不变。|
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -5815,8 +4665,7 @@ declare interface RadialGradientOptions {
  */
 declare enum TransitionHierarchyStrategy {
   /**
-   * None mode.
-   * Source and target staty in the original level in the hierarchy during geometry transition.
+   * 无层级提拉，in/out组件保持原来的层级位置，受父组件scale、position影响。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -5827,9 +4676,11 @@ declare enum TransitionHierarchyStrategy {
   NONE = 0,
 
   /**
-   * ADAPTIVE mode.
-   * Lower level one of source and target is elevated to higher level of both,
-   * indicating that two elements are in same high level.
+   * 有层级提拉，in/out组件中相对低层级的组件被提拉至组件树上in/out组件相对高层级的位置上。
+   * 
+   * 此模式还会导致被提拉的组件与父组件解绑，不受父组件scale、position影响。
+   * 
+   * 例如in组件层级高于out组件，开启层级提拉后会在动画过程中将out组件从自己的父组件处解耦，并提拉至in组件的层级位置处，in组件层级位置不变。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -5841,9 +4692,8 @@ declare enum TransitionHierarchyStrategy {
 }
 
 /**
- * Defines the options of translate.
+ * 定义平移选项。
  *
- * @interface TranslateOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -5851,11 +4701,14 @@ declare enum TransitionHierarchyStrategy {
  * @since 7 dynamic
  */
 declare interface TranslateOptions {
-
   /**
-   * Translation distance along the x-axis.
-   * For the number type, the unit is VP, and the value range is (-∞, +∞).
-   * For the string type, the value follows the format of length string type.
+   * x轴的平移距离。
+   * 
+   * 类型为number时，单位为vp，取值范围为(-∞, +∞)。
+   * 
+   * 默认值：0
+   * 
+   * 类型为string时，形式参考[Length]{@link Length}的string类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -5866,7 +4719,13 @@ declare interface TranslateOptions {
   x?: number | string;
 
   /**
-   * The param of y direction.
+   * y轴的平移距离。
+   * 
+   * 类型为number时，单位为vp，取值范围为(-∞, +∞)。
+   * 
+   * 默认值：0
+   * 
+   * 类型为string时，形式参考[Length]{@link Length}的string类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -5877,7 +4736,13 @@ declare interface TranslateOptions {
   y?: number | string;
 
   /**
-   * The param of z direction.
+   * z轴的平移距离。z轴方向移动时由于观察点位置不变，z的值接近观察点组件会有放大效果，远离则缩小。
+   * 
+   * 类型为number时，单位为vp，取值范围为(-∞, +∞)。
+   * 
+   * 默认值：0
+   * 
+   * 类型为string时，形式参考[Length]{@link Length}的string类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -5889,10 +4754,13 @@ declare interface TranslateOptions {
 }
 
 /**
+ * 定义缩放选项。
+ * 
  * > **说明：**
  * >
  * > 当组件同时设置了[rotate]{@link CommonMethod#rotate(value: RotateOptions)}和
- * > [scale]{@link CommonMethod#scale(value: ScaleOptions)}属性时，centerX和centerY的取值会发生冲突，此时centerX和centerY的值以最后设定的属性的值为准。
+ * > [scale]{@link CommonMethod#scale(value: ScaleOptions)}属性时，centerX和centerY的取值会发生冲突，此时centerX和centerY的值以属性链中后设置的属性值为
+ * > 准。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -5901,9 +4769,8 @@ declare interface TranslateOptions {
  * @since 7 dynamic
  */
 declare interface ScaleOptions {
-
   /**
-   * The param of x direction.
+   * x轴的缩放倍数。取值范围：(-∞, +∞)。默认值：1。x=1时表示无缩放效果，x>1时以x轴方向放大，0<x<1时以x轴方向缩小，x=0时组件在x轴方向不可见，x<0时沿x轴反向并缩放。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -5914,7 +4781,7 @@ declare interface ScaleOptions {
   x?: number;
 
   /**
-   * The param of y direction.
+   * y轴的缩放倍数。取值范围：(-∞, +∞)。默认值：1。y=1时表示无缩放效果，y>1时以y轴方向放大，0<y<1时以y轴方向缩小，y=0时组件在y轴方向不可见，y<0时沿y轴反向并缩放。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -5925,7 +4792,7 @@ declare interface ScaleOptions {
   y?: number;
 
   /**
-   * The param of z direction.
+   * z轴的缩放倍数。取值范围：(-∞, +∞)。默认值：1。z=1时表示无缩放效果，z>1时以z轴方向放大，0<z<1时以z轴方向缩小，z=0时组件在z轴方向不可见，z<0时沿z轴反向并缩放。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -5936,7 +4803,8 @@ declare interface ScaleOptions {
   z?: number;
 
   /**
-   * 变换中心点x轴坐标。表示组件变换中心点（即锚点）的x方向坐标。取值可为string类型，如'50'，'50%'。
+   * 变换中心点x轴坐标。表示组件变换中心点（即锚点）的x方向坐标。类型为string时，形式参考[Length]{@link Length}的string类型。取值示例：'50'、'50%'。取值范围：(-∞, +∞)。默认值：'50
+   * %'。
    * 
    * 单位：vp
    *
@@ -5949,7 +4817,8 @@ declare interface ScaleOptions {
   centerX?: number | string;
 
   /**
-   * 变换中心点y轴坐标。表示组件变换中心点（即锚点）的y方向坐标。取值可为string类型，如'50'，'50%'。
+   * 变换中心点y轴坐标。表示组件变换中心点（即锚点）的y方向坐标。类型为string时，形式参考[Length]{@link Length}的string类型。取值示例：'50'、'50%'。取值范围：(-∞, +∞)。默认值：'50
+   * %'。
    * 
    * 单位：vp
    *
@@ -6476,6 +5345,12 @@ declare enum ChainStyle {
 
 /**
  * 组件旋转参数。
+ * 
+ * > **说明：**
+ * >
+ * > 当组件同时设置了[rotate]{@link CommonMethod#rotate(value: RotateOptions)}和
+ * > [scale]{@link CommonMethod#scale(value: ScaleOptions)}属性时，centerX和centerY的取值会发生冲突，此时centerX和centerY的值以属性链中后设置的属性值为
+ * > 准。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -6518,7 +5393,7 @@ declare interface RotateOptions {
   z?: number;
 
   /**
-   * 变换中心点x轴坐标。表示组件变换中心点（即锚点）的x方向坐标。取值可为string类型，如'50'，'50%'。
+   * 变换中心点x轴坐标。表示组件变换中心点（即锚点）的x方向坐标。取值可为string类型，支持数字字符串和百分比字符串，如'50'，'50%'。取值范围：(-∞, +∞)。默认值：'50%'。
    * 
    * 单位：vp
    *
@@ -6531,7 +5406,8 @@ declare interface RotateOptions {
   centerX?: number | string;
 
   /**
-   * 变换中心点y轴坐标。表示组件变换中心点（即锚点）的y方向坐标。取值可为string类型，如'50'，'50%'。
+   * 变换中心点y轴坐标。表示组件变换中心点（即锚点）的y方向坐标。类型为string时，形式参考[Length]{@link Length}的string类型。取值示例：'50'、'50%'。取值范围：(-∞, +∞)。默认值：'50
+   * %'。
    * 
    * 单位：vp
    *
@@ -6548,7 +5424,7 @@ declare interface RotateOptions {
    * 
    * 默认值：0
    * 
-   * 单位：px
+   * 单位：vp
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -6561,7 +5437,7 @@ declare interface RotateOptions {
   centerZ?: number;
 
   /**
-   * 相机放置的z轴坐标。数值大小表示视距，即相机到z=0平面的距离。取值的正负决定了相机观察的方向。当perspective=0，系统会自动计算适合的相机z轴位置，取值为负数。
+   * 相机放置的z轴坐标。取值范围：(-∞, +∞)。数值大小表示视距，即相机到z=0平面的距离。取值的正负决定了相机观察的方向。当perspective=0，系统会自动计算适合的相机z轴位置，计算得到的z轴位置为负数。
    * 
    * 旋转轴和旋转中心点都基于[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)设定，组件发生位移时，坐标系不会随之移动。
    * 
@@ -6580,7 +5456,7 @@ declare interface RotateOptions {
   perspective?: number;
 
   /**
-   * 旋转角度。取值为正时相对于旋转轴方向顺时针转动，取值为负时相对于旋转轴方向逆时针转动。取值可为string类型，如'90deg'。
+   * 旋转角度。单位为度（°）。取值为正时相对于旋转轴方向顺时针转动，取值为负时相对于旋转轴方向逆时针转动。取值可为string类型，格式为数字加角度单位后缀，如'90deg'。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -6593,6 +5469,12 @@ declare interface RotateOptions {
 
 /**
  * 指定各轴旋转角的旋转参数选项。
+ * 
+ * > **说明：**
+ * >
+ * > 当组件同时设置了[rotate]{@link CommonMethod#rotate(value: RotateOptions)}和
+ * > [scale]{@link CommonMethod#scale(value: ScaleOptions)}属性时，centerX和centerY的取值会发生冲突，此时centerX和centerY的值以属性链中后设置的属性值为
+ * > 准。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6603,7 +5485,7 @@ declare interface RotateOptions {
  */
 declare interface RotateAngleOptions {
   /**
-   * X轴方向上的旋转角。取值为正时相对于旋转轴方向顺时针转动，取值为负时逆时针转动。取值可为string类型，如'90deg'。
+   * X轴方向上的旋转角。单位为度（°）。取值为正时相对于旋转轴方向顺时针转动，取值为负时逆时针转动。取值可为string类型，需符合角度值格式要求（如'90deg'）。
    * 
    * 默认值：0
    * 
@@ -6620,7 +5502,7 @@ declare interface RotateAngleOptions {
   angleX?: number | string;
  
   /**
-   * Y轴方向上的旋转角。取值为正时相对于旋转轴方向顺时针转动，取值为负时逆时针转动。取值可为string类型，如'90deg'。
+   * Y轴方向上的旋转角。单位为度（°）。取值为正时相对于旋转轴方向顺时针转动，取值为负时逆时针转动。取值可为string类型，如'90deg'。
    * 
    * 默认值：0
    * 
@@ -6637,7 +5519,7 @@ declare interface RotateAngleOptions {
   angleY?: number | string;
  
   /**
-   * Z轴方向上的旋转角。取值为正时相对于旋转轴方向顺时针转动，取值为负时逆时针转动。取值可为string类型，如'90deg'。
+   * Z轴方向上的旋转角。单位为度（°）。取值为正时相对于旋转轴方向顺时针转动，取值为负时逆时针转动。取值可为string类型，如'90deg'。
    * 
    * 默认值：0
    * 
@@ -6654,7 +5536,7 @@ declare interface RotateAngleOptions {
   angleZ?: number | string;
  
   /**
-   * 变换中心点x轴坐标。表示组件变换中心点（即锚点）的x方向坐标。
+   * 变换中心点x轴坐标。表示组件变换中心点（即锚点）的x方向坐标。类型为string时，形式参考[Length]{@link Length}的string类型。取值示例：'50'、'50%'。
    * 
    * 单位：vp
    * 
@@ -6673,7 +5555,7 @@ declare interface RotateAngleOptions {
   centerX?: number | string;
  
   /**
-   * 变换中心点y轴坐标。表示组件变换中心点（即锚点）的y方向坐标。
+   * 变换中心点y轴坐标。表示组件变换中心点（即锚点）的y方向坐标。类型为string时，形式参考[Length]{@link Length}的string类型。取值示例：'50'、'50%'。
    * 
    * 单位：vp
    * 
@@ -6696,7 +5578,7 @@ declare interface RotateAngleOptions {
    * 
    * 默认值：0
    * 
-   * 单位：px
+   * 单位：vp
    * 
    * 取值范围：(-∞, +∞)
    *
@@ -6711,7 +5593,7 @@ declare interface RotateAngleOptions {
   centerZ?: number;
  
   /**
-   * 相机放置的z轴坐标。数值大小表示视距，即相机到z=0平面的距离。取值的正负决定了相机观察的方向。当perspective=0，系统会自动计算适合的相机z轴位置，取值为负数。
+   * 相机放置的z轴坐标。数值大小表示视距，即相机到z=0平面的距离。取值的正负决定了相机观察的方向。当perspective=0，系统会自动计算相机z轴位置，计算得到的z轴位置为负数。
    * 
    * 旋转轴和旋转中心点都基于[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)设定，组件发生位移时，坐标系不会随之移动。
    * 
@@ -6738,7 +5620,7 @@ declare interface RotateAngleOptions {
  * > **说明：**
  * >
  * > 1. 当使用TransitionOptions类型的入参指定转场效果时，**必须**配合
- * > [animateTo](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#animateto)使用才有动画效果，动效时长、曲线、延时跟随
+ * > [animateTo]{@link UIContext#animateTo}使用才有动画效果，动效时长、曲线、延时跟随
  * > animateTo中的配置。
  * >
  * > 2. 当使用TransitionOptions作为入参，且不指定除type外的任何参数时，此时相当于指定了透明度的转场效果。例如，指定{type: TransitionType.Insert}相当于指定了{type: 
@@ -6751,7 +5633,7 @@ declare interface RotateAngleOptions {
  */
 declare interface TransitionOptions {
   /**
-   * 指定该转场样式生效的场景。
+   * 指定该转场效果生效的场景。
    * 
    * 默认值：TransitionType.All
    * 
@@ -6766,7 +5648,8 @@ declare interface TransitionOptions {
    */
   type?: TransitionType;
   /**
-   * 设置组件转场时的透明度效果，为插入时起点和删除时终点的值。
+   * 设置组件转场时的透明度效果，为插入时起点和删除时终点的值。当需要实现淡入淡出过渡效果时设置此属性；未设置时，若同时未设置其他转场效果，默认产生透明度转场效果（相当于opacity为0），若已设置其他转场效果，则不产生透明度转场效
+   * 果。
    * 
    * 取值范围： [0, 1]
    * 
@@ -6787,7 +5670,7 @@ declare interface TransitionOptions {
    * 
    * -y：纵向的平移距离。
    * 
-   * -z：竖向的平移距离。
+   * -z：深度方向的平移距离。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -6796,17 +5679,17 @@ declare interface TransitionOptions {
    */
   translate?: TranslateOptions;
   /**
-   * 设置组件转场时的缩放效果，为插入时起点和删除时终点的值。
+   * 设置组件转场时的缩放效果，为插入时起点和删除时终点的值。设置的缩放值在组件当前的scale属性上进行乘法叠加，如组件当前scale值为0.8，当转场缩放值设置为0.5时，组件入场动画的缩放值将从0.8×0.5=0.4开始执行。
    * 
    * -x：横向放大倍数（或缩小比例）。
    * 
    * -y：纵向放大倍数（或缩小比例）。
    * 
-   * -z：当前为二维显示，该参数无效 。
+   * -z：当前为二维显示，该参数无效。
    * 
-   * - centerX、centerY指缩放中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为缩放中心点。
+   * - centerX、centerY指缩放中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为缩放中心点。
    * 
-   * - 中心点为(0, 0)代表组件的左上角。
+   * - 中心点为(0, 0)代表组件的左上角。
    * 
    * **说明：** 
    * 
@@ -6827,9 +5710,11 @@ declare interface TransitionOptions {
    * 
    * -z：竖向的旋转向量分量。
    * 
-   * - centerX、centerY指旋转中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为旋转中心点。
+   * - centerX、centerY指旋转中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为旋转中心点。字符串格式支持百分比（如"50%"）。
    * 
-   * - 中心点为(0, 0)代表组件的左上角。
+   * - 中心点为(0, 0)代表组件的左上角。
+   * 
+   * - 设置centerX、centerY为非法字符串时（例如，"illegalString"），默认值为"0"。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -7011,7 +5896,7 @@ declare class DrawModifier {
 }
 
 /**
- * 定义TransitionEffect类指定转场效果。
+ * TransitionEffect以函数的形式指定转场效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7025,7 +5910,8 @@ declare class TransitionEffect<
   Effect extends TransitionEffects[Type] = TransitionEffects[Type]
 > {
   /**
-   * 禁用转场效果。
+   * 禁用转场效果。如果在动画范围内触发组件的上下树或可见性改变，而该组件未配置transition，会给该组件加上默认的透明度转场效果（即TransitionEffect.OPACITY），如不需要此默认效果，可配置IDENTITY来
+   * 禁用，使该组件直接出现或消失。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7068,8 +5954,8 @@ declare class TransitionEffect<
   >;
 
   /**
-   * 指定出现时从右侧先缩小再放大滑入、消失时从左侧先缩小再放大滑出的转场效果。自带动画参数，也可覆盖动画参数，自带的动画参数时长600ms，指定动画曲线cubicBezierCurve(0.24, 0.0, 0.50, 1.0)，最小
-   * 缩放比例为0.8。
+   * 指定出现时从右侧先缩小再放大滑入、消失时从左侧先缩小再放大滑出的转场效果。自带动画参数，也可通过.animation()方法指定自定义动画参数来覆盖自带参数，自带的动画参数时长600ms，指定动画曲线
+   * cubicBezierCurve(0.24, 0.0, 0.50, 1.0)，最小缩放比例为0.85。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7083,7 +5969,10 @@ declare class TransitionEffect<
   /**
    * 设置组件转场时的平移效果。
    *
-   * @param { TranslateOptions } options - 组件转场时的平移效果，为插入时起点和删除时终点的值。<br/>-x：横向的平移距离。<br/>-y：纵向的平移距离。<br/>-z：竖向的平移距离。
+   * @param { TranslateOptions } options - 组件转场时的平移效果，为插入时起点和删除时终点的值。
+   *     <br>-x：横向的平移距离。
+   *     <br>-y：纵向的平移距离。
+   *     <br>-z：竖向的平移距离。
    * @returns { TransitionEffect<"translate"> } 当前动画平移效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7097,9 +5986,16 @@ declare class TransitionEffect<
   /**
    * 设置组件转场时的旋转效果。
    *
-   * @param { RotateOptions } options - 组件转场时的旋转效果，为插入时起点和删除时终点的值。<br/>-x：横向的旋转向量分量。<br/>-y：纵向的旋转向量分量。<br/>-z：竖向的旋转向量分量。
-   *     <br/>- centerX、centerY指旋转中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为旋转中心点。<br/>- 中心点为(0, 0)代表组件的左上角。<br/>-centerZ指
-   *     z轴锚点，即3D旋转中心点的z轴分量，centerZ默认值是0。<br/>-perspective指视距，不支持perspective属性做转场动画。
+   * @param { RotateOptions } options - 组件转场时的旋转效果，为插入时起点和删除时终点的值。
+   *     <br>-angle：旋转角度，单位为度（°），决定绕旋转轴的旋转幅度。
+   *     <br>-x：横向的旋转向量分量。
+   *     <br>-y：纵向的旋转向量分量。
+   *     <br>-z：竖向的旋转向量分量。
+   *     <br>- centerX、centerY指旋转中心点，centerX和centerY默认值是“50%”，数值类型单位为vp，即默认以组件的中心点为旋转中心点。字符串格式支持百分比（如“50%”）。
+   *     <br>- 中心点为(0, 0)代表组件的左上角。
+   *     <br>- 设置centerX、centerY为非法字符串时（例如，“illegalString”），默认值为“0”。
+   *     <br>-centerZ指z轴锚点，即3D旋转中心点的z轴分量，centerZ默认值是0。
+   *     <br>-perspective指视距，不支持perspective属性做转场动画。
    * @returns { TransitionEffect<"rotate"> } 当前动画旋转效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7113,10 +6009,15 @@ declare class TransitionEffect<
   /**
    * 设置组件转场时的缩放效果。
    *
-   * @param { ScaleOptions } options - 组件转场时的缩放效果，为插入时起点和删除时终点的值。设置的缩放值在组件当前的scale属性上进行叠加，如组件当前scale值为0.8，当转场缩放值设置为0.5时，
-   *     组件入场动画的缩放值将从0.4开始执行。<br/>-x：横向放大倍数（或缩小比例）。<br/>-y：纵向放大倍数（或缩小比例）。<br/>-z：当前为二维显示，该参数无效。<br/>- centerX、centerY指缩放
-   *     中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为缩放中心点。<br/>- 中心点为(0, 0)代表组件的左上角。<br>**说明：** <br>设置centerX、centerY为非法字符串
-   *     时（例如，"illegalString"），默认值为"0"。
+   * @param { ScaleOptions } options - 组件转场时的缩放效果，为插入时起点和删除时终点的值。设置的缩放值在组件当前的scale属性上进行乘法叠加，如组件当前scale值为0.8，当转场缩放值设置为0.5
+   *     时，组件入场动画的缩放值将从0.8×0.5=0.4开始执行。
+   *     <br>- x：横向放大倍数（或缩小比例）。
+   *     <br>- y：纵向放大倍数（或缩小比例）。
+   *     <br>- z：当前为二维显示，该参数无效。
+   *     <br>- centerX、centerY指缩放中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为缩放中心点。
+   *     <br>- 中心点为(0, 0)代表组件的左上角。
+   *     <br>**说明：** 
+   *     <br>设置centerX、centerY为非法字符串时（例如，"illegalString"），默认值为"0"。
    * @returns { TransitionEffect<"scale"> } 当前动画缩放效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7130,8 +6031,11 @@ declare class TransitionEffect<
   /**
    * 设置组件转场时的透明度效果。
    *
-   * @param { number } alpha - 组件转场时的透明度效果，为插入时起点和删除时终点的值。<br/>取值范围：[0, 1]<br/>**说明：** <br/>设置小于0的非法值按0处理，大于1的非法值按1处理。
-   * @returns { TransitionEffect<"opacity"> } 当前动画透明度效果。
+   * @param { number } alpha - 组件转场时的透明度效果，为插入时起点和删除时终点的值。
+   *     <br>取值范围：[0, 1]
+   *     <br>**说明：** 
+   *     <br>设置小于0的非法值按0处理，大于1的非法值按1处理。当alpha取值为1时（与默认值相同），不产生透明度转场动画，组件直接出现或消失。
+   * @returns { TransitionEffect<"opacity"> } 返回表示透明度转场效果的TransitionEffect对象，用于配置组件出现和消失时的透明度过渡动画。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7142,10 +6046,11 @@ declare class TransitionEffect<
   static opacity(alpha: number): TransitionEffect<"opacity">;
 
   /**
-   * 设置组件转场时从屏幕边缘滑入和滑出的效果。
+   * 设置组件转场时从窗口边缘滑入和滑出的效果。
    *
-   * @param { TransitionEdge } edge - 组件转场时从屏幕边缘滑入和滑出的效果，本质为平移效果，为插入时起点和删除时终点的值。
-   * @returns { TransitionEffect<"move"> } 当前动画从屏幕边缘滑入和滑出的效果。
+   * @param { TransitionEdge } edge - 组件转场时从窗口边缘滑入和滑出的效果，本质为平移效果，为插入时起点和删除时终点的值。与translate不同的是，move通过TransitionEdge自动根据窗
+   *     口边缘位置计算偏移量（含RTL/LTR方向适配），无需手动指定具体偏移值，适用于从窗口边缘滑入滑出的场景；translate需手动指定偏移值，适用于需要自定义偏移方向和距离的场景。
+   * @returns { TransitionEffect<"move"> } 当前动画从窗口边缘滑入和滑出的效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7156,12 +6061,14 @@ declare class TransitionEffect<
   static move(edge: TransitionEdge): TransitionEffect<"move">;
 
   /**
-   * 设置非对称的转场效果，即出现、消失为两套独立不同的动画，效果不互为逆过程。具体效果可参考
+   * 设置非对称的转场效果，即出现、消失为两套独立不同的动画，效果不互为逆过程。适用于需要出现和消失采用不同动画策略的场景。具体效果可参考
    * [示例2](docroot://reference/apis-arkui/arkui-ts/ts-transition-animation-component.md#示例2使用不同接口实现图片出现消失)。
    *
-   * @param { TransitionEffect } appear - 指定出现的转场效果。<br/>如不通过asymmetric函数构造TransitionEffect，则表明该效果在组件出现和消失时均生效。
-   * @param { TransitionEffect } disappear - 指定消失的转场效果。<br/>如不通过asymmetric函数构造TransitionEffect，则表明该效果在组件出现和消失时均生效。
-   * @returns { TransitionEffect<"asymmetric"> } 当前动画非对称的转场效果。
+   * @param { TransitionEffect } appear - 指定出现的转场效果。
+   *     <br>如不通过asymmetric函数构造TransitionEffect，则表明该效果在组件出现和消失时均生效。
+   * @param { TransitionEffect } disappear - 指定消失的转场效果。
+   *     <br>如不通过asymmetric函数构造TransitionEffect，则表明该效果在组件出现和消失时均生效。
+   * @returns { TransitionEffect<"asymmetric"> } 返回表示非对称转场效果的TransitionEffect对象，出现和消失分别使用不同的转场动画。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7177,8 +6084,8 @@ declare class TransitionEffect<
   /**
    * 构造TransitionEffect对象。
    *
-   * @param { Type } type - 转场类型。
-   * @param { Effect } effect - 转场参数。
+   * @param { Type } type - 转场类型，指定该转场效果生效的场景。默认值：TransitionType.All，即插入删除都生效。不指定type时默认为TransitionType.All。
+   * @param { Effect } effect - 转场效果配置，用于指定具体的转场动画效果，包括透明度、平移、旋转、缩放等转场效果的参数设置。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7191,9 +6098,10 @@ declare class TransitionEffect<
   /**
    * 指定该TransitionEffect的动画参数。
    *
-   * @param { AnimateParam } value - 动画参数。</br>该参数只用来指定动画参数，其入参AnimateParam的onFinish回调不生效。</br>如果通过combine进行
-   *     TransitionEffect的组合，前一TransitionEffect的动画参数也可用于后一TransitionEffect。
-   * @returns { TransitionEffect } 当前动画效果。
+   * @param { AnimateParam } value - 动画参数。
+   *     <br>该参数仅用于指定动画参数，其入参AnimateParam的onFinish回调不生效。
+   *     <br>如果通过combine进行TransitionEffect的组合，前一TransitionEffect的动画参数也可用于后一TransitionEffect。
+   * @returns { TransitionEffect } 返回配置了指定动画参数的TransitionEffect对象，该动画参数将在转场效果中生效。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7207,7 +6115,7 @@ declare class TransitionEffect<
    * 对TransitionEffect进行链式组合，以形成包含多种转场效果的TransitionEffect。
    *
    * @param { TransitionEffect } transitionEffect - 被组合的过渡效果。
-   * @returns { TransitionEffect } 组合过渡效应。
+   * @returns { TransitionEffect } 组合过渡效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7219,221 +6127,134 @@ declare class TransitionEffect<
 }
 
 /**
- * Define Preview property
+ * @Preview参数对象。
+ * 
+ * 设置@Preview的参数，指定预览设备的相关属性，如不同设备、不同屏幕状态等。
+ * 
+ * > **说明：**
+ * >
+ * > PreviewParams中只支持使用与定义参数类型相匹配的入参，否则所有的@Preview的参数都将被置为默认值。
  *
- * @interface PreviewParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
+ * @crossplatform [since 11]
  * @form
- * @since 9
- */
-/**
- * Define Preview property
- *
- * @interface PreviewParams
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 interface PreviewParams {
-
   /**
-   * Define Preview title
+   * 组件预览标题，默认为自定义组件名称。仅支持英文和数字，不支持中文和特殊字符。
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview title
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   title?: string;
 
   /**
-   * Define Preview width
+   * 预览设备的宽度，单位：px，默认为1080px。取值范围为[20, 3000]内的整数。
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview width
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   width?: number;
 
   /**
-   * Define Preview height
+   * 预览设备的高度，单位：px，默认为2340px。取值范围为[20, 3000]内的整数。
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview height
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   height?: number;
 
   /**
-   * Define Preview locale
+   * 预览设备的语言区域，如zh_CN、en_US等，默认为zh_CN。
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview locale
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   locale?: string;
 
   /**
-   * Define Preview colorMode
+   * 显示的亮暗模式，取值为light或dark，tv设备默认为dark，其他设备默认为light，wearable设备仅支持dark。
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview colorMode
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   colorMode?: string;
 
   /**
-   * 定义预览设备类型
+   * 组件预览渲染的设备类型，默认为Phone。
+   * 设备类型枚举值参考[deviceTypes标签](docroot:./../../../quick-start/module-configuration-file.md#devicetypes标签)。
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * 定义预览设备类型
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   deviceType?: string;
 
   /**
-   * 定义预览dpi
+   * 预览设备的屏幕DPI值，默认为480。取值范围为[120, 640]内的整数。
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * 定义预览dpi
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   dpi?: number;
 
   /**
-   * Define Preview orientation
+   * 预览设备的横竖屏状态，取值为portrait或landscape，默认为portrait。
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview orientation
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   orientation?: string;
 
   /**
-   * Define Preview roundScreen
+   * 预览的屏幕形状是否为圆形，默认为false。true为圆形，false为非圆形。
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview roundScreen
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   roundScreen?: boolean;
 }
 
 /**
- * ItemDragInfo object description
+ * 拖拽点信息对象。
  *
  * @interface ItemDragInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 8
  */
 /**
- * ItemDragInfo object description
+ * 拖拽点信息对象。
  *
  * @interface ItemDragInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7441,7 +6262,7 @@ interface PreviewParams {
  * @since 10
  */
 /**
- * ItemDragInfo object description
+ * 拖拽点信息对象。
  *
  * @interface ItemDragInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7452,14 +6273,14 @@ interface PreviewParams {
 declare interface ItemDragInfo {
 
   /**
-   * Obtains the X coordinate of the drag window, in vp.
+   * 当前拖拽点的x坐标，单位vp。
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Obtains the X coordinate of the drag window, in vp.
+   * 当前拖拽点的x坐标，单位vp。
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7467,7 +6288,7 @@ declare interface ItemDragInfo {
    * @since 10
    */
   /**
-   * Obtains the X coordinate of the drag window, in vp.
+   * 当前拖拽点的x坐标，单位vp。
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7478,14 +6299,14 @@ declare interface ItemDragInfo {
   x: number;
 
   /**
-   * Obtains the Y coordinate of the drag window, in vp.
+   * 当前拖拽点的y坐标，单位vp。
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8
    */
   /**
-   * Obtains the Y coordinate of the drag window, in vp.
+   * 当前拖拽点的y坐标，单位vp。
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7493,7 +6314,7 @@ declare interface ItemDragInfo {
    * @since 10
    */
   /**
-   * Obtains the Y coordinate of the drag window, in vp.
+   * 当前拖拽点的y坐标，单位vp。
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7505,17 +6326,17 @@ declare interface ItemDragInfo {
 }
 
 /**
-* 使用效果模板种类的枚举值。
-*
-*  **效果模板：**
-*
-* |  设备类型    | 模糊半径(单位: px)   | 饱和度                 |  亮度  |  颜色  |
-* | -------- | ---- | ---------------------- | -------- | -------- |
-* | 移动设备  | 0   | 0 | 0 | '#ffffffff'，显示为白色。 |
-* | 2in1设备：深色模式  | 80   | 1.5 | 1.0 | '#e52e3033'，显示为淡红色的半透明效果。 |
-* | 2in1设备：浅色模式  | 80   | 1.9 | 1.0 | '#e5ffffff'，显示为半透明的深红色。 |
-* | Tablet设备  | 0   | 0 | 0 | '#ffffffff'，显示为白色。 |
-*
+ * 效果模板类型的枚举值。效果模板为预设的视觉效果参数配置，包含模糊半径、饱和度、亮度和颜色等参数。
+ *
+ *  **效果模板：**
+ *
+ * |  设备类型    | 模糊半径(单位: px)   | 饱和度                 |  亮度  |  颜色  |
+ * | -------- | ---- | ---------------------- | -------- | -------- |
+ * | 移动设备  | 0   | 0 | 0 | '#ffffffff'，显示为白色。 |
+ * | 2in1设备：深色模式  | 80   | 1.5 | 1.0 | '#e52e3033'，显示为淡红色的半透明效果。 |
+ * | 2in1设备：浅色模式  | 80   | 1.9 | 1.0 | '#e5ffffff'，显示为半透明的深红色。 |
+ * | Tablet设备  | 0   | 0 | 0 | '#ffffffff'，显示为白色。 |
+ *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -7525,7 +6346,7 @@ declare interface ItemDragInfo {
 declare enum EffectType {
 
   /**
-   * 使用<!--Del-->父级EffectComponent定义的<!--DelEnd-->效果模板进行定义。
+   * 使用<!--Del-->父级EffectComponent定义的<!--DelEnd-->效果模板来渲染组件特效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7535,7 +6356,7 @@ declare enum EffectType {
   DEFAULT = 0,
 
   /**
-   * 使用窗口定义的效果模板进行定义。
+   * 使用窗口定义的效果模板来渲染组件特效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7695,23 +6516,25 @@ declare interface DragItemInfo {
 }
 
 /**
- * 显式动画接口。在需要动画时，显式调用该接口改变状态以产生动画。
+ * 显式动画接口。在需要动画时，显式调用该接口改变状态以产生动画。对于改变布局类属性（如宽高）的动画，内容通常会直接跳转到最终状态，如果希望内容跟随宽高变化，可以使用
+ * [renderFit]{@link CommonMethod#renderFit(fitMode: RenderFit)}属性进行配置。
  * 
+ * > **说明：**
  * >
  * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
- * > [animateTo](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#animateto)来明确UI的执行上下文。
+ * > [animateTo]{@link UIContext#animateTo}来明确UI的执行上下文。
  * >
  * > - 不推荐在aboutToAppear、aboutToDisappear中调用动画。
  * >
- * > - 如果在[aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear)中调用动画，自
+ * > - 如果在[aboutToAppear]{@link aboutToAppear}中调用动画，自
  * > 定义组件内的build还未执行，内部组件还未创建，动画时机过早，动画属性没有初值无法对组件产生动画。
  * >
- * > - 执行[aboutToDisappear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttodisappear)时，
+ * > - 执行[aboutToDisappear]{@link aboutToDisappear}时，
  * > 组件即将销毁，不能在aboutToDisappear里面做动画。
  * >
- * > - 在组件出现和消失时，可以通过[组件内转场]{@link common}添加动画效果。
+ * > - 在组件出现和消失时，可以通过[组件内转场]{@link ./common}添加动画效果。
  * >
- * > - 组件内转场不支持的属性，可以参考[示例2](docroot://reference/apis-arkui/arkui-ts/ts-explicit-animation.md#示例2动画执行结束后组件消失)，使用
+ * > - 组件内转场不支持的属性，可以参考[示例2]{@link CommonMethod}，使用
  * > animateTo实现动画执行结束后组件消失的效果。
  * >
  * > - 某些场景下，在[状态管理V2](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)中使用animateTo动画，会产生异常效果，具体
@@ -7730,11 +6553,15 @@ declare interface DragItemInfo {
 declare function animateTo(value: AnimateParam, event: () => void): void;
 
 /**
-*
-*
- * @param { AnimateParam } value - Animation settings.
- * @param { function } event - Closure function that displays the animation. The system automatically inserts a
-*     transition animation for state changes caused by the closure function.
+ * 提供显式动画立即下发功能。该接口仅支持渲染层上的属性动画提前执行，无法用于UI侧的逐帧动画。建议开发者优先使用[animateTo]{@link @ohos.arkui.UIContext:UIContext.animateTo}，以
+ * 防止干扰框架的显示时序，避免在动画启动时因状态设置不完整而导致的显示错误。务必确保调用时所有涉及动画的属性值已正确设置，否则动画开始的少量帧可能出现渲染异常。
+ *
+ * @param { AnimateParam } value - 设置动画效果相关参数，动画参数将作用于event闭包函数中状态变化产生的过渡动效。各属性的取值范围及含义详见
+ *     [AnimateParam]{@link AnimateParam}。
+ *     animateToImmediately接口对AnimateParam各属性的使用与[animateTo]{@link @ohos.arkui.UIContext:UIContext.animateTo}一致，但仅支持渲染层上
+ *     的属性动画，无法用于UI侧的逐帧动画。
+ * @param { function } event - 指定显式动效的闭包函数，闭包中仅支持渲染层上的属性动画相关的状态变化，无法用于UI侧的逐帧动画。在闭包函数中导致的状态变化系统会自动插入过渡动画，动画效果由value参数控制。务
+ *     必确保调用时所有涉及动画的属性值已正确设置，否则动画开始的少量帧可能出现渲染异常。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -8190,7 +7017,7 @@ declare enum SourceType {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Unknown = 0,
+  Unknown,
 
   /**
    * 鼠标。
@@ -8200,7 +7027,7 @@ declare enum SourceType {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Mouse = 1,
+  Mouse,
 
   /**
    * 触摸屏。
@@ -8210,7 +7037,7 @@ declare enum SourceType {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  TouchScreen = 2,
+  TouchScreen,
 
   /**
    * 按键。
@@ -8253,7 +7080,7 @@ declare enum SourceTool {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Unknown = 0,
+  Unknown,
 
   /**
    * 手指输入。
@@ -8263,7 +7090,7 @@ declare enum SourceTool {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Finger = 1,
+  Finger,
 
   /**
    * 手写笔输入。
@@ -8273,7 +7100,7 @@ declare enum SourceTool {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Pen = 2,
+  Pen,
 
   /**
    * 鼠标输入。
@@ -8284,7 +7111,7 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  MOUSE = 3,
+  MOUSE,
 
   /**
    * 触控板输入。触控板单指输入被视为鼠标输入操作。
@@ -8295,7 +7122,7 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  TOUCHPAD = 4,
+  TOUCHPAD,
 
   /**
    * 手柄输入。
@@ -8306,11 +7133,11 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  JOYSTICK = 5
+  JOYSTICK
 }
 
 /**
- * Defines the Border Image Repeat Mode.
+ * 用于设置被切割的图片在边框上的重复方式。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8318,7 +7145,7 @@ declare enum SourceTool {
  * @since 9
  */
 /**
- * Defines the Border Image Repeat Mode.
+ * 用于设置被切割的图片在边框上的重复方式。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8327,7 +7154,7 @@ declare enum SourceTool {
  * @since 10
  */
 /**
- * Defines the Border Image Repeat Mode.
+ * 用于设置被切割的图片在边框上的重复方式。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8339,14 +7166,14 @@ declare enum SourceTool {
 declare enum RepeatMode {
 
   /**
-   * Repeat mode.
+   * 被切割的图片会重复铺平在图片边框上，超出部分会被剪裁。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Repeat mode.
+   * 被切割的图片会重复铺平在图片边框上，超出部分会被剪裁。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8354,7 +7181,7 @@ declare enum RepeatMode {
    * @since 10
    */
   /**
-   * The source image's slices are tiled. Tiles beyond the border box will be clipped.
+   * 被切割的图片会重复铺平在图片边框上，超出部分会被剪裁。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8365,14 +7192,14 @@ declare enum RepeatMode {
   Repeat = 0,
 
   /**
-   * Stretch mode.
+   * 被切割的图片会以拉伸填充的方式铺满图片边框。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Stretch mode.
+   * 被切割的图片会以拉伸填充的方式铺满图片边框。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8380,7 +7207,7 @@ declare enum RepeatMode {
    * @since 10
    */
   /**
-   * The source image's slices are stretched to fill the border box.
+   * 被切割的图片会以拉伸填充的方式铺满图片边框。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8391,14 +7218,14 @@ declare enum RepeatMode {
   Stretch = 1,
 
   /**
-   * Round mode.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会压缩图片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Round mode.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会压缩图片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8406,7 +7233,7 @@ declare enum RepeatMode {
    * @since 10
    */
   /**
-   * The source image's slices are tiled to fill the border box. Tiles may be compressed when needed.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会压缩图片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8417,14 +7244,14 @@ declare enum RepeatMode {
   Round = 2,
 
   /**
-   * Space mode.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会以空白填充。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9
    */
   /**
-   * Space mode.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会以空白填充。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8432,7 +7259,7 @@ declare enum RepeatMode {
    * @since 10
    */
   /**
-   * The source image's slices are tiled to fill the border box. Extra space will be distributed in between tiles.
+   * 被切割的图片会以整数次平铺在图片边框上，无法以整数次平铺时会以空白填充。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -8652,42 +7479,23 @@ declare enum BlurStyleActivePolicy {
 }
 
 /**
-* 设置颜色模式。
-*
- * @enum { number }
+ * 设置颜色模式。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
-* 设置颜色模式。
-*
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum ThemeColorMode {
-
   /**
    * 跟随系统深浅色模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 跟随系统深浅色模式。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   SYSTEM = 0,
 
@@ -8697,16 +7505,8 @@ declare enum ThemeColorMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 固定使用浅色模式。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   LIGHT = 1,
 
@@ -8716,16 +7516,8 @@ declare enum ThemeColorMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 固定使用深色模式。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   DARK = 2
 }
@@ -8765,61 +7557,34 @@ declare enum AnchoredColorMode {
 }
 
 /**
-* 取色模式。
-*
- * @enum { number }
+ * 取色模式。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
-* 取色模式。
-*
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum AdaptiveColor {
-
   /**
-   * 不使用取色模糊。使用默认的颜色作为蒙版颜色。采用非DEFAULT方式较耗时。
+   * 不使用取色模糊。使用系统预设颜色作为蒙版颜色。采用非DEFAULT方式的取色计算耗时高于DEFAULT方式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 不使用取色模糊。使用默认的颜色作为蒙版颜色。采用非DEFAULT方式较耗时。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   DEFAULT = 0,
 
   /**
-   * 使用取色模糊。将取色区域的颜色平均值作为蒙版颜色。
+   * 使用取色模糊。将取色区域的颜色平均值作为蒙版颜色。采用AVERAGE方式较DEFAULT方式耗时，在性能敏感场景建议使用DEFAULT。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 使用取色模糊。将取色区域的颜色平均值作为蒙版颜色。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   AVERAGE = 1
 }
@@ -8893,7 +7658,8 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
   policy?: BlurStyleActivePolicy;
 
   /**
-   * 模糊不生效时使用的背景色。该参数需配合policy参数使用。当policy使模糊失效时，控件模糊效果会被移除，如果设置了inactiveColor会使用inactiveColor作为控件背景色。
+   * 模糊不生效时使用的背景色。该参数需配合policy参数使用。当policy使模糊失效时，组件模糊效果会被移除，如果设置了inactiveColor会使用inactiveColor作为组件背景色。默认不设置inactiveColor
+   * 背景色。
    *
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -8906,71 +7672,36 @@ declare interface BackgroundBlurStyleOptions extends BlurStyleOptions {
 }
 
 /**
-* 继承自[BlurStyleOptions]{@link BlurStyleOptions}，设置内容模糊选项。
-*
- * @extends BlurStyleOptions
- * @interface ForegroundBlurStyleOptions
+ * 继承自[BlurStyleOptions]{@link BlurStyleOptions}，内容模糊样式选项。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
-* 继承自[BlurStyleOptions]{@link BlurStyleOptions}，设置内容模糊选项。
-*
- * @extends BlurStyleOptions
- * @interface ForegroundBlurStyleOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface ForegroundBlurStyleOptions extends BlurStyleOptions {}
 
 /**
-* 灰阶模糊参数。
-*
- * @interface BlurOptions
+ * 灰阶模糊参数。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
-* 灰阶模糊参数。
-*
- * @interface BlurOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface BlurOptions {
-
   /**
-   * 灰阶模糊参数，两参数取值范围均为[0,127] 。对图像中的黑白色进行色阶调整，使其趋于灰色更为柔和美观，对图像中的彩色调整没有效果。参数一表示对黑色的提亮程度，参数二表示对白色的压暗程度，参数值越大调整效果越明显（黑白色变得越灰
-   * ），有效值范围0-127。例如：设置参数为（20,20），图片中的黑色像素RGB:[0, 0, 0]会调整为[20,20,20]，白色像素RGB:[255,255,255]会调整为[235,235,235]（255-20），图像中
-   * 的彩色像素维持不变。
+   * 灰阶模糊参数，两参数取值范围均为[0,127]。对图像中的黑白色进行色阶调整，使其趋于灰色，视觉过渡更加柔和，对图像中的彩色调整没有效果。参数一表示对黑色的提亮程度，参数二表示对白色的压暗程度，参数值越大调整效果越明显（黑白色变得
+   * 越灰）。例如：设置参数为（20，20），图片中的黑色像素RGB：[0, 0, 0]会调整为[20, 20, 20]，白色像素RGB：[255, 255, 255]会调整为[235, 235, 235]（255-20），图像中的彩色
+   * 像素维持不变。
    *
-   * @type { [number, number] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * 灰阶模糊参数，两参数取值范围均为[0,127] 。对图像中的黑白色进行色阶调整，使其趋于灰色更为柔和美观，对图像中的彩色调整没有效果。参数一表示对黑色的提亮程度，参数二表示对白色的压暗程度，参数值越大调整效果越明显（黑白色变得越灰
-   * ），有效值范围0-127。例如：设置参数为（20,20），图片中的黑色像素RGB:[0, 0, 0]会调整为[20,20,20]，白色像素RGB:[255,255,255]会调整为[235,235,235]（255-20），图像中
-   * 的彩色像素维持不变。
-   *
-   * @type { [number, number] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   grayscale: [number, number];
 }
@@ -8987,8 +7718,8 @@ declare interface BlurOptions {
  */
 declare interface SystemAdaptiveOptions {
   /**
-   * 系统自适应调节参数，推荐不携带该参数。该参数只影响低算力设备，低算力设备的定义由设备厂商决定。在低芯片算力的设备上，会根据算力和负载等条件，自动决策是否使用低算力的近似效果替代原有效果，比如模糊效果会结合接口中携带的模糊相关参数值
-   * 及其他低算力处理逻辑，进行自适应效果降级处理。如果想关闭该功能，可以将该标志置为true。
+   * 系统自适应调节参数，推荐不携带该参数。设为true表示关闭系统自适应调节功能，设为false表示开启系统自适应调节功能。该参数只影响低算力设备，低算力设备的定义由设备厂商决定。在低芯片算力的设备上，会根据算力和负载等条件，自动决策
+   * 是否使用低算力的近似效果替代原有效果，比如模糊效果会结合接口中携带的模糊相关参数值及其他低算力处理逻辑，进行自适应效果降级处理。
    * 
    * 默认值：false
    *
@@ -9003,90 +7734,56 @@ declare interface SystemAdaptiveOptions {
 }
 
 /**
-* 内容模糊选项。
-*
- * @interface BlurStyleOptions
+ * 模糊样式选项，用于配置模糊效果的深浅色模式、取色模式、灰阶模糊参数和模糊程度。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
-* 内容模糊选项。
-*
- * @interface BlurStyleOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface BlurStyleOptions {
-
   /**
    * 内容模糊效果使用的深浅色模式。
-   *
+   * 
    * 默认值：ThemeColorMode.SYSTEM
    *
-   * @type { ?ThemeColorMode }
    * @default ThemeColorMode.SYSTEM
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * 内容模糊效果使用的深浅色模式。
-   *
-   * 默认值：ThemeColorMode.SYSTEM
-   *
-   * @type { ?ThemeColorMode }
-   * @default ThemeColorMode.SYSTEM
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   colorMode?: ThemeColorMode;
 
   /**
-   * 内容模糊效果使用的取色模式。
-   *
+   * 内容模糊效果使用的自适应取色模式。
+   * 
    * 默认值：AdaptiveColor.DEFAULT
    *
-   * @type { ?AdaptiveColor }
    * @default AdaptiveColor.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * 内容模糊效果使用的取色模式。
-   *
-   * 默认值：AdaptiveColor.DEFAULT
-   *
-   * @type { ?AdaptiveColor }
-   * @default AdaptiveColor.DEFAULT
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   adaptiveColor?: AdaptiveColor;
 
   /**
    * 内容模糊效果程度。
-   *
-   * 默认值：1.0
-   *
-   * 取值范围：[0.0, 1.0]
-   *
-   * 1.0表示模糊程度最高。
-   *
+   * 
+   * 默认值：1.0 
+   * 
+   * 取值范围：[0.0, 1.0] 
+   * 
+   * 1.0表示模糊程度最高。 
+   * 
    * 0.0表示模糊程度最低。
+   * 
+   * 超出取值范围时，按边界值自动修正。
    *
-   * @type { ?number }
    * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9096,29 +7793,16 @@ declare interface BlurStyleOptions {
   scale?: number;
 
   /**
-   * 灰阶模糊参数。
-   *
+   * 灰阶模糊参数，仅对图像中的黑白色生效，对彩色无效果。
+   * 
    * 默认值：grayscale: [0,0]
    *
-   * @type { ?BlurOptions }
    * @default { grayScale: [0,0] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * 灰阶模糊参数。
-   *
-   * 默认值：grayscale: [0,0]
-   *
-   * @type { ?BlurOptions }
-   * @default { grayScale: [0,0] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   blurOptions?: BlurOptions;
 }
@@ -9135,7 +7819,7 @@ declare interface BlurStyleOptions {
 declare interface BackgroundEffectOptions {
 
   /**
-   * 模糊半径，取值范围：[0, +∞)，默认为0。
+   * 模糊半径，单位：vp。取值范围：[0, +∞)，默认为0。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9146,7 +7830,7 @@ declare interface BackgroundEffectOptions {
   radius: number;
 
   /**
-   * 饱和度，取值范围：[0, +∞)，默认为1。推荐取值范围：[0, 50]。
+   * 饱和度，取值范围：[0, +∞)，默认为1。推荐取值范围：[0, 50]。传入负数时，恢复为默认值1。超出推荐取值范围时，效果可能不符合预期。
    *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9158,7 +7842,7 @@ declare interface BackgroundEffectOptions {
   saturation?: number;
 
   /**
-   * 亮度，取值范围：[0, +∞)，默认为1。推荐取值范围：[0, 2]。
+   * 亮度，取值范围：[0, +∞)，默认为1。推荐取值范围：[0, 2]。传入负数时，恢复为默认值1。超出推荐取值范围时，效果可能不符合预期。
    *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9170,7 +7854,7 @@ declare interface BackgroundEffectOptions {
   brightness?: number;
 
   /**
-   * 颜色，默认透明色。
+   * 背景效果的蒙版颜色，默认透明色。当adaptiveColor为AVERAGE时，color必须带有透明度，取色模式才生效。设置不同颜色值会在背景模糊效果上叠加对应颜色的蒙版层。
    *
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9182,7 +7866,7 @@ declare interface BackgroundEffectOptions {
   color?: ResourceColor;
 
   /**
-   * 背景模糊效果使用的取色模式，默认为DEFAULT。使用AVERAGE时color必须带有透明度，取色模式才生效。
+   * 背景模糊效果使用的取色模式，默认为DEFAULT。使用AVERAGE时color必须带有透明度，取色模式才生效；若color不带透明度，取色模式不生效。
    *
    * @default AdaptiveColor.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9221,7 +7905,8 @@ declare interface BackgroundEffectOptions {
   policy?: BlurStyleActivePolicy;
 
   /**
-   * 模糊不生效时使用的背景色。该参数需配合policy参数使用。当policy使模糊失效时，控件模糊效果会被移除，如果设置了inactiveColor会使用inactiveColor作为控件背景色。
+   * 模糊不生效时使用的背景色。该参数需配合policy参数使用。当policy使模糊失效时，组件模糊效果会被移除。如果设置了inactiveColor，会使用inactiveColor作为组件背景色；如果未设置
+   * inactiveColor，组件背景色恢复为默认透明色。默认不设置inactiveColor背景色。
    *
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -9234,9 +7919,8 @@ declare interface BackgroundEffectOptions {
 }
 
 /**
-* 前景效果参数。
-*
- * @interface ForegroundEffectOptions
+ * 前景效果参数，用于配置组件前景的模糊半径，控制前景内容的模糊程度。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -9246,11 +7930,8 @@ declare interface BackgroundEffectOptions {
 declare interface ForegroundEffectOptions {
 
   /**
-   * 模糊半径，取值范围：[0, +∞)。
+   * 模糊半径，设置后组件前景呈现模糊效果，数值越大模糊程度越高。取值范围：[0, +∞)，0表示不产生模糊效果。传入负数时自动修正为0。仅在组件范围内生效，与backgroundBlur等效果类接口连用时超出组件范围的效果无法生效。
    *
-   * 仅在组件范围内生效，与其他接口连用时超出组件范围的效果无法生效。
-   *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -9471,117 +8152,63 @@ declare interface PickerDialogButtonStyle {
 }
 
 /**
-* 阴影类型。
-*
- * @enum { number }
+ * 阴影类型。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
-* 阴影类型。
-*
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum ShadowType {
-
   /**
-   * 颜色。
+   * 颜色阴影，基于指定颜色值绘制阴影效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 颜色。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   COLOR = 0,
 
   /**
-   * 模糊。
+   * 模糊阴影，基于组件内容模糊绘制阴影效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 模糊。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   BLUR = 1
 }
 
 /**
-* 阴影属性集合，用于设置阴影的模糊半径、阴影的颜色、X轴和Y轴的偏移量。
-*
- * @interface ShadowOptions
+ * 阴影属性集合，用于设置阴影的模糊半径、阴影的颜色、X轴和Y轴的偏移量。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
-* 阴影属性集合，用于设置阴影的模糊半径、阴影的颜色、X轴和Y轴的偏移量。
-*
- * @interface ShadowOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
-* 阴影属性集合，用于设置阴影的模糊半径、阴影的颜色、X轴和Y轴的偏移量。
-*
- * @interface ShadowOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
-* 阴影属性集合，用于设置阴影的模糊半径、阴影的颜色、X轴和Y轴的偏移量。
-*
- * @interface ShadowOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface ShadowOptions {
-
   /**
    * 阴影模糊半径。
-   *
+   * 
    * 取值范围：[0, +∞)，API版本26.0.0开始取值范围变更为(-∞, +∞)
-   *
+   * 
    * 单位：px
-   *
-   * **说明：**
-   *
-   * API版本26.0.0之前，设置小于0的值时，按值为0处理。从API版本26.0.0开始，设置的值即为最终取值，当设置负数值时阴影消失。
-   *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
-   *
+   * 
+   * **说明：**  
+   * 
+   * API版本26.0.0之前，设置小于0的值时，按值为0处理，此时不绘制阴影；从API版本26.0.0开始，设置的值即为最终取值，值为0时仍绘制阴影，设置负数值时不绘制阴影。
+   * 
+   * 如需使用vp单位的数值可用[vp2px]{@link @ohos.arkui.UIContext:UIContext.vp2px}进行转换。
+   * 
    * 如果radius为Resource类型，则传入的值需为number类型。
    *
-   * @type { number | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -9596,7 +8223,7 @@ declare interface ShadowOptions {
    *
    * API版本26.0.0之前，设置小于0的值时，按值为0处理。从API版本26.0.0开始，设置的值即为最终取值，当设置负数值时阴影消失。
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果radius为Resource类型，则传入的值需为number类型。
    *
@@ -9616,7 +8243,7 @@ declare interface ShadowOptions {
    *
    * API版本26.0.0之前，设置小于0的值时，按值为0处理。从API版本26.0.0开始，设置的值即为最终取值，当设置负数值时阴影消失。
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果radius为Resource类型，则传入的值需为number类型。
    *
@@ -9637,7 +8264,7 @@ declare interface ShadowOptions {
    *
    * API版本26.0.0之前，设置小于0的值时，按值为0处理。从API版本26.0.0开始，设置的值即为最终取值，当设置负数值时阴影消失。
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果radius为Resource类型，则传入的值需为number类型。
    *
@@ -9652,121 +8279,54 @@ declare interface ShadowOptions {
 
   /**
    * 阴影类型。
-   *
+   * 
    * 默认值：COLOR
    *
-   * @type { ?ShadowType }
    * @default ShadowType.COLOR
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 阴影类型。
-   *
-   * 默认值：COLOR
-   *
-   * @type { ?ShadowType }
-   * @default ShadowType.COLOR
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   type?: ShadowType;
 
   /**
    * 阴影的颜色。
-   *
-   * 默认为黑色。
-   *
-   * **说明：**
-   *
+   * 
+   * 默认为黑色。 
+   * 
+   * **说明：** 
+   * 
    * 从API version 11开始，该接口支持使用ColoringStrategy实现智能取色，智能取色功能不支持在ArkTS卡片、[textShadow]{@link TextAttribute#textShadow}中使用。
-   *
+   * 
    * 当前仅支持平均取色和主色取色，智能取色区域为shadow绘制区域。
-   *
+   * 
    * 支持使用'average'字符串触发智能平均取色模式，支持使用'primary'字符串触发智能主色模式。
    *
-   * @type { ?(Color | string | Resource) }
+   * @type { ?(Color | string | Resource) } [since 7 - 10]
+   * @type { ?(Color | string | Resource| ColoringStrategy) } [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * 阴影的颜色。
-   *
-   * 默认为黑色。
-   *
-   * **说明：**
-   *
-   * 从API version 11开始，该接口支持使用ColoringStrategy实现智能取色，智能取色功能不支持在ArkTS卡片、[textShadow]{@link TextAttribute#textShadow}中使用。
-   *
-   * 当前仅支持平均取色和主色取色，智能取色区域为shadow绘制区域。
-   *
-   * 支持使用'average'字符串触发智能平均取色模式，支持使用'primary'字符串触发智能主色模式。
-   *
-   * @type { ?(Color | string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * 阴影的颜色。
-   *
-   * 默认为黑色。
-   *
-   * **说明：**
-   *
-   * 从API version 11开始，该接口支持使用ColoringStrategy实现智能取色，智能取色功能不支持在ArkTS卡片、[textShadow]{@link TextAttribute#textShadow}中使用。
-   *
-   * 当前仅支持平均取色和主色取色，智能取色区域为shadow绘制区域。
-   *
-   * 支持使用'average'字符串触发智能平均取色模式，支持使用'primary'字符串触发智能主色模式。
-   *
-   * @type { ?(Color | string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 阴影的颜色。
-   *
-   * 默认为黑色。
-   *
-   * **说明：**
-   *
-   * 从API version 11开始，该接口支持使用ColoringStrategy实现智能取色，智能取色功能不支持在ArkTS卡片、[textShadow]{@link TextAttribute#textShadow}中使用。
-   *
-   * 当前仅支持平均取色和主色取色，智能取色区域为shadow绘制区域。
-   *
-   * 支持使用'average'字符串触发智能平均取色模式，支持使用'primary'字符串触发智能主色模式。
-   *
-   * @type { ?(Color | string | Resource| ColoringStrategy) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   color?: Color | string | Resource | ColoringStrategy;
 
   /**
    * 阴影的X轴偏移量。
-   *
+   * 
    * 默认值：0
-   *
+   * 
    * 单位：px
    *
    * **说明：**
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果offsetX为Resource类型，则传入的值需为number类型。
    *
-   * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -9779,7 +8339,7 @@ declare interface ShadowOptions {
    *
    * **说明：**
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果offsetX为Resource类型，则传入的值需为number类型。
    *
@@ -9797,7 +8357,7 @@ declare interface ShadowOptions {
    *
    * **说明：**
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果offsetX为Resource类型，则传入的值需为number类型。
    *
@@ -9816,7 +8376,7 @@ declare interface ShadowOptions {
    *
    * **说明：**
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果offsetX为Resource类型，则传入的值需为number类型。
    *
@@ -9831,18 +8391,17 @@ declare interface ShadowOptions {
 
   /**
    * 阴影的Y轴偏移量。
-   *
+   * 
    * 默认值：0
-   *
+   * 
    * 单位：px
    *
    * **说明：**
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果offsetY为Resource类型，则传入的值需为number类型。
    *
-   * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7
    */
@@ -9855,7 +8414,7 @@ declare interface ShadowOptions {
    *
    * **说明：**
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果offsetY为Resource类型，则传入的值需为number类型。
    *
@@ -9873,7 +8432,7 @@ declare interface ShadowOptions {
    *
    * **说明：**
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果offsetY为Resource类型，则传入的值需为number类型。
    *
@@ -9892,7 +8451,7 @@ declare interface ShadowOptions {
    *
    * **说明：**
    *
-   * 如需使用vp单位的数值可用[vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)进行转换。
+   * 如需使用vp单位的数值可用[vp2px]{@link UIContext#vp2px}进行转换。
    *
    * 如果offsetY为Resource类型，则传入的值需为number类型。
    *
@@ -9907,77 +8466,41 @@ declare interface ShadowOptions {
 
   /**
    * 阴影是否内部填充。true表示阴影在内部填充，false表示阴影在外部填充。
-   *
+   * 
    * 默认值：false。
-   *
+   * 
    * **说明：**
-   *
+   * 
    * [textShadow]{@link TextAttribute#textShadow}中该字段不生效。
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * 阴影是否内部填充。true表示阴影在内部填充，false表示阴影在外部填充。
-   *
-   * 默认值：false。
-   *
-   * **说明：**
-   *
-   * [textShadow]{@link TextAttribute#textShadow}中该字段不生效。
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   fill?: boolean;
 }
 
 /**
-* 组件阴影效果。
-*
- * @enum { number }
+ * 组件阴影效果。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
-* 组件阴影效果。
-*
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum ShadowStyle {
-
   /**
    * 超小阴影。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 超小阴影。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   OUTER_DEFAULT_XS = 0,
 
@@ -9987,16 +8510,8 @@ declare enum ShadowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 小阴影。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   OUTER_DEFAULT_SM = 1,
 
@@ -10006,16 +8521,8 @@ declare enum ShadowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 中阴影。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   OUTER_DEFAULT_MD = 2,
 
@@ -10025,16 +8532,8 @@ declare enum ShadowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 大阴影。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   OUTER_DEFAULT_LG = 3,
 
@@ -10044,16 +8543,8 @@ declare enum ShadowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 浮动小阴影。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   OUTER_FLOATING_SM = 4,
 
@@ -10063,169 +8554,64 @@ declare enum ShadowStyle {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Floating medium shadow.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   OUTER_FLOATING_MD = 5
 }
 
 /**
- * 定义阴影参数。
+ * 投影样式参数。
  *
- * @interface MultiShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * 定义阴影参数。
- *
- * @interface MultiShadowOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * 定义阴影参数。
- *
- * @interface MultiShadowOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @form [since 23]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface MultiShadowOptions {
-
   /**
-   * 当前阴影半径。
+   * 投影模糊半径。
+   * API version 10及以前，5；API version 11及以后，。
+   * 单位为：vp。取值约束：(0, +∞)。默认值：20。
+   * <br>设置小于等于0的值时，按默认值显示。
    *
-   * API version 10及以前，默认值：5；API version 11及以后，默认值：20。单位：vp；number类型取值范围大于0；说明：设置小于等于0的值时，按默认值显示。
-   *
-   * @type { ?(number | Resource) }
-   * @default 5
+   * @default 5 [since 10 - 10]
+   * @default 20 [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 当前阴影半径。
-   *
-   * API version 10及以前，默认值：5；API version 11及以后，默认值：20。单位：vp；number类型取值范围大于0；说明：设置小于等于0的值时，按默认值显示。
-   *
-   * @type { ?(number | Resource) }
-   * @default 20
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * 当前阴影半径。
-   *
-   * API version 10及以前，默认值：5；API version 11及以后，默认值：20。单位：vp；number类型取值范围大于0；说明：设置小于等于0的值时，按默认值显示。
-   *
-   * @type { ?(number | Resource) }
-   * @default 20
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @form [since 23]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   radius?: number | Resource;
-
   /**
-   * 当前阴影的坐标X。
+   * X轴偏移量。
+   * 单位为：vp。默认值：5。
    *
-   * X轴偏移量。number类型取值范围不做限制。默认值：5。单位：vp
-   * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 当前阴影的坐标X。
-   *
-   * X轴偏移量。number类型取值范围不做限制。默认值：5。单位：vp
-   * @type { ?(number | Resource) }
-   * @default 5
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * 当前阴影的坐标X。
-   *
-   * X轴偏移量。number类型取值范围不做限制。默认值：5。单位：vp
-   * @type { ?(number | Resource) }
-   * @default 5
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @form [since 23]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   offsetX?: number | Resource;
 
   /**
-   * 当前的阴影坐标Y。
+   * Y轴偏移量。
+   * 单位为：vp。默认值：5。
    *
-   * X轴偏移量。number类型取值范围不做限制。默认值：5。单位：vp
-   *
-   * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 当前的阴影坐标Y。
-   *
-   * X轴偏移量。number类型取值范围不做限制。默认值：5。单位：vp
-   *
-   * @type { ?(number | Resource) }
-   * @default 5
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * 当前的阴影坐标Y。
-   *
-   * X轴偏移量。number类型取值范围不做限制。默认值：5。单位：vp
-   *
-   * @type { ?(number | Resource) }
-   * @default 5
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @form [since 23]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   offsetY?: number | Resource;
 }
@@ -10458,6 +8844,10 @@ declare enum SheetSize {
    * 指定半模态高度为半模态所在窗口的60%。
    * 
    * 在TV设备上半模态高度为半模态所在窗口的50%。
+   * 
+   * **说明：**
+   * 
+   * 居中弹窗和跟手弹窗设置此值无效，显示默认高度560vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10469,6 +8859,12 @@ declare enum SheetSize {
 
   /**
    * 指定半模态高度几乎为半模态所在窗口的高度。
+   * 
+   * 在TV设备上半模态高度为半模态所在窗口的高度。
+   * 
+   * **说明：**
+   * 
+   * 居中弹窗和跟手弹窗设置此值无效，显示默认高度560vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10483,7 +8879,7 @@ declare enum SheetSize {
    * 
    * **说明：**
    * 
-   * 1. FIT_CONTENT是半模态容器高度去适应孩子builder根节点的布局。此场景下builder根节点的高度不能使用百分比，两者不能相互依赖彼此的布局。
+   * 1. FIT_CONTENT是半模态容器高度去适应子builder根节点的布局。此场景下builder根节点的高度不能使用百分比，两者不能相互依赖彼此的布局。
    * 2. 如果半模态使用SheetSize.FIT_CONTENT自适应模式，且类型设置为居中弹窗或跟手弹窗，API version 22及之前版本，高度大于最大高度，则显示最大高度，高度小于最小高度，则显示最小高度。
    * 
    * API version 23开始，高度大于最大高度，则显示最大高度，高度小于最小高度，按照实际自适应高度生效。
@@ -10563,7 +8959,7 @@ declare interface BaseEvent {
    * @atomicservice
    * @since 12 dynamic
    */
-  axisHorizontal ?: number;
+  axisHorizontal?: number;
 
   /**
    * 垂直轴值。
@@ -10583,7 +8979,7 @@ declare interface BaseEvent {
    * @atomicservice
    * @since 12 dynamic
    */
-  axisVertical ?: number;
+  axisVertical?: number;
 
   /**
    * 双指缩放比例。
@@ -10760,7 +9156,39 @@ declare interface BaseEvent {
 declare interface BorderImageOption {
 
   /**
-   * Border image slice
+   * 设置边框图片左上角、右上角、左下角以及右下角的切割宽高。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四个角的宽高。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Left：设置图片左侧被切割的宽。
+   *
+   * - Right：设置图片右侧被切割的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Start：设置图片左侧被切割的宽。
+   *
+   * 从右至左显示语言模式下为设置图片右侧被切割的宽。
+   *
+   * - End：设置图片右侧被切割的宽。
+   *
+   * 从右至左显示语言模式下为设置图片左侧被切割的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10769,7 +9197,39 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image slice
+   * 设置边框图片左上角、右上角、左下角以及右下角的切割宽高。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四个角的宽高。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Left：设置图片左侧被切割的宽。
+   *
+   * - Right：设置图片右侧被切割的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Start：设置图片左侧被切割的宽。
+   *
+   * 从右至左显示语言模式下为设置图片右侧被切割的宽。
+   *
+   * - End：设置图片右侧被切割的宽。
+   *
+   * 从右至左显示语言模式下为设置图片左侧被切割的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10779,7 +9239,39 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Border image slice
+   * 设置边框图片左上角、右上角、左下角以及右下角的切割宽高。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四个角的宽高。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Left：设置图片左侧被切割的宽。
+   *
+   * - Right：设置图片右侧被切割的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Start：设置图片左侧被切割的宽。
+   *
+   * 从右至左显示语言模式下为设置图片右侧被切割的宽。
+   *
+   * - End：设置图片右侧被切割的宽。
+   *
+   * 从右至左显示语言模式下为设置图片左侧被切割的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10790,8 +9282,39 @@ declare interface BorderImageOption {
    * @since 11
    */
   /**
-   * Slice width of the upper left corner, upper right corner, lower left corner,
-   * and lower right corner of the border image.
+   * 设置边框图片左上角、右上角、左下角以及右下角的切割宽高。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四个角的宽高。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Left：设置图片左侧被切割的宽。
+   *
+   * - Right：设置图片右侧被切割的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片上侧被切割的高。
+   *
+   * - Bottom：设置图片下侧被切割的高。
+   *
+   * - Start：设置图片左侧被切割的宽。
+   *
+   * 从右至左显示语言模式下为设置图片右侧被切割的宽。
+   *
+   * - End：设置图片右侧被切割的宽。
+   *
+   * 从右至左显示语言模式下为设置图片左侧被切割的宽。
    *
    * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
    * @default 0
@@ -10805,7 +9328,9 @@ declare interface BorderImageOption {
   slice?: Length | EdgeWidths | LocalizedEdgeWidths;
 
   /**
-   * Border image repeat
+   * 设置被切割的图片在边框上的重复方式。
+   *
+   * 默认值：RepeatMode.Stretch
    *
    * @type { ?RepeatMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10814,7 +9339,9 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image repeat
+   * 设置被切割的图片在边框上的重复方式。
+   *
+   * 默认值：RepeatMode.Stretch
    *
    * @type { ?RepeatMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10824,7 +9351,9 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Repeat mode of the source image's slices on the border.
+   * 设置被切割的图片在边框上的重复方式。
+   *
+   * 默认值：RepeatMode.Stretch
    *
    * @type { ?RepeatMode }
    * @default RepeatMode.Stretch
@@ -10838,7 +9367,13 @@ declare interface BorderImageOption {
   repeat?: RepeatMode;
 
   /**
-   * Border image source
+   * 边框图源或者渐变色设置。参数类型为string类型时，用于设置边框图源，引用方式请参考[加载图片资源](docroot://ui/arkts-graphics-display.md#加载图片资源)。
+   *
+   * 默认值：undefined（不设置边框图源）
+   *
+   * **说明：**
+   *
+   * 边框图源仅适用于容器组件，如[Row]{@link ./row}、[Column]{@link ./column}、[Flex]{@link ./flex}，在非容器组件上使用会失效。
    *
    * @type { ?(string | Resource | LinearGradient) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10847,7 +9382,13 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image source
+   * 边框图源或者渐变色设置。参数类型为string类型时，用于设置边框图源，引用方式请参考[加载图片资源](docroot://ui/arkts-graphics-display.md#加载图片资源)。
+   *
+   * 默认值：undefined（不设置边框图源）
+   *
+   * **说明：**
+   *
+   * 边框图源仅适用于容器组件，如[Row]{@link ./row}、[Column]{@link ./column}、[Flex]{@link ./flex}，在非容器组件上使用会失效。
    *
    * @type { ?(string | Resource | LinearGradient) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10857,13 +9398,13 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Source or gradient color of the border image.
-   * When the type is string, this parameter sets the border image source.
-   * For details about how to reference image resources, see Loading Image Resources.
+   * 边框图源或者渐变色设置。参数类型为string类型时，用于设置边框图源，引用方式请参考[加载图片资源](docroot://ui/arkts-graphics-display.md#加载图片资源)。
    *
-   * <p><strong>NOTE</strong>:
-   * <br>The border image source applies only to container components, such as Row, Column, and Flex.
-   * </p>
+   * 默认值：undefined（不设置边框图源）
+   *
+   * **说明：**
+   *
+   * 边框图源仅适用于容器组件，如[Row]{@link ./row}、[Column]{@link ./column}、[Flex]{@link ./flex}，在非容器组件上使用会失效。
    *
    * @type { ?(string | Resource | LinearGradient) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10876,7 +9417,39 @@ declare interface BorderImageOption {
   source?: string | Resource | LinearGradient;
 
   /**
-   * Border image width
+   * 设置图片边框宽度。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的宽度。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Left：设置图片边框左边框的宽。
+   *
+   * - Right：设置图片边框右边框的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Start：设置图片边框左边框的宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框右边框宽。
+   *
+   * - End：设置图片边框右边框宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框左边框的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10885,7 +9458,39 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image width
+   * 设置图片边框宽度。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的宽度。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Left：设置图片边框左边框的宽。
+   *
+   * - Right：设置图片边框右边框的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Start：设置图片边框左边框的宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框右边框宽。
+   *
+   * - End：设置图片边框右边框宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框左边框的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10895,7 +9500,39 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Border image width
+   * 设置图片边框宽度。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的宽度。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Left：设置图片边框左边框的宽。
+   *
+   * - Right：设置图片边框右边框的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Start：设置图片边框左边框的宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框右边框宽。
+   *
+   * - End：设置图片边框右边框宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框左边框的宽。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10906,7 +9543,39 @@ declare interface BorderImageOption {
    * @since 11
    */
   /**
-   * Width of the border image.
+   * 设置图片边框宽度。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的宽度。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Left：设置图片边框左边框的宽。
+   *
+   * - Right：设置图片边框右边框的宽。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置图片边框上边框的宽。
+   *
+   * - Bottom：设置图片边框下边框的宽。
+   *
+   * - Start：设置图片边框左边框的宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框右边框宽。
+   *
+   * - End：设置图片边框右边框宽。
+   *
+   * 从右至左显示语言模式下为设置图片边框左边框的宽。
    *
    * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
    * @default 0
@@ -10920,7 +9589,39 @@ declare interface BorderImageOption {
   width?: Length | EdgeWidths | LocalizedEdgeWidths;
 
   /**
-   * Border image outset
+   * 设置边框图片向外延伸距离。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的向外延伸距离。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Left：设置边框图片左边框向外延伸的距离。
+   *
+   * - Right：设置边框图片右边框向外延伸的距离。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Start：设置边框图片左边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片右边框向外延伸的距离。
+   *
+   * - End：设置边框图片右边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片左边框向外延伸的距离。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10929,7 +9630,39 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image outset
+   * 设置边框图片向外延伸距离。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的向外延伸距离。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Left：设置边框图片左边框向外延伸的距离。
+   *
+   * - Right：设置边框图片右边框向外延伸的距离。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Start：设置边框图片左边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片右边框向外延伸的距离。
+   *
+   * - End：设置边框图片右边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片左边框向外延伸的距离。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10939,7 +9672,39 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Border image outset
+   * 设置边框图片向外延伸距离。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的向外延伸距离。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Left：设置边框图片左边框向外延伸的距离。
+   *
+   * - Right：设置边框图片右边框向外延伸的距离。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Start：设置边框图片左边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片右边框向外延伸的距离。
+   *
+   * - End：设置边框图片右边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片左边框向外延伸的距离。
    *
    * @type { ?(Length | EdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10950,7 +9715,39 @@ declare interface BorderImageOption {
    * @since 11
    */
   /**
-   * Amount by which the border image is extended beyond the border box.
+   * 设置边框图片向外延伸距离。
+   *
+   * 默认值：0
+   *
+   * **说明：**
+   *
+   * 设置负数时取默认值。
+   *
+   * 参数类型为[Length]{@link Length}时，统一设置四条边框的向外延伸距离。
+   *
+   * 参数类型为[EdgeWidths]{@link EdgeWidths}时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Left：设置边框图片左边框向外延伸的距离。
+   *
+   * - Right：设置边框图片右边框向外延伸的距离。
+   *
+   * 参数类型为[LocalizedEdgeWidths]{@link LocalizedEdgeWidths}<sup>12+</sup>时：
+   *
+   * - Top：设置边框图片上边框向外延伸的距离。
+   *
+   * - Bottom：设置边框图片下边框向外延伸的距离。
+   *
+   * - Start：设置边框图片左边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片右边框向外延伸的距离。
+   *
+   * - End：设置边框图片右边框向外延伸的距离。
+   *
+   * 从右至左显示语言模式下为设置边框图片左边框向外延伸的距离。
    *
    * @type { ?(Length | EdgeWidths | LocalizedEdgeWidths) }
    * @default 0
@@ -10964,7 +9761,9 @@ declare interface BorderImageOption {
   outset?: Length | EdgeWidths | LocalizedEdgeWidths;
 
   /**
-   * Border image center fill
+   * 设置边框图片是否中心填充。true表示中心填充，false表示非中心填充。
+   *
+   * 默认值：false
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10973,7 +9772,9 @@ declare interface BorderImageOption {
    * @since 9
    */
   /**
-   * Border image center fill
+   * 设置边框图片是否中心填充。true表示中心填充，false表示非中心填充。
+   *
+   * 默认值：false
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -10983,9 +9784,9 @@ declare interface BorderImageOption {
    * @since 10
    */
   /**
-   * Whether to fill the center of the border image.
-   * true: Fill the center of the border image.
-   * false: Do not fill the center of the border image.
+   * 设置边框图片是否中心填充。true表示中心填充，false表示非中心填充。
+   *
+   * 默认值：false
    *
    * @type { ?boolean }
    * @default false
@@ -11000,27 +9801,27 @@ declare interface BorderImageOption {
 }
 
 /**
- * 用于组件宽度和高度的布局策略。
- * >  **说明：**
+ * 用于组件宽度和高度的布局策略。提供matchParent、wrapContent、fixAtIdealSize三种布局策略选项，分别用于组件自适应父组件布局、根据内容自适应但不超过父组件尺寸、根据内容自适应且可超过父组件尺寸的场景。
+ *
+ * > **说明：**
  * >
- * > -
- * LayoutPolicy支持设置三种布局策略：matchParent（自适应父组件布局）、wrapContent（根据内容自适应但不超过父组件尺寸的布局）和fixAtIdealSize（根据内容自适应，可能超过父组件尺寸的布局）。具体
- * 示例代码参见[设置布局策略](./ts-universal-attributes-size.md#示例5设置布局策略)。
+ * > - LayoutPolicy支持设置三种布局策略：matchParent（自适应父组件布局）、wrapContent（根据内容自适应但不超过父组件尺寸的布局）和fixAtIdealSize（根据内容自适应，可能超过父组件尺寸的布局
+ * > ）。具体示例代码参见[设置布局策略](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#示例5设置布局策略)。
  * >
- * > - wrapContent和fixAtIdealSize场景，组件无法通过内容确定大小时，如果组件大小有默认值，则按照默认值进行测算；如果没有默认值，则按照宽高(0,0)进行测算。
+ * > - wrapContent和fixAtIdealSize场景，组件无法通过内容确定大小时，如果组件大小有默认值，则按照默认值进行测算，组件最终以默认大小显示；如果没有默认值，则按照宽高(0,0)进行测算，组件最终以零尺寸显示。
  * >
- * > -
- * 容器设置wrapContent，并且有子组件设置matchParent时（包括仅一边设置matchParent），容器先由确定大小的子组件撑大，设置matchParent的子组件再匹配容器大小；如果没有确定大小的子组件，容器和子组件大
- * 小均为0。
+ * > - 容器设置wrapContent，并且有子组件设置matchParent时（包括仅一边设置matchParent），容器先由确定大小的子组件撑大，设置matchParent的子组件再匹配容器大小；如果没有确定大小的子组件，容器和
+ * > 子组件大小均为0。
  * >
- * > - LayoutPolicy优先级低于constraintSize。
+ * > - LayoutPolicy的设置会被constraintSize约束，即当同时设置LayoutPolicy和constraintSize时，constraintSize的约束优先生效。
  * >
  * > - 从API version 15开始，仅Row和Column组件的width和height属性支持设置LayoutPolicy类型参数，其他组件设置LayoutPolicy类型参数后与不设置宽度或高度表现一致；从API
- * version 20开始，所有基础组件均支持设置LayoutPolicy类型参数。
+ * > version 20开始，所有基础组件均支持设置LayoutPolicy类型参数。
  * >
- * > -
- * 当Row、Column、Flex组件主轴尺寸自适应子组件，且子组件A仅交叉轴设置matchParent时，API版本26.0.0之前，子组件A不参与Row、Column、Flex组件的主轴尺寸测量过程，此时Row、Column、Fle
- * x组件主轴方向不自适应子组件A的尺寸；从API版本26.0.0开始，子组件A会参与Row、Column、Flex组件的主轴尺寸测量过程，此时Row、Column、Flex组件主轴方向会自适应子组件A的尺寸。交叉轴方向同理。
+ * > - 当Row、Column、Flex组件主轴尺寸自适应子组件，且子组件A仅交叉轴设置matchParent时，API版本26.0.0之前，子组件A不参与Row、Column、Flex组件的主轴尺寸测量过程，此时Row、Column
+ * > 、Flex组件主轴方向不自适应子组件A的尺寸；从API版本26.0.0开始，子组件A会参与Row、Column、Flex组件的主轴尺寸测量过程，此时Row、Column、Flex组件主轴方向会自适应子组件A的尺寸。交叉轴方向同理。
+ * > 具体变更效果参见
+ * > [示例6（子组件单方向设置matchParent效果）](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#示例6子组件单方向设置matchparent效果)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -11032,7 +9833,7 @@ declare interface BorderImageOption {
 declare class LayoutPolicy {
 
   /**
-   * 当前组件自适应父组件布局时，其大小与父组件内容区相等，不包括padding，border和safeAreaPadding。
+   * 当前组件自适应父组件布局时，其大小与父组件内容区相等，不包括padding，border和safeAreaPadding。适用于需要组件填满父容器内容区的场景，例如列表项、卡片容器等。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11044,7 +9845,7 @@ declare class LayoutPolicy {
   static readonly matchParent: LayoutPolicy;
 
   /**
-   * 当前组件自适应子组件（内容）时，其大小与子组件（内容）相等，并且其大小受父组件内容区大小约束。
+   * 当前组件自适应子组件（内容）时，其大小与子组件（内容）相等，并且其大小受父组件内容区大小约束。适用于需要根据内容自动调整大小但不能超出父容器的场景，例如文本容器、弹窗内容区等。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11056,7 +9857,7 @@ declare class LayoutPolicy {
   static readonly wrapContent: LayoutPolicy;
 
   /**
-   * 当前组件自适应子组件（内容）时，其大小与子组件（内容）相等，并且其大小不受父组件内容区大小约束。
+   * 当前组件自适应子组件（内容）时，其大小与子组件（内容）相等，并且其大小不受父组件内容区大小约束。适用于需要根据内容自动调整大小且可以超出父容器的场景，例如悬浮提示、下拉菜单等。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11095,7 +9896,7 @@ declare interface ClickEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * 触摸点在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+   * 点击位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
    * 
    * 单位：vp
    * 
@@ -11373,7 +10174,11 @@ declare interface HoverEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * 相对于全局显示的点的 Y 坐标。
+   * 鼠标光标或手写笔位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+   * 
+   * 单位：vp
+   * 
+   * 取值范围：[0, +∞)
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11438,7 +10243,7 @@ declare interface MouseEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * 鼠标光标在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+   * 鼠标位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
    * 
    * 单位：vp
    * 
@@ -11589,9 +10394,9 @@ declare interface MouseEvent extends BaseEvent {
   pressedButtons?: MouseButton[];
 
   /**
-   * 获取点击位置相对于当前组件实时位置的左上角坐标。
+   * 获取鼠标位置相对于当前组件实时位置的左上角坐标。
    *
-   * @returns { Coordinate2D } - 点击位置相对于当前组件实时位置的左上角坐标。
+   * @returns { Coordinate2D } 鼠标位置相对于当前组件实时位置的左上角坐标。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11864,7 +10669,7 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   windowY: number;
 
   /**
-   * 相对于全局显示的点的 Y 坐标。
+   * 点相对于全局显示的 X 坐标。
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -11875,12 +10680,9 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * 鼠标位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
-   * 
-   * 单位：vp
-   * 
-   * 取值范围：[0, +∞)
+   * 相对于全局显示的点的 Y 坐标。
    *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -11935,7 +10737,7 @@ declare interface TouchObject {
   globalDisplayX?: number;
 
   /**
-   * 点击位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+   * 触摸点在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
    * 
    * 单位：vp
    * 
@@ -12113,9 +10915,9 @@ declare interface TouchObject {
   height?: number;
 
   /**
-   * 获取点击位置相对于当前组件实时位置的左上角坐标。
+   * 获取触摸位置相对于当前组件实时位置的左上角坐标。
    *
-   * @returns { Coordinate2D } - 点击位置相对于当前组件实时位置的左上角坐标。
+   * @returns { Coordinate2D } - 触摸位置相对于当前组件实时位置的左上角坐标。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -12323,7 +11125,7 @@ declare interface AxisEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * 鼠标光标或手写笔位置在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
+   * 鼠标光标在[全局坐标系](docroot://windowmanager/window-terminology.md#全局坐标系)中的Y坐标。
    * 
    * 单位：vp
    * 
@@ -12498,9 +11300,9 @@ declare interface AxisEvent extends BaseEvent {
   hasAxis(axisType: AxisType): boolean;
 
   /**
-   * 获取点击位置相对于当前组件实时位置的左上角坐标。
+   * 获取鼠标光标位置相对于当前组件实时位置的左上角坐标。
    *
-   * @returns { Coordinate2D } - 点击位置相对于当前组件实时位置的左上角坐标。
+   * @returns { Coordinate2D } - 鼠标光标位置相对于当前组件实时位置的左上角坐标。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -12512,9 +11314,9 @@ declare interface AxisEvent extends BaseEvent {
 
 /**
  * 组件区域变化时的回调类型。
- * 
+ *
  * oldValue表示目标元素变化之前的宽高。
- * 
+ *
  * newValue表示目标元素变化之后的宽高。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -12541,7 +11343,8 @@ declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions)
  * @atomicservice
  * @since 12 dynamic
  */
-declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>, touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
+declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>,
+  touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
 
 /**
  * 系统内置手势与响应链上其他组件的手势设置并行关系的回调事件类型。
@@ -12572,9 +11375,10 @@ declare type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureReco
 declare type ShouldRecognizerParallelWithCallback = (current: GestureRecognizer, others: Array<GestureRecognizer>) => GestureRecognizer;
 
 /**
- * 组件转场动画的结束回调类型。
+ * 定义组件转场动画结束回调的类型。
  *
- * @param { boolean } transitionIn - 该入参表示转场动画的结束回调类型。<br/>该参数为true表示该转场回调是出现动画的结束回调，该参数为false表示该转场回调是消失动画的结束回调。
+ * @param { boolean } transitionIn - 转场动画的结束回调类型。
+ *     <br>true表示出现动画结束回调，false表示消失动画结束回调。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12585,11 +11389,9 @@ declare type ShouldRecognizerParallelWithCallback = (current: GestureRecognizer,
 declare type TransitionFinishCallback = (transitionIn: boolean) => void;
 
 /**
- * 定义了在onNeedSoftkeyboard中被使用的回调函数类型。
- * 组件获焦时回调函数被调用，返回值表示是否需要拉起键盘。
+ * 当绑定该方法的组件判断是否需要键盘时，将触发此回调。前提条件：组件需可获焦，否则本接口不生效。
  *
- * @typedef { function } OnNeedSoftkeyboardCallback
- * @returns { boolean } True表示键盘需要被拉起，false表示不需要被拉起。
+ * @returns { boolean } 是否需要键盘。<br>若此回调的返回值为`true`，则表明该组件需要键盘；返回值为`false`，则表明该组件不需要键盘。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12877,36 +11679,20 @@ declare enum DragResult {
 }
 
 /**
-* 混合模式。
-*
-* > **说明：**
-* >
-* > blendMode枚举中，s表示源像素，d表示目标像素，sa表示源像素透明度，da表示目标像素透明度，r表示混合后像素，ra表示混合后像素透明度。
-*
- * @enum { number }
+ * 混合模式。
+ * 
+ * > **说明：**
+ * >
+ * > blendMode枚举中，s表示源像素，d表示目标像素，sa表示源像素透明度，da表示目标像素透明度，r表示混合后像素，ra表示混合后像素透明度。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
-* 混合模式。
-*
-* > **说明：**
-* >
-* > blendMode枚举中，s表示源像素，d表示目标像素，sa表示源像素透明度，da表示目标像素透明度，r表示混合后像素，ra表示混合后像素透明度。
-*
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum BlendMode {
-
   /**
    * 将上层图像直接覆盖到下层图像上，不进行任何混合操作。
    *
@@ -12914,20 +11700,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 将上层图像直接覆盖到下层图像上，不进行任何混合操作。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   NONE = 0,
-
   /**
    * 将源像素覆盖的目标像素清除为完全透明。
    *
@@ -12935,20 +11711,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 将源像素覆盖的目标像素清除为完全透明。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   CLEAR = 1,
-
   /**
    * r = s，只显示源像素。
    *
@@ -12956,20 +11722,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * r = s，只显示源像素。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   SRC = 2,
-
   /**
    * r = d，只显示目标像素。
    *
@@ -12977,20 +11733,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * r = d，只显示目标像素。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   DST = 3,
-
   /**
    * r = s + (1 - sa) * d，将源像素按照透明度进行混合，覆盖在目标像素上。
    *
@@ -12998,20 +11744,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * r = s + (1 - sa) * d，将源像素按照透明度进行混合，覆盖在目标像素上。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   SRC_OVER = 4,
-
   /**
    * r = d + (1 - da) * s，将目标像素按照透明度进行混合，覆盖在源像素上。
    *
@@ -13019,20 +11755,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * r = d + (1 - da) * s，将目标像素按照透明度进行混合，覆盖在源像素上。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   DST_OVER = 5,
-
   /**
    * r = s * da，只显示源像素中与目标像素重叠的部分。
    *
@@ -13040,20 +11766,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * r = s * da，只显示源像素中与目标像素重叠的部分。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   SRC_IN = 6,
-
   /**
    * r = d * sa，只显示目标像素中与源像素重叠的部分。
    *
@@ -13061,20 +11777,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * r = d * sa，只显示目标像素中与源像素重叠的部分。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   DST_IN = 7,
-
   /**
    * r = s * (1 - da)，只显示源像素中与目标像素不重叠的部分。
    *
@@ -13082,20 +11788,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * r = s * (1 - da)，只显示源像素中与目标像素不重叠的部分。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   SRC_OUT = 8,
-
   /**
    * r = d * (1 - sa)，只显示目标像素中与源像素不重叠的部分。
    *
@@ -13103,20 +11799,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * r = d * (1 - sa), retains the parts of the destination pixels that do not overlap with the source.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   DST_OUT = 9,
-
   /**
    * r = s * da + d * (1 - sa)，在源像素和目标像素重叠的地方绘制源像素，在源像素和目标像素不重叠的地方绘制目标像素。
    *
@@ -13124,20 +11810,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * r = s * da + d * (1 - sa)，在源像素和目标像素重叠的地方绘制源像素，在源像素和目标像素不重叠的地方绘制目标像素。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   SRC_ATOP = 10,
-
   /**
    * r = d * sa + s * (1 - da)，在源像素和目标像素重叠的地方绘制目标像素，在源像素和目标像素不重叠的地方绘制源像素。
    *
@@ -13145,21 +11821,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * r = d * sa + s * (1 - da): The part of the target pixels that overlap with the source pixels
-   * and the part of the source pixels that do not overlap with the target pixels are displayed.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   DST_ATOP = 11,
-
   /**
    * r = s * (1 - da) + d * (1 - sa)，在源像素和目标像素重叠的地方不显示像素，不重叠的地方显示源像素和目标像素。
    *
@@ -13167,20 +11832,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * r = s * (1 - da) + d * (1 - sa)，在源像素和目标像素重叠的地方不显示像素，不重叠的地方显示源像素和目标像素。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   XOR = 12,
-
   /**
    * r = min(s + d, 1)，将源像素值与目标像素值相加，并将结果作为新的像素值。
    *
@@ -13188,21 +11843,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * r = min(s + d, 1):
-   * New pixels resulting from adding the source pixels to the target pixels are displayed.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   PLUS = 13,
-
   /**
    * r = s * d，将源像素与目标像素进行乘法运算，并将结果作为新的像素值。
    *
@@ -13210,20 +11854,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * r = s * d，将源像素与目标像素进行乘法运算，并将结果作为新的像素值。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   MODULATE = 14,
-
   /**
    * r = s + d - s * d，将两个图像的像素值相加，然后减去它们的乘积来实现混合。
    *
@@ -13231,20 +11865,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * r = s + d - s * d，将两个图像的像素值相加，然后减去它们的乘积来实现混合。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   SCREEN = 15,
-
   /**
    * 根据目标像素来决定使用MULTIPLY混合模式还是SCREEN混合模式。
    *
@@ -13252,20 +11876,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 根据目标像素来决定使用MULTIPLY混合模式还是SCREEN混合模式。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   OVERLAY = 16,
-
   /**
    * rc = s + d - max(s * da, d * sa), ra = kSrcOver，当两个颜色重叠时，较暗的颜色会覆盖较亮的颜色。
    *
@@ -13273,20 +11887,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * rc = s + d - max(s * da, d * sa), ra = kSrcOver，当两个颜色重叠时，较暗的颜色会覆盖较亮的颜色。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   DARKEN = 17,
-
   /**
    * rc = s + d - min(s * da, d * sa), ra = kSrcOver，将源图像和目标图像中的像素进行比较，选取两者中较亮的像素作为最终的混合结果。
    *
@@ -13294,20 +11898,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * rc = s + d - min(s * da, d * sa), ra = kSrcOver，将源图像和目标图像中的像素进行比较，选取两者中较亮的像素作为最终的混合结果。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   LIGHTEN = 18,
-
   /**
    * 使目标像素变得更亮来反映源像素。
    *
@@ -13315,20 +11909,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 使目标像素变得更亮来反映源像素。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   COLOR_DODGE = 19,
-
   /**
    * 使目标像素变得更暗来反映源像素。
    *
@@ -13336,20 +11920,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 使目标像素变得更暗来反映源像素。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   COLOR_BURN = 20,
-
   /**
    * 根据源像素的值来决定目标像素变得更亮或者更暗。根据源像素来决定使用MULTIPLY混合模式还是SCREEN混合模式。
    *
@@ -13357,20 +11931,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 根据源像素的值来决定目标像素变得更亮或者更暗。根据源像素来决定使用MULTIPLY混合模式还是SCREEN混合模式。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   HARD_LIGHT = 21,
-
   /**
    * 根据源像素来决定使用LIGHTEN混合模式还是DARKEN混合模式。
    *
@@ -13378,20 +11942,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 根据源像素来决定使用LIGHTEN混合模式还是DARKEN混合模式。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   SOFT_LIGHT = 22,
-
   /**
    * rc = s + d - 2 * (min(s * da, d * sa)), ra = kSrcOver，对比源像素和目标像素，亮度更高的像素减去亮度更低的像素，产生高对比度的效果。
    *
@@ -13399,21 +11953,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * rc = s + d - 2 * (min(s * da, d * sa)), ra = kSrcOver: The final pixel is the result of subtracting
-   * the darker of the two pixels (source and target) from the lighter one.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   DIFFERENCE = 23,
-
   /**
    * rc = s + d - 2 * (s * d), ra = kSrcOver，对比源像素和目标像素，亮度更高的像素减去亮度更低的像素，产生柔和的效果。
    *
@@ -13421,20 +11964,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * rc = s + d - 2 * (s * d), ra = kSrcOver，对比源像素和目标像素，亮度更高的像素减去亮度更低的像素，产生柔和的效果。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   EXCLUSION = 24,
-
   /**
    * r = s * (1 - da) + d * (1 - sa) + s * d，将源图像与目标图像进行乘法混合，得到一张新的图像。
    *
@@ -13442,20 +11975,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * r = s * (1 - da) + d * (1 - sa) + s * d，将源图像与目标图像进行乘法混合，得到一张新的图像。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   MULTIPLY = 25,
-
   /**
    * 保留源图像的亮度和饱和度，但会使用目标图像的色调来替换源图像的色调。
    *
@@ -13463,20 +11986,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 保留源图像的亮度和饱和度，但会使用目标图像的色调来替换源图像的色调。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   HUE = 26,
-
   /**
    * 保留目标像素的亮度和色调，但会使用源像素的饱和度来替换目标像素的饱和度。
    *
@@ -13484,20 +11997,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 保留目标像素的亮度和色调，但会使用源像素的饱和度来替换目标像素的饱和度。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   SATURATION = 27,
-
   /**
    * 保留源像素的饱和度和色调，但会使用目标像素的亮度来替换源像素的亮度。
    *
@@ -13505,20 +12008,10 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 保留源像素的饱和度和色调，但会使用目标像素的亮度来替换源像素的亮度。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   COLOR = 28,
-
   /**
    * 保留目标像素的色调和饱和度，但会用源像素的亮度替换目标像素的亮度。
    *
@@ -13526,44 +12019,23 @@ declare enum BlendMode {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 保留目标像素的色调和饱和度，但会用源像素的亮度替换目标像素的亮度。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   LUMINOSITY = 29
 }
 
 /**
-* 指示如何将指定的混合模式应用于视图的内容。
-*
- * @enum { number }
+ * 标识如何将指定的混合模式应用于视图的内容。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
-* 指示如何将指定的混合模式应用于视图的内容。
-*
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum BlendApplyType {
-
   /**
    * 在目标图像上按顺序混合视图的内容。
    *
@@ -13571,17 +12043,8 @@ declare enum BlendApplyType {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 在目标图像上按顺序混合视图的内容。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   FAST = 0,
 
@@ -13592,22 +12055,16 @@ declare enum BlendApplyType {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 将此组件和子组件内容绘制到离屏画布上，然后整体进行混合。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   OFFSCREEN = 1,
 
   /**
-   * 创建离屏画布时，先拷贝一份背景初始化画布，再将此组件和子组件内容绘制到离屏画布上，然后整体进行混合。
+   * 创建离屏画布时，先拷贝一份带有背景的画布作为初始化底色（BlendApplyType.OFFSCREEN类型的画布初始为透明背景），再将此组件和子组件内容绘制到离屏画布上，然后整体进行混合。两者在其他功能特性上与
+   * BlendApplyType.OFFSCREEN保持一致。 
+   * 
+   * **系统接口：** 此接口为系统接口。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -14444,6 +12901,10 @@ declare interface BindOptions {
    * 半模态页面的背板颜色。
    * 
    * 默认值：Color.White。
+   * 
+   * **说明：**
+   * 
+   * 设置systemMaterial属性时，该属性效果可能被覆盖，不建议与systemMaterial一起使用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14454,7 +12915,7 @@ declare interface BindOptions {
   backgroundColor?: ResourceColor;
 
   /**
-   * 半模态页面显示（动画结束后）回调函数。
+   * 半模态页面显示（动画结束后）回调函数。不设置时不触发回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14465,7 +12926,7 @@ declare interface BindOptions {
   onAppear?: () => void;
 
   /**
-   * 半模态页面回退（动画结束后）回调函数。
+   * 半模态页面回退（动画结束后）回调函数。不设置时不触发回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14476,7 +12937,8 @@ declare interface BindOptions {
   onDisappear?: () => void;
 
   /**
-   * 半模态页面显示（动画开始前）回调函数。
+   * 半模态页面显示（动画开始前）回调函数。与onAppear的时序关系：onWillAppear在显示动画开始前触发，onAppear在显示动画结束后触发，两者可同时使用。如需在动画开始前做准备工作建议使用onWillAppear，如
+   * 需在动画结束后做UI更新建议使用onAppear。不设置时不触发回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14487,7 +12949,8 @@ declare interface BindOptions {
   onWillAppear?: () => void;
 
   /**
-   * 半模态页面回退（动画开始前）回调函数。
+   * 半模态页面回退（动画开始前）回调函数。与onDisappear的时序关系：onWillDisappear在回退动画开始前触发，onDisappear在回退动画结束后触发，两者可同时使用。如需在动画开始前做状态保存建议使用
+   * onWillDisappear，如需在动画结束后做资源释放建议使用onDisappear。不设置时不触发回调。
    * 
    * **说明：**
    * 
@@ -14503,9 +12966,7 @@ declare interface BindOptions {
 }
 
 /**
-* Component content cover dismiss
-*
- * @interface DismissContentCoverAction
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -14514,7 +12975,7 @@ declare interface BindOptions {
  */
 declare interface DismissContentCoverAction {
   /**
-   * 全屏模态页面关闭回调函数。开发者需要退出页面时调用。
+   * 全屏模态页面关闭回调函数。须在onWillDismiss回调中调用此方法以关闭全屏模态页面；未调用时，全屏模态页面将保持打开状态不关闭。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14551,11 +13012,13 @@ declare interface ContentCoverOptions extends BindOptions {
   /**
    * 全屏模态页面的系统转场方式。
    * 
+   * 取值原则：DEFAULT-上下切换过渡，NONE-无动画过渡，ALPHA-透明渐变过渡。
+   * 
    * 默认值：ModalTransition.DEFAULT。
    * 
    * **说明：**
    * 
-   * 与transition同时设置时，此属性不生效。
+   * 与transition同时设置时，此属性不生效，仅transition生效。
    *
    * @default ModalTransition.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14571,8 +13034,8 @@ declare interface ContentCoverOptions extends BindOptions {
    * 
    * **说明：**
    * 
-   * 当用户执行back事件关闭交互操作时，如果注册该回调函数，则不会立刻关闭。在回调函数中可以通过reason得到阻拦关闭页面的操作类型，从而根据原因选择是否关闭全屏模态页面。在onWillDismiss回调中，不能再做
-   * onWillDismiss拦截。
+   * 当用户通过返回键等操作触发关闭全屏模态页面时，如果注册该回调函数，则不会立刻关闭。在回调函数中可以通过reason得到拦截关闭页面的操作类型，从而根据原因选择是否关闭全屏模态页面。如需关闭，须在回调中调用
+   * DismissContentCoverAction.dismiss()方法；如不调用dismiss()，全屏模态页面将保持打开状态不会关闭。在onWillDismiss回调中，不能再做onWillDismiss拦截。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14584,6 +13047,10 @@ declare interface ContentCoverOptions extends BindOptions {
 
   /**
    * 全屏模态页面的自定义转场方式。
+   * 
+   * **说明：**
+   * 
+   * 未设置时默认不使用自定义转场，使用modalTransition的系统转场方式，与modalTransition同时设置时，仅transition生效，modalTransition属性不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14594,7 +13061,8 @@ declare interface ContentCoverOptions extends BindOptions {
   transition?: TransitionEffect;
 
   /**
-   * 全屏模态是否适配安全区域，true表示全屏模态适配安全区域，将内容限制在安全区内，避让导航条和状态栏，false表示不做处理，和之前的样式保持一致。默认值为false。
+   * 全屏模态是否适配安全区域，true表示全屏模态适配安全区域，将内容限制在安全区域内，避让导航条和状态栏，false表示不适配安全区域，全屏模态页面内容不受安全区域限制，不避让导航条和状态栏，不做处理，和之前的样式保持一致。默认值为
+   * false。
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14628,7 +13096,7 @@ declare interface SheetTitleOptions {
   title: ResourceStr;
 
   /**
-   * 半模态面板的副标题。
+   * 半模态面板的副标题。不传入时默认不显示副标题。当需要在标题下方补充说明文字时传入此参数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14702,7 +13170,7 @@ declare enum SheetType {
    * @atomicservice
    * @since 20 dynamic
    */
-  CONTENT_COVER = 4
+  CONTENT_COVER = 4,
 }
 
 /**
@@ -14735,7 +13203,7 @@ declare enum SheetMode {
    * 
    * 该模式下新起的页面可以覆盖在半模态弹窗上，页面返回后该半模态依旧存在，半模态面板内容不丢失。 
    * 
-   * 该模式下需确保目标页面节点如Page节点已挂载上树，再拉起半模态，否则半模态将无法挂载到对应的页面节点内。
+   * 该模式下，确保目标页面节点（如Page节点）已挂载上树后再拉起半模态，否则半模态将无法挂载到对应的页面节点内。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14842,7 +13310,8 @@ declare enum SheetKeyboardAvoidMode {
   TRANSLATE_AND_SCROLL = 3,
 
   /**
-   * 设置半模态popup样式弹窗避让软键盘。
+   * 设置半模态popup样式弹窗避让软键盘。该避让方式仅在[preferType]{@link SheetOptions}设置为[SheetType.POPUP]{@link SheetType}（跟手弹窗样式）时生效，其他弹窗样式不
+   * 支持此避让方式。
    * 
    * 1. 避让软键盘时，在popup样式弹窗当前显示位置无法容纳弹窗尺寸的前提下，遵循先垂直翻转避让，后尝试90°水平旋转避让的规则调整显示位置，以预设方向为下方为例，调整避让顺序依次为：下、上、右、左。
    * 2. 如果设置的对齐方式导致组件布局超出窗口范围，将根据该对齐方式在水平或垂直方向上进行位移，直至组件完全显示在窗口内。
@@ -14950,6 +13419,33 @@ declare interface SpringBackAction {
 }
 
 /**
+ * 模糊快照优化选项。设置该对象后，将开启模糊优化。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic
+ */
+declare interface BlurSnapshotOptions {
+  /**
+   * 设置模糊快照是否开启冻结优化。开启后，在模糊快照时应用冻结优化以降低渲染开销；未设置或设置为false时，冻结优化关闭，采用常规渲染方式。
+   * 
+   * 拉起半模态后支持动态切换该参数值。
+   * 
+   * 默认值：false
+   * 
+   * **系统接口：** 此接口为系统接口。
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  enableFreeze?: boolean;
+}
+
+/**
  * 继承自[BindOptions]{@link BindOptions}。
  * 
  * 半模态页面内容选项。
@@ -14973,6 +13469,8 @@ declare interface SheetOptions extends BindOptions {
    * 5. 居中弹窗和跟手弹窗最小高度为320vp，最大高度为窗口短边的90%。
    * 6. 居中弹窗和跟手弹窗当使用Length设置的高度时，高度大于最大高度，则显示最大高度，小于最小高度，则显示最小高度。
    * 7. 如果半模态使用SheetSize.FIT_CONTENT自适应模式，且类型设置为居中弹窗或跟手弹窗，API version 22及之前版本，高度大于最大高度时显示最大高度，高度小于最小高度时显示最小高度。从API version 23开始，高度大于最大高度时显示最大高度，高度小于最小高度时按照实际自适应高度生效。
+   * 8. 侧边弹窗样式下，高度只支持全屏高度。
+   * 9. 全屏模态样式下，高度只支持全屏高度。
    *
    * @default SheetSize.LARGE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -14994,7 +13492,7 @@ declare interface SheetOptions extends BindOptions {
    * 
    * **说明：**
    * 
-   * 半模态面板的detents属性设置多个不同高度并且设置生效时，默认显示控制条。否则不显示控制条。
+   * 半模态面板的detents属性设置多个不同高度并且设置生效时，默认显示控制条；detents未设置多挡位时，默认不显示控制条。
    *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15009,6 +13507,10 @@ declare interface SheetOptions extends BindOptions {
    * 半模态页面的背景蒙层颜色。
    * 
    * 默认值：$r('sys.color.ohos_id_color_mask_thin')。
+   * 
+   * **说明：**
+   * 
+   * 当enableOutsideInteractive设置为true时，maskColor设置无效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15019,16 +13521,18 @@ declare interface SheetOptions extends BindOptions {
   maskColor?: ResourceColor;
 
   /**
-   * 半模态页面的切换高度挡位。
+   * 半模态页面的切换高度挡位。不设置时默认使用height属性确定半模态高度。
    * 
    * **说明：**
+   * 
+   * 底部弹窗时，当设置detents时，height属性设置无效。
    * 
    * 从API version 12开始，底部弹窗横屏时该属性设置生效。
    * 
    * 底部弹窗竖屏生效，元组中第一个高度为初始高度。
    * 
    * 面板可跟手滑动切换挡位，松手后是否滑动至目标挡位有两个判断条件：速度和距离。速度超过阈值，则执行滑动至与手速方向一致的目标挡位；速度小于阈值，则引入距离判断条件，当位移距离>当前位置与目标位置的1/2，滑动至与手速方向一致的目标挡
-   * 位，位移距离当前位置与目标位置的1/2，返回至当前挡位。速度阈值：1000，距离阈值：50%。
+   * 位；位移距离<当前位置与目标位置的1/2，返回至当前挡位。速度阈值：1000px/s，距离阈值：50%。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15039,7 +13543,7 @@ declare interface SheetOptions extends BindOptions {
   detents?: [(SheetSize | Length), (SheetSize | Length)?, (SheetSize | Length)?];
 
   /**
-   * 半模态面板的模糊背景。默认无模糊背景。
+   * 半模态面板的模糊背景，不同BlurStyle枚举值对应不同强度的模糊效果（如Thin为轻微模糊、Regular为常规模糊、Thick为厚重模糊等）。默认无模糊背景。
    *
    * @default BlurStyle.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15063,7 +13567,8 @@ declare interface SheetOptions extends BindOptions {
    * 
    * **说明：**
    * 
-   * Resource需要为boolean类型。
+   * 1. Resource需要为boolean类型。
+   * 2. 全屏模态样式（CONTENT_COVER）下不支持显示关闭按钮，该属性设置无效。
    *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15099,6 +13604,12 @@ declare interface SheetOptions extends BindOptions {
 
   /**
    * 半模态面板的标题。
+   * 
+   * **说明：**
+   * 
+   * 当title传入CustomBuilder时，enableFloatingDragBar属性始终为false，不支持悬浮显示控制条。
+   * 
+   * 全屏模态样式（CONTENT_COVER）下不支持显示标题栏，该属性设置无效。不设置时默认无标题。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15118,6 +13629,11 @@ declare interface SheetOptions extends BindOptions {
    * 如果不注册该回调函数，则用户执行下拉关闭、侧拉关闭、点击遮罩层关闭、点击关闭按钮的交互操作时，正常关闭半模态，无其他行为。
    * 
    * 侧拉关闭又包含侧滑（左滑/右滑）、三键back、键盘ESC关闭。
+   * 
+   * 同时注册onWillSpringBackWhenDismiss回调时，下拉关闭的回弹行为由onWillSpringBackWhenDismiss控制。
+   * 
+   * shouldDismiss与[onWillDismiss]{@link SheetOptions}同为半模态交互式关闭回调函数，不建议同时注册两者。若需获取关闭操作类型并自主决定是否关闭，建议使用
+   * [onWillDismiss]{@link SheetOptions}替代shouldDismiss。
    * 
    * 建议在[二次确认](docroot://ui/arkts-sheet-page.md#二次确认能力)场景使用。
    *
@@ -15154,7 +13670,8 @@ declare interface SheetOptions extends BindOptions {
   onWillDismiss?: Callback<DismissSheetAction>;
 
   /**
-   * 半模态页面交互式关闭前控制回弹函数。允许开发者注册，以控制半模态页面交互式关闭时的回弹效果。
+   * 半模态页面交互式关闭前控制回弹函数。允许开发者注册，以控制半模态页面交互式关闭时的回弹效果。建议在[二次确认](docroot://ui/arkts-sheet-page.md#二次确认能力)场景或需要自定义关闭交互反馈的场景中使
+   * 用。
    * 
    * **说明：**
    * 
@@ -15192,7 +13709,7 @@ declare interface SheetOptions extends BindOptions {
   enableOutsideInteractive?: boolean;
 
   /**
-   * 设置半模态页面的宽度。
+   * 设置半模态页面的宽度。不设置时默认为各弹窗样式对应的默认宽度规格。
    * 
    * 百分比参数方式：以父元素宽的百分比来设置半模态页面的宽度。
    *
@@ -15209,15 +13726,15 @@ declare interface SheetOptions extends BindOptions {
    * 
    * 可分别设置4个边框宽度。
    * 
-   * 默认值：0
+   * 默认值：0vp
    * 
-   * 百分比参数方式：以父元素半模态页面宽的百分比来设置半模态页面的边框宽度。
+   * 百分比参数方式：以半模态页面宽度的百分比来设置半模态页面的边框宽度。
    * 
    * 当半模态页面左边框和右边框大于半模态页面宽度，半模态页面上边框和下边框大于半模态页面高度，显示可能不符合预期。
    * 
    * **说明：**
    * 
-   * 底部弹窗时，底部边框宽度设置无效。
+   * 底部弹窗时，底部边框宽度设置无效。设置systemMaterial属性时，该属性效果可能被覆盖，不建议与systemMaterial一起使用。取值范围为非负数，传入负值时设置无效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15232,11 +13749,11 @@ declare interface SheetOptions extends BindOptions {
    * 
    * 默认值：Color.Black
    * 
-   * 如果使用borderColor属性，需要和borderWidth属性一起使用。 
+   * 如果使用borderColor属性，需要和borderWidth属性一起使用；未设置borderWidth时，由于borderWidth默认值为0，边框颜色不可见。 
    * 
    * **说明：**
    * 
-   * 底部弹窗时，底部边框颜色设置无效。
+   * 底部弹窗时，底部边框颜色设置无效。设置systemMaterial属性时，该属性效果可能被覆盖，不建议与systemMaterial一起使用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15251,7 +13768,7 @@ declare interface SheetOptions extends BindOptions {
    * 
    * 默认值：BorderStyle.Solid
    * 
-   * 如果使用borderStyle属性，需要和borderWidth属性一起使用。 
+   * 如果使用borderStyle属性，需要和borderWidth属性一起使用；未设置borderWidth时，由于borderWidth默认值为0，边框样式不可见。 
    * 
    * **说明：**
    * 
@@ -15266,9 +13783,13 @@ declare interface SheetOptions extends BindOptions {
   borderStyle?: BorderStyle | EdgeStyles;
 
   /**
-   * 设置半模态页面的阴影。
+   * 设置半模态页面的阴影，可通过ShadowOptions自定义阴影参数，或通过ShadowStyle使用预设阴影样式（如OUTER_FLOATING_SM为小型外浮阴影、OUTER_FLOATING_MD为中型外浮阴影等）。
    * 
-   * 2in1设备默认值：ShadowStyle.OUTER_FLOATING_SM。
+   * **默认值**：非2in1设备默认无阴影。2in1设备默认值：ShadowStyle.OUTER_FLOATING_SM。
+   * 
+   * **说明：**
+   * 
+   * 设置systemMaterial属性时，该属性效果可能被覆盖，不建议与systemMaterial一起使用。全屏模态样式（CONTENT_COVER）下不支持阴影，该属性设置无效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15279,7 +13800,7 @@ declare interface SheetOptions extends BindOptions {
   shadow?: ShadowOptions | ShadowStyle;
 
   /**
-   * 半模态页面高度变化回调函数。
+   * 半模态页面高度变化回调函数。不设置时不触发回调。
    * 
    * **说明：**
    * 
@@ -15303,8 +13824,8 @@ declare interface SheetOptions extends BindOptions {
    * **说明：**
    * 
    * 1. 半模态显示期间mode属性不支持动态切换，两种模式的显示层级完全不同，无法做到显示期间同一个半模态从一个层级变换到另一个层级。建议在使用时明确诉求固定mode值。 
-   *  2. 设置SheetMode.EMBEDDED时不支持设置UIContext属性，两者对应的半模态显示层级效果互相冲突。
-   * 3. 使用[openBindSheet](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#openbindsheet12)启动半模态页面，若未传入有效的targetId，则不支持设置为SheetMode.EMBEDDED，默认为SheetMode.OVERLAY。
+   * 2. 设置SheetMode.EMBEDDED时不支持设置UIContext属性，两者对应的半模态显示层级效果互相冲突。
+   * 3. 使用[openBindSheet]{@link UIContext#openBindSheet}启动半模态页面，若未传入有效的targetId，则不支持设置为SheetMode.EMBEDDED，默认为SheetMode.OVERLAY。
    *
    * @default SheetMode.OVERLAY
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15330,11 +13851,11 @@ declare interface SheetOptions extends BindOptions {
   scrollSizeMode?: ScrollSizeMode;
 
   /**
-   * 半模态页面挡位变化回调函数。
+   * 半模态页面挡位变化回调函数。不设置时不触发回调。
    * 
    * **说明：**
    * 
-   * 底部弹窗时，挡位变化返回最后的高度。
+   * 该回调仅在底部弹窗场景下触发，挡位变化返回最后的高度。
    * 
    * 返回值为px。
    *
@@ -15347,7 +13868,7 @@ declare interface SheetOptions extends BindOptions {
   onDetentsDidChange?: Callback<number>;
 
   /**
-   * 半模态页面宽度变化回调函数。
+   * 半模态页面宽度变化回调函数。不设置时不触发回调。
    * 
    * **说明：**
    * 
@@ -15364,11 +13885,11 @@ declare interface SheetOptions extends BindOptions {
   onWidthDidChange?: Callback<number>;
 
   /**
-   * 半模态页面形态变化回调函数。
+   * 半模态页面样式变化回调函数。
    * 
    * **说明：**
    * 
-   * 形态变化时返回最后的形态。
+   * 样式变化时返回最后的样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15379,11 +13900,11 @@ declare interface SheetOptions extends BindOptions {
   onTypeDidChange?: Callback<SheetType>;
 
   /**
-   * 在UIContext实例对应的窗口中显示半模态。
+   * 在UIContext实例对应的窗口中显示半模态。不传入时默认在当前UIContext对应的窗口中显示半模态。当需要在指定窗口中显示半模态时传入此参数。
    * 
    * **说明：**
    * 
-   * 使用[openBindSheet](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#openbindsheet12)启动的半模态页面，不支持设置、更
+   * 使用[openBindSheet]{@link UIContext#openBindSheet}启动的半模态页面，不支持设置、更
    * 新该属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15421,7 +13942,7 @@ declare interface SheetOptions extends BindOptions {
    * 
    * **说明：**
    * 
-   * 底部弹窗样式和跟手弹窗样式不响应悬停态。子窗模式不支持悬停态。
+   * 底部弹窗样式、跟手弹窗样式、侧边弹窗样式和全屏模态样式不响应悬停态。子窗模式不支持悬停态。
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15433,11 +13954,15 @@ declare interface SheetOptions extends BindOptions {
   enableHoverMode?: boolean;
 
   /**
-   * 悬停态下弹窗默认展示区域。
+   * 悬停态下弹窗默认展示区域。该属性仅在[enableHoverMode]{@link SheetOptions}设置为true时生效。
    * 
    * 默认值：HoverModeAreaType.BOTTOM_SCREEN 
    * 
-   * 2in1设备默认值：HoverModeAreaType.TOP_SCREEN
+   * 2in1设备默认值：HoverModeAreaType.TOP_SCREEN 
+   * 
+   * **说明：**
+   * 
+   * 侧边弹窗样式和全屏弹窗样式不支持悬停态区域设置。
    *
    * @default HoverModeAreaType.BOTTOM_SCREEN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15449,9 +13974,9 @@ declare interface SheetOptions extends BindOptions {
   hoverModeArea?: HoverModeAreaType;
 
   /**
-   * 设置半模态弹窗偏移量。当半模态为底部弹窗时，支持设置底部间距。不支持设置半模态的[SheetOptions]{@link SheetOptions}中的detents属性。y轴设置为负数的时候不生效。
+   * 设置半模态弹窗偏移量。仅当半模态为底部弹窗时，支持设置底部间距。不支持设置半模态的[SheetOptions]{@link SheetOptions}中的detents属性。y轴设置为正数时不生效，将回退至默认值0vp。
    * 
-   * 默认值：x轴为0vp，y轴坐标为0vp。
+   * 默认值：x轴坐标为0vp，y轴坐标为0vp。
    * 
    * **系统接口：** 此接口为系统接口。
    *
@@ -15493,7 +14018,7 @@ declare interface SheetOptions extends BindOptions {
    * **说明：**
    * 
    * 1. 根据设置的圆角半径值显示，如果未设置，则使用默认值。底部样式不显示半模态底部2个圆角，即使设置了底部2个圆角也不生效。
-   * 2. 分别设置4个方向的圆角半径后，如果某个方向的值异常，异常方向的圆角值重置为默认值，非异常方向的圆角值为已设置的值。统一设置4个方向的圆角时，如果设置的值异常，4个方向的圆角都重置为默认值。
+   * 2. 分别设置4个方向的圆角半径后，如果某个方向的圆角半径值为无效值（如负值），异常方向的圆角值重置为默认值，非异常方向的圆角值为已设置的值。如果统一设置的圆角半径值为无效值（如负值），4个方向的圆角都重置为默认值。
    * 3. 半径设置为百分比时，以半模态页面的宽度为基准。
    * 4. 当圆角的半径大于半模态页面宽度一半时，圆角的半径取值为半模态页面宽度的一半。
    * 5. 当半模态页面高度过小且圆角半径设置过大时，可能导致显示异常。
@@ -15515,7 +14040,7 @@ declare interface SheetOptions extends BindOptions {
    * 
    * 1. 该接口取值范围为detents数组范围，若设值非detents范围，该接口无效。
    * 2. 当设置SheetSize.FIT_CONTENT时，该接口无效。
-   * 3. 不建议手势切换挡位与该接口切换挡位同时生效使用。
+   * 3. 不建议手势切换挡位与该接口切换挡位同时生效使用，同时生效时挡位切换行为可能不可预期。
    *
    * @default detents[0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15527,7 +14052,7 @@ declare interface SheetOptions extends BindOptions {
   detentSelection?: SheetSize | Length;
 
   /**
-   * 设置半模态popup样式弹窗相对于目标的显示位置。
+   * 设置半模态popup样式弹窗相对于目标的显示位置。侧边弹窗样式下该属性只支持气泡样式。
    * 
    * 默认值：Placement.Bottom
    * 
@@ -15551,7 +14076,8 @@ declare interface SheetOptions extends BindOptions {
   placement?: Placement;
 
   /**
-   * 半模态popup样式弹窗在当前窗口下，四个方向均无法容纳该弹窗大小时，设置是否允许其覆盖在目标节点上。
+   * 半模态popup样式弹窗在当前窗口下，四个方向均无法容纳该弹窗大小时，设置是否允许其覆盖在目标节点上。侧边弹窗样式下该属性只支持气泡样式。该属性需配合[placement]{@link SheetOptions}属性使用，
+   * placementOnTarget的处理方式基于placement设定的显示方向。
    * 
    * 默认值：true 
    * 
@@ -15599,8 +14125,9 @@ declare interface SheetOptions extends BindOptions {
    * 
    * 悬浮效果只在控制条显示的场景生效，且控制条不占位。
    * 
-   * title传入[CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)时enableFloatingDragBar始终为
-   * false。
+   * title传入[CustomBuilder]{@link CustomBuilder}时enableFloatingDragBar始终为false。
+   * 
+   * 侧边弹窗样式下不支持浮动控制条。
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15612,7 +14139,8 @@ declare interface SheetOptions extends BindOptions {
   enableFloatingDragBar?: boolean;
 
   /**
-   * bindSheet全屏模态样式的系统转场方式。
+   * bindSheet全屏模态样式的系统转场方式。该属性仅在[preferType]{@link SheetOptions}设置为[SheetType.CONTENT_COVER]{@link SheetType}（全屏弹窗样式）时生
+   * 效，其他弹窗样式设置该属性无效。
    * 
    * 默认值：ModalTransition.DEFAULT
    *
@@ -15630,7 +14158,7 @@ declare interface SheetOptions extends BindOptions {
    * 
    * 默认值：RenderStrategy.FAST 
    * 
-   * **说明**: 当半模态设置模糊时，可通过设置为OFFSCREEN离屏模式解决半模态顶部或顶部圆角区域内显示效果异常问题。popup样式不支持设置组件绘制圆角模式。
+   * **说明：** 当半模态设置模糊时，可通过设置为OFFSCREEN离屏模式解决半模态顶部或顶部圆角区域内显示效果异常问题。popup样式不支持设置组件绘制圆角模式。
    *
    * @default RenderStrategy.FAST
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15647,10 +14175,10 @@ declare interface SheetOptions extends BindOptions {
    * 默认值：undefined，会清除由该接口设置的材质效果。 
    * 
    * **说明**: 不同系统材质对应不同的属性影响效果，该接口影响背景色
-   * [backgroundColor](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backgroundcolor)、边框
+   * [backgroundColor]{@link CommonMethod#backgroundColor}、边框
    * 颜色[borderColor]{@link CommonMethod#borderColor}、边框宽度[borderWidth]{@link CommonMethod#borderWidth}、阴影
    * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。使用示例请参考
-   * [示例10（半模态设置系统材质）](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-sheet-transition.md#示例10半模态设置系统材质)。
+   * [示例10（半模态设置系统材质）]{@link CommonMethod}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15661,7 +14189,8 @@ declare interface SheetOptions extends BindOptions {
   systemMaterial?: SystemUiMaterial;
 
   /**
-   * 设置半模态弹窗边缘光效动画模式。
+   * 设置半模态弹窗边缘光效动画模式。未设置该属性时，边缘光效动画默认关闭。对于半模态弹窗的边缘光效动画，EDGELIGHT_AUTO：在所有算力设备都关闭；EDGELIGHT_ENABLED：开启边缘光效动画；
+   * EDGELIGHT_DISABLED：关闭边缘光效动画。
    * 
    * 默认值：EdgeLightMode.EDGELIGHT_DISABLED
    * 
@@ -15676,19 +14205,21 @@ declare interface SheetOptions extends BindOptions {
   edgeLightMode?: EdgeLightMode;
 
   /**
-   * 指定是否对半模态启用模糊优化。
-   * 启用后，将使用模糊快照渲染半模态背景。
-   * 该属性在半模态显示后不能动态切换。
+   * 半模态模糊快照优化选项，用于降低模糊渲染的计算开销。当使用blurStyle或systemMaterial设置模糊或材质效果时发现功耗明显增加时，可开启模糊优化。开启后，若半模态配置了blurStyle或
+   * systemMaterial，其模糊效果将使用快照渲染以降低计算开销；若未设置blurStyle或systemMaterial，则开启enableBlurSnapshot不产生模糊优化效果。该属性在半模态展示后不支持和
+   * undefined之间的动态切换，若在展示后尝试切换则设置不生效。半模态的POPUP类型不支持模糊优化，若在POPUP类型上设置enableBlurSnapshot=true则该设置不生效。
+   * 
+   * 默认值：undefined，关闭模糊优化
+   * 
+   * **系统接口：** 此接口为系统接口。
    *
-   * @default false
+   * @default undefined
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
    * @since 26.0.0 dynamic
    */
-  enableBlurSnapshot?: boolean;
+  blurSnapshot?: BlurSnapshotOptions;
 }
 
 /**
@@ -15955,7 +14486,7 @@ declare interface DismissPopupAction {
 declare interface PopupStateChangeParam {
 
   /**
-   * 气泡的显示状态。返回true时，表示气泡从关闭到打开，返回false时，表示气泡从打开到关闭。
+   * 气泡的显示状态。true表示气泡打开，false表示气泡关闭。
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16060,8 +14591,8 @@ declare interface PopupBorderLinearGradient {
  * 配置弹出气泡的参数。使用[UIContext]{@link @ohos.arkui.UIContext}中的
  * [getPromptAction()]{@link @ohos.arkui.UIContext#getPromptAction}方法获取到
  * [PromptAction]{@link @ohos.arkui.UIContext#PromptAction}对象，再通过该对象调用
- * [openPopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#openpopup18)和
- * [updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)时传入的options参数。
+ * [openPopup]{@link PromptAction#openPopup}和
+ * [updatePopup]{@link PromptAction#updatePopup}时传入的options参数。
  *
  * @interface PopupCommonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16101,7 +14632,7 @@ declare interface PopupCommonOptions {
   popupColor?: ResourceColor;
 
   /**
-   * 是否显示箭头。值为true时显示箭头，值为false时不显示箭头。
+   * 设置是否显示箭头。值为true时显示箭头，值为false时不显示箭头。
    * 
    * 如果箭头所在方位侧的气泡长度不足以显示下箭头，则会默认不显示箭头。比如：placement设置为Left，此时如果气泡高度小于箭头的宽度（32vp）与气泡圆角两倍（48vp）之和（80vp），则实际不会显示箭头。
    * 
@@ -16118,7 +14649,9 @@ declare interface PopupCommonOptions {
   enableArrow?: boolean;
 
   /**
-   * 页面有操作时，值为true表示自动关闭气泡，值为false表示气泡不会自动关闭。
+   * 页面有操作时，气泡是否自动关闭。
+   *
+   * true：自动关闭气泡；false：气泡不会自动关闭。
    * 
    * 默认值：true
    *
@@ -16137,7 +14670,7 @@ declare interface PopupCommonOptions {
    * 
    * **说明：**
    * 
-   * 不支持通过[updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)进行更新。
+   * 不支持通过[updatePopup]{@link PromptAction#updatePopup}进行更新。
    *
    * @type { ?PopupStateChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16175,13 +14708,15 @@ declare interface PopupCommonOptions {
   arrowOffset?: Length;
 
   /**
-   * 取值为true时，气泡会显示在创建的子窗里，取值为false时，气泡会显示在对应的主窗中。
+   * 气泡是否显示在创建的子窗里。
+   *
+   * true：气泡会显示在创建的子窗里；false：气泡会显示在对应的主窗中。
    * 
    * 默认值：false
    * 
    * **说明：**
    * 
-   * 不支持通过[updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)进行更新。
+   * 不支持通过[updatePopup]{@link PromptAction#updatePopup}进行更新。
    *
    * @type { ?boolean }
    * @default false
@@ -16340,7 +14875,7 @@ declare interface PopupCommonOptions {
    * 
    * **说明：**
    * 
-   * 不支持通过[updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)进行更新。
+   * 不支持通过[updatePopup]{@link PromptAction#updatePopup}进行更新。
    *
    * @type { ?boolean }
    * @default false
@@ -16361,7 +14896,7 @@ declare interface PopupCommonOptions {
    * 2. 显示动效中按back键，打断显示动效，执行退出动效，动画效果为显示动效与退出动效的曲线叠加后的效果。
    * 3. 退出动效中按back键，不会打断退出动效，退出动效继续执行，back键不被响应。
    * 
-   * 4.不支持通过[updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)进行更新。
+   * 4.不支持通过[updatePopup]{@link PromptAction#updatePopup}进行更新。
    *
    * @type { ?TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16381,7 +14916,7 @@ declare interface PopupCommonOptions {
    * **说明：**
    * 
    * 1. 在onWillDismiss回调中，不能再做onWillDismiss拦截。
-   * 2. 不支持通过[updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)进行更新。
+   * 2. 不支持通过[updatePopup]{@link PromptAction#updatePopup}进行更新。
    *
    * @type { ?(boolean | Callback<DismissPopupAction>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16524,7 +15059,7 @@ declare interface PopupCommonOptions {
    * 
    * **说明：**
    * 
-   * 1. 仅当绑定组件使用了[WithTheme](docroot://reference/apis-arkui/arkui-ts/ts-container-with-theme.md#接口)标签时，该属性才会生效。
+   * 1. 仅当绑定组件使用了[WithTheme]{@link WithTheme}标签时，该属性才会生效。
    * 2. 该属性仅影响组件的默认样式，以及开发者设置的涉及深浅色资源的属性。
    * 3. 设置为AnchoredColorMode.FOLLOW_SYSTEM时，模糊材质可以跟随，文字颜色以及涉及深浅色资源的属性仍保持跟随绑定组件的深浅色配置。
    *
@@ -17420,7 +15955,7 @@ declare interface PopupOptions {
    * 
    * **说明：**
    * 
-   * 1. 仅当绑定组件使用了[WithTheme](docroot://reference/apis-arkui/arkui-ts/ts-container-with-theme.md#接口)标签时，该属性才会生效。
+   * 1. 仅当绑定组件使用了[WithTheme]{@link WithTheme}标签时，该属性才会生效。
    * 2. 该属性仅影响组件的默认样式，以及开发者设置的涉及深浅色资源的属性。
    * 3. 设置为AnchoredColorMode.FOLLOW_SYSTEM时，模糊材质可以跟随，文字颜色以及涉及深浅色资源的属性仍保持跟随绑定组件的深浅色配置。
    *
@@ -17507,7 +16042,7 @@ declare interface CustomPopupOptions {
    * 
    * 1. Popup为通用属性，自定义Popup中不支持再次弹出Popup。对builder下的第一层容器组件不支持使用position属性，如果使用将导致气泡不显示。
    * 2. builder中若使用自定义组件，自定义组件的aboutToAppear和aboutToDisappear生命周期与Popup气泡的显隐无关，不能使用其生命周期判断Popup气泡的显隐。
-   * 3. 该构造器的builder仅支持定义在UI组件中，例如可以定义在Builder函数、方法或者[build](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#build)方法里。
+   * 3. 该构造器的builder仅支持定义在UI组件中，例如可以定义在Builder函数、方法或者[build]{@link build}方法里。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -18038,7 +16573,7 @@ declare interface CustomPopupOptions {
    * 
    * **说明：**
    * 
-   * 1. 仅当绑定组件使用了[WithTheme](docroot://reference/apis-arkui/arkui-ts/ts-container-with-theme.md#接口)标签时，该属性才会生效。
+   * 1. 仅当绑定组件使用了[WithTheme]{@link WithTheme}标签时，该属性才会生效。
    * 2. 该属性仅影响组件的默认样式，以及开发者设置的涉及深浅色资源的属性。
    * 3. 设置为AnchoredColorMode.FOLLOW_SYSTEM时，模糊材质可以跟随，文字颜色以及涉及深浅色资源的属性仍保持跟随绑定组件的深浅色配置。
    *
@@ -19056,7 +17591,7 @@ declare interface ContextMenuOptions {
    * 
    * **说明：**
    * 
-   * 1. 仅当绑定组件使用了[WithTheme](docroot://reference/apis-arkui/arkui-ts/ts-container-with-theme.md#接口)标签时，该属性才会生效。
+   * 1. 仅当绑定组件使用了[WithTheme]{@link WithTheme}标签时，该属性才会生效。
    * 2. 该属性仅影响组件的默认样式，以及开发者设置的涉及深浅色资源的属性。
    * 3. 设置为AnchoredColorMode.FOLLOW_SYSTEM时，模糊材质可以跟随，文字颜色以及涉及深浅色资源的属性仍保持跟随绑定组件的深浅色配置。
    *
@@ -19399,7 +17934,7 @@ declare interface ContextMenuOptions {
 }
 
 /**
- * 菜单项的信息，继承自[ContextMenuOptions]{@link ContextMenuOptions}。
+ * 配置弹出菜单的参数，继承自[ContextMenuOptions]{@link ContextMenuOptions}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -19446,7 +17981,7 @@ declare interface MenuOptions extends ContextMenuOptions {
 }
 
 /**
- * ProgressMask设置遮罩的进度、最大值和颜色。
+ * ProgressMask用于设置遮罩的进度、最大值和颜色。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -19458,8 +17993,10 @@ declare class ProgressMask {
   /**
    * 构造ProgressMask对象。
    *
-   * @param { number } value - 进度遮罩的当前值。<br/> 取值范围：[0.0, +∞)
-   * @param { number } total - 进度遮罩的最大值。<br/> 取值范围：[0.0, +∞)
+   * @param { number } value - 进度遮罩的当前值，与total配合使用确定进度比例，当value等于total时表示进度满。
+   *     <br>取值范围：[0.0, +∞)。传入负数时自动修正为0。
+   * @param { number } total - 进度遮罩的最大值。
+   *     <br> 取值范围：[0.0, +∞)。传入负数时自动修正为100。
    * @param { ResourceColor } color - 进度遮罩的颜色。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19473,6 +18010,7 @@ declare class ProgressMask {
    * 更新进度遮罩的进度值。
    *
    * @param { number } value - 进度遮罩的当前值。
+   *     <br>取值范围：[0.0, +∞)。传入负数时自动修正为0。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -19494,9 +18032,11 @@ declare class ProgressMask {
   updateColor(value: ResourceColor): void;
 
   /**
-   * 进度满时的呼吸光晕动画开关。不设置该接口时，默认关闭呼吸光晕动画。
+   * 进度满时的呼吸光晕动画开关，开启后进度满时遮罩边缘会出现周期性明暗变化的发光效果。未设置时，默认关闭呼吸光晕动画。
    *
-   * @param { boolean } value - 是否开启呼吸光晕动画。<br/>true：开启呼吸光晕动画。<br/>false：关闭呼吸光晕动画。
+   * @param { boolean } value - 是否开启进度满时的呼吸光晕动画。
+   *     <br>true：开启呼吸光晕动画。
+   *     <br>false：关闭呼吸光晕动画。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -19918,137 +18458,74 @@ declare interface SpatialEffectParams {
 }
 
 /**
-* 像素扩展属性集合，用于描述像素扩展的信息。
-*
- * @interface PixelStretchEffectOptions
+ * 像素扩展属性集合，用于描述像素扩展的信息。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
-* 像素扩展属性集合，用于描述像素扩展的信息。
-*
- * @interface PixelStretchEffectOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface PixelStretchEffectOptions {
-
   /**
-   * 组件图像上边沿像素扩展距离。
-   *
+   * 组件图像上边沿像素扩展距离。需与left、right、bottom方向保持一致：四个方向的扩展统一为非正值或者非负值，不支持百分比和具体值混用。
+   * 
    * 默认值：0vp
    *
-   * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 组件图像上边沿像素扩展距离。
-   *
-   * 默认值：0vp
-   *
-   * @type { ?Length }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   top?: Length;
 
   /**
-   * 组件图像下边沿像素扩展距离。
-   *
+   * 组件图像下边沿像素扩展距离。需与left、right、top方向保持一致：四个方向的扩展统一为非正值或者非负值，不支持百分比和具体值混用。
+   * 
    * 默认值：0vp
    *
-   * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 组件图像下边沿像素扩展距离。
-   *
-   * 默认值：0vp
-   *
-   * @type { ?Length }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   bottom?: Length;
 
   /**
-   * 组件图像左边沿像素扩展距离。
-   *
+   * 组件图像左边沿像素扩展距离。需与right、top、bottom方向保持一致：四个方向的扩展统一为非正值或者非负值，不支持百分比和具体值混用。
+   * 
    * 默认值：0vp
    *
-   * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 组件图像左边沿像素扩展距离。
-   *
-   * 默认值：0vp
-   *
-   * @type { ?Length }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   left?: Length;
 
   /**
-   * 组件图像右边沿像素扩展距离。
-   *
+   * 组件图像右边沿像素扩展距离。需与left、top、bottom方向保持一致：四个方向的扩展统一为非正值或者非负值，不支持百分比和具体值混用。
+   * 
    * 默认值：0vp
    *
-   * @type { ?Length }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 组件图像右边沿像素扩展距离。
-   *
-   * 默认值：0vp
-   *
-   * @type { ?Length }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   right?: Length;
 }
 
 /**
- * 定义点击效果。
+ * 定义点击回弹效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -20058,13 +18535,13 @@ declare interface PixelStretchEffectOptions {
  */
 declare interface ClickEffect {
   /**
-   * 设置当前组件的点击回弹效果。
+   * 点击回弹效果级别，其取值影响scale的默认缩放比例。
    * 
    * 默认值：ClickEffectLevel.LIGHT
    * 
    * **说明：**
    * 
-   * 当level为undefined或者null时， ClickEffect采用ClickEffectLevel.LIGHT对应的回弹效果，缩放比参照scale说明。
+   * 当level为undefined或者null时， ClickEffect采用ClickEffectLevel.LIGHT对应的回弹效果，缩放比的具体默认值请参见下方scale属性说明。
    *
    * @default ClickEffectLevel.LIGHT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20075,7 +18552,7 @@ declare interface ClickEffect {
   level: ClickEffectLevel;
 
   /**
-   * 回弹缩放比例，支持在设置ClickEffectLevel的基础上微调。
+   * 回弹缩放比例，取值范围(0, 1]，支持在设置ClickEffectLevel的基础上微调。超出取值范围时，使用当前level对应的默认缩放比例。
    * 
    * **说明：**
    * 
@@ -20096,7 +18573,7 @@ declare interface ClickEffect {
 }
 
 /**
- * Defines the fadingEdge options.
+ * [fadingEdge]{@link CommonMethod#fadingEdge}属性边缘渐隐参数对象。
  *
  * @typedef FadingEdgeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20108,7 +18585,7 @@ declare interface ClickEffect {
 declare interface FadingEdgeOptions {
 
   /**
-   * The length of FadingEdge.
+   * 设置边缘渐隐长度。默认值为32vp，设置小于0的值或undefined或不设置则取默认值。设置的长度超过容器高度的一半时，渐隐长度取容器高度的一半。
    *
    * @type { LengthMetrics }
    * @default 32vp
@@ -20122,7 +18599,7 @@ declare interface FadingEdgeOptions {
 }
 
 /**
- * 定义嵌套滚动选项
+ * [nestedScroll]{@link CommonMethod#nestedScroll(value: NestedScrollOptions)}属性参数对象。
  *
  * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20130,7 +18607,7 @@ declare interface FadingEdgeOptions {
  * @since 10
  */
 /**
- * 定义嵌套滚动选项
+ * [nestedScroll]{@link CommonMethod#nestedScroll(value: NestedScrollOptions)}属性参数对象。
  *
  * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20139,7 +18616,7 @@ declare interface FadingEdgeOptions {
  * @since 11 dynamic
  */
 /**
- * 定义嵌套滚动选项
+ * [nestedScroll]{@link CommonMethod#nestedScroll(value: NestedScrollOptions)}属性参数对象。
  *
  * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20151,7 +18628,8 @@ declare interface FadingEdgeOptions {
 declare interface NestedScrollOptions {
 
   /**
-   * Set NestedScrollMode when the scrollable component scrolls forward
+   * 滚动组件往末尾端滚动时的嵌套滚动选项。NestedScrollMode.SELF_ONLY表示仅自身滚动，不与父组件联动；NestedScrollMode.SELF_FIRST表示自身先滚动，自身滚动到边缘后父组件滚动；
+   * NestedScrollMode.PARENT_FIRST表示父组件先滚动，父组件滚动到边缘后自身滚动。
    *
    * @type { NestedScrollMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20159,7 +18637,8 @@ declare interface NestedScrollOptions {
    * @since 10
    */
   /**
-   * Set NestedScrollMode when the scrollable component scrolls forward
+   * 滚动组件往末尾端滚动时的嵌套滚动选项。NestedScrollMode.SELF_ONLY表示仅自身滚动，不与父组件联动；NestedScrollMode.SELF_FIRST表示自身先滚动，自身滚动到边缘后父组件滚动；
+   * NestedScrollMode.PARENT_FIRST表示父组件先滚动，父组件滚动到边缘后自身滚动。
    *
    * @type { NestedScrollMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20171,7 +18650,8 @@ declare interface NestedScrollOptions {
   scrollForward: NestedScrollMode;
 
   /**
-   * Set NestedScrollMode when the scrollable component scrolls backward
+   * 滚动组件往起始端滚动时的嵌套滚动选项。NestedScrollMode.SELF_ONLY表示仅自身滚动，不与父组件联动；NestedScrollMode.SELF_FIRST表示自身先滚动，自身滚动到边缘后父组件滚动；
+   * NestedScrollMode.PARENT_FIRST表示父组件先滚动，父组件滚动到边缘后自身滚动。
    *
    * @type { NestedScrollMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20179,7 +18659,8 @@ declare interface NestedScrollOptions {
    * @since 10
    */
   /**
-   * Set NestedScrollMode when the scrollable component scrolls backward
+   * 滚动组件往起始端滚动时的嵌套滚动选项。NestedScrollMode.SELF_ONLY表示仅自身滚动，不与父组件联动；NestedScrollMode.SELF_FIRST表示自身先滚动，自身滚动到边缘后父组件滚动；
+   * NestedScrollMode.PARENT_FIRST表示父组件先滚动，父组件滚动到边缘后自身滚动。
    *
    * @type { NestedScrollMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -20467,28 +18948,16 @@ declare interface CommonConfiguration<T> {
 }
 
 /**
-* 外描边样式。
-*
- * @enum { number }
+ * 外描边样式。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
-* 外描边样式。
-*
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum OutlineStyle {
-
   /**
    * 显示为一条实线。
    *
@@ -20496,17 +18965,8 @@ declare enum OutlineStyle {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 显示为一条实线。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   SOLID = 0,
 
@@ -20517,17 +18977,8 @@ declare enum OutlineStyle {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 显示为一系列短的方形虚线。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   DASHED = 1,
 
@@ -20538,17 +18989,8 @@ declare enum OutlineStyle {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * Dotted border. The radius of a dot is half of **outlineWidth**.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   DOTTED = 2
 }
@@ -20753,23 +19195,13 @@ declare enum MenuPolicy {
 declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
 
 /**
- * SymbolGlyphModifier
+ * SymbolGlyphModifier类型，用于设置自定义图标小符号。
  *
- * @typedef {import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier} SymbolGlyphModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
- */
-/**
- * SymbolGlyphModifier
- *
- * @typedef {import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier} SymbolGlyphModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
  */
 declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier;
 
@@ -21020,129 +19452,68 @@ declare interface PreviewConfiguration {
 }
 
 /**
-* 前景智能取反色。
-*
- * @interface InvertOptions
+ * 前景智能取反色。基于灰度阈值区间决定反色取值，参见[invert]{@link CommonMethod#invert(value: number | InvertOptions)}中的详细机制说明。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 11
- */
-/**
-* 前景智能取反色。
-*
- * @interface InvertOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface InvertOptions {
 
   /**
    * 背景颜色灰度值大于阈值区间时的取值。
+   * 
+   * 取值范围：[0, 1]。设置小于0的值时，按值为0处理。设置大于1的值时，按值为1处理。
    *
-   * 取值范围：[0, 1]
-   *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * 背景颜色灰度值大于阈值区间时的取值。
-   *
-   * 取值范围：[0, 1]
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   low: number;
 
   /**
    * 背景颜色灰度值小于阈值区间时的取值。
+   * 
+   * 取值范围：[0, 1]。设置小于0的值时，按值为0处理。设置大于1的值时，按值为1处理。
    *
-   * 取值范围：[0, 1]
-   *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * 背景颜色灰度值小于阈值区间时的取值。
-   *
-   * 取值范围：[0, 1]
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   high: number;
 
   /**
-   * 灰度阈值。
-   *
+   * 灰度阈值。与thresholdRange配合使用，灰度阈值上下偏移thresholdRange构成阈值区间。    
+   * 
    * 取值范围：[0, 1]
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * 灰度阈值。
-   *
-   * 取值范围：[0, 1]
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   threshold: number;
 
   /**
    * 阈值范围。
-   *
-   * 取值范围：[0, 1]
-   *
+   * 
+   * 取值范围：[0, 1]。设置小于0的值时，按值为0处理；设置大于1的值时，按值为1处理。
+   * 
    * **说明：**
-   *
+   * 
    * 灰度阈值上下偏移thresholdRange构成阈值区间，背景颜色灰度值在区间内取值由high线性渐变到low。
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * 阈值范围。
-   *
-   * 取值范围：[0, 1]
-   *
-   * **说明：**
-   *
-   * 灰度阈值上下偏移thresholdRange构成阈值区间，背景颜色灰度值在区间内取值由high线性渐变到low。
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   thresholdRange: number;
 }
@@ -21198,8 +19569,8 @@ declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
 /**
 * 定义可选类型，其值可以是undefined。
 *
- * @unionmember { T } The object can be of any custom type.
- * @unionmember { undefined } The object can be **undefined**.
+ * @unionmember { T } 表示泛型T所指定的类型。
+ * @unionmember { undefined } 表示该类型声明的对象是undefined。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -21234,36 +19605,26 @@ declare type TipsMessageType = ResourceStr | StyledString;
 declare type Matrix4Transit = import('../api/@ohos.matrix4').default.Matrix4Transit;
 
 /**
-* 系统材质对象基类。
-*
- * @typedef { import('../api/@ohos.arkui.uiMaterial').default.Material } SystemUiMaterial
+ * 系统材质对象基类。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
+ * @systemapi [since 23 - 24]
+ * @publicapi [since 26.0.0]
  * @stagemodelonly
+ * @crossplatform [since 26.0.0]
  * @form
+ * @atomicservice [since 26.0.0]
  * @since 23 dynamic
- */
-/**
-* 系统材质对象基类。
-*
- * @typedef { import('../api/@ohos.arkui.uiMaterial').default.Material } SystemUiMaterial
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 26.0.0 dynamic
  */
 declare type SystemUiMaterial = import('../api/@ohos.arkui.uiMaterial').default.Material;
 
 /**
-* 定义背景图选项。
-*
-* > **说明：**
-* >
-* > 背景图片的同步加载可能会带来潜在性能问题，详情可见[Image](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#image-1)中说明。
-*
- * @interface BackgroundImageOptions
+ * 定义背景图选项。
+ * 
+ * > **说明：**
+ * >
+ * > 背景图片的同步加载可能会带来潜在性能问题，详情可见[Image](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#image-1)中说明。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -21272,17 +19633,15 @@ declare type SystemUiMaterial = import('../api/@ohos.arkui.uiMaterial').default.
  * @since 18 dynamic
  */
 interface BackgroundImageOptions {
-
   /**
    * 是否同步加载图片，默认是异步加载。同步加载时阻塞UI线程，不会显示占位图。
-   *
-   * 默认值：false
-   *
+   * 
+   * 默认值：false 
+   * 
    * false：异步加载图片。
-   *
+   * 
    * true：同步加载图片。
    *
-   * @type { ?boolean }
    * @param { boolean } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -21292,11 +19651,9 @@ interface BackgroundImageOptions {
    * @since 18 dynamic
    */
   syncLoad?: boolean;
-
   /**
    * 设置背景图片的重复样式。默认值为ImageRepeat.NoRepeat。
    *
-   * @type { ?ImageRepeat }
    * @param { ImageRepeat } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -21309,9 +19666,8 @@ interface BackgroundImageOptions {
 }
 
 /**
- * 指定背景选项
+ * background配置选项。
  *
- * @interface BackgroundOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -21319,45 +19675,31 @@ interface BackgroundImageOptions {
  * @since 20 dynamic
  */
 declare interface BackgroundOptions {
-
   /**
-   * Set the alignment of the custom background and component.
+   * 自定义背景与组件的对齐方式。该属性仅对CustomBuilder类型的背景生效，对ResourceColor类型的背景设置align属性无效。如果设置了ignoresLayoutSafeAreaEdges，则背景的布局区域为包含了
+   * 扩展安全区的范围。
+   * 
+   * 默认值：Alignment.Center
    *
-   * @type { ?Alignment} align
+   * @default Alignment.Center [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the alignment of the custom background and component.
-   *
-   * @type { ?Alignment} align
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set the alignment of the custom background and component.
-   *
-   * Anonymous Object Rectification.
-   * @type { ?Alignment }
-   * @default Alignment.Center
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   align?: Alignment;
 
   /**
-   * The set of edges for which to ignore layout safe area. To respect safe area insets on all edges, explicitly pass empty edge set.
+   * 配置背景要扩展到的安全区，包括：状态栏，导航栏和[safeAreaPadding]{@link CommonMethod#safeAreaPadding}。设置该属性后，背景的对齐布局区域将包含扩展安全区的范围。
+   * 
+   * 默认值：
+   * 
+   * - CustomBuilder背景：[]，不扩展。
+   * - ResourceColor背景：[LayoutSafeAreaEdge.ALL]，扩展至所有方向。
    *
-   * @type { ?Array<LayoutSafeAreaEdge> }
-   * @default The default value is LayoutSafeAreaEdge.ALL when background is ResourceColor, otherwise it is an empty array [].
+   * @default The default value is LayoutSafeAreaEdge.ALL when background is ResourceColor, otherwise it is an empty
+   *     array [].
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -21422,18 +19764,23 @@ declare class CommonMethod<T> {
   constructor();
 
   /**
-   * 设置组件自身的宽度，缺省时使用元素自身内容需要的宽度。若子组件的宽大于父组件的宽，则会超出父组件的范围。
+   * 设置组件自身的宽度，缺省时使用子组件自身内容需要的宽度。若子组件的宽大于父组件的宽，则子组件会溢出显示在父组件外部。
    *
-   * 从API version 10开始，该接口支持calc计算特性。
+   * >  **说明：**
+   * >
+   * > - 在[TextInput](./ts-basic-components-textinput.md)组件中，width设置auto表示自适应文本宽度。
+   * >
+   * > - 在[AlphabetIndexer](./ts-container-alphabet-indexer.md)组件中，width设置auto表示自适应宽度最大索引项的宽度。
+   * >
+   * > - 在[Row]{@link Row}、[Column]{@link Column}、[RelativeContainer]{@link RelativeContainer}组件中，width设置auto表示自适应子组件。
+   * >
+   * > - 从API version 10开始，该接口支持calc计算特性。
    *
-   * @param { Length } value - 要设置的组件宽度
-   *     >  **说明：**
-   *     >
-   *     >  - 在{@link TextInput}组件中，width设置auto表示自适应文本宽度。
-   *     >
-   *     >  - 在 [AlphabetIndexer]{@link AlphabetIndexer}组件中，width设置auto表示自适应宽度最大索引项的宽度
-   *     <br>单位为： vp。
-   * @returns { T } Current component.
+   * @param { Length } value - 要设置的组件宽度。
+   * <br>单位：vp
+   * <br>设置百分比时，以父容器的宽度作为基础值。
+   * <br>异常值：参数为undefined时，属性设置不生效；其它异常值时，width属性恢复到不配置时的默认行为。
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -21443,11 +19790,14 @@ declare class CommonMethod<T> {
   width(value: Length): T;
 
   /**
-   * 设置组件自身的宽度或水平方向布局策略，缺省时使用元素自身内容需要的宽度。若子组件的宽大于父组件的宽，则会超出父组件的范围。
+   * 设置组件自身的宽度或水平方向布局策略，缺省时使用子组件自身内容需要的宽度。若子组件的宽大于父组件的宽，则子组件会溢出显示在父组件外部。
    *
-   * @param { Length | LayoutPolicy } widthValue - 要设置的组件宽度。
-   *     <br>单位为： vp。
-   * @returns { T } Current component.
+   * 从API version 15开始，当参数为Length类型时，该接口支持calc计算特性。
+   *
+   * @param { Length | LayoutPolicy } widthValue - 要设置的组件宽度或水平方向布局策略。
+   * <br>单位：vp
+   * <br>设置百分比时，以父容器的宽度作为基础值。
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -21458,16 +19808,19 @@ declare class CommonMethod<T> {
   width(widthValue: Length | LayoutPolicy): T;
 
   /**
-   * 设置组件自身的高度，缺省时使用元素自身内容需要的高度。若子组件的高大于父组件的高，则会超出父组件的范围。
-   * 从API version 10开始，该接口支持calc计算特性。
+   * 设置组件自身的高度，缺省时使用子组件自身内容需要的高度。若子组件的高大于父组件的高，则子组件会溢出显示在父组件外部。
+   *
+   * >  **说明：**
+   * >
+   * > - 在[Row]{@link Row}、[Column]{@link Column}、[RelativeContainer]{@link RelativeContainer}组件中，height设置auto表示自适应子组件。
+   * >
+   * > - 从API version 10开始，该接口支持calc计算特性。
    *
    * @param { Length } value - 要设置的组件高度。
-   *     >  **说明：**
-   *     >
-   *     >  在[Row]{@link Row}、 [Column]{@link Column}、[RelativeContainer]{@link
-   *     RelativeContainer}组件中，width、height设置auto表示自适应子组件。
-   *     <br>单位为： vp。
-   * @returns { T } Current component.
+   * <br>单位：vp
+   * <br>设置百分比时，以父容器的高度作为基础值。
+   * <br>异常值：参数为undefined时，属性设置不生效；其它异常值时，height属性恢复到不配置时的默认行为。
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -21477,11 +19830,14 @@ declare class CommonMethod<T> {
   height(value: Length): T;
 
   /**
-   * 设置组件自身的高度或垂直方向布局策略，缺省时使用元素自身内容需要的高度。若子组件的高大于父组件的高，则会超出父组件的范围。
+   * 设置组件自身的高度或垂直方向布局策略，缺省时使用子组件自身内容需要的高度。若子组件的高大于父组件的高，则子组件会溢出显示在父组件外部。
    *
-   * @param { Length | LayoutPolicy } heightValue - 要设置的组件高度。
-   *     <br>单位为： vp。
-   * @returns { T } Current component.
+   * 从API version 15开始，当参数为Length类型时，该接口支持calc计算特性。
+   *
+   * @param { Length | LayoutPolicy } heightValue - 要设置的组件高度或垂直方向布局策略。
+   * <br>单位：vp
+   * <br>设置百分比时，以父容器的高度作为基础值。
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -21523,7 +19879,7 @@ declare class CommonMethod<T> {
   customProperty(name: string, value: Optional<Object>): T;
 
   /**
-   * 控制组件扩展其安全区域。
+   * 控制组件扩展其安全区域，实现沉浸式效果。
    *
    * >  **说明：**
    * >
@@ -21560,7 +19916,7 @@ declare class CommonMethod<T> {
    * @param { Array<SafeAreaEdge> } edges - 配置扩展安全区域的边缘。
    *     <br>默认值： [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM, SafeAreaEdge.START, SafeAreaEdge.END]。
    *     <br>非法值：按默认值处理。扩展至所有避让区域。
-   * @returns { T } Current component.
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -21588,7 +19944,7 @@ declare class CommonMethod<T> {
    *     />默认值：[LayoutSafeAreaType.SYSTEM]，扩展至所有安全区域，比如：状态栏，导航栏和组件级安全区（safeAreaPadding）。<br/>非法值：按默认值处理。
    * @param { Array<LayoutSafeAreaEdge> } [edges] - 扩展布局安全区的边缘，并且支持镜像能力。<br />默认值：[LayoutSafeAreaEdge.ALL]，扩展组件所有边缘。<br
    *     />非法值：按默认值处理。
-   * @returns { T } Current component.
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -21643,12 +19999,14 @@ declare class CommonMethod<T> {
   responseRegionList(regions: Array<ResponseRegion>): T;
 
   /**
-   * 设置组件自身的宽高尺寸。
+   * 设置组件自身的宽高尺寸。设置后会影响组件在父容器中的布局和显示大小。
    *
    * 从API version 10开始，该接口支持calc计算特性。
    *
-   * @param { SizeOptions } value - 设置宽高尺寸。异常值：参数为undefined时，属性设置不生效；其它异常值时，size属性恢复到不配置时的默认行为。单位：vp
-   * @returns { T } Current component.
+   * @param { SizeOptions } value - 设置宽高尺寸。
+   * <br>异常值：参数为undefined时，属性设置不生效；其它异常值时，size属性恢复到不配置时的默认行为。
+   * <br>单位：vp
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -21658,30 +20016,23 @@ declare class CommonMethod<T> {
   size(value: SizeOptions): T;
 
   /**
-   * 设置约束尺寸，组件布局时，进行尺寸范围限制。
+   * 设置约束尺寸，组件布局时进行尺寸范围限制。设置后组件的宽度和高度将被限制在指定的最小值和最大值范围内，constraintSize的优先级高于width和height属性。
    *
    * 从API version 10开始，该接口支持calc计算特性。
    *
-   * **constraintSize(minWidth/maxWidth/minHeight/maxHeight)取值对width/height影响：**
-   *
-   * | 缺省值                                      | 结果                                       |
-   * | ---------------------------------------- | ---------------------------------------- |
-   * | \ | width=MAX(minWidth,MIN(maxWidth,width))<br/>height=MAX(minHeight,MIN(maxHeight,height)) |
-   * | maxWidth、maxHeight | width=MAX(minWidth,width)<br/>height=MAX(minHeight,height) |
-   * | minWidth、minHeight | width=MIN(maxWidth,width)<br/>height=MIN(maxHeight,height) |
-   * | width、height |
-   * 若minWidth<maxWidth，组件自身布局逻辑生效，width取值范围为[minWidth,maxWidth]；否则，width=MAX(minWidth,maxWidth)。<br/>若minHeight<maxHeig
-   * ht，组件自身布局逻辑生效，height取值范围为[minHeight,maxHeight]；否则，height=MAX(minHeight,maxHeight)。 |
-   * | width与maxWidth、height与maxHeight | width=minWidth<br/>height=minHeight |
-   * | width与minWidth、height与minHeight | 组件自身布局逻辑生效，width取值约束为不大于maxWidth。<br/>组件自身布局逻辑生效，height取值约束为不大于maxHeight。 |
-   * | minWidth与maxWidth、minHeight与maxHeight | width以所设值为基础，根据其他布局属性发生可能的拉伸或者压缩。<br/>height以所设值为基础，根据其他布局属性发生可能的拉伸或者压缩。|
-   * | width与minWidth与maxWidth | 使用父容器传递的布局限制进行布局。 |
-   * | height与minHeight与maxHeight | 使用父容器传递的布局限制进行布局。 |
-   *
-   * @param { ConstraintSizeOptions } value - 设置约束尺寸。constraintSize的优先级高于Width和Height。取值结果参考constraintSize取值对width/height影响。
-   *     <br><br/>默认值：<br/>{<br/>minWidth:&nbsp;0,<br/>maxWidth:&nbsp;Infinity,<br/>minHeight:&nbsp;0,<br/>maxHeight:&nb
-   *     sp;Infinity<br/>}<br/>异常值：数值开头的字符串仅解析出数字部分，非数值开头的字符串解析为0；其它异常值时，constraintSize属性恢复到不配置时的默认行为。<br/>单位：vp<br/>。
-   * @returns { T } Current component.
+   * @param { ConstraintSizeOptions } value - 设置约束尺寸。constraintSize的优先级高于
+   * [width]{@link CommonMethod#width(value: Length)}和[height]{@link CommonMethod#height(value: Length)}。取值结果参考
+   * constraintSize取值对width/height影响。
+   * <br>默认值：
+   * <br>{
+   * <br>minWidth: 0,
+   * <br>maxWidth: Infinity,
+   * <br>minHeight: 0,
+   * <br>maxHeight: Infinity
+   * <br>}
+   * <br>异常值：数值开头的字符串仅解析出数字部分，非数值开头的字符串解析为0；其它异常值时，constraintSize属性恢复到不配置时的默认行为。
+   * <br>单位：vp
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -21740,15 +20091,21 @@ declare class CommonMethod<T> {
   onChildTouchTest(event: (value: Array<TouchTestInfo>) => TouchResult): T;
 
   /**
-   * 设置组件的布局权重，使组件在父容器（[Row]{@link Row}/[Column]{@link Column}/[Flex]{@link Flex}的主轴方向按照权重分配尺寸。
+   * 设置组件的布局权重，使组件在父容器（[Row]{@link ./row}/[Column]{@link ./column}/[Flex]{@link ./flex}）的主轴方向按照权重分配尺寸。适用于父容器尺寸确定、需要多个子组件
+   * 按比例分配剩余空间的场景。
    *
-   * @param { number | string } value - 组件的布局权重。
-   *     <br>父容器尺寸确定时，不设置layoutWeight属性或者layoutWeight属性生效值为0的元素优先占位，这些元素占位后在主轴留下的空间称为主轴剩余空间。设置了layoutWeight属性且layoutWeig
-   *     ht属性生效值大于0的子元素会从主轴剩余空间中按照各自所设置的权重占比分配尺寸，分配时会忽略元素本身的尺寸设置。<br/>默认值：0<br/>**说明：** <br/>仅在[Row]{@link
-   *     Row}/[Column]{@link Column}/[Flex]{@link
-   *     Flex}布局中生效。<br/>可选值为大于等于0的数字，或者可以转换为数字的字符串。<br/>如果容器中有子元素设置了layoutWeight属性，且设置的属性值大于0，则所有子元素不会再基于[flexShrink]{@
-   *     link flexShrink}和[flexGrow]{@link flexGrow}布局。
-   * @returns { T } Current component.
+   * @param { number | string } value - 父容器尺寸确定时，不设置layoutWeight属性或者layoutWeight属性生效值为0的子组件优先占位，这些子组件占位后在主轴留下的空间称为主轴剩余空
+   * 间。设置了layoutWeight属性且layoutWeight属性生效值大于0的子组件会从主轴剩余空间中按照各自所设置的权重占比分配尺寸，分配时会忽略子组件本身的width/height设置，但保留minWidth/
+   * minHeight约束。
+   * <br>默认值：0
+   * <br>取值范围：[0, +∞)
+   * <br>超出范围时：传入小于0的值时，按0处理。
+   * <br>**说明：**
+   * <br>仅在[Row]{@link ./row}/[Column]{@link ./column}/[Flex]{@link ./flex}布局中生效。
+   * <br>可选值为大于等于0的数字，或者可以转换为数字的字符串（支持整数、小数格式）。
+   * <br>如果容器中有子组件设置了layoutWeight属性，且设置的属性值大于0，则所有子组件不会再基于[flexShrink]{@link CommonMethod#flexShrink}和
+   * [flexGrow]{@link CommonMethod#flexGrow}布局。
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -21766,7 +20123,7 @@ declare class CommonMethod<T> {
    * > 从API version 23开始，支持 [attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性方法。
    *
    * @param { ChainWeightOptions } chainWeight - 设置了chainWeight属性的组件与同一条链上的兄弟组件在水平或竖直方向的尺寸会按照设置的权重进行分配，分配时会忽略组件本身尺寸设置，按分配的权重自适应占满剩余空间。
-   * @returns { T } Current component.
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -21776,19 +20133,21 @@ declare class CommonMethod<T> {
   chainWeight(chainWeight: ChainWeightOptions): T;
 
   /**
-   * 设置组件的内边距属性。
+   * 设置组件的内边距属性。设置后会在组件内容和边框之间创建额外空间，影响组件内部内容的布局区域。
    *
    * 从API version 10开始，该接口支持calc计算特性。
    *
-   * @param { Padding | Length } value - [since 7 - 11]
-   * @param { Padding | Length | LocalizedPadding } value - Padding of the component to set
-   *     <br>
-   *     When the parameter is of the **Length** type, the four paddings take effect.
-   *     <br>Default value: **0**
-   *     <br>Unit: vp
-   *     <br>When **padding** is set to a percentage, the width of the parent container is used as the
-   *     basic value. [since 12].
-   * @returns { T } Current component.
+   * @param { Padding | Length } value - 设置组件的内边距。
+   * <br>参数为Length类型时，四个方向内边距同时生效。
+   * <br>默认值：0
+   * <br>单位：vp
+   * <br>padding设置百分比时，上下左右内边距均以父容器的width作为基础值。 [since 7 - 11]
+   * @param { Padding | Length | LocalizedPadding } value - 设置组件的内边距。
+   * <br>参数为Length类型时，四个方向内边距同时生效。
+   * <br>默认值：0
+   * <br>单位：vp
+   * <br>padding设置百分比时，上下左右内边距均以父容器的width作为基础值。 [since 12]
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -21798,21 +20157,18 @@ declare class CommonMethod<T> {
   padding(value: Padding | Length | LocalizedPadding): T;
 
   /**
-   * 设置安全区边距属性。允许容器向自身添加组件级安全区域，供子组件延伸，支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性方法。
+   * 设置安全区边距属性。允许容器向自身添加组件级安全区域，供子组件延伸，支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性方法。与padding不同，
+   * safeAreaPadding用于设置组件级安全区域供子组件延伸使用，而padding用于设置组件内容区域的内边距，两者可同时设置、分别生效。
    *
-   * > **说明**
+   * > **说明：**
    * >
-   * >
-   * 当父辈和祖先容器设置了组件级安全区域时，子组件可以感知并利用该区域，称该区域为累计安全区延伸（accumulatedSafeAreaExpand，下文简称SAE），表示子组件在四个方向上各可延伸的长度。当祖辈与更上一级祖辈的saf
-   * eAreaPadding相邻接（即未被margin、border、padding分隔）时，SAE将递归地向外累积，直至不存在相邻的更外层safeAreaPadding或递归至页面容器外。系统级避让区域（如状态栏、导航条、挖孔区等，
-   * 详情参见安全区域中的说明）可视为页面容器特有的safeAreaPadding，同样参与该延伸范围的计算。
-   * >
-   * > 通过与其他属性配合使用，可对上述计算得到的组件级安全区区域加以利用。例如，对子组件设置[ignoreLayoutSafeArea]{@link
-   * CommonMethod#ignoreLayoutSafeArea}属性，即可利用SAE延伸组件的布局范围。
+   * > 从API version 18开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { Padding | LengthMetrics | LocalizedPadding } paddingValue - 设置组件的安全区边距。
-   *     <br>单位为： vp。 默认值： 0。
-   * @returns { T } Current component.
+   * @param { Padding | LengthMetrics | LocalizedPadding } paddingValue - 设置组件的安全区边距，用于在组件内部创建组件级安全区域供子组件延伸使用。
+   * <br>默认值：0
+   * <br>单位：vp
+   * <br>paddingValue设置百分比时，上下左右内边距均以父容器的width作为基础值。
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -21827,19 +20183,23 @@ declare class CommonMethod<T> {
    *
    * 从API version 10开始，该接口支持calc计算特性。
    *
-   * @param { Margin | Length } value - [since 7 - 11]
-   * @param { Margin | Length | LocalizedMargin } value - Margin of the component to set.
-   *     <br>When the parameter is of the **Length** type, the four margins take effect.
-   *     <br>Default value: **0**
-   *     <br>Unit: vp
-   *     <br>When **margin** is set to a percentage, the width of the parent container is used as the
-   *     basic value. When child components are laid out along the cross axis of the
-   *     [Row]{@link Row}, [Column]{@link Column}, or [Flex]{@link Flex} container, the cross axis
-   *     size of the child components and the margins add up to the total size of the container.
-   *     <br>For example, if the width of the **Column** container is 100, the width of the child component
-   *     is 50, the left margin is 10, and the right margin is 20, then the actual horizontal offset of
-   *     the child component is 10. [since 12]
-   * @returns { T } Current component.
+   * @param { Margin | Length } value - 设置组件的外边距。
+   * <br>参数为Length类型时，四个方向外边距同时生效。
+   * <br>默认值：0
+   * <br>单位：vp
+   * <br>margin设置百分比时，上下左右外边距均以父容器的width作为基础值。在[Row]{@link ./row}、[Column]{@link ./column}、[Flex]{@link ./flex}交叉轴上布
+   * 局时，子组件在交叉轴方向占用的空间包含子组件本身尺寸和margin值。
+   * <br>例如Column容器宽100，其中子组件宽50，margin left为10，right为20，子组件宽度与左右margin之和为50+10+20=80，小于容器宽度100，子组件在交叉轴方向居中对齐，此时水平方向
+   * 左侧和右侧各有(100-80)/2=10的空白区域。 [since 7 - 11]
+   * @param { Margin | Length | LocalizedMargin } value - 设置组件的外边距。
+   * <br>参数为Length类型时，四个方向外边距同时生效。
+   * <br>默认值：0
+   * <br>单位：vp
+   * <br>margin设置百分比时，上下左右外边距均以父容器的width作为基础值。在[Row]{@link ./row}、[Column]{@link ./column}、[Flex]{@link ./flex}交叉轴上布
+   * 局时，子组件在交叉轴方向占用的空间包含子组件本身尺寸和margin值。
+   * <br>例如Column容器宽100，其中子组件宽50，margin left为10，right为20，子组件宽度与左右margin之和为50+10+20=80，小于容器宽度100，子组件在交叉轴方向居中对齐，此时水平方向
+   * 左侧和右侧各有(100-80)/2=10的空白区域。 [since 12]
+   * @returns { T } 返回当前组件对象，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -21849,95 +20209,65 @@ declare class CommonMethod<T> {
   margin(value: Margin | Length | LocalizedMargin): T;
 
   /**
-   * 为组件新增背景
+   * 设置组件背景。从API version 20开始，content参数新增了对[ResourceColor]{@link ResourceColor}类型的支持，并新增了背景向父组件的安全区扩展的能力。当仅需设置背景色且不需要安全区
+   * 扩展时，推荐使用[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}；当需要背景色同时扩展到安全区时，可使用background(
+   * content: ResourceColor)配合ignoresLayoutSafeAreaEdges属性。
+   * 
+   * > **说明：**
+   * >
+   * > - 不支持[onAppear]{@link CommonMethod#onAppear}和[onDisAppear]{@link CommonMethod#onDisAppear}等和节点挂载/卸载相关的事件。
+   * >
+   * > - 从API version 20开始，该接口仅当content的入参类型为ResourceColor时支持在[attributeModifier]{@link CommonMethod#attributeModifier}中
+   * > 调用。
    *
-   *
-   * @param { CustomBuilder } builder - Custom background.
-   * @param { object } options - Alignment mode between the custom background and the component.
-   *     <br>If **background**, **backgroundColor**, and **backgroundImage** are set at the same time
-   *     <br>They will all take effect, with **background** at the top layer.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { CustomBuilder } builder - Custom background. [since 10 - 19]
+   * @param { object } options - 设置自定义背景选项。
+   *     <br>**说明：**
+   *     <br>API version 20之前，options: 
+   *     <br>{
+   *     <br>align?: [Alignment]{@link Alignment}
+   *     <br>} [since 10 - 19]
+   * @param { CustomBuilder | ResourceColor } content - 设置背景内容，支持CustomBuilder类型的自定义构建背景和ResourceColor类型的颜色背景。 [since 20]
+   * @param { BackgroundOptions } [options] - 设置自定义背景选项。
+   *     <br>**说明：**
+   *     <br>API version 20之前，options: 
+   *     <br>{
+   *     <br>align?: [Alignment]{@link Alignment}
+   *     <br>} [since 20]
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 为组件新增背景
-   *
-   *
-   * @param { CustomBuilder } builder - Custom background.
-   * @param { object } options - Alignment mode between the custom background and the component.
-   *     <br>If **background**, **backgroundColor**, and **backgroundImage** are set at the same time
-   *     <br>They will all take effect, with **background** at the top layer.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Add a background for the component.
-   *
-   * Anonymous Object Rectification.
-   * @param { CustomBuilder | ResourceColor } content
-   * @param { BackgroundOptions } [options]
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   background(content: CustomBuilder | ResourceColor, options?: BackgroundOptions): T;
 
   /**
-   * Background color
+   * 设置组件背景色。
+   * 
+   * > **说明：**
+   * >
+   * > 同时设置background、backgroundColor、backgroundImage时，三者叠加显示规则如下：若background为ResourceColor类型，或设置
+   * > ignoresLayoutSafeAreaEdges属性，则background位于最底层；其他情况下，background位于最上层。
    *
-   * @param { ResourceColor } value
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Background color
-   *
-   * @param { ResourceColor } value
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Background color
-   *
-   * @param { ResourceColor } value
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Background color
-   *
-   * @param { ResourceColor } value
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @param { ResourceColor } value - 设置组件的背景色。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   backgroundColor(value: ResourceColor): T;
 
   /**
-   * Background color
+   * 设置组件背景色。与[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}相比，color参数新增了对undefined类型的支持。
    *
-   * @param { Optional<ResourceColor> } color
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { Optional<ResourceColor> } color - 设置组件的背景色。
+   *     <br>当color的值为undefined时，恢复为默认透明的背景色。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -21947,11 +20277,22 @@ declare class CommonMethod<T> {
   backgroundColor(color: Optional<ResourceColor>): T;
 
   /**
-   * Background color
+   * 设置组件背景色。与[backgroundColor]{@link CommonMethod#backgroundColor(color: Optional<ResourceColor>)}相比，color参数新增了对
+   * [ColorMetrics]{@link ../../../arkui/Graphics:ColorMetrics}类型的支持。
+   * 
+   * > **说明：**
+   * >
+   * > 当通过
+   * > [backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions)}
+   * > 中的inactiveColor指定背景色时，不建议再通过backgroundColor设置背景色。
    *
-   * @param { Optional<ResourceColor | ColorMetrics> } color
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { Optional<ResourceColor | ColorMetrics> } color - 设置组件的背景色。
+   *     <br>当color的值为undefined时，恢复为默认透明的背景色。
+   *     <br>当需要设置P3广色域背景色时，需使用ColorMetrics类型参数。
+   *     <br>**说明：**
+   *     <br>当使用ColorMetrics设置P3色域颜色时，需先通过setColorSpace接口将当前窗口设置为广色域，否则P3色域颜色无法正确显示。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -21961,25 +20302,23 @@ declare class CommonMethod<T> {
   backgroundColor(color: Optional<ResourceColor | ColorMetrics>): T;
 
   /**
-   * 指定当前组件在指定方向上的像素取整对齐方式，某方向不设置时默认在该方向进行四舍五入取整。
+   * 指定当前组件在指定方向上的像素取整对齐方式，使用后组件边界坐标将按指定策略取整，从而避免因浮点数绘制产生的视觉异常（如1px缝隙、组件重叠、分割线消失）。从API version 12开始，某方向不设置时默认在该方向进行四舍五入取整。
    *
    * > **说明：**
    * >
-   * > - 在API version 11，本接口采用半像素对齐方式（即0\~0.25取0，0.25\~0.75取0.5，0.75\~1.0取1）。从API version
-   * 12开始，本接口采用四舍五入的取整方式，并支持组件级关闭像素取整的能力。
+   * > - 在API version 11，本接口采用半像素对齐方式（即0\~0.25取0，0.25\~0.75取0.5，0.75\~1.0取1）。该方式通过保留0.5像素值来减少连续取整可能带来的累积误差。从API version 12开始，未设置取整策略的方向默认采用四舍五入的取整方式，并支持通过PixelRoundCalcPolicy.NO_FORCE_ROUND关闭指定方向的像素取整。
    * >
-   * > - 从API version
-   * 12开始，该接口支持在[attributeModifier](ts-universal-attributes-attribute-modifier.md#attributemodifier)中调用。
+   * > - 从API version12开始，该接口支持在[attributeModifier](ts-universal-attributes-attribute-modifier.md#attributemodifier)中调用。
    *
    * 正常计算时，上下方向与组件高度相对应，左右方向（镜像的起始方向称为左）与宽度相对应。为方便描述将两组方向称为左上和右下。
    *
    * - 计算当前组件左上角坐标： 左上角相对父容器偏移量。
    * - 计算当前组件右下角坐标： 左上角相对于父容器偏移量 + 组件自身尺寸。
-   * - 重新计算当前组件尺寸： 右下角坐标四舍五入取整 - 左上角坐标四舍五入取整。
+   * - 重新计算当前组件尺寸： 右下角坐标四舍五入取整 - 左上角坐标四舍五入取整（API version 11采用半像素对齐方式，API version 12采用四舍五入方式）。
    *
-   * @param { PixelRoundPolicy } value - 指定当前组件边界取整策略。<br/>**说明：**<br/>该属性用于因浮点数绘制产生视觉异常的场景。取整结果不仅和组件的宽高有关，也与组件的位置有关。即使设置组件的宽高相同，由于以浮点数描述的组件位置不同，舍入后组件的最终宽高也
-   *     可能不同。
-   * @returns { T } Current component.
+   * @param { PixelRoundPolicy } value - 指定当前组件边界取整策略。[PixelRoundPolicy]{@link PixelRoundPolicy}包含start、top、end、bottom四个可选属性，分别对应组件前部、上部、尾部、底部边界。每个属性可设置[PixelRoundCalcPolicy]{@link PixelRoundCalcPolicy}枚举值。设置PixelRoundCalcPolicy.NO_FORCE_ROUND可关闭对应方向上的像素取整，未设置的属性默认按四舍五入规则取整。
+   *     <br>**说明：**<br/>该属性用于因浮点数绘制产生视觉异常的场景。取整结果不仅和组件的宽高有关，也与组件的位置有关。即使设置组件的宽高相同，由于以浮点数描述的组件位置不同，舍入后组件的最终宽高也可能不同。
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -21990,73 +20329,37 @@ declare class CommonMethod<T> {
   pixelRound(value: PixelRoundPolicy): T;
 
   /**
-   * Background image
-   * src: Image address url
+   * 设置组件的背景图片，支持网络图片、本地图片、Base64和PixelMap资源。
    *
-   * @param { ResourceStr } src
-   * @param { ImageRepeat } repeat
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Background image
-   * src: Image address url
-   *
-   * @param { ResourceStr } src
-   * @param { ImageRepeat } repeat
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Background image
-   * src: Image address url
-   *
-   * @param { ResourceStr } src
-   * @param { ImageRepeat } repeat
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Background image
-   * src: Image address url
-   *
-   * @param { ResourceStr } src
-   * @param { ImageRepeat } repeat
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Background image
-   * src: Image address url
-   *
-   * @param { ResourceStr | PixelMap } src
-   * @param { ImageRepeat } repeat
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @param { ResourceStr } src - 图片地址。API version 22及之前版本，支持网络图片资源地址、本地图片资源地址、Base64和PixelMap资源，不支持svg图片，以及gif和webp等类型的
+   *     动图。 从API version 23开始，新增支持webp和gif类型的动图，显示动图第一帧，不支持其他类型的动图。 [since 7 - 11]
+   * @param { ImageRepeat } repeat - 设置背景图片的重复样式，默认不重复。设置合法的
+   *     [backgroundImageResizable]{@link CommonMethod#backgroundImageResizable}时，该参数设置不生效。当设置的背景图片为透明底色图片，且同时设置了
+   *     backgroundColor时，二者叠加显示，背景色在最底部。
+   * @param { ResourceStr | PixelMap } src - 图片地址。API version 22及之前版本，支持网络图片资源地址、本地图片资源地址、Base64和PixelMap资源，不支持svg图片，以及
+   *     gif和webp等类型的动图。 从API version 23开始，新增支持webp和gif类型的动图，显示动图第一帧，不支持其他类型的动图。 [since 12]
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   backgroundImage(src: ResourceStr | PixelMap, repeat?: ImageRepeat): T;
 
   /**
-   * Background image
+   * 设置组件的背景图片。与[backgroundImage]{@link CommonMethod#backgroundImage(src: ResourceStr | PixelMap, repeat?: ImageRepeat)}
+   * 相比，增加了设置图片同步或异步加载方式的能力。
+   * 
+   * > **说明：**
+   * >
+   * > 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { ResourceStr | PixelMap } src - the background image source
-   * @param { BackgroundImageOptions } [options] - config the options
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { ResourceStr | PixelMap } src - 图片地址。API version 22及之前版本，支持网络图片资源地址、本地图片资源地址、Base64和PixelMap资源，不支持svg图片，以及
+   *     gif和webp等类型的动图。 从API version 23开始，新增支持webp和gif类型的动图，显示动图第一帧，不支持其他类型的动图。
+   * @param { BackgroundImageOptions } options - 设置背景图片选项，用于配置图片的同步或异步加载方式等参数。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -22066,96 +20369,51 @@ declare class CommonMethod<T> {
   backgroundImage(src: ResourceStr | PixelMap, options?: BackgroundImageOptions): T;
 
   /**
-   * Background image size
+   * 设置组件背景图片的宽度和高度。当未设置backgroundImageSize时，默认组件背景图片宽高效果为[ImageSize.Auto]{@link ImageSize}。
    *
-   * @param { SizeOptions | ImageSize } value
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Background image size
-   *
-   * @param { SizeOptions | ImageSize } value
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Background image size
-   *
-   * @param { SizeOptions | ImageSize } value
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Background image size
-   *
-   * @param { SizeOptions | ImageSize } value - 
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @param { SizeOptions | ImageSize } value - 设置背景图片的高度和宽度。默认保持原图的比例不变。
+   *     <br>width和height取值范围： [0, +∞)
+   *     <br>ImageSize用于控制图片缩放显示模式，如保持比例、填充边界等。
+   *     <br>**说明：** 
+   *     <br>width和height均设置为小于或等于0的值时，按值为0显示。当width和height中只有一个值未设置或者设置为小于等于0的值时，另一个会根据图片原始宽高比进行调整。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   backgroundImageSize(value: SizeOptions | ImageSize): T;
 
   /**
-   * Background image position
-   * x:Horizontal coordinate;y:Vertical axis coordinate.
+   * 设置背景图片的位置。当未设置backgroundImagePosition时，组件默认背景图片位置为当前组件左上角。
    *
-   * @param { Position | Alignment } value
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Background image position
-   * x:Horizontal coordinate;y:Vertical axis coordinate.
-   *
-   * @param { Position | Alignment } value
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Background image position
-   * x:Horizontal coordinate;y:Vertical axis coordinate.
-   *
-   * @param { Position | Alignment } value
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Background image position
-   * x:Horizontal coordinate;y:Vertical axis coordinate.
-   *
-   * @param { Position | Alignment } value
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @param { Position | Alignment } value - 设置背景图片在组件中显示位置，即相对于组件左上角的坐标。
+   *     <br> x和y值设置百分比时，偏移量是相对组件自身宽高计算的。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   backgroundImagePosition(value: Position | Alignment): T;
 
   /**
    * 为当前组件提供一种背景材质模糊能力，通过枚举值的方式封装了不同的模糊半径、蒙版颜色、蒙版透明度、饱和度、亮度。
+   * 
+   * > **说明：**
+   * >
+   * > backgroundBlurStyle、[backdropBlur]{@link CommonMethod#backdropBlur(value: number, options?: BlurOptions)}和
+   * > [backgroundEffect]{@link CommonMethod#backgroundEffect(options: BackgroundEffectOptions)}均为背景模糊接口，提供不同级别的模糊自定义能力：
+   * > backgroundBlurStyle通过枚举值快速设置预定义模糊样式；backdropBlur支持自定义模糊半径和灰阶参数；backgroundEffect支持自定义模糊半径、亮度、饱和度和颜色等更多参数。同一组件上同时设置
+   * > 多个背景模糊接口时，仅最后一个设置的接口生效，之前的模糊效果会被覆盖。
    *
    * @param { BlurStyle } value - 背景模糊样式。模糊样式中封装了模糊半径、蒙版颜色、蒙版透明度、饱和度、亮度五个参数。
-   * @param { BackgroundBlurStyleOptions } options - 背景模糊选项。用于配置模糊激活策略和不生效时的背景色。不传入时使用默认激活策略
-   *     [BlurStyleActivePolicy]{@link BlurStyleActivePolicy}.ALWAYS_ACTIVE。<br/>该参数在ArkTS卡片中，暂不支持使用。
-   * @returns { T } 返回当前组件。
+   * @param { BackgroundBlurStyleOptions } options - 背景模糊选项，用于配置模糊激活策略和不生效时的背景色。不传入时使用默认激活策略
+   *     [BlurStyleActivePolicy]{@link BlurStyleActivePolicy}.ALWAYS_ACTIVE。
+   *     <br>该参数在ArkTS卡片中，暂不支持使用。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form
@@ -22169,11 +20427,12 @@ declare class CommonMethod<T> {
    * [backgroundBlurStyle<sup>9+</sup>]{@link CommonMethod#backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions)}
    * 相比，style参数新增了对undefined类型的支持。
    *
-   * @param { Optional<BlurStyle> } style - 背景模糊样式。模糊样式中封装了模糊半径、蒙版颜色、蒙版透明度、饱和度、亮度五个参数。<br/>当style的值为undefined时，恢复为默认关闭模糊
-   *     的背景。
+   * @param { Optional<BlurStyle> } style - 背景模糊样式。模糊样式中封装了模糊半径、蒙版颜色、蒙版透明度、饱和度、亮度五个参数。
+   *     <br>当style的值为undefined时，恢复为默认关闭模糊的背景。
    * @param { BackgroundBlurStyleOptions } [options] - 背景模糊选项。用于配置模糊激活策略和不生效时的背景色。不传入时使用默认激活策略
-   *     [BlurStyleActivePolicy]{@link BlurStyleActivePolicy}.ALWAYS_ACTIVE。<br/>该参数在ArkTS卡片中，暂不支持使用。
-   * @returns { T } 返回当前组件。
+   *     [BlurStyleActivePolicy]{@link BlurStyleActivePolicy}.ALWAYS_ACTIVE。
+   *     <br>该参数在ArkTS卡片中，暂不支持使用。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22188,11 +20447,14 @@ declare class CommonMethod<T> {
    * [backgroundBlurStyle<sup>18+</sup>]{@link CommonMethod#backgroundBlurStyle(style: Optional<BlurStyle>, options?: BackgroundBlurStyleOptions)}
    * 相比，新增了sysOptions参数，即支持系统自适应调节参数。
    *
-   * @param { Optional<BlurStyle> } style - 背景模糊样式。模糊样式中封装了模糊半径、蒙版颜色、蒙版透明度、饱和度、亮度五个参数。<br/>当style的值为undefined时，恢复为默认关闭模糊
-   *     的背景。
-   * @param { BackgroundBlurStyleOptions } [options] - 背景模糊选项。<br/>该参数在ArkTS卡片中，暂不支持使用。
-   * @param { SystemAdaptiveOptions } [sysOptions] - 系统自适应调节参数。<br/>默认值：{ disableSystemAdaptation: false }
-   * @returns { T } 返回当前组件。
+   * @param { Optional<BlurStyle> } style - 背景模糊样式。模糊样式中封装了模糊半径、蒙版颜色、蒙版透明度、饱和度、亮度五个参数。
+   *     <br>当style的值为undefined时，恢复为默认关闭模糊的背景。
+   * @param { BackgroundBlurStyleOptions } [options] - 背景模糊选项。用于配置模糊激活策略和不生效时的背景色。不传入时使用默认激活策略
+   *     [BlurStyleActivePolicy]{@link BlurStyleActivePolicy}.ALWAYS_ACTIVE。
+   *     <br>该参数在ArkTS卡片中，暂不支持使用。
+   * @param { SystemAdaptiveOptions } [sysOptions] - 系统自适应调节参数。
+   *     <br>默认值：{ disableSystemAdaptation: false }
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22203,10 +20465,15 @@ declare class CommonMethod<T> {
   backgroundBlurStyle(style: Optional<BlurStyle>, options?: BackgroundBlurStyleOptions, sysOptions?: SystemAdaptiveOptions): T;
 
   /**
-   * 设置组件背景属性，包括背景模糊半径、亮度、饱和度和颜色等参数。
+   * 设置组件背景属性，以实时渲染方式处理，包括背景模糊半径、亮度、饱和度和颜色等参数。
+   * 
+   * > **说明：**
+   * >
+   * > backgroundEffect为实时接口，每帧对模糊效果执行实时渲染，性能负载较大。当组件背景模糊效果无需变动时，推荐采用静态模糊接口
+   * > [blur]{@link @ohos.effectKit:effectKit.Filter.blur(radius: double)}实现模糊效果。
    *
    * @param { BackgroundEffectOptions } options - 设置组件背景属性包括：背景模糊半径、亮度、饱和度和颜色等参数。
-   * @returns { T } 返回当前组件。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22220,9 +20487,9 @@ declare class CommonMethod<T> {
    * [backgroundEffect<sup>11+</sup>]{@link CommonMethod#backgroundEffect(options: BackgroundEffectOptions)}相比，options参数
    * 新增了对undefined类型的支持。
    *
-   * @param { Optional<BackgroundEffectOptions> } options - 设置组件背景属性包括：背景模糊半径、亮度、饱和度和颜色等参数。<br/>当options的值为undefined时，恢复
-   *     为无效果的背景。
-   * @returns { T } 返回当前组件。
+   * @param { Optional<BackgroundEffectOptions> } options - 设置组件背景属性包括：背景模糊半径、亮度、饱和度和颜色等参数。
+   *     <br>当options的值为undefined时，恢复为无效果的背景。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22238,14 +20505,15 @@ declare class CommonMethod<T> {
    * 
    * > **说明：**
    * >
-   * > backgroundEffect接口为实时接口，每帧对模糊等效果执行实时渲染，性能负载较大。当组件背景模糊效果无需变动时，推荐采用静态模糊接口
+   * > backgroundEffect为实时接口，每帧对模糊效果执行实时渲染，性能负载较大。当组件背景模糊效果无需变动时，推荐采用静态模糊接口
    * > [blur]{@link @ohos.effectKit:effectKit.Filter.blur(radius: double)}实现模糊效果。最佳实践请参考：
    * > [图像模糊动效优化-使用场景](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-fuzzy-scene-performance-optimization#section4945532519)。
    *
-   * @param { Optional<BackgroundEffectOptions> } options - 设置组件背景属性包括：背景模糊半径、亮度、饱和度和颜色等参数。<br/>当options的值为undefined时，恢复
-   *     为无效果的背景。
-   * @param { SystemAdaptiveOptions } [ sysOptions ] - 系统自适应调节参数。<br/>默认值：{ disableSystemAdaptation: false }
-   * @returns { T } 返回当前组件。
+   * @param { Optional<BackgroundEffectOptions> } options - 设置组件背景属性包括：背景模糊半径、亮度、饱和度和颜色等参数。
+   *     <br>当options的值为undefined时，恢复为无效果的背景。
+   * @param { SystemAdaptiveOptions } [ sysOptions ] - 系统自适应调节参数。
+   *     <br>默认值：{ disableSystemAdaptation: false }
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22255,12 +20523,17 @@ declare class CommonMethod<T> {
   backgroundEffect(options: Optional<BackgroundEffectOptions>, sysOptions?: SystemAdaptiveOptions): T;
 
   /**
-   * Background image resizable.
-   * value:resizable options
+   * 设置背景图片在拉伸时的可分区拉伸图像选项，即定义图片中可拉伸区域与固定不变的区域，实现类似9-patch的切片拉伸效果。
+   * 
+   * 设置合法的ResizableOptions时，
+   * [backgroundImage]{@link CommonMethod#backgroundImage(src: ResourceStr | PixelMap, repeat?: ImageRepeat)}属性中的repeat参
+   * 数设置不生效。
+   * 
+   * 当设置top+bottom大于原图的高或者left+right大于原图的宽时，ResizableOptions属性设置不生效。
    *
-   * @param { ResizableOptions } value - Indicates the resizable options.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { ResizableOptions } value - 图像拉伸时可调整大小的图像选项。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -22269,11 +20542,12 @@ declare class CommonMethod<T> {
   backgroundImageResizable(value: ResizableOptions): T;
 
   /**
-   * 设置组件的前景属性。
+   * 设置组件的前景模糊效果。仅在组件范围内生效，与backgroundEffect、blur等接口连用时超出组件范围的效果无法生效。
    *
-   * @param { ForegroundEffectOptions } options - 设置组件前景属性包括：模糊半径。
-   * @returns { T }
-   返回当前组件。
+   * @param { ForegroundEffectOptions } options - 设置组件前景效果，包括：模糊半径。效果仅在组件范围内生效，与backgroundEffect、blur等接口连用时超出组件范围的效果无法生
+   *     效。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -22281,15 +20555,16 @@ declare class CommonMethod<T> {
    */
   foregroundEffect(options: ForegroundEffectOptions): T;
 
+
   /**
-   * 设置非滤镜视觉效果。
+   * 设置非滤镜视觉效果，如点光源等。具体可添加的效果参见VisualEffect的方法说明。
    * 
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { VisualEffect } effect - 非滤镜视觉效果。
-   * @returns { T } 返回当前组件。
+   * @param { VisualEffect } effect - 非滤镜视觉效果，如点光源等非滤镜效果。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22299,14 +20574,14 @@ declare class CommonMethod<T> {
   visualEffect(effect: VisualEffect): T;
 
   /**
-   * 设置背景滤镜视觉效果。
+   * 设置背景滤镜视觉效果，作用于组件背景层。各滤镜的绘制顺序参见[materialFilter]{@link CommonMethod#materialFilter}。
    * 
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { Filter } filter - 背景滤镜视觉效果。
-   * @returns { T } 返回当前组件。
+   * @param { Filter } filter - 背景滤镜视觉效果，如模糊、像素扩展等滤镜效果。该滤镜绘制晚于materialFilter，位于materialFilter上层。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22316,14 +20591,15 @@ declare class CommonMethod<T> {
   backgroundFilter(filter: Filter): T;
 
   /**
-   * 设置前景滤镜（内容）视觉效果。
+   * 设置前景滤镜（内容）视觉效果，如模糊、像素扩展等。多个滤镜同时设置在同一组件上时，前景滤镜的绘制位于所有其他滤镜之上。绘制顺序从底到顶为：materialFilter → backgroundFilter → 
+   * compositingFilter → foregroundFilter。
    * 
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { Filter } filter - 前景滤镜（内容）视觉效果。
-   * @returns { T } 返回当前组件。
+   * @param { Filter } filter - 前景滤镜（内容）视觉效果，如模糊、像素扩展等滤镜效果。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22333,14 +20609,15 @@ declare class CommonMethod<T> {
   foregroundFilter(filter: Filter): T;
 
   /**
-   * 设置合成滤镜视觉效果。
+   * 设置合成滤镜视觉效果，如模糊、像素扩展等。合成滤镜用于对组件前景与背景合成后的整体图像应用滤镜效果。多个滤镜同时设置在同一组件上时，合成滤镜的绘制位于背景滤镜之上、前景滤镜之下。绘制顺序从底到顶为：materialFilter →
+   * backgroundFilter → compositingFilter → foregroundFilter。
    * 
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { Filter } filter - 合成滤镜视觉效果。
-   * @returns { T } 返回当前组件。
+   * @param { Filter } filter - 合成滤镜视觉效果，如模糊、像素扩展等滤镜效果。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22350,14 +20627,16 @@ declare class CommonMethod<T> {
   compositingFilter(filter: Filter): T;
 
   /**
-   * 设置系统材质滤镜效果，系统材质滤镜的绘制早于[backgroundFilter]{@link CommonMethod#backgroundFilter}绘制，即位于backgroundFilter的更底层。
+   * 设置系统材质滤镜视觉效果，系统材质为系统预定义的材质样式。系统材质滤镜的绘制早于[backgroundFilter]{@link CommonMethod#backgroundFilter}绘制，即位于
+   * backgroundFilter的更底层。绘制顺序从底到顶为：materialFilter → backgroundFilter → compositingFilter → foregroundFilter。
    * 
    * > **说明：**
    * >
    * > 该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { Filter | undefined } filter - 系统材质滤镜视觉效果。设置为undefined时恢复为无系统材质滤镜效果。
-   * @returns { T } 返回当前组件。
+   * @param { Filter | undefined } filter - 系统材质滤镜视觉效果。该滤镜绘制早于backgroundFilter，位于backgroundFilter更底层。设置为undefined时恢复为无系统
+   *     材质滤镜效果。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22368,36 +20647,20 @@ declare class CommonMethod<T> {
 
   /**
    * 为当前组件提供内容模糊能力。
-   *
+   * 
    * > **说明：**
    * >
    * > 从API version 18开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
    * @param { BlurStyle } value - 内容模糊样式。
-   * @param { ForegroundBlurStyleOptions } options - 内容模糊选项。默认值请参考
-   *     [ForegroundBlurStyleOptions](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-foreground-blur-style.md#foregroundblurstyleoptions)。
-   * @returns { T }
-   返回当前组件。
+   * @param { ForegroundBlurStyleOptions } options - 内容模糊选项。不传入时使用系统默认模糊效果配置，默认值请参考
+   *     [ForegroundBlurStyleOptions]{@link ForegroundBlurStyleOptions}。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 为当前组件提供内容模糊能力。
-   *
-   * > **说明：**
-   * >
-   * > 从API version 18开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
-   *
-   * @param { BlurStyle } value - 内容模糊样式。
-   * @param { ForegroundBlurStyleOptions } options - 内容模糊选项。默认值请参考
-   *     [ForegroundBlurStyleOptions](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-foreground-blur-style.md#foregroundblurstyleoptions)。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   foregroundBlurStyle(value: BlurStyle, options?: ForegroundBlurStyleOptions): T;
 
@@ -22406,10 +20669,12 @@ declare class CommonMethod<T> {
    * [foregroundBlurStyle]{@link CommonMethod#foregroundBlurStyle(value: BlurStyle, options?: ForegroundBlurStyleOptions)}
    * 相比，style参数新增了对undefined类型的支持。
    *
-   * @param { Optional<BlurStyle> } style
-   * @param { ForegroundBlurStyleOptions } [options]
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<BlurStyle> } style - 内容模糊样式。
+   *     <br>当style的值为undefined时，恢复为无模糊的内容，此时options参数不生效。
+   * @param { ForegroundBlurStyleOptions } [options] - 内容模糊选项。不传入时使用系统默认模糊效果配置，默认值请参考
+   *     [ForegroundBlurStyleOptions]{@link ForegroundBlurStyleOptions}。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -22420,19 +20685,22 @@ declare class CommonMethod<T> {
   /**
    * 为当前组件提供内容模糊能力。与
    * [foregroundBlurStyle<sup>18+</sup>]{@link CommonMethod#foregroundBlurStyle(style: Optional<BlurStyle>, options?: ForegroundBlurStyleOptions)}
-   * 相比，新增了sysOptions参数，即支持系统自适应调节参数。
-   *
+   * 相比，新增了sysOptions参数，即支持系统自适应调节参数，系统可根据设备性能或显示策略等条件自动调节前景模糊的渲染效果。
+   * 
    * > **说明：**
    * >
-   * > foregroundBlurStyle接口为实时模糊接口，每帧执行实时渲染，性能负载较大。当模糊内容与模糊半径均无需变动时，推荐采用静态模糊接口
+   * > foregroundBlurStyle接口为实时模糊接口，每帧执行实时渲染，性能负载高于静态模糊接口。当模糊内容与模糊半径均无需变动时，推荐采用静态模糊接口
    * > [blur]{@link @ohos.effectKit:effectKit.Filter.blur(radius: double)}。最佳实践请参考：
    * > [图像模糊动效优化-使用场景](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-fuzzy-scene-performance-optimization#section4945532519)。
    *
-   * @param { Optional<BlurStyle> } style
-   * @param { ForegroundBlurStyleOptions } [options]
-   * @param { SystemAdaptiveOptions } [sysOptions]
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<BlurStyle> } style - 内容模糊样式。
+   *     <br>当style的值为undefined时，恢复为无模糊的内容。
+   * @param { ForegroundBlurStyleOptions } [options] - 内容模糊选项。不传入时使用系统默认模糊效果配置，默认值请参考
+   *     [ForegroundBlurStyleOptions](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-foreground-blur-style.md#foregroundblurstyleoptions对象说明)。
+   * @param { SystemAdaptiveOptions } [sysOptions] - 系统自适应调节参数，用于控制是否启用系统对模糊效果的自适应调整。
+   *     <br>默认值：{ disableSystemAdaptation: false }
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -22443,9 +20711,12 @@ declare class CommonMethod<T> {
   /**
    * 设置组件的不透明度。
    *
-   * @param { number | Resource } value - 元素的不透明度，取值范围为0到1，若设置的值小于0时，则取值为0，若设置的值大于1时，则取值为1，1表示不透明，0表示完全透明，达到隐藏组件效果，但是在布局
-   *     中占位。 <br> 默认值：1 <br/>**说明：** <br/> 子组件会继承父组件的透明度，并与自身的透明度属性叠加。如：父组件透明度为0.1，子组件设置透明度为0.8，则子组件实际透明度为0.1*0.8=0.08。
-   * @returns { T } 返回当前组件。
+   * @param { number | Resource } value - 元素的不透明度，取值范围：[0, 1]（百分比），设置小于0的值时，则取值为0，设置大于1的值时，则取值为1，1表示完全不透明，0表示完全透明，达到隐藏组件
+   *     的效果，但是在布局中占位。 
+   *     <br> 默认值：1，未设置该属性时组件呈现完全不透明状态 
+   *     <br>**说明：** 
+   *     <br> 子组件会继承父组件的不透明度，并与自身的不透明度属性叠加。如：父组件不透明度为0.1，子组件设置不透明度为0.8，则子组件实际不透明度为0.1*0.8=0.08。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -22457,10 +20728,13 @@ declare class CommonMethod<T> {
   /**
    * 设置组件的不透明度。与[opacity]{@link CommonMethod#opacity(value: number | Resource)}相比，opacity参数新增了对undefined类型的支持。
    *
-   * @param { Optional<number | Resource> } opacity - 元素的不透明度，取值范围为0到1，若设置的值小于0时，则取值为0，若设置的值大于1时，则取值为1，1表示不透明，0表示完全透明，达到
-   *     隐藏组件效果，但是在布局中占位。 <br/> 默认值：1 <br/>**说明：** <br/> 子组件会继承父组件的透明度，并与自身的透明度属性叠加。如：父组件透明度为0.1，子组件设置透明度为0.8，则子组件实际透明度为
-   *     0.1*0.8=0.08。<br/>当opacity的值为undefined时，恢复为默认不透明度为1的状态。
-   * @returns { T } 返回当前组件。
+   * @param { Optional<number | Resource> } opacity - 元素的不透明度，取值范围：[0, 1]（百分比），设置小于0的值时，则取值为0，设置大于1的值时，则取值为1，1表示完全不透明，0表
+   *     示完全透明，达到隐藏组件的效果，但是在布局中占位。 
+   *     <br> 默认值：1，未设置该属性时组件呈现完全不透明状态 
+   *     <br>**说明：** 
+   *     <br> 子组件会继承父组件的不透明度，并与自身的不透明度属性叠加。如：父组件不透明度为0.1，子组件设置不透明度为0.8，则子组件实际不透明度为0.1*0.8=0.08。
+   *     <br>当opacity的值为undefined时，恢复为默认不透明度为1的状态，此时该默认值仍会与父组件不透明度按继承规则叠加计算，即子组件实际不透明度等于父组件不透明度。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22469,6 +20743,23 @@ declare class CommonMethod<T> {
    * @since 18 dynamic
    */
   opacity(opacity: Optional<number | Resource>): T;
+
+  /**
+   * 是否绘制组件的双面。
+   *
+   * @param { Optional<boolean> } value - 是否绘制组件的双面。
+   *     <br>设置为true表示组件的正面和背面都是可见的。
+   *     <br>设置为false表示组件的正面是可见的，旋转时组件的背面是不可见的。
+   *     <br>设置为undefined时效果和设置为true时保持一致，默认开启双面绘制。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  doubleSided(value: Optional<boolean>): T;
 
   /**
    * 设置边框样式。
@@ -22481,7 +20772,7 @@ declare class CommonMethod<T> {
    *
    * @param { BorderOptions } value - <br>统一边框样式设置接口。<br/>**说明：** <br/>边框宽度默认值为0，即不显示边框。<br/>从API version
    *     9开始，父节点的border显示在子节点内容之上。
-   * @returns { T } Current component.
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -22495,7 +20786,7 @@ declare class CommonMethod<T> {
    *
    * @param { BorderStyle | EdgeStyles } value - 设置元素的边框样式。<br/>默认值：BorderStyle.Solid
    *     - Border style.<br>Default value: **BorderStyle.Solid**.[since 9]
-   * @returns { T } Current component.
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -22511,7 +20802,7 @@ declare class CommonMethod<T> {
    * @param { Length | EdgeWidths } value - [since 9 - 11]
    * @param { Length | EdgeWidths | LocalizedEdgeWidths } value - Border width. This parameter cannot be set in
    *     percentage. [since 12]
-   * @returns { T } Current component.
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -22522,11 +20813,24 @@ declare class CommonMethod<T> {
 
   /**
    * 设置边框的颜色。
+   * 
+   * > **说明：**
+   * >
+   * > 当使用border统一设置边框且color参数缺省时，需将borderColor设置在border之后调用才能生效。
    *
-   * @param { ResourceColor } value - [since 7 - 8]
-   * @param { ResourceColor | EdgeColors } value - [since 9 - 11]
-   * @param { ResourceColor | EdgeColors | LocalizedEdgeColors } value - Border color.<br>Default value: **Color.Black**
-   * @returns { T } Current component.
+   * @param { ResourceColor } value - 设置元素的边框圆角半径，支持百分比，百分比依据组件宽度，默认单位：vp。
+   * <br>默认值：0。设置圆角后，可搭配[clip]{@link clip}属性进行裁剪，避免子组件超出组件自身。
+   * <br>**说明：** <br>使用LocalizedBorderRadiuses类型时，在不同语言方向下边框圆角半径设置会有差异，具体参见示例2。
+   * <br>设置四个不同圆角值，若某个圆角值超过高度和宽度中的最小值的一半时，按值的比例绘制异形圆角，效果参见示例4。[since 7 - 8]
+   * @param { ResourceColor | EdgeColors } value - 设置元素的边框圆角半径，支持百分比，百分比依据组件宽度，默认单位：vp。
+   * <br>默认值：0。设置圆角后，可搭配[clip]{@link clip}属性进行裁剪，避免子组件超出组件自身。
+   * <br>**说明：** <br>使用LocalizedBorderRadiuses类型时，在不同语言方向下边框圆角半径设置会有差异，具体参见示例2。
+   * <br>设置四个不同圆角值，若某个圆角值超过高度和宽度中的最小值的一半时，按值的比例绘制异形圆角，效果参见示例4。[since 9 - 11]
+   * @param { ResourceColor | EdgeColors | LocalizedEdgeColors } value - 设置元素的边框圆角半径，支持百分比，百分比依据组件宽度，默认单位：vp。
+   * <br>默认值：0。设置圆角后，可搭配[clip]{@link clip}属性进行裁剪，避免子组件超出组件自身。
+   * <br>**说明：** <br>使用LocalizedBorderRadiuses类型时，在不同语言方向下边框圆角半径设置会有差异，具体参见示例2。
+   * <br>设置四个不同圆角值，若某个圆角值超过高度和宽度中的最小值的一半时，按值的比例绘制异形圆角，效果参见示例4。[since 12]
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -22537,15 +20841,25 @@ declare class CommonMethod<T> {
 
   /**
    * 设置边框的圆角半径。
+   * 
+   * > **说明：**
+   * >
+   * > 当使用border统一设置边框且radius参数缺省时，需将borderRadius设置在border之后调用才能生效。
    *
-   * @param { Length } value - [since 7 - 8]
-   * @param { Length | BorderRadiuses } value - [since 9 - 11]
-   * @param { Length | BorderRadiuses | LocalizedBorderRadiuses } value - Radius of the border corners. The value can be
-   *     expressed as a percentage of the component's width. When combined with the [clip]{@link CommonMethod#clip}
-   *     attribute, this setting clips child components to prevent them from extending beyond the component's
-   *     boundaries.
-   *     [since 12]
-   * @returns { T } Current component.
+   * @param { Length } value - 设置元素的边框圆角半径，支持百分比，百分比依据组件宽度，默认单位：vp。
+   * <br>默认值：0。设置圆角后，可搭配[clip]{@link clip}属性进行裁剪，避免子组件超出组件自身。
+   * <br>**说明：**
+   * <br>设置四个不同圆角值，若某个圆角值超过高度和宽度中的最小值的一半时，按值的比例绘制异形圆角，效果参见示例4。[since 7 - 8]
+   * @param { Length | BorderRadiuses } value - 设置元素的边框圆角半径，支持百分比，百分比依据组件宽度，默认单位：vp。
+   * <br>默认值：0。设置圆角后，可搭配[clip]{@link clip}属性进行裁剪，避免子组件超出组件自身。
+   * <br>**说明：** 
+   * <br>设置四个不同圆角值，若某个圆角值超过高度和宽度中的最小值的一半时，按值的比例绘制异形圆角，效果参见示例4。[since 9 - 11]
+   * @param { Length | BorderRadiuses | LocalizedBorderRadiuses } value - 设置元素的边框圆角半径，支持百分比，百分比依据组件宽度，默认单位：vp。
+   * <br>默认值：0。设置圆角后，可搭配[clip]{@link clip}属性进行裁剪，避免子组件超出组件自身。
+   * <br>**说明：** 
+   * <br>使用LocalizedBorderRadiuses类型时，在不同语言方向下边框圆角半径设置会有差异，具体参见示例2。
+   * <br>设置四个不同圆角值，若某个圆角值超过高度和宽度中的最小值的一半时，按值的比例绘制异形圆角，效果参见示例4。[since 12]
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -22557,14 +20871,18 @@ declare class CommonMethod<T> {
   /**
    * 设置边框的圆角半径和绘制圆角的模式。
    *
-   * **注意**
-   * 1. **RenderStrategy.FAST**：当前组件及其子组件将直接以圆角效果绘制到画布上。
-   * 2. **RenderStrategy.OFFSCREEN**：当前组件及其子组件将首先渲染到一个离屏画布，然后进行圆角裁剪，最后绘制到主画布上。
+   * > **说明：**
+   * >
+   * > 当使用border统一设置边框且radius参数缺省时，需将borderRadius设置在border之后调用才能生效。
    *
    * @param { Length | BorderRadiuses | LocalizedBorderRadiuses } value - 设置元素的边框圆角半径，支持百分比，百分比依据组件宽度。设置圆角后，可搭配clip属性进行裁剪，避免子组件超出组件自身。
    * @param { RenderStrategy } [type] - 设置组件绘制圆角的模式。
-   *     <br>默认值： **RenderStrategy.FAST**。
-   * @returns { T } Current component.
+   * <br>默认值：RenderStrategy.FAST。
+   * <br>可选值：
+   * <br>- RenderStrategy.FAST：快速绘制模式，适用于常规圆角场景，性能更优。若组件包含模糊等复杂视觉效果，使用该模式可能导致圆角裁剪异常。
+   * <br>- RenderStrategy.OFFSCREEN：离屏绘制模式，适用于包含模糊等复杂视觉效果的圆角场景，可正确渲染圆角但性能开销较大。
+   * <br>默认值： **RenderStrategy.FAST**。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22607,36 +20925,30 @@ declare class CommonMethod<T> {
   borderImage(value: BorderImageOption): T;
 
   /**
-   * 统一外描边样式设置接口。
+   * 统一设置组件的外描边样式，可一次性设置外描边的宽度、颜色、圆角和样式。开发者也可通过outlineStyle、outlineWidth、outlineColor、outlineRadius方法分别设置各项外描边属性。两者同时设置
+   * 时，后设置的属性生效。
    *
-   * @param { OutlineOptions } value - 外描边样式。
-   * @returns { T }
-   返回当前组件。
+   * @param { OutlineOptions } value - 外描边样式，其中width和radius不支持百分比；radius最大生效值为组件width/2 + outlineWidth或组件height/2 +
+   *     outlineWidth。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 统一外描边样式设置接口。
-   *
-   * @param { OutlineOptions } value - 外描边样式。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   outline(value: OutlineOptions): T;
 
   /**
-   * 统一外描边样式设置接口。与[outline]{@link CommonMethod#outline(value: OutlineOptions)}相比，options参数新增了对undefined类型的支持。
+   * 统一设置组件的外描边样式，外描边绘制在组件的外侧，不影响布局，不会占用组件本身大小。需设置outlineWidth大于0，外描边才可见。与
+   * [outline]{@link CommonMethod#outline(value: OutlineOptions)}相比，options参数新增了对undefined类型的支持。
    *
-   * @param { Optional<OutlineOptions> } options - 外描边样式。<br/>当options的值为undefined时，恢复为无外边框效果。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<OutlineOptions> } options - 外描边样式。其中width和radius不支持百分比；radius最大生效值：组件width/2 + outlineWidth或组件
+   *     height/2 + outlineWidth。
+   *     <br>当options的值为undefined时，恢复为无外描边效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -22646,38 +20958,28 @@ declare class CommonMethod<T> {
   outline(options: Optional<OutlineOptions>): T;
 
   /**
-   * 设置元素的外描边样式。不设置该接口时，默认显示为一条实线。
+   * 设置元素的外描边样式，未设置时默认显示为一条实线。需设置outlineWidth大于0，外描边样式才可见。
    *
-   * @param { OutlineStyle | EdgeOutlineStyles } value - 设置元素的外描边样式。
-   * @returns { T }
-   返回当前组件。
+   * @param { OutlineStyle | EdgeOutlineStyles } value - 设置元素的外描边样式，未设置时默认显示为一条实线。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 设置元素的外描边样式。不设置该接口时，默认显示为一条实线。
-   *
-   * @param { OutlineStyle | EdgeOutlineStyles } value - 设置元素的外描边样式。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   outlineStyle(value: OutlineStyle | EdgeOutlineStyles): T;
 
   /**
-   * 设置元素的外描边样式。不设置该接口时，默认显示为一条实线。与
+   * 设置元素的外描边样式。需设置outlineWidth大于0，外描边样式才可见。未设置时，默认显示为一条实线。与
    * [outlineStyle]{@link CommonMethod#outlineStyle(value: OutlineStyle | EdgeOutlineStyles)}相比，style参数新增了对undefined类型的支
    * 持。
    *
-   * @param { Optional<OutlineStyle | EdgeOutlineStyles> } style - 设置元素的外描边样式。<br/>当style的值为undefined时，恢复为无外描边样式的效果。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<OutlineStyle | EdgeOutlineStyles> } style - 设置元素的外描边样式，需设置outlineWidth大于0，外描边样式才可见。
+   *     <br>当style的值为undefined时，恢复为外描边样式为实线的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -22687,37 +20989,27 @@ declare class CommonMethod<T> {
   outlineStyle(style: Optional<OutlineStyle | EdgeOutlineStyles>): T;
 
   /**
-   * 设置元素的外描边宽度。不设置该接口时，默认无变化。
+   * 设置元素的外描边宽度。未设置时，默认值为0，即无外描边宽度。
    *
-   * @param { Dimension | EdgeOutlineWidths } value - 设置元素的外描边宽度，不支持百分比。
-   * @returns { T }
-   返回当前组件。
+   * @param { Dimension | EdgeOutlineWidths } value - 设置元素的外描边宽度，不支持百分比，未设置时默认值为0。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 设置元素的外描边宽度。不设置该接口时，默认无变化。
-   *
-   * @param { Dimension | EdgeOutlineWidths } value - 设置元素的外描边宽度，不支持百分比。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   outlineWidth(value: Dimension | EdgeOutlineWidths): T;
 
   /**
-   * 设置元素的外描边宽度。不设置该接口时，默认无变化。与[outlineWidth]{@link CommonMethod#outlineWidth(value: Dimension | EdgeOutlineWidths)}相比，
-   * width参数新增了对undefined类型的支持。
+   * 设置元素的外描边宽度。未设置时，默认值为0，即无外描边宽度。与
+   * [outlineWidth]{@link CommonMethod#outlineWidth(value: Dimension | EdgeOutlineWidths)}相比，width参数新增了对undefined类型的支持。
    *
-   * @param { Optional<Dimension | EdgeOutlineWidths> } width - 设置元素的外描边宽度，不支持百分比。<br/>当width的值为undefined时，恢复为无外描边宽度的效果。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<Dimension | EdgeOutlineWidths> } width - 设置元素的外描边宽度，不支持百分比，传入百分比时不生效。
+   *     <br>当width的值为undefined时，恢复为外描边宽度为0的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -22727,39 +21019,29 @@ declare class CommonMethod<T> {
   outlineWidth(width: Optional<Dimension | EdgeOutlineWidths>): T;
 
   /**
-   * 设置元素的外描边颜色。不设置该接口时，默认显示为黑色。
+   * 设置元素的外描边颜色，需设置outlineWidth大于0，外描边颜色才可见。未设置时，默认显示为黑色。
    *
-   * @param { ResourceColor | EdgeColors } value - 设置元素的外描边颜色。 [since 11 - 11]
-   * @returns { T }
-   返回当前组件。
+   * @param { ResourceColor | EdgeColors } value - 设置元素的外描边颜色，未设置时默认显示为黑色。 [since 11 - 11]
+   * @param { ResourceColor | EdgeColors | LocalizedEdgeColors } value - 设置元素的外描边颜色，未设置时默认显示为黑色。 [since 12]
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 设置元素的外描边颜色。不设置该接口时，默认显示为黑色。
-   *
-   * @param { ResourceColor | EdgeColors | LocalizedEdgeColors } value - 设置元素的外描边颜色。 [since 11 - 11]
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   outlineColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors): T;
 
   /**
-   * 设置元素的外描边颜色。不设置该接口时，默认显示为黑色。与
+   * 设置元素的外描边颜色，需设置outlineWidth大于0，外描边颜色才可见。未设置时，默认显示为黑色。与
    * [outlineColor]{@link CommonMethod#outlineColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors)}相比，color参数新
    * 增了对undefined类型的支持。
    *
-   * @param { Optional<ResourceColor | EdgeColors | LocalizedEdgeColors> } color - 设置元素的外描边颜色。<br/>当color的值为undefined时，恢
-   *     复为描边颜色为Color.Black的效果。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<ResourceColor | EdgeColors | LocalizedEdgeColors> } color - 设置元素的外描边颜色。
+   *     <br>当color的值为undefined时，恢复为外描边颜色为Color.Black的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -22769,40 +21051,29 @@ declare class CommonMethod<T> {
   outlineColor(color: Optional<ResourceColor | EdgeColors | LocalizedEdgeColors>): T;
 
   /**
-   * 设置元素的外描边圆角半径。不设置该接口时，默认无变化。
+   * 设置元素的外描边圆角半径。需设置outlineWidth大于0，外描边圆角半径才可见。未设置时，默认外描边圆角半径为0。
    *
-   * @param { Dimension | OutlineRadiuses } value - 设置元素的外描边圆角半径，不支持百分比。<br/>最大生效值：组件width/2 + outlineWidth或组件height/2 +
-   *     outlineWidth。
-   * @returns { T }
-   返回当前组件。
+   * @param { Dimension | OutlineRadiuses } value - 设置元素的外描边圆角半径，不支持百分比，未设置时默认值为0。
+   *     <br>最大生效值：组件width/2 + outlineWidth或组件height/2 + outlineWidth。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 设置元素的外描边圆角半径。不设置该接口时，默认无变化。
-   *
-   * @param { Dimension | OutlineRadiuses } value - 设置元素的外描边圆角半径，不支持百分比。<br/>最大生效值：组件width/2 + outlineWidth或组件height/2 +
-   *     outlineWidth。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   outlineRadius(value: Dimension | OutlineRadiuses): T;
 
   /**
-   * 设置元素的外描边圆角半径。不设置该接口时，默认无变化。与[outlineRadius]{@link CommonMethod#outlineRadius(value: Dimension | OutlineRadiuses)}相
-   * 比，radius参数新增了对undefined类型的支持。
+   * 设置元素的外描边圆角半径。需设置outlineWidth大于0，外描边圆角半径才可见。未设置时，默认外描边圆角半径为0。与
+   * [outlineRadius]{@link CommonMethod#outlineRadius(value: Dimension | OutlineRadiuses)}相比，radius参数新增了对undefined类型的支持。
    *
-   * @param { Optional<Dimension | OutlineRadiuses> } radius - 设置元素的外描边圆角半径，不支持百分比。<br/>最大生效值：组件width/2 + outlineWidth或组
-   *     件height/2 + outlineWidth。<br/>当radius的值为undefined时，恢复为外描边圆角半径为0的效果。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<Dimension | OutlineRadiuses> } radius - 设置元素的外描边圆角半径，不支持百分比。
+   *     <br>最大生效值：组件width/2 + outlineWidth或组件height/2 + outlineWidth。
+   *     <br>当radius的值为undefined时，恢复为外描边圆角半径为0的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -22812,42 +21083,32 @@ declare class CommonMethod<T> {
   outlineRadius(radius: Optional<Dimension | OutlineRadiuses>): T;
 
   /**
-   * Provides the general foreground color capability of UI components, and assigns color values
-   * according to the characteristics of components.
+   * 设置组件的前景色。当组件未设置前景色时，默认继承父组件的前景色。
    *
-   * @param { ResourceColor | ColoringStrategy } value - Foreground color. The value can be a specific color or a
-   *     coloring strategy. The [attribute animation]{@link common} is not supported.
-   * @returns { T }
-   Current component.
+   * @param { ResourceColor | ColoringStrategy } value - 设置组件的前景色或者根据智能取色策略设置前景色。使用
+   *     [ColoringStrategy]{@link ColoringStrategy}.INVERT时前景色为背景色的反色，需配合设置
+   *     [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}。不支持[属性动画]{@link ./common}。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Provides the general foreground color capability of UI components, and assigns color values
-   * according to the characteristics of components.
-   *
-   * @param { ResourceColor | ColoringStrategy } value - Foreground color. The value can be a specific color or a
-   *     coloring strategy. The [attribute animation]{@link common} is not supported.
-   * @returns { T }
-   Current component.
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   foregroundColor(value: ResourceColor | ColoringStrategy): T;
 
   /**
-   * Provides the general foreground color capability of UI components, and assigns color values
-   * according to the characteristics of components.
+   * 设置组件的前景色。当组件未设置前景色时，默认沿组件树向上继承祖先组件的前景色。与
+   * [foregroundColor]{@link CommonMethod#foregroundColor(value: ResourceColor | ColoringStrategy)}相比，color参数新增了对
+   * undefined类型的支持。
    *
-   * @param { Optional<ResourceColor | ColoringStrategy> } color -Foreground color. The value can be a specific color
-   *     or a coloring strategy. Property animations are not supported.<br>If the color value is **undefined**, the
-   *     previous setting or the component's default value is retained. The specific behavior may vary across
-   *     components. It is recommended that you use explicit color values or [ColoringStrategy]{@link ColoringStrategy}.
-   * @returns { T }
-   Current component.
+   * @param { Optional<ResourceColor | ColoringStrategy> } color - 设置组件的前景色或者根据智能取色策略设置前景色。使用
+   *     [ColoringStrategy]{@link ColoringStrategy}.INVERT时前景色为背景色的反色，需配合设置
+   *     [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}。不支持[属性动画]{@link ./common}。
+   *     <br>当color的值为undefined时，若组件之前已设置前景色则维持之前的前景色取值，若组件之前未设置前景色则使用组件默认前景色取值。不同组件的默认前景色取值可能存在差异，建议开发者使用确定颜色或
+   *     [ColoringStrategy]{@link ColoringStrategy}。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -23109,9 +21370,10 @@ declare class CommonMethod<T> {
   /**
    * 设置组件的自定义焦点走焦逻辑。
    *
-   * @param { FocusMovement } nextStep
-   * @returns { T }
-   返回当前组件。
+   * @param { FocusMovement } nextStep - 设置当前容器组件的自定义走焦规则。<br/>**说明：**<br/>默认值为重置nextStep为空。<br/>没设置自定义走焦或者设置自定义组件容器不存
+   *     在，仍进行默认走焦规则。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -23122,9 +21384,16 @@ declare class CommonMethod<T> {
   /**
    * 设置当前容器组件的tabStop，可决定焦点在走焦时是否会停留在当前容器。
    *
-   * @param { boolean } isTabStop
-   * @returns { T }
-   返回当前组件。
+   * @param { boolean } isTabStop - 设置当前容器组件是否为走焦可停留容器，true表示当前容器组件为走焦可停留容器，false表示当前容器组件不是走焦可停留容器。<br/>**说明：**<br/>1.配
+   *     置tabStop需要确保是容器组件且有可获焦的孩子组件，默认容器组件不能直接获焦。<br/>2.通过[requestFocus]{@link @ohos.arkui.UIContext:FocusController#requestFocus}请求焦
+   *     点，如果是容器组件且配置tabStop，焦点能够停留在容器组件，如果未配置tabStop，即使整条焦点链上有配置了tabStop的组件，该组件依然能获取到焦点。<br/>3.配置tabStop的容器不允许嵌
+   *     套超过2层。<br/>tabStop走焦规则：<br/>1.通过tab键和方向键走焦，焦点会停留在配置了tabStop的组件上，如果焦点停留在配置了tabStop的容器内部时，可以走焦到容器内部的下一个可获焦
+   *     组件，如果焦点停留在配置了tabStop的容器外部是，可以走焦到容器外的下一个可获焦组件。<br/>2.当焦点停留在tabStop上时，按Enter键可以走焦到内部第一个可获焦组件，按Esc能够将焦点
+   *     退回到不超过当前[层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)根容器的上一个配置了tabStop的组件，按空格键可以响应该容器的onClick事件。<br/>3.不建
+   *     议根容器配置tabStop。如果根容器配置了tabStop，通过[clearFocus]{@link @ohos.arkui.UIContext:FocusController#clearFocus}将焦点清理到根容器，再按Enter键会重新走回内部上
+   *     一次获焦组件，通过Esc键将焦点清理到根容器，再按Enter键会走焦到内部第一个可获焦组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -23244,8 +21513,8 @@ declare class CommonMethod<T> {
    * @param { boolean } [isGroup] - 设置当前容器组件是否为焦点组。true表示容器组件为焦点组，false表示容器组件不是焦点组。默认值为false。<br/>**说明：** <br/>焦点组不可嵌套，不
    *     可重复配置。<br/> 焦点组不能和tabIndex混用。<br/>配置焦点组的目的是使得容器及容器内的元素可以按照焦点组规则走焦。焦点组走焦规则：<br/>1.焦点组容器内只能通过方向键走焦，tab键会使焦点跳出焦点组容
    *     器。<br/>2.通过方向键使焦点从焦点组容器外切换到焦点组容器内时，若焦点组容器内存在优先级为PREVIOUS的组件，则优先级为PREVIOUS的组件获焦，否则，由焦点组容器内上次获焦的组件获焦。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -23262,8 +21531,8 @@ declare class CommonMethod<T> {
    *     可重复配置。<br/> 焦点组不能和tabIndex混用。<br/>配置焦点组的目的是使得容器及容器内的元素可以按照焦点组规则走焦。焦点组走焦规则：<br/>1.焦点组容器内只能通过方向键走焦，tab键会使焦点跳出焦点组容
    *     器。<br/>2.通过方向键使焦点从焦点组容器外切换到焦点组容器内时，若焦点组容器内存在优先级为PREVIOUS的组件，则优先级为PREVIOUS的组件获焦，否则，由焦点组容器内上次获焦的组件获焦。
    * @param { boolean } [arrowStepOut] - 设置能否使用方向键走焦出当前焦点组。true表示可以使用方向键走焦出当前焦点组，false表示不能使用方向键走焦出当前焦点组。默认值为true。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -23274,13 +21543,14 @@ declare class CommonMethod<T> {
   /**
    * 设置当前组件在指定容器内获焦的优先级。需要配合[focusScopeId]{@link CommonMethod#focusScopeId(id: string, isGroup?: boolean)}一起使用。
    *
-   * @param { string } scopeId
+   * @param { string } scopeId - 当前组件设置的获焦优先级生效的容器组件的id标识。<br/>**说明：**<br/>1.当前组件必须在scopedId所标识的容器内，或其所属容器在scopeId所标识的容器
+   *     内。<br/>2.组件不可重复设置多个优先级。<br/>3.设置了focusScopeId的容器租金按不可设置优先级。
    * @param { FocusPriority } [priority] - 获焦优先级。<br/>**说明：** <br/>未设置priority时，默认为AUTO优先级。<br/>优先级对走焦以及获焦组件的影响：<br/>1.容
    *     器整体获焦（[层级页面](docroot://ui/arkts-common-events-focus-event.md#基础概念)切换/焦点切换到焦点组/容器组件使用requestFocus申请焦点）时，若容器内存在优先
    *     级为PREVIOUS的组件，则优先级为PREVIOUS的组件获焦，否则，由容器内上次获焦的组件获焦。<br/>2.容器非整体获焦（非焦点组场景下使用tab键/方向键走焦）时，若容器为首次获焦，则容器内优先级最高的组件获焦，
    *     若容器非首次获焦，不考虑优先级按照位置顺序走焦。
-   * @returns { T }
-   返回当前组件。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -23289,83 +21559,38 @@ declare class CommonMethod<T> {
   focusScopePriority(scopeId: string, priority?: FocusPriority): T;
 
   /**
-   * 设置组件的属性动画。
-   *
+   * 设置组件的属性动画，当组件的通用属性发生变化时，按照AnimateParam参数配置对属性变化过程进行渐变过渡。
+   * 
    * > **说明：**
    * >
-   * > - 在单一页面上存在大量应用动效的组件时，可以使用[renderGroup]{@link CommonMethod#renderGroup(value: boolean)}方法来解决卡顿问题，从而提升动画性能。最佳实践请参考
+   * > - 在单一页面上同时存在数十个及以上应用动效的组件时，可以使用[renderGroup]{@link CommonMethod#renderGroup(value: boolean)}方法来解决卡顿问题，从而提升动画性能。最佳
+   * > 实践请参考
    * > [动画使用指导-使用renderGroup](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-fair-use-animation#section1223162922415)。
    * >
+   * > - 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用，在attributeModifier中调用animation不会产生动画效果。如需在attributeModifier中实现
+   *  属性变化动画，请使用[显式动画]{@link animateTo}替代。
    * >
-   * > - 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
+   * > - 仅对部分通用属性生效（包括width、height、backgroundColor、opacity、scale、rotate、translate等）。对于改变布局类属性（如宽高）的动画，组件内容（如文字或Canvas中的内
+   * > 容）通常会直接跳转到最终状态。如果希望内容跟随宽高变化平滑过渡，可以配合使用[renderFit]{@link CommonMethod#renderFit(fitMode: RenderFit)}属性进行配置，建议将
+   * > renderFit设置为RenderFit.CENTER或RenderFit.TOP_LEFT等值，使内容在动画过程中随组件尺寸同步变化。
    *
-   * @param { AnimateParam } value
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 设置组件的属性动画。
-   *
-   * > **说明：**
-   * >
-   * > - 在单一页面上存在大量应用动效的组件时，可以使用[renderGroup]{@link CommonMethod#renderGroup(value: boolean)}方法来解决卡顿问题，从而提升动画性能。最佳实践请参考
-   * > [动画使用指导-使用renderGroup](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-fair-use-animation#section1223162922415)。
-   * >
-   * >
-   * > - 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
-   *
-   * @param { AnimateParam } value
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 设置组件的属性动画。
-   *
-   * > **说明：**
-   * >
-   * > - 在单一页面上存在大量应用动效的组件时，可以使用[renderGroup]{@link CommonMethod#renderGroup(value: boolean)}方法来解决卡顿问题，从而提升动画性能。最佳实践请参考
-   * > [动画使用指导-使用renderGroup](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-fair-use-animation#section1223162922415)。
-   * >
-   * >
-   * > - 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
-   *
-   * @param { AnimateParam } value
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 设置组件的属性动画。
-   *
-   * > **说明：**
-   * >
-   * > - 在单一页面上存在大量应用动效的组件时，可以使用[renderGroup]{@link CommonMethod#renderGroup(value: boolean)}方法来解决卡顿问题，从而提升动画性能。最佳实践请参考
-   * > [动画使用指导-使用renderGroup](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-fair-use-animation#section1223162922415)。
-   * >
-   * >
-   * > - 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
-   *
-   * @param { AnimateParam } value
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @param { AnimateParam } value - 设置动画效果相关参数，各属性的取值范围及含义详见[AnimateParam对象说明]{@link AnimateParam}。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   animation(value: AnimateParam): T;
 
   /**
-   * 组件插入显示和删除隐藏的过渡效果。
+   * 组件插入显示和删除隐藏的过渡效果。可通过组件插入/删除（如if条件改变、ForEach新增删除）或visibility属性在可见与不可见之间切换来触发。
    *
-   * @param { TransitionOptions | TransitionEffect } value - 设置组件插入显示和删除隐藏的过渡效果。<br/>**说明：** <br/>详细描述见
-   *     [TransitionOptions]{@link TransitionOptions}和[TransitionEffect]{@link TransitionEffect}对象说明。
-   * @returns { T } 返回当前组件。
+   * @param { TransitionOptions | TransitionEffect } value - 设置组件插入显示和删除隐藏的过渡效果。
+   *     <br>**说明：** 
+   *     <br>详细描述见[TransitionOptions]{@link TransitionOptions}和[TransitionEffect]{@link TransitionEffect}对象说明。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -23383,8 +21608,9 @@ declare class CommonMethod<T> {
    * > 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
    * @param { TransitionEffect } effect - 设置组件插入显示和删除隐藏的过渡效果。
-   * @param { Optional<TransitionFinishCallback> } onFinish - 转场动画结束回调。
-   * @returns { T } 返回当前组件。
+   * @param { Optional<TransitionFinishCallback> } onFinish - 转场动画结束回调，具体生效条件见
+   *     [TransitionFinishCallback]{@link TransitionFinishCallback}说明。传入undefined时，不注册转场动画结束回调，转场动画结束后不会收到回调通知。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -23449,44 +21675,18 @@ declare class CommonMethod<T> {
   parallelGesture(gesture: GestureType, mask?: GestureMask): T;
 
   /**
-   * 为组件添加内容模糊效果。
+   * 为组件添加内容模糊效果。当组件设置了BlendApplyType.OFFSCREEN的blendMode时，该接口可能无法截取到正确画面。
    *
-   * @param { number } value
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 为组件添加内容模糊效果。
-   *
-   * @param { number } value - 当前组件添加内容模糊效果，入参为模糊半径，模糊半径越大越模糊，为0时不模糊。
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 为组件添加内容模糊效果。
-   *
-   * @param { number } value - 当前组件添加内容模糊效果，入参为模糊半径，模糊半径越大越模糊，为0时不模糊。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 为组件添加内容模糊效果。
-   *
-   * @param { number } value - 当前组件添加内容模糊效果，入参为模糊半径，模糊半径越大越模糊，为0时不模糊。
-   * @param { BlurOptions } [options] - 灰阶模糊参数。对图像中的黑白色进行色阶调整，使其趋于灰色更为柔和美观，对图像中的彩色调整没有效果。<br/>默认值：grayscale:
-   *     [0,0] [since 11]
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @param { number } value - 模糊半径，模糊半径越大越模糊，值小于等于0时不模糊。
+   *     <br>单位：px
+   * @param { BlurOptions } [options] - 灰阶模糊参数。对图像中的黑白色进行色阶调整，使黑白灰度过渡更加平滑柔和，对图像中的彩色调整没有效果。
+   *     <br>默认值：grayscale: [0,0] [since 11]
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   blur(value: number, options?: BlurOptions): T;
 
@@ -23494,11 +21694,13 @@ declare class CommonMethod<T> {
    * 为组件添加内容模糊效果。与[blur]{@link CommonMethod#blur(value: number, options?: BlurOptions)}相比，blurRadius参数新增了对undefined类型的支
    * 持。
    *
-   * @param { Optional<number> } blurRadius - 当前组件添加内容模糊效果，入参为模糊半径，模糊半径越大越模糊，为0时不模糊。<br/>当blurRadius的值为undefined时，维持之前取
-   *     值。
-   * @param { BlurOptions } [options] - 灰阶模糊参数。对图像中的黑白色进行色阶调整，使其趋于灰色更为柔和美观，对图像中的彩色调整没有效果。<br/>默认值：grayscale: [0,0]
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<number> } blurRadius - 模糊半径，模糊半径越大越模糊，值小于等于0时不模糊。
+   *     <br>单位：px
+   *     <br>当blurRadius的值为undefined时，维持之前取值。从未设置该属性时，默认值为0，表示不模糊。
+   * @param { BlurOptions } [options] - 灰阶模糊参数。对图像中的黑白色进行色阶调整，使其趋于灰色更为柔和美观，对图像中的彩色调整没有效果。
+   *     <br>默认值：grayscale: [0,0]
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -23511,12 +21713,15 @@ declare class CommonMethod<T> {
    * 为组件添加内容模糊效果。与[blur<sup>18+</sup>]{@link CommonMethod#blur(blurRadius: Optional<number>, options?: BlurOptions)}相比，新
    * 增了sysOptions参数，即支持系统自适应调节参数。
    *
-   * @param { Optional<number> } blurRadius - 当前组件添加内容模糊效果，入参为模糊半径，模糊半径越大越模糊，为0时不模糊。<br/>当blurRadius的值为undefined时，维持之前取
-   *     值。
-   * @param { BlurOptions } [options] - 灰阶模糊参数。对图像中的黑白色进行色阶调整，使其趋于灰色更为柔和美观，对图像中的彩色调整没有效果。<br/>默认值：grayscale: [0,0]
-   * @param { SystemAdaptiveOptions } [sysOptions] - 系统自适应调节参数。<br/>默认值：{ disableSystemAdaptation: false }
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<number> } blurRadius - 模糊半径，模糊半径越大越模糊，值小于等于0时不模糊。
+   *     <br>单位：px
+   *     <br>当blurRadius的值为undefined时，维持之前取值。从未设置该属性时，默认值为0，表示不模糊。
+   * @param { BlurOptions } [options] - 灰阶模糊参数。对图像中的黑白色进行色阶调整，使其趋于灰色更为柔和美观，对图像中的彩色调整没有效果。
+   *     <br>默认值：grayscale: [0,0]
+   * @param { SystemAdaptiveOptions } [sysOptions] - 系统自适应调节参数。
+   *     <br>默认值：{ disableSystemAdaptation: false }
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -23526,13 +21731,15 @@ declare class CommonMethod<T> {
   blur(blurRadius: Optional<number>, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): T;
 
   /**
-   * 为组件添加内容线性渐变模糊效果。
+   * 为组件添加内容线性渐变模糊效果。当组件设置了BlendApplyType.OFFSCREEN的blendMode时，该接口可能无法截取到正确画面。
    *
-   * @param { number } value - 为模糊半径，模糊半径越大越模糊，为0时不模糊。<br/>取值范围：[0, 1000]
-   * @param { LinearGradientBlurOptions } options - 设置线性渐变模糊效果。  <br/>线性渐变参数，包含模糊程度和模糊位置数组fractionStops，及渐变模糊方向
-   *     direction。
-   * @returns { T }
-   返回当前组件。
+   * @param { number } value - 模糊半径，模糊半径越大越模糊，为0时不模糊。
+   *     <br>单位：px
+   *     <br>取值范围：[0, 1000]
+   * @param { LinearGradientBlurOptions } options - 设置线性渐变模糊效果。  
+   *     <br>线性渐变参数，包含模糊程度和模糊位置数组fractionStops，及渐变模糊方向direction。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
@@ -23544,12 +21751,15 @@ declare class CommonMethod<T> {
    * [linearGradientBlur<sup>12+</sup>]{@link CommonMethod#linearGradientBlur(value: number, options: LinearGradientBlurOptions)}
    * 相比，新增了对undefined类型的支持。
    *
-   * @param { Optional<number> } blurRadius - 为模糊半径，模糊半径越大越模糊，为0时不模糊。<br/>取值范围：[0, 1000]<br/>当blurRadius的值为undefined时，恢复
-   *     为渐变模糊为0的效果。
-   * @param { Optional<LinearGradientBlurOptions> } options - 设置线性渐变模糊效果。<br/>线性渐变参数，包含模糊程度和模糊位置数组fractionStops，及渐变模糊方向
-   *     direction。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<number> } blurRadius - 模糊半径，模糊半径越大越模糊，为0时不模糊。
+   *     <br>单位：px
+   *     <br>取值范围：[0, 1000]
+   *     <br>当blurRadius的值为undefined时，恢复为渐变模糊为0的效果。
+   * @param { Optional<LinearGradientBlurOptions> } options - 设置线性渐变模糊效果。
+   *     <br>线性渐变参数，包含模糊程度和模糊位置数组fractionStops，及渐变模糊方向direction。
+   *     <br>当options的值为undefined时，恢复为无线性渐变模糊的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
@@ -23557,111 +21767,93 @@ declare class CommonMethod<T> {
   linearGradientBlur(blurRadius: Optional<number>, options: Optional<LinearGradientBlurOptions>): T;
 
   /**
-   * 在当前组件由缩放大小或位移变化引起的运动过程中，增加动态模糊效果。
+   * 在当前组件由缩放大小或位移变化引起的运动过程中，增加运动模糊效果。
+   * 
+   * > **说明：**
+   * >
+   * > - 不建议在组件内转场、共享元素转场、组件内隐式元素转场和粒子动画场景中使用该属性，否则会产生非预期效果。
+   * >
+   * > - 该属性需要在组件初始状态将motionBlur的参数radius设置为0，否则冷启动时会有非预期效果。
+   * >
+   * > - 该属性需要与动画的[AnimateParam]{@link AnimateParam}的
+   * > onFinish参数配合使用，需要在运动模糊动画结束后将motionBlur的参数radius置为0，否则会产生非预期效果。
+   * >
+   * > - 使用该属性时，不要频繁更改同一个组件的模糊半径，否则会产生非预期效果。比如示例中的动画，频繁点击会出现模糊效果偶尔失效的情况。
+   * >
+   * > - 运动模糊锚点坐标需要与动画缩放[scale]{@link CommonMethod#scale(value: ScaleOptions)}属性的锚点（centerX/centerY）保持一致，否则会产生非预期效果。
+   * >
+   * > - 模糊半径建议取值不超过1.0，否则会产生非预期效果。
    *
+   * @param { MotionBlurOptions } value - 定义运动模糊参数。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  motionBlur(value: MotionBlurOptions): T;
+
+  /**
+   * 在当前组件由缩放大小或位移变化引起的运动过程中，增加运动模糊效果。与[motionBlur]{@link CommonMethod#motionBlur(value: MotionBlurOptions)}相比，
+   * motionBlur参数新增了对undefined类型的支持。
+   * 
    * > **说明：**
    * >
    * > - 不建议在组件内转场、共享元素转场、组件内隐式元素转场和粒子动画场景中使用该属性，否则会产生非预期效果。
    * >
    * > - 该属性需要在开始状态将motionBlur的参数radius设置为0，否则冷启动时会有非预期效果。
    * >
-   * > - 该属性需要与动画的AnimateParam的onFinish参数配合使用，需要在运动模糊动画结束后将motionBlur的参数radius置为0，否则会产生非预期效果。
+   * > - 该属性需要与动画的[AnimateParam]{@link AnimateParam}对象说明)的
+   * > onFinish参数配合使用，需要在运动模糊动画结束后将motionBlur的参数radius置为0，否则会产生非预期效果。
    * >
-   * > - 在使用该属性过程中，不要在使用过程中频繁更改同一个组件的模糊半径，否则会产生非预期效果。比如示例中的动画，频繁点击会出现模糊效果偶尔失效的情况。
+   * > - 使用该属性时，不要频繁更改同一个组件的模糊半径，否则会产生非预期效果。比如示例中的动画，频繁点击会出现模糊效果偶尔失效的情况。
    * >
-   * > - 运动模糊锚点坐标需要与动画缩放的锚点保持一致，否则会产生非预期效果。
+   * > - 运动模糊锚点坐标需要与[scale]{@link CommonMethod#scale(value: ScaleOptions)}属性的锚点（centerX/centerY）保持一致，否则会产生非预期效果。
    * >
-   * > - 模糊半径建议设置1以内，否则会产生非预期效果。
+   * > - 模糊半径建议取值不超过1.0，否则会产生非预期效果。
    *
-   * @param { MotionBlurOptions } value - 定义运动模糊参数。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  motionBlur(value: MotionBlurOptions):T;
-
-  /**
-   * 在当前组件由缩放大小或位移变化引起的运动过程中，增加动态模糊效果。与[motionBlur]{@link CommonMethod#motionBlur(value: MotionBlurOptions)}相比，
-   * motionBlur参数新增了对undefined类型的支持。
-   *
-   * 1、不建议在组件内转场、共享元素转场、组件内隐式元素转场、粒子动画场景下使用该属性，否则会产生非预期效果。
-   *
-   * 2、该属性需要在开始状态将motionBlur的参数radius设置为0，否则冷启动时会有非预期效果。
-   *
-   * 3、该属性需要与动画的AnimateParam的onFinish参数配合使用，需要在运动模糊动画结束后将motionBlur的参数radius置为0，否则会产生非预期效果。
-   *
-   * 4、在使用该属性过程中，不要在使用过程中频繁更改同一个组件的模糊半径，否则会产生非预期效果。比如示例中的动画，频繁点击会出现模糊效果偶尔失效的情况。
-   *
-   * 5、运动模糊锚点坐标需要与动画缩放的锚点保持一致，否则会产生非预期效果。
-   *
-   * 6、模糊半径建议设置1以内，否则会产生非预期效果。
-   *
-   * @param { Optional<MotionBlurOptions> } motionBlur - 定义运动模糊参数。<br/>当motionBlur的值为undefined时，维持之前取值。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<MotionBlurOptions> } motionBlur - 定义运动模糊参数。
+   *     <br>当motionBlur的值为undefined时，维持上一次设置的取值不变。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
-  motionBlur(motionBlur: Optional<MotionBlurOptions>):T;
+  motionBlur(motionBlur: Optional<MotionBlurOptions>): T;
 
   /**
-   * 为组件添加高光效果。不通过该接口设置时，默认无变化。
+   * 为组件添加高光效果。未设置时，默认无变化。与lightUpEffect方法相比，brightness以乘数方式调节亮度（值大于1可超过原始亮度），适合需要增强或减弱亮度的场景；lightUpEffect以程度方式调节亮度（值范围
+   * [0,1]，不能超过原始亮度），适合需要控制图像亮起程度的场景。当组件设置了BlendApplyType.OFFSCREEN的blendMode时，该接口可能无法截取到正确画面。
    *
-   * @param { number } value - 为当前组件添加高光效果，入参为高光比例，值为1时没有效果，小于1时亮度变暗，小于或等于0为全黑，大于1时亮度增加，数值越大亮度越大，亮度大于或等于2时会变为全白。<br/>取值范
-   *     围：[0, +∞)<br/>推荐取值范围：[0, 2]<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 为组件添加高光效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加高光效果，入参为高光比例，值为1时没有效果，小于1时亮度变暗，小于或等于0为全黑，大于1时亮度增加，数值越大亮度越大，亮度大于或等于2时会变为全白。<br/>取值范
-   *     围：[0, +∞)<br/>推荐取值范围：[0, 2]<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 为组件添加高光效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加高光效果，入参为高光比例，值为1时没有效果，小于1时亮度变暗，小于或等于0为全黑，大于1时亮度增加，数值越大亮度越大，亮度大于或等于2时会变为全白。<br/>取值范
-   *     围：[0, +∞)<br/>推荐取值范围：[0, 2]<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 为组件添加高光效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加高光效果，入参为高光比例，值为1时没有效果，小于1时亮度变暗，小于或等于0为全黑，大于1时亮度增加，数值越大亮度越大，亮度大于或等于2时会变为全白。<br/>取值范
-   *     围：[0, +∞)<br/>推荐取值范围：[0, 2]<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @param { number } value - 为当前组件添加高光效果，入参为高光比例，值为1时没有效果，小于1时亮度变暗，小于或等于0为全黑，大于1时亮度增加，数值越大亮度越大，亮度大于或等于2时会变为全白。
+   *     <br>取值范围：[0, +∞)
+   *     <br>推荐取值范围：[0, 2]
+   *     <br>**说明：**
+   *     <br>设置小于0的值时，按值为0处理。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   brightness(value: number): T;
 
   /**
-   * 为组件添加高光效果。不通过该接口设置时，默认无变化。与[brightness]{@link CommonMethod#brightness(value: number)}相比，brightness参数新增了对undefined类型
-   * 的支持。
+   * 为组件添加高光效果。未设置时，默认无变化。与[brightness]{@link CommonMethod#brightness(value: number)}相比，brightness参数新增了对undefined类型的支持。
    *
    * @param { Optional<number> } brightness - 为当前组件添加高光效果，入参为高光比例，值为1时没有效果，小于1时亮度变暗，小于或等于0为全黑，大于1时亮度增加，数值越大亮度越大，亮度大于或等于2
-   *     时会变为全白。<br/>取值范围：
-   *     [0, +∞)<br/>推荐取值范围：[0, 2]<br/>**说明：**<br/>设置小于0的值时，按值为0处理。<br/>当brightness的值为undefined时，恢复为亮度为1的高光效果。
-   * @returns { T }
-   返回当前组件。
+   *     时会变为全白。
+   *     <br>取值范围：[0, +∞)
+   *     <br>推荐取值范围：[0, 2]
+   *     <br>**说明：**
+   *     <br>设置小于0的值时，按值为0处理。
+   *     <br>当brightness的值为undefined时，恢复为亮度为1的高光效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -23671,60 +21863,35 @@ declare class CommonMethod<T> {
   brightness(brightness: Optional<number>): T;
 
   /**
-   * 为组件添加对比度效果。不通过该接口设置时，默认无变化。
+   * 为组件添加对比度效果。未设置时，默认无变化。
    *
-   * @param { number } value - 为当前组件添加对比度效果，入参为对比度的值。值为1时，显示原图，大于1时，值越大对比度越高，图像越清晰醒目，小于1时，值越小对比度越低，当对比度为0时，图像变为全灰。<br/>推
-   *     荐取值范围：[0, 10)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
+   * @param { number } value - 为当前组件添加对比度效果，入参为对比度的值。值为1时，显示原图，大于1时，值越大对比度越高，图像越清晰醒目，小于1时，值越小对比度越低，当对比度为0时，图像变为全灰。
+   *     <br>取值范围：[0, +∞)
+   *     <br>推荐取值范围：[0, 10)
+   *     <br>**说明：**
+   *     <br>设置小于0的值时，按值为0处理。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * 为组件添加对比度效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加对比度效果，入参为对比度的值。值为1时，显示原图，大于1时，值越大对比度越高，图像越清晰醒目，小于1时，值越小对比度越低，当对比度为0时，图像变为全灰。<br/>推
-   *     荐取值范围：[0, 10)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * 为组件添加对比度效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加对比度效果，入参为对比度的值。值为1时，显示原图，大于1时，值越大对比度越高，图像越清晰醒目，小于1时，值越小对比度越低，当对比度为0时，图像变为全灰。<br/>推
-   *     荐取值范围：[0, 10)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 为组件添加对比度效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加对比度效果，入参为对比度的值。值为1时，显示原图，大于1时，值越大对比度越高，图像越清晰醒目，小于1时，值越小对比度越低，当对比度为0时，图像变为全灰。<br/>推
-   *     荐取值范围：[0, 10)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   contrast(value: number): T;
 
   /**
-   * 为组件添加对比度效果。不通过该接口设置时，默认无变化。与[contrast]{@link CommonMethod#contrast(value: number)}相比，contrast参数新增了对undefined类型的支持。
+   * 为组件添加对比度效果。未设置时，默认无变化。与[contrast]{@link CommonMethod#contrast(value: number)}相比，contrast参数新增了对undefined类型的支持。
    *
    * @param { Optional<number> } contrast - 为当前组件添加对比度效果，入参为对比度的值。值为1时，显示原图，大于1时，值越大对比度越高，图像越清晰醒目，小于1时，值越小对比度越低，当对比度为0时，
-   *     图像变为全灰。<br/>推荐取值范围：[0, 10)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。<br/>当contrast的值为undefined时，恢复为对比度为1的效果。
-   * @returns { T }
-   返回当前组件。
+   *     图像变为全灰。
+   *     <br>取值范围：[0, +∞)
+   *     <br>推荐取值范围：[0, 10)
+   *     <br>**说明：**
+   *     <br>设置小于0的值时，按值为0处理。
+   *     <br>当contrast的值为undefined时，恢复为对比度为1的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -23734,82 +21901,32 @@ declare class CommonMethod<T> {
   contrast(contrast: Optional<number>): T;
 
   /**
-   * 为组件添加灰度效果。上层渲染灰度会覆盖下层子组件渲染。不通过该接口设置时，默认无变化。
+   * 为组件添加灰度效果。上层渲染灰度会覆盖下层子组件渲染。未设置时，默认无变化。
    *
-   * @param { number } value - Grayscale conversion ratio of the component.
-   * <br>If the value is **1.0**, the component is completely converted to grayscale.
-   * <br>If the value is **0.0**, the component remains unchanged. Between **0** and **1**,
-   * the value applies a linear multiplier on the grayscale effect. The unit is percentage.
-   * <br>Default value: **0.0**.
-   * <br>Value range: [0.0, 1.0].
-   * <p>**NOTE**:
-   * <br>A value less than **0.0** evaluates to the value **0.0**.
-   * <br>A value greater than **1.0** evaluates to the value **1.0**.
-   * </p>
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 为组件添加灰度效果。上层渲染灰度会覆盖下层子组件渲染。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - Grayscale conversion ratio of the component.
-   * <br>If the value is **1.0**, the component is completely converted to grayscale.
-   * <br>If the value is **0.0**, the component remains unchanged. Between **0** and **1**,
-   * the value applies a linear multiplier on the grayscale effect. The unit is percentage.
-   * <br>Default value: **0.0**.
-   * <br>Value range: [0.0, 1.0].
-   * <p>**NOTE**:
-   * <br>A value less than **0.0** evaluates to the value **0.0**.
-   * <br>A value greater than **1.0** evaluates to the value **1.0**.
-   * </p>
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 为组件添加灰度效果。上层渲染灰度会覆盖下层子组件渲染。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - Grayscale conversion ratio of the component.
-   * <br>If the value is **1.0**, the component is completely converted to grayscale.
-   * <br>If the value is **0.0**, the component remains unchanged. Between **0** and **1**,
-   * the value applies a linear multiplier on the grayscale effect. The unit is percentage.
-   * <br>Default value: **0.0**.
-   * <br>Value range: [0.0, 1.0].
-   * <p>**NOTE**:
-   * <br>A value less than **0.0** evaluates to the value **0.0**.
-   * <br>A value greater than **1.0** evaluates to the value **1.0**.
-   * </p>
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 为组件添加灰度效果。上层渲染灰度会覆盖下层子组件渲染。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加灰度效果。值定义为灰度转换的比例，入参1.0则完全转为灰度图像，入参0.0则图像无变化，入参在0.0和1.0之间时，效果呈线性变化。<br/>取值范围：
-   *     [0.0, 1.0]<br/>**说明：**<br/>设置小于0.0的值时，按值为0.0处理，设置大于1.0的值时，按值为1.0处理。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @param { number } value - 为当前组件添加灰度效果。值定义为灰度转换的比例，入参1.0则完全转为灰度图像，入参0.0则图像无变化，入参在0.0和1.0之间时，效果呈线性变化。
+   *     <br>取值范围：[0.0, 1.0]
+   *     <br>**说明：**
+   *     <br>设置小于0.0的值时，按值为0.0处理，设置大于1.0的值时，按值为1.0处理。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   grayscale(value: number): T;
 
   /**
-   * 为组件添加灰度效果。上层渲染灰度会覆盖下层子组件渲染。不通过该接口设置时，默认无变化。与[grayscale]{@link CommonMethod#grayscale(value: number)}相比，grayscale参数新
-   * 增了对undefined类型的支持。
+   * 为组件添加灰度效果。上层渲染灰度会覆盖下层子组件渲染。未设置时，默认无变化。与[grayscale]{@link CommonMethod#grayscale(value: number)}相比，grayscale参数新增了对
+   * undefined类型的支持。
    *
-   * @param { Optional<number> } grayscale - 为当前组件添加灰度效果。值定义为灰度转换的比例，入参1.0则完全转为灰度图像，入参0.0则图像无变化，入参在0.0和1.0之间时，效果呈线性变化。<
-   *     br/>取值范围：[0.0, 1.0]<br/>**说明：**<br/>设置小于0.0的值时，按值为0.0处理，设置大于1.0的值时，按值为1.0处理。<br/>当grayscale的值为undefined时，取默认值0.
-   *     0。恢复为无灰度效果。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<number> } grayscale - 为当前组件添加灰度效果。值定义为灰度转换的比例，入参1.0则完全转为灰度图像，入参0.0则图像无变化，入参在0.0和1.0之间时，效果呈线性变化。
+   *     <br>取值范围：[0.0, 1.0]
+   *     <br>**说明：**
+   *     <br>设置小于0.0的值时，按值为0.0处理，设置大于1.0的值时，按值为1.0处理。
+   *     <br>当grayscale的值为undefined时，取默认值0.0。恢复为无灰度效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -23821,40 +21938,14 @@ declare class CommonMethod<T> {
   /**
    * 为组件添加颜色叠加效果。
    *
-   * @param { Color | string | Resource } value - 为当前组件添加颜色叠加效果，入参为叠加的颜色字符串。取值可为string类型，如'0x000000'，'rgba(0,0,0,1)'。
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 为组件添加颜色叠加效果。
-   *
-   * @param { Color | string | Resource } value - 为当前组件添加颜色叠加效果，入参为叠加的颜色字符串。取值可为string类型，如'0x000000'，'rgba(0,0,0,1)'。
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 为组件添加颜色叠加效果。
-   *
-   * @param { Color | string | Resource } value - 为当前组件添加颜色叠加效果，入参为叠加的颜色字符串。取值可为string类型，如'0x000000'，'rgba(0,0,0,1)'。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 为组件添加颜色叠加效果。
-   *
-   * @param { Color | string | Resource } value - 为当前组件添加颜色叠加效果，入参为叠加的颜色字符串。取值可为string类型，如'0x000000'，'rgba(0,0,0,1)'。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @param { Color | string | Resource } value - 为当前组件添加颜色叠加效果，入参为叠加的颜色。取值可为Color类型、string类型或Resource类型，如使用Color.Green，
+   *     或string类型如'0x000000'、'rgba(0,0,0,1)'。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   colorBlend(value: Color | string | Resource): T;
 
@@ -23862,10 +21953,11 @@ declare class CommonMethod<T> {
    * 为组件添加颜色叠加效果。与[colorBlend]{@link CommonMethod#colorBlend(value: Color | string | Resource)}相比，color参数新增了对undefined类型
    * 的支持。
    *
-   * @param { Optional<Color | string | Resource> } color - 为当前组件添加颜色叠加效果，入参为叠加的颜色。取值可为string类型，如'0x000000'，'rgba(0,0,0,
-   *     1)'。<br/>当color的值为undefined时，恢复为无颜色叠加的效果。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<Color | string | Resource> } color - 为当前组件添加颜色叠加效果，入参为叠加的颜色。取值可为Color枚举值、string类型（如'0x000000'、'
+   *     rgba(0,0,0,1)'）或Resource资源引用。
+   *     <br>当color的值为undefined时，恢复为无颜色叠加的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -23875,56 +21967,34 @@ declare class CommonMethod<T> {
   colorBlend(color: Optional<Color | string | Resource>): T;
 
   /**
-   * 为组件添加饱和度效果。不通过该接口设置时，默认无变化。
+   * 为组件添加饱和度效果。未设置时，默认无变化。
    *
-   * @param { number } value - 为当前组件添加饱和度效果，饱和度为颜色中的含色成分和消色成分(灰)的比例，入参为1时，显示原图像，大于1时含色成分越大，饱和度越大，小于1时消色成分越大，饱和度越小。<br/>推
-   *     荐取值范围：[0, 50)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 为组件添加饱和度效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加饱和度效果，饱和度为颜色中的含色成分和消色成分(灰)的比例，入参为1时，显示原图像，大于1时含色成分越大，饱和度越大，小于1时消色成分越大，饱和度越小。<br/>推
-   *     荐取值范围：[0, 50)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 为组件添加饱和度效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加饱和度效果，饱和度为颜色中的含色成分和消色成分(灰)的比例，入参为1时，显示原图像，大于1时含色成分越大，饱和度越大，小于1时消色成分越大，饱和度越小。<br/>推
-   *     荐取值范围：[0, 50)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 为组件添加饱和度效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number } value - 为当前组件添加饱和度效果，饱和度为颜色中的含色成分和消色成分(灰)的比例，入参为1时，显示原图像，大于1时含色成分越大，饱和度越大，小于1时消色成分越大，饱和度越小。<br/>推
-   *     荐取值范围：[0, 50)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @param { number } value - 为当前组件添加饱和度效果，饱和度为颜色中的含色成分和消色成分（灰）的比例，入参为1时，显示原图像，大于1时含色成分越大，饱和度越大，小于1时消色成分越大，饱和度越小。
+   *     <br>取值范围：[0, +∞)
+   *     <br>推荐取值范围：[0, 50)
+   *     <br>**说明：**
+   *     <br>设置小于0的值时，按值为0处理。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   saturate(value: number): T;
 
   /**
-   * 为组件添加饱和度效果。不通过该接口设置时，默认无变化。与[saturate]{@link CommonMethod#saturate(value: number)}相比，saturate参数新增了对undefined类型的支持。
+   * 为组件添加饱和度效果。未设置时，默认无变化。与[saturate]{@link CommonMethod#saturate(value: number)}相比，saturate参数新增了对undefined类型的支持。
    *
-   * @param { Optional<number> } saturate - 为当前组件添加饱和度效果，饱和度为颜色中的含色成分和消色成分(灰)的比例，入参为1时，显示原图像，大于1时含色成分越大，饱和度越大，小于1时消色成分越
-   *     大，饱和度越小。<br/>推荐取值范围：[0, 50)<br/>**说明：**<br/>设置小于0的值时，按值为0处理。<br/>当saturate的值为undefined时。恢复为饱和度为1的效果。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<number> } saturate - 为当前组件添加饱和度效果，饱和度为颜色中的含色成分和消色成分（灰）的比例，入参为1时，显示原图像，大于1时含色成分越大，饱和度越大，小于1时消色成分越
+   *     大，饱和度越小。
+   *     <br>取值范围：[0, +∞)
+   *     <br>推荐取值范围：[0, 50)
+   *     <br>**说明：**
+   *     <br>设置小于0的值时，按值为0处理。
+   *     <br>当saturate的值为undefined时，恢复为饱和度为1的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -23937,43 +22007,14 @@ declare class CommonMethod<T> {
    * 将图像转换为深褐色。
    *
    * @param { number } value - 将图像转换为深褐色，降低色彩度，产生温暖复古的图像风格。入参为褐色滤镜强度，值为1则完全是深褐色的，值小于等于0则图像无变化，值大于1会进一步放大色彩偏移比例，图像整体会变得更亮
-   *     且色彩更加偏黄/偏红，但不属于标准sepia效果。<br/>取值范围：[0, +∞)，推荐取值范围：(0, 1]。
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 将图像转换为深褐色。
-   *
-   * @param { number } value - 将图像转换为深褐色，降低色彩度，产生温暖复古的图像风格。入参为褐色滤镜强度，值为1则完全是深褐色的，值小于等于0则图像无变化，值大于1会进一步放大色彩偏移比例，图像整体会变得更亮
-   *     且色彩更加偏黄/偏红，但不属于标准sepia效果。<br/>取值范围：[0, +∞)，推荐取值范围：(0, 1]。
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 将图像转换为深褐色。
-   *
-   * @param { number } value - 将图像转换为深褐色，降低色彩度，产生温暖复古的图像风格。入参为褐色滤镜强度，值为1则完全是深褐色的，值小于等于0则图像无变化，值大于1会进一步放大色彩偏移比例，图像整体会变得更亮
-   *     且色彩更加偏黄/偏红，但不属于标准sepia效果。<br/>取值范围：[0, +∞)，推荐取值范围：(0, 1]。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 将图像转换为深褐色。
-   *
-   * @param { number } value - 将图像转换为深褐色，降低色彩度，产生温暖复古的图像风格。入参为褐色滤镜强度，值为1则完全是深褐色的，值小于等于0则图像无变化，值大于1会进一步放大色彩偏移比例，图像整体会变得更亮
-   *     且色彩更加偏黄/偏红，但不属于标准sepia效果。<br/>取值范围：[0, +∞)，推荐取值范围：(0, 1]。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   *     且色彩更加偏黄/偏红，但不属于标准sepia效果。
+   *     <br>取值范围：[0, +∞)，推荐取值范围：(0, 1]。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   sepia(value: number): T;
 
@@ -23981,9 +22022,11 @@ declare class CommonMethod<T> {
    * 将图像转换为深褐色。与[sepia]{@link CommonMethod#sepia(value: number)}相比，sepia参数新增了对undefined类型的支持。
    *
    * @param { Optional<number> } sepia - 将图像转换为深褐色，降低色彩度，产生温暖复古的图像风格。入参为褐色滤镜强度，值为1则完全是深褐色的，值小于等于0则图像无变化，值大于1会进一步放大色彩偏移比
-   *     例，图像整体会变得更亮且色彩更加偏黄/偏红，但不属于标准sepia效果。<br/>当sepia的值为undefined时，恢复为图像无变化的效果。<br/> 取值范围：[0, +∞)，推荐取值范围：(0, 1]。
-   * @returns { T }
-   返回当前组件。
+   *     例，图像整体会变得更亮且色彩更加偏黄/偏红，但不属于标准sepia效果。
+   *     <br>取值范围：[0, +∞)，推荐取值范围：(0, 1]。
+   *     <br>当sepia的值为undefined时，恢复为图像无变化的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -23995,55 +22038,45 @@ declare class CommonMethod<T> {
   /**
    * 反转输入的图像。
    *
-   * @param { number } value
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 反转输入的图像。
-   *
-   * @param { number } value
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 反转输入的图像。
-   *
-   * @param { number } value
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 反转输入的图像。
-   *
-   * @param { number | InvertOptions } value - 反转输入的图像。<br/>入参对象为number时。入参为图像反转的比例，值为1时完全反转，值为0则图像无变化。<br/>取值范围：[0, 1]。<br/>设置小于0的值时，按值
-   *     为0处理。设置大于1的值时，按值为1处理。<br/>入参对象为 InvertOptions时，对比背景颜色灰度值和阈值区间，背景颜色灰度值小于阈值区间时反色取high值，当背景颜色灰度值大于阈值区间时反色取low值，背景颜
-   *     色灰度值在阈值区间内取值由high线性渐变到low。<br/>**说明：**<br/>number和InvertOptions两种形式的入参对应不同的反转效果。两种类型的入参切换时，不会清除之前已设置的反转效果，两种反转效
-   *     果会同时存在，建议始终使用同一种形式的入参。 [since 7 - 10]
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @param { number } value - 反转输入的图像。
+   *     <br>入参对象为number时，入参为图像反转的比例，值为1时完全反转，值为0则图像无变化。
+   *     <br>取值范围：[0, 1]。
+   *     <br>设置小于0的值时，按值为0处理。设置大于1的值时，按值为1处理。
+   *     <br>入参对象为 InvertOptions时，对比背景颜色灰度值和阈值区间，背景颜色灰度值小于阈值区间时反色取high值，当背景颜色灰度值大于阈值区间时反色取low值，背景颜色灰度值在阈值区间内取值由high线性渐变到
+   *     low。
+   *     <br>**说明：**
+   *     <br>number和InvertOptions两种形式的入参对应不同的反转效果。两种类型的入参切换时，不会清除之前已设置的反转效果，两种反转效果会同时存在，建议始终使用同一种形式的入参。 [since 7 - 10]
+   * @param { number | InvertOptions } value - 反转输入的图像。
+   *     <br>入参对象为number时，入参为图像反转的比例，值为1时完全反转，值为0则图像无变化。
+   *     <br>取值范围：[0, 1]。
+   *     <br>设置小于0的值时，按值为0处理。设置大于1的值时，按值为1处理。
+   *     <br>入参对象为 InvertOptions时，对比背景颜色灰度值和阈值区间，背景颜色灰度值小于阈值区间时反色取high值，当背景颜色灰度值大于阈值区间时反色取low值，背景颜色灰度值在阈值区间内取值由high线性渐变到
+   *     low。
+   *     <br>**说明：**
+   *     <br>number和InvertOptions两种形式的入参对应不同的反转效果。两种类型的入参切换时，不会清除之前已设置的反转效果，两种反转效果会同时存在，建议始终使用同一种形式的入参。 [since 11]
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   invert(value: number | InvertOptions): T;
 
   /**
    * 反转输入的图像。与[invert]{@link CommonMethod#invert(value: number | InvertOptions)}相比，options参数新增了对undefined类型的支持。
    *
-   * @param { Optional<number | InvertOptions> } options - 反转输入的图像。<br/>入参对象为number时。入参为图像反转的比例，值为1时完全反转，值为0则图像无变化。<br/>
-   *     取值范围：[0, 1]。<br/>设置小于0的值时，按值为0处理。设置大于1的值时，按值为1处理。<br/>入参对象为 InvertOptions时，对比背景颜色灰度值和阈值区间，背景颜色灰度值小于阈值区间时反色取high
-   *     值，当背景颜色灰度值大于阈值区间时反色取low值，背景颜色灰度值在阈值区间内取值由high线性渐变到low。<br/>当options的值为undefined时，恢复为图像无变化的效果。<br/>**说明：**<br/>
-   *     number和InvertOptions两种形式的入参对应不同的反转效果。两种类型的入参切换时，不会清除之前已设置的反转效果，两种反转效果会同时存在，建议始终使用同一种形式的入参。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<number | InvertOptions> } options - 反转输入的图像。
+   *     <br>入参对象为number时，入参为图像反转的比例，值为1时完全反转，值为0则图像无变化。
+   *     <br>取值范围：[0, 1]。
+   *     <br>设置小于0的值时，按值为0处理。设置大于1的值时，按值为1处理。
+   *     <br>入参对象为 InvertOptions时，对比背景颜色灰度值和阈值区间，背景颜色灰度值小于阈值区间时反色取high值，当背景颜色灰度值大于阈值区间时反色取low值，背景颜色灰度值在阈值区间内取值由high线性渐变到
+   *     low。
+   *     <br>当options的值为undefined时，恢复为图像无变化的效果。
+   *     <br>**说明：**
+   *     <br>number和InvertOptions两种形式的入参对应不同的反转效果。两种类型的入参切换时，不会清除之前已设置的反转效果，两种反转效果会同时存在，建议始终使用同一种形式的入参。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -24053,9 +22086,9 @@ declare class CommonMethod<T> {
   invert(options: Optional<number | InvertOptions>): T;
 
   /**
-   * 根据背景进行智能反色并且带有模糊效果。
+   * 根据背景颜色自动判断反色区域和反色程度，并叠加模糊效果。智能反色基于背景内容的颜色与亮度特征自动确定反色策略，使组件在不同背景下保持内容可视性；模糊效果对背景内容进行模糊处理，增强系统栏与背景的视觉融合效果。
    *
-   * @returns { T } 返回当前组件。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -24064,56 +22097,34 @@ declare class CommonMethod<T> {
   systemBarEffect(): T;
 
   /**
-   * 色相旋转效果。不通过该接口设置时，默认无变化。
+   * 色相旋转效果。未设置时，默认无变化。
    *
-   * @param { number | string } value - 色相旋转效果，输入参数为旋转角度。<br/>取值范围：(-∞, +∞)<br/>**说明：**<br/>色调旋转360度会显示原始颜色。先将色调旋转180 度，
-   *     然后再旋转-180度会显示原始颜色。数据类型为number时，值为90和'90deg'效果一致。
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 色相旋转效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number | string } value - 色相旋转效果，输入参数为旋转角度。<br/>取值范围：(-∞, +∞)<br/>**说明：**<br/>色调旋转360度会显示原始颜色。先将色调旋转180 度，
-   *     然后再旋转-180度会显示原始颜色。数据类型为number时，值为90和'90deg'效果一致。
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 色相旋转效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number | string } value - 色相旋转效果，输入参数为旋转角度。<br/>取值范围：(-∞, +∞)<br/>**说明：**<br/>色调旋转360度会显示原始颜色。先将色调旋转180 度，
-   *     然后再旋转-180度会显示原始颜色。数据类型为number时，值为90和'90deg'效果一致。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 色相旋转效果。不通过该接口设置时，默认无变化。
-   *
-   * @param { number | string } value - 色相旋转效果，输入参数为旋转角度。<br/>取值范围：(-∞, +∞)<br/>**说明：**<br/>色调旋转360度会显示原始颜色。先将色调旋转180 度，
-   *     然后再旋转-180度会显示原始颜色。数据类型为number时，值为90和'90deg'效果一致。
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @param { number | string } value - 色相旋转效果，输入参数为旋转角度。
+   *     <br>单位：度（°）
+   *     <br>取值范围：(-∞, +∞)
+   *     <br>**说明：**
+   *     <br>色相旋转360度会显示原始颜色。先将色相旋转180度，然后再旋转-180度会显示原始颜色。数据类型为number时，值为90和'90deg'效果一致。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   hueRotate(value: number | string): T;
 
   /**
-   * 色相旋转效果。不通过该接口设置时，默认无变化。与[hueRotate]{@link CommonMethod#hueRotate(value: number | string)}相比，rotation参数新增了对undefined
-   * 类型的支持。
+   * 色相旋转效果。未设置时，默认无变化。与[hueRotate]{@link CommonMethod#hueRotate(value: number | string)}相比，rotation参数新增了对undefined类型的支
+   * 持。
    *
-   * @param { Optional<number | string> } rotation
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<number | string> } rotation - 色相旋转效果，输入参数为旋转角度。单位为度（°）
+   *     <br>取值范围：(-∞, +∞)
+   *     <br>string需为数值字符串类型。
+   *     <br>**说明：**
+   *     <br>色相旋转360度会显示原始颜色。先将色相旋转180度，然后再旋转-180度会显示原始颜色。数据类型为number时，值为90和'90deg'效果一致。
+   *     <br>当rotation的值为undefined时，恢复为无色相旋转的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -24123,44 +22134,42 @@ declare class CommonMethod<T> {
   hueRotate(rotation: Optional<number | string>): T;
 
   /**
-   * 控件内部子节点的阴影进行同层绘制，同层元素阴影重叠。
+   * 控件内部子节点的阴影是否进行同层绘制，控制同层元素阴影重叠效果。需配合[shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}方法使用，当子节点
+   * 已通过shadow()设置阴影时，useShadowBatching可控制这些阴影是否进行同层绘制。
    *
-   * @param { boolean } value - 控件内部子节点的阴影是否进行同层绘制。<br/>默认值：false<br/> true：控件内部子节点的阴影进行同层绘制，子节点的阴影不会产生重叠覆盖效果。<br/>
-   *     false：控件内部子节点的阴影不进行同层绘制，子节点的阴影重叠区域有覆盖效果。<br/>**说明：**<br/>1. 默认不开启，如果子节点的阴影半径较大，阴影有重叠区域，后绘制的子节点阴影会覆盖在之前绘制的子节点阴影之
-   *     上。 当开启时，子节点的阴影将同时绘制，不会产生覆盖效果。<br/>2. 不推荐useShadowBatching嵌套使用，如果嵌套使用，只会对当前的子节点生效，无法递推。
-   * @returns { T }
-   返回当前组件。
+   * @param { boolean } value - 控件内部子节点的阴影是否进行同层绘制。
+   *     <br>默认值：false
+   *     <br> true：控件内部子节点的阴影进行同层绘制，子节点的阴影不会产生重叠覆盖效果。
+   *     <br> false：控件内部子节点的阴影不进行同层绘制，子节点的阴影重叠区域有覆盖效果。
+   *     <br>**说明：**
+   *     <br>1. 默认不开启，如果子节点的阴影半径较大，阴影有重叠区域，后绘制的子节点阴影会覆盖在之前绘制的子节点阴影之上。 当开启时，子节点的阴影将同时绘制，不会产生覆盖效果。
+   *     <br>2. 不推荐useShadowBatching嵌套使用，如果嵌套使用，只会对当前的子节点生效，无法递推。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 控件内部子节点的阴影进行同层绘制，同层元素阴影重叠。
-   *
-   * @param { boolean } value - 控件内部子节点的阴影是否进行同层绘制。<br/>默认值：false<br/> true：控件内部子节点的阴影进行同层绘制，子节点的阴影不会产生重叠覆盖效果。<br/>
-   *     false：控件内部子节点的阴影不进行同层绘制，子节点的阴影重叠区域有覆盖效果。<br/>**说明：**<br/>1. 默认不开启，如果子节点的阴影半径较大，阴影有重叠区域，后绘制的子节点阴影会覆盖在之前绘制的子节点阴影之
-   *     上。 当开启时，子节点的阴影将同时绘制，不会产生覆盖效果。<br/>2. 不推荐useShadowBatching嵌套使用，如果嵌套使用，只会对当前的子节点生效，无法递推。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   useShadowBatching(value: boolean): T;
 
   /**
-   * 控件内部子节点的阴影进行同层绘制，同层元素阴影重叠。与[useShadowBatching<sup>11+</sup>]{@link CommonMethod#useShadowBatching(value: boolean)}相
-   * 比，use参数新增了对undefined类型的支持。
+   * 控件内部子节点的阴影是否进行同层绘制，同层绘制时子节点阴影不会产生重叠覆盖效果。需配合[shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}方
+   * 法使用，当子节点设置了shadow效果时，useShadowBatching可控制子节点阴影进行同层绘制，实现同层阴影不重叠效果。调用顺序：先在子节点上设置shadow属性，再在父容器上设置useShadowBatching(
+   * true)。与[useShadowBatching<sup>11+</sup>]{@link CommonMethod#useShadowBatching(value: boolean)}相比，use参数新增了对undefined
+   * 类型的支持。
    *
-   * @param { Optional<boolean> } use - 控件内部子节点的阴影是否进行同层绘制。<br/>默认值：false<br/> true：控件内部子节点的阴影进行同层绘制，子节点的阴影不会产生重叠覆盖效果。<
-   *     br/> false：控件内部子节点的阴影不进行同层绘制，子节点的阴影重叠区域有覆盖效果。<br/>**说明：**<br/>1. 默认不开启，如果子节点的阴影半径较大，阴影有重叠区域，后绘制的子节点阴影会覆盖在之前绘制的子
-   *     节点阴影之上。 当开启时，子节点的阴影将同时绘制，不会产生覆盖效果。<br/>2. 不推荐useShadowBatching嵌套使用，如果嵌套使用，只会对当前的子节点生效，无法递推。<br/>当use的值为
-   *     undefined时，恢复为不使用元素阴影重叠的效果。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<boolean> } use - 控件内部子节点的阴影是否进行同层绘制。
+   *     <br>默认值：false
+   *     <br> true：控件内部子节点的阴影进行同层绘制，子节点的阴影不会产生重叠覆盖效果。
+   *     <br> false：控件内部子节点的阴影不进行同层绘制，子节点的阴影重叠区域有覆盖效果。
+   *     <br>**说明：**
+   *     <br>1. 默认不开启，如果子节点的阴影半径较大，阴影有重叠区域，后绘制的子节点阴影会覆盖在之前绘制的子节点阴影之上。 当开启时，子节点的阴影将同时绘制，不会产生覆盖效果。
+   *     <br>2. 不推荐useShadowBatching嵌套使用，如果嵌套使用，只会对当前的子节点生效，无法递推。
+   *     <br>当use的值为undefined时，恢复为不使用元素阴影重叠的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -24170,13 +22179,17 @@ declare class CommonMethod<T> {
   useShadowBatching(use: Optional<boolean>): T;
 
   /**
-   * 用于设置组件是否应用<!--Del-->父级[EffectComponent]{@link effect_component}或<!--DelEnd-->窗口定义的效果模板。
+   * 用于设置组件是否应用<!--Del-->父级[EffectComponent]{@link ./effect_component}或<!--DelEnd-->窗口定义的效果模板。effectType为DEFAULT时，必须在
+   * EffectComponent的子组件上使用且EffectComponent需配置特效属性才能生效；effectType为WINDOW_EFFECT时，需配合窗口效果模板使用。不在对应容器内使用时，useEffect将不产生任何效
+   * 果。效果模板是一组预定义的视觉特效参数（包括模糊半径、饱和度、亮度、颜色），应用于组件以实现统一的视觉特效风格。
    *
-   * @param { Optional<boolean> } useEffect - 控制组件是否应用<!--Del-->父级EffectComponent或<!--DelEnd-->窗口定义的效果模板。<br/>useEffect为true时表示应用<
-   *     !--Del-->父级EffectComponent或<!--DelEnd-->窗口定义的效果模板。<br/>默认值：false
-   * @param { EffectType } effectType - 设置组件应用<!--Del-->父级EffectComponent或<!--DelEnd-->窗口定义的效果模板。<br/>默认值：
-   *     EffectType.DEFAULT
-   * @returns { T } 返回当前组件。
+   * @param { boolean } useEffect - 控制组件是否应用<!--Del-->父级EffectComponent或<!--DelEnd-->窗口定义的效果模板，从而合并绘制特效。
+   *     <br>useEffect为true时表示应用<!--Del-->父级EffectComponent或<!--DelEnd-->窗口定义的效果模板，为false时不应用<!--Del-->父级EffectComponent
+   *     或<!--DelEnd-->窗口定义的效果模板。
+   *     <br>默认值：false
+   * @param { EffectType } effectType - 设置组件应用<!--Del-->父级EffectComponent或<!--DelEnd-->窗口定义的效果模板，仅在useEffect为true时生效。
+   *     <br>默认值：EffectType.DEFAULT
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -24185,15 +22198,19 @@ declare class CommonMethod<T> {
   useEffect(useEffect: boolean, effectType: EffectType): T;
 
   /**
-   * 用于设置组件是否应用<!--Del-->父级[EffectComponent]{@link effect_component}或<!--DelEnd-->窗口定义的效果模板。与
+   * 用于设置组件是否应用<!--Del-->父级[EffectComponent]{@link ./effect_component}或<!--DelEnd-->窗口定义的效果模板。与
    * [useEffect<sup>14+</sup>]{@link CommonMethod#useEffect(useEffect: boolean, effectType: EffectType)}相比，useEffect参数新增
-   * 了对undefined类型的支持。
+   * 了对undefined类型的支持。effectType为DEFAULT时，必须在EffectComponent的子组件上使用且EffectComponent需配置特效属性才能生效；effectType为WINDOW_EFFECT
+   * 时，需配合窗口效果模板使用。不在对应容器内使用时，useEffect将不产生任何效果。
    *
-   * @param { Optional<boolean> } useEffect - 控制组件是否应用<!--Del-->父级EffectComponent或<!--DelEnd-->窗口定义的效果模板。<br/>useEffect为
-   *     true时表示应用<!--Del-->父级EffectComponent或<!--DelEnd-->窗口定义的效果模板。<br/>默认值：false<br/>当useEffect的值为undefined时，维持之前取值。
-   * @param { EffectType } [effectType] - 设置组件应用<!--Del-->父级EffectComponent或<!--DelEnd-->窗口定义的效果模板。<br/>默认值：
-   *     EffectType.DEFAULT
-   * @returns { T } 返回当前组件。
+   * @param { Optional<boolean> } useEffect - 控制组件是否应用<!--Del-->父级EffectComponent或<!--DelEnd-->窗口定义的效果模板。
+   *     <br>useEffect为true时表示应用<!--Del-->父级EffectComponent或<!--DelEnd-->窗口定义的效果模板，具体应用哪种效果模板由effectType参数决定。
+   *     <br>useEffect为false时表示不应用效果模板。
+   *     <br>默认值：false
+   *     <br>当useEffect的值为undefined时，维持该属性上一次生效的取值不变。
+   * @param { EffectType } [effectType] - 指定效果模板的类型，应用<!--Del-->父级EffectComponent定义的或<!--DelEnd-->窗口定义的效果模板。
+   *     <br>默认值：EffectType.DEFAULT
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -24202,11 +22219,14 @@ declare class CommonMethod<T> {
   useEffect(useEffect: Optional<boolean>, effectType?: EffectType): T;
 
   /**
-   * 用于对背景模糊等特效进行绘制合并。
+   * 用于控制组件是否继承<!--Del-->父级[EffectComponent]{@link ./effect_component}的<!--DelEnd-->特效属性参数，对背景模糊等特效进行绘制合并。
    *
-   * @param { boolean } value - 控制组件是否继承特效绘制合并组件的特效属性参数，从而合并绘制特效。<br/>useEffect为true时子组件继承特效绘制合并组件的特效属性参数，为false时子组件不继承特
-   *     效绘制合并组件的特效属性参数。<br/>默认值：false
-   * @returns { T } 返回当前组件。
+   * @param { boolean } value - 控制组件是否继承<!--Del-->父级[EffectComponent]{@link ./effect_component}的<!--DelEnd-->特效属性参数，从而合并
+   *     绘制特效。
+   *     <br>useEffect为true时子组件继承<!--Del-->父级[EffectComponent]{@link ./effect_component}的<!--DelEnd-->特效属性参数，为false时子组件不
+   *     继承<!--Del-->父级[EffectComponent]{@link ./effect_component}的<!--DelEnd-->特效属性参数。
+   *     <br>默认值：false
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -24215,12 +22235,16 @@ declare class CommonMethod<T> {
   useEffect(value: boolean): T;
 
   /**
+   * 表示是否使用祖先组件[UnionEffectContainer]{@link ./union_effect_container}的融合效果，即是否作为UnionEffectContainer做形状融合的一部分，参与融合形态计算。
+   * 
+   * 未设置时，默认不使用祖先组件UnionEffectContainer的融合效果。
    *
-   * @param { boolean | undefined } value - Whether the component participates in the fusion effect of
-   *     the ancestor component **UnionEffectContainer**.<br>The value **true** means that the component participates
-   *     in the fusion effect of the ancestor component **UnionEffectContainer**, and **false** means the opposite.
-   *     <br>Default value: **false**. Undefined means to default value.
-   * @returns { T } return the component attribute.
+   * @param { boolean | undefined } value - 表示是否使用祖先组件UnionEffectContainer的融合效果。
+   *     <br>取值为true时，当前组件使用祖先组件UnionEffectContainer的融合效果，在祖先组件UnionEffectContainer计算形状时会作为UnionEffectContainer的一部分；若当前组件不存在祖先
+   *     UnionEffectContainer，则设置useUnionEffect为true不产生融合效果。
+   *     <br>取值为false时，当前组件不使用祖先组件UnionEffectContainer的融合效果。
+   *     <br>设置为undefined时恢复为不使用祖先组件UnionEffectContainer的融合效果。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -24229,12 +22253,22 @@ declare class CommonMethod<T> {
   useUnionEffect(value: boolean | undefined): T;
 
   /**
-   * 指定当前组件是否参与祖先组件UnionEffectContainer的融合效果
+   * 表示是否使用祖先组件[UnionEffectContainer]{@link ./union_effect_container}的融合效果，是否作为UnionEffectContainer做形状融合的一部分，参与融合形态计算。当不存在
+   * 祖先组件UnionEffectContainer时，设置该属性不产生效果。
+   * 
+   * 未设置时，默认不使用祖先组件UnionEffectContainer的融合效果。
    *
-   * @param { boolean | undefined } value - 组件是否参与融合效果祖先组件**UnionEffectContainer**.<br>值为**true**表示组件参与在祖先组件**UnionEffectContainer**的融合效果中，而**false**表示相反。 <br>值为**t
-   *     rue**表示该组件参与祖先组件**UnionEffectContainer**的融合效果，**false**表示相反。
-   * @param { GravityCenterOptions } [options] - 引力中心参数。 需要配合UnionMode.GRAVITY_UNION使用。
-   * @returns { T } 返回组件属性。
+   * @param { boolean | undefined } value - 是否使用祖先组件UnionEffectContainer的融合效果。
+   *     <br>取值为true时，当前组件使用祖先组件UnionEffectContainer的融合效果，在祖先组件UnionEffectContainer计算形状时会作为UnionEffectContainer的一部分；若当前组件不存在祖先
+   *     UnionEffectContainer，则取值为true不产生融合效果。
+   *     <br>取值为false时，当前组件不使用祖先组件UnionEffectContainer的融合效果。
+   *     <br>设置为undefined时，恢复为不使用祖先组件UnionEffectContainer的融合效果。
+   * @param { GravityCenterOptions } [options] - 引力中心参数。
+   *     <br>未设置时，不启用引力中心功能。
+   *     <br>**说明：**
+   *     <br>此参数必须与[unionMode]{@link UnionEffectContainerAttribute#unionMode}一起使用，且
+   *     unionMode须为UnionMode.GRAVITY_UNION，同时value须为true时才生效，单独设置或不满足前提条件时不生效。 
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -24243,12 +22277,14 @@ declare class CommonMethod<T> {
   useUnionEffect(value: boolean | undefined, options?: GravityCenterOptions): T;
 
   /**
-   * 为组件添加背景模糊效果，支持自定义设置模糊半径和灰阶参数。
+   * 为组件添加背景模糊效果，对组件背后的视觉内容进行采样和模糊处理，支持自定义设置模糊半径和灰阶参数。
    *
-   * @param { number } value - 为当前组件添加背景模糊效果，入参为模糊半径，模糊半径越大越模糊，为0时不模糊。<br/>取值范围：[0, +∞)<br/>默认值：0
-   * @param { BlurOptions } [options] - 灰阶模糊参数。对图像中的黑白色进行色阶调整，使其趋于灰色更为柔和美观，对图像中的彩色调整没有效果。<br/>默认值：grayscale:
-   *     [0,0] [since 11]
-   * @returns { T } 返回当前组件。
+   * @param { number } value - 为当前组件添加背景模糊效果，入参为模糊半径，模糊半径越大越模糊，为0时不模糊。传入负数时，自动修正为0。
+   *     <br>取值范围：[0, +∞)
+   *     <br>默认值：0
+   * @param { BlurOptions } [options] - 灰阶模糊参数。对图像中的黑白色进行色阶调整，使其趋于灰色，降低黑白对比度，对图像中的彩色调整没有效果。
+   *     <br>默认值：grayscale: [0,0] [since 11]
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -24258,13 +22294,16 @@ declare class CommonMethod<T> {
   backdropBlur(value: number, options?: BlurOptions): T;
 
   /**
-   * 为组件添加背景模糊效果，支持自定义设置模糊半径和灰阶参数。与[backdropBlur]{@link CommonMethod#backdropBlur(value: number, options?: BlurOptions)}
-   * 相比，radius参数新增了对undefined类型的支持。
+   * 为组件添加背景模糊效果，对组件背后的视觉内容进行采样和模糊处理，支持自定义设置模糊半径和灰阶参数。与
+   * [backdropBlur]{@link CommonMethod#backdropBlur(value: number, options?: BlurOptions)}相比，radius参数新增了对undefined类型的支持。
    *
-   * @param { Optional<number> } radius - 为当前组件添加背景模糊效果，入参为模糊半径，模糊半径越大越模糊，为0时不模糊。当radius的值为undefined时，恢复为默认无模糊的背景。<br/>取
-   *     值范围：[0, +∞)<br/>默认值：0<br/>
-   * @param { BlurOptions } [options] - 灰阶模糊参数。对图像中的黑白色进行色阶调整，使其趋于灰色更为柔和美观，对图像中的彩色调整没有效果。<br/>默认值：grayscale: [0,0]
-   * @returns { T } 返回当前组件。
+   * @param { Optional<number> } radius - 为当前组件添加背景模糊效果，入参为模糊半径，模糊半径越大越模糊，为0时不模糊。当radius的值为undefined时，恢复为默认无模糊的背景。
+   *     <br>取值范围：[0, +∞)
+   *     <br>默认值：0
+   *     <br>单位：px
+   * @param { BlurOptions } [options] - 灰阶模糊参数。对图像中的黑白色进行色阶调整，使其趋于灰色、过渡更为柔和，对图像中的彩色调整没有效果。
+   *     <br>默认值：grayscale: [0,0]
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24279,11 +22318,15 @@ declare class CommonMethod<T> {
    * [backdropBlur<sup>18+</sup>]{@link CommonMethod#backdropBlur(radius: Optional<number>, options?: BlurOptions)}相比，新增
    * 了sysOptions参数，即支持系统自适应调节参数。
    *
-   * @param { Optional<number> } radius - 为当前组件添加背景模糊效果，入参为模糊半径，模糊半径越大越模糊，为0时不模糊。<br/>当radius的值为undefined时，恢复为默认无模糊的背景。<
-   *     br/>取值范围：[0, +∞)<br/>默认值：0
-   * @param { BlurOptions } [options] - 灰阶模糊参数。对图像中的黑白色进行色阶调整，使其趋于灰色更为柔和美观，对图像中的彩色调整没有效果。<br/>默认值：grayscale: [0,0]
-   * @param { SystemAdaptiveOptions } [sysOptions] - 系统自适应调节参数。<br/>默认值：{ disableSystemAdaptation: false }
-   * @returns { T } 返回当前组件。
+   * @param { Optional<number> } radius - 为当前组件添加背景模糊效果，入参为模糊半径，模糊半径越大越模糊，为0时不模糊。传入负数时，自动修正为0。
+   *     <br>当radius的值为undefined时，恢复为默认无模糊的背景。
+   *     <br>取值范围：[0, +∞)
+   *     <br>默认值：0
+   * @param { BlurOptions } [options] - 灰阶模糊参数。对图像中的黑白色进行色阶调整，使其趋于灰色、过渡更为柔和，对图像中的彩色调整没有效果。
+   *     <br>默认值：grayscale: [0,0]
+   * @param { SystemAdaptiveOptions } [sysOptions] - 系统自适应调节参数。
+   *     <br>默认值：{ disableSystemAdaptation: false }
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24293,65 +22336,44 @@ declare class CommonMethod<T> {
    */
   backdropBlur(radius: Optional<number>, options?: BlurOptions, sysOptions?: SystemAdaptiveOptions): T;
 
-  /**
-   * 设置是否组成节点组。节点组表示当前组件和子组件组成的子树先在离屏画布中渲染，再与父组件融合绘制。设置为节点组后，系统会缓存绘制结果，提升性能。但如果节点组内的组件频繁更新，缓存失效，可能导致性能下降。此外，设置为节点组后，当前组件
-   * 的不透明度不为1时，绘制效果可能有差异。
-   *
+ /**
+   * 设置是否组成节点组。节点组表示当前组件和子组件组成的子树先在离屏画布中渲染，再与父组件融合绘制。设置为节点组后，系统会缓存绘制结果，提升性能。与
+   * [freeze]{@link CommonMethod#freeze(value: boolean)}方法相比，renderGroup允许组件属性继续更新（但频繁更新会导致缓存失效），适合需要动态更新且希望缓存优化的场景；
+   * freeze完全停止内部属性更新，适合静态内容的稳定缓存优化。但如果节点组内的组件频繁更新，缓存失效，可能导致性能下降。此外，设置为节点组后，当前组件的不透明度不为1时，绘制效果可能有差异。
+   * 
    * 不设置该属性时，默认不组成节点组。
    *
-   * @param { boolean } value - 设置当前组件和子组件是否组成节点组。<br/> false表示不组成节点组，不进行离屏渲染直接绘制。<br/> true表示当前组件和子组件组成节点组，进行离屏渲染后再与父组件
-   *     融合绘制。
-   * @returns { T }
-   返回当前组件。
+   * @param { boolean } value - 设置当前组件和子组件是否组成节点组。
+   *     <br> false表示不组成节点组，不进行离屏渲染直接绘制。
+   *     <br> true表示当前组件和子组件组成节点组，进行离屏渲染后再与父组件融合绘制。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * 设置是否组成节点组。节点组表示当前组件和子组件组成的子树先在离屏画布中渲染，再与父组件融合绘制。设置为节点组后，系统会缓存绘制结果，提升性能。但如果节点组内的组件频繁更新，缓存失效，可能导致性能下降。此外，设置为节点组后，当前组件
-   * 的不透明度不为1时，绘制效果可能有差异。
-   *
-   * 不设置该属性时，默认不组成节点组。
-   *
-   * @param { boolean } value - 设置当前组件和子组件是否组成节点组。<br/> false表示不组成节点组，不进行离屏渲染直接绘制。<br/> true表示当前组件和子组件组成节点组，进行离屏渲染后再与父组件
-   *     融合绘制。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * 设置是否组成节点组。节点组表示当前组件和子组件组成的子树先在离屏画布中渲染，再与父组件融合绘制。设置为节点组后，系统会缓存绘制结果，提升性能。但如果节点组内的组件频繁更新，缓存失效，可能导致性能下降。此外，设置为节点组后，当前组件
-   * 的不透明度不为1时，绘制效果可能有差异。
-   *
-   * 不设置该属性时，默认不组成节点组。
-   *
-   * @param { boolean } value - 设置当前组件和子组件是否组成节点组。<br/> false表示不组成节点组，不进行离屏渲染直接绘制。<br/> true表示当前组件和子组件组成节点组，进行离屏渲染后再与父组件
-   *     融合绘制。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   renderGroup(value: boolean): T;
 
   /**
    * 设置是否组成节点组。节点组表示当前组件和子组件组成的子树先在离屏画布中渲染，再与父组件融合绘制。设置为节点组后，系统会缓存绘制结果，提升性能。但如果节点组内的组件频繁更新，缓存失效，可能导致性能下降。此外，设置为节点组后，当前组件
    * 的不透明度不为1时，绘制效果可能有差异。
-   *
-   * 与[renderGroup<sup>10+</sup>]{@link CommonMethod#renderGroup(value: boolean)}相比，isGroup参数新增了对undefined类型的支持。
-   *
+   * 
+   * > **说明：**
+   * >
+   * > 与[freeze]{@link CommonMethod#freeze(value: boolean)}不同，renderGroup在缓存绘制结果后仍允许内部属性更新（更新时缓存失效），适用于组件需要动态更新的场景；
+   * > freeze则完全停止内部属性更新，适用于组件内容稳定不需要更新的场景。
+   * > 与[renderGroup<sup>10+</sup>]{@link CommonMethod#renderGroup(value: boolean)}相比，isGroup参数新增了对undefined类型的支持。
+   * 
    * 不设置该属性时，默认不组成节点组。
    *
-   * @param { Optional<boolean> } isGroup - 设置当前组件和子组件是否组成节点组。<br/> false表示不组成节点组，不进行离屏渲染直接绘制。<br/> true表示当前组件和子组件组成节点组，
-   *     进行离屏渲染后再与父组件融合绘制。<br/>当isGroup的值为undefined时，按照不组成节点组处理。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<boolean> } isGroup - 设置当前组件和子组件是否组成节点组。
+   *     <br> false表示不组成节点组，不进行离屏渲染直接绘制。
+   *     <br> true表示当前组件和子组件组成节点组，进行离屏渲染后再与父组件融合绘制。
+   *     <br>当isGroup的值为undefined时，按照不组成节点组处理。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -24363,12 +22385,12 @@ declare class CommonMethod<T> {
   /**
    * 设置当前组件和其子组件是否从祖先组件的节点组中剔除。需搭配祖先组件设置节点组[renderGroup]{@link CommonMethod#renderGroup(isGroup: Optional<boolean>)}属性使
    * 用，单独使用无效果。
-   *
+   * 
    * 从节点组剔除后，当前组件和子组件不再影响祖先组件的离屏画布，不会引起节点组的缓存失效，从而达到复用节点组缓存的目的。如果当前组件的显示区域只占节点组绘制内容显示区域的一部分，且当前组件及子组件的显示效果频繁更新，设置
    * excludeFromRenderGroup属性有助于绘制性能优化。
-   *
+   * 
    * 不设置该属性时，默认当前组件和其子组件不从祖先组件的节点组中剔除。
-   *
+   * 
    * > **说明：**
    * >
    * > 设置excludeFromRenderGroup为true的组件及其子组件的绘制内容不能超过该组件本身的边界范围，否则会出现显示内容被裁剪的问题。例如当子组件通过
@@ -24378,10 +22400,13 @@ declare class CommonMethod<T> {
    * > [pixelStretchEffect]{@link CommonMethod#pixelStretchEffect(options: PixelStretchEffectOptions)}等属性导致当前组件的绘制内容超出组件
    * > 边界时，可能出现显示内容被裁剪的问题。此类场景不应设置excludeFromRenderGroup属性为true。
    *
-   * @param { boolean | undefined } exclude - 设置当前组件及其子组件是否从祖先组件的节点组中剔除。<br/>true表示当前组件及其子组件从祖先组件的节点组中剔除，不属于祖先组件的节点组；
-   *     false表示当前组件及其子组件归属于祖先组件的节点组。<br/>当exclude的值为undefined时，按false处理。
-   * @returns { T }
-   返回当前组件。
+   * @param { boolean | undefined } exclude - 设置当前组件及其子组件是否从祖先组件的节点组中剔除。
+   *     <br>true表示当前组件及其子组件从祖先组件的节点组中剔除，不属于祖先组件的节点组；false表示当前组件及其子组件归属于祖先组件的节点组。
+   *     <br>当exclude的值为undefined时，按false处理。
+   *     <br>**说明：**
+   *     <br>需搭配祖先组件设置节点组renderGroup属性使用，单独使用无效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 22 dynamic
@@ -24389,16 +22414,17 @@ declare class CommonMethod<T> {
   excludeFromRenderGroup(exclude: boolean | undefined): T;
 
   /**
-   * 设置当前控件和子控件是否整体离屏渲染绘制后重复绘制缓存，不再进行内部属性更新。
-   *
+   * 设置当前控件和子控件是否整体离屏渲染绘制后重复绘制缓存，不再进行内部属性更新。当freeze设置为true时，组件属性更新将被冻结；若需恢复属性更新，需先将freeze设置为false。
+   * 
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { boolean } value - 设置当前控件和子控件是否整体离屏渲染绘制后重复绘制缓存，不再进行内部属性更新。当前控件的不透明度不为1时绘制效果可能有差异。<br/>默认值：false <br/> true时
-   *     离屏渲染绘制后重复绘制缓存，false时离屏渲染绘制后不重复绘制缓存。
-   * @returns { T }
-   返回当前组件。
+   * @param { boolean } value - 设置当前控件和子控件是否整体离屏渲染绘制后重复绘制缓存，不再进行内部属性更新。当前控件的不透明度不为1时绘制效果可能有差异。
+   *     <br>默认值：false 
+   *     <br> true时离屏渲染绘制后重复绘制缓存，false时离屏渲染绘制后不重复绘制缓存。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
@@ -24406,17 +22432,19 @@ declare class CommonMethod<T> {
   freeze(value: boolean): T;
 
   /**
-   * 设置当前控件和子控件是否整体离屏渲染绘制后重复绘制缓存，不再进行内部属性更新。与[freeze]{@link CommonMethod#freeze(value: boolean)}相比，freeze参数新增了对undefined
-   * 类型的支持。
-   *
+   * 设置当前控件和子控件是否整体离屏渲染绘制后重复绘制缓存，不再进行内部属性更新。当freeze设置为true时，组件属性更新将被冻结；若需恢复属性更新，需先将freeze设置为false。与
+   * [freeze]{@link CommonMethod#freeze(value: boolean)}相比，freeze参数新增了对undefined类型的支持。
+   * 
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { Optional<boolean> } freeze - 设置当前控件和子控件是否整体离屏渲染绘制后重复绘制缓存，不再进行内部属性更新。当前控件的不透明度不为1时绘制效果可能有差异。<br/>默认值：false<
-   *     br/> true时离屏渲染绘制后重复绘制缓存，false时离屏渲染绘制后不重复绘制缓存。<br/>当freeze的值为undefined时，维持之前取值。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<boolean> } freeze - 设置当前控件和子控件是否整体离屏渲染绘制后重复绘制缓存，不再进行内部属性更新。当前控件的不透明度不为1时绘制效果可能有差异。
+   *     <br>默认值：false
+   *     <br> true时离屏渲染绘制后重复绘制缓存，false时离屏渲染绘制后不重复绘制缓存。
+   *     <br>当freeze的值为undefined时，维持之前取值。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 18 dynamic
@@ -24427,12 +22455,19 @@ declare class CommonMethod<T> {
    * 设置组件平移。
    *
    * @param { TranslateOptions } value - 可使组件在以组件左上角为坐标原点的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中进行移动（坐标系如下图所示）。其
-   *     中，x，y，z的值分别表示在对应轴移动的距离，值为正时表示向对应轴的正向移动，值为负时表示向对应轴的反向移动。移动距离支持数字和字符串（比如'10px'，'10%'）两种类型。<br/>默认值:<br/>{<br/>x: 
-   *     0,<br/>y: 0,<br/>z: 0<br/>}<br/>单位：vp<br/>!
-   *     [coordinates](docroot://reference/apis-arkui/arkui-ts/figures/coordinates.png)<br/>**说明：**<br/>z轴方向移动时由于观察点位置不
-   *     变，z的值接近观察点组件会有放大效果，远离则缩小。<br/>!
-   *     [coordinateNode](docroot://reference/apis-arkui/arkui-ts/figures/coordinateNote.png)
-   * @returns { T } 返回当前组件。
+   *     中，x、y、z的值分别表示在对应轴移动的距离，值为正时表示向对应轴的正向移动，值为负时表示向对应轴的反向移动。移动距离支持数字和字符串（比如'10px'，'10%'）两种类型。
+   *     <br>默认值：
+   *     <br>{
+   *     <br>x: 0,
+   *     <br>y: 0,
+   *     <br>z: 0
+   *     <br>}
+   *     <br>单位：vp
+   *     <br>![coordinates](docroot://reference/apis-arkui/arkui-ts/figures/coordinates.png)
+   *     <br>**说明：**
+   *     <br>z轴方向移动时由于观察点位置不变，z的值接近观察点组件会有放大效果，远离则缩小。
+   *     <br>![coordinateNode](docroot://reference/apis-arkui/arkui-ts/figures/coordinateNote.png)
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -24445,13 +22480,20 @@ declare class CommonMethod<T> {
    * 设置组件平移。与[translate]{@link CommonMethod#translate(value: TranslateOptions)}相比，translate参数新增了对undefined类型的支持。
    *
    * @param { Optional<TranslateOptions> } translate - 可使组件在以组件左上角为坐标原点的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中进行
-   *     移动（坐标系如下图所示）。其中，x，y，z的值分别表示在对应轴移动的距离，值为正时表示向对应轴的正向移动，值为负时表示向对应轴的反向移动。移动距离支持数字和字符串（比如'10px'，'10%'）两种类型。<br/>默认值:
-   *     <br/>{<br/>x: 0,<br/>y: 0,<br/>z: 0<br/>}<br/>单位：vp<br/>!
-   *     [coordinates](docroot://reference/apis-arkui/arkui-ts/figures/coordinates.png)<br/>**说明：**<br/>z轴方向移动时由于观察点位置不
-   *     变，z的值接近观察点组件会有放大效果，远离则缩小。<br/>!
-   *     [coordinateNode](docroot://reference/apis-arkui/arkui-ts/figures/coordinateNote.png)<br/>当translate的值为undefined
-   *     时，恢复为无平移效果。
-   * @returns { T } 返回当前组件。
+   *     移动（坐标系如下图所示）。其中，x，y，z的值分别表示在对应轴移动的距离，值为正时表示向对应轴的正向移动，值为负时表示向对应轴的反向移动。移动距离支持数字和字符串（比如'10px'，'10%'）两种类型。
+   *     <br>默认值：
+   *     <br>{
+   *     <br>x: 0,
+   *     <br>y: 0,
+   *     <br>z: 0
+   *     <br>}
+   *     <br>单位：vp
+   *     <br>![coordinates](docroot://reference/apis-arkui/arkui-ts/figures/coordinates.png)
+   *     <br>**说明：**
+   *     <br>z轴方向移动时由于观察点位置不变，z的值接近观察点组件会有放大效果，远离则缩小。
+   *     <br>![coordinateNode](docroot://reference/apis-arkui/arkui-ts/figures/coordinateNote.png)
+   *     <br>当translate的值为undefined时，恢复为无平移效果。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24464,9 +22506,16 @@ declare class CommonMethod<T> {
   /**
    * 设置组件缩放。
    *
-   * @param { ScaleOptions } value - 可以分别设置X轴、Y轴、Z轴的缩放比例，默认值为1，同时可以通过centerX和centerY设置缩放的中心点。<br/>默认值:<br/>{<br/>x: 1,<
-   *     br/>y: 1,<br/>z: 1,<br/>centerX:'50%',<br/>centerY:'50%'<br/>}
-   * @returns { T } 返回当前组件。
+   * @param { ScaleOptions } value - 可以分别设置X轴、Y轴、Z轴的缩放比例，默认值为1，同时可以通过centerX和centerY设置缩放的中心点。
+   *     <br>默认值：
+   *     <br>{
+   *     <br>x: 1,
+   *     <br>y: 1,
+   *     <br>z: 1,
+   *     <br>centerX:'50%',
+   *     <br>centerY:'50%'
+   *     <br>}
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -24478,9 +22527,17 @@ declare class CommonMethod<T> {
   /**
    * 设置组件缩放。与[scale]{@link CommonMethod#scale(value: ScaleOptions)}相比，options参数新增了对undefined类型的支持。
    *
-   * @param { Optional<ScaleOptions> } options - 可以分别设置X轴、Y轴、Z轴的缩放比例，默认值为1，同时可以通过centerX和centerY设置缩放的中心点。<br/>默认值:<br/>{
-   *     <br/>x: 1,<br/>y: 1,<br/>z: 1,<br/>centerX:'50%',<br/>centerY:'50%'<br/>}<br/>当options的值为undefined时，恢复为无缩放效果。
-   * @returns { T } 返回当前组件。
+   * @param { Optional<ScaleOptions> } options - 可以分别设置X轴、Y轴、Z轴的缩放比例，默认值为1，同时可以通过centerX和centerY设置缩放的中心点。
+   *     <br>默认值：
+   *     <br>{
+   *     <br>x: 1,
+   *     <br>y: 1,
+   *     <br>z: 1,
+   *     <br>centerX:'50%',
+   *     <br>centerY:'50%'
+   *     <br>}
+   *     <br>当options的值为undefined时，恢复为无缩放效果。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24491,30 +22548,15 @@ declare class CommonMethod<T> {
   scale(options: Optional<ScaleOptions>): T;
 
   /**
-   * Default number of occupied columns, indicating the number of occupied grid columns when the number of columns (span) of the corresponding size is not set in the useSizeType attribute.
+   * 默认占用列数。
    *
-   * @param { number } value
+   * @param { number } value - 默认占用列数，指useSizeType属性没有设置对应尺寸的列数（span）时，占用的栅格列数，需为非负整数。传入负数或超出GridContainer总列数时，使用默认值1。
+   * <br>**说明：**<br>- 调用该属性时，其父组件或祖先组件必须是GridContainer。<br>- 设置了栅格span属性，组件的宽度由栅格布局决定。
+   * <br>默认值：1
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Default number of occupied columns, indicating the number of occupied grid columns when the number of columns (span) of the corresponding size is not set in the useSizeType attribute.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Default number of occupied columns, indicating the number of occupied grid columns when the number of columns (span) of the corresponding size is not set in the useSizeType attribute.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
    * @since 11 dynamiconly
    * @deprecated since 14
    * @useinstead grid_col/GridColInterface and grid_row/GridRowInterface
@@ -24522,33 +22564,19 @@ declare class CommonMethod<T> {
   gridSpan(value: number): T;
 
   /**
-   * The default offset column number indicates the number of offset columns of the current component in the start direction of the parent component when the useSizeType attribute does not set the offset of the corresponding dimension. That is,
-   * the current component is located in the nth column.
+   * 默认偏移列数。
    *
-   * @param { number } value
+   * @param { number } value - 默认偏移列数，指useSizeType属性没有设置对应尺寸的偏移（offset）时，当前组件沿着父组件Start方向偏移的列数，即组件起始位置相对于父组件Start方向偏移n列，需为非负整数。
+   * 传入负数时，使用默认值0。当useSizeType设置了对应尺寸的offset时，gridOffset设置无效。
+   * <br>**说明：**<br>- 调用该属性时，其父组件或祖先组件必须是GridContainer。
+   * <br>- 配置该属性后，当前组件在父组件水平方向的布局不再跟随父组件原有的布局方式，而是沿着父组件的Start方向偏移一定位移。
+   * <br>- 偏移位移&nbsp;=&nbsp;（列宽&nbsp;+&nbsp;间距）\*&nbsp;偏移列数。
+   * <br>- 设置了偏移(gridOffset)的组件之后的兄弟组件会根据该组件进行相对布局。
+   * <br>默认值：0
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The default offset column number indicates the number of offset columns of the current component in the start direction of the parent component when the useSizeType attribute does not set the offset of the corresponding dimension. That is,
-   * the current component is located in the nth column.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The default offset column number indicates the number of offset columns of the current component in the start direction of the parent component when the useSizeType attribute does not set the offset of the corresponding dimension. That is,
-   * the current component is located in the nth column.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
    * @since 11 dynamiconly
    * @deprecated since 14
    * @useinstead grid_col/GridColInterface and grid_row/GridRowInterface
@@ -24557,12 +22585,24 @@ declare class CommonMethod<T> {
 
   /**
    * 设置组件旋转。
+   * 
+   * > **说明：**
+   * >
+   * > 当组件同时设置了rotate和scale属性时，centerX和centerY的取值会发生冲突，此时centerX和centerY的值以属性链中后设置的属性值为准。
    *
    * @param { RotateOptions } value - 可使组件在以组件左上角为坐标原点的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中进行旋转（坐标系如下图所示）。其中，(
-   *     x, y, z）指定一个矢量，作为旋转轴。<br/>旋转轴和旋转中心点都基于坐标系设定，组件发生位移时，坐标系不会随之移动。<br/>默认值: 在x、y、z都不指定时，x、y、z的默认值分别为0、0、1。指定了x、y、z任
-   *     何一个值时，x、y、z中未指定的值默认为0。<br/>{<br/>centerX: '50%',<br/>centerY: '50%',<br/>centerZ: 0,<br/>perspective: 0<br/>}<
-   *     br/>单位：vp<br/>![coordinates](docroot://reference/apis-arkui/arkui-ts/figures/coordinates.png)
-   * @returns { T } 返回当前组件。
+   *     x, y, z)指定一个矢量，作为旋转轴。
+   *     <br>旋转轴和旋转中心点都基于坐标系设定，组件发生位移时，坐标系不会随之移动。
+   *     <br>默认值: 在x、y、z都不指定时，x、y、z的默认值分别为0、0、1。指定了x、y、z任何一个值时，x、y、z中未指定的值默认为0。
+   *     <br>{
+   *     <br>centerX: '50%',
+   *     <br>centerY: '50%',
+   *     <br>centerZ: 0,
+   *     <br>perspective: 0
+   *     <br>}
+   *     <br>centerX、centerY、centerZ的单位为vp，perspective的单位为px
+   *     <br>![coordinates](docroot://reference/apis-arkui/arkui-ts/figures/coordinates.png)
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -24575,12 +22615,19 @@ declare class CommonMethod<T> {
    * 设置组件旋转。与[rotate]{@link CommonMethod#rotate(value: RotateOptions)}相比，options参数新增了对undefined类型的支持。
    *
    * @param { Optional<RotateOptions> } options - 可使组件在以组件左上角为坐标原点的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中进行旋转（坐标
-   *     系如下图所示）。其中，(x, y, z）指定一个矢量，作为旋转轴。<br/>旋转轴和旋转中心点都基于坐标系设定，组件发生位移时，坐标系不会随之移动。<br/>默认值: 在x、y、z都不指定时，x、y、z的默认值分别为0、0
-   *     、1。指定了x、y、z任何一个值时，x、y、z中未指定的值默认为0。<br/>{<br/>centerX: '50%',<br/>centerY: '50%',<br/>centerZ: 0,<br/>
-   *     perspective: 0<br/>}<br/>单位：vp<br/>!
-   *     [coordinates](docroot://reference/apis-arkui/arkui-ts/figures/coordinates.png)。<br/>当options的值为undefined时，恢复为无旋
-   *     转效果。
-   * @returns { T } 返回当前组件。
+   *     系如下图所示）。其中，（x, y, z）指定一个矢量，作为旋转轴。
+   *     <br>旋转轴和旋转中心点都基于坐标系设定，组件发生位移时，坐标系不会随之移动。
+   *     <br>默认值: 在x、y、z都不指定时，x、y、z的默认值分别为0、0、1。指定了x、y、z任何一个值时，x、y、z中未指定的值默认为0。
+   *     <br>{
+   *     <br>centerX: '50%',
+   *     <br>centerY: '50%',
+   *     <br>centerZ: 0,
+   *     <br>perspective: 0
+   *     <br>}
+   *     <br>centerX、centerY、centerZ的单位为vp，perspective的单位为px
+   *     <br>![coordinates](docroot://reference/apis-arkui/arkui-ts/figures/coordinates.png)。
+   *     <br>当options的值为undefined时，恢复为无旋转效果。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24594,15 +22641,32 @@ declare class CommonMethod<T> {
    * 设置组件旋转效果。与[rotate]{@link CommonMethod#rotate(options: Optional<RotateOptions>)}相比，options参数新增了对RotateAngleOptions类型
    * 的支持。
    *
-   * @param { Optional<RotateOptions | RotateAngleOptions> } options - RotateOptions可使组件在以组件左上角为坐标原点的坐标系中进行旋转（坐标系如下图所示）。
-   *     其中，(x, y, z）指定一个矢量，作为旋转轴。<br/>旋转轴和旋转中心点都基于[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)设定，组件发生位移时，坐标系不会随之移动。<br
-   *     />默认值：在x、y、z都不指定时，x、y、z的默认值分别为0、0、1。指定了x、y、z任何一个值时，x、y、z中未指定的值默认为0。<br/>{<br/>centerX: '50%',<br/>centerY: '50%
-   *     ',<br/>centerZ: 0,<br/>perspective: 0<br/>}<br/>RotateAngleOptions可使组件在以组件左上角为坐标原点的坐标系中进行旋转（坐标系如下图所示）。其中，(
-   *     angleX, angleY, angleZ）指定三个轴方向上的旋转角。<br/>默认值：<br/>{<br/>angleX:0,<br />angleY:0,<br />angleZ:0,<br />centerX: '
-   *     50%',<br/>centerY: '50%',<br/>centerZ: 0,<br/>perspective: 0<br/>}<br/>!
-   *     [coordinates](docroot://reference/apis-arkui/arkui-ts/figures/coordinates.png)<br/>当options的值为undefined时，恢复为无旋转
-   *     效果。
-   * @returns { T } 返回当前组件。
+   * @param { Optional<RotateOptions | RotateAngleOptions> } options - RotateOptions可使组件在以组件左上角为坐标原点的
+   *     [组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中进行旋转（坐标系如下图所示）。其中，(x, y, z)指定一个矢量，作为旋转轴。
+   *     <br>旋转轴和旋转中心点都基于[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)设定，组件发生位移时，坐标系不会随之移动。
+   *     <br>默认值：在x、y、z都不指定时，x、y、z的默认值分别为0、0、1。指定了x、y、z任何一个值时，x、y、z中未指定的值默认为0。
+   *     <br>{
+   *     <br>centerX: '50%',
+   *     <br>centerY: '50%',
+   *     <br>centerZ: 0,
+   *     <br>perspective: 0
+   *     <br>}
+   *     <br>RotateAngleOptions可使组件在以组件左上角为坐标原点的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中进行旋转（坐标系如下图所示）。其中，(angleX,
+   *      angleY, angleZ)指定三个轴方向上的旋转角。
+   *     <br>旋转中心点都基于[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)设定，组件发生位移时，坐标系不会随之移动。
+   *     <br>默认值：
+   *     <br>{
+   *     <br>angleX:0,
+   *     <br>angleY:0,
+   *     <br>angleZ:0,
+   *     <br>centerX: '50%',
+   *     <br>centerY: '50%',
+   *     <br>centerZ: 0,
+   *     <br>perspective: 0
+   *     <br>}
+   *     <br>![coordinates](docroot://reference/apis-arkui/arkui-ts/figures/coordinates.png)
+   *     <br>当options的值为undefined时，恢复为无旋转效果。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24613,11 +22677,11 @@ declare class CommonMethod<T> {
   rotate(options: Optional<RotateOptions | RotateAngleOptions>): T;
 
   /**
-   * 可用于显示二维变换时的矩阵变换。包含三维变换时应使用[transform3D]{@link CommonMethod#transform3D}接口。
+   * 设置组件的二维变换矩阵。当涉及包含透视效果的三维变换时，transform接口显示效果可能有误，应使用[transform3D]{@link CommonMethod#transform3D}接口。
    *
    * @param { object } value - 设置当前组件的变换矩阵。object当前仅支持[Matrix4Transit]{@link @ohos.matrix4:matrix4.Matrix4Transit}矩阵对象类
    *     型。
-   * @returns { T } 返回当前组件。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -24626,12 +22690,13 @@ declare class CommonMethod<T> {
   transform(value: object): T;
 
   /**
-   * 可用于显示二维变换时的矩阵变换。包含三维变换时应使用[transform3D]{@link CommonMethod#transform3D}接口。与
+   * 设置二维变换矩阵。包含三维变换时应使用[transform3D]{@link CommonMethod#transform3D}接口。与
    * [transform]{@link CommonMethod#transform(value: object)}相比，transform<sup>18+</sup>参数新增了对undefined类型的支持。
    *
    * @param { Optional<object> } transform - 设置当前组件的变换矩阵。object当前仅支持
-   *     [Matrix4Transit]{@link @ohos.matrix4:matrix4.Matrix4Transit}矩阵对象类型。<br/>当transform的值为undefined时，恢复为单位矩阵的效果。
-   * @returns { T } 返回当前组件。
+   *     [Matrix4Transit]{@link @ohos.matrix4:matrix4.Matrix4Transit}矩阵对象类型。
+   *     <br>当transform的值为undefined时，恢复为单位矩阵的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24641,10 +22706,10 @@ declare class CommonMethod<T> {
   transform(transform: Optional<object>): T;
 
   /**
-   * 设置组件的三维变换矩阵。当涉及包含透视效果的三维变换时，transform接口显示效果可能有误，推荐使用transform3D接口。
+   * 当涉及包含透视效果的三维变换时，transform接口因仅处理二维变换，显示效果可能与预期不一致，推荐使用transform3D接口。
    *
-   * @param { Optional<Matrix4Transit> } transform - 三维变换矩阵。<br/>当transform的值为undefined时，恢复为单位矩阵的效果。
-   * @returns { T } 返回当前组件。
+   * @param { Optional<Matrix4Transit> } transform - 设置组件的三维变换矩阵，组件将按照该矩阵进行三维空间变换。当transform的值为undefined时，恢复为单位矩阵的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24655,7 +22720,6 @@ declare class CommonMethod<T> {
 
   /**
    * 组件挂载后触发此回调。
-   * 
    * > **说明：**
    * >
    * > 回调的调用时机有可能发生在组件布局渲染后。
@@ -24773,7 +22837,7 @@ declare class CommonMethod<T> {
    *
    * @param { number } value - 设置父容器在主轴方向上的剩余空间分配给此属性所在组件的比例。<br/>取值范围：[0, +∞)<br/>默认值：0<br/>设置异常值时，该属性为默认值。
    *     <br>取值应为≥0的整数。
-   * @returns { T } Current component.
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -24796,7 +22860,7 @@ declare class CommonMethod<T> {
    *     <br/>[constraintSize]{@link constraintSize}限制组件的尺寸范围.
    *     Column和Row即使设置了constraintSize，在未设置主轴尺寸width/height/size时仍遵守默认布局行为，在主轴上自适应子组件尺寸，此时flexShrink不生效.<br/>设置异常值时，该属性为
    *     默认值。
-   * @returns { T } Current component.
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -24807,11 +22871,12 @@ declare class CommonMethod<T> {
   flexShrink(value: number): T;
 
   /**
-   * 设置组件的基准尺寸。
+   * 设置组件的基准尺寸。仅作为Flex、Column、Row和DynamicLayout容器的子组件时支持设置此属性。设置后组件会以该基准尺寸作为初始尺寸参与布局计算。当父容器为Column、Row时，需设置主轴方向的尺寸。Column和Row在未设置主轴尺寸（width/height/size）时仍遵守默认布局行
+   * 为，在主轴上自适应子组件尺寸，此时可能影响flexBasis的效果。
    *
    * @param { number | string } value - 设置组件在父容器主轴方向上的基准尺寸。<br/>默认值：'auto'（表示组件在主轴方向上的基准尺寸为组件原本的大小）。<br/>string类型可选值：可以转化为数字的字符串（如'10'）或带长度单位的字符串（如'10px'）或
    *     'auto'，不允许设置百分比字符串。<br/>number：取值范围(0,+∞)，单位为vp。<br/>异常值：默认为'auto'。
-   * @returns { T } Current component.
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -24826,7 +22891,7 @@ declare class CommonMethod<T> {
    * @param { ItemAlign } value - 子组件在父容器交叉轴的对齐格式，会覆盖([Flex]{@link Flex}, [Column]{@link Column}, [Row]{@link Row}, or
    *     [GridRow]{@link GridRow})布局容器中的alignItems设置。<br/>[GridCol]{@link
    *     GridCol}可以绑定alignSelf属性来改变它自身在交叉轴方向上的布局。<br/>默认值：ItemAlign.Auto
-   * @returns { T } Current component.
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -24841,7 +22906,7 @@ declare class CommonMethod<T> {
    *
    * @param { LocalizedAlignment } alignment - 指定设置在Stack组件中子组件的对齐规则。<br/>默认值：LocalizedAlignment.CENTER
    *     。说明：当传入异常值时，按默认值处理。
-   * @returns { T } Current component.
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24852,14 +22917,14 @@ declare class CommonMethod<T> {
   layoutGravity(alignment: LocalizedAlignment): T;
 
   /**
-   * 设置当前组件在布局容器中显示的优先级。
+   * 设置当前组件在Row/Column/Flex(单行)容器中显示的优先级，优先级由数值的整数部分决定，整数部分越大优先级越高。
+   * 适用于响应式布局中根据父容器空间动态显示/隐藏子组件的场景。例如，在不同屏幕尺寸下优先显示重要内容，隐藏次要内容。
    *
-   * @param { number } value - 设置当前组件在布局容器中显示的优先级。<br/>默认值：1<br/>**说明：**<br/>仅在[Row]{@link Row}/[Column]{@link
-   *     Column}/[Flex(单行)]{@link Flex}容器组件中生效。<br/> 小数点后的数字不作优先级区分，即区间为[x, x +
-   *     1)内的数字视为相同优先级。例如：1.0与1.9为同一优先级。<br/>子组件的displayPriority均不大于1时，优先级没有区别。<br/>当子组件的displayPriority大于1时，displayPriority
-   *     数值越大，优先级越高。若父容器空间不足，隐藏低优先级子组件。若某一优先级的子组件被隐藏，则优先级更低的子组件也都被隐藏
-   *     <br>取值限定为整数。
-   * @returns { T } Current component.
+   * @param { number } value - 设置当前组件在布局容器中显示的优先级，取值范围[0, +∞)。<br/>默认值：1<br/>**说明：**<br/>仅在[Row]{@link Row}/[Column]{@link
+   *     Column}/[Flex(单行)]{@link Flex}容器组件中生效。<br>当容器空间有限，需要控制组件显示顺序或隐藏低优先级组件时使用（如在Flex容器中根据空间大小动态显示内容）。建议根据组件重要性设置优先级，关键组件设置较大的值（如2-10），次要组件设置较小的值（如1）。
+   *     <br/> 小数点后的数字不影响优先级。不大于1的所有值优先级相同。大于1时，displayPriority的整数部分越大，优先级越高；同一整数区间内的值优先级相同。例如：0.5和1.0优先级相同（均不大于1）；1.5和1.9优先级相同（整数部分均为1）；2.0和2.9优先级相同（整数部分均为2），且高于1.x的优先级。
+   *     <br/>若父容器空间不足，隐藏低优先级子组件。若某一优先级级别的子组件被隐藏，则所有更低优先级的子组件也都会被隐藏。
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -24885,12 +22950,21 @@ declare class CommonMethod<T> {
   zIndex(value: number): T;
 
   /**
-   * 设置共享元素转场动效。
+   * 设置共享元素转场动效。该转场仅发生在@ohos.router页面路由跳转时。
+   * 
+   * > **说明：**
+   * >
+   * > - sharedTransition需与[PageTransitionEnter][PageTransitionEnter]{@link PageTransitionEnter}和
+   * > [PageTransitionExit]{@link PageTransitionExit}配合使用，共同控制页面转场动画效果。
+   * >
+   * > - 当PageTransitionEnter/PageTransitionExit设置type为RouteType.None、duration为0时，页面整体无转场动画，仅显示共享元素转场动效。
+   * >
+   * > - 当未配置PageTransition时，页面默认转场动画与共享元素转场动效同时播放，可能出现视觉叠加效果。
    *
-   * @param { string } id - 两个页面中id值相同且不为空字符串的组件即为共享元素，在页面转场时可显示共享元素转场动效。
-   * @param { sharedTransitionOptions } options - 共享元素转场动画参数。不设置时使用默认转场动画参数。各参数具体默认值参考
+   * @param { string } id - 两个页面中id值相同且不为空字符串的组件即为共享元素，在页面转场时可显示共享元素转场动效。传入空字符串时不产生共享元素转场动效。
+   * @param { sharedTransitionOptions } options - 共享元素转场动效参数。未设置时使用默认转场动画参数。各参数具体默认值参考
    *     [sharedTransitionOptions]{@link sharedTransitionOptions}。
-   * @returns { T } 返回当前组件。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -24903,7 +22977,7 @@ declare class CommonMethod<T> {
    *
    * @param { Direction } value - 设置当前组件绘制区域内主轴方向上的布局。<br/>属性配置为auto的时候，按照系统语言方向进行布局。<br/>该属性在Column组件上不生效。<br/>默认值：Direction.Auto
    *     <br/>direction取undefined或null时按默认值处理。
-   * @returns { T } Current component.
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -24947,7 +23021,7 @@ declare class CommonMethod<T> {
    *     components-text.md#textalign)。<br/>不支持textAlign属性的组件则无法设置水平方向的文字对齐。<br/>默认值：Alignment.Center<br/>**说明：**
    *     <br/>该属性在[Stack](ts-container-stack.md)组件上支持镜像能力，在其他组件上不支持镜像能力。<br/>在Stack中该属性与alignContent效果一致，只能设置子组件在当前组件内的对
    *     齐方式。
-   * @returns { T } Current component.
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -24980,7 +23054,7 @@ declare class CommonMethod<T> {
    *     <br/>Alignment类型不支持镜像能力；LocalizedAlignment类型支持镜像能力，选择LocalizedAlignment中的枚举值，根据direction或系统语言方向的改变实现镜像切换。其中dire
    *     ction的优先级高于系统语言方向，当设置direction且不为auto时，LocalizedAlignment的镜像按照direction进行布局；当设置direction为auto或未设置时，LocalizedAli
    *     gnment的镜像按照系统语言方向进行布局。
-   * @returns { T } Current component.
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -25006,13 +23080,13 @@ declare class CommonMethod<T> {
    * > - 当父组件为[RelativeContainer]{@link RelativeContainer}，且子组件设置了alignRules属性时，子组件的position属性不生效。
    * > - 若本属性所在组件的父组件未设置固定宽高，那么本组件会参考第一个设置固定宽高的祖先组件进行绝对定位。
    *
-   * @param { Position } value - [since 7 - 11]
-   * @param { Position | Edges | LocalizedEdges } value - Absolute positioning that determines the child component's
-   *     position relative to the parent's content area. The content area of the parent component is calculated by
-   *     subtracting the [border]{@link border}, [padding]{@link padding}, and [safeAreaPadding]{@link safeAreaPadding}
-   *     values from the parent component's total size. This resulting content area defines the available layout space
-   *     for child components. This attribute does not take effect when it is set to an abnormal value. [since 12].
-   * @returns { T } Current component.
+   * @param { Position } value - 绝对定位，确定子组件相对父组件内容区的位置，父组件内容区的大小为
+   * 父组件大小减去[border]{@link border}、[padding]{@link padding}、[safeAreaPadding]{@link safeAreaPadding}后提供给子组件可布局的内容区域大小。
+   * <br/>设置异常值时该属性不生效。[since 7 - 11]
+   * @param { Position | Edges | LocalizedEdges } value - 绝对定位，确定子组件相对父组件内容区的位置，父组件内容区的大小为
+   * 父组件大小减去[border]{@link border}、[padding]{@link padding}、[safeAreaPadding]{@link safeAreaPadding}后提供给子组件可布局的内容区域大小。
+   * <br/>设置异常值时该属性不生效。[since 12].
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -25024,17 +23098,19 @@ declare class CommonMethod<T> {
   /**
    * 设置元素在位置定位时的锚点，支持[attributeModifier]{@link attributeModifier}动态设置属性方法。
    *
-   * @param { Position } value - [since 7 - 11]
-   * @param { Position | LocalizedPosition } value - Positioning anchor that offsets an element from the position
-   *     specified by [position]{@link position} or [offset]{@link offset}
-   *     **.position({x: value1, y: value2}).markAnchor({x: value3, y: value4})** has the same effect as
-   *     **.position({x: value1 - value3, y: value2 - value4})**. The same applies to **offset**.
-   *     <br>If **.markAnchor({x: value1, y: value2})** is set separately, the effect is the same as that of
-   *     **.offset({x: -value1, y: -value2})**.
-   *     <br>API version 9 and earlier: The default value is **{x: 0, y: 0}**.
-   *     <br>API version 10: no default value.
-   *     <br>This attribute does not take effect when it is set to an abnormal value. [since 12]
-   * @returns { T } Current component.
+   * @param { Position } value - 设置元素在位置定位时的锚点，基于position或offset的初始位置，进行进一步的偏移调整。
+   * <br/>设置.position({x: value1, y: value2}).markAnchor({x: value3, y: value4})，效果等于设置.position({x: value1 - value3, y: value2 - value4})，offset同理。
+   * <br/>单独设置.markAnchor({x: value1, y: value2})，效果等于设置.offset({x: -value1, y: -value2})。
+   * <br/>API version 9及以前，默认值为：{x: 0, y: 0}
+   * <br/>API version 10：无默认值。 
+   * <br/>设置异常值时该属性不生效。[since 7 - 11]
+   * @param { Position | LocalizedPosition } value - 设置元素在位置定位时的锚点，基于position或offset的初始位置，进行进一步的偏移调整。
+   * <br/>设置.position({x: value1, y: value2}).markAnchor({x: value3, y: value4})，效果等于设置.position({x: value1 - value3, y: value2 - value4})，offset同理。
+   * <br/>单独设置.markAnchor({x: value1, y: value2})，效果等于设置.offset({x: -value1, y: -value2})。
+   * <br/>API version 9及以前，默认值为：{x: 0, y: 0}
+   * <br/>API version 10：无默认值。 
+   * <br/>设置异常值时该属性不生效。 [since 12]
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -25046,20 +23122,19 @@ declare class CommonMethod<T> {
   /**
    * 相对偏移，组件相对原本的布局位置进行偏移。和position一起使用时，position生效，offset不生效，支持[attributeModifier]{@link attributeModifier}动态设置属性方法。
    *
-   * @param { Position } value - [since 7 - 11]
-   * @param { Position | Edges | LocalizedEdges } value - Offset of the component relative to its original layout
-   *     position. The **offset** attribute does not affect the layout of the parent container. It adjusts the component
-   *     position only during drawing.
-   *     If of the [Position]{@link Position} type, this parameter sets the offset relative to the upper
-   *     left corner of the component. If of the [Edges]{@link Edges} type, this parameter sets the offset
-   *     relative to the four edges of the component. **{x: x, y: y}** has the same effect as **{left: x, top: y}** and
-   *     **{right: -x, bottom: -y}**. The [LocalizedEdges]{@link LocalizedEdges} type supports the mirror mode:
-   *     **start** is equivalent to **x** with left-to-right scripts and **-x** with right-to-left scripts.
-   *     <br>API version 9 and earlier: The default value is **{x: 0, y: 0}**.
-   *     <br>Default unit: vp
-   *     <br>API version 10: no default value.
-   *     <br>This attribute does not take effect when it is set to an abnormal value. [since 12]
-   * @returns { T } Current component.
+   * @param { Position } value - 相对偏移，组件基于原本的布局位置进行偏移。offset属性不影响父组件布局，仅在绘制时调整位置。
+   * <br/>Position类型基于组件自身左上角偏移。
+   * <br/>API version 9及以前，默认值为：{x: 0, y: 0}
+   * <br/>默认单位：vp
+   * <br/>API version 10：无默认值。
+   * <br/>设置异常值时该属性不生效。[since 7 - 11]
+   * @param { Position | Edges | LocalizedEdges } value - 相对偏移，组件基于原本的布局位置进行偏移。offset属性不影响父组件布局，仅在绘制时调整位置。
+   * <br/>Position类型基于组件自身左上角偏移，Edges类型基于组件自身四边偏移。 offset属性设置{x: x, y: y}与设置{left: x, top: y}以及{right: -x, bottom: -y}效果相同，类型LocalizedEdges支持镜像模式：LTR模式下start等同于x，RTL模式下start等同于-x。
+   * <br/>API version 9及以前，默认值为：{x: 0, y: 0}
+   * <br/>默认单位：vp
+   * <br/>API version 10：无默认值。
+   * <br/>设置异常值时该属性不生效。[since 12]
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -25083,9 +23158,16 @@ declare class CommonMethod<T> {
   enabled(value: boolean): T;
 
   /**
-   * Sets the number of occupied columns and offset columns for a specific device width type.
+   * 设置在特定设备宽度类型下的占用列数和偏移列数。
    *
-   * @param { object } value
+   * @param { object } value - 设置在特定设备宽度类型下的占用列数和偏移列数，span：占用列数（需为非负整数）。传入负数或超出GridContainer总列数时，使用默认值；offset：偏移列数（需为非负整数）。传入负数时，使用默认值0。
+   * <br>当值为number类型时，仅设置列数，当格式如{"span":&nbsp;1,&nbsp;"offset":&nbsp;0}时，指同时设置占用列数与偏移列数。
+   * <br>-&nbsp;xs：指设备宽度类型为SizeType.XS（<320vp）时的占用列数和偏移列数。
+   * <br>-&nbsp;sm：指设备宽度类型为SizeType.SM（320vp-600vp）时的占用列数和偏移列数。
+   * <br>-&nbsp;md：指设备宽度类型为SizeType.MD（600vp-840vp）时的占用列数和偏移列数。
+   * <br>-&nbsp;lg：指设备宽度类型为SizeType.LG（≥840vp）时的占用列数和偏移列数。
+   * <br>各尺寸类型的详细断点配置请参见[GridContainer](ts-container-gridcontainer.md)。
+   * <br>**说明：**<br>- 调用该属性时，其父组件或祖先组件必须是GridContainer。
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -25104,7 +23186,7 @@ declare class CommonMethod<T> {
    * attributeModifier}动态设置属性方法。
    *
    * @param { AlignRuleOption } value - 指定设置在相对布局组件中子组件的对齐规则。
-   * @returns { T } Current component.
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form
@@ -25119,7 +23201,7 @@ declare class CommonMethod<T> {
    * [attributeModifier]{@link attributeModifier}动态设置属性方法。
    *
    * @param { LocalizedAlignRuleOptions } alignRule - 指定设置在相对布局组件中子组件的对齐规则。
-   * @returns { T } Current component.
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -25135,7 +23217,7 @@ declare class CommonMethod<T> {
    * @param { Axis } direction - 链的方向。
    * @param { ChainStyle } style - 链的样式。
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -25147,14 +23229,17 @@ declare class CommonMethod<T> {
    * 指定当前组件的宽高比，aspectRatio=width/height。
    * - 仅设置width、aspectRatio时，height=width/aspectRatio。
    * - 仅设置height、aspectRatio时，width=height*aspectRatio。
-   * - 同时设置width、height和aspectRatio时，height不生效，height=width/aspectRatio。
+   * - 同时设置width、height和aspectRatio时，height会被重新计算为width/aspectRatio，显式设置的height值不生效。
+   * 
+   * 适用于需要保持固定宽高比的组件，例如图片展示、视频播放器、响应式布局中保持比例等场景。
    *
    * 设置aspectRatio属性后，组件宽高会受父组件内容区大小限制，[constraintSize]{@link constraintSize}的优先级高于aspectRatio。
+   * 当constraintSize设置的maxWidth/maxHeight约束与aspectRatio计算结果冲突时，组件将优先遵循constraintSize的maxWidth/maxHeight约束，此时aspectRatio可能无法生效。
    *
    * @param { number } value - 指定当前组件的宽高比。<br/>API version 9及以前，默认值为：1.0。<br/>API version
    *     10：无默认值。<br/>**说明：**<br/>该属性在不设置值或者设置非法值(小于等于0)时不生效。<br/>例如，Row只设置宽度且没有子组件，aspectRatio不设置值或者设置成负数时，此时Row高度为0。
    *     <br>取值限定为整数。
-   * @returns { T } Current component.
+   * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -25165,11 +23250,15 @@ declare class CommonMethod<T> {
   aspectRatio(value: number): T;
 
   /**
-   * 设置当前组件的点击回弹效果。
+   * 设置当前组件的点击回弹效果。点击回弹效果的强度等级决定回弹时的缩放幅度。
    *
-   * @param { ClickEffect | null } value - 设置当前组件点击回弹效果。<br/>**说明：**<br/>可通过null取消点击回弹效果。<br/>不建议在组件大小动态变化的场景中使用该功能。<br/
-   *     >当组件无法触发通用事件时，不支持该属性。<br/>回弹触发缩放后可能造成触摸点不在控件上，控件上无法响应手势事件。
-   * @returns { T } 返回当前组件。
+   * @param { ClickEffect | null } value - 设置当前组件点击回弹效果。
+   *     <br>**说明：**
+   *     <br>可通过null取消点击回弹效果。
+   *     <br>不建议在组件大小动态变化的场景中使用该功能，可能导致回弹效果异常。
+   *     <br>当组件无法触发通用事件（如[点击事件]{@link ./common}等事件）时，不支持该属性。
+   *     <br>回弹触发缩放后可能造成触摸点不在组件上，组件上无法响应手势事件。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -25179,11 +23268,17 @@ declare class CommonMethod<T> {
   clickEffect(value: ClickEffect | null): T;
 
   /**
-   * 设置当前组件的点击回弹效果。与[clickEffect]{@link CommonMethod#clickEffect(value: ClickEffect | null)}相比，新增了对undefined类型的支持。
+   * 设置当前组件的点击回弹效果。与[clickEffect]{@link CommonMethod#clickEffect(value: ClickEffect | null)}相比，新增了对undefined类型的支持。点击回弹效果
+   * 的等级级别决定回弹时的缩放幅度。
    *
-   * @param { Optional<ClickEffect | null> } effect - 设置当前组件的点击回弹效果。<br/>**说明：**<br/>可通过undefined或者null取消点击回弹效果。<br/>不建议
-   *     在组件大小动态变化的场景中使用该功能。<br/>当组件无法触发通用事件时，不支持该属性。<br/>回弹触发缩放后可能造成触摸点不在控件上，控件上无法响应手势事件。
-   * @returns { T } 返回当前组件。
+   * @param { Optional<ClickEffect | null> } effect - 点击回弹效果的级别，用于控制回弹的强度程度。
+   *     <br>**说明：**
+   *     <br>可通过undefined或者null取消点击回弹效果。
+   *     <br>不建议在组件大小动态变化的场景中使用该功能。
+   *     <br>当组件无法触发通用事件（如[点击事件]{@link ./common}等事件）时，不支持该属性。具体包括：组件被设置为disabled状态、组件不可见、组件被其他组件遮挡等场景下，无法触发通用事件，此时
+   *     clickEffect属性不生效。
+   *     <br>回弹触发缩放后可能造成触摸点不在组件上，组件上无法响应手势事件。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -25362,7 +23457,7 @@ declare class CommonMethod<T> {
    *    returned in [onDragStart]{@link CommonMethod#onDragStart} is lower than that of the preview set in
    *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}. This means that,
    *    once set, the latter will be used in place of the former. Using
-   *    [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8) requires offline rendering
+   *    [CustomBuilder]{@link CustomBuilder} requires offline rendering
    *    and may increase performance overhead and latency. In light of this, you are advised to use
    *    [PixelMap]{@link @ohos.multimedia.image:image.PixelMap} in [DragItemInfo]{@link DragItemInfo} instead.<br> When
    *    an ID of the string type is passed in, the snapshot of the component assigned the ID is used as the preview
@@ -25378,7 +23473,7 @@ declare class CommonMethod<T> {
    *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}设置的预览图，当设置了
    *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}预览图时，拖拽过程中的背板图使用
    *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}预览图。由于
-   *    [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8)需要离线渲染之后才能使用，因此存在一定的性能开销和时延，
+   *    [CustomBuilder]{@link CustomBuilder}需要离线渲染之后才能使用，因此存在一定的性能开销和时延，
    *    推荐优先使用 [DragItemInfo]{@link DragItemInfo}中的[PixelMap]{@link @ohos.multimedia.image:image.PixelMap}方式。<br/> 当传入类
    *    型为string的id时，则将id对应组件的截图作为预览图。如果id对应的组件无法查找到，或者id对应的组件[Visibility]{@link Visibility}属性设置成None/Hidden，则对组件自身进行截图
    *    作为拖拽预览图。目前截图不含有亮度、阴影、模糊和旋转等视觉效果。 [since 12]
@@ -25484,7 +23579,7 @@ declare class CommonMethod<T> {
    *     **ComponentContent** is recommended. [since 10 - 11]
    * @param { string | CustomBuilder | ComponentContent } value - 遮罩文本内容或自定义组件构造函数。<br/>**说明：**<br/>自定义组件作为浮层时，不支持键盘走焦到自
    *     定义组件中。通过CustomBuilder设置浮层时，浮层中的内容会在页面刷新时销毁并重新创建，存在一定的性能损耗，页面频繁刷新的场景推荐使用ComponentContent方式设置浮层。 [since 12]
-   * @param { OverlayOptions } options - 浮层的定位。<br/>**说明：**<br/>API version 12之前，options: <br/>{<br/>align?: 
+   * @param { OverlayOptions } [options] - 浮层的定位。<br/>**说明：**<br/>API version 12之前，options: <br/>{<br/>align?: 
    *     [Alignment]{@link Alignment}, <br/>offset?: {x?: number, y?: number}<br/>} [since 12]
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25508,74 +23603,27 @@ declare class CommonMethod<T> {
   toolbar(value: CustomBuilder): T;
 
   /**
-   * 线性渐变。
+   * 设置组件的线性渐变效果，沿指定方向或角度进行颜色渐变。
    *
-   * @param { object } value - Linear gradient.
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 线性渐变。
-   *
-   * @param { object } value - Linear gradient.
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 线性渐变。
-   *
-   * @param { object } value - Linear gradient.
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 线性渐变。
-   *
-   * @param { object } value - Linear gradient.
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * 线性渐变。
-   *
-   * @param { object } value - Linear gradient.
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * 线性渐变。
-   *
-   * @param { object } value - 线性渐变。 [since 18]
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @param { object } value - 线性渐变的配置参数。 [since 7 - 17]
+   * @param { LinearGradientOptions } value - 线性渐变的配置参数。 [since 18]
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   linearGradient(value: LinearGradientOptions): T;
 
   /**
-   * 线性渐变。与[linearGradient]{@link CommonMethod#linearGradient(value: LinearGradientOptions)}相比，options参数新增了对undefined类型的
-   * 支持。
+   * 设置组件的线性渐变效果，沿指定方向或角度进行颜色渐变。与[linearGradient]{@link CommonMethod#linearGradient(value: LinearGradientOptions)}相比，
+   * options参数新增了对undefined类型的支持。
    *
-   * @param { Optional<LinearGradientOptions> } options - 线性渐变。<br/>当options的值为undefined时，恢复为无线性渐变的效果。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<LinearGradientOptions> } options - 线性渐变的配置选项。
+   *     <br>当options的值为undefined时，恢复为无线性渐变的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -25585,73 +23633,27 @@ declare class CommonMethod<T> {
   linearGradient(options: Optional<LinearGradientOptions>): T;
 
   /**
-   * 角度渐变。
+   * 设置组件的角度渐变效果，围绕中心点按角度旋转进行颜色渐变，仅绘制0-360度范围内的角度，超出0-360度范围时不绘制渐变过渡效果，仅以渐变边界处对应的颜色填充（即渐变终止位置对应的颜色）。
    *
-   * @param { SweepGradientOptions } value - 角度渐变，仅绘制0-360度范围内的角度，超出时不绘制渐变色，只绘制纯色。 [since 18]
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 角度渐变。
-   *
-   * @param { SweepGradientOptions } value - 角度渐变，仅绘制0-360度范围内的角度，超出时不绘制渐变色，只绘制纯色。 [since 18]
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 角度渐变。
-   *
-   * @param { SweepGradientOptions } value - 角度渐变，仅绘制0-360度范围内的角度，超出时不绘制渐变色，只绘制纯色。 [since 18]
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 角度渐变。
-   *
-   * @param { SweepGradientOptions } value - 角度渐变，仅绘制0-360度范围内的角度，超出时不绘制渐变色，只绘制纯色。 [since 18]
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * 角度渐变。
-   *
-   * @param { SweepGradientOptions } value - 角度渐变，仅绘制0-360度范围内的角度，超出时不绘制渐变色，只绘制纯色。 [since 18]
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * 角度渐变。
-   *
-   * @param { SweepGradientOptions } value - 角度渐变，仅绘制0-360度范围内的角度，超出时不绘制渐变色，只绘制纯色。 [since 18]
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @param { object } value - 角度渐变的配置参数，仅绘制0-360度范围内的角度，超出0-360度范围时不绘制渐变过渡效果，仅以渐变边界处对应的颜色填充。 [since 7 - 17]
+   * @param { SweepGradientOptions } value - 角度渐变的配置参数，仅绘制0-360度范围内的角度，超出0-360度范围时不绘制渐变过渡效果，仅以渐变边界处对应的颜色填充。 [since 18]
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   sweepGradient(value: SweepGradientOptions): T;
 
   /**
-   * 角度渐变。与[sweepGradient]{@link CommonMethod#sweepGradient(value: SweepGradientOptions)}相比，options参数新增了对undefined类型的支持。
+   * 设置组件的角度渐变效果，围绕中心点按角度旋转进行颜色渐变。与[sweepGradient]{@link CommonMethod#sweepGradient(value: SweepGradientOptions)}相比，
+   * options参数新增了对undefined类型的支持。
    *
-   * @param { Optional<SweepGradientOptions> } options - 角度渐变。<br/>当options的值为undefined时，恢复为无角度渐变的效果。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<SweepGradientOptions> } options - 角度渐变的配置选项。仅绘制0-360度范围内的角度，超出0-360度范围时不绘制渐变过渡效果，仅以渐变边界处对应的颜色填充。
+   *     <br>当options的值为undefined时，恢复为无角度渐变的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -25661,75 +23663,27 @@ declare class CommonMethod<T> {
   sweepGradient(options: Optional<SweepGradientOptions>): T;
 
   /**
-   * 径向渐变。
+   * 设置组件的径向渐变效果，从中心点向外辐射进行颜色渐变。
    *
-   * @param { object } value - 径向渐变。 [since 18]
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 径向渐变。
-   *
-   * @param { object } value - 径向渐变。 [since 18]
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 径向渐变。
-   *
-   * @param { object } value - 径向渐变。 [since 18]
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 径向渐变。
-   *
-   * @param { object } value - 径向渐变。 [since 18]
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * 径向渐变。
-   *
-   * @param { object } value - 径向渐变。 [since 18]
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * 径向渐变。
-   *
-   * Anonymous Object Rectification.
-   * @param { RadialGradientOptions } value - 径向渐变。 [since 18]
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @param { object } value - 径向渐变的配置参数。 [since 7 - 17]
+   * @param { RadialGradientOptions } value - 径向渐变的配置参数。 [since 18]
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   radialGradient(value: RadialGradientOptions): T;
 
   /**
-   * 径向渐变。与[radialGradient]{@link CommonMethod#radialGradient(value: RadialGradientOptions)}相比，options参数新增了对undefined类型的
-   * 支持。
+   * 设置组件的径向渐变效果，从中心点向外辐射进行颜色渐变。与[radialGradient]{@link CommonMethod#radialGradient(value: RadialGradientOptions)}相比，
+   * options参数新增了对undefined类型的支持。
    *
-   * @param { Optional<RadialGradientOptions> } options - 径向渐变。<br/>当options的值为undefined时，恢复为无径向渐变的效果。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<RadialGradientOptions> } options - 径向渐变的配置选项。
+   *     <br>当options的值为undefined时，恢复为无径向渐变的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -25739,10 +23693,10 @@ declare class CommonMethod<T> {
   radialGradient(options: Optional<RadialGradientOptions>): T;
 
   /**
-   * 设置组件的路径动画。
+   * 设置组件进行路径动画时的运动路径。
    *
-   * @param { MotionPathOptions } value - 设置组件的运动路径。
-   * @returns { T } 返回当前组件。
+   * @param { MotionPathOptions } value - 设置组件进行路径动画时的运动路径。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -25753,56 +23707,30 @@ declare class CommonMethod<T> {
   /**
    * 为组件添加阴影效果。
    *
-   * @param { ShadowOptions } value - Shadow of the component.
-   * <br>When the value type is **ShadowOptions**, the blur radius, shadow color,
-   * and offset along the x-axis and y-axis can be specified.
-   * @returns { T }
-   返回当前组件。
-   * @since 7
-   */
-  /**
-   * 为组件添加阴影效果。
-   *
-   * @param { ShadowOptions } value - Shadow of the component.
-   * <br>When the value type is **ShadowOptions**, the blur radius, shadow color,
-   * and offset along the x-axis and y-axis can be specified.
-   * @returns { T }
-   返回当前组件。
-   * @form
-   * @since 9
-   */
-  /**
-   * 为组件添加阴影效果。
-   *
-   * @param { ShadowOptions | ShadowStyle } value - 为当前组件添加阴影效果。<br/>入参类型为ShadowOptions时，可以指定模糊半径、阴影的颜色、X轴和Y轴的偏移量。<br/>入参类型为
-   *     ShadowStyle时，可指定不同阴影样式。 [since 7 - 9]
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 为组件添加阴影效果。
-   *
-   * @param { ShadowOptions | ShadowStyle } value - 为当前组件添加阴影效果。<br/>入参类型为ShadowOptions时，可以指定模糊半径、阴影的颜色、X轴和Y轴的偏移量。<br/>入参类型为
-   *     ShadowStyle时，可指定不同阴影样式。 [since 7 - 9]
-   * @returns { T }
-   返回当前组件。
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @param { ShadowOptions } value - 为当前组件添加阴影效果。
+   *     <br>入参类型为ShadowOptions时，可以指定模糊半径、阴影的颜色、X轴和Y轴的偏移量。
+   *     <br>入参类型为ShadowStyle时，可指定不同阴影样式。 [since 7 - 9]
+   * @param { ShadowOptions | ShadowStyle } value - 为当前组件添加阴影效果。
+   *     <br>入参类型为ShadowOptions时，可以指定模糊半径、阴影的颜色、X轴和Y轴的偏移量。
+   *     <br>入参类型为ShadowStyle时，可指定不同阴影样式。 [since 10]
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   shadow(value: ShadowOptions | ShadowStyle): T;
 
   /**
    * 为组件添加阴影效果。与[shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}相比，options参数新增了对undefined类型的支持。
    *
-   * @param { Optional<ShadowOptions | ShadowStyle> } options - 为当前组件添加阴影效果。<br/>入参类型为ShadowOptions时，可以指定模糊半径、阴影的颜色、X轴和Y
-   *     轴的偏移量。<br/>入参类型为ShadowStyle时，可指定不同阴影样式。<br/>当options的值为undefined时，恢复为无样式的阴影效果。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<ShadowOptions | ShadowStyle> } options - 为当前组件添加阴影效果。
+   *     <br>入参类型为ShadowOptions时，可以指定模糊半径、阴影的颜色、X轴和Y轴的偏移量。
+   *     <br>入参类型为ShadowStyle时，可指定不同阴影样式。
+   *     <br>当options的值为undefined时，恢复为无阴影效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -25813,19 +23741,18 @@ declare class CommonMethod<T> {
 
   /**
    * 为组件添加边缘流光效果。边缘流光效果会在组件的边缘创建发光效果，从指定位置开始并沿边缘延伸，此效果可以增强组件的视觉吸引力并突出显示重要组件。
-   *
+   * 
    * > **说明：**
    * >
-   * > - 仅设置edgeLight不会产生边缘流光效果，需结合
-   * > [animateTo](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#animateto)更改position参数达到流光效果。可参考
+   * > - 仅设置edgeLight不会产生边缘流光效果，需结合[animateTo]{@link @ohos.arkui.UIContext:UIContext.animateTo}更改position参数达到流光效果。可参考
    * > [示例4（设置组件边缘流光效果）](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect-sys.md#示例4设置组件边缘流光效果)。
    * >
-   * >
-   * > - 当position参数以对角线方式变更时，边缘流光将沿倾斜角45°的方式运行。
+   * > - 当position参数以对角线方式变更时（如从TOP_LEFT变更到BOTTOM_RIGHT），边缘流光将沿倾斜角45°的方式运行。
    *
-   * @param { EdgeLightParams | undefined } params - 定义边缘流光效果的位置、长度、强度、颜色和厚度。<br/>当params的值为undefined时，移除边缘流光效果。
-   * @returns { T }
-   返回当前组件。
+   * @param { EdgeLightParams | undefined } params - 定义边缘流光效果的位置、长度、强度、颜色和厚度。
+   *     <br>当params的值为undefined时，移除边缘流光效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
@@ -25835,41 +23762,27 @@ declare class CommonMethod<T> {
   /**
    * 将当前控件的内容（包含子节点内容）与下方画布（可能为离屏画布）已有内容进行混合。
    *
-   * @param { BlendMode } value - 混合模式。<br/>默认值：BlendMode.NONE<br/>**说明：**<br/>混合模式设置为BlendMode.NONE时，blend效果实际为默认的
-   *     BlendMode.SRC_OVER，且BlendApplyType不生效。
-   * @param { BlendApplyType } [type] - blendMode实现方式是否离屏。<br/>默认值：BlendApplyType.FAST<br/>**说明：**<br/>1. 设置
-   *     BlendApplyType.FAST时，不离屏。<br/>2. 设置BlendApplyType.OFFSCREEN时，会创建当前组件大小的离屏画布，再将当前组件（含子组件）的内容绘制到离屏画布上，再用指定的混合模式与下
-   *     方画布已有内容进行混合。使用该实现方式时，将导致
+   * @param { BlendMode } value - 混合模式。
+   *     <br>默认值：BlendMode.NONE
+   *     <br>**说明：**
+   *     <br>混合模式设置为BlendMode.NONE时，blend效果实际为默认的BlendMode.SRC_OVER，且BlendApplyType不生效。
+   * @param { BlendApplyType } [type] - blendMode实现方式是否离屏。
+   *     <br>默认值：BlendApplyType.FAST
+   *     <br>**说明：**
+   *     <br>1. 设置BlendApplyType.FAST时，不离屏。
+   *     <br>2. 设置BlendApplyType.OFFSCREEN时，会创建当前组件大小的离屏画布，再将当前组件（含子组件）的内容绘制到离屏画布上，再用指定的混合模式与下方画布已有内容进行混合。使用该实现方式时，将导致
    *     [linearGradientBlur<sup>12+</sup>]{@link CommonMethod#linearGradientBlur(value: number, options: LinearGradientBlurOptions)}
    *     、[backgroundEffect]{@link CommonMethod#backgroundEffect(options: BackgroundEffectOptions)}、
    *     [brightness]{@link CommonMethod#brightness(value: number)}、
    *     [blur]{@link CommonMethod#blur(value: number, options?: BlurOptions)}等需要截屏的接口无法截取到正确的画面。
-   * @returns { T }
-   返回当前组件。
+   *     <br>3. 混合模式设置为BlendMode.NONE时，BlendApplyType不生效。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * 将当前控件的内容（包含子节点内容）与下方画布（可能为离屏画布）已有内容进行混合。
-   *
-   * @param { BlendMode } value - 混合模式。<br/>默认值：BlendMode.NONE<br/>**说明：**<br/>混合模式设置为BlendMode.NONE时，blend效果实际为默认的
-   *     BlendMode.SRC_OVER，且BlendApplyType不生效。
-   * @param { BlendApplyType } [type] - blendMode实现方式是否离屏。<br/>默认值：BlendApplyType.FAST<br/>**说明：**<br/>1. 设置
-   *     BlendApplyType.FAST时，不离屏。<br/>2. 设置BlendApplyType.OFFSCREEN时，会创建当前组件大小的离屏画布，再将当前组件（含子组件）的内容绘制到离屏画布上，再用指定的混合模式与下
-   *     方画布已有内容进行混合。使用该实现方式时，将导致
-   *     [linearGradientBlur<sup>12+</sup>]{@link CommonMethod#linearGradientBlur(value: number, options: LinearGradientBlurOptions)}
-   *     、[backgroundEffect]{@link CommonMethod#backgroundEffect(options: BackgroundEffectOptions)}、
-   *     [brightness]{@link CommonMethod#brightness(value: number)}、
-   *     [blur]{@link CommonMethod#blur(value: number, options?: BlurOptions)}等需要截屏的接口无法截取到正确的画面。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   blendMode(value: BlendMode, type?: BlendApplyType): T;
 
@@ -25878,17 +23791,23 @@ declare class CommonMethod<T> {
    * [blendMode<sup>11+</sup>]{@link CommonMethod#blendMode(value: BlendMode, type?: BlendApplyType)}相比，mode参数新增了对
    * undefined类型的支持。
    *
-   * @param { Optional<BlendMode> } mode - 混合模式。<br/>默认值：BlendMode.NONE<br/>当mode的值为undefined时，恢复为内容不进行混合的效果。<br/>
-   *     **说明：**<br/>混合模式设置为BlendMode.NONE时，blend效果实际为默认的BlendMode.SRC_OVER，且BlendApplyType不生效。
-   * @param { BlendApplyType } [type] - blendMode实现方式是否离屏。<br/>默认值：BlendApplyType.FAST<br/>**说明：**<br/>1. 设置
-   *     BlendApplyType.FAST时，不离屏。<br/>2. 设置BlendApplyType.OFFSCREEN时，会创建当前组件大小的离屏画布，再将当前组件（含子组件）的内容绘制到离屏画布上，再用指定的混合模式与下
-   *     方画布已有内容进行混合。使用该实现方式时，将导致
+   * @param { Optional<BlendMode> } mode - 混合模式。
+   *     <br>默认值：BlendMode.NONE
+   *     <br>当mode的值为undefined时，恢复为内容不进行混合的效果。
+   *     <br>**说明：**
+   *     <br>混合模式设置为BlendMode.NONE时，blend效果实际为默认的BlendMode.SRC_OVER，且BlendApplyType不生效。
+   * @param { BlendApplyType } [type] - blendMode实现方式是否离屏。
+   *     <br>默认值：BlendApplyType.FAST
+   *     <br>**说明：**
+   *     <br>1. 设置BlendApplyType.FAST时，不离屏。
+   *     <br>2. 设置BlendApplyType.OFFSCREEN时，会创建当前组件大小的离屏画布，再将当前组件（含子组件）的内容绘制到离屏画布上，再用指定的混合模式与下方画布已有内容进行混合。使用该实现方式时，将导致
    *     [linearGradientBlur<sup>12+</sup>]{@link CommonMethod#linearGradientBlur(value: number, options: LinearGradientBlurOptions)}
    *     、[backgroundEffect]{@link CommonMethod#backgroundEffect(options: BackgroundEffectOptions)}、
    *     [brightness]{@link CommonMethod#brightness(value: number)}、
    *     [blur]{@link CommonMethod#blur(value: number, options?: BlurOptions)}等需要截屏的接口无法截取到正确的画面。
-   * @returns { T }
-   返回当前组件。
+   *     <br>3. 混合模式设置为BlendMode.NONE时，BlendApplyType不生效。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -25899,19 +23818,25 @@ declare class CommonMethod<T> {
 
   /**
    * 将当前组件的内容（包含子节点内容）与下方画布（可能为离屏画布）已有内容进行混合。不能与
-   * [blendMode]{@link CommonMethod#blendMode(value: BlendMode, type?: BlendApplyType)}接口同时使用。
+   * [blendMode]{@link CommonMethod#blendMode(value: BlendMode, type?: BlendApplyType)}接口同时使用，同时设置时仅advancedBlendMode效果生
+   * 效。
    *
-   * @param { BlendMode | Blender } effect - 入参类型为BlendMode时表示混合模式。<br/>默认值：BlendMode.NONE <br/>入参类型为Blender时表示混合器类型，用于描
-   *     述混合效果。<br/>需要使用uiEffect模块中的方法创建Blender实例。例如：
-   *     [uiEffect.createBrightnessBlender](docroot://reference/apis-arkgraphics2d/js-apis-uiEffect-sys.md#uieffectcreatebrightnessblender)。
-   *     使用自定义object作为入参不会生效。
-   * @param { BlendApplyType } [type] - blendMode实现方式是否离屏。<br/>默认值：BlendApplyType.FAST<br/>**说明：**<br/>1. 设置为
-   *     BlendApplyType.FAST，不离屏。<br/>2. 设置为BlendApplyType.OFFSCREEN，会创建当前组件大小的离屏画布，再将当前组件（含子组件）的内容绘制到离屏画布上，再用指定的混合模式与下方
-   *     画布已有内容进行混合。<br/>3. 不离屏情况下对文字类组件中emoji表情不生效。<br/>4. 相比BlendApplyType.OFFSCREEN，设置为
-   *     BlendApplyType.OFFSCREEN_WITH_BACKGROUND，系统在创建与当前组件大小一致的离屏画布时，会先复制一份带有背景的画布作为初始化底色（BlendApplyType.OFFSCREEN类型的画
-   *     布初始为透明背景），随后在此基础上进行混合操作。两者在其他功能特性上保持一致。
-   * @returns { T }
-   返回当前组件。
+   * @param { BlendMode | Blender } effect - 入参类型为BlendMode时表示混合模式，默认不进行混合操作。默认值：BlendMode.NONE，即不应用特殊混合效果，组件内容按默认方式绘制。
+   *     <br>入参类型为Blender时表示混合器类型，用于描述混合效果。
+   *     <br>需要使用uiEffect模块中的方法创建Blender实例。例如：
+   *     [uiEffect.createBrightnessBlender]{@link @ohos.graphics.uiEffect:uiEffect.createBrightnessBlender}。使用自定义object作
+   *     为入参不会生效。
+   * @param { BlendApplyType } [type] - 混合效果blendMode实现方式是否离屏。
+   *     <br>默认值：BlendApplyType.FAST
+   *     <br>**说明：**
+   *     <br>1. 设置为BlendApplyType.FAST，不离屏。
+   *     <br>2. 设置为BlendApplyType.OFFSCREEN，会创建当前组件大小的离屏画布，再将当前组件（含子组件）的内容绘制到离屏画布上，再用指定的混合效果（BlendMode或Blender）与下方画布已有内容
+   *     进行混合。
+   *     <br>3. 不离屏情况下对文字类组件中emoji表情不生效。
+   *     <br>4. 相比BlendApplyType.OFFSCREEN，设置为BlendApplyType.OFFSCREEN_WITH_BACKGROUND，系统在创建与当前组件大小一致的离屏画布时，会先复制一份带有背景的画
+   *     布作为初始化底色（BlendApplyType.OFFSCREEN类型的画布初始为透明背景），随后在此基础上进行混合操作。两者在其他功能特性上保持一致。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @form
@@ -25970,9 +23895,11 @@ declare class CommonMethod<T> {
   clip(value: boolean | CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute): T;
 
   /**
-   * 按指定的形状（形状中可包含位置信息）对当前组件进行裁剪。
+   * 按指定的形状（形状中可包含位置信息）对当前组件进行裁剪，将组件超出形状范围外的区域裁剪掉使其不可见。与
+   * [maskShape]{@link CommonMethod#maskShape(value: CircleShape | EllipseShape | PathShape | RectShape)}不同，clipShape是将组
+   * 件超出形状范围外的区域裁剪掉（不可见），而maskShape是在组件上叠加指定形状的遮罩覆盖层。
    * 
-   * > **说明：**  
+   * > **说明：**
    * >
    * > 不同的形状支持的属性范围不同，路径是一种形状，除此之外还有椭圆、矩形等形状。
    * >
@@ -25980,9 +23907,9 @@ declare class CommonMethod<T> {
    * >
    * > 形状中的[fill]{@link @ohos.arkui.shape:CommonShapeMethod#fill}属性对clipShape接口不生效。
    *
-   * @param { CircleShape | EllipseShape | PathShape | RectShape } value - 参数为相应类型的组件，按指定的形状（形状中可包含位置信息）对当前组件进行裁剪。<br/>
-   *     **说明：** 裁剪不会导致被裁剪区域无法响应绑定的手势事件。
-   * @returns { T } 返回当前组件。
+   * @param { CircleShape | EllipseShape | PathShape | RectShape } value - 参数为相应类型的组件，按指定的形状（形状中可包含位置信息）对当前组件进行裁剪。
+   *     <br>**说明：** 裁剪不会导致被裁剪区域无法响应绑定的手势事件。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -25997,7 +23924,7 @@ declare class CommonMethod<T> {
    * [clipShape<sup>12+</sup>]{@link CommonMethod#clipShape(value: CircleShape | EllipseShape | PathShape | RectShape)}相
    * 比，新增了对undefined类型的支持。
    * 
-   * > **说明：**  
+   * > **说明：**
    * >
    * > 不同的形状支持的属性范围不同，路径是一种形状，除此之外还有椭圆、矩形等形状。
    * >
@@ -26006,8 +23933,10 @@ declare class CommonMethod<T> {
    * > 形状中的[fill]{@link @ohos.arkui.shape:CommonShapeMethod#fill}属性对clipShape接口不生效。
    *
    * @param { Optional<CircleShape | EllipseShape | PathShape | RectShape> } shape - 参数为相应类型的组件，按指定的形状（形状中可包含位置信息）对当前组件进
-   *     行裁剪。<br/>**说明：** 裁剪不会导致被裁剪区域无法响应绑定的手势事件。<br/>当shape的值为undefined时，会重置当前值。
-   * @returns { T } 返回当前组件。
+   *     行裁剪。
+   *     <br>**说明：** 裁剪不会导致被裁剪区域无法响应绑定的手势事件。
+   *     <br>当shape的值为undefined时，恢复为不添加指定形状的遮罩。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26018,10 +23947,10 @@ declare class CommonMethod<T> {
   clipShape(shape: Optional<CircleShape | EllipseShape | PathShape | RectShape>): T;
 
   /**
-   * 为组件上添加可调节进度的遮罩。
+   * 为组件添加可调节进度的遮罩，遮罩覆盖在组件内容上方，通过进度值控制遮罩的显示范围。
    *
    * @param { ProgressMask } value - 在当前组件上加上可动态设置进度、最大值和颜色的遮罩。
-   * @returns { T } 返回当前组件。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26031,10 +23960,13 @@ declare class CommonMethod<T> {
   mask(value: ProgressMask): T;
 
   /**
-   * 为组件上添加可调节进度的遮罩。与[mask<sup>12+</sup>]{@link CommonMethod#mask(value: ProgressMask)}相比，新增了对undefined类型的支持。
+   * 为组件添加可调节进度的遮罩，遮罩覆盖在组件内容上方，通过进度值控制遮罩的显示范围。与[mask<sup>12+</sup>]{@link CommonMethod#mask(value: ProgressMask)}相比，新增了对
+   * undefined类型的支持。
    *
-   * @param { Optional<ProgressMask> } mask - 在当前组件上加上可动态设置进度、最大值和颜色的遮罩。<br/>当mask的值为undefined时，恢复为无进度遮罩效果。
-   * @returns { T } 返回当前组件。
+   * @param { Optional<ProgressMask> } mask - 在当前组件上加上可动态设置进度和颜色的遮罩。遮罩的最大值(total)在构造ProgressMask对象时设定，不可动态修改。可通过
+   *     ProgressMask对象的updateProgress()方法更新进度值、updateColor()方法更新颜色、enableBreathingAnimation()方法开关呼吸光晕动画。
+   *     <br>当mask的值为undefined时，恢复为无进度遮罩效果。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26044,28 +23976,34 @@ declare class CommonMethod<T> {
   mask(mask: Optional<ProgressMask>): T;
 
   /**
-   * 为组件上添加指定形状的遮罩。
-   * 
-   * > **说明：**  
+   * 为组件添加指定形状或可调节进度的遮罩。
    *
-   * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value - 在当前组件上加上指定形状的遮
-   *     罩。
-   * @returns { T } 返回当前组件。
+   * @param { CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask } value - 参数为对应形状类型的组件时，
+   *     在当前组件上加上指定形状的遮罩（圆形、椭圆、路径或矩形）；参数为ProgressMask时，在当前组件上加上可动态设置进度和颜色的遮罩。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
    * @atomicservice [since 11]
    * @since 7 dynamiconly
    * @deprecated since 12
-   * @useinstead CommonMethod#maskShape(value: CircleShape | EllipseShape | PathShape | RectShape)
+   * @useinstead CommonMethod#maskShape
    */
   mask(value: CircleAttribute | EllipseAttribute | PathAttribute | RectAttribute | ProgressMask): T;
 
   /**
-   * 为组件上添加指定形状的遮罩。
+   * 为组件添加指定形状的遮罩，在组件上叠加指定形状的覆盖层。
+   * 
+   * > **说明：**
+   * >
+   * > - 不同的形状支持的属性范围不同，路径是一种形状，除此之外还有椭圆、矩形等形状。
+   * >
+   * > - 路径的形状不支持设置宽度和高度。具体形状支持的属性参考具体形状的文档。
+   * >
+   * > - 形状中的fill属性对maskShape接口生效，用于设置遮罩的颜色。
    *
-   * @param { CircleShape | EllipseShape | PathShape | RectShape } value - 在当前组件上加上指定形状的遮罩。
-   * @returns { T } 返回当前组件。
+   * @param { CircleShape | EllipseShape | PathShape | RectShape } value - 在当前组件上加上指定形状的遮罩或可调节进度的遮罩。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26076,13 +24014,22 @@ declare class CommonMethod<T> {
   maskShape(value: CircleShape | EllipseShape | PathShape | RectShape): T;
 
   /**
-   * 为组件上添加指定形状的遮罩。与
+   * 为组件添加指定形状的遮罩，在组件上叠加指定形状的覆盖层。与
    * [maskShape<sup>12+</sup>]{@link CommonMethod#maskShape(value: CircleShape | EllipseShape | PathShape | RectShape)}相
    * 比，新增了对undefined类型的支持。
+   * 
+   * > **说明：**
+   * >
+   * > 不同的形状支持的属性范围不同，路径是一种形状，除此之外还有椭圆、矩形等形状。
+   * >
+   * > 路径的形状不支持设置宽度和高度。具体形状支持的属性参考具体形状的文档。
+   * >
+   * > 形状中的fill属性对maskShape接口生效，用于设置遮罩的颜色。
    *
-   * @param { Optional<CircleShape | EllipseShape | PathShape | RectShape> } shape - 在当前组件上加上指定形状的遮罩。<br/>当shape的值为
-   *     undefined时，会重置当前值。
-   * @returns { T } 返回当前组件。
+   * @param { Optional<CircleShape | EllipseShape | PathShape | RectShape> } shape - 参数为对应形状类型的组件时，在当前组件上加上指定形状的遮罩（圆形、椭圆
+   *     、路径或矩形）；参数为ProgressMask时，在当前组件上加上可动态设置进度、最大值和颜色的遮罩。
+   *     <br>当shape的值为undefined时，会重置当前值，恢复为无指定形状遮罩效果。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26162,10 +24109,13 @@ declare class CommonMethod<T> {
   id(value: string): T;
 
   /**
-   * 组件内隐式共享元素转场。
+   * 组件内隐式共享元素转场。必须配合[animateTo]{@link @ohos.arkui.UIContext:UIContext.animateTo}使用才有动画效果，动效时长、曲线跟随
+   * [animateTo]{@link @ohos.arkui.UIContext:UIContext.animateTo}中的配置，不支持[animation]{@link ./common}动画。geometryTransition会
+   * 同步圆角，但仅限于geometryTransition绑定处，不会操作容器内部子组件的borderRadius。
    *
-   * @param { string } id - 用于设置绑定关系，id置空字符串清除绑定关系避免参与共享行为，id可更换重新建立绑定关系。同一个id只能有两个组件绑定且是in/out不同类型角色，不能多个组件绑定同一个id。
-   * @returns { T } 返回当前组件。
+   * @param { string } id - 用于设置绑定关系，id置空字符串清除绑定关系避免参与共享行为，id可更换重新建立绑定关系。同一个id只能有两个组件绑定，
+   *     且分别作为in（新视图）和out（旧视图）两种不同类型角色，不能多个组件绑定同一个id。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -26176,9 +24126,12 @@ declare class CommonMethod<T> {
   /**
    * 组件内隐式共享元素转场。
    *
-   * @param { string } id - 用于设置绑定关系，id置空字符串清除绑定关系避免参与共享行为，id可更换重新建立绑定关系。同一个id只能有两个组件绑定且是in/out不同类型角色，不能多个组件绑定同一个id。
-   * @param { GeometryTransitionOptions } options - 组件内共享元素转场动画参数。<br>默认值为 { follow: false }。
-   * @returns { T } 返回当前组件。
+   * @param { string } id - 用于设置绑定关系，id置空字符串清除绑定关系避免参与共享行为，id可更换重新建立绑定关系。同一个id只能有两个组件绑定，
+   *     且分别作为in（新视图）和out（旧视图）两种不同类型角色，不能多个组件绑定同一个id。
+   * @param { GeometryTransitionOptions } options - 组件内隐式共享元素转场动画参数，需配合
+   *     [animateTo]{@link @ohos.arkui.UIContext:UIContext.animateTo}使用才有动画效果。
+   *     <br>默认值为 { follow: false }。  
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26416,19 +24369,24 @@ declare class CommonMethod<T> {
   bindContextMenuByIsShow(isShow: boolean, content: CustomBuilder | Array<MenuElement>, options?: ContextMenuOptions): T;
 
   /**
-   * 给组件绑定全屏模态页面，点击后显示模态页面。模态页面内容自定义，显示方式可设置无动画过渡，上下切换过渡以及透明渐变过渡。
+   * 给组件绑定全屏模态页面，通过isShow参数控制模态页面的显示与隐藏。模态页面内容自定义，显示方式可设置无动画转场、上下切换转场以及透明度渐变转场。
    * 
    * > **说明：**
    * >
    * > 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { boolean } isShow - 是否显示全屏模态页面。<br/>-true：显示全屏模态页面。<br/>-false：隐藏全屏模态页面。<br/>从API version 10开始，该参数支持
-   *     [$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。<br />从API version 18开始，该参数支持
-   *     [!!](docroot://ui/state-management/arkts-new-binding.md#系统组件参数双向绑定)双向绑定变量。
-   * @param { CustomBuilder } builder - 配置全屏模态页面内容。builder里面的根节点需要唯一。
-   * @param { ModalTransition } type - 全屏模态页面的系统转场方式。<br/> 默认值：ModalTransition.DEFAULT。<br/>**说明：**<br /> 与transition同时设
-   *     置时，此属性不生效。
-   * @returns { T } 返回当前组件。
+   * @param { boolean } isShow - 是否显示全屏模态页面。
+   *     <br>-true：显示全屏模态页面。
+   *     <br>-false：隐藏全屏模态页面。
+   *     <br>从API version 10开始，该参数支持[$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。
+   *     <br>从API version 18开始，该参数支持[!!](docroot://ui/state-management/arkts-new-binding.md#系统组件参数双向绑定)双向绑定变量。
+   * @param { CustomBuilder } builder - 配置全屏模态页面内容。builder中的根节点需唯一。<!--RP1--><!--RP1End-->
+   * @param { ModalTransition } type - 全屏模态页面的系统转场方式。
+   *     <br>取值原则：DEFAULT-上下切换过渡，NONE-无动画过渡，ALPHA-透明渐变过渡。
+   *     <br> 默认值：ModalTransition.DEFAULT，即上下切换过渡。
+   *     <br>**说明：**
+   *     <br> 与transition同时设置时，此属性不生效，仅transition生效。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26438,14 +24396,20 @@ declare class CommonMethod<T> {
   bindContentCover(isShow: boolean, builder: CustomBuilder, type?: ModalTransition): T;
 
   /**
-   * 给组件绑定全屏模态页面，点击后显示模态页面。模态页面内容自定义，可自定义设置转场方式。
+   * 给组件绑定全屏模态页面，通过isShow参数控制模态页面的显示与隐藏。模态页面内容与转场方式均可自定义设置。
+   * 
+   * > **说明：**
+   * >
+   * > 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { boolean } isShow - 是否显示全屏模态页面。<br/>-true：显示全屏模态页面。<br/>-false：隐藏全屏模态页面。<br/>从API version 10开始，该参数支持
-   *     [$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。<br />从API version 18开始，该参数支持
-   *     [!!](docroot://ui/state-management/arkts-new-binding.md#系统组件参数双向绑定)双向绑定变量。
+   * @param { boolean } isShow - 是否显示全屏模态页面。
+   *     <br>-true：显示全屏模态页面。
+   *     <br>-false：隐藏全屏模态页面。
+   *     <br>从API version 10开始，该参数支持[$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。
+   *     <br>从API version 18开始，该参数支持[!!](docroot://ui/state-management/arkts-new-binding.md#系统组件参数双向绑定)双向绑定变量。
    * @param { CustomBuilder } builder - 配置全屏模态页面内容。
-   * @param { ContentCoverOptions } options - 配置全屏模态页面的可选属性。
-   * @returns { T } 返回当前组件。
+   * @param { ContentCoverOptions } options - 配置全屏模态页面的可选属性。不传入此参数时，各可选属性使用各自默认值。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26455,18 +24419,21 @@ declare class CommonMethod<T> {
   bindContentCover(isShow: boolean, builder: CustomBuilder, options?: ContentCoverOptions): T;
 
   /**
-   * 给组件绑定半模态页面，点击后显示模态页面。
+   * 给组件绑定半模态页面，通过isShow参数控制半模态页面的显示与隐藏，builder参数配置半模态页面的内容，options参数配置半模态页面的可选属性。
    * 
    * > **说明：**
    * >
    * > 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { boolean } isShow - 是否显示半模态页面。<br/>true：显示半模态页面。<br/>false：隐藏半模态页面。<br/>从API version 10开始，该参数支持
-   *     [$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。<br />从API version 18开始，该参数支持
-   *     [!!](docroot://ui/state-management/arkts-new-binding.md)双向绑定变量。
+   * @param { boolean } isShow - 是否显示半模态页面。
+   *     <br>true：显示半模态页面。
+   *     <br>false：隐藏半模态页面。
+   *     <br>从API version 10开始，该参数支持[$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。
+   *     <br>从API version 18开始，该参数支持[!!](docroot://ui/state-management/arkts-new-binding.md)双向绑定变量。
    * @param { CustomBuilder } builder - 配置半模态页面内容。
-   * @param { SheetOptions } options - 配置半模态页面的可选属性。
-   * @returns { T } 返回当前组件。
+   * @param { SheetOptions } options - 配置半模态页面的可选属性。如果不传入该参数，则不配置半模态页面的额外属性，各项属性使用其各自默认值。
+   * @returns { T } 返回当前组件，用于链式调用。
+
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26533,7 +24500,7 @@ declare class CommonMethod<T> {
    * @param { Array<number> } ratios - 阈值数组。其中，每个阈值代表组件可见面积（即组件在屏幕显示区的面积，只计算父组件内的面积，超出父组件部分不会计算）与组件自身面积的比值。当组件可见面积与自身面积的
    *     比值接近阈值时，均会触发该回调。每个阈值的取值范围为[0.0, 1.0]，如果开发者设置的阈值小于0.0，则实际取值为0.0；如果设置的阈值大于1.0，则实际取值为1.0。<br/>**说明：** <br/>当数值接近边界
    *     0和1时，将会按照误差不超过0.001的规则进行舍入。例如，0.9997会被近似为1。
-   * @param { function } event - Callback for visible area changes of the component. [since 9 - 12]
+   * @param { function } event - 组件可见区域变化事件的回调。 [since 9 - 12]
    * @param { VisibleAreaChangeCallback } event - 组件可见区域变化事件的回调。 [since 13]
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -26586,13 +24553,17 @@ declare class CommonMethod<T> {
   onVisibleAreaApproximateChange(options: VisibleAreaEventOptions, event: VisibleAreaChangeCallback | undefined): T;
 
   /**
-   * 设置组件的图像球面化程度。
+   * 设置组件的图像球面化程度。球面化效果将组件内容映射到球面曲面上，使图像呈现出类似球体的立体视觉效果，值越大球面弧度越高、立体感越强。
    *
-   * @param { number } value - 设置组件的图像球面化程度。<br/>取值范围：[0,1]。<br/>**说明：**<br/>1. 如果value等于0则图像保持原样，如果value等于1则图像为完全球面化效果。
-   *     在0和1之间，数值越大，则球面化程度越高。<br/>`value < 0 `或者` value > 1`为异常情况，`value < 0`按0处理，`value > 1`按1处理。<br/>2. 组件阴影和外描边不支持球面
-   *     效果。<br>3. 设置value大于0时，组件冻屏并且把组件内容绘制到透明离屏buffer上，如果要更新组件属性则需要把value设置为0。
-   * @returns { T }
-   返回当前组件。
+   * @param { number } value - 设置组件的图像球面化程度。球面化效果将组件内容映射到球面曲面上，使图像呈现出类似球体的立体视觉效果，值越大球面弧度越高、立体感越强。
+   *     <br>取值范围：[0,1]。
+   *     <br>**说明：**
+   *     <br>1. 如果value等于0则图像保持原样，如果value等于1则图像为完全球面化效果。在0和1之间，数值越大，则球面化程度越高。
+   *     <br>`value < 0`或者`value > 1`为异常情况，`value < 0`按0处理，`value > 1`按1处理。
+   *     <br>2. 组件阴影和外描边不支持球面效果。
+   *     <br>3. 设置value大于0时，组件冻屏并且把组件内容绘制到透明离屏buffer上，如果要更新组件属性则需要把value设置为0。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -26601,15 +24572,19 @@ declare class CommonMethod<T> {
   sphericalEffect(value: number): T;
 
   /**
-   * 设置组件的图像球面化程度。与[sphericalEffect<sup>12+</sup>]{@link CommonMethod#sphericalEffect(value: number)}相比，effect参数新增了对
-   * undefined类型的支持。
+   * 设置组件的图像球面化程度。球面化效果将组件内容映射到球面曲面上，使图像呈现出类似球体的立体视觉效果，值越大球面弧度越高、立体感越强。与
+   * [sphericalEffect<sup>12+</sup>]{@link CommonMethod#sphericalEffect(value: number)}相比，effect参数新增了对undefined类型的支持。
    *
-   * @param { Optional<number> } effect - 设置组件的图像球面化程度。<br/>取值范围：[0,1]。<br/>**说明：**<br/>1. 如果value等于0则图像保持原样，如果value等于1则
-   *     图像为完全球面化效果。在0和1之间，数值越大，则球面化程度越高。<br/>`effect < 0 `或者` effect > 1`为异常情况，`effect < 0`按0处理，`effect > 1`按1处理。<br/>
-   *     2. 组件阴影和外描边不支持球面效果。<br/>3. 设置effect大于0时，组件冻屏并且把组件内容绘制到透明离屏buffer上，如果要更新组件属性则需要把effect设置为0。<br/>当effect的值为
-   *     undefined时，恢复为图像球面化程度为0的效果。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<number> } effect - 设置组件的图像球面化程度。球面化效果将组件内容映射到球面曲面上，使图像呈现出类似球体的立体视觉效果，值越大球面弧度越高、立体感越强。
+   *     <br>取值范围：[0,1]。
+   *     <br>**说明：**
+   *     <br>1. 如果effect等于0则图像保持原样，如果effect等于1则图像为完全球面化效果。在0和1之间，数值越大，则球面化程度越高。
+   *     <br>`effect < 0`或者`effect > 1`为异常情况，`effect < 0`按0处理，`effect > 1`按1处理。
+   *     <br>2. 组件阴影和外描边不支持球面效果。
+   *     <br>3. 设置effect大于0时，组件冻屏并且把组件内容绘制到透明离屏buffer上，如果要更新组件属性则需要把effect设置为0。
+   *     <br>当effect的值为undefined时，恢复为图像球面化程度为0的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -26620,10 +24595,12 @@ declare class CommonMethod<T> {
   /**
    * 设置组件图像亮起程度。
    *
-   * @param { number } value - 设置组件图像亮起程度。<br/>取值范围：[0,1]。<br/>如果value等于0则图像为全黑，如果value等于1则图像为全亮效果。0到1之间数值越大，表示图像亮度越高。
-   *     `value < 0` 或者 `value > 1`为异常情况，`value < 0`按0处理，`value > 1`按1处理。
-   * @returns { T }
-   返回当前组件。
+   * @param { number } value - 设置组件图像亮起程度。
+   *     <br>取值范围：[0,1]。
+   *     <br>如果value等于0则图像为全黑，如果value等于1则图像为全亮效果。0到1之间数值越大，表示图像亮度越高。`value < 0` 或者 `value > 1`为异常情况，`value < 0`按0处理，
+   *     `value > 1`按1处理。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -26635,11 +24612,13 @@ declare class CommonMethod<T> {
    * 设置组件图像亮起程度。与[lightUpEffect<sup>12+</sup>]{@link CommonMethod#lightUpEffect(value: number)}相比，degree参数新增了对undefined类
    * 型的支持。
    *
-   * @param { Optional<number> } degree - 设置组件图像亮起程度。<br/>取值范围：[0,1]。<br/>如果value等于0则图像为全黑，如果value等于1则图像为全亮效果。0到1之间数值越大，
-   *     表示图像亮度越高。`degree < 0` 或者 `degree > 1`为异常情况，`degree < 0`按0处理，`degree > 1`按1处理。<br/>当degree的值为undefined时，恢复为亮起为1的
-   *     效果。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<number> } degree - 设置组件图像亮起程度。
+   *     <br>取值范围：[0,1]。
+   *     <br>如果degree等于0则图像为全黑，如果degree等于1则图像为全亮效果。0到1之间数值越大，表示图像亮度越高。`degree < 0` 或者 `degree > 1`为异常情况，`degree < 0`按0处
+   *     理，`degree > 1`按1处理。
+   *     <br>当degree的值为undefined时，恢复为亮起为1的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -26663,12 +24642,20 @@ declare class CommonMethod<T> {
   /**
    * 设置组件的图像边缘像素扩展距离。
    *
-   * @param { PixelStretchEffectOptions } options - 设置组件的图像边缘像素扩展距离。<br/>参数`options`包括上下左右四个方向的边缘像素扩展距离。<br/>**说明：**<br/
-   *     >1. 如果距离为正值，表示向外扩展，放大原来图像大小。上下左右四个方向分别用边缘像素填充，填充的距离即为设置的边缘扩展的距离。<br/>2. 如果距离为负值，表示内缩，但是最终图像大小不变。<br/>内缩方式：<br/>
-   *     图像根据`options`的设置缩小，缩小大小为四个方向边缘扩展距离的绝对值。<br/>图像用边缘像素扩展到原来大小。<br/>3. 对`options`的输入约束：<br/>上下左右四个方向的扩展统一为非正值或者非负值。
-   *     即四个边同时向外扩或者内缩，方向一致。<br/>所有方向的输入均为百分比或者具体值，不支持百分比和具体值混用。<br/>所有异常情况下，显示为{0, 0, 0, 0}效果，即跟原图保持一致。
-   * @returns { T }
-   返回当前组件。
+   * @param { PixelStretchEffectOptions } options - 设置组件的图像边缘像素扩展距离。
+   *     <br>参数`options`包括上下左右四个方向的边缘像素扩展距离。
+   *     <br>**说明：**
+   *     <br>1. 如果距离为正值，表示向外扩展，放大原来图像大小。上下左右四个方向分别用边缘像素填充，填充的距离即为设置的边缘扩展的距离。
+   *     <br>2. 如果距离为负值，表示内缩，但是最终图像大小不变。
+   *     <br>内缩方式：
+   *     <br>图像根据`options`的设置缩小，缩小大小为四个方向边缘扩展距离的绝对值。
+   *     <br>图像用边缘像素扩展到原来大小。
+   *     <br>3. 对`options`的输入约束：
+   *     <br>上下左右四个方向的扩展统一为非正值或者非负值。即四个边同时向外扩或者内缩，方向一致。
+   *     <br>所有方向的输入均为百分比或者具体值，不支持百分比和具体值混用。
+   *     <br>所有异常情况下，显示为{0, 0, 0, 0}效果，即跟原图保持一致。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -26681,13 +24668,21 @@ declare class CommonMethod<T> {
    * [pixelStretchEffect<sup>12+</sup>]{@link CommonMethod#pixelStretchEffect(options: PixelStretchEffectOptions)}相比，
    * options参数新增了对undefined类型的支持。
    *
-   * @param { Optional<PixelStretchEffectOptions> } options - 设置组件的图像边缘像素扩展距离。<br/>参数`options`包括上下左右四个方向的边缘像素扩展距离。<br/>
-   *     **说明：**<br/>1. 如果距离为正值，表示向外扩展，放大原来图像大小。上下左右四个方向分别用边缘像素填充，填充的距离即为设置的边缘扩展的距离。<br/>2. 如果距离为负值，表示内缩，但是最终图像大小不变。<br/
-   *     >内缩方式：<br/>图像根据`options`的设置缩小，缩小大小为四个方向边缘扩展距离的绝对值。<br/>图像用边缘像素扩展到原来大小。<br/>3. 对`options`的输入约束：<br/>上下左右四个方向的扩展统
-   *     一为非正值或者非负值。即四个边同时向外扩或者内缩，方向一致。<br/>所有方向的输入均为百分比或者具体值，不支持百分比和具体值混用。<br/>所有异常情况下，显示为{0, 0, 0, 0}效果，即跟原图保持一致。<br/>
-   *     当options的值为undefined时，恢复为无像素扩展效果。
-   * @returns { T }
-   返回当前组件。
+   * @param { Optional<PixelStretchEffectOptions> } options - 设置组件的图像边缘像素扩展距离。
+   *     <br>参数`options`包括上下左右四个方向的边缘像素扩展距离。
+   *     <br>**说明：**
+   *     <br>1. 如果距离为正值，表示向外扩展，放大原来图像大小。上下左右四个方向分别用边缘像素填充，填充的距离即为设置的边缘扩展的距离。
+   *     <br>2. 如果距离为负值，表示内缩，但是最终图像大小不变。
+   *     <br>内缩方式：
+   *     <br>图像根据`options`的设置缩小，缩小大小为四个方向边缘扩展距离的绝对值。
+   *     <br>图像用边缘像素扩展到原来大小。
+   *     <br>3. 对`options`的输入约束：
+   *     <br>上下左右四个方向的扩展统一为非正值或者非负值。即四个边同时向外扩或者内缩，方向一致。
+   *     <br>所有方向的输入均为百分比或者具体值，不支持百分比和具体值混用。
+   *     <br>所有异常情况下，显示为{0, 0, 0, 0}效果，即跟原图保持一致。
+   *     <br>当options的值为undefined时，恢复为无像素扩展效果。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -27078,25 +25073,22 @@ declare class CommonMethod<T> {
   accessibilitySelected(isSelect: boolean): T;
 
   /**
-   * Sets obscured
+   * 设置组件内容的隐私遮罩类型，在屏幕录制或屏幕共享等场景下对组件内容进行隐私遮挡。
    *
-   * @param { Array<ObscuredReasons> } reasons - reasons of obscuration
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { Array<ObscuredReasons> } reasons - 设置组件内容的遮罩类型，在屏幕录制或屏幕共享等场景下对组件内容进行隐私遮挡。取值原则：请参考
+   *     [ObscuredReasons]{@link ObscuredReasons}枚举定义，如PLACEHOLDER表示使用占位图遮罩。
+   *     <br>默认值：[]，未设置遮罩原因时，不对组件内容进行隐私遮罩处理。
+   *     <br>隐私遮罩效果仅在[Image]{@link ./image}组件、[Text]{@link ./text}组件<!--Del-->和[FormComponent]{@link ./form_component}组件
+   *     <sup>12+</sup><!--DelEnd-->上生效。
+   *     <br>**说明：**
+   *     <br>如需在图片加载过程中显示隐私遮罩，需要设置Image组件的宽度和高度；若未设置宽度和高度，图片加载过程中将不会显示隐私遮罩效果。
+   *     <br>Text组件设置子组件或设置[属性字符串]{@link ./styled_string}时，不支持隐私遮罩。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets obscured
-   *
-   * @param { Array<ObscuredReasons> } reasons - reasons of obscuration
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   obscured(reasons: Array<ObscuredReasons>): T;
 
@@ -27124,11 +25116,15 @@ declare class CommonMethod<T> {
   reuseId(id: string): T;
 
   /**
-   * Reuse id is used for identify the reuse type of each @ComponentV2 custom component, which can give user control of sub-component recycle and reuse.
+   * 为\@ReusableV2装饰的V2自定义组件设置复用选项，相同复用标识ID的组件会被互相复用，提高复用匹配的精确度。
+   * 
+   * > **说明：**
+   * >
+   * > 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { ReuseOptions } options - The configuration parameter for reusable custom component.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { ReuseOptions } options - 复用选项，用于配置复用标识ID，由开发者指定。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -27137,10 +25133,11 @@ declare class CommonMethod<T> {
   reuse(options: ReuseOptions): T;
 
   /**
-   * 设置宽高动画过程中的组件内容填充方式。不通过该接口设置，保持动画终态的内容大小，并且内容始终与组件保持左上角对齐。
+   * 设置宽高动画过程中的组件内容填充方式。在宽高动画过程中，renderFit决定动画终态内容与动画中间尺寸组件的对齐和缩放方式。未设置时，保持动画终态的内容大小，并且内容始终与组件保持左上角对齐。
    *
-   * @param { RenderFit } fitMode - 设置宽高动画过程中的组件内容填充方式。
-   * @returns { T } 返回当前组件。
+   * @param { RenderFit } fitMode - 设置宽高动画过程中的组件内容填充方式。详见[RenderFit]{@link RenderFit}。对于背景色设置为不透明的纯黑色的SURFACE类型
+   *     XComponent组件，在API version 18之前仅支持设置为RenderFit.RESIZE_FILL。不设置时默认保持动画终态内容大小且与组件左上角对齐（RenderFit.TOP_LEFT）。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27151,12 +25148,15 @@ declare class CommonMethod<T> {
   renderFit(fitMode: RenderFit): T;
 
   /**
-   * 设置宽高动画过程中的组件内容填充方式。不通过该接口设置，保持动画终态的内容大小，并且内容始终与组件保持左上角对齐。与
-   * [renderFit]{@link CommonMethod#renderFit(fitMode: RenderFit)}相比，fitMode参数新增了对undefined类型的支持。
+   * 设置宽高动画过程中的组件内容填充方式。未设置时，默认取值为RenderFit.TOP_LEFT，保持动画终态的内容大小，并且内容始终与组件保持左上角对齐。对于TEXTURE和SURFACE类型的XComponent组件，当不设置
+   * renderFit属性时，取默认值为RenderFit.RESIZE_FILL。与[renderFit]{@link CommonMethod#renderFit(fitMode: RenderFit)}相比，fitMode参数新
+   * 增了对undefined类型的支持。当fitMode的值为undefined时，恢复为RenderFit.TOP_LEFT的效果。对于TEXTURE和SURFACE类型的XComponent组件，恢复为
+   * RenderFit.RESIZE_FILL的效果。
    *
-   * @param { Optional<RenderFit> } fitMode - 设置宽高动画过程中的组件内容填充方式。<br/>当fitMode的值为undefined时，取默认值。恢复为内容填充方式为
-   *     RenderFit.TOP_LEFT的效果。
-   * @returns { T } 返回当前组件。
+   * @param { Optional<RenderFit> } fitMode - 设置宽高动画过程中的组件内容填充方式。
+   *     <br>当fitMode的值为undefined时，恢复为RenderFit.TOP_LEFT的效果，即内容填充方式与组件保持左上角对齐。对于TEXTURE和SURFACE类型的XComponent组件，恢复为
+   *     RenderFit.RESIZE_FILL的效果。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27209,10 +25209,10 @@ declare class CommonMethod<T> {
   gestureModifier(modifier: GestureModifier): T;
 
   /**
-   * 设置组件背景提亮效果。
+   * 设置组件背景提亮效果，通过调整亮度变化速率和提亮程度改变组件背景的亮度表现。
    *
-   * @param { BackgroundBrightnessOptions } params - 设置组件背景提亮效果，包括：亮度变化速率，提亮程度。
-   * @returns { T } 返回当前组件。
+   * @param { BackgroundBrightnessOptions } params - 设置组件背景提亮效果，包括：亮度变化速率、提亮程度。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -27221,13 +25221,13 @@ declare class CommonMethod<T> {
   backgroundBrightness(params: BackgroundBrightnessOptions): T;
 
   /**
-   * 设置组件背景提亮效果。与
+   * 设置组件背景提亮效果，通过调整亮度变化速率和提亮程度改变组件背景的亮度表现。与
    * [backgroundBrightness<sup>12+</sup>]{@link CommonMethod#backgroundBrightness(params: BackgroundBrightnessOptions)}相
    * 比，options参数新增了对undefined类型的支持。
    *
-   * @param { Optional<BackgroundBrightnessOptions> } options - 设置组件背景提亮效果，包括：亮度变化速率，提亮程度。<br/>当options的值为undefined时，恢复为
-   *     无提亮效果的背景。
-   * @returns { T } 返回当前组件。
+   * @param { Optional<BackgroundBrightnessOptions> } options - 设置组件背景提亮效果，包括：亮度变化速率、提亮程度。
+   *     <br>当options的值为undefined时，恢复为无提亮效果的背景。
+   * @returns { T } 返回当前组件，用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -27446,45 +25446,70 @@ declare class CommonMethod<T> {
   /**
    * 设置组件的系统材质。不同系统材质对应不同的属性影响效果，该接口可以影响背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、边
    * 框颜色[borderColor]{@link CommonMethod#borderColor}、边框宽度[borderWidth]{@link CommonMethod#borderWidth}、阴影
-   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}、材质层滤镜效果，影响的属性与设备算力档位相关，参考
-   * [ImmersiveMaterial](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivematerial)。使用示例请参考
-   * [示例1（设置沉浸式系统材质）](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#示例1设置沉浸式系统材质)。
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}、材质层滤镜
+   * [materialFilter]{@link CommonMethod#materialFilter}效果，影响的属性与设备材质等级相关，参考
+   * [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}。
+   * [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}只有支持沉浸式材质的设备上设置才有效果，在不支持沉浸式材质的设备上可设置但
+   * 无效果，可通过[isImmersiveMaterialSupported]{@link @ohos.arkui.uiMaterial:uiMaterial.isImmersiveMaterialSupported}判断设备是否支持
+   * 沉浸式材质。使用示例请参考[示例1（设置沉浸式系统材质）](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#示例1设置沉浸式系统材质)。
+   * 
+   * > **说明：**
+   * >
+   * > - [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}只有支持沉浸式材质的设备上设置才有效果，在不支持沉浸式材质的设备上
+   * > 可设置但无效果，可通过[isImmersiveMaterialSupported]{@link @ohos.arkui.uiMaterial:uiMaterial.isImmersiveMaterialSupported}判断
+   * > 设备是否支持沉浸式材质。在不支持沉浸式材质的设备上，设置ImmersiveMaterial后，组件的样式仍由已设置的通用属性决定，ImmersiveMaterial不会覆盖任何通用属性。
+   * >
+   * > - 在同时设置了材质影响的通用属性发生冲突时，除阴影外，总体原则为后设置的生效，对于阴影属性取决于
+   * > [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}的applyShadow参数。
+   * >
+   * > - 先设置[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}属性后设置
+   * > [systemMaterial]{@link CommonMethod#systemMaterial}属性：backgroundColor属性被覆盖。在支持沉浸式材质的高算力和中算力设备上，背景色属性被清空为透明色；在支持沉浸
+   * > 式材质的低算力设备上，材质自带的背景色效果覆盖了先设置的backgroundColor属性。开发者可通过
+   * > [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}的接口判断当前设备的算力档位。
+   * >
+   * > - 先设置[systemMaterial]{@link CommonMethod#systemMaterial}属性后设置
+   * > [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}属性：systemMaterial属性影响的背景色效果被覆盖，背景色属性生效
+   * > 为后设置的backgroundColor属性的颜色。
+   * >
+   * > - 对于所有设备算力档位均需要材质颜色的场景，可以通过[ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}的
+   * > materialColor参数承载，不再设置[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}属性。
    *
-   * @param { SystemUiMaterial | undefined } material - 组件的系统材质对象。设置为undefined时恢复为无材质的效果，若同时设置了材质对象影响的通用属性，会恢复至对应通用属性设置的
-   *     值，冲突的属性由材质对象决定，参考
-   *     [ImmersiveMaterial](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivematerial)。
-   * @returns { T }
-   返回当前组件。
-   * @systemapi
+   * @param { SystemUiMaterial | undefined } material - 组件的系统材质对象。仅在支持沉浸式材质的设备上设置才有效果，在不支持沉浸式材质的设备上可设置但无效果，可通过
+   *     [isImmersiveMaterialSupported]{@link @ohos.arkui.uiMaterial:uiMaterial.isImmersiveMaterialSupported}判断设备是否支持沉浸式
+   *     材质。设置为undefined时恢复为无材质的效果，若同时设置了材质对象影响的通用属性，会恢复至对应通用属性设置的值，冲突的属性由材质对象决定，参考
+   *     [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}。
+   *     <br>**说明：**
+   *     <br>不同设备算力等级下，材质效果的属性影响有差异，详见上方说明。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @form
+   * @atomicservice [since 26.0.0]
    * @since 23 dynamic
-   */
-  /**
-   * Set system-styled materials for the component. The material effect behaves differently on devices with different
-   * level of computing powers. On devices with lower computing power, it affects attributes such as the
-   * backgroundColor, borderWidth, borderColor, shadow. On devices with higher computing power, it adds a filter effect
-   * at the system material layer, which can produce an effect similar to glass.
-   *
-   * @param { SystemUiMaterial | undefined } material - 组件的系统材质对象。设置为undefined时恢复为无材质的效果，若同时设置了材质对象影响的通用属性，会恢复至对应通用属性设置的
-   *     值，冲突的属性由材质对象决定，参考
-   *     [ImmersiveMaterial](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivematerial)。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 26.0.0 dynamic
    */
   systemMaterial(material: SystemUiMaterial | undefined): T;
 
   /**
-   * 组件获焦时回调函数被调用，返回值表示是否需要拉起键盘。
+   * 设置组件判断是否需要键盘时触发的回调。主要用于键盘接续场景，当焦点从输入框切换到其他组件时，如果切换后的组件回调函数[OnNeedSoftkeyboardCallback]{@link OnNeedSoftkeyboardCallback}的返回值设置为`true`，则表示该组件需要键盘，此时键盘将不会收起，如果返回值设置为`false`，则表示该组件不需要键盘，此时键盘将收起。
    *
-   * @param { OnNeedSoftkeyboardCallback | undefined } onNeedSoftkeyboardCallback
+   * 对于不能获焦的组件，本接口不生效。
+   *
+   * 输入框组件使用该接口并将返回值设置为`false`时，点击输入框将不会拉起键盘。
+   *
+   * Web组件使用该方法时，如果返回值为`true`，Web组件会判断组件中是否有可编辑节点，如果有可编辑节点才会保留键盘，如果返回值为`false`，无论是否有可编辑节点，键盘都不会保留。
+   *
+   * XComponent组件使用该方法时，如果返回值为`true`且XComponent组件使用 [OH_ArkUI_XComponent_SetNeedSoftKeyboard()](docroot://reference/apis-arkui/capi-native-interface-xcomponent-h.md#oh_arkui_xcomponent_setneedsoftkeyboard)设置了需要键盘，才会保留键盘，如果返回值为`false`，无论组件如何设置，键盘都不会保留。
+   *
+   * 当返回值为`true`时，应用的自绘制输入框需要在获焦时主动调用 [attach]{@link @ohos.inputMethod:inputMethod.InputMethodController.attach(showKeyboard: boolean, textConfig: TextConfig, requestKeyboardReason: RequestKeyboardReason)}方法，建立输入法框架和输入法应用的通信，否则点击键盘会失去响应。说明：失焦时输入法框架和输入法应用的通信会断开，获焦时需要重新建立通信。
+   *
+   * 该接口只适用于对输入法应用接续的场景，对自定义键盘不生效。自定义键盘接续详见[setCustomKeyboardContinueFeature]{@link @ohos.arkui.UIContext:UIContext.setCustomKeyboardContinueFeature}。
+   *
+   * @param { OnNeedSoftkeyboardCallback | undefined } onNeedSoftkeyboardCallback - 事件触发时执行的回调，系统会根据回调的返回值决定是否需要键盘。设置为undefined时，不会触发回调，输入框类组件行为等同返回true。其他组件行为等同返回false。前提条件：组件需可获焦，否则本接口不生效。当返回值为true时，自绘制输入框需在获焦时主动调用[attach]{@link @ohos.inputMethod:inputMethod.InputMethodController.attach(showKeyboard: boolean, textConfig: TextConfig, requestKeyboardReason: RequestKeyboardReason)}方法建立输入法通信，否则点击键盘会失去响应。
    * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -27583,133 +25608,42 @@ declare class CommonMethod<T> {
    * @since 26.0.0 dynamic
    */
   inspectorLabel(label: string | undefined): T;
-
-  /**
-   * 是否绘制组件的双面。
-   *
-   * @param { Optional<boolean> } value - 是否绘制组件的双面。<br/>设置为true表示组件的正面和背面都是可见的。<br/>设置为false表示组件的正面是可见的，旋转时组件的背面是不可见的。<
-   *     br/>设置为undefined时效果和设置为true时保持一致，默认开启双面绘制。
-   * @returns { T }
-   返回当前组件。
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  doubleSided(value: Optional<boolean>): T;
 }
 
 /**
  * CommonAttribute for ide.
  *
- * @extends CommonMethod<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * CommonAttribute for ide.
- *
- * @extends CommonMethod<CommonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * CommonAttribute for ide.
- *
- * @extends CommonMethod<CommonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * CommonAttribute for ide.
- *
- * @extends CommonMethod<CommonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
 
 /**
  * IDE使用的CommonInterface
  *
- * @interface CommonInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * IDE使用的CommonInterface
- *
- * @interface CommonInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * IDE使用的CommonInterface
- *
- * @interface CommonInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * IDE使用的CommonInterface
- *
- * @interface CommonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
+ * @noninterop
  */
 interface CommonInterface {
-
   /**
    * 构造器。
    *
    * @returns { CommonAttribute }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Constructor
-   *
-   * @returns { CommonAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Constructor
-   *
-   * @returns { CommonAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Constructor
-   *
-   * @returns { CommonAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    */
   (): CommonAttribute;
 }
@@ -27719,34 +25653,11 @@ interface CommonInterface {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 公共通用属性实例
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 公共通用属性实例
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 公共通用属性实例
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const CommonInstance: CommonAttribute;
 
@@ -27755,77 +25666,28 @@ declare const CommonInstance: CommonAttribute;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Common通用接口
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Common通用接口
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Common通用接口
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Common: CommonInterface;
 
 /**
  * 定义CustomBuilder类型。
  *
- * @typedef { (() => any) | void } CustomBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * 定义CustomBuilder类型。
- *
- * @typedef { (() => any) | void } CustomBuilder
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * 定义CustomBuilder类型。
- *
- * @typedef { (() => any) | void } CustomBuilder
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义CustomBuilder类型。
- *
- * @typedef { (() => any) | void } CustomBuilder
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare type CustomBuilder = (() => any) | void;
 
 /**
  * 定义带参数的CustomBuilder类型
  *
- * @typedef { function } CustomBuilderT<T>
  * @param { T } t - 函数参数
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -27927,9 +25789,8 @@ declare interface OverlayOffset {
 }
 
 /**
-* 定义模糊段。
-*
- * @typedef { [ number, number ] } FractionStop
+ * 定义模糊段。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -28712,19 +26573,16 @@ declare interface PixelRoundPolicy {
 }
 
 /**
-*
- * @interface LinearGradientBlurOptions
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface LinearGradientBlurOptions {
-
   /**
-   * 数组中保存的每一个二元数组（取值0-1，小于0则为0，大于1则为1）表示[模糊程度, 模糊位置]；模糊位置需严格递增，开发者传入的数据不符合规范会记录日志，渐变模糊数组中二元数组个数必须大于等于2，否则渐变模糊不生效。
+   * 数组中保存的每一个二元数组（取值0-1，小于0则为0，大于1则为1）表示[模糊分数, 模糊位置]；模糊位置需严格递增，开发者传入的数据不符合规范会记录日志，渐变模糊数组中二元数组个数必须大于等于2，否则渐变模糊不生效。
    *
-   * @type { FractionStop[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -28734,12 +26592,11 @@ declare interface LinearGradientBlurOptions {
 
   /**
    * 渐变模糊方向。
-   *
+   * 
    * 默认值：
-   *
+   * 
    * GradientDirection.Bottom
    *
-   * @type { GradientDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -28749,9 +26606,8 @@ declare interface LinearGradientBlurOptions {
 }
 
 /**
-* Define motion blur anchor coordinates.
-*
- * @interface MotionBlurAnchor
+ * 运动模糊锚点坐标。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28759,11 +26615,9 @@ declare interface LinearGradientBlurOptions {
  * @since 12 dynamic
  */
 declare interface MotionBlurAnchor {
-
   /**
-   * Define anchor coordinate x-value.Value range [0.0, 1.0].
+   * 锚点坐标x值，取值范围[0.0, 1.0]，0.0表示组件左边缘，1.0表示组件右边缘，0.5表示水平中心。
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -28772,9 +26626,8 @@ declare interface MotionBlurAnchor {
   x: number;
 
   /**
-   * Define anchor coordinate y-value.Value range [0.0, 1.0].
+   * 锚点坐标y值，取值范围[0.0, 1.0]，0.0表示组件上边缘，1.0表示组件下边缘，0.5表示垂直中心。
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -28784,9 +26637,8 @@ declare interface MotionBlurAnchor {
 }
 
 /**
-* 运动模糊选项。
-*
- * @interface MotionBlurOptions
+ * 运动模糊选项。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28794,11 +26646,9 @@ declare interface MotionBlurAnchor {
  * @since 12 dynamic
  */
 declare interface MotionBlurOptions {
-
   /**
-   * 模糊半径，取值范围[0.0, ∞)，建议设置1.0以内。
+   * 模糊半径，单位：vp，取值范围[0.0, +∞)，建议取值不超过1.0来实现较为美观的效果。传入负数时自动修正为0.0，超出建议值1.0时可能产生非预期效果。
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -28807,9 +26657,8 @@ declare interface MotionBlurOptions {
   radius: number;
 
   /**
-   * 运动模糊锚点坐标。运动模糊锚点坐标设置时需要与动画缩放的锚点保持一致设置。
+   * 运动模糊锚点坐标，需要与动画缩放[scale]{@link CommonMethod#scale(value: ScaleOptions)}属性的锚点（centerX/centerY）保持一致，否则会产生非预期效果。
    *
-   * @type { MotionBlurAnchor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -29340,17 +27189,8 @@ declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.Rout
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * UIContext
- *
- * @typedef { import('../api/@ohos.arkui.UIContext').UIContext } UIContext
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 
@@ -29412,8 +27252,8 @@ declare type Blender = import('../api/@ohos.graphics.uiEffect').default.Blender;
 declare type ComponentContent<T = Object> = import('../api/arkui/ComponentContent').ComponentContent<T>;
 
 /**
-* 主题。
-*
+ * 主题对象。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -29436,85 +27276,35 @@ declare type PromptActionDialogController = import('../api/@ohos.promptAction').
 /**
  * 自定义组件
  *
- * @extends CommonAttribute
+ * @extends CommonAttribute [since 7 - 17]
+ * @extends BaseCustomComponent [since 18]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 自定义组件
- *
- * @extends CommonAttribute
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 自定义组件
- *
- * @extends CommonAttribute
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 自定义组件
- *
- * @extends CommonAttribute
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11
- */
-/**
- * 自定义组件
- *
- * @extends BaseCustomComponent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare class CustomComponent extends BaseCustomComponent {
-
   /**
-   * Invoked when a reusable custom component is re-added to the node tree
-   * from the reuse cache to receive construction parameters of the component.
+   * 当一个可复用的自定义组件从复用缓存中重新加入到节点树时，触发aboutToReuse生命周期回调，并将组件的构造参数传递给该回调。
+   * 
+   * > **说明：**
+   * >
+   * > * [避免对@Link/@ObjectLink/@Prop等自动更新的状态变量，在aboutToReuse()中重复赋值](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-component_reuse#避免对linkobjectlinkprop等自动更新的状态变量在abouttoreuse中重复赋值)。
+   * >
+   * > * 在滑动场景中，使用组件复用通常需要用该回调函数去更新组件的状态变量，因此在该回调函数中应避免耗时操作，否则会导致丢帧卡顿。最佳实践请参考
+   * > [主线程耗时操作优化指导-组件复用回调](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section20815336174316)。
    *
-   * @param { object } params - Custom component init params.
+   * @param { object } params - 自定义组件的构造参数。其中key为复用时外部传入的组件成员变量名，value为复用时外部传入的对应参数值。 [since 10 - 19]
+   * @param { Record<string, Object | undefined | null> } params - 自定义组件的构造参数。其中key为复用时外部传入的组件成员变量名，value为复用时外部传入的对应参数
+   *     值。 [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Invoked when a reusable custom component is re-added to the node tree
-   * from the reuse cache to receive construction parameters of the component.
-   *
-   * @param { object } params - Custom component init params.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Invoked when a reusable custom component is re-added to the node tree
-   * from the reuse cache to receive construction parameters of the component.
-   *
-   * @param { Record<string, Object | undefined | null> } params - Custom component init params.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   aboutToReuse?(params: Record<string, Object | undefined | null>): void;
 
@@ -29546,19 +27336,19 @@ declare class CustomComponent extends BaseCustomComponent {
 /**
  * 自定义组件V2
  *
- * @extends BaseCustomComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 declare class CustomComponentV2 extends BaseCustomComponent {
-
   /**
-   * aboutToReuse Method for @ComponentV2, it is executed when fetching instance of custom component from RecyclePool.
-   * It is different from the @Reusable in CustomComponent, there is no param parameter in this callback.
+   * 当一个状态管理V2的可复用自定义组件从复用缓存中重新加入到节点树时，触发aboutToReuse生命周期回调。在频繁调用场景下，应避免在其中执行耗时操作，否则可能导致丢帧卡顿。
+   * 
+   * 详细内容请参考[\@ReusableV2](docroot://ui/state-management/arkts-new-reusableV2.md)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -29572,210 +27362,94 @@ declare class CustomComponentV2 extends BaseCustomComponent {
 /**
  * 自定义组件基类，它是从类CustomComponent迁移过来的。
  *
- * @extends BaseCustomComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 declare class BaseCustomComponent extends CommonAttribute {
 
   /**
-   * 自定义弹出内容构造函数。
+   * build()函数用于定义自定义组件的声明式UI描述，自定义组件必须定义build()函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Customize the pop-up content constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Customize the pop-up content constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Customize the pop-up content constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Customize the pop-up content constructor and it is migrated from class CustomComponent.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   build(): void;
 
   /**
-   * aboutToAppear方法
-   *
-   * aboutToAppear函数在创建自定义组件的新实例之后，在执行其构建（）函数之前执行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * aboutToAppear方法
-   *
-   * aboutToAppear函数在创建自定义组件的新实例之后，在执行其构建（）函数之前执行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * aboutToAppear方法
-   *
-   * aboutToAppear函数在创建自定义组件的新实例之后，在执行其构建（）函数之前执行。
+   * aboutToAppear函数在创建自定义组件的新实例后，在其build()函数执行前调用。允许在aboutToAppear函数中改变
+   * [状态变量](docroot://ui/state-management/arkts-state-management-glossary.md#state-variables状态变量)，更改将在后续执行build()函数中生效。实
+   * 现[自定义布局]{@link Layoutable}的自定义组件的aboutToAppear生命周期在布局过程中触发。具体使用说明，详见
+   * [自定义组件生命周期指南](docroot://ui/state-management/arkts-page-custom-components-lifecycle.md)。
+   * 
+   * > **说明：**
+   * >
+   * > * 在该回调函数内，建议仅执行当前节点组件的初始化逻辑，避免高耗时操作阻塞主线程。对于高耗时操作，推荐采用缓存或异步方案替代。最佳实践请参考
+   * > [UI组件性能优化-避免在自定义组件的生命周期内执行高耗时操作](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-ui-component-performance-optimization#section18755173594714)。
+   * >
+   * > * 在需要频繁创建和销毁组件的场景中，将会频繁调用该回调函数。最佳实践请参考
+   * > [主线程耗时操作优化指导-组件生命周期回调](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section418843713435)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * aboutToAppear方法
-   *
-   * aboutToAppear函数在创建自定义组件的新实例之后，在执行其构建（）函数之前执行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * aboutToAppear方法
-   *
-   * aboutToAppear函数在创建自定义组件的新实例之后，在执行其构建（）函数之前执行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   aboutToAppear?(): void;
 
   /**
-   * aboutToDisappear 方法
-   *
-   * 在自定义组件被销毁之前，aboutToDisappear 函数会执行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * aboutToDisappear 方法
-   *
-   * 在自定义组件被销毁之前，aboutToDisappear 函数会执行。
+   * aboutToDisappear函数在自定义组件析构销毁时执行。不允许在aboutToDisappear函数中改变状态变量，特别是\@Link变量的修改可能会导致应用行为不稳定。具体使用说明，详见
+   * [自定义组件生命周期指南](docroot://ui/state-management/arkts-page-custom-components-lifecycle.md)。不建议在aboutToDisappear函数调用后再触发
+   * 例如[自定义弹窗的创建]{@link CustomDialogController#open}等逻辑，这可能会因为组件树信息丢失导致应用行为异常，例如
+   * [@Consume](docroot://ui/state-management/arkts-provide-and-consume.md)找不到对应的
+   * [@Provide](docroot://ui/state-management/arkts-provide-and-consume.md)、弹窗内白屏不显示组件等。
+   * 
+   * > **说明：**
+   * >
+   * > 在需要频繁创建和销毁组件的场景中，将会频繁调用该回调函数。最佳实践请参考
+   * > [主线程耗时操作优化指导-组件生命周期回调](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section418843713435)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * aboutToDisappear 方法
-   *
-   * 在自定义组件被销毁之前，aboutToDisappear 函数会执行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * aboutToDisappear 方法
-   *
-   * 在自定义组件被销毁之前，aboutToDisappear 函数会执行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * aboutToDisappear 方法
-   *
-   * 在自定义组件被销毁之前，aboutToDisappear 函数会执行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   aboutToDisappear?(): void;
 
   /**
-   * aboutToRecycle Method
+   * 组件的生命周期回调，在可复用组件从节点树上被加入到复用缓存之前调用。当该组件后续从复用缓存中被重新复用时，将触发
+   * [aboutToReuse]{@link aboutToReuse}生命周期回调。在频繁调用
+   * 场景下，应避免在其中执行耗时操作，否则可能导致丢帧卡顿。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * aboutToRecycle Method
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * aboutToRecycle Method and it is migrated from class CustomComponent.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   aboutToRecycle?(): void;
 
   /**
-   * onWillApplyTheme函数用于获取当前组件上下文的Theme对象，在创建自定义组件的新实例后，在执行其build()函数之前执行。允许在onWillApplyTheme函数中改变状态变量，更改将在后续执行build()函
-   * 数中生效。
-   *
+   * onWillApplyTheme函数用于获取当前组件上下文的Theme对象，在创建自定义组件的新实例后，在执行其build()函数之前执行。与aboutToAppear不同，onWillApplyTheme用于基于Theme对象初
+   * 始化状态变量，aboutToAppear用于通用初始化逻辑。允许在onWillApplyTheme函数中改变状态变量，更改将在后续执行build()函数中生效。
+   * 
    * > **说明：**
+   * >
    * > 从API version 18开始，该接口支持在状态管理V2组件中使用。
    *
-   * @param { Theme } theme - 自定义组件当前生效的Theme对象。
+   * @param { Theme } theme - 自定义组件当前生效的Theme对象，可在回调中通过该对象获取主题配色等资源，用于更新组件的样式变量。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29816,7 +27490,7 @@ declare class BaseCustomComponent extends CommonAttribute {
 
   /**
    * router路由页面（即[\@Entry](docroot://ui/state-management/arkts-create-custom-components.md#entry)装饰的自定义组件）每次显示时触发一次，包括路由
-   * 跳转、应用进入前台等场景。
+   * 跳转、应用进入前台等场景。建议在该回调函数内避免执行高耗时操作阻塞主线程，以免影响页面显示性能。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -29828,14 +27502,11 @@ declare class BaseCustomComponent extends CommonAttribute {
   /**
    * router路由页面（即[\@Entry](docroot://ui/state-management/arkts-create-custom-components.md#entry)装饰的自定义组件）每次隐藏时触发一次，包括路由
    * 跳转、应用进入后台等场景。
+   * 
    * > **说明：**
-   * > 在该回调函数内，建议避免执行高耗时操作阻塞主线程造成卡顿。对于高耗时操作例如相机资源释放，推荐使用异步方案替代。最佳实践请参考
    * >
-   * [优化应用时延问题-延迟执行资源释放操作](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-application-latency-optimiza
-   * tion-cases#section8783201923819)。
-   *
-   * It is triggered once each time the page is hidden, including scenarios such as the routing process and the
-   * application entering the background
+   * > 在该回调函数内，建议避免执行高耗时操作阻塞主线程造成卡顿。对于高耗时操作例如相机资源释放，推荐使用异步方案替代。最佳实践请参考
+   * > [优化应用时延问题-延迟执行资源释放操作](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-application-latency-optimization-cases#section8783201923819)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -29845,85 +27516,40 @@ declare class BaseCustomComponent extends CommonAttribute {
   onPageHide?(): void;
 
   /**
-   * onFormRecycle Method, this is only for ArkTS form, if form was marked recyclable by form user, when system memory is low,
-   * it will be recycled after calling this method, you should return a string of params that you wish to be saved, it will be
-   * passed back as params in onFormRecover, in which you can recover the form
+   * onFormRecycle回调函数在卡片回收时执行，卡片提供方可以返回需要卡片管理服务代保存的数据，在卡片恢复时通过
+   * [onFormRecover]{@link onFormRecover}接口传给卡片提供方。
    *
-   * @returns { string } status data of ArkTS form UI, this data will be passed in when recover form later
+   * @returns { string } 返回卡片提供方需要卡片管理服务代保存的数据。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * onFormRecycle Method, this is only for ArkTS form, if form was marked recyclable by form user, when system memory is low,
-   * it will be recycled after calling this method, you should return a string of params that you wish to be saved, it will be
-   * passed back as params in onFormRecover, in which you can recover the form
-   *
-   * @returns { string } status data of ArkTS form UI, this data will be passed in when recover form later
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * onFormRecycle Method, this is only for ArkTS form, if form was marked recyclable by form user, when system memory is low,
-   * it will be recycled after calling this method, you should return a string of params that you wish to be saved, it will be
-   * passed back as params in onFormRecover, in which you can recover the form, it is migrated from class CustomComponent.
-   *
-   * @returns { string } status data of ArkTS form UI, this data will be passed in when recover form later
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onFormRecycle?(): string;
 
   /**
-   * onFormRecover Method, this is only for ArkTS form
+   * onFormRecover回调函数在卡片恢复时执行，卡片提供方可以拿到卡片回收时卡片管理服务代保存的数据，该数据可以通过
+   * [onFormRecycle]{@link onFormRecycle}卡片回收回调函数保存
+   * 到卡片管理服务。
    *
-   * @param { string } statusData - indicate status data of ArkTS form UI, which is acquired by calling onFormRecycle, it is used to recover form
+   * @param { string } statusData - 卡片回收时卡片管理服务代保存的数据。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * onFormRecover Method, this is only for ArkTS form
-   *
-   * @param { string } statusData - indicate status data of ArkTS form UI, which is acquired by calling onFormRecycle, it is used to recover form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * onFormRecover Method, this is only for ArkTS form, it is migrated from class CustomComponent.
-   *
-   * @param { string } statusData - indicate status data of ArkTS form UI, which is acquired by calling onFormRecycle, it is used to recover form
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onFormRecover?(statusData: string): void;
 
   /**
    * 在router路由页面（即[\@Entry](docroot://ui/state-management/arkts-create-custom-components.md#entry)装饰的自定义组件）生效，当用户点击返回按钮时
-   * 触发。返回true表示页面自己处理返回逻辑，不进行页面路由；返回false表示使用默认的路由返回逻辑，不设置返回值按照false处理。
+   * 触发。返回true表示页面自己处理返回逻辑，不进行页面路由；返回false表示使用默认的路由返回逻辑，不设置返回值按照false处理。典型使用场景包括：页面有未保存的编辑内容时阻止返回以提示用户保存、弹出自定义确认对话框替代系统默
+   * 认返回行为等。
    *
-   * @returns { void | boolean } Action of the back button. The value **true** means that the page executes its own
-   *     return logic, and **false** (default) means that the default return logic is used.
+   * @returns { void | boolean } 返回按钮动作。返回true表示由页面自行处理返回逻辑，不进行页面路由；返回false表示使用默认的路由返回逻辑，不设置返回值时按false处理。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -29932,37 +27558,12 @@ declare class BaseCustomComponent extends CommonAttribute {
   onBackPress?(): void | boolean;
 
   /**
-   * PageTransition Method.
-   * Implement Animation when enter this page or move to other pages.
+   * pageTransition函数用于定义页面入场和页面退场的转场动效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * PageTransition Method.
-   * Implement Animation when enter this page or move to other pages.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * PageTransition Method.
-   * Implement Animation when enter this page or move to other pages.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * PageTransition Method and it is migrated from class CustomComponent.
-   * Implement Animation when enter this page or move to other pages.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   pageTransition?(): void;
 
@@ -29973,27 +27574,8 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get current UIContext
-   *
-   * @returns { UIContext } The UIContext that the custom component belongs to.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Get current UIContext and it is migrated from class CustomComponent.
-   *
-   * @returns { UIContext } The UIContext that the custom component belongs to.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   getUIContext(): UIContext;
 
@@ -30005,20 +27587,7 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Get uniqueId of the custom component and it is migrated from class CustomComponent.
-   * This unique ID is assigned by the system to each component.
-   * If this API is called before the component's corresponding node is created or after it has been destroyed, an
-   * invalid unique ID, which is -1, will be returned.
-   *
-   * @returns { number } - The uniqueId of the custom component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   getUniqueId(): number;
 
@@ -30073,26 +27642,14 @@ declare class BaseCustomComponent extends CommonAttribute {
   queryRouterPageInfo(): RouterPageInfo | undefined;
 
   /**
-   * The callback method after the custom component is built.
-   *
-   * Triggered when the custom component has been built.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * The callback method after the custom component is built and it is migrated from class CustomComponent.
-   *
-   * Triggered when the custom component has been built.
+   * onDidBuild函数在自定义组件的build()函数执行后调用，开发者可以在这个阶段实现埋点数据上报等不影响实际UI的功能。具体使用说明，详见
+   * [自定义组件生命周期指南](docroot://ui/state-management/arkts-page-custom-components-lifecycle.md)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   onDidBuild?(): void;
 
@@ -30109,8 +27666,11 @@ declare class BaseCustomComponent extends CommonAttribute {
   getDialogController(): PromptActionDialogController | undefined;
 
   /**
-   * 该回调仅生效于由[\@Entry](docroot://ui/state-management/arkts-create-custom-components.md#entry)装饰的、作为[router]{@link
-   * @param { ESObject } param - 路由跳转时传递到目标页面的数据。
+   * 该回调仅生效于由[\@Entry](docroot://ui/state-management/arkts-create-custom-components.md#entry)装饰的、作为
+   * [router]{@link @ohos.router:router}路由页面存在的自定义组件。当之前存在于路由栈中的页面，通过单实例模式
+   * [RouterMode]{@link @ohos.router:router.RouterMode}移动到栈顶时触发该回调。
+   *
+   * @param { ESObject } param - 路由跳转时传递到目标页面的数据，与router.pushUrl()中params字段传递的数据一致，数据结构由开发者自定义。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30119,25 +27679,16 @@ declare class BaseCustomComponent extends CommonAttribute {
    */
   onNewParam?(param: ESObject): void;
 }
-
-/**
- * 自定义组件
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @since 7
- */
 /**
  * 自定义组件
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @FaAndStageModel
- * @form
- * @since 9 dynamic
+ * @form [since 9]
+ * @since 7 dynamic
  */
 declare class View {
-
   /**
    * 只需使用生成tsbundle
    *
@@ -30146,18 +27697,8 @@ declare class View {
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * 只需使用生成tsbundle
-   *
-   * @param { any } value
-   * @returns { any }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @FaAndStageModel
-   * @form
-   * @since 9 dynamic
+   * @form [since 9]
+   * @since 7 dynamic
    */
   create(value: any): any;
 }
@@ -30542,7 +28083,7 @@ declare abstract class TextContentControllerBase {
 }
 
 /**
- * Enum of scrollable containers' content clip mode.
+  * 表示滚动容器的内容裁剪模式。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -30554,7 +28095,7 @@ declare abstract class TextContentControllerBase {
 declare enum ContentClipMode {
 
   /**
-   * Clip to content rect inside margin & padding.
+   * 按内容区裁剪，对应图中的绿色区域。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -30565,7 +28106,7 @@ declare enum ContentClipMode {
   CONTENT_ONLY = 0,
 
   /**
-   * Clip to scrollable's outer rect, including padding but inside margin.
+   * 按组件区域裁剪，对应图中的整个蓝色区域。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -30576,7 +28117,7 @@ declare enum ContentClipMode {
   BOUNDARY = 1,
 
   /**
-   * Clip to the safeArea of scrollable container.
+   * 按组件配置的SafeArea区域裁剪，对应图中的整个黄色区域。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -30611,10 +28152,11 @@ declare enum ContentClipMode {
 declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
 
   /**
-   * Scrollbar status.
+   * 设置滚动条状态。
    *
-   * @param { BarState } barState - Scrollbar status.
+   * @param { BarState } barState - 滚动条状态。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30624,10 +28166,11 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBar(barState: BarState): T;
 
   /**
-   * Color of the scrollbar.
+   * 设置滚动条的颜色。
    *
-   * @param { Color | number | string } color - Color of the scrollbar.
+   * @param { Color | number | string } color - 滚动条的颜色。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30637,13 +28180,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarColor(color: Color | number | string): T;
 
   /**
-   * Sets the scrollbar color.
+   * 设置滚动条的颜色。与
+   * [scrollBarColor<sup>11+</sup>](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#scrollbarcolor11)
+   * 相比，color参数开始支持Resource类型。
    *
-   * @param { Color | number | string | Resource } color - Scrollbar color.
-   *     <br>Default value: <em>'\#182431'</em> (40% opacity)
-   *     <br>A number value indicates a HEX color in RGB or ARGB format, for example, <em>0xffffff</em>.
-   *     A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
+   * @param { Color | number | string | Resource } color - 滚动条的颜色。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30653,10 +28196,11 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarColor(color: Color | number | string | Resource): T;
 
   /**
-   * Width of the scrollbar.
+   * 设置滚动条的宽度，不支持百分比设置。宽度设置后，滚动条正常状态和按压状态宽度均为滚动条的宽度值。如果滚动条的宽度超过滚动组件主轴方向的可视尺寸，则滚动条的宽度会变为默认值4vp。
    *
-   * @param { number | string } value  - Width of the scrollbar.
+   * @param { number | string } value  - 滚动条的宽度。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30666,15 +28210,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarWidth(value: number | string): T;
 
   /**
-   * 设置滚动条宽度。
+   * 设置滚动条的宽度，不支持百分比设置。宽度设置后，滚动条正常状态和按压状态宽度均为滚动条的宽度值。如果滚动条的宽度超过滚动组件主轴方向的可视尺寸，则滚动条的宽度会变为默认值4vp，支持Resource资源类型。
    *
-   * @param { number | string | Resource } value - 滚动条宽度。
-   *     <br>
-   *     单位：vp
-   *     <br>默认值：<em>4</em>
-   *     <br>如果设置为小于0的值，则使用默认值。
-   *     值<em>0</em>表示不显示滚动条。
+   * 未通过该接口设置时，滚动条的宽度为4vp。
+   *
+   * @param { number | string | Resource } value - 滚动条的宽度。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30684,10 +28226,15 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarWidth(value: number | string | Resource): T;
 
   /**
-   * Margin of the scrollbar.
+   * 设置滚动条的边距。边距是在滚动条避让滚动组件圆角区域距离的基础上计算的，如果滚动条区域小于滚动条的最小长度，则不显示滚动条。如果设置了本属性，则
+   * [autoAdjustScrollBarMargin]{@link CommonMethod#autoAdjustScrollBarMargin}
+   * 的自动调整边距功能不生效。应注意确保
+   * [scrollBarHeight]{@link CommonMethod#scrollBarHeight}与本属性的设定
+   * 值之和不超过滚动组件高度，否则滚动条可能无法正常显示。
    *
-   * @param { ScrollBarMargin } margin - Margin of the scrollbar.
+   * @param { ScrollBarMargin } margin - 滚动条起始、末尾边距。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30697,11 +28244,25 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   scrollBarMargin(margin: ScrollBarMargin): T;
 
   /**
-   * 设置滚动条自动调整margin以避让组件的padding、safeAreaPadding、contentStartOffset/contentEndOffset。
+   * 设置滚动条是否自动调整边距。默认不会自动调整边距。
    *
-   * @param { boolean | undefined } enable - 是否启用自动调整滚动条边距。
-   *     <br>默认值：false。
+   * 打开滚动条自动边距调整后，滚动条滚动方向上会避让组件[padding]{@link CommonMethod#padding}、
+   * [safeAreaPadding]{@link CommonMethod#safeAreaPadding}、
+   * [contentStartOffset]{@link CommonMethod#contentStartOffset}
+   * /[contentEndOffset]{@link CommonMethod#contentEndOffset}区
+   * 域。如果设置了
+   * [scrollBarMargin]{@link CommonMethod#scrollBarMargin}属性，则自
+   * 动调整边距不生效。当[padding]{@link CommonMethod#padding}、[safeAreaPadding]{@link CommonMethod#safeAreaPadding}、
+   * [contentStartOffset]{@link CommonMethod#contentStartOffset}
+   * 、[contentEndOffset]{@link CommonMethod#contentEndOffset}在水
+   * 平方向上的总和大于组件的宽度，或在垂直方向上的总和大于组件的高度时，滚动条不显示。
+   *
+   * @param { boolean | undefined } enable - 是否自动调整边距。
+   *     <br>true：自动调整边距。
+   *     <br>false：不自动调整边距。
+   *     <br>undefined：不自动调整边距。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30711,11 +28272,15 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   autoAdjustScrollBarMargin(enable: boolean | undefined): T;
 
   /**
-   * Edge scrolling effect.
+   * 设置边缘滑动效果。
    *
-   * @param { EdgeEffect } edgeEffect - edge scrolling effect.
-   * @param { EdgeEffectOptions } options - edge scrolling effect options.
+   * @param { EdgeEffect } edgeEffect - 滚动组件的边缘滑动效果，支持弹簧效果和阴影效果。<br/>默认值：Grid、Scroll、WaterFlow组件默认EdgeEffect.None，List组件
+   *     默认EdgeEffect.Spring。
+   * @param { EdgeEffectOptions } options - 组件内容大小小于组件自身时是否开启滑动效果。从API version 18开始，支持设置边缘效果生效的边缘。设置为{ alwaysEnabled:
+   *     true }会开启滑动效果，{ alwaysEnabled: false }不开启。<br/>默认值：<br/>List、Grid、WaterFlow组件默认{ alwaysEnabled: false }，Scroll组
+   *     件默认{ alwaysEnabled: true }。从API version 18开始，默认增加effectEdge字段，取值为EffectEdge.START | EffectEdge.END。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30725,11 +28290,39 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): T;
 
   /**
-   * Called when setting whether to enable fading Edge effect.
+   * 设置是否开启边缘渐隐效果及设置边缘渐隐长度。
    *
-   * @param { Optional<boolean> } enabled - Whether to turn on the edge fade effect
-   * @param { FadingEdgeOptions } [options] - The options of fadingEdge.
+   * > **说明：**
+   * >
+   * > fadingEdge是通过设置[overlay]{@link CommonMethod#overlay}属性和
+   * > [blendMode]{@link CommonMethod#blendMode(value: BlendMode, type?: BlendApplyType)}属性（参数值为BlendMode.SRC_OVER，
+   * > BlendApplyType.OFFSCREEN）实现的。当fadingEdge生效时，会覆盖原组件的.overlay()属性和.blendMode()属性，并将导致当前组件和其子组件需要截屏的接口无法截取到正确的画面。需要截
+   * > 屏的接口有：[blur]{@link CommonMethod#blur(value: number, options?: BlurOptions)}、
+   * > [linearGradientBlur]{@link CommonMethod#linearGradientBlur(value: number, options: LinearGradientBlurOptions)}、
+   * > [brightness]{@link CommonMethod#brightness(value: number)}、[visualEffect]{@link CommonMethod#visualEffect}、
+   * > [grayscale]{@link CommonMethod#grayscale(value: number)}、[saturate]{@link CommonMethod#saturate(value: number)}、
+   * > [contrast]{@link CommonMethod#contrast(value: number)}、
+   * > [invert]{@link CommonMethod#invert(value: number | InvertOptions)}、
+   * > [sepia]{@link CommonMethod#sepia(value: number)}、
+   * > [hueRotate]{@link CommonMethod#hueRotate(value: number | string)}、
+   * > [colorBlend]{@link CommonMethod#colorBlend(value: Color | string | Resource)}、
+   * > [lightUpEffect]{@link CommonMethod#lightUpEffect(value: number)}、
+   * > [pixelStretchEffect]{@link CommonMethod#pixelStretchEffect(options: PixelStretchEffectOptions)}、
+   * > [blendMode]{@link CommonMethod#blendMode(value: BlendMode, type?: BlendApplyType)}、
+   * > [backgroundBrightness]{@link CommonMethod#backgroundBrightness(params: BackgroundBrightnessOptions)}。
+   * >
+   * > fadingEdge生效时，建议不在设置fadingEdge属性的组件上设置[background]{@link CommonMethod#background}相关属性，会影响渐隐的显示效果。
+   * >
+   * > fadingEdge生效时，建议不在设置fadingEdge属性的组件以及其子组件上设置[systemMaterial]{@link CommonMethod#systemMaterial}相关属性，会影响系统材质的显示效果，
+   * > 导致材质效果与预期效果不一致。
+   * >
+   * > fadingEdge生效时，设置fadingEdge属性的组件会裁剪到边界，在该组件上设置[clip]{@link CommonMethod#clip(value: boolean)}属性为false不生效。
+   *
+   * @param { Optional<boolean> } enabled - 是否开启边缘渐隐效果。设置为true时开启边缘渐隐效果，设置为false时不开启边缘渐隐效果。<br/>默认值：false
+   * @param { FadingEdgeOptions } [options] - 边缘渐隐参数对象。可以通过该对象定义边缘渐隐效果属性，比如设置渐隐长度。<br/>如果设置小于0的值或undefined或者不设置则取默认值，默认长
+   *     度为32vp。<br/>如果设置的长度超过容器高度的一半时，渐隐长度取容器高度的一半。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30739,10 +28332,12 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   fadingEdge(enabled: Optional<boolean>, options?: FadingEdgeOptions): T;
 
   /**
-   * Nested scrolling options.
+   * 设置前后两个方向的嵌套滚动模式，实现与父组件的滚动联动。
    *
-   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @param { NestedScrollOptions } value - 嵌套滚动选项。<br/>默认值：{ scrollForward: NestedScrollMode.SELF_ONLY, scrollBackward:
+   *     NestedScrollMode.SELF_ONLY }
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30752,10 +28347,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   nestedScroll(value: NestedScrollOptions): T;
 
   /**
-   * Whether to support scroll gestures by finger or mouse.
+   * 设置是否支持滚动手势。
    *
-   * @param { boolean } value - Whether to support scroll gestures by finger or mouse.
+   * @param { boolean } value - 是否支持手指或鼠标滚动手势。设置为true时支持，设置为false时不支持，但不影响控制器[Scroller]{@link Scroller}的滚动接口和
+   *     [backToTop]{@link CommonMethod#backToTop}属性。<br/>默认值：
+   *     true
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30765,10 +28363,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   enableScrollInteraction(value: boolean): T;
 
   /**
-   * friction coefficient.
+   * 设置摩擦系数，手动划动滚动区域时生效，仅影响惯性滚动过程，对惯性滚动过程中嵌套滚动组件间的联动效果（如List组件的链式动效[chainAnimation]{@link ListAttribute#chainAnimation}）
+   * 有间接影响，适用于需要调整惯性滚动减速快慢的场景。设置为小于等于0的值时，按默认值处理。
    *
-   * @param { number | Resource } value - friction coefficient.
+   * @param { number | Resource } value - 摩擦系数。<br/>默认值：非wearable设备为0.6，wearable设备为0.9。<br/>从API version 11开始，非wearable设
+   *     备默认值为0.7。<br/>从API version 12开始，非wearable设备默认值为0.75。 <br/>取值范围：(0, +∞)，设置为小于等于0的值时，按默认值处理。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30778,13 +28379,14 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   friction(value: number | Resource): T;
 
   /**
-   * Sets the offset from the start of the content to the boundary of the scrollable display area.
+   * 设置内容区域起始偏移量。滚动组件滚动到起始位置时，内容与组件显示区域边界保留指定距离。
    *
-   * @param { number | Resource } offset - Offset from the start of the content to the boundary of
-   *     the scrollable display area.
-   *     <br>Default value: <em>0</em>
-   *     <br>Unit: vp
+   * contentStartOffset + contentEndOffset超过滚动组件内容区长度后contentStartOffset和contentEndOffset会置0。
+   *
+   * @param { number | Resource } offset - 内容区域起始偏移量。<br/>默认值：0<br/>单位：vp <br/>取值范围：
+   *     [0, +∞)<br/>设置异常值如负数、非数字Resource时，按默认值处理。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30794,12 +28396,14 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   contentStartOffset(offset: number | Resource): T;
 
   /**
-   * 设置从内容结尾到可滚动显示区域边界的偏移量。
+   * 设置内容区末尾偏移量。滚动组件滚动到末尾位置时，内容与组件显示区域边界保留指定距离。
    *
-   * @param { number | Resource } offset - 从内容末尾到可滚动显示区域边界的偏移量。
-   * <br>默认值：<em>0</em>
-   * <br>单位：vp
+   * contentStartOffset + contentEndOffset超过滚动组件内容区长度后contentStartOffset和contentEndOffset会置0。
+   *
+   * @param { number | Resource } offset - 内容区末尾偏移量。<br/>默认值：0<br/>单位：vp <br/>取值范围：
+   *     [0, +∞)<br/>设置异常值如负数、非数字Resource时，按默认值处理。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30809,11 +28413,12 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   contentEndOffset(offset: number | Resource): T;
 
   /**
-   * 启用鼠标左键按住并拖动滚动。
+   * 设置是否支持鼠标左键按下拖动滚动。未通过该接口设置时，默认不支持鼠标左键按下拖动滚动。
    *
-   * @param { boolean | undefined } enabled - 启用鼠标左键按住并拖动滚动。
-   *     <br>默认值：false。
+   * @param { boolean | undefined } enabled - 是否支持鼠标左键按下拖动滚动。<br/>true：支持鼠标左键按下拖动滚动。<br/>false：不支持鼠标左键按下拖动滚动。<br/>
+   *     undefined：不支持鼠标左键按下拖动滚动。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30823,11 +28428,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   enableScrollWithMouse(enabled: boolean | undefined): T;
 
   /**
-   * Triggered when the scrollable component scrolls.
+   * 滚动组件滑动时触发。
    *
-   * @param { function } event - callback of scrollable,
-   * scrollOffset is offset per frame scrolling, ScrollState is current scroll state.
+   * > **说明：**
+   * >
+   * > 从API version 11开始支持，从API version 12开始废弃。[List]{@link ./list}、[Grid]{@link ./grid}和[WaterFlow]{@link ./water_flow}
+   * > 组件的onScroll事件在布局之后触发，
+   *
+   * @param { function } event - 滚动组件滑动时的回调。<br/>scrollOffset：相对于上一帧的偏移量，滚动组件的内容向上滚动时偏移量为正，向下滚动时偏移量为负。单位vp。<br/>
+   *     scrollState：当前滑动状态。
    * @returns { T }
+   *    返回当前滚动组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30839,10 +28450,24 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T;
 
   /**
-   * Called when the scrollable will scroll.
+   * 滚动事件回调，滚动组件滚动前触发。与
+   * [onDidScroll]{@link UIScrollableCommonEvent#onDidScroll}的对比：
+   * onWillScroll在滚动发生前触发，可通过返回值指定将要滚动的偏移量，适用于需要拦截或自定义滚动行为的场景；onDidScroll在滚动发生时触发，返回当前帧的实际滚动偏移量和滑动状态，适用于仅需监听滚动过程的场景。两者可同
+   * 时使用。
    *
-   * @param { Optional<OnWillScrollCallback> } handler - callback of scrollable.
+   * 回调当前帧将要滚动的偏移量、当前滚动状态及滚动操作来源，其中回调的偏移量为计算得到的将要滚动的偏移量值，并非最终实际滚动偏移。可以通过该回调返回值指定滚动组件将要滚动的偏移。[Scroll]{@link ./scroll}组件的
+   * [onWillScroll]{@link ScrollAttribute#onWillScroll}接口的参数类型是
+   * [ScrollOnWillScrollCallback]{@link ScrollOnWillScrollCallback}。
+   *
+   * > **说明：**
+   * >
+   * > - 从API version 14开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
+   * >
+   * > - 调用不带动画的[ScrollEdge]{@link Scroller#scrollEdge}和[ScrollToIndex]{@link Scroller#scrollToIndex}时，不触发onWillScroll。
+   *
+   * @param { Optional<OnWillScrollCallback> } handler - 滚动组件滑动前触发的回调。
    * @returns { T }
+   *    返回当前滚动组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30852,10 +28477,15 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onWillScroll(handler: Optional<OnWillScrollCallback>): T;
 
   /**
-   * Triggered when the scrollable component scrolls.
+   * 滚动组件滑动时触发，返回当前帧滑动的偏移量和当前滑动状态。
    *
-   * @param { OnScrollCallback } handler - Callback triggered when the scrollable component scrolls.
+   * > **说明：**
+   * >
+   * > 从API version 14开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
+   *
+   * @param { OnScrollCallback } handler - 滚动组件滑动时触发的回调。
    * @returns { T }
+   *    返回当前滚动组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30866,10 +28496,11 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onDidScroll(handler: OnScrollCallback): T;
 
   /**
-   * Called when the scrollable will start dragging.
+   * 滚动组件开始拖动时触发。
    *
-   * @param { VoidCallback } handler - callback of start dragging.
+   * @param { VoidCallback } handler - 滚动组件开始拖动时触发的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30880,10 +28511,11 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onWillStartDragging(handler: VoidCallback): T;
 
   /**
-   * Called when the scrollable will end dragging.
+   * 滚动组件划动离手时触发，使用鼠标滚轮划动时不会触发。
    *
-   * @param { OnWillStopDraggingCallback } handler - callback of end dragging,
+   * @param { OnWillStopDraggingCallback } handler - 滚动组件划动离手时触发的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30894,10 +28526,11 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onWillStopDragging(handler: OnWillStopDraggingCallback): T;
 
   /**
-   * Called when the scrollable did end dragging.
+   * 滚动组件结束拖动时触发。
    *
-   * @param { OnDidStopDraggingCallback } handler - callback of end dragging.
+   * @param { OnDidStopDraggingCallback } handler - 滚动组件结束拖动时触发的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30908,10 +28541,19 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onDidStopDragging(handler: OnDidStopDraggingCallback): T;
 
   /**
-   * Called when the scrollable will start fling.
+   * 滚动组件将要开始惯性动效时触发。
    *
-   * @param { VoidCallback } handler - callback of start fling.
+   * > **说明：**
+   * >
+   * > - 如果惯性动效通过[fling]{@link Scroller#fling}方法触发，则onWillStartFling不触发。
+   * >
+   * > - 惯性动效的触发场景参考
+   * > [flingSpeedLimit]{@link CommonMethod#flingSpeedLimit}方法的
+   * > 说明。
+   *
+   * @param { VoidCallback } handler - 滚动组件将要开始惯性动效时触发的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30922,10 +28564,11 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onWillStartFling(handler: VoidCallback): T;
 
   /**
-   * Called when the scrollable did end fling.
+   * 滚动组件结束惯性动效后触发，进行中的惯性动效被新的滑动事件打断时不触发。
    *
-   * @param { VoidCallback } handler - callback of end fling.
+   * @param { VoidCallback } handler - 滚动组件结束惯性动效后触发的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30936,10 +28579,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onDidStopFling(handler: VoidCallback): T;
 
   /**
-   * Called when the scrollable reaches the start position.
+   * 滚动组件到达起始位置时触发。
    *
-   * @param { function } event - Callback function, triggered when the scrollable reaches the start position.
+   * 滚动组件初始化时会触发一次，滚动到起始位置时触发一次。边缘效果为弹簧效果时，划动经过起始位置时触发一次，回弹回起始位置时再触发一次。
+   *
+   * @param { function } event - 滚动组件到达起始位置时的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30949,10 +28595,13 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onReachStart(event: () => void): T;
 
   /**
-   * Called when the scrollable reaches the end position.
+   * 滚动组件到达末尾位置时触发。
    *
-   * @param { function } event - Callback function, triggered when the scrollable reaches the end position.
+   * 滚动组件初始化时，若已处于末尾位置则会触发一次。边缘效果为弹簧效果时，划动经过末尾位置时触发一次，回弹回末尾位置时再触发一次。
+   *
+   * @param { function } event - 滚动组件到达末尾位置时的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30962,10 +28611,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onReachEnd(event: () => void): T;
 
   /**
-   * Called when the scrollable starts scrolling.
+   * 滚动开始时触发。手指拖动滚动组件或其滚动条触发的滚动开始时，会触发该事件。使用[Scroller]{@link Scroller}滚动控制器触发的带动画的滚动，动画开始时会触发该事件。
    *
-   * @param { function } event - Callback function, triggered when the scrollable starts scrolling.
+   * 触发该事件的条件：
+   *
+   * 1. 滚动组件开始滚动时触发，支持键鼠操作等其他触发滚动的输入设置。
+   *
+   * 2. 通过滚动控制器API接口调用后开始，带过渡动效。
+   *
+   * @param { function } event - 滚动开始时的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30975,10 +28631,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onScrollStart(event: () => void): T;
 
   /**
-   * Called when the scrollable stops scrolling.
+   * 滚动停止时触发。手指拖动滚动组件或其滚动条触发的滚动，手指离开屏幕后滚动停止时会触发该事件。使用[Scroller]{@link Scroller}滚动控制器触发的带动画的滚动，动画停止时会触发该事件。
    *
-   * @param { function } event - Callback function, triggered when the scrollable stops scrolling.
+   * 触发该事件的条件：
+   *
+   * 1. 滚动组件触发滚动后停止，支持键鼠操作等其他触发滚动的输入设置。
+   *
+   * 2. 通过调用带过渡动画的滚动控制器API接口，动画停止时。
+   *
+   * @param { function } event - 滚动停止时的回调。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30988,11 +28651,21 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onScrollStop(event: () => void): T;
 
   /**
-   * Limit the max speed when fling.
+   * 限制跟手滑动结束后，惯性动效开始时的最大初始速度。
    *
-   * @param { number } speedLimit - Max fling speed, the minimum value is 0, the maximum value is not limited.
-   *                                The unit is vp/s.
+   * > **说明：**
+   * >
+   * > - 惯性动效是指手指快速滑动并离开屏幕后，滚动内容继续滚动并逐渐减速停止的效果，也称为惯性滚动。
+   * >
+   * > - 惯性动效触发场景包括：惯性手指快速滑动并离手时，或调用[fling]{@link Scroller#fling}方法。
+   * >
+   * > - 使用鼠标滚轮、键盘方向键方式滚动，或通过[scrollTo]{@link Scroller#scrollTo}等方法直接滚动到指定位置，不会产生惯性动效。
+   * >
+   * > - 如果惯性动效通过[fling]{@link Scroller#fling}方法触发，则flingSpeedLimit设置不生效。
+   *
+   * @param { number } speedLimit - 惯性动效开始时的最大初始速度。<br/>默认值：9000<br/>单位：vp/s <br/>取值范围：(0, +∞)，设置为小于等于0的值时，按默认值处理。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31002,10 +28675,16 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   flingSpeedLimit(speedLimit: number): T;
 
   /**
-   * Clip the content of the scrollable container, excluding background.
+   * 设置滚动容器的内容层裁剪区域。
    *
-   * @param { ContentClipMode | RectShape } clip - A value from enum ContentClipMode or a customized clip rect.
+   * 从API版本26.0.0开始，内容层裁剪区域内的子组件支持正常显示。API版本26.0.0以前的版本，当List、Grid和WaterFlow组件的内容层裁剪区域大于组件自身时，完全在组件区域外但在裁剪区域内的子组件默认不会显示。
+   * 若需要显示，可将组件的cachedCount属性的show参数设置为true。但由于cachedCount属性设置的预加载子组件仅在空闲时隙执行，在组件大小变化、数据更新等场景下可能存在更新不及时导致闪烁的问题。
+   *
+   * @param { ContentClipMode | RectShape } clip - 裁剪只针对滚动容器的内容，即其子节点，背景不受影响。通过RectShape传入自定义矩形区域时仅支持设置宽高和相对于组件左上角的
+   *     [offset]{@link @ohos.arkui.shape:CommonShapeMethod#offset}，不支持圆角。
+   *     <br>默认值：Grid、Scroll的默认值为ContentClipMode.BOUNDARY，List、WaterFlow的默认值为ContentClipMode.CONTENT_ONLY。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31015,10 +28694,15 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   clipContent(clip: ContentClipMode | RectShape): T;
 
   /**
-   * Set the sensitivity of rotating crown.
+   * 设置表冠响应事件灵敏度。
    *
-   * @param { Optional<CrownSensitivity> } sensitivity - The sensitivity of rotating crown, default value is { MEDIUM }.
-   * @returns { T } The component instance.
+   * 组件收到[表冠事件]{@link CommonMethod}的前提是该组件获焦，焦点控制可以通过[focusable]{@link CommonMethod#focusable}、
+   * [defaultFocus]{@link CommonMethod#defaultFocus}、[focusOnTouch]{@link CommonMethod#focusOnTouch}进行管理。
+   *
+   * @param { Optional<CrownSensitivity> } sensitivity - 表冠响应灵敏度。CrownSensitivity.LOW表示低灵敏度，滚动响应较慢；
+   *     CrownSensitivity.MEDIUM表示中灵敏度，滚动响应适中；CrownSensitivity.HIGH表示高灵敏度，滚动响应较快。<br/>默认值：CrownSensitivity.MEDIUM，响应速度适
+   *     中。
+   * @returns { T } 返回当前滚动组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31028,11 +28712,16 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): T;
 
   /**
-   * Controls whether the scrollable scrolls back to top when status bar is clicked.
+   * 设置滚动组件是否支持点击状态栏回到顶部。
    *
-   * @param { boolean } backToTop - whether the scrollable scrolls back to top when status bar is clicked.
-   * The default value is false.
+   * 支持当前页面的滚动组件收到点击状态栏事件后，通过动画回到顶部。点击状态栏后，后台应用的滚动组件不受影响，不做回到顶部的动作。本属性不受
+   * [enableScrollInteraction]{@link CommonMethod#enableScrollInteraction}
+   * 设置的影响。
+   *
+   * @param { boolean } backToTop - 设置滚动组件是否支持点击状态栏回到顶部。设置为true支持点击状态栏通过动画回到顶部，设置为false不支持点击状态栏回到顶部。<br/>默认值：<br/>API
+   *     version 18之前：false。 <br/>API version 18及以后：滚动方向是水平方向时为false，是垂直方向时为true。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31044,10 +28733,18 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * 设置滚动条滑轨高度。
    *
-   * @param { LengthMetrics | undefined } height - 滚动条滑轨高度
-   *     <br>取值应≥0，如果设置为undefined或小于0的值，则使用默认值.
-   *     如果设置为0，则不显示滚动条。 默认值： 适应可滚动组件的高度。
+   * 未设置该接口时，滚动条滑轨高度默认自适应滚动组件高度，儿童智能表的默认高度为37vp。
+   *
+   * > **说明：**
+   * >
+   * > 应确保scrollBarHeight与
+   * > [scrollBarMargin]{@link CommonMethod#scrollBarMargin}的设定
+   * > 值之和不超过滚动组件高度，否则滚动条可能无法正常显示。
+   *
+   * @param { LengthMetrics | undefined } height - 滚动条滑轨高度。<br/>值必须大于等于0。设置为undefined或小于0时，自适应滚动组件高度，儿童智能表则恢复至默认值37vp。设置
+   *     为0时，不显示滚动条。
    * @returns { T }
+   *    返回当前滚动组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31058,7 +28755,8 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
 }
 
 /**
- * The actual offset by which the scrollable scrolls.
+ * [OnWillScrollCallback]{@link OnWillScrollCallback}返回值对象。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31068,7 +28766,8 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
 declare class ScrollResult {
 
   /**
-   * Actual offset by which the scrollable scrolls in vp.
+   * 将要滑动偏移量，单位vp。
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -31098,11 +28797,11 @@ declare type OnWillScrollCallback =
 (scrollOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => void | ScrollResult;
 
 /**
- * On scroll callback using in scrollable onDidScroll.
+ * 滚动组件滑动时触发的回调。
  *
  * @typedef { function } OnScrollCallback
- * @param { number } scrollOffset - offset this frame did scroll.
- * @param { ScrollState } scrollState - current scroll state.
+ * @param { number } scrollOffset - 相对于上一帧的偏移量，滚动组件的内容向上滚动时偏移量为正，向下滚动时偏移量为负。<br/>单位vp。
+ * @param { ScrollState } scrollState - 当前滑动状态。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31113,12 +28812,13 @@ declare type OnWillScrollCallback =
 declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void;
 
 /**
- * 定义在onItemDragStart中使用的回调类型。
+ * 开始拖拽列表或网格元素时触发的回调。
  *
  * @typedef { function } OnItemDragStartCallback
- * @param { ItemDragInfo } event - 被拖拽项的信息。
- * @param { number } itemIndex - 拖动项的索引号。
+ * @param { ItemDragInfo } event - 拖拽点的信息。
+ * @param { number } itemIndex - 被拖拽列表元素索引值。
  * @returns { CustomBuilder }
+ *  返回CustomBuilder用于构建被拖拽元素的拖拽图。返回void表示不能拖拽。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform
@@ -31128,10 +28828,15 @@ declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState)
 declare type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: number) => CustomBuilder;
 
 /**
- * 定义EditModeOptions的onGetPreviewBadge中使用的回调类型。
+ * 即将启动多选长按聚拢动画时，触发用于获取选中数量的回调。
+ *
+ * 返回true表示显示选中数量角标，对应Grid或List显示范围内选中item数量；false表示不显示角标。
+ * 返回数字时默认显示角标，该数字表示角标中需要显示的数量。取值范围：[0, 2<sup>31</sup>-1]，超过取值范围时按返回true处理。
+ * 返回浮点数时，向下取整。
  *
  * @typedef { function } OnGetPreviewBadgeCallback
  * @returns { boolean | number }
+ *  多选长按聚拢动画后菜单预览图是否显示选中数量角标，或需要显示的数量。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31141,10 +28846,10 @@ declare type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: number) 
 declare type OnGetPreviewBadgeCallback = () => boolean | number;
 
 /**
- * On scroll callback using in scrollable onWillStopDragging.
+ * 滚动组件划动离手时触发的回调。
  *
  * @typedef { function } OnWillStopDraggingCallback
- * @param { number } velocity - The veolicity of the scroll view at the moment the touch was released.
+ * @param { number } velocity - 划动离手速度，滚动组件的内容向上滚动时速度为正，向下滚动时速度为负。<br/>单位vp/s。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31155,10 +28860,10 @@ declare type OnGetPreviewBadgeCallback = () => boolean | number;
 declare type OnWillStopDraggingCallback = (velocity: number) => void;
 
 /**
- * On scroll callback using in scrollable onDidStopDragging.
+ * 滚动组件在结束拖拽时触发的回调。
  *
  * @typedef { function } OnDidStopDraggingCallback
- * @param { boolean } willFling - whether start fling animation.
+ * @param { boolean } willFling - 结束拖拽后是否会有惯性动效。返回true代表拖拽结束后有惯性动效，返回false代表没有惯性动效。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31169,11 +28874,20 @@ declare type OnWillStopDraggingCallback = (velocity: number) => void;
 declare type OnDidStopDraggingCallback = (willFling: boolean) => void;
 
 /**
- * 定义onScrollIndex的回调类型。
+ * 懒加载布局容器[LazyColumnLayout]{@link LazyColumnLayout}、
+ * [LazyVGridLayout]{@link ./lazy_grid_layout}、
+ * [LazyVWaterFlowLayout]{@link LazyVWaterFlowLayout}所显示的子组件索引发生变化时的回调
+ * 类型。
+ *
+ * > **说明：**
+ * >
+ * > - 当懒加载布局容器没有子组件时，start和end都返回-1。
+ * >
+ * > - 当懒加载布局容器在可视区域内无子组件时，start和end都返回-1。
  *
  * @typedef {function} OnVisibleIndexesChangeCallback
- * @param { int } start - 可见区域的第一个索引号。
- * @param { int } end - 可见区域的最后一个索引号。
+ * @param { int } start - 可视区域起始位置的索引值。<br/>取值范围：[0, 子节点总数-1]，当没有子节点或所有子节点都在可视区域外时，返回-1。
+ * @param { int } end - 可视区域终止位置的索引值。<br/>取值范围：[0, 子节点总数-1]，当没有子节点或所有子节点都在可视区域外时，返回-1。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31183,11 +28897,11 @@ declare type OnDidStopDraggingCallback = (willFling: boolean) => void;
 declare type OnVisibleIndexesChangeCallback = (start: int, end: int) => void;
 
 /**
- * Defines the onMove callback.
+ * 定义数据源拖拽回调。
  *
  * @typedef { function } OnMoveHandler
- * @param { number } from - Index number for moving elements.
- * @param { number } to - Target index number for moving elements.
+ * @param { number } from - 数据源拖拽起始索引号。取值范围是[0, 数据源长度-1]。
+ * @param { number } to - 数据源拖拽目标索引号。取值范围是[0, 数据源长度-1]。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31269,10 +28983,12 @@ declare interface ItemDragEventHandler {
 declare class DynamicNode<T> {
 
   /**
-   * Set the move action.
+   * 拖拽排序数据移动回调。当父容器组件为[List]{@link ./list}或[Grid]{@link ./grid}，并且ForEach/LazyForEach/Repeat每次迭代都生成一个ListItem或GridItem组
+   * 件时才生效。调用后开启拖拽排序功能；拖拽排序离手后，如果数据位置发生变化，将触发handler回调，上报数据移动起始索引号和目标索引号。需要在回调中修改数据源，并确保数据仅顺序发生变化，才能正常执行落位动画。
    *
    * @param { Optional<OnMoveHandler> } handler
    * @returns { T }
+   *    返回当前组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31282,10 +28998,15 @@ declare class DynamicNode<T> {
   onMove(handler: Optional<OnMoveHandler>): T;
 
   /**
-   * 设置移动动作
+   * 拖拽排序数据移动回调。当父容器组件为[List]{@link ./list}或[Grid]{@link ./grid}，并且ForEach/LazyForEach/Repeat每次迭代都生成一个ListItem或GridItem组
+   * 件时才生效。调用后开启拖拽排序功能；拖拽排序离手后，如果数据位置发生变化，将触发handler回调，上报数据移动起始索引号和目标索引号。需要在回调中修改数据源，并确保数据仅顺序发生变化，才能正常执行落位动画。与
+   * [onMove]{@link CommonMethod#onMove}相比，新增eventHandler参
+   * 数，可监听长按、开始拖拽、经过其他组件、拖拽结束等拖拽阶段事件。
+   *
    * @param { Optional<OnMoveHandler> } handler
    * @param { ItemDragEventHandler } eventHandler
    * @returns { T }
+   *    返回当前组件。
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31296,7 +29017,7 @@ declare class DynamicNode<T> {
 }
 
 /**
- * Define EdgeEffect Options.
+ * [edgeEffect]{@link CommonMethod#edgeEffect}属性参数对象。
  *
  * @interface EdgeEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31305,7 +29026,7 @@ declare class DynamicNode<T> {
  * @since 11
  */
 /**
- * Define EdgeEffect Options.
+ * [edgeEffect]{@link CommonMethod#edgeEffect}属性参数对象。
  *
  * @interface EdgeEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31317,7 +29038,8 @@ declare class DynamicNode<T> {
 declare interface EdgeEffectOptions {
 
   /**
-   * Enable Sliding effect when component does not full screen.
+   * 组件内容大小小于组件自身时，设置是否开启滑动效果。设置为true开启滑动效果，设置为false关闭滑动效果。[List]{@link ./list}、[Grid]{@link ./grid}和
+   * [WaterFlow]{@link ./water_flow}组件默认值是false，[Scroll]{@link ./scroll}组件默认值是true。
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31326,7 +29048,8 @@ declare interface EdgeEffectOptions {
    * @since 11
    */
   /**
-   * Enable Sliding effect when component does not full screen.
+   * 组件内容大小小于组件自身时，设置是否开启滑动效果。设置为true开启滑动效果，设置为false关闭滑动效果。[List]{@link ./list}、[Grid]{@link ./grid}和
+   * [WaterFlow]{@link ./water_flow}组件默认值是false，[Scroll]{@link ./scroll}组件默认值是true。
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31338,7 +29061,13 @@ declare interface EdgeEffectOptions {
   alwaysEnabled: boolean;
 
   /**
-   * Set the effective edge of the edge effect.
+   * 设置边缘效果生效的边缘。
+   *
+   * 如果设置[EffectEdge]{@link EffectEdge}.START表示只有起始边生效。如果设置[EffectEdge]{@link EffectEdge}.END表示只有末尾边生效。
+   *
+   * 默认值为[EffectEdge]{@link EffectEdge}.START | [EffectEdge]{@link EffectEdge}.END表示双边同时生效。当设置为其它异常值时，则默认双边同时生效。
+   *
+   * 如果需要双边都不生效，可将edgeEffect设置为EdgeEffect.None。
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31351,7 +29080,7 @@ declare interface EdgeEffectOptions {
 }
 
 /**
- * Enumerates the effective edge of the edge effect.
+ * 表示当前边缘效果要生效的边缘。
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31363,7 +29092,7 @@ declare interface EdgeEffectOptions {
 declare enum EffectEdge {
 
   /**
-   * Effective only for the starting edge.
+   * 起始边生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -31374,7 +29103,7 @@ declare enum EffectEdge {
   START = 1,
 
   /**
-   * Effective only for the end edge.
+   * 末尾边生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -31386,7 +29115,11 @@ declare enum EffectEdge {
 }
 
 /**
- * Indicates children main size.
+ * 维护List组件或ListItemGroup组件的子组件在主轴方向的大小信息，仅支持一对一绑定到List组件或ListItemGroup组件。
+ *
+ * > **说明：**
+ * >
+ * > - 提供的主轴方向大小信息必须与子组件实际在主轴方向的大小一致，子组件在主轴方向大小变化或者增删子组件时都必须通过ChildrenMainSize对象方法通知List组件或ListItemGroup组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -31397,10 +29130,9 @@ declare enum EffectEdge {
 declare class ChildrenMainSize {
 
   /**
-   * Creates an instance of ChildrenMainSize.
+   * ChildrenMainSize有参构造函数。
    *
-   * @param { number } childDefaultSize - default main size, in vp. If the main axis is vertical, it indicates height.
-   * If the main axis is horizontal, it indicates width.
+   * @param { number } childDefaultSize - 子组件在主轴方向的默认大小。<br/>单位：vp<br/>**说明：** <br/>必须是有限的非负数值，否则抛出异常。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -31414,10 +29146,9 @@ declare class ChildrenMainSize {
   constructor(childDefaultSize: number);
 
   /**
-   * Set default size.
+   * 修改子组件在主轴方向的默认大小。
    *
-   * @param { number } value - default main size, in vp. If the main axis is vertical, it indicates height.
-   * If the main axis is horizontal, it indicates width.
+   * @param { number } value - 子组件在主轴方向的默认大小。<br/>单位：vp<br/>**说明：** <br/>必须是有限的非负数值，否则抛出异常。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -31444,11 +29175,15 @@ declare class ChildrenMainSize {
   get childDefaultSize(): number;
 
   /**
-   * Changes children main size by removing or replacing existing elements and/or adding new elements in place.
+   * 批量增删改子组件在主轴方向的大小信息。
    *
-   * @param { number } start - Zero-based index at which to start changing the children main size.
-   * @param { number } [deleteCount] - Indicating the number of children main size to remove from start.
-   * @param { Array<number> } [childrenSize] - Add the new children main size, beginning from start.
+   * @param { number } start - 从0开始计算的索引值，表示要开始修改子组件在主轴方向大小信息的位置。<br/>**说明：** <br/>1. 必须是有限的非负数值，否则抛出异常。<br/>2. 非整数会被截断为
+   *     整数。<br/>3. 超过最大索引值不生效。<br/>取值范围：[0, +∞)
+   * @param { number } [deleteCount] - 从start开始删除的大小信息的数量。<br/>**说明：** <br/>1.  必须是有限的非负数值，否则处理为0。<br/>2. 非整数会被截断为整数。<br
+   *     />3. start + deleteCount - 1可以超过最大索引值，会删除索引值start开始之后的所有子组件的大小信息。<br/>默认值为+∞。 <br/>取值范围：[0, +∞)
+   * @param { Array<number> } [childrenSize] - 要在start位置插入的所有子组件的主轴方向的大小。<br/>Array中各个数值单位：vp <br/>**说明：** <br/>1.数组中数值如
+   *     果是有限的非负值，则认为是指定的大小，后续不随默认大小的变化而变化。<br/>2. 数组中数值如果不是有限的非负值，会被处理成默认大小，后续会随默认大小的变化而变化。<br/>默认值为空数组。 <br/>取值范围：
+   *     [0, +∞)
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -31465,10 +29200,12 @@ declare class ChildrenMainSize {
   splice(start: number, deleteCount?: number, childrenSize?: Array<number>): void;
 
   /**
-   * Updates main size for specified child.
+   * 修改指定索引值对应的子组件的主轴方向的大小信息。
    *
-   * @param { number } index - index of child to be updated.
-   * @param { number } childSize - new section options.
+   * @param { number } index - 从0开始计算的索引值，表示要开始修改子组件在主轴方向大小信息的位置。<br/>**说明：** <br/>1. 必须是有限的非负数值，否则抛出异常。<br/>2. 非整数会被截断为
+   *     整数。<br/>3. 超过最大索引值不生效。 <br/>取值范围：[0, +∞)
+   * @param { number } childSize - 要更新成的大小。<br/>单位：vp <br/>**说明：** <br/>1.数值如果是有限的非负值，则认为是指定的大小，后续不随默认大小的变化而变化。<br/>2. 数
+   *     值如果不是有限的非负值，会被处理成默认大小，后续会随默认大小的变化而变化。  <br/>取值范围：[0, +∞)
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.
@@ -31483,7 +29220,7 @@ declare class ChildrenMainSize {
 }
 
 /**
- * 定义编辑模式选项
+ * List/Grid组件编辑模式选项属性参数对象。
  *
  * @interface EditModeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31559,9 +29296,11 @@ declare interface EditModeOptions {
  * > **说明：**
  * >
  * > 对于组件背景内容，每个像素自身的亮度（灰阶值）的计算公式为：
- * > >  `Y = （0.299R + 0.587G + 0.114B）/ 255.0`（R、G、B分别表示像素红色、绿色和蓝色通道的值，Y表示灰阶值），通过上述公式将像素点的灰阶值归一化至0~1的范围。
- * > >  每个像素的亮度提升计算公式为：`ΔY = -rate*Y + lightUpDegree`。例如，当rate=0.5，lightUpDegree=0.5时，对于灰阶值为0.2的像素点，亮度增加值为
- * > `-0.5*0.2 + 0.5 = 0.4`，对于灰阶值为1的像素点，亮度增加值为`-0.5*1 + 0.5 = 0`。
+ * >
+ * > `Y = （0.299R + 0.587G + 0.114B）/ 255.0`（R、G、B分别表示像素红色、绿色和蓝色通道的值，Y表示灰阶值），通过上述公式将像素点的灰阶值归一化至0~1的范围。
+ * >
+ * > 亮度提升计算公式为：`ΔY = -rate*Y + lightUpDegree`。例如，当rate=0.5，lightUpDegree=0.5时，灰阶值0.2的像素亮度增加值为`-0.5*0.2 + 0.5 = 0.4`，灰阶值1
+ * > 的像素亮度增加值为`-0.5*1 + 0.5 = 0`。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -31571,11 +29310,11 @@ declare interface EditModeOptions {
 declare interface BackgroundBrightnessOptions {
 
   /**
-   * 亮度变化速率。亮度变化速率越大，提亮程度下降速度越快。若rate为0，则lightUpDegree将不生效，即不会产生任何提亮效果。
+   * 亮度变化速率，越大则提亮程度下降越快。若rate为0，则lightUpDegree将不生效，即不会产生任何提亮效果。
    * 
    * 默认值：0.0 
    * 
-   * 取值范围：(0.0, +∞)
+   * 取值范围：[0.0, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -31585,7 +29324,11 @@ declare interface BackgroundBrightnessOptions {
   rate: number;
 
   /**
-   * 提亮程度。提亮程度越大，亮度提升程度越大。
+   * 提亮程度，越大则亮度提升越明显。
+   * 
+   * **说明：**
+   * 
+   * 当rate为0时，lightUpDegree不生效。
    * 
    * 默认值：0.0 
    * 
@@ -31713,45 +29456,42 @@ declare interface LightSource {
 }
 
 /**
- * Defining wrapBuilder function.
- * @param { function } builder
- * @returns { WrappedBuilder<Args> }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * `wrapBuilder`用于封装全局[@Builder]{@link Builder}，可以将全局`@Builder`函数作为参数传递，实现按引用传递和动态调用，提升代码复用性。
+ * 开发指南见：[wrapBuilder：封装全局@Builder](docroot://ui/state-management/arkts-wrapBuilder.md)。
+ *
+ * @param { function } builder - `@Builder`装饰的全局函数，传入后将被封装为`WrappedBuilder`对象。该函数必须是无返回值（`void`）的函数，其参数列表`...args`的类型和顺序
+ *     由泛型`Args`定义。当需要在组件间按引用传递或复用某个全局`@Builder`函数时传入此参数。
+ * @returns { WrappedBuilder<Args> } `WrappedBuilder<Args>`的实例，用于在组件之间复用或传递全局`@Builder`函数。该实例封装了指定的全局`@Builder`函数，可通过其
+ *     `builder`属性调用被封装的构建函数，便于在组件间作为参数传递或赋值给变量。
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defining wrapBuilder function.
- * @param { function } builder
- * @returns { WrappedBuilder<Args> }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => void): WrappedBuilder<Args>;
 
 /**
- * 定义mutableBuilder中使用的回调类型。
+ * `BuilderCallback`是全局`@Builder`函数的类型别名，作为`mutableBuilder`函数的入参类型，用于指定待封装的全局`@Builder`函数。
  *
- * @typedef { function } BuilderCallback
- * @param { Args } args - MutableBuilder的参数。
+ * @param { Args } args - 全局`@Builder`函数的入参。`...args`采用剩余参数语法，允许传入任意数量的参数，`Args`表示这些参数的类型列表。不传入参数时，传入的参数列表为空，
+ *     `@Builder`函数以无参形式调用。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamiconly
  */
-declare type BuilderCallback = (...args: Args) => void;
+declare type BuilderCallback<Args extends Object[] = any[]> = (...args: Args) => void;
 
 /**
- * 定义mutableBuilder函数。
+ * `mutableBuilder`是一个泛型函数，它返回一个`MutableBuilder`对象，只接受一个全局的`@Builder`函数作为其参数。
+ * 
+ * `mutableBuilder`函数返回的[MutableBuilder]{@link MutableBuilder}对象，其`builder`属性方法只能在自定义组件的`build`函数或`@Builder`装饰的函数内部被调用。
  *
- * @param { BuilderCallback } builder
- * @returns { MutableBuilder<Args> }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @param { BuilderCallback } builder - `@Builder`装饰的全局函数，作为`mutableBuilder`封装的目标构建函数。该函数需符合`BuilderCallback`类型，即
+ *     `(...args: Args) => void`，是一个无返回值的函数，其参数列表`...args`的类型由泛型`Args`指定。
+ * @returns { MutableBuilder<Args> } `MutableBuilder<Args>`的实例，用于封装全局`@Builder`函数，并支持在运行时动态切换构建逻辑。该实例持有对全局`@Builder`函数的引
+ *     用，可通过其`builder`属性调用被封装的构建函数，或通过重新赋值`mutableBuilder`函数返回的新实例动态切换构建逻辑。其`builder`属性方法只能在自定义组件内部使用。
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
@@ -31760,61 +29500,45 @@ declare type BuilderCallback = (...args: Args) => void;
 declare function mutableBuilder<Args extends Object[]>(builder: BuilderCallback): MutableBuilder<Args>;
 
 /**
- * Defines the WrappedBuilder class.
+ * `WrappedBuilder`是`@Builder`函数的包装类，用于封装全局`@Builder`函数及其参数，实现按引用传递和动态调用。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines the WrappedBuilder class.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare class WrappedBuilder<Args extends Object[]> {
-
   /**
-   * @type { function }
+   * `@Builder`装饰的全局函数，用于生成对应的自定义构建内容。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   builder: (...args: Args) => void;
 
   /**
-   * @param { function } builder
+   * `WrappedBuilder`的构造函数。
+   *
+   * @param { function } builder - `@Builder`装饰的全局函数，作为构造参数用于初始化`WrappedBuilder`实例。函数参数`args`为该`@Builder`函数所需的参数列表。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * @param { function } builder
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   constructor(builder: (...args: Args) => void);
 }
 
 /**
- * 定义MutableBuilder类。
+ * `MutableBuilder`继承自[WrappedBuilder]{@link WrappedBuilder}，用于封装
+ * [全局`@Builder`](docroot://ui/state-management/arkts-builder.md#全局自定义构建函数)，并支持在运行时切换构建函数。需要根据状态或条件动态替换全局`@Builder`内容时，建
+ * 议使用[mutableBuilder](docroot://ui/state-management/arkts-mutableBuilder.md)函数创建`MutableBuilder`对象。其`builder`属性方法只能在自定义
+ * 组件的`build`函数或`@Builder`装饰的函数内部被调用。
  *
- * @extends WrappedBuilder<Args>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31834,14 +29558,16 @@ declare class MutableBuilder<Args extends Object[]> extends WrappedBuilder<Args>
  */
 declare interface KeyframeAnimateParam {
   /**
-   * 动画的整体延时时间，单位为ms（毫秒），默认不延时播放。
+   * 动画的整体延迟时间，单位为ms（毫秒），默认不延迟播放。
    * 
    * 默认值：0
    * 
+   * 取值范围：(-∞, +∞)
+   * 
    * **说明：** 
    * 
-   *  delay>=0为延迟播放，delay<0表示提前播放。对于delay<0的情况：当delay的绝对值小于实际动画时长，动画将在开始后第一帧直接运动到delay绝对值的时刻的状态；当delay的绝对值大于等于实际动画时长，动画将
-   * 在开始后第一帧直接运动到终点状态。其中实际动画时长等于单次动画时长乘以动画播放次数。
+   *  delay>=0为延迟播放，delay<0表示提前播放。设置浮点型的值时，截断取整。例如，设置值为200.5，按照200处理。对于delay<0的情况：当delay绝对值小于实际动画时长时，动画起始帧将直接跳至delay绝对值对
+   * 应时刻的状态；当delay的绝对值大于等于实际动画时长，动画将在开始后第一帧直接运动到终点状态。其中实际动画时长等于单次动画时长乘以动画播放次数。
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31853,15 +29579,17 @@ declare interface KeyframeAnimateParam {
   delay?: number;
 
   /**
-   * 动画播放次数。默认播放一次，设置为-1时表示无限次播放。设置为0时表示无动画效果。
+   * 动画播放次数。默认播放一次，设置为-1时表示无限次播放，此时onFinish回调不会被触发。设置为0时表示无动画效果。设置大于1时，每次迭代从动画起始状态重新执行完整的关键帧序列。
    * 
    * 默认值：1
    * 
-   * **取值范围：**[-1, +∞)
+   * 取值范围：[-1, +∞)
    * 
    * **说明：**
    * 
-   * - 设置浮点型类型的值时，向下取整。例如，设置值为1.2，按照1处理。
+   * - 设置浮点型类型的值时，截断取整。例如，设置值为1.2，按照1处理。
+   * - 设置小于-1的值时按-1处理，即无限次播放。
+   * - iterations的取值影响delay<0时的动画行为，具体参见delay参数说明。
    *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31873,7 +29601,8 @@ declare interface KeyframeAnimateParam {
   iterations?: number;
 
   /**
-   * 动画播放完成回调。当keyframe动画所有次数播放完成后调用。在设置的开发者选项中关闭过渡动画，或UIAbility从前台切换至后台时会立即结束仍在播放中的有限循环keyframe动画，触发播放完成回调。
+   * 动画播放完成回调。当keyframe动画所有次数播放完成后调用。当iterations设置为0时，无动画效果，不触发该回调；当iterations设置为-1（无限播放）时，动画不会播放完成，不触发该回调。在系统设置的开发者选项中关
+   * 闭过渡动画，或UIAbility从前台切换至后台时会立即结束仍在播放中的有限循环keyframe动画，触发播放完成回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -31884,13 +29613,13 @@ declare interface KeyframeAnimateParam {
   onFinish?: () => void;
 
   /**
-   * 设置动画的期望帧率。
+   * 设置动画的期望帧率范围。
    * 
-   * **默认值：**{min:0, max:0, expected:0}，即跟随应用帧率。
+   * 默认值：{min:0, max:0, expected:0}，即跟随应用帧率。
    * 
    * **说明：** 
    * 
-   * 开发者通过设置有效的期望帧率后，系统会收集设置的请求帧率，进行决策和分发，在渲染管线上进行分频，尽量能够满足开发者的期望帧率。开发者设置的期望帧率值不能代表最终实际效果，会受限于系统能力和屏幕刷新率。
+   * 开发者通过设置有效的期望帧率后，系统会收集设置的请求帧率，进行综合评估和调度，在渲染管线上进行帧率调节，尽量满足开发者的期望帧率。开发者设置的期望帧率值不能代表最终实际效果，会受限于系统能力和屏幕刷新率。
    *
    * @default { min: 0, expected: 0, max: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31903,7 +29632,7 @@ declare interface KeyframeAnimateParam {
 }
 
 /**
- * 设置关键帧选项。
+ * 关键帧状态设置。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -31913,15 +29642,15 @@ declare interface KeyframeAnimateParam {
  */
 declare interface KeyframeState {
   /**
-   * 该段关键帧动画的持续时间，单位为毫秒。
+   * 该段关键帧动画的持续时间，单位为ms（毫秒）。
    * 
    * 取值范围：[0, +∞)
    * 
    * **说明：**
    * 
    * - 设置小于0的值时按0处理。
-   * 
-   * - 设置浮点型的值时，向下取整。例如，设置值为1.2，按照1处理。
+   * - 设置浮点型的值时，截断取整。例如，设置值为1.2，按照1处理。
+   * - duration为0时，表示瞬时过渡到该关键帧状态，无动画过程。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -31937,7 +29666,10 @@ declare interface KeyframeState {
    * 推荐以Curve或ICurve形式指定。
    * 
    * 当类型为string时，为动画插值曲线，取值参考
-   * [AnimateParam](docroot://reference/apis-arkui/arkui-ts/ts-explicit-animation.md#animateparam对象说明)的curve参数。
+   * [AnimateParam]{@link AnimateParam}的curve参数，有效取值为“
+   * linear”、“ease”、“ease-in”、“ease-out”、“ease-in-out”、“fast-out-slow-in”、“linear-out-slow-in”、“fast-out-linear-in”、“
+   * friction”、“extreme-deceleration”、“rhythm”、“sharp”、“smooth”，以及“cubic-bezier(x1,y1,x2,y2)”、“steps(number,step-
+   * position)”格式字符串，不支持“springMotion”、“responsiveSpringMotion”、“interpolatingSpring”。
    * 
    * 默认值：Curve.EaseInOut
    * 
@@ -31945,7 +29677,8 @@ declare interface KeyframeState {
    * 
    * 由于[springMotion]{@link @ohos.curves:curves.springMotion}、
    * [responsiveSpringMotion]{@link @ohos.curves:curves.responsiveSpringMotion}、
-   * [interpolatingSpring]{@link @ohos.curves:curves.interpolatingSpring}曲线时长不生效，故不支持这三种曲线。
+   * [interpolatingSpring]{@link @ohos.curves:curves.interpolatingSpring}曲线时长不生效，故不支持这三种曲线。设置不支持的曲线时，使用默认曲线
+   * Curve.EaseInOut。
    *
    * @default Curve.EaseInOut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -31957,7 +29690,7 @@ declare interface KeyframeState {
   curve?: Curve | string | ICurve;
 
   /**
-   * 指定在该关键帧时刻状态的闭包函数，即在该关键帧时刻要达到的状态。
+   * 设置该关键帧时刻目标状态的闭包函数，在该闭包中定义组件属性要达到的目标值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -32099,8 +29832,8 @@ declare interface VisibleAreaEventOptions {
  * 组件可见区域变化事件的回调类型。
  *
  * @param { boolean } isVisible - 视组件的可见面积与自身面积的比值与上一次回调相比的情况而定，比值变大为true，比值变小为false。 [since 12 - 12]
- * @param { boolean } isExpanding - 视组件的可见面积与自身面积的比值与上一次回调相比的情况而定，比值变大为true，比值变小为false。 [since 13]
  * @param { number } currentRatio - 触发回调时，组件可见面积与自身面积的比值。
+ * @param { boolean } isExpanding - 视组件的可见面积与自身面积的比值与上一次回调相比的情况而定，比值变大为true，比值变小为false。 [since 13]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -32257,7 +29990,7 @@ declare interface UICommonEvent {
 }
 
 /**
- * Defines a UIScrollableCommonEvent which is used to set event to target component.
+ * 用于设置滚动事件回调。
  *
  * @extends UICommonEvent
  * @interface UIScrollableCommonEvent
@@ -32270,10 +30003,11 @@ declare interface UICommonEvent {
 declare interface UIScrollableCommonEvent extends UICommonEvent {
 
   /**
-   * Set or reset the callback which is triggered when the scrolling reaches the start position.
+   * 设置[onReachStart]{@link UIScrollableCommonEvent#onReachStart}事件的回调。
    *
-   * @param { Callback<void> | undefined } callback - callback function, triggered when the
-   *     scrolling reaches the start position.
+   * 方法入参为undefined时，会重置事件回调。
+   *
+   * @param { Callback<void> | undefined } callback - onReachStart事件的回调函数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32283,10 +30017,11 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
   setOnReachStart(callback: Callback<void> | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when the scrolling reaches the end position.
+   * 设置[onReachEnd]{@link UIScrollableCommonEvent#onReachEnd}事件的回调。
    *
-   * @param { Callback<void> | undefined } callback - callback function, triggered when the
-   *     scrolling reaches the end position.
+   * 方法入参为undefined时，会重置事件回调。
+   *
+   * @param { Callback<void> | undefined } callback - onReachEnd事件的回调函数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32296,9 +30031,11 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
   setOnReachEnd(callback: Callback<void> | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when the scrolling started.
+   * 设置[onScrollStart]{@link UIScrollableCommonEvent#onScrollStart}事件的回调。
    *
-   * @param { Callback<void> | undefined } callback - callback function, triggered when the scrolling started.
+   * 方法入参为undefined时，会重置事件回调。
+   *
+   * @param { Callback<void> | undefined } callback - onScrollStart事件的回调函数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32308,9 +30045,11 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
   setOnScrollStart(callback: Callback<void> | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when the scrolling stoped.
+   * 设置[onScrollStop]{@link UIScrollableCommonEvent#onScrollStop}事件的回调。
    *
-   * @param { Callback<void> | undefined } callback - callback function, triggered when the scrolling stoped.
+   * 方法入参为undefined时，会重置事件回调。
+   *
+   * @param { Callback<void> | undefined } callback - onScrollStop事件的回调函数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32320,10 +30059,11 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
   setOnScrollStop(callback: Callback<void> | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when scrolling begin each frame.
+   * 设置[onScrollFrameBegin]{@link ScrollAttribute#onScrollFrameBegin}事件的回调。
    *
-   * @param { OnScrollFrameBeginCallback | undefined } callback - callback function, triggered when the
-   *     scrolling begin each frame.
+   * 方法入参为undefined时，会重置事件回调。
+   *
+   * @param { OnScrollFrameBeginCallback | undefined } callback - onScrollFrameBegin事件的回调函数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32543,7 +30283,7 @@ declare interface FocusMovement {
 }
 
 /**
- * 弹窗避让键盘时，避让模式的枚举类型。
+ * 气泡避让键盘时，避让模式的枚举类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -32759,7 +30499,7 @@ declare abstract class RawInputEventWrapper {
   /**
    * 获取鼠标事件。
    *
-   * @returns { MouseEvent | null } Mouse event object if it is a mouse event, or **null** otherwise.
+   * @returns { MouseEvent | null } 获取鼠标事件，如果是鼠标事件则返回事件对象，否则返回null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32771,7 +30511,7 @@ declare abstract class RawInputEventWrapper {
   /**
    * 获取触摸事件。
    *
-   * @returns { TouchEvent | null } Touch event object if it is a touch event, or **null** otherwise.
+   * @returns { TouchEvent | null } 获取触摸事件，如果是触摸事件则返回事件对象，否则返回null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32783,7 +30523,7 @@ declare abstract class RawInputEventWrapper {
   /**
    * 获取按键事件。
    *
-   * @returns { KeyEvent | null } Key event object if it is a key event, or **null** otherwise.
+   * @returns { KeyEvent | null } 获取按键事件，如果是触摸事件则返回事件对象，否则返回null。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32824,15 +30564,14 @@ declare type InputEventListener = (
 ) => InputEventInterceptResult;
 
 /**
-* 定义边缘流光效果参数。
-*
+ * 定义边缘流光效果参数。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 26.0.0 dynamic
  */
 declare interface EdgeLightParams {
-
   /**
    * 边缘流光位置。
    *
@@ -32844,14 +30583,16 @@ declare interface EdgeLightParams {
   position: EdgeLightPosition;
 
   /**
-   * 沿流动方向的边缘流光的投影长度（不支持百分比）。
-   *
+   * 沿流动方向的边缘流光的投影长度（不支持百分比，传入百分比时不生效）。
+   * 
    * 取值范围：[0, +∞)
-   *
+   * 
    * 单位：vp
-   *
+   * 
    * **说明：**
-   *
+   * 
+   * length为0时，无边缘流光投影效果。
+   * 
    * 设置小于0的值时，按值为0处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32863,19 +30604,19 @@ declare interface EdgeLightParams {
 
   /**
    * 边缘流光效果的发光强度。
-   *
+   * 
    * 取值范围：[0, 1]
-   *
+   * 
    * 默认值：1
-   *
+   * 
    * **说明：**
-   *
+   * 
    * 值为0时，流光效果完全不可见。
-   *
+   * 
    * 值为1时，流光效果达到最大亮度。
-   *
+   * 
    * 设置大于1的值时，按值为1处理。
-   *
+   * 
    * 设置小于0的值时，按值为0处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -32887,7 +30628,7 @@ declare interface EdgeLightParams {
 
   /**
    * 边缘流光颜色。
-   *
+   * 
    * 默认值：#FFFFFF，显示为白色。
    *
    * @default #FFFFFF
@@ -32899,16 +30640,18 @@ declare interface EdgeLightParams {
   color?: ResourceColor;
 
   /**
-   * 边缘流光线条粗细（不支持百分比）。
-   *
+   * 边缘流光线条粗细（不支持百分比，传入百分比时不生效）。
+   * 
    * 取值范围：[0, +∞)
-   *
+   * 
    * 单位：vp
-   *
+   * 
    * 默认值：0
-   *
+   * 
    * **说明：**
-   *
+   * 
+   * thickness为0时，边缘流光线条不可见。
+   * 
    * 设置小于0的值时，按值为0处理。
    *
    * @default 0vp
@@ -32921,7 +30664,12 @@ declare interface EdgeLightParams {
 }
 
 /**
- * 定义引力中心的参数。
+ * 定义引力中心参数。
+ * 
+ * > **说明：**
+ * >
+ * > 此参数必须与[unionMode]{@link UnionEffectContainerAttribute#unionMode}一起使用，且unionMode须为UnionMode.GRAVITY_UNION，
+ * > 同时useUnionEffect的value须为true时才生效，单独设置不生效。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -32929,9 +30677,13 @@ declare interface EdgeLightParams {
  * @since 26.0.0 dynamic
  */
 declare interface GravityCenterOptions {
-
   /**
-   * 指定当前组件是否为引力中心。 默认值： 非。
+   * 指定当前组件是否为引力中心。
+   * 
+   * 设置为true表示当前组件是引力中心；设置为false表示当前组件不是引力中心。
+   * 
+   * 默认值：false
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -32940,7 +30692,13 @@ declare interface GravityCenterOptions {
   gravityCenter?: boolean;
 
   /**
-   * 定义引力中心吸引力/排斥力的引力强度。 负数是排斥力，正数是吸引力。 默认值： 0。
+   * 定义引力中心处吸引力或排斥力的强度。
+   * 
+   * 仅在gravityCenter为true时生效。
+   * 
+   * 默认值：0
+   * 
+   * 负数表示排斥力，正数表示吸引力。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

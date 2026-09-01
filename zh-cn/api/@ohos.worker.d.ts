@@ -19,6 +19,20 @@
  */
 
 /**
+ * Worker是与宿主线程并行的独立线程。创建Worker的线程称为宿主线程，Worker自身的线程称为Worker线程。
+ * 创建Worker时传入的URL文件在Worker线程中执行，可以处理耗时操作，但不能直接操作UI。
+ * Worker的主要作用是为应用程序提供多线程运行环境，使应用程序在执行过程中与宿主线程分离，在后台线程中运行脚本处理耗时操作，避免计算密集型或高延迟任务阻塞宿主线程。
+ * 由于Worker一旦创建不会主动销毁，若不处于任务状态会一直运行，造成资源浪费，应及时销毁空闲的Worker。
+ * Worker的上下文环境和UI线程的上下文环境是独立的，Worker线程不支持UI操作。
+ * 请查看[Worker注意事项](docroot://arkts-utils/worker-introduction.md)，了解Worker使用过程中的相关注意点。
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
+ */
+
+/**
  * Worker构造函数的选项，用于为Worker添加其他信息。
  *
  * @syscap SystemCapability.Utils.Lang
@@ -38,7 +52,9 @@ export interface WorkerOptions {
   type?: 'classic' | 'module';
 
   /**
-   * Worker的名称。默认值为undefined。
+   * Worker的名称。默认值为undefined，此时线程名称为'WorkerThread'。
+   * 非默认值情况下，对应的线程名称带有'WorkerThread_'前缀。比如name为'testName'时，对应的线程名称为'WorkerThread_testName'。
+   * 线程名称可通过HeapMemoryInfo的threadName获取。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -58,7 +74,7 @@ export interface WorkerOptions {
   shared?: boolean;
 
   /**
-   * 表示Worker线程优先级。
+   * 表示Worker线程优先级。默认值为MEDIUM。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 22]
@@ -213,7 +229,7 @@ export interface Event {
   readonly type: string;
 
   /**
-   * 事件创建时的时间戳（精度为毫秒），目前不支持。
+   * 事件创建时的时间戳，单位为ms，目前不支持。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -273,7 +289,7 @@ export interface ErrorEvent extends Event {
   readonly colno: number;
 
   /**
-   * 异常类型。
+   * 异常对象。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -423,7 +439,7 @@ export interface EventTarget {
   addEventListener(type: string, listener: EventListener): void;
 
   /**
-   * 分发定义在Worker的事件。
+   * 分发Worker实例上已注册的事件。
    *
    * @param { Event } event - 需要分发的事件。
    * @returns { boolean }
@@ -606,9 +622,8 @@ declare interface GlobalScope extends WorkerEventTarget {
  */
 export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
   /**
-   * onmessage属性用于指定当Worker线程收到来自其宿主线程通过
-   * postMessage接口发送的消息时被调用的事件处理程序，
-   * 该事件处理程序在Worker线程中执行。
+   * 回调函数，表示Worker线程收到来自其宿主线程通过postMessage接口发送的消息时被调用的事件处理程序，处理程序在Worker线程中执行。其中this指调用者对象本身DedicatedWorkerGlobalScope，
+   * ev类型为MessageEvent，表示收到的Worker消息数据。默认值为undefined。
    *
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
@@ -618,8 +633,8 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
   onmessage?: (this: DedicatedWorkerGlobalScope, ev: MessageEvent) => void;
 
   /**
-   * onmessage属性用于指定当Worker线程收到一条无法被反序列化的消息时
-   * 被调用的事件处理程序，该事件处理程序在Worker线程中执行。
+   * 回调函数，表示当Worker对象接收到一条无法被反序列化的消息时被调用的事件处理程序，处理程序在Worker线程中执行。其中this指调用者对象本身DedicatedWorkerGlobalScope，
+   * ev类型为MessageEvent，表示收到的Worker消息数据。默认值为undefined。
    *
    * @syscap SystemCapability.Utils.Lang
    * @since 7 dynamiconly
@@ -686,9 +701,8 @@ export interface DedicatedWorkerGlobalScope extends WorkerGlobalScope {
  */
 export interface ThreadWorkerGlobalScope extends GlobalScope {
   /**
-   * 当Worker线程收到来自其宿主线程通过postMessage接口发送的消息时调用的事件处理程序，
-   * 该事件处理程序在Worker线程中执行。其中this指调用者对象本身ThreadWorkerGlobalScope，
-   * ev类型为MessageEvents，表示收到的消息数据。
+   * 回调函数。表示Worker线程收到来自其宿主线程通过postMessage或postMessageWithSharedSendable接口发送的消息时被调用的事件处理程序，处理程序在Worker线程中执行。
+   * 其中this指调用者对象本身ThreadWorkerGlobalScope，ev类型为MessageEvents，表示收到的宿主线程发送的消息数据。默认值为undefined。
    *
    * @throws { BusinessError } 10200004 - The Worker instance is not running.
    * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
@@ -700,9 +714,8 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
   onmessage?: (this: ThreadWorkerGlobalScope, ev: MessageEvents) => void;
 
   /**
-   * 当Worker线程收到一条无法被反序列化的消息时调用的事件处理程序，
-   * 该事件处理程序在Worker线程中执行。其中this指调用者对象本身ThreadWorkerGlobalScope，
-   * ev类型为MessageEvents，表示收到的消息数据。
+   * 回调函数。表示当Worker线程的Worker对象接收到一条无法被反序列化的消息时被调用的事件处理程序，处理程序在Worker线程中执行。其中this指调用者对象本身ThreadWorkerGlobalScope，
+   * ev类型为MessageEvents，表示收到的消息数据。默认值为undefined。
    *
    * @throws { BusinessError } 10200004 - The Worker instance is not running.
    * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
@@ -804,6 +817,14 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    * Worker线程通过转移对象所有权的方式向宿主线程发送插队消息，并插入到对应优先级队列的队头。
    * 除Worker线程向主线程发送的场景外，该接口与postMessage功能一致。
    *
+   * > **说明：**
+   * >
+   * > - 如果是Worker线程向宿主线程发送插队的消息，消息能够插队并且按优先级进行发送。
+   * >
+   * > - 如果是Worker线程之间发送插队的消息，消息只能插队，没有优先级。
+   * >
+   * > - postMessage和postMessageWithSharedSendable接口向宿主线程发送消息，默认是HIGH优先级，无插队效果。
+   *
    * @param { Object } message - 发送至宿主线程的数据，该数据对象必须是可序列化或可共享。
    *     支持的序列化类型请参考序列化支持类型。
    *     支持的共享类型请参考Sendable支持的数据类型。
@@ -846,6 +867,32 @@ declare namespace worker {
   /**
    * 使用以下方法前，需先构造ThreadWorker实例。ThreadWorker类继承WorkerEventTarget。
    *
+   * 使用Worker模块时，API version 18及之后的版本建议在宿主线程中注册onAllErrors回调，以捕获Worker线程生命周期内的各种异常。API version 18之前的版本应注册onerror回调。
+   * 如果未注册onAllErrors或onerror回调，当Worker线程出现异常时会发生崩溃问题。
+   * 注意，onerror接口仅能捕获onmessage回调中的同步异常，捕获异常后，Worker线程将进入销毁流程，无法继续使用。
+   *
+   * onAllErrors接口与onerror接口之间的行为差异如下：
+   *
+   * 1. 异常捕获范围
+   *
+   *    onAllErrors接口可以捕获Worker线程的onmessage回调、timer回调以及文件执行等流程中产生的全局异常。
+   *
+   *    onerror接口仅能捕获Worker线程的onmessage回调中同步方法产生的异常，无法捕获多线程回调和模块化相关异常。
+   *
+   * 2. 异常捕获后的线程状态
+   *
+   *    onAllErrors接口捕获异常后，Worker线程仍然存活并可以继续使用。这使开发者可以在捕获异常后执行其他操作，无需担心线程终止。
+   *
+   *    onerror接口捕获异常后，Worker线程会进入销毁流程，无法继续使用。这意味着在onerror触发后，Worker线程将被终止，后续操作将无法进行。
+   *
+   * 3. 适用场景
+   *
+   *    onAllErrors接口适用于捕获Worker线程中所有类型异常的场景，特别是确保异常发生后Worker线程仍能继续运行的复杂场景。
+   *
+   *    onerror接口适用于只需要捕获onmessage回调中同步异常的简单场景。由于捕获异常后线程会被销毁，适用于不需要继续使用Worker线程的情况。
+   *
+   *    推荐使用onAllErrors接口，因为它提供了更全面的异常捕获能力，并且不会导致线程终止。
+   *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -853,11 +900,10 @@ declare namespace worker {
    */
   class ThreadWorker implements WorkerEventTarget {
     /**
-     * ThreadWorker构造函数，用于创建一个ThreadWorker实例。
+     * ThreadWorker构造函数。
      *
-     * @param { string } scriptURL - Worker线程文件的路径。详细规则请参考
-     *     文件路径注意事项。
-     * @param { WorkerOptions } [options] - 可为Worker实例设置的选项。
+     * @param { string } scriptURL - Worker线程文件的路径。路径规则详细参考文件路径注意事项。
+     * @param { WorkerOptions } [options] - Worker构造的选项。此参数不填时，对应各属性取其默认值。
      * @throws { BusinessError } 10200003 - Worker initialization failed.
      * @throws { BusinessError } 10200007 - The worker file path is invalid.
      * @syscap SystemCapability.Utils.Lang
@@ -867,7 +913,7 @@ declare namespace worker {
      */
     constructor(scriptURL: string, options?: WorkerOptions);
     /**
-     * 当Worker线程销毁时被调用的事件处理程序，该处理程序在宿主线程中执行。回调函数的code参数类型为number，
+     * 回调函数。表示Worker线程销毁时被调用的事件处理程序，该处理程序在宿主线程中执行。回调函数的code参数类型为number，
      * 异常退出时code为1，正常退出时code为0。默认值为undefined。
      *
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
@@ -879,8 +925,8 @@ declare namespace worker {
      */
     onexit?: (code: number) => void;
     /**
-     * 用于处理onmessage回调函数中同步代码产生的异常，处理程序在宿主线程中执行。
-     * 回调函数的err类型为ErrorEvent，表示收到的异常数据。
+     * 回调函数，用于处理onmessage回调函数中同步代码产生的异常，处理程序在宿主线程中执行。
+     * 回调函数的err类型为ErrorEvent，表示收到的异常数据。默认值为undefined。
      *
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
@@ -892,15 +938,7 @@ declare namespace worker {
     onerror?: (err: ErrorEvent) => void;
 
     /**
-     * 表示Worker线程生命周期内发生异常被调用的事件处理程序，处理程序在宿主线程中执行。
-     *
-     * onerror接口仅能捕获onmessage回调中同步方法产生的异常，
-     * 无法捕获多线程回调和模块化相关异常。
-     * 一旦捕获异常，Worker线程会进入销毁流程，无法继续使用。
-     *
-     * onAllErrors接口可以捕获Worker线程的onmessage回调、timer回调以及文件执行等流程中产生的全局异常。
-     * 捕获异常后，Worker线程仍然存活，可以继续使用。
-     * 推荐使用onAllErrors替代onerror。
+     * 回调函数。表示Worker线程生命周期内发生异常被调用的事件处理程序，处理程序在宿主线程中执行。默认值为undefined。
      *
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
@@ -912,9 +950,9 @@ declare namespace worker {
     onAllErrors?: ErrorCallback;
 
     /**
-     * 表示宿主线程接收到来自其创建的Worker通过workerPort.postMessage接口发送的消息时
+     * 回调函数。表示宿主线程接收到来自其创建的Worker通过workerPort.postMessage或workerPort.postMessageWithSharedSendable接口发送的消息时
      * 被调用的事件处理程序，处理程序在宿主线程中执行。其中回调函数中event类型为MessageEvents，
-     * 表示收到的Worker线程发送的消息数据。
+     * 表示收到的Worker线程发送的消息数据。默认值为undefined。
      *
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
@@ -925,9 +963,8 @@ declare namespace worker {
      */
     onmessage?: (event: MessageEvents) => void;
     /**
-     * 当Worker线程收到一条无法被序列化的消息时被调用的事件处理程序，
-     * 该事件处理程序在宿主线程中执行。
-     * 其中回调函数中event类型为MessageEvents，表示收到的消息数据。
+     * 回调函数。用于处理Worker对象接收到的无法被序列化的消息。该处理程序在宿主线程中执行，
+     * event类型为MessageEvents，表示收到的Worker消息数据。默认值为undefined。
      *
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
@@ -940,10 +977,10 @@ declare namespace worker {
     /**
      * 宿主线程通过转移对象所有权的方式向Worker线程发送消息。
      *
-     * @param { Object } message - 发送至Worker线程的数据，该数据对象必须是可序列化对象。
+     * @param { Object } message - 发送至Worker的数据，该数据对象必须是可序列化对象。
      *     支持的参数类型请参考序列化支持类型。
      * @param { ArrayBuffer[] } transfer - 表示可转移的ArrayBuffer实例对象数组，该数组中对象的所有权
-     *     会被转移到Worker线程，转移后该对象仅在Worker线程中可用。该数组不可传入null。
+     *     会被转移到Worker线程，在宿主线程中将会变为不可用，仅在Worker线程中可用。该数组不可传入null。
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @syscap SystemCapability.Utils.Lang
@@ -955,7 +992,7 @@ declare namespace worker {
     /**
      * 宿主线程可以通过转移对象所有权或拷贝数据的方式向Worker线程发送消息。
      *
-     * @param { Object } message - 发送至Worker线程的数据，该数据对象必须是可序列化对象。
+     * @param { Object } message - 发送至Worker的数据，该数据对象必须是可序列化对象。
      *     支持的参数类型请参考序列化支持类型。
      * @param { PostMessageOptions } [options] - 当填入该参数时，其作用与传入ArrayBuffer[]相同，
      *     该数组中对象的所有权会被转移到Worker线程，在宿主线程中将变为不可用，仅在Worker线程中可用。
@@ -977,7 +1014,7 @@ declare namespace worker {
      *     支持的序列化类型请参考序列化支持类型。
      *     支持的共享类型请参考Sendable支持的数据类型。
      * @param { ArrayBuffer[] } [transfer] - 表示可转移的ArrayBuffer实例对象数组，该数组中对象的所有权
-     *     会被转移到Worker线程，转移后该对象仅在Worker线程中可用。该数组不可传入null。默认值为空数组。
+     *     会被转移到Worker线程，转移后该对象仅在Worker线程中可用。该数组不可传入null。默认值为undefined。
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @syscap SystemCapability.Utils.Lang
@@ -1027,7 +1064,7 @@ declare namespace worker {
      */
     off(type: string, listener?: WorkerEventListener): void;
     /**
-     * 销毁Worker线程，终止Worker接收消息。
+     * 由宿主线程主动销毁Worker线程并停止Worker线程接收消息。
      *
      * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
@@ -1114,7 +1151,8 @@ declare namespace worker {
   }
 
   /**
-   * RestrictedWorker类包含所有Worker功能。
+   * RestrictedWorker类继承[ThreadWorker]{@link worker.ThreadWorker}，具有ThreadWorker中所有的方法。
+   * RestrictedWorker主要用于提供受限的Worker线程运行环境，该线程运行环境中只允许导入Worker模块，不允许导入其他API。
    *
    * @syscap SystemCapability.Utils.Lang
    * @systemapi [since 12]
@@ -1122,12 +1160,13 @@ declare namespace worker {
    */
   class RestrictedWorker extends ThreadWorker {
     /**
-     * 创建一个worker实例。
+     * RestrictedWorker构造函数。使用其他方法前，均需先构造RestrictedWorker实例。
      *
-     * @param { string } scriptURL - scriptURL Worker线程执行的脚本URL。
-     * @param { WorkerOptions } [options] - 可为worker设置的选项。
+     * @param { string } scriptURL - Worker线程文件的路径，路径规则详细参考文件路径注意事项。
+     * @param { WorkerOptions } [options] - 构造RestrictedWorker时的选项。type默认值为'classic'，name默认'undefined'，
+     *     shared默认'undefined'，priority默认'MEDIUM'。
      * @throws { BusinessError } 10200003 - Worker initialization failure.
-     * @throws { BusinessError } 10200007 - The worker file patch is invalid path.
+     * @throws { BusinessError } 10200007 - The worker file path is invalid.
      * @syscap SystemCapability.Utils.Lang
      * @systemapi [since 12]
      * @since 11 dynamiconly
@@ -1157,8 +1196,7 @@ declare namespace worker {
     constructor(scriptURL: string, options?: WorkerOptions);
 
     /**
-     * 当Worker销毁时被调用的事件处理程序，处理程序在宿主线程中执行。回调函数中code类型为number，
-     * 异常退出为1，正常退出为0。默认值为undefined。
+     * 回调函数。表示Worker销毁时被调用的事件处理程序，处理程序在宿主线程中执行。其中回调函数中code类型为number，异常退出为1，正常退出为0。默认值为undefined。
      *
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
@@ -1168,8 +1206,7 @@ declare namespace worker {
     onexit?: (code: number) => void;
 
     /**
-     * onerror属性用于指定Worker在执行过程中发生异常时被调用的事件处理程序，
-     * 该事件处理程序在宿主线程中执行。
+     * 回调函数。表示Worker在执行过程中发生异常被调用的事件处理程序，处理程序在宿主线程中执行。其中回调函数中err类型为ErrorEvent，表示收到的异常数据。默认值为undefined。
      *
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
@@ -1179,9 +1216,8 @@ declare namespace worker {
     onerror?: (err: ErrorEvent) => void;
 
     /**
-     * onmessage属性用于指定当宿主线程接收到来自其创建的Worker
-     * 通过parentPort.postMessage发送的消息时被调用的事件处理程序，
-     * 该事件处理程序在宿主线程中执行。
+     * 回调函数。表示宿主线程接收到来自其创建的Worker通过workerPort.postMessage接口发送的消息时被调用的事件处理程序，处理程序在宿主线程中执行。其中回调函数中event类型为MessageEvent，
+     * 表示收到的Worker消息数据。默认值为undefined。
      *
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
@@ -1191,8 +1227,7 @@ declare namespace worker {
     onmessage?: (event: MessageEvent) => void;
 
     /**
-     * onmessage属性用于指定当Worker收到一条无法被序列化的消息时
-     * 被调用的事件处理程序，该事件处理程序在宿主线程中执行。
+     * 回调函数。表示当Worker对象接收到一条无法被序列化的消息时被调用的事件处理程序，处理程序在宿主线程中执行。其中回调函数中event类型为MessageEvent，表示收到的Worker消息数据。默认值为undefined。
      *
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly
@@ -1267,7 +1302,7 @@ declare namespace worker {
     off(type: string, listener?: EventListener): void;
 
     /**
-     * 销毁Worker线程，终止Worker接收消息。
+     * 由宿主线程主动销毁Worker线程并停止Worker线程接收消息。
      *
      * @syscap SystemCapability.Utils.Lang
      * @since 7 dynamiconly

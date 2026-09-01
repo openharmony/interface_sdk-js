@@ -21,8 +21,11 @@
 import { ShortcutInfo as _ShortcutInfo, ShortcutWant as _ShortcutWant, ParameterItem as _ParameterItem } from './bundleManager/ShortcutInfo';
 
 /**
- * The module provides APIs to manage [shortcuts](docroot://quick-start/typical-scenario-configuration.md), including
- * whether to display shortcuts.
+
+* This module provides the application's management capabilities for shortcuts, including setting whether a shortcut
+ * is displayed. Through shortcuts, users can quickly launch specific features of an app from the home screen,
+ * improving the app's ease of use and user retention. Typical usage scenarios include: providing users with quick
+ * access to frequently used features, dynamically adjusting the display of shortcuts based on user habits, etc.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
  * @systemapi [since 12 - 19]
@@ -76,6 +79,29 @@ declare namespace shortcutManager {
    * @since 23 static
    */
   function deleteDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: int): Promise<void>;
+
+  /**
+   * Updates a shortcut for the given user. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MANAGE_SHORTCUTS or
+   *     (ohos.permission.MANAGE_SHORTCUTS and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { ShortcutInfo } shortcutInfo - Shortcut information.
+   * @param { int } userId - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Verify permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @throws { BusinessError } 18100002 - The specified shortcut to be updated is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function updateDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: int): Promise<void>;
 
   /**
    * Obtains the information about all shortcuts of the given user.
@@ -173,7 +199,7 @@ declare namespace shortcutManager {
    * @throws { BusinessError } 17700026 - The specified bundle is disabled.
    * @throws { BusinessError } 17700061 - The specified app index is invalid.
    * @throws { BusinessError } 17700070 - The specified shortcut id is illegal.
-   * @throws { BusinessError } 18100001 - A combination of bundleName and appIndex in the shutcutInfo list is
+   * @throws { BusinessError } 18100001 - A combination of bundleName and appIndex in the shortcutInfo list is
    *     different from the others.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
@@ -242,12 +268,14 @@ declare namespace shortcutManager {
   function getShortcutInfoByAbility(bundleName: string, moduleName: string, abilityName: string, userId?: int, appIndex?: int): Array<ShortcutInfo>;
 
   /**
-   * Checks whether the shortcut capability is supported.
-   * @returns { boolean } Returns true if the shortcut capability is supported; returns false otherwise.
+   * Checks whether the current device supports shortcuts.
+   *
+   * @returns { boolean } Indicates whether the current device supports shortcuts.
+   *     The return value true indicates that the current device supports shortcuts;
+   *     the return value false indicates that the current device does not support shortcuts.
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
-   *
    */
   function isShortcutSupported(): boolean;
 

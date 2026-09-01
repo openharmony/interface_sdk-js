@@ -192,7 +192,7 @@ declare namespace abilityManager {
    * @param { 'abilityForegroundState' } type - Event type. It is fixed at **'abilityForegroundState'**.
    * @param { AbilityForegroundStateObserver } observer - Observer used to listen for ability start or exit events.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -208,7 +208,7 @@ declare namespace abilityManager {
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
    * @param { AbilityForegroundStateObserver } observer - The ability foreground state observer.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 16000050 - Connect to system server failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -225,7 +225,7 @@ declare namespace abilityManager {
    *     parameter is not set, all observers associated with the specified event are deregistered. If this parameter is set,
    *     only the specified observer is deregistered.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -241,7 +241,7 @@ declare namespace abilityManager {
    * @permission ohos.permission.RUNNING_STATE_OBSERVER
    * @param { AbilityForegroundStateObserver } [observer] - The ability foreground state observer.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 16000050 - Connect to system server failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -312,7 +312,7 @@ declare namespace abilityManager {
    * @param { AsyncCallback<Array<AbilityRunningInfo>> } callback - Callback used to return the result. If the API call is
    *     successful, **err** is **undefined** and **data** is the UIAbility running information obtained. Otherwise, **err**
    *     is an error object. You can perform error handling or other custom processing.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -330,7 +330,7 @@ declare namespace abilityManager {
    * @param { int } upperLimit - Maximum number of messages that can be obtained. The maximum value is 2<sup>31</sup>-1.
    * @returns { Promise<Array<ExtensionRunningInfo>> } Promise used to return the API call result and the ExtensionAbility
    *     running information. You can perform error handling or other custom processing.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -349,7 +349,7 @@ declare namespace abilityManager {
    * @param { AsyncCallback<Array<ExtensionRunningInfo>> } callback - Callback used to return the result. If the API call is
    *     successful, **err** is **undefined** and **data** is the ExtensionAbility running information obtained. Otherwise,
    *     **err** is an error object. You can perform error handling or other custom processing.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -366,7 +366,7 @@ declare namespace abilityManager {
    *
    * @returns { Promise<ElementName> } Promise used to return the API call result and the element name. You can perform error
    *     handling or other custom processing.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -382,7 +382,7 @@ declare namespace abilityManager {
    * @param { AsyncCallback<ElementName> } callback - Callback used to return the result. If the API call is successful,
    *     **err** is **undefined** and **data** is the top ability name obtained. Otherwise, **err** is an error object. You
    *     can perform error handling or other custom processing.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -405,7 +405,7 @@ declare namespace abilityManager {
    * @param { AsyncCallback<Record<string, Object>> } callback - Callback used to return the result. If the API call is
    *     successful, **err** is **undefined** and **data** is the shared data obtained. Otherwise, **err** is an error
    *     object. You can perform error handling or other custom processing. [since 11]
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -421,7 +421,7 @@ declare namespace abilityManager {
    * @param { int } missionId - The missionId of target ability.
    * @param { AsyncCallback<Record<string, RecordData>> } callback - The callback is used to return the params of sharing
    *     data and result code.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 16000050 - Connect to system service failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -439,7 +439,7 @@ declare namespace abilityManager {
    * @returns { Promise<{ [key: string]: Object }> } The promise returned by the function. [since 10 - 10]
    * @returns { Promise<Record<string, Object>> } Promise used to return the API call result and the shared data. You can
    *     perform error handling or other custom processing. [since 11]
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -454,7 +454,7 @@ declare namespace abilityManager {
    *
    * @param { int } missionId - The missionId of target ability.
    * @returns { Promise<Record<string, RecordData>> } The promise returned by the function.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 16000050 - Connect to system server failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -472,7 +472,7 @@ declare namespace abilityManager {
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the API call is successful, **err** is
    *     **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -493,7 +493,7 @@ declare namespace abilityManager {
    * @param { int } requestCode - Request code passed in by the DLP management application.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -514,7 +514,7 @@ declare namespace abilityManager {
    * @param { AsyncCallback<Array<AbilityStateData>> } callback - Callback used to return the API call result and the
    *     UIAbility information. You can perform error handling or custom processing in it.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -533,7 +533,7 @@ declare namespace abilityManager {
    * @returns { Promise<Array<AbilityStateData>> } Promise used to return the API call result and the UIAbility information.
    *     You can perform error handling or custom processing in it.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 16000050 - Internal error.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi

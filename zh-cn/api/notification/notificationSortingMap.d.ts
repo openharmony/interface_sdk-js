@@ -22,10 +22,6 @@ import { NotificationSorting } from './notificationSorting';
 
 /**
  * 提供有关已订阅的所有通知中的活动通知的排序信息。
- * 
- * > **说明：**
- * >
- * > 本模块为系统接口。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi

@@ -179,7 +179,7 @@ declare namespace backgroundTaskManager {
      * API. If notifications need to be combined for an existing task, request the task again and set the value to 
      * **true**.
      *
-     * @returns { boolean | undefined } whethre to merge notifications.
+     * @returns { boolean | undefined } whether to merge notifications.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
      * @since 24 static
@@ -360,6 +360,116 @@ declare namespace backgroundTaskManager {
      * @since 26.0.0 dynamic&static
      */
     checkSpecialScenarioAuthResult(context: Context): Promise<UserAuthResult>;
+
+    /**
+     * Notify progress data.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic
+     */
+    progressInfo?: ProgressInfo;
+
+    /**
+     * Notify progress data.
+     *
+     * @param { ProgressInfo | undefined } value
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    set progressInfo(value: ProgressInfo | undefined);
+
+    /**
+     * Notify progress data.
+     *
+     * @returns { ProgressInfo | undefined } notify progress data.
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    get progressInfo(): ProgressInfo | undefined;
+  }
+
+  /**
+   * Notify progress data.
+   *
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export interface ProgressInfo {  
+    /**
+     * Notification title.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    title: string;
+    /**
+     * Notification content.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    fileName: string;
+    /**
+     * Download progress. If this field does not exist, the progress ring will not be displayed.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    progressValue?: int;
+    /**
+     * Whether to ring when the download progress reaches 100%.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    isMute?: boolean;
+  }
+
+  /**
+   * Information about continuousTask notification progress.
+   *
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export interface DataTransferProgress {  
+    /**
+     * Continuous task ID.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    continuousTaskId: int;
+
+    /**
+     * Notification parameters, which are used to specify the target page that is redirected to when a continuous task
+     * notification is clicked.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    wantAgent?: WantAgent;
+
+    /**
+     * Notify progress data.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    progressInfo: ProgressInfo;
   }
 
   /**
@@ -1246,6 +1356,23 @@ declare namespace backgroundTaskManager {
   function updateBackgroundRunning(context: Context, request: ContinuousTaskRequest): Promise<ContinuousTaskNotification>;
 
   /**
+   * Update notification. Only data transfer ContinuousTasks are supported.
+   *
+   * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
+   * @param { Context } context - Application context.
+   * @param { DataTransferProgress } progressInfo - Notify progress data.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 9800004 - System service operation failed.
+   * @throws { BusinessError } 9800005 - Continuous task verification failed.
+   * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
+   * @throws { BusinessError } 9800007 - Continuous task storage failed.
+   * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function updateDataTransferProgress(context: Context, progressInfo: DataTransferProgress): void;
+
+  /**
    * Cancels all continuous tasks in the current UIAbility (ServiceAbility in the FA model). This API uses an 
    * asynchronous callback to return the result. You can also call the 
    * [stopBackgroundRunning]{@link backgroundTaskManager.stopBackgroundRunning(context: Context, continuousTaskId: int)}
@@ -1564,7 +1691,7 @@ declare namespace backgroundTaskManager {
     * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
     * @param { 'continuousTaskCancel' } type - Cancels a continuous task. The value is fixed at
     *     **'continuousTaskCancel'**.
-    * @param { Callback<ContinuousTaskCancelInfo> } callback - Callback for which listening is cancelled. If this
+    * @param { Callback<ContinuousTaskCancelInfo> } [callback] - Callback for which listening is cancelled. If this
     *     parameter is left unspecified, all registered callbacks are cancelled.
     * @throws { BusinessError } 201 - Permission denied.
     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
@@ -2543,16 +2670,6 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_DATA_TRANSFER_LOW_SPEED = 4,
   
     /**
-     * A continuous task of the **AUDIO_PLAYBACK** type is requested, but 
-     * [AVSession](docroot://media/avsession/avsession-overview.md) is not accessed.
-     *
-     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    SYSTEM_CANCEL_AUDIO_PLAYBACK_NOT_USE_AVSESSION = 5,
-  
-    /**
      * A continuous task of the **AUDIO_PLAYBACK** type is requested, but the audio and video are not played.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -2889,16 +3006,11 @@ declare namespace backgroundTaskManager {
      * 
      * When the following common events are received, the related authorization records will be cleared:
      * 
-     * [COMMON_EVENT_PACKAGE_ADDED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_package_added)
-     * , 
-     * [COMMON_EVENT_PACKAGE_REMOVED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_package_removed)
-     * , 
-     * [COMMON_EVENT_BUNDLE_REMOVED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_bundle_removed)
-     * , 
-     * [COMMON_EVENT_PACKAGE_FULLY_REMOVED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_package_fully_removed)
-     * , 
-     * [COMMON_EVENT_PACKAGE_CHANGED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_package_changed)
-     * .
+     * [COMMON_EVENT_PACKAGE_ADDED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_ADDED},
+     * [COMMON_EVENT_PACKAGE_REMOVED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_REMOVED},
+     * [COMMON_EVENT_BUNDLE_REMOVED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_BUNDLE_REMOVED},
+     * [COMMON_EVENT_PACKAGE_FULLY_REMOVED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_FULLY_REMOVED},
+     * [COMMON_EVENT_PACKAGE_CHANGED]{@link @ohos.commonEventManager:commonEventManager.Support.COMMON_EVENT_PACKAGE_CHANGED}.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 22 dynamic

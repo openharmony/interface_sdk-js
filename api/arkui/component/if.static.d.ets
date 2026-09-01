@@ -1,8 +1,7 @@
-
 'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -76,8 +75,9 @@ export declare interface IfAttribute {
    * @param { boolean } condition - condition of the branch.
    * @returns { this } IfAttribute instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   setIfOptions(condition: boolean): this;
 
@@ -85,8 +85,9 @@ export declare interface IfAttribute {
    * Notify If has finished setting up its attributes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   applyAttributesFinish(): void;
 }
@@ -108,15 +109,16 @@ export declare function If(
 ): IfAttribute;
 
 /**
- * Defines If Component. It requires call setIfOptions at start of component attribute set-up,
- * and it requires call applyAttributeFinish at end of component attribute set-up.
+ * Defines If Component. It requires calling setIfOptions at start of component attribute set-up,
+ * and it requires calling applyAttributesFinish at end of component attribute set-up.
  *
  * @param { CustomBuilderT<IfAttribute> } style - callback to set up If's attributes.
  * @param { CustomBuilder } content_ - code for the branch
  * @returns { IfAttribute } The attribute of If.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function If(

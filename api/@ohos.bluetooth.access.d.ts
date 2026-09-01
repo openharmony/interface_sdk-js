@@ -212,7 +212,7 @@ declare namespace access {
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function isBluetoothSupported(): boolean;
 
@@ -358,6 +358,7 @@ declare namespace access {
    * @returns { string } Return the converted 16-byte UUID string.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 22 dynamic
+   * @since 26.0.0 static
    */
   function convertUuid(uuid: string): string;
 

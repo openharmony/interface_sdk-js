@@ -41,6 +41,7 @@ import * as _UIServiceExtensionContext from './application/UIServiceExtensionCon
 import * as _UIServiceProxy from './application/UIServiceProxy';
 import * as _UIServiceHostProxy from './application/UIServiceHostProxy';
 import * as _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
+import { FunctionInfo as _FunctionInfo } from './application/FunctionInfo';
 import { ToolInfo as _ToolInfo } from './application/ToolInfo';
 import { ToolSummary as _ToolSummary } from './application/ToolInfo';
 import { CliToolEvent as _CliToolEvent } from './application/CliToolEvent';
@@ -84,7 +85,7 @@ import _AgentExtensionContext from './application/AgentExtensionContext';
  * You can use this module to reference the ability public module class.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
+ * @FaAndStageModel [since 11]
  * @crossplatform [since 10]
  * @atomicservice [since 11]
  * @since 9 dynamic
@@ -349,6 +350,7 @@ declare namespace common {
    * Defines the container of basic data types.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @FaAndStageModel [since 11]
    * @atomicservice [since 11]
    * @since 9 dynamic
    * @since 23 static
@@ -742,6 +744,16 @@ declare namespace common {
    * @since 26.0.0 dynamiconly
    */
   export type ToolEventCallback = _ToolEventCallback;
+
+  /**
+   * Describes the basic information of a function.
+   *
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  export type FunctionInfo = _FunctionInfo;
 }
 
 export default common;

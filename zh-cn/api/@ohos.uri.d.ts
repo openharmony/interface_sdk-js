@@ -19,8 +19,12 @@
  */
 
 /**
- * 本模块提供URI字符串解析功能。URI遵循RFC3986规范标准，该规范定义了编码和解析网络资源标识符的方法，不支持非标准场景解析。
- * 
+ * 本模块提供URI字符串解析功能，支持URI各组成部分（协议、主机、端口、路径、查询参数和片段等）的提取与设置，以及URI编码/解码、比较判断、路径规范化和查询参数操作等能力。
+ *
+ * 适用于网络请求URL处理、深链接解析或数据共享URI处理等场景。
+ *
+ * URI遵循RFC3986规范标准，不支持非标准场景解析。
+ *
  * > **说明：**
  * >
  * > - 本模块同时支持ArkTS-Dyn、ArkTS-Sta。
@@ -33,7 +37,7 @@
  */
 declare namespace uri {
   /**
-   * 构造一个URI对象，并提供判断两个URI是否相等、对URI路径部分进行编码规范化等方法。
+   * 构造一个URI对象，并提供URI比较、路径规范化、查询参数操作、路径段追加和URI类型判断等方法。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -44,9 +48,9 @@ declare namespace uri {
    */
   export class URI {
     /**
-     * 构造函数用于创建URI对象。
+     * 构造函数用于创建URI对象，将输入的URI字符串按照RFC3986规范解析并分解为scheme、userInfo、host、port、path、query和fragment等组件。
      *
-     * @param { string } uri - 入参对象。
+     * @param { string } uri - 需要解析的URI字符串，需符合RFC3986规范标准。
      * @throws { BusinessError } 10200002 - Invalid uri string.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -68,7 +72,7 @@ declare namespace uri {
     toString(): string;
 
     /**
-     * 判断此URI是否与其他URI对象相等。
+     * 判断此URI是否与其他URI对象相等，通过逐组件比较scheme、authority、path、query和fragment等内容来确定两个URI是否等价。
      *
      * @param { URI } other - 需要比较的URI对象。
      * @returns { boolean } 返回true表示相等，否则返回false。
@@ -80,7 +84,7 @@ declare namespace uri {
     equals(other: URI): boolean;
 
     /**
-     * 判断此URI是否与其他URI对象相等。
+     * 判断此URI是否与其他URI对象相等，通过逐组件比较scheme、authority、path、query和fragment等内容来确定两个URI是否等价。
      *
      * @param { URI } other - 需要比较的URI对象。
      * @returns { boolean } 返回true表示相等，否则返回false。
@@ -105,8 +109,8 @@ declare namespace uri {
     checkIsAbsolute(): boolean;
 
     /**
-     * 规范化此URI的路径。
-     * 
+     * 规范化此URI的路径，适用于处理包含点段（.或..）的路径场景。
+     *
      * > **说明：**
      * >
      * > 如果此URI是不透明的，或者其路径已经是规范形式，则返回该URI。否则将构造一个新的URI，该URI与当前URI相同，唯一的区别是其路径通过规范化当前URI的路径来计算，具体规则如下：
@@ -202,7 +206,7 @@ declare namespace uri {
      */
     getBooleanQueryValue(key: string, defaultValue: boolean): boolean;
     /**
-     * 清除URI路径查询部分，并创建一个新的URI对象返回，同时保持原有URI对象不变。
+     * 清除URI查询部分，并创建一个新的URI对象返回，同时保持原有URI对象不变。
      *
      * @returns { URI } 返回一个已被清除查询部分的URI对象。
      * @syscap SystemCapability.Utils.Lang
@@ -213,7 +217,7 @@ declare namespace uri {
      */
     clearQuery(): URI;
     /**
-     * 获取此URI路径的最后一个段。每个段代表路径中的一个部分，通常通过“/”来进行分隔。对于以斜杠结尾的或者没有路径的部分不计入段。
+     * 获取此URI路径的最后一个段。每个段代表路径中的一个部分，通常通过“/”来进行分隔。以斜杠结尾的路径段不计入段，没有路径时不计入段。
      *
      * @returns { string } 返回此URI路径中的最后一个段，如果路径为空则返回null。
      * @syscap SystemCapability.Utils.Lang
@@ -281,7 +285,7 @@ declare namespace uri {
      */
     checkOpaque(): boolean;
     /**
-     * 判断此URI是否为相对URI，相对URI指的是不包含协议(scheme)部分的URI。
+     * 判断此URI是否为相对URI，相对URI指的是不包含协议（scheme）部分的URI。
      *
      * @returns { boolean } 如果是相对URI返回true，否则返回false。
      * @syscap SystemCapability.Utils.Lang
@@ -292,12 +296,12 @@ declare namespace uri {
      */
     checkRelative(): boolean;
     /**
-     * 根据提供的协议、方案以及片段创建一个新的URI对象。
+     * 根据提供的方案（scheme）、方案特定部分（ssp）以及片段（fragment）创建一个新的URI对象。
      *
-     * @param { string } scheme - 此URI协议部分。该参数需符合URI协议标准。
+     * @param { string } scheme - 此URI方案部分。该参数需符合URI协议标准。
      * @param { string } ssp - 此URI的方案特定部分，即位于协议分隔符“:”和片段分隔符“#”之间的所有内容，这部分将被编码。
      * @param { string } fragment - 此URI的片段部分，即“#”符号后面的内容，如果未定义则为空，这部分也将被编码。
-     * @returns { URI } 返回由给定协议、协议特定部分和片段创建的URI对象。
+     * @returns { URI } 返回由给定方案、方案特定部分和片段创建的URI对象。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -306,7 +310,7 @@ declare namespace uri {
      */
     static createFromParts(scheme: string, ssp: string, fragment: string): URI;
     /**
-     * 获取/设置 URI 的协议部分。
+     * 获取和设置URI的方案部分，若无此部分则返回null对象。方案名以字母开头，只能包含字母、数字、加号(+)、减号(-)和点号(.)。此属性在API version 19之前为只读属性，不可写，修改此属性会报错。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -316,7 +320,7 @@ declare namespace uri {
     scheme: string;
 
     /**
-     * 获取/设置 URI 的用户信息部分。
+     * 获取和设置URI的用户信息部分，若无此部分则返回null对象。此属性在API version 19之前为只读属性，不可写，修改此属性会报错。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -326,7 +330,7 @@ declare namespace uri {
     userInfo: string;
 
     /**
-     * 获取 URI 的主机名部分（不含端口）。
+     * 获取 URI 的主机名部分（不带端口），若无此部分则返回null对象。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -336,7 +340,7 @@ declare namespace uri {
     host: string;
 
     /**
-     * 获取URI的端口部分。 
+     * 获取URI的端口部分，若无此部分则返回-1。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -346,7 +350,7 @@ declare namespace uri {
     port: string;
 
     /**
-     * 获取/设置 URI 的路径部分。
+     * 获取和设置URI的路径部分，若无此部分则返回null对象。此属性在API version 19之前为只读属性，不可写，修改此属性会报错。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -356,7 +360,7 @@ declare namespace uri {
     path: string;
 
     /**
-     * 获取/设置 URI 的查询部分。
+     * 获取和设置URI的查询部分，若无此部分则返回null对象。此属性在API version 19之前为只读属性，不可写，修改此属性会报错。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -366,7 +370,7 @@ declare namespace uri {
     query: string;
 
     /**
-     * 获取/设置 URI 的片段部分。
+     * 获取和设置URI的片段部分，若无此部分则返回null对象。此属性在API version 19之前为只读属性，不可写，修改此属性会报错。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -376,7 +380,7 @@ declare namespace uri {
     fragment: string;
 
     /**
-     *获取/设置 URI 的授权组件部分（已解码）。
+     * 获取和设置此URI的解码授权组件部分，若无此部分则返回null对象。此属性在API version 19之前为只读属性，不可写，修改此属性会报错。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -386,7 +390,7 @@ declare namespace uri {
     authority: string;
 
     /**
-     * 获取/设置 URI 的协议特定部分（已解码）。
+     * 获取和设置URI的解码方案特定部分，方案特定部分是URI的一部分，它包含了特定于协议或方案的信息。此属性在API version 19之前为只读属性，不可写，修改此属性会报错。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
@@ -395,7 +399,7 @@ declare namespace uri {
      */
     ssp: string;
     /**
-     * 获取/设置 URI 的用户信息部分（已编码）。
+     * 获取和设置URI的编码用户信息部分，若无此部分则返回null对象。此属性在API version 19之前为只读属性，不可写，修改此属性会报错。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -404,7 +408,7 @@ declare namespace uri {
      */
     encodedUserInfo: string;
     /**
-     * 获取/设置 URI 的路径部分（已编码）。
+     * 获取和设置URI的编码路径部分，若无此部分则返回null对象。此属性在API version 19之前为只读属性，不可写，修改此属性会报错。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -413,7 +417,7 @@ declare namespace uri {
      */
     encodedPath: string;
     /**
-     * 获取/设置 URI 的查询组件部分（已编码）。
+     * 获取和设置URI的编码查询部分，若无此部分则返回null对象。此属性在API version 19之前为只读属性，不可写，修改此属性会报错。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -422,7 +426,7 @@ declare namespace uri {
      */
     encodedQuery: string;
     /**
-     * 获取/设置 URI 的片段部分（已编码），即 '#' 之后的所有内容。
+     * 获取和设置URI的编码片段部分，若无此部分则返回null对象。此属性在API version 19之前为只读属性，不可写，修改此属性会报错。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -431,7 +435,7 @@ declare namespace uri {
      */
     encodedFragment: string;
     /**
-     * 获取/设置 URI 的授权部分（已编码）。
+     * 获取和设置URI的编码授权组件部分，若无此部分则返回null对象。此属性在API version 19之前为只读属性，不可写，修改此属性会报错。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -440,7 +444,7 @@ declare namespace uri {
      */
     encodedAuthority: string;
     /**
-     * 获取/设置 URI 的协议特定部分（已编码），即协议分隔符 ':' 与片段分隔符 '#' 之间的所有内容。
+     * 获取和设置URI的编码方案特定部分，若无此部分则返回null对象。此属性在API version 19之前为只读属性，不可写，修改此属性会报错。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform

@@ -19,1068 +19,712 @@
  */
 
 /**
- * This module provides the DRM capability to multimedia player.
- * @namespace drm
+ * The Digital Rights Management (DRM) framework enables you to develop digital rights management features for audio and
+ * video services. By calling the DRM plugins provided by the system, you can achieve the following:
+ * 
+ * - DRM certificate management: Generate certificate requests and handle certificate responses to facilitate 
+ * certificate provisioning (downloading).
+ * - DRM media key management: Generate media key requests, manage media key responses, and handle offline media keys.
+ * - DRM content authorization: Allow DRM plugins to authorize content based on media key permissions.
+ * - DRM content decryption: Decrypt DRM content to support media playback functionality.
+ *
  * @syscap SystemCapability.Multimedia.Drm.Core
- * @since 11
- */
-/**
- * This module provides the DRM capability to multimedia player.
- * @namespace drm
- * @syscap SystemCapability.Multimedia.Drm.Core
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  * @since 23 static
  */
 declare namespace drm {
-/**
- * Enumerates DRM error codes.
- * @enum { number }
- * @syscap SystemCapability.Multimedia.Drm.Core
- * @since 11
- */
-/**
- * Enumerates DRM error codes.
- * @enum { number }
- * @syscap SystemCapability.Multimedia.Drm.Core
- * @atomicservice
- * @since 14 dynamic
- * @since 23 static
- */
+  /**
+   * Enumerates the DRM error codes.
+   *
+   * @syscap SystemCapability.Multimedia.Drm.Core
+   * @atomicservice [since 14]
+   * @since 11 dynamic
+   * @since 23 static
+   */
   enum DrmErrorCode {
     /**
-     * All unknown errors.
+     * Unknown error.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * All unknown errors.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     ERROR_UNKNOWN = 24700101,
     /**
-     * Meet max MediaKeySystem num limit.
+     * Maximum number of MediaKeySystem instances (64) reached.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Meet max MediaKeySystem num limit.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     MAX_SYSTEM_NUM_REACHED = 24700103,
     /**
-     * Meet max MediaKeySession num limit.
+     * Maximum number of MediaKeySession instances (64) reached.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Meet max MediaKeySession num limit.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     MAX_SESSION_NUM_REACHED = 24700104,
     /**
-     * Fatal service error, for example, service died.
+     * DRM service fatal error.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     SERVICE_FATAL_ERROR = 24700201
   }
 
   /**
-   * Enumerates the config names that can be obtained.
-   * @enum { string }
+   * Enumerates the predefined configuration properties.
+   *
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Enumerates the config names that can be obtained.
-   * @enum { string }
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 14 dynamic
+   * @atomicservice [since 14]
+   * @since 11 dynamic
    * @since 23 static
    */
   enum PreDefinedConfigName {
     /**
-     * Config name vendor
+     * Plugin vendor name, which corresponds to the value of **vendor** in the return value of 
+     * [getConfigurationString]{@link @ohos.multimedia.drm:drm.MediaKeySystem.getConfigurationString}.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Config name vendor
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     CONFIG_DEVICE_VENDOR = 'vendor',
     /**
-     * Config name version
+     * Plugin version number, which corresponds to the value of **version** in the return value of 
+     * [getConfigurationString]{@link @ohos.multimedia.drm:drm.MediaKeySystem.getConfigurationString}.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Config name version
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     CONFIG_DEVICE_VERSION = 'version',
     /**
-     * Config name description
+     * Device description, which corresponds to the value of **description** in the return value of 
+     * [getConfigurationString]{@link @ohos.multimedia.drm:drm.MediaKeySystem.getConfigurationString}.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Config name description
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     CONFIG_DEVICE_DESCRIPTION = 'description',
     /**
-     * Config name algorithms
+     * Supported algorithms, which correspond to the value of **algorithms** in the return value of 
+     * [getConfigurationString]{@link @ohos.multimedia.drm:drm.MediaKeySystem.getConfigurationString}.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Config name algorithms
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     CONFIG_DEVICE_ALGORITHMS = 'algorithms',
     /**
-     * Config name deviceUniqueId
+     * Unique device ID, which corresponds to the value of **deviceUniqueId** in the return value of 
+     * [getConfigurationByteArray]{@link @ohos.multimedia.drm:drm.MediaKeySystem.getConfigurationByteArray}.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Config name deviceUniqueId
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     CONFIG_DEVICE_UNIQUE_ID = 'deviceUniqueId',
     /**
-     * Config name maxSessionNum
+     * Maximum number of supported sessions, which corresponds to the value of **maxSessionNum** in the return value of 
+     * [getConfigurationString]{@link @ohos.multimedia.drm:drm.MediaKeySystem.getConfigurationString}.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Config name maxSessionNum
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     CONFIG_SESSION_MAX = 'maxSessionNum',
     /**
-     * Config name currentSessionNum
+     * Number of active sessions, which corresponds to the value of **currentSessionNum** in the return value of 
+     * [getConfigurationString]{@link @ohos.multimedia.drm:drm.MediaKeySystem.getConfigurationString}.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-        /**
-     * Config name currentSessionNum
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
-    CONFIG_SESSION_CURRENT = 'currentSessionNum',
+    CONFIG_SESSION_CURRENT = 'currentSessionNum'
   }
 
   /**
-   * Enumerates media key type.
-   * @enum { number }
+   * Enumerates the types of media keys.
+   *
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Enumerates media key type.
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 14 dynamic
+   * @atomicservice [since 14]
+   * @since 11 dynamic
    * @since 23 static
    */
   enum MediaKeyType {
     /**
-     * Offline media key type.
+     * Offline media key.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Offline media key type.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     MEDIA_KEY_TYPE_OFFLINE = 0,
     /**
-     * Online media key type.
+     * Online media key.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Online media key type.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
-    MEDIA_KEY_TYPE_ONLINE,
+    MEDIA_KEY_TYPE_ONLINE = 1
   }
 
   /**
-   * Enumerates offline media key status.
-   * @enum { number }
+   * Enumerates the statuses of offline media keys.
+   *
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Enumerates offline media key status.
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 14 dynamic
+   * @atomicservice [since 14]
+   * @since 11 dynamic
    * @since 23 static
    */
   enum OfflineMediaKeyStatus {
     /**
-     * Offline media key status unknown.
+     * Unknown status.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Offline media key status unknown.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     OFFLINE_MEDIA_KEY_STATUS_UNKNOWN = 0,
     /**
-     * Offline media key status usable.
+     * The media key is available.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Offline media key status usable.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     OFFLINE_MEDIA_KEY_STATUS_USABLE = 1,
     /**
-     * Offline media key status inactive.
+     * The media key is inactive.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Offline media key status inactive.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
-    OFFLINE_MEDIA_KEY_STATUS_INACTIVE = 2,
+    OFFLINE_MEDIA_KEY_STATUS_INACTIVE = 2
   }
 
   /**
-   * Enumerates certificate status.
-   * @enum { number }
+   * Enumerates the statuses of device certificates.
+   *
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Enumerates certificate status.
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 14 dynamic
+   * @atomicservice [since 14]
+   * @since 11 dynamic
    * @since 23 static
    */
   enum CertificateStatus {
     /**
-     * Device already provisioned.
+     * A device certificate is provisioned.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Device already provisioned.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     CERT_STATUS_PROVISIONED = 0,
     /**
-     * Device not provisioned.
+     * A device certificate is not provisioned.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Device not provisioned.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
-    CERT_STATUS_NOT_PROVISIONED,
+    CERT_STATUS_NOT_PROVISIONED = 1,
     /**
-     * Cert already expired.
+     * The device certificate has expired.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Cert already expired.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
-    CERT_STATUS_EXPIRED,
+    CERT_STATUS_EXPIRED = 2,
     /**
-     * Certs are invalid.
+     * The device certificate is invalid.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Certs are invalid.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
-    CERT_STATUS_INVALID,
+    CERT_STATUS_INVALID = 3,
     /**
-     * Get certs status failed.
+     * The device certificate is unavailable.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Get certs status failed.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
-    CERT_STATUS_UNAVAILABLE,
+    CERT_STATUS_UNAVAILABLE = 4
   }
 
   /**
-   * Enumerates media key request types.
-   * @enum { number }
+   * Enumerates the types of media key requests.
+   *
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Enumerates media key request types.
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    * @since 23 static
    */
   enum MediaKeyRequestType {
     /**
-     * Media key request type unknown.
+     * Unknown type.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Media key request type unknown.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     MEDIA_KEY_REQUEST_TYPE_UNKNOWN = 0,
     /**
-     * Media key request type initial.
+     * Initial request.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Media key request type initial.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     MEDIA_KEY_REQUEST_TYPE_INITIAL = 1,
     /**
-     * Media key request type renewal.
+     * Renewal request.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Media key request type renewal.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     MEDIA_KEY_REQUEST_TYPE_RENEWAL = 2,
     /**
-     * Media key request type release.
+     * Release request.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Media key request type release.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     MEDIA_KEY_REQUEST_TYPE_RELEASE = 3,
     /**
-     * Media key request type none.
+     * No request.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Media key request type none.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     MEDIA_KEY_REQUEST_TYPE_NONE = 4,
     /**
-     * Media key request type update.
+     * Update request.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Media key request type update.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
-    MEDIA_KEY_REQUEST_TYPE_UPDATE = 5,
+    MEDIA_KEY_REQUEST_TYPE_UPDATE = 5
   }
 
   /**
-   * Enumerates content protection level.
-   * @enum { number }
+   * Enumerates the content protection levels.
+   *
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Enumerates content protection level.
-   * @enum { number }
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    * @since 23 static
    */
   enum ContentProtectionLevel {
     /**
-     * Device decrypt and decode type unknown.
+     * Unknown content protection level.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Device decrypt and decode type unknown.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     CONTENT_PROTECTION_LEVEL_UNKNOWN = 0,
     /**
-     * Device using software level.
+     * Software-based content protection.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Device using software level.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
-    CONTENT_PROTECTION_LEVEL_SW_CRYPTO,
+    CONTENT_PROTECTION_LEVEL_SW_CRYPTO = 1,
     /**
-     * Device using hardware level.
+     * Hardware-based content protection.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Device using hardware level.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
-    CONTENT_PROTECTION_LEVEL_HW_CRYPTO,
+    CONTENT_PROTECTION_LEVEL_HW_CRYPTO = 2,
     /**
-     * Device using enhanced hardware level.
+     * Enhanced hardware-based content protection.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Device using enhanced hardware level.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
-    CONTENT_PROTECTION_LEVEL_ENHANCED_HW,
+    CONTENT_PROTECTION_LEVEL_ENHANCED_HW = 3,
     /**
-     * Max mode.
+     * Maximum content protection level.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Max mode.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
-    CONTENT_PROTECTION_LEVEL_MAX,
+    CONTENT_PROTECTION_LEVEL_MAX = 4
   }
 
   /**
-   * Provides the drm provision request definitions.
-   * @interface ProvisionRequest
+   * Defines a device certificate provisioning request.
+   *
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-    /**
-   * Provides the drm provision request definitions.
-   * @interface ProvisionRequest
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 14 dynamic
+   * @atomicservice [since 14]
+   * @since 11 dynamic
    * @since 23 static
    */
   interface ProvisionRequest {
     /**
-     * Provision request data sent to provision server.
-     * @type { Uint8Array }
+     * Binary data of the provisioning request.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Provision request data sent to provision server.
-     * @type { Uint8Array }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     data: Uint8Array;
     /**
-     * Provision server URL.
-     * @type { string }
+     * URL of the device certificate provisioning server.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Provision server URL.
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     defaultURL: string;
   }
 
   /**
-   * Provides the drm media key request info optional data.
-   * @interface OptionsData
+   * Defines optional parameters for a device certificate request.
+   *
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Provides the drm media key request info optional data.
-   * @interface OptionsData
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    * @since 23 static
    */
   interface OptionsData {
     /**
-     * App defined optional data name.
-     * @type { string }
+     * Name of the optional parameter.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * App defined optional data name.
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     name: string;
     /**
-     * App defined optional data value.
-     * @type { string }
+     * Value of the optional parameter.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * App defined optional data value.
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     value: string;
   }
 
   /**
-   * Provides the drm media key request definitions.
-   * @interface MediaKeyRequest
+   * Defines a media key request.
+   *
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Provides the drm media key request definitions.
-   * @interface MediaKeyRequest
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    * @since 23 static
    */
   interface MediaKeyRequest {
     /**
-     * Media key request type.
-     * @type { MediaKeyRequestType }
+     * Type of the media key request.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Media key request type.
-     * @type { MediaKeyRequestType }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     mediaKeyRequestType: MediaKeyRequestType;
     /**
-     * Media key request data sent to media key server.
-     * @type { Uint8Array }
+     * Binary data of the media key request.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Media key request data sent to media key server.
-     * @type { Uint8Array }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     data: Uint8Array;
     /**
-     * Media key server URL.
-     * @type { string }
+     * URL of the license server.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Media key server URL.
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     defaultURL: string;
   }
 
   /**
-   * Used to indicate the event info attached to specific event type.
-   * @interface EventInfo
+   * Defines the DRM event information.
+   *
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Used to indicate the event info attached to specific event type.
-   * @interface EventInfo
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    * @since 23 static
    */
   interface EventInfo {
     /**
-     * Event info.
-     * @type { Uint8Array }
+     * Event payload data.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Event info.
-     * @type { Uint8Array }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     info: Uint8Array;
     /**
-     * Event extra info.
-     * @type { string }
+     * Additional event context.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Event extra info.
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     extraInfo: string;
   }
 
   /**
-   * Used to indicate the statistic info.
-   * @interface StatisticKeyValue
+   * Defines a key-value pair for DRM metrics.
+   *
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Used to indicate the statistic info.
-   * @interface StatisticKeyValue
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 14 dynamic
+   * @atomicservice [since 14]
+   * @since 11 dynamic
    * @since 23 static
    */
   interface StatisticKeyValue {
     /**
-     * Statistic info name.
-     * @type { string }
+     * Name of the metric.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Statistic info name.
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     name: string;
     /**
-     * Statistic info value.
-     * @type { string }
+     * Value of the metric.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Statistic info value.
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     value: string;
   }
 
   /**
-   * Used to indicate the media key status.
-   * @interface MediaKeyStatus
+   * Defines a status attribute for a media key.
+   *
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Used to indicate the media key status.
-   * @interface MediaKeyStatus
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    * @since 23 static
    */
   interface MediaKeyStatus {
     /**
-     * Media key Id in string.
-     * @type { string }
+     * Name of the media key status attribute, for example, expiration time or content protection level.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Media key Id in string.
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     name: string;
     /**
-     * Media key status description.
-     * @type { string }
+     * Value of the media key status attribute.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Media key status description.
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     value: string;
   }
 
   /**
-   * Used to indicate the media key status with a key and its value.
-   * @interface KeysInfo
+   * Defines the status information of a media key.
+   *
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Used to indicate the media key status with a key and its value.
-   * @interface KeysInfo
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    * @since 23 static
    */
   interface KeysInfo {
     /**
-     * Keys Id in media key.
-     * @type { Uint8Array }
+     * Media key ID.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Keys Id in media key.
-     * @type { Uint8Array }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     keyId: Uint8Array;
     /**
-     * Keys status description.
-     * @type { string }
+     * Media key status.
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Keys status description.
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     value: string;
   }
 
   /**
-   * Used to indicate the media key system info of media source.
-   * @interface MediaKeySystemInfo
+   * Defines the DRM information for encrypted content.
+   *
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Used to indicate the media key system info of media source.
-   * @interface MediaKeySystemInfo
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    * @since 23 static
    */
   interface MediaKeySystemInfo {
     /**
      * Drm system ID.
-     * @type { string }
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Drm system ID.
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     uuid: string;
     /**
      * PSSH(protection scheme specific header) contain drm info.
-     * @type { Uint8Array }
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * PSSH(protection scheme specific header) contain drm info.
-     * @type { Uint8Array }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     pssh: Uint8Array;
   }
 
-/**
-   * Name and UUID of DRM plugin.
-   * @interface MediaKeySystemDescription
+  /**
+   * Defines the DRM plugin information.
+   *
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 12
-   */
-/**
-   * Name and UUID of DRM plugin.
-   * @interface MediaKeySystemDescription
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 14 dynamic
+   * @atomicservice [since 14]
+   * @since 12 dynamic
    * @since 23 static
    */
   interface MediaKeySystemDescription {
     /**
      * Name of DRM plugin.
-     * @type { string }
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 12
-     */
-    /**
-     * Name of DRM plugin.
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 12 dynamic
      * @since 23 static
      */
     name: string;
     /**
      * UUID supported by DRM plugin.
-     * @type { string }
+     *
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 12
-     */
-    /**
-     * UUID supported by DRM plugin.
-     * @type { string }
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 12 dynamic
      * @since 23 static
      */
     uuid: string;
   }
 
   /**
-   * Get a MediaKeySystem's UUID.
-   * @param { string } name - The Digital Right Management solution name.
-   * @returns { string } The MediaKeySystem uuid.
+   * Obtains the UUID of the DRM content protection system supported by the specified DRM solution.
+   *
+   * @param { string } name - DRM solution name. You can check whether the solution name is supported by calling
+   *     [isMediaKeySystemSupported]{@link @ohos.multimedia.drm:drm.isMediaKeySystemSupported(name: string)}.
+   * @returns { string } UUID of the DRM content protection system.
    * @throws { BusinessError } 401 - The parameter check failed.Possibly because:
-   * <br>1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
+   *     <br>1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @throws { BusinessError } 24700101 - All unknown errors.
    * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 12
-   */
-  /**
-   * Get a MediaKeySystem's UUID.
-   * @param { string } name - The Digital Right Management solution name.
-   * @returns { string } The MediaKeySystem uuid.
-   * @throws { BusinessError } 401 - The parameter check failed.Possibly because:
-   * <br>1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
-   * @throws { BusinessError } 24700101 - All unknown errors.
-   * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 14 dynamic
+   * @atomicservice [since 14]
+   * @since 12 dynamic
    * @since 23 static
    */
   function getMediaKeySystemUuid(name: string): string;
 
   /**
-   * Get all media key systems supported.
-   * @returns { MediaKeySystemDescription[] } The MediaKeySystem name and uuid info list.
+   * Obtains the list of plugins supported by the device.
+   *
+   * @returns { MediaKeySystemDescription[] } Array of supported plugins.
    * @throws { BusinessError } 24700101 - All unknown errors.
    * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 12
-   */
-  /**
-   * Get all media key systems supported.
-   * @returns { MediaKeySystemDescription[] } The MediaKeySystem name and uuid info list.
-   * @throws { BusinessError } 24700101 - All unknown errors.
-   * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 14 dynamic
+   * @atomicservice [since 14]
+   * @since 12 dynamic
    * @since 23 static
    */
   function getMediaKeySystems(): MediaKeySystemDescription[];
 
   /**
    * Creates a MediaKeySystem instance.
-   * @param { string } name - Used to point a Digital Right Management solution.
-   * @returns { MediaKeySystem } The MediaKeySystem instance.
+   *
+   * @param { string } name - DRM solution name, for example, **"com.clearplay.drm"**.
+   * @returns { MediaKeySystem } MediaKeySystem instance.
    * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-   * 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
+   *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @throws { BusinessError } 24700101 - All unknown errors.
    * @throws { BusinessError } 24700103 - Meet max MediaKeySystem num limit.
    * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
+   * @atomicservice [since 14]
    * @since 11
-   */
-  /**
-   * Creates a MediaKeySystem instance.
-   * @param { string } name - Used to point a Digital Right Management solution.
-   * @returns { MediaKeySystem } The MediaKeySystem instance.
-   * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-   * 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
-   * @throws { BusinessError } 24700101 - All unknown errors.
-   * @throws { BusinessError } 24700103 - Meet max MediaKeySystem num limit.
-   * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 14
    */
   function createMediaKeySystem(name: string): MediaKeySystem;
 
   /**
    * Creates a MediaKeySystem instance.
+   *
    * @param { string } name - Used to point a Digital Right Management solution.
    * @returns { MediaKeySystem | undefined } The MediaKeySystem instance or undefined.
    * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
@@ -1094,358 +738,250 @@ declare namespace drm {
   function createMediaKeySystem(name: string): MediaKeySystem | undefined;
 
   /**
-   * Judge whether a system that specifies name, mimetype and content protection level is supported.
-   * @param { string } name - Used to point a Digital Right Management solution.
-   * @param { string } mimeType - Used to specifies the media type.
-   * @param { ContentProtectionLevel } level - Used to specifies the ContentProtectionLevel.
-   * @returns { boolean } Whether these conditions will be met.
+   * Checks whether the device supports the combination of the DRM solution, MIME type, and content protection level.
+   *
+   * @param { string } name - DRM solution name. Before calling this API, ensure that the DRM solution name is supported
+   *     by calling [isMediaKeySystemSupported]{@link @ohos.multimedia.drm:drm.isMediaKeySystemSupported(name: string)}.
+   * @param { string } mimeType - MIME type. The supported MIME types depend on the DRM solution. Before calling this
+   *     API, ensure that the MIME type is supported by calling
+   *     [isMediaKeySystemSupported]{@link @ohos.multimedia.drm:drm.isMediaKeySystemSupported(name: string, mimeType: string)}
+   *     .
+   * @param { ContentProtectionLevel } level - Content protection level.
+   * @returns { boolean } Check result for the support of the combination. **true** if supported, **false** otherwise.
    * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-   * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * 3.Parameter verification failed.
+   *     1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 24700101 - All unknown errors.
    * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Judge whether a system that specifies name, mimetype and content protection level is supported.
-   * @param { string } name - Used to point a Digital Right Management solution.
-   * @param { string } mimeType - Used to specifies the media type.
-   * @param { ContentProtectionLevel } level - Used to specifies the ContentProtectionLevel.
-   * @returns { boolean } Whether these conditions will be met.
-   * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-   * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * 3.Parameter verification failed.
-   * @throws { BusinessError } 24700101 - All unknown errors.
-   * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 14 dynamic
+   * @atomicservice [since 14]
+   * @since 11 dynamic
    * @since 23 static
    */
   function isMediaKeySystemSupported(name: string, mimeType: string, level: ContentProtectionLevel): boolean;
 
   /**
-   * Judge whether a system that specifies name, mimetype is supported.
-   * @param { string } name - Used to point a Digital Right Management solution.
-   * @param { string } mimeType - Used to specifies the media type.
-   * @returns { boolean } Whether these conditions will be met.
+   * Checks whether the device supports the combination of the DRM solution and MIME type.
+   *
+   * @param { string } name - DRM solution name. Before calling this API, ensure that the DRM solution name is supported
+   *     by calling [isMediaKeySystemSupported]{@link @ohos.multimedia.drm:drm.isMediaKeySystemSupported(name: string)}.
+   * @param { string } mimeType - MIME type. The supported MIME types depend on the DRM solution. For example, video/avc
+   *     and video/hevc.
+   * @returns { boolean } Check result for the support of the combination. **true** if supported, **false** otherwise.
    * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-   * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * 3.Parameter verification failed.
+   *     1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+   *     3.Parameter verification failed.
    * @throws { BusinessError } 24700101 - All unknown errors.
    * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Judge whether a system that specifies name, mimetype is supported.
-   * @param { string } name - Used to point a Digital Right Management solution.
-   * @param { string } mimeType - Used to specifies the media type.
-   * @returns { boolean } Whether these conditions will be met.
-   * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-   * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-   * 3.Parameter verification failed.
-   * @throws { BusinessError } 24700101 - All unknown errors.
-   * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 14 dynamic
+   * @atomicservice [since 14]
+   * @since 11 dynamic
    * @since 23 static
    */
   function isMediaKeySystemSupported(name: string, mimeType: string): boolean;
 
   /**
-   * Judge whether a system that specifies name is supported.
-   * @param { string } name - Used to point a Digital Right Management solution.
-   * @returns { boolean } Whether these conditions will be met.
+   * Checks whether the device supports the specified DRM solution.
+   *
+   * @param { string } name - DRM solution name, for example, **"com.clearplay.drm"**.
+   * @returns { boolean } Check result for the support of the DRM solution. **true** if supported, **false** otherwise.
    * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-   * 1.Mandatory parameters are left unspecified. 2.Parameter verification failed,
-   * the param name's length is zero or too big(exceeds 4096 Bytes).
+   *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed,
+   *     the param name's length is zero or too big(exceeds 4096 Bytes).
    * @throws { BusinessError } 24700101 - All unknown errors.
    * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Judge whether a system that specifies name is supported.
-   * @param { string } name - Used to point a Digital Right Management solution.
-   * @returns { boolean } Whether these conditions will be met.
-   * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-   * 1.Mandatory parameters are left unspecified. 2.Parameter verification failed,
-   * the param name's length is zero or too big(exceeds 4096 Bytes).
-   * @throws { BusinessError } 24700101 - All unknown errors.
-   * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 14 dynamic
+   * @atomicservice [since 14]
+   * @since 11 dynamic
    * @since 23 static
    */
   function isMediaKeySystemSupported(name: string): boolean;
 
   /**
-   * Manages and record MediaKeySessions. Before calling an MediaKeySystem method, we must use getMediaKeySystem
-   * to get a MediaKeySystem instance, then we can call functions.
-   * @interface MediaKeySystem
+   * MediaKeySystem manages MediaKeySystem instances, handles device certificate (DRM certificate) requests and 
+   * processing, creates sessions, manages offline media keys, obtains DRM metrics, and obtain device configurations. 
+   * Before calling any API in MediaKeySystem, you must use 
+   * [createMediaKeySystem]{@link @ohos.multimedia.drm:drm.createMediaKeySystem(name: string)} to create a 
+   * MediaKeySystem instance.
+   *
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Manages and record MediaKeySessions. Before calling an MediaKeySystem method, we must use getMediaKeySystem
-   * to get a MediaKeySystem instance, then we can call functions.
-   * @interface MediaKeySystem
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 14 dynamic
+   * @atomicservice [since 14]
+   * @since 11 dynamic
    * @since 23 static
    */
   interface MediaKeySystem {
     /**
-     * Get the specified configuration.
-     * @param { string } configName - Used to specify the config name.
-     * @returns { string } The config value string.
+     * Obtains the value of a configuration item in the form of a string.
+     *
+     * @param { string } configName - Name of the configuration item, which is determined by the DRM solution on the
+     *     device and cannot be empty. For details about available options, see
+     *     [PreDefinedConfigName]{@link @ohos.multimedia.drm:drm.PreDefinedConfigName}.
+     * @returns { string } Value of the configuration item in the form of a string.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Parameter verification failed,
-     * the param's length is zero or too big(exceeds 4096 Bytes).
+     *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed,
+     *     the param's length is zero or too big(exceeds 4096 Bytes).
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Get the specified configuration.
-     * @param { string } configName - Used to specify the config name.
-     * @returns { string } The config value string.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Parameter verification failed,
-     * the param's length is zero or too big(exceeds 4096 Bytes).
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     getConfigurationString(configName: string): string;
 
     /**
-     * Set the specified configuration.
-     * @param { string } configName - Used to specify the config name.
-     * @param { string } value - The value to be set.
+     * Sets a configuration item in the form of a string.
+     *
+     * @param { string } configName - Name of the configuration item, which is determined by the DRM solution on the
+     *     device and cannot be empty. For details about available options, see
+     *     [PreDefinedConfigName]{@link @ohos.multimedia.drm:drm.PreDefinedConfigName}.
+     * @param { string } value - Value of the configuration item.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Set the specified configuration.
-     * @param { string } configName - Used to specify the config name.
-     * @param { string } value - The value to be set.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     setConfigurationString(configName: string, value: string): void;
 
     /**
-     * Get the specified configuration.
-     * @param { string } configName - Used to specify the config name.
-     * @returns { Uint8Array } The config value.
+     * Obtains the value of a configuration item in the form of a byte array.
+     *
+     * @param { string } configName - Name of the configuration item, which is determined by the DRM solution on the
+     *     device and cannot be empty. For details about available options, see
+     *     [PreDefinedConfigName]{@link @ohos.multimedia.drm:drm.PreDefinedConfigName}.
+     * @returns { Uint8Array } Value of the configuration item in the form of an array.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Get the specified configuration.
-     * @param { string } configName - Used to specify the config name.
-     * @returns { Uint8Array } The config value.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     getConfigurationByteArray(configName: string): Uint8Array;
 
     /**
-     * Set the specified configuration.
-     * @param { string } configName - Used to specify the config name.
-     * @param { Uint8Array } value - The value to be set.
+     * Sets a configuration item in the form of a byte array.
+     *
+     * @param { string } configName - Name of the configuration item, which is determined by the DRM solution on the
+     *     device and cannot be empty. For details about available options, see
+     *     [PreDefinedConfigName]{@link @ohos.multimedia.drm:drm.PreDefinedConfigName}.
+     * @param { Uint8Array } value - Value of the configuration item in the form of an array. The specific value is
+     *     determined by the DRM solution on the device.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Set the specified configuration.
-     * @param { string } configName - Used to specify the config name.
-     * @param { Uint8Array } value - The value to be set.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     setConfigurationByteArray(configName: string, value: Uint8Array): void;
 
     /**
-     * Get performance statistics information.That includes currentSessionNum, version, decryptNumber,
-     * and errorDecryptNumber.
-     * @returns { StatisticKeyValue[] } A list that includes performance index and corresponding statistics.
+     * Obtains the DRM metrics, including the number of active sessions, plugin version details, the maximum decryption 
+     * time for each session (over three attempts), the total count of decryption operations, and the number of 
+     * decryption failures.
+     *
+     * @returns { StatisticKeyValue[] } Metrics.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Get performance statistics information.That includes currentSessionNum, version, decryptNumber,
-     * and errorDecryptNumber.
-     * @returns { StatisticKeyValue[] } A list that includes performance index and corresponding statistics.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     getStatistics(): StatisticKeyValue[];
 
     /**
-     * Get max content protection level the device supports.
-     * @returns { ContentProtectionLevel } The max content protection level of the MediaKeySystem instance.
+     * Obtains the maximum content protection level supported by the current DRM solution.
+     *
+     * @returns { ContentProtectionLevel } Maximum content protection level.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Get max content protection level the device supports.
-     * @returns { ContentProtectionLevel } The max content protection level of the MediaKeySystem instance.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     getMaxContentProtectionLevel(): ContentProtectionLevel;
 
     /**
-     * Generate a media key system provision request.
-     * @returns { Promise<ProvisionRequest> } Promise with ProvisionRequest used to return the result.
+     * Generates a request to obtain a device certificate for the MediaKeySystem. This API uses a promise to return the 
+     * result.
+     *
+     * @returns { Promise<ProvisionRequest> } Promise used to return the request for a device certificate. If a device
+     *     certificate already exists on the device, this operation fails.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Generate a media key system provision request.
-     * @returns { Promise<ProvisionRequest> } Promise with ProvisionRequest used to return the result.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     generateKeySystemRequest(): Promise<ProvisionRequest>;
 
     /**
-     * Process the response corresponding the key system request obtained by the application.
-     * @param { Uint8Array } response - Response corresponding to the request.
-     * @returns { Promise<void> } Promise used to return the result.
+     * Processes the response to a previously generated device certificate request. This API uses a promise to return 
+     * the result.
+     *
+     * @param { Uint8Array } response - Response to a previously generated device certificate request.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Process the response corresponding the key system request obtained by the application.
-     * @param { Uint8Array } response - Response corresponding to the request.
-     * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     processKeySystemResponse(response: Uint8Array): Promise<void>;
 
     /**
-     * Get certificate status of the MediaKeySystem.
-     * @returns { CertificateStatus } Certificate Status of the MediaKeySystem instance.
+     * Obtains the status of the device certificate.
+     *
+     * @returns { CertificateStatus } Certificate status.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Get certificate status of the MediaKeySystem.
-     * @returns { CertificateStatus } Certificate Status of the MediaKeySystem instance.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     getCertificateStatus(): CertificateStatus;
 
     /**
-     * Register keySystemRequired events.
-     * @param { 'keySystemRequired' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for the key system required event.
+     * Subscribes to events indicating that the application requests a device certificate. This API uses an asynchronous
+     * callback to return the result.
+     *
+     * @param { 'keySystemRequired' } type - Event type. This event is available for listening after a MediaKeySystem
+     *     instance is created by calling
+     *     [createMediaKeySystem]{@link @ohos.multimedia.drm:drm.createMediaKeySystem(name: string)}. It is triggered
+     *     when a device certificate is required.
+     * @param { function } callback - Callback used to return the event information. The occurrence of this event
+     *     signals the need to request a device certificate.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Register keySystemRequired events.
-     * @param { 'keySystemRequired' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for the key system required event.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      */
     on(type: 'keySystemRequired', callback: (eventInfo: EventInfo) => void): void;
 
     /**
      * Register keySystemRequired events.
-     * 
+     *
      * @param { function } callback - Used to listen for the key system required event.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -1454,32 +990,26 @@ declare namespace drm {
     onKeySystemRequired(callback: (eventInfo: EventInfo) => void): void;
 
     /**
-     * Unregister keySystemRequired events.
-     * @param { 'keySystemRequired' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for the key system required event.
+     * Unsubscribes from events indicating that the application requests a device certificate. This API uses an 
+     * asynchronous callback to return the result.
+     *
+     * @param { 'keySystemRequired' } type - Event type. This event is available for listening after a MediaKeySystem
+     *     instance is created by calling
+     *     [createMediaKeySystem]{@link @ohos.multimedia.drm:drm.createMediaKeySystem(name: string)}.
+     * @param { function } callback - Callback used to return the event information.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Unregister keySystemRequired events.
-     * @param { 'keySystemRequired' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for the key system required event.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      */
     off(type: 'keySystemRequired', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
      * Unregister keySystemRequired events.
-     * 
-     * @param { function } callback - Used to listen for the key system required event.
+     *
+     * @param { function } [callback] - Used to listen for the key system required event.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 23 static
@@ -1487,38 +1017,27 @@ declare namespace drm {
     offKeySystemRequired(callback?: (eventInfo: EventInfo) => void): void;
 
     /**
-     * Create a MediaKeySession instance with level.
-     * @param { ContentProtectionLevel } level - Used to specify the content protection level.
-     * @returns { MediaKeySession } A MediaKeySession instance.
+     * Creates a MediaKeySession instance with the specified content protection level.
+     *
+     * @param { ContentProtectionLevel } level - Content protection level.
+     * @returns { MediaKeySession } MediaKeySession instance.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.The param level exceeds reasonable range,
-     * please use value in ContentProtectionLevel.
+     *     1.Mandatory parameters are left unspecified. 2.The param level exceeds reasonable range,
+     *     please use value in ContentProtectionLevel.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700104 - Meet max MediaKeySession num limit.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
+     * @atomicservice [since 14]
      * @since 11
-     */
-    /**
-     * Create a MediaKeySession instance with level.
-     * @param { ContentProtectionLevel } level - Used to specify the content protection level.
-     * @returns { MediaKeySession } A MediaKeySession instance.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.The param level exceeds reasonable range,
-     * please use value in ContentProtectionLevel.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700104 - Meet max MediaKeySession num limit.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14
      */
     createMediaKeySession(level: ContentProtectionLevel): MediaKeySession;
 
     /**
      * Create a MediaKeySession instance with level.
-     * @param { ContentProtectionLevel} level - Used to specify the content protection level.
-     * @returns { MediaKeySession  | undefined } A MediaKeySession instance or undefined.
+     *
+     * @param { ContentProtectionLevel } level - Used to specify the content protection level.
+     * @returns { MediaKeySession | undefined } A MediaKeySession instance or undefined.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
      *     1.Mandatory parameters are left unspecified. 2.The param level exceeds reasonable range,
      *     please use value in ContentProtectionLevel.
@@ -1531,29 +1050,22 @@ declare namespace drm {
     createMediaKeySession(level: ContentProtectionLevel): MediaKeySession | undefined;
 
     /**
-     * Create a MediaKeySession instance.
-     * @returns { MediaKeySession } A MediaKeySession instance.
+     * Creates a MediaKeySession instance with the default content protection level.
+     *
+     * @returns { MediaKeySession } MediaKeySession instance.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700104 - Meet max MediaKeySession num limit.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
+     * @atomicservice [since 14]
      * @since 11
-     */
-    /**
-     * Create a MediaKeySession instance.
-     * @returns { MediaKeySession } A MediaKeySession instance.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700104 - Meet max MediaKeySession num limit.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14
      */
     createMediaKeySession(): MediaKeySession;
 
     /**
      * Create a MediaKeySession instance.
-     * @returns { MediaKeySession | undefined } A MediaKeySession instance or undefined
+     *
+     * @returns { MediaKeySession | undefined } A MediaKeySession instance or undefined.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700104 - Meet max MediaKeySession num limit.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
@@ -1563,378 +1075,248 @@ declare namespace drm {
     createMediaKeySession(): MediaKeySession | undefined;
 
     /**
-     * Get the list of offline MediaKeyIds.
-     * @returns { Uint8Array[] } The list of offline MediaKeyIds.
+     * Obtains the IDs of offline media keys.
+     *
+     * @returns { Uint8Array[] } Array of offline media key IDs.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Get the list of offline MediaKeyIds.
-     * @returns { Uint8Array[] } The list of offline MediaKeyIds.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     getOfflineMediaKeyIds(): Uint8Array[];
 
     /**
-     * Get offline media key status corresponding to the mediaKeyId.
-     * @param { Uint8Array } mediaKeyId - The media key identifier.
-     * @returns { OfflineMediaKeyStatus } Offline media key Status.
+     * Obtains the status of offline media keys with the specified IDs.
+     *
+     * @param { Uint8Array } mediaKeyId - Array of offline media key IDs.
+     * @returns { OfflineMediaKeyStatus } Status of the offline media keys.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Get offline media key status corresponding to the mediaKeyId.
-     * @param { Uint8Array } mediaKeyId - The media key identifier.
-     * @returns { OfflineMediaKeyStatus } Offline media key Status.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     getOfflineMediaKeyStatus(mediaKeyId: Uint8Array): OfflineMediaKeyStatus;
 
     /**
-     * Remove media keys corresponding to the mediaKeyId.
-     * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media key should be cleared.
+     * Clears offline media keys with the specified IDs.
+     *
+     * @param { Uint8Array } mediaKeyId - Array of offline media key IDs.
      * @throws { BusinessError } 401 - The parameter check failed.Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Remove media keys corresponding to the mediaKeyId.
-     * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media key should be cleared.
-     * @throws { BusinessError } 401 - The parameter check failed.Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     clearOfflineMediaKeys(mediaKeyId: Uint8Array): void;
     /**
-     * Release the resource before the MediaKeySystem gonna be unused.
+     * Destroys this MediaKeySystem instance.
+     *
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Release the resource before the MediaKeySystem gonna be unused.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 14 dynamic
+     * @atomicservice [since 14]
+     * @since 11 dynamic
      * @since 23 static
      */
     destroy(): void;
   }
 
   /**
-   * Provide functions and keep a decrypt module. Before calling an MediaKeySession method, we must
-   * use MediaKeySystem's createMediaKeySession to get a MediaKeySession instance.
-   * @interface MediaKeySession
+   * MediaKeySession implements media key management. Before calling any API in MediaKeySession, you must use 
+   * [createMediaKeySession]{@link @ohos.multimedia.drm:drm.MediaKeySystem.createMediaKeySession(level: ContentProtectionLevel)}
+   * to create a MediaKeySession instance.
+   *
    * @syscap SystemCapability.Multimedia.Drm.Core
-   * @since 11
-   */
-  /**
-   * Provide functions and keep a decrypt module. Before calling an MediaKeySession method, we must
-   * use MediaKeySystem's createMediaKeySession to get a MediaKeySession instance.
-   * @interface MediaKeySession
-   * @syscap SystemCapability.Multimedia.Drm.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    * @since 23 static
    */
   interface MediaKeySession {
 
     /**
-     * Generate the media key request.
-     * @param { string } mimeType - Media type.
-     * @param { Uint8Array } initData - PSSH info.
-     * @param { number } mediaKeyType - Offline or online.
-     * @param { OptionsData[] } options - Optional data the application set to drm framework.
-     * @returns { Promise<MediaKeyRequest> } Promise with MediaKeyRequest used to return the result.
+     * Generates a media key request. This API uses a promise to return the result.
+     *
+     * @param { string } mimeType - MIME type. The supported DRM solution names can be obtained by calling
+     *     [isMediaKeySystemSupported]{@link @ohos.multimedia.drm:drm.isMediaKeySystemSupported(name: string, mimeType: string)}
+     *     .
+     * @param { Uint8Array } initData - Initial data.
+     * @param { int } mediaKeyType - Type of the media key. The value **0** means an online media key, and **1** means
+     *     an offline media key.
+     * @param { OptionsData[] } options - Optional data.
+     * @returns { Promise<MediaKeyRequest> } Promise used to return the media key request generated.
      * @throws { BusinessError } 401 -The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Generate the media key request.
-     * @param { string } mimeType - Media type.
-     * @param { Uint8Array } initData - PSSH info.
-     * @param { int } mediaKeyType - Offline or online.
-     * @param { OptionsData[] } options - Optional data the application set to drm framework.
-     * @returns { Promise<MediaKeyRequest> } Promise with MediaKeyRequest used to return the result.
-     * @throws { BusinessError } 401 -The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     generateMediaKeyRequest(mimeType: string, initData: Uint8Array, mediaKeyType: int, options?: OptionsData[]): Promise<MediaKeyRequest>;
 
     /**
-     * Process the response corresponding to the media key request obtained by the application.
-     * @param { Uint8Array } response - The response.
-     * @returns { Promise<Uint8Array> } Promise with media key identifier in Uint8Array used to return the result.
+     * Processes a media key response. This API uses a promise to return the result.
+     *
+     * @param { Uint8Array } response - Media key response.
+     * @returns { Promise<Uint8Array> } Promise used to return an array of media key IDs.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Process the response corresponding to the media key request obtained by the application.
-     * @param { Uint8Array } response - The response.
-     * @returns { Promise<Uint8Array> } Promise with media key identifier in Uint8Array used to return the result.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     processMediaKeyResponse(response: Uint8Array): Promise<Uint8Array>;
 
     /**
-     * Check the media key status
-     * @returns { MediaKeyStatus[] } A list of media key status description pairs.
+     * Checks the status of the media keys in use.
+     *
+     * @returns { MediaKeyStatus[] } Media key status.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Check the media key status
-     * @returns { MediaKeyStatus[] } A list of media key status description pairs.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     checkMediaKeyStatus(): MediaKeyStatus[];
 
     /**
-     * Remove media key.
+     * Clears the media keys in use.
+     *
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Remove media key.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     clearMediaKeys(): void;
 
     /**
-     * Generate offline media key request.
-     * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media content's media key request
-     * should be generated.
-     * @returns { Promise<Uint8Array> } Promise with media key request in Uint8Array used to return the result.
+     * Generates a request to release offline media keys. This API uses a promise to return the result.
+     *
+     * @param { Uint8Array } mediaKeyId - Array of offline media key IDs.
+     * @returns { Promise<Uint8Array> } Promise used to return the request generated if the DRM solution on the device
+     *     supports the release of offline media keys.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Generate offline media key request.
-     * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media content's media key request
-     * should be generated.
-     * @returns { Promise<Uint8Array> } Promise with media key request in Uint8Array used to return the result.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     generateOfflineReleaseRequest(mediaKeyId: Uint8Array): Promise<Uint8Array>;
 
     /**
-     * Process offline media key response.
-     * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media content's media key it is.
-     * @param { Uint8Array } response - The offline media key.
-     * @returns { Promise<void> } Promise used to return the result.
+     * Processes a response to a request for releasing offline media keys. This API uses a promise to return the result.
+     *
+     * @param { Uint8Array } mediaKeyId - Array of offline media key IDs.
+     * @param { Uint8Array } response - Response to the request for releasing offline media keys.
+     * @returns { Promise<void> } Promise used to return the result if the DRM solution on the device supports the
+     *     release of offline media keys.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Process offline media key response.
-     * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media content's media key it is.
-     * @param { Uint8Array } response - The offline media key.
-     * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     processOfflineReleaseResponse(mediaKeyId: Uint8Array, response: Uint8Array): Promise<void>;
 
     /**
-     * Restore offline media key.
-     * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media key should be restore.
-     * @returns { Promise<void> } Promise used to return the result.
+     * Restores offline media keys. This API uses a promise to return the result.
+     *
+     * @param { Uint8Array } mediaKeyId - Array of offline media key IDs.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Restore offline media key.
-     * @param { Uint8Array } mediaKeyId - The mediaKeyId specifies which media key should be restore.
-     * @returns { Promise<void> } Promise used to return the result.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     restoreOfflineMediaKeys(mediaKeyId: Uint8Array): Promise<void>;
 
     /**
-     * Get content protection level.
-     * @returns { ContentProtectionLevel } MediaKeySession content protection level.
+     * Obtains the content protection level of this media key session.
+     *
+     * @returns { ContentProtectionLevel } Content protection level.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Get content protection level.
-     * @returns { ContentProtectionLevel } MediaKeySession content protection level.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     getContentProtectionLevel(): ContentProtectionLevel;
 
     /**
-     * Whether the encrypted content require a secure decoder or not.
-     * @param { string } mimeType - The media type.
-     * @returns { boolean } Whether secure decoder is required.
+     * Checks whether secure decoding is required.
+     *
+     * @param { string } mimeType - MIME type. The supported MIME types depend on the DRM solution and can be obtained
+     *     by calling
+     *     [isMediaKeySystemSupported]{@link @ohos.multimedia.drm:drm.isMediaKeySystemSupported(name: string, mimeType: string)}
+     *     .
+     * @returns { boolean } Check result for whether secure decoding is required. **true** if required, **false**
+     *     otherwise.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Whether the encrypted content require a secure decoder or not.
-     * @param { string } mimeType - The media type.
-     * @returns { boolean } Whether secure decoder is required.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     requireSecureDecoderModule(mimeType: string): boolean;
 
     /**
-     * Register keyRequired event.
-     * @param { 'keyRequired' } type - Type of the drm event to listen for.
-     * @param { function } callback used to listen for the key required event.
+     * Subscribes to events indicating that the application requests a media key. This API uses an asynchronous callback
+     * to return the result.
+     *
+     * @param { 'keyRequired' } type - Event type. The value is fixed at **'keyRequired'**, which is triggered when the
+     *     application requires a media key.
+     * @param { function } callback - Callback used to return the event information.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Register keyRequired event.
-     * @param { 'keyRequired' } type - Type of the drm event to listen for.
-     * @param { function } callback used to listen for the key required event.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     on(type: 'keyRequired', callback: (eventInfo: EventInfo) => void): void;
 
     /**
      * Register keyRequired event.
-     * 
-     * @param { function } callback used to listen for the key required event.
+     *
+     * @param { function } callback - used to listen for the key required event.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 23 static
@@ -1942,34 +1324,25 @@ declare namespace drm {
     onKeyRequired(callback: (eventInfo: EventInfo) => void): void;
 
     /**
-     * Unregister keyRequired event.
-     * @param { 'keyRequired' } type - Type of the drm event to listen for.
-     * @param { function } callback used to listen for the key required event.
+     * Unsubscribes from events indicating that the application requests a media key. This API uses an asynchronous 
+     * callback to return the result.
+     *
+     * @param { 'keyRequired' } type - Event type. The value is fixed at **'keyRequired'**.
+     * @param { function } callback - Callback used to return the event information.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Unregister keyRequired event.
-     * @param { 'keyRequired' } type - Type of the drm event to listen for.
-     * @param { function } callback used to listen for the key required event.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     off(type: 'keyRequired', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
      * Unregister keyRequired event.
      *
-     * @param { function } callback used to listen for the key required event.
+     * @param { function } [callback] - used to listen for the key required event.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 23 static
@@ -1977,33 +1350,25 @@ declare namespace drm {
     offKeyRequired(callback?: (eventInfo: EventInfo) => void): void;
 
     /**
-     * Register keyExpired event.
-     * @param { 'keyExpired' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for the key required event.
+     * Subscribes to events indicating that a media key expires. This API uses an asynchronous callback to return the 
+     * result.
+     *
+     * @param { 'keyExpired' } type - Event type. The value is fixed at **'keyExpired'**, which is triggered when a
+     *     media key expires.
+     * @param { function } callback - Callback used to return the event information.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Register keyExpired event.
-     * @param { 'keyExpired' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for the key required event.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     on(type: 'keyExpired', callback: (eventInfo: EventInfo) => void): void;
 
     /**
      * Register keyExpired event.
-     * 
+     *
      * @param { function } callback - Used to listen for the key required event.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -2012,69 +1377,50 @@ declare namespace drm {
     onKeyExpired(callback: (eventInfo: EventInfo) => void): void;
 
     /**
-     * Unregister keyExpired event.
-     * @param { 'keyExpired' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for the key required event.
+     * Unsubscribes from events indicating that a media key expires. This API uses an asynchronous callback to return 
+     * the result.
+     *
+     * @param { 'keyExpired' } type - Event type. The value is fixed at **'keyExpired'**.
+     * @param { function } callback - Callback used to return the event information.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Unregister keyExpired event.
-     * @param { 'keyExpired' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for the key required event.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     off(type: 'keyExpired', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
      * Unregister keyExpired event.
-     * 
-     * @param { function } callback - Used to listen for the key required event.
+     *
+     * @param { function } [callback] - Used to listen for the key required event.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 23 static
      */
     offKeyExpired(callback?: (eventInfo: EventInfo) => void): void;
 
-
     /**
-     * Register vendorDefined event.
-     * @param { 'vendorDefined' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for the vendor defined event.
+     * Subscribes to vendor-defined events. This API uses an asynchronous callback to return the result.
+     *
+     * @param { 'vendorDefined' } type - Event type. The value is fixed at **'vendorDefined'**, which is triggered when
+     *     a vendor-defined event occurs.
+     * @param { function } callback - Callback used to return the event information.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Register vendorDefined event.
-     * @param { 'vendorDefined' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for the vendor defined event.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     on(type: 'vendorDefined', callback: (eventInfo: EventInfo) => void): void;
 
     /**
      * Register vendorDefined event.
-     * 
+     *
      * @param { function } callback - Used to listen for the vendor defined event.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -2083,34 +1429,24 @@ declare namespace drm {
     onVendorDefined(callback: (eventInfo: EventInfo) => void): void;
 
     /**
-     * Unregister vendorDefined event.
-     * @param { 'vendorDefined' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for the vendor defined event.
+     * Unsubscribes from vendor-defined events. This API uses an asynchronous callback to return the result.
+     *
+     * @param { 'vendorDefined' } type - Event type. The value is fixed at **'vendorDefined'**.
+     * @param { function } callback - Callback used to return the event information.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Unregister vendorDefined event.
-     * @param { 'vendorDefined' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for the vendor defined event.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     off(type: 'vendorDefined', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
      * Unregister vendorDefined event.
-     * 
-     * @param { function } callback - Used to listen for the vendor defined event.
+     *
+     * @param { function } [callback] - Used to listen for the vendor defined event.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 23 static
@@ -2118,33 +1454,25 @@ declare namespace drm {
     offVendorDefined(callback?: (eventInfo: EventInfo) => void): void;
 
     /**
-     * Register expirationUpdate event.
-     * @param { 'expirationUpdate' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for expiration update event.
+     * Subscribes to events indicating that a media key is updated upon expiry. This API uses an asynchronous callback 
+     * to return the result.
+     *
+     * @param { 'expirationUpdate' } type - Event type. The value is fixed at **'expirationUpdate'**, which is triggered
+     *     when a media key is updated upon expiry.
+     * @param { function } callback - Callback used to return the event information.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Register expirationUpdate event.
-     * @param { 'expirationUpdate' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for expiration update event.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     on(type: 'expirationUpdate', callback: (eventInfo: EventInfo) => void): void;
 
     /**
      * Register expirationUpdate event.
-     * 
+     *
      * @param { function } callback - Used to listen for expiration update event.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -2153,34 +1481,25 @@ declare namespace drm {
     onExpirationUpdate(callback: (eventInfo: EventInfo) => void): void;
 
     /**
-     * Unregister expirationUpdate event.
-     * @param { 'expirationUpdate' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for expiration update event.
+     * Unsubscribes from events indicating that a media key is updated upon expiry. This API uses an asynchronous 
+     * callback to return the result.
+     *
+     * @param { 'expirationUpdate' } type - Event type. The value is fixed at **'expirationUpdate'**.
+     * @param { function } callback - Callback used to return the event information.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Unregister expirationUpdate event.
-     * @param { 'expirationUpdate' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for expiration update event.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     off(type: 'expirationUpdate', callback?: (eventInfo: EventInfo) => void): void;
 
     /**
      * Unregister expirationUpdate event.
-     *             
-     * @param { function } callback - Used to listen for expiration update event.
+     *
+     * @param { function } [callback] - Used to listen for expiration update event.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 23 static
@@ -2188,33 +1507,26 @@ declare namespace drm {
     offExpirationUpdate(callback?: (eventInfo: EventInfo) => void): void;
 
     /**
-     * Register keysChange event.
-     * @param { 'keysChange' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for keys change event.
+     * Subscribes to events indicating that a media key changes. This API uses an asynchronous callback to return the 
+     * result.
+     *
+     * @param { 'keysChange' } type - Event type. The value is fixed at **'keysChange'**, which is triggered when a
+     *     media key changes.
+     * @param { function } callback - Callback used to return the event information, including a list of key IDs,
+     *     descriptions of their statuses, and whether each key is available.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Register keysChange event.
-     * @param { 'keysChange' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for keys change event.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     on(type: 'keysChange', callback: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
 
     /**
      * Register keysChange event.
-     * 
+     *
      * @param { function } callback - Used to listen for keys change event.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
@@ -2223,34 +1535,26 @@ declare namespace drm {
     onKeysChange(callback: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
 
     /**
-     * Unregister keysChange event.
-     * @param { 'keysChange' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for keys change event.
+     * Unsubscribes from events indicating that a media key changes. This API uses an asynchronous callback to return 
+     * the result.
+     *
+     * @param { 'keysChange' } type - Event type. The value is fixed at **'keysChange'**.
+     * @param { function } callback - Callback used to return the event information, including a list of key IDs,
+     *     descriptions of their statuses, and whether each key is available.
      * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Unregister keysChange event.
-     * @param { 'keysChange' } type - Type of the drm event to listen for.
-     * @param { function } callback - Used to listen for keys change event.
-     * @throws { BusinessError } 401 - The parameter check failed. Possibly because:
-     * 1.Mandatory parameters are left unspecified or too many parameters. 2.Incorrect parameter types.
-     * 3.Parameter verification failed.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     off(type: 'keysChange', callback?: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
 
     /**
      * Unregister keysChange event.
-     * 
-     * @param { function } callback - Used to listen for keys change event.
+     *
+     * @param { function } [callback] - Used to listen for keys change event.
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @syscap SystemCapability.Multimedia.Drm.Core
      * @since 23 static
@@ -2258,24 +1562,17 @@ declare namespace drm {
     offKeysChange(callback?: (keyInfo: KeysInfo[], newKeyAvailable: boolean) => void): void;
 
     /**
-     * Release the resource before the session gonna be unused.
+     * Destroys this MediaKeySession instance.
+     *
      * @throws { BusinessError } 24700101 - All unknown errors.
      * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
      * @syscap SystemCapability.Multimedia.Drm.Core
-     * @since 11
-     */
-    /**
-     * Release the resource before the session gonna be unused.
-     * @throws { BusinessError } 24700101 - All unknown errors.
-     * @throws { BusinessError } 24700201 - Fatal service error, for example, service died.
-     * @syscap SystemCapability.Multimedia.Drm.Core
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      * @since 23 static
      */
     destroy(): void;
-
   }
 }
 
-export default drm;
+export default drm;

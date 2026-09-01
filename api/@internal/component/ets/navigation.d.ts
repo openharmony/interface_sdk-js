@@ -139,7 +139,7 @@ declare enum NavigationMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Stack = 0,
+  Stack,
 
   /**
    * The navigation page and content area are displayed in different columns.
@@ -168,7 +168,7 @@ declare enum NavigationMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Split = 1,
+  Split,
 
   /**
    * In API version 9 and earlier versions: If the window width is greater than or equal to 520 vp, the Split mode is
@@ -182,7 +182,7 @@ declare enum NavigationMode {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Auto = 2,
+  Auto,
 
   /**
    * If the navigation width is greater than the sum of minNavBarWidth and minContentWidth,
@@ -195,7 +195,7 @@ declare enum NavigationMode {
    * @atomicservice
    * @since 24 dynamic
    */
-  AUTO_WITH_ASPECT_RATIO = 3
+  AUTO_WITH_ASPECT_RATIO
 }
 
 /**
@@ -216,7 +216,7 @@ declare enum NavBarPosition {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Start = 0,
+  Start,
 
   /**
    * When two columns are displayed, the main column is at the end of the main axis.
@@ -226,7 +226,7 @@ declare enum NavBarPosition {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  End = 1
+  End
 }
 
 /**
@@ -272,7 +272,7 @@ declare enum NavigationTitleMode {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Full = 1,
+  Full,
 
   /**
    * The title is fixed at mini mode.
@@ -289,7 +289,7 @@ declare enum NavigationTitleMode {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Mini = 2
+  Mini
 }
 
 /**
@@ -628,6 +628,28 @@ declare interface NavigationOptions {
    * @since 12 dynamic
    */
   animated?: boolean;
+}
+
+/**
+ * Indicates options for preloading a page.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamic
+ */
+declare interface PreloadOptions {
+  /**
+   * Callback when preloaded page is destroyed by the system.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  onDestroy?: Callback<void>;
 }
 
 /**
@@ -1312,6 +1334,26 @@ declare class NavPathStack {
    * @since 19 dynamic
    */
   setPathStack(pathStack: Array<NavPathInfo>, animated?: boolean): void;
+
+  /**
+   * Preloads navigation destination page specified by **info**.
+   * The preload page will not be displayed immediately, but will be cached.
+   * When **pushPath** is called later with matching parameters, preloaded instance
+   * will be used for fast display.
+   * 
+   * @param { NavPathInfo } info - Indicates NavDestination to be preloaded.
+   * @param { PreloadOptions } [options] - Indicates options for preloading.
+   * @returns { Promise<void> } The promise returned by function.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @throws { BusinessError } 100005 - Builder function not registered.
+   * @throws { BusinessError } 100006 - NavDestination not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  preloadPath(info: NavPathInfo, options?: PreloadOptions): Promise<void>;
 }
 
 /**
@@ -2292,6 +2334,37 @@ declare interface NavigationConfiguration {
    * @since 26.0.0 dynamic
    */
   stackSizeLimit?: int;
+
+  /**
+   * Whether to clear the content stack when navigation is triggered from the primary side.
+   *
+   * In Navigation split mode, when enabled, navigaiton triggered from the primary side clears old
+   * NavDestination after the Primary/Home node while preserving all NavDestinations created by
+   * the current operation.
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  clearContentStackOnPrimaryNavigation?: boolean;
+
+  /**
+   * Whether to recycle invisible pages when a low memory signal is received.
+   *
+   * When enabled, Navigation recycles invisible NavDestination page instance after receiving
+   * low memory pressure notifications. NavPathInfo is preserved, and the page can be reconstructed later.
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  recyclePagesOnLowMemory?: boolean;
 }
 
 /**

@@ -48,7 +48,7 @@ import { AutoFillTriggerType as _AutoFillTriggerType } from './application/AutoF
 /*** endif */
 
 /**
- * autoFillManager模块提供账号密码保存等功能。
+ * autoFillManager模块为应用提供账号、密码、地址、电话号码等用户信息的自动填充能力。
  * 
  * 不同于页面切换时触发的系统自动保存功能，该功能需要由用户手动触发。例如用户在网站上输入了账号密码，并点击“保存”按钮，才能触发相应的自动保存操作。
  *

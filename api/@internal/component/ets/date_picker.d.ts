@@ -28,7 +28,6 @@
  * @since 8 dynamic
  */
 declare interface DatePickerResult {
-
   /**
    * Year of the selected date.
    *
@@ -80,7 +79,6 @@ declare interface DatePickerResult {
  * @since 18 dynamic
  */
 declare enum DatePickerMode {
-
   /**
    * Three-column display: year, month, and day.
    *
@@ -138,7 +136,6 @@ declare enum DatePickerMode {
  * @since 8 dynamic
  */
 declare interface DatePickerOptions {
-
   /**
    * Start date of the picker.
    *
@@ -230,7 +227,6 @@ declare interface DatePickerOptions {
  * @noninterop
  */
 interface DatePickerInterface {
-
   /**
    * Creates a date picker in the given date range.
    *
@@ -260,7 +256,6 @@ interface DatePickerInterface {
  * @noninterop
  */
 declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
-
   /**
    * Sets whether to display dates in lunar calendar format.
    *
@@ -501,7 +496,6 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
  * @since 14 dynamic
  */
 declare interface LunarSwitchStyle {
-
   /**
    * Background color of the switch when it is on.
    *
@@ -557,7 +551,6 @@ declare interface LunarSwitchStyle {
  * @since 8 dynamic
  */
 declare interface DatePickerDialogOptions extends DatePickerOptions {
-
   /**
    * Whether to display dates in lunar calendar format.
    *
@@ -1133,7 +1126,6 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @since 20 dynamic
    */
   canLoop?: boolean;
-
   /**
    * Set system-styled materials for dialog. Different materials have different effects,
    * which can influence backgroundColor, border, shadow, and other visual attributes of dialog.
@@ -1144,7 +1136,6 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @since 26.0.0 dynamic
    */
   systemMaterial?: SystemUiMaterial;
-
   /**
    * Sets the distortion animation mode for the dialog.
    *
@@ -1157,7 +1148,6 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @since 26.0.0 dynamic
    */
   distortionMode?: DistortionMode;
-
   /**
    * Sets the edge light animation mode for the dialog.
    *
@@ -1182,7 +1172,6 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
  * @since 8 dynamic
  */
 declare class DatePickerDialog {
-
   /**
    * Shows a date picker dialog box.
    *

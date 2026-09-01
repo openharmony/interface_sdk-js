@@ -26,54 +26,59 @@
  * @publicapi [since 26.0.0]
  * @stagemodelonly
  * @atomicservice
- * @since 26.0.0 dynamic&static
+ * @since 12 dynamic
+ * @since 23 static
  */
 export default interface AutoFillRect {
   /**
-   * Distance between the AutoFill form or page node and the left boundary of the page.
+   * Distance between the AutoFill form or page node and the left boundary of the page. The unit is px.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi [since 12 - 24]
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 12 dynamic
+   * @since 23 static
    */
   left: double;
 
   /**
-   * Distance between the AutoFill form or page node and the upper boundary of the page.
+   * Distance between the AutoFill form or page node and the upper boundary of the page. The unit is px.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi [since 12 - 24]
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 12 dynamic
+   * @since 23 static
    */
   top: double;
 
   /**
-   * Width of the AutoFill form or page node.
+   * Width of the AutoFill form or page node. The unit is px.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi [since 12 - 24]
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 12 dynamic
+   * @since 23 static
    */
   width: double;
 
   /**
-   * Height of the AutoFill form or page node.
+   * Height of the AutoFill form or page node. The unit is px.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi [since 12 - 24]
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 12 dynamic
+   * @since 23 static
    */
   height: double;
 }

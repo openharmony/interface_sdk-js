@@ -76,7 +76,7 @@ declare enum RadioIndicatorType {
  */
 declare interface RadioOptions {
   /**
-   * 当前单选框的所属群组名称，相同group的Radio只能有一个被选中。
+   * 当前单选框的所属群组名称，相同group的单选框只能有一个被选中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -110,7 +110,7 @@ declare interface RadioOptions {
    */
   indicatorType?: RadioIndicatorType;
   /**
-   * 配置单选框的选中样式为自定义组件。自定义组件与Radio组件为中心点对齐显示。indicatorBuilder设置为undefined时，按照RadioIndicatorType.TICK进行显示。
+   * 配置单选框的选中样式为自定义组件。自定义组件与Radio组件以中心点对齐显示。indicatorBuilder设置为undefined时，按照RadioIndicatorType.TICK进行显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -123,7 +123,7 @@ declare interface RadioOptions {
 }
 
 /**
- * 单选框的颜色。
+ * 单选框的样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -177,7 +177,7 @@ declare interface RadioStyle {
 }
 
 /**
- * 单选框，提供相应的用户交互选择项。
+ * 单选框，提供单选类型的用户交互选择项。
  * 
  * > **说明：**
  * >
@@ -383,7 +383,7 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
   checked: boolean;
 
   /**
-   * 触发单选框选中状态变化。
+   * 用于触发单选框选中状态变化的回调函数。
    * 
    * 值为true时，表示从未选中变为选中。值为false时，表示从选中变为未选中。
    *
@@ -397,7 +397,7 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
 }
 
 /**
- * 单选框，提供相应的用户交互选择项。
+ * 单选框，提供单选类型的用户交互选择项。
  * 
  * > **说明：**
  * >

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Enterprise公共模块
  * @kit MDMKit
  */
 
@@ -23,9 +23,11 @@ import * as _EnterpriseAdminExtensionContext from './application/EnterpriseAdmin
 /**
  * 本模块提供MDM Kit中常用公共能力的纯类型定义，包含枚举类型和数据结构。本模块仅导出类型声明，不包含具体实现逻辑或可执行代码。
  *
- * > **说明：**
- * >
- * > 本模块接口仅可在Stage模型下使用。
+ * **使用场景**：
+ * 在企业设备管理应用开发中，当需要配置设备管控策略、管理应用实例、处理应用安装结果、监听策略变更等场景时，会使用本模块定义的类型。这些类型为MDM Kit中各子模块的接口提供统一的参数和返回值标准。
+ *
+ * **收益**：
+ * 通过标准化的类型定义，可以简化企业设备管理应用的开发流程，提高代码的可维护性和类型安全性，降低类型相关的运行时错误。
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @stagemodelonly
@@ -48,8 +50,8 @@ declare namespace common {
   export interface ApplicationInstance {
     /**
      * 应用[唯一标识符]{@link ./bundleManager/BundleInfo:SignatureInfo}，可以通过接口
-     * [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId?: int)}
-     * 获取bundleInfo.signatureInfo.appIdentifier。
+     * [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo}获取
+     * bundleInfo.signatureInfo.appIdentifier。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -61,7 +63,6 @@ declare namespace common {
      * 用户ID。取值范围：大于等于0的整数。
      * accountId可以通过[getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}接
      * 口获取。
-     * 取值应为≥0的整数。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -71,8 +72,8 @@ declare namespace common {
 
     /**
      * 应用分身索引。取值范围：大于等于0的整数。
+     *
      * appIndex可以通过[getAppCloneIdentity]{@link @ohos.bundle.bundleManager:bundleManager.getAppCloneIdentity}接口获取。
-     * 取值范围为全体整数。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -148,7 +149,7 @@ declare namespace common {
    * 应用安装结果。
    *
    * 该对象目前在
-   * [EnterpriseAdminExtensionAbility.onMarketAppInstallResult]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility.onMarketAppInstallResult}
+   * [EnterpriseAdminExtensionAbility.onMarketAppInstallResult]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility#onMarketAppInstallResult}
    * 作为回调入参使用。
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -157,7 +158,7 @@ declare namespace common {
    */
   export interface InstallationResult {
     /**
-     * 应用安装结果码。
+     * 应用安装结果码。SUCCESS表示应用安装成功，应用可正常使用；FAIL表示应用安装失败，应用不可用。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -177,7 +178,7 @@ declare namespace common {
 
   /**
    * 开机向导完成场景。端侧系统在首次切换子用户完成（仅限PC）、OTA升级完成、首次开机完成开机向导时会通过
-   * [onStartupGuideCompleted]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility.onStartupGuideCompleted}
+   * [onStartupGuideCompleted]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility#onStartupGuideCompleted}
    * 回调接口通知设备管理应用。
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -214,7 +215,11 @@ declare namespace common {
   }
 
   /**
-   * 策略变更事件
+   * 策略变更事件。
+   *
+   * 该接口目前在
+   * [onAdminPolicyChanged]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility#onAdminPolicyChanged}
+   * 接口中作为回调入参使用。
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -222,25 +227,29 @@ declare namespace common {
    */
   export interface PolicyChangedEvent {
     /**
-     * 配置策略的应用包名
+     * 应用包名。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 26.0.0
      */
-    bundleName : string;
+    bundleName: string;
 
     /**
-     * 配置策略的方法名称
+     * 接口名称。例如调用[setPasswordPolicy]{@link @ohos.enterprise.securityManager:securityManager.setPasswordPolicy}接口时，该字段返回值为
+     * setPasswordPolicy。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 26.0.0
      */
-    functionName : string;
+    functionName: string;
 
     /**
-     * 配置策略的参数值
+     * 调用接口时传入的参数值（不包含admin参数），JSON格式字符串。例如调用
+     * [setPasswordPolicy]{@link @ohos.enterprise.securityManager:securityManager.setPasswordPolicy}接口，该字段返回值为{"policy":
+     * {"complexityRegex":"^(?=.*[a-zA-Z])(?=.*\\d).{8},$","validityPeriod":1808309786000,"additionalDescription":"至少8个字
+     * 符，且包含数字和字母。"}}。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -249,8 +258,7 @@ declare namespace common {
     parameters: string;
 
     /**
-     * 配置策略的时间
-     * 单位为： 毫秒，取值应为≥0的整数。
+     * 调用接口的时间戳，单位：ms。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly

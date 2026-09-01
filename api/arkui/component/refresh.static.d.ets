@@ -253,8 +253,9 @@ export declare interface RefreshAttribute extends CommonMethod {
    * @param { RefreshOptions } options - Refresh constructor options
    * @returns { RefreshAttribute } Returns the instance of the RefreshAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setRefreshOptions(options: RefreshOptions): this;
 
@@ -294,8 +295,9 @@ export declare function Refresh(
  * @param { CustomBuilder } [content_]
  * @returns { RefreshAttribute } The attribute of the Refresh.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

@@ -34,6 +34,10 @@ import type { AsyncCallback } from './@ohos.base';
 declare namespace identifier {
   /**
    * 获取开放匿名设备标识符（OAID）。使用callback异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 设置项“跨应用关联访问权限”在HarmonyOS NEXT Developer Beta5及更早版本名称为“应用跟踪访问权限”。
    *
    * @permission ohos.permission.APP_TRACKING_CONSENT
    * @param { AsyncCallback<string> } callback - 回调函数，返回开放匿名设备标识符（OAID）。
@@ -50,6 +54,10 @@ declare namespace identifier {
   /**
    * 获取开放匿名设备标识符（OAID）。使用Promise异步回调。
    *
+   * > **说明：**
+   * >
+   * > 设置项“跨应用关联访问权限”在HarmonyOS NEXT Developer Beta5及更早版本名称为“应用跟踪访问权限”。
+   * 
    * @permission ohos.permission.APP_TRACKING_CONSENT
    * @returns { Promise<string> } Promise对象，返回开放匿名设备标识符（OAID）。
    *     1.如应用已配置ohos.permission.APP_TRACKING_CONSENT权限，且跨应用关联访问权限为“允许”，则返回OAID。

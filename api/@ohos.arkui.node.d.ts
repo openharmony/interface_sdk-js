@@ -19,24 +19,20 @@
  */
 
 /**
- * Export NodeRenderType, RenderOptions, BuilderNode, which is used to create a node trees by builder function and manage the update of the tree.
+ * Export NodeRenderType, RenderOptions, BuilderNode, which is used to create a node trees by builder function and 
+ * manage the update of the tree.
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Export NodeRenderType, RenderOptions, BuilderNode, which is used to create a node trees by builder function and manage the update of the tree.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export { NodeRenderType, RenderOptions, BuilderNode } from './arkui/BuilderNode';
 
 /**
  * Export BuildOptions which is used to create a node trees by builder function and manage the update of the tree.
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -47,6 +43,7 @@ export { BuildOptions } from './arkui/BuilderNode';
 
 /**
  * Export InputEventType which refers to the event type used for posting.
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -56,34 +53,26 @@ export { BuildOptions } from './arkui/BuilderNode';
 export { InputEventType } from './arkui/BuilderNode';
 
 /**
- * Export ReactiveBuilderNode, which is used to create a node trees by builder function and manage the update of the tree.
+ * Export ReactiveBuilderNode, which is used to create a node trees by builder function and manage the update of the 
+ * tree.
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
- * @since 23 static
  */
 export { ReactiveBuilderNode } from './arkui/BuilderNode';
 
 /**
- * Export NodeController, which defines the controller of node container. Provides lifecycle callbacks for the associated NodeContainer
- * and methods to control the child node of the NodeContainer.
+ * Export NodeController, which defines the controller of node container. Provides lifecycle callbacks for the 
+ * associated NodeContainer and methods to control the child node of the NodeContainer.
  * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Export NodeController, which defines the controller of node container. Provides lifecycle callbacks for the associated NodeContainer
- * and methods to control the child node of the NodeContainer.
- * 
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export { NodeController } from './arkui/NodeController';
 
@@ -93,16 +82,8 @@ export { NodeController } from './arkui/NodeController';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export { FrameNode, LayoutConstraint, ExpandMode, UIState } from './arkui/FrameNode';
 
@@ -117,7 +98,7 @@ export { FrameNode, LayoutConstraint, ExpandMode, UIState } from './arkui/FrameN
 export { ChildrenCountMode } from './arkui/FrameNode';
 
 /**
- * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
+ * Export typeNode, NodeAdapter.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -133,16 +114,8 @@ export { typeNode, NodeAdapter } from './arkui/FrameNode';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Export Graphics. Defines the basic types related to the Graphics.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, RoundRect, Circle, CommandPath, ShapeMask, ShapeClip, BorderRadiuses, CornerRadius, Rect, Edges, edgeColors, edgeWidths, borderStyles, borderRadiuses, LengthMetricsUnit } from './arkui/Graphics';
 
@@ -173,16 +146,8 @@ export { BackgroundBlur, ContentBlur, ForegroundBlur } from './arkui/Graphics';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Export RenderNode. RenderNode contains node tree operations and render property operations on node.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export { RenderNode } from './arkui/RenderNode';
 
@@ -192,16 +157,8 @@ export { RenderNode } from './arkui/RenderNode';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Export XComponentNode, which extends FrameNode.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export { XComponentNode } from './arkui/XComponentNode';
 
@@ -217,7 +174,7 @@ export { XComponentNode } from './arkui/XComponentNode';
 export { Content } from './arkui/Content';
 
 /**
- * Export ComponentContent.
+ * Export ComponentContent, ComponentContentBase.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -225,7 +182,7 @@ export { Content } from './arkui/Content';
  * @atomicservice
  * @since 12 dynamic
  */
-export { ComponentContent , ComponentContentBase } from './arkui/ComponentContent';
+export { ComponentContent, ComponentContentBase } from './arkui/ComponentContent';
 
 /**
  * Export ReactiveComponentContent.
@@ -235,7 +192,6 @@ export { ComponentContent , ComponentContentBase } from './arkui/ComponentConten
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
- * @since 23 static
  */
 export { ReactiveComponentContent } from './arkui/ComponentContent';
 

@@ -219,7 +219,7 @@ interface CommonArcButtonOptions {
      */
     position?: ArcButtonPosition;
     /**
-     * 弧形按钮样式模式。该样式不支持与[ArcButtonProgressConfig]{@link ArcButtonProgressConfig}样式同时使用。
+     * 弧形按钮样式模式。该样式不支持与[ArcButtonProgressConfig]{@link ArcButtonProgressConfig}同时使用。
      * 
      * 默认值：ArcButtonStyleMode.EMPHASIZED_LIGHT。
      *
@@ -298,7 +298,7 @@ interface CommonArcButtonOptions {
      */
     shadowEnabled?: boolean;
     /**
-     * 弧形按钮文本大小。
+     * 弧形按钮文本大小，单位：fp。
      * 
      * 默认值：19fp。
      *
@@ -355,7 +355,7 @@ interface CommonArcButtonOptions {
      */
     fontFamily?: string | Resource;
     /**
-     * 弧形按钮文本边距。
+     * 弧形按钮文本边距，单位：vp。
      * 
      * 默认值：{start:24vp, top: 10vp,end: 24vp, bottom:16vp }。
      *
@@ -368,8 +368,8 @@ interface CommonArcButtonOptions {
     
     /**
      * ArcButton进度条参数。不设置该属性时ArcButton组件表现为按钮样式（
-     * [示例1](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#示例1-设置弧形按钮)），设置后表现为进度条样式（
-     * [示例2](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#示例2-设置设备进度条按钮)），进度条样式不受
+     * [示例1]{@link @ohos.arkui.advanced.ArcButton}），设置后表现为进度条样式（
+     * [示例2]{@link @ohos.arkui.advanced.ArcButton}），进度条样式不受
      * [ArcButtonStyleMode]{@link ArcButtonStyleMode}属性设置影响。 
      * 
      * 默认值：[ArcButtonProgressConfig]{@link ArcButtonProgressConfig} 的各项子属性均取其默认值。
@@ -423,7 +423,7 @@ export declare class ArcButtonOptions {
      */
     position: ArcButtonPosition;
     /**
-     * 弧形按钮样式模式。该样式不支持与[ArcButtonProgressConfig]{@link ArcButtonProgressConfig}样式同时使用。
+     * 弧形按钮样式模式。该样式不支持与[ArcButtonProgressConfig]{@link ArcButtonProgressConfig}同时使用。
      * 
      * 默认值：ArcButtonStyleMode.EMPHASIZED_LIGHT。
      *
@@ -502,7 +502,7 @@ export declare class ArcButtonOptions {
      */
     shadowEnabled: boolean;
     /**
-     * 弧形按钮文本大小。
+     * 弧形按钮文本大小，单位：fp。
      * 
      * 默认值：19fp。
      *
@@ -559,7 +559,7 @@ export declare class ArcButtonOptions {
      */
     fontFamily: string | Resource;
     /**
-     * 弧形按钮文本边距。
+     * 弧形按钮文本边距，单位：vp。
      * 
      * 默认值：{start:24vp, top: 10vp,end: 24vp, bottom:16vp }。
      *
@@ -572,8 +572,8 @@ export declare class ArcButtonOptions {
 
     /**
      * ArcButton进度条参数。不设置该属性时ArcButton组件表现为按钮样式（
-     * [示例1](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#示例1-设置弧形按钮)），设置后表现为进度条样式（
-     * [示例2](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#示例2-设置设备进度条按钮)），进度条样式不受
+     * [示例1]{@link @ohos.arkui.advanced.ArcButton}），设置后表现为进度条样式（
+     * [示例2]{@link @ohos.arkui.advanced.ArcButton}），进度条样式不受
      * [ArcButtonStyleMode]{@link ArcButtonStyleMode}属性设置影响。 
      * 
      * 默认值：[ArcButtonProgressConfig]{@link ArcButtonProgressConfig} 的各项子属性均取其默认值。
@@ -618,7 +618,7 @@ export declare class ArcButtonOptions {
     constructor(options: CommonArcButtonOptions);
 }
 /**
- * 弧形按钮组件提供强调、普通、警告等样式按钮，推荐用于圆形屏幕的设备。
+ * 弧形按钮组件提供强调、普通等样式按钮，推荐用于圆形屏幕的设备。
  * 
  * > **说明：**
  * 

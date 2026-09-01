@@ -17,7 +17,7 @@
  * 音频池提供了短音频的加载、播放、音量设置、循环设置、停止播放、资源卸载等功能。
  * 
  * SoundPool需要和@ohos.multimedia.media配合使用，需要先通过
- * [media.createSoundPool](docroot://reference/apis-media-kit/arkts-apis-media-f.md)
+ * [createSoundPool]{@link ../@ohos.multimedia.media:media.createSoundPool}
  * 完成音频池实例的创建。
  *
  * @file
@@ -65,7 +65,7 @@ export enum ErrorType {
  */
 export interface ErrorInfo<T extends Error = BusinessError> {
   /**
-   * 错误码。errorCode的类型T为[BusinessError](docroot://reference/apis-basic-services-kit/js-apis-base.md)类型。
+   * 错误码。errorCode的类型T为[BusinessError]{@link ../@ohos.base.BusinessError}类型。
    *
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
@@ -125,7 +125,7 @@ export interface PlayParameters {
    */
   loop?: int;
   /**
-   * 设置音频播放的倍速，具体倍速范围参照[AudioRendererRate](docroot://reference/apis-audio-kit/arkts-apis-audio-e.md)。默认值：0。
+   * 设置音频播放的倍速，具体倍速范围参照[AudioRendererRate]{@link ../@ohos.multimedia.audio:audio.AudioRendererRate}。默认值：0。
    *
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
@@ -178,7 +178,7 @@ export interface PlayParameters {
    */
   parallelPlayFlag?: boolean;
   /**
-   * Pitch of the sound. The value ranges from 0.25 to 4.0 with a step size of 0.001. The Deault pitch is 1.0.
+   * 设置音频流播放的音调。设置范围为[0.25, 4.0]，默认值为1.0。当音调超过边界值时自动设置为边界值。
    *
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @stagemodelonly
@@ -189,7 +189,7 @@ export interface PlayParameters {
 
 /**
  * 音频池提供了系统声音的加载、播放、音量设置、循环设置、停止播放和资源卸载等功能，在调用SoundPool的接口前，需要先通过
- * [media.createSoundPool](docroot://reference/apis-media-kit/arkts-apis-media-f.md)
+ * [createSoundPool]{@link ../@ohos.multimedia.media:media.createSoundPool}
  * 创建实例。
  * 
  * > **说明：**
@@ -279,7 +279,7 @@ export declare interface SoundPool {
    * > - 同一时间通过同一个资源句柄或加载路径描述读写文件时存在竞争关系，将导致播放异常。
    *
    * @param {int} fd - 资源句柄，通过
-   *     [resourceManager.getRawFd](docroot://reference/apis-localization-kit/js-apis-resource-manager.md)
+   *     [getRawFd]{@link ../@ohos.resourceManager:resourceManager.ResourceManager.getRawFd}
    *     获取。
    * @param {long} offset - 资源偏移量，需要基于预置资源的信息输入，非法值会造成音视频资源解析错误。
    * @param {long} length - 资源长度，需要基于预置资源的信息输入，非法值会造成音视频资源解析错误。
@@ -304,7 +304,7 @@ export declare interface SoundPool {
    * > - 同一时间通过同一个资源句柄或加载路径描述读写文件时存在竞争关系，将导致播放异常。
    *
    * @param {int} fd - 资源句柄，通过
-   *     [resourceManager.getRawFd](docroot://reference/apis-localization-kit/js-apis-resource-manager.md)
+   *     [getRawFd]{@link ../@ohos.resourceManager:resourceManager.ResourceManager.getRawFd}
    *     获取。
    * @param {long} offset - 资源偏移量，需要基于预置资源的信息输入，非法值会造成音视频资源解析错误。
    * @param {long} length - 资源长度，需要基于预置资源的信息输入，非法值会造成音视频资源解析错误。
@@ -391,7 +391,7 @@ export declare interface SoundPool {
   stop(streamID: int): Promise<void>;
   /**
    * 设置同一ID音频在播放时的打断模式。创建soundPool之后，该接口仅在首次调用soundPool的Play函数之前设置有效，期间可多次设置，否则将默认使用
-   * [SAME_SOUND_INTERRUPT](docroot://reference/apis-media-kit/arkts-apis-media-e.md)，即对同一ID的音频，如果前者尚未播放完成，后者在播放前会先打断前
+   * [SAME_SOUND_INTERRUPT]{@link ../@ohos.multimedia.media:media.SoundInterruptMode.SAME_SOUND_INTERRUPT}，即对同一ID的音频，如果前者尚未播放完成，后者在播放前会先打断前
    * 者的播放。
    *
    * @param { media.SoundInterruptMode } interruptMode - 同一ID音频在播放时的打断模式，通过media.SoundInterruptMode枚举获取。
@@ -579,8 +579,7 @@ export declare interface SoundPool {
    */
   on(type: 'loadComplete', callback: Callback<int>): void;
   /**
-   * Subscribes to events indicating that a sound finishes loading.
-   * This event is triggered when a sound is loaded.
+   * 音频池资源加载完成监听。
    *
    * @param {Callback<int>} callback - ID of the sound that has been loaded.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -596,7 +595,7 @@ export declare interface SoundPool {
    */
   off(type: 'loadComplete'): void;
   /**
-   * Unsubscribes from events indicating that a sound finishes loading.
+   * 取消监听资源的加载完成。
    *
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 23 static
@@ -613,8 +612,7 @@ export declare interface SoundPool {
    */
   on(type: 'playFinished', callback: Callback<void>): void;
   /**
-   * Subscribes to events indicating that a sound finishes playing.
-   * This event is triggered when a sound finishes playing.
+   * 音频池资源播放完成监听。
    *
    * @param {Callback<void>} callback - Callback used to return the result.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -630,7 +628,7 @@ export declare interface SoundPool {
    */
   off(type: 'playFinished'): void;
   /**
-   * Unsubscribes from events indicating that a sound finishes playing.
+   * 取消监听音频池资源播放完成。
    *
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 23 static
@@ -638,7 +636,7 @@ export declare interface SoundPool {
   offPlayFinished(): void;
 
   /**
-   * 监听[SoundPool](docroot://reference/apis-media-kit/js-apis-inner-multimedia-soundPool.md#soundpool)的错误事件，该事件仅用于错误提示。使
+   * 监听[SoundPool]{@link SoundPool}的错误事件，该事件仅用于错误提示。使
    * 用callback异步回调。
    *
    * @param {'error'} type - 错误事件回调类型，支持的事件：'error'，用户操作和系统都会触发此事件。
@@ -648,8 +646,7 @@ export declare interface SoundPool {
    */
   on(type: 'error', callback: ErrorCallback): void;
   /**
-   * Subscribes to error events of this **SoundPool** instance. This event is used only for error prompt.
-   * This event can be triggered by both user operations and the system.
+   * 监听SoundPool的错误事件，该事件仅用于错误提示。
    *
    * @param {ErrorCallback} callback - Callback used to return the error code ID and error message.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
@@ -665,7 +662,7 @@ export declare interface SoundPool {
    */
   off(type: 'error'): void;
   /**
-   * Unsubscribes from error events of this **SoundPool** instance.
+   * 取消监听音频池的错误事件。
    *
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 23 static
@@ -690,15 +687,15 @@ export declare interface SoundPool {
    */
   on(type: 'playFinishedWithStreamId', callback: Callback<int>): void;
   /**
-   * Subscribes to events indicating the completion of audio playback and returns the stream ID of the audio
-   * that finishes playing.
+   * 音频池资源播放完成监听，同时返回播放结束的音频的streamId。
    * 
-   * When only onPlayFinished or onPlayFinishedWithStreamId is subscribed to, the registered
-   * callback is triggered when the audio playback is complete.
+   * 当仅单独注册[onPlayFinished(callback: Callback<void>): void]{@link SoundPool.onPlayFinished(callback: Callback<void>)}事件回调或者
+   * [onPlayFinishedWithStreamId(callback: Callback<int>): void]{@link SoundPool.onPlayFinishedWithStreamId(callback: Callback<int>)}事件回调
+   * 时，当音频播放完成的时候，都会触发注册的回调。
    * 
-   * When both onPlayFinished and onPlayFinishedWithStreamId are subscribed to,
-   * the 'playFinishedWithStreamId' callback is triggered, but the 'playFinished' callback is not triggered,
-   * when the audio playback is complete.
+   * 当同时注册[onPlayFinished(callback: Callback<void>): void]{@link SoundPool.onPlayFinished(callback: Callback<void>)}事件回调和 
+   * [onPlayFinishedWithStreamId(callback: Callback<int>): void]{@link SoundPool.onPlayFinishedWithStreamId(callback: Callback<int>)}事件回调
+   * 时，当音频播放完成的时候，仅会触发'playFinishedWithStreamId'事件回调，不会触发'playFinished'事件回调。
    *
    * @param {Callback<int>} callback - Callback used to return the result. Stream ID of the audio that
    *     finishes playing.
@@ -715,7 +712,7 @@ export declare interface SoundPool {
    */
   off(type: 'playFinishedWithStreamId'): void;
   /**
-   * Unsubscribes from events indicating that a sound finishes playing.
+   * 取消监听音频池资源播放完成。
    *
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 23 static
@@ -723,7 +720,7 @@ export declare interface SoundPool {
   offPlayFinishedWithStreamId(): void;
 
   /**
-   * 监听[SoundPool](docroot://reference/apis-media-kit/js-apis-inner-multimedia-soundPool.md#soundpool)的错误事件，并返回包含错误码、错误发
+   * 监听[SoundPool]{@link SoundPool}的错误事件，并返回包含错误码、错误发
    * 生阶段、资源ID和音频流ID的[ErrorInfo]{@link ErrorInfo}。使用callback异步回调。
    *
    * @param { 'errorOccurred' } type - 事件回调类型，支持的事件为'errorOccurred'，当用户或系统操作导致错误，触发该事件。
@@ -731,15 +728,15 @@ export declare interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
    */
-  on(type:'errorOccurred', callback:Callback<ErrorInfo>): void;
+  on(type: 'errorOccurred', callback: Callback<ErrorInfo>): void;
   /**
-   * Subscribes to errorOccurred events of this **SoundPool** instance.
+   * 监听SoundPool的错误事件，并返回包含错误码、错误发生阶段、资源ID和音频流ID的ErrorInfo。使用callback异步回调。
    *
    * @param { Callback<ErrorInfo> } callback - Callback used to listen for soundpool errorOccurred events.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 23 static
    */
-  onErrorOccurred(callback:Callback<ErrorInfo>): void;
+  onErrorOccurred(callback: Callback<ErrorInfo>): void;
   /**
    * 取消监听音频池的错误事件。
    *
@@ -749,13 +746,13 @@ export declare interface SoundPool {
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
    */
-  off(type: 'errorOccurred', callback?:Callback<ErrorInfo>): void;
+  off(type: 'errorOccurred', callback?: Callback<ErrorInfo>): void;
   /**
-   * Unsubscribes from errorOccurred events of this **SoundPool** instance.
+   * 取消监听音频池的错误事件。
    *
    * @param { Callback<ErrorInfo> } [callback] - Callback used to listen for soundpool errorOccurred events.
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 23 static
    */
-  offErrorOccurred(callback?:Callback<ErrorInfo>): void;
+  offErrorOccurred(callback?: Callback<ErrorInfo>): void;
 }

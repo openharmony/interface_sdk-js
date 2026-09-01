@@ -31,7 +31,7 @@ module.exports = function (babel) {
                     const currentFileDir = path.dirname(pathNode.hub.file.opts.filename);
                     const configDir = process.cwd();
                     const relativePath = path.relative(currentFileDir, configDir);
-                    const importPath = relativePath ? path.join(relativePath, '../path') : './path';
+                    const importPath = relativePath ? path.join(relativePath, '../path') : '../path';
 
                     const newImport = t.importDeclaration(
                         [t.importSpecifier(t.identifier('getArktsPath'), t.identifier('getArktsPath'))],

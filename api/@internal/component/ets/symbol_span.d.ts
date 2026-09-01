@@ -22,7 +22,7 @@
  * As a child component of the **Text** component, the **SymbolSpan** component is used to display small icons.
  *
  * > **NOTE**
- *
+ * >
  * > - This component can inherit attribute settings from its parent component **Text**. This means that, if an
  * > attribute is not set in this component, it takes the value of the attribute (if set) from its parent component.
  * >
@@ -54,9 +54,10 @@ interface SymbolSpanInterface {
 }
 
 /**
- * The [universal attributes]{@link common} are not supported. Only the following attributes are supported.
+ * The [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md) are not
+ * supported. Only the following attributes are supported.
  *
- * The [universal events]{@link common} are not supported.
+ * The [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are not supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -134,7 +135,13 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
    * Used to set the font weight of SymbolSpan.
    *
    * @param { number | FontWeight | ResourceStr } value - the SymbolSpan font weight.
+   *     For the number type, the value range is [100, 900]. When enableVariableFontWeight in
+   *     fontWeightConfigs is **false**, the value must be a multiple of 100; when **true**,
+   *     any integer within [100, 900] is supported.
+   *     The default value is **FontWeight.Normal**.
    * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+   *     If not specified, the default values of FontWeightConfigs are used:
+   *     enableVariableFontWeight defaults to **false**, and enableDeviceFontWeightCategory defaults to **true**.
    * @returns { SymbolSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

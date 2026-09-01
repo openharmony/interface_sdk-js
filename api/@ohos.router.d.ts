@@ -80,7 +80,7 @@ declare namespace router {
      * @atomicservice [since 11]
      * @since 9 dynamic
      */
-    Standard = 0,
+    Standard,
 
     /**
      * Singleton mode.
@@ -94,7 +94,7 @@ declare namespace router {
      * @atomicservice [since 11]
      * @since 9 dynamic
      */
-    Single = 1
+    Single
   }
 
   /**

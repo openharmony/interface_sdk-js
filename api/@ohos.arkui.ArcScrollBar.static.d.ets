@@ -61,8 +61,9 @@ export declare interface ArcScrollBarAttribute extends CommonMethod {
    * @param { ArcScrollBarOptions } options - ArcScrollBar constructor options
    * @returns { ArcScrollBarAttribute } Returns the instance of the ArcScrollBarAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setArcScrollBarOptions(options: ArcScrollBarOptions): this;
 
@@ -100,8 +101,9 @@ export declare function ArcScrollBar(
  * @param { CustomBuilder } [content_]
  * @returns { ArcScrollBarAttribute } The attribute of the ArcScrollBar.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

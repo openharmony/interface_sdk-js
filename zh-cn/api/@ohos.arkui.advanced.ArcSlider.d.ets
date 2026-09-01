@@ -176,7 +176,7 @@ declare class ArcSliderValueOptions {
   /**
    * ArcSliderValueOptions的构造函数。
    *
-   * @param { ArcSliderValueOptionsConstructorOptions } options - ArcSliderValueOptions的构造信息。
+   * @param { ArcSliderValueOptionsConstructorOptions } options - ArcSliderValueOptions的构造信息。不传入时，ArcSliderValueOptions的各项子属性均取其默认值。
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -186,7 +186,7 @@ declare class ArcSliderValueOptions {
 }
 
 /**
- * ArcSliderLayoutValueOptions的构造信息。
+ * ArcSliderLayoutOptions的构造信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -195,7 +195,7 @@ declare class ArcSliderValueOptions {
  */
 interface ArcSliderLayoutOptionsConstructorOptions {
   /**
-   * 设置弧形Slider取值范围是否反向。值为false时表示从上往下滑。
+   * 设置弧形Slider的滑动方向。值为false时表示从上往下滑。
    * 
    * 默认值：true，表示从下往上滑动。
    * 
@@ -235,7 +235,7 @@ interface ArcSliderLayoutOptionsConstructorOptions {
 @ObservedV2
 declare class ArcSliderLayoutOptions {
   /**
-   * 设置弧形Slider取值范围是否反向。值为false时表示从上往下滑。
+   * 设置弧形Slider的滑动方向。值为false时表示从上往下滑。
    * 
    * 默认值：true，表示从下往上滑动。
    * 
@@ -269,7 +269,7 @@ declare class ArcSliderLayoutOptions {
   /**
    * ArcSliderLayoutOptions的构造函数。
    *
-   * @param { ArcSliderLayoutOptionsConstructorOptions } options - ArcSliderLayoutOptions的构造信息。
+   * @param { ArcSliderLayoutOptionsConstructorOptions } options - ArcSliderLayoutOptions的构造信息。不传入时，ArcSliderLayoutOptions的各项子属性均取其默认值。
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -468,7 +468,7 @@ declare class ArcSliderStyleOptions {
   /**
    * ArcSliderStyleOptions的构造函数。
    *
-   * @param { ArcSliderStyleOptionsConstructorOptions } options - ArcSliderStyleOptions的构造信息。
+   * @param { ArcSliderStyleOptionsConstructorOptions } options - ArcSliderStyleOptions的构造信息。不传入时，ArcSliderStyleOptions的各项子属性均取其默认值。
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -478,7 +478,7 @@ declare class ArcSliderStyleOptions {
 }
 
 /**
- * 弧形Slider被触摸时，告知应用。
+ * 弧形Slider被触摸时触发回调。
  *
  * @param { TouchEvent } event - 获得TouchEvent对象。
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
@@ -489,7 +489,7 @@ declare class ArcSliderStyleOptions {
 declare type ArcSliderTouchHandler = (event: TouchEvent) => void;
 
 /**
- * 弧形Slider的进度值发生变化时，告知应用。
+ * 弧形Slider的进度值发生变化时触发回调。
  *
  * @param { number } progress - Slider当前的进度值。
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
@@ -500,7 +500,7 @@ declare type ArcSliderTouchHandler = (event: TouchEvent) => void;
 declare type ArcSliderChangeHandler = (progress: number) => void;
 
 /**
- * 弧形Slider放大或缩小时，告知应用。
+ * 弧形Slider放大或缩小时触发回调。
  *
  * @param { boolean } isEnlarged - ArcSlider当前是否放大。<br/>isEnlarged为false时，ArcSlider组件处于缩小状态。<br/>isEnlarged为true时，
  *     ArcSlider组件处于放大状态。
@@ -577,7 +577,7 @@ interface ArcSliderOptionsConstructorOptions {
   digitalCrownSensitivity?: CrownSensitivity;
 
   /**
-   * 弧形Slider被触摸时，告知应用。
+   * 弧形Slider被触摸时触发回调。
    * 
    * 默认值：不传入的情况，无回调。
    * 
@@ -591,7 +591,7 @@ interface ArcSliderOptionsConstructorOptions {
   onTouch?: ArcSliderTouchHandler;
 
   /**
-   * 弧形Slider的进度值发生变化时，告知应用。
+   * 弧形Slider的进度值发生变化时触发回调。
    * 
    * 默认值：不传入的情况，无回调。
    * 
@@ -605,7 +605,7 @@ interface ArcSliderOptionsConstructorOptions {
   onChange?: ArcSliderChangeHandler;
 
   /**
-   * 弧形Slider放大或缩小时，告知应用。
+   * 弧形Slider放大或缩小时触发回调。
    * 
    * 默认值：不传入的情况，无回调。
    * 
@@ -690,7 +690,7 @@ declare class ArcSliderOptions {
   digitalCrownSensitivity?: CrownSensitivity;
 
   /**
-   * 弧形Slider被触摸时，告知应用。
+   * 弧形Slider被触摸时触发回调。
    * 
    * 默认值：不传入的情况，无回调。
    * 
@@ -705,7 +705,7 @@ declare class ArcSliderOptions {
   onTouch?: ArcSliderTouchHandler;
 
   /**
-   * 弧形Slider的进度值发生变化时，告知应用。
+   * 弧形Slider的进度值发生变化时触发回调。
    * 
    * 默认值：不传入的情况，无回调。
    * 
@@ -720,7 +720,7 @@ declare class ArcSliderOptions {
   onChange?: ArcSliderChangeHandler;
 
   /**
-   * 弧形Slider放大或缩小时，告知应用。
+   * 弧形Slider放大或缩小时触发回调。
    * 
    * 默认值：不传入的情况，无回调。
    * 
@@ -737,7 +737,7 @@ declare class ArcSliderOptions {
   /**
    * ArcSliderOptions的构造函数。
    *
-   * @param { ArcSliderOptionsConstructorOptions } options - ArcSliderOptions的构造信息。
+   * @param { ArcSliderOptionsConstructorOptions } options - ArcSliderOptions的构造信息。不传入时，ArcSliderOptions的各项子属性均取其默认值。
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice

@@ -19,7 +19,7 @@
  */
 
 /**
- * As a child of the [Text]{@link text} and [ContainerSpan]{@link container_span} components, the **ImageSpan**
+ * As a child of the [Text]{@link ./text} and [ContainerSpan]{@link ./container_span} components, the **ImageSpan**
  * component is used to display inline images.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -54,10 +54,10 @@ interface ImageSpanInterface {
 }
 
 /**
- * The attributes inherit from [BaseSpan]{@link BaseSpan}. Among the universal attributes, [size]{@link common},
- * [background]{@link common}, and [border]{@link common} are supported.
+ * The attributes inherit from [BaseSpan]{@link BaseSpan}. Among the universal attributes, [size]{@link ./common},
+ * [background]{@link ./common}, and [border]{@link ./common} are supported.
  *
- * Among all the universal events, only the [click event]{@link common} is supported. The following events are also
+ * Among all the universal events, only the [click event]{@link ./common} is supported. The following events are also
  * supported.
  *
  * @extends CommonMethod<ImageSpanAttribute> [since 10 - 10]
@@ -179,13 +179,35 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @since 12 dynamic
    */
   alt(value: PixelMap): ImageSpanAttribute;
+
+  /**
+   * Sets the resizable image options. Resizing is effective for drag previews and placeholder images.
+   *
+   * When a valid [ResizableOptions]{@link ResizableOptions} is set, the **objectRepeat**, **antialiased**, and
+   * **orientation** attributes do not take effect.
+   *
+   * When the sum of the values of **top** and **bottom** is greater than the source image height, or the sum of the
+   * values of **left** and **right** is greater than the source image width, the
+   * [ResizableOptions]{@link ResizableOptions} attribute does not take effect.
+   *
+   * This attribute does not take effect when the parameter type of the component is
+   * [AnimatedDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:AnimatedDrawableDescriptor} or the image format
+   * is SVG.
+   *
+   * @param { ResizableOptions } value - Resizable image options.
+   * @returns { ImageSpanAttribute } The attribute of the image span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamiconly
+   */
+  resizable(value: ResizableOptions): ImageSpanAttribute;
 }
 
 /**
- * As a child of the [Text]{@link text} and [ContainerSpan]{@link container_span} components, the **ImageSpan**
+ * As a child of the [Text]{@link ./text} and [ContainerSpan]{@link ./container_span} components, the **ImageSpan**
  * component is used to display inline images.
- *
- * > **NOTE**
  *
  * ###### Child Components
  *

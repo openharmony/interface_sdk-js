@@ -82,7 +82,7 @@ declare enum ScrollDirection {
    * @atomicservice
    * @since 20 dynamic
    */
-  FREE,
+  FREE = 4,
 }
 
 /**

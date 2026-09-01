@@ -127,6 +127,7 @@
       "SystemCapability.Notification.ReminderAgent",
       "SystemCapability.Notification.Emitter",
       "SystemCapability.Communication.IPC.Core",
+      "SystemCapability.Communication.SoftBus.Core",
       "SystemCapability.Communication.NetManager.Core",
       "SystemCapability.Communication.NetManager.Extension",
       "SystemCapability.Communication.NetStack",

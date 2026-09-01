@@ -538,7 +538,6 @@ declare namespace dragController {
    * @since 20 dynamic
    */
   const enum DragSpringLoadingState {
-
     /**
      * 拖拽进入组件范围静止一段时间，被识别为悬停状态。此时允许进行一些悬停检测的准备操作。
      *
@@ -548,12 +547,12 @@ declare namespace dragController {
      * @atomicservice
      * @since 20 dynamic
      */
-    BEGIN = 0,
+    BEGIN,
 
     /**
      * Already in the spring loading state. The system periodically checks the user's hover status.
-     * If the user remains stationary, it triggers an UPDATE state notification at regular intervals.
-     * This state allows for UI effect refreshes to emphasize the hover state.
+ 	   * If the user remains stationary, it triggers an UPDATE state notification at regular intervals.
+ 	   * This state allows for UI effect refreshes to emphasize the hover state.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -561,11 +560,11 @@ declare namespace dragController {
      * @atomicservice
      * @since 20 dynamic
      */
-    UPDATE = 1,
+    UPDATE,
 
     /**
      * The entire spring loading state ends. The application can perform cleanup operations
-     * and execute navigation or view switching actions when this state occurs.
+ 	   * and execute navigation or view switching actions when this state occurs.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -573,12 +572,12 @@ declare namespace dragController {
      * @atomicservice
      * @since 20 dynamic
      */
-    END = 2,
+    END,
 
     /**
      * After entering the BEGIN state, if the user moves out of the component range, exceeds the displacement
-     * threshold, lifts the finger, or switches windows (pull out), the CANCEL state is triggered.
-     * The application should restore the UI style and cancel any pending navigation or view switching actions.
+ 	   * threshold, lifts the finger, or switches windows (pull out), the CANCEL state is triggered.
+ 	   * The application should restore the UI style and cancel any pending navigation or view switching actions.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -586,7 +585,7 @@ declare namespace dragController {
      * @atomicservice
      * @since 20 dynamic
      */
-    CANCEL = 3
+    CANCEL,
   }
 
   /**

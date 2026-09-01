@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,28 +12,40 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /**
- * @file
+ * @file Extensible Authentication
  * @kit NetworkKit
  */
 
 import { Callback } from './@ohos.base';
 /**
- * Provides interfaces to manage ethernet.
- * @namespace eap
+ * The **eap** module provides the extensible authentication mechanism to enable third-party clients to access custom 80
+ * 2.1X (a port-based network access control protocol) authentication, such as Extensible Authentication Protocol (EAP)
+ * authentication.
+ *
  * @syscap SystemCapability.Communication.NetManager.Eap
  * @since 20 dynamic
- * @since 23 static
  */
 declare namespace eap {
   /**
-   * Customize eap packets by callback
+   * Registers a custom handler of Extensible Authentication Protocol (EAP) packets for extensible authentication. This
+   * API returns the result asynchronously through a callback.
+   *
+   * The system will encapsulate the eligible EAP packets into the callback function for enterprise applications to
+   * retrieve.
+   *
    * @permission ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION
-   * @param { number } netType Indicates net type need to customize.
-   * @param { number } eapCode Indicates eap code need to customize.
-   * @param { number } eapType Indicates eap type need to customize.
-   * @param { Callback<EapData> } callback - the callback of eap packet customization.
+   * @param { int } netType - Network type. The value can be **1** or **2**.
+   *     <br>The value **1** indicates WLAN, and the value **2** indicates Ethernet.
+   * @param { int } eapCode - EAP code. The value can be any of the following:
+   *     <br>code=1 Request, code=2 Response, code=3 Success, code=4 Failure.
+   * @param { int } eapType - EAP method. The value range is [0, 255].
+   *     <br>Common values include the following: eapType=1 Identity, eapType=2 Notification, eapType=3 NAK, eapType=4
+   *     MD5-Challenge, eapType=5 OTP (One-Time Password), eapType=6 GTC (Generic Token Card), eapType=13 EAP-TLS,
+   *     eapType=21 EAP-TTLS, eapType=25 EAP-PEAP, eapType=254 Expanded Types, and eapType=255 Experimental use.
+   * @param { Callback<EapData> } callback - Callback function, which returns the packet of the specified eapCode+
+   *     eapType.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 33200006 - Invalid net type
    * @throws { BusinessError } 33200007 - Invalid eap code
@@ -42,17 +54,24 @@ declare namespace eap {
    * @throws { BusinessError } 33200099 - internal error
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20 dynamic
-   * @since 23 static
    */
-  function regCustomEapHandler(netType: number, eapCode: number, eapType: number, callback: Callback<EapData>): void;
- 
+  function regCustomEapHandler(netType: int, eapCode: int, eapType: int, callback: Callback<EapData>): void;
+
   /**
-   * unreg the callback of eap packet customization.
+   * Unregisters the custom handler of EAP packets for extensible authentication. This API returns the result
+   * asynchronously through a callback.
+   *
    * @permission ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION
-   * @param { number } netType Indicates net type need to customize.
-   * @param { number } eapCode Indicates eap code need to customize.
-   * @param { number } eapType Indicates eap type need to customize.
-   * @param { Callback<EapData> } callback - the callback of eap packet customization.
+   * @param { int } netType - Network type. The value can be **1** or **2**.
+   *     <br>The value **1** indicates WLAN, and the value **2** indicates Ethernet.
+   * @param { int } eapCode - EAP code. The value can be any of the following:
+   *     <br>code=1 Request, code=2 Response, code=3 Success, code=4 Failure.
+   * @param { int } eapType - EAP method. The value range is [0, 255].
+   *     <br>Common values include the following: eapType=1 Identity, eapType=2 Notification, eapType=3 NAK, eapType=4
+   *     MD5-Challenge, eapType=5 OTP (One-Time Password), eapType=6 GTC (Generic Token Card), eapType=13 EAP-TLS,
+   *     eapType=21 EAP-TTLS, eapType=25 EAP-PEAP, eapType=254 Expanded Types, and eapType=255 Experimental use.
+   * @param { Callback<EapData> } callback - Callback function, which returns the packet of the specified eapCode+
+   *     eapType.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 33200006 - Invalid net type
    * @throws { BusinessError } 33200007 - Invalid eap code
@@ -61,15 +80,23 @@ declare namespace eap {
    * @throws { BusinessError } 33200099 - internal error
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20 dynamic
-   * @since 23 static
    */
-  function unregCustomEapHandler(netType:number, eapCode: number, eapType: number, callback: Callback<EapData>): void;
- 
+  function unregCustomEapHandler(netType:int, eapCode: int, eapType: int, callback: Callback<EapData>): void;
+
   /**
-   * send Customized eap packets to system
+   * Notifies the system of the extensible authentication result.
+   *
+   * > **NOTE**
+   * >
+   * > - If this callback is used to process received EAP data packets, the customized portion added by the server must
+   * > be removed from the EAP data transmitted to the system.
+   * >
+   * > - If this callback is used to process sent EAP data packets, the EAP data transmitted to the system is the EAP
+   * > data with the customized portion added by the server.
+   *
    * @permission ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION
-   * @param { CustomResult } result Indicates the result of custom authentication.
-   * @param { EapData } data Indicates eap packet data after customization.
+   * @param { CustomResult } result - Extensible authentication result.
+   * @param { EapData } data - EAP data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 33200004 - Invalid result
    * @throws { BusinessError } 33200005 - Invalid size of eap data
@@ -77,15 +104,16 @@ declare namespace eap {
    * @throws { BusinessError } 33200099 - internal error
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20 dynamic
-   * @since 23 static
    */
   function replyCustomEapData(result: CustomResult, data: EapData): void;
- 
+
   /**
-   * Set the specified network interface parameters.
+   * Starts EAP authentication on an Ethernet NIC.
+   *
    * @permission ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION
-   * @param { number } netId Indicates the eth network id to start EAP authentication.
-   * @param { EthEapProfile } profile Indicates the eap profile.
+   * @param { int } netId - ID of the Ethernet NIC. If the default value **-1** is specified, the system automatically
+   *     matches the Ethernet NIC to initiate EAP authentication.
+   * @param { EthEapProfile } profile - EAP profile.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 33200001 - Invalid netId
    * @throws { BusinessError } 33200003 - Invalid profile
@@ -94,14 +122,15 @@ declare namespace eap {
    * @throws { BusinessError } 33200099 - internal error
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20 dynamic
-   * @since 23 static
    */
-  function startEthEap(netId: number, profile: EthEapProfile): void;
- 
+  function startEthEap(netId: int, profile: EthEapProfile): void;
+
   /**
-   * Check whether the specified network is active.
+   * Revokes the EAP-authenticated state of an Ethernet NIC.
+   *
    * @permission ohos.permission.MANAGE_ENTERPRISE_WIFI_CONNECTION
-   * @param { number } netId Indicates the eth network id to log off EAP authentication.
+   * @param { int } netId - ID of the Ethernet NIC. If the default value **-1** is specified, the system automatically
+   *     matches the Ethernet NIC to initiate EAP authentication.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 33200001 - Invalid netId
    * @throws { BusinessError } 33200002 - Log off fail
@@ -110,418 +139,355 @@ declare namespace eap {
    * @throws { BusinessError } 33200099 - internal error
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20 dynamic
-   * @since 23 static
    */
-  function logOffEthEap(netId: number): void;
- 
+  function logOffEthEap(netId: int): void;
+
   /**
-   * Describes the EAP information.
+   * Defines the EAP data.
    *
-   * @typedef EapData
+   * ​
+   *
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20 dynamic
-   * @since 23 static
    */
-  interface EapData {  
+  interface EapData {
     /**
-     * EAP message ID.
+     * Pseudo random number used to associate the EAP data before and after processing.
      *
-     * @type { number }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    msgId: number;
+    msgId: int;
     /**
-     * EAP packet buffer.
+     * Raw EAP data starting from the EAP header, which is not encrypted.
      *
-     * @type { Uint8Array }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
     eapBuffer: Uint8Array;
     /**
-     * EAP packet length.
+     * Data length.
      *
-     * @type { number }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    bufferLen: number;
+    bufferLen: int;
   }
- 
-   /**
-   * custom 802.1x result.
+
+  /**
+   * Enumerates the EAP authentication results.
    *
-   * @enum { number }
+   * ​
+   *
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20 dynamic
-   * @since 23 static
    */
   enum CustomResult {
     /**
-     * custom authentication finished and fail
+     * The authentication process ends with a failed result.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    RESULT_FAIL,
- 
+    RESULT_FAIL = 0,
+
     /**
-     * custom authentication success for current step, go to next step
+     * The authentication is successful, and the process proceeds to the next step.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    RESULT_NEXT,
- 
+    RESULT_NEXT = 1,
+
     /**
-     * custom authentication finished and success
+     * The authentication process ends with a successful result.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    RESULT_FINISH,
+    RESULT_FINISH = 2
   }
- 
-/**
-   * 802.1x EAP method.
+
+  /**
+   * Enumerates the EAP authentication methods.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20 dynamic
-   * @since 23 static
    */
   enum EapMethod {
     /**
-     * Not specified
+     * Not specified.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    EAP_NONE,
- 
+    EAP_NONE = 0,
+
     /**
-     * Protected extensible authentication protocol
+     * PEAP.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    EAP_PEAP,
- 
+    EAP_PEAP = 1,
+
     /**
-     * Transport layer security
+     * TLS.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    EAP_TLS,
- 
+    EAP_TLS = 2,
+  
     /**
-     * Tunneled transport layer security
+     * TTLS.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    EAP_TTLS,
- 
+    EAP_TTLS = 3,
+
     /**
-     * Password
+     * Password.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    EAP_PWD,
- 
+    EAP_PWD = 4,
+
     /**
-     * Subscriber identity module
+     * SIM.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    EAP_SIM,
- 
+    EAP_SIM = 5,
+
     /**
-     * Authentication and key agreement
+     * AKA.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    EAP_AKA,
- 
+    EAP_AKA = 6,
+
     /**
-     * AKA prime
+     * AKA Prime.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    EAP_AKA_PRIME,
- 
+    EAP_AKA_PRIME = 7,
+
     /**
-     * Unauth TLS
+     * UNAUTH TLS.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    EAP_UNAUTH_TLS
+    EAP_UNAUTH_TLS = 8
   }
- 
+
   /**
-   * 802.1x phase 2 method.
+   * Enumerates the Phase 2 authentication methods.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20 dynamic
-   * @since 23 static
    */
   enum Phase2Method {
     /**
-     * Not specified
+     * Not specified.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    PHASE2_NONE,
- 
+    PHASE2_NONE = 0,
+
     /**
-     * Password authentication protocol
+     * PAP.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    PHASE2_PAP,
- 
+    PHASE2_PAP = 1,
+
     /**
-     * Microsoft challenge handshake authentication protocol
+     * MS-CHAP.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    PHASE2_MSCHAP,
- 
+    PHASE2_MSCHAP = 2,
+
     /**
-     * Microsoft challenge handshake authentication protocol version 2
+     * MS-CHAPv2.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    PHASE2_MSCHAPV2,
- 
+    PHASE2_MSCHAPV2 = 3,
+
     /**
-     * Generic token card
+     * GTC.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    PHASE2_GTC,
- 
+    PHASE2_GTC = 4,
+
     /**
-     * Subscriber identity module
+     * SIM.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    PHASE2_SIM,
- 
+    PHASE2_SIM = 5,
+
     /**
-     * Authentication and key agreement
+     * AKA.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    PHASE2_AKA,
- 
+    PHASE2_AKA = 6,
+
     /**
-     * AKA Prime
+     * AKA Prime.
      *
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    PHASE2_AKA_PRIME
+    PHASE2_AKA_PRIME = 7
   }
- 
+
   /**
-   * Eth EAP profile.
+   * Represents the EAP profile information.
    *
-   * @typedef EthEapProfile
    * @syscap SystemCapability.Communication.NetManager.Eap
    * @since 20 dynamic
-   * @since 23 static
    */
   interface EthEapProfile {
     /**
-     * EAP authentication method
+     * EAP authentication method.
      *
-     * @type { EapMethod }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
     eapMethod: EapMethod;
- 
+
     /**
-     * Phase 2 authentication method
+     * Phase 2 authentication method.
      *
-     * @type { Phase2Method }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
     phase2Method: Phase2Method;
- 
+
     /**
-     * The identity
+     * Identity information.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
     identity: string;
- 
+
     /**
-     * Anonymous identity
+     * Anonymous identity.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
     anonymousIdentity: string;
- 
+
     /**
-     * Password
+     * Password.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
     password: string;
- 
+
     /**
-     * CA certificate alias
+     * CA certificate alias.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
     caCertAliases: string;
- 
+
     /**
-     * CA certificate path
+     * CA certificate path.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
     caPath: string;
- 
+
     /**
-     * Client certificate alias
+     * Client certificate alias.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
     clientCertAliases: string;
- 
+
     /**
-     * content of user's certificate
+     * CA certificate content.
      *
-     * @type { Uint8Array }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
     certEntry: Uint8Array;
- 
+
     /**
-     * Password of user's certificate
+     * CA certificate password.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
     certPassword: string;
- 
+
     /**
-     * Alternate subject match
+     * A string to match the alternate subject.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
     altSubjectMatch: string;
- 
+
     /**
-     * Domain suffix match
+     * A string to match the domain suffix.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
     domainSuffixMatch: string;
- 
+
     /**
-     * Realm for Passpoint credential
+     * Realm for the passpoint credential.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
     realm: string;
- 
+
     /**
-     * Public Land Mobile Network of the provider of Passpoint credential
+     * Public land mobile network (PLMN) of the passpoint credential provider.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
     plmn: string;
- 
+
     /**
-     * Sub ID of the SIM card
+     * Sub-ID of the SIM card.
      *
-     * @type { number }
      * @syscap SystemCapability.Communication.NetManager.Eap
      * @since 20 dynamic
-     * @since 23 static
      */
-    eapSubId: number;
+    eapSubId: int;
   }
- 
+
 }
- 
+
 export default eap;

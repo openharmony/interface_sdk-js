@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 包管理
  * @kit MDMKit
  */
 
@@ -22,15 +22,16 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * 本模块提供包管理能力，包括添加包安装允许名单、获取包安装允许名单、移除包安装允许名单等。
- *
+ * 本模块提供包管理能力，包括安装和卸载应用包，管理包安装允许名单、包安装禁止名单、包卸载禁止名单、可安装应用的分发类型等。在企业设备管理场景中，通过这些能力可以实现应用安装卸载的精细化管控，防止未授权应用的安装和卸载，保障企业设备安全，
+ * 降低安全风险。
+ * 
  * > **说明：**
- * >
- * > 本模块接口仅可在Stage模型下使用。
  * >
  * > 本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考[MDM Kit开发指南](docroot://mdm/mdm-kit-guide.md)。
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 10 - 11]
+ * @publicapi [since 12]
  * @since 10
  */
 declare namespace bundleManager {
@@ -52,7 +53,7 @@ declare namespace bundleManager {
     userId?: number;
 
     /**
-     * 安装标志。枚举值：0：应用初次安装，1：应用覆盖安装，2：应用免安装，默认值为应用初次安装。
+     * 安装标志。枚举值：0：应用初次安装，1：应用覆盖安装，2：应用免安装，默认值为0(应用初次安装)。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @StageModelOnly
@@ -107,8 +108,8 @@ declare namespace bundleManager {
   }
 
   /**
-   * 应用程序签名证书的分发类型。详细介绍请参见[ApplicationInfo]{@link ./bundleManager/ApplicationInfo:ApplicationInfo}的appDistributionType属性
-   * 。
+   * 应用程序签名证书的分发类型。详细介绍请参见[ApplicationInfo]{@link ./bundleManager/ApplicationInfo:ApplicationInfo}的appDistributionType属
+   * 性。
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -497,7 +498,7 @@ declare namespace bundleManager {
 
     /**
      * 应用程序的accessTokenId，应用的身份标识，在程序访问控制校验接口
-     * [checkAccessToken](docroot://reference/apis-ability-kit/js-apis-abilityAccessCtrl.md#checkaccesstoken9)中使用。
+     * [checkAccessToken]{@link @ohos.abilityAccessCtrl:abilityAccessCtrl.AtManager.checkAccessToken}中使用。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -649,9 +650,9 @@ declare namespace bundleManager {
 
     /**
      * 应用安装文件大小，单位为Byte。
-     *
+     * 
      * 应用安装文件保存在以下目录：
-     *
+     * 
      * /data/storage/el1/bundle
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -662,20 +663,20 @@ declare namespace bundleManager {
 
     /**
      * 应用的本地数据、分布式数据和数据库数据大小，单位为Byte。
-     *
+     * 
      * 本地文件保存在以下目录（注意缓存文件目录为以下目录的子目录）：
-     *
+     * 
      * /data/storage/${el1-el5}/base
-     *
+     * 
      * 分布式文件保存在以下目录：
-     *
+     * 
      * /data/storage/el2/distributedfiles
-     *
+     * 
      * 数据库文件保存在以下目录：
-     *
+     * 
      * /data/storage/${el1-el5}/database
-     *
-     * **说明**：${el1-el5}指的是[el1，el2，el3，el4，el5目录](docroot://file-management/app-sandbox-directory.md#应用文件目录与应用文件路径)。
+     * 
+     * **说明：**${el1-el5}指的是[el1，el2，el3，el4，el5目录](docroot://file-management/app-sandbox-directory.md#应用文件目录与应用文件路径)。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -749,7 +750,9 @@ declare namespace bundleManager {
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，推荐使用
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)。API version 20及之前版本，仅支
    *     持[appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
-   * @param { number } [userId] - 用户ID，取值范围：大于等于0。<br> - 调用接口时，若传入userId，表示指定用户。<br> - 调用接口时，若未传入userId，表示当前用户。
+   * @param { number } [userId] - 用户ID，取值范围：大于等于0。
+   *     <br> - 调用接口时，若传入userId，表示指定用户。
+   *     <br> - 调用接口时，若未传入userId，表示当前用户。
    * @returns { Promise<void> } 无返回结果的Promise对象。当添加应用程序包安装允许名单失败时，会抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -777,10 +780,13 @@ declare namespace bundleManager {
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，推荐使用
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)。API version 20及之前版本，仅支
    *     持[appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
-   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。<br>
-   *     - 调用接口时，若传入accountId，表示指定用户。<br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   *     <br> - 调用接口时，若传入accountId，表示指定用户。
+   *     <br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -867,7 +873,9 @@ declare namespace bundleManager {
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)（或
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)）。API version 20及之前版本，数组中的元素只支持使用
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
-   * @param { number } [userId] - 用户ID，取值范围：大于等于0。<br> - 调用接口时，若传入userId，表示指定用户。<br> - 调用接口时，若未传入userId，表示当前用户。
+   * @param { number } [userId] - 用户ID，取值范围：大于等于0。
+   *     <br> - 调用接口时，若传入userId，表示指定用户。
+   *     <br> - 调用接口时，若未传入userId，表示当前用户。
    * @returns { Promise<void> } 无返回结果的Promise对象。当移除应用程序包安装允许名单失败时，会抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -898,10 +906,13 @@ declare namespace bundleManager {
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)（或
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)）。API version 20及之前版本，数组中的元素只支持使用
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
-   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。<br>
-   *     - 调用接口时，若传入accountId，表示指定用户。<br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   *     <br> - 调用接口时，若传入accountId，表示指定用户。
+   *     <br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -964,7 +975,9 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } [userId] - 用户ID，取值范围：大于等于0。<br> - 调用接口时，若传入userId，表示指定用户。<br> - 调用接口时，若未传入userId，表示当前用户。
+   * @param { number } [userId] - 用户ID，取值范围：大于等于0。
+   *     <br> - 调用接口时，若传入userId，表示指定用户。
+   *     <br> - 调用接口时，若未传入userId，表示当前用户。
    * @returns { Promise<Array<string>> } Promise对象，返回当前/指定用户下的应用程序包安装允许名单。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -987,11 +1000,15 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。<br>
-   *     - 调用接口时，若传入accountId，表示指定用户。<br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
-   * @returns { Array<string> } 返回当前用户下的应用程序包安装允许名单。
+   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   *     <br> - 调用接口时，若传入accountId，表示指定用户。
+   *     <br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the account ID.
+   *     <br> - If **accountId** is passed in, this API applies to the
+   *     specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
+   * @returns { Array<string> } 返回当前/指定用户下的应用程序包安装允许名单。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1003,6 +1020,32 @@ declare namespace bundleManager {
    * @since 12
    */
   function getAllowedInstallBundlesSync(admin: Want, accountId?: number): Array<string>;
+
+  /**
+   * 获取当前/指定用户下的应用程序包安装允许名单。
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   *     <br> - 调用接口时，若传入accountId，表示指定用户。
+   *     <br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
+   * @returns { Array<string> } 返回当前/指定用户下的应用程序包安装允许名单。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getAllowedInstallBundlesSync(admin: Want | null, accountId?: number): Array<string>;
 
   /**
    * 添加应用至应用程序包安装禁止名单，添加至禁止名单的应用不允许在当前用户下安装，使用callback异步回调。
@@ -1069,7 +1112,9 @@ declare namespace bundleManager {
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，推荐使用
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)。API version 20及之前版本，仅支
    *     持[appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
-   * @param { number } [userId] - 用户ID，取值范围：大于等于0。<br> - 调用接口时，若传入userId，表示指定用户。<br> - 调用接口时，若未传入userId，表示当前用户。
+   * @param { number } [userId] - 用户ID，取值范围：大于等于0。
+   *     <br> - 调用接口时，若传入userId，表示指定用户。
+   *     <br> - 调用接口时，若未传入userId，表示当前用户。
    * @returns { Promise<void> } 无返回结果的Promise对象。当添加应用程序包安装禁止名单失败时，会抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1097,10 +1142,13 @@ declare namespace bundleManager {
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，推荐使用
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)。API version 20及之前版本，仅支
    *     持[appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
-   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。<br>
-   *     - 调用接口时，若传入accountId，表示指定用户。<br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   *     <br> - 调用接口时，若传入accountId，表示指定用户。
+   *     <br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1187,7 +1235,9 @@ declare namespace bundleManager {
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)（或
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)）。API version 20及之前版本，数组中的元素只支持使用
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
-   * @param { number } [userId] - 用户ID，取值范围：大于等于0。<br> - 调用接口时，若传入userId，表示指定用户。<br> - 调用接口时，若未传入userId，表示当前用户。
+   * @param { number } [userId] - 用户ID，取值范围：大于等于0。
+   *     <br> - 调用接口时，若传入userId，表示指定用户。
+   *     <br> - 调用接口时，若未传入userId，表示当前用户。
    * @returns { Promise<void> } 无返回结果的Promise对象。当移除应用程序包安装禁止名单失败时，会抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1218,10 +1268,13 @@ declare namespace bundleManager {
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)（或
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)）。API version 20及之前版本，数组中的元素只支持使用
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
-   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。<br>
-   *     - 调用接口时，若传入accountId，表示指定用户。<br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   *     <br> - 调用接口时，若传入accountId，表示指定用户。
+   *     <br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1284,7 +1337,9 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } [userId] - 用户ID，取值范围：大于等于0。<br> - 调用接口时，若传入userId，表示指定用户。<br> - 调用接口时，若未传入userId，表示当前用户。
+   * @param { number } [userId] - 用户ID，取值范围：大于等于0。
+   *     <br> - 调用接口时，若传入userId，表示指定用户。
+   *     <br> - 调用接口时，若未传入userId，表示当前用户。
    * @returns { Promise<Array<string>> } Promise对象，返回当前/指定用户下的应用程序包安装禁止名单。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1307,11 +1362,15 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。<br>
-   *     - 调用接口时，若传入accountId，表示指定用户。<br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
-   * @returns { Array<string> } 返回当前用户下的应用程序包安装禁止名单。
+   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   *     <br> - 调用接口时，若传入accountId，表示指定用户。
+   *     <br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the account ID.
+   *     <br> - If **accountId** is passed in, this API applies to the
+   *     specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
+   * @returns { Array<string> } 返回当前/指定用户下的应用程序包安装禁止名单。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1323,6 +1382,32 @@ declare namespace bundleManager {
    * @since 12
    */
   function getDisallowedInstallBundlesSync(admin: Want, accountId?: number): Array<string>;
+
+  /**
+   * 获取当前/指定用户下的应用程序包安装禁止名单。
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   *     <br> - 调用接口时，若传入accountId，表示指定用户。
+   *     <br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
+   * @returns { Array<string> } 返回当前/指定用户下的应用程序包安装禁止名单。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getDisallowedInstallBundlesSync(admin: Want | null, accountId?: number): Array<string>;
 
   /**
    * 添加应用至应用程序包卸载禁止名单，添加至禁止名单的应用不允许在当前用户下卸载，使用callback异步回调。
@@ -1389,7 +1474,9 @@ declare namespace bundleManager {
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，推荐使用
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)。API version 20及之前版本，仅支
    *     持[appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
-   * @param { number } [userId] - 用户ID，取值范围：大于等于0。<br> - 调用接口时，若传入userId，表示指定用户。<br> - 调用接口时，若未传入userId，表示当前用户。
+   * @param { number } [userId] - 用户ID，取值范围：大于等于0。
+   *     <br> - 调用接口时，若传入userId，表示指定用户。
+   *     <br> - 调用接口时，若未传入userId，表示当前用户。
    * @returns { Promise<void> } 无返回结果的Promise对象。当添加应用程序包卸载禁止名单失败时，会抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1418,10 +1505,13 @@ declare namespace bundleManager {
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)，推荐使用
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)。API version 20及之前版本，仅支
    *     持[appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
-   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。<br>
-   *     - 调用接口时，若传入accountId，表示指定用户。<br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   *     <br> - 调用接口时，若传入accountId，表示指定用户。
+   *     <br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1508,7 +1598,9 @@ declare namespace bundleManager {
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)（或
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)）。API version 20及之前版本，数组中的元素只支持使用
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
-   * @param { number } [userId] - 用户ID，取值范围：大于等于0。<br> - 调用接口时，若传入userId，表示指定用户。<br> - 调用接口时，若未传入userId，表示当前用户。
+   * @param { number } [userId] - 用户ID，取值范围：大于等于0。
+   *     <br> - 调用接口时，若传入userId，表示指定用户。
+   *     <br> - 调用接口时，若未传入userId，表示当前用户。
    * @returns { Promise<void> } 无返回结果的Promise对象。当移除应用程序包卸载禁止名单失败时会抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1539,10 +1631,13 @@ declare namespace bundleManager {
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#什么是appidentifier)（或
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)）。API version 20及之前版本，数组中的元素只支持使用
    *     [appId](docroot://quick-start/common-problem-of-application.md#什么是appid)。
-   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。<br>
-   *     - 调用接口时，若传入accountId，表示指定用户。<br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   *     <br> - 调用接口时，若传入accountId，表示指定用户。
+   *     <br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1605,7 +1700,9 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } [userId] - 用户ID，取值范围：大于等于0。<br> - 调用接口时，若传入userId，表示指定用户。<br> - 调用接口时，若未传入userId，表示当前用户。
+   * @param { number } [userId] - 用户ID，取值范围：大于等于0。
+   *     <br> - 调用接口时，若传入userId，表示指定用户。
+   *     <br> - 调用接口时，若未传入userId，表示当前用户。
    * @returns { Promise<Array<string>> } Promise对象，返回当前/指定用户下的应用程序包卸载禁止名单。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1628,11 +1725,15 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。<br>
-   *     - 调用接口时，若传入accountId，表示指定用户。<br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
-   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
-   * @returns { Array<string> } 返回当前用户下的包卸载禁止名单。
+   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   *     <br> - 调用接口时，若传入accountId，表示指定用户。
+   *     <br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the account ID.
+   *     <br> - If **accountId** is passed in, this API applies to the
+   *     specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
+   * @returns { Array<string> } 返回当前/指定用户下的包卸载禁止名单。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1646,13 +1747,38 @@ declare namespace bundleManager {
   function getDisallowedUninstallBundlesSync(admin: Want, accountId?: number): Array<string>;
 
   /**
+   * 获取当前/指定用户下包卸载禁止名单。
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @param { number } [accountId] - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   *     <br> - 调用接口时，若传入accountId，表示指定用户。
+   *     <br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the user ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
+   * @returns { Array<string> } 返回当前/指定用户下的包卸载禁止名单。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getDisallowedUninstallBundlesSync(admin: Want | null, accountId?: number): Array<string>;
+
+  /**
    * 卸载当前用户下的指定应用程序包，且不保留应用程序包数据。使用callback异步回调。
    *
    * > **说明：**
    * >
-   * > 当应用为不可卸载的预置应用或者通过
-   * > [addDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addDisallowedUninstallBundlesSync}
-   * > 接口设置了不允许卸载时，调用此接口卸载应用会返回401错误码。
+   * > 当应用为不可卸载的预置应用或者通过[addDisallowedUninstallBundlesSync]{@link bundleManager.addDisallowedUninstallBundlesSync}接口设置了不
+   * > 允许卸载时，调用此接口卸载应用会返回401错误码。
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -1679,9 +1805,8 @@ declare namespace bundleManager {
    *
    * > **说明：**
    * >
-   * > 当应用为不可卸载的预置应用或者通过
-   * > [addDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addDisallowedUninstallBundlesSync}
-   * > 接口设置了不允许卸载时，调用此接口卸载应用会返回401错误码。
+   * > 当应用为不可卸载的预置应用或者通过[addDisallowedUninstallBundlesSync]{@link bundleManager.addDisallowedUninstallBundlesSync}接口设置了不
+   * > 允许卸载时，调用此接口卸载应用会返回401错误码。
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -1709,9 +1834,8 @@ declare namespace bundleManager {
    *
    * > **说明：**
    * >
-   * > 当应用为不可卸载的预置应用或者通过
-   * > [addDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addDisallowedUninstallBundlesSync}
-   * > 接口设置了不允许卸载时，调用此接口卸载应用会返回401错误码。
+   * > 当应用为不可卸载的预置应用或者通过[addDisallowedUninstallBundlesSync]{@link bundleManager.addDisallowedUninstallBundlesSync}接口设置了不
+   * > 允许卸载时，调用此接口卸载应用会返回401错误码。
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -1739,9 +1863,8 @@ declare namespace bundleManager {
    *
    * > **说明：**
    * >
-   * > 当应用为不可卸载的预置应用或者通过
-   * > [addDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addDisallowedUninstallBundlesSync}
-   * > 接口设置了不允许卸载时，调用此接口卸载应用会返回401错误码。
+   * > 当应用为不可卸载的预置应用或者通过[addDisallowedUninstallBundlesSync]{@link bundleManager.addDisallowedUninstallBundlesSync}接口设置了不
+   * > 允许卸载时，调用此接口卸载应用会返回401错误码。
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
@@ -1766,18 +1889,19 @@ declare namespace bundleManager {
   function uninstall(admin: Want, bundleName: string, userId: number, isKeepData: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * 卸载当前/指定用户下的指定包接口，选择是否保留包数据（由isKeepData指定）。使用Promise异步回调。
-   *
+   * 卸载当前/指定用户下的指定包，选择是否保留包数据（由isKeepData指定）。使用Promise异步回调。调用成功后，应用被卸载，数据根据isKeepData参数保留或删除。
+   * 
    * > **说明：**
    * >
-   * > 当应用为不可卸载的预置应用或者通过
-   * > [addDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addDisallowedUninstallBundlesSync}
-   * > 接口设置了不允许卸载时，调用此接口卸载应用会返回401错误码。
+   * > 当应用为不可卸载的预置应用或者通过[addDisallowedUninstallBundlesSync]{@link bundleManager.addDisallowedUninstallBundlesSync}接口设置了不
+   * > 允许卸载时，调用此接口卸载应用会返回401错误码。
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { string } bundleName - 应用程序包名。
-   * @param { number } [userId] - 用户ID，取值范围：大于等于0。<br> - 调用接口时，若传入userId，表示指定用户。<br> - 调用接口时，若未传入userId，表示当前用户。
+   * @param { number } [userId] - 用户ID，取值范围：大于等于0。
+   *     <br> - 调用接口时，若传入userId，表示指定用户。
+   *     <br> - 调用接口时，若未传入userId，表示当前用户。
    * @param { boolean } [isKeepData] - 是否保留包数据，true表示保留，false表示不保留。
    * @returns { Promise<void> } 无返回结果的Promise对象。当包卸载失败时抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1842,10 +1966,13 @@ declare namespace bundleManager {
   function install(admin: Want, hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
   /**
-   * 安装指定路径下的应用包。使用Promise异步回调。</br>此接口只能安装分发类型为enterprise_mdm（MDM应用）和enterprise_normal（普通企业应用）类型的应用，可以通过
-   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}接口查询应用
-   * 自身的[BundleInfo]{@link ./bundleManager/BundleInfo}，其中BundleInfo.appInfo.appDistributionType为应用的分发类型。
-   *
+   * 安装指定路径下的应用包。使用Promise异步回调。
+   * 
+   * 此接口只能安装分发类型为enterprise_mdm（MDM应用）和enterprise_normal（普通企业应用）类型的应用，可以通过
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}接口查询应用自身的
+   * [BundleInfo]{@link ./bundleManager/BundleInfo}，其中BundleInfo.appInfo.appDistributionType为应用的分发类型。自API版本26.0.0起，建议使用
+   * [installForResult]{@link bundleManager.installForResult}，以获取更详细的错误码返回值。
+   * 
    * > **说明：**
    * >
    * > 该接口比较耗时，当调用此接口后，后续如果在应用主线程调用其他同步接口时需要等待该接口异步返回。
@@ -1870,13 +1997,22 @@ declare namespace bundleManager {
   function install(admin: Want, hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
 
   /**
-   * 安装应用
+   * 安装指定路径下的应用包，并返回安装结果。使用Promise异步回调。
+   * 
+   * 此接口只能安装分发类型为enterprise_mdm（MDM应用）和enterprise_normal（普通企业应用）类型的应用，可以通过
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}接口查询应用自身的
+   * [BundleInfo]{@link ./bundleManager/BundleInfo}，其中BundleInfo.appInfo.appDistributionType为应用的分发类型。
+   * 
+   * > **说明：**
+   * >
+   * > 该接口比较耗时，当调用此接口后，后续如果在应用主线程调用其他同步接口时需要等待该接口异步返回。
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
-   * @param { Want } admin - 企业设备管理扩展组件
-   * @param { Array<string> } hapFilePaths - 应用包路径
-   * @param { InstallParam } [installParam] - 安装参数
-   * @returns { Promise<void> } 应用安装结果
+   * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   * @param { Array<string> } hapFilePaths - 待安装应用包路径数组。应用包路径为应用沙箱路径(应用沙箱路径和真实路径的对应关系可参见：
+   *     [应用沙箱路径和真实物理路径的对应关系](docroot://file-management/app-sandbox-directory.md#应用沙箱路径和真实物理路径的对应关系))等应用有权限访问的路径。
+   * @param { InstallParam } [installParam] - 应用包安装参数。
+   * @returns { Promise<void> } 无返回结果的Promise对象。当应用程序包安装失败时，抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201002 - Failed to install the application.
@@ -1894,7 +2030,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 9201029 - Failed to install the HAP since the version of the HAP to install is too early.
    * @throws { BusinessError } 9201030 - Failed to install the HAP because the VersionCode to be updated is not greater
    *     than the current VersionCode.
-   * @throws { BusinessError } 9201031 - Installation failed because the dependant module does not exist.
+   * @throws { BusinessError } 9201031 - Installation failed because the dependent module does not exist.
    * @throws { BusinessError } 9201032 - The specified user ID is not found.
    * @throws { BusinessError } 9201033 - Failed to install the HAP because the overlay check failed.
    * @throws { BusinessError } 9201034 - Failed to install the HSP due to missing required permissions.
@@ -1908,7 +2044,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
+   * @stagemodelonly
    * @since 26.0.0
    */
   function installForResult(admin: Want, hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
@@ -1924,7 +2060,7 @@ declare namespace bundleManager {
    * @param { Array<AppDistributionType> } appDistributionTypes - 应用程序签名证书的分发类型数组。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -1944,7 +2080,7 @@ declare namespace bundleManager {
    * @param { Array<AppDistributionType> } appDistributionTypes - 应用程序签名证书的分发类型数组。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -1970,12 +2106,30 @@ declare namespace bundleManager {
   function getInstallationAllowedAppDistributionTypes(admin: Want): Array<AppDistributionType>;
 
   /**
+   * 获取可安装的应用程序签名证书的分发类型。
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
+   * @param { Want | null } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   *     当设备存在多个MDM应用时，传入Want时查询对应企业设备管理应用设置的策略，传入null时查询实际生效的策略。
+   * @returns { Array<AppDistributionType> } 应用程序签名证书的分发类型数组。
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getInstallationAllowedAppDistributionTypes(admin: Want | null): Array<AppDistributionType>;
+
+  /**
    * 获取设备指定用户下已安装应用列表。使用Promise异步回调。
    *
    * @permission ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { number } accountId - 用户ID，取值为正整数，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。*@ohos.account.osAccount** to obtain the user ID.
    * @returns { Promise<Array<BundleInfo>> } Promise对象，返回已安装应用包信息。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1992,12 +2146,10 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
-   * @param { int } accountId - 账号ID
-   *     <br>取值应为≥0的整数。
-   *     - 用户ID，取值为正整数，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   * @param { int } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。*@ohos.account.osAccount** to obtain the user ID.
    * @param { int } bundleInfoGetFlag - 指定返回的BundleInfo所包含的信息。
-   *     <br>取值范围为全体整数。
    * @returns { Promise<Array<BundleInfo>> } Promise对象，返回已安装应用包信息。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -2011,19 +2163,15 @@ declare namespace bundleManager {
 
   /**
    * 下载并安装应用市场应用。
-   *
+   * 
    * > **说明：**
    * >
    * > 本接口调用成功后会在桌面上生成应用下载任务，此任务与从应用市场下载所创建任务一致。下载安装结束后，安装结果会通过回调
-   * > [EnterpriseAdminExtensionAbility.onMarketAppInstallResult]{@link
+   * > [EnterpriseAdminExtensionAbility.onMarketAppInstallResult]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility#onMarketAppInstallResult}
+   * > 返回。
    *
-   * > **说明**
-   * >
-   * 本接口调用成功后会在桌面上生成应用下载任务，此任务与从应用市场下载所创建任务一致。下载安装结束后，安装结果会通过回调[EnterpriseAdminExtensionAbility.onMarketAppInstallResult
-   * ]{@link
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
-   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { Array<string> } bundleNames - 应用包名列表，一次最多传入10个。包名需与应用市场中包名一致，否则无法创建下载任务，并抛出错误码9201002。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -2039,7 +2187,7 @@ declare namespace bundleManager {
 
   /**
    * 获取设备指定用户下已安装应用的存储占用信息。使用Promise异步回调。
-   *
+   * 
    * > **说明：**
    * >
    * > 1.仅能获取已安装应用的存储占用信息。
@@ -2053,10 +2201,9 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { Array<string> } bundleNames - 应用包名列表。取值范围：小于等于200个应用包名。
-   * @param { number } accountId - 账号ID
-   *     <br>取值应为≥0的整数。
-   *     - 用户ID，取值范围：大于等于0。<br> accountId可以通过@ohos.account.osAccount中的
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   * @param { number } accountId - 用户ID，取值范围：大于等于0。
+   *     <br> accountId可以通过@ohos.account.osAccount中的
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。*@ohos.account.osAccount** to obtain the user ID.
    * @returns { Promise<Array<BundleStorageStats>> } Promise对象，返回已安装应用的存储占用信息。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.

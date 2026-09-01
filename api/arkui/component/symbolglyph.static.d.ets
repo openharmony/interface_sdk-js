@@ -425,7 +425,8 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
     /**
      * Called when the SymbolGlyph color is set.
      *
-     * @param { Array<ResourceColor> | undefined } value
+     * @param { Array<ResourceColor> | undefined } value - Font color of the SymbolGlyph component. <br/>When value is
+     *     undefined, the default color of the icon is used. The default color follows the theme.
      * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -466,7 +467,13 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
      * Used to set the font weight of SymbolGlyph.
      *
      * @param { int | FontWeight | ResourceStr | undefined } value - the SymbolGlyph font weight.
+     *     For the int type, the value range is [100, 900]. When enableVariableFontWeight in
+     *     fontWeightConfigs is **false**, the value must be a multiple of 100; when **true**,
+     *     any integer within [100, 900] is supported.
+     *     The default value is FontWeight.Normal. Passing `undefined` resets it to the default value.
      * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+     *     If not specified, the default values of FontWeightConfigs are used:
+     *     enableVariableFontWeight defaults to **false**, and enableDeviceFontWeightCategory defaults to **true**.
      * @returns { SymbolGlyphAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -596,11 +603,12 @@ export declare interface SymbolGlyphAttribute extends CommonMethod {
     /**
      * Set SymbolGlyph options.
      *
-     * @param { Resource } [value] - SymbolGlyph constructor options
+     * @param { Resource } [value] - SymbolGlyph constructor options.
      * @returns { SymbolGlyphAttribute } Returns the instance of the SymbolGlyphAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setSymbolGlyphOptions(value?: Resource): this;
 }
@@ -626,8 +634,9 @@ export declare function SymbolGlyph(
  * @param { CustomBuilderT<SymbolGlyphAttribute> } style - SymbolGlyph attribute instance
  * @returns { SymbolGlyphAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

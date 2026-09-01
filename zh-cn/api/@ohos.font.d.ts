@@ -42,7 +42,7 @@ declare namespace font {
    * >
    * > 直接使用font可能导致[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题，推荐通过使用
    * > [UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont)方法获取当前UI上下文关联的
+   * > [getFont]{@link UIContext#getFont}方法获取当前UI上下文关联的
    * > [Font]{@link @ohos.arkui.UIContext}对象。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -461,12 +461,12 @@ declare namespace font {
    * > **说明：**
    * >
    * > -registerFont需要先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont)方法获取
+   * > [getFont]{@link UIContext#getFont}方法获取
    * > [Font]{@link @ohos.arkui.UIContext}对象，然后通过该对象进行调用。且直接使用registerFont可能导致
    * > [UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont)方法获取当前UI上下文关联的
+   * > [getFont]{@link UIContext#getFont}方法获取当前UI上下文关联的
    * > [Font]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { FontOptions } options - 注册的自定义字体信息。
@@ -489,12 +489,12 @@ declare namespace font {
    * > **说明：**
    * >
    * > -getSystemFontList需要先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont)方法获取
+   * > [getFont]{@link UIContext#getFont}方法获取
    * > [Font]{@link @ohos.arkui.UIContext}对象，然后通过该对象进行调用。且直接使用getSystemFontList可能导致
    * > [UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont)方法获取当前UI上下文关联的
+   * > [getFont]{@link UIContext#getFont}方法获取当前UI上下文关联的
    * > [Font]{@link @ohos.arkui.UIContext}对象。
    *
    * @returns { Array<string> } 系统的字体名列表。
@@ -514,12 +514,12 @@ declare namespace font {
    * > **说明：**
    * >
    * > -getFontByName需要先通过[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont)方法获取
+   * > [getFont]{@link UIContext#getFont}方法获取
    * > [Font]{@link @ohos.arkui.UIContext}对象，然后通过该对象进行调用。且直接使用getFontByName可能导致
    * > [UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题。
    * >
    * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
-   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont)方法获取当前UI上下文关联的
+   * > [getFont]{@link UIContext#getFont}方法获取当前UI上下文关联的
    * > [Font]{@link @ohos.arkui.UIContext}对象。
    *
    * @param { string } fontName - 系统的字体名。

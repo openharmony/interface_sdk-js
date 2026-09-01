@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 应用故障恢复
  * @kit AbilityKit
  */
 

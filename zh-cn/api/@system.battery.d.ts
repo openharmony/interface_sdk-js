@@ -19,7 +19,7 @@
  */
 
 /**
- * 该模块提供充电状态及剩余电量的查询功能。
+ * 该模块提供充电状态及剩余电量的查询功能，适用于需要根据设备电池状态调整应用行为的场景，例如在低电量时降低后台活动频率或提醒用户充电，帮助开发者优化应用的能耗表现和用户体验。
  * 
  * > **说明：**
  * >
@@ -37,6 +37,7 @@
  * 包含充电状态及剩余电量的对象。
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 6
  * @reserved ["liteWearable"]
@@ -49,6 +50,7 @@ export interface BatteryResponse {
    * [`batteryInfo.chargingStatus`](docroot://reference/apis-basic-services-kit/js-apis-battery-info.md#常量)替代。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -63,6 +65,7 @@ export interface BatteryResponse {
    * [`batteryInfo.batterySOC`](docroot://reference/apis-basic-services-kit/js-apis-battery-info.md#常量)替代。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -72,18 +75,20 @@ export interface BatteryResponse {
 }
 
 /**
- * 包含接口调用结果的对象。
+ * 包含接口调用选项的对象，包括成功、失败和完成回调函数。
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 6
  * @reserved ["liteWearable"]
  */
 export interface GetStatusOptions {
   /**
-   * 接口调用成功的回调函数，data为[BatteryResponse](#batteryresponsedeprecated)类型的返回值。
+   * 接口调用成功的回调函数，data为{@link BatteryResponse}类型的返回值。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -94,6 +99,7 @@ export interface GetStatusOptions {
    * 接口调用失败的回调函数。data为错误信息，code为错误码。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -101,9 +107,10 @@ export interface GetStatusOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * 接口调用结束的回调函数。
+   * 接口调用结束的回调函数，无论接口调用成功或失败都会执行。当需要在接口调用完成后执行清理或通知操作时传入此回调。不传入时无结束通知。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -115,6 +122,7 @@ export interface GetStatusOptions {
  * 该模块提供充电状态及剩余电量的查询功能。
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 6
  * @reserved ["liteWearable"]
@@ -123,8 +131,9 @@ export default class Battery {
   /**
    * 获取设备当前的充电状态及剩余电量。
    *
-   * @param { GetStatusOptions } options 包含接口调用结果的对象。可选，默认为空。
+   * @param { GetStatusOptions } options 包含接口调用结果的对象，用于通过回调获取设备充电状态及剩余电量。不传入时无法获取电量信息，不执行任何回调。
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]

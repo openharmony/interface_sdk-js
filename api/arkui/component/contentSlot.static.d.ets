@@ -53,8 +53,9 @@ export declare interface ContentSlotAttribute {
    * @param { Content } content - Content to display.
    * @returns { this } ContentSlotAttribute instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   setContentSlotOptions(content: Content): this;
 
@@ -62,8 +63,9 @@ export declare interface ContentSlotAttribute {
    * Notify ContentSlot has finished setting up its attributes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   applyAttributesFinish(): void;
 }
@@ -84,14 +86,15 @@ export declare function ContentSlot(
 ): ContentSlotAttribute;
 
 /**
- * Defines ContentSlot Component.It requires call setContentSlotOptions at start of the component attribute set-up,
- * and it requires call applyAttributeFinish at the end of the component attribute set-up.
+ * Defines ContentSlot Component.It requires calling setContentSlotOptions at start of the component attribute set-up,
+ * and it requires calling applyAttributesFinish at the end of the component attribute set-up.
  *
  * @param { CustomBuilderT<ContentSlotAttribute> } style - the callback to set up ContentSlot's attributes.
  * @returns { ContentSlotAttribute } The attribute of the ContentSlot.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function ContentSlot(

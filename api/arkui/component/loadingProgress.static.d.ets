@@ -108,12 +108,14 @@ export declare interface LoadingProgressAttribute extends CommonMethod {
     default attributeModifier(modifier: AttributeModifier<LoadingProgressAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 
     /**
-     * Set LoadingProgress options.
+     * Sets the default LoadingProgress options. The default options include the default
+     * loading progress style and color settings.
      *
      * @returns { LoadingProgressAttribute } Returns the instance of the LoadingProgressAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setLoadingProgressOptions(): this;
 }
@@ -153,8 +155,9 @@ export declare function LoadingProgress(
  * @param { CustomBuilderT<LoadingProgressAttribute> } style - LoadingProgress attribute instance
  * @returns { LoadingProgressAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

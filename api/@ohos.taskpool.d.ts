@@ -462,7 +462,7 @@ declare namespace taskpool {
    * Implements a task group, in which tasks are associated with each other and all tasks are executed at a time. If all
    * the tasks are executed normally, an array of task results is returned asynchronously, and the sequence of elements
    * in the array is the same as the sequence of tasks added by calling
-   * [addTask]{@link taskpool.TaskGroup#addTask(task: Task)}. If any task fails, the corresponding exception is thrown.
+   * [addTask]{@link taskpool.TaskGroup.addTask(task: Task)}. If any task fails, the corresponding exception is thrown.
    * If multiple tasks in the task group fail, the exception of the first failed task is thrown. A task group can be
    * executed for multiple times, but no task can be added after the task group is executed.
    *
@@ -607,7 +607,7 @@ declare namespace taskpool {
 
   /**
    * Describes a continuous task. **LongTask** inherits from
-   * [Task]{@link taskpool.execute(func: Function, ...args: Object[])}.
+   * [Task]{@link taskpool.Task}.
    * No upper limit is set for the execution time of a continuous task, and no timeout exception is thrown if a
    * continuous task runs for a long period of time. However, a continuous task cannot be executed in a task group or
    * executed for multiple times.
@@ -623,7 +623,7 @@ declare namespace taskpool {
 
   /**
    * Implements a generic task. **GenericsTask** inherits from
-   * [Task]{@link taskpool.execute(func: Function, ...args: Object[])}.
+   * [Task]{@link taskpool.Task}.
    * During the creation of a generic task, the passed-in parameter types and return value types of concurrent functions
    * are verified in the compilation phase. Other behaviors are the same as those during the creation of a task.
    *

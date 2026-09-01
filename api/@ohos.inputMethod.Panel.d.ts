@@ -15,8 +15,13 @@
 
 /**
  * The **inputMethod.Panel** module provides APIs for managing the attributes of the input method panel.
+ * <br>
+ * <br> > **NOTE**
+ * <br> >
+ * <br> >The initial APIs of this module are supported since API version 11.
+ *  Newly added APIs will be marked with a superscript to indicate their earliest API version.
  *
- * @file
+ * @file Input Method Panel
  * @kit IMEKit
  */
 
@@ -39,9 +44,9 @@ export interface PanelInfo {
 
   /**
    * State type of the input method panel.
-   * 
-   * - The default value is **FLAG_FIXED**.
-   * - Currently, this parameter is used to describe the state type of the soft keyboard.
+   * <br>
+   * <br>- The default value is **FLAG_FIXED**.
+   * <br>- Currently, this parameter is used to describe the state type of the soft keyboard.
    *
    * @default FLG_FIXED
    * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -53,10 +58,10 @@ export interface PanelInfo {
 
 /**
  * Enumerates the state types of the input method panel.
- * 
- * > **NOTE**
- * >
- * > Currently, only the **SOFT_KEYBOARD** panel is supported.
+ * <br>
+ * <br> > **NOTE**
+ * <br> >
+ * <br> > Currently, only the **SOFT_KEYBOARD** panel is supported.
  *
  * @syscap SystemCapability.MiscServices.InputMethodFramework
  * @since 11 dynamic
@@ -83,9 +88,9 @@ export enum PanelFlag {
 
   /**
    * Candidate state type.
-   * 
-   * - When in the candidate state type, the input method panel is a window displaying candidates based on user input.
-   * - The input method service does not proactively control the visibility of the candidate panel. You need to control 
+   * <br>
+   * <br>- When in the candidate state type, the input method panel is a window displaying candidates based on user input.
+   * <br>- The input method service does not proactively control the visibility of the candidate panel. You need to control 
    * the visibility on your own.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework

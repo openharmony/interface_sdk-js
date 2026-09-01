@@ -21,15 +21,10 @@
  */
 
 import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, TranslateOptions, DividerStyle, Bindable } from './common';
-
 import { EdgeEffect, PageFlipMode, Curve } from "./enums";
-
 import { Dimension, Length, ResourceColor } from "./units";
-
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
-
 import { AttributeModifier, CommonMethod, ICurve } from "./common";
-
 import { CommonModifier } from '@ohos.arkui.modifier';
 
 import uiMaterial from '../../@ohos.arkui.uiMaterial'
@@ -67,13 +62,12 @@ export declare enum BarMode {
 
 /**
  * Tabs nested scroll nested mode
- *
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 24 static
  */
 export declare enum TabsNestedScrollMode {
-
   /**
    * The scrolling is contained within the Tabs component, and no scroll chaining occurs, that is,
    * the parent container does not scroll when the component scrolling reaches the boundary.
@@ -168,7 +162,7 @@ export declare enum BarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  Start = 0,
+  Start,
 
   /**
    * When the vertical attribute method is set to true, the tab is located on the right of the container.
@@ -178,7 +172,7 @@ export declare enum BarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  End = 1
+  End
 }
 
 /**
@@ -717,7 +711,6 @@ export type OnTabsContentWillChangeCallback = (currentIndex: int, comingIndex: i
  * @since 23 static
  */
 export type OnTabsContentDidScrollCallback = (selectedIndex: int, index: int, position: double, mainAxisLength: double) => void;
-
 /**
  * The TabsAttribute.
  *
@@ -727,7 +720,6 @@ export type OnTabsContentDidScrollCallback = (selectedIndex: int, index: int, po
  * @noninterop
  */
 export declare interface TabsAttribute extends CommonMethod {
-
   /**
    * Sets whether to use vertical tabs.
    *
@@ -1231,7 +1223,8 @@ export declare interface TabsAttribute extends CommonMethod {
    * @returns { TabsAttribute } Returns the instance of the TabsAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   default setTabsOptions(options?: TabsOptions): this;
 
@@ -1278,7 +1271,6 @@ export declare interface TabContentAnimatedTransition {
    */
   transition: Callback<TabContentTransitionProxy>;
 }
-
 /**
  * The proxy of TabContentAnimatedTransition.
  *
@@ -1343,7 +1335,8 @@ export declare function Tabs(
  * @returns { TabsAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
+ * @unpublished
  */
 @Builder
 export declare function Tabs(

@@ -234,8 +234,9 @@ export declare interface RatingAttribute extends CommonMethod {
      * @param { RatingOptions } [options] - rating constructor options
      * @returns { RatingAttribute } Returns the instance of the RatingAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setRatingOptions(options?: RatingOptions): this;
  }
@@ -263,8 +264,9 @@ export declare function Rating(
  * @param { CustomBuilder } [content_] - container
  * @returns { RatingAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

@@ -45,7 +45,7 @@ declare enum ItemState {
    * @deprecated since 22
    * @useinstead Swiper.SwiperAttribute#index
    */
-  Normal = 0,
+  Normal,
 
   /**
    * The button on the right is disabled.
@@ -62,7 +62,7 @@ declare enum ItemState {
    * @deprecated since 22
    * @useinstead Swiper.SwiperAttribute#indicatorInteractive
    */
-  Disabled = 1,
+  Disabled,
 
   /**
    * The button on the right is not displayed, and a progress bar is displayed instead.
@@ -79,7 +79,7 @@ declare enum ItemState {
    * @deprecated since 22
    * @useinstead Swiper
    */
-  Waiting = 2,
+  Waiting,
 
   /**
    * The button on the right reads "Skip" by default. You can define the processing logic for this state in the
@@ -97,7 +97,7 @@ declare enum ItemState {
    * @deprecated since 22
    * @useinstead Swiper.SwiperAttribute#index
    */
-  Skip = 3
+  Skip
 }
 
 /**
@@ -228,7 +228,7 @@ declare const StepperItemInstance: StepperItemAttribute;
  * ###### Child Components
  *
  * This component supports only one child component.
- *
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]

@@ -35,7 +35,6 @@ export declare interface DistortionParam {
   /**
    * Coordinate of top-left corner.
    *
-   * @default [0, 0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -45,7 +44,6 @@ export declare interface DistortionParam {
   /**
    * Coordinate of top-right corner.
    *
-   * @default [0, 0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -55,7 +53,6 @@ export declare interface DistortionParam {
   /**
    * Coordinate of bottom-left corner.
    *
-   * @default [0, 0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -65,7 +62,6 @@ export declare interface DistortionParam {
   /**
    * Coordinate of bottom-right corner.
    *
-   * @default [0, 0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -75,7 +71,6 @@ export declare interface DistortionParam {
   /**
    * Distortion parameters for spatial distortion effects.
    *
-   * @default [0, 0, 0, 0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -120,8 +115,9 @@ export declare interface DistortionComponentAttribute extends CommonMethod {
      * @returns { DistortionComponentAttribute } Returns instance of  DistortionComponentAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setDistortionComponentOptions(options?: DistortionComponentOptions): this;
 }
@@ -153,8 +149,9 @@ export declare function DistortionComponent(
  * @returns { DistortionComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function DistortionComponent(

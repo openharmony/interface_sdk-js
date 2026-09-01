@@ -14,25 +14,24 @@
  */
 
 /**
- * The **Base** module defines the public callback types of ArkTS APIs, including the common and error callbacks.
- * These callbacks provide a unified asynchronous processing mechanism for processing asynchronous operation
- * results and error messages. They can help developers simplify the asynchronous programming model and improve
- * code readability and maintainability.
- *
+ * The **Base** module defines the public callback types of ArkTS APIs, including the common and error callbacks. These 
+ * callbacks provide a unified asynchronous processing mechanism for processing asynchronous operation results and error
+ * messages. They can help developers simplify the asynchronous programming model and improve code readability and 
+ * maintainability.
+ * 
  * > **NOTE**
  * >
  * > - The initial APIs of this module are supported since API version 6. Newly added APIs will be marked with a
  * >   superscript to indicate their earliest API version.
- * > 
  * > - Since API version 12, the APIs of this module are supported in ArkTS widgets.
  *
- * @file
+ * @file Public Callback Information
  * @kit BasicServicesKit
  */
 
 /**
- * Defines a common callback. You can set **data** to customize the data type of the information returned by the
- * callback.
+ * Defines a common callback used to return the processing result when an asynchronous operation is successful.
+ * You need to define the callback type.
  *
  * @typedef { Callback } [since 6 - 11]
  * @typedef { Callback<T> } [since 12]
@@ -46,8 +45,8 @@ export interface Callback<T> {
 
   /**
    *
-   * @param { T } data - Common callback information. The type is defined by the developer. 
-   *     The callback is used to return data of the corresponding type.
+   * @param { T } data - Common callback information. The type is defined by the developer.
+   *     The callback is used to return data of the corresponding type. No data is returned if the callback fails.
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
    * @form [since 12]
@@ -58,8 +57,12 @@ export interface Callback<T> {
 }
 
 /**
- * Defines a common callback that carries an error parameter. The information returned by the callback is of
- * the [BusinessError]{@link BusinessError} type.
+ * Defines a common callback that carries an error parameter.
+ * It is used to return error information when an asynchronous operation fails.
+ * The specific error code is defined by each API.
+ * For details, please refer to the error code description of the corresponding API.
+ *
+ * The information returned by the callback is an error parameter of the [BusinessError]{@link BusinessError} type.
  *
  * @typedef ErrorCallback [since 6 - 10]
  * @typedef ErrorCallback<T extends Error = BusinessError> [since 11]
@@ -72,7 +75,9 @@ export interface ErrorCallback<T extends Error = BusinessError> {
 
   /**
    *
-   * @param { T } err - Common error message returned when the API fails to be called.
+   * @param { T } err - Common error information returned when the API fails to be called.
+   *     The default type is **BusinessError**, including the error code (**code**)
+   *     and optional additional data (**data**).
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -82,9 +87,12 @@ export interface ErrorCallback<T extends Error = BusinessError> {
 }
 
 /**
- * Defines a common callback that carries an error parameter and asynchronous return value.The error parameter is of
- * the [BusinessError]{@link BusinessError} type. The type of the asynchronous return value is defined by the
- * developer.
+ * Defines a common callback that carries an error parameter and asynchronous return value. It is used to return error
+ * information or success data when an asynchronous operation is complete.
+ *
+ * The error parameter is of the [BusinessError]{@link BusinessError} type.
+ *
+ * The type of the asynchronous return value is defined by the developer.
  *
  * @typedef AsyncCallback [since 6 - 11]
  * @typedef AsyncCallback<T, E = void> [since 12]
@@ -98,7 +106,11 @@ export interface AsyncCallback<T, E = void> {
 
   /**
    *
-   * @param { BusinessError<E> } err - Common error message returned when the API fails to be called.
+   * @param { BusinessError<E> } err - Common error information returned when the API fails to be called,
+   *     including the error code and optional additional data.
+   *     If the **E** parameter is not specified, the default value **void** is used.
+   *     In this case, **BusinessError** contains only the error code.
+   *     If the API call succeeds, this parameter returns **null**.
    * @param { T } data - Data returned asynchronously when the API is successfully called. The data type is defined by
    *     the developer. This parameter is unavailable when the API fails to be called.
    * @syscap SystemCapability.Base
@@ -111,7 +123,8 @@ export interface AsyncCallback<T, E = void> {
 }
 
 /**
- * Defines the error parameter.
+ * Defines an error parameter. This API inherits from the **Error** class and is used to pass standard error
+ * information, including the error code and optional additional information.
  *
  * @typedef BusinessError [since 6 - 11]
  * @typedef BusinessError<T = void> [since 12]
@@ -124,7 +137,8 @@ export interface AsyncCallback<T, E = void> {
 export interface BusinessError<T = void> extends Error {
 
   /**
-   * Error code returned when the API fails to be called.
+   * Error code returned when the API fails to be called. The specific error code is defined by each API. For details,
+   * see the error code description of the corresponding API.
    *
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
@@ -135,8 +149,8 @@ export interface BusinessError<T = void> extends Error {
   code: number;
 
   /**
-   * Error message returned when the API fails to be called. If this parameter is left empty, the error object does
-   * not contain additional data.
+   * Error message returned when the API fails to be called. If this parameter is left empty, the error object does not
+   * contain additional data.
    *
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]

@@ -220,8 +220,9 @@ export declare interface ListItemGroupAttribute extends CommonMethod {
    * @param { ListItemGroupOptions } [options] - ListItemGroup constructor options
    * @returns { ListItemGroupAttribute } Returns the instance of the ListItemGroupAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setListItemGroupOptions(options?: ListItemGroupOptions): this;
 
@@ -261,8 +262,9 @@ export declare function ListItemGroup(
  * @param { CustomBuilder } [content_]
  * @returns { ListItemGroupAttribute } The attribute of the ListItemGroup.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

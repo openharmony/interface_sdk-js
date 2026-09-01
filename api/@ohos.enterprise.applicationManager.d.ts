@@ -14,23 +14,24 @@
  */
 
 /**
- * @file
+ * @file Application Management
  * @kit MDMKit
  */
 
 import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 import common from './@ohos.enterprise.common';
-
 import statistics from './@ohos.net.statistics';
 
 /**
- * The **applicationManager** module provides application management capabilities, including adding, removing, and
- * obtaining the applications that are forbidden to run.
+ * This module provides application management capabilities, including managing the application running blocklist,
+ * application running trustlist, auto-startup application list, keep-alive application list, non-stoppable application
+ * list, background freeze-exempt application list, notification trustlist, and cross-device application trustlist. It
+ * is suitable for enterprise device management scenarios, enabling control over application running permissions, auto-
+ * startup management, keep-alive application management, and more, thereby enhancing enterprise device security and
+ * compliance.
  *
  * > **NOTE**
- * >
- * > The APIs of this module can be used only in the stage model.
  * >
  * > The APIs of this module can be called only by a device administrator application that is enabled. For details, see
  * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md). The
@@ -38,6 +39,8 @@ import statistics from './@ohos.net.statistics';
  * > applications.
  *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+ * @systemapi [since 10 - 11]
+ * @publicapi [since 12]
  * @since 10
  */
 declare namespace applicationManager {
@@ -114,7 +117,6 @@ declare namespace applicationManager {
 
     /**
      * Location index of the application in the shortcut bar.
-     * The value range is all integers.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -124,7 +126,7 @@ declare namespace applicationManager {
   }
 
   /**
-   * The type of distribute ability.
+   * Distributed service type.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -132,7 +134,11 @@ declare namespace applicationManager {
    */
   enum ServiceType {
     /**
-     * Collaboration service.
+     * Collaboration service. Applications allowed to use the collaboration service can launch pages of other
+     * applications across devices and transmit data to them by using the APIs in
+     * [UIAbilityContext]{@link ./application/UIAbilityContext:UIAbilityContext} or
+     * [UIExtensionContext]{@link ./application/UIExtensionContext:UIExtensionContext}, or by using the method in
+     * [Cross-Device UIAbility Connection Development](docroot://distributedservice/abilityconnectmanager-guidelines.md).
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -142,7 +148,7 @@ declare namespace applicationManager {
   }
 
   /**
-   * The bundle statistics information.
+   * Application bundle statistics.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -150,7 +156,7 @@ declare namespace applicationManager {
    */
   interface BundleStatsInfo {
     /**
-     * The bundle name of the application.
+     * Bundle name of the application.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -159,7 +165,9 @@ declare namespace applicationManager {
     bundleName: string;
 
     /**
-     * The index of the application.
+     * Index of the application clone. The value is an integer greater than or equal to 0.
+     * You can call [getAppCloneIdentity]{@link @ohos.bundle.bundleManager:bundleManager.getAppCloneIdentity} of @
+     * ohos.bundle.bundleManager to obtain the index.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -168,8 +176,7 @@ declare namespace applicationManager {
     appIndex: number;
 
     /**
-     * The total duration, in milliseconds.
-     * The value should be an integer.
+     * Total duration that the ability runs in the foreground, in milliseconds.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -179,7 +186,7 @@ declare namespace applicationManager {
   }
 
   /**
-   * Window state information.
+   * Defines the application window state information.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -187,7 +194,7 @@ declare namespace applicationManager {
    */
   interface WindowStateInfo {
     /**
-     * The ID of the window.
+     * Application window ID.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -196,7 +203,7 @@ declare namespace applicationManager {
     windowId: number;
 
     /**
-     * The name of the window.
+     * Application window name.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -205,7 +212,7 @@ declare namespace applicationManager {
     name: string;
 
     /**
-     * The state of the window.
+     * Application window state.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -214,7 +221,8 @@ declare namespace applicationManager {
     state: WindowState;
 
     /**
-     * Is the application on the dock.
+     * Whether the application window is displayed on the bottom dock. For application on the bottom dock on tablets in
+     * PC mode and PCs/2-in-1 devices. For other devices, **false** is returned.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -224,7 +232,7 @@ declare namespace applicationManager {
   }
 
   /**
-   * The state of the window.
+   * Enumerates application window states.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -232,7 +240,7 @@ declare namespace applicationManager {
    */
   enum WindowState {
     /**
-     * Disconnect state.
+     * The window has been created but is currently unavailable.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -241,7 +249,7 @@ declare namespace applicationManager {
     DISCONNECT = 0,
 
     /**
-     * Connect state.
+     * The window has been created and is available for use.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -250,7 +258,7 @@ declare namespace applicationManager {
     CONNECT = 1,
 
     /**
-     * Foreground state.
+     * Foreground state, indicating that the window has entered the foreground display. This is a transitional state.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -259,7 +267,7 @@ declare namespace applicationManager {
     FOREGROUND = 2,
 
     /**
-     * Active state.
+     * Foreground active state, indicating that the window is currently displayed in the foreground.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -268,7 +276,8 @@ declare namespace applicationManager {
     ACTIVE = 3,
 
     /**
-     * Inactive state.
+     * Foreground inactive state, indicating that the window is about to enter the background. This is a transitional
+     * state.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -277,7 +286,7 @@ declare namespace applicationManager {
     INACTIVE = 4,
 
     /**
-     * Background state.
+     * Background state, indicating that the window has been moved to the background and is not visible.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -289,16 +298,15 @@ declare namespace applicationManager {
   /**
    * Adds the applications that are not allowed to run under the current user. This API uses an asynchronous callback to
    * return the result. From API version 21, if the allowed application list
-   * [addallowedRunningBundles]{@link @ohos.enterprise.applicationManager:applicationManager.addAllowedRunningBundles}
-   * is not empty, the prohibited application list cannot be added using this API. Otherwise, the error code 9200010 is
-   * reported.
+   * [addAllowedRunningBundles]{@link applicationManager.addAllowedRunningBundles} is not empty, the prohibited
+   * application list cannot be added using this API. Otherwise, the error code 9200010 is reported.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
-   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
-   *     versions, only **appId** can be passed.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: From API version 21 onwards, the **appId** and **appIdentifier** of the app can be passed.
+   *     **appIdentifier** is recommended. In API version 20 and earlier versions, only **appId** can be passed.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -321,16 +329,15 @@ declare namespace applicationManager {
   /**
    * Adds the applications that are not allowed to run under a specified user (specified by **userId**). This API uses
    * an asynchronous callback to return the result. From API version 21, if the allowed application list
-   * [addallowedRunningBundles]{@link @ohos.enterprise.applicationManager:applicationManager.addAllowedRunningBundles}
-   * is not empty, the prohibited application list cannot be added using this API. Otherwise, the error code 9200010 is
-   * reported.
+   * [addAllowedRunningBundles]{@link applicationManager.addAllowedRunningBundles} is not empty, the prohibited
+   * application list cannot be added using this API. Otherwise, the error code 9200010 is reported.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
-   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
-   *     versions, only **appId** can be passed.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: From API version 21 onwards, the **appId** and **appIdentifier** of the app can be passed.
+   *     **appIdentifier** is recommended. In API version 20 and earlier versions, only **appId** can be passed.
    * @param { number } userId - User ID, which must be greater than or equal to 0.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
@@ -354,19 +361,18 @@ declare namespace applicationManager {
   /**
    * Adds the applications that are not allowed to run by the current or specified user. This API uses a promise to
    * return the result. From API version 21, if the allowed application list
-   * [addallowedRunningBundles]{@link @ohos.enterprise.applicationManager:applicationManager.addAllowedRunningBundles}
-   * is not empty, the prohibited application list cannot be added using this API. Otherwise, the error code 9200010 is
-   * reported.
+   * [addAllowedRunningBundles]{@link applicationManager.addAllowedRunningBundles} is not empty, the prohibited
+   * application list cannot be added using this API. Otherwise, the error code 9200010 is reported.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
-   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
-   *     versions, only **appId** can be passed.
-   * @param { number } userId - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in, the
-   *     applications cannot be run by the specified user.<br> - If **userId** is not passed in, the applications cannot
-   *     be run by the current user.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: From API version 21 onwards, the **appId** and **appIdentifier** of the app can be passed.
+   *     **appIdentifier** is recommended. In API version 20 and earlier versions, only **appId** can be passed.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.
+   *     <br> - If **userId** is passed in, the applications cannot be run by the specified user.
+   *     <br> - If **userId** is not passed in, the applications cannot be run by the current user.
    * @returns { Promise<void> } Promise that returns no value. An error object is thrown when an application that is not
    *     allowed to run fails to be added.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -387,21 +393,34 @@ declare namespace applicationManager {
   function addDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
-   * Adds the applications that are not allowed to run by the current or specified user. From API version 21, if the
-   * allowed application list [addallowedRunningBundles]{@link applicationManager.addAllowedRunningBundles} is not empty
-   * , the prohibited application list cannot be added using this API. Otherwise, the error code 9200010 is reported.
+   * Adds applications to the application running blocklist. Applications added to the blocklist are not allowed to run
+   * under the current or specified user. Since API version 21, if the application running trustlist
+   * [addAllowedRunningBundles]{@link applicationManager.addAllowedRunningBundles} is not empty, the application running
+   * blocklist cannot be added via this API. Otherwise, the error code 9200010 is reported.
+   *
+   * > **NOTE**
+   * >
+   * > If a specified application is running, the system will immediately terminate the application process once it is
+   * > added to the blocklist.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - IDs of the applications to add.<br>**Note**: From API version 21 onwards, the
+   * @param { Array<string> } appIds - IDs of the applications to add.
+   *     <br>**Note**: From API version 21 onwards, the
    *     [appId](docroot://quick-start/common-problem-of-application.md#what-is-appid) and
    *     [appIdentifier](docroot://quick-start/common-problem-of-application.md#what-is-appidentifier) of the app can be
    *     passed. **appIdentifier** is recommended. In API version 20 and earlier versions, only **appId** can be passed.
-   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     <br>Value range:
+   *     <br> The total number of entries in this list for a single user must not exceed 200. For example, if 50 entries
+   *     have been set for user 100 and none for user 101, user 100 can add 150 more entries, while user 101 can add up
+   *     to 200 entries.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
-   *     ohos.account.osAccount to obtain the ID.<br> - If **accountId** is passed in, this API applies to the specified
-   *     user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   *     ohos.account.osAccount to obtain the ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -426,10 +445,10 @@ declare namespace applicationManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
-   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
-   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
-   *     transferred.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: Since API version 21, elements in the array can use **appId** and **appIdentifier**. Only the input
+   *     **appId** or **appIdentifier** is removed. **appIdentifier** or **appId** of the same app will not be removed.
+   *     In API version 20 and earlier versions, only **appId** can be transferred.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -455,10 +474,10 @@ declare namespace applicationManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
-   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
-   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
-   *     transferred.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: Since API version 21, elements in the array can use **appId** and **appIdentifier**. Only the input
+   *     **appId** or **appIdentifier** is removed. **appIdentifier** or **appId** of the same app will not be removed.
+   *     In API version 20 and earlier versions, only **appId** can be transferred.
    * @param { number } userId - User ID, which must be greater than or equal to 0.
    * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
@@ -479,19 +498,19 @@ declare namespace applicationManager {
   function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Removes an application from the applications that are not allowed to run under the current or specified user. This
+   * Removes applications from the applications that are not allowed to run under the current or specified user. This
    * API uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
-   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
-   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
-   *     transferred.
-   * @param { number } userId - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in, the
-   *     applications cannot be run by the specified user.<br> - If **userId** is not passed in, the applications cannot
-   *     be run by the current user.
+   * @param { Array<string> } appIds - Application IDs.
+   *     <br>Note: Since API version 21, elements in the array can use **appId** and **appIdentifier**. Only the input
+   *     **appId** or **appIdentifier** is removed. **appIdentifier** or **appId** of the same app will not be removed.
+   *     In API version 20 and earlier versions, only **appId** can be transferred.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.
+   *     <br> - If **userId** is passed in, the applications cannot be run by the specified user.
+   *     <br> - If **userId** is not passed in, the applications cannot be run by the current user.
    * @returns { Promise<void> } Promise that returns no value. An error object is thrown when an application that is not
    *     allowed to run fails to be removed.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -511,19 +530,22 @@ declare namespace applicationManager {
   function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
-   * Removes the applications that are not allowed to run by the current user or specified user.
+   * Removes applications from the application running blocklist of the current or specified user. After an application
+   * is removed, it is allowed to run under the current or specified user.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIds - IDs of the applications to add.<br>Note: Since API version 21, elements in the
-   *     array can use **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed.
-   *     **appIdentifier** or **appId** of the same app will not be removed. In API version 20 and earlier versions,
-   *     only **appId** can be transferred.
-   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   * @param { Array<string> } appIds - IDs of the applications to add.
+   *     <br>Note: Since API version 21, elements in the array can use **appId** and **appIdentifier**. Only the input
+   *     **appId** or **appIdentifier** is removed. **appIdentifier** or **appId** of the same app will not be removed.
+   *     In API version 20 and earlier versions, only **appId** can be transferred.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
-   *     ohos.account.osAccount to obtain the ID.<br> - If **accountId** is passed in, this API applies to the specified
-   *     user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   *     ohos.account.osAccount to obtain the ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -544,9 +566,9 @@ declare namespace applicationManager {
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { AsyncCallback<Array<string>> } callback - Callback used to obtain the applications that are not allowed to
-   *     run. If the operation is successful, **err** is **null**; otherwise, **err** is an error object.<br>Note: For
-   *     API version 20 and earlier versions, the return value is the **appId** list. In API version 21 and later
-   *     versions, the return value is the **appId** or **appIdentifier** list.
+   *     run. If the operation is successful, **err** is **null**; otherwise, **err** is an error object.
+   *     <br>Note: For API version 20 and earlier versions, the return value is the **appId** list. In API version 21
+   *     and later versions, the return value is the **appId** or **appIdentifier** list.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -572,9 +594,9 @@ declare namespace applicationManager {
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { number } userId - User ID, which must be greater than or equal to 0.
    * @param { AsyncCallback<Array<string>> } callback - Callback used to obtain the applications that are not allowed to
-   *     run. If the operation is successful, **err** is **null**; otherwise, **err** is an error object.<br>Note: For
-   *     API version 20 and earlier versions, the return value is the **appId** list. In API version 21 and later
-   *     versions, the return value is the **appId** or **appIdentifier** list.
+   *     run. If the operation is successful, **err** is **null**; otherwise, **err** is an error object.
+   *     <br>Note: For API version 20 and earlier versions, the return value is the **appId** list. In API version 21
+   *     and later versions, the return value is the **appId** or **appIdentifier** list.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -592,19 +614,19 @@ declare namespace applicationManager {
   function getDisallowedRunningBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Obtains applications that are not allowed to run by the current user or a specified user. This API uses a promise
-   * to return the result.
+   * Obtains applications that are not allowed to run under the current user or a specified user. This API uses a
+   * promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SET_APP_RUNNING_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { number } userId - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in, the
-   *     applications cannot be run by the specified user.<br> - If **userId** is not passed in, the applications cannot
-   *     be run by the current user.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.
+   *     <br> - If **userId** is passed in, the applications cannot be run by the specified user.
+   *     <br> - If **userId** is not passed in, the applications cannot be run by the current user.
    * @returns { Promise<Array<string>> } Promise used to return the applications that are not allowed to run by the
    *     current user or specified user.
-   *     <br>Note: For API version 20 and earlier versions, the return value is the **appId** list. In API version 21 and
-   *     later versions, the return value is the **appId** or **appIdentifier** list.
+   *     <br>Note: For API version 20 and earlier versions, the return value is the **appId** list. In API version 21
+   *     and later versions, the return value is the **appId** or **appIdentifier** list.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -626,17 +648,17 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
-   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
-   *     ohos.account.osAccount to obtain the ID.<br> - If **accountId** is passed in, this API applies to the specified
-   *     user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   *     ohos.account.osAccount to obtain the ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified
+   *     user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
    * @returns { Array<string> } Applications that are not allowed to run by the current user or specified user.
-   *     <br>Note: For API version 20 and earlier versions, the return value is the **appId** list. In API version 21 and
+   *     <br>Note: For API version 20 and earlier versions, the return value is the **appId** list. In API version 21
+   *     and
    *     later versions, the return value is the **appId** or **appIdentifier** list.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -648,24 +670,68 @@ declare namespace applicationManager {
    * @stagemodelonly
    * @since 12
    */
+  function getDisallowedRunningBundlesSync(admin: Want, accountId?: number): Array<string>;
+
+  /**
+   * Obtains the application running blocklist of the current user or specified user.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}
+   *     of @ohos.account.osAccount to obtain the ID.
+   *     <br> - If **accountId** is passed in, this API applies to the specified user.
+   *     <br> - If **accountId** is not passed in, this API applies to the current user.
+   * @returns { Array<string> } Application running blocklist of the current user or specified user.
+   *     <br>Note: the return value is the **appId** or **appIdentifier** list.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
   function getDisallowedRunningBundlesSync(admin: Want | null, accountId?: number): Array<string>;
 
   /**
-   * Adds the applications that are allowed to run under specified users.
+   * Adds applications to the application running trustlist. Only applications in the trustlist are allowed to run under
+   * the specified user.
    *
    * > **NOTE**
    * >
+   * > 1. Most APIs provided by MDM Kit are available only to MDM applications. When using this API, add the MDM
+   * > application to the application running trustlist. Otherwise, the MDM application will be prohibited from running,
+   * > blocking the API call. For details about whether the API is open only to MDM applications, see the module
+   * > description.
+   * >
+   * > 2. If the application running blocklist is not empty, this API cannot be used to add applications to the running
+   * > trustlist. Otherwise, the error code 9200010 is reported. APIs related to the application running blocklist
+   * > include [addDisallowedRunningBundlesSync]{@link applicationManager.addDisallowedRunningBundlesSync}.
+   * >
+   * > 3. This API only takes effect for third-party applications. System applications are not subject to this list and
+   * > are allowed to run by default.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIdentifiers - Array of app unique identifiers. You can obtain
-   *     **bundleInfo.signatureInfo.appIdentifier** through the
-   *     [bundleManager.getinstalledbundlelist]{@link @ohos.enterprise.bundleManager:bundleManager.getInstalledBundleList(admin: Want, accountId: number)}
-   *     API.<br>Value range:<br> - The total number of entries in this list for a single user must not exceed 200. For
-   *     example, if 50 entries have been set for user 100 and none for user 101, user 100 can add 150 more entries,
-   *     while user 101 can add up to 200 entries.
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.<br> You can call
+   * @param { Array<string> } appIdentifiers - Array of application
+   *     [unique identifiers](docroot://quick-start/common-problem-of-application.md#what-is-appidentifier). You can
+   *     obtain **bundleInfo.signatureInfo.appIdentifier** through the
+   *     [bundleManager.getInstalledBundleList]{@link @ohos.enterprise.bundleManager:bundleManager.getInstalledBundleList}
+   *     API.
+   *     <br>Value range:
+   *     <br> - The total number of entries in this list for a single user must not exceed 200. For example, if 50
+   *     entries have been set for user 100 and none for user 101, user 100 can add 150 more entries, while user 101 can
+   *     add up to 200 entries.
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
    *     ohos.account.osAccount to obtain the ID.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -681,18 +747,20 @@ declare namespace applicationManager {
   function addAllowedRunningBundles(admin: Want, appIdentifiers: Array<string>, accountId: number): void;
 
   /**
-   * Removes the applications that are allowed to run by the specified user.
+   * Removes applications from the application running trustlist of the specified user. After an application is removed,
+   * it is not allowed to run under the current or specified user.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { Array<string> } appIdentifiers - Array of unique identifiers of an app. You can obtain the
-   *     **bundleInfo.signatureInfo.appIdentifier** by calling the
-   *     [bundleManager.getinstalledbundlelist]{@link @ohos.enterprise.bundleManager:bundleManager.getInstalledBundleList(admin: Want, accountId: number)}
+   * @param { Array<string> } appIdentifiers - Array of unique identifiers of an app. You can obtain
+   *     **bundleInfo.signatureInfo.appIdentifier** through the
+   *     [bundleManager.getInstalledBundleList]{@link @ohos.enterprise.bundleManager:bundleManager.getInstalledBundleList}
    *     API. Value range: The array length cannot exceed 200.
    * @param { number } accountId - Account ID, which must be greater than or equal to 0.
-   *     <br> You can call [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}
-   *     of @ohos.account.osAccount to obtain the ID.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the ID.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -709,13 +777,11 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 21 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
-   *     <br> You can call [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } accountId - Account ID.
+   *     <br>The value must be an integer greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}
    *     of @ohos.account.osAccount to obtain the ID.
    * @returns { Array<string> } List of applications allowed to run by a specified user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -726,13 +792,35 @@ declare namespace applicationManager {
    * @stagemodelonly
    * @since 21
    */
+  function getAllowedRunningBundles(admin: Want, accountId: number): Array<string>;
+
+  /**
+   * Obtains the application running trustlist of a specified user.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}
+   *     of @ohos.account.osAccount to obtain the ID.
+   * @returns { Array<string> } List of applications allowed to run by a specified user.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
   function getAllowedRunningBundles(admin: Want | null, accountId: number): Array<string>;
 
   /**
    * Adds the auto-start applications for the current user. Applications added to the auto-start list via this API
-   * cannot be manually disabled for auto-start by users on the device<!--RP4--><!--RP4End-->. However, they can be
-   * removed from the auto-start list using the
-   * [removeAutoStartApps]{@link applicationManager.removeAutoStartApps(admin: Want, autoStartApps: Array<Want>)} API.
+   * cannot be manually disabled for auto-start by users on the device. However, they can be
+   * removed from the auto-start list using the [removeAutoStartApps]{@link applicationManager.removeAutoStartApps} API.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -745,7 +833,7 @@ declare namespace applicationManager {
    *     be started. Since API version 24, you can specify whether to hide the UI when applications automatically start
    *     upon device startup by setting **isHiddenStart** in the **parameters** attribute of Want. The value **true**
    *     indicates that yes, and the value **false** indicates no. The default value is **false**. If the **true** value
-   *     is used, the applications must be <!--RP8-->integrated with the status bar<!--RP8End-->. Otherwise, the auto-
+   *     is used, the applications must be integrated with the status bar. Otherwise, the auto-
    *     start setting fails. (If only one application is set to hide the UI upon auto-start but the application is not
    *     integrated with the status bar, error 401 is reported. This API returns success as long as one application is
    *     successfully set.) After the setting is successful, the applications do not display the UI but their UI
@@ -765,13 +853,12 @@ declare namespace applicationManager {
 
   /**
    * Adds a list of applications that automatically start upon device startup for a specified user, and sets whether to
-   * prohibit the user from manually canceling application auto-start<!--RP4--><!--RP4End-->.
+   * prohibit the user from manually canceling application auto-start.
    *
    * Applications can be added to the auto-start list via this API and the
-   * [addAutoStartApps]{@link applicationManager.addAutoStartApps(admin: Want, autoStartApps: Array<Want>)} API.
-   * Settings from both APIs can take effect simultaneously. For a single user, the auto-start list supports a maximum
-   * of 10 applications. For example, if there are already 3 applications in the current list, a maximum of 7 more can
-   * be added for the user via this API.
+   * [addAutoStartApps]{@link applicationManager.addAutoStartApps} API. Settings from both APIs can take effect
+   * simultaneously. For a single user, the auto-start list supports a maximum of 10 applications. For example, if there
+   * are already 3 applications in the current list, a maximum of 7 more can be added for the user via this API.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -783,17 +870,18 @@ declare namespace applicationManager {
    *     be started. Since API version 24, you can specify whether to hide the UI when applications automatically start
    *     upon device startup by setting **isHiddenStart** in the **parameters** attribute of Want. The value **true**
    *     indicates that yes, and the value **false** indicates no. The default value is **false**. If the **true** value
-   *     is used, the applications must be <!--RP8-->integrated with the status bar<!--RP8End-->. Otherwise, the auto-
+   *     is used, the applications must be integrated with the status bar. Otherwise, the auto-
    *     start setting fails. (If only one application is set to hide the UI upon auto-start but the application is not
    *     integrated with the status bar, error 401 is reported. This API returns success as long as one application is
    *     successfully set.) After the setting is successful, the applications do not display the UI but their UI
    *     processes exist. The capability of hiding the UI is available only on PCs/2-in-1 devices and tablets in PC
    *     mode.
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.<br> You can call
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
    *     ohos.account.osAccount to obtain the ID.
    * @param { boolean } disallowModify - Whether to prohibit the user from manually disabling application auto-start.
-   *     The value **true** indicates yes and the value **false** indicates no.<!--RP1--><!--RP1End-->
+   *     The value **true** indicates yes and the value **false** indicates no.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -812,11 +900,12 @@ declare namespace applicationManager {
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { Want } autoStartApp - Auto-start applications to add. **Want** must contain **bundleName** and
    *     **abilityName**.
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.<br> You can call
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
    *     ohos.account.osAccount to obtain the ID.
    * @returns { boolean } Whether the user is prohibited from canceling application auto-startup. The value **true**
-   *     indicates yes and the value **false** indicates no.<!--PR1--><!--PR1End-->
+   *     indicates yes and the value **false** indicates no.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -828,7 +917,8 @@ declare namespace applicationManager {
   function isModifyAutoStartAppsDisallowed(admin: Want, autoStartApp: Want, accountId: number): boolean;
 
   /**
-   * Removes the auto-start applications for the current user.
+   * Removes the auto-start applications for the current user. After the deletion, the applications will no longer
+   * automatically start upon system boot.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -857,7 +947,8 @@ declare namespace applicationManager {
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { Array<Want> } autoStartApps - Array of auto-start applications. **Want** must contain **bundleName** and
    *     **abilityName**.
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.<br> You can call
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
    *     ohos.account.osAccount to obtain the ID.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -875,11 +966,7 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @returns { Array<Want> } List of the auto-start applications obtained. Since API version 24, the setting of whether
    *     the UI is hidden can be returned.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -892,6 +979,27 @@ declare namespace applicationManager {
    * @stagemodelonly
    * @since 12
    */
+  function getAutoStartApps(admin: Want): Array<Want>;
+
+  /**
+   * Checks the auto-start applications for the current user.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @returns { Array<Want> } List of the auto-start applications obtained.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
   function getAutoStartApps(admin: Want | null): Array<Want>;
 
   /**
@@ -899,12 +1007,9 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 20 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
    *     ohos.account.osAccount to obtain the ID.
    * @returns { Array<Want> } List of the auto-start applications obtained. Since API version 24, the setting of whether
@@ -917,15 +1022,38 @@ declare namespace applicationManager {
    * @stagemodelonly
    * @since 20
    */
+  function getAutoStartApps(admin: Want, accountId: number): Array<Want>;
+
+  /**
+   * Checks the auto-start applications for the specified user.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the ID.
+   * @returns { Array<Want> } List of the auto-start applications obtained.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
   function getAutoStartApps(admin: Want | null, accountId: number): Array<Want>;
 
   /**
    * Adds applications to the keep-alive list; once added, the application processes will be kept alive automatically.
    * After the device is powered on or the application is killed, the system will proactively restart these application
-   * processes.<!--RP7--><!--RP7End-->
+   * processes.
    *
    * For applications added to the keep-alive list via this API, users cannot manually revoke their keep-alive status on
-   * the device <!--RP6--><!--RP6End-->. However, you can call the
+   * the device. However, you can call the
    * [removeKeepAliveApps]{@link applicationManager.removeKeepAliveApps} API to remove them from the keep-alive list.
    *
    * If applications are disallowed to run by calling
@@ -940,8 +1068,9 @@ declare namespace applicationManager {
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { Array<string> } bundleNames - Array of application bundle names, which specifies the applications to be
-   *     kept alive. A maximum of 5 applications are supported.<!--RP5--><!--RP5End-->
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     kept alive. A maximum of 5 applications are supported.
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
    *     ohos.account.osAccount to obtain the ID.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -966,10 +1095,9 @@ declare namespace applicationManager {
    * application is killed, the system will proactively restart these application processes.
    *
    * Applications can be added to the keep-alive list via this API and the
-   * [addKeepAliveApps]{@link applicationManager.addKeepAliveApps(admin: Want, bundleNames: Array<string>, accountId: number)}
-   * API. Settings from both APIs can take effect simultaneously. For a single user, the keep-alive list supports a
-   * maximum of 5 applications. For example, if there are already 3 applications in the current list, a maximum of 2
-   * more can be added for the user via this API.
+   * [addKeepAliveApps]{@link applicationManager.addKeepAliveApps} API. Settings from both APIs can take effect
+   * simultaneously. For a single user, the keep-alive list supports a maximum of 5 applications. For example, if there
+   * are already 3 applications in the current list, a maximum of 2 more can be added for the user via this API.
    *
    * If applications are disallowed to run by calling
    * [addDisallowedRunningBundlesSync]{@link applicationManager.addDisallowedRunningBundlesSync}, they cannot be kept
@@ -983,16 +1111,18 @@ declare namespace applicationManager {
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { Array<string> } bundleNames - Array of application bundle names, which specifies the applications to be
-   *     kept alive. A maximum of 5 applications are supported.<br>Applications must be installed under user 1 (a user
-   *     who supports single-instance running of third-party applications) and have integrated
-   *     [background services](docroot://application-models/app-service-extension-ability.md#implementing-a-background-service)
-   *     <!--RP3--><!--RP3End-->. Otherwise, the error code 9201005 will be reported.
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     kept alive. A maximum of 5 applications are supported.
+   *     <br>Applications must be installed under user 1 (a user who supports single-instance running of third-party
+   *     applications) and have integrated
+   *     [background services](docroot://application-models/app-service-extension-ability.md#implementing-a-background-service).
+   *     Otherwise, the error code 9201005 will be reported.
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
    *     ohos.account.osAccount to obtain the ID.
    * @param { boolean } disallowModify - Whether to restrict users from manually canceling the keep-alive status. The
    *     value **true** indicates that users are not allowed to manually cancel the keep-alive status, and the value
-   *     **false** indicates the opposite.<!--RP2--><!--RP2End-->
+   *     **false** indicates the opposite.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
@@ -1013,13 +1143,14 @@ declare namespace applicationManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.<br> You can call
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
    *     ohos.account.osAccount to obtain the ID.
    * @param { string } bundleName - Bundle name.
    * @returns { boolean } Whether to restrict users from manually canceling the keep-alive status. The value **true**
    *     indicates that users are not allowed to manually cancel the keep-alive status, and the value **false**
-   *     indicates the opposite.<!--RP2--><!--RP2End-->
+   *     indicates the opposite.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -1038,7 +1169,8 @@ declare namespace applicationManager {
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { Array<string> } bundleNames - Application bundle name array, which specifies the applications to be kept
    *     alive. A maximum of five applications are supported.
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.<br> You can call
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
    *     ohos.account.osAccount to obtain the ID.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1058,12 +1190,9 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 14 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
-   * @param { number } accountId - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
    *     ohos.account.osAccount to obtain the ID.
    * @returns { Array<string> } Bundle name of the application kept alive for the specified user.
@@ -1072,10 +1201,35 @@ declare namespace applicationManager {
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types;3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 14
+   */
+  function getKeepAliveApps(admin: Want, accountId: number): Array<string>;
+
+  /**
+   * Obtains the bundle name of the keep-alive application.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the ID.
+   * @returns { Array<string> } Bundle name of the application kept alive for the specified user.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
+   *     required to call the API
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types;3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
    */
   function getKeepAliveApps(admin: Want | null, accountId: number): Array<string>;
 
@@ -1091,9 +1245,9 @@ declare namespace applicationManager {
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { Array<string> } appIdentifiers - Array of
    *     [unique identifiers]{@link ./bundleManager/BundleInfo:SignatureInfo} of an application. You can call the
-   *     [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId?: int)}
-   *     API to obtain the **bundleInfo.signatureInfo.appIdentifier**. In case of repeated configuration, the newly
-   *     configured array will overwrite the old one, with a maximum limit of 200 entries.
+   *     [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo} API to obtain the
+   *     **bundleInfo.signatureInfo.appIdentifier**. In case of repeated configuration, the newly configured array will
+   *     overwrite the old one, with a maximum limit of 200 entries.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
@@ -1109,11 +1263,7 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_KIOSK
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 20 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @returns { Array<string> } List of [unique identifiers]{@link ./bundleManager/BundleInfo:SignatureInfo} of an
    *     application that can run in kiosk mode.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1124,6 +1274,26 @@ declare namespace applicationManager {
    * @stagemodelonly
    * @since 20
    */
+  function getAllowedKioskApps(admin: Want): Array<string>;
+
+  /**
+   * Obtains the applications allowed to run in kiosk mode.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_KIOSK
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @returns { Array<string> } List of [unique identifiers]{@link ./bundleManager/BundleInfo:SignatureInfo} of an
+   *     application that can run in kiosk mode.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
+   *     required to call the API
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
   function getAllowedKioskApps(admin: Want | null): Array<string>;
 
   /**
@@ -1131,8 +1301,8 @@ declare namespace applicationManager {
    *
    * @param { string } appIdentifier - [Unique identifiers]{@link ./bundleManager/BundleInfo:SignatureInfo} of an
    *     application. You can call the
-   *     [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo(bundleName: string, bundleFlags: int, userId?: int)}
-   *     API to obtain the **bundleInfo.signatureInfo.appIdentifier**.
+   *     [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo} API to obtain the
+   *     **bundleInfo.signatureInfo.appIdentifier**.
    * @returns { boolean } The value **true** means the application can run in kiosk mode; the value **false** means the
    *     opposite.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -1142,8 +1312,8 @@ declare namespace applicationManager {
   function isAppKioskAllowed(appIdentifier: string): boolean;
 
   /**
-   * Sets the features of kiosk mode. This API is used to control whether the notification center and control panel can
-   * be accessed [in kiosk mode]{@link @ohos.app.ability.kioskManager:kioskManager.enterKioskMode}.
+   * Sets the features of the kiosk mode. You can use this API to control whether the notification center and control
+   * panel can be accessed in kiosk mode.
    *
    * Since API version 24, you can set whether to allow users to swipe up from the bottom to access the recent taskbar
    * and swipe left or right to display the side dock.
@@ -1155,13 +1325,13 @@ declare namespace applicationManager {
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { Array<KioskFeature> } features - Feature set of the Kiosk mode. (Since API version 24, swiping up from the
-   *     bottom to access the recent taskbar and swiping left or right to display the side dock are supported.)<br> If
-   *     an empty array is passed, the system will clear all previously delivered features and restore the kiosk mode to
-   *     its default state. To be specific, abilities such as the notification center, control panel, recent task bar,
-   *     and side dock are disabled.
+   *     bottom to access the recent taskbar and swiping left or right to display the side dock are supported.)
+   *     <br> If an empty array is passed, the system will clear all previously delivered features and restore the kiosk
+   *     mode to its default state. To be specific, abilities such as the notification center, control panel, recent
+   *     task bar, and side dock are disabled.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter verification failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
    *     required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -1177,12 +1347,13 @@ declare namespace applicationManager {
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { string } bundleName - Bundle name of the application whose data needs to be cleared.
-   * @param { number } appIndex - Index of the application clone. The value is an integer greater than or equal to 0.<br
-   *     > You can call [getAppCloneIdentity]{@link @ohos.bundle.bundleManager:bundleManager.getAppCloneIdentity} of @
-   *     ohos.bundle.bundleManager to obtain the index.
-   * @param { number } accountId - Account ID. The value is an integer greater than or equal to 0.<br> You can call
-   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
-   *     ohos.account.osAccount to obtain the ID.
+   * @param { number } appIndex - Index of the application clone. The value is an integer greater than or equal to 0.
+   *     <br> You can call [getAppCloneIdentity]{@link @ohos.bundle.bundleManager:bundleManager.getAppCloneIdentity}
+   *     of @ohos.bundle.bundleManager to obtain the index.
+   * @param { number } accountId - Account ID. The value is an integer greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}
+   *     of @ohos.account.osAccount to obtain the ID.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
@@ -1207,6 +1378,11 @@ declare namespace applicationManager {
    * On PCs/2-in-1 devices, after a user taps the application name in **Settings** > **Apps & services** to go to the
    * details page, the forcible stop button is unavailable, and the disable button does not take effect.
    *
+   * Since API version 26.0.0, if you call
+   * [setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount} to
+   * disable [SUPER_HUB]{@link @ohos.enterprise.restrictions:restrictions.FeatureForAccount} and then call this API to
+   * add SuperHub to the non-stoppable application list, a policy conflict occurs and error code 9200010 is reported.
+   *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
@@ -1228,9 +1404,10 @@ declare namespace applicationManager {
   function addUserNonStopApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
 
   /**
-   * Removes the non-stoppable application list for a specified user. If the parameter list includes uninstalled
-   * applications, the removal will still succeed. Installed applications will be removed from the list, while
-   * uninstalled ones will not impact the removal process.
+   * Removes the non-stoppable application list for a specified user. After the removal, the user can stop the
+   * applications on the device. If the parameter list includes uninstalled applications, the removal will still
+   * succeed. Installed applications will be removed from the list, while uninstalled ones will not impact the removal
+   * process.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -1252,11 +1429,7 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 22 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @returns { Array<common.ApplicationInstance> } Array of non-stoppable applications.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1266,14 +1439,33 @@ declare namespace applicationManager {
    * @stagemodelonly
    * @since 22
    */
+  function getUserNonStopApps(admin: Want): Array<common.ApplicationInstance>;
+
+  /**
+   * Obtains the non-stoppable application list of all users on the current device.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @returns { Array<common.ApplicationInstance> } Array of non-stoppable applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
   function getUserNonStopApps(admin: Want | null): Array<common.ApplicationInstance>;
 
   /**
    * Adds applications to the background freeze-exempt application list for a specified user. This policy applies only
-   * to installed applications and becomes invalid after the device is restarted. If the parameter list contains
-   * uninstalled applications, error code 9200012 will be returned. If an application in the list is uninstalled after
-   * the policy is set, the uninstalled application will be removed from the list. Adding an application that already
-   * exists in the list will return success, but the application will not be added repeatedly to the policy list.
+   * to installed applications. If the parameter list contains uninstalled applications, error code 9200012 will be
+   * returned. If an application in the list is uninstalled after the policy is set, the uninstalled application will be
+   * removed from the list. Adding an application that already exists in the list will return success, but the
+   * application will not be added repeatedly to the policy list.
    *
    * Freezing operations include suspending the target application, and managing software resource agents, hardware
    * resource agents, and high-power consumption.
@@ -1298,9 +1490,9 @@ declare namespace applicationManager {
   function addFreezeExemptedApps(admin: Want, applicationInstances: Array<common.ApplicationInstance>): void;
 
   /**
-   * Removes the background freeze-exempt application list for a specified user. If the parameter list includes
-   * uninstalled applications, the removal will still succeed. Installed applications will be removed from the list,
-   * while uninstalled ones will not impact the removal process.
+   * Removes the background freeze-exempt application list for a specified user. After the removal, the applications can
+   * be frozen by the system. If the parameter list includes uninstalled applications, the removal will still succeed.
+   * Installed applications will be removed from the list, while uninstalled ones will not impact the removal process.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
@@ -1323,11 +1515,7 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 22 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @returns { Array<common.ApplicationInstance> } Array of the background freeze-exempt application list.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1336,6 +1524,25 @@ declare namespace applicationManager {
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 22
+   */
+  function getFreezeExemptedApps(admin: Want): Array<common.ApplicationInstance>;
+
+  /**
+   * Obtains the background freeze-exempt application list of all users on the current device.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @returns { Array<common.ApplicationInstance> } Array of the background freeze-exempt application list.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
    */
   function getFreezeExemptedApps(admin: Want | null): Array<common.ApplicationInstance>;
 
@@ -1349,8 +1556,9 @@ declare namespace applicationManager {
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { string } bundleName - App bundle name.
    * @param { number } accountId - Account ID. The value is an integer greater than or equal to 0.
-   *     <br> You can call [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}
-   *     of @ohos.account.osAccount to obtain the ID.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the ID.
    * @param { string } abilityName - Name of the ability to be disabled or enabled. Currently, only UIAbility is
    *     supported.
    * @param { boolean } isDisabled - Whether to disable the ability. **true**: Disable the ability. **false**: Enable
@@ -1372,14 +1580,12 @@ declare namespace applicationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 23 - 24]
-   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
-   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
-   *     that actually take effect on the device are returned. [since 26.0.0]
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { string } bundleName - App bundle name.
-   * @param { number } accountId - Account ID. The value is an integer greater than or equal to 0.
-   *     <br> You can call [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}
+   * @param { number } accountId - Account ID.
+   *     <br>The value must be an integer greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}
    *     of @ohos.account.osAccount to obtain the ID.
    * @param { string } abilityName - Name of the ability to be disabled or enabled. Currently, only UIAbility is
    *     supported.
@@ -1394,6 +1600,35 @@ declare namespace applicationManager {
    * @stagemodelonly
    * @since 23
    */
+  function isAbilityDisabled(admin: Want, bundleName: string, accountId: number, abilityName: string): boolean;
+
+  /**
+   * Checks whether the Ability component of a specified application (system application or third-party application) is
+   * disabled.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { string } bundleName - App bundle name.
+   * @param { number } accountId - Account ID. The value is an integer greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the ID.
+   * @param { string } abilityName - Name of the ability to be disabled or enabled. Currently, only UIAbility is
+   *     supported.
+   * @returns { boolean } Whether the ability is disabled. **true**: The ability is disabled. **false**: The ability is
+   *     not disabled.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
   function isAbilityDisabled(admin: Want | null, bundleName: string, accountId: number, abilityName: string): boolean;
 
   /**
@@ -1403,14 +1638,34 @@ declare namespace applicationManager {
    *
    * > **NOTE**
    * >
+   * > 1. If location 0 or 1 is already occupied by the application center or task center, adding an application to that
+   * > location returns error code 9201019. If that location is occupied by another app, the addition succeeds.
+   * >
+   * > 2. The following applications cannot be added to the shortcut bar using this API: Application Center, Task
+   * > Center, Files, and Recycle Bin.
+   * >
+   * > 3. Only applications with an entry (that is, an icon) can be added.
+   * >
+   * > 4. Only the shortcut bar of the current user can be configured. Each user's shortcut bar can contain a maximum of
+   * > 100 applications.
+   * >
+   * > 5. When a new application is inserted into an occupied location, the new application will directly take that
+   * > location, and the original application along with all subsequent applications will shift back by one location.
+   * >
+   * > 6. If the **index** parameter is not passed or the passed value is greater than the number of applications in the
+   * > shortcut bar, the new application is added to the end of the shortcut bar by default.
+   * >
+   * > 7. After an application is added to the shortcut bar using this API, users can manually remove the application or
+   * > adjust its position.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { string } bundleName - Bundle name of the application.
    * @param { string } abilityName - Ability name of the application. Only the application entry ability is supported.
-   * @param { number } [index] - Location index of the application in the shortcut bar.
-   *     <br>The value must be an integer within [0,99]. Default value: 99.
+   * @param { number } [index] - Location index of the application in the shortcut bar. The value range is
+   *     [0, 100). The default value is 99.
+   *     <br>Value range: [0,100).
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1477,14 +1732,37 @@ declare namespace applicationManager {
   function getDockApps(admin: Want): Array<DockInfo>;
 
   /**
-   * Adds the applications that are allowed to distribute ability connection.
+   * Adds the cross-device application trustlist for a specific distributed service for a specified user. Applications
+   * in the trustlist can use the specific distributed service to transfer data across devices without being subject to
+   * the restrictions imposed by
+   * [setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount}.
+   *
+   * Currently, the following distributed service type is supported:
+   * [collaboration service]{@link applicationManager.ServiceType}.
+   *
+   * > **NOTE**
+   * >
+   * > 1. Before calling this API to set the application list allowed to use a specific distributed service, you must
+   * > have already disabled one-way data transmission between devices (which is used for transferring data to other
+   * > devices) via
+   * > [setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount}.
+   * > Otherwise, error code 9201043 is thrown.
+   *
+   * > 2. When one-way data transmission between devices is re-enabled, the application list allowed to use the specific
+   * > distributed service that was set via this API is automatically cleared.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { Array<string> } appIdentifiers - appIdentifiers indicates the list of application appIdentifiers.
-   * @param { ServiceType } serviceType - serviceType indicates the type of distribute ability.
-   * @param { number } accountId - accountId indicates the ID of OS account.
-   *     <br>The value must be an integer greater than or equal to 0.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIdentifiers - Array of
+   *     [unique identifiers]{@link ./bundleManager/BundleInfo:SignatureInfo} of an application. You can call the
+   *     [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo} API to obtain the
+   *     **bundleInfo.signatureInfo.appIdentifier**. The total number of applications in the array cannot exceed 200.
+   * @param { ServiceType } serviceType - Distributed service type.
+   * @param { number } accountId - Account ID. The value is an integer greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the ID.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1500,14 +1778,25 @@ declare namespace applicationManager {
   function addAllowedDistributeAbilityConnBundles(admin: Want, appIdentifiers: Array<string>, serviceType: ServiceType, accountId: number): void;
 
   /**
-   * Removes the applications that are allowed to distribute ability connection.
+   * Removes the cross-device application trustlist for a specific distributed service for a specified user. After the
+   * trustlist is removed, if there are still remaining applications in the list, only those applications can use the
+   * specific distributed service to transmit data across devices without being subject to the restrictions imposed by
+   * [setDisallowedPolicyForAccount]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicyForAccount}. If
+   * the list has been removed and there are no remaining applications, no applications under the specified user are
+   * allowed to use the specific distributed service for cross-device data transmission.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { Array<string> } appIdentifiers - appIdentifiers indicates the list of application appIdentifiers.
-   * @param { ServiceType } serviceType - serviceType indicates the type of distribute ability.
-   * @param { number } accountId - accountId indicates the ID of OS account.
-   *     <br>The value must be an integer greater than or equal to 0.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIdentifiers - Array of
+   *     [unique identifiers]{@link ./bundleManager/BundleInfo:SignatureInfo} of an application. You can call the
+   *     [bundleManager.getBundleInfo]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfo} API to obtain the
+   *     **bundleInfo.signatureInfo.appIdentifier**. The total number of applications in the array cannot exceed 200.
+   * @param { ServiceType } serviceType - Distributed service type.
+   * @param { number } accountId - Account ID. The value is an integer greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the ID.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1520,14 +1809,20 @@ declare namespace applicationManager {
   function removeAllowedDistributeAbilityConnBundles(admin: Want, appIdentifiers: Array<string>, serviceType: ServiceType, accountId: number): void;
 
   /**
-   * Gets the applications that are allowed to distribute ability connection.
+   * Obtains the cross-device application trustlist for a specific distributed service under a specified user.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
-   * @param { ServiceType } serviceType - serviceType indicates the type of distribute ability.
-   * @param { number } accountId - accountId indicates the ID of OS account.
-   *     <br>The value must be an integer greater than or equal to 0.
-   * @returns { Array<string> } returns the list of application appIdentifiers.
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { ServiceType } serviceType - Distributed service type.
+   * @param { number } accountId - Account ID. The value is an integer greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the ID.
+   * @returns { Array<string> } Array of [unique identifiers]{@link ./bundleManager/BundleInfo:SignatureInfo} for
+   *     applications allowed to use a specific distributed service under the specified user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1540,13 +1835,32 @@ declare namespace applicationManager {
   function getAllowedDistributeAbilityConnBundles(admin: Want | null, serviceType: ServiceType, accountId: number): Array<string>;
 
   /**
-   * Adds applications that are allowed to send notifications.
+   * Adds applications to the notification trustlist. After the notification trustlist is set, applications not in the
+   * trustlist cannot send notifications.
+   *
+   * > **NOTE**
+   * >
+   * > 1. If both the Kiosk mode and the notification trustlist policy are set, applications in the Kiosk mode and those
+   * > in the notification trustlist can send notifications.
+   *
+   * > 2. If the device notification capability has been disabled via
+   * > [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy}, calling this API to
+   * > set the notification trustlist will trigger error code 9200010.
+   *
+   * > 3. The notification trustlist does not apply to system services, which can always send notifications. System
+   * > applications are controlled by the notification trustlist.
+   *
+   * > 4. Cross-user settings are supported. The settings take effect immediately.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { Array<string> } bundleNames - bundleNames indicates the list of bundle names of the applications.
-   * @param { number } accountId - accountId indicates the ID of OS account.
-   *     The value must be an integer greater than or equal to 0.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } bundleNames - Application bundle name array, which specifies the applications that are
+   *     allowed to send notifications. A maximum of 200 applications are supported.
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
+   *     <br>You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the ID.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
@@ -1560,13 +1874,17 @@ declare namespace applicationManager {
   function addAllowedNotificationBundles(admin: Want, bundleNames: Array<string>, accountId: number): void;
 
   /**
-   * Removes applications that are allowed to send notifications.
+   * Removes applications from the notification trustlist.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { Array<string> } bundleNames - bundleNames indicates the bundle name list of the applications.
-   * @param { number } accountId - accountId indicates the ID of OS account.
-   *     The value must be an integer greater than or equal to 0.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } bundleNames - Application bundle name array, which specifies the applications to be
+   *     removed.
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the ID.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1579,13 +1897,18 @@ declare namespace applicationManager {
   function removeAllowedNotificationBundles(admin: Want, bundleNames: Array<string>, accountId: number): void;
 
   /**
-   * Gets applications that are allowed to send notifications.
+   * Obtains the list of applications that are allowed to send notifications.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
-   * @param { number } accountId - accountId indicates the ID of OS account.
-   *     The value must be an integer greater than or equal to 0.
-   * @returns { Array<string> } returns the list of bundle names of the applications.
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @param { number } accountId - Account ID, which must be greater than or equal to 0.
+   *     <br>You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the ID.
+   * @returns { Array<string> } Array of bundle names of applications that are allowed to send notifications.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1598,11 +1921,23 @@ declare namespace applicationManager {
   function getAllowedNotificationBundles(admin: Want | null, accountId: number): Array<string>;
 
   /**
-   * Adds applications that hide launcher icons.
+   * Adds applications to the home screen icon hide list.
+   *
+   * > **NOTE**
+   * >
+   * > 1. This API can only hide home screen icons for applications of the current user. Hiding application widgets are
+   * > not supported.
+   * >
+   * > 2. If a hidden application has clones, the clones are hidden synchronously.
+   * >
+   * > 3. Not all applications on the home screen can be added to the hidden list. Otherwise, all applications will
+   * > still be displayed on the home screen.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { Array<string> } bundleNames - bundleNames indicates the bundle name list of the applications.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } bundleNames - Application bundle name array, which specifies the applications to be
+   *     hidden. A maximum of 500 applications are supported.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1617,11 +1952,20 @@ declare namespace applicationManager {
   function addHideLauncherIcon(admin: Want, bundleNames: Array<string>): void;
 
   /**
-   * Removes applications that hide launcher icons.
+   * Removes applications from the home screen icon hide list.
+   *
+   * > **NOTE**
+   * >
+   * > After unhiding, applications will be placed in the first available slot starting from the second screen of the
+   * > home screen. If no empty slot is found on screens 2 to 18, it will search for an empty slot on the first screen.
+   * > If no empty slot is available on the first screen, a small folder will be created at the position of the first
+   * > application on the second screen to contain the applications.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { Array<string> } bundleNames - bundleNames indicates the bundle name list of the applications.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } bundleNames - Application bundle name array, which specifies the applications to be
+   *     unhidden. A maximum of 500 applications are supported.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1636,11 +1980,14 @@ declare namespace applicationManager {
   function removeHideLauncherIcon(admin: Want, bundleNames: Array<string>): void;
 
   /**
-   * Gets applications that hide launcher icons.
+   * Queries the list of applications whose home screen icons are hidden for the current user.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
-   * @returns { Array<string> } the bundle name list of the applications.
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned.
+   * @returns { Array<string> } List of applications whose home screen icons are hidden for the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1654,19 +2001,36 @@ declare namespace applicationManager {
   function getHideLauncherIcon(admin: Want | null): Array<string>;
 
   /**
-   * Queries usage statistics of application traffic.
+   * Queries the data usage of a specified application within a specified period for the current user. This API uses a
+   * promise to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > The input network type (**networkInfo.type**) can only be **connection.NetBearType.BEARER_CELLULAR** or
+   * > **connection.NetBearType.BEARER_WIFI**. If any other value is passed, the API returns error code 9200012.
+   * >
+   * > The input start time (**networkInfo.startTime**) and end time (**networkInfo.endTime**) are second-level
+   * > timestamps. If the input start time and end time are negative numbers or the start time is later than the end
+   * > time, the API returns error code 9200012.
+   * >
+   * > If the input user ID (**accountId**) is not the ID of the current user, the API returns error code 9200012.
+   * >
+   * > It is advised that the query interval (end time – start time) be 1 to 30 days. If the interval is too short, the
+   * > query result may be inaccurate. If the interval is too long, the query will take a long time.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { string } bundleName - bundleName indicates the bundle name of application to be queried.
-   * @param { number } appIndex - appIndex indicates the index of the bundle.
-   *     <br>The value must be an integer greater than or equal to 0.
-   * @param { number } accountId - accountId indicates the local ID of the OS account.
-   *     <br>The value must be an integer greater than or equal to 0.
-   *     <br>You can call [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { number } appIndex - Index of the application clone. The value is an integer greater than or equal to 0.
+   *     <br> You can call [getAppCloneIdentity]{@link @ohos.bundle.bundleManager:bundleManager.getAppCloneIdentity}
+   *     of @ohos.bundle.bundleManager to obtain the index.
+   * @param { number } accountId - Account ID. The value is an integer greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}
    *     of @ohos.account.osAccount to obtain the ID.
-   * @param { statistics.NetworkInfo } networkInfo - networkInfo indicates the network information.
-   * @returns { Promise<statistics.NetStatsInfo> } returns the detailed network statistics information.
+   * @param { statistics.NetworkInfo } networkInfo - Network information.
+   * @returns { Promise<statistics.NetStatsInfo> } Promise used to return the historical traffic information object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1685,17 +2049,28 @@ declare namespace applicationManager {
   ): Promise<statistics.NetStatsInfo>;
 
   /**
-   * Queries bundle statistics information of applications.
+   * Queries the accumulated foreground runtime statistics of applications under a specified user account within a given
+   * time period. The minimum query granularity is one day. The API requires the start time (**startTime**), end time (
+   * **endTime**), and target user account ID (**accountId**) to be passed in. **startTime** and **endTime** are
+   * millisecond-level timestamps. The caller can pass custom values. The default value of **startTime** is 00:00:00.000
+   * of the current day, and the default of **endTime** is 24:00:00.000 of the current day (that is, 00:00:00 of the
+   * following day). The API returns an array of **BundleStatsInfo**, where each element contains the bundle name of an
+   * application, its clone index, and the foreground usage duration (in milliseconds) within the specified time period.
+   * If **startTime** is set to **0**, the query starts from the device's first boot time. If **startTime** is later
+   * than **endTime**, the API returns error code 9200012.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { number } startTime - startTime indicates the start time of the query period.
-   *     <br>Unit: milliseconds, The value must be an integer greater than or equal to 0.
-   * @param { number } endTime - endTime indicates the end time of the query period.
-   *     <br>Unit: milliseconds, The value must be an integer greater than or equal to 0.
-   * @param { number } accountId - accountId indicates the local ID of the OS account.
-   *     <br>The value must be an integer greater than or equal to 0.
-   * @returns { Array<BundleStatsInfo> } returns the bundle statistics information of the applications.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } startTime - Query start time, in milliseconds (timestamp).
+   *     <br>Value range: [0, +∞).
+   * @param { number } endTime - Query end time, in milliseconds (timestamp).
+   *     <br>Value range: [0, +∞).
+   * @param { number } accountId - Account ID. The value is an integer greater than or equal to 0.
+   *     <br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the ID.
+   * @returns { Array<BundleStatsInfo> } Array of application bundle statistics.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
@@ -1708,14 +2083,17 @@ declare namespace applicationManager {
   function queryBundleStatsInfos(admin: Want, startTime: number, endTime: number, accountId: number): Array<BundleStatsInfo>;
 
   /**
-   * Gets the window states of the application.
+   * Queries the window state information list of the specified application. It can retrieve information such as whether
+   * the application is in the bottom dock and whether the application window is currently displayed in the foreground.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { string } bundleName - bundleName indicates the bundle name of the application.
-   * @param { number } appIndex - appIndex indicates the index of bundle.
-   *     <br>The value must be an integer greater than or equal to 0.
-   * @returns { Array<WindowStateInfo> } Returns the window states information of application.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { number } appIndex - Index of the application clone. The value is an integer greater than or equal to 0.
+   *     <br> You can call [getAppCloneIdentity]{@link @ohos.bundle.bundleManager:bundleManager.getAppCloneIdentity}
+   *     of @ohos.bundle.bundleManager to obtain the index.
+   * @returns { Array<WindowStateInfo> } Array of the application window state information.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.

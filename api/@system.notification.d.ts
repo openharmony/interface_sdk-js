@@ -14,10 +14,6 @@
  */
 
 /**
- * > **NOTE**
- * >
- * > - The APIs of this module are no longer maintained since API version 7. You are advised to use 
- * > [@ohos.notification]{@link @ohos.notification:notification}.
  *
  * @file
  * @kit NotificationKit

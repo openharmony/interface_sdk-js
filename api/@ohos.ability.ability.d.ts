@@ -35,7 +35,7 @@ import { PacMap as _PacMap } from './ability/dataAbilityHelper';
  * The module provides all level-2 module APIs for developers to export.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @famodelonly [since 9 - 10]
+ * @FaAndStageModel [since 11]
  * @since 9 dynamic
  * @since 23 static
  */
@@ -53,7 +53,7 @@ declare namespace ability {
    * Defines the level-2 module PacMap.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @famodelonly [since 9 - 10]
+   * @FaAndStageModel [since 11]
    * @since 9 dynamic
    * @since 23 static
    */

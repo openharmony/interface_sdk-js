@@ -223,12 +223,12 @@ class Console {
     /**
      * Prints an XML representation of an object to stdout Currently outputs the object as-is
      *
-     * @param { Any } obj - The object to display as XML
+     * @param { Any[] } obj - The object to display as XML.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 24 staticonly
      */
-    dirxml(obj: Any): void;
+    dirxml(...obj: Any[]): void;
 
     /**
      * Starts a new logging group with optional label Increases indentation level for subsequent log messages
@@ -280,7 +280,8 @@ class Console {
     time(label?: string): void;
 
     /**
-     * Logs the current duration of a running timer without stopping it Prints a warning if the specified timer doesn't exist
+     * Logs the current duration of a running timer without stopping it Prints a warning if the 
+     * specified timer doesn't exist.
      *
      * @param { string } [label] - The key of timer
      * @param { Object[] } arguments - Additional debugging information
@@ -294,7 +295,7 @@ class Console {
      * Stops a timer and logs its duration Removes the timer and prints a warning if it doesn't exist
      *
      * @param { string } [label] - The key of timer
-     * @throws { Error } - - Input parameter error.
+     * @throws { Error } - Input parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 24 staticonly
@@ -305,7 +306,7 @@ class Console {
      * Prints the current stack trace with an optional label Skips the first stack frame (the trace call itself)
      *
      * @param { Any[] } data - Additional debugging information
-     * @throws { Error } - - Input parameter error.
+     * @throws { Error } - Input parameter error.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 24 staticonly
@@ -313,11 +314,223 @@ class Console {
     trace(...data: Any[]): void;
 
     /**
-     * Prints hybrid stack information for the current code location.
+     * Implementations for printing primitive types to stdout without newline.
+     *
+     * @param { boolean } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public print(i: boolean): void;
+
+    /**
+     * Implementations for printing primitive types to stdout without newline.
+     *
+     * @param { byte } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public print(i: byte): void;
+
+    /**
+     * Implementations for printing primitive types to stdout without newline.
+     *
+     * @param { short } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public print(i: short): void;
+
+    /**
+     * Implementations for printing primitive types to stdout without newline.
+     *
+     * @param { char } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public print(i: char): void;
+
+    /**
+     * Implementations for printing primitive types to stdout without newline.
+     *
+     * @param { int } i - The value to print to stdout.
+     *     <br>The value should be an integer.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public print(i: int): void;
+
+    /**
+     * Implementations for printing primitive types to stdout without newline.
+     *
+     * @param { long } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public print(i: long): void;
+
+    /**
+     * Implementations for printing primitive types to stdout without newline.
+     *
+     * @param { float } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public print(i: float): void;
+
+    /**
+     * Implementations for printing primitive types to stdout without newline.
+     *
+     * @param { double } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public print(i: double): void;
+
+    /**
+     * Implementations for printing primitive types to stdout without newline.
+     *
+     * @param { string } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public print(i: string): void;
+
+    /**
+     * Implementations for printing primitive types to stdout without newline.
+     *
+     * @param { Any } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public print(i: Any): void;
+
+    /**
+     * Prints a newline to stdout.
      *
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
-    traceHybridStack(): void;
+    public println(): void;
+
+    /**
+     * Prints a value followed by a newline to stdout.
+     *
+     * @param { boolean } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public println(i: boolean): void;
+
+    /**
+     * Prints a value followed by a newline to stdout.
+     *
+     * @param { byte } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public println(i: byte): void;
+
+    /**
+     * Prints a value followed by a newline to stdout.
+     *
+     * @param { short } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public println(i: short): void;
+
+    /**
+     * Prints a value followed by a newline to stdout.
+     *
+     * @param { char } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public println(i: char): void;
+
+    /**
+     * Prints a value followed by a newline to stdout.
+     *
+     * @param { int } i - The value to print to stdout.
+     *     <br>The value should be an integer.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public println(i: int): void;
+
+    /**
+     * Prints a value followed by a newline to stdout.
+     *
+     * @param { long } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public println(i: long): void;
+
+    /**
+     * Prints a value followed by a newline to stdout.
+     *
+     * @param { float } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public println(i: float): void;
+
+    /**
+     * Prints a value followed by a newline to stdout.
+     *
+     * @param { double } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public println(i: double): void;
+
+    /**
+     * Prints a value followed by a newline to stdout.
+     *
+     * @param { string } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public println(i: string): void;
+
+    /**
+     * Prints a value followed by a newline to stdout.
+     *
+     * @param { Any } i - The value to print to stdout.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public println(i: Any): void;
+
+    /**
+     * Gets the singleton instance of Console.
+     *
+     * @returns { Console } the singleton Console instance.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static getInstance(): Console;
 }

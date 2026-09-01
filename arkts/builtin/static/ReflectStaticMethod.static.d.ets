@@ -36,7 +36,7 @@ namespace reflect {
    * @stagemodelonly
    * @since 24 staticonly
    */
-  class StaticMethod extends Method {
+  class StaticMethod extends Method {  
     /**
      * Determine whether the static method is an asynchronous method.
      *

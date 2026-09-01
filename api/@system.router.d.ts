@@ -14,14 +14,20 @@
  */
 
 /**
- * @file
+ * The **Router** module provides APIs to access pages through URIs.
+ * 
+ * > **NOTE**
+ * >
+ * > - The APIs of this module are no longer maintained since API version 8. You are advised to use 
+ * > [@ohos.router]{@link @ohos.router:router} instead.
+ *
+ * @file Page Routing
  * @kit ArkUI
  */
 
 /**
- * Defines the option of router.
+ * Defines the page routing parameters.
  *
- * @interface RouterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
@@ -30,41 +36,41 @@
  */
 export interface RouterOptions {
   /**
-   * URI of the destination page, which supports the following formats:
-   * 1. Absolute path of the page, which is provided by the pages list in the config.json file.
-   *    Example:
-   *      pages/index/index
-   *      pages/detail/detail
-   * 2. Particular path. If the URI is a slash (/), the home page is displayed.
+   * URI of the target page, in either of the following formats:
    *
-   * @type { string }
+   * 1. Absolute path, which is provided by the page list in the **config.json** file. Examples:
+   *
+   * - pages/index/index
+   * - pages/detail/detail
+   *
+   * 2. Specific path. If the URI is a slash (/), the home page is displayed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3 dynamiconly
-   * @reserved ["liteWearable"]
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.router.RouterOptions#url
    */
   uri: string;
 
   /**
-   * Data that needs to be passed to the destination page during navigation.
-   * After the destination page is displayed, the parameter can be directly used for the page.
-   * For example, this.data1 (data1 is the key value of the params used for page navigation.)
+   * Data that needs to be passed to the target page during redirection. The target page can use **router.getParams()**
+   * to obtain the passed parameters, for example, **this.keyValue** (**keyValue** is the value of a key in **params**).
+   * In the web-like paradigm, these parameters can be directly used on the target page. If the field specified by
+   * **key** already exists on the target page, the passed value of the key will be displayed.
    *
-   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3 dynamiconly
-   * @reserved ["liteWearable"]
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.router.RouterOptions#params
    */
   params?: Object;
 }
 
 /**
- * Defines the option of router back.
+ * Defines the parameters for routing back.
  *
- * @interface BackRouterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7 dynamiconly
  * @deprecated since 8
@@ -72,10 +78,9 @@ export interface RouterOptions {
  */
 export interface BackRouterOptions {
   /**
-   * Returns to the page of the specified path.
-   * If the page with the specified path does not exist in the page stack, router.back() is called by default.
+   * URI of the page to return to. If the specified page does not exist in the page stack, the application does not
+   * respond. If this parameter is not set, the application returns to the previous page.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 8
@@ -84,9 +89,8 @@ export interface BackRouterOptions {
   uri?: string;
 
   /**
-   * Data that needs to be passed to the destination page during navigation.
+   * Data that needs to be passed to the target page during redirection.
    *
-   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 7 dynamiconly
    * @deprecated since 8
@@ -97,9 +101,8 @@ export interface BackRouterOptions {
 }
 
 /**
- * Defines the state of router.
+ * Defines the routing state.
  *
- * @interface RouterState
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 3 dynamiconly
  * @deprecated since 8
@@ -107,10 +110,8 @@ export interface BackRouterOptions {
  */
 export interface RouterState {
   /**
-   * Index of the current page in the stack.
-   * NOTE: The index starts from 1 from the bottom to the top of the stack.
+   * Index of the current page in the stack. The index starts from 1 from the bottom to the top of the stack.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -121,7 +122,6 @@ export interface RouterState {
   /**
    * Name of the current page, that is, the file name.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -132,7 +132,6 @@ export interface RouterState {
   /**
    * Path of the current page.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -142,9 +141,8 @@ export interface RouterState {
 }
 
 /**
- * Defines the option of EnableAlertBeforeBackPage.
+ * Defines the **EnableAlertBeforeBackPage** parameter.
  *
- * @interface EnableAlertBeforeBackPageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6 dynamiconly
  * @deprecated since 8
@@ -152,9 +150,8 @@ export interface RouterState {
  */
 export interface EnableAlertBeforeBackPageOptions {
   /**
-   * dialog context.
+   * Content displayed in the confirm dialog box.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -163,9 +160,8 @@ export interface EnableAlertBeforeBackPageOptions {
   message: string;
 
   /**
-   * Called when the dialog box is displayed.
+   * Called when the **OK** button in the confirm dialog box is clicked. **errMsg** indicates the returned information.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -174,9 +170,9 @@ export interface EnableAlertBeforeBackPageOptions {
   success?: (errMsg: string) => void;
 
   /**
-   * Called when the operation is cancelled.
+   * Called when the **Cancel** button in the confirm dialog box is clicked. **errMsg** indicates the returned
+   * information.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -187,7 +183,6 @@ export interface EnableAlertBeforeBackPageOptions {
   /**
    * Called when the dialog box is closed.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -197,9 +192,8 @@ export interface EnableAlertBeforeBackPageOptions {
 }
 
 /**
- * Defines the option of DisableAlertBeforeBackPage.
+ * Defines the **DisableAlertBeforeBackPage** parameter.
  *
- * @interface DisableAlertBeforeBackPageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 6 dynamiconly
  * @deprecated since 8
@@ -207,9 +201,8 @@ export interface EnableAlertBeforeBackPageOptions {
  */
 export interface DisableAlertBeforeBackPageOptions {
   /**
-   * Called when the dialog box is displayed.
+   * Called when the dialog box is closed. **errMsg** indicates the returned information.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -218,9 +211,8 @@ export interface DisableAlertBeforeBackPageOptions {
   success?: (errMsg: string) => void;
 
   /**
-   * Called when the operation is cancelled.
+   * Called when the dialog box fails to be closed. **errMsg** indicates the returned information.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -231,7 +223,6 @@ export interface DisableAlertBeforeBackPageOptions {
   /**
    * Called when the dialog box is closed.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -241,9 +232,7 @@ export interface DisableAlertBeforeBackPageOptions {
 }
 
 /**
- * Define ParamsInterface.
- *
- * @typedef { object } ParamsInterface
+ * List of routing parameters.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7 dynamiconly
  * @deprecated since 8
@@ -254,8 +243,7 @@ type ParamsInterface = {
 };
 
 /**
- * Defines the Router interface.
- *
+ * The **Router** module provides APIs to access pages through URIs.
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @since 3 dynamiconly
  * @deprecated since 8
@@ -263,9 +251,13 @@ type ParamsInterface = {
  */
 export default class Router {
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a specified page in the application.
    *
-   * @param { RouterOptions } options Options.
+   * > **NOTE**
+   * >
+   * > The page routing stack supports a maximum of 32 pages.
+   *
+   * @param { RouterOptions } options - Page routing parameters. For details, see **RouterOptions**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -274,20 +266,26 @@ export default class Router {
   static push(options: RouterOptions): void;
 
   /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * Replaces the current page with another one in the application and destroys the current page.
    *
-   * @param { RouterOptions } options Options.
+   * @param { RouterOptions } options - Page routing parameters. For details, see **RouterOptions**.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 3 dynamiconly
    * @deprecated since 8
+   * @reserved ["liteWearable"]
    * @useinstead ohos.router.router#replace
    */
   static replace(options: RouterOptions): void;
 
   /**
-   * Returns to the previous page or a specified page.
+   * Returns to the previous or a specified page.
    *
-   * @param { BackRouterOptions } options Options.
+   * > **NOTE**
+   * >
+   * > In the example, the **uri** field indicates the page route, which is specified by the **pages** list in the
+   * > configuration file.
+   *
+   * @param { BackRouterOptions } options - For details, see **BackRouterOptions**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -296,9 +294,9 @@ export default class Router {
   static back(options?: BackRouterOptions): void;
 
   /**
-   * Obtains information about the current page params.
+   * Obtains parameter information about the current page.
    *
-   * @returns { ParamsInterface } Page params.
+   * @returns { ParamsInterface } For details, see **ParamsInterface**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 8
@@ -307,7 +305,7 @@ export default class Router {
   static getParams(): ParamsInterface;
 
   /**
-   * Clears all historical pages and retains only the current page at the top of the stack.
+   * Clears all historical pages in the stack and retains only the current page at the top of the stack.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
@@ -319,7 +317,7 @@ export default class Router {
   /**
    * Obtains the number of pages in the current stack.
    *
-   * @returns { string } Number of pages in the stack. The maximum value is 32.
+   * @returns { string } Number of pages in the stack. The maximum value is **32**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -328,9 +326,9 @@ export default class Router {
   static getLength(): string;
 
   /**
-   * Obtains information about the current page state.
+   * Obtains state information about the current page.
    *
-   * @returns { RouterState } Page state.
+   * @returns { RouterState } For details, see **RouterState**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -339,9 +337,9 @@ export default class Router {
   static getState(): RouterState;
 
   /**
-   * Pop up dialog to ask whether to back
+   * Enables the display of a confirm dialog box before returning to the previous page.
    *
-   * @param { EnableAlertBeforeBackPageOptions } options Options.
+   * @param { EnableAlertBeforeBackPageOptions } options - For details, see **EnableAlertBeforeBackPageOptions**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
    * @deprecated since 8
@@ -350,9 +348,9 @@ export default class Router {
   static enableAlertBeforeBackPage(options: EnableAlertBeforeBackPageOptions): void;
 
   /**
-   * cancel enableAlertBeforeBackPage
+   * Disables the display of a confirm dialog box before returning to the previous page.
    *
-   * @param { DisableAlertBeforeBackPageOptions } options Options.
+   * @param { DisableAlertBeforeBackPageOptions } options - For details, see **DisableAlertBeforeBackPageOptions**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
    * @deprecated since 8

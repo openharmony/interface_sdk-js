@@ -42,10 +42,6 @@ import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './noti
 
 /**
  * 本模块提供通知订阅、取消订阅、通知移除等，一般情况下，只有系统应用具有这些操作权限。
- * 
- * > **说明：**
- * >
- * > 本模块接口均为系统接口。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi

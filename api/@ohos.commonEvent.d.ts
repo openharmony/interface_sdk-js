@@ -35,10 +35,10 @@ import { CommonEventPublishData } from './commonEvent/commonEventPublishData';
  */
 declare namespace commonEvent {
   /**
-   * Publishes a common event. This API uses an asynchronous callback to return the result.
+   * Publishes a common event with given properties. This API uses an asynchronous callback to return the result.
    *
    * @param { string } event - Name of the common event to publish.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result of publishing a common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
@@ -51,7 +51,7 @@ declare namespace commonEvent {
    *
    * @param { string } event - Name of the common event to publish.
    * @param { CommonEventPublishData } options - Properties of the common event to publish.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result of publishing a common event.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9
@@ -63,8 +63,8 @@ declare namespace commonEvent {
    * Publishes a common event to a specific user. This API uses an asynchronous callback to return the result.
    *
    * @param { string } event - Name of the common event to publish.
-   * @param { number } userId - User ID.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { number } userId - ID of the user to whom the common event is published.
+   * @param { AsyncCallback<void> } callback - Callback used to return the common event publication result.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 8
@@ -78,9 +78,9 @@ declare namespace commonEvent {
    * the result.
    *
    * @param { string } event - Name of the common event to publish.
-   * @param { number } userId - User ID.
+   * @param { number } userId - ID of the user to whom the common event is published.
    * @param { CommonEventPublishData } options - Properties of the common event to publish.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - Callback used to return the common event publication result.
    * @syscap SystemCapability.Notification.CommonEvent
    * @systemapi
    * @since 8
@@ -125,7 +125,7 @@ declare namespace commonEvent {
    * Subscribes to common events. This API uses an asynchronous callback to return the result.
    *
    * @param { CommonEventSubscriber } subscriber - Subscriber object.
-   * @param { AsyncCallback<CommonEventData> } callback - Callback used to return the result.
+   * @param { AsyncCallback<CommonEventData> } callback - Callback to be invoked when a common event is subscribed to.
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7
    * @deprecated since 9

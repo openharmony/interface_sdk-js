@@ -22,10 +22,6 @@ import type notificationManager from '../@ohos.notificationManager';
 
 /**
  * 通知发布者的信息。
- * 
- * > **说明：**
- * >
- * > 本模块为系统接口。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -90,7 +86,7 @@ export interface NotificationSubscribeInfo {
   filterLimit?: long;
 
   /**
-   * 订阅通知的语音播报内容配置项。
+   * 通知语音播报配置项。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -160,7 +156,7 @@ export interface PictureOptions {
 }
 
 /**
- * 描述订阅通知的语音播报内容配置项。
+ * 通知语音播报配置项。
  *
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -169,8 +165,9 @@ export interface PictureOptions {
  */
 export interface VoiceContentOptions {
   /**
-   * 是否订阅通知语音播报内容。true表示订阅通知语音播报内容，false表示禁用。
-   * 默认值：false。
+   * 是否订阅通知语音播报内容。
+   * - true：订阅。
+   * - false：不订阅。默认值为false。
    * 
    * @default false
    * @syscap SystemCapability.Notification.Notification

@@ -20,109 +20,118 @@
  */
 
 /**
- * Defines the image analyze type.
+ * Image AI analysis type. When not set, subject recognition and text recognition are enabled by default.
  *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Full [since 23]
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum ImageAnalyzerType {
-    /**
-     * Image analyze type subject.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    SUBJECT = 0,
-    /**
-     * Image analyze type text.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    TEXT,
-    /**
-     * Image analyze type object lookup.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    OBJECT_LOOKUP
+  /**
+   * Subject recognition function.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  SUBJECT = 0,
+  /**
+   * Text recognition function.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  TEXT,
+  /**
+   * Object lookup function.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  OBJECT_LOOKUP
 }
 /**
- * Image analyzer controller.
+ * Image AI analysis controller. You can bind this object to a supported component and call supported methods through
+ * the controller.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare class ImageAnalyzerController {
-    /**
-     * Constructor.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    constructor();
-    /**
-     * Get image analyzer support types.
-     *
-     * @returns { ImageAnalyzerType[] }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    getImageAnalyzerSupportTypes(): ImageAnalyzerType[];
+  /**
+   * Constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  constructor();
+  /**
+   * Gets the AI analysis types supported by the corresponding component.
+   *
+   * @returns { ImageAnalyzerType[] } The AI analysis types supported by the corresponding component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  getImageAnalyzerSupportTypes(): ImageAnalyzerType[];
 }
 /**
- * Image analyzer config.
+ * Image AI analysis configuration item.
  *
- * @interface ImageAnalyzerConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface ImageAnalyzerConfig {
-    /**
-     * Image analyze types.
-     *
-     * @type { ImageAnalyzerType[] }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    types: ImageAnalyzerType[];
+  /**
+   * Image AI analysis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  types: ImageAnalyzerType[];
 }
 /**
- * Image ai options.
+ * Image AI analysis options.
  *
- * @interface ImageAIOptions
+ * > **Description:**
+ * >
+ * > The types parameter in this feature has higher priority than the types parameter in
+ * > [ImageAnalyzerConfig]{@link ImageAnalyzerConfig}. When both are set,
+ * > the value set in this feature takes precedence.
+ * >
+ * > This feature depends on device capability and needs to be used with
+ * > the [enableAnalyzer]{@link ImageAttribute.enableAnalyzer} interface
+ * > of the corresponding component (for example, [Image component]{@link ./image}).
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface ImageAIOptions {
-    /**
-     * Image analyze types.
-     *
-     * @type { ?ImageAnalyzerType[] }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    types?: ImageAnalyzerType[];
-    /**
-     * Image analyze types.
-     *
-     * @type { ?(ImageAnalyzerController | ESValue) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    aiController?: ImageAnalyzerController | ESValue;
+  /**
+   * Image AI analysis type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  types?: ImageAnalyzerType[];
+  /**
+   * Image AI analysis controller. The enableAnalyzer interface of the corresponding component (for example,
+   * the [enableAnalyzer]{@link ImageAttribute.enableAnalyzer}
+   * interface of the Image component) must be set to true for this to take effect.
+   *
+   * Currently, only ESValue type is supported.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  aiController?: ImageAnalyzerController | ESValue;
 }

@@ -37,6 +37,7 @@
  * Defines a response that returns the screen brightness.
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
@@ -46,6 +47,7 @@ export interface BrightnessResponse {
    * Screen brightness. The value ranges from **1** to **255**.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -57,6 +59,7 @@ export interface BrightnessResponse {
  * Options for obtaining the screen brightness.
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
@@ -67,6 +70,7 @@ export interface GetBrightnessOptions {
    * [BrightnessResponse]{@link BrightnessResponse} type.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -78,6 +82,7 @@ export interface GetBrightnessOptions {
    * code.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -88,6 +93,7 @@ export interface GetBrightnessOptions {
    * Called when an API call is complete.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -99,6 +105,7 @@ export interface GetBrightnessOptions {
  * Options for setting the screen brightness.
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
@@ -113,6 +120,7 @@ export interface SetBrightnessOptions {
    * , value **8** will be used.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -123,6 +131,7 @@ export interface SetBrightnessOptions {
    * Called when an API call is successful.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -134,6 +143,7 @@ export interface SetBrightnessOptions {
    * code.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -144,6 +154,7 @@ export interface SetBrightnessOptions {
    * Called when an API call is complete.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -155,6 +166,7 @@ export interface SetBrightnessOptions {
  *Defines a response that returns the screen brightness mode.
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
@@ -164,6 +176,7 @@ export interface BrightnessModeResponse {
    * The value **0** indicates the manual adjustment mode, and the value **1** indicates the automatic adjustment mode.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -175,6 +188,7 @@ export interface BrightnessModeResponse {
  * Options for obtaining the screen brightness mode.
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
@@ -185,6 +199,7 @@ export interface GetBrightnessModeOptions {
    * [BrightnessModeResponse]{@link BrightnessModeResponse} type.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -196,6 +211,7 @@ export interface GetBrightnessModeOptions {
    * code.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -206,6 +222,7 @@ export interface GetBrightnessModeOptions {
    * Called when an API call is complete.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -217,6 +234,7 @@ export interface GetBrightnessModeOptions {
  * Options for setting the screen brightness mode.
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
@@ -226,6 +244,7 @@ export interface SetBrightnessModeOptions {
    * The value **0** indicates the manual adjustment mode, and the value **1** indicates the automatic adjustment mode.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -236,6 +255,7 @@ export interface SetBrightnessModeOptions {
    * Called when an API call is successful.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -247,6 +267,7 @@ export interface SetBrightnessModeOptions {
    * code.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -257,6 +278,7 @@ export interface SetBrightnessModeOptions {
    * Called when an API call is complete.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -268,6 +290,7 @@ export interface SetBrightnessModeOptions {
  * Options for setting the screen to be steady on.
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
@@ -277,6 +300,7 @@ export interface SetKeepScreenOnOptions {
    * The value **true** means to keep the screen steady on, and the value **false** indicates the opposite.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -287,6 +311,7 @@ export interface SetKeepScreenOnOptions {
    * Called when an API call is successful.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -298,6 +323,7 @@ export interface SetKeepScreenOnOptions {
    * code.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -308,6 +334,7 @@ export interface SetKeepScreenOnOptions {
    * Called when an API call is complete.
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -319,6 +346,7 @@ export interface SetKeepScreenOnOptions {
  * The module provides APIs for querying and adjusting the screen brightness and mode.
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
@@ -330,6 +358,7 @@ export default class Brightness {
    * @param { GetBrightnessOptions } options Options for obtaining the screen brightness. This parameter is
    *     optional and is left blank by default.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -342,6 +371,7 @@ export default class Brightness {
    * @param { SetBrightnessOptions } options Options for setting the screen brightness. This parameter is
    *     optional and is left blank by default.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -355,6 +385,7 @@ export default class Brightness {
    * @param { GetBrightnessModeOptions } options Options for obtaining the screen brightness mode. This parameter is
    *     optional and is left blank by default.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -367,6 +398,7 @@ export default class Brightness {
    * @param { SetBrightnessModeOptions } options Options for setting the screen brightness mode. This parameter is
    *     optional and is left blank by default.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -389,6 +421,7 @@ export default class Brightness {
    * @param { SetKeepScreenOnOptions } options Options for setting the screen to be steady on. This parameter is
    *     optional and is left blank by default.
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]

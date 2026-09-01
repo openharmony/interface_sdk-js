@@ -19,23 +19,20 @@
  */
 
 /**
- * 任务池（taskpool）的作用是为应用程序提供多线程运行环境，降低资源消耗并提升系统性能，且您无需关心线程的生命周期。您可以使用任务池API
- * 创建后台任务（Task），并进行如执行任务或取消任务等操作。理论上，任务池API允许创建的任务数量不受限制，但由于内存限制，不建议这样做。此外，
- * 不建议在任务中执行阻塞操作，尤其是无限期阻塞操作，因为长时间的阻塞操作会占用工作线程，可能阻塞其他任务的调度，影响应用性能。
- * 创建同一优先级的任务时，可以自行决定其执行顺序。任务的实际执行顺序与调用任务池API提供的任务执行接口的顺序一致。任务的默认优先级为MEDIUM。
- * 当同一时间待执行的任务数量大于任务池工作线程数量，任务池会根据负载均衡机制进行扩容，增加工作线程数量，减少整体等待时长。同样，当执行的任务数量减少，
- * 工作线程数量大于执行任务数量，部分工作线程处于空闲状态，任务池会根据负载均衡机制进行缩容，减少工作线程数量。
- * 如需了解任务池API返回错误码的详细信息，请参阅
- * [语言基础类库错误码](docroot://reference/apis-arkts/errorcode-utils.md)。
- * 如需了解使用TaskPool时的相关注意点，请参阅
- * [TaskPool注意事项](docroot://arkts-utils/taskpool-introduction.md#taskpool注意事项)。
+ * 任务池（taskpool）为应用程序提供多线程运行环境，降低资源消耗并提升系统性能，开发者无需关心线程的生命周期。
+ * 使用任务池API可创建后台任务（Task），执行或取消任务等操作。理论上，任务池API允许创建的任务数量不受限制，但由于内存限制，
+ * 不建议无限制地创建大量任务。此外，不建议在任务中执行阻塞操作，尤其是无限期阻塞操作，因为阻塞操作会占用工作线程，影响其他任务的调度和应用性能。
+ * 创建同一优先级的任务时，可以自行决定其执行顺序。任务的实际执行顺序与任务提交到任务池的顺序一致。任务的默认优先级为MEDIUM。
+ * 当同一时间待执行的任务数量大于任务池工作线程数量，任务池会根据负载均衡机制进行扩容，增加工作线程数量，减少整体等待时长。
+ * 同样，当执行的任务数量减少，工作线程数量大于执行任务数量，部分工作线程处于空闲状态，任务池会根据负载均衡机制进行缩容，减少工作线程数量。
+ * 任务池API返回错误码。如需了解各错误码的详细信息，请参阅文档[语言基础类库错误码](docroot://reference/apis-arkts/errorcode-utils.md)。
+ * 请查阅[TaskPool注意事项](docroot://arkts-utils/taskpool-introduction.md#taskpool注意事项)，了解使用TaskPool时的相关注意点。
  * 文档中涉及以下任务概念：
  *
  * - 任务组任务：对应为[TaskGroup]{@link taskpool.TaskGroup}任务。
  * - 串行队列任务：对应为[SequenceRunner]{@link taskpool.SequenceRunner}任务。
  * - 异步队列任务：对应为[AsyncRunner]{@link taskpool.AsyncRunner}任务。
- * - 周期任务：由
- * [executePeriodically]{@link taskpool.executePeriodically(period: number, task: Task, priority?: Priority)}执行的任务。
+ * - 周期任务：由[executePeriodically]{@link taskpool.executePeriodically}执行的任务。
  *
  * @syscap SystemCapability.Utils.Lang
  * @crossplatform [since 10]
@@ -44,8 +41,7 @@
  */
 declare namespace taskpool {
   /**
-   * 表示所创建任务（Task）执行时的优先级。工作线程优先级跟随任务优先级更新，对应关系请参考
-   * [QoS等级定义](docroot://napi/qos-guidelines.md#qos-level)。
+   * 表示所创建任务（Task）执行时的优先级。工作线程优先级跟随任务优先级更新，对应关系参考[QoS等级定义](docroot://napi/qos-guidelines.md#qos等级定义)。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -112,9 +108,9 @@ declare namespace taskpool {
   type CallbackFunction = () => void;
 
   /**
-   * 注册带有错误码的回调函数类型。
+   * 注册接收错误对象的回调函数类型。
    *
-   * @param { Error } e - 错误信息。
+   * @param { Error } e - 错误信息对象。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -123,7 +119,7 @@ declare namespace taskpool {
   type CallbackFunctionWithError = (e: Error) => void;
 
   /**
-   * 表示任务。任务可以多次执行，也可以放入任务组、串行队列或异步队列执行，还支持添加依赖关系。
+   * 调用Task中的任何接口前必须先使用构造函数创建Task对象。任务可以多次执行，也可以放入任务组、串行队列或异步队列执行，还支持添加依赖关系。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -132,12 +128,12 @@ declare namespace taskpool {
    */
   class Task {
     /**
-     * Task的构造函数，用于创建一个**Task**实例。
+     * Task的构造函数。
      *
-     * @param { Function } func - 执行的逻辑需要传入函数，该函数必须使用
+     * @param { Function } func - 待执行的函数，必须使用
      *     [@Concurrent装饰器](docroot://arkts-utils/taskpool-introduction.md#concurrent装饰器)装饰。支持的函数返回值类型请参考
      *     [序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。
-     * @param { Object[] } args - 任务执行传入函数的入参，支持的参数类型请参考
+     * @param { Object[] } args - 任务执行函数的入参，支持的参数类型请参考
      *     [序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。默认值为**undefined**。
      * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
@@ -148,13 +144,13 @@ declare namespace taskpool {
     constructor(func: Function, ...args: Object[]);
 
     /**
-     * Task的构造函数用于创建一个**Task**实例，并可指定任务名称。
+     * Task的构造函数用于创建任务，并可指定任务名称。
      *
      * @param { string } name - 任务名称。
-     * @param { Function } func - 执行的逻辑需要传入函数，该函数必须使用
+     * @param { Function } func - 待执行的函数，必须使用
      *     [@Concurrent装饰器](docroot://arkts-utils/taskpool-introduction.md#concurrent装饰器)装饰。支持的函数返回值类型请参考
      *     [序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。
-     * @param { Object[] } args - 任务执行传入函数的入参，支持的类型请参考
+     * @param { Object[] } args - 任务执行函数的入参。支持的类型请参考
      *     [序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。默认值为**undefined**。
      * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
      * @syscap SystemCapability.Utils.Lang
@@ -167,6 +163,10 @@ declare namespace taskpool {
     /**
      * 检查当前正在运行的任务是否已取消。使用此方法前，需要先创建一个**Task**对象。
      *
+     * > **说明：**
+     * >
+     * > isCanceled方法需要和taskpool.cancel方法搭配使用，如果不调用cancel方法，isCanceled方法默认返回false。
+     *
      * @returns { boolean } 如果当前正在运行的任务被取消返回**true**，否则返回**false**。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -178,7 +178,7 @@ declare namespace taskpool {
     /**
      * 任务执行过程中向宿主线程发送消息并触发已注册的回调函数。使用此方法前需构造**Task**对象。
      *
-     * > **说明**
+     * > **说明：**
      * >
      * > - 该接口应在taskpool的线程中调用。
      * >
@@ -205,7 +205,9 @@ declare namespace taskpool {
     /**
      * 设置任务的传输列表。使用该方法前需要先构造**Task**。不调用该接口，则传给任务的数据中的ArrayBuffer默认transfer转移。
      *
-     * > **说明**
+     * > **说明：**
+     * >
+     * > - 此接口与[setCloneList]{@link taskpool.Task#setCloneList}互斥：同一个ArrayBuffer不能同时设置在transfer列表和clone列表中。
      * >
      * > 此接口可以设置任务池中ArrayBuffer的transfer列表，transfer列表中的ArrayBuffer对象在传输时不会复制buffer内容到工作线程，
      * > 而是转移buffer控制权至工作线程，传输后当前的ArrayBuffer失效。若ArrayBuffer为空，则不会transfer转移。
@@ -223,7 +225,9 @@ declare namespace taskpool {
     /**
      * 设置任务的拷贝列表。在使用该方法前，需先构造**Task**对象。
      *
-     * > **说明**
+     * > **说明：**
+     * >
+     * > - 此接口与[setTransferList]{@link taskpool.Task#setTransferList}互斥：同一个ArrayBuffer不能同时设置在transfer列表和clone列表中。
      * >
      * > 该接口需搭配
      * > [@Sendable装饰器](docroot://arkts-utils/arkts-sendable.md#sendable装饰器)使用，否则会抛异常。建议开发者使用该装饰器以避免异常。
@@ -241,9 +245,13 @@ declare namespace taskpool {
     setCloneList(cloneList: Object[] | ArrayBuffer[]): void;
 
     /**
-     * 为任务注册回调函数，接收并处理任务池工作线程的数据。使用此方法前，需构造Task实例。
-     * 说明：
-     * 不支持为同一任务定义多种回调函数。如果多次赋值，只有最后一次赋值的回调函数会生效。
+     * 为任务注册回调函数，接收并处理任务池工作线程的数据。使用此方法前，需构造Task。
+     *
+     * > **说明：**
+     * >
+     * > 该方法与[sendData]{@link taskpool.Task.sendData}配对使用。
+     * >
+     * > 不支持为同一任务定义多种回调函数。如果多次赋值，只有最后一次赋值的回调函数会生效。
      *
      * @param { Function } [callback] - 处理数据的回调函数，发送到宿主线程的数据将会作为入参传入该回调函数。不传参可以取消注册的回调函数。
      * @syscap SystemCapability.Utils.Lang
@@ -283,8 +291,7 @@ declare namespace taskpool {
     removeDependency(...tasks: Task[]): void;
 
     /**
-     * 注册回调函数，任务入队时将调用该函数。
-     * 该注册需在任务执行前完成，否则会抛出异常。
+     * 注册回调函数，任务入队时将调用该函数。需在调用execute前注册，否则会抛异常。
      *
      * @param { CallbackFunction } [callback] - 需注册的回调函数。
      * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
@@ -296,8 +303,7 @@ declare namespace taskpool {
     onEnqueued(callback: CallbackFunction): void;
 
     /**
-     * 注册回调函数，任务执行前将调用该函数。
-     * 该注册需在任务执行前完成，否则会抛出异常。
+     * 注册回调函数，任务开始执行前将调用该函数。需在调用execute前注册，否则会抛异常。
      *
      * @param { CallbackFunction } [callback] - 需注册的回调函数。
      * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
@@ -309,8 +315,7 @@ declare namespace taskpool {
     onStartExecution(callback: CallbackFunction): void;
 
     /**
-     * 注册一个回调函数，并在任务执行失败时调用它（周期任务不支持）。
-     * 该注册需在任务执行前完成，否则会抛出异常。
+     * 注册回调函数，任务执行失败时调用该回调函数（周期任务不支持）。需在调用execute前注册，否则会抛异常。
      *
      * @param { CallbackFunctionWithError } [callback] - 需注册的回调函数。
      * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
@@ -322,8 +327,7 @@ declare namespace taskpool {
     onExecutionFailed(callback: CallbackFunctionWithError): void;
 
     /**
-     * 注册一个回调函数，并在任务执行成功时调用它。
-     * 该注册需在任务执行前完成，否则会抛出异常。
+     * 注册一个回调函数，并在任务执行成功时调用它（周期任务不支持）。需在调用execute前注册，否则会抛异常。
      *
      * @param { CallbackFunction } [callback] - 需注册的回调函数。
      * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
@@ -346,7 +350,8 @@ declare namespace taskpool {
     isDone(): boolean;
 
     /**
-     * 创建任务时需要传入的函数，支持的函数返回值类型请参考[序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。<br>
+     * 待执行的函数，必须使用[@Concurrent装饰器](../../arkts-utils/taskpool-introduction.md#concurrent装饰器)装饰，
+     * 支持的函数返回值类型请参考[序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。<br>
      * 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Utils.Lang
@@ -357,7 +362,7 @@ declare namespace taskpool {
     function: Function;
 
     /**
-     * 创建任务传入函数所需的参数，支持的参数类型请参考[序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。<br>
+     * 创建任务传入函数所需的参数，支持的参数类型请参考[序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。默认值为undefined。<br>
      * 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Utils.Lang
@@ -379,7 +384,7 @@ declare namespace taskpool {
     name: string;
 
     /**
-     * 任务ID。任务的标识符，系统默认提供全局唯一值，不建议修改此值。<br>
+     * 任务的ID。系统默认提供全局唯一值，不建议修改此值。<br>
      * 从API version 18开始，该接口支持在原子化服务中使用。
      *
      * @default 0
@@ -391,7 +396,7 @@ declare namespace taskpool {
     taskId: number;
 
     /**
-     * 执行任务总耗时。单位为ms。不建议修改此值。<br>
+     * 执行任务总耗时。单位：ms。不建议修改此值。<br>
      * 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @default 0
@@ -403,7 +408,7 @@ declare namespace taskpool {
     totalDuration: number;
 
     /**
-     * 执行任务异步IO耗时。单位为ms。不建议修改此值。<br>
+     * 执行任务异步IO耗时。单位：ms。不建议修改此值。<br>
      * 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @default 0
@@ -415,7 +420,7 @@ declare namespace taskpool {
     ioDuration: number;
 
     /**
-     * 执行任务CPU耗时。单位为ms。不建议修改此值。<br>
+     * 执行任务CPU耗时。单位：ms。不建议修改此值。<br>
      * 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @default 0
@@ -429,7 +434,7 @@ declare namespace taskpool {
 
   /**
    * 表示任务组，一次执行一组任务，适用于执行一组有关联的任务。如果所有任务正常执行，异步执行完毕后返回所有任务结果的数组，
-   * 数组中元素的顺序与调用[addTask]{@link taskpool.TaskGroup#addTask(task: Task)}添加任务的顺序相同。如果任意任务失败，
+   * 数组中元素的顺序与调用[addTask]{@link taskpool.TaskGroup.addTask(task: Task)}添加任务的顺序相同。如果任意任务失败，
    * 则会抛出对应异常。如果任务组中存在多个任务失败的情况，则会抛出第一个失败任务的异常。任务组可以多次执行，但执行后不能新增任务。
    *
    * @syscap SystemCapability.Utils.Lang
@@ -439,7 +444,7 @@ declare namespace taskpool {
    */
   class TaskGroup {
     /**
-     * TaskGroup的构造函数，用于创建一个**TaskGroup**实例。
+     * TaskGroup的构造函数。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -449,7 +454,7 @@ declare namespace taskpool {
     constructor();
 
     /**
-     * TaskGroup的构造函数，用于创建一个**TaskGroup**实例，并可指定任务组名称。
+     * TaskGroup的构造函数，支持指定任务组名称。
      *
      * @param { string } name - 任务组名称。
      * @syscap SystemCapability.Utils.Lang
@@ -462,8 +467,8 @@ declare namespace taskpool {
     /**
      * 将待执行的函数添加到任务组中。使用该方法前需要先构造**TaskGroup**实例。
      *
-     * @param { Function } func - 需要传入使用
-     *     [@Concurrent装饰器](docroot://arkts-utils/taskpool-introduction.md#concurrent装饰器)装饰的函数。支持的返回值类型请参考
+     * @param { Function } func - 待执行的函数，必须使用
+     *     [@Concurrent装饰器](docroot://arkts-utils/taskpool-introduction.md#concurrent装饰器)装饰，支持的函数返回值类型请参考
      *     [序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。
      * @param { Object[] } args - 任务执行函数的入参，支持的参数类型请参考
      *     [序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。默认值为**undefined**。
@@ -525,7 +530,7 @@ declare namespace taskpool {
      * SequenceRunner的构造函数，用于创建一个**SequenceRunner**实例。该实例表示一个全局串行队列。如果传入的名字与已有名字相同，
      * 将返回同一个串行队列。
      *
-     * > **说明**
+     * > **说明：**
      * >
      * > - 底层通过单例模式保证了：创建同名串行队列时，获取到同一个实例。
      * >
@@ -544,7 +549,7 @@ declare namespace taskpool {
      * 执行串行任务。使用该方法前需先构造**SequenceRunner**实例。串行队列不能执行任务组任务、其他串行队列任务、异步队列任务、
      * 有依赖关系的任务和已执行的任务。使用Promise异步回调。
      *
-     * > **说明**
+     * > **说明：**
      * >
      * > - 不支持加入存在依赖的任务。
      * >
@@ -567,7 +572,7 @@ declare namespace taskpool {
 
   /**
    * 表示长时任务。**LongTask**继承自
-   * [Task]{@link taskpool.execute(func: Function, ...args: Object[])}。
+   * [Task]{@link taskpool.Task}。
    * 长时任务不设置执行时间上限，长时间运行不会触发超时异常，但不支持将同一任务多次执行或者将该任务加入任务组（TaskGroup）。
    * 执行长时任务的线程会持续存在，直到任务完成并调用[terminateTask]{@link taskpool.terminateTask}后，该线程在空闲时被回收。
    *
@@ -580,7 +585,7 @@ declare namespace taskpool {
 
   /**
    * 表示泛型任务。**GenericsTask**继承自
-   * [Task]{@link taskpool.execute(func: Function, ...args: Object[])}。
+   * [Task]{@link taskpool.Task}。
    * 相比创建Task，创建GenericsTask可以在编译阶段校验并发函数的传参和返回值类型。其余行为与Task相同。
    *
    * @syscap SystemCapability.Utils.Lang
@@ -624,9 +629,13 @@ declare namespace taskpool {
   }
 
   /**
-   * 表示任务（Task）状态的枚举。当任务创建成功后，调用**execute()**，任务进入taskpool等待队列，状态设置为**WAITING**；
-   * 任务从等待队列出来进入taskpool工作线程中，任务状态更新为**RUNNING**；当任务执行完成，返回结果后任务状态重置为**WAITING**；
-   * 当主动cancel任务时，将任务状态更新为**CANCELED**。
+   * 表示任务（Task）状态的枚举。
+   *
+   * 状态转换规则如下：
+   * - 当任务创建成功后，调用execute，任务进入taskpool等待队列，状态设置为WAITING。
+   * - 任务从等待队列出来进入taskpool工作线程中，任务状态更新为RUNNING。
+   * - 当任务执行完成，返回结果后，如果任务再次被执行，则状态重置为WAITING。
+   * - 当主动cancel任务时，将任务状态更新为CANCELED。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -675,7 +684,7 @@ declare namespace taskpool {
    */
   class TaskInfo {
     /**
-     * 任务ID。任务的标识符，系统默认提供全局唯一值，不建议修改此值。<br>
+     * 任务的ID。系统默认提供全局唯一值，不建议修改此值。<br/>
      * 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @default 0
@@ -687,7 +696,7 @@ declare namespace taskpool {
     taskId: number;
 
     /**
-     * 任务的状态。不建议修改此值。<br>
+     * 任务的状态。state标识任务的当前状态，不建议修改此值。<br/>
      * 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @default State::WAITING
@@ -699,7 +708,7 @@ declare namespace taskpool {
     state: State;
 
     /**
-     * 任务执行至当前所用的时间，默认为0，单位为ms。当返回为0时，表示任务未执行；返回为空时，表示没有任务执行。不建议修改此值。<br>
+     * 任务执行至当前所用的时间，默认为0，单位：ms。当返回为0时，表示任务未执行；返回为空时，表示没有任务执行。不建议修改此值。<br/>
      * 从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Utils.Lang
@@ -710,7 +719,7 @@ declare namespace taskpool {
     duration?: number;
 
     /**
-     * 任务的名字，不建议修改此值。<br>
+     * 任务的名字，不建议修改此值。<br/>
      * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Utils.Lang
@@ -742,7 +751,7 @@ declare namespace taskpool {
     tid: number;
 
     /**
-     * 在当前线程上运行的任务ID列表。如果返回为空，表示当前没有任务执行。不建议修改此值。
+     * 在当前线程上运行的任务ID列表。返回为空时，代表没有任务执行。不建议修改此值。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -752,7 +761,7 @@ declare namespace taskpool {
     taskIds?: number[];
 
     /**
-     * 当前线程的优先级。如果返回为空，表示当前没有任务执行。不建议修改此值。
+     * 当前线程的优先级。返回为空时，代表没有任务执行。 不建议修改此值。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -796,10 +805,10 @@ declare namespace taskpool {
    * 将待执行的函数放入taskpool的内部任务队列，函数不会立即执行，而是等待分发到工作线程执行。在当前执行模式下，
    * 不支持取消任务。使用Promise异步回调。
    *
-   * @param { Function } func - 执行的逻辑需要传入函数，该函数必须使用
+   * @param { Function } func - 待执行的函数，必须使用
    *     [@Concurrent装饰器](docroot://arkts-utils/taskpool-introduction.md#concurrent装饰器)装饰。支持的函数返回值类型请参考
    *     [序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。
-   * @param { Object[] } args - 任务执行传入函数的入参，支持的参数类型请参考
+   * @param { Object[] } args - 任务执行函数的入参，支持的参数类型请参考
    *     [序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。默认值为**undefined**。
    * @returns { Promise<unknown> } [since 9 - 11]
    * @returns { Promise<Object> } Promise对象，返回任务函数的执行结果。 [since 11]
@@ -814,12 +823,12 @@ declare namespace taskpool {
   function execute(func: Function, ...args: Object[]): Promise<Object>;
 
   /**
-   * 校验并发函数的参数类型和返回值类型后，将函数添加到taskpool的任务队列。使用Promise异步回调。
+   * 校验并发函数的参数类型和返回类型后，将函数添加到taskpool的任务队列。在当前执行模式下，不支持取消任务。使用Promise异步回调。
    *
-   * @param { (...args: A) => R | Promise<R> } func - 执行的逻辑需要传入函数，该函数必须使用
-   *     [@Concurrent装饰器](docroot://arkts-utils/taskpool-introduction.md#concurrent装饰器)装饰。支持的函数返回值类型请参考
+   * @param { (...args: A) => R | Promise<R> } func - 待执行的函数，必须使用
+   *     [@Concurrent装饰器](docroot://arkts-utils/taskpool-introduction.md#concurrent装饰器)装饰，支持的函数返回值类型请参考
    *     [序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。
-   * @param { A } args - 任务执行传入函数的入参，支持的参数类型请参考
+   * @param { A } args - 任务执行函数的入参，支持的参数类型请参考
    *     [序列化支持类型](docroot://reference/apis-arkts/js-apis-taskpool.md#序列化支持类型)。默认值为**undefined**。
    * @returns { Promise<R> } Promise对象，返回任务函数的执行结果。
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
@@ -832,11 +841,15 @@ declare namespace taskpool {
   function execute<A extends Array<Object>, R>(func: (...args: A) => R | Promise<R>, ...args: A): Promise<R>;
 
   /**
-   * 将创建好的任务添加到taskpool的内部任务队列中，任务不会立即执行，而是等待分发到工作线程执行。当前模式支持设置任务优先级和通过cancel取消任务。
-   * 任务不能是任务组任务、串行队列任务或异步队列任务。对于非长时任务，可以多次调用执行；对于长时任务，仅支持执行一次。使用Promise异步回调。
+   * 将创建好的任务添加到taskpool的内部任务队列中，任务不会立即执行，而是等待分发到工作线程执行。当前模式支持设置任务优先级和通过cancel取消任务。使用Promise异步回调。
+   *
+   * > **说明：**
+   * >
+   * > - 任务不能是任务组任务、串行队列任务或异步队列任务。
+   * > - 长时任务只能调用一次，非长时任务可以多次调用执行。
    *
    * @param { Task } task - 需要在任务池中执行的任务。
-   * @param { Priority } [priority] - 该参数表示等待执行的任务的优先级，默认值为
+   * @param { Priority } [priority] - 等待执行的任务的优先级，默认值为
    *     **taskpool.Priority.MEDIUM**。
    * @returns { Promise<unknown> } [since 9 - 17]
    * @returns { Promise<Object> } Promise对象，返回任务函数的执行结果。 [since 11]
@@ -888,14 +901,17 @@ declare namespace taskpool {
   function execute(group: TaskGroup, priority?: Priority): Promise<Object[]>;
 
   /**
-   * 延时执行任务。当前执行模式可以设置任务优先级，并且可以尝试调用**cancel()**取消执行。该任务不能是任务组任务、串行队列任务、
-   * 异步队列任务或周期任务。对于长时任务，仅支持执行一次；对于非长时任务，可以多次调用。使用Promise异步回调。
+   * 延时执行任务。当前执行模式可以设置任务优先级，可通过cancel取消任务。使用Promise异步回调。
    *
-   * @param { number } delayTime - 延时时间，单位为ms。delayTime值必须要大于等于0。
-   *     该值应为整数。
-   *     <br>单位：毫秒。
+   * > **说明：**
+   * >
+   * > - 该任务不能是任务组任务、串行队列任务、异步队列任务或周期任务。
+   * > - 如果任务不是长时任务，可以多次调用executeDelayed执行。
+   * > - 如果是长时任务，则仅支持执行一次。
+   *
+   * @param { number } delayTime - 延时时间。单位：ms。delayTime值必须要大于等于0。
    * @param { Task } task - 需要延时执行的任务。
-   * @param { Priority } [priority] - 延时执行的任务的优先级，默认值为**taskpool.Priority.MEDIUM**。
+   * @param { Priority } [priority] - 延时执行的任务的优先级，该参数默认值为**taskpool.Priority.MEDIUM**。
    * @returns { Promise<Object> } Promise对象，返回任务函数的执行结果。
    * @throws { BusinessError } 10200028 - The delayTime is less than zero.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization. [since 12]
@@ -910,12 +926,10 @@ declare namespace taskpool {
   function executeDelayed(delayTime: number, task: Task, priority?: Priority): Promise<Object>;
 
   /**
-   * 延时执行泛型任务，不校验任务的参数类型和返回值类型。使用Promise异步回调。
-   * executeDelayed任务的校验是结合**new GenericsTask**一起用的，参数、返回值类型需与**new GenericsTask**中的类型保持一致。
+   * 延时执行泛型任务，使用Promise异步回调。
+   * executeDelayed任务的类型校验与GenericsTask的构造类型相关联，参数类型和返回值类型需与new GenericsTask时指定的类型保持一致。
    *
-   * @param { number } delayTime - 延时时间，单位为ms。delayTime值必须要大于等于0。
-   *     该值应为整数。
-   *     <br>单位：毫秒。
+   * @param { number } delayTime - 延时时间。单位：ms。delayTime值必须要大于等于0。
    * @param { GenericsTask<A, R> } task - 需要延时执行的泛型任务。
    * @param { Priority } [priority] - 延时执行的任务的优先级，默认值为**taskpool.Priority.MEDIUM**。
    * @returns { Promise<R> } Promise对象，返回任务函数的执行结果。
@@ -930,12 +944,15 @@ declare namespace taskpool {
   function executeDelayed<A extends Array<Object>, R>(delayTime: number, task: GenericsTask<A, R>, priority?: Priority): Promise<R>;
 
   /**
-   * 周期任务每隔period时长执行一次。当前执行模式支持设置任务优先级，并可以通过调用**cancel()**取消执行。周期任务不能是任务组任务、
-   * 串行队列任务或异步队列任务，不能再次调用执行接口，且执行的任务不能拥有依赖关系。
+   * 周期任务每隔period时长执行一次。当前执行模式支持设置任务优先级，可通过cancel取消任务。
    *
-   * @param { number } period - 周期时长，单位为ms。period值必须要大于等于0。
-   *     该值应为整数。
-   *     <br>单位：毫秒。
+   * > **说明：**
+   * >
+   * > - 周期任务不能是任务组任务、串行队列任务或异步队列任务。
+   * > - 同一个周期任务不能多次调用该接口。
+   * > - 执行的任务不能拥有依赖关系。
+   *
+   * @param { number } period - 周期时长。单位：ms。period值必须要大于等于0。
    * @param { Task } task - 需要周期执行的任务。
    * @param { Priority } [priority] - 周期执行的任务的优先级，该参数默认值为**taskpool.Priority.MEDIUM**。
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
@@ -951,12 +968,10 @@ declare namespace taskpool {
   function executePeriodically(period: number, task: Task, priority?: Priority): void;
 
   /**
-   * 周期执行泛型任务，不校验任务的参数类型和返回值类型。
-   * executePeriodically任务的校验是结合**new GenericsTask**一起用的，参数、返回值类型需与**new GenericsTask**中的类型保持一致。
+   * 周期执行泛型任务，使用Promise异步回调。
+   * executePeriodically任务的类型校验与GenericsTask的构造类型相关联，参数类型和返回值类型需与new GenericsTask时指定的类型保持一致。
    *
-   * @param { number } period - 周期时长，单位为ms。period值必须要大于等于0。
-   *     该值应为整数。
-   *     <br>单位：毫秒。
+   * @param { number } period - 周期时长。单位：ms。period值必须要大于等于0。
    * @param { GenericsTask<A, R> } task - 需要周期执行的泛型任务。
    * @param { Priority } [priority] - 周期执行的任务的优先级，该参数默认值为**taskpool.Priority.MEDIUM**。
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
@@ -972,11 +987,13 @@ declare namespace taskpool {
   function executePeriodically<A extends Array<Object>, R>(period: number, task: GenericsTask<A, R>, priority?: Priority): void;
 
   /**
-   * 取消任务池中的任务。当任务在taskpool等待队列中，取消该任务后该任务将不再执行，并返回任务被取消的异常；当任务已经在taskpool工作线程执行，
-   * 取消该任务并不影响任务继续执行，执行结果在catch分支返回，搭配**isCanceled()**可以对任务取消行为作出响应。也就是说，
-   * **taskpool.cancel**对其之前的**taskpool.execute**、**taskpool.executeDelayed**或**taskpool.executePeriodically**生效。
-   * 从API version 20开始，在执行cancel操作后，可以在catch分支里使用泛型BusinessError<
-   * [taskpool.TaskResult]{@link taskpool.TaskResult}>，来获取任务中抛出的异常信息或最终的执行结果。
+   * 取消任务池中的任务。
+   * - 当任务在taskpool等待队列中，取消该任务后该任务将不再执行，并返回任务被取消的异常。
+   * - 当任务已经在taskpool工作线程执行，取消该任务并不影响任务继续执行。执行结果在catch分支返回，开发者可搭配isCanceled方法对任务取消行为作出响应。
+   * - taskpool.cancel对其之前的taskpool.execute、taskpool.executeDelayed或taskpool.executePeriodically生效。
+   *
+   * 从API version 20开始，支持在执行cancel操作后，在catch分支里使用BusinessError<
+   * [taskpool.TaskResult]{@link taskpool.TaskResult}>的泛型标记，来获取任务中抛出的异常信息或最终的执行结果。
    *
    * @param { Task } task - 需要取消执行的任务。
    * @throws { BusinessError } 10200015 - The task to cancel does not exist.
@@ -990,9 +1007,9 @@ declare namespace taskpool {
   function cancel(task: Task): void;
 
   /**
-   * 取消任务池中的任务组。如果任务组中的任务未全部执行结束，返回**undefined**。
-   * 从API version 20开始，在执行cancel操作后，可以在catch分支里使用泛型BusinessError<
-   * [taskpool.TaskResult]{@link taskpool.TaskResult}>，来获取任务中抛出的异常信息或最终的执行结果。
+   * 取消任务池中的任务组。如果任务组中的任务未全部执行结束，则整个任务组的执行结果返回undefined。
+   * 从API version 20开始，支持在执行cancel操作后，在catch分支里使用BusinessError<
+   * [taskpool.TaskResult]{@link taskpool.TaskResult}>的泛型标记，来获取任务中抛出的异常信息或最终的执行结果。
    *
    * @param { TaskGroup } group - 需要取消执行的任务组。
    * @throws { BusinessError } 10200018 - The task group to cancel does not exist.
@@ -1004,12 +1021,14 @@ declare namespace taskpool {
   function cancel(group: TaskGroup): void;
 
   /**
-   * 通过任务ID取消任务池中的任务。如果任务在taskpool等待队列中，取消后任务将不再执行，并返回任务取消的异常。如果任务已在taskpool工作线程中执行，
-   * 取消不影响任务继续执行，执行结果在catch分支返回，搭配**isCanceled()**可以对任务取消行为作出响应。**taskpool.cancel**对其之前的
-   * **taskpool.execute**或**taskpool.executeDelayed**生效。在其他线程调用**taskpool.cancel**时，需注意其行为是异步的，
-   * 可能影响之后的**taskpool.execute**或**taskpool.executeDelayed**。
-   * 从API version 20开始，在执行cancel操作后，可以在catch分支里使用泛型BusinessError<
-   * [taskpool.TaskResult]{@link taskpool.TaskResult}>，来获取任务中抛出的异常信息或最终的执行结果。
+   * 通过任务ID取消任务池中的任务。
+   * - 如果任务在taskpool等待队列中，取消后任务将不再执行，并返回任务取消的异常。
+   * - 当任务已经在taskpool工作线程执行，取消该任务并不影响任务继续执行。执行结果在catch分支返回，开发者可搭配isCanceled方法对任务取消行为作出响应。
+   * - taskpool.cancel对其之前的taskpool.execute、taskpool.executeDelayed或taskpool.executePeriodically生效。
+   * - 在其他线程调用taskpool.cancel时，需注意其行为是异步的，可能导致在cancel调用之后的taskpool.execute或taskpool.executeDelayed的任务被取消。
+   *
+   * 从API version 20开始，支持在执行cancel操作后，在catch分支里使用BusinessError<
+   * [taskpool.TaskResult]{@link taskpool.TaskResult}>的泛型标记。这可以用来获取任务中抛出的异常信息或最终的执行结果。
    *
    * @param { number } taskId - 需要取消执行的任务的ID。
    * @throws { BusinessError } 10200015 - The task to cancel does not exist.
@@ -1033,9 +1052,9 @@ declare namespace taskpool {
   function getTaskPoolInfo(): TaskPoolInfo;
 
   /**
-   * 中止任务池中的长时任务，在长时任务执行完成后调用。中止后，执行长时任务的线程可能会被回收。
+   * 终止任务池中的长时任务，在长时任务执行完成后调用。终止后，执行长时任务的线程可能会被回收。
    *
-   * @param { LongTask } longTask - 需要中止的长时任务。
+   * @param { LongTask } longTask - 需要终止的长时任务。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -1058,7 +1077,7 @@ declare namespace taskpool {
   function isConcurrent(func: Function): boolean;
 
   /**
-   * 表示异步队列，可以指定任务执行的并发度和排队策略。
+   * 表示异步队列。可以指定任务执行的并发度和排队策略。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 22]
@@ -1086,7 +1105,7 @@ declare namespace taskpool {
      * AsyncRunner的构造函数，用于创建一个**AsyncRunner**实例。构造一个全局异步队列，如果队列名称与已有名称相同，
      * 将返回同一个异步队列。
      *
-     * > **说明**
+     * > **说明：**
      * >
      * > - 底层通过单例模式确保创建同名的异步队列时，获取同一个实例。
      * >
@@ -1108,7 +1127,7 @@ declare namespace taskpool {
     /**
      * 执行异步任务。使用该方法前需要先构造**AsyncRunner**实例。使用Promise异步回调。
      *
-     * > **说明**
+     * > **说明：**
      * >
      * > - 不支持执行任务组中的任务。
      * >
@@ -1141,7 +1160,13 @@ declare namespace taskpool {
   }
 
   /**
-   * 处于等待或执行过程中的任务进行取消操作后，在catch分支里捕获到**BusinessError**里的补充信息。其他场景下该信息为**undefined**。
+   * 对处于等待或执行过程中的任务执行取消操作后，在catch分支里捕获到BusinessError里的补充信息。其他场景下该信息为undefined。
+   *
+   * > **说明：**
+   * >
+   * > 任务被取消后，有如下两种情况：
+   * > - 如果当前任务处于等待阶段，则result为undefined，error与BusinessError的message字段一致；
+   * > - 如果当前任务正在运行且有异常抛出，则result为undefined，error为抛出的异常信息；没有异常时，result为任务执行完成后的结果，error与BusinessError的message字段一致。
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -1150,7 +1175,7 @@ declare namespace taskpool {
    */
   interface TaskResult {
     /**
-     * 任务执行结果。默认为**undefined**。不建议修改此值。
+     * 任务执行结果。默认为undefined。不建议修改此值。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -1160,7 +1185,7 @@ declare namespace taskpool {
     result?: Object;
 
     /**
-     * 错误信息。默认和**BusinessError**的**message**字段一致。不建议修改此值。
+     * 错误信息。默认和BusinessError的message字段一致。不建议修改此值。
      *
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -1173,18 +1198,18 @@ declare namespace taskpool {
   /**
    * 通过taskId或taskId与taskName获取对应的Task实例。
    *
-   * > **说明**
+   * > **说明：**
    * >
-   * > - 如果传入的taskId查询不到对应的Task实例，则会返回**undefined**。
+   * > - 如果传入的taskId查询不到对应的Task实例，则会返回undefined；
    * >
-   * > - 如果传入的taskId能够查询到对应的Task实例，但是调用**getTask**方法的线程和创建Task实例的线程不一致，则会返回**undefined**。
+   * > - 如果传入的taskId能够查询到对应的Task实例，但是调用getTask方法的线程和创建Task实例的线程不一致，则会返回undefined；
    * >
-   * > - 如果同时传入taskId和taskName，通过taskId查询到的Task实例的name和传入的taskName不一致，则会返回**undefined**。
+   * > - 如果同时传入taskId和taskName，通过taskId查询到的Task实例的name和传入的taskName不一致，则会返回undefined。
    *
    * @param { number } taskId - 任务ID。
    *     该值应为整数。
-   * @param { string } [taskName] - 任务名称。默认值为**undefined**。
-   * @returns { Task | undefined } Task实例；当情况异常时，返回**undefined**，具体可见上文说明。
+   * @param { string } [taskName] - 任务名称。默认值为undefined。
+   * @returns { Task | undefined } Task实例；当情况异常时，返回undefined，具体可见上文说明。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
    * @atomicservice
@@ -1228,11 +1253,35 @@ declare namespace taskpool {
   }
 
   /**
-   * 通过Configs执行并发任务。
+   * 将创建好的任务添加到taskpool的内部任务队列中，任务不会立即执行，而是等待分发到工作线程执行。当前模式支持设置任务优先级、设置超时时间和通过cancel取消任务。使用Promise异步回调。
    *
-   * @param { Task } task - 需要执行的任务。
-   * @param { Configs } configs - 任务的配置项。
-   * @returns { Promise<Object> }
+   * > **说明：**
+   * >
+   * > - 不支持执行任务组任务。
+   * >
+   * > - 不支持执行串行队列任务。
+   * >
+   * > - 不支持执行异步队列任务。
+   * >
+   * > - 不支持执行周期性任务。
+   * >
+   * > - 不支持执行延迟任务。
+   * >
+   * > - 不支持执行存在依赖的任务。
+   * >
+   * > - 不支持任务重复执行。
+   * >
+   * > - 设置过超时的任务无法被其他任务依赖，也无法依赖其他任务。
+   * >
+   * > - 如果任务设置了失败监听，任务执行超时了，失败监听不会被触发。
+   * >
+   * > - 如果任务使用sendData来往宿主线程发消息，任务超时之后，宿主线程不再接收到消息。
+   * >
+   * > - 在抛出超时异常信息之后，执行中的任务还是会在线程中继续执行，但是最终不会返回执行结果。
+   *
+   * @param { Task } task - 需要在任务池中执行的任务。
+   * @param { Configs } configs - 该参数可以设置超时时间和任务优先级。
+   * @returns { Promise<Object> } Promise对象，返回任务函数的执行结果。
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
@@ -1246,11 +1295,36 @@ declare namespace taskpool {
   function execute(task: Task, configs: Configs): Promise<Object>;
 
   /**
-   * 通过Configs执行并发泛型任务。
+   * 将创建好的泛型任务放入taskpool的内部任务队列，使用Promise异步回调。
+   * execute任务的类型校验与GenericsTask的构造类型相关联，参数类型和返回值类型需与new GenericsTask时指定的类型保持一致。
    *
-   * @param { GenericsTask<A, R> } task - 需要执行的泛型任务。
-   * @param { Configs } configs - 任务的配置项。
-   * @returns { Promise<R> }
+   * > **说明：**
+   * >
+   * > - 不支持执行任务组任务。
+   * >
+   * > - 不支持执行串行队列任务。
+   * >
+   * > - 不支持执行异步队列任务。
+   * >
+   * > - 不支持执行周期性任务。
+   * >
+   * > - 不支持执行延迟任务。
+   * >
+   * > - 不支持执行存在依赖的任务。
+   * >
+   * > - 不支持任务重复执行。
+   * >
+   * > - 设置过超时的任务无法被其他任务依赖，也无法依赖其他任务。
+   * >
+   * > - 如果任务设置了失败监听，任务执行超时了，失败监听不会被触发。
+   * >
+   * > - 如果任务使用sendData来往宿主线程发消息，任务超时之后，宿主线程不再接收到消息。
+   * >
+   * > - 在抛出超时异常信息之后，执行中的任务还是会在线程中继续执行，但是最终不会返回执行结果。
+   *
+   * @param { GenericsTask<A, R> } task - 需要在任务池中执行的泛型任务。
+   * @param { Configs } configs - 该参数可以设置超时时间和任务优先级。
+   * @returns { Promise<R> } Promise对象，返回任务函数的执行结果。
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
    * @throws { BusinessError } 10200051 - The periodic task cannot be executed again.
@@ -1264,11 +1338,18 @@ declare namespace taskpool {
   function execute<A extends Array<Object>, R>(task: GenericsTask<A, R>, configs: Configs): Promise<R>;
 
   /**
-   * 通过Configs执行并发任务组。
+   * 将创建好的任务组放入taskpool内部任务队列，任务组中的任务不会立即执行，而是等待分发到工作线程执行。任务组中任务全部执行完成后，结果数组统一返回。此模式适用于执行关联任务。使用Promise异步回调。
+   * configs配置里可以指定任务组执行的超时时间和优先级。指定的超时时间到了，但是任务组还未完成，则会抛出任务组超时的异常信息。
    *
-   * @param { TaskGroup } group - 需要执行的任务组。
-   * @param { Configs } configs - 任务组中各任务的配置项。
-   * @returns { Promise<Object[]> }
+   * > **说明：**
+   * >
+   * > - 不支持任务组重复执行。
+   * >
+   * > - 在抛出超时异常信息之后，执行中的任务还是会在线程中继续执行，但是最终不会返回执行结果。
+   *
+   * @param { TaskGroup } group - 需要在任务池中执行的任务组。
+   * @param { Configs } configs - 该参数可以设置超时时间和任务优先级。
+   * @returns { Promise<Object[]> } Promise对象数组，返回任务函数的执行结果。
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200059 - TaskGroup cannot be re-executed.
    * @throws { BusinessError } 10200070 - TaskGroup timed out.

@@ -168,26 +168,83 @@ export interface SelectionContainerEditMenuOptions {
 }
 
 /**
+ * Describes the initialization options of the SelectionContainer component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamiconly
+ */
+export interface SelectionContainerOptions {
+  /**
+   * SelectionContainer controller.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamiconly
+   */
+  controller: SelectionContainerController;
+}
+
+/**
+ * Defines the controller of the SelectionContainer component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamiconly
+ */
+export declare class SelectionContainerController {
+  /**
+   * Closes the custom or default selection menu of the SelectionContainer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamiconly
+   */
+  closeSelectionMenu(): void;
+
+  /**
+   * Clears the current text selection of the SelectionContainer,
+   * and closes the selection menu if it is currently shown.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamiconly
+   */
+  clearTextSelection(): void;
+}
+
+/**
  * Provides a SelectionContainer component interface.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.0.0 dynamic
+ * @since 26.0.0 dynamiconly
  */
 export interface SelectionContainerInterface {
   /**
    * Defines the constructor of SelectionContainer.
    *
+   * @param { SelectionContainerOptions } [value] - Initialization options of the component.
    * @returns { SelectionContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 dynamiconly
    */
-  (): SelectionContainerAttribute;
+  (value?: SelectionContainerOptions): SelectionContainerAttribute;
 }
 
 /**

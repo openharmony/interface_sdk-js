@@ -39,7 +39,7 @@ declare namespace wantAgent {
    * 获取WantAgent实例的Bundle名称。使用callback异步回调。
    *
    * @param { WantAgent } agent - WantAgent对象。
-   * @param { AsyncCallback<string> } callback - 获取WantAgent实例的包名的回调方法。
+   * @param { AsyncCallback<string> } callback - 获取WantAgent实例的Bundle名称的回调方法。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -117,7 +117,7 @@ declare namespace wantAgent {
    * 取消WantAgent实例。使用callback异步回调。
    *
    * @param { WantAgent } agent - WantAgent对象。
-   * @param { AsyncCallback<void> } callback - 取消WantAgent实例的回调方法
+   * @param { AsyncCallback<void> } callback - 取消WantAgent实例的回调方法。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -130,7 +130,7 @@ declare namespace wantAgent {
    * 取消WantAgent实例。使用Promise异步回调。
    *
    * @param { WantAgent } agent - WantAgent对象。
-   * @returns { Promise<void> } 以Promise形式获取异步返回结果。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -198,7 +198,7 @@ declare namespace wantAgent {
    * 创建WantAgent。创建失败返回的WantAgent为空值。使用Promise异步回调。
    *
    * @param { WantAgentInfo } info - WantAgent信息。
-   * @returns { Promise<WantAgent> } 以Promise形式返回WantAgent。
+   * @returns { Promise<WantAgent> } Promise对象，返回用于触发指定操作的WantAgent实例。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
    * @since 7
@@ -218,7 +218,7 @@ declare namespace wantAgent {
    */
   export enum WantAgentFlags {
     /**
-     * WantAgent仅能使用一次。  
+     * WantAgent仅能使用一次。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
@@ -229,7 +229,7 @@ declare namespace wantAgent {
     ONE_TIME_FLAG = 0,
 
     /**
-     * 如果描述WantAgent对象不存在，则不创建它，直接返回null。
+     * 如果指定WantAgent对象不存在，则不创建它，直接返回null。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]

@@ -66,7 +66,7 @@ declare class BaseSpan<T> extends CommonMethod<T> {
 
   /**
    * Background style. This attribute prioritizes the value separately set for the component. If it is not set, the
-   * component can inherit the settings from its parent [ContainerSpan]{@link container_span}.
+   * component can inherit the settings from its parent [ContainerSpan]{@link ./container_span}.
    *
    * @param { TextBackgroundStyle } style - Sets the background style.<br>Default value:<br>{<br>  color:
    *     Color.Transparent,<br>  radius: 0<br>}
@@ -100,8 +100,8 @@ declare class BaseSpan<T> extends CommonMethod<T> {
 }
 
 /**
- * As a child of the [Text]{@link text} and [ContainerSpan]{@link container_span} components, the **Span** component is
- * used to display inline text.
+ * As a child of the [Text]{@link ./text} and [ContainerSpan]{@link ./container_span} components, the **Span** component
+ * is used to display inline text.
  *
  * > **NOTE**
  * >
@@ -110,11 +110,12 @@ declare class BaseSpan<T> extends CommonMethod<T> {
  * > attribute from its parent component. Only the following attributes can be inherited: **fontColor**, **fontSize**,
  * > **fontStyle**, **fontWeight**, **decoration**, **letterSpacing**, **textCase**, **fontFamily**, and **textShadow**.
  * >
- * > The [universal attributes]{@link common} are not supported. To set universal attributes, use [Text]{@link text} for
- * > configuration or use [CustomSpan]{@link CustomSpan} in the [Styled String]{@link styled_string} for custom drawing.
+ * > The [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md) are not
+ * > supported. To set universal attributes, use [Text]{@link ./text} for configuration or use
+ * > [CustomSpan]{@link CustomSpan} in the [Styled String]{@link ./styled_string} for custom drawing.
  * >
- * > Among [universal events]{@link common}, only
- * > [onClick]{@link CommonMethod#onClick(event: Callback<ClickEvent>, distanceThreshold: number)} click events and
+ * > Among [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md), only
+ * > [onClick]{@link CommonMethod#onClick(event: (event: ClickEvent) => void)} click events and
  * > [onHover]{@link CommonMethod#onHover} hover events are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -145,7 +146,7 @@ interface SpanInterface {
  * Inherited from [BaseSpan]{@link BaseSpan}.
  *
  * Among universal events, only
- * [onClick]{@link CommonMethod#onClick(event: Callback<ClickEvent>, distanceThreshold: number)} click events and
+ * [onClick]{@link CommonMethod#onClick(event: (event: ClickEvent) => void)} click events and
  * [onHover]{@link CommonMethod#onHover} hover events are supported.
  *
  * @extends CommonMethod<SpanAttribute> [since 7 - 10]
@@ -258,6 +259,8 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    *
    * @param { number | FontWeight | ResourceStr } weight - the span font weight.
    * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+   *     If not specified, the default values of FontWeightConfigs are used:
+   *     `enableVariableFontWeight` defaults to `false`, and `enableDeviceFontWeightCategory` defaults to `true`.
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -369,6 +372,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -376,8 +380,8 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
 }
 
 /**
- * As a child of the [Text]{@link text} and [ContainerSpan]{@link container_span} components, the **Span** component is
- * used to display inline text.
+ * As a child of the [Text]{@link ./text} and [ContainerSpan]{@link ./container_span} components, the **Span** component
+ * is used to display inline text.
  *
  * > **NOTE**
  * >
@@ -386,11 +390,12 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
  * > attribute from its parent component. Only the following attributes can be inherited: **fontColor**, **fontSize**,
  * > **fontStyle**, **fontWeight**, **decoration**, **letterSpacing**, **textCase**, **fontFamily**, and **textShadow**.
  * >
- * > The [universal attributes]{@link common} are not supported. To set universal attributes, use [Text]{@link text} for
- * > configuration or use [CustomSpan]{@link CustomSpan} in the [Styled String]{@link styled_string} for custom drawing.
+ * > The [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md) are not
+ * > supported. To set universal attributes, use [Text]{@link ./text} for configuration or use
+ * > [CustomSpan]{@link CustomSpan} in the [Styled String]{@link ./styled_string} for custom drawing.
  * >
- * > Among [universal events]{@link common}, only
- * > [onClick]{@link CommonMethod#onClick(event: Callback<ClickEvent>, distanceThreshold: number)} click events and
+ * > Among [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md), only
+ * > [onClick]{@link CommonMethod#onClick(event: (event: ClickEvent) => void)} click events and
  * > [onHover]{@link CommonMethod#onHover} hover events are supported.
  *
  * ###### Child Components

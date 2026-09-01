@@ -26,14 +26,14 @@
  * @crossplatform
  * @atomicservice [since 12]
  * @since 11 dynamic
- * @noninterop [since 12]
+ * @noninterop
  */
 interface ContainerSpanInterface {
 
   /**
    * Defines the constructor of ContainerSpan.
    *
-   * @returns { ContainerSpanAttribute } The attribute of the container span.
+   * @returns { ContainerSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -46,14 +46,14 @@ interface ContainerSpanInterface {
 /**
  * Only the following attributes are supported.
  *
- * The [universal events]{@link common} are not supported.
+ * The [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are not supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice [since 12]
  * @since 11 dynamic
- * @noninterop [since 12]
+ * @noninterop
  */
 declare class ContainerSpanAttribute {
 
@@ -86,16 +86,16 @@ declare class ContainerSpanAttribute {
 }
 
 /**
- * As a child of the [Text]{@link text} component, the **ContainerSpan** component is used to manage the background
- * colors and rounded corners of multiple [Span]{@link span} and [ImageSpan]{@link image_span} components in a unified
- * manner.
+ * As a child of the [Text]{@link ./text} component, the **ContainerSpan** component is used to manage the background
+ * colors and rounded corners of multiple [Span]{@link ./span} and [ImageSpan]{@link ./image_span} components in a
+ * unified manner.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice [since 12]
  * @since 11 dynamic
- * @noninterop [since 12]
+ * @noninterop
  */
 declare const ContainerSpan: ContainerSpanInterface;
 
@@ -107,6 +107,6 @@ declare const ContainerSpan: ContainerSpanInterface;
  * @crossplatform
  * @atomicservice [since 12]
  * @since 11 dynamic
- * @noninterop [since 12]
+ * @noninterop
  */
 declare const ContainerSpanInstance: ContainerSpanAttribute;

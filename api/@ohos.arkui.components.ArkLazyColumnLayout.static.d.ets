@@ -27,8 +27,6 @@ import { LengthMetrics } from './arkui/Graphics';
 /**
  * Defines the lazy column layout attribute.
  *
- * @extends CommonMethod
- * @interface { LazyColumnLayoutAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -59,38 +57,38 @@ export declare interface LazyColumnLayoutAttribute extends CommonMethod {
     default alignItems(value: HorizontalAlign | undefined): this;
 
     /**
-    * Sets the header of the lazy column layout.
-    *
-    * @param { CustomBuilder | undefined } builder - The header builder function
-    *     <br>Passing undefined will remove the header.
-    * @returns { this }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 26.0.0 static
-    */
+     * Sets the header of the lazy column layout.
+     *
+     * @param { CustomBuilder | undefined } builder - The header builder function
+     *     <br>Passing undefined will remove the header.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
     default header(builder: CustomBuilder | undefined): this;
 
     /**
-    * Sets the footer of the lazy column layout.
-    *
-    * @param { CustomBuilder | undefined } builder - The footer builder function
-    *     <br>Passing undefined will remove the footer.
-    * @returns { this }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 26.0.0 static
-    */
+     * Sets the footer of the lazy column layout.
+     *
+     * @param { CustomBuilder | undefined } builder - The footer builder function
+     *     <br>Passing undefined will remove the footer.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
     default footer(builder: CustomBuilder | undefined): this;
 
     /**
-    * Sets sticky style for header and footer.
-    *
-    * @param { StickyStyle | undefined } sticky - The sticky style for header and footer.
-    * @returns { this }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 26.0.0 static
-    */
+     * Sets sticky style for header and footer.
+     *
+     * @param { StickyStyle | undefined } sticky - The sticky style for header and footer.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
     default sticky(sticky: StickyStyle | undefined): this;
 
     /**
@@ -111,8 +109,9 @@ export declare interface LazyColumnLayoutAttribute extends CommonMethod {
      *
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setLazyColumnLayoutOptions(): this;
 
@@ -149,8 +148,9 @@ export declare function LazyColumnLayout(
  * @param { CustomBuilder } [content_] - content
  * @returns { LazyColumnLayoutAttribute } The attribute of the LazyColumnLayout.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

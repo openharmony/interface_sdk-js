@@ -24,7 +24,7 @@ import { CommonEventSubscribeInfo } from './commonEventSubscribeInfo';
 /**
  * # 使用说明
  * 
- * 在使用CommonEventSubscriber的功能前，需要通过commonEventManager.createSubscriber获取subscriber对象。
+ * 在使用CommonEventSubscriber的功能前，需要通过commonEventManager.createSubscriberSync获取subscriber对象。
  * 
  * <!--code_no_check-->
  * 
@@ -42,7 +42,11 @@ import { CommonEventSubscribeInfo } from './commonEventSubscribeInfo';
  * ```
  */
 /**
- * 表示公共事件的订阅者。
+ * 表示公共事件的订阅者。CommonEventSubscriber提供了对有序公共事件的
+ * 处理能力，包括获取和设置事件传递的Code和Data数据、查询当前公共事件
+ * 是否为有序或粘性公共事件、中止或清理有序公共事件的中止状态、结束对
+ * 当前有序公共事件的处理，以及获取订阅者的订阅信息等，适用于订阅者需要
+ * 对接收到的公共事件进行数据处理和流程控制的场景。
  *
  * @syscap SystemCapability.Notification.CommonEvent
  * @atomicservice [since 11]
@@ -51,9 +55,9 @@ import { CommonEventSubscribeInfo } from './commonEventSubscribeInfo';
  */
 export interface CommonEventSubscriber {
   /**
-   * 获取有序公共事件传递的数据（number类型）。使用callback异步回调。
+   * 获取有序公共事件传递的数据。使用callback异步回调。
    *
-   * @param { AsyncCallback<int> } callback - 回调函数。返回有序公共事件传递的数据（number类型）。
+   * @param { AsyncCallback<int> } callback - 回调函数。当获取有序公共事件传递的数据成功时，err为undefined，data为获取到的数据；否则err为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -64,9 +68,9 @@ export interface CommonEventSubscriber {
   getCode(callback: AsyncCallback<int>): void;
 
   /**
-   * 获取有序公共事件传递的数据（number类型）。使用Promise异步回调。
+   * 获取有序公共事件传递的数据。使用Promise异步回调。
    *
-   * @returns { Promise<int> } Promise对象。返回有序公共事件传递的数据（number类型）。
+   * @returns { Promise<int> } Promise对象。返回有序公共事件传递的数据。
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -75,9 +79,9 @@ export interface CommonEventSubscriber {
   getCode(): Promise<int>;
 
   /**
-   * 获取有序公共事件传递的数据（number类型）。
+   * 同步获取有序公共事件传递的数据。
    *
-   * @returns { int } 表示有序公共事件传递的数据（number类型）。
+   * @returns { int } 表示有序公共事件传递的数据。
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -86,10 +90,10 @@ export interface CommonEventSubscriber {
   getCodeSync(): int;
 
   /**
-   * 设置有序公共事件传递的数据（number类型）。使用callback异步回调。
+   * 设置有序公共事件传递的数据。使用callback异步回调。
    *
-   * @param { int } code - 有序公共事件传递的数据（number类型）。
-   * @param { AsyncCallback<void> } callback - 回调函数。当设置有序公共事件传递的数据（number类型）成功时，err为undefined，否则为错误对象。
+   * @param { int } code - 有序公共事件传递的数据。
+   * @param { AsyncCallback<void> } callback - 回调函数。当设置有序公共事件传递的数据成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -100,9 +104,9 @@ export interface CommonEventSubscriber {
   setCode(code: int, callback: AsyncCallback<void>): void;
 
   /**
-   * 设置有序公共事件传递的数据（number类型）。使用Promise异步回调。
+   * 设置有序公共事件传递的数据。使用Promise异步回调。
    *
-   * @param { int } code - 有序公共事件传递的数据（number类型）。
+   * @param { int } code - 有序公共事件传递的数据。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -114,9 +118,9 @@ export interface CommonEventSubscriber {
   setCode(code: int): Promise<void>;
 
   /**
-   * 设置有序公共事件传递的数据（number类型）。
+   * 同步设置有序公共事件传递的数据。
    *
-   * @param { int } code - 有序公共事件传递的数据（number类型）。
+   * @param { int } code - 有序公共事件传递的数据。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -127,9 +131,9 @@ export interface CommonEventSubscriber {
   setCodeSync(code: int): void;
 
   /**
-   * 获取有序公共事件传递的数据（string类型）。使用callback异步回调。
+   * 获取有序公共事件传递的数据。使用callback异步回调。
    *
-   * @param { AsyncCallback<string> } callback - 回调函数。返回有序公共事件传递的数据（string类型）。
+   * @param { AsyncCallback<string> } callback - 回调函数。当获取有序公共事件传递的数据成功时，err为undefined，data为获取到的数据；否则err为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -140,9 +144,9 @@ export interface CommonEventSubscriber {
   getData(callback: AsyncCallback<string>): void;
 
   /**
-   * 获取有序公共事件传递的数据（string类型）。使用Promise异步回调。
+   * 获取有序公共事件传递的数据。使用Promise异步回调。
    *
-   * @returns { Promise<string> } Promise对象。返回有序公共事件传递的数据（string类型）。
+   * @returns { Promise<string> } Promise对象。返回有序公共事件传递的数据。
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -151,9 +155,9 @@ export interface CommonEventSubscriber {
   getData(): Promise<string>;
 
   /**
-   * 获取有序公共事件传递的数据（string类型）。
+   * 同步获取有序公共事件传递的数据。
    *
-   * @returns { string } 有序公共事件传递的数据（string类型）。
+   * @returns { string } 有序公共事件传递的数据。
    * @syscap SystemCapability.Notification.CommonEvent
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -162,10 +166,10 @@ export interface CommonEventSubscriber {
   getDataSync(): string;
 
   /**
-   * 设置有序公共事件传递的数据（string类型）。使用callback异步回调。
+   * 设置有序公共事件传递的数据。使用callback异步回调。
    *
-   * @param { string } data - 有序公共事件传递的数据（string类型）。
-   * @param { AsyncCallback<void> } callback - 回调函数。当设置有序公共事件传递的数据（string类型）成功时，err为undefined，否则为错误对象。
+   * @param { string } data - 有序公共事件传递的数据，长度不超过65536字符，若超过限制，接口设置失效。
+   * @param { AsyncCallback<void> } callback - 回调函数。当设置有序公共事件传递的数据成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -176,9 +180,9 @@ export interface CommonEventSubscriber {
   setData(data: string, callback: AsyncCallback<void>): void;
 
   /**
-   * 设置有序公共事件传递的数据（string类型）。使用Promise异步回调。
+   * 设置有序公共事件传递的数据。使用Promise异步回调。
    *
-   * @param { string } data - 有序公共事件传递的数据（string类型）。
+   * @param { string } data - 有序公共事件传递的数据，长度不超过65536字符，若超过限制，接口设置失效。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -190,9 +194,9 @@ export interface CommonEventSubscriber {
   setData(data: string): Promise<void>;
 
   /**
-   * 设置有序公共事件传递的数据（string类型）。
+   * 同步设置有序公共事件传递的数据。
    *
-   * @param { string } data - 有序公共事件传递的数据（string类型）。
+   * @param { string } data - 有序公共事件传递的数据，长度不超过65536字符，若超过限制，接口设置失效。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -203,10 +207,10 @@ export interface CommonEventSubscriber {
   setDataSync(data: string): void;
 
   /**
-   * 设置有序公共事件数据。使用callback异步回调。
+   * 设置有序公共事件传递的数据。使用callback异步回调。
    *
-   * @param { int } code - 有序公共事件传递的数据（number类型）。
-   * @param { string } data - 有序公共事件传递的数据（string类型）。
+   * @param { int } code - 有序公共事件传递的数据。
+   * @param { string } data - 有序公共事件传递的数据，长度不超过65536字符，若超过限制，接口设置失效。
    * @param { AsyncCallback<void> } callback - 回调函数。当设置有序公共事件传递的数据成功时，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -220,8 +224,8 @@ export interface CommonEventSubscriber {
   /**
    * 设置有序公共事件传递的数据。使用Promise异步回调。
    *
-   * @param { int } code - 有序公共事件传递的数据（number类型）。
-   * @param { string } data - 有序公共事件传递的数据（string类型）。
+   * @param { int } code - 有序公共事件传递的数据。
+   * @param { string } data - 有序公共事件传递的数据，长度不超过65536字符，若超过限制，接口设置失效。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -233,10 +237,10 @@ export interface CommonEventSubscriber {
   setCodeAndData(code: int, data: string): Promise<void>;
 
   /**
-   * 设置有序公共事件传递的数据。
+   * 同步设置有序公共事件传递的数据。
    *
-   * @param { int } code - 有序公共事件传递的数据（number类型）。
-   * @param { string } data - 有序公共事件传递的数据（string类型）。
+   * @param { int } code - 有序公共事件传递的数据。
+   * @param { string } data - 有序公共事件传递的数据，长度不超过65536字符，若超过限制，接口设置失效。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -249,7 +253,7 @@ export interface CommonEventSubscriber {
   /**
    * 查询当前公共事件是否为有序公共事件。使用callback异步回调。
    *
-   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示有序公共事件；返回false表示无序公共事件。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。当查询成功时，err为undefined，data为true表示有序公共事件，data为false表示不是有序公共事件；否则err为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -269,7 +273,7 @@ export interface CommonEventSubscriber {
   isOrderedCommonEvent(): Promise<boolean>;
 
   /**
-   * 查询当前公共事件是否为有序公共事件。
+   * 同步查询当前公共事件是否为有序公共事件。
    *
    * @returns { boolean } 返回true表示有序公共事件；返回false表示无序公共事件。
    * @syscap SystemCapability.Notification.CommonEvent
@@ -279,9 +283,9 @@ export interface CommonEventSubscriber {
   isOrderedCommonEventSync(): boolean;
 
   /**
-   * 检查当前公共事件是否为一个粘性事件。使用callback异步回调。
+   * 查询当前公共事件是否为一个粘性公共事件。使用callback异步回调。
    *
-   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示是粘性公共事件；返回false表示不是粘性公共事件。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。当查询成功时，err为undefined，data为true表示是粘性公共事件，data为false表示不是粘性公共事件；否则err为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -291,7 +295,7 @@ export interface CommonEventSubscriber {
   isStickyCommonEvent(callback: AsyncCallback<boolean>): void;
 
   /**
-   * 检查当前公共事件是否为一个粘性事件。使用Promise异步回调。
+   * 查询当前公共事件是否为一个粘性公共事件。使用Promise异步回调。
    *
    * @returns { Promise<boolean> } Promise对象。返回true表示是粘性公共事件；返回false表示不是粘性公共事件。
    * @syscap SystemCapability.Notification.CommonEvent
@@ -301,7 +305,7 @@ export interface CommonEventSubscriber {
   isStickyCommonEvent(): Promise<boolean>;
 
   /**
-   * 检查当前公共事件是否为一个粘性事件。
+   * 同步检查当前公共事件是否为一个粘性公共事件。
    *
    * @returns { boolean } 返回true表示是粘性公共事件；返回false表示不是粘性公共事件。
    * @syscap SystemCapability.Notification.CommonEvent
@@ -337,7 +341,7 @@ export interface CommonEventSubscriber {
   abortCommonEvent(): Promise<void>;
 
   /**
-   * 添加有序公共事件的中止状态。当该接口与
+   * 同步添加有序公共事件的中止状态。当该接口与
    * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}配合使用时，可以中止当前的有序公共事
    * 件，使该公共事件不再向下一个订阅者传递。
    *
@@ -374,7 +378,7 @@ export interface CommonEventSubscriber {
   clearAbortCommonEvent(): Promise<void>;
 
   /**
-   * 清理有序公共事件的中止状态。当该接口与
+   * 同步清理有序公共事件的中止状态。当该接口与
    * [finishCommonEvent]{@link CommonEventSubscriber.finishCommonEvent(callback: AsyncCallback<void>)}配合使用时，可以使该公共事件继续向下
    * 一个订阅者传递。
    *
@@ -387,7 +391,7 @@ export interface CommonEventSubscriber {
   /**
    * 获取当前有序公共事件是否处于中止状态。使用callback异步回调。
    *
-   * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示当前有序公共事件处于中止状态；返回false表示当前有序公共事件没有处于中止状态。
+   * @param { AsyncCallback<boolean> } callback - 当查询成功时，err为undefined，data为true表示当前有序公共事件处于中止状态，data为false表示当前有序公共事件没有处于中止状态；否则err为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -399,7 +403,7 @@ export interface CommonEventSubscriber {
   /**
    * 获取当前有序公共事件是否处于中止状态。使用Promise异步回调。
    *
-   * @returns { Promise<boolean> } Promise对象。返回true表示当前有序公共事件处于中止状态；返回false表示当前有序公共事件没有处于中止状态。
+   * @returns { Promise<boolean> } Promise对象。返回true表示当前有序公共事件处于中止状态；返回false表示当前有序公共事件未处于中止状态。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 7 dynamic
    * @since 23 static
@@ -407,9 +411,9 @@ export interface CommonEventSubscriber {
   getAbortCommonEvent(): Promise<boolean>;
 
   /**
-   * 获取当前有序公共事件是否处于中止状态。
+   * 同步获取当前有序公共事件是否处于中止状态。
    *
-   * @returns { boolean } 返回true表示当前有序公共事件处于中止状态；返回false表示当前有序公共事件没有处于中止状态。
+   * @returns { boolean } 返回true表示当前有序公共事件处于中止状态；返回false表示当前有序公共事件未处于中止状态。
    * @syscap SystemCapability.Notification.CommonEvent
    * @since 10 dynamic
    * @since 23 static
@@ -419,7 +423,7 @@ export interface CommonEventSubscriber {
   /**
    * 获取订阅者的订阅信息。使用callback异步回调。
    *
-   * @param { AsyncCallback<CommonEventSubscribeInfo> } callback - 回调函数。返回订阅者的订阅信息。
+   * @param { AsyncCallback<CommonEventSubscribeInfo> } callback - 回调函数。当获取成功时，err为undefined，data为订阅者的订阅信息；否则err为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Notification.CommonEvent
@@ -463,7 +467,7 @@ export interface CommonEventSubscriber {
   getSubscribeInfo(): Promise<CommonEventSubscribeInfo|null>;
 
   /**
-   * 获取订阅者的订阅信息。
+   * 同步获取订阅者的订阅信息。
    *
    * @returns { CommonEventSubscribeInfo } 表示订阅者的订阅信息。
    * @syscap SystemCapability.Notification.CommonEvent
@@ -473,7 +477,7 @@ export interface CommonEventSubscriber {
   getSubscribeInfoSync(): CommonEventSubscribeInfo;
 
   /**
-   * 获取订阅者的订阅信息。
+   * 同步获取订阅者的订阅信息。
    *
    * @returns { CommonEventSubscribeInfo|null } 表示订阅者的订阅信息。
    * @syscap SystemCapability.Notification.CommonEvent

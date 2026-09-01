@@ -334,7 +334,7 @@ export declare interface SelectionContainerAttribute extends CommonMethod {
  * @returns { SelectionContainerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 static
+ * @since 26.0.0 staticonly
  * @noninterop
  */
 @ComponentBuilder

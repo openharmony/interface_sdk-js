@@ -48,7 +48,7 @@ declare enum SelectedMode {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  INDICATOR = 0,
+  INDICATOR,
 
   /**
    * Board mode.
@@ -59,7 +59,7 @@ declare enum SelectedMode {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  BOARD = 1
+  BOARD
 }
 
 /**
@@ -140,7 +140,7 @@ interface IndicatorStyle {
    *
    * Unit: vp
    *
-   * Value range: [0, +¡Þ)
+   * Value range: [0, +âˆž)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -157,7 +157,7 @@ interface IndicatorStyle {
    *
    * Unit: vp
    *
-   * Value range: [0, +¡Þ)
+   * Value range: [0, +âˆž)
    *
    * **NOTE**
    *
@@ -179,7 +179,7 @@ interface IndicatorStyle {
    *
    * Unit: vp
    *
-   * Value range: [0, +¡Þ)
+   * Value range: [0, +âˆž)
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -197,7 +197,7 @@ interface IndicatorStyle {
    *
    * Unit: vp
    *
-   * Value range: [0, +¡Þ)
+   * Value range: [0, +âˆž)
    *
    * @default 8
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -243,7 +243,7 @@ declare interface DrawableTabBarIndicator {
    *
    * Unit: vp
    *
-   * Value range: [0, +¡Þ)
+   * Value range: [0, +âˆž)
    *
    * If this parameter is set to **0**, the tab text width will be used instead.
    *
@@ -263,7 +263,7 @@ declare interface DrawableTabBarIndicator {
    *
    * Unit: vp
    *
-   * Value range: [0, +¡Þ)
+   * Value range: [0, +âˆž)
    *
    * @default 2vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -281,7 +281,7 @@ declare interface DrawableTabBarIndicator {
    *
    * Unit: vp
    *
-   * Value range: [0, +¡Þ)
+   * Value range: [0, +âˆž)
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -299,7 +299,7 @@ declare interface DrawableTabBarIndicator {
    *
    * Unit: vp
    *
-   * Value range: [0, +¡Þ)
+   * Value range: [0, +âˆž)
    *
    * @default 8vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -329,7 +329,7 @@ interface BoardStyle {
    *
    * Unit: vp
    *
-   * Value range: [0, +¡Þ)
+   * Value range: [0, +âˆž)
    *
    * @default 8.0vp [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -367,7 +367,7 @@ declare interface LabelStyle {
    * Maximum number of lines in the label text. If this attribute is specified, the text will not exceed the specified
    * number of lines. You can use **textOverflow** to specify how to represent text overflow. Default value: **1**
    *
-   * Value range: [1, +¡Þ)
+   * Value range: [1, +âˆž)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -383,7 +383,7 @@ declare interface LabelStyle {
    * size is set, **font.size** does not take effect. The default value is **0.0fp**, indicating that the adaptive text
    * size has no effect.
    *
-   * Value range: (0, +¡Þ)
+   * Value range: (0, +âˆž)
    *
    * @default 0.0fp [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -400,7 +400,7 @@ declare interface LabelStyle {
    * size is set, **font.size** does not take effect. The default value is **0.0fp**, indicating that the adaptive text
    * size has no effect.
    *
-   * Value range: [minFontSize, +¡Þ)
+   * Value range: [minFontSize, +âˆž)
    *
    * @default 0.0fp [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -746,7 +746,7 @@ declare class SubTabBarStyle {
    * Sets the padding of the subtab. It cannot be set in percentage. When the parameter is of the Dimension type, the
    * value applies to all sides.
    *
-   * @param { Padding | Dimension } value - Padding of the subtab.<br>Value range: [0, +¡Þ]<br>Default value:
+   * @param { Padding | Dimension } value - Padding of the subtab.<br>Value range: [0, +âˆž]<br>Default value:
    *     **{left:8.0vp,right:8.0vp,top:17.0vp,bottom:18.0vp}**
    * @returns { SubTabBarStyle } **SubTabBarStyle** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -760,7 +760,7 @@ declare class SubTabBarStyle {
   /**
    * Sets the padding of the subtab. This API supports mirroring but does not support percentage-based settings.
    *
-   * @param { LocalizedPadding } padding - Padding of the subtab.<br>Value range: [0, +¡Þ]<br>Default value:
+   * @param { LocalizedPadding } padding - Padding of the subtab.<br>Value range: [0, +âˆž]<br>Default value:
    *     **{start:LengthMetrics.vp(8),end:LengthMetrics.vp(8)**<br>
    *     **top:LengthMetrics.vp(17),bottom:LengthMetrics.vp(18)}**
    * @returns { SubTabBarStyle } **SubTabBarStyle** object.
@@ -841,11 +841,11 @@ declare class BottomTabBarStyle {
    * Sets the padding of the bottom tab. It cannot be set in percentage. When the parameter is of the Dimension type,
    * the value applies to all sides.
    *
-   * @param { Padding | Dimension } value - Padding of the bottom tab.<br>Value range: [0, +¡Þ]<br>Default value:
+   * @param { Padding | Dimension } value - Padding of the bottom tab.<br>Value range: [0, +âˆž]<br>Default value:
    *     **{left:4.0vp,right:4.0vp,top:0.0vp,bottom:0.0vp}**<br>If of the LocalizedPadding type, this attribute supports
    *     the mirroring capability.<br>Default value: **{start:LengthMetrics.vp(4),end:LengthMetrics.vp(4),**<br>
    *     **top:LengthMetrics.vp(0),bottom:LengthMetrics.vp(0)}** [since 10 - 11]
-   * @param { Padding | Dimension | LocalizedPadding } value - Padding of the bottom tab.<br>Value range: [0, +¡Þ]<br>
+   * @param { Padding | Dimension | LocalizedPadding } value - Padding of the bottom tab.<br>Value range: [0, +âˆž]<br>
    *     Default value: **{left:4.0vp,right:4.0vp,top:0.0vp,bottom:0.0vp}**<br>If of the LocalizedPadding type, this
    *     attribute supports the mirroring capability.<br>Default value:
    *     **{start:LengthMetrics.vp(4),end:LengthMetrics.vp(4),**<br>

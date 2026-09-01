@@ -833,7 +833,7 @@ declare namespace cloudSyncManager {
      *
      * @permission ohos.permission.CLOUDFILE_SYNC_MANAGER
      * @param { string } targetUri - Transfer target Uri.
-     * @param { Callback<TransferProgress> } callback - Callback function.
+     * @param { Callback<TransferProgress> } callback - Callback function. The callback will be triggered when the transfer progress changes or the transfer task completes.
      * @throws { BusinessError } 201 - Permission verification failed.
      * @throws { BusinessError } 202 - The caller is not a system application.
      * @throws { BusinessError } 13900001 - Operation not permitted. Possible causes:
@@ -864,7 +864,8 @@ declare namespace cloudSyncManager {
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 13900010 - Try again.
    * @throws { BusinessError } 13900020 - Invalid argument. Possible causes:
-   *     <br>1.Mandatory parameter are left unspecified. 2.The length of the input parameter exceeds the upper limit.
+   *     <br>1.Mandatory parameter are left unspecified.
+   *     <br>2.The length of the input parameter exceeds the upper limit. Maximum array length is 20.
    *     <br>3.The input parameter contains an invalid bundleName.
    * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSyncManager
    * @systemapi

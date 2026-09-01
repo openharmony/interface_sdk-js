@@ -93,7 +93,7 @@ export declare enum AccessibilitySelectedType {
 
   /**
    * 复选型。组件通过
-   * [accessibilityChecked](docroot://reference/apis-arkui-static/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitychecked13)
+   * [accessibilityChecked]{@link CommonMethod#accessibilityChecked}
    * 属性向无障碍服务报告选中状态。适用于多选场景，如标签筛选、属性选择等。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -105,7 +105,7 @@ export declare enum AccessibilitySelectedType {
 
   /**
    * 单选型。组件通过
-   * [accessibilitySelected](docroot://reference/apis-arkui-static/arkui-ts/ts-universal-attributes-accessibility.md#accessibilityselected13)
+   * [accessibilitySelected]{@link CommonMethod#accessibilitySelected}
    * 属性向无障碍服务报告选中状态。适用于表示当前选中项的场景，如导航栏标签、单选列表项等。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1125,4 +1125,4 @@ export interface ChipOptions {
  * @noninterop
  */
 @Builder
-export declare function Chip(options: ChipOptions): void;
+export declare function Chip(options: ChipOptions): void;

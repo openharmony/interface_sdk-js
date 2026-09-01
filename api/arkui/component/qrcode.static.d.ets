@@ -81,8 +81,9 @@ export declare interface QRCodeAttribute extends CommonMethod {
      * @param { ResourceStr } value - qrcode string.
      * @returns { QRCodeAttribute } Returns the instance of the QRCodeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setQRCodeOptions(value: ResourceStr): this;
 }
@@ -107,8 +108,9 @@ export declare function QRCode(
  * @param { CustomBuilderT<QRCodeAttribute> } style - QRCode attribute instance
  * @returns { QRCodeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

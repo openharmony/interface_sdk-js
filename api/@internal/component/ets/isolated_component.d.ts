@@ -14,14 +14,13 @@
  */
 
 /**
- * @file Defines the isolated component
+ * @file System API
  * @kit ArkUI
  */
 
 /**
  * Indicates restricted worker for run abc.
  *
- * @typedef { import('../api/@ohos.worker').default.RestrictedWorker } RestrictedWorker
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -32,7 +31,6 @@ declare type RestrictedWorker = import('../api/@ohos.worker').default.Restricted
 /**
  * Indicates error callback.
  *
- * @typedef { import('../api/@ohos.base').ErrorCallback } ErrorCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -43,7 +41,6 @@ declare type ErrorCallback = import('../api/@ohos.base').ErrorCallback;
 /**
  * Indicates want.
  *
- * @typedef { import('../api/@ohos.app.ability.Want').default } Want
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -52,9 +49,8 @@ declare type ErrorCallback = import('../api/@ohos.base').ErrorCallback;
 declare type Want = import('../api/@ohos.app.ability.Want').default;
 
 /**
- * This interface is used to set the options for IsolatedComponentAttribute during construction
+ * Describes the optional construction parameters during **IsolatedComponent** construction.
  *
- * @interface IsolatedOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -62,8 +58,8 @@ declare type Want = import('../api/@ohos.app.ability.Want').default;
  */
 declare interface IsolatedOptions {
   /**
-   * Indicates want of the IsolatedOptions.
-   * @type { Want }
+   * .abc file information to load.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -71,8 +67,8 @@ declare interface IsolatedOptions {
    */
   want: Want;
   /**
-   * Indicates restricted worker for run abc.
-   * @type { RestrictedWorker } worker - worker which run abc
+   * Restricted Worker thread where the .abc file is running.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -84,7 +80,6 @@ declare interface IsolatedOptions {
 /**
  * Provide an interface for the IsolatedComponent, which is used to render UI of other ABC
  *
- * @typedef { function } IsolatedComponentInterface
  * @param { IsolatedOptions } options - Construction configuration of IsolatedComponentAttribute
  * @returns { IsolatedComponentAttribute } Attribute of IsolatedComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -96,9 +91,15 @@ declare interface IsolatedOptions {
 declare type IsolatedComponentInterface = (options: IsolatedOptions) => IsolatedComponentAttribute;
 
 /**
- * Define the attribute functions of IsolatedComponent.
+ * Only the [width]{@link CommonMethod#width(value: Length)}, [height]{@link CommonMethod#height(value: Length)}, and
+ * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)} universal attributes are supported.
  *
- * @extends CommonMethod<IsolatedComponentAttribute>
+ * The [universal events]{@link ./common} are not supported.
+ *
+ * Events are asynchronously passed to the restricted Worker thread after coordinate conversion.
+ *
+ * The following events are supported:
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -107,8 +108,10 @@ declare type IsolatedComponentInterface = (options: IsolatedOptions) => Isolated
  */
 declare class IsolatedComponentAttribute extends CommonMethod<IsolatedComponentAttribute> {
   /**
-   * @param { ErrorCallback } callback
-   * - called when some error occurred except disconnected from IsolatedAbility.
+   * Invoked when an error occurs during the running of the **IsolatedComponent**. You can obtain the error information
+   * based on the **code**, **name**, and **message** parameters in the callback and rectify the exception accordingly.
+   *
+   * @param { ErrorCallback } callback - Error information.
    * @returns { IsolatedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

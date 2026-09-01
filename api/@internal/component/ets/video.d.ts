@@ -214,8 +214,8 @@ interface FullscreenInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice [since 18]
-   * @since 18 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   fullscreen: boolean;
 }
@@ -243,8 +243,8 @@ interface PreparedInfo {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice [since 18]
-   * @since 18 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   duration: number;
 }
@@ -276,7 +276,7 @@ interface PlaybackInfo {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
-   * @since 18 dynamic
+   * @since 10 dynamic
    */
   time: number;
 }

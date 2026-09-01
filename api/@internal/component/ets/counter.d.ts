@@ -23,7 +23,7 @@
  *
  * > **NOTE**
  *
- * > - This component supports [WithTheme]{@link with_theme} since API version 26.0.0.
+ * > - This component supports [WithTheme]{@link ./with_theme} since API version 26.0.0.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -137,8 +137,8 @@ declare const CounterInstance: CounterAttribute;
  * The **Counter** component provides an operation to increase or decrease the number.
  *
  * > **NOTE**
- *
- * > - This component supports [WithTheme]{@link with_theme} since API version 26.0.0.
+ * >
+ * > - This component supports [WithTheme]{@link ./with_theme} since API version 26.0.0.
  *
  * ###### Child Components
  *

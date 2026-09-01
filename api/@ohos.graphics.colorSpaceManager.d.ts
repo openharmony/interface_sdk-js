@@ -14,13 +14,16 @@
 */
 
 /**
- * @file
+ * @file Color Space Management
  * @kit ArkGraphics2D
  */
 
 /**
- * The **colorSpaceManager** module provides APIs for creating and managing color space objects and obtaining basic
- * color space attributes.
+ * This module provides basic capabilities for managing abstract color space objects, including creating criterion color
+ * space objects (such as sRGB, DCI-P3, and BT2020) and custom color space objects, as well as obtaining attributes such
+ * as the color space type, white point value, and gamma value. It is suitable for scenarios where color consistency 
+ * needs to be ensured, such as image processing, video rendering, and cross-device color display. It helps you 
+ * implement accurate color management and conversion, improving user experience in color display.
  *
  * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
  * @crossplatform [since 11]
@@ -42,8 +45,6 @@ declare namespace colorSpaceManager {
     /**
      * Unknown type.
      *
-     * This API can be used in atomic services since API version 12.
-     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -54,12 +55,10 @@ declare namespace colorSpaceManager {
 
     /**
      * Adobe RGB (1998).
-     *
+     * 
      * The conversion function is of the Adobe RGB (1998) type.
-     *
+     * 
      * The encoding range is of the Full type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform [since 11]
@@ -71,12 +70,10 @@ declare namespace colorSpaceManager {
 
     /**
      * DCI-P3.
-     *
+     * 
      * The conversion function is of the Gamma 2.6 type.
-     *
+     * 
      * The encoding range is of the Full type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform [since 11]
@@ -87,13 +84,11 @@ declare namespace colorSpaceManager {
     DCI_P3 = 2,
 
     /**
-     * DCI-P3.
-     *
-     * The conversion function is of the Gamma 2.6 type.
-     *
+     * Display P3.
+     * 
+     * The conversion function is of the SRGB type.
+     * 
      * The encoding range is of the Full type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform [since 11]
@@ -105,14 +100,12 @@ declare namespace colorSpaceManager {
 
     /**
      * SRGB.
-     *
+     * 
      * The conversion function is of the SRGB type.
-     *
+     * 
      * The encoding range is of the Full type.
-     *
+     * 
      * This is the default color space type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform [since 11]
@@ -124,12 +117,10 @@ declare namespace colorSpaceManager {
 
     /**
      * BT709.
-     *
+     * 
      * The conversion function is of the BT709 type.
-     *
+     * 
      * The encoding range is of the Full type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -141,12 +132,10 @@ declare namespace colorSpaceManager {
 
     /**
      * BT601_P.
-     *
+     * 
      * The conversion function is of the BT709 type.
-     *
+     * 
      * The encoding range is of the Full type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -158,12 +147,10 @@ declare namespace colorSpaceManager {
 
     /**
      * BT601_N.
-     *
+     * 
      * The conversion function is of the BT709 type.
-     *
+     * 
      * The encoding range is of the Full type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -175,12 +162,10 @@ declare namespace colorSpaceManager {
 
     /**
      * BT2020.
-     *
+     * 
      * The conversion function is of the HLG type.
-     *
+     * 
      * The encoding range is of the Full type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -192,12 +177,10 @@ declare namespace colorSpaceManager {
 
     /**
      * BT2020.
-     *
+     * 
      * The conversion function is of the PQ type.
-     *
+     * 
      * The encoding range is of the Full type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -209,12 +192,10 @@ declare namespace colorSpaceManager {
 
     /**
      * Display P3.
-     *
+     * 
      * The conversion function is of the HLG type.
-     *
+     * 
      * The encoding range is of the Full type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -226,12 +207,10 @@ declare namespace colorSpaceManager {
 
     /**
      * Display P3.
-     *
+     * 
      * The conversion function is of the PQ type.
-     *
+     * 
      * The encoding range is of the Full type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -243,12 +222,10 @@ declare namespace colorSpaceManager {
 
     /**
      * Adobe RGB (1998).
-     *
+     * 
      * The conversion function is of the Adobe RGB (1998) type.
-     *
+     * 
      * The encoding range is of the Limit type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -260,12 +237,10 @@ declare namespace colorSpaceManager {
 
     /**
      * Display P3.
-     *
+     * 
      * The conversion function is of the SRGB type.
-     *
+     * 
      * The encoding range is of the Limit type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -277,12 +252,10 @@ declare namespace colorSpaceManager {
 
     /**
      * SRGB.
-     *
+     * 
      * The conversion function is of the SRGB type.
-     *
+     * 
      * The encoding range is of the Limit type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -294,12 +267,10 @@ declare namespace colorSpaceManager {
 
     /**
      * BT709.
-     *
+     * 
      * The conversion function is of the BT709 type.
-     *
+     * 
      * The encoding range is of the Limit type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -311,12 +282,10 @@ declare namespace colorSpaceManager {
 
     /**
      * BT601_P.
-     *
+     * 
      * The conversion function is of the BT709 type.
-     *
+     * 
      * The encoding range is of the Limit type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -328,12 +297,10 @@ declare namespace colorSpaceManager {
 
     /**
      * BT601_N.
-     *
+     * 
      * The conversion function is of the BT709 type.
-     *
+     * 
      * The encoding range is of the Limit type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -345,12 +312,10 @@ declare namespace colorSpaceManager {
 
     /**
      * BT2020.
-     *
+     * 
      * The conversion function is of the HLG type.
-     *
+     * 
      * The encoding range is of the Limit type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -362,12 +327,10 @@ declare namespace colorSpaceManager {
 
     /**
      * BT2020.
-     *
+     * 
      * The conversion function is of the PQ type.
-     *
+     * 
      * The encoding range is of the Limit type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -379,12 +342,10 @@ declare namespace colorSpaceManager {
 
     /**
      * Display P3.
-     *
+     * 
      * The conversion function is of the HLG type.
-     *
+     * 
      * The encoding range is of the Limit type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -396,12 +357,10 @@ declare namespace colorSpaceManager {
 
     /**
      * Display P3.
-     *
+     * 
      * The conversion function is of the PQ type.
-     *
+     * 
      * The encoding range is of the Limit type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -413,10 +372,8 @@ declare namespace colorSpaceManager {
 
     /**
      * Display P3.
-     *
+     * 
      * The conversion function is of the Linear type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -428,10 +385,8 @@ declare namespace colorSpaceManager {
 
     /**
      * SRGB.
-     *
+     * 
      * The conversion function is of the Linear type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -443,12 +398,10 @@ declare namespace colorSpaceManager {
 
     /**
      * Same as that of LINEAR_SRGB.
-     *
+     * 
      * BT709.
-     *
+     * 
      * The conversion function is of the Linear type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -460,10 +413,8 @@ declare namespace colorSpaceManager {
 
     /**
      * BT2020.
-     *
+     * 
      * The conversion function is of the Linear type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -475,14 +426,12 @@ declare namespace colorSpaceManager {
 
     /**
      * Same as that of SRGB.
-     *
+     * 
      * SRGB.
-     *
+     * 
      * The conversion function is of the SRGB type.
-     *
+     * 
      * The encoding range is of the Full type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -494,14 +443,12 @@ declare namespace colorSpaceManager {
 
     /**
      * Same as that of DISPLAY_P3.
-     *
+     * 
      * Display P3.
-     *
+     * 
      * The conversion function is of the SRGB type.
-     *
+     * 
      * The encoding range is of the Full type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -512,13 +459,13 @@ declare namespace colorSpaceManager {
     DISPLAY_P3_SRGB = DISPLAY_P3,
 
     /**
+     * Same as that of P3_HLG.
+     * 
      * Display P3.
-     *
+     * 
      * The conversion function is of the HLG type.
-     *
+     * 
      * The encoding range is of the Full type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -530,14 +477,12 @@ declare namespace colorSpaceManager {
 
     /**
      * Same as that of P3_PQ.
-     *
+     * 
      * Display P3.
-     *
+     * 
      * The conversion function is of the PQ type.
-     *
+     * 
      * The encoding range is of the Full type.
-     *
-     * This API can be used in atomic services since API version 12.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform
@@ -549,7 +494,7 @@ declare namespace colorSpaceManager {
 
     /**
      * BT2020.
-     *
+     * 
      * The conversion function is of the LOG type.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
@@ -560,9 +505,9 @@ declare namespace colorSpaceManager {
 
     /**
      * DISPLAY BT2020.
-     *
+     * 
      * The conversion function is of the SRGB type.
-     *
+     * 
      * The encoding range is of the Full type.
      *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
@@ -574,8 +519,6 @@ declare namespace colorSpaceManager {
     /**
      * Custom type.
      *
-     * This API can be used in atomic services since API version 12.
-     *
      * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
      * @crossplatform [since 11]
      * @atomicservice [since 12]
@@ -586,8 +529,8 @@ declare namespace colorSpaceManager {
   }
 
   /**
-   * The three primary colors (red, green, blue) and white as defined by the gamut standard, whose positions in the
-   * color space are represented by (x, y) coordinates based on real-world chromaticity.
+   * The three primary colors (red, green, blue) and white as defined by the color space standard, whose positions in 
+   * the color space are represented by (x, y) coordinates based on real-world chromaticity.
    *
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform [since 11]
@@ -678,8 +621,9 @@ declare namespace colorSpaceManager {
 
   /**
    * Implements management of color space objects.
-   * Before calling any of the following APIs, you must use
-   * [create()]{@link colorSpaceManager.create(colorSpaceName: ColorSpace)} to create a color space manager.
+   * 
+   * Before calling any of the following APIs, you must use [create()]{@link colorSpaceManager.create} to create a color
+   * space manager.
    *
    * @syscap SystemCapability.Graphic.Graphic2D.ColorManager.Core
    * @crossplatform [since 11]
@@ -727,8 +671,8 @@ declare namespace colorSpaceManager {
   /**
    * Creates a standard color space object.
    *
-   * @param { ColorSpace } colorSpaceName - Type of the color space.<br>**UNKNOWN** and **CUSTOM** cannot be used when
-   *     creating standard color space objects.
+   * @param { ColorSpace } colorSpaceName - Type of the color space.
+   *     <br>**UNKNOWN** and **CUSTOM** cannot be used when creating standard color space objects.
    * @returns { ColorSpaceManager } Color space object created.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1.Incorrect parameter type.
    *     2.Parameter verification failed.

@@ -142,9 +142,9 @@ declare namespace advertising {
     /**
      * Whether you want your content to be treated as child-directed for purposes of COPPA.
      *
-     * 1: Default value, unspecified.
+     * -1: Default value, unspecified.
      * 0: No.
-     * -1: Yes.
+     * 1: Yes.
      *
      * The default value is -1.
      *
@@ -398,6 +398,12 @@ declare namespace advertising {
   /**
    * Shows a full-screen ad.
    *
+   * > **NOTE**
+   * >
+   * > 1. To ensure that ads can be displayed correctly, this API must be used together with the ad request API.
+   * >
+   * > 2. This API only supports displaying rewarded ads and interstitial ads.
+   * 
    * @param { Advertisement } ad - Ad object.
    * @param { AdDisplayOptions } options - Ad display parameters.
    * @param { common.UIAbilityContext } context - Context of the UIAbility. If not set, it is obtained from the api:

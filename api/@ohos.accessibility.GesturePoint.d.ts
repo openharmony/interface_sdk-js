@@ -14,20 +14,26 @@
  */
 
 /**
- * @file
+ * GesturePoint represents a gesture touch point and is the basic unit that constitutes a gesture path (GesturePath).
+ * 
+ * This module is used to create touch point information for gesture paths, for use by accessibility applications to 
+ * inject gestures.
+ * 
+ * @file Gesture Point
  * @kit AccessibilityKit
  */
 
 /**
- * The **GesturePoint** module provides APIs
- * for creating gesture touch point information required for an accessibility application to inject gestures.
+ * Represents a gesture touch point, which is the basic unit that constitutes a GesturePath node and is used to define 
+ * the touch position in the gesture trajectory for accessibility gesture injection. For details about how to use it, 
+ * see [GesturePath]{@link @ohos.accessibility.GesturePath}.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamiconly
  */
 export declare class GesturePoint {
   /**
-   * Defines a constructor used to create a **GesturePoint** instance.
+   * Creates a **GesturePoint** instance based on the given X and Y coordinates.
    *
    * @param { double } positionX - X coordinate of the touch point, in pixels (px).
    * @param { double } positionY - Y coordinate of the touch point, in pixels (px).

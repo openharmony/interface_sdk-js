@@ -14,12 +14,12 @@
  */
 
 /**
- * @file Export 3D interfaces
+ * @file ArkGraphics 3D
  * @kit ArkGraphics3D
  */
 
 /**
- * Export post processing settings
+ * Export post process settings
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
  * @since 23 static
@@ -107,7 +107,7 @@ export {
     BoidsSimRepulsionParameters } from './graphics3d/SceneBoidsSim';
 
 /**
- * Export SceneLoadParams
+ * Export scene
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
  * @stagemodelonly

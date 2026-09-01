@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Defines 3D resource related interfaces
+ * @file
  * @kit ArkGraphics3D
  */
 
@@ -25,7 +25,7 @@ import { Vec2, Vec3, Vec4, Aabb, Quaternion } from './SceneTypes';
 import { Callback } from '../@ohos.base';
 
 /**
- * The enum of SceneResource type.
+ * Enumerates the scene resource types, which are used to classify resources in a scene.
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -34,7 +34,7 @@ import { Callback } from '../@ohos.base';
  */
 export enum SceneResourceType {
   /**
-   * The resource is an Unknown.
+   * Unknown.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -43,7 +43,7 @@ export enum SceneResourceType {
   UNKNOWN = 0,
 
   /**
-   * The resource is a Node.
+   * Node type.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -52,7 +52,7 @@ export enum SceneResourceType {
   NODE = 1,
 
   /**
-   * The resource is an Environment.
+   * Environment resource.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -61,7 +61,7 @@ export enum SceneResourceType {
   ENVIRONMENT = 2,
 
   /**
-   * The resource is a Material.
+   * Material type.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -70,7 +70,7 @@ export enum SceneResourceType {
   MATERIAL = 3,
 
   /**
-   * The resource is a Mesh.
+   * Mesh resource.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -79,7 +79,7 @@ export enum SceneResourceType {
   MESH = 4,
 
   /**
-   * The resource is an Animation.
+   * Animation resource.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -88,7 +88,7 @@ export enum SceneResourceType {
   ANIMATION = 5,
 
   /**
-   * The resource is a Shader.
+   * Shader resource.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -97,7 +97,7 @@ export enum SceneResourceType {
   SHADER = 6,
 
   /**
-   * The resource is an Image.
+   * Image resource.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -106,7 +106,7 @@ export enum SceneResourceType {
   IMAGE = 7,
 
   /**
-   * The resource is a mesh resource
+   * Mesh resource.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 18 dynamic
@@ -115,8 +115,8 @@ export enum SceneResourceType {
   MESH_RESOURCE = 8,
 
   /**
-   * The resource is an Effect.
-   * 
+   * Post-processing effect resource.
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
    * @since 23 static
@@ -125,7 +125,7 @@ export enum SceneResourceType {
 }
 
 /**
- * Define scene resource extended by other 3d resource.
+ * Describes a resource in a scene.
  *
  * @interface SceneResource
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -134,7 +134,7 @@ export enum SceneResourceType {
  */
 export interface SceneResource {
   /**
-   * Scene resource name.
+   * Name. There is no special format requirement.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -144,7 +144,7 @@ export interface SceneResource {
   name: string;
 
   /**
-   * Scene resource type.
+   * Scene resource type. The default value is undefined.
    *
    * @type { SceneResourceType }
    * @readonly
@@ -155,7 +155,7 @@ export interface SceneResource {
   readonly resourceType: SceneResourceType;
 
   /**
-   * Scene resource uri.
+   * Resource to load. The default value is undefined.
    *
    * @type { ?ResourceStr }
    * @readonly
@@ -167,7 +167,8 @@ export interface SceneResource {
 
 
   /**
-   * Release scene resource.
+   * Destroys the scene resource and releases all associated resources or references.
+   * Once released, the resource can no longer be used or accessed.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -177,7 +178,7 @@ export interface SceneResource {
 }
 
 /**
- * Shader resource.
+ * Shader resource, which inherits from SceneResource.
  *
  * @extends SceneResource
  * @interface Shader
@@ -187,7 +188,7 @@ export interface SceneResource {
  */
 export interface Shader extends SceneResource {
   /**
-   * Shader inputs.
+   * Inputs of the shader.
    * 
    * @type { Record<string, double | Vec2 | Vec3 | Vec4 | Image> }
    * @readonly
@@ -198,9 +199,9 @@ export interface Shader extends SceneResource {
   readonly inputs: Record<string, double | Vec2 | Vec3 | Vec4 | Image>;
 
   /**
-   * Set shader inputs. Offers the same functionality for setting shader inputs as the property version,
-   *     but with better performance.
-   * @param { Record<string, double | Vec2 | Vec3 | Vec4 | Image> } inputs - Inputs of the shader
+   * Sets the inputs for the shader. This API delivers better performance than directly setting the inputs property.
+   *
+   * @param { Record<string, double | Vec2 | Vec3 | Vec4 | Image> } inputs - A mapping of strings to values for setting shader inputs.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -209,7 +210,7 @@ export interface Shader extends SceneResource {
 }
 
 /**
- * The enum of material type.
+ * Enumerates the material types in a scene. The material type defines how materials in a scene are rendered.
  *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -218,7 +219,7 @@ export interface Shader extends SceneResource {
  */
 export enum MaterialType {
   /**
-   * The material type is a Shader.
+   * Shader-defined.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -227,7 +228,8 @@ export enum MaterialType {
   SHADER = 1,
   
   /**
-   * The material is a physically-based metallic roughness material.
+   * Metallic-Roughness model based on Physically Based Rendering (PBR), simulating realistic material lighting effects
+   * through metallicity and roughness parameters.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -236,7 +238,7 @@ export enum MaterialType {
   METALLIC_ROUGHNESS = 2,
 
   /**
-   * The material is an unlit material.
+   * Material that is not affected by lighting.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -244,7 +246,7 @@ export enum MaterialType {
   UNLIT = 3,
 
   /**
-   * The material is an occlusion material
+   * Occlusion material: occludes other objects in the scene but does not occlude the environment.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -252,8 +254,8 @@ export enum MaterialType {
   OCCLUSION = 4,
 
   /**
-   * Only render the shadows received on the material surface,
-   *     the material is transparent.
+   * Draws only shadows. When the Blend property of the material is enabled,
+   * the material is blended with the background to simulate a transparent material effect.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -264,7 +266,8 @@ export enum MaterialType {
 }
 
 /**
- * The enum of PBR material cull mode.
+ * Enumerates the culling modes of PBR materials. You can improve rendering performance and visual quality by determining
+ * whether the front or back faces of objects are culled.
  * 
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -273,7 +276,7 @@ export enum MaterialType {
  */
 export enum CullMode {
   /**
-   * Disable culling.
+   * Culling is disabled.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -282,7 +285,7 @@ export enum CullMode {
   NONE = 0,
 
   /**
-   * Front face culling.
+   * Culls the front faces of geometric objects.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -291,7 +294,7 @@ export enum CullMode {
   FRONT = 1,
 
   /**
-   * Back face culling.
+   * Culls the back faces of geometric objects.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -301,32 +304,32 @@ export enum CullMode {
 }
 
 /**
- * The enum of polygon mode.
- * 
+ * Enumerates the polygon drawing mode.
+ *
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 23 dynamic&static
  */
 export enum PolygonMode {
   /**
-   * Render the whole polygon
-   * 
+   * Draws each face of the polygon.
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
   FILL = 0,
 
   /**
-   * Render only edges(wireframe) of the polygon
-   * 
+   * Draws only the wireframe of the polygon.
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
   LINE = 1,
 
   /**
-   * Render only vertices of the polygon
-   * 
+   * Draws only the vertices of the polygon.
+   *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
    */
@@ -334,7 +337,7 @@ export enum PolygonMode {
 }
 
 /**
- * Blend interface.
+ * Controls the transparency of materials.
  * 
  * @interface Blend
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -343,8 +346,8 @@ export enum PolygonMode {
  */
 export interface Blend {
   /**
-   * Control whether blending is enabled
-   * 
+   * Whether the transparency of the material is enabled. true if enabled, false otherwise.
+   *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -354,11 +357,7 @@ export interface Blend {
 }
 
 /**
- * Render sort Layer. Within a render slot a layer can define a sort layer order.
- * There are 0-63 values available (0 first, 63 last). Default id value is 32.
- * 1. Typical use case is to set render sort layer to objects which render with depth test without depth write.
- * 2. Typical use case is to always render character and/or camera object first to cull large parts of the view.
- * 3. Sort e.g. plane layers.
+ * Describes the order in which materials are rendered, controlling the sequence of drawing in the rendering pipeline.
  * 
  * @interface RenderSort
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -367,11 +366,11 @@ export interface Blend {
  */
 export interface RenderSort {
   /**
-   * Sort layer used for sorting submeshes in rendering in render slots.
-   * Valid values are 0 - 63.
+   * Rendering layer ID. A smaller value indicates an earlier rendering order.
+   * The value range is [0, 63]. The default layer ID is 32.
    * 
    * @type { ?int }
-   * @default 32 Default render sort layer id.
+   * @default 32
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -379,11 +378,11 @@ export interface RenderSort {
   renderSortLayer?: int;
 
   /**
-   * Sort layer order to describe fine order within sort layer.
-   * Valid values are 0 - 255.
-   * 
+   * Rendering order of different objects within the same rendering layer. A smaller value indicates an earlier rendering order.
+   * The value range is [0, 255]. The default value is 0.
+   *
    * @type { ?int }
-   * @default 0 Default render sort layer order.
+   * @default 0
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -392,7 +391,7 @@ export interface RenderSort {
 }
 
 /**
- * Material resource.
+ * Material resource, which inherits from SceneResource.
  *
  * @extends SceneResource
  * @interface Material
@@ -402,7 +401,7 @@ export interface RenderSort {
  */
 export interface Material extends SceneResource {
   /**
-   * Material resource type.
+   * Material type.
    *
    * @type { MaterialType }
    * @readonly
@@ -413,8 +412,9 @@ export interface Material extends SceneResource {
   readonly materialType: MaterialType;
   
   /**
-   * Defines if the material can receive shadows.
-   * 
+   * Whether the material receives shadows. true if the material receives shadows, false otherwise.
+   * The default is false.
+   *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -423,8 +423,9 @@ export interface Material extends SceneResource {
   shadowReceiver?: boolean;
 
   /**
-   * Culling mode.
-   * 
+   * Culling mode of the material, which can be used to determine whether to cull front or back faces.
+   * The default value is BACK.
+   *
    * @type { ?CullMode }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -433,10 +434,11 @@ export interface Material extends SceneResource {
   cullMode?: CullMode;
 
   /**
-   * Control whether the blend is enabled
-   * 
+   * Whether the material is transparent.
+   * The default value is false.
+   *
    * @type { ?Blend }
-   * @default undefined, which means that blending is disabled.
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
    * @since 23 static
@@ -444,8 +446,10 @@ export interface Material extends SceneResource {
   blend?: Blend;
 
   /**
-   * Alpha cutoff value [0,1]. Enabled if < 1.
-   * 
+   * Threshold of the alpha channel. If the alpha of a pixel is greater than or equal to this threshold, the pixel is rendered;
+   * otherwise, the pixel is not rendered. Setting a value less than 1 enables this mode. The value range is [0, 1].
+   * The default value is 1.
+   *
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -454,7 +458,8 @@ export interface Material extends SceneResource {
   alphaCutoff?: double;
 
   /**
-   * Render sorting priority for layers.
+   * Rendering order, which determines the rendering sequence of materials in the rendering pipeline.
+   * The default layer ID is 32, and the default order within the layer is 0.
    * 
    * @type { ?RenderSort }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -464,8 +469,9 @@ export interface Material extends SceneResource {
   renderSort?: RenderSort;
 
   /**
-   * Polygon Mode of the material
-   * 
+   * Polygon drawing mode of the model.
+   * The default value is FILL.
+   *
    * @type { ?PolygonMode}
    * @default PolygonMode.FILL
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -475,7 +481,7 @@ export interface Material extends SceneResource {
 }
 
 /**
- * Material property interface.
+ * Defines the textures, property factors, and texture samplers used by a material.
  * 
  * @interface MaterialProperty
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -484,7 +490,7 @@ export interface Material extends SceneResource {
  */
 export interface MaterialProperty {
   /**
-   * Texture to use. If undefined, factor defines the diffuse color.
+   * Texture map based on PBR properties to convey the texture information of the material.
    * 
    * @type { Image | null }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -494,7 +500,7 @@ export interface MaterialProperty {
   image: Image | null;
 
   /**
-   * Texture coefficient. Default is {1,1,1,1}, meaning no effect.
+   * PBR property factor, with different meanings for different properties.
    * 
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -504,8 +510,9 @@ export interface MaterialProperty {
   factor: Vec4;
 
   /**
-   * Texture Sampler.
-   * 
+   * Texture sampler, with the default value set to LINEAR for magnification, minification, and mipmaps,
+   * and to REPEAT for U, V, and W directions.
+   *
    * @type { ?Sampler }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -515,7 +522,9 @@ export interface MaterialProperty {
 }
 
 /**
- * Physically-based metallic roughness material resource.
+ * Material resource for creating realistic appearances, using the Metallic-Roughness model based on PBR.
+ * It simulates the surface lighting and reflection effects of different materials like metal and plastic
+ * by adjusting metallicity and roughness parameters. It inherits from Material.
  * 
  * @extends Material
  * @interface MetallicRoughnessMaterial
@@ -525,8 +534,7 @@ export interface MaterialProperty {
  */
 export interface MetallicRoughnessMaterial extends Material {
   /**
-   * Base color factor of PBR material.
-   * Value of factor.xyzw defines rgba color.
+   * Base color map, which is used to represent the material's color in the absence of lighting.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -536,8 +544,8 @@ export interface MetallicRoughnessMaterial extends Material {
   baseColor: MaterialProperty;
 
   /**
-   * Normal factor of PBR material.
-   * Value of factor.x defines normal scale.
+   * Normal map, which is used to represent the surface structure details of an object to enhance lighting realism
+   * without altering the geometric structure.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -547,9 +555,11 @@ export interface MetallicRoughnessMaterial extends Material {
   normal: MaterialProperty;
 
   /**
-   * Metallic roughness material parameters.
-   * Value of factor.y defines roughness, factor.z defines metallic and factor.a defines reflectance.
-   * 
+   * Metal material parameters.
+   * Roughness: strength of reflection caused by the fine surface structure details of the material.
+   * Metallic: metallic properties of the material.
+   * Reflectance: reflectivity of the material.
+   *
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -558,8 +568,8 @@ export interface MetallicRoughnessMaterial extends Material {
   material: MaterialProperty;
 
   /**
-   * Ambient occlusion of PBR material.
-   * Value of factor.x defines ambient occlusion factor.
+   * Ambient occlusion map, which is used to simulate the occlusion of ambient light in recesses or detailed parts of an object
+   * to enhance local shadows and improve detail realism.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -569,7 +579,7 @@ export interface MetallicRoughnessMaterial extends Material {
   ambientOcclusion: MaterialProperty;
 
   /**
-   * Emissive property of PBR material.
+   * Emissive color, which is the color of the material as a light source.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -579,8 +589,8 @@ export interface MetallicRoughnessMaterial extends Material {
   emissive: MaterialProperty;
 
   /**
-   * Clearcoat intensity.
-   * Value of factor.x defines clearcoat layer intensity.
+   * Clear coat, similar to car paint, carbon fiber, or a wet surface,
+   * which requires an additional transparent layer with reflective properties.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -590,8 +600,7 @@ export interface MetallicRoughnessMaterial extends Material {
   clearCoat: MaterialProperty;
 
   /**
-   * Clearcoat roughness.
-   * Value of factor.y defines clearcoat layer roughness.
+   * Roughness of the clear coat.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -601,8 +610,7 @@ export interface MetallicRoughnessMaterial extends Material {
   clearCoatRoughness: MaterialProperty;
   
   /**
-   * Clearcoat normal.
-   * Value of factor.xyz defines RGB clearcoat normal scale.
+   * Normal map of the clear coat.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -612,9 +620,7 @@ export interface MetallicRoughnessMaterial extends Material {
   clearCoatNormal: MaterialProperty;
 
   /**
-   * Sheen color of PBR material.
-   * Value of factor.xyz defines RGB sheen color,
-   * Value of factor.w defines sheen roughness.
+   * Gentle, widespread shine of microfiber materials, ideal for representing fabrics and textiles.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -624,9 +630,7 @@ export interface MetallicRoughnessMaterial extends Material {
   sheen: MaterialProperty;
 
   /**
-   * Specular color of PBR material.
-   * Value of factor.xyz defines RGB specular color,
-   * Value of factor.w defines specular intensity.
+   * Specular reflection of non-metallic materials, showing the intensity of traditional mirror-like reflections.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -637,8 +641,10 @@ export interface MetallicRoughnessMaterial extends Material {
 }
 
 /**
- * Unlit material resource
- * 
+ * Material that is not affected by lighting.
+ * The shading value of the material is related only to the base color and is irrelevant to lighting conditions.
+ * It inherits from Material.
+ *
  * @extends Material
  * @interface UnlitMaterial
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -646,9 +652,8 @@ export interface MetallicRoughnessMaterial extends Material {
  */
 export interface UnlitMaterial extends Material {
   /**
-   * Base color factor of unlit material.
-   * Value of factor.xyzw defines rgba color.
-   * 
+   * Base color property, which defines the base color information of the material.
+   *
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 23 dynamic&static
@@ -657,7 +662,8 @@ export interface UnlitMaterial extends Material {
 }
 
 /**
- * Unlit shadow alpha material resource
+ * This material inherits from Material and draws only the surface shadows.
+ * When the Blend property is enabled, the material can be blended with the background to simulate transparency.
  * 
  * @extends Material
  * @interface UnlitShadowAlphaMaterial
@@ -668,8 +674,7 @@ export interface UnlitMaterial extends Material {
  */
 export interface UnlitShadowAlphaMaterial extends Material {
   /**
-   * Base color factor of UnlitShadowAlphaMaterial.
-   * Value of factor.xyzw defines rgba color
+   * Color information of the shadow on the surface of a transparent material.
    * 
    * @type { MaterialProperty }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -681,7 +686,7 @@ export interface UnlitShadowAlphaMaterial extends Material {
 }
 
 /**
- * Shader material resource.
+ * Shader material, which inherits from Material.
  *
  * @extends Material
  * @interface ShaderMaterial
@@ -691,7 +696,7 @@ export interface UnlitShadowAlphaMaterial extends Material {
  */
 export interface ShaderMaterial extends Material {
   /**
-   * Color shader of material.
+   * Shader. The default value is undefined.
    *
    * @type { ?Shader }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -702,7 +707,7 @@ export interface ShaderMaterial extends Material {
 }
 
 /**
- * Occlusion material resource
+ * Occlusion material: occludes other objects in the scene but does not occlude the environment. It is inherited from Material.
  *
  * @extends Material
  * @interface OcclusionMaterial
@@ -713,7 +718,9 @@ export interface OcclusionMaterial extends Material {
 }
 
 /**
- * Sampler filter Mode
+ * Enumerates the filtering modes of a sampler.
+ * The filtering mode determines the interpolation method used when sampling textures,
+ * controlling how final pixel colors are calculated during texture scaling or deformation.
  * 
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -722,7 +729,7 @@ export interface OcclusionMaterial extends Material {
  */
 export enum SamplerFilter {
   /**
-   * Use nearest filtering
+   * Uses nearest-neighbor interpolation, which is fast but can result in jagged edges.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -730,7 +737,7 @@ export enum SamplerFilter {
    */
   NEAREST = 0,
   /**
-   * Use linear filtering
+   * Uses linear interpolation, providing a smoother appearance but with a slight performance cost.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -740,7 +747,8 @@ export enum SamplerFilter {
 }
 
 /**
- * Addressing mode for Sampler
+ * Enumerates the sampler addressing modes, which are used to control how texture coordinates are handled
+ * when they go beyond the [0, 1] range.
  * 
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -749,7 +757,7 @@ export enum SamplerFilter {
  */
 export enum SamplerAddressMode {
   /**
-   * Repeat
+   * The texture repeats when the coordinates exceed the range.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -758,7 +766,7 @@ export enum SamplerAddressMode {
   REPEAT = 0,
 
   /**
-   * Mirrored repeat
+   * The texture mirrors and repeats when the coordinates exceed the range.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -767,7 +775,7 @@ export enum SamplerAddressMode {
   MIRRORED_REPEAT = 1,
 
   /**
-   * clamp to edge
+   * The edge pixels of the texture are stretched when the coordinates exceed the range.
    * 
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -777,7 +785,7 @@ export enum SamplerAddressMode {
 }
 
 /**
- * Sampler interface
+ * Describes the sampling modes used during texture sampling.
  * 
  * @interface { Sampler }
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -786,8 +794,8 @@ export enum SamplerAddressMode {
  */
 export interface Sampler {
   /**
-   * Mag filter
-   * 
+   * Sampling mode when the texture is enlarged. The default value is LINEAR.
+   *
    * @type { ?SamplerFilter }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -796,8 +804,8 @@ export interface Sampler {
   magFilter?: SamplerFilter;
 
   /**
-   * Min filter
-   * 
+   * Sampling mode when the texture is reduced. The default value is LINEAR.
+   *
    * @type { ?SamplerFilter }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -806,8 +814,8 @@ export interface Sampler {
   minFilter?: SamplerFilter;
 
   /**
-   * Mip-map mode
-   * 
+   * Sampling modes between different texture resolutions. The default value is LINEAR.
+   *
    * @type { ?SamplerFilter }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -816,8 +824,8 @@ export interface Sampler {
   mipMapMode?: SamplerFilter;
 
   /**
-   * U addressing mode
-   * 
+   * Sampling mode of the texture in the U (horizontal) direction. The default value is REPEAT.
+   *
    * @type { ?SamplerAddressMode }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -826,8 +834,8 @@ export interface Sampler {
   addressModeU?: SamplerAddressMode;
 
   /**
-   * V addressing mode
-   * 
+   * Sampling mode of the texture in the V (vertical) direction. The default value is REPEAT.
+   *
    * @type { ?SamplerAddressMode }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 20 dynamic
@@ -837,7 +845,7 @@ export interface Sampler {
 }
 
 /**
- * Sub mesh resource.
+ * Sub-mesh resource.
  *
  * @interface SubMesh
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -846,7 +854,7 @@ export interface Sampler {
  */
 export interface SubMesh {
   /**
-   * The name of the sub mesh.
+   * Name. There is no special format requirement.
    *
    * @type { string }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -856,7 +864,7 @@ export interface SubMesh {
   name: string;
 
   /**
-   * The material of the sub mesh.
+   * Material.
    *
    * @type { Material }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -866,7 +874,7 @@ export interface SubMesh {
   material: Material;
 
   /**
-   * The axis aligned bounding box of the sub mesh.
+   * Axis aligned bounding box.
    *
    * @type { Aabb }
    * @readonly
@@ -878,7 +886,7 @@ export interface SubMesh {
 }
 
 /**
- * Defines Morpher interface for specifying morph targets for Node's geometry.
+ * Defines the deformation of 3D models by adjusting the weights of different deformation targets to create dynamic effects.
  * 
  * @interface Morpher
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -887,7 +895,8 @@ export interface SubMesh {
  */
 export interface Morpher {
   /**
-   * Morph target names and weights
+   * Used to store the names and weights of deformation targets.
+   * The weight value is usually within the range of [0.0, 1.0].
    * 
    * @type { Record<string, double> }
    * @readonly
@@ -899,7 +908,7 @@ export interface Morpher {
 }
 
 /**
- * The mesh instance owned by the mesh node
+ * Mesh resource, which inherits from SceneResource.
  *
  * @extends SceneResource
  * @interface Mesh
@@ -909,7 +918,7 @@ export interface Morpher {
  */
 export interface Mesh extends SceneResource {
   /**
-   * The sub meshes of the mesh.
+   * Array of sub-meshes.
    *
    * @type { SubMesh[] }
    * @readonly
@@ -920,7 +929,7 @@ export interface Mesh extends SceneResource {
   readonly subMeshes: SubMesh[];
 
   /**
-   * The axis aligned bounding box of the mesh.
+   * Axis aligned bounding box.
    *
    * @type { Aabb }
    * @readonly
@@ -931,7 +940,7 @@ export interface Mesh extends SceneResource {
   readonly aabb: Aabb;
 
   /**
-   * The material override sub mesh's material.
+   * Material. The default value is undefined.
    *
    * @type { ?Material }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -942,9 +951,9 @@ export interface Mesh extends SceneResource {
 }
 
 /**
- * The mesh data description resource for the geometry node
- * 
- * 
+ * Mesh resource, which inherits from SceneResource.
+ *
+ *
  * @extends SceneResource
  * @interface MeshResource
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -955,7 +964,7 @@ export interface MeshResource extends SceneResource {
 }
 
 /**
- * Animation resource.
+ * Animation resource, which inherits from SceneResource.
  *
  * @extends SceneResource
  * @interface Animation
@@ -965,7 +974,7 @@ export interface MeshResource extends SceneResource {
  */
 export interface Animation extends SceneResource {
   /**
-   * The animation is enabled.
+   * Whether the animation is enabled. true if enabled, false otherwise.
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -975,8 +984,8 @@ export interface Animation extends SceneResource {
   enabled: boolean;
 
   /**
-   * Animation speed factor
-   * A negative value runs the animation in reverse using the given speed factor
+   * Playback speed factor of the animation. The default value is 1.0, indicating that the animation is played at normal speed.
+   * If the value is negative, the animation plays in reverse.
    *
    * @type { ?double }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -986,7 +995,7 @@ export interface Animation extends SceneResource {
   speed?: double;
 
   /**
-   * The duration of the animation, the unit is second.
+   * Animation duration, in seconds. The value must be greater than or equal to 0.
    *
    * @type { double }
    * @readonly
@@ -997,7 +1006,7 @@ export interface Animation extends SceneResource {
   readonly duration: double;
 
   /**
-   * Whether the animation is running.
+   * Whether the animation is running. true if running, false otherwise.
    *
    * @type { boolean }
    * @readonly
@@ -1008,7 +1017,7 @@ export interface Animation extends SceneResource {
   readonly running: boolean;
 
   /**
-   * The progress of the animation between 0~1.
+   * Playing progress of the animation. The value range is [0, 1].
    *
    * @type { double }
    * @readonly
@@ -1019,9 +1028,9 @@ export interface Animation extends SceneResource {
   readonly progress: double;
 
   /**
-   * Register a callback when animation finished.
+   * Called when the animation playback is complete or the finish API is called.
    *
-   * @param { Callback<void> } callback - the callback invoked when animation finished
+   * @param { Callback<void> } callback - Callback function. The return value is null.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -1029,9 +1038,9 @@ export interface Animation extends SceneResource {
   onFinished(callback: Callback<void>): void;
 
   /**
-   * Register a callback when animation started.
+   * Called when the animation starts to play. The start operation is triggered by calling start or restart.
    *
-   * @param { Callback<void> } callback - the callback invoked when animation started
+   * @param { Callback<void> } callback - Callback function. The return value is null.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -1039,7 +1048,7 @@ export interface Animation extends SceneResource {
   onStarted(callback: Callback<void>): void;
 
   /**
-   * Pause the animation.
+   * Pauses the animation. The animation remains in the current playing progress.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1048,7 +1057,7 @@ export interface Animation extends SceneResource {
   pause(): void;
 
   /**
-   * Restart the animation.
+   * Plays the animation from the beginning.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1057,9 +1066,9 @@ export interface Animation extends SceneResource {
   restart(): void;
 
   /**
-   * Seek the animation to the position.
+   * Plays the animation from the specified position.
    *
-   * @param { double } position - the position seek between 0~1
+   * @param { double } position - Position from which the animation playback starts. The value range is [0, 1].
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
    * @since 23 static
@@ -1067,7 +1076,7 @@ export interface Animation extends SceneResource {
   seek(position: double): void;
 
   /**
-   * Start the animation.
+   * Plays the animation based on the current progress.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1076,7 +1085,7 @@ export interface Animation extends SceneResource {
   start(): void;
 
   /**
-   * Stop the animation and seek the position to the beginning.
+   * Stops playing the animation and sets its progress to 0 (not started).
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1085,7 +1094,7 @@ export interface Animation extends SceneResource {
   stop(): void;
 
   /**
-   * Finish the animation and seek the position to the end.
+   * Finishes the playing of the animation and sets its progress of 1 (finished).
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1095,7 +1104,7 @@ export interface Animation extends SceneResource {
 }
 
 /**
- * The enum of environment background type.
+ * Enumerates the environment background types, which are used to define how the background of a scene is presented.
  * @enum { int }
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @since 12 dynamic
@@ -1103,7 +1112,7 @@ export interface Animation extends SceneResource {
  */
 export enum EnvironmentBackgroundType {
   /**
-   * The background is none.
+   * No background.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1112,7 +1121,7 @@ export enum EnvironmentBackgroundType {
   BACKGROUND_NONE = 0,
 
   /**
-   * The background is image.
+   * Image background.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1121,7 +1130,7 @@ export enum EnvironmentBackgroundType {
   BACKGROUND_IMAGE = 1,
 
   /**
-   * The background is cubemap.
+   * Cubemap background.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1130,7 +1139,7 @@ export enum EnvironmentBackgroundType {
   BACKGROUND_CUBEMAP = 2,
 
   /**
-   * The background is equirectangular.
+   * Equirectangular projection background.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 12 dynamic
@@ -1140,7 +1149,7 @@ export enum EnvironmentBackgroundType {
 }
 
 /**
- * Environment resource.
+ * Environment resource, which inherits from SceneResource.
  *
  * @extends SceneResource
  * @interface Environment
@@ -1150,7 +1159,7 @@ export enum EnvironmentBackgroundType {
  */
 export interface Environment extends SceneResource {
   /**
-   * The background type of the environment.
+   * Environment background type.
    *
    * @type { EnvironmentBackgroundType }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1160,7 +1169,7 @@ export interface Environment extends SceneResource {
   backgroundType: EnvironmentBackgroundType;
 
   /**
-   * The indirect diffuse factor of the environment.
+   * Indirect diffuse factor.
    *
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1170,7 +1179,7 @@ export interface Environment extends SceneResource {
   indirectDiffuseFactor: Vec4;
 
   /**
-   * The indirect specular factor of the environment.
+   * Indirect specular factor.
    *
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1180,7 +1189,7 @@ export interface Environment extends SceneResource {
   indirectSpecularFactor: Vec4;
 
   /**
-   * The environment map factor of the environment.
+   * Environment map factor.
    *
    * @type { Vec4 }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1190,7 +1199,7 @@ export interface Environment extends SceneResource {
   environmentMapFactor: Vec4;
 
   /**
-   * The environment image of the environment.
+   * Environment image. The default value is undefined.
    *
    * @type { ?(Image | null) }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1200,7 +1209,7 @@ export interface Environment extends SceneResource {
   environmentImage?: Image | null;
 
   /**
-   * The radiance image of the environment.
+   * Radiance image. The default value is undefined.
    *
    * @type { ?(Image | null) }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1210,7 +1219,7 @@ export interface Environment extends SceneResource {
   radianceImage?: Image | null;
 
   /**
-   * The irradiance coefficients (array of nine Vec3).
+   * Irradiance coefficients. The default value is undefined.
    *
    * @type { ?Vec3[] }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1220,9 +1229,9 @@ export interface Environment extends SceneResource {
   irradianceCoefficients?: Vec3[];
 
   /**
-   * The rotation of the environment
+   * Rotation of the ambient light. The default value is undefined. The parameter must be a normalized quaternion.
    * 
-   * @default Quaternion {x:0, y:0, z:0, w:1}
+   * @default undefined
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -1231,7 +1240,7 @@ export interface Environment extends SceneResource {
 }
 
 /**
- * Image resource.
+ * Image resource, which inherits from SceneResource.
  *
  * @extends SceneResource
  * @interface Image
@@ -1241,7 +1250,7 @@ export interface Environment extends SceneResource {
  */
 export interface Image extends SceneResource {
   /**
-   * The width of the image, the unit is pixel.
+   * Image width, in px. The value must be greater than 0.
    *
    * @type { int }
    * @readonly
@@ -1252,7 +1261,7 @@ export interface Image extends SceneResource {
   readonly width: int;
 
   /**
-   * The height of the image, the unit is pixel.
+   * Image height, in px. The value must be greater than 0.
    *
    * @type { int }
    * @readonly
@@ -1272,7 +1281,7 @@ export interface Image extends SceneResource {
  */
 export interface ImageStream extends Image {
   /**
-   * The surfaceId of the imageStream.
+   * The surfaceId of the ImageStream.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
@@ -1282,8 +1291,8 @@ export interface ImageStream extends Image {
 }
 
 /**
- * Effect resource.
- * 
+ * Effect resource, which inherits from SceneResource. It is obtained from the createEffect API.
+ *
  * @extends SceneResource
  * @interface Effect
  * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1292,8 +1301,8 @@ export interface ImageStream extends Image {
  */
 export interface Effect extends SceneResource {
   /**
-   * Controls whether the effect is enabled or not.
-   * 
+   * Enabled status of the effect. true if enabled, false otherwise.
+   *
    * @type { boolean }
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @since 21 dynamic
@@ -1302,9 +1311,9 @@ export interface Effect extends SceneResource {
   enabled: boolean;
 
   /**
-   * The id of the effect.
-   * This is the id that was used to create the effect.
-   * 
+   * Effect ID, which is in the format of 'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX',
+   * for example, 'e68a7f45-2d21-4a0d-9aef-7d9c825d3f12'. It is used to create an effect.
+   *
    * @type { string }
    * @readonly
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -1314,10 +1323,13 @@ export interface Effect extends SceneResource {
   readonly effectId: string;
 
   /**
-   * Get the value of a specific effect property.
+   * Obtains the value of the specified effect property.
    *
-   * @param { string } propertyName - the name of specific property
-   * @returns { Object | null | undefined } effect property value, return null if the "get" operation failed.
+   * @param { string } propertyName - Name of a specified effect property.
+   *     Currently, the following strings are supported:
+   *     -'exposure': exposure level of an image.
+   *     -'vibrance': natural saturation of an image.
+   * @returns { Object | null | undefined } Effect property value. If the value fails to be obtained, null is returned.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static
@@ -1325,11 +1337,17 @@ export interface Effect extends SceneResource {
   getPropertyValue(propertyName: string): Object | null | undefined;
 
   /**
-   * Set the value of a specific effect property
+   * Sets the value of a specified effect property.
    *
-   * @param { string } propertyName - the name of specific property
-   * @param { Object | undefined } value - property value to be set
-   * @returns { boolean } return false if the "set" operation is failed
+   * @param { string } propertyName - Name of a specified effect property.
+   *     Currently, the following strings are supported:
+   *     -'exposure': exposure level of an image.
+   *     -'vibrance': natural saturation of an image.
+   * @param { Object | undefined } value - Value of the effect property to set.
+   *     -'exposure': The value is of the number type. The recommended value range is [-5, 5]. A larger value indicates a brighter image.
+   *     -'vibrance': The value is of the number type. The recommended value range is [-1, 1]. A larger value indicates more vivid image colors.
+   * @returns { boolean } Whether the operation of setting the effect property value is successful.
+   *     true indicates that the setting is successful, and false indicates that the setting fails.
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @stagemodelonly
    * @since 23 dynamic&static

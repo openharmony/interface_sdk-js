@@ -578,7 +578,7 @@ declare namespace dragController {
      * @atomicservice
      * @since 20 dynamic
      */
-    BEGIN = 0,
+    BEGIN,
 
     /**
      * Periodic notification state during sustained hover detection. In this state, periodic updates refresh UI effects
@@ -590,7 +590,7 @@ declare namespace dragController {
      * @atomicservice
      * @since 20 dynamic
      */
-    UPDATE = 1,
+    UPDATE,
 
     /**
      * Final state indicating completion of the hover detection cycle, which is triggered when the dragged item remains
@@ -604,7 +604,7 @@ declare namespace dragController {
      * @atomicservice
      * @since 20 dynamic
      */
-    END = 2,
+    END,
 
     /**
      * Interruption state of hover detection triggered by termination events, which include the following: finger or
@@ -618,7 +618,7 @@ declare namespace dragController {
      * @atomicservice
      * @since 20 dynamic
      */
-    CANCEL = 3
+    CANCEL,
   }
 
   /**

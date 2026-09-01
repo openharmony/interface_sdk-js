@@ -14,27 +14,29 @@
  */
 
 /**
- * @file
+ * @file eSIM Management
  * @kit TelephonyKit
  */
 
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * This indicates that the eSIM card performs the profile management operation synchronously.
- * Includes methods defined by GSMA Spec (SGP.22) and customized methods.
+ * The **esim** module provides basic eSIM management capabilities, including checking whether a specified card slot
+ * supports the eSIM function.
  *
- * @namespace eSIM
  * @syscap SystemCapability.Telephony.CoreService.Esim
  * @since 18 dynamic
  * @since 23 static
  */
 declare namespace eSIM {
   /**
-   * Whether embedded subscriptions are currently supported.
+   * Checks whether the specified card slot supports the eSIM function.
    *
-   * @param { int } slotId - Indicates the card slot index number.
-   * @returns { boolean } Returns {@code true} if the eSIM capability is supported; returns {@code false} otherwise.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { boolean } Whether the specified card slot supports the eSIM function. If yes, **true** is returned. If
+   *     no, **false** is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -48,12 +50,12 @@ declare namespace eSIM {
   function isSupported(slotId: int): boolean;
 
   /**
-   * Starts a page through an ability, on which users can touch the button to download a profile.
+   * Launches the download page for the user to add a single profile. This API uses a promise to return the result.
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE_OPEN
-   * @param { DownloadableProfile } profile - Bound profile package data returned by the SM-DP+ server.
-   * @returns { Promise<boolean> } Returns {@code true} if the profile is added successfully;
-   * returns {@code false} otherwise.
+   * @param { DownloadableProfile } profile - Profile that can be downloaded.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation is
+   *     successful, and the value **false** indicates the opposite.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
@@ -69,11 +71,13 @@ declare namespace eSIM {
   function addProfile(profile: DownloadableProfile): Promise<boolean>;
 
   /**
-   * Returns the EID identifying for the eUICC hardware.
+   * Obtains the equipment identifier (EID) of the eUICC hardware in a specified card slot.
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @returns { Promise<string> } Returns the EID. When eUICC is not ready, the return value may be null.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<string> } EID of the eUICC in the specified slot.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -91,11 +95,18 @@ declare namespace eSIM {
   function getEid(slotId: int): Promise<string>;
 
   /**
-   * Returns the current status of eUICC OS upgrade.
+   * Obtains the OS upgrade status for the eSIM in the specified slot. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @returns { Promise<OsuStatus> } Return the status of eUICC OS upgrade.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<OsuStatus> } Promise used to return the OS upgrade status.
+   *     <br> 1. Updating.
+   *     <br>   2. Update failed.
+   *     <br>  3. Update succeeded.
+   *     <br>  4. Already the latest version.
+   *     <br> 5. Update service unavailable.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -113,11 +124,19 @@ declare namespace eSIM {
   function getOsuStatus(slotId: int): Promise<OsuStatus>;
 
   /**
-   * Execute OS upgrade if current OS upgrade is not the latest one.
+   * Upgrades the OS if the OS version of the eSIM in the specified slot is not the latest. This API uses a promise to
+   * return the result.
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @returns { Promise<OsuStatus> } Return the status of OS upgrade when OS upgrade status changed.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<OsuStatus> } Promise used to return the OS upgrade status.
+   *     <br> 1. Updating.
+   *     <br>   2. Update failed.
+   *     <br>  3. Update succeeded.
+   *     <br>  4. Already the latest version.
+   *     <br> 5. Update service unavailable.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -135,16 +154,21 @@ declare namespace eSIM {
   function startOsu(slotId: int): Promise<OsuStatus>;
 
   /**
-   * Fills in and gets the metadata for a downloadable profile.
+   * Obtains the metadata of the downloadable profile. This API uses a promise to return the result.
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @param { int } portIndex - Index of the port for the slot.
-   * @param { DownloadableProfile } profile - The Bound Profile Package data returned by SM-DP+ server.
-   * @param { boolean } forceDisableProfile - If true, the active profile must be disabled in order to perform the
-   *     operation. Otherwise, the resultCode should return {@link RESULT_MUST_DISABLE_PROFILE} to allow
-   *     the user to agree to this operation first.
-   * @returns { Promise<GetDownloadableProfileMetadataResult> } Return the metadata for profile.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { int } portIndex - Port index of the slot.
+   * @param { DownloadableProfile } profile - Downloadable profile.
+   * @param { boolean } forceDisableProfile - Whether to forcibly deactivate the current profile during profile
+   *     switching.
+   *     <br> **true**: The current profile is forcibly deactivated, and profile switching can be directly performed.
+   *     <br> **false**: An error is returned, and profile switching can be performed only after the user authorization
+   *     is obtained.
+   * @returns { Promise<GetDownloadableProfileMetadataResult> } Promise used to return the metadata of the downloadable
+   *     profile.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -163,16 +187,19 @@ declare namespace eSIM {
                                           profile: DownloadableProfile, forceDisableProfile: boolean): Promise<GetDownloadableProfileMetadataResult>;
 
   /**
-   * Gets downloadable profile List which are available for download on this device.
+   * Obtains the list of downloadable profiles. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @param { int } portIndex - Index of the port for the slot.
-   * @param { boolean } forceDisableProfile - If true, the active profile must be disabled in order to perform the
-   *     operation. Otherwise, the resultCode should return {@link RESULT_MUST_DISABLE_PROFILE} to allow
-   *     the user to agree to this operation first.
-   * @returns { Promise<GetDownloadableProfilesResult> } Return metadata for downloadableProfile which are
-   *     available for download on this device.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { int } portIndex - Port index of the slot.
+   * @param { boolean } forceDisableProfile - Whether to forcibly deactivate the current profile during profile
+   *     switching.
+   *     <br> **true**: The current profile is forcibly deactivated, and profile switching can be directly performed.
+   *     <br> **false**: An error is returned, and profile switching can be performed only after the user authorization
+   *     is obtained.
+   * @returns { Promise<GetDownloadableProfilesResult> } Promise used to return the list of downloadable profiles.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -191,14 +218,16 @@ declare namespace eSIM {
                                    forceDisableProfile: boolean): Promise<GetDownloadableProfilesResult>;
 
   /**
-   * Attempt to download the given downloadable Profile.
+   * Downloads a profile. This API uses a promise to return the result.
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @param { int } portIndex - Index of the port for the slot.
-   * @param { DownloadableProfile } profile - The Bound Profile Package data returned by SM-DP+ server.
-   * @param { DownloadConfiguration } configuration - Configuration information during downloading.
-   * @returns { Promise<DownloadProfileResult> } Return the given downloadableProfile.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { int } portIndex - Port index of the slot.
+   * @param { DownloadableProfile } profile - Downloadable profile.
+   * @param { DownloadConfiguration } configuration - Download configuration.
+   * @returns { Promise<DownloadProfileResult> } Promise used to return the profile download result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -217,11 +246,13 @@ declare namespace eSIM {
                            configuration: DownloadConfiguration): Promise<DownloadProfileResult>;
 
   /**
-   * Returns a list of all eUICC profile information.
+   * Obtains the profile information list. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @returns { Promise<GetEuiccProfileInfoListResult> } Return a list of eUICC profile information.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<GetEuiccProfileInfoListResult> } Promise used to return the profile information list.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -239,12 +270,13 @@ declare namespace eSIM {
   function getEuiccProfileInfoList(slotId: int): Promise<GetEuiccProfileInfoListResult>;
 
   /**
-   * Returns the eUICC Information.
+   * Obtains eUICC information. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @returns { Promise<EuiccInfo> } Returns the eUICC information to obtain. When eUICC is not ready,
-   *     the return value may be null.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<EuiccInfo> } Promise used to return the eUICC information.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -262,12 +294,14 @@ declare namespace eSIM {
   function getEuiccInfo(slotId: int): Promise<EuiccInfo>;
 
   /**
-   * Deletes the given profile from eUICC.
+   * Deletes a profile. This API uses a promise to return the result.
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @param { string } iccid - The iccid of the profile.
-   * @returns { Promise<ResultCode> } Returns the response to deletes the given profile.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { string } iccid - Profile ID.
+   * @returns { Promise<ResultCode> } Promise used to return the operation result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -285,16 +319,20 @@ declare namespace eSIM {
   function deleteProfile(slotId: int, iccid: string): Promise<ResultCode>;
 
   /**
-   * Switch to (enable) the given profile on the eUICC.
+   * Switches to the specified profile. This API uses a promise to return the result.
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @param { int } portIndex - Index of the port for the slot.
-   * @param { string } iccid - The iccid of the profile to switch to.
-   * @param { boolean } forceDisableProfile - If true, the active profile must be disabled in order to perform the
-   *     operation. Otherwise, the resultCode should return {@link RESULT_MUST_DISABLE_PROFILE} to allow
-   *     the user to agree to this operation first.
-   * @returns { Promise<ResultCode> } Returns the response to switch profile.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { int } portIndex - Port index of the slot.
+   * @param { string } iccid - Profile ID.
+   * @param { boolean } forceDisableProfile - Whether to forcibly deactivate the current profile during profile
+   *     switching.
+   *     <br> **true**: The current profile is forcibly deactivated, and profile switching can be directly performed.
+   *     <br> **false**: An error is returned, and profile switching can be performed only after the user authorization
+   *     is obtained.
+   * @returns { Promise<ResultCode> } Promise used to return the operation result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -313,13 +351,15 @@ declare namespace eSIM {
                            forceDisableProfile: boolean): Promise<ResultCode>;
 
   /**
-   * Adds or updates the given profile nickname.
+   * Sets a nickname for the specified profile. This API uses a promise to return the result.
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @param { string } iccid - The iccid of the profile.
-   * @param { string } nickname - The nickname of the profile.
-   * @returns { Promise<ResultCode> } Returns the result of the set nickname operation.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { string } iccid - Profile ID.
+   * @param { string } nickname - Profile nickname.
+   * @returns { Promise<ResultCode> } Promise used to return the operation result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -337,12 +377,14 @@ declare namespace eSIM {
   function setProfileNickname(slotId: int, iccid: string, nickname: string): Promise<ResultCode>;
 
   /**
-   * Erase all specific profiles and reset the eUICC.
+   * Clears all specific profiles and resets the eUICC. This API uses a promise to return the result.
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @param { ResetOption } [options] - Options for resetting eUICC memory.
-   * @returns { Promise<ResultCode> } Returns the result of the reset operation.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { ResetOption } [options] - Reset options.
+   * @returns { Promise<ResultCode> } Promise used to return the operation result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -360,11 +402,13 @@ declare namespace eSIM {
   function resetMemory(slotId: int, options?:ResetOption): Promise<ResultCode>;
 
   /**
-   * Ensure that profiles will be retained on the next factory reset.
+   * Restores factory settings and retains profiles. This API uses a promise to return the result.
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @returns { Promise<ResultCode> } Returns the result code.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<ResultCode> } Promise used to return the operation result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -382,12 +426,14 @@ declare namespace eSIM {
   function reserveProfilesForFactoryRestore(slotId: int): Promise<ResultCode>;
 
   /**
-   * Set or update the default SM-DP+ address stored in an eUICC.
+   * Sets or updates the default SM-DP+ address stored in the eUICC. This API uses a promise to return the result.
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @param { string } address -  The default SM-DP+ address to set.
-   * @returns { Promise<ResultCode> } Returns the result code.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { string } address - Default SM-DP+ address.
+   * @returns { Promise<ResultCode> } Promise used to return the operation result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -405,11 +451,13 @@ declare namespace eSIM {
   function setDefaultSmdpAddress(slotId: int, address: string): Promise<ResultCode>;
 
   /**
-   * Gets the default SM-DP+ address stored in an eUICC.
+   * Obtains the default SM-DP+ address stored in the eUICC. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @returns { Promise<string> } Returns the default SM-DP+ address.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<string> } Promise used to return the SM-DP+ address.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -427,15 +475,15 @@ declare namespace eSIM {
   function getDefaultSmdpAddress(slotId: int): Promise<string>;
 
   /**
-   * Cancel session can be used in the
-   * 1.after the response to "ES9+.AuthenticateClient"
-   * 2.after the response to "ES9+.GetBoundProfilePackage"
+   * Cancels a session. This API uses a promise to return the result.
    *
    * @permission ohos.permission.SET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @param { string } transactionId - The transaction ID returned by SM-DP+ server.
-   * @param { CancelReason } cancelReason - The cancel reason.
-   * @returns { Promise<ResultCode> } Returns the result code.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { string } transactionId - Service ID.
+   * @param { CancelReason } cancelReason - Reason for canceling the session.
+   * @returns { Promise<ResultCode> } Promise used to return the operation result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -453,12 +501,14 @@ declare namespace eSIM {
   function cancelSession(slotId: int, transactionId: string, cancelReason: CancelReason): Promise<ResultCode>;
 
   /**
-   * Get contract info
+   * Obtains the encrypted eSIM ID and other information required for enabling eSIM.
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @param { ContractRequestData } requestData - request infomation required to get contract infomation.
-   * @returns { Promise<string> } Returns the contract info.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @param { ContractRequestData } requestData - Information to be encrypted.
+   * @returns { Promise<string> } Promise used to return the encrypted information in the Tag-Length-Value (TLV) format.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -472,11 +522,14 @@ declare namespace eSIM {
   function getContractInfo(slotId: int, requestData: ContractRequestData) : Promise<string>;
 
   /**
-   * Get supported pkids
+   * Obtains the public key ID information supported by the phone.
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @param { int } slotId - Indicates the card slot index number.
-   * @returns { Promise<string> } Returns the supported pkids.
+   * @param { int } slotId - Card slot ID.
+   *     <br>- **0**: card slot 1.
+   *     <br>- **1**: card slot 2
+   * @returns { Promise<string> } Promise used to return the public key ID information supported by the mobile phone in
+   *     the Tag-Length-Value (TLV) format.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -490,9 +543,8 @@ declare namespace eSIM {
   function getSupportedPkids(slotId: int) : Promise<string>;
 
   /**
-   * Contract request data
+   * Information required for encryption.
    *
-   * @interface ContractRequestData
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 20 dynamic
@@ -500,9 +552,8 @@ declare namespace eSIM {
    */
   export interface ContractRequestData {
     /**
-     * Public key required to get contract info
+     * Public key.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
@@ -511,9 +562,8 @@ declare namespace eSIM {
     publicKey: string;
 
     /**
-     * Nonce required to get contract info
+     * Random number.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
@@ -522,9 +572,8 @@ declare namespace eSIM {
     nonce: string;
 
     /**
-     * Euicc Ci PKID to be used, required to get contract info
+     * Selected public key ID.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 20 dynamic
@@ -606,18 +655,16 @@ declare namespace eSIM {
   }
 
   /**
-   * Information about a profile which is downloadable to an eUICC using.
+   * Defines a downloadable profile.
    *
-   * @interface DownloadableProfile
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @since 18 dynamic
    * @since 23 static
    */
   export interface DownloadableProfile {
     /**
-     * Activation code.
+     * Activation code. For a profile that does not require an activation code, the value may be left empty.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 18 dynamic
      * @since 23 static
@@ -627,7 +674,6 @@ declare namespace eSIM {
     /**
      * Confirmation code.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 18 dynamic
      * @since 23 static
@@ -637,7 +683,6 @@ declare namespace eSIM {
     /**
      * Carrier name.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 18 dynamic
      * @since 23 static
@@ -645,9 +690,8 @@ declare namespace eSIM {
     carrierName?: string;
 
     /**
-     * Gets the accessRules.
+     * Access rule array.
      *
-     * @type { ?Array<AccessRule> }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @since 18 dynamic
      * @since 23 static
@@ -656,9 +700,8 @@ declare namespace eSIM {
   }
 
   /**
-   * Result the metadata for a downloadableProfile.
+   * Obtains the metadata of the downloadable profile.
    *
-   * @interface GetDownloadableProfileMetadataResult
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -666,9 +709,8 @@ declare namespace eSIM {
    */
   export interface GetDownloadableProfileMetadataResult {
     /**
-     * Information about a profile which is downloadable to an eUICC using.
+     * Downloadable profile.
      *
-     * @type { DownloadableProfile }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -677,9 +719,8 @@ declare namespace eSIM {
     downloadableProfile: DownloadableProfile;
 
     /**
-     * The type of profile policy rule.
+     * Profile policy rule type.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -688,9 +729,9 @@ declare namespace eSIM {
     pprType: int;
 
     /**
-     * The flag of profile policy rule.
+     * Whether the profile has a policy rule. The value **true** indicates that the profile has a policy rule, and the
+     * value **false** indicates the opposite.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -699,9 +740,8 @@ declare namespace eSIM {
     pprFlag: boolean;
 
     /**
-     * The iccid of the profile.
+     * Profile ICCID.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -710,9 +750,8 @@ declare namespace eSIM {
     iccid: string;
 
     /**
-     * The service provider name for the profile.
+     * Service provider name.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -721,9 +760,8 @@ declare namespace eSIM {
     serviceProviderName: string;
 
     /**
-     * The profile name.
+     * Profile name.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -732,9 +770,8 @@ declare namespace eSIM {
     profileName: string;
 
     /**
-     * Profile class for the profile.
+     * Profile class.
      *
-     * @type { ProfileClass }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -743,9 +780,8 @@ declare namespace eSIM {
     profileClass: ProfileClass;
 
     /**
-     * Gets the solvable errors.
+     * Solvable errors.
      *
-     * @type { SolvableErrors }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -754,9 +790,8 @@ declare namespace eSIM {
     solvableErrors: SolvableErrors;
 
     /**
-     * Gets the result of the operation.
+     * Operation result code.
      *
-     * @type { ResultCode }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -766,9 +801,8 @@ declare namespace eSIM {
   }
 
   /**
-   * Result of downloadable Profile list.
+   * Obtains the list of default downloadable profiles.
    *
-   * @interface GetDownloadableProfilesResult
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -776,9 +810,8 @@ declare namespace eSIM {
    */
   export interface GetDownloadableProfilesResult {
     /**
-     * Gets the result of the operation.
+     * Promise used to return the operation result.
      *
-     * @type { ResultCode }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -787,9 +820,8 @@ declare namespace eSIM {
     responseResult: ResultCode;
 
     /**
-     * Gets the downloadable Profiles with filled-in metadata.
+     * Downloadable file array.
      *
-     * @type { Array<DownloadableProfile> }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -799,9 +831,8 @@ declare namespace eSIM {
   }
 
   /**
-   * Result of the given downloadable Profile.
+   * Defines the profile download result.
    *
-   * @interface DownloadProfileResult
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -809,9 +840,8 @@ declare namespace eSIM {
    */
   export interface DownloadProfileResult {
     /**
-     * Gets the result of the operation.
+     * Operation result code.
      *
-     * @type { ResultCode }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -820,9 +850,8 @@ declare namespace eSIM {
     responseResult: ResultCode;
 
     /**
-     * Gets the solvable errors.
+     * Solvable errors.
      *
-     * @type { SolvableErrors }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -831,9 +860,8 @@ declare namespace eSIM {
     solvableErrors: SolvableErrors;
 
     /**
-     * Gets the card Id. This value comes from EuiccService and is used when resolving solvable errors.
+     * Card ID.
      *
-     * @type { int }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -843,9 +871,8 @@ declare namespace eSIM {
   }
 
   /**
-   * Result of all eUICC profile information.
+   * Obtains the profile information list.
    *
-   * @interface GetEuiccProfileInfoListResult
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -853,9 +880,8 @@ declare namespace eSIM {
    */
   export interface GetEuiccProfileInfoListResult {
     /**
-     * Gets the result of the operation.
+     * Promise used to return the operation result.
      *
-     * @type { ResultCode }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -864,9 +890,8 @@ declare namespace eSIM {
     responseResult: ResultCode;
 
     /**
-     * Gets the profile list (only upon success).
+     * Profile array.
      *
-     * @type { Array<EuiccProfile> }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -875,9 +900,9 @@ declare namespace eSIM {
     profiles: Array<EuiccProfile>;
 
     /**
-     * Gets whether the eUICC can be removed.
+     * Whether the eUICC is removable. The value **true** indicates that the eUICC is removable, and the value **false**
+     * indicates the opposite.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -887,9 +912,8 @@ declare namespace eSIM {
   }
 
   /**
-   * Information about the eUICC chip/device.
+   * Obtains information about the eUICC chip or device.
    *
-   * @interface OperatorId
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -897,9 +921,8 @@ declare namespace eSIM {
    */
   export interface OperatorId {
     /**
-     * Mobile country code.
+     * Mobile country code (MCC).
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -908,9 +931,8 @@ declare namespace eSIM {
     mcc: string;
 
     /**
-     * Mobile network code.
+     * Network code.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -919,9 +941,8 @@ declare namespace eSIM {
     mnc: string;
 
     /**
-     * Group id level 1.
+     * Group ID level 1.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -930,9 +951,8 @@ declare namespace eSIM {
     gid1: string;
 
     /**
-     * Group id level 2.
+     * Group ID level 2.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -942,9 +962,8 @@ declare namespace eSIM {
   }
 
   /**
-   * Information about an embedded profile (subscription) on an eUICC.
+   * Profile information.
    *
-   * @interface EuiccProfile
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -952,9 +971,8 @@ declare namespace eSIM {
    */
   export interface EuiccProfile {
     /**
-     * The iccid of the profile.
+     * Profile ICCID.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -963,9 +981,8 @@ declare namespace eSIM {
     iccid: string;
 
     /**
-     * An optional nickname for the profile.
+     * Profile nickname.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -974,9 +991,8 @@ declare namespace eSIM {
     nickName: string;
 
     /**
-     * The service provider name for the profile.
+     * Service provider name.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -985,9 +1001,8 @@ declare namespace eSIM {
     serviceProviderName: string;
 
     /**
-     * The profile name.
+     * Profile name.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -996,9 +1011,8 @@ declare namespace eSIM {
     profileName: string;
 
     /**
-     * The profile state.
+     * Profile status.
      *
-     * @type { ProfileState }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -1007,9 +1021,8 @@ declare namespace eSIM {
     state: ProfileState;
 
     /**
-     * Profile class for the profile.
+     * Profile class.
      *
-     * @type { ProfileClass }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -1018,9 +1031,8 @@ declare namespace eSIM {
     profileClass: ProfileClass;
 
     /**
-     * The operator Id of the profile.
+     * Operation ID of the profile.
      *
-     * @type { OperatorId }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -1029,9 +1041,8 @@ declare namespace eSIM {
     operatorId: OperatorId;
 
     /**
-     * The policy rules of the profile.
+     * Profile policy rules.
      *
-     * @type { PolicyRules }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -1040,9 +1051,8 @@ declare namespace eSIM {
     policyRules: PolicyRules;
 
     /**
-     * Optional access rules that specify which apps can manage this profile. Default platform management when not set.
+     * Profile access rules.
      *
-     * @type { Array<AccessRule> }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -1052,9 +1062,8 @@ declare namespace eSIM {
   }
 
   /**
-   * Information related to eUICC chips/devices.
+   * Defines the eUICC information.
    *
-   * @interface EuiccInfo
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -1062,9 +1071,8 @@ declare namespace eSIM {
    */
   export interface EuiccInfo {
     /**
-     * Operating system version.
+     * OS version.
      *
-     * @type { string }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -1074,9 +1082,8 @@ declare namespace eSIM {
   }
 
   /**
-   * Options for resetting eUICC memory.
+   * Defines the reset options.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -1084,7 +1091,7 @@ declare namespace eSIM {
    */
   export enum ResetOption {
     /**
-     * Deletes all operational profiles on reset.
+     * Deletion of all operational profiles.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1094,7 +1101,7 @@ declare namespace eSIM {
     DELETE_OPERATIONAL_PROFILES = 1,
 
     /**
-     * Deletes all field-loaded testing profiles on reset.
+     * Deletion of the downloaded test profiles.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1104,7 +1111,7 @@ declare namespace eSIM {
     DELETE_FIELD_LOADED_TEST_PROFILES = 1 << 1,
 
     /**
-     * Resets the default SM-DP+ address on reset.
+     * Resetting of the default SM-DP+ address.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1115,9 +1122,8 @@ declare namespace eSIM {
   }
 
   /**
-   * Euicc OS upgrade status.
+   * Defines the OS upgrade status.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -1125,7 +1131,7 @@ declare namespace eSIM {
    */
   export enum OsuStatus {
     /**
-     * The OS upgrade is in progress.
+     * Upgrading.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1135,7 +1141,7 @@ declare namespace eSIM {
     EUICC_UPGRADE_IN_PROGRESS = 1,
 
     /**
-     * The OS upgrade failed.
+     * Upgrade failed.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1145,7 +1151,7 @@ declare namespace eSIM {
     EUICC_UPGRADE_FAILED = 2,
 
     /**
-     * The OS upgrade successful.
+     * Update succeeded.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1155,7 +1161,7 @@ declare namespace eSIM {
     EUICC_UPGRADE_SUCCESSFUL = 3,
 
     /**
-     * The OS upgrade not needed since current eUICC OS is latest.
+     * Already the latest version.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1165,7 +1171,7 @@ declare namespace eSIM {
     EUICC_UPGRADE_ALREADY_LATEST = 4,
 
     /**
-     * The OS upgrade status is unavailable since eUICC service is unavailable.
+     * Update service unavailable.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1176,9 +1182,8 @@ declare namespace eSIM {
   }
 
   /**
-   * Result state.
+   * Enumerates the result codes.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -1186,7 +1191,7 @@ declare namespace eSIM {
    */
   export enum ResultCode {
     /**
-     * Indicates that the user must resolve a solvable error.
+     * Solving of the solvable errors required.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1196,7 +1201,7 @@ declare namespace eSIM {
     RESULT_SOLVABLE_ERRORS = -2,
 
     /**
-     * Indicates that the active profile must be disabled to perform the operation.
+     * Disabling of the active profile required.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1206,7 +1211,7 @@ declare namespace eSIM {
     RESULT_MUST_DISABLE_PROFILE = -1,
 
     /**
-     * Operation succeeded.
+     * Operation success.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1226,7 +1231,7 @@ declare namespace eSIM {
     RESULT_GET_EID_FAILED = 201,
 
     /**
-     * The activation code is changed after the end user confirms the operation.
+     * Activation code changed upon user confirmation.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1236,7 +1241,7 @@ declare namespace eSIM {
     RESULT_ACTIVATION_CODE_CHANGED = 203,
 
     /**
-     * The activation code is invalid.
+     * Invalid activation code.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1246,7 +1251,7 @@ declare namespace eSIM {
     RESULT_ACTIVATION_CODE_INVALID = 204,
 
     /**
-     * The SM-DP+ server address is invalid.
+     * Invalid SM-DP+ server address.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1266,7 +1271,7 @@ declare namespace eSIM {
     RESULT_EUICC_INFO_INVALID = 206,
 
     /**
-     * TLS handshake fails.
+     * TLS handshake failed.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1286,7 +1291,7 @@ declare namespace eSIM {
     RESULT_CERTIFICATE_IO_ERROR = 208,
 
     /**
-     * The certificate address is invalid or the response times out.
+     * Invalid certificate address or response timeout.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1296,7 +1301,7 @@ declare namespace eSIM {
     RESULT_CERTIFICATE_RESPONSE_TIMEOUT = 209,
 
     /**
-     * Authentication fails.
+     * Authentication failed.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1306,7 +1311,7 @@ declare namespace eSIM {
     RESULT_AUTHENTICATION_FAILED = 210,
 
     /**
-     * HTTP response fails.
+     * HTTP response failed.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1326,7 +1331,7 @@ declare namespace eSIM {
     RESULT_CONFIRMATION_CODE_INCORRECT = 212,
 
     /**
-     * The maximum number of confirmation code attempts is reached.
+     * Maximum confirmation code retries reached.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1336,7 +1341,7 @@ declare namespace eSIM {
     RESULT_EXCEEDED_CONFIRMATION_CODE_TRY_LIMIT = 213,
 
     /**
-     * There is no profile on the server for download.
+     * No downloadable profile available on the server.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1346,7 +1351,7 @@ declare namespace eSIM {
     RESULT_NO_PROFILE_ON_SERVER = 214,
 
     /**
-     * The transaction ID is invalid.
+     * Invalid transaction ID.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1356,7 +1361,7 @@ declare namespace eSIM {
     RESULT_TRANSACTION_ID_INVALID = 215,
 
     /**
-     * The server address is invalid.
+     * Invalid server address.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1366,7 +1371,7 @@ declare namespace eSIM {
     RESULT_SERVER_ADDRESS_INVALID = 216,
 
     /**
-     * Failed to obtain the bound profile package.
+     * Failed to obtain the BPP.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1376,7 +1381,7 @@ declare namespace eSIM {
     RESULT_GET_BOUND_PROFILE_PACKAGE_FAILED = 217,
 
     /**
-     * The download is canceled by the end user.
+     * Download cancelled by the user.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1386,7 +1391,7 @@ declare namespace eSIM {
     RESULT_USER_CANCEL_DOWNLOAD = 218,
 
     /**
-     * The carrier server is unavailable.
+     * Carrier server unavailable.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1396,7 +1401,7 @@ declare namespace eSIM {
     RESULT_SERVER_UNAVAILABLE = 220,
 
     /**
-     * The profile is attached to a non-delete profile policy rule.
+     * File deletion not allowed by the PPR rule.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1406,7 +1411,7 @@ declare namespace eSIM {
     RESULT_PROFILE_NON_DELETE = 223,
 
     /**
-     * The authentication response server address does not match.
+     * Incorrect SMDP server address.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1416,7 +1421,7 @@ declare namespace eSIM {
     RESULT_SMDP_ADDRESS_INCORRECT = 226,
 
     /**
-     * Failed to analyze the authentication server response.
+     * Failed to parse the server authentication response.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1426,7 +1431,7 @@ declare namespace eSIM {
     RESULT_ANALYZE_AUTHENTICATION_SERVER_RESPONSE_FAILED = 228,
 
     /**
-     * Failed to analyze the authentication client response.
+     * Failed to parse the client authentication response.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1436,7 +1441,7 @@ declare namespace eSIM {
     RESULT_ANALYZE_AUTHENTICATION_CLIENT_RESPONSE_FAILED = 229,
 
     /**
-     * Failed to analyze the authentication client response because the matching ID is rejected.
+     * Failed to parse the client authentication response because the matching ID was rejected.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1446,7 +1451,7 @@ declare namespace eSIM {
     RESULT_ANALYZE_AUTHENTICATION_CLIENT_MATCHING_ID_REFUSED = 231,
 
     /**
-     * Authentication stopped due to an error in the profile type.
+     * Authentication stopped due to incorrect profile type.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1456,7 +1461,7 @@ declare namespace eSIM {
     RESULT_PROFILE_TYPE_ERROR_AUTHENTICATION_STOPPED = 233,
 
     /**
-     * The carrier server refused errors of which the reason code is 3.8.
+     * Rejection cause code of the carrier server, which is 3.8.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1466,7 +1471,7 @@ declare namespace eSIM {
     RESULT_CARRIER_SERVER_REFUSED_ERRORS = 249,
 
     /**
-     * The certificate is invalid.
+     * Invalid certificate.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1476,7 +1481,7 @@ declare namespace eSIM {
     RESULT_CERTIFICATE_INVALID = 251,
 
     /**
-     * Profile installation failed due to insufficient memory.
+     * Failed to install the profile due to insufficient memory.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1486,7 +1491,7 @@ declare namespace eSIM {
     RESULT_OUT_OF_MEMORY = 263,
 
     /**
-     * The profile policy rule prohibits this operation during download.
+     * Operation not allowed by the PPR rule.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1496,7 +1501,7 @@ declare namespace eSIM {
     RESULT_PPR_FORBIDDEN = 268,
 
     /**
-     * Nothing is to be deleted.
+     * No configuration file for deletion.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1506,7 +1511,7 @@ declare namespace eSIM {
     RESULT_NOTHING_TO_DELETE = 270,
 
     /**
-     * The profile policy rule does not match.
+     * PPR rule mismatch.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1516,7 +1521,7 @@ declare namespace eSIM {
     RESULT_PPR_NOT_MATCH = 276,
 
     /**
-     * A session is ongoing.
+     * Session in progress.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1526,7 +1531,7 @@ declare namespace eSIM {
     RESULT_CAT_BUSY = 283,
 
     /**
-     * This eSIM profile is already in use or is invalid.
+     * eSIM profile in use or invalid.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1536,7 +1541,7 @@ declare namespace eSIM {
     RESULT_PROFILE_EID_INVALID = 284,
 
     /**
-     * Download times out.
+     * Download timeout.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1557,9 +1562,8 @@ declare namespace eSIM {
   }
 
   /**
-   * The reason for canceling a profile download session.
+   * Reason for canceling the session.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -1567,7 +1571,7 @@ declare namespace eSIM {
    */
   export enum CancelReason {
     /**
-     * The end user has rejected the download.
+     * The user has rejected the download.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1577,7 +1581,7 @@ declare namespace eSIM {
     CANCEL_REASON_END_USER_REJECTION = 0,
 
     /**
-     * The download has been postponed and you can try again later.
+     * The download has been delayed. You can restart it later.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1587,7 +1591,7 @@ declare namespace eSIM {
     CANCEL_REASON_POSTPONED = 1,
 
     /**
-     * The download has been timed out and you can try again later.
+     * The download has timed out. You can restart it later.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1597,7 +1601,8 @@ declare namespace eSIM {
     CANCEL_REASON_TIMEOUT = 2,
 
     /**
-     * The profile to be downloaded cannot be installed because profile policy rules are not allowed.
+     * The installation cannot be performed because the authorization table or other installed profile on the eUICC does
+     * not allow its policy rules.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1608,9 +1613,8 @@ declare namespace eSIM {
   }
 
   /**
-   * The profile state.
+   * Enumerates the profile states.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -1618,7 +1622,7 @@ declare namespace eSIM {
    */
   export enum ProfileState {
     /**
-     * Profile state not specified.
+     * Profile status unspecified.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1628,7 +1632,7 @@ declare namespace eSIM {
     PROFILE_STATE_UNSPECIFIED = -1,
 
     /**
-     * Disabled profiles.
+     * Profile disabled.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1638,7 +1642,7 @@ declare namespace eSIM {
     PROFILE_STATE_DISABLED = 0,
 
     /**
-     * Enabled profile.
+     * Profile enabled.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1649,9 +1653,8 @@ declare namespace eSIM {
   }
 
   /**
-   * The Profile class.
+   * Enumerates the profile classes.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -1659,7 +1662,7 @@ declare namespace eSIM {
    */
   export enum ProfileClass {
     /**
-     * Profile class not specified.
+     * Profile class unspecified.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1669,7 +1672,7 @@ declare namespace eSIM {
     PROFILE_CLASS_UNSPECIFIED = -1,
 
     /**
-     * Testing profiles.
+     * Test profile.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1679,7 +1682,7 @@ declare namespace eSIM {
     PROFILE_CLASS_TEST = 0,
 
     /**
-     * Provisioning profiles that preloaded on the eUICC.
+     * Profile preloaded to the eUICC.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1689,7 +1692,7 @@ declare namespace eSIM {
     PROFILE_CLASS_PROVISIONING = 1,
 
     /**
-     * Operational profiles that can be preloaded or downloaded.
+     * Profile that can be preloaded or downloaded.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1700,9 +1703,8 @@ declare namespace eSIM {
   }
 
   /**
-   * The policy rules of the profile.
+   * Enumerates the profile policy rules.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -1710,7 +1712,7 @@ declare namespace eSIM {
    */
   export enum PolicyRules {
     /**
-     * Disabling of this Profile is not allowed.
+     * A profile cannot be disabled after being enabled.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1720,7 +1722,7 @@ declare namespace eSIM {
     POLICY_RULE_DISABLE_NOT_ALLOWED = 1,
 
     /**
-     * Deletion of this Profile is not allowed.
+     * The profile cannot be deleted.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1730,7 +1732,7 @@ declare namespace eSIM {
     POLICY_RULE_DELETE_NOT_ALLOWED = 1 << 1,
 
     /**
-     * This profile should be deleted when disabled.
+     * A profile must be deleted immediately after being enabled.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1741,9 +1743,8 @@ declare namespace eSIM {
   }
 
   /**
-   * The solvable errors.
+   * Enumerates the solvable errors.
    *
-   * @enum { int }
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -1751,7 +1752,7 @@ declare namespace eSIM {
    */
   export enum SolvableErrors {
     /**
-     * Indicates that the user needs to input a confirmation code during the download.
+     * The user needs to enter the confirmation code during the download.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1761,7 +1762,7 @@ declare namespace eSIM {
     SOLVABLE_ERROR_NEED_CONFIRMATION_CODE = 1 << 0,
 
     /**
-     * Indicates that the download process requires user consent to allow profile policy rules.
+     * The download process requires user consent to allow the profile policy rules.
      *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
@@ -1772,9 +1773,8 @@ declare namespace eSIM {
   }
 
   /**
-   * Specifies the download configuration.
+   * Defines the download configuration.
    *
-   * @interface DownloadConfiguration
    * @syscap SystemCapability.Telephony.CoreService.Esim
    * @systemapi Hide this for inner system use.
    * @since 18 dynamic
@@ -1782,9 +1782,9 @@ declare namespace eSIM {
    */
   export interface DownloadConfiguration {
     /**
-     * Specifies whether to enable the profile after successful download.
+     * Whether to enable the profile after successful download. The value **true** means to enable the default profile,
+     * and the value **false** means the opposite.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -1793,11 +1793,13 @@ declare namespace eSIM {
     switchAfterDownload: boolean;
 
     /**
-     * Specifies whether to forcibly disable the profile. If true, the active profile is disabled in order to perform
-     * the operation. Otherwise, {@link RESULT_MUST_DISABLE_PROFILE} is returned in resultCode to ask for the user's
-     * agreement to the operation.
+     * Whether to forcibly deactivate the current profile during profile switching.
      *
-     * @type { boolean }
+     * **true**: The current profile is forcibly deactivated, and profile switching can be directly performed.
+     *
+     * **false**: An error is returned, and profile switching can be performed only after the user authorization is
+     * obtained.
+     *
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -1806,10 +1808,9 @@ declare namespace eSIM {
     forceDisableProfile: boolean;
 
     /**
-     * Specifies whether the user allows the service provider to enforce this Profile Policy Rule (PPR)
-     * after being informed of its restrictions.
+     * Whether user authorization is obtained to implement the profile policy rule. The value **true** indicates that
+     * user authorization is obtained, and the value **false** indicates the opposite.
      *
-     * @type { boolean }
      * @syscap SystemCapability.Telephony.CoreService.Esim
      * @systemapi Hide this for inner system use.
      * @since 18 dynamic
@@ -1819,10 +1820,11 @@ declare namespace eSIM {
   }
 
   /**
-   * Returns the remaining storage space in KB for the eUICC hardware.
+   * This API is used to obtain the remaining storage space of the eUICC hardware. This API uses a promise to return the
+   * result.
    *
    * @permission ohos.permission.GET_TELEPHONY_ESIM_STATE
-   * @returns { Promise<int> } Returns the size of the remaining storage space in KB for the eUICC.
+   * @returns { Promise<int> } Promise used to return the remaining storage space of the eUICC hardware, in KB.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
    * @throws { BusinessError } 801 - Capability not supported.

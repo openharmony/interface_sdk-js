@@ -114,6 +114,30 @@ export interface SkillInfo {
   readonly versionCode: long;
 
   /**
+   * Indicates the semantic version of the skill.
+   *
+   * @type { ?string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  readonly version?: string;
+
+  /**
+   * Indicates the visibility of the skill.
+   *
+   * @type { ?string }
+   * @readonly
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  readonly visibility?: string;
+
+  /**
    * Indicates the description of the skill.
    *
    * @type { ?string }
@@ -189,5 +213,5 @@ export enum SkillType {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  INDEPENDENT_SKILL = 1
+  INDEPENDENT_SKILL = 1,
 }

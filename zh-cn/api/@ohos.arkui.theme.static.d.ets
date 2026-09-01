@@ -26,7 +26,7 @@ import { ResourceColor } from './arkui/component/units';
 
 /**
  * 当前生效的主题风格对象，可从
- * [onWillApplyTheme](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#onwillapplytheme12)中获取。
+ * [onWillApplyTheme]{@link onWillApplyTheme}中获取。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

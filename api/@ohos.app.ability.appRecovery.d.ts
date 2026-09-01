@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Application Recovery
  * @kit AbilityKit
  */
 

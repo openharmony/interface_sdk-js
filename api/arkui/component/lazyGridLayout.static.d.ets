@@ -129,8 +129,9 @@ export declare interface LazyVGridLayoutAttribute extends LazyGridLayoutAttribut
    *
    * @returns { LazyVGridLayoutAttribute } Returns the instance of the LazyVGridLayoutAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   default setLazyVGridLayoutOptions(): this;
 
@@ -168,8 +169,9 @@ export declare function LazyVGridLayout(
  * @param { CustomBuilder } [content_]
  * @returns { LazyVGridLayoutAttribute } The attribute of the LazyVGridLayout.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

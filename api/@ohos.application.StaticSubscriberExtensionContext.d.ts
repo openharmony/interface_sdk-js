@@ -23,10 +23,10 @@ import Want from './@ohos.app.ability.Want';
 import ExtensionContext from './application/ExtensionContext';
 
 /**
- * The **StaticSubscriberExtensionContext** module, inherited from **StaticSubscriberExtensionAbility**, provides 
- * context for StaticSubscriberExtensionAbilities.
+ * The **StaticSubscriberExtensionContext** module, inherited from **ExtensionContext**, provides
+ * context for **StaticSubscriberExtensionAbility**.
  *
- * You can use the APIs of this module to start StaticSubscriberExtensionAbilities.
+ * You can use the APIs of this module to start **StaticSubscriberExtensionAbility**.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
@@ -36,19 +36,13 @@ import ExtensionContext from './application/ExtensionContext';
  */
 declare class StaticSubscriberExtensionContext extends ExtensionContext {
   /**
-   * Starts an ability that belongs to the same application as this StaticSubscriberExtensionAbility. This API uses an 
-   * asynchronous callback to return the result.
-   *
-   * Observe the following when using this API:
-   *
-   * - If an application running in the background needs to call this API to start an ability, it must have the 
-   * **ohos.permission.START_ABILITIES_FROM_BACKGROUND** permission.
-   * - If **visible** of the target ability is **false** in cross-application scenarios, the caller must have the 
-   * **ohos.permission.START_INVISIBLE_ABILITY** permission.
+   * Starts an ability that belongs to the same application as this **StaticSubscriberExtensionAbility**. This API uses
+   * an asynchronous callback to return the result.
    *
    * @permission ohos.permission.START_ABILITIES_FROM_BACKGROUND
    * @param { Want } want - Want information about the target ability.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - Callback used to receive the result of starting the
+   *     ability.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -76,15 +70,8 @@ declare class StaticSubscriberExtensionContext extends ExtensionContext {
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts an ability that belongs to the same application as this StaticSubscriberExtensionAbility. This API uses a 
-   * promise to return the result.
-   *
-   * Observe the following when using this API:
-   *
-   * - If an application running in the background needs to call this API to start an ability, it must have the 
-   * **ohos.permission.START_ABILITIES_FROM_BACKGROUND** permission.
-   * - If **visible** of the target ability is **false** in cross-application scenarios, the caller must have the 
-   * **ohos.permission.START_INVISIBLE_ABILITY** permission.
+   * Starts an ability that belongs to the same application as this **StaticSubscriberExtensionAbility**. This API uses
+   * a promise to return the result.
    *
    * @permission ohos.permission.START_ABILITIES_FROM_BACKGROUND
    * @param { Want } want - Want information about the target ability.

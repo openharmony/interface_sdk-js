@@ -14,14 +14,12 @@
  */
 
 /**
- * 定义ComponentContent和NodeContent的基类。
- *
  * @file
  * @kit ArkUI
  */
 
 /**
- * 定义{@link ComponentContent}和{@link NodeContent}的基类。
+ * 定义ComponentContent和NodeContent的基类，为ArkUI内容承载结构提供统一的内容管理能力，适用于需要动态创建和挂载自定义内容节点的场景。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29,4 +27,5 @@
  * @atomicservice
  * @since 12 dynamic
  */
-export abstract class Content {}
+export abstract class Content {
+}

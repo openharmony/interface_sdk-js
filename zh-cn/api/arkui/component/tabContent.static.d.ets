@@ -54,7 +54,7 @@ export declare enum SelectedMode {
    * @stagemodelonly
    * @since 23 static
    */
-  INDICATOR = 0,
+  INDICATOR,
 
   /**
    * 使用背板模式。
@@ -63,7 +63,7 @@ export declare enum SelectedMode {
    * @stagemodelonly
    * @since 23 static
    */
-  BOARD = 1
+  BOARD
 }
 
 /**
@@ -825,7 +825,7 @@ export declare interface TabContentAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { VoidCallback | undefined } event
@@ -843,7 +843,7 @@ export declare interface TabContentAttribute extends CommonMethod {
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > 中调用。
    *
    * @param { VoidCallback | undefined } event

@@ -1,4 +1,4 @@
-'use static'
+'use static';
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,7 +26,6 @@ import { SafeAreaType, SafeAreaEdge, BlurStyle } from '@ohos.arkui.component';
 /**
  * Callback function when click on this menu item.
  *
- * @typedef { function } OnActionCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -36,7 +35,6 @@ declare type OnActionCallback = () => void;
 /**
  * Declaration of the left icon type.
  *
- * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -660,7 +658,6 @@ export declare class EditableTitleBarStyleV2 {
 /**
  * Declaration of the editable title bar.
  *
- * @struct { EditableTitleBarV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static

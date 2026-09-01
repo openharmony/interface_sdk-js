@@ -220,8 +220,9 @@ export declare interface RadioAttribute extends CommonMethod {
      * @param { RadioOptions } options - radio constructor options
      * @returns { RadioAttribute } Returns the instance of the RadioAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setRadioOptions(options: RadioOptions): this;
  }
@@ -287,8 +288,9 @@ export declare function Radio(
  * @param { CustomBuilder } [content_] - container
  * @returns { RadioAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

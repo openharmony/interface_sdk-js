@@ -76,8 +76,6 @@ declare namespace shortKey {
   function setKeyDownDuration(businessKey: string, delay: int): Promise<void>;
 }
 
-export default shortKey;
-
 /**
  * Enumerates fingerprint gesture event types.
  *
@@ -181,3 +179,5 @@ export declare interface FingerprintEvent {
    */
   distanceY: double;
 }
+
+export default shortKey;

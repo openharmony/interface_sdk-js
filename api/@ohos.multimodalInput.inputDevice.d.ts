@@ -19,7 +19,6 @@
  */
 
 import type { Callback, AsyncCallback } from './@ohos.base';
-
 import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 
 /**
@@ -31,7 +30,6 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
  * @since 23 static
  */
 declare namespace inputDevice {
-
   /**
    * Enumerates hot swap events.
    *
@@ -42,7 +40,6 @@ declare namespace inputDevice {
    * @since 23 static
    */
   type ChangedType = 'add' | 'remove';
-
   /**
    * Input sources supported by the input device, including the keyboard, mouse, touchscreen, trackball, touchpad, and
    * joystick.
@@ -58,7 +55,6 @@ declare namespace inputDevice {
    * @since 23 static
    */
   type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
-
   /**
    * Defines the axis type of an input device.
    *
@@ -94,7 +90,6 @@ declare namespace inputDevice {
    * @since 23 static
    */
   enum KeyboardType {
-
     /**
      * Keyboard without keys.
      *
@@ -151,25 +146,6 @@ declare namespace inputDevice {
   }
 
   /**
-   * Enumerates function key types.
-   *
-   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 15 dynamic
-   * @since 23 static
-   */
-  enum FunctionKey {
-
-    /**
-     * CapsLock key. This key can be enabled or disabled only for the input keyboard extension.
-     *
-     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-     * @since 15 dynamic
-     * @since 23 static
-     */
-    CAPS_LOCK = 1
-  }
-
-  /**
    * Provides hot swap information about an input device.
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -177,7 +153,6 @@ declare namespace inputDevice {
    * @since 23 static
    */
   interface DeviceListener {
-
     /**
      * Device change type, which indicates whether an input device is inserted or removed.
      *
@@ -254,7 +229,6 @@ declare namespace inputDevice {
    * @since 23 static
    */
   interface AxisRange {
-
     /**
      * Input sources supported by the input device, including the keyboard, mouse, touchscreen, trackball, touchpad, and
      * joystick.
@@ -328,7 +302,6 @@ declare namespace inputDevice {
    * @since 23 static
    */
   interface InputDeviceData {
-
     /**
      * Unique ID of the input device. If a physical device is repeatedly plugged and unplugged, its ID may change.
      *
@@ -441,6 +414,15 @@ declare namespace inputDevice {
      * @since 23 dynamic&static
      */
     isLocal?: boolean;
+
+    /**
+     * Indicates the bound target displayId.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    displayId?: int;
   }
 
   /**
@@ -845,6 +827,41 @@ declare namespace inputDevice {
   function setInputDeviceEnabled(deviceId: int, enabled: boolean): Promise<void>;
 
   /**
+   * Checks whether the specified function key (for example, **CapsLock**) is enabled. This API uses a promise to return
+   * the result.
+   *
+   * @param { FunctionKey } functionKey - Type of the function key.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the function key
+   *     is enabled, and the value **false** indicates the opposite.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 3900002 - There is currently no keyboard device connected.
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 15 dynamic
+   * @since 23 static
+   */
+  function isFunctionKeyEnabled(functionKey: FunctionKey): Promise<boolean>;
+
+  /**
+   * Enumerates function key types.
+   *
+   * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+   * @since 15 dynamic
+   * @since 23 static
+   */
+  enum FunctionKey {
+
+    /**
+     * CapsLock key. This key can be enabled or disabled only for the input keyboard extension.
+     *
+     * @syscap SystemCapability.MultimodalInput.Input.InputDevice
+     * @since 15 dynamic
+     * @since 23 static
+     */
+    CAPS_LOCK = 1
+  }
+
+  /**
    * Specifies whether to enable a function key (for example, **CapsLock**). This API uses a promise to return the
    * result.
    *
@@ -865,20 +882,31 @@ declare namespace inputDevice {
   function setFunctionKeyEnabled(functionKey: FunctionKey, enabled: boolean): Promise<void>;
 
   /**
-   * Checks whether the specified function key (for example, **CapsLock**) is enabled. This API uses a promise to return
-   * the result.
+   * Bind input devices to a display group.
+   * Only external USB and Bluetooth mice, touchpads, keyboards, and game controllers are supported.
+   * After binding, the device will be fixed to operate on the display group where the specified display is located.
+   * This API uses a promise to return the result.
    *
-   * @param { FunctionKey } functionKey - Type of the function key.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the function key
-   *     is enabled, and the value **false** indicates the opposite.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 3900002 - There is currently no keyboard device connected.
+   * @permission ohos.permission.INPUT_DEVICE_CONTROLLER
+   * @param { int } inputDeviceId - ID of the specified input device.
+   *     If the input service restarts or the input device is reconnects, its ID may change.
+   *     The value must be an integer greater than or equal to 0.
+   * @param { int } displayId - ID of the target display.
+   *     The value must be an integer greater than or equal to 0.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   *     The application does not have the required permission.
+   * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
+   * @throws { BusinessError } 3800001 - Input service exception.
+   * @throws { BusinessError } 3900001 - The specified input device does not exist.
+   * @throws { BusinessError } 3900004 - The specified display does not exist.
+   * @throws { BusinessError } 3900005 - Unsupported input device.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
-   * @since 15 dynamic
-   * @since 23 static
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
    */
-  function isFunctionKeyEnabled(functionKey: FunctionKey): Promise<boolean>;
+  function bindToDisplay(inputDeviceId: int, displayId: int): Promise<void>;
 }
 
 export default inputDevice;

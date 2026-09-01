@@ -49,8 +49,7 @@ def build(options):
 
 
 def copy_output(options):
-    copy_files(os.path.join(options.source_path, './lib'),
-               os.path.join(options.output_path, 'api-check-plugin'))
+    copy_files(os.path.join(options.source_path, './lib'), options.output_path)
 
 
 def parse_args():

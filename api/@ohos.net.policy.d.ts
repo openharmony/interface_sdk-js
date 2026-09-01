@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Network Policy Management
  * @kit NetworkKit
  */
 
@@ -23,25 +23,31 @@ import type connection from './@ohos.net.connection';
 import Context from './application/Context';
 
 /**
- * Provides interfaces to manage network policy rules.
- * @namespace policy
+ * The **policy** module provides APIs for managing network policies, which allow you to use firewall technology to
+ * control and manage the data traffic used.
+ *
  * @syscap SystemCapability.Communication.NetManager.Core
  * @since 10 dynamic
  */
 declare namespace policy {
   /**
-   * Get network bear type.
-   * @typedef { connection.NetBearType }
+   * Defines the network type.
+   *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @since 10 dynamic
    */
   type NetBearType = connection.NetBearType;
 
   /**
-   * Control if applications can use data on background.
+   * Sets whether background applications are allowed to access the network. This API uses an asynchronous callback to
+   * return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { boolean } isAllowed - Allow applications to use data on background.
-   * @param { AsyncCallback<void> } callback - the callback of setBackgroundAllowed.
+   * @param { boolean } isAllowed - Whether background applications are allowed to use mobile data. The value **true**
+   *     indicates that background applications are allowed to use mobile data, and the value **false** indicates the
+   *     opposite.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -53,12 +59,17 @@ declare namespace policy {
    * @since 10 dynamic
    */
   function setBackgroundAllowed(isAllowed: boolean, callback: AsyncCallback<void>): void;
-  
+
   /**
-   * Control if applications can use data on background.
+   * Sets whether background applications are allowed to access the network. This API uses a promise to return the
+   * result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { boolean } isAllowed - Allow applications to use data on background.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { boolean } isAllowed - Whether background applications are allowed to use mobile data. The value **true**
+   *     indicates that background applications are allowed to use mobile data, and the value **false** indicates the
+   *     opposite.
+   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is returned.
+   *     If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -72,9 +83,13 @@ declare namespace policy {
   function setBackgroundAllowed(isAllowed: boolean): Promise<void>;
 
   /**
-   * Get the status if applications can use data on background.
+   * Checks whether the current application is allowed to access the network in the background. This API uses an
+   * asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { AsyncCallback<boolean> } callback - the callback of allowed or not to use data on background.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
+   *     the value **true** is returned, indicating that the application is allowed to access the network when running
+   *     at the background. If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -88,9 +103,12 @@ declare namespace policy {
   function isBackgroundAllowed(callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get the status if applications can use data on background.
+   * Checks whether the current application is allowed to access the network in the background. This API uses a promise
+   * to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @returns { Promise<boolean> } The promise returned by the function.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the background
+   *     policy is allowed, and the value **false** indicates the opposite.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -104,10 +122,12 @@ declare namespace policy {
   function isBackgroundAllowed(): Promise<boolean>;
 
   /**
-   * Get the background network policy for the specified uid.
+   * Checks whether the specified UID can access the background network. This API uses an asynchronous callback to
+   * return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid - The specified UID of application.
-   * @param { AsyncCallback<NetBackgroundPolicy> } callback - the callback of getBackgroundPolicyByUid.
+   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
+   * @param { AsyncCallback<NetBackgroundPolicy> } callback - Callback used to return the result.  .
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -118,13 +138,14 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function getBackgroundPolicyByUid(uid: number, callback: AsyncCallback<NetBackgroundPolicy>): void;
+  function getBackgroundPolicyByUid(uid: int, callback: AsyncCallback<NetBackgroundPolicy>): void;
 
   /**
-   * Get the background network policy for the specified uid.
+   * Obtains whether the UID can access the network of the background. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid - The specified UID of application.
-   * @returns { Promise<NetBackgroundPolicy> } The promise returned by the function.
+   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
+   * @returns { Promise<NetBackgroundPolicy> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -135,14 +156,17 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function getBackgroundPolicyByUid(uid: number): Promise<NetBackgroundPolicy>;
+  function getBackgroundPolicyByUid(uid: int): Promise<NetBackgroundPolicy>;
 
   /**
-   * Set the policy for the specified UID.
+   * Sets the metered network access policy for the application specified by a given UID. This API uses an asynchronous
+   * callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid - the specified UID of application.
-   * @param { NetUidPolicy } policy - the policy of the current UID of application.For details, see {@link NetUidPolicy}.
-   * @param { AsyncCallback<void> } callback - the callback of setPolicyByUid.
+   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
+   * @param { NetUidPolicy } policy - Network access policy for the application.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+   *     value is returned. If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -153,14 +177,17 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function setPolicyByUid(uid: number, policy: NetUidPolicy, callback: AsyncCallback<void>): void;
+  function setPolicyByUid(uid: int, policy: NetUidPolicy, callback: AsyncCallback<void>): void;
 
   /**
-   * Set the policy for the specified UID.
+   * Sets whether the application with the corresponding UID can access the metering network. This API uses a promise to
+   * return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid - the specified UID of application.
-   * @param { NetUidPolicy } policy - the policy of the current UID of application.For details, see {@link NetUidPolicy}.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
+   * @param { NetUidPolicy } policy - Network access policy for the application.
+   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is returned.
+   *     If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -171,13 +198,16 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function setPolicyByUid(uid: number, policy: NetUidPolicy): Promise<void>;
+  function setPolicyByUid(uid: int, policy: NetUidPolicy): Promise<void>;
 
   /**
-   * Query the policy of the specified UID.
+   * Obtains the network access policy for the application specified by a given UID. This API uses an asynchronous
+   * callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid - the specified UID of application.
-   * @param { AsyncCallback<NetUidPolicy> } callback - the callback of getPolicyByUid.
+   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
+   * @param { AsyncCallback<NetUidPolicy> } callback - Callback used to return the result. If the operation is
+   *     successful, the policy result is returned. If the operation fails, an error code is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -188,13 +218,15 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function getPolicyByUid(uid: number, callback: AsyncCallback<NetUidPolicy>): void;
+  function getPolicyByUid(uid: int, callback: AsyncCallback<NetUidPolicy>): void;
 
   /**
-   * Query the policy of the specified UID.
+   * Obtains the network access policy by app UID. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid - the specified UID of application.
-   * @returns { Promise<NetUidPolicy> } The promise returned by the function.
+   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
+   * @returns { Promise<NetUidPolicy> } Promise used to return the result. If the operation fails, an error message is
+   *     returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -205,13 +237,16 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function getPolicyByUid(uid: number): Promise<NetUidPolicy>;
+  function getPolicyByUid(uid: int): Promise<NetUidPolicy>;
 
   /**
-   * Query the application UIDs of the specified policy.
+   * Obtains all UIDs that match the specified network policy. This API uses an asynchronous callback to return the
+   * result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { NetUidPolicy } policy - the policy of the current UID of application.For details, see {@link NetUidPolicy}.
-   * @param { AsyncCallback<Array<number>> } callback - the callback of getUidsByPolicy.
+   * @param { NetUidPolicy } policy - Network policy for the application.
+   * @param { AsyncCallback<Array<int>> } callback - Callback used to return the result. If the operation is successful,
+   *     the UID array of the application is returned. If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -222,13 +257,15 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function getUidsByPolicy(policy: NetUidPolicy, callback: AsyncCallback<Array<number>>): void;
+  function getUidsByPolicy(policy: NetUidPolicy, callback: AsyncCallback<Array<int>>): void;
 
   /**
-   * Query the application UIDs of the specified policy.
+   * Obtains all UIDs that match the policy by policy. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { NetUidPolicy } policy - the policy of the current UID of application.For details, see {@link NetUidPolicy}.
-   * @returns { Promise<Array<number>> } The promise returned by the function.
+   * @param { NetUidPolicy } policy - Network policy for the application.
+   * @returns { Promise<Array<int>> } Promise used to return the result. If the operation is successful, the operation
+   *     result is returned. If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -239,14 +276,18 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function getUidsByPolicy(policy: NetUidPolicy): Promise<Array<number>>;
+  function getUidsByPolicy(policy: NetUidPolicy): Promise<Array<int>>;
 
   /**
-   * Get the status whether the uid app can access the metered network or non-metered network.
+   * Checks whether the application specified by a given UID is allowed to access a metered network. This API uses an
+   * asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid - The specified UID of application.
-   * @param { boolean } isMetered - Indicates metered network or non-metered network.
-   * @param { AsyncCallback<boolean> } callback - the callback of isUidNetAllowed.
+   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
+   * @param { boolean } isMetered - Whether the network is a metered network. The value **true** indicates that the
+   *     network is a metered network, and the value **false** indicates the opposite.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means that the
+   *     application is allowed to access metered networks, and the value **false** means the opposite.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -257,32 +298,18 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function isUidNetAllowed(uid: number, isMetered: boolean, callback: AsyncCallback<boolean>): void;
+  function isUidNetAllowed(uid: int, isMetered: boolean, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get the status whether the uid app can access the metered network or non-metered network.
+   * Checks whether the application specified by a given UID is allowed to access a metered network. This API uses a
+   * promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid - The specified UID of application.
-   * @param { boolean } isMetered - Indicates metered network or non-metered network.
-   * @returns { Promise<boolean> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Failed to connect to the service.
-   * @throws { BusinessError } 2100003 - System internal error. 
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 10 dynamic
-   */
-  function isUidNetAllowed(uid: number, isMetered: boolean): Promise<boolean>;
-
-  /**
-   * Get the status of whether the specified uid can access the specified network.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid - The specified UID of application.
-   * @param { string } iface - The specified network interface name.
-   * @param { AsyncCallback<boolean> } callback - the callback of isUidNetAllowed.
+   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
+   * @param { boolean } isMetered - Whether the network is a metered network. The value **true** indicates that the
+   *     network is a metered network, and the value **false** indicates the opposite.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the UID can
+   *     access the metering or non-metering network, and the value **false** indicates the opposite.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -293,14 +320,17 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function isUidNetAllowed(uid: number, iface: string, callback: AsyncCallback<boolean>): void;
+  function isUidNetAllowed(uid: int, isMetered: boolean): Promise<boolean>;
 
   /**
-   * Get the status of whether the specified uid can access the specified network.
+   * Obtains whether the network of the specified iface can be accessed by the corresponding UID. This API uses an
+   * asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid - The specified UID of application.
-   * @param { string } iface - The specified network interface name.
-   * @returns { Promise<boolean> } The promise returned by the function.
+   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
+   * @param { string } iface - Name of the target network.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means that the
+   *     application is allowed to access the specified network, and the value **false** means the opposite.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -311,13 +341,36 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function isUidNetAllowed(uid: number, iface: string): Promise<boolean>;
+  function isUidNetAllowed(uid: int, iface: string, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Set metered network quota policies.
+   * Obtains whether the UID can access the network of the specified iface. This API uses a promise to return the
+   * result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<NetQuotaPolicy> } quotaPolicies - Indicates {@link NetQuotaPolicy}.
-   * @param { AsyncCallback<void> } callback - the callback of setNetQuotaPolicies.
+   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
+   * @param { string } iface - Name of the target network.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the application is
+   *     allowed to access the specified network, and the value **false** means the opposite.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10 dynamic
+   */
+  function isUidNetAllowed(uid: int, iface: string): Promise<boolean>;
+
+  /**
+   * Sets the metering network policy. This API uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @param { Array<NetQuotaPolicy> } quotaPolicies - Defines the quota policy for the specified network.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+   *     value is returned. If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -331,10 +384,12 @@ declare namespace policy {
   function setNetQuotaPolicies(quotaPolicies: Array<NetQuotaPolicy>, callback: AsyncCallback<void>): void;
 
   /**
-   * Set metered network quota policies.
+   * Sets the metering network policy. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<NetQuotaPolicy> } quotaPolicies - Indicates {@link NetQuotaPolicy}.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<NetQuotaPolicy> } quotaPolicies - Defines the quota policy for the specified network.
+   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is returned.
+   *     If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -362,14 +417,15 @@ declare namespace policy {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hidethisfor inner system use.
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function restoreAllPolicies(iccid: string): Promise<void>;
 
   /**
-   * Get metered network quota policies.
+   * Obtains the metering network policy. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { AsyncCallback<Array<NetQuotaPolicy>> } callback - the callback of getNetQuotaPolicies.
+   * @param { AsyncCallback<Array<NetQuotaPolicy>> } callback - Callback used to return the result.  .
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -383,9 +439,10 @@ declare namespace policy {
   function getNetQuotaPolicies(callback: AsyncCallback<Array<NetQuotaPolicy>>): void;
 
   /**
-   * Get metered network quota policies.
+   * Obtains the metering network policy. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @returns { Promise<Array<NetQuotaPolicy>> } The promise returned by the function.
+   * @returns { Promise<Array<NetQuotaPolicy>> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -398,12 +455,14 @@ declare namespace policy {
   function getNetQuotaPolicies(): Promise<Array<NetQuotaPolicy>>;
 
   /**
-   * Update the policy when the quota reaches the upper limit.
+   * Updates a reminder policy. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { NetBearType } netType - {@link NetBearType}.
-   * @param { string } simId - Specify the matched simId of quota policy when netType is cellular.
-   * @param { RemindType } remindType - {@link RemindType}.
-   * @param { AsyncCallback<void> } callback - the callback of updateRemindPolicy.
+   * @param { NetBearType } netType - Network type.
+   * @param { string } simId - SIM card ID.
+   * @param { RemindType } remindType - Enumerates the reminder types.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+   *     value is returned. If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -417,12 +476,14 @@ declare namespace policy {
   function updateRemindPolicy(netType: NetBearType, simId: string, remindType: RemindType, callback: AsyncCallback<void>): void;
 
   /**
-   * Update the policy when the quota reaches the upper limit.
+   * Updates a reminder policy. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { NetBearType } netType - {@link NetBearType}.
-   * @param { string } simId - Specify the matched simId of quota policy when netType is cellular.
-   * @param { RemindType } remindType - {@link RemindType}.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { NetBearType } netType - Network type.
+   * @param { string } simId - SIM card ID.
+   * @param { RemindType } remindType - Enumerates the reminder types.
+   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is returned.
+   *     If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -436,11 +497,15 @@ declare namespace policy {
   function updateRemindPolicy(netType: NetBearType, simId: string, remindType: RemindType): Promise<void>;
 
   /**
-   * Set the list of uids that are allowed to access the Internet in hibernation mode.
+   * Adds applications specified by given UIDs to the device idle allowlist. This API uses an asynchronous callback to
+   * return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<number> } uids - The specified uids of application.
-   * @param { boolean } isAllowed - Whether to allow Uids in the list to access the Internet.
-   * @param { AsyncCallback<void> } callback - the callback of setDeviceIdleTrustlist.
+   * @param { Array<int> } uids - Unique ID of the application.
+   * @param { boolean } isAllowed - Whether to add the application to the allowlist. The value **true** means to add the
+   *     application to the allowlist, and the value **false** means the opposite.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+   *     value is returned. If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -451,14 +516,18 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function setDeviceIdleTrustlist(uids: Array<number>, isAllowed: boolean, callback: AsyncCallback<void>): void;
+  function setDeviceIdleTrustlist(uids: Array<int>, isAllowed: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Set the list of uids that are allowed to access the Internet in hibernation mode.
+   * Sets whether multiple UIDs are in the whitelist of the sleep firewall. This API uses a promise to return the
+   * result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<number> } uids - The specified uids of application.
-   * @param { boolean } isAllowed - Whether to allow Uids in the list to access the Internet.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<int> } uids - Unique ID of the application.
+   * @param { boolean } isAllowed - Whether to add the application to the allowlist. The value **true** means to add the
+   *     application to the allowlist, and the value **false** means the opposite.
+   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is returned.
+   *     If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -469,12 +538,14 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function setDeviceIdleTrustlist(uids: Array<number>, isAllowed: boolean): Promise<void>;
+  function setDeviceIdleTrustlist(uids: Array<int>, isAllowed: boolean): Promise<void>;
 
   /**
-   * Obtain the list of uids that are allowed to access the Internet in hibernation mode.
+   * Obtains the UID of applications that are on the device idle allowlist. This API uses an asynchronous callback to
+   * return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { AsyncCallback<Array<number>> } callback - the callback of getDeviceIdleTrustlist.
+   * @param { AsyncCallback<Array<int>> } callback - Callback used to return the result.  .
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -485,12 +556,14 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function getDeviceIdleTrustlist(callback: AsyncCallback<Array<number>>): void;
+  function getDeviceIdleTrustlist(callback: AsyncCallback<Array<int>>): void;
 
   /**
-   * Obtain the list of uids that are allowed to access the Internet in hibernation mode.
+   * Obtains the UID of applications that are on the device idle allowlist. This API uses a promise to return the
+   * result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @returns { Promise<Array<number>> } The promise returned by the function.
+   * @returns { Promise<Array<int>> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -500,32 +573,18 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function getDeviceIdleTrustlist(): Promise<Array<number>>;
+  function getDeviceIdleTrustlist(): Promise<Array<int>>;
 
   /**
-   * Set the list of uids that are allowed to access the Internet in power saving mode.
+   * Sets whether the app with the specified UID is in the whitelist of the power saving firewall. This API uses an
+   * asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<number> } uids - The specified uids of application.
-   * @param { boolean } isAllowed - Whether to allow Uids in the list to access the Internet.
-   * @param { AsyncCallback<void> } callback - the callback of setPowerSaveTrustlist.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Failed to connect to the service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 10 dynamic
-   */
-  function setPowerSaveTrustlist(uids: Array<number>, isAllowed: boolean, callback: AsyncCallback<void>): void;
-
-  /**
-   * Set the list of uids that are allowed to access the Internet in power saving mode.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { Array<number> } uids - The specified uids of application.
-   * @param { boolean } isAllowed - Whether to allow Uids in the list to access the Internet.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<int> } uids - Unique ID of the application.
+   * @param { boolean } isAllowed - Whether to add the application to the allowlist. The value **true** means to add the
+   *     application to the allowlist, and the value **false** means the opposite.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+   *     value is returned. If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -536,12 +595,18 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function setPowerSaveTrustlist(uids: Array<number>, isAllowed: boolean): Promise<void>;
+  function setPowerSaveTrustlist(uids: Array<int>, isAllowed: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Obtain the list of uids that are allowed to access the Internet in power saving mode.
+   * Sets whether the app with the specified UID is in the whitelist of the power saving firewall. This API uses a
+   * promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { AsyncCallback<Array<number>> } callback - the callback of UIDs list.
+   * @param { Array<int> } uids - Unique ID of the application.
+   * @param { boolean } isAllowed - Whether to add the application to the allowlist. The value **true** means to add the
+   *     application to the allowlist, and the value **false** means the opposite.
+   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is returned.
+   *     If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -552,12 +617,32 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function getPowerSaveTrustlist(callback: AsyncCallback<Array<number>>): void;
+  function setPowerSaveTrustlist(uids: Array<int>, isAllowed: boolean): Promise<void>;
 
   /**
-   * Obtain the list of uids that are allowed to access the Internet in power saving mode.
+   * Obtains the UID array of applications that are on the power saving allowlist. This API uses an asynchronous
+   * callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @returns { Promise<Array<number>> } The promise returned by the function.
+   * @param { AsyncCallback<Array<int>> } callback - Callback used to return the result.  .
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 2100001 - Invalid parameter value.
+   * @throws { BusinessError } 2100002 - Failed to connect to the service.
+   * @throws { BusinessError } 2100003 - System internal error.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @systemapi Hide this for inner system use.
+   * @since 10 dynamic
+   */
+  function getPowerSaveTrustlist(callback: AsyncCallback<Array<int>>): void;
+
+  /**
+   * Obtains the UID array of applications that are on the device idle allowlist. This API uses a promise to return the
+   * result.
+   *
+   * @permission ohos.permission.MANAGE_NET_STRATEGY
+   * @returns { Promise<Array<int>> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -567,13 +652,16 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  function getPowerSaveTrustlist(): Promise<Array<number>>;
+  function getPowerSaveTrustlist(): Promise<Array<int>>;
 
   /**
-   * Reset network policies\rules\quota policies\firewall rules.
+   * Restores all the policies (cellular network, background network, firewall, and application-specific network
+   * policies) for the specified SIM card. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { string } simId - Specify the matched simId of quota policy.
-   * @param { AsyncCallback<void> } callback - the callback of resetPolicies.
+   * @param { string } simId - SIM card ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful, no
+   *     value is returned. If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -587,10 +675,13 @@ declare namespace policy {
   function resetPolicies(simId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Reset network policies\rules\quota policies\firewall rules.
+   * Resets the cellular network, background network policy, firewall policy, and app policy corresponding to the SIM
+   * card ID. This API uses a promise to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { string } simId - Specify the matched simId of quota policy.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } simId - SIM card ID.
+   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is returned.
+   *     If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -604,13 +695,18 @@ declare namespace policy {
   function resetPolicies(simId: string): Promise<void>;
 
   /**
-   * Set the policy to access the network of the specified application.
+   * Sets whether the application with the specified UID can access the network. This API uses a promise to return the
+   * result.
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid - The specified UID of application.
-   * @param { NetworkAccessPolicy } policy - The network access policy of application. For details, see {@link NetworkAccessPolicy}.
-   * @param { boolean } [isReconfirmed] - Whether this operation is reconfirmed by user or not. Default false.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
+   * @param { NetworkAccessPolicy } policy - Network policy.
+   * @param { boolean } [isReconfirmed] - Whether reconfirmation is required. The value **true** indicates that
+   *     reconfirmation is not required and no dialog box is displayed. The value **false** indicates that
+   *     reconfirmation is required and a dialog box is displayed when the application accesses the network. The default
+   *     value is **false**.
+   * @returns { Promise<void> } Promise used to return the result. If the operation is successful, no value is returned.
+   *     If the operation fails, an error message is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -621,14 +717,15 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
    */
-  function setNetworkAccessPolicy(uid: number, policy: NetworkAccessPolicy, isReconfirmed?: boolean): Promise<void>;
+  function setNetworkAccessPolicy(uid: int, policy: NetworkAccessPolicy, isReconfirmed?: boolean): Promise<void>;
 
   /**
-   * Query the network access policy of the specified application.
+   * Obtains whether the application with the specified UID can access the network. This API uses a promise to return
+   * the result.
    *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { number } uid - The specified UID of application.
-   * @returns { Promise<NetworkAccessPolicy> } Returns the network access policy of the application. For details, see {@link NetworkAccessPolicy}.
+   * @param { int } uid - Unique app ID, which is a positive integer within the int32_t range.
+   * @returns { Promise<NetworkAccessPolicy> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -639,12 +736,14 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
    */
-  function getNetworkAccessPolicy(uid: number): Promise<NetworkAccessPolicy>;
+  function getNetworkAccessPolicy(uid: int): Promise<NetworkAccessPolicy>;
 
   /**
-   * Query the network access policy of all applications.
+   * Obtains the network access policy of all applications under the current user. This API uses a promise to return the
+   * result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @returns { Promise<UidNetworkAccessPolicy> } the network access policy of all applications.
+   * @returns { Promise<UidNetworkAccessPolicy> } Promise used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
@@ -656,23 +755,29 @@ declare namespace policy {
   function getNetworkAccessPolicy(): Promise<UidNetworkAccessPolicy>;
 
   /**
-   * Query the network access policy of the calling application.
+   * Queries the network access policy of an application (whether cellular or Wi-Fi network access is allowed). You can
+   * check the policy by choosing **Settings** > **Mobile network** > **Manage data usage** > **Network access**. This
+   * API uses a promise to return the result.
    *
-   * @returns { Promise<NetAccessPolicy> } Returns the network access policy of the application.
-   *     For details, see {@link NetAccessPolicy}.
+   * @returns { Promise<NetAccessPolicy> } Promise used to return the network access policy of the application.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error, such as nullptr。
    * @syscap SystemCapability.Communication.NetManager.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   function getNetAccessPolicy(): Promise<NetAccessPolicy>;
 
   /**
-   * Register uid policy change listener.
+   * Registers the callback when the **policy** changes. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netUidPolicyChange' } type - Indicates Event name.
-   * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback - the callback of on.
+   * @param { 'netUidPolicyChange' } type - Event type.<br/> The value **netUidPolicyChange** indicates a policy change
+   *     event.
+   * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback - Callback used to return the result. It is
+   *     called when the network policy changes. [since 10 - 10]
+   * @param { Callback<NetUidPolicyInfo> } callback - Callback used to return the result. It is called when the network
+   *     policy changes. [since 11]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -682,29 +787,19 @@ declare namespace policy {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   */
-  /**
-   * Register uid policy change listener.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netUidPolicyChange' } type - Indicates Event name.
-   * @param { Callback<NetUidPolicyInfo> } callback - the callback of on.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Failed to connect to the service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 11 dynamic
    */
   function on(type: 'netUidPolicyChange', callback: Callback<NetUidPolicyInfo>): void;
 
   /**
-   * Unregister uid policy change listener.
+   * Unsubscribes from **policy** changes. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netUidPolicyChange' } type - Indicates Event name.
-   * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback - the callback of off.
+   * @param { 'netUidPolicyChange' } type - Event type. The value **netUidPolicyChange** indicates a policy change
+   *     event.
+   * @param { Callback<{ uid: number, policy: NetUidPolicy }> } callback - Callback used to return the result. It is
+   *     called when the network policy changes. [since 10 - 10]
+   * @param { Callback<NetUidPolicyInfo> } callback - Callback used to return the result. It is called when the network
+   *     policy changes. [since 11]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -714,29 +809,18 @@ declare namespace policy {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   */
-  /**
-   * Unregister uid policy change listener.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netUidPolicyChange' } type - Indicates Event name.
-   * @param { Callback<NetUidPolicyInfo> } callback - the callback of off.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Failed to connect to the service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 11 dynamic
    */
   function off(type: 'netUidPolicyChange', callback?: Callback<NetUidPolicyInfo>): void;
 
   /**
-   * Register uid rule change listener.
+   * Registers the callback when the **rule** changes. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netUidRuleChange' } type - Indicates Event name.
-   * @param { Callback<{ uid: number, rule: NetUidRule }> } callback - the callback of on.
+   * @param { 'netUidRuleChange' } type - Event type.<br/> The value **netUidRuleChange** indicates a rule change event.
+   * @param { Callback<{ uid: number, rule: NetUidRule }> } callback - Callback used to return the result. It is called
+   *     when the rule changes. [since 10 - 10]
+   * @param { Callback<NetUidRuleInfo> } callback - Callback used to return the result. It is called when the rule
+   *     changes. [since 11]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -746,29 +830,18 @@ declare namespace policy {
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
-   */
-  /**
-   * Register uid rule change listener.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netUidRuleChange' } type - Indicates Event name.
-   * @param { Callback<NetUidRuleInfo> } callback - the callback of on.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Failed to connect to the service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 11 dynamic
    */
   function on(type: 'netUidRuleChange', callback: Callback<NetUidRuleInfo>): void;
 
   /**
-   * Unregister uid rule change listener.
+   * Unsubscribes from **rule** changes. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netUidRuleChange' } type - Indicates Event name.
-   * @param { Callback<{ uid: number, rule: NetUidRule }> } callback - the callback of off.
+   * @param { 'netUidRuleChange' } type - Event type. The value **netUidRuleChange** indicates a rule change event.
+   * @param { Callback<{ uid: number, rule: NetUidRule }> } callback - Callback used to return the result. It is called
+   *     when the rule changes. [since 10 - 10]
+   * @param { Callback<NetUidRuleInfo> } callback - Callback used to return the result. It is called when the rule
+   *     changes. [since 11]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -779,28 +852,16 @@ declare namespace policy {
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
-  /**
-   * Unregister uid rule change listener.
-   * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netUidRuleChange' } type - Indicates Event name.
-   * @param { Callback<NetUidRuleInfo> } callback - the callback of off.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error.
-   * @throws { BusinessError } 2100001 - Invalid parameter value.
-   * @throws { BusinessError } 2100002 - Failed to connect to the service.
-   * @throws { BusinessError } 2100003 - System internal error.
-   * @syscap SystemCapability.Communication.NetManager.Core
-   * @systemapi Hide this for inner system use.
-   * @since 11 dynamic
-   */
   function off(type: 'netUidRuleChange', callback?: Callback<NetUidRuleInfo>): void;
 
   /**
-   * Register metered ifaces change listener.
+   * Registers the callback when the **iface** changes. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netMeteredIfacesChange' } type - Indicates Event name.
-   * @param { Callback<Array<string>> } callback - the callback of on.
+   * @param { 'netMeteredIfacesChange' } type - Event type.<br/> The value **netMeteredIfacesChange** indicates a
+   *     metered **iface** change event.
+   * @param { Callback<Array<string>> } callback - Callback used to return the result. It is called when the registered
+   *     metered **iface** changes.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -814,10 +875,14 @@ declare namespace policy {
   function on(type: 'netMeteredIfacesChange', callback: Callback<Array<string>>): void;
 
   /**
-   * Unregister metered ifaces change listener.
+   * Unsubscribes from the changes of the metering interface. This API uses an asynchronous callback to return the
+   * result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netMeteredIfacesChange' } type - Indicates Event name.
-   * @param { Callback<Array<string>> } callback - the callback of off.
+   * @param { 'netMeteredIfacesChange' } type - Event type. The value **netMeteredIfacesChange** indicates a metered
+   *     **iface** change event.
+   * @param { Callback<Array<string>> } callback - Callback used to return the result. It is called when the registered
+   *     metered **iface** changes.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -831,10 +896,14 @@ declare namespace policy {
   function off(type: 'netMeteredIfacesChange', callback?: Callback<Array<string>>): void;
 
   /**
-   * Register quota policies change listener.
+   * Registers the callback for network quota policy changes. This API uses an asynchronous callback to return the
+   * result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netQuotaPolicyChange' } type - Indicates Event name.
-   * @param { Callback<Array<NetQuotaPolicy>> } callback the callback of on.
+   * @param { 'netQuotaPolicyChange' } type - Event type.<br/> The value **netQuotaPolicyChange** indicates a network
+   *     quota policy change event.
+   * @param { Callback<Array<NetQuotaPolicy>> } callback - Callback used to return the result. It is called when the
+   *     registered network quota policy changes.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -848,10 +917,14 @@ declare namespace policy {
   function on(type: 'netQuotaPolicyChange', callback: Callback<Array<NetQuotaPolicy>>): void;
 
   /**
-   * Unregister quota policies change listener.
+   * Unsubscribes from the changes of the metering network policy. This API uses an asynchronous callback to return the
+   * result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netQuotaPolicyChange' } type - Indicates Event name.
-   * @param { Callback<Array<NetQuotaPolicy>> } callback - the callback of off.
+   * @param { 'netQuotaPolicyChange' } type - Event type. The value **netQuotaPolicyChange** indicates a network quota
+   *     policy change event.
+   * @param { Callback<Array<NetQuotaPolicy>> } callback - Callback used to return the result. It is called when the
+   *     registered network quota policy changes.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -865,10 +938,14 @@ declare namespace policy {
   function off(type: 'netQuotaPolicyChange', callback?: Callback<Array<NetQuotaPolicy>>): void;
 
   /**
-   * Register network background policy change listener.
+   * Registers the callback for background network policy changes. This API uses an asynchronous callback to return the
+   * result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netBackgroundPolicyChange' } type - Indicates Event name.
-   * @param { Callback<boolean> } callback - the callback of on. 
+   * @param { 'netBackgroundPolicyChange' } type - Event type.<br/> The value **netBackgroundPolicyChange** indicates a
+   *     background network policy change event.
+   * @param { Callback<boolean> } callback - Callback used to return the result. It is called when the registered
+   *     background network policy changes.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -882,10 +959,13 @@ declare namespace policy {
   function on(type: 'netBackgroundPolicyChange', callback: Callback<boolean>): void;
 
   /**
-   * Unregister network background policy change listener.
+   * Unsubscribes from background network policy changes. This API uses an asynchronous callback to return the result.
+   *
    * @permission ohos.permission.MANAGE_NET_STRATEGY
-   * @param { 'netBackgroundPolicyChange' } type - Indicates Event name.
-   * @param { Callback<boolean> } callback - the callback of off.
+   * @param { 'netBackgroundPolicyChange' } type - Event type. The value **netBackgroundPolicyChange** indicates a
+   *     background network policy change event.
+   * @param { Callback<boolean> } callback - Callback used to return the result. It is called when the registered
+   *     background network policy changes.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
    * @throws { BusinessError } 401 - Parameter error.
@@ -899,26 +979,30 @@ declare namespace policy {
   function off(type: 'netBackgroundPolicyChange', callback?: Callback<boolean>): void;
 
   /**
-  * Open the network settings interface of the application, which is presented in a semi-modal form and can 
-  *     be used to configure the network connection method. This API uses a promise to return the result.
-  * @param { Context } context - Indicates Context instance.
-  * @returns { Promise<void> } The promise returned by the function.
-  * @syscap SystemCapability.Communication.NetManager.Core
-  * @stagemodelonly
-  * @since 22 dynamic
-  */
+   * Sets whether the current application can connect to the Wi-Fi or cellular network. You can call this API to open
+   * the network access settings page of the current application and set the network access permission of the
+   * application. This API uses a promise to return the result.
+   *
+   * @param { Context } context - Application context of the stage model. (Only **UIAbilityContext** and
+   *     **ExtensionContext** are supported.)
+   * @returns { Promise<void> } Promise that returns no value.
+   * @syscap SystemCapability.Communication.NetManager.Core
+   * @stagemodelonly
+   * @since 22 dynamic
+   */
   function showAppNetPolicySettings(context: Context): Promise<void>;
 
   /**
-   * Indicate whether the application can use metered networks in background.
-   * @enum {number}
+   * Enumerates the background network policies.
+   *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
   export enum NetBackgroundPolicy {
     /**
-     * Default value.
+     * No background network policy is specified. This is the default value.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -926,7 +1010,8 @@ declare namespace policy {
     NET_BACKGROUND_POLICY_NONE = 0,
 
     /**
-     * Apps can use metered networks on background.
+     * Background applications are allowed to access a metered network.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -934,7 +1019,8 @@ declare namespace policy {
     NET_BACKGROUND_POLICY_ENABLE = 1,
 
     /**
-     * Apps can't use metered networks on background.
+     * Applications running in the background are not allowed to access a metered network.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -942,25 +1028,27 @@ declare namespace policy {
     NET_BACKGROUND_POLICY_DISABLE = 2,
 
     /**
-     * Only apps in trustlist can use metered networks on background.
+     * Only applications on the allowlist are allowed to access metered networks when they are running in the
+     * background.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
      */
-    NET_BACKGROUND_POLICY_TRUSTLIST = 3,
+    NET_BACKGROUND_POLICY_TRUSTLIST = 3
   }
 
   /**
-   * Net quota policies, including matching network rule usage periods, restrictions, and warnings.
-   * @interface NetQuotaPolicy
+   * Defines the quota policy for the specified network.
+   *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
   export interface NetQuotaPolicy {
     /**
-     * The matching rules of network quota policies.
-     * @type {NetworkMatchRule}
+     * Network for which the quota policy is set.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -968,8 +1056,8 @@ declare namespace policy {
     networkMatchRule: NetworkMatchRule;
 
     /**
-     * Policies that limit network quota.
-     * @type {QuotaPolicy}
+     * Network quota policy.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -978,16 +1066,17 @@ declare namespace policy {
   }
 
   /**
-   * Policies that limit network quota.
-   * @interface QuotaPolicy
+   * Defines the network quota policy.
+   *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
   export interface QuotaPolicy {
     /**
-     * The period and the start time for quota policy, default: "M1" (Monthly cycle).
-     * @type {string}
+     * Metering period for the quota limit. **D1**, **M1**, and **Y1** indicate one day, one month, and one year,
+     * respectively. If the specified metering period is exceeded, the quota is not limited.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -995,26 +1084,27 @@ declare namespace policy {
     periodDuration: string;
 
     /**
-     * The warning threshold of traffic, default:  DATA_USAGE_UNKNOWN.
-     * @type {number}
+     * Data volume threshold for generating an alarm.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
      */
-    warningBytes: number;
+    warningBytes: long;
 
     /**
-     * The limit threshold of traffic, default: DATA_USAGE_UNKNOWN.
-     * @type {number}
+     * Data volume quota.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
      */
-    limitBytes: number;
+    limitBytes: long;
 
     /**
-     * Is metered network or not.
-     * @type {boolean}
+     * Whether the network is a metered network. The value **true** indicates that the network is a metered network, and
+     * the value **false** indicates the opposite.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -1022,8 +1112,8 @@ declare namespace policy {
     metered: boolean;
 
     /**
-     * The action while the used bytes reach the limit, see {@link LimitAction}.
-     * @type {LimitAction}
+     * Action to take when the data volume quota is reached.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -1031,35 +1121,35 @@ declare namespace policy {
     limitAction: LimitAction;
 
     /**
-     * The time of the last warning reminder. For notifying only, default: REMIND_NEVER.
-     * @type {?number}
+     * Last time when an alarm was generated. Default value: **-1**.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
      */
-    lastWarningRemind?: number;
+    lastWarningRemind?: long;
 
     /**
-     * The time of the last limit reminder. For notifying only, default: REMIND_NEVER.
-     * @type {?number}
+     * Last time when the quota was exhausted. Default value: **-1**.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
      */
-    lastLimitRemind?: number;
+    lastLimitRemind?: long;
   }
 
   /**
-   * The matching rules of network quota policies.
-   * @interface NetworkMatchRule
+   * Defines the network for which the quota policy is set.
+   *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
   export interface NetworkMatchRule {
     /**
-     * netType see {@link NetBearType}.
-     * @type {NetBearType}
+     * Network type.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -1067,8 +1157,12 @@ declare namespace policy {
     netType: NetBearType;
 
     /**
-     * To specify the identity of network, such as different WLAN.
-     * @type {string}
+     * ID of the SIM card on the metered cellular network.
+     *
+     * It is used for Ethernet and Wi-Fi networks.
+     *
+     * It is used together with **iccid**.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -1076,8 +1170,10 @@ declare namespace policy {
     identity: string;
 
     /**
-     * The ID of the target card, valid when netType is BEARER_CELLULAR.
-     * @type {string}
+     * Identifier of the SIM card on the metered cellular network.
+     *
+     * It is not used for Ethernet and Wi-Fi networks.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -1086,24 +1182,25 @@ declare namespace policy {
   }
 
   /**
-   * The interface is used to generate network unique identifiers.
-   * @interface NetUidRuleInfo
+   * Defines a unique network ID.
+   *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
    */
   export interface NetUidRuleInfo {
     /**
-     * The warning threshold of traffic, default:  DATA_USAGE_UNKNOWN.
-     * @type { number }
+     * Traffic alarm threshold. The default value is **DATA_USAGE_UNKNOWN**.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
      */
-    uid: number;
+    uid: int;
     /**
-     * Rules whether an uid can access to a metered or non-metered network.
-     * @type { NetUidRule }
+     * Rule that specifies whether the application specified by a given UID is allowed to access a metered or non-
+     * metered network.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
@@ -1112,24 +1209,25 @@ declare namespace policy {
   }
 
   /**
-   * Callback function for registering network UID policy changes.
-   * @interface NetUidPolicyInfo
+   * Defines the network policy information for an application.
+   *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 11 dynamic
    */
   export interface NetUidPolicyInfo {
     /**
-     * The warning threshold of traffic, default:  DATA_USAGE_UNKNOWN.
-     * @type { number }
+     * Traffic alarm threshold. The default value is **DATA_USAGE_UNKNOWN**.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
      */
-    uid: number;
+    uid: int;
     /**
-     * Uid Specifies the Internet access policy in background mode.
-     * @type { NetUidPolicy }
+     * Policy that specifies whether the application specified by a given UID is allowed to access the network when
+     * running in the background.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 11 dynamic
@@ -1138,15 +1236,16 @@ declare namespace policy {
   }
 
   /**
-   * The action when quota policy hit the limit.
-   * @enum {number}
+   * Enumerates the actions that can be taken when the data volume quota is reached.
+   *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
   export enum LimitAction {
     /**
-     * Default action, do nothing.
+     * No action is taken. This is the default value.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -1154,7 +1253,8 @@ declare namespace policy {
     LIMIT_ACTION_NONE = -1,
 
     /**
-     * When the quota policy reaches the limit, the system prohibits users from accessing the network.
+     * Internet access is disabled.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -1162,24 +1262,26 @@ declare namespace policy {
     LIMIT_ACTION_ACCESS_DISABLED = 0,
 
     /**
-     * When the quota policy reaches the upper limit, the system notifies the user.
+     * An alarm is generated when the quota limit is reached.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
      */
-    LIMIT_ACTION_ALERT_ONLY = 1,
+    LIMIT_ACTION_ALERT_ONLY = 1
   }
 
   /**
-   * Rules whether an uid can access to a metered or non-metered network.
-   * @enum {number}
+   * Enumerates the metered network rules.
+   *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
   export enum NetUidRule {
     /**
-     * Default uid rule.
+     * Default rule.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -1187,7 +1289,8 @@ declare namespace policy {
     NET_RULE_NONE = 0,
 
     /**
-     * Allow traffic on metered networks while app is foreground.
+     * Applications running in the foreground are allowed to access a metered network.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -1195,7 +1298,8 @@ declare namespace policy {
     NET_RULE_ALLOW_METERED_FOREGROUND = 1 << 0,
 
     /**
-     * Allow traffic on metered network.
+     * Applications are allowed to access a metered network.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -1203,7 +1307,8 @@ declare namespace policy {
     NET_RULE_ALLOW_METERED = 1 << 1,
 
     /**
-     * Reject traffic on metered network.
+     * Applications are not allowed to access a metered network.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -1211,7 +1316,8 @@ declare namespace policy {
     NET_RULE_REJECT_METERED = 1 << 2,
 
     /**
-     * Allow traffic on all network (metered or non-metered).
+     * Applications are allowed to access all networks (metered or non-metered).
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -1219,24 +1325,26 @@ declare namespace policy {
     NET_RULE_ALLOW_ALL = 1 << 5,
 
     /**
-     * Reject traffic on all network.
+     * Applications are not allowed to access any networks (metered or non-metered).
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
      */
-    NET_RULE_REJECT_ALL = 1 << 6,
+    NET_RULE_REJECT_ALL = 1 << 6
   }
 
   /**
-   * Specify the remind type, see {@link updateRemindPolicy}.
-   * @enum {number}
+   * Enumerates the reminder types.
+   *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
   export enum RemindType {
     /**
-     * Warning alerts when the limit is reached.
+     * Warning.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -1244,24 +1352,26 @@ declare namespace policy {
     REMIND_TYPE_WARNING = 1,
 
     /**
-     * Limit alerts when the limit is reached.
+     * Limit.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
      */
-    REMIND_TYPE_LIMIT = 2,
+    REMIND_TYPE_LIMIT = 2
   }
 
   /**
-   * Uid Specifies the Internet access policy in background mode.
-   * @enum {number}
+   * Enumerates network access policies for the application.
+   *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 10 dynamic
    */
   export enum NetUidPolicy {
     /**
-     * Default net policy.
+     * Default network policy.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -1269,7 +1379,8 @@ declare namespace policy {
     NET_POLICY_NONE = 0,
 
     /**
-     * Allow on metered networks when app in background.
+     * Background applications are allowed to access a metered network.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
@@ -1277,97 +1388,111 @@ declare namespace policy {
     NET_POLICY_ALLOW_METERED_BACKGROUND = 1 << 0,
 
     /**
-     * Reject on metered networks when app in background.
+     * Applications running in the background are not allowed to access a metered network.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 10 dynamic
      */
-    NET_POLICY_REJECT_METERED_BACKGROUND = 1 << 1,
+    NET_POLICY_REJECT_METERED_BACKGROUND = 1 << 1
   }
 
   /**
-   * Network policies that limit the specified UID of application to access the network.
-   * @interface NetworkAccessPolicy
+   * Network access policy.
+   *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
    */
   export interface NetworkAccessPolicy {
     /**
-     * Indicate whether the application can be allowed to access the network by wifi.
-     * @type { ?boolean }
+     * Whether the application is allowed to access the Wi-Fi network. The value **true** indicates that the application
+     * is allowed to access the Wi-Fi network, and the value **false** indicates the opposite.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
      */
     allowWiFi?: boolean;
     /**
-     * Indicate whether the application can be allowed to access the network by cellular.
-     * @type { ?boolean }
+     * Whether the application is allowed to access the cellular network. The value **true** indicates that the
+     * application is allowed to access the cellular network, and the value **false** indicates the opposite.
+     *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @systemapi Hide this for inner system use.
      * @since 12 dynamic
      */
     allowCellular?: boolean;
     /**
-    * Indicate whether the application can be always allowed to access the network by wifi and users cannot set it.
-    * @type { ?boolean }
-    * @syscap SystemCapability.Communication.NetManager.Core
-    * @systemapi Hide this for inner system use.
-    * @since 18 dynamic
-    */
+     * Whether the application is always allowed to access the Wi-Fi network. The value **true** indicates that the
+     * application is always allowed to access the Wi-Fi network, and the value **false** indicates the opposite.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 18 dynamic
+     */
     alwaysAllowWiFi?: boolean;
     /**
-    * Indicate whether the application can be always allowed to access the network by cellular and users cannot set it.
-    * @type { ?boolean }
-    * @syscap SystemCapability.Communication.NetManager.Core
-    * @systemapi Hide this for inner system use.
-    * @since 18 dynamic
-    */
+     * Whether the application is always allowed to access the cellular network. The value **true** indicates that the
+     * application is always allowed to access the cellular network, and the value **false** indicates the opposite.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 18 dynamic
+     */
     alwaysAllowCellular?: boolean;
   }
 
   /**
-   * Network policies that limit the specified UID of application to access the network.
+   * Defines the network access policy information.
    *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
-  export interface NetAccessPolicy {  
+  export interface NetAccessPolicy {
     /**
-     * Indicate whether the application can be allowed to access the network by wifi.
+     * Whether to allow Internet access over Wi-Fi.
+     *
+     * **true**: yes;
+     *
+     * **false**: no.
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     allowWiFi: boolean;
     /**
-     * Indicate whether the application can be allowed to access the network by cellular.
+     * Whether to allow Internet access over the cellular network.
+     *
+     * **true**: yes.
+     *
+     * **false**: no.
      *
      * @syscap SystemCapability.Communication.NetManager.Core
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic
      */
     allowCellular: boolean;
   }
 
   /**
-   * Provides the container definition for network access policy key-value pairs.
-   * @interface UidNetworkAccessPolicy
+   * Defines the network policy for an application with the specified UID.
+   *
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use.
    * @since 12 dynamic
    */
   export interface UidNetworkAccessPolicy {
-      /**
-       * @type key:value pair. Key indicates the specified UID of an application. For value, see @NetworkAccessPolicy.
-       * @syscap SystemCapability.Communication.NetManager.Core
-       * @systemapi Hide this for inner system use.
-       * @since 12 dynamic
-       */
-      [uid: string]: NetworkAccessPolicy;
+    /**
+     * Network policy. The data type is key-value pair.
+     *
+     * @syscap SystemCapability.Communication.NetManager.Core
+     * @systemapi Hide this for inner system use.
+     * @since 12 dynamic
+     */
+    [uid: string]: NetworkAccessPolicy;
   }
 }
 

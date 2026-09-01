@@ -19,7 +19,7 @@
  */
 
 /**
- * 本模块提供rawfile文件所在hap的descriptor信息。
+ * 本模块提供rawfile文件所在HAP包的文件描述符信息，包括文件描述符、rawfile文件的起始偏移和文件长度。
  *
  * @syscap SystemCapability.Global.ResourceManager
  * @crossplatform [since 12]
@@ -40,7 +40,7 @@ export interface RawFileDescriptor {
   fd: int;
 
   /**
-   * 起始偏移量。
+   * 起始偏移量，表示rawfile文件在HAP包中的起始位置。单位为Byte。
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform [since 12]
@@ -51,7 +51,7 @@ export interface RawFileDescriptor {
   offset: long;
 
   /**
-   * 文件长度。
+   * 文件长度，表示rawfile文件的大小。单位为Byte。
    *
    * @syscap SystemCapability.Global.ResourceManager
    * @crossplatform [since 12]

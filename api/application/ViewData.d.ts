@@ -35,18 +35,20 @@ import AutoFillRect from './AutoFillRect';
  * @publicapi [since 26.0.0]
  * @stagemodelonly
  * @atomicservice
- * @since 26.0.0 dynamic&static
+ * @since 11 dynamic
+ * @since 23 static
  */
 export default interface ViewData {
   /**
-   * Bundle name.
+   * Bundle name.The value cannot exceed 512 characters.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi [since 11 - 24]
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 11 dynamic
+   * @since 23 static
    */
   bundleName: string;
 
@@ -80,7 +82,8 @@ export default interface ViewData {
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 11 dynamic
+   * @since 23 static
    */
   pageUrl: string;
 
@@ -92,7 +95,8 @@ export default interface ViewData {
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 11 dynamic
+   * @since 23 static
    */
   pageNodeInfos: Array<PageNodeInfo>;
 
@@ -104,7 +108,8 @@ export default interface ViewData {
    * @publicapi [since 26.0.0]
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 12 dynamic
+   * @since 23 static
    */
   pageRect: AutoFillRect;
 

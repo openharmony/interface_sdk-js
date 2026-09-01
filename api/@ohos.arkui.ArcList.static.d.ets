@@ -261,8 +261,9 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @param { ArkListOptions } [options] - ArcList constructor options
      * @returns { ArcListAttribute } Returns the instance of the ArcListAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setArcListOptions(options?: ArkListOptions): this;
     /**
@@ -306,8 +307,9 @@ export declare interface ArcListItemAttribute extends CommonMethod {
      *
      * @returns { ArcListItemAttribute } Returns the instance of the ArcListItemAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setArcListItemOptions(): this;
     /**
@@ -344,8 +346,9 @@ export declare function ArcList(
  * @param { CustomBuilder } [content_]
  * @returns { ArcListAttribute } The attribute of the ArcList.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder
@@ -375,8 +378,9 @@ export declare function ArcListItem(
  * @param { CustomBuilder } [content_]
  * @returns { ArcListItemAttribute } The attribute of the ArcListItem.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

@@ -21,64 +21,35 @@
 /**
  * Defines SymbolGlyph Modifier
  *
- * @extends SymbolGlyphAttribute
- * @implements AttributeModifier<SymbolGlyphAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
-*/
-/**
- * Defines SymbolGlyph Modifier
- *
- * @extends SymbolGlyphAttribute
- * @implements AttributeModifier<SymbolGlyphAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
+ * @noninterop
  */
 export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements AttributeModifier<SymbolGlyphAttribute> {
-    /**
-     * constructor
-     * 
-     * @param { Resource } src
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * constructor
-     * 
-     * @param { Resource } src
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    constructor(src?: Resource);
+  /**
+   * constructor
+   *
+   * @param { Resource } src
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  constructor(src?: Resource);
 
-    /**
-     * Defines the normal update attribute function.
-     * 
-     * @param { SymbolGlyphAttribute } instance
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 12
-     */
-    /**
-     * Defines the normal update attribute function.
-     * 
-     * @param { SymbolGlyphAttribute } instance
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    applyNormalAttribute?(instance: SymbolGlyphAttribute): void;
-  }
+  /**
+   * Defines the normal update attribute function.
+   *
+   * @param { SymbolGlyphAttribute } instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  applyNormalAttribute?(instance: SymbolGlyphAttribute): void;
+}

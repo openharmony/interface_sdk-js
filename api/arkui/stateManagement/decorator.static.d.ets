@@ -1486,16 +1486,17 @@ export declare interface IStateMgmtFactory {
   /**
    * Create a CustomEnv variable instance.
    *
-   * @param { IVariableOwner } owner - custom component owner
-   * @param { CustomEnvKey<T> } envKey - custom env key
-   * @param { string } varName - variable name that is decorated by @CustomEnv
+   * @param { IVariableOwner } owner - custom component owner.
+   * @param { CustomEnvKey<T> } envKey - custom env key.
+   * @param { string } varName - variable name that is decorated by @CustomEnv.
    * @param { T } localInitValue - custom env variable initValue.
+   * @param { CustomEnvOptions<T> } [customEnvOptions] - additional options for makeCustomEnv.
    * @returns { ICustomEnvDecoratedVariable<T> } CustomEnv variable instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  makeCustomEnv<T>(owner: IVariableOwner, envKey: CustomEnvKey<T>, varName: string, localInitValue: T): ICustomEnvDecoratedVariable<T>;
+  makeCustomEnv<T>(owner: IVariableOwner, envKey: CustomEnvKey<T>, varName: string, localInitValue: T, customEnvOptions?: CustomEnvOptions<T>): ICustomEnvDecoratedVariable<T>;
 
   /**
    * Create a synchronous monitored variable instance.
@@ -1822,6 +1823,32 @@ export declare interface EnvOptions<T> {
    * @since 24 static
    */
   initValue?: T;
+  /**
+   * Watch Function.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  watchFunc?: WatchFuncType;
+ }
+
+/**
+ * Defines CustomEnv options to create CustomEnv variables.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface CustomEnvOptions<T> {
+  /**
+   * Watch Function.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  watchFunc?: WatchFuncType;
 }
 
 /**

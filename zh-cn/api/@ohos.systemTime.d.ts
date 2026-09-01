@@ -124,7 +124,7 @@ declare namespace systemTime {
   /**
    * 获取自Unix纪元以来经过的时间，使用Promise异步回调。
    *
-   * @param { boolean } isNano - 返回结果是否为纳秒数，默认值为false。<br/>默认值为false。<br/>- true：表示返回结果为纳秒数（ns）。 <br/>- false：表示返回结果为毫秒数
+   * @param { boolean } isNano - 返回结果是否为纳秒数，默认值为false。<br/>- true：表示返回结果为纳秒数（ns）。 <br/>- false：表示返回结果为毫秒数
    *     （ms）。
    * @returns { Promise<number> } Promise对象，返回自Unix纪元以来经过的时间。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.
@@ -201,7 +201,7 @@ declare namespace systemTime {
   /**
    * 获取自系统启动以来经过的时间，包括深度睡眠时间，使用Promise异步回调。
    *
-   * @param { boolean } isNano - 返回结果是否为纳秒数，默认值为false。<br/>默认值为false。<br/>- true：表示返回结果为纳秒数（ns）。 <br/>- false：表示返回结果为毫秒数
+   * @param { boolean } isNano - 返回结果是否为纳秒数，默认值为false。<br/>- true：表示返回结果为纳秒数（ns）。 <br/>- false：表示返回结果为毫秒数
    *     （ms）。
    * @returns { Promise<number> } Promise对象，返回自系统启动以来经过的时间，包括深度睡眠时间。
    * @throws { BusinessError } -1 - Parameter check failed, permission denied, or system error.

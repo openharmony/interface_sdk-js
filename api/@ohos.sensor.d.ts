@@ -984,7 +984,7 @@ declare namespace sensor {
   function offAmbientLightChange(sensorInfoParam?: SensorInfoParam, callback?: Callback<LightResponse>): void;
 
   /**
-   * Unsubscribe to ambient temperature sensor data£¬ {@code SensorId.AMBIENT_TEMPERATURE}.
+   * Unsubscribe to ambient temperature sensor dataï¼Œ {@code SensorId.AMBIENT_TEMPERATURE}.
    *
    * @param { SensorInfoParam } [sensorInfoParam] - Parameters of sensor on the device.
    * @param { Callback<AmbientTemperatureResponse> } [callback] - callback ambient temperature data.
@@ -1540,7 +1540,7 @@ declare namespace sensor {
    * > **NOTE**
    * >
    * > Applications or services invoking this API can prompt users to use figure-8 calibration to improve the accuracy
-   * > of the direction sensor. The sensor has a theoretical error of ¡À5 degrees, but the specific precision may vary
+   * > of the direction sensor. The sensor has a theoretical error of Â±5 degrees, but the specific precision may vary
    * > depending on different driver implementations and algorithmic designs.
    *
    * @param { SensorId.ORIENTATION } type - Sensor type. The value is fixed at **SensorId.ORIENTATION**.
@@ -2416,7 +2416,7 @@ declare namespace sensor {
    *
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.LINEAR_ACCELEROMETER } type - Sensor type. The value is fixed at
-   *     **SensorId.LINEAR_ACCELERATION**.
+   *     **SensorId.LINEAR_ACCELEROMETER**.
    * @param { Callback<LinearAccelerometerResponse> } callback - Callback used for unsubscription. If this parameter is
    *     not specified, all callbacks of the specified sensor type are unsubscribed from.
    * @throws { BusinessError } 201 - Permission denied.
@@ -2432,7 +2432,7 @@ declare namespace sensor {
    *
    * @permission ohos.permission.ACCELEROMETER
    * @param { SensorId.LINEAR_ACCELEROMETER } type - Sensor type. The value is fixed at
-   *     **SensorId.LINEAR_ACCELERATION**.
+   *     **SensorId.LINEAR_ACCELEROMETER**.
    * @param { SensorInfoParam } [sensorInfoParam] - Sensor parameters, including **deviceId** and **sensorIndex**.
    * @param { Callback<LinearAccelerometerResponse> } [callback] - Callback used for unsubscription. If this parameter
    *     is not specified, all callbacks of the specified sensor type are unsubscribed from.
@@ -5219,7 +5219,7 @@ declare namespace sensor {
     alpha: double;
 
     /**
-     * Rotation angle of the device around the x-axis, in degrees. The value ranges from 0 to ¡À180.
+     * Rotation angle of the device around the x-axis, in degrees. The value ranges from 0 to Â±180.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice [since 11]
@@ -5229,7 +5229,7 @@ declare namespace sensor {
     beta: double;
 
     /**
-     * Rotation angle of the device around the y-axis, in degrees. The value ranges from 0 to ¡À90.
+     * Rotation angle of the device around the y-axis, in degrees. The value ranges from 0 to Â±90.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @atomicservice [since 11]
@@ -5494,7 +5494,7 @@ declare namespace sensor {
    */
   interface MagneticFieldResponse extends Response {
     /**
-     * Magnetic field strength on the x-axis, in ¦ÌT.
+     * Magnetic field strength on the x-axis, in Î¼T.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
@@ -5503,7 +5503,7 @@ declare namespace sensor {
     x: double;
 
     /**
-     * Magnetic field strength on the y-axis, in ¦ÌT.
+     * Magnetic field strength on the y-axis, in Î¼T.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
@@ -5512,7 +5512,7 @@ declare namespace sensor {
     y: double;
 
     /**
-     * Magnetic field strength on the z-axis, in ¦ÌT.
+     * Magnetic field strength on the z-axis, in Î¼T.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
@@ -5530,7 +5530,7 @@ declare namespace sensor {
    */
   interface MagneticFieldUncalibratedResponse extends Response {
     /**
-     * Uncalibrated magnetic field strength on the x-axis, in ¦ÌT.
+     * Uncalibrated magnetic field strength on the x-axis, in Î¼T.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
@@ -5539,7 +5539,7 @@ declare namespace sensor {
     x: double;
 
     /**
-     * Uncalibrated magnetic field strength on the y-axis, in ¦ÌT.
+     * Uncalibrated magnetic field strength on the y-axis, in Î¼T.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
@@ -5548,7 +5548,7 @@ declare namespace sensor {
     y: double;
 
     /**
-     * Uncalibrated magnetic field strength on the z-axis, in ¦ÌT.
+     * Uncalibrated magnetic field strength on the z-axis, in Î¼T.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
@@ -5557,7 +5557,7 @@ declare namespace sensor {
     z: double;
 
     /**
-     * Bias of the uncalibrated magnetic field strength on the x-axis, in ¦ÌT.
+     * Bias of the uncalibrated magnetic field strength on the x-axis, in Î¼T.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
@@ -5566,7 +5566,7 @@ declare namespace sensor {
     biasX: double;
 
     /**
-     * Bias of the uncalibrated magnetic field strength on the y-axis, in ¦ÌT.
+     * Bias of the uncalibrated magnetic field strength on the y-axis, in Î¼T.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic
@@ -5575,7 +5575,7 @@ declare namespace sensor {
     biasY: double;
 
     /**
-     * Bias of the uncalibrated magnetic field strength on the z-axis, in ¦ÌT.
+     * Bias of the uncalibrated magnetic field strength on the z-axis, in Î¼T.
      *
      * @syscap SystemCapability.Sensors.Sensor
      * @since 8 dynamic

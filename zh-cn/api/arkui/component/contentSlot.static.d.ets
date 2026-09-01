@@ -43,7 +43,7 @@ export declare interface ContentSlotAttribute {
    * @param { string } sourceLine - 源码行号。
    * @param { string } [moduleName] - 组件所属模块名。
    * @returns { this }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
@@ -55,17 +55,19 @@ export declare interface ContentSlotAttribute {
    * @param { Content } content - 要显示的内容。
    * @returns { this } ContentSlotAttribute实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   setContentSlotOptions(content: Content): this;
 
   /**
-     * 通知ContentSlot已经完成属性设置。
-     *
+   * 通知ContentSlot已经完成属性设置。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @unpublished
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
    */
   applyAttributesFinish(): void;
 }
@@ -91,8 +93,9 @@ export declare function ContentSlot(
  * @param { CustomBuilderT<ContentSlotAttribute> } style - 用于设置ContentSlot属性的回调。
  * @returns { ContentSlotAttribute } ContentSlot属性对象。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function ContentSlot(

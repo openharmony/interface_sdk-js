@@ -541,8 +541,8 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      *    保持默认值false。
      * 
      * 2. 按钮高度默认40vp，在关怀模式-大字体场景下高度不变，即使按钮样式设置为圆角矩形
-     *    [ROUNDED_RECTANGLE](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-button.md#buttontype)，呈现效果
-     *    依然是胶囊型按钮[Capsule](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-button.md#buttontype)。
+     *    [ROUNDED_RECTANGLE]{@link buttontype}，呈现效果
+     *    依然是胶囊型按钮[Capsule]{@link buttontype}。
      *
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -560,8 +560,8 @@ export declare interface DatePickerDialogOptions extends DatePickerOptions {
      *    保持默认值false。
      * 
      * 2. 按钮高度默认40vp，在关怀模式-大字体场景下高度不变，即使按钮样式设置为圆角矩形
-     *    [ROUNDED_RECTANGLE](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-button.md#buttontype)，呈现效果
-     *    依然是胶囊型按钮[Capsule](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-button.md#buttontype)。
+     *    [ROUNDED_RECTANGLE]{@link buttontype}，呈现效果
+     *    依然是胶囊型按钮[Capsule]{@link ButtonType}。
      *
    * @type { ?PickerDialogButtonStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

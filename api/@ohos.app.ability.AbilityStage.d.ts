@@ -313,12 +313,26 @@ declare class AbilityStage {
 
   /**
    * Called when the ability stage is about to create the first ability.
+   * If both this method and {@link onAboutToCreateAbilityAsync} are overridden,
+   * only {@link onAboutToCreateAbilityAsync} takes effect.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 24 dynamic&static
    */
   onAboutToCreateAbility(): void;
+
+  /**
+   * Called when the ability stage is about to create the first ability. This API uses a promise to return the result.
+   * Subsequent lifecycle callbacks will be suspended until the returned Promise is resolved.
+   * If both {@link onAboutToCreateAbility} and this method are overridden, only this method takes effect.
+   *
+   * @returns { Promise<void> } Promise that returns no value.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  onAboutToCreateAbilityAsync(): Promise<void>;
 }
 
 export default AbilityStage;

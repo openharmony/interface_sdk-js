@@ -936,8 +936,9 @@ export declare interface TextAttribute extends CommonMethod {
      * @param { TextOptions } [value] - Text constructor options.
      * @returns { TextAttribute } Returns the instance of the TextAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setTextOptions(content?: string | Resource, value?: TextOptions): this;
 
@@ -1394,8 +1395,9 @@ export declare class TextController {
  * @param { CustomBuilder } [content_] - content.
  * @returns { TextAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

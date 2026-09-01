@@ -486,7 +486,7 @@ export interface DataAbilityHelper {
  * Defines the PacMap type used for data storage.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
- * @famodelonly [since 7 - 10]
+ * @FaAndStageModel [since 11]
  * @since 7 dynamic
  */
 export interface PacMap {
@@ -503,7 +503,7 @@ export interface PacMap {
    * @unionmember { Array<string | number | boolean> }
    * @unionmember { null }
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
-   * @famodelonly [since 7 - 10]
+   * @FaAndStageModel [since 11]
    * @since 7 dynamic
    */
   [key: string]: number | string | boolean | Array<string | number | boolean> | null;
@@ -513,6 +513,7 @@ export interface PacMap {
  * Defines the PacMap type used for data storage.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
+ * @stagemodelonly
  * @since 23 static
  */
 export type PacMap = Record<string, int | double | string | boolean | Array<string | int | double | boolean> | null>;

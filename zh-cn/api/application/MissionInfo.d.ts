@@ -42,7 +42,7 @@ export interface MissionInfo {
   missionId: int;
 
   /**
-   * 表示运行状态。
+   * 表示运行状态。0表示启用，任务活跃有效，对应的Ability正在运行或可恢复到前台；-1表示未启用，任务已关闭、销毁或不可恢复。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -62,7 +62,7 @@ export interface MissionInfo {
   lockedState: boolean;
 
   /**
-   * 表示任务的最近创建或更新时间。
+   * 表示任务的最近创建或更新时间。单位：ns
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -82,7 +82,7 @@ export interface MissionInfo {
   want: Want;
 
   /**
-   * 表示任务的标签。
+   * 表示任务的标签，用于在任务列表中显示的任务名称。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi

@@ -2317,7 +2317,7 @@ declare namespace unifiedDataChannel {
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
     *     2. Incorrect parameter types;
     *     3. Parameter verification failed.
-    * @throws { BusinessError } 20400001 - Settings already exist.
+    * @throws { BusinessError } 20400001 - Settings already exist. To reconfigure, remove the existing sharing options.
     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "
     *     ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION". [since 14]
     * @syscap SystemCapability.DistributedDataManager.UDMF.Core

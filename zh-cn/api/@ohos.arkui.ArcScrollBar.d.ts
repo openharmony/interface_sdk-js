@@ -54,18 +54,16 @@ declare interface ArcScrollBarOptions {
 }
 
 /**
- * 弧形滚动条组件ArcScrollBar，用于配合可滚动组件使用，如[ArcList]{@link @ohos.arkui.ArcList}、[List]{@link list}、
- * [Grid]{@link grid}、[Scroll]{@link scroll}、
- * [WaterFlow]{@link water_flow}。
+ * 弧形滚动条组件ArcScrollBar，适用于圆形屏幕等需要弧形滚动条的场景，用于配合可滚动组件使用，如[ArcList]{@link @ohos.arkui.ArcList}、
+ * [List]{@link ./@internal/component/ets/list}、[Grid]{@link ./@internal/component/ets/grid}、
+ * [Scroll]{@link ./@internal/component/ets/scroll}、[WaterFlow]{@link ./@internal/component/ets/water_flow}。
  *
  * > **说明：**
- *
- * > - 该组件从API version 18开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
  * >
- * > - ArcScrollBar不设置宽高时，采用父组件[LayoutConstraint]{@link FrameNode:LayoutConstraint}中的maxSize作为宽高。如果ArcScrollBar的
- * > 父组件存在可滚动组件，如[ArcList]{@link @ohos.arkui.ArcList}、[List]{@link list}、
- * > [Grid]{@link grid}、[Scroll]{@link scroll}、
- * > [WaterFlow]{@link water_flow}，建议设置ArcScrollBar宽高，否则ArcScrollBar的宽高可能为无穷大。
+ * > - 未设置宽高时，ArcScrollBar采用父组件[LayoutConstraint]{@link ./arkui/FrameNode:LayoutConstraint}中的maxSize作为尺寸。若父组件存在可滚动组件，如
+ * > [ArcList]{@link @ohos.arkui.ArcList}、[List]{@link ./@internal/component/ets/list}、
+ * > [Grid]{@link ./@internal/component/ets/grid}、[Scroll]{@link ./@internal/component/ets/scroll}、
+ * > [WaterFlow]{@link ./@internal/component/ets/water_flow}，建议设置ArcScrollBar宽高，否则尺寸可能为无穷大。
  * >
  * > - 该组件支持在Phone、PC/2in1、Tablet、TV、Wearable设备上使用。API version 22及以前版本，在Phone、PC/2in1、Tablet、TV上使用会编译告警，但可以正常运行。
  *
@@ -80,7 +78,7 @@ export interface ArcScrollBarInterface {
   /**
    * ArcScrollBar的构造函数。
    *
-   * @param { ArcScrollBarOptions } options - 滚动条组件参数。
+   * @param { ArcScrollBarOptions } options - ArcScrollBar的配置参数，用于指定绑定的可滚动组件控制器和滚动条状态。
    * @returns { ArcScrollBarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -112,18 +110,16 @@ export declare class ArcScrollBarAttribute extends CommonMethod<ArcScrollBarAttr
 export declare const ArcScrollBarInstance: ArcScrollBarAttribute;
 
 /**
- * 弧形滚动条组件ArcScrollBar，用于配合可滚动组件使用，如[ArcList]{@link @ohos.arkui.ArcList}、[List]{@link list}、
- * [Grid]{@link grid}、[Scroll]{@link scroll}、
- * [WaterFlow]{@link water_flow}。
+ * 弧形滚动条组件ArcScrollBar，适用于圆形屏幕等需要弧形滚动条的场景，用于配合可滚动组件使用，如[ArcList]{@link @ohos.arkui.ArcList}、
+ * [List]{@link ./@internal/component/ets/list}、[Grid]{@link ./@internal/component/ets/grid}、
+ * [Scroll]{@link ./@internal/component/ets/scroll}、[WaterFlow]{@link ./@internal/component/ets/water_flow}。
  *
  * > **说明：**
- *
- * > - 该组件从API version 18开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
  * >
- * > - ArcScrollBar不设置宽高时，采用父组件[LayoutConstraint]{@link FrameNode:LayoutConstraint}中的maxSize作为宽高。如果ArcScrollBar的
- * > 父组件存在可滚动组件，如[ArcList]{@link @ohos.arkui.ArcList}、[List]{@link list}、
- * > [Grid]{@link grid}、[Scroll]{@link scroll}、
- * > [WaterFlow]{@link water_flow}，建议设置ArcScrollBar宽高，否则ArcScrollBar的宽高可能为无穷大。
+ * > - 未设置宽高时，ArcScrollBar采用父组件[LayoutConstraint]{@link ./arkui/FrameNode:LayoutConstraint}中的maxSize作为尺寸。若父组件存在可滚动组件，如
+ * > [ArcList]{@link @ohos.arkui.ArcList}、[List]{@link ./@internal/component/ets/list}、
+ * > [Grid]{@link ./@internal/component/ets/grid}、[Scroll]{@link ./@internal/component/ets/scroll}、
+ * > [WaterFlow]{@link ./@internal/component/ets/water_flow}，建议设置ArcScrollBar宽高，否则尺寸可能为无穷大。
  * >
  * > - 该组件支持在Phone、PC/2in1、Tablet、TV、Wearable设备上使用。API version 22及以前版本，在Phone、PC/2in1、Tablet、TV上使用会编译告警，但可以正常运行。
  *

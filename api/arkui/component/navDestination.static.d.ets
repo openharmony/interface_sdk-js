@@ -14,31 +14,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+ 
 /**
  * @file
  * @kit ArkUI
  */
-
+ 
 import window from '../../@ohos.window';
-
 import { Resource } from '../../global/resource';
-
 import { CommonMethod, Callback, LayoutSafeAreaType, LayoutSafeAreaEdge, PixelMap, AttributeModifier } from './common';
-
 import { Builder, CustomBuilder, CustomBuilderT } from './builder';
-
 import { Length, ResourceStr, VoidCallback } from './units';
-
 import { TitleHeight, Curve } from './enums';
-
 import { NavPathInfo, NavPathStack, NavigationTitleOptions, NavigationMenuItem, NavigationToolbarOptions, ToolbarItem,
     NavigationMenuOptions, NavigationOperation, SystemBarStyle } from './navigation';
-
 import { SymbolGlyphModifier } from '../../arkui/SymbolGlyphModifier';
-
 import { Scroller } from './scroll';
-
 import { ComponentBuilder } from './builder';
 
 /**
@@ -325,7 +316,6 @@ export declare enum VisibilityChangeReason {
  * @since 23 static
  */
 export declare interface RouteMapConfig {
-
   /**
    * Get destination name.
    *
@@ -362,7 +352,6 @@ export declare interface RouteMapConfig {
  * @since 23 static
  */
 export declare interface NavDestinationContext {
-
   /**
    * Get path info.
    *
@@ -418,7 +407,6 @@ export declare interface NavDestinationContext {
  * @since 23 static
  */
 export declare interface NestedScrollInfo {
-
   /**
    * The controller of parent scrollable container component.
    *
@@ -446,7 +434,6 @@ export declare interface NestedScrollInfo {
  * @since 23 static
  */
 export declare interface NavDestinationTransition {
-
   /**
    * This method is called after the transition ends to notify whether the transition was successful.
    *
@@ -500,7 +487,8 @@ export declare interface NavDestinationTransition {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
+ * @unpublished
  */
 export declare interface NavDestinationModuleInfo {
 
@@ -509,7 +497,8 @@ export declare interface NavDestinationModuleInfo {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   moduleName: string;
 
@@ -518,7 +507,8 @@ export declare interface NavDestinationModuleInfo {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   pagePath: string;
 }
@@ -551,7 +541,6 @@ export type RestoreStateCallback = (savedState: Record<string, Object> | null) =
  * @since 23 static
  */
 export declare interface NavDestinationAttribute extends CommonMethod {
-
   /**
    * NavDestination title bar
    *
@@ -564,7 +553,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * @since 23 static
    */
   default title(value: string | CustomBuilder | NavDestinationCommonTitle | NavDestinationCustomTitle | Resource | undefined, options?: NavigationTitleOptions | undefined): this;
-
+  
   /**
    * Hide navigation title bar
    *
@@ -669,7 +658,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * @since 23 static
    */
   default backButtonIcon(icon: ResourceStr | PixelMap | SymbolGlyphModifier | undefined, accessibilityText?: ResourceStr | undefined): this;
-
+  
   /**
    * NavDestination title bar's menus
    *
@@ -681,7 +670,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * @since 23 static
    */
   default menus(items: Array<NavigationMenuItem> | CustomBuilder | undefined, options?: NavigationMenuOptions | undefined): this;
-
+  
   /**
    * Configure toolbar with default style parameter or custom parameter.
    *
@@ -693,7 +682,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * @since 23 static
    */
   default toolbarConfiguration(toolbarParam: Array<ToolbarItem> | CustomBuilder | undefined, options?: NavigationToolbarOptions | undefined): this;
-
+  
   /**
    * Hide tool bar
    *
@@ -773,7 +762,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * @since 23 static
    */
   default ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType> | undefined, edges?: Array<LayoutSafeAreaEdge> | undefined): this;
-
+  
   /**
    * Set the style of system bar
    *
@@ -929,7 +918,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
   /**
    * Sets whether the NavDestination should cover the entire navigation container.
    *
-   * When set to true, in split navigation mode, the page covers both the Navbar
+   * When set to true, in split navigation mode, the page covers both the NavBar
    * and content area, displaying in full screen overlay mode. This setting applies
    * to all instances of this NavDestination whenever it is pushed onto the stack, unless
    * overridden by the fullScreen option in the push operation.
@@ -981,7 +970,8 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.0.0 staticonly
+   * @since 26.1.0 staticonly
+   * @unpublished
    */
   default setNavDestinationOptions(moduleInfo?: NavDestinationModuleInfo): this;
 }
@@ -1010,7 +1000,7 @@ export type NavDestinationTransitionDelegate = (operation: NavigationOperation, 
  */
 @ComponentBuilder
 export declare function NavDestination(
-
+    
   content_?: CustomBuilder
 ): NavDestinationAttribute;
 
@@ -1022,7 +1012,8 @@ export declare function NavDestination(
  * @returns { NavDestinationAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
+ * @unpublished
  */
 @Builder
 export declare function NavDestination(

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2022-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -634,5 +634,79 @@ declare namespace workScheduler {
      */
     STORAGE_LEVEL_LOW_OR_OKAY = 2
   }
+
+  /**
+   * Execution frequency information.
+   *
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamiconly
+   */
+  export interface FrequencyInfo {
+    /**
+     * App uid.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    uid: int;
+    /**
+     * ID of the deferred task.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    workId: int;
+    /**
+     * Set app exec interval, in milliseconds.
+     * Unit:ms.
+     *
+     * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    interval: int;
+  }
+
+  /**
+   * Set the execution frequency.
+   *
+   * @permission ohos.permission.SET_WORK_SCHEDULER_PROPERTY
+   * @param { FrequencyInfo } info - Execution frequency information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 9700003 - System service operation failed. The work scheduler service is unavailable.
+   * @throws { BusinessError } 9700006 - Failed to check the execution frequency parameters.
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamiconly
+   */
+  function setExecFrequency(info: FrequencyInfo): void;
+
+  /**
+   * Reset the execution frequency.
+   *
+   * @permission ohos.permission.SET_WORK_SCHEDULER_PROPERTY
+   * @param { int } uid - App uid.
+   *     <br>The value should be an integer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 9700003 - System service operation failed. The work scheduler service is unavailable.
+   * @throws { BusinessError } 9700006 - Failed to check the execution frequency parameters.
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamiconly
+   */
+  function resetExecFrequency(uid: int): void;
 }
 export default workScheduler;

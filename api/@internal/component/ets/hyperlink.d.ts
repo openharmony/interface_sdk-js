@@ -51,7 +51,11 @@ interface HyperlinkInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * In addition to the
+ * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
+ * attributes are supported.
+ *
+ * The [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 20]
@@ -80,8 +84,6 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
  *
  * > **NOTE**
  * >
- * > -
- * >
  * > - This component must be used with the system browser.
  *
  * ###### Required Permissions
@@ -91,7 +93,7 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
  *
  * ###### Child Components
  *
- * This component can contain the [Image]{@link image} child component.
+ * This component can contain the [Image]{@link ./image} child component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 20]

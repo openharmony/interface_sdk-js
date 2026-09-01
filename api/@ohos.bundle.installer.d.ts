@@ -261,7 +261,7 @@ declare namespace installer {
      * @param { Array<string> } hapFilePaths - Paths where the HAP files of the bundle are stored, which are the data
      *     directories. If only one directory is passed, the HAP files in the directory must belong to the same bundle
      *     and have the same signature.
-     * @param { InstallParam } installParam - Parameters required for the installation. For details about their default
+     * @param { InstallParam } [installParam] - Parameters required for the installation. For details about their default
      *     values, see [InstallParam]{@link installer.InstallParam}. [since 9 - 11]
      * @param { InstallParam } [installParam] - Parameters required for the installation. For details about their
      *     default values, see [InstallParam]{@link installer.InstallParam}. [since 12]
@@ -382,7 +382,7 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Name of the target bundle.
-     * @param { InstallParam } installParam - Parameters required for the installation. For details about their default
+     * @param { InstallParam } [installParam] - Parameters required for the installation. For details about their default
      *     values, see [InstallParam]{@link installer.InstallParam}. [since 9 - 14]
      * @param { InstallParam } [installParam] - Parameters required for the installation. For details about their
      *     default values, see [InstallParam]{@link installer.InstallParam}. [since 15]
@@ -466,7 +466,7 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.RECOVER_BUNDLE
      * @param { string } bundleName - Name of the target bundle.
-     * @param { InstallParam } installParam - Parameters required for the installation. For details about their default
+     * @param { InstallParam } [installParam] - Parameters required for the installation. For details about their default
      *     values, see [InstallParam]{@link installer.InstallParam}.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_BUNDLE' or '
@@ -639,7 +639,7 @@ declare namespace installer {
      * @param { Array<string> } hapFilePaths - Paths where the HAP files of the bundle are stored, which are the data
      *     directories. If only one directory is passed, the HAP files in the directory must belong to the same bundle
      *     and have the same signature.
-     * @param { InstallParam } installParam - Parameters required for the installation. For details about their default
+     * @param { InstallParam } [installParam] - Parameters required for the installation. For details about their default
      *     values, see [InstallParam]{@link installer.InstallParam}.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.INSTALL_SELF_BUNDLE'.
@@ -688,7 +688,7 @@ declare namespace installer {
      *
      * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.UNINSTALL_BUNDLE
      * @param { string } bundleName - Name of the target bundle.
-     * @param { InstallParam } installParam - Parameters required for the uninstall and update. For details about their
+     * @param { InstallParam } [installParam] - Parameters required for the uninstall and update. For details about their
      *     default values, see [InstallParam]{@link installer.InstallParam}. The **userId** parameter cannot be
      *     specified. Calling this API will uninstall and update the application for all users.
      * @returns { Promise<void> } Promise that returns no value.
@@ -1241,6 +1241,12 @@ declare namespace installer {
      * certificate distribution type set to **app_gallery** or the signing certificate type set to **debug** support
      * downgrade installation. To use downgrade installation, you must request the ohos.permission.INSTALL_BUNDLE and
      * ohos.permission.INSTALL_ALLOW_DOWNGRADE permissions.
+     * - **ohos.bms.param.deviceModeDistributionPolicy**: The value is a decimal string of a
+     * [DeviceModeDistributionPolicy]{@link @ohos.bundle.bundleManager:bundleManager.DeviceModeDistributionPolicy}
+     * enum value (for example, **"4"**). It specifies the device mode distribution policy for the application
+     * being installed (supported since API version 26.1.0). If this key is not present, the policy defaults to
+     * **UNSPECIFIED** (0). If the value is invalid (not a decimal string integer or out of range [0, 8]), this key
+     * is ignored and the policy defaults to **UNSPECIFIED**.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi

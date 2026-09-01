@@ -41,7 +41,7 @@ declare interface SelectOption {
   value: ResourceStr;
 
   /**
-   * 下拉选项图片。
+   * 下拉选项图片，默认不显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -52,8 +52,8 @@ declare interface SelectOption {
   icon?: ResourceStr;
 
   /**
-   * 下拉选项Symbol图片。
-   * 
+   * 下拉选项Symbol图片，默认不显示。
+   *
    * symbolIcon优先级高于icon。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -66,7 +66,7 @@ declare interface SelectOption {
 }
 
 /**
- * 提供下拉选择菜单，让用户在多个选项间选择。
+ * 提供下拉选择菜单，让用户在多个选项间选择。Select组件支持设置选项图标、自定义样式、分割线等，适用于需要在有限空间内展示多个选项供用户选择的场景。
  * 
  * > **说明：**
  *
@@ -260,7 +260,7 @@ declare interface MenuOutlineOptions {
  */
 declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
-   * 设置下拉菜单初始选项的索引，第一项的索引为0。当不设置selected属性或设置为异常值时，默认选中值为-1，菜单项不选中；当设置为undefined、null时，选中第一项。
+   * 设置下拉菜单初始选项的索引，第一项的索引为0。当不设置selected属性、或设置为负数、非整数、超出索引范围等异常值时，默认选中值为-1，菜单项不选中；当设置为undefined、null时，选中第一项。
    * 
    * 从API version 10开始，该属性支持[$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。
    * 
@@ -278,12 +278,12 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   selected(value: number | Resource): SelectAttribute;
 
   /**
-   * 设置下拉菜单初始选项的索引，第一项的索引为0。当不设置selected属性或设置异常值时，默认选择值为-1，菜单项不选中；当设置为undefined、null时，选中第一项。
+   * 设置下拉菜单初始选项的索引，第一项的索引为0。当不设置selected属性、或设置为负数、非整数、超出索引范围等异常值时，默认选中值为-1，菜单项不选中；当设置为undefined、null时，选中第一项。
    * 
    * 该属性支持[$$](docroot://ui/state-management/arkts-two-way-sync.md)、
    * [!!](docroot://ui/state-management/arkts-new-binding.md#系统组件参数双向绑定)双向绑定变量。
    *
-   * @param { Optional<number | Resource> } numCount - 下拉菜单初始选项的索引。<br/>当numCount的值为undefined时，选中第一项。
+   * @param { Optional<number | Resource> } numCount - 下拉菜单初始选项的索引，索引值从0开始。<br/>当numCount的值为undefined或null时，选中第一项。
    * @returns { SelectAttribute } the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -645,7 +645,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * 设置下拉按钮与下拉菜单间的对齐方式。
    *
    * @param { MenuAlignType } alignType - 对齐方式类型。<br/>默认值：MenuAlignType.START
-   * @param { Offset } offset - 按照对齐类型对齐后，下拉菜单相对下拉按钮的偏移量。<br/> 默认值：{dx: 0, dy: 0}
+   * @param { Offset } offset - 按照对齐类型对齐后，下拉菜单相对下拉按钮的偏移量。dx控制水平方向偏移，dy控制垂直方向偏移。<br/> 默认值：{dx: 0, dy: 0}
    * @returns { SelectAttribute } the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -673,7 +673,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
    * 设置下拉菜单项的宽度，不支持设置百分比。OptionWidthMode类型为枚举类型，OptionWidthMode决定下拉菜单是否继承下拉按钮宽度。
    * 
-   * 当设置为异常值或小于最小宽度56vp时，属性无效，菜单项宽度设为默认值，即2栅格。
+   * 当设置为无效值或小于最小宽度56vp时，属性无效，菜单项宽度设为默认值，即2栅格。
    * 
    * Select组件距屏幕边缘的左右间距为16vp，建议将组件本身及菜单项的宽度设置为小于等于`calc(100% - 32vp)`的值，以避免下拉菜单弹出时发生偏移。
    *
@@ -692,7 +692,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * [optionWidth]{@link SelectAttribute#optionWidth(value: Dimension | OptionWidthMode )}<sup>11+</sup>相比，width参数新增了对
    * undefined类型的支持。
    * 
-   * 当设置为异常值或小于最小宽度56vp时，属性无效，菜单项宽度设为默认值，即2栅格。
+   * 当设置为无效值或小于最小宽度56vp时，属性无效，菜单项宽度设为默认值，即2栅格。
    * 
    * Select组件距屏幕边缘的左右间距为16vp，建议将组件本身及菜单项的宽度设置为小于等于`calc(100% - 32vp)`的值，以避免下拉菜单弹出时发生偏移。
    *
@@ -709,9 +709,9 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
    * 设置下拉菜单显示的最大高度，不支持设置百分比。默认最大高度是屏幕可用高度的80%，设置的菜单最大高度不能超过默认最大高度。
    * 
-   * 当设置为异常值或零时，属性不生效。
+   * 当设置为无效值或零时，属性不生效。
    * 
-   * 如果下拉菜单所有选项的实际高度没有设定的高度大，下拉菜单的高度按实际高度显示。
+   * 如果下拉菜单所有选项的实际高度小于设定的高度，下拉菜单的高度按实际高度显示。
    *
    * @param { Dimension } value - 下拉菜单显示的最大高度。
    * @returns { SelectAttribute } the attribute of the select.
@@ -727,7 +727,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * 设置下拉菜单显示的最大高度，不支持设置百分比。默认最大高度是屏幕可用高度的80%，设置的菜单最大高度不能超过默认最大高度。与
    * [optionHeight]{@link SelectAttribute#optionHeight(value: Dimension)}<sup>11+</sup>相比，height参数新增了对undefined类型的支持。
    * 
-   * 当设置为异常值或零时，属性不生效。
+   * 当设置为无效值或零时，属性不生效。
    * 
    * 如果下拉菜单所有选项的实际高度小于设定的高度，下拉菜单的高度按实际高度显示。
    *
@@ -833,7 +833,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   controlSize(size: Optional<ControlSize>): SelectAttribute;
 
   /**
-   * 定制Select下拉菜单项内容区的方法。在应用了menuItemContentModifier后，下拉菜单的内容将完全由开发者自定义，此时为Select组件设置的分割线、选项颜色及下拉菜单的字体颜色等属性将不再生效。
+   * 定制Select下拉菜单项内容区的方法。在应用了menuItemContentModifier后，下拉菜单的内容将完全由开发者自定义，此时为Select组件设置的分割线、选项颜色及下拉菜单的字体颜色等属性将不再生效。适用于下拉菜单项需要展示图文混排、多行文本、复杂图标或内置控件等复杂布局的场景。
    * 
    * > **说明：**
    * >
@@ -861,7 +861,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * > 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
    * @param { Optional<ContentModifier<MenuItemConfiguration>> } modifier - 在Select组件上，定制下拉菜单项内容区的方法。<br/>modifier：内容修改
-   *     器，开发者需要自定义class实现ContentModifier接口。<br/>当modifier的值为undefined时，不使用内容修改器。
+   *     器，开发者需要自定义class实现ContentModifier接口。<br/>当modifier的值为undefined或null时，不使用内容修改器。
    * @returns { SelectAttribute } the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -872,7 +872,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   menuItemContentModifier(modifier: Optional<ContentModifier<MenuItemConfiguration>>): SelectAttribute;
 
   /**
-   * 设置分割线样式，不设置该属性则按“默认值”展示分割线。
+   * 设置分割线样式，不设置该属性则按“默认值”展示分割线。该属性与dividerStyle冲突，如果同时设置，按调用顺序生效，后者覆盖前者。
    *
    * @param { Optional<DividerOptions> | null } options - 1.设置DividerOptions，则按设置的样式显示分割线。<br/>默认值：<br/>{<br/>
    *     strokeWidth: '1px' , <br/>color: '#33182431'<br/>}<br/>2.设置为null时，不显示分割线。<br/>3.strokeWidth设置过宽时，会覆盖文字。分割线会从每一个
@@ -933,7 +933,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * >
    * > 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { Optional<TextModifier> } modifier - 在Select组件上，定制Select下拉菜单未选中项样式的方法。<br/> 当modifier的值为undefined时，不自定义下拉菜单
+   * @param { Optional<TextModifier> } modifier - 在Select组件上，定制Select下拉菜单未选中项文本样式的方法。 <br/> 当modifier的值为undefined时，不自定义下拉菜单
    *     未选中项的文本样式。
    * @returns { SelectAttribute } the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -970,9 +970,9 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   selectedOptionTextModifier(modifier: Optional<TextModifier>): SelectAttribute;
 
   /**
-   * 设置分割线样式，不设置该属性则按“默认值”展示分割线。该属性与divider互斥，按调用顺序生效。
+   * 设置分割线样式，不设置该属性则按“默认值”展示分割线。该属性与divider冲突，如果同时设置，按调用顺序生效，后者覆盖前者。
    *
-   * @param { Optional<DividerStyleOptions> } style - 1.设置DividerOptions，则按设置的样式显示分割线。<br/>默认值：<br/>{<br/>strokeWidth: '
+   * @param { Optional<DividerStyleOptions> } style - 1.设置DividerStyleOptions，则按设置的样式显示分割线。<br/>默认值：<br/>{<br/>strokeWidth: '
    *     1px' , <br/>color: '#33182431'<br/>}<br/>2.设置为null或undefined时，展示默认分割线。<br/>3.当mode为FLOAT_ABOVE_MENU时，
    *     strokeWidth设置过宽时，会覆盖文字。分割线会从每一个Item底部开始，同时向上向下画分割线。当mode为EMBEDDED_IN_MENU时，分割线在Menu中展开，独立占用高度。<br/>4
    *     .startMargin和endMargin的默认值与不设置divider属性时的分割线样式保持一致。startMargin和endMargin的和与optionWidth的值相等时，不显示分割线。startMargin和
@@ -1044,8 +1044,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   /**
    * 设置下拉菜单是否避让软键盘。未通过该接口设置时，默认不避让软键盘。
    *
-   * @param { Optional<MenuKeyboardAvoidMode> } mode - 设置下拉菜单是否避让软键盘。取值为undefined时，按照MenuKeyboardAvoidMode.NONE处理，不避让软键
-   *     盘。
+   * @param { Optional<MenuKeyboardAvoidMode> } mode - 设置下拉菜单是否避让软键盘。取值为undefined时，按照MenuKeyboardAvoidMode.NONE处理，不避让软键盘。各枚举值的具体效果参见MenuKeyboardAvoidMode枚举说明。
    * @returns { SelectAttribute } - the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1075,7 +1074,7 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * [borderColor]{@link CommonMethod#borderColor}、边框宽度[borderWidth]{@link CommonMethod#borderWidth}、阴影
    * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}等参数，不建议与上述接口一起使用。
    *
-   * @param { Optional<SystemUiMaterial> } material - 设置下拉菜单系统材质。材质设置为非法值、undefined时，按照不设置系统材质处理。
+   * @param { Optional<SystemUiMaterial> } material - 设置下拉菜单系统材质。材质设置为无效值、undefined时，按照不设置系统材质处理。
    * @returns { SelectAttribute } - the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi [since 23 - 24]
@@ -1233,7 +1232,7 @@ declare interface MenuItemConfiguration extends CommonConfiguration<MenuItemConf
   triggerSelect(index: number, value: string): void;
 }
 /**
- * 提供下拉选择菜单，让用户在多个选项间选择。
+ * 提供下拉选择菜单，让用户在多个选项间选择。Select组件支持设置选项图标、自定义样式、分割线等，适用于需要在有限空间内展示多个选项供用户选择的场景。
  * 
  * > **说明：**
  * 

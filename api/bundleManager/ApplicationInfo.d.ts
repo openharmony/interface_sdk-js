@@ -564,7 +564,7 @@ export interface PreinstalledApplicationInfo {
   readonly labelId: long;
 
   /**
-   * Indicates the description id of the application.
+   * App description ID.
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi

@@ -696,8 +696,9 @@ export declare interface VideoAttribute extends CommonMethod {
      * @param { VideoOptions } value - Video constructor options
      * @returns { VideoAttribute } Returns the instance of the VideoAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setVideoOptions(value: VideoOptions): this;
     /**
@@ -733,8 +734,9 @@ export declare function Video(
  * @param { CustomBuilderT<VideoAttribute> } style - the callback to set up component's attributes.
  * @returns { VideoAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

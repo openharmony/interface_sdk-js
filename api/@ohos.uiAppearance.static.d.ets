@@ -1,3 +1,4 @@
+
 'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
@@ -18,133 +19,134 @@
  * @file
  * @kit ArkUI
  */
+
 import type { AsyncCallback } from './@ohos.base';
 
 /**
-* Provide APIs to set system uiAppearance.
-*
-* @namespace uiAppearance
-* @syscap SystemCapability.ArkUI.UiAppearance
-* @since 23 static
-*/
+ * Provide APIs to set system uiAppearance.
+ *
+ * @syscap SystemCapability.ArkUI.UiAppearance
+ * @since 23 static
+ */
 declare namespace uiAppearance {
-    
+  /**
+   * Enumerates dark-mode.
+   *
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @since 23 static
+   */
+  enum DarkMode {
     /**
-     * Enumerates dark-mode.
+     * Always display with dark mode.
      *
-     * @enum { number }
      * @syscap SystemCapability.ArkUI.UiAppearance
      * @since 23 static
      */
-    enum DarkMode {
-        
-        /**
-         * Always display with dark mode.
-         *
-         * @syscap SystemCapability.ArkUI.UiAppearance
-         * @since 23 static
-         */
-        ALWAYS_DARK = 0,
-        
-        /**
-         * Always display with light mode.
-         *
-         * @syscap SystemCapability.ArkUI.UiAppearance
-         * @since 23 static
-         */
-        ALWAYS_LIGHT = 1
-    }
+    ALWAYS_DARK = 0,
+
     /**
-     * Set the system dark-mode.
+     * Always display with light mode.
      *
-     * @permission ohos.permission.UPDATE_CONFIGURATION
-     * @param { DarkMode } mode - indicates the dark-mode to set
-     * @param { AsyncCallback<void> } callback - the callback of setDarkMode
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 500001 - Internal error.
-     * @syscap SystemCapability.ArkUI.UiAppearance
-     * @systemapi hide this for inner system use
-     * @since 23 static
-     */
-    function setDarkMode(mode: DarkMode, callback: AsyncCallback<void>): void;
-    /**
-     * Set the system dark-mode.
-     *
-     * @permission ohos.permission.UPDATE_CONFIGURATION
-     * @param { DarkMode } mode - indicates the dark-mode to set
-     * @returns { Promise<void> } the promise returned by the function
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 500001 - Internal error.
-     * @syscap SystemCapability.ArkUI.UiAppearance
-     * @systemapi hide this for inner system use
-     * @since 23 static
-     */
-    function setDarkMode(mode: DarkMode): Promise<void>;
-    
-    /**
-     * Acquire the current dark-mode.
-     *
-     * @returns { DarkMode } current dark-mode.
-     * @throws { BusinessError } 500001 - Internal error.
      * @syscap SystemCapability.ArkUI.UiAppearance
      * @since 23 static
      */
-    function getDarkMode(): DarkMode;
-    /**
-     * Set the system font-scale.
-     *
-     * @permission ohos.permission.UPDATE_CONFIGURATION
-     * @param { double } fontScale - indicates the font-scale to set
-     * @returns { Promise<void> } the promise returned by the function
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 500001 - Internal error.
-     * @syscap SystemCapability.ArkUI.UiAppearance
-     * @systemapi hide this for inner system use
-     * @since 23 static
-     */
-    function setFontScale(fontScale: double): Promise<void>;
-    
-    /**
-     * Acquire the current font-scale.
-     *
-     * @returns { double } current font-scale.
-     * @throws { BusinessError } 500001 - Internal error.
-     * @syscap SystemCapability.ArkUI.UiAppearance
-     * @since 23 static
-     */
-    function getFontScale(): double;
-    /**
-     * Set the system font-weight-scale.
-     *
-     * @permission ohos.permission.UPDATE_CONFIGURATION
-     * @param { double } fontWeightScale - indicates the font-weight-scale to set
-     * @returns { Promise<void> } the promise returned by the function
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 500001 - Internal error.
-     * @syscap SystemCapability.ArkUI.UiAppearance
-     * @systemapi hide this for inner system use
-     * @since 23 static
-     */
-    function setFontWeightScale(fontWeightScale: double): Promise<void>;
-    
-    /**
-     * Acquire the current font-weight-scale.
-     *
-     * @returns { double } current font-weight-scale.
-     * @throws { BusinessError } 500001 - Internal error.
-     * @syscap SystemCapability.ArkUI.UiAppearance
-     * @since 23 static
-     */
-    function getFontWeightScale(): double;
+    ALWAYS_LIGHT = 1
+  }
+
+  /**
+   * Set the system dark-mode.
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * @param { DarkMode } mode - indicates the dark-mode to set
+   * @param { AsyncCallback<void> } callback - the callback of setDarkMode
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 500001 - Internal error.
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @systemapi hide this for inner system use
+   * @since 23 static
+   */
+  function setDarkMode(mode: DarkMode, callback: AsyncCallback<void>): void;
+
+  /**
+   * Set the system dark-mode.
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * @param { DarkMode } mode - indicates the dark-mode to set
+   * @returns { Promise<void> } the promise returned by the function
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 500001 - Internal error.
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @systemapi hide this for inner system use
+   * @since 23 static
+   */
+  function setDarkMode(mode: DarkMode): Promise<void>;
+
+  /**
+   * Acquire the current dark-mode.
+   *
+   * @returns { DarkMode } current dark-mode.
+   * @throws { BusinessError } 500001 - Internal error.
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @since 23 static
+   */
+  function getDarkMode(): DarkMode;
+
+  /**
+   * Set the system font-scale.
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * @param { double } fontScale - indicates the font-scale to set
+   * @returns { Promise<void> } the promise returned by the function
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 500001 - Internal error.
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @systemapi hide this for inner system use
+   * @since 23 static
+   */
+  function setFontScale(fontScale: double): Promise<void>;
+
+  /**
+   * Acquire the current font-scale.
+   *
+   * @returns { double } current font-scale.
+   * @throws { BusinessError } 500001 - Internal error.
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @since 23 static
+   */
+  function getFontScale(): double;
+
+  /**
+   * Set the system font-weight-scale.
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * @param { double } fontWeightScale - indicates the font-weight-scale to set
+   * @returns { Promise<void> } the promise returned by the function
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 500001 - Internal error.
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @systemapi hide this for inner system use
+   * @since 23 static
+   */
+  function setFontWeightScale(fontWeightScale: double): Promise<void>;
+
+  /**
+   * Acquire the current font-weight-scale.
+   *
+   * @returns { double } current font-weight-scale.
+   * @throws { BusinessError } 500001 - Internal error.
+   * @syscap SystemCapability.ArkUI.UiAppearance
+   * @since 23 static
+   */
+  function getFontWeightScale(): double;
 }
 export default uiAppearance;

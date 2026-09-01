@@ -19,7 +19,7 @@
  */
 
 /**
- * Menu中具体item菜单项信息。
+ * Menu中的菜单项信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -30,7 +30,7 @@
  */
 declare interface MenuItemOptions {
   /**
-   * MenuItem的起始图标。不支持Symbol图标。使用Symbol图标时，须使用symbolStartIcon。
+   * MenuItem的起始图标。不支持Symbol图标。使用Symbol图标时，须使用symbolStartIcon。默认不显示起始图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -41,7 +41,7 @@ declare interface MenuItemOptions {
   startIcon?: ResourceStr;
 
   /**
-   * MenuItem起始的Symbol图标。配置该项时，原先startIcon图标不显示。
+   * MenuItem起始的Symbol图标。配置该项时，原先startIcon图标不显示。默认不显示Symbol起始图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -52,7 +52,7 @@ declare interface MenuItemOptions {
   symbolStartIcon?: SymbolGlyphModifier;
 
   /**
-   * MenuItem的内容。
+   * MenuItem的内容。默认为空字符串。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -63,7 +63,7 @@ declare interface MenuItemOptions {
   content?: ResourceStr;
 
   /**
-   * MenuItem的末尾图标。不支持Symbol图标。使用Symbol图标时，须使用symbolEndIcon。
+   * MenuItem的末尾图标。不支持Symbol图标。使用Symbol图标时，须使用symbolEndIcon。默认不显示末尾图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -74,7 +74,7 @@ declare interface MenuItemOptions {
   endIcon?: ResourceStr;
 
   /**
-   * MenuItem末尾的Symbol图标。配置该项时，原先endIcon图标不显示。
+   * MenuItem末尾的Symbol图标。配置该项时，原先endIcon图标不显示。默认不显示Symbol末尾图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -85,7 +85,7 @@ declare interface MenuItemOptions {
   symbolEndIcon?: SymbolGlyphModifier;
 
   /**
-   * MenuItem结束的标签信息，如快捷方式Ctrl+C等。
+   * MenuItem结束的标签信息，如快捷方式Ctrl+C等。默认不显示标签信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -96,7 +96,7 @@ declare interface MenuItemOptions {
   labelInfo?: ResourceStr;
 
   /**
-   * 用于构建二级菜单。
+   * 用于构建二级菜单。默认不显示二级菜单。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -124,7 +124,7 @@ declare interface MenuItemOptions {
 interface MenuItemInterface {
   /**
    *
-   * @param { MenuItemOptions | CustomBuilder } value - 包含设置MenuItem的各项信息。 如果不传该参数，则创建空的MenuItem对象。
+   * @param { MenuItemOptions | CustomBuilder } value - 包含设置MenuItem的各项信息。需要使用标准菜单项配置（如起始图标、内容、标签等）时选择MenuItemOptions；需要自定义菜单项的显示内容和布局时选择CustomBuilder。如果不传该参数，则创建空的MenuItem对象。
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -164,13 +164,13 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   selected(value: boolean): MenuItemAttribute;
 
   /**
-   * 设置当菜单项被选中时，是否显示被选中的图标。
+   * 设置当菜单项被选中时，菜单项图标的显示方式。
    *
-   * @param { boolean } value - 菜单项被选中时，是否显示被选中的图标。<br/>true：显示默认的对勾图标；false：不显示图标。<br/>ResourceStr：显示指定的图标。<br/>
+   * @param { boolean } value - 菜单项被选中时的图标显示方式。<br/>true：显示默认的对勾图标；false：不显示图标。<br/>ResourceStr：显示指定的图标。<br/>
    *     SymbolGlyphModifier：显示指定的HMSymbol图标。<br/>默认值：false [since 9 - 9]
-   * @param { boolean | ResourceStr } value - 菜单项被选中时，是否显示被选中的图标。<br/>true：显示默认的对勾图标；false：不显示图标。<br/>ResourceStr：显示指定的图
+   * @param { boolean | ResourceStr } value - 菜单项被选中时的图标显示方式。<br/>true：显示默认的对勾图标；false：不显示图标。<br/>ResourceStr：显示指定的图
    *     标。<br/>SymbolGlyphModifier：显示指定的HMSymbol图标。<br/>默认值：false [since 10 - 11]
-   * @param { boolean | ResourceStr | SymbolGlyphModifier } value - 菜单项被选中时，是否显示被选中的图标。<br/>true：显示默认的对勾图标；false：不显示图标。<
+   * @param { boolean | ResourceStr | SymbolGlyphModifier } value - 菜单项被选中时的图标显示方式。<br/>true：显示默认的对勾图标；false：不显示图标。<
    *     br/>ResourceStr：显示指定的图标。<br/>SymbolGlyphModifier：显示指定的HMSymbol图标。<br/>默认值：false [since 12]
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -184,7 +184,7 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   /**
    * 当选中状态发生变化时，触发该回调。只有手动触发且MenuItem状态改变时才会触发onChange回调。
    *
-   * @param { function } callback - 选中状态发生变化时，触发该回调。<br />true：未选中切换为选中；false：选中切换为未选中。
+   * @param { function } callback - 当前菜单项是否被选中。<br />true：当前菜单项已选中；false：当前菜单项未选中。
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel

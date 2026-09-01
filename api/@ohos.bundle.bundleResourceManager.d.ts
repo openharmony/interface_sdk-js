@@ -137,7 +137,7 @@ declare namespace bundleResourceManager {
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Bundle name of the application.
-   * @param { int } resourceFlags - Type of the resource information to obtain.
+   * @param { int } [resourceFlags] - Type of the resource information to obtain.
    * @returns { BundleResourceInfo } Resource information of the application obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
@@ -178,7 +178,7 @@ declare namespace bundleResourceManager {
    *
    * @permission ohos.permission.GET_BUNDLE_RESOURCES
    * @param { string } bundleName - Bundle name of the application.
-   * @param { int } resourceFlags - Type of the resource information to obtain. The default value is
+   * @param { int } [resourceFlags] - Type of the resource information to obtain. The default value is
    *     **[ResourceFlag]{@link bundleResourceManager.ResourceFlag}.GET_RESOURCE_INFO_ALL**.
    * @returns { Array<LauncherAbilityResourceInfo> } Resource information of the entry ability obtained.
    * @throws { BusinessError } 201 - Permission denied.
@@ -354,8 +354,8 @@ declare namespace bundleResourceManager {
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17700001 - The specified bundle is not found.
-   * @throws { BusinessError } 17700002 - The specified module is not existed.
-   * @throws { BusinessError } 17700003 - The specified ability is not existed.
+   * @throws { BusinessError } 17700002 - The specified module is not found.
+   * @throws { BusinessError } 17700003 - The specified ability is not found.
    * @throws { BusinessError } 17700061 - The specified app index is invalid.
    * @syscap SystemCapability.BundleManager.BundleFramework.Resource
    * @systemapi

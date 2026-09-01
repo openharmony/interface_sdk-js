@@ -18,1011 +18,490 @@
  * @kit ArkUI
  */
 
-
-
-
-
 /**
- * Control style of operation element
- * @enum { TreeListenType }
+ * Enumerates the listening types of tree view nodes.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-
-
-/**
- * Control style of operation element
- * @enum { TreeListenType }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * Control style of operation element
- * @enum { TreeListenType }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
+ * @crossplatform [since 22]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export declare enum TreeListenType {
-    /**
-     * register listener after a node is clicked.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * register listener after a node is clicked.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * register listener after a node is clicked.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    NODE_CLICK = "NodeClick",
-    /**
-     * register listener after a node is add.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * register listener after a node is add.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * register listener after a node is add.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    NODE_ADD = "NodeAdd",
-    /**
-     * register listener after a node is deleted.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * register listener after a node is deleted.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * register listener after a node is deleted.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    NODE_DELETE = "NodeDelete",
-    /**
-     * register listener after a node is modified.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * register listener after a node is modified.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * register listener after a node is modified.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    NODE_MODIFY = "NodeModify",
-    /**
-     * register listener after a node is moved.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * register listener after a node is moved.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * register listener after a node is moved.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    NODE_MOVE = "NodeMove",
+  /**
+   * Listens for click events of nodes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  NODE_CLICK = "NodeClick",
+  /**
+   * Listens for add events of nodes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  NODE_ADD = "NodeAdd",
+  /**
+   * Listens for delete events of nodes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  NODE_DELETE = "NodeDelete",
+  /**
+   * Listens for modify events of nodes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  NODE_MODIFY = "NodeModify",
+  /**
+   * Listens for move events of nodes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  NODE_MOVE = "NodeMove"
 }
 
 /**
- * Declare class TreeListener
+ * Listener of the tree view component. You can bind it to the **TreeView** component and use it to listen for changes
+ * of tree nodes. One listener can be bound to only one **TreeView** component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declare class TreeListener
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * Declare class TreeListener
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
+ * @crossplatform [since 22]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export declare class TreeListener {
-    /**
-     * Event registration and processing.
-     * The event will not be destroyed after being processed.
-     *
-     * @param { type } event Registered Events.
-     * @param { callback }.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Event registration and processing.
-     * The event will not be destroyed after being processed.
-     *
-     * @param { type } event Registered Events.
-     * @param { callback }.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Event registration and processing.
-     * The event will not be destroyed after being processed.
-     *
-     * @param { type } event Registered Events.
-     * @param { callback }.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    on(type: TreeListenType, callback: (callbackParam: CallbackParam) => void): void;
+  /**
+   * Declare class TreeListener
+   *
+   * @param { TreeListenType } type - Listening type.
+   * @param { (callbackParam: CallbackParam) => void } callback - Node information.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  on(type: TreeListenType, callback: (callbackParam: CallbackParam) => void): void;
 
-    /**
-     * Event registration and processing.
-     * After the event is processed once, it will be destroyed.
-     *
-     * @param { type } event Registered Events.
-     * @param { callback }.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Event registration and processing.
-     * After the event is processed once, it will be destroyed.
-     *
-     * @param { type } event Registered Events.
-     * @param { callback }.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Event registration and processing.
-     * After the event is processed once, it will be destroyed.
-     *
-     * @param { type } event Registered Events.
-     * @param { callback }.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    once(type: TreeListenType, callback: (callbackParam: CallbackParam) => void): void;
+  /**
+   * Declare class TreeListener
+   *
+   * @param { TreeListenType } type - Listening type.
+   * @param { (callbackParam: CallbackParam) => void } callback - Node information.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  once(type: TreeListenType, callback: (callbackParam: CallbackParam) => void): void;
 
-    /**
-     * Destroy event.
-     *
-     * @param { type } event Registered Events.
-     * @param { callback }.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Destroy event.
-     *
-     * @param { type } event Registered Events.
-     * @param { callback }.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Destroy event.
-     *
-     * @param { type } event Registered Events.
-     * @param { callback }.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    off(type: TreeListenType, callback?: (callbackParam: CallbackParam) => void): void;
+  /**
+   * Registers a one-off listener.
+   *
+   * @param { TreeListenType } type - Listening type.
+   * @param { (callbackParam: CallbackParam) => void } callback - Node information.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  off(type: TreeListenType, callback?: (callbackParam: CallbackParam) => void): void;
 }
 
 /**
- * Declare class TreeListenerManager
+ * Implements a **TreeListenerManager** object, which can be bound to a **TreeView** component to listen for changes of
+ * tree nodes. One **TreeListenerManager** object can be bound to only one tree view component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declare class TreeListenerManager
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * Declare class TreeListenerManager
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
+ * @crossplatform [since 22]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export declare class TreeListenerManager {
-    /**
-     * Get instance of treeListenerManager.
-     * @return treeListenerManager instance
-     * @static
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Get instance of treeListenerManager.
-     * @return treeListenerManager instance
-     * @static
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Get instance of treeListenerManager.
-     * @return treeListenerManager instance
-     * @static
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    static getInstance(): TreeListenerManager;
+  /**
+   * Obtains a **TreeListenerManager** singleton object.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   * @return treeListenerManager instance
+   */
+  static getInstance(): TreeListenerManager;
 
-    /**
-     * Get treeListener.
-     * @return treeListener object
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Get treeListener.
-     * @return treeListener object
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Get treeListener.
-     * @return treeListener object
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    getTreeListener(): TreeListener;
+  /**
+   * Obtains a listener.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   * @return treeListener object
+   */
+  getTreeListener(): TreeListener;
 }
 
 /**
- * Declare TreeView Component
+ * The **TreeView** component represents a tree view used to display a hierarchical list of items. Each item can contain
+ * subitems, which may be expanded or collapsed.
+ *
+ * This component is applicable in productivity applications, such as side navigation bars in notepad, email, and
+ * Gallery applications.
+ *
+ * > **NOTE**
+ * >
+ * > - If the **TreeView** component has [universal attributes]{@link ./@internal/component/ets/common} and
+ * > [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
+ * > generates an additional **__Common__** node and mounts the universal attributes and universal events on this node
+ * > rather than the **TreeView** component itself. As a result, the configured universal attributes and universal
+ * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events
+ * > with the **TreeView** component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declare TreeView Component
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * Declare TreeView Component
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
+ * @crossplatform [since 22]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 @Component
 export declare struct TreeView {
-    /**
-     * Node data source of TreeView.
-     * @type TreeController
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Node data source of TreeView.
-     * @type TreeController
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Node data source of TreeView.
-     * @type TreeController
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    treeController: TreeController;
+  /**
+   * Node information of the tree view.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  treeController: TreeController;
 }
 
 /**
  * Declare CallbackParam
- * @typedef CallbackParam
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declare CallbackParam
- * @typedef CallbackParam
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * Declare CallbackParam
- * @typedef CallbackParam
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
+ * @crossplatform [since 22]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export interface CallbackParam {
-    /**
-     * Get the currentNodeId.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Get the currentNodeId.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Get the currentNodeId.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    currentNodeId: number,
+  /**
+   * ID of the current child node.
+   *
+   * The value must be greater than or equal to 0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  currentNodeId: number;
 
-    /**
-     * Get the parentNodeId.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Get the parentNodeId.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Get the parentNodeId.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    parentNodeId?: number,
+  /**
+   * ID of the current parent node.
+   *
+   * The value must be greater than or equal to -1.
+   *
+   * Default value: **-1**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  parentNodeId?: number;
 
-    /**
-     * Get the childIndex.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Get the childIndex.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Get the childIndex.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    childIndex?: number
+  /**
+   * Child index.
+   *
+   * The value must be greater than or equal to -1.
+   *
+   * Default value: **-1**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  childIndex?: number;
 }
 
 /**
  * Declare NodeParam
- * @typedef NodeParam
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declare NodeParam
- * @typedef NodeParam
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * Declare NodeParam
- * @typedef NodeParam
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
+ * @crossplatform [since 22]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export interface NodeParam {
-    /**
-     * Set the parentNodeId.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Set the parentNodeId.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Set the parentNodeId.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    parentNodeId?: number,
+  /**
+   * ID of the parent node.
+   *
+   * The value must be greater than or equal to -1.
+   *
+   * Default value: -1. The root node ID is -1. If the value is less than -1, the setting does not take effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  parentNodeId?: number;
 
-    /**
-     * Set currentNodeId.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Set currentNodeId.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Set currentNodeId.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    currentNodeId?: number,
+  /**
+   * Current child node ID.
+   *
+   * The value must be greater than or equal to -1.
+   *
+   * The value cannot be the root node ID or null. Otherwise, an exception is thrown. In addition, duplicate
+   * **currentNodeId** values are not allowed.
+   *
+   * Default value: **-1**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  currentNodeId?: number;
 
-    /**
-     * Set catalog whether is folder.
-     * @type { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Set catalog whether is folder.
-     * @type { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Set catalog whether is folder.
-     * @type { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    isFolder?: boolean;
+  /**
+   * Whether the node is a directory.
+   *
+   * Default value: **false**.
+   *
+   * **true**: The node is a directory. **false**: The node is not a directory.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  isFolder?: boolean;
 
-    /**
-     * Set the icon resource.
-     * @type { Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Set the icon resource.
-     * @type { Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Set the icon resource.
-     * @type { Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    icon?: ResourceStr;
+  /**
+   * Icon.
+   *
+   * The default value is an empty string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  icon?: ResourceStr;
 
-    /**
-     * Set the symbol resource.
-     * @type { ?SymbolGlyphModifier }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 18 dynamic
-     */
-    /**
-     * Set the symbol resource.
-     * @type { ?SymbolGlyphModifier }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    symbolIconStyle?: SymbolGlyphModifier;
+  /**
+   * Icon of the selected node.
+   *
+   * The default value is an empty string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  selectedIcon?: ResourceStr;
 
-    /**
-     * Set selected icon resource.
-     * @type { Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Set selected icon resource.
-     * @type { Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Set selected icon resource.
-     * @type { Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    selectedIcon?: ResourceStr;
+  /**
+   * Edit icon.
+   *
+   * The default value is an empty string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  editIcon?: ResourceStr;
 
-    /**
-     * Set selected symbol resource.
-     * @type { ?SymbolGlyphModifier }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 18 dynamic
-     */
-    /**
-     * Set selected symbol resource.
-     * @type { ?SymbolGlyphModifier }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    symbolSelectedIconStyle?: SymbolGlyphModifier;
+  /**
+   * Primary title.
+   *
+   * The default value is an empty string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  primaryTitle?: ResourceStr;
 
-    /**
-     * Set edit icon resource.
-     * @type { Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Set edit icon resource.
-     * @type { Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Set edit icon resource.
-     * @type { Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    editIcon?: ResourceStr;
+  /**
+   * Secondary title.
+   *
+   * The default value is an empty string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  secondaryTitle?: ResourceStr;
 
-    /**
-     * Set edit symbol resource.
-     * @type { ?SymbolGlyphModifier }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 18 dynamic
-     */
-    /**
-     * Set edit symbol resource.
-     * @type { ?SymbolGlyphModifier }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    symbolEditIconStyle?: SymbolGlyphModifier;
+  /**
+   * Right-click child component bound to the node. The child component is decorated with @Builder.
+   *
+   * Default value: **() => void**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  container?: () => void;
 
-    /**
-     * Set primary title content.
-     * @type { ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Set primary title content.
-     * @type { ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Set primary title content.
-     * @type { ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    primaryTitle?: ResourceStr;
+  /**
+   * Symbol edit icon, which has a higher priority than **editIcon**.
+   *
+   * Default value: **undefined**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  symbolEditIconStyle?: SymbolGlyphModifier;
 
-    /**
-     * Set secondary title content.
-     * @type { ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Set secondary title content.
-     * @type { ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Set secondary title content.
-     * @type { ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    secondaryTitle?: ResourceStr;
+  /**
+   * Symbol icon, which has higher priority than **icon**.
+   *
+   * Default value: **undefined**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  symbolIconStyle?: SymbolGlyphModifier;
 
-    /**
-     * set subcomponent binded on tree item.
-     * @type { () => void }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * set subcomponent binded on tree item.
-     * @type { () => void }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * set subcomponent binded on tree item.
-     * @type { () => void }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    container?: () => void;
+  /**
+   * Symbol icon of the selected node., which has higher priority than **selectedIcon**.
+   *
+   * Default value: **undefined**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  symbolSelectedIconStyle?: SymbolGlyphModifier;
 }
 
 /**
- * Declare TreeController
+ * Implements a **TreeController** object, which can be bound to a tree view component to control the node information
+ * of the component. One **TreeController** object can be bound to only one tree view component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declare TreeController
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * Declare TreeController
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
+ * @crossplatform [since 22]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export declare class TreeController {
-    /**
-     * Delete a node.
-     * Register an ON_ITEM_DELETE callback through the ListTreeListener mechanism to obtain the IDs of all deleted nodes.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Delete a node.
-     * Register an ON_ITEM_DELETE callback through the ListTreeListener mechanism to obtain the IDs of all deleted nodes.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Delete a node.
-     * Register an ON_ITEM_DELETE callback through the ListTreeListener mechanism to obtain the IDs of all deleted nodes.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    removeNode(): void;
+  /**
+   * Removes the selected node.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  removeNode(): void;
 
-    /**
-     * Modify the node name.
-     * Register an ON_ITEM_MODIFY callback to obtain the ID, parent node ID, and node name of the modified node.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Modify the node name.
-     * Register an ON_ITEM_MODIFY callback to obtain the ID, parent node ID, and node name of the modified node.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Modify the node name.
-     * Register an ON_ITEM_MODIFY callback to obtain the ID, parent node ID, and node name of the modified node.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    modifyNode(): void;
+  /**
+   * Modifies the selected node.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  modifyNode(): void;
 
-    /**
-     * Initialize the interface of the tree view. This interface is used to generate ListNodeDataSource data.
-     * addNode is only designed for initialization. It can only be invoked during initialization.
-     *
-     * A maximum of 50 directory levels can be added.
-     *
-     * @param nodeParam Configuration information of the newly added node.
-     *
-     * For details, see the comment description of NodeParam.
-     * @return ListTreeNode Tree view component proxy class.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Initialize the interface of the tree view. This interface is used to generate ListNodeDataSource data.
-     * addNode is only designed for initialization. It can only be invoked during initialization.
-     *
-     * A maximum of 50 directory levels can be added.
-     *
-     * @param nodeParam Configuration information of the newly added node.
-     *
-     * For details, see the comment description of NodeParam.
-     * @return ListTreeNode Tree view component proxy class.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * Initialize the interface of the tree view. This interface is used to generate ListNodeDataSource data.
-     * addNode is only designed for initialization. It can only be invoked during initialization.
-     *
-     * A maximum of 50 directory levels can be added.
-     *
-     * @param nodeParam Configuration information of the newly added node.
-     *
-     * For details, see the comment description of NodeParam.
-     * @return ListTreeNode Tree view component proxy class.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    addNode(nodeParam?: NodeParam): TreeController;
+  /**
+   * Adds a child node to the selected node.
+   *
+   * @param { NodeParam } nodeParam - Node information.
+   * @returns { TreeController } Controller of the **TreeView** component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  addNode(nodeParam?: NodeParam): TreeController;
 
-    /**
-     * This interface is called when a secondaryTitle needs to be updated
-     *
-     * @param parentId ID of the parent node.
-     * @param parentSubTitle secondaryTitle of parent node.
-     * @param currentSubtitle secondaryTitle of current node.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * This interface is called when a secondaryTitle needs to be updated
-     *
-     * @param parentId ID of the parent node.
-     * @param parentSubTitle secondaryTitle of parent node.
-     * @param currentSubtitle secondaryTitle of current node.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * This interface is called when a secondaryTitle needs to be updated
-     *
-     * @param parentId ID of the parent node.
-     * @param parentSubTitle secondaryTitle of parent node.
-     * @param currentSubtitle secondaryTitle of current node.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    refreshNode(parentId: number, parentSubTitle: ResourceStr, currentSubtitle: ResourceStr): void;
+  /**
+   * Refreshes the tree view. You can call this API to update the information about the current node.
+   *
+   * @param { number } parentId - ID of the parent node.
+   *     <br>The value must be greater than or equal to -1.
+   * @param { ResourceStr } parentSubTitle - Secondary text of the parent node.
+   * @param { ResourceStr } currentSubtitle - Secondary text of the current node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  refreshNode(parentId: number, parentSubTitle: ResourceStr, currentSubtitle: ResourceStr): void;
 
-    /**
-     * After the initialization is complete by calling the addNode interface,
-     * call this interface to complete initialization.
-     *
-     * This interface must be called when you finish initializing the ListTreeView by addNode.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * After the initialization is complete by calling the addNode interface,
-     * call this interface to complete initialization.
-     *
-     * This interface must be called when you finish initializing the ListTreeView by addNode.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    /**
-     * After the initialization is complete by calling the addNode interface,
-     * call this interface to complete initialization.
-     *
-     * This interface must be called when you finish initializing the ListTreeView by addNode.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    buildDone(): void;
+  /**
+   * Builds a tree view. After a node is added, this API must be called to save the tree information.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  buildDone(): void;
 }

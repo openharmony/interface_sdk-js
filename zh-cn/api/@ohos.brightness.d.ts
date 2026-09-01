@@ -34,7 +34,7 @@ import { BusinessError } from './@ohos.base';
  */
 declare namespace brightness {
   /**
-   * 设置系统的屏幕亮度。
+   * 设置系统的屏幕亮度。适用于需要固定屏幕亮度的场景，例如阅读应用、视频播放应用、夜间模式等。若需要连续调节亮度，建议使用setValue(value: number, continuous: boolean)接口。
    *
    * @param { int } value - 亮度的值。范围：0~255；该参数必须为数字类型。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -52,7 +52,7 @@ declare namespace brightness {
    * 设置系统的屏幕亮度。用于连续调节亮度的场景，在连续调节亮度过程中，设置continuous为true，结束时设置continuous为false，会有更好的性能。
    *
    * @param { int } value - 亮度的值。范围：0~255。
-   * @param { boolean } continuous - 亮度调节是否连续。true表示亮度调节连续，false表示亮度调节不连续，默认为false。
+   * @param { boolean } continuous - 亮度调节是否连续。true表示亮度调节连续，false表示亮度调节不连续。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;

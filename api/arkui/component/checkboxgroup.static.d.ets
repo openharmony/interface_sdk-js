@@ -254,8 +254,9 @@ export declare interface CheckboxGroupAttribute extends CommonMethod {
      * @param { CheckboxGroupOptions } [options] - checkboxgroup constructor options
      * @returns { CheckboxGroupAttribute } Returns the instance of the CheckboxGroupAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setCheckboxGroupOptions(options?: CheckboxGroupOptions): this;
  }
@@ -283,8 +284,9 @@ export declare function CheckboxGroup(
  * @param { CustomBuilder } [content_] - container
  * @returns { CheckboxGroupAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

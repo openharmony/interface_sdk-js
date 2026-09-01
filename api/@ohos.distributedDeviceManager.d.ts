@@ -1820,6 +1820,27 @@ declare namespace distributedDeviceManager {
      * @since 24 dynamic&static
      */
     restoreLocalDeviceName(): void;
+
+    /**
+     * Query the device operating system type by device network ID.
+     *
+     * @permission ohos.permission.DISTRIBUTED_DATASYNC and ohos.permission.ACCESS_SERVICE_DM
+     * @param { string } networkId - The device's network ID
+     * @returns { int } - Returns the device operating system type.
+     *     Possible return:
+     *     1. 10: Operating system based on OpenHarmony
+     *     2. 11: Operating system not based on OpenHarmony
+     *     3. -1: Unknown
+     * @throws { BusinessError } 201 - User permission verify failed.
+     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 11600102 - Failed to obtain service.
+     * @throws { BusinessError } 11600110 - Invalid network ID.
+     * @syscap SystemCapability.DistributedHardware.DeviceManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    getOsTypeByNetworkId(networkId: string): int;
   }
 }
 

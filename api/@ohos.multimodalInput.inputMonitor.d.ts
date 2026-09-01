@@ -168,7 +168,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touch' } type - Event type. This field has a fixed value of **touch**.
-   * @param { TouchEventReceiver } receiver - Callback for which listening is disabled. If this parameter is not
+   * @param { TouchEventReceiver } [receiver] - Callback for which listening is disabled. If this parameter is not
    *     specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -200,7 +200,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'mouse' } type - Event type. This field has a fixed value of **mouse**.
-   * @param { Callback<MouseEvent> } receiver - Callback for which listening is disabled. If this parameter is not
+   * @param { Callback<MouseEvent> } [receiver] - Callback for which listening is disabled. If this parameter is not
    *     specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -263,7 +263,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'pinch' } type - Event type. This field has a fixed value of **pinch**.
-   * @param { Callback<Pinch> } receiver - Callback for which listening is disabled. If this parameter is not specified,
+   * @param { Callback<Pinch> } [receiver] - Callback for which listening is disabled. If this parameter is not specified,
    *     listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
@@ -331,7 +331,7 @@ declare namespace inputMonitor {
    * @param { 'pinch' } type - Event type. This field has a fixed value of **pinch**.
    * @param { number } fingers - Number of fingers that trigger the pinch. The value must be greater than or equal to
    *     **2**.
-   * @param { Callback<Pinch> } receiver - Callback for which listening is disabled. If this parameter is not specified,
+   * @param { Callback<Pinch> } [receiver] - Callback for which listening is disabled. If this parameter is not specified,
    *     listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
@@ -399,7 +399,7 @@ declare namespace inputMonitor {
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'rotate' } type - Event type. This field has a fixed value of **rotate**.
    * @param { number } fingers - Number of fingers that trigger a rotation. The value must not be greater than **2**.
-   * @param { Callback<Rotate> } receiver - Callback for which listening is disabled. If this parameter is not
+   * @param { Callback<Rotate> } [receiver] - Callback for which listening is disabled. If this parameter is not
    *     specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
@@ -463,7 +463,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'threeFingersSwipe' } type - Event type. This field has a fixed value of **threeFingersSwipe**.
-   * @param { Callback<ThreeFingersSwipe> } receiver - Callback for which listening is disabled. If this parameter is
+   * @param { Callback<ThreeFingersSwipe> } [receiver] - Callback for which listening is disabled. If this parameter is
    *     not specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
@@ -526,7 +526,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'fourFingersSwipe' } type - Event type. This field has a fixed value of **fourFingersSwipe**.
-   * @param { Callback<FourFingersSwipe> } receiver - Callback for which listening is disabled. If this parameter is not
+   * @param { Callback<FourFingersSwipe> } [receiver] - Callback for which listening is disabled. If this parameter is not
    *     specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
@@ -589,7 +589,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'threeFingersTap' } type - Event type. This field has a fixed value of **threeFingersTap**.
-   * @param { Callback<ThreeFingersTap> } receiver - Callback for which listening is disabled. If this parameter is not
+   * @param { Callback<ThreeFingersTap> } [receiver] - Callback for which listening is disabled. If this parameter is not
    *     specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
@@ -655,7 +655,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'fingerprint' } type - Input event type. The value is **fingerprint**.
-   * @param { Callback<FingerprintEvent> } receiver - Callback for which listening is disabled. If this parameter is not
+   * @param { Callback<FingerprintEvent> } [receiver] - Callback for which listening is disabled. If this parameter is not
    *     specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
@@ -716,7 +716,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'swipeInward' } type - Input event type. The value is fixed at **SwipeInward**.
-   * @param { Callback<SwipeInward> } receiver - Callback for which listening is disabled. If this parameter is not
+   * @param { Callback<SwipeInward> } [receiver] - Callback for which listening is disabled. If this parameter is not
    *     specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
@@ -784,7 +784,7 @@ declare namespace inputMonitor {
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenSwipe' } type - Event type. This field has a fixed value of **touchscreenSwipe**.
    * @param { number } fingers - Number of fingers that trigger the swipe. The value range is [3, 5].
-   * @param { Callback<TouchGestureEvent> } receiver - Callback for which listening is disabled. If this parameter is
+   * @param { Callback<TouchGestureEvent> } [receiver] - Callback for which listening is disabled. If this parameter is
    *     not specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
@@ -859,7 +859,7 @@ declare namespace inputMonitor {
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'touchscreenPinch' } type - Event type. This field has a fixed value of **touchscreenPinch**.
    * @param { number } fingers - Number of fingers that trigger the pinch. The value range is [4, 5].
-   * @param { Callback<TouchGestureEvent> } receiver - Callback for which listening is disabled. If this parameter is
+   * @param { Callback<TouchGestureEvent> } [receiver] - Callback for which listening is disabled. If this parameter is
    *     not specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Caller is not a system application.
@@ -935,7 +935,7 @@ declare namespace inputMonitor {
    *
    * @permission ohos.permission.INPUT_MONITORING
    * @param { 'keyPressed' } type - Event type. This parameter has a fixed value of **keyPressed**.
-   * @param { Callback<KeyEvent> } receiver - Callback for which listening is disabled. If this parameter is not
+   * @param { Callback<KeyEvent> } [receiver] - Callback for which listening is disabled. If this parameter is not
    *     specified, listening will be disabled for all callbacks registered by the current application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.

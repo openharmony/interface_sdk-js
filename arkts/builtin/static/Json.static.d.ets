@@ -20,6 +20,146 @@
  */
 
 /**
+ * Represents all types that can be serialized to JSON or parsed from JSON.
+ *
+ * @unionmember { boolean }
+ * @unionmember { bigint }
+ * @unionmember { string }
+ * @unionmember { undefined }
+ * @unionmember { null }
+ * @unionmember { Double }
+ * @unionmember { Long }
+ * @unionmember { Record<string, JsonRecordType> }
+ * @unionmember { Array<JsonRecordType> }
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export type JsonRecordType = boolean | bigint | string | undefined | null | Double | Long |
+    Record<string, JsonRecordType> | Array<JsonRecordType>;
+
+/**
+ * Interface for customizing JSON serialization.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export interface JsonReplacer {
+    /**
+     * Method to customize JSON serialization.
+     *
+     * @returns { Record<string, Any> } A record representing the serialized object
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    jsonReplacer(): Record<string, Any>;
+}
+
+/**
+ * Annotation interface for specifying a new name for a JSON property.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export @interface JSONRename {
+    /**
+     * The new name to use for the JSON property.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    newName: string;
+}
+
+/**
+ * Annotation interface to ignore a property during JSON serialization.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export @interface JSONStringifyIgnore {
+}
+
+/**
+ * Annotation interface to ignore a property during JSON parsing.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export @interface JSONParseIgnore {
+}
+
+/**
+ * Annotation interface to include a getter method in JSON serialization.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export @interface JSONStringifyGetter {
+}
+
+/**
+ * Error thrown when parsing JSON fails.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export class JsonParseError extends SyntaxError {
+    /**
+     * Constructor for creating a JsonParseError.
+     *
+     * @param { string } [message] - Error message.
+     * @param { ErrorOptions } [options] - Error options.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public constructor(message?: string, options?: ErrorOptions);
+
+    /**
+     * Creates a JsonParseError with location information.
+     *
+     * @param { string } msg - Error message
+     * @param { int } [start_offset] - Start offset in the source string
+     *     <br>The value should be an integer.
+     * @param { int } [end_offset] - End offset in the source string
+     *     <br>The value should be an integer.
+     * @returns { JsonParseError } The created JsonParseError
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    static $_invoke(msg: string, start_offset?: int, end_offset?: int): JsonParseError;
+}
+
+/**
+ * Interface for objects that can be converted to JSON.
+ *
+ * @syscap SystemCapability.Utils.Lang
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export interface JsonSerializable {
+    /**
+     * Method to convert the object to a JSON string.
+     *
+     * @returns { Any } The JSON any representation.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    toJSON(): Any;
+}
+
+/**
  * Represent JSON class
  *
  * @syscap SystemCapability.Utils.Lang
@@ -273,9 +413,11 @@ export class JSON {
     /**
      * Converts an object to a JavaScript Object Notation (JSON) string.
      *
-     * @param { Any } obj - An object to be converted
-     * @param { function } replacer - A that transforms the results
-     * @param { string | int } [space] - A string or number for indentation
+     * @param { Any } obj - An object to be converted.
+     * @param { function } replacer - A that transforms the results.
+     * @param { string | int } [space] - If space is a string, the string is used as the indentation character for
+     *     each level.If space is an integer, the specified number of spaces (up to a maximum of 10) is used for
+     *     indentation.If not provided, no formatting is applied.
      * @returns { string } JSON representation of Object
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
@@ -286,9 +428,11 @@ export class JSON {
     /**
      * Converts an object to a JavaScript Object Notation (JSON) string.
      *
-     * @param { Any } obj - An object to be converted
-     * @param { FixedArray<double | string> } replacer - An array of property names to include
-     * @param { int | string } [space] - A string or number for indentation
+     * @param { Any } obj - An object to be converted.
+     * @param { FixedArray<double | string> } replacer - An array of property names to include.
+     * @param { int | string } [space] - If space is a string, the string is used as the indentation character for
+     *     each level.If space is an integer, the specified number of spaces (up to a maximum of 10) is used for
+     *     indentation.If not provided, no formatting is applied.
      * @returns { string } JSON representation of Object
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
@@ -299,15 +443,18 @@ export class JSON {
     /**
      * Converts an object to a JavaScript Object Notation (JSON) string.
      *
-     * @param { Any } obj - An object to be converted
-     * @param { Array<double | string> } replacer - An array of property names to include
-     * @param { int | string } [space] - A string or number for indentation
+     * @param { Any } obj - An object to be converted.
+     * @param { Array<double | string> } replacer - An array of property names to include. [since 24 - 24].
+     * @param { Array<double | string> | Array<string> | Array<double> } replacer - An array of property 
+     *     names to include. [since 26.0.0].
+     * @param { int | string } [space] - A string or number for indentation.
      * @returns { string } JSON representation of Object
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
-    stringify(obj: Any, replacer: Array<double | string>, space?: int | string): string;
+    stringify(obj: Any, replacer: Array<double | string> | Array<string> | Array<double>,
+      space?: int | string): string;
 
     /**
      * Parses a JSON string to the specified Type
@@ -333,7 +480,8 @@ export class JSON {
      * @stagemodelonly
      * @since 24 staticonly
      */
-    parse<T>(text: string, reviver: ((key: string, value: Any) => Any) | undefined, type: Type, options?: jsonx.ParseOptions): T | null | undefined;
+    parse<T>(text: string, reviver: ((key: string, value: Any) => Any) | undefined, type: Type,
+        options?: jsonx.ParseOptions): T | null | undefined;
 
     /**
      * Parses a JSON string to the specified Class
@@ -359,7 +507,8 @@ export class JSON {
      * @stagemodelonly
      * @since 24 staticonly
      */
-    parse<T>(json: string, reviver: ((key: string, value: Any) => Any) | undefined, type: Class, options?: jsonx.ParseOptions): T | null | undefined;
+    parse<T>(json: string, reviver: ((key: string, value: Any) => Any) | undefined, type: Class,
+        options?: jsonx.ParseOptions): T | null | undefined;
 
     /**
      * Parses a JSON string and returns a JsonElement.
@@ -367,7 +516,7 @@ export class JSON {
      * @param { string } text - The JSON string to parse
      * @param { jsonx.ParseOptions } [options] - BigInt parsing options
      * @returns { jsonx.JsonElement } The parsed JSON element
-     * @throws { JsonParseError } If - the JSON string is invalid
+     * @throws { JsonParseError } the JSON string is invalid.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 24 staticonly
@@ -381,12 +530,13 @@ export class JSON {
      * @param { function } reviver - Function to transform values
      * @param { jsonx.ParseOptions } [options] - BigInt parsing options
      * @returns { jsonx.JsonElement } The parsed JSON element
-     * @throws { JsonParseError } If - the JSON string is invalid
+     * @throws { JsonParseError } the JSON string is invalid.
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
      * @since 24 staticonly
      */
-    parseJsonElement(text: string, reviver: (key: string, value: jsonx.JsonElement) => jsonx.JsonElement, options?: jsonx.ParseOptions): jsonx.JsonElement;
+    parseJsonElement(text: string, reviver: (key: string, value: jsonx.JsonElement) => jsonx.JsonElement,
+        options?: jsonx.ParseOptions): jsonx.JsonElement;
 
     /**
      * Converts an object to a JavaScript Object Notation (JSON) string,
@@ -394,7 +544,7 @@ export class JSON {
      * including their return values in the output. Each annotated method's name
      * is used as the JSON key, and its return value is used as the corresponding value.
      *
-     * @param { Any } obj: - Object An object to be converted.
+     * @param { Any } obj: - An object to be converted.
      * @returns { string } - JSON representation of Object, including annotated getter values
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
@@ -408,7 +558,7 @@ export class JSON {
      * including their return values in the output. Each annotated method's name
      * is used as the JSON key, and its return value is used as the corresponding value.
      *
-     * @param { Any } obj: - Object An object to be converted.
+     * @param { Any } obj: - An object to be converted.
      * @param { function } replacer - A function that transforms the results.
      * @param { int | string } [space] - A string or number that's used to insert white space
      * @returns { string } - JSON representation of Object, including annotated getter values
@@ -427,9 +577,9 @@ export class JSON {
      * including their return values in the output. Each annotated method's name
      * is used as the JSON key, and its return value is used as the corresponding value.
      *
-     * @param { Any } obj: - Object An object to be converted.
-     * @param { Array<double | string> | Array<string> | Array<double> } replacer - - An array with elements indicating names
-     *     of the properties in the object
+     * @param { Any } obj: - An object to be converted.
+     * @param { Array<double | string> | Array<string> | Array<double> } replacer - - An array with elements 
+     *     indicating names of the properties in the object
      *     that should be included in the resulting JSON string.
      *     Annotated getter methods whose names appear in this array are also included.
      * @param { int | string } [space] - A string or number that's used to insert white space
@@ -465,10 +615,11 @@ export class JSON {
      * Fields whose keys are absent from the JSON retain their current values
      * on the instance (merge semantics).
      *
-     * @param { string } json - JSON string to parse
-     * @param { function } reviver - Optional function to transform each parsed value, or undefined
-     * @param { T } instance - Existing instance whose fields will be populated
-     * @param { jsonx.ParseOptions } [options] - Optional ParseOptions (e.g. bigIntMode)
+     * @param { string } json - JSON string to parse.
+     * @param { function } reviver - Optional function to transform each parsed value, or undefined.
+     * @param { T } instance - Existing instance whose fields will be populated.
+     * @param { jsonx.ParseOptions } [options] - Optional ParseOptions (e.g. bigIntMode). If not specified,
+     *     default parsing options are applied.
      * @returns { T } The same instance after population
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
@@ -480,4 +631,81 @@ export class JSON {
         instance: T,
         options?: jsonx.ParseOptions
     ): T;
+
+    /**
+     * Converts a JsonElementSerializable to a JSON string.
+     *
+     * @param { jsonx.JsonElementSerializable } elem - The JsonElementDeserializable to stringify
+     * @returns { string } The JSON string representation
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static stringifyJsonElement(elem: jsonx.JsonElementSerializable): string;
+
+
+    /**
+     * Converts a JsonElementSerializable to a JSON string with custom formatting.
+     *
+     * @param { jsonx.JsonElementSerializable } elem - The JsonElementSerializable to stringify
+     * @param { (double | string)[] } [replacer] - An array with elements indicating names of the properties to include
+     * @param { int | string } [space] - A string or number for white space indentation
+     * @returns { string } The JSON string representation
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static stringifyJsonElement(elem: jsonx.JsonElementSerializable, replacer?: (double | string)[],
+        space?: int | string): string
+   
+    /**
+     * Converts a JsonElement to a JSON string.
+     *
+     * @param { jsonx.JsonElement } elem - The JsonElement to stringify
+     * @returns { string } The JSON string representation
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static stringifyJsonElement(elem: jsonx.JsonElement): string;
+   
+    /**
+     * Converts a JsonElement to a JSON string with custom formatting.
+     *
+     * @param { jsonx.JsonElement } elem - The JsonElement to stringify
+     * @param { (double | string)[] } [replacer] - An array with elements indicating names of the properties to include
+     * @param { int | string } [space] - A string or number for white space indentation
+     * @returns { string } The JSON string representation
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static stringifyJsonElement(elem: jsonx.JsonElement, replacer?: (double | string)[],
+        space?: int | string): string
+
+    /**
+     * Parses a JSON object string and returns a Record.
+     *
+     * @param { string } text - The JSON string to parse
+     * @param { jsonx.ParseOptions } [options] - BigInt parsing options
+     * @returns { Record<string, JsonRecordType> } The parsed Record object
+     * @throws { JsonParseError } If the JSON string is invalid
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static parseJsonRecord(text: string, options?: jsonx.ParseOptions): Record<string, JsonRecordType>;
+
+    /**
+     * Parses a JSON object string and returns an Array.
+     *
+     * @param { string } text - The JSON string to parse
+     * @param { jsonx.ParseOptions } [options] - BigInt parsing options
+     * @returns { Array<JsonRecordType> } The parsed Array object
+     * @throws { JsonParseError } the JSON string is invalid.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public static parseJsonArray(text: string, options?: jsonx.ParseOptions): Array<JsonRecordType>;
 }

@@ -187,8 +187,8 @@ export function isCardFile(file: string): boolean {
  * @param { JSDoc[] } jsDocs JSDoc注释对象数组，包含多个版本的注释信息
  * @returns { JSDoc } 数组中最后一个JSDoc对象，即最新版本的注释
  */
-function getCurrentJSDoc(jsDocs: JSDoc[]): JSDoc {
-  let currentJsDoc: JSDoc = jsDocs[jsDocs.length - 1];
+function getCurrentJSDoc(jsDocs: readonly JSDocTag[]): JSDocTag {
+  let currentJsDoc: JSDocTag = jsDocs[jsDocs.length - 1];
   return currentJsDoc;
 }
 
@@ -199,8 +199,11 @@ function getCurrentJSDoc(jsDocs: JSDoc[]): JSDoc {
  * @param { string } tagName
  * @returns { JSDocTag | undefined }
  */
-function getJSDocTag(jsDoc: JSDoc, tagName: string): JSDocTag | undefined {
-  const jsDocTag: JSDocTag | undefined = jsDoc.tags.find((item: JSDocTag) => {
+function getJSDocTag(JSDocTags: readonly JSDocTag[], tagName: string): JSDocTag | undefined {
+  if (!JSDocTags) {
+    return undefined;
+  }
+  const jsDocTag: JSDocTag | undefined = JSDocTags.find((item: JSDocTag) => {
     return item.tag === tagName;
   });
   return jsDocTag;
@@ -711,9 +714,11 @@ export function readSystemModules(projectConfig: ProjectConfig): void {
   const monitor = getGlobalMonitor();
   monitor.start(PERF.READ_MODULE);
 
-  const apiDirPath = path.resolve(projectConfig.buildSdkPath, './api');
-  const arktsDirPath = path.resolve(projectConfig.buildSdkPath, './arkts');
-  const kitsDirPath = path.resolve(projectConfig.buildSdkPath, './kits');
+  const openharmonyExternalPaths = (projectConfig.externalApiPaths || [])
+    .filter((item: string) => /openharmony[\\\/]ets[\\\/]static/.test(item));
+  const apiDirPath: string = openharmonyExternalPaths.find((item: string) => path.basename(item) === 'api') || '';
+  const arktsDirPath: string = openharmonyExternalPaths.find((item: string) => path.basename(item) === 'arkts') || '';
+  const kitsDirPath: string = openharmonyExternalPaths.find((item: string) => path.basename(item) === 'kits') || '';
   const systemModulePathArray = [apiDirPath, arktsDirPath, kitsDirPath];
 
   systemModulePathArray.forEach(systemModulesPath => {
@@ -751,10 +756,13 @@ export function readSystemModules(projectConfig: ProjectConfig): void {
   // projectConfig.externalApiPaths是带有static\\api的，路径多了一层api需要处理
   const externalApiPathArr = projectConfig.externalApiPaths || [''];
   const externalApiStaticStr = Array.from(externalApiPathArr).find((item) => {
-    return item.includes('hms\\ets\\static');
+    return /hms[\\\/]ets[\\\/]static/.test(item);
   })
   if (externalApiStaticStr) {
-    const lastSlashIndex = externalApiStaticStr ? externalApiStaticStr.lastIndexOf('\\') : -1;
+    const lastSlashIndex = Math.max(
+      externalApiStaticStr.lastIndexOf('\\'),
+      externalApiStaticStr.lastIndexOf('/')
+    );
     const resultPath = lastSlashIndex >= 0 ? externalApiStaticStr?.substring(0, lastSlashIndex) : '';
     const externalApiPaths = resultPath?.split(path.delimiter);
     projectConfig.externalSdkPaths = [...externalApiPaths];
@@ -1012,9 +1020,8 @@ export function readFile(dir: string, utFiles: string[]): void {
 * @param { JsDocNodeCheckConfigItem } config 检查配置对象，用于存储错误提示信息
 * @returns { boolean } 若@permission标签不存在、表达式为空或不满足权限要求，返回true；否则返回false
 */
-export function checkPermissionTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem): boolean {
-  const currentJSDoc: JSDoc = getCurrentJSDoc(jsDocs);
-  const jsDocTag: JSDocTag | undefined = getJSDocTag(currentJSDoc, PERMISSION_TAG_CHECK_NAME);
+export function checkPermissionTag(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem): boolean {
+  const jsDocTag: JSDocTag | undefined = getJSDocTag(jsDocTags, PERMISSION_TAG_CHECK_NAME);
   if (!jsDocTag) {
     return false;
   }
@@ -1032,17 +1039,13 @@ export function checkPermissionTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfig
  * @param { JsDocNodeCheckConfigItem } config 检查配置对象（当前函数未使用，预留扩展）
  * @returns { boolean } 若@syscap标签不存在、系统能力值为空或不在交集范围内，返回true；否则返回false
  */
-export function checkSyscapTag(jsDocs: JSDoc[], config: JsDocNodeCheckConfigItem): boolean {
+export function checkSyscapTag(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem): boolean {
   let currentSyscapValue: string = '';
-  if (jsDocs && jsDocs.length > 0) {
-    const jsDoc: JSDoc = getCurrentJSDoc(jsDocs);
-    for (let i = 0; i < jsDoc.tags.length; i++) {
-      const jsDocTag: JSDocTag = jsDoc.tags[i];
-      if (jsDocTag && jsDocTag.tag === SYSCAP_TAG_CHECK_NAME) {
-        currentSyscapValue = jsDocTag.name ?? '';
-        break;
-      }
-    }
+  if (jsDocTags && jsDocTags.length > 0) {
+    const jsDocTag: JSDocTag | undefined = jsDocTags.find((item: JSDocTag) => {
+      return item.tag === SYSCAP_TAG_CHECK_NAME;
+    })
+    currentSyscapValue = jsDocTag?.name ?? '';
   }
   return globalObject.projectConfig.syscapIntersectionSet &&
     !globalObject.projectConfig.syscapIntersectionSet.has(currentSyscapValue);
@@ -1104,7 +1107,7 @@ function diagnosticFormat(message: string, fileInfo: string): SdkHvigorLogInfo {
     if (item.code === messageInfo[0]) {
       diagnosticInfo.code = item.code;
       diagnosticInfo.description = item.description;
-      diagnosticInfo.cause = messageInfo[1] || message;
+      diagnosticInfo.cause = message.replace(`${item.code}#`, '');
       diagnosticInfo.position = fileInfo;
       diagnosticInfo.solutions = item.solutions;
       break;
@@ -1196,30 +1199,6 @@ export function checkAvailableDecorator(
 
   monitor.end(PERF.CHECK_AVAILABLE_DECORATOR);
   return true;
-}
-
-export function checkSyscapAbility(
-  jsDocTags: readonly JSDocTag[],
-  config: JsDocNodeCheckConfigItem,
-  node?: arkts.AstNode,
-  declaration?: arkts.AstNode
-): boolean {
-  const monitor = getGlobalMonitor();
-  monitor.start(PERF.CHECK_SYSCAP_ABILITY);
-  monitor.end(PERF.CHECK_SYSCAP_ABILITY);
-  return false;
-}
-
-export function checkPermissionValue(
-  jsDocTags: readonly JSDocTag[],
-  config: JsDocNodeCheckConfigItem,
-  node?: arkts.AstNode,
-  declaration?: arkts.AstNode
-): boolean {
-  const monitor = getGlobalMonitor();
-  monitor.start(PERF.CHECK_PERMISSION_VALUE);
-  monitor.end(PERF.CHECK_PERMISSION_VALUE);
-  return false;
 }
 
 /**

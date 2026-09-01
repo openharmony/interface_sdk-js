@@ -240,12 +240,15 @@ declare namespace distributedBundleManager {
   function getRemoteAbilityInfo(elementNames: Array<ElementName>, locale: string): Promise<Array<RemoteAbilityInfo>>;
 
   /**
-   * Obtains the version code of the bundle on the remote device.
+   * Obtains the version information of an app with a specified bundle name on a specified remote device.
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } deviceId - Indicates the device ID.
-   * @param { string } bundleName - Indicates the bundle name.
-   * @returns { Promise<long> } Returns the version code of the bundle on the remote device.
+   * @param { string } deviceId - ID of the remote device. You can call getAvailableDeviceList to obtain
+   *     all trusted device lists. The value is the networkId field in the trusted device information.
+   * @param { string } bundleName - Bundle name of the app.
+   * @returns { Promise<long> } Promise object. If the call succeeds, the version information is returned;
+   *     if the call fails, an error object is returned.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 801 - Capability not supported.

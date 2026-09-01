@@ -41,13 +41,13 @@ declare interface PathOptions {
    * Default
    * Unit: vp.
    *
-   * @type { ?(number | string) } [since 18 - 19]
+   * @type { ?(number | string) } [since 7 - 19]
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   width?: Length;
 
@@ -57,13 +57,13 @@ declare interface PathOptions {
    * Default
    * Unit: vp.
    *
-   * @type { ?(number | string) } [since 18 - 19]
+   * @type { ?(number | string) } [since 7 - 19]
    * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   height?: Length;
 
@@ -72,13 +72,13 @@ declare interface PathOptions {
    * If the value is invalid or the default value is used, the width and height required for the content are used. The
    * default value is an empty string. An invalid value is handled as the default value.
    *
-   * @type { ?string } [since 18 - 19]
+   * @type { ?string } [since 7 - 19]
    * @type { ?ResourceStr } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   commands?: ResourceStr;
 }

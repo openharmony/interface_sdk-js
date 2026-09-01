@@ -103,7 +103,7 @@ export class LevelOrder {
      *
      * @param { number } order - 弹窗显示顺序。取值范围为[-100000.0, 100000.0]，如果值小于-100000.0则设置为-100000.0，如果值大于100000.0则设置为100000.
      *     0。
-     * @returns { LevelOrder } 返回当前对象实例。
+     * @returns { LevelOrder } 返回当前对象实例，该对象可用于设置弹窗的显示顺序。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -125,7 +125,7 @@ export class LevelOrder {
 }
 
 /**
- * 创建并显示即时反馈、对话框和操作菜单。
+ * 创建并显示即时反馈、对话框和操作菜单，适用于系统通知、交互确认、菜单选择等场景。
  * 
  * > **说明：**
  * 
@@ -179,7 +179,7 @@ declare namespace promptAction {
          */
         duration?: number;
         /**
-         * 设置Toast底部边框距离导航条的高度，软键盘拉起时，如果bottom值过小，Toast要被软键盘遮挡时，会自动避让至距离软键盘80vp处。
+         * 设置Toast底部边框距离导航条的高度。软键盘拉起时，若bottom值过小且Toast会被遮挡，则自动避让至距离软键盘80vp处。
          * <br/>默认值：80vp
          * <br/>**说明：** 
          * <br/>当底部没有导航条时，bottom为设置弹窗底部边框距离窗口底部的高度。
@@ -305,14 +305,14 @@ declare namespace promptAction {
         /**
          * 设置组件的系统材质。
          * <br/>默认值：如果主动设置了backgroundBlurStyle或backgroundColor接口，默认值是无系统材质效果，否则默认值
-         * 是style为ImmersiveStyle.ULTRA_THICK的[ImmersiveMaterial](arkts-apis-uimaterial.md#immersivematerial)对象。
+         * 是style为ImmersiveStyle.ULTRA_THICK的[ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}对象。
          * 设置undefined时与默认值保持一致。 
          * <br/>**说明：** 
          * <br />不同系统材质对应不同的属性影响效果，该接口影响
-         * 背景色[backgroundColor](arkui-ts/ts-universal-attributes-background.md#backgroundcolor)、
-         * 边框颜色[borderColor](arkui-ts/ts-universal-attributes-border.md#bordercolor)、
-         * 边框宽度[borderWidth](arkui-ts/ts-universal-attributes-border.md#borderwidth)、
-         * 阴影[shadow](arkui-ts/ts-universal-attributes-image-effect.md#shadow)，不建议与上述接口一起使用。
+         * 背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、
+         * 边框颜色[borderColor]{@link CommonMethod#borderColor}、
+         * 边框宽度[borderWidth]{@link CommonMethod#borderWidth}、
+         * 阴影[shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
@@ -457,7 +457,7 @@ declare namespace promptAction {
          */
         message?: string | Resource;
         /**
-         * 对话框中按钮的数组，结构为：{text:'button',&nbsp;color:&nbsp;'\#666666'}，支持大于1个按钮。
+         * 对话框中按钮的数组，结构为：{text:'button',&nbsp;color:&nbsp;'\#666666'}，支持1个或多个按钮。
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
@@ -471,7 +471,7 @@ declare namespace promptAction {
          * <br/>默认值：{ x: 0, y: 0, width: '100%', height: '100%' } 
          * <br/>**说明：**
          * <br/>showInSubWindow为true时，maskRect不生效。
-         * <br/>maskRect在设置[Rectangle](arkui-ts/ts-methods-alert-dialog-box.md#rectangle8类型说明)中的部分属性后，若未设置其余的属性，
+         * <br/>maskRect在设置[Rectangle]{@link common#Rectangle}中的部分属性后，若未设置其余的属性，
          * 则其余属性的默认值为0。
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -684,7 +684,7 @@ declare namespace promptAction {
          */
         levelMode?: LevelMode;
         /**
-         * 置页面级对话框需要显示的层级下的[节点UniqueID](js-apis-arkui-frameNode.md#getuniqueid12)。
+         * 置页面级对话框需要显示的层级下的[节点UniqueID]{@link FrameNode#getUniqueId}。
          * <br/>取值范围：大于等于0的数字。
          * <br />**说明：** 
          * <br />- 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。
@@ -727,13 +727,13 @@ declare namespace promptAction {
         /**
          * 设置弹窗的系统材质。
          * <br />**说明：**
-         * <br/>- 默认值：[ImmersiveOptions](arkts-apis-uimaterial.md#immersiveoptions)的style为ImmersiveStyle.ULTRA_THICK的
-         * [ImmersiveMaterial](arkts-apis-uimaterial.md#immersivematerial)对象。设置undefined时与默认值保持一致。
+         * <br/>- 默认值：[ImmersiveOptions]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveOptions}的style为ImmersiveStyle.ULTRA_THICK的
+         * [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}对象。设置undefined时与默认值保持一致。
          * <br/>- 不同的材质具有不同的效果，该接口影响
-         * 背景色[backgroundColor](arkui-ts/ts-universal-attributes-background.md#backgroundcolor)、
-         * 背景模糊[backgroundBlurStyle](arkui-ts/ts-universal-attributes-background.md#backgroundblurstyle9)、
-         * 背景效果[backgroundEffect](arkui-ts/ts-universal-attributes-background.md#backgroundeffect11)、
-         * 阴影[shadow](arkui-ts/ts-universal-attributes-image-effect.md#shadow)，不建议与上述接口一起使用。
+         * 背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、
+         * 背景模糊[backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions)}、
+         * 背景效果[backgroundEffect]{@link CommonMethod#backgroundEffect(options: BackgroundEffectOptions)}、
+         * 阴影[shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
@@ -754,7 +754,7 @@ declare namespace promptAction {
         /**
          * Sets the edgeLight animation Mode of the dialog.
          *
-         * @default EdgeLightMode.EDGELIGHT_DISABLED
+         * @default EdgeLightMode.EDGELIGHT_AUTO
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @systemapi
          * @stagemodelonly
@@ -879,8 +879,8 @@ declare namespace promptAction {
      * 自定义弹窗控制器，继承自[CommonController](#commoncontroller18)。
      *
      * DialogController可作为UIContext弹出自定义弹窗的成员变量，具体用法可看
-     * [openCustomDialogWithController](arkts-apis-uicontext-promptaction.md#opencustomdialogwithcontroller18)和
-     * [presentCustomDialog](arkts-apis-uicontext-promptaction.md#presentcustomdialog18)示例。
+     * [openCustomDialogWithController]{@link PromptAction#openCustomDialogWithController}和
+     * [presentCustomDialog]{@link PromptAction#presentCustomDialog}示例。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -905,7 +905,7 @@ declare namespace promptAction {
          * <br/>默认值：{ x: 0, y: 0, width: '100%', height: '100%' }
          * <br/>**说明：** 
          * <br/>showInSubWindow为true时，maskRect不生效。
-         * <br/>maskRect在设置[Rectangle](arkui-ts/ts-methods-alert-dialog-box.md#rectangle8类型说明)中的部分属性后，若未设置其余的属性，则其余属性的默认值为0。
+         * <br/>maskRect在设置[Rectangle]{@link common#Rectangle}中的部分属性后，若未设置其余的属性，则其余属性的默认值为0。
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
@@ -1186,7 +1186,7 @@ declare namespace promptAction {
          */
         levelMode?: LevelMode;
         /**
-         * 设置页面级弹窗需要显示的层级下的[节点UniqueID](js-apis-arkui-frameNode.md#getuniqueid12)。
+         * 设置页面级弹窗需要显示的层级下的[节点UniqueID]{@link FrameNode#getUniqueId}。
          * <br/>取值范围：大于等于0的数字。
          * <br />**说明：** 
          * <br />- 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。
@@ -1240,16 +1240,17 @@ declare namespace promptAction {
         /**
          * 设置弹窗的系统材质。
          * <br/>**说明：**
-         * <br/>- 默认值：[ImmersiveOptions](arkts-apis-uimaterial.md#immersiveoptions)的style为
-         * ImmersiveStyle.ULTRA_THICK的[ImmersiveMaterial](arkts-apis-uimaterial.md#immersivematerial)对象。
+         * <br/>- 默认值：[ImmersiveOptions]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveOptions}的style为
+         * ImmersiveStyle.ULTRA_THICK的[ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}对象。
          * 设置undefined时与默认值保持一致。
          * <br/>- 不同的材质具有不同的效果，该接口影响
-         * 背景色[backgroundColor](arkui-ts/ts-universal-attributes-background.md#backgroundcolor)、
-         * 背景模糊[backgroundBlurStyle](arkui-ts/ts-universal-attributes-background.md#backgroundblurstyle9)、
-         * 背景效果[backgroundEffect](arkui-ts/ts-universal-attributes-background.md#backgroundeffect11)、
-         * 边框颜色[borderColor](arkui-ts/ts-universal-attributes-border.md#bordercolor)、
-         * 边框宽度[borderWidth](arkui-ts/ts-universal-attributes-border.md#borderwidth)、
-         * 阴影[shadow](arkui-ts/ts-universal-attributes-image-effect.md#shadow)，不建议与上述接口一起使用。
+         * 背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、
+         * 背景模糊
+         * [backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions)}、
+         * 背景效果[backgroundEffect]{@link CommonMethod#backgroundEffect(options: BackgroundEffectOptions)}、
+         * 边框颜色[borderColor]{@link CommonMethod#borderColor}、
+         * 边框宽度[borderWidth]{@link CommonMethod#borderWidth}、
+         * 阴影[shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
@@ -1270,7 +1271,7 @@ declare namespace promptAction {
         /**
          * Sets the edgeLight animation Mode of the dialog.
          *
-         * @default EdgeLightMode.EDGELIGHT_DISABLED
+         * @default EdgeLightMode.EDGELIGHT_AUTO
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @systemapi
          * @stagemodelonly
@@ -1477,7 +1478,7 @@ declare namespace promptAction {
      */
     declare type DialogOptionsShadow = ShadowOptions | ShadowStyle;
     /**
-     * 自定义弹窗的内容，继承自[BaseDialogOptions](#basedialogoptions11)。
+     * 自定义弹窗的内容，继承自[BaseDialogOptions](#basedialogoptions11)，用于配置自定义弹窗的显示参数和行为。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1615,7 +1616,7 @@ declare namespace promptAction {
      */
     interface ActionMenuSuccessResponse {
         /**
-         * 选中按钮在buttons数组中的索引，从0开始。
+         * 选中按钮在buttons数组中的索引，从0开始，可用于判断用户点击了哪个按钮。
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
@@ -1647,7 +1648,7 @@ declare namespace promptAction {
          */
         title?: string | Resource;
         /**
-         * 菜单中菜单项按钮的数组，结构为：{text:'button',&nbsp;color:&nbsp;'\#666666'}，支持1-6个按钮。按钮数量大于6个时，仅显示前6个按钮，之后的按钮不显示。
+         * 菜单中菜单项按钮的数组，结构为：{text:'button',&nbsp;color:&nbsp;'\#666666'}，支持1-6个按钮。按钮数量大于6个时，仅显示buttons数组中的前6个按钮（索引0到5），数组中索引大于5的按钮不显示。
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @FaAndStageModel
@@ -1706,7 +1707,7 @@ declare namespace promptAction {
          */
         levelMode?: LevelMode;
         /**
-         * 设置页面级菜单需要显示的层级下的[节点UniqueID](js-apis-arkui-frameNode.md#getuniqueid12)。
+         * 设置页面级菜单需要显示的层级下的[节点UniqueID]{@link @FrameNode#getUniqueId}。
          * <br/>取值范围：大于等于0的数字。
          * <br />**说明：**
          * <br />- 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。
@@ -1806,7 +1807,7 @@ declare namespace promptAction {
         /**
          * Sets the edgeLight animation Mode of the dialog.
          *
-         * @default EdgeLightMode.EDGELIGHT_DISABLED
+         * @default EdgeLightMode.EDGELIGHT_AUTO
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @systemapi
          * @stagemodelonly
@@ -1821,14 +1822,14 @@ declare namespace promptAction {
      * 
      * > **说明：**
      * >
-     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showToast](arkts-apis-uicontext-promptaction.md#showtoast)替代。
-     *      showToast需先通过[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     *      [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取[PromptAction](arkts-apis-uicontext-promptaction.md)对象，
+     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showToast]{@link PromptAction#showToast}替代。
+     *      showToast需先通过[UIContext]{@link UIContext}中的
+     *      [getPromptAction]{@link UIContext#getPromptAction}方法获取[PromptAction]{@link PromptAction}对象，
      *      然后通过该对象进行调用。且直接使用showToast可能导致[UI上下文不明确](../../ui/arkts-global-interface.md#ui上下文不明确)的问题。
      * >
-     * > - 从API version 10开始，可以通过使用[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     *      [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取当前UI上下文关联的
-     *      [PromptAction](arkts-apis-uicontext-promptaction.md)对象。
+     * > - 从API version 10开始，可以通过使用[UIContext]{@link UIContext}中的
+     *      [getPromptAction]{@link UIContext#getPromptAction}方法获取当前UI上下文关联的
+     *      [PromptAction]{@link PromptAction}对象。
      * >
      * > - Toast样式单一，不支持内容的自定义，具体支持能力请参考[ShowToastOptions](#showtoastoptions)提供的接口。
      *
@@ -1858,9 +1859,9 @@ declare namespace promptAction {
     * >
     * > - 直接使用openToast可能导致[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题，建议使用UIContext中的getPromptAction方法获
     * > 取到PromptAction对象，再通过该对象调用
-    * > [openToast](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#opentoast18)实现。
+    * > [openToast]{@link PromptAction#openToast}实现。
      *
-     * @param { ShowToastOptions } options - Toast选项。
+     * @param { ShowToastOptions } options - Toast选项，用于配置Toast的显示内容和样式。
      * @returns { Promise<number> } 返回即时反馈的id，可供closeToast使用。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
@@ -1882,9 +1883,9 @@ declare namespace promptAction {
      * > 直接使用closeToast可能导致[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题，建议使用
      *   UIContext中的getPromptAction方法获取
      * > 到PromptAction对象，再通过该对象调用
-     * > [closeToast](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#closetoast18)实现。
+     * > [closeToast]{@link PromptAction#closeToast}实现。
      *
-     * @param { number } toastId - openToast返回的id。
+     * @param { number } toastId - openToast返回的id，用于标识要关闭的Toast实例。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -1903,18 +1904,18 @@ declare namespace promptAction {
      * 
      * > **说明：**
      * >
-     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showDialog](arkts-apis-uicontext-promptaction.md#showdialog)替代。
-     * showDialog需先通过[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取[PromptAction](arkts-apis-uicontext-promptaction.md)对象，
+     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showDialog]{@link PromptAction#showDialog}替代。
+     * showDialog需先通过[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取[PromptAction]{@link PromptAction}对象，
      * 然后通过该对象进行调用。且直接使用showDialog可能导致[UI上下文不明确](../../ui/arkts-global-interface.md#ui上下文不明确)的问题。
      * >
-     * > - 从API version 10开始，可以通过使用[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取当前UI上下文关联的
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象。
+     * > - 从API version 10开始，可以通过使用[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取当前UI上下文关联的
+     * [PromptAction]{@link PromptAction}对象。
      *
      * @param { ShowDialogOptions } options - 页面显示对话框信息描述。
-     * @param { AsyncCallback<ShowDialogSuccessResponse> } callback - 回调函数。弹出对话框成功，err为undefined，
-     *      data为获取到的对话框响应结果，否则为错误对象。
+     * @param { AsyncCallback<ShowDialogSuccessResponse> } callback - 回调函数。弹出对话框成功时，err为undefined，
+     *      data为获取到的对话框响应结果；失败时，err为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -1934,14 +1935,14 @@ declare namespace promptAction {
      * 
      * > **说明：**
      * >
-     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showDialog](arkts-apis-uicontext-promptaction.md#showdialog-1)替代。
-     * showDialog需先通过[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取[PromptAction](arkts-apis-uicontext-promptaction.md)对象，
+     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showDialog]{@link PromptAction#showDialog}替代。
+     * showDialog需先通过[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取[PromptAction]{@link PromptAction}对象，
      * 然后通过该对象进行调用。且直接使用showDialog可能导致[UI上下文不明确](../../ui/arkts-global-interface.md#ui上下文不明确)的问题。
      * >
-     * > - 从API version 10开始，可以通过使用[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取当前UI上下文关联的
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象。
+     * > - 从API version 10开始，可以通过使用[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取当前UI上下文关联的
+     * [PromptAction]{@link PromptAction}对象。
      *
      * @param { ShowDialogOptions } options - 对话框选项。
      * @returns { Promise<ShowDialogSuccessResponse> } Promise对象，返回对话框的响应结果。
@@ -1968,15 +1969,15 @@ declare namespace promptAction {
      * 
      * > **说明：**
      * >
-     * > - 从API version 11开始支持，从API version 18开始废弃，建议使用[openCustomDialog](arkts-apis-uicontext-promptaction.md#opencustomdialog12-1)替代。
-     * openCustomDialog需先通过[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象，然后通过该对象进行调用。且直接使用openCustomDialog可能导致
+     * > - 从API version 11开始支持，从API version 18开始废弃，建议使用[openCustomDialog]{@link PromptAction#openCustomDialog}替代。
+     * openCustomDialog需先通过[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取
+     * [PromptAction]{@link PromptAction}对象，然后通过该对象进行调用。且直接使用openCustomDialog可能导致
      * [UI上下文不明确](../../ui/arkts-global-interface.md#ui上下文不明确)的问题。
      * >
-     * > - 从API version 12开始，可以通过使用[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取当前UI上下文关联的
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象。
+     * > - 从API version 12开始，可以通过使用[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取当前UI上下文关联的
+     * [PromptAction]{@link PromptAction}对象。
      *
      * @param { CustomDialogOptions } options - 自定义弹窗的内容。 
      *      <br>**说明：** 如果BaseDialogOptions中的[isModal](js-apis-promptAction.md#basedialogoptions11)与
@@ -2002,15 +2003,15 @@ declare namespace promptAction {
      * 
      * > **说明：**
      * >
-     * > - 从API version 11开始支持，从API version 18开始废弃，建议使用[closeCustomDialog](arkts-apis-uicontext-promptaction.md#closecustomdialog12-1)替代。
-     * closeCustomDialog需先通过[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象，然后通过该对象进行调用。且直接使用closeCustomDialog可能导致
+     * > - 从API version 11开始支持，从API version 18开始废弃，建议使用[closeCustomDialog]{@link PromptAction#closeCustomDialog}替代。
+     * closeCustomDialog需先通过[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取
+     * [PromptAction]{@link PromptAction}对象，然后通过该对象进行调用。且直接使用closeCustomDialog可能导致
      * [UI上下文不明确](../../ui/arkts-global-interface.md#ui上下文不明确)的问题。
      * >
-     * > - 从API version 12开始，可以通过使用[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取当前UI上下文关联的
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象。
+     * > - 从API version 12开始，可以通过使用[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取当前UI上下文关联的
+     * [PromptAction]{@link PromptAction}对象。
      *
      * @param { number } dialogId - openCustomDialog返回的对话框id。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -2032,19 +2033,19 @@ declare namespace promptAction {
      * 
      * > **说明：**
      * >
-     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showActionMenu](arkts-apis-uicontext-promptaction.md#showactionmenu11)替代。
-     * showActionMenu需先通过[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象，然后通过该对象进行调用。且直接使用showActionMenu可能导致
+     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showActionMenu]{@link PromptAction#showActionMenu}替代。
+     * showActionMenu需先通过[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取
+     * [PromptAction]{@link PromptAction}对象，然后通过该对象进行调用。且直接使用showActionMenu可能导致
      * [UI上下文不明确](../../ui/arkts-global-interface.md#ui上下文不明确)的问题。
      * >
-     * > - 从API version 11开始，可以通过使用[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取当前UI上下文关联的
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象。
+     * > - 从API version 11开始，可以通过使用[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取当前UI上下文关联的
+     * [PromptAction]{@link PromptAction}对象。
      *
      * @param { ActionMenuOptions } options - 操作菜单选项。
-     * @param { AsyncCallback<ActionMenuSuccessResponse> } callback - 回调函数。弹出操作菜单成功，err为undefined，
-     *      data为获取到的操作菜单响应结果，否则为错误对象。
+     * @param { AsyncCallback<ActionMenuSuccessResponse> } callback - 回调函数。弹出操作菜单成功时，err为undefined，
+     *      data为获取到的操作菜单响应结果；失败时，err为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -2064,17 +2065,17 @@ declare namespace promptAction {
      * 
      * > **说明：**
      * >
-     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showActionMenu](arkts-apis-uicontext-promptaction.md#showactionmenu)替代。
-     * showActionMenu需先通过[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象，然后通过该对象进行调用。且直接使用showActionMenu可能导致
+     * > - 从API version 9开始支持，从API version 18开始废弃，建议使用[showActionMenu]{@link PromptAction#showActionMenu}替代。
+     * showActionMenu需先通过[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取
+     * [PromptAction]{@link PromptAction}对象，然后通过该对象进行调用。且直接使用showActionMenu可能导致
      * [UI上下文不明确](../../ui/arkts-global-interface.md#ui上下文不明确)的问题。
      * >
-     * > - 从API version 10开始，可以通过使用[UIContext](arkts-apis-uicontext-uicontext.md)中的
-     * [getPromptAction](arkts-apis-uicontext-uicontext.md#getpromptaction)方法获取当前UI上下文关联的
-     * [PromptAction](arkts-apis-uicontext-promptaction.md)对象。
+     * > - 从API version 10开始，可以通过使用[UIContext]{@link UIContext}中的
+     * [getPromptAction]{@link UIContext#getPromptAction}方法获取当前UI上下文关联的
+     * [PromptAction]{@link PromptAction}对象。
      *
-     * @param { ActionMenuOptions } options - Promise对象，返回菜单的响应结果。
+     * @param { ActionMenuOptions } options - 操作菜单选项。
      * @returns { Promise<ActionMenuSuccessResponse> } Promise对象，返回菜单的响应结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified.
@@ -2112,7 +2113,7 @@ declare interface DismissDialogAction {
      */
     dismiss: Callback<void>;
     /**
-     * Dialog无法关闭原因。根据开发者需求选择不同操作下，Dialog是否关闭。
+     * 触发Dialog关闭的操作类型（如点击遮障层、按返回键等）。开发者可根据reason判断用户的具体关闭操作，决定是否调用dismiss()关闭Dialog。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly

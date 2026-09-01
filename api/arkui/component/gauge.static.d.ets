@@ -263,8 +263,9 @@ export declare interface GaugeAttribute extends CommonMethod {
      * @param { GaugeOptions } options - Gauge constructor options
      * @returns { GaugeAttribute } Returns the instance of the GaugeAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setGaugeOptions(options: GaugeOptions): this;
 }
@@ -292,8 +293,9 @@ export declare function Gauge(
  * @param { CustomBuilder } [content_] - Child component
  * @returns { GaugeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder

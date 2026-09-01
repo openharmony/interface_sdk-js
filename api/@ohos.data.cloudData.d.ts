@@ -344,6 +344,7 @@ declare namespace cloudData {
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
+   * @stagemodelonly
    * @since 23 dynamic&static
    */
   interface ClearConfig {

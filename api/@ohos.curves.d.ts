@@ -451,6 +451,144 @@ declare namespace curves {
    * @since 10 dynamic
    */
   function interpolatingSpring(velocity: number, mass: number, stiffness: number, damping: number): ICurve;
+
+  /**
+   * Trail optimization configuration for spring animations.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  interface TrailOptimization {
+    /**
+     * Animation progress threshold.
+     * <br>Value range: <0, 1>.
+     *
+     * @default 1
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    progressThreshold?: number;
+    /**
+     * Response decay factor.
+     * Value range: <0, 1>.
+     *
+     * @default 1
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    responseDecayFactor?: number;
+  }
+
+  /**
+   * Creates a spring animation curve. If multiple spring animations are applied to the same attribute of an object, 
+   * each animation replaces their predecessor and inherits the velocity.
+   *
+   * @param { number } [response] - Duration of one complete oscillation.<br>Default value: **0.55**<br>Unit: second<br>
+   *     Value range: (0, +∞)<br>**NOTE**<br>If this parameter is set to a value less than or equal to 0, the default
+   *     value **0.55** is used.
+   * @param { number } [dampingFraction] - Damping coefficient.<br>**0**: undamped. In this case, the spring oscillates
+   *     forever.<br>> 0 and < 1: underdamped. In this case, the spring overshoots the equilibrium position.<br>**1**:
+   *     critically damped.<br>> 1: overdamped. In this case, the spring approaches equilibrium gradually.<br>Default
+   *     value: **0.825**<br>Unit: second<br>Value range:
+   *     [0, +∞)<br>**NOTE**<br>A value less than 0 evaluates to the default value **0.825**.
+   * @param { number } [overlapDuration] - Duration for animations to overlap, in seconds. When animations overlap, the
+   *     **response** values of these animations will transit smoothly over this duration if they are different.<br>
+   *      Default value: **0**<br>Unit: second<br>Value range:
+   *     [0, +∞)<br> **NOTE**<br>A value less than 0 evaluates to the default value **0**.<br>
+   *     The spring animation curve is physics-based. Its duration depends on the **springMotion** parameters and
+   *     the previous velocity, rather than the **duration** parameter in [animation]{@link common},
+   *     [animateTo]{@link common}, or [pageTransition]{@link page_transition}. The time cannot be normalized.
+   *     Therefore, the interpolation cannot be obtained using the **interpolate** function of the curve.
+   * @param { TrailOptimization } [trail] - Trail optimization configuration.
+   * @returns { ICurve } Curve.
+   *     <br>**NOTE**
+   *     <br>The spring animation curve is physics-based. Its duration depends on the **springMotion** parameters
+   *     and the previous velocity, rather than the **duration** parameter in [animation]{@link common},
+   *     [animateTo]{@link common}, or [pageTransition]{@link page_transition}. The time cannot be normalized.
+   *     Therefore, the interpolation cannot be obtained using the [interpolate]{@link curves.ICurve.interpolate}
+   *     function of the curve.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  function trailOptimizedSpringMotion(response?: number, dampingFraction?: number, overlapDuration?: number, trail?: TrailOptimization): ICurve;
+
+  /**
+   * Creates a responsive spring animation curve. It is a special case of [springMotion]{@link curves.springMotion}, 
+   * with the only difference in the default values. It can be used together with **springMotion**.
+   *
+   * @param { number } [response] - See **response** in **springMotion**.<br>Default value: **0.15**<br>Unit: second<br>
+   *     Value range: (0, +∞)<br>**NOTE**<br>If this parameter is set to a value less than or equal to 0, the default
+   *     value **0.15** is used.
+   * @param { number } [dampingFraction] - See **dampingFraction** in **springMotion**.<br>Default value: **0.86**<br>
+   *     Unit: second<br>Value range:
+   *     [0, +∞)<br>**NOTE**<br>A value less than 0 evaluates to the default value **0.86**.
+   * @param { number } [overlapDuration] - See **overlapDuration** in **springMotion**.<br>Default value: **0.25**<br>
+   *     Unit: second<br>Value range:
+   *     [0, +∞)<br>**NOTE**<br>A value less than 0 evaluates to the default value **0.25**.<br>**ResponsiveSpringMotion** is a special case of **springMotion**, with the only difference in the default values. To apply custom settings for a spring animation, you are advised to use **springMotion**. When using **responsiveSpringMotion**, you are advised to retain the default settings.<br>The duration of the responsive spring animation depends on the **responsiveSpringMotion** parameters and the previous velocity, rather than the duration parameter in [animation]{@link common}, [animateTo]{@link common}, or [pageTransition]{@link page_transition}. In addition, the interpolation cannot be obtained using the **interpolate** function of the curve.
+   * @param { TrailOptimization } [trail] - Trail optimization configuration.
+   * @returns { ICurve } Curve.
+   *     <br>**NOTE**
+   *     <br>1. To apply custom settings for a spring animation, you are advised to use **springMotion**. When using
+   *     **responsiveSpringMotion**, you are advised to retain the default settings.
+   *     <br>2. The duration of the responsive spring animation depends on the **responsiveSpringMotion** parameters and the
+   *     previous velocity, rather than the duration parameter in [animation]{@link common}, [animateTo]{@link common},
+   *     or [pageTransition]{@link page_transition}. In addition, the interpolation cannot be obtained using the
+   *     [interpolate]{@link curves.ICurve.interpolate} function of the curve.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  function trailOptimizedResponsiveSpringMotion(response?: number, dampingFraction?: number, overlapDuration?: number, trail?: TrailOptimization): ICurve;
+
+  /**
+   * Creates an interpolating spring curve animated from 0 to 1. The actual animation value is calculated based on the 
+   * curve. The animation duration is subject to the curve parameters, rather than the **duration** parameter in 
+   * **animation** or **animateTo**.
+   *
+   * @param { number } velocity - Initial velocity. It is applied by external factors to the spring animation,
+   *     designed to help ensure the smooth transition from the previous motion state.
+   *     The velocity is the normalized velocity, and its value is equal to the actual velocity at the beginning of
+   *     the animation divided by the animation attribute change value.<br>Value range: (-∞, +∞).
+   * @param { number } mass - Mass, which influences the inertia in the spring system. The greater the mass,
+   *     the greater the amplitude of the oscillation, and the slower the speed of restoring to the equilibrium
+   *     position.
+   *     <br>Value range: (0, +∞).
+   *     <p>**NOTE**:
+   *     <br>If this parameter is set to a value less than or equal to 0, the value **1** is used.
+   *     </p>
+   * @param { number } stiffness - Stiffness. It is the degree to which an object deforms by resisting
+   *     the force applied. In an elastic system, the greater the stiffness, the stronger the ability to resist
+   *     deformation, and the faster the speed of restoring to the equilibrium position.<br>Value range: (0, +∞).
+   *     <p>**NOTE**:
+   *     <br>If this parameter is set to a value less than or equal to 0, the value **1** is used.
+   *     </p>
+   * @param { number } damping - Damping. It is used to describe the oscillation and attenuation of the system
+   *     after being disturbed. The larger the damping, the smaller the number of oscillations of elastic motion,
+   *     and the smaller the oscillation amplitude.<br>Value range: (0, +∞)<br>
+   *     <p>**NOTE**:
+   *     <br>If this parameter is set to a value less than or equal to 0, the value **1** is used.
+   *     </p>
+   * @param { TrailOptimization } [trail] - Trail optimization configuration.
+   * @returns { ICurve } Curve.
+   *     <br>Note: The spring animation curve is physics-based. Its duration depends on the **interpolatingSpring**
+   *     parameters, rather than the **duration** parameter in [animation]{@link common}, [animateTo]{@link common}, or
+   *     [pageTransition]{@link page_transition}. The time cannot be normalized. Therefore, the interpolation cannot be
+   *     obtained using the [interpolate]{@link curves.ICurve.interpolate} function of the curve.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  function trailOptimizedInterpolatingSpring(velocity: number, mass: number, stiffness: number, damping: number, trail?: TrailOptimization): ICurve;
 }
 
 export default curves;

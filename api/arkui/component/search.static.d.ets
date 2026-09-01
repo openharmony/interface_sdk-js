@@ -668,7 +668,8 @@ export declare interface SearchAttribute extends CommonMethod {
      */
     default onCopy(callback: Callback<string> | undefined): this;
     /**
-     * Called before using the Clipboard copy menu.
+     * Called before a copy operation is performed. This event is triggered when the user taps the copy menu.
+     * Returning **true** allows the copy operation; returning **false** prevents it.
      *
      * @param { Callback<string, boolean> | undefined } callback - Callback used to check whether copy is allowed.
      * @returns { SearchAttribute }
@@ -689,7 +690,8 @@ export declare interface SearchAttribute extends CommonMethod {
      */
     default onCut(callback: Callback<string> | undefined): this;
     /**
-     * Called before using the Clipboard cut menu.
+     * Called before a cut operation is performed. This event is triggered when the user taps the cut menu.
+     * Returning **true** allows the cut operation; returning **false** prevents it.
      *
      * @param { Callback<string, boolean> | undefined } callback - Callback used to check whether cut is allowed.
      * @returns { SearchAttribute }
@@ -702,6 +704,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * Called when using the Clipboard menu.
      *
      * Anonymous Object Rectification.
+     *
      * @param { OnPasteCallback | undefined } callback - Executed when a paste operation is performed.Callback used to return the pasted text content.
      * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1274,11 +1277,12 @@ export declare interface SearchAttribute extends CommonMethod {
     /**
      * Set Search options.
      *
-     * @param { SearchOptions } [options] - Search constructor options
+     * @param { SearchOptions } [options] - Search constructor options.
      * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @unpublished
      * @stagemodelonly
-     * @since 26.0.0 staticonly
+     * @since 26.1.0 staticonly
      */
     default setSearchOptions(options?: SearchOptions): this;
 }
@@ -1296,7 +1300,7 @@ export declare interface SearchAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function Search(
     options?: SearchOptions
-): SearchAttribute
+): SearchAttribute;
 
 /**
  * Defines Search Component.
@@ -1304,8 +1308,9 @@ export declare function Search(
  * @param { CustomBuilderT<SearchAttribute> } style - Search attribute instance
  * @returns { SearchAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  * @noninterop
  */
 @Builder
