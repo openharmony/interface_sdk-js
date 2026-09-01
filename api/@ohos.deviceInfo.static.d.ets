@@ -411,11 +411,13 @@ declare namespace deviceInfo {
     get sdkApiVersion(): int;
 
     /**
-     * SDK minor API version. Starting from API version 26.0.0, the system API version is in the format of sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
+     * Starting from API version 26.0.0, the minor version is introduced as part of semantic versioning.
+     * It is the middle field in the semantic version and is an integer.
+     * The complete API version is represented by sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
      *
      * Example:
-     * If the system API version is 26.0.2, sdkMinorApiVersion is 0.
-     * If the system API version is 26.1.2, sdkMinorApiVersion is 1.
+     * If the API version of the system software is 26.0.1, sdkMinorApiVersion is 0.
+     * If the API version of the system software is 26.1.0, sdkMinorApiVersion is 1.
      *
      * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
@@ -425,11 +427,13 @@ declare namespace deviceInfo {
     get sdkMinorApiVersion(): int;
 
     /**
-     * SDK patch API version. Starting from API version 26.0.0, the system API version is in the format of sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
+     * Starting from API version 26.0.0, the patch version is introduced as part of semantic versioning.
+     * It is the third field in the semantic version and is an integer.
+     * The complete API version is represented by sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
      *
      * Example:
-     * If the system API version is 26.2.0, sdkPatchApiVersion is 0.
-     * If the system API version is 26.2.1, sdkPatchApiVersion is 1.
+     * If the API version of the system software is 26.0.1, sdkPatchApiVersion is 1.
+     * If the API version of the system software is 26.1.0, sdkPatchApiVersion is 0.
      *
      * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
