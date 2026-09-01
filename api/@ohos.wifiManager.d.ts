@@ -5837,7 +5837,6 @@ declare namespace wifiManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2801000 - The Wi-Fi service is not started properly, or there is an Wi-Fi service error.
-   * @throws { BusinessError } 2801001 - Wi-Fi STA disabled.
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @stagemodelonly
    * @since 26.1.0 dynamic&static
