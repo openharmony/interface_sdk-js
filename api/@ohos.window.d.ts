@@ -1822,7 +1822,7 @@ declare namespace window {
   interface WindowProperties {
     /**
      * Window size, which can be obtained from the page lifecycle
-     * [onPageShow]{@link @ohos.app.ability.UIAbility:UIAbility.onPageShow} or the
+     * [onPageShow]{@link BaseCustomComponent#onPageShow} or the
      * application lifecycle [onForeground]{@link @ohos.app.ability.UIAbility:UIAbility.onForeground}.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core

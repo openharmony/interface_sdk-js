@@ -423,7 +423,7 @@ declare namespace window {
   /**
    * 窗口内容的避让区域的类型枚举。
    * 
-   * 窗口内容做[沉浸式布局](docroot://windowmanager/window-terminology.md#沉浸式布局)适配时，需要按照AvoidAreaType对应的
+   * 窗口内容做[沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)适配时，需要按照AvoidAreaType对应的
    * [AvoidArea]{@link @ohos.window:window.AvoidArea}做窗口内容避让。
    * 
    * <!--RP13-->
@@ -711,8 +711,8 @@ declare namespace window {
   /**
    * 像素单位枚举。
    * 
-   * 物理像素单位和虚拟像素单位换算可使用[px2vp](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#px2vp12)和
-   * [vp2px](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#vp2px12)。
+   * 物理像素单位和虚拟像素单位换算可使用[px2vp]{@link px2vp}和
+   * [vp2px]{@link vp2px}。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @since 22 dynamic
@@ -1436,7 +1436,7 @@ declare namespace window {
   /**
    * 窗口内容的避让区域。
    * 
-   * 窗口内容做[沉浸式布局](docroot://windowmanager/window-terminology.md#沉浸式布局)适配时，需要按照
+   * 窗口内容做[沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)适配时，需要按照
    * [AvoidAreaType]{@link @ohos.window:window.AvoidAreaType}对应的AvoidArea做窗口内容避让。
    * 
    * 在避让区域内，应用窗口内容被遮挡且无法响应用户点击事件。
@@ -1510,7 +1510,7 @@ declare namespace window {
   }
 
   /**
-   * 以vp为单位表示的窗口避让区域信息，在进行[沉浸式布局](docroot://windowmanager/window-terminology.md#沉浸式布局)适配时需关注。
+   * 以vp为单位表示的窗口避让区域信息，在进行[沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)适配时需关注。
    *
    * @syscap SystemCapability.Window.SessionManager
    * @crossplatform [since 26.1.0]
@@ -1785,7 +1785,7 @@ declare namespace window {
   interface WindowProperties {
     /**
      * 窗口尺寸，其中左边界上边界是相对于窗口所在屏幕左上顶点计算，可在页面生命周期
-     * [onPageShow](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#onpageshow)或应用生命周期
+     * [onPageShow]{@link BaseCustomComponent#onPageShow}或应用生命周期
      * [onForeground]{@link @ohos.app.ability.UIAbility:UIAbility.onForeground}阶段获取。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -1847,9 +1847,9 @@ declare namespace window {
     isFullScreen: boolean;
 
     /**
-     * 对于子窗，如果设置了[沉浸式布局](docroot://windowmanager/window-terminology.md#沉浸式布局)，返回值为true。
+     * 对于子窗，如果设置了[沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)，返回值为true。
      * 
-     * 对于主窗，如果设置了[沉浸式布局](docroot://windowmanager/window-terminology.md#沉浸式布局)且处于全屏模式，返回值为true。
+     * 对于主窗，如果设置了[沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)且处于全屏模式，返回值为true。
      * 
      * 其他情况下均返回false
      *
@@ -7127,7 +7127,7 @@ declare namespace window {
      * 或[setUIContent()]{@link window.Window.setUIContent(path: string, callback: AsyncCallback<void>)}调用生效后使用。
      * 
      * 应用注册帧率变化监听后，只有当客户端UI内容发生重绘时（如页面切换、和可响应组件交互、设置背景色和透明度等），才会触发注册的回调。但当同时使用该接口和
-     * [postFrameCallback](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#postframecallback12)、
+     * [postFrameCallback]{@link @ohos.arkui.UIContext:UIContext#postFrameCallback}、
      * [postDelayedFrameCallback](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#postdelayedframecallback12)
      * 、
      * [displaySync.on('frame')]{@link @ohos.graphics.displaySync:displaySync.DisplaySync.on(type: 'frame', callback: Callback<IntervalInfo>)}
@@ -7150,7 +7150,7 @@ declare namespace window {
      * 或[setUIContent()]{@link window.Window.setUIContent(path: string, callback: AsyncCallback<void>)}调用生效后使用。
      * 
      * 应用注册帧率变化监听后，只有当客户端UI内容发生重绘时（如页面切换、和可响应组件交互、设置背景色和透明度等），才会触发注册的回调。但当同时使用该接口和
-     * [postFrameCallback](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#postframecallback12)、
+     * [postFrameCallback]{@link @ohos.arkui.UIContext:UIContext#postFrameCallback}、
      * [postDelayedFrameCallback](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#postdelayedframecallback12)
      * 、
      * [displaySync.on('frame')]{@link @ohos.graphics.displaySync:displaySync.DisplaySync.on(type: 'frame', callback: Callback<IntervalInfo>)}
@@ -11509,7 +11509,7 @@ declare namespace window {
      * [自由窗口](docroot://windowmanager/window-terminology.md#自由窗口)状态下，对系统窗口、应用主窗口、应用子窗口、全局悬浮窗和模态窗口生效。非自由窗口状态下，仅对系统窗口、应用子窗
      * 口、全局悬浮窗和模态窗口生效，应用主窗口调用该接口返回801或1300004错误码。
      * 
-     * 仅在[onTouch](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-touch.md#touchevent对象说明)事件（其中，事件类型必须为
+     * 仅在[onTouch]{@link TouchEvent}事件（其中，事件类型必须为
      * TouchType.Down）的回调方法中调用此接口才会有移动效果，成功调用此接口后，窗口将跟随鼠标或触摸点移动。
      * 
      * 在点击拖拽场景下，若不期望在按下时触发拖拽事件，则可以在事件类型为[TouchType.Move]{@link ./@internal/component/ets/enums:TouchType}（需要保证当前行为已经触发
@@ -11537,7 +11537,7 @@ declare namespace window {
      * 
      * 在同应用内窗口分合后，且鼠标保持按下状态直接移动新窗口，如果此时鼠标快速移动，窗口移动时鼠标可能会在窗口外。可以使用本接口指定窗口移动时鼠标在窗口内的位置，先移动窗口到鼠标位置，再开始移动窗口。
      * 
-     * 仅在[onTouch](docroot://reference/apis-arkui/arkui-ts/ts-universal-events-touch.md#touchevent对象说明)事件（其中，事件类型必须为
+     * 仅在[onTouch]{@link TouchEvent}事件（其中，事件类型必须为
      * TouchType.Down）的回调方法中调用此接口才会有移动效果，成功调用此接口后，窗口将跟随鼠标移动。
      * 
      * 在点击拖拽场景下，若不期望在按下时触发拖拽事件，则可以在事件类型为[TouchType.Move]{@link ./@internal/component/ets/enums:TouchType}（需要保证当前行为已经触发
@@ -13597,7 +13597,7 @@ declare namespace window {
      * <br>- SPLIT：支持分屏模式。需要配合FULL_SCREEN或FLOATING一起使用，不支持仅配置SPLIT。
      * <br> 注：数组中SupportWindowMode字段取值不应该与该UIAbility对应的
      * [module.json5配置文件][module.json5 file](docroot://quick-start/module-configuration-file.md)中
-     * [abilities标签](docroot://quick-start/module-configuration-file.md#abilities)的supportWindowMode字段取值或者
+     * [abilities标签](docroot://quick-start/module-configuration-file.md#abilities标签)的supportWindowMode字段取值或者
      * [StartOptions]{@link @ohos.app.ability.StartOptions:StartOptions}的
      * supportWindowModes属性取值冲突。当取值冲突时，最终以该参数设置的窗口支持模式为准。
      * @returns { Promise<void> } 无返回结果的Promise对象。
@@ -13623,7 +13623,7 @@ declare namespace window {
      * <br>- SPLIT：支持分屏模式。需要配合FULL_SCREEN或FLOATING一起使用，不支持仅配置SPLIT。
      * <br> 注：数组中SupportWindowMode字段取值不应该与该UIAbility对应的
      * [module.json5配置文件][module.json5 file](docroot://quick-start/module-configuration-file.md)中
-     * [abilities标签](docroot://quick-start/module-configuration-file.md#abilities)的supportWindowMode字段取值或者
+     * [abilities标签](docroot://quick-start/module-configuration-file.md#abilities标签)的supportWindowMode字段取值或者
      * [StartOptions]{@link @ohos.app.ability.StartOptions:StartOptions}的
      * supportWindowModes属性取值冲突。当取值冲突时，最终以该参数设置的窗口支持模式为准。
      * @param { boolean } grayOutMaximizeButton - 是否显示并将主窗口的最大化按钮置灰
