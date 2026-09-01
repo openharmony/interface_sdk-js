@@ -14,12 +14,93 @@
  */
 
 /**
- * **DataShareResultSet** 可提供访问由查询数据库生成的结果集的相关方法，根据提供的行数，查询相应的值，也可查询指定数据类型的值。
+ * **结果集(DataShareResultSet)** 可提供访问由查询数据库生成的结果集的相关方法，根据提供的行数，查询相应的值，也可查询指定数据类型的值。
+ * 
+ * ###### 使用说明
+ * 
+ * 需要通过调用
+ * [query]{@link @ohos.data.dataShare:dataShare.DataShareHelper.query( uri: string,
+ *  predicates: dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<DataShareResultSet> )}
+ * 接口获取DataShareResultSet对象。
+ * 
+ * ```ts
+ * import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
+ * import { DataShareResultSet, dataShare, dataSharePredicates } from '@kit.ArkData';
+ * import { BusinessError } from '@kit.BasicServicesKit';
+ * export default class EntryAbility extends UIAbility {
+ *   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+ *     let dataShareHelper: dataShare.DataShareHelper | undefined = undefined;
+ *     let uri = "datashare:///com.samples.datasharetest.DataShare";
+ *     let context = this.context;
+ *     dataShare.createDataShareHelper(context, uri, (err:BusinessError, data:dataShare.DataShareHelper) => {
+ *       if (err != undefined) {
+ *         console.error(`Failed to create DataShareHelper. Code: ${err.code}, message: ${err.message}`);
+ *       } else {
+ *         console.info("createDataShareHelper end, data : " + data);
+ *         dataShareHelper = data;
+ *       }
+ *       let columns = ["*"];
+ *       let predicates = new dataSharePredicates.DataSharePredicates();
+ *       let resultSet: DataShareResultSet | undefined = undefined;
+ *       predicates.equalTo("name0", "ZhangSan");
+ *       if (dataShareHelper != undefined) {
+ *         (dataShareHelper as dataShare.DataShareHelper).query(uri, predicates, columns).then((data: DataShareResultSet) => {
+ *           console.info("query end, data : " + data);
+ *           resultSet = data;
+ *         }).catch((err: BusinessError) => {
+ *           console.error(`Failed to query. Code: ${err.code}, message: ${err.message}`);
+ *         });
+ *       }
+ *     });
+ *   };
+ * };
+ * ```
  *
- * @file
+ * @file 数据共享结果集
  * @kit ArkData
  */
 
+/**
+ * # Usage
+ *
+ * You can use
+ * [query]{@link @ohos.data.dataShare:dataShare.DataShareHelper.query(uri: string, predicates:
+ * dataSharePredicates.DataSharePredicates, columns: Array<string>, callback: AsyncCallback<DataShareResultSet>)}
+ * to obtain a **DataShareResultSet** object.
+ *
+ * ```ts
+ * import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
+ * import { DataShareResultSet, dataShare, dataSharePredicates } from '@kit.ArkData';
+ * import { BusinessError } from '@kit.BasicServicesKit';
+ * export default class EntryAbility extends UIAbility {
+ *   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+ *     let dataShareHelper: dataShare.DataShareHelper | undefined = undefined;
+ *     let uri = "datashare:///com.samples.datasharetest.DataShare";
+ *     let context = this.context;
+ *     dataShare.createDataShareHelper(context, uri, (err:BusinessError, data:dataShare.DataShareHelper) => {
+ *       if (err != undefined) {
+ *         console.error("createDataShareHelper fail, error message : " + err);
+ *       } else {
+ *         console.info("createDataShareHelper end, data : " + data);
+ *         dataShareHelper = data;
+ *       }
+ *       let columns = ["*"];
+ *       let da = new dataSharePredicates.DataSharePredicates();
+ *       let resultSet: DataShareResultSet | undefined = undefined;
+ *       da.equalTo("name0", "ZhangSan");
+ *       if (dataShareHelper != undefined) {
+ *         (dataShareHelper as dataShare.DataShareHelper).query(uri, da, columns).then((data: DataShareResultSet) => {
+ *           console.info("query end, data : " + data);
+ *           resultSet = data;
+ *         }).catch((err: BusinessError) => {
+ *           console.error("query fail, error message : " + err);
+ *         });
+ *       }
+ *     });
+ *   };
+ * };
+ * ```
+ */
 import { ValuesBucket } from './@ohos.data.ValuesBucket';
 
 /**
@@ -90,8 +171,8 @@ export enum DataType {
 
 /**
  * 提供通过查询数据库生成的结果集的相关访问方法。
- *
- * 列或键名称作为字符串数组返回，其中字符串的顺序与结果集中的列或键的顺序相同。
+ * <br>
+ * <br>列或键名称作为字符串数组返回，其中字符串的顺序与结果集中的列或键的顺序相同。
  *
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
  * @systemapi
@@ -208,7 +289,7 @@ export default interface DataShareResultSet {
   /**
    * 转到结果集的指定行。
    *
-   * @param { int } position - 表示要移动到的指定位置，从 0 开始。
+   * @param { int } position - 表示要移动到的指定位置，从0开始，取值范围[0, rowCount-1]。
    * @returns { boolean } 如果成功移动结果集，则为true；否则返回false。
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
@@ -220,10 +301,10 @@ export default interface DataShareResultSet {
 
   /**
    * 以字节数组的形式获取当前行中指定列的值。
+   * <br>
+   * <br>如果当前行中指定的列或键的值为空，或者指定的列或键不是Blob类型，则使用方需要确定是否抛出此异常。
    *
-   * 如果当前行中指定的列或键的值为空，或者指定的列或键不是Blob类型，则使用方需要确定是否抛出此异常。
-   *
-   * @param { int } columnIndex - 指定的列索引，从0开始。
+   * @param { int } columnIndex - 指定的列索引，从0开始，取值范围[0, columnCount-1]。
    * @returns { Uint8Array } 以字节数组的形式返回指定列的值。
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
@@ -235,10 +316,10 @@ export default interface DataShareResultSet {
 
   /**
    * 以字符串形式获取当前行中指定列的值。
+   * <br>
+   * <br>如果当前行中指定的列或键的值为空，或者指定的列或键不是string类型，则使用方需要确定是否抛出此异常。
    *
-   * 如果当前行中指定的列或键的值为空，或者指定的列或键不是string类型，则使用方需要确定是否抛出此异常。
-   *
-   * @param { int } columnIndex - 指定的列索引，从0开始。
+   * @param { int } columnIndex - 指定的列索引，从0开始，取值范围[0, columnCount-1]。
    * @returns { string } 以字符串形式返回指定列的值。
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
@@ -250,10 +331,10 @@ export default interface DataShareResultSet {
 
   /**
    * 以长整数值形式获取当前行中指定列的值。
+   * <br>
+   * <br>如果当前行中指定的列或键的值为空，或者指定的列或键不是long类型，则使用方需要确定是否抛出此异常。
    *
-   * 如果当前行中指定的列或键的值为空，或者指定的列或键不是long类型，则使用方需要确定是否抛出此异常。
-   *
-   * @param { int } columnIndex - 指定的列索引，从0开始。
+   * @param { int } columnIndex - 指定的列索引，从0开始，取值范围[0, columnCount-1]。
    * @returns { long } 以长整数值形式返回指定列的值。
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
@@ -265,11 +346,11 @@ export default interface DataShareResultSet {
 
   /**
    * 以值类型为双浮点数形式获取当前行中指定列的值。
+   * <br>
+   * <br>如果当前行中指定的列或键的值为空，或者指定的列或键不是double类型，则使用方需要确定是否抛出此异常。
    *
-   * 如果当前行中指定的列或键的值为空，或者指定的列或键不是double类型，则使用方需要确定是否抛出此异常。
-   *
-   * @param { int } columnIndex - 指定的列索引，从0开始。
-   * @returns { double  } Value obtained.
+   * @param { int } columnIndex - 指定的列索引，从0开始，取值范围[0, columnCount-1]。
+   * @returns { double  } 值类型为双浮点数形式返回指定列的值。
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
    * @stagemodelonly
@@ -280,8 +361,8 @@ export default interface DataShareResultSet {
 
   /**
    * 关闭结果集。
-   *
-   * 对结果集调用此方法将释放其所有资源并使其无效。
+   * <br>
+   * <br>对结果集调用此方法将释放其所有资源并使其无效。
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
@@ -293,8 +374,8 @@ export default interface DataShareResultSet {
 
   /**
    * 根据指定的列名获取列索引。
-   *
-   * 列名作为输入参数传递。
+   * <br>
+   * <br>列名作为输入参数传递。
    *
    * @param { string } columnName - 表示结果集中指定列的名称。
    * @returns { int } 返回指定列的索引。
@@ -308,10 +389,10 @@ export default interface DataShareResultSet {
 
   /**
    * 根据指定的列索引获取列名。
+   * <br>
+   * <br>列索引作为输入参数传递。
    *
-   * 列索引作为输入参数传递。
-   *
-   * @param { int } columnIndex - 表示结果集中指定列的索引。
+   * @param { int } columnIndex - 表示结果集中指定列的索引，从0开始，取值范围[0, columnCount-1]。
    * @returns { string } 返回指定列的名称。
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi
@@ -323,10 +404,10 @@ export default interface DataShareResultSet {
 
   /**
    * 指定列索引获取该列的数据类型。
+   * <br>
+   * <br>如果当前行中指定的列或键的值为空，或者指定的列或键不是DataType类型，则使用方需要确定是否抛出此异常。
    *
-   * 如果当前行中指定的列或键的值为空，或者指定的列或键不是DataType类型，则使用方需要确定是否抛出此异常。
-   *
-   * @param { int } columnIndex - 表示结果集中指定列的索引。
+   * @param { int } columnIndex - 表示结果集中指定列的索引，从0开始，取值范围[0, columnCount-1]。
    * @returns { DataType } 返回指定列的类型。
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
    * @systemapi

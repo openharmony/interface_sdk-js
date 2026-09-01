@@ -14,12 +14,12 @@
  */
 
 /**
- * @file
+ * @file 数据通用类型
  * @kit ArkData
  */
 
 /**
- * 数据通用类型（commonType）是数据管理中通用的数据类型。
+ * 数据通用类型（commonType）是数据管理中通用的数据类型，提供了资产状态枚举、资产信息和键值对存储等基础数据类型，用于支持分布式数据管理场景下的数据统一表示和传递。
  *
  * @syscap SystemCapability.DistributedDataManager.CommonType
  * @crossplatform
@@ -98,7 +98,8 @@ declare namespace commonType {
   }
 
   /**
-   * 记录资产附件（文件、图片、视频等类型文件）的相关信息。
+   * 记录资产附件（文件、图片、视频等类型文件）的相关信息，相关示例见
+   * [在跨端迁移中使用分布式数据对象迁移数据](docroot://database/data-sync-of-distributed-data-object.md#在跨端迁移中使用分布式数据对象迁移数据)的示例代码。
    *
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
@@ -157,7 +158,7 @@ declare namespace commonType {
     modifyTime: string;
 
     /**
-     * 资产占用空间的大小。确保在全链路中保持统一、一致的存储格式与取值逻辑。建议所有系统节点均采用标准化处理方式（单位为字节（Byte），取值为非负整数）。
+     * 资产占用空间的大小（单位：字节（Byte），取值为非负整数）。
      *
      * @syscap SystemCapability.DistributedDataManager.CommonType
      * @crossplatform
@@ -178,7 +179,7 @@ declare namespace commonType {
   }
 
   /**
-   * 表示Asset类型的数组。
+   * 表示[Asset]{@link commonType.Asset}类型的数组。
    *
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
@@ -188,7 +189,7 @@ declare namespace commonType {
   type Assets = Array<Asset>;
 
   /**
-   * 用于表示允许的数据字段类型，接口参数具体类型根据其功能而定。。
+   * 表示允许的数据字段类型，接口参数具体类型根据其功能而定。
    *
    * @unionmember { null } 表示值类型为空。
    * @unionmember { long } 表示值类型为数字。
@@ -196,8 +197,8 @@ declare namespace commonType {
    * @unionmember { string } 表示值类型为字符串。
    * @unionmember { boolean } 表示值类型为布尔值。
    * @unionmember { Uint8Array } 表示值类型为Uint8类型的数组。
-   * @unionmember { Asset } 表示值类型为附件Asset。
-   * @unionmember { Assets } 表示值类型为附件数组Assets。
+   * @unionmember { Asset } 表示值类型为附件[Asset]{@link commonType.Asset}。
+   * @unionmember { Assets } 表示值类型为附件数组[Assets]{@link commonType.Assets}。
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform
    * @since 11 dynamic
@@ -206,7 +207,7 @@ declare namespace commonType {
   type ValueType = null | long | double | string | boolean | Uint8Array | Asset | Assets;
 
   /**
-   * 用于存储键值对的类型。该类型不是多线程安全的，如果应用中存在多线程同时操作该类派生出的实例，注意加锁保护。
+   * 用于存储键值对的类型。该类型不是并发安全的，如果应用中存在多线程同时操作该类派生出的实例，注意加锁保护。
    *
    * @syscap SystemCapability.DistributedDataManager.CommonType
    * @crossplatform

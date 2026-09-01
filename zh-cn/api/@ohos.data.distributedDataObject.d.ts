@@ -179,7 +179,7 @@ declare namespace distributedDataObject {
   }
 
   /**
-   * 定义获取分布式对象数据变更的监听回调函数。
+   * 定义获取分布式数据对象数据变更的监听回调函数。
    *
    * @param { string } sessionId - 标识变更对象的sessionId。长度不大于128字节，且只能包含字母、数字或下划线_。
    * @param { Array<string> } fields - 标识对象变更的属性名。属性名可自定义，要求字符串非空且长度不超过128字节。
@@ -190,11 +190,11 @@ declare namespace distributedDataObject {
   type DataObserver = (sessionId: string, fields: Array<string>) => void;
 
   /**
-   * 定义获取分布式对象状态变更的监听回调函数。
+   * 定义获取分布式数据对象状态变更的监听回调函数。
    *
    * @param { string } sessionId - 标识变更对象的sessionId。长度不大于128字节，且只能包含字母、数字或下划线_。
    * @param { string } networkId - 对端设备的网络标识。要求字符串非空且长度不超过255字节。
-   * @param { string } status - 标识分布式对象的状态，可能的取值有'online'（上线）、'offline'（下线）和'restore'（恢复）。
+   * @param { string } status - 标识分布式数据对象的状态，可能的取值有'online'（上线）、'offline'（下线）和'restore'（恢复）。
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @since 20 dynamic
    * @since 23 static
@@ -215,6 +215,10 @@ declare namespace distributedDataObject {
   /**
    * 表示一个分布式数据对象。在使用以下接口前，需调用[createDistributedObject()]{@link distributedDataObject.createDistributedObject}获取
    * DistributedObject对象。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃，暂无替代接口。
    *
    * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
    * @since 8 dynamiconly
@@ -223,12 +227,12 @@ declare namespace distributedDataObject {
    */
   interface DistributedObject {
     /**
-     * 设置sessionId。当可信组网中有多个设备处于协同状态时，如果多个设备间的分布式对象设置为同一个sessionId，就能自动同步。
+     * 设置sessionId。当可信组网中有多个设备处于协同状态时，如果多个设备间的分布式数据对象设置为同一个sessionId，就能自动同步。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { string } sessionId - 分布式数据对象在可信组网中的标识ID。如果要退出分布式组网，设置为""或不设置均可。
-     * @returns { boolean } true：标识设置sessionId成功。 
-     *     <br>false：标识设置sessionId失败。
+     * @returns { boolean } true：表示设置sessionId成功。 
+     *     <br>false：表示设置sessionId失败。
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -237,7 +241,7 @@ declare namespace distributedDataObject {
     setSessionId(sessionId?: string): boolean;
 
     /**
-     * 监听分布式数据对象的变更。
+     * 监听分布式数据对象的数据变更。
      *
      * @param { 'change' } type - 事件类型，固定为'change'，表示数据变更。
      * @param { Function } callback - 变更回调对象实例。
@@ -270,7 +274,7 @@ declare namespace distributedDataObject {
      * @param { 'status' } type - 事件类型，固定为'status'，表示对象上下线。
      * @param { Function } callback - 监听上下线回调实例。
      *     <br>sessionId：标识变更对象的sessionId； 
-     *     <br>networkId：标识对象设备； 
+     *     <br>networkId：对端设备的网络标识； 
      *     <br>status：标识对象为'online'(上线)或'offline'(下线)的状态。
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8 dynamiconly
@@ -288,7 +292,7 @@ declare namespace distributedDataObject {
      * @param { 'status' } type - 事件类型，固定为'status'，表示对象上下线。
      * @param { Function } callback - 需要删除的上下线回调，若不设置则删除该对象所有的上下线回调。
      *     <br>sessionId：标识变更对象的sessionId； 
-     *     <br>networkId：标识对象设备； 
+     *     <br>networkId：对端设备的网络标识； 
      *     <br>status：标识对象为'online'(上线)或'offline'(下线)的状态。
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 8 dynamiconly
@@ -310,11 +314,11 @@ declare namespace distributedDataObject {
    */
   interface DataObject {
     /**
-     * 设置sessionId，使用callback方式异步回调。当可信组网中有多个设备处于协同状态时，如果多个设备间的分布式对象设置为同一个sessionId，就能自动同步。
+     * 设置sessionId，使用callback异步回调。当可信组网中有多个设备处于协同状态时，如果多个设备间的分布式数据对象设置为同一个sessionId，就能自动同步。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param {string} sessionId - 分布式数据对象在可信组网中的标识ID，长度不大于128字节，且只能包含字母数字或下划线_。当传入""、null时表示退出分布式组网。
-     * @param {AsyncCallback<void>} callback - 加入session的异步回调。
+     * @param {string} sessionId - 分布式数据对象在可信组网中的标识ID，长度不大于128字节，且只能包含字母、数字或下划线_。当传入""、null时表示退出分布式组网。
+     * @param {AsyncCallback<void>} callback - 回调函数。当加入session成功，err为undefined，否则为错误对象。
      * @throws {BusinessError} 201 - Permission verification failed.
      * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
      *     2. The sessionId allows only letters, digits, and underscores(_), and cannot exceed 128 in length.
@@ -326,10 +330,10 @@ declare namespace distributedDataObject {
     setSessionId(sessionId: string, callback: AsyncCallback<void>): void;
 
     /**
-     * 退出所有已加入的session，使用callback方式异步回调。
+     * 退出所有已加入的session，使用callback异步回调。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC [since 9 - 19]
-     * @param {AsyncCallback<void>} callback - 退出所有已加入session的异步回调。
+     * @param {AsyncCallback<void>} callback - 回调函数。当退出session成功，err为undefined，否则为错误对象。
      * @throws {BusinessError} 201 - Permission verification failed. [since 9 - 19]
      * @throws {BusinessError} 401 - Parameter error. Incorrect parameter types.
      * @throws {BusinessError} 15400001 - Failed to create the in-memory database.
@@ -340,11 +344,11 @@ declare namespace distributedDataObject {
     setSessionId(callback: AsyncCallback<void>): void;
 
     /**
-     * 设置sessionId或退出分布式组网，使用Promise异步回调。当传入""、null或不传入参数时，表示退出分布式组网。当可信组网中有多个设备处于协同状态时，如果多个设备间的分布式对象设置为同一个sessionId，就能自
-     * 动同步。
+     * 设置sessionId或退出分布式组网，使用Promise异步回调。当传入""、null或不传入参数时，表示退出分布式组网。当可信组网中有多个设备处于协同状态时，如果多个设备间的分布式数据对象设置为同一个sessionId，就
+     * 能自动同步。
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param {string} sessionId - 分布式数据对象在可信组网中的标识ID，长度不大于128字节，且只能包含字母数字或下划线_。当传入""、null或不传入参数时表示退出分布式组网。
+     * @param {string} sessionId - 分布式数据对象在可信组网中的标识ID，长度不大于128字节，且只能包含字母、数字或下划线_。当传入""、null或不传入参数时表示退出分布式组网。
      * @returns {Promise<void>} Promise对象，无返回结果。
      * @throws {BusinessError} 201 - Permission verification failed.
      * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
@@ -390,7 +394,7 @@ declare namespace distributedDataObject {
      * @param { 'status' } type - 事件类型，固定为'status'，表示对象上下线。
      * @param { Function } callback - 监听上下线回调实例。
      *     <br>sessionId：标识变更对象的sessionId； 
-     *     <br>networkId：标识对象设备； 
+     *     <br>networkId：对端设备的网络标识； 
      *     <br>status：标识对象为'online'(上线)或'offline'(下线)的状态。
      * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
@@ -408,7 +412,7 @@ declare namespace distributedDataObject {
      * @param { 'status' } type - 事件类型，固定为'status'，表示对象上下线。
      * @param { Function } callback - 需要删除的上下线回调，若不设置则删除该对象所有的上下线回调。
      *     <br>sessionId：标识变更对象的sessionId； 
-     *     <br>networkId：标识对象设备； 
+     *     <br>networkId：对端设备的网络标识； 
      *     <br>status：标识对象为'online'(上线)或'offline'(下线)的状态。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
@@ -421,19 +425,19 @@ declare namespace distributedDataObject {
     ): void;
 
     /**
-     * 保存分布式数据对象。使用callback方式异步回调。
-     * 
-     * 对象数据保存成功后，当应用存在时不会释放对象数据，当应用退出后，重新进入应用时，恢复保存在设备上的数据。
-     * 
-     * 有以下几种情况时，保存的数据将会被释放：
-     * 
+     * 保存分布式数据对象。使用callback异步回调。
+     * <br>
+     * <br>对象数据保存成功后，当应用存在时不会释放对象数据，当应用退出后，重新进入应用时，恢复保存在设备上的数据。
+     * <br>
+     * <br>有以下几种情况时，保存的数据将会被释放：
+     * <br>
      * - 存储时间超过24小时。
      * - 应用卸载。
      * - 成功恢复数据之后。
      *
      * @param { string } deviceId - 存储数据的设备号，标识需要保存对象的设备。"local"表示本地设备，否则表示其他设备的设备号。
-     * @param { AsyncCallback<SaveSuccessResponse> } callback - 回调函数。返回SaveSuccessResponse，包含sessionId、version、deviceId等
-     *     信息。
+     * @param { AsyncCallback<SaveSuccessResponse> } callback - 回调函数。当保存成功，err为undefined，data为SaveSuccessResponse（包含
+     *     sessionId、version、deviceId等信息）；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -444,12 +448,12 @@ declare namespace distributedDataObject {
     save(deviceId: string, callback: AsyncCallback<SaveSuccessResponse>): void;
 
     /**
-     * 保存分布式数据对象。使用Promise方式作为异步回调。
-     * 
-     * 对象数据保存成功后，当应用存在时不会释放对象数据，当应用退出后，重新进入应用时，恢复保存在设备上的数据。
-     * 
-     * 有以下几种情况时，保存的数据将会被释放：
-     * 
+     * 保存分布式数据对象。使用Promise异步回调。
+     * <br>
+     * <br>对象数据保存成功后，当应用存在时不会释放对象数据，当应用退出后，重新进入应用时，恢复保存在设备上的数据。
+     * <br>
+     * <br>有以下几种情况时，保存的数据将会被释放：
+     * <br>
      * - 存储时间超过24小时。
      * - 应用卸载。
      * - 成功恢复数据之后。
@@ -466,13 +470,14 @@ declare namespace distributedDataObject {
     save(deviceId: string): Promise<SaveSuccessResponse>;
 
     /**
-     * 撤回保存的分布式数据对象。使用callback方式作为异步方法。
-     * 
-     * 如果对象保存在本地设备，那么将删除所有受信任设备上所保存的数据。
-     * 
-     * 如果对象保存在其他设备，那么将删除本地设备上的数据。
+     * 撤回保存的分布式数据对象。使用callback异步回调。
+     * <br>
+     * <br>如果对象保存在本地设备，那么将删除所有受信任设备上所保存的数据。
+     * <br>
+     * <br>如果对象保存在其他设备，那么将删除本地设备上的数据。
      *
-     * @param { AsyncCallback<RevokeSaveSuccessResponse> } callback - 回调函数。返回RevokeSaveSuccessResponse，包含sessionId。
+     * @param { AsyncCallback<RevokeSaveSuccessResponse> } callback - 回调函数。当撤回保存成功，err为undefined，data为
+     *     RevokeSaveSuccessResponse（包含sessionId信息）；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
@@ -482,11 +487,11 @@ declare namespace distributedDataObject {
     revokeSave(callback: AsyncCallback<RevokeSaveSuccessResponse>): void;
 
     /**
-     * 撤回保存的分布式数据对象。使用Promise方式作为异步方法。
-     * 
-     * 如果对象保存在本地设备，那么将删除所有受信任设备上所保存的数据。
-     * 
-     * 如果对象保存在其他设备，那么将删除本地设备上的数据。
+     * 撤回保存的分布式数据对象。使用Promise异步回调。
+     * <br>
+     * <br>如果对象保存在本地设备，那么将删除所有受信任设备上所保存的数据。
+     * <br>
+     * <br>如果对象保存在其他设备，那么将删除本地设备上的数据。
      *
      * @returns { Promise<RevokeSaveSuccessResponse> } Promise对象。返回RevokeSaveSuccessResponse，包含sessionId。
      * @throws { BusinessError } 801 - Capability not supported.
@@ -497,14 +502,14 @@ declare namespace distributedDataObject {
     revokeSave(): Promise<RevokeSaveSuccessResponse>;
 
     /**
-     * 绑定分布式对象中的单个资产与其对应的数据库信息，当前版本只支持分布式对象中的资产与关系型数据库的绑定。使用callback方式异步回调。
-     * 
-     * 当分布式对象中包含的资产和关系型数据库中包含的资产指向同一个实体资产文件，即两个资产的Uri相同时，就会存在冲突，我们把这种资产称为融合资产。如果需要分布式数据管理进行融合资产的冲突解决，需要先进行资产的绑定。当应用退出
+     * 绑定分布式数据对象中的单个资产与其对应的数据库信息，当前版本只支持分布式数据对象中的资产与关系型数据库的绑定。使用callback异步回调。
+     * <br>
+     * <br>当分布式数据对象中包含的资产和关系型数据库中包含的资产指向同一个实体资产文件，即两个资产的Uri相同时，就会存在冲突，我们把这种资产称为融合资产。如果需要分布式数据管理进行融合资产的冲突解决，需要先进行资产的绑定。当应用退出
      * session后，绑定关系随之消失。
      *
-     * @param { string } assetKey - 待绑定的融合资产在分布式对象中的键值。
+     * @param { string } assetKey - 待绑定的融合资产在分布式数据对象中的键值。
      * @param { BindInfo } bindInfo - 待绑定的融合资产在数据库中的信息，包含库名、表名、主键、列名及在数据库中的资产名。
-     * @param { AsyncCallback<void> } callback - 绑定数据库的回调。
+     * @param { AsyncCallback<void> } callback - 回调函数。当绑定数据库成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -515,12 +520,12 @@ declare namespace distributedDataObject {
     bindAssetStore(assetKey: string, bindInfo: BindInfo, callback: AsyncCallback<void>): void;
 
     /**
-     * 绑定分布式对象中的单个资产与其对应的数据库信息，当前版本只支持分布式对象中的资产与关系型数据库的绑定。使用Promise方式作为异步回调。
-     * 
-     * 当分布式对象中包含的资产和关系型数据库中包含的资产指向同一个实体资产文件，即两个资产的Uri相同时，就会存在冲突，我们把这种资产称为融合资产。如果需要分布式数据管理进行融合资产的冲突解决，需要先进行资产的绑定。当应用退出
+     * 绑定分布式数据对象中的单个资产与其对应的数据库信息，当前版本只支持分布式数据对象中的资产与关系型数据库的绑定。使用Promise异步回调。
+     * <br>
+     * <br>当分布式数据对象中包含的资产和关系型数据库中包含的资产指向同一个实体资产文件，即两个资产的Uri相同时，就会存在冲突，我们把这种资产称为融合资产。如果需要分布式数据管理进行融合资产的冲突解决，需要先进行资产的绑定。当应用退出
      * session后，绑定关系随之消失。
      *
-     * @param { string } assetKey - 待绑定的融合资产在分布式对象中的键值。
+     * @param { string } assetKey - 待绑定的融合资产在分布式数据对象中的键值。
      * @param { BindInfo } bindInfo - 待绑定的融合资产在数据库中的信息，包含库名、表名、主键、列名及在数据库中的资产名。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -533,26 +538,26 @@ declare namespace distributedDataObject {
     bindAssetStore(assetKey: string, bindInfo: BindInfo): Promise<void>;
 
     /**
-     * 监听分布式对象的数据变更。
+     * 监听分布式数据对象的数据变更。
      *
      * @param { 'change' } type - 事件类型，固定为'change'，表示数据变更。
-     * @param { DataObserver } callback - 表示分布式对象数据变更的回调实例。
+     * @param { DataObserver } callback - 表示分布式数据对象数据变更的回调实例。
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 20 dynamic
      */
     on(type: 'change', callback: DataObserver): void;
 
     /**
-     * 监听分布式对象的数据变更。
+     * 监听分布式数据对象的数据变更。
      *
-     * @param { DataObserver } callback - 表示分布式对象数据变更的回调实例。
+     * @param { DataObserver } callback - 表示分布式数据对象数据变更的回调实例。
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 23 static
      */
     onChange(callback: DataObserver): void;
 
     /**
-     * 当不再进行数据变更监听时，使用此接口删除分布式对象数据变更监听的回调实例。
+     * 当不再进行数据变更监听时，使用此接口删除分布式数据对象数据变更监听的回调实例。
      *
      * @param { 'change' } type - 事件类型，固定为'change'，表示数据变更。
      * @param { DataObserver } [callback] - 需要删除的数据变更回调实例，若不设置则删除该对象所有的数据变更回调实例。
@@ -562,7 +567,7 @@ declare namespace distributedDataObject {
     off(type: 'change', callback?: DataObserver): void;
 
     /**
-     * 当不再进行数据变更监听时，使用此接口删除分布式对象数据变更监听的回调实例。
+     * 当不再进行数据变更监听时，使用此接口删除分布式数据对象数据变更监听的回调实例。
      *
      * @param { DataObserver } [callback] - 需要删除的数据变更回调实例，若不设置则删除该对象所有的数据变更回调实例。
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
@@ -571,19 +576,19 @@ declare namespace distributedDataObject {
     offChange(callback?: DataObserver): void;
 
     /**
-     * 监听分布式对象的状态变更。
+     * 监听分布式数据对象的状态变更。
      *
-     * @param { 'status' } type - 事件类型，固定为'status'，表示分布式对象状态变更事件。
-     * @param { StatusObserver } callback - 表示分布式对象状态变更的回调实例。
+     * @param { 'status' } type - 事件类型，固定为'status'，表示分布式数据对象状态变更事件。
+     * @param { StatusObserver } callback - 表示分布式数据对象状态变更的回调实例。
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 20 dynamic
      */
     on(type: 'status', callback: StatusObserver): void;
 
     /**
-     * 监听分布式对象的状态变更。
+     * 监听分布式数据对象的状态变更。
      *
-     * @param { StatusObserver } callback - 表示分布式对象状态变更的回调实例。
+     * @param { StatusObserver } callback - 表示分布式数据对象状态变更的回调实例。
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @stagemodelonly
      * @since 23 static
@@ -591,9 +596,9 @@ declare namespace distributedDataObject {
     onStatus(callback: StatusObserver): void
 
     /**
-     * 当不再进行分布式对象状态变更监听时，使用此接口删除分布式对象状态变更的回调实例。
+     * 当不再进行分布式数据对象状态变更监听时，使用此接口删除分布式数据对象状态变更的回调实例。
      *
-     * @param { 'status' } type - 事件类型，固定为'status'，表示数据对象状态变更事件。
+     * @param { 'status' } type - 事件类型，固定为'status'，表示分布式数据对象状态变更事件。
      * @param { StatusObserver } [callback] - 需要删除状态变更的回调实例，若不设置则删除该对象所有的状态变更回调实例。
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 20 dynamic
@@ -601,9 +606,10 @@ declare namespace distributedDataObject {
     off(type: 'status', callback?: StatusObserver): void;
 
     /**
-     * 当不再进行分布式对象状态变更监听时，使用此接口删除分布式对象状态变更的回调实例。
+     * 当不再进行分布式数据对象状态变更监听时，使用此接口删除分布式数据对象状态变更的回调实例。
      *
-     * @param { StatusObserver } [callback] - 需要删除状态变更的回调实例，若不设置则删除该对象所有的状态变更回调实例。
+     * @param { StatusObserver } [callback] - The observer of object status changed, if not null, off the callback, if
+     *     undefined, off all callbacks.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 23 static
      */
@@ -622,7 +628,7 @@ declare namespace distributedDataObject {
     /**
      * 监听资产传输进度。
      *
-     * @param { ProgressObserver } 表示资产传输进度变化的回调实例。
+     * @param { ProgressObserver } callback - 表示资产传输进度变化的回调实例。
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 23 static
      */
@@ -639,19 +645,34 @@ declare namespace distributedDataObject {
     off(type: 'progressChanged', callback?: ProgressObserver): void;
 
     /**
-     * 当不再进行资产传输进度监听时，使用此接口取消监听。
+     * Unsubscribes from the asset sync progress.
      *
-     * @param { ProgressObserver } [callback] 需要取消监听的事件回调，若不设置，则取消对该事件的所有监听。
+     * @param { ProgressObserver } [callback] Observer to be unregistered.
+     *     If this parameter is not set, all observers will be unregistered.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 23 static
      */
     offProgressChanged(callback?: ProgressObserver): void;
 
     /**
-     * 设置分布式对象中的单个资产的属性信息，该接口必须在[setSessionId]{@link distributedDataObject.DataObject.setSessionId(sessionId?: string)}接
-     * 口调用前使用。使用Promise异步回调。
+     * 设置分布式数据对象中的单个资产的属性信息，该接口必须在
+     * [setSessionId]{@link distributedDataObject.DataObject.setSessionId(sessionId?: string)}接口调用前使用。使用Promise异步回调。
+     * <br>
+     * > **注意：**
+     * >
+     * > 在设置资产时必须保证assetKey存在且对应文件为资产类型文件，否则无法保证对端能接收到此次设置的资产。
+     * >
+     * > 在设置资产时必须保证uri为正确且真实存在的分布式路径，否则无法保证对端能接收到此次设置的资产。
+     * > 有以下几种异常场景:
+     * 
+     * | 触发条件  | 操作结果 |
+     *   | -------- | -------- |
+     *   | 调用[setSessionId]{@link distributedDataObject.DataObject.setSessionId(sessionId?: string)}接口设置sessionId后再调用[setAsset]{@link distributedDataObject.DataObject.setAsset}接口设置资产。   | 设置资产失败，抛出15400003异常。 |
+     *   | assetKey为无效值，例如：null（不存在）、undefined（未定义）或''（空字符串）。            | 设置资产失败，抛出15400002异常。 |
+     *   | assetKey存在、对应文件为非资产类型。 | 系统会强制修改该字段对应的文件类型为资产类型且设置资产字段，可能出现真实资产无法同步至对端设备。 |
+     *   | uri为无效值，例如：null（不存在）、undefined（未定义）或''（空字符串）。                  | 设置资产失败，抛出15400002异常。 |
      *
-     * @param { string } assetKey - 分布式对象中资产类型数据对应的属性名。<br/>**使用约束：** <br/>（1）提供的assetKey对应的文件必须已存在且类型为资产
+     * @param { string } assetKey - 分布式数据对象中资产类型数据对应的属性名。<br/>**使用约束：** <br/>（1）提供的assetKey对应的文件必须已存在且类型为资产
      *     [Asset]{@link @ohos.data.commonType:commonType.Asset}，才可进行正确的设置资产。若assetKey对应文件不存在或文件存在但类型不是资产类型，可能会出现资产设置错误。
      *     <br/>（2）在协同或接续场景下需要双端满足assetKey对应的文件存在且为资产类型，才可将设置的资产同步到对端设备。
      * @param { string } uri - 待设置的新资产的uri，表示该资产的存放的分布式路径。必须为真实存在的资产对应的分布式路径。
@@ -667,10 +688,26 @@ declare namespace distributedDataObject {
     setAsset(assetKey: string, uri: string): Promise<void>;
 
     /**
-     * 设置分布式对象中的多个资产的属性信息，该接口必须在[setSessionId]{@link distributedDataObject.DataObject.setSessionId(sessionId?: string)}接
-     * 口调用前使用。使用Promise异步回调。
+     * 设置分布式数据对象中的多个资产的属性信息，该接口必须在
+     * [setSessionId]{@link distributedDataObject.DataObject.setSessionId(sessionId?: string)}接口调用前使用。使用Promise异步回调。
+     * <br>
+     * > **注意：**
+     * >
+     * > 在设置资产时必须保证assetsKey存在且对应文件为资产类型文件，否则无法保证对端能接收到此次设置的资产。
+     * >
+     * > 在设置资产时必须保证uris数组中uri元素的数量在[1, 50]之间，元素uri均为正确且真实存在的分布式路径，否则无法保证对端能接收到此次设置的资产。
+     * > 有以下几种异常场景:
+     * 
+     * | 触发条件  | 操作结果 |
+     *   | -------- | -------- |
+     *   | 调用[setSessionId]{@link distributedDataObject.DataObject.setSessionId(sessionId?: string)}接口设置sessionId后再调用[setAssets]{@link distributedDataObject.DataObject.setAssets}接口设置资产。   | 设置资产失败，抛出15400003异常。 |
+     *   | assetsKey为无效值，例如：null（不存在）、undefined（未定义）或''（空字符串）。            | 设置资产失败，抛出15400002异常。 |
+     *   | assetsKey存在、对应文件为非资产类型。 | 系统会强制修改该字段对应的文件类型为资产类型且设置资产字段，可能出现真实资产无法同步至对端设备。 |
+     *   | assetsKey存在、且对应文件为资产类型。 | 设置资产成功、更新uri信息。 |
+     *   | uris数组中uri元素的数量在[1, 50]之外。     | 设置资产失败，抛出15400002异常。 |
+     *   | uris数组中uri元素的数量在[1, 50]之间，存在单个或多个uri无效，例如：null（不存在）、undefined（未定义）或''（空字符串）。| 设置资产失败，抛出15400002异常。 |
      *
-     * @param { string } assetsKey - 分布式对象中资产数组类型数据对应的属性名。<br/>**使用约束：** <br/>（1）提供的assetsKey对应的文件已存在且类型必须为资产
+     * @param { string } assetsKey - 分布式数据对象中资产数组类型数据对应的属性名。<br/>**使用约束：** <br/>（1）提供的assetsKey对应的文件已存在且类型必须为资产
      *     [Asset]{@link @ohos.data.commonType:commonType.Asset}，才可进行正确的设置资产。若assetsKey对应文件不存在或文件存在但类型不是资产类型，可能会出现资产设置错
      *     误。<br/>（2）在协同或接续场景下需要双端满足assetsKey对应的文件存在且为资产类型，才可将设置的资产数组同步到对端设备。
      * @param { Array<string> } uris - 待设置的新资产数组的uri集合，表示资产数组内每个资产存放的分布式路径。数组中元素的数量为[1, 50]，元素uri必须为真实存在的资产对应的分布式路径。
