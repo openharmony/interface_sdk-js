@@ -36,6 +36,151 @@
  */
 declare namespace hyperSnapManager {
     /**
+     * 枚举Hyper Snap错误类型。
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    export enum HyperSnapErrorType {
+        /**
+         * 创建快照过程中出现的错误类型。
+         *
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @stagemodelonly
+         * @since 26.1.0 dynamic&static
+         */
+        CREATE_SNAPSHOT = 0,
+
+        /**
+         * 从快照生成进程期间发生的错误类型。
+         *
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @stagemodelonly
+         * @since 26.1.0 dynamic&static
+         */
+        FORK_FROM_SNAPSHOT = 1
+    }
+
+    /**
+     * 枚举Hyper Snap错误码。
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    export enum HyperSnapErrorCode {
+        /**
+         * 成功。
+         *
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @stagemodelonly
+         * @since 26.1.0 dynamic&static
+         */
+        ERR_OK = 0,
+
+        /**
+         * 系统内部错误。
+         *
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @stagemodelonly
+         * @since 26.1.0 dynamic&static
+         */
+        ERR_SYSTEM_INNER = 1,
+
+        /**
+         * 快照已存在。
+         *
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @stagemodelonly
+         * @since 26.1.0 dynamic&static
+         */
+        ERR_SNAPSHOT_EXIST = 2,
+
+        /**
+         * 准备创建快照时，进程已在运行。
+         *
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @stagemodelonly
+         * @since 26.1.0 dynamic&static
+         */
+        ERR_PROCESS_IS_RUNNING = 3,
+
+        /**
+         * 创建快照的进程在操作过程中被kill掉。
+         *
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @stagemodelonly
+         * @since 26.1.0 dynamic&static
+         */
+        ERR_SNAPSHOT_PROCESS_IS_DIED = 4,
+
+        /**
+         * 由于用户启动了应用程序，快照创建被中断。
+         *
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @stagemodelonly
+         * @since 26.1.0 dynamic&static
+         */
+        ERR_SNAPSHOT_IS_INTERRUPTED = 5,
+
+        /**
+         * 存在非法的Binder。
+         *
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @stagemodelonly
+         * @since 26.1.0 dynamic&static
+         */
+        ERR_EXISTS_ILLEGAL_BINDER = 6,
+
+        /**
+         * 上一个进程没有完全退出。
+         *
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @stagemodelonly
+         * @since 26.1.0 dynamic&static
+         */
+        ERR_LAST_PROCESS_NOT_FULLY_EXITED = 7
+    }
+
+    /**
+     * 描述Hyper Snap的错误信息。
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    export interface HyperSnapErrorInfo {
+        /**
+         * 错误码。
+         *
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @stagemodelonly
+         * @since 26.1.0 dynamic&static
+         */
+        code: HyperSnapErrorCode;
+
+        /**
+         * 错误消息。
+         *
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @stagemodelonly
+         * @since 26.1.0 dynamic&static
+         */
+        msg: string;
+
+        /**
+         * 自发生错误时Unix历元以来经过的时间。
+         * 单位为：毫秒。取值限定为整数。
+         *
+         * @syscap SystemCapability.Ability.AbilityRuntime.Core
+         * @stagemodelonly
+         * @since 26.1.0 dynamic&static
+         */
+        occurTimeStamp: long;
+    }
+
+    /**
      * 启用或禁用应用的快启功能。
      * 
      * > **说明：**
@@ -59,12 +204,25 @@ declare namespace hyperSnapManager {
      * 
      * 此方法会销毁当前进程已经初始化的快启数据，系统将在合适的时机重新进行快启初始化。
      *
-     * @throws { BusinessError } 16000150 -  Failed to send request to system service.
+     * @throws { BusinessError } 16000150 - Failed to send request to system service.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
      * @since 24 dynamic&static
      */
     function requestRebuildHyperSnap(): void;
-}
 
+    /**
+     * 获取指定场景下当前应用的最后一次Hyper Snap错误信息。
+     * 每个场景的错误信息独立存储，并在请求成功后清除。
+     * 设备重启后，所有错误信息都会被清除。
+     *
+     * @param { HyperSnapErrorType } errType - Hyper Snap错误类型。
+     * @returns { Promise<HyperSnapErrorInfo> } Promise用于返回错误信息。
+     * @throws { BusinessError } 16000050 - Connect to system service failed.
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    function getLastError(errType: HyperSnapErrorType): Promise<HyperSnapErrorInfo>;
+}
 export default hyperSnapManager;

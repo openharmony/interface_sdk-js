@@ -24,12 +24,18 @@
  * 
  * > **说明：**
  * >
- * > - 该组件从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * >
- * > - 该组件仅可在Stage模型下使用。
- * >
- * > - SplitLayout不支持设置[通用属性]{@link ./@internal/component/ets/common}和[通用事件]{@link ./@internal/component/ets/common}。如果设
- * > 置，编译工具链会额外生成__Common__节点，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到SplitLayout本身，导致设置的属性或事件不生效。
+ * > - SplitLayout不支持设置[通用属性]{@link ./@internal/component/ets/common}和[通用事件]{@link ./@internal/component/ets/common}。
+ * > 如果设置，编译工具链会额外生成__Common__节点，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到SplitLayout本身，导致设置的属性或事件不生效。
+ *
+ * ## 导入模块
+ *
+ * ```ts
+ * import { SplitLayout } from '@kit.ArkUI';
+ * ```
+ *
+ * ## 子组件
+ *
+ * 无
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

@@ -14,9 +14,7 @@
  */
 
 /**
- 外设管理
- * @file
- 外设管理
+ * @file 外设管理
  * @kit DriverDevelopmentKit
  */
 

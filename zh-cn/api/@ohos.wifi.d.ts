@@ -14,24 +14,29 @@
  */
 
 /**
- * @file
+ * @file WLAN
  * @kit ConnectivityKit
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * 提供WLAN基础功能、P2P（peer-to-peer）功能和WLAN消息通知的相应服务，让应用可以通过WLAN和其他设备互联互通。
- * @namespace wifi
+ * 该模块主要提供Wi-Fi基础功能（如Wi-Fi扫描、连接管理、连接信息查询、信号强度获取等）、P2P（peer-to-peer）功能（如设备发现、群组创建与管理、P2P连接等）和Wi-Fi消息通知服务，适用于应用通过Wi-Fi接入网络
+ * 或与其他设备进行点对点数据传输和互联互通的场景。
+ * 
+ * > **说明：**
+ * >
+ * > 从API version 9开始，该接口不再维护，推荐使用[@ohos.wifiManager (WLAN)]{@link @ohos.wifiManager:wifiManager}等相关接口。
+ *
  * @syscap SystemCapability.Communication.WiFi.STA
  * @since 6 dynamiconly
  */
 declare namespace wifi {
   /**
-   * 使能WLAN。
+   * 启动Wi-Fi。
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   * @returns { boolean } true:操作成功， false:操作失败。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -41,10 +46,10 @@ declare namespace wifi {
   function enableWifi(): boolean;
 
   /**
-   * 去使能WLAN。
+   * 禁用Wi-Fi。
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   * @returns { boolean } true:操作成功， false:操作失败。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -54,10 +59,14 @@ declare namespace wifi {
   function disableWifi(): boolean;
 
   /**
-   * 查询WLAN是否已使能。
+   * 查询Wi-Fi是否已使能。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 6开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { boolean } WLAN已使能时返回{@code true}，否则返回{@code false}。
+   * @returns { boolean } true:已使能， false:未使能。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 6 dynamiconly
    * @deprecated since 9
@@ -66,12 +75,14 @@ declare namespace wifi {
   function isWifiActive(): boolean;
 
   /**
-   * 启动WLAN扫描。
-   *
-   * <p>该接口工作在异步模式。</p>
+   * 启动Wi-Fi扫描。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 6开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.LOCATION
-   * @returns { boolean } 扫描操作执行成功时返回{@code true}，扫描操作执行失败时返回{@code false}。
+   * @returns { boolean } true:扫描操作执行成功， false:扫描操作执行失败。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 6 dynamiconly
    * @deprecated since 9
@@ -81,9 +92,13 @@ declare namespace wifi {
 
   /**
    * 获取扫描结果，使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 6开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or ohos.permission.LOCATION)
-   * @returns { Promise<Array<WifiScanInfo>> } 返回扫描到的热点列表。
+   * @returns { Promise<Array<WifiScanInfo>> } Promise对象。返回扫描到的热点列表。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 6 dynamiconly
    * @deprecated since 9
@@ -93,9 +108,13 @@ declare namespace wifi {
 
   /**
    * 获取扫描结果，使用callback异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 6开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO and (ohos.permission.GET_WIFI_PEERS_MAC or ohos.permission.LOCATION)
-   * @param { AsyncCallback<Array<WifiScanInfo>> } 回调函数。当成功时，err为0，data为扫描到的热点；否则err为非0值，data为空。
+   * @param { AsyncCallback<Array<WifiScanInfo>> } callback - 回调函数。当成功时，err为0，data为扫描到的热点；否则err为非0值，data为空。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 6 dynamiconly
    * @deprecated since 9
@@ -104,13 +123,11 @@ declare namespace wifi {
   function getScanInfos(callback: AsyncCallback<Array<WifiScanInfo>>): void;
 
   /**
-   * 添加网络配置，使用Promise异步回调。
-   *
-   * <p>添加配置后，配置将被更新。</p>
+   * 添加网络配置。使用Promise异步回调。
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
-   * @param { WifiDeviceConfig } config WLAN配置信息。
-   * @returns { Promise<number> } 返回添加的网络配置ID，如果值为{@code -1}表示添加失败。
+   * @param { WifiDeviceConfig } config - Wi-Fi配置信息。
+   * @returns { Promise<number> } Promise对象。返回添加的网络配置ID，如果值为-1表示添加失败。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -120,13 +137,12 @@ declare namespace wifi {
   function addDeviceConfig(config: WifiDeviceConfig): Promise<number>;
 
   /**
-   * 添加网络配置，使用callback异步回调。
-   *
-   * <p>添加配置后，配置将被更新。</p>
+   * 添加网络配置。使用callback异步回调。
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
-   * @param { WifiDeviceConfig } config WLAN配置信息。
-   * @param { AsyncCallback<number> }
+   * @param { WifiDeviceConfig } config - Wi-Fi配置信息。
+   * @param { AsyncCallback<number> } callback - 回调函数。当操作成功时，error为0，data为添加的网络配置ID，如果data值为-1，表示添加失败。当error为非0，表示处理出现错
+   *     误。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -137,12 +153,14 @@ declare namespace wifi {
 
   /**
    * 添加不可信网络配置，使用Promise异步回调。
-   *
-   * <p>该方法一次添加一个配置。添加该配置后，设备将决定是否连接到热点。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.SET_WIFI_INFO
-   * @param { WifiDeviceConfig } config - WLAN配置信息。
-   * @returns { Promise<boolean> }  表示操作结果，{@code true}:成功，{@code false}:失败。
+   * @param { WifiDeviceConfig } config - Wi-Fi配置信息。
+   * @returns { Promise<boolean> } Promise对象。表示操作结果，true: 成功， false: 失败。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -152,12 +170,15 @@ declare namespace wifi {
 
   /**
    * 添加不可信网络配置，使用callback异步回调。
-   *
-   * <p>该方法一次添加一个配置。添加该配置后，设备将决定是否连接到热点。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.SET_WIFI_INFO
-   * @param { WifiDeviceConfig } config - WLAN配置信息。
-   * @param { AsyncCallback<boolean> }
+   * @param { WifiDeviceConfig } config - Wi-Fi配置信息。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。当操作成功时，异步错误对象error为0，data表示操作结果，true: 成功， false: 失败。如果异步错误对象error
+   *     为非0，表示处理出现错误。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -167,12 +188,14 @@ declare namespace wifi {
 
   /**
    * 移除不可信网络配置，使用Promise异步回调。
-   *
-   * <p>该方法一次移除一个配置。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.SET_WIFI_INFO
-   * @param { WifiDeviceConfig } config - WLAN配置信息。
-   * @returns { Promise<boolean> } 表示操作结果，{@code true}:成功，{@code false}:失败。
+   * @param { WifiDeviceConfig } config - Wi-Fi配置信息。
+   * @returns { Promise<boolean> } Promise对象。表示操作结果，true: 成功， false: 失败。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -182,12 +205,15 @@ declare namespace wifi {
 
   /**
    * 移除不可信网络配置，使用callback异步回调。
-   *
-   * <p>该方法一次移除一个配置。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.SET_WIFI_INFO
-   * @param { WifiDeviceConfig } config - WLAN配置信息。
-   * @param { AsyncCallback<boolean> }
+   * @param { WifiDeviceConfig } config - Wi-Fi配置信息。
+   * @param { AsyncCallback<boolean> } callback - 回调函数。当操作成功时，异步错误对象error为0，data表示操作结果，true: 成功， false: 失败。如果error为非0，表示
+   *     处理出现错误。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -199,8 +225,8 @@ declare namespace wifi {
    * 应用使用该接口连接到热点。
    *
    * @permission ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } networkId 待连接的网络配置ID。
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   * @param { number } networkId - 待连接的网络配置ID。
+   * @returns { boolean } true:操作成功， false:操作失败。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -212,11 +238,10 @@ declare namespace wifi {
   /**
    * 连接到指定网络。
    *
-   *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG and
-   * ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { WifiDeviceConfig } config WLAN配置信息。
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   *     ohos.permission.MANAGE_WIFI_CONNECTION
+   * @param { WifiDeviceConfig } config - Wi-Fi配置信息。
+   * @returns { boolean } true:操作成功， false:操作失败。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -229,7 +254,7 @@ declare namespace wifi {
    * 断开连接的网络。
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   * @returns { boolean } true:操作成功， false:操作失败。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -239,12 +264,16 @@ declare namespace wifi {
   function disconnect(): boolean;
 
   /**
-   * 查询WLAN信号强度。
+   * 查询Wi-Fi信号强度。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 6开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { number } rssi 热点的信号强度(dBm)。
-   * @param { number } band WLAN接入点的频段。
-   * @returns { number } 信号强度，取值范围为[0, 4]。
+   * @param { number } rssi - 热点的信号强度(dBm)。
+   * @param { number } band - Wi-Fi接入点的频段。
+   * @returns { number } 信号强度，取值范围为[0, 4]。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 6 dynamiconly
    * @deprecated since 9
@@ -253,10 +282,14 @@ declare namespace wifi {
   function getSignalLevel(rssi: number, band: number): number;
 
   /**
-   * 获取WLAN连接信息。使用Promise异步回调。
+   * 获取Wi-Fi连接信息。使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 6开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { Promise<WifiLinkedInfo> } 表示WLAN连接信息。
+   * @returns { Promise<WifiLinkedInfo> } Promise对象。表示Wi-Fi连接信息。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 6 dynamiconly
    * @deprecated since 9
@@ -265,10 +298,14 @@ declare namespace wifi {
   function getLinkedInfo(): Promise<WifiLinkedInfo>;
 
   /**
-   * 获取WLAN连接信息。使用callback异步回调。
+   * 获取Wi-Fi连接信息。使用callback异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 6开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { AsyncCallback<WifiLinkedInfo> } 回调函数。当获取成功时，err为0，data表示WLAN连接信息。如果error为非0，表示处理出现错误。
+   * @param { AsyncCallback<WifiLinkedInfo> } callback - 回调函数。当获取成功时，err为0，data表示Wi-Fi连接信息。如果err为非0，表示处理出现错误。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 6 dynamiconly
    * @deprecated since 9
@@ -277,10 +314,14 @@ declare namespace wifi {
   function getLinkedInfo(callback: AsyncCallback<WifiLinkedInfo>): void;
 
   /**
-   * 查询WLAN是否已连接。
+   * 查询Wi-Fi是否已连接。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { boolean } true:已连接，false:未连接。
+   * @returns { boolean } true:已连接， false:未连接。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -291,10 +332,10 @@ declare namespace wifi {
   /**
    * 查询设备支持的特性。
    *
-   * <p>检查设备是否支持指定特性。
-   *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { number }支持的特性值。
+   * @returns { number } 支持的特性值。特性值枚举：<br/>- 0x0001: 基础结构模式特性。<br/>- 0x0002: 5 GHz带宽特性。<br/>- 0x0004: GAS/ANQP特性。<br/>-
+   *     0x0008: Wifi-Direct特性。<br/>- 0x0010: Soft AP特性。<br/>- 0x0040: Wi-Fi Aware组网特性。<br/>- 0x8000: AP STA共存特性。<br/>-
+   *     0x8000000: WPA3-Personal SAE特性。<br/>- 0x10000000: WPA3-Enterprise Suite-B。<br/>- 0x20000000: 增强开放特性。
    * @syscap SystemCapability.Communication.WiFi.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -304,11 +345,15 @@ declare namespace wifi {
   function getSupportedFeatures(): number;
 
   /**
-   * 判断设备是否支持相关WLAN特性。
+   * 判断设备是否支持指定featureId对应的Wi-Fi特性。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { number } featureId 特性ID值。
-   * @returns { boolean } true:支持，false:不支持。
+   * @param { number } featureId - 特性ID值。
+   * @returns { boolean } true:支持， false:不支持。
    * @syscap SystemCapability.Communication.WiFi.Core
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -317,9 +362,7 @@ declare namespace wifi {
   function isFeatureSupported(featureId: number): boolean;
 
   /**
-   * 获取设备的MAC地址。WLAN必须已使能。
-   *
-   * <p>MAC地址是唯一的，无法更改。
+   * 获取设备的MAC地址。
    *
    * @permission ohos.permission.GET_WIFI_LOCAL_MAC and ohos.permission.GET_WIFI_INFO
    * @returns { string[] } MAC地址。
@@ -333,8 +376,10 @@ declare namespace wifi {
 
   /**
    * 获取IP信息。
-   *
-   * <p>IP信息包括主机IP地址、网关地址和DNS信息。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { IpInfo } IP信息。
@@ -347,6 +392,10 @@ declare namespace wifi {
 
   /**
    * 获取国家码信息。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
    * @returns { string } 国家码。
@@ -361,7 +410,7 @@ declare namespace wifi {
    * 重新关联网络。
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @returns { boolean } true:操作成功，false:操作失败。
+   * @returns { boolean } true:操作成功， false:操作失败。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -374,7 +423,7 @@ declare namespace wifi {
    * 重新连接网络。
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @returns { boolean } true:操作成功，false:操作失败。
+   * @returns { boolean } true:操作成功， false:操作失败。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -385,8 +434,6 @@ declare namespace wifi {
 
   /**
    * 获取网络配置。
-   *
-   * <p>只能获取本应用创建的网络配置。
    *
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.GET_WIFI_CONFIG
    * @returns { Array<WifiDeviceConfig> } 网络配置信息的数组。
@@ -402,9 +449,8 @@ declare namespace wifi {
    * 更新网络配置。
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.SET_WIFI_CONFIG
-   * @param { WifiDeviceConfig } config WLAN配置信息。
-   * @returns { number } 返回更新的网络配置ID，如果值为{@code -1}表示更新失败。
-   *     如果指定的WLAN配置不在列表中，返回{@code -1}。
+   * @param { WifiDeviceConfig } config - Wi-Fi配置信息。
+   * @returns { number } 返回更新的网络配置ID，如果值为-1表示更新失败。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -414,13 +460,11 @@ declare namespace wifi {
   function updateNetwork(config: WifiDeviceConfig): number;
 
   /**
-   * 去使能网络配置。
-   *
-   * <p>去使能的网络将不再被关联。
+   * 关闭网络配置。
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } netId 网络配置ID。
-   * @returns { boolean } 指定网络已去使能返回{@code true}，否则返回{@code false}。
+   * @param { number } netId - 网络配置ID。
+   * @returns { boolean } 关闭网络配置是否成功。true:操作成功， false:操作失败。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -433,7 +477,7 @@ declare namespace wifi {
    * 移除所有网络配置。
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   * @returns { boolean } true:操作成功， false:操作失败。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -445,14 +489,9 @@ declare namespace wifi {
   /**
    * 移除指定的网络配置。
    *
-   * <p>删除WLAN网络后，其配置将从网络配置列表中删除。
-   * 如果正在连接该WLAN网络，连接将被中断。
-   * 应用只能删除自己创建的WLAN网络。
-   *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } id WLAN网络的ID，
-   *     可通过{@link #addDeviceConfig}或{@link #getLinkedInfo}方法获取。
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   * @param { number } id - 网络配置ID。
+   * @returns { boolean } 移除指定的网络配置操作是否成功。true:操作成功， false:操作失败。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -462,12 +501,10 @@ declare namespace wifi {
   function removeDevice(id: number): boolean;
 
   /**
-   * 使能热点。
-   *
-   * <p>该方法是异步的。使能热点后，WLAN可能会被去使能。
+   * 开启热点。
    *
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   * @returns { boolean } 开启热点是否成功。true:操作成功， false:操作失败。
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -477,12 +514,10 @@ declare namespace wifi {
   function enableHotspot(): boolean;
 
   /**
-   * 去使能热点。
-   *
-   * <p>该方法是异步的。去使能热点后，如果WLAN已使能，WLAN可能会被重新使能。
+   * 关闭热点。
    *
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   * @returns { boolean } true:操作成功， false:操作失败。
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -495,7 +530,7 @@ declare namespace wifi {
    * 热点是否支持双频。
    *
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.MANAGE_WIFI_HOTSPOT
-   * @returns { boolean } true:支持，{@code false}:不支持。
+   * @returns { boolean } true:支持， false:不支持。
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -505,10 +540,10 @@ declare namespace wifi {
   function isHotspotDualBandSupported(): boolean;
 
   /**
-   * 热点是否已使能。
+   * 热点是否已激活。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { boolean } true:已使能，false:未使能。
+   * @returns { boolean } 热点是否已激活 true:已激活， false:未激活。
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -520,13 +555,9 @@ declare namespace wifi {
   /**
    * 设置热点配置信息。
    *
-   * <p>仅支持配置OPEN和WPA2 PSK热点。
-   *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.GET_WIFI_CONFIG
-   * @param { HotspotConfig } 热点配置信息。
-   *     SSID和{@code securityType}必须可用且正确。
-   *     如果{@code securityType}不是{@code open}，{@code preSharedKey}必须可用且正确。
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   * @param { HotspotConfig } config - 热点配置信息。
+   * @returns { boolean } true:操作成功， false:操作失败。
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -551,8 +582,6 @@ declare namespace wifi {
   /**
    * 获取连接的设备。
    *
-   * <p>该方法只能在作为热点的设备上使用。
-   *
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION and ohos.permission.MANAGE_WIFI_HOTSPOT
    * @returns { Array<StationInfo> } 连接的设备数组。
    * @syscap SystemCapability.Communication.WiFi.AP.Core
@@ -564,10 +593,14 @@ declare namespace wifi {
   function getStations(): Array<StationInfo>;
 
   /**
-   * 获取P2P连接信息。
+   * 获取P2P连接信息。使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { Promise<WifiP2pLinkedInfo> } P2P连接信息。
+   * @returns { Promise<WifiP2pLinkedInfo> } Promise对象。表示P2P连接信息。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -576,10 +609,14 @@ declare namespace wifi {
   function getP2pLinkedInfo(): Promise<WifiP2pLinkedInfo>;
 
   /**
-   * 获取P2P连接信息。
+   * 获取P2P连接信息。使用callback异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { AsyncCallback<WifiP2pLinkedInfo> } 回调函数。获取P2P连接信息时，err为0，data为P2P连接信息；否则为错误对象。
+   * @param { AsyncCallback<WifiP2pLinkedInfo> } callback - 回调函数。当操作成功时，err为0，data表示P2P连接信息。如果err为非0，表示处理出现错误。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -588,10 +625,14 @@ declare namespace wifi {
   function getP2pLinkedInfo(callback: AsyncCallback<WifiP2pLinkedInfo>): void;
 
   /**
-   * 获取当前群组信息。
+   * 获取P2P当前组信息。使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-   * @returns { Promise<WifiP2pGroupInfo> } 当前群组信息。
+   * @returns { Promise<WifiP2pGroupInfo> } Promise对象。表示当前组信息。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -600,10 +641,14 @@ declare namespace wifi {
   function getCurrentGroup(): Promise<WifiP2pGroupInfo>;
 
   /**
-   * 获取当前群组信息。
+   * 获取P2P当前组信息。使用callback异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-   * @param { AsyncCallback<WifiP2pGroupInfo> } 回调函数。获取当前群组信息时，err为0，data为当前群组信息；否则为错误对象。
+   * @param { AsyncCallback<WifiP2pGroupInfo> } callback - 回调函数。当操作成功时，err为0，data表示当前组信息。如果err为非0，表示处理出现错误。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -612,10 +657,14 @@ declare namespace wifi {
   function getCurrentGroup(callback: AsyncCallback<WifiP2pGroupInfo>): void;
 
   /**
-   * 获取发现的设备信息。
+   * 获取P2P对端设备列表信息。使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-   * @returns { Promise<WifiP2pDevice[]> } 发现的设备列表。
+   * @returns { Promise<WifiP2pDevice[]> } Promise对象。表示对端设备列表信息。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -624,10 +673,14 @@ declare namespace wifi {
   function getP2pPeerDevices(): Promise<WifiP2pDevice[]>;
 
   /**
-   * 获取发现的设备信息。
+   * 获取P2P对端设备列表信息。使用callback异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-   * @param { AsyncCallback<WifiP2pDevice[]> } 回调函数。获取发现的设备列表时，err为0，data为发现的设备列表；否则为错误对象。
+   * @param { AsyncCallback<WifiP2pDevice[]> } callback - 回调函数。当操作成功时，err为0，data表示对端设备列表信息。如果err为非0，表示处理出现错误。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -636,11 +689,15 @@ declare namespace wifi {
   function getP2pPeerDevices(callback: AsyncCallback<WifiP2pDevice[]>): void;
 
   /**
-   * 创建P2P群组。
+   * 创建群组。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { WifiP2PConfig } config 创建群组的配置。
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   * @param { WifiP2PConfig } config - 群组配置信息。
+   * @returns { boolean } true:创建群组操作执行成功， false:创建群组操作执行失败。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -649,10 +706,14 @@ declare namespace wifi {
   function createGroup(config: WifiP2PConfig): boolean;
 
   /**
-   * 移除P2P群组。
+   * 移除群组。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   * @returns { boolean } true:操作执行成功， false:操作执行失败。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -661,11 +722,15 @@ declare namespace wifi {
   function removeGroup(): boolean;
 
   /**
-   * 使用指定配置发起与设备的P2P连接。
+   * 执行P2P连接。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-   * @param { WifiP2PConfig } config 连接到指定群组的配置。
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   * @param { WifiP2PConfig } config - 连接配置信息。
+   * @returns { boolean } true:操作执行成功， false:操作执行失败。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -675,9 +740,13 @@ declare namespace wifi {
 
   /**
    * 取消P2P连接。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   * @returns { boolean } true:操作执行成功， false:操作执行失败。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -686,10 +755,14 @@ declare namespace wifi {
   function p2pCancelConnect(): boolean;
 
   /**
-   * 发现WLAN P2P设备。
+   * 开始发现设备。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   * @returns { boolean } true:操作执行成功， false:操作执行失败。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -698,10 +771,14 @@ declare namespace wifi {
   function startDiscoverDevices(): boolean;
 
   /**
-   * 停止发现WLAN P2P设备。
+   * 停止发现设备。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   * @returns { boolean } 停止发现设备是否成功。true:操作执行成功，false:操作执行失败。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -710,11 +787,11 @@ declare namespace wifi {
   function stopDiscoverDevices(): boolean;
 
   /**
-   * 删除指定网络ID的持久P2P群组。
+   * 删除永久组。
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { number } 要删除的群组的网络ID。
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   * @param { number } netId - 组的ID。
+   * @returns { boolean } 删除永久组操作是否执行成功。true:操作执行成功，false:操作执行失败。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
    * @since 8 dynamiconly
@@ -724,11 +801,11 @@ declare namespace wifi {
   function deletePersistentGroup(netId: number): boolean;
 
   /**
-   * 设置WLAN P2P设备名称。
+   * 设置设备名称。
    *
    * @permission ohos.permission.SET_WIFI_INFO and ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { string } devName 要设置的名称。
-   * @returns { boolean } 操作成功时返回{@code true}，操作失败时返回{@code false}。
+   * @param { string } devName - 设备名称。
+   * @returns { boolean } 设置设备名称操作是否成功。true:操作成功， false:操作失败。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @systemapi Hide this for inner system use.
    * @since 8 dynamiconly
@@ -738,11 +815,15 @@ declare namespace wifi {
   function setDeviceName(devName: string): boolean;
 
   /**
-   * 订阅WLAN状态改变事件。
+   * 注册Wi-Fi状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'wifiStateChange' } type - 事件名称。
-   * @param { Callback<number> } callback - 状态改变回调函数。0:未激活，1:已激活，2:激活中，3:去激活中
+   * @param { 'wifiStateChange' } type - 固定填"wifiStateChange"字符串。
+   * @param { Callback<number> } callback - 状态改变回调函数。返回状态值枚举：<br/>- 0: 未激活。<br/>- 1: 已激活。<br/>- 2: 激活中。<br/>- 3: 去激活中。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -751,13 +832,15 @@ declare namespace wifi {
   function on(type: 'wifiStateChange', callback: Callback<number>): void;
 
   /**
-   * 取消订阅WLAN状态改变事件。
-   *
-   * <p>如果没有指定callback参数，将取消注册该事件关联的所有回调函数。</p>
+   * 取消注册Wi-Fi状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'wifiStateChange' } type - 事件名称。
-   * @param { Callback<number> } callback - 状态改变回调函数。0:未激活，1:已激活，2:激活中，3:去激活中
+   * @param { 'wifiStateChange' } type - 固定填"wifiStateChange"字符串。
+   * @param { Callback<number> } callback - 状态改变回调函数。如果callback不填，将取消注册该事件关联的所有回调函数。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -766,11 +849,15 @@ declare namespace wifi {
   function off(type: 'wifiStateChange', callback?: Callback<number>): void;
 
   /**
-   * 订阅WLAN连接状态改变事件。
+   * 注册Wi-Fi连接状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'wifiConnectionChange' } type - 事件名称。
-   * @param { Callback<number> } callback - 状态改变回调函数。0:已断开，1:已连接
+   * @param { 'wifiConnectionChange' } type - 固定填"wifiConnectionChange"字符串。
+   * @param { Callback<number> } callback - 状态改变回调函数。返回状态值枚举：<br/>- 0: 已断开。<br/>- 1: 已连接。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -779,13 +866,15 @@ declare namespace wifi {
   function on(type: 'wifiConnectionChange', callback: Callback<number>): void;
 
   /**
-   * 取消订阅WLAN连接状态改变事件。
-   *
-   * <p>如果没有指定callback参数，将取消注册该事件关联的所有回调函数。</p>
+   * 取消注册Wi-Fi连接状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'wifiConnectionChange' } type - 事件名称。
-   * @param { Callback<number> } callback - 状态改变回调函数。0:已断开，1:已连接
+   * @param { 'wifiConnectionChange' } type - 固定填"wifiConnectionChange"字符串。
+   * @param { Callback<number> } callback - 连接状态改变回调函数。如果callback不填，将取消注册该事件关联的所有回调函数。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -794,11 +883,15 @@ declare namespace wifi {
   function off(type: 'wifiConnectionChange', callback?: Callback<number>): void;
 
   /**
-   * 订阅WLAN扫描状态改变事件。
+   * 注册扫描状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'wifiScanStateChange' } type - 事件名称。
-   * @param { Callback<number> } callback - 状态改变回调函数。0:扫描失败，1:扫描成功
+   * @param { 'wifiScanStateChange' } type - 固定填"wifiScanStateChange"字符串。
+   * @param { Callback<number> } callback - 状态改变回调函数。返回状态值枚举：<br/>- 0: 扫描失败。<br/>- 1: 扫描成功。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -807,13 +900,15 @@ declare namespace wifi {
   function on(type: 'wifiScanStateChange', callback: Callback<number>): void;
 
   /**
-   * 取消订阅WLAN扫描状态改变事件。
-   *
-   * <p>如果没有指定callback参数，将取消注册该事件关联的所有回调函数。</p>
+   * 取消注册扫描状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'wifiScanStateChange' } type - 事件名称。
-   * @param { Callback<number> } callback - 状态改变回调函数。0:扫描失败，1:扫描成功
+   * @param { 'wifiScanStateChange' } type - 固定填"wifiScanStateChange"字符串。
+   * @param { Callback<number> } callback - 状态改变回调函数。如果callback不填，将取消注册该事件关联的所有回调函数。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -822,11 +917,15 @@ declare namespace wifi {
   function off(type: 'wifiScanStateChange', callback?: Callback<number>): void;
 
   /**
-   * 订阅WLAN RSSI改变事件。
+   * 注册RSSI状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'wifiRssiChange' } type - 事件名称。
-   * @param { Callback<number> } callback - 状态改变回调函数
+   * @param { 'wifiRssiChange' } type - 固定填"wifiRssiChange"字符串。
+   * @param { Callback<number> } callback - 状态改变回调函数，返回以dBm为单位的RSSI值。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -835,13 +934,15 @@ declare namespace wifi {
   function on(type: 'wifiRssiChange', callback: Callback<number>): void;
 
   /**
-   * 取消订阅WLAN RSSI改变事件。
-   *
-   * <p>如果没有指定callback参数，将取消注册该事件关联的所有回调函数。</p>
+   * 取消注册RSSI状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'wifiRssiChange' } type - 事件名称。
-   * @param { Callback<number> } callback - 状态改变回调函数
+   * @param { 'wifiRssiChange' } type - 固定填"wifiRssiChange"字符串。
+   * @param { Callback<number> } callback - 状态改变回调函数。如果callback不填，将取消注册该事件关联的所有回调函数。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -850,11 +951,11 @@ declare namespace wifi {
   function off(type: 'wifiRssiChange', callback?: Callback<number>): void;
 
   /**
-   * 订阅WLAN数据流改变事件。
+   * 注册Wi-Fi流更改事件。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { 'streamChange' } type - 事件名称。
-   * @param { Callback<number> } callback - 状态改变回调函数。1:向下，2:向上，3:双向
+   * @param { 'streamChange' } type - 固定填"streamChange"字符串。
+   * @param { Callback<number> } callback - 状态改变回调函数，返回0：无，1：下行，2：上行，3：双向。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -864,13 +965,11 @@ declare namespace wifi {
   function on(type: 'streamChange', callback: Callback<number>): void;
 
   /**
-   * 取消订阅WLAN数据流改变事件。
-   *
-   * <p>如果没有指定callback参数，将取消注册该事件关联的所有回调函数。</p>
+   * 取消注册Wi-Fi流更改事件。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_WIFI_CONNECTION
-   * @param { 'streamChange' } type - 事件名称。
-   * @param { Callback<number> } callback - 状态改变回调函数。1:向下，2:向上，3:双向
+   * @param { 'streamChange' } type - 固定填"streamChange"字符串。
+   * @param { Callback<number> } callback - 状态改变回调函数，返回0：无，1：下行，2：上行，3：双向。
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -880,11 +979,15 @@ declare namespace wifi {
   function off(type: 'streamChange', callback?: Callback<number>): void;
 
   /**
-   * 订阅WLAN热点状态改变事件。
+   * 注册热点状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'hotspotStateChange' } type - 事件名称。
-   * @param { Callback<number> } callback - 状态改变回调函数。0:未激活，1:已激活，2:激活中，3:去激活中
+   * @param { 'hotspotStateChange' } type - 固定填"hotspotStateChange"字符串。
+   * @param { Callback<number> } callback - 状态改变回调函数。返回状态值枚举：<br/>- 0: 未激活。<br/>- 1: 已激活。<br/>- 2: 激活中。<br/>- 3: 去激活中。
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -893,13 +996,15 @@ declare namespace wifi {
   function on(type: 'hotspotStateChange', callback: Callback<number>): void;
 
   /**
-   * 取消订阅WLAN热点状态改变事件。
-   *
-   * <p>如果没有指定callback参数，将取消注册该事件关联的所有回调函数。</p>
+   * 取消注册热点状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'hotspotStateChange' } type - 事件名称。
-   * @param { Callback<number> } callback - 状态改变回调函数。0:未激活，1:已激活，2:激活中，3:去激活中
+   * @param { 'hotspotStateChange' } type - 固定填"hotspotStateChange"字符串。
+   * @param { Callback<number> } callback - 状态改变回调函数。如果callback不填，将取消注册该事件关联的所有回调函数。
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -908,11 +1013,11 @@ declare namespace wifi {
   function off(type: 'hotspotStateChange', callback?: Callback<number>): void;
 
   /**
-   * 订阅WLAN热点STA加入事件。
+   * 注册Wi-Fi热点sta加入事件。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
-   * @param { 'hotspotStaJoin' } type - 事件名称。
-   * @param { Callback<StationInfo> } callback - 状态改变回调函数
+   * @param { 'hotspotStaJoin' } type - 固定填"hotspotStaJoin"字符串。
+   * @param { Callback<StationInfo> } callback - 回调函数，返回StationInfo对象。
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -922,13 +1027,11 @@ declare namespace wifi {
   function on(type: 'hotspotStaJoin', callback: Callback<StationInfo>): void;
 
   /**
-   * 取消订阅WLAN热点STA加入事件。
-   *
-   * <p>如果没有指定callback参数，将取消注册该事件关联的所有回调函数。</p>
+   * 取消注册Wi-Fi热点sta加入事件。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
-   * @param { 'hotspotStaJoin' } type - 事件名称。
-   * @param { Callback<StationInfo> } callback - 状态改变回调函数
+   * @param { 'hotspotStaJoin' } type - 固定填"hotspotStaJoin"字符串。
+   * @param { Callback<StationInfo> } callback - 回调函数，返回StationInfo对象。
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -938,11 +1041,11 @@ declare namespace wifi {
   function off(type: 'hotspotStaJoin', callback?: Callback<StationInfo>): void;
 
   /**
-   * 订阅WLAN热点STA离开事件。
+   * 注册Wi-Fi热点sta离开事件。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
-   * @param { 'hotspotStaLeave' } type - 事件名称。
-   * @param { Callback<StationInfo> } callback - 状态改变回调函数
+   * @param { 'hotspotStaLeave' } type - 固定填"hotspotStaLeave"字符串。
+   * @param { Callback<StationInfo> } callback - 回调函数，返回StationInfo对象。
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -952,10 +1055,11 @@ declare namespace wifi {
   function on(type: 'hotspotStaLeave', callback: Callback<StationInfo>): void;
 
   /**
-   * 取消订阅WLAN热点STA离开事件。
+   * 取消注册Wi-Fi热点sta离开事件。使用callback异步回调。
+   *
    * @permission ohos.permission.MANAGE_WIFI_HOTSPOT
-   * @param { 'hotspotStaLeave' } type - 事件名称。
-   * @param { Callback<StationInfo> } callback - 状态改变回调函数
+   * @param { 'hotspotStaLeave' } type - 固定填"hotspotStaLeave"字符串。
+   * @param { Callback<StationInfo> } callback - 回调函数，返回StationInfo对象。
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -965,11 +1069,16 @@ declare namespace wifi {
   function off(type: 'hotspotStaLeave', callback?: Callback<StationInfo>): void;
 
   /**
-   * 订阅P2P状态改变事件。
+   * 注册P2P开关状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'p2pStateChange' } type - 事件名称。
-   * @param { Callback<number> } callback - 状态改变回调函数。1:空闲，2:打开中，3:已打开，4:关闭中，5:已关闭
+   * @param { 'p2pStateChange' } type - 固定填"p2pStateChange"字符串。
+   * @param { Callback<number> } callback - 状态改变回调函数。返回状态值枚举：<br/>- 1: 空闲。<br/>- 2: 打开中。<br/>- 3: 已打开。<br/>- 4: 关闭中。<br/
+   *     >- 5: 已关闭。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -978,11 +1087,15 @@ declare namespace wifi {
   function on(type: 'p2pStateChange', callback: Callback<number>): void;
 
   /**
-   * 取消订阅P2P状态改变事件。
+   * 取消注册P2P开关状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'p2pStateChange' } type - 事件名称。
-   * @param { Callback<number> } callback - 状态改变回调函数。1:空闲，2:打开中，3:已打开，4:关闭中，5:已关闭
+   * @param { 'p2pStateChange' } type - 固定填"p2pStateChange"字符串。
+   * @param { Callback<number> } callback - 状态改变回调函数。如果callback不填，将取消注册该事件关联的所有回调函数。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -991,11 +1104,15 @@ declare namespace wifi {
   function off(type: 'p2pStateChange', callback?: Callback<number>): void;
 
   /**
-   * 订阅P2P连接改变事件。
+   * 注册P2P连接状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'p2pConnectionChange' } type - 事件名称。
-   * @param { Callback<WifiP2pLinkedInfo> } callback - 状态改变回调函数
+   * @param { 'p2pConnectionChange' } type - 固定填"p2pConnectionChange"字符串。
+   * @param { Callback<WifiP2pLinkedInfo> } callback - 状态改变回调函数。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -1004,11 +1121,15 @@ declare namespace wifi {
   function on(type: 'p2pConnectionChange', callback: Callback<WifiP2pLinkedInfo>): void;
 
   /**
-   * 取消订阅P2P连接改变事件。
+   * 取消注册P2P连接状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'p2pConnectionChange' } type - 事件名称。
-   * @param { Callback<WifiP2pLinkedInfo> } callback - 状态改变回调函数
+   * @param { 'p2pConnectionChange' } type - 固定填"p2pConnectionChange"字符串。
+   * @param { Callback<WifiP2pLinkedInfo> } callback - 状态改变回调函数。如果callback不填，将取消注册该事件关联的所有回调函数。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -1017,11 +1138,15 @@ declare namespace wifi {
   function off(type: 'p2pConnectionChange', callback?: Callback<WifiP2pLinkedInfo>): void;
 
   /**
-   * 订阅P2P本地设备改变事件。
+   * 注册P2P设备状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-   * @param { 'p2pDeviceChange' } type - 事件名称。
-   * @param { Callback<WifiP2pDevice> } callback - 状态改变回调函数
+   * @param { 'p2pDeviceChange' } type - 固定填"p2pDeviceChange"字符串。
+   * @param { Callback<WifiP2pDevice> } callback - 状态改变回调函数。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -1030,11 +1155,15 @@ declare namespace wifi {
   function on(type: 'p2pDeviceChange', callback: Callback<WifiP2pDevice>): void;
 
   /**
-   * 取消订阅P2P本地设备改变事件。
+   * 取消注册P2P设备状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.LOCATION
-   * @param { 'p2pDeviceChange' } type - 事件名称。
-   * @param { Callback<WifiP2pDevice> } callback - 状态改变回调函数
+   * @param { 'p2pDeviceChange' } type - 固定填"p2pDeviceChange"字符串。
+   * @param { Callback<WifiP2pDevice> } callback - 状态改变回调函数。如果callback不填，将取消注册该事件关联的所有回调函数。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -1043,11 +1172,15 @@ declare namespace wifi {
   function off(type: 'p2pDeviceChange', callback?: Callback<WifiP2pDevice>): void;
 
   /**
-   * 订阅P2P对端设备改变事件。
+   * 注册P2P对端设备状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO and ohos.permission.LOCATION
-   * @param { 'p2pPeerDeviceChange' } type - 事件名称。
-   * @param { Callback<WifiP2pDevice[]> } callback - 状态改变回调函数
+   * @param { 'p2pPeerDeviceChange' } type - 固定填"p2pPeerDeviceChange"字符串。
+   * @param { Callback<WifiP2pDevice[]> } callback - 状态改变回调函数。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -1056,11 +1189,15 @@ declare namespace wifi {
   function on(type: 'p2pPeerDeviceChange', callback: Callback<WifiP2pDevice[]>): void;
 
   /**
-   * 取消订阅P2P对端设备改变事件。
+   * 取消注册P2P对端设备状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.LOCATION
-   * @param { 'p2pPeerDeviceChange' } type - 事件名称。
-   * @param { Callback<WifiP2pDevice[]> } callback - 状态改变回调函数
+   * @param { 'p2pPeerDeviceChange' } type - 固定填"p2pPeerDeviceChange"字符串。
+   * @param { Callback<WifiP2pDevice[]> } callback - 状态改变回调函数。如果callback不填，将取消注册该事件关联的所有回调函数。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -1069,11 +1206,15 @@ declare namespace wifi {
   function off(type: 'p2pPeerDeviceChange', callback?: Callback<WifiP2pDevice[]>): void;
 
   /**
-   * 订阅P2P持久群组改变事件。
+   * 注册P2P永久组状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'p2pPersistentGroupChange' } type - 事件名称。
-   * @param { Callback<void> } callback - 状态改变回调函数
+   * @param { 'p2pPersistentGroupChange' } type - 固定填"p2pPersistentGroupChange"字符串。
+   * @param { Callback<void> } callback - 状态改变回调函数。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -1082,11 +1223,15 @@ declare namespace wifi {
   function on(type: 'p2pPersistentGroupChange', callback: Callback<void>): void;
 
   /**
-   * 取消订阅P2P持久群组改变事件。
+   * 取消注册P2P永久组状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'p2pPersistentGroupChange' } type - 事件名称。
-   * @param { Callback<void> } callback - 状态改变回调函数
+   * @param { 'p2pPersistentGroupChange' } type - 固定填"p2pPersistentGroupChange"字符串。
+   * @param { Callback<void> } callback - 状态改变回调函数。如果callback不填，将取消注册该事件关联的所有回调函数。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -1095,11 +1240,15 @@ declare namespace wifi {
   function off(type: 'p2pPersistentGroupChange', callback?: Callback<void>): void;
 
   /**
-   * 订阅P2P发现事件。
+   * 注册发现设备状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'p2pDiscoveryChange' } type - 事件名称。
-   * @param { Callback<number> } callback - 状态改变回调函数
+   * @param { 'p2pDiscoveryChange' } type - 固定填"p2pDiscoveryChange"字符串。
+   * @param { Callback<number> } callback - 状态改变回调函数。返回状态值枚举：<br/>- 0: 初始状态。<br/>- 1: 发现成功。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -1108,11 +1257,15 @@ declare namespace wifi {
   function on(type: 'p2pDiscoveryChange', callback: Callback<number>): void;
 
   /**
-   * 取消订阅P2P发现事件。
+   * 取消注册发现设备状态改变事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
    * @permission ohos.permission.GET_WIFI_INFO
-   * @param { 'p2pDiscoveryChange' } type - 事件名称。
-   * @param { Callback<number> } callback - 状态改变回调函数
+   * @param { 'p2pDiscoveryChange' } type - 固定填"p2pDiscoveryChange"字符串。
+   * @param { Callback<number> } callback - 状态改变回调函数。如果callback不填，将取消注册该事件关联的所有回调函数。
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -1121,16 +1274,21 @@ declare namespace wifi {
   function off(type: 'p2pDiscoveryChange', callback?: Callback<number>): void;
 
   /**
-   * WLAN设备配置信息。
+   * Wi-Fi配置信息。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 6开始支持，从API version 9开始废弃。
    *
-   * @interface WifiDeviceConfig
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiDeviceConfig
    */
   interface WifiDeviceConfig {
-    /** WLAN SSID：最大长度为32
+    /**
+     * 热点的SSID，最大长度为32字节，编码格式为UTF-8。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1138,7 +1296,9 @@ declare namespace wifi {
      */
     ssid: string;
 
-    /** WLAN BSSID(MAC)：长度为6
+    /**
+     * 热点的BSSID，例如：00:11:22:33:44:55。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1146,7 +1306,9 @@ declare namespace wifi {
      */
     bssid: string;
 
-    /** WLAN密钥：最大长度为64
+    /**
+     * 热点的密钥，最大长度为64字节。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1154,7 +1316,9 @@ declare namespace wifi {
      */
     preSharedKey: string;
 
-    /** 是否隐藏SSID，false(默认):不隐藏
+    /**
+     * 是否是隐藏网络。true:是隐藏网络，false:不是隐藏网络。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1162,7 +1326,9 @@ declare namespace wifi {
      */
     isHiddenSsid: boolean;
 
-    /** 加密类型：参考WifiSecurityType的定义
+    /**
+     * 加密类型。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1170,7 +1336,11 @@ declare namespace wifi {
      */
     securityType: WifiSecurityType;
 
-    /** WLAN配置创建者的UID
+    /**
+     * 创建用户的ID。 
+     * 
+     * **系统接口：** 此接口为系统接口。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1179,7 +1349,11 @@ declare namespace wifi {
      */
     creatorUid: number;
 
-    /** 禁用原因
+    /**
+     * 禁用原因。 
+     * 
+     * **系统接口：** 此接口为系统接口。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1188,7 +1362,11 @@ declare namespace wifi {
      */
     disableReason: number;
 
-    /** 分配的网络ID
+    /**
+     * 分配的网络ID。 
+     * 
+     * **系统接口：** 此接口为系统接口。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1197,7 +1375,11 @@ declare namespace wifi {
      */
     netId: number;
 
-    /** 随机MAC类型
+    /**
+     * 随机MAC类型。 
+     * 
+     * **系统接口：** 此接口为系统接口。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1206,7 +1388,11 @@ declare namespace wifi {
      */
     randomMacType: number;
 
-    /** 随机MAC地址，长度为6
+    /**
+     * 随机MAC地址。 
+     * 
+     * **系统接口：** 此接口为系统接口。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1215,7 +1401,11 @@ declare namespace wifi {
      */
     randomMacAddr: string;
 
-    /** IP类型
+    /**
+     * IP地址类型。 
+     * 
+     * **系统接口：** 此接口为系统接口。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1224,7 +1414,11 @@ declare namespace wifi {
      */
     ipType: IpType;
 
-    /** 静态IP配置
+    /**
+     * 静态IPv4配置信息。 
+     * 
+     * **系统接口：** 此接口为系统接口。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1235,9 +1429,8 @@ declare namespace wifi {
   }
 
   /**
-   * WLAN IP配置信息。
+   * IPv4配置信息。
    *
-   * @interface IpConfig
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -1246,7 +1439,8 @@ declare namespace wifi {
    */
   interface IpConfig {
     /**
-     * IP地址。
+     * IPv4地址。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 7 dynamiconly
@@ -1257,6 +1451,7 @@ declare namespace wifi {
 
     /**
      * 网关。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 7 dynamiconly
@@ -1267,6 +1462,7 @@ declare namespace wifi {
 
     /**
      * DNS服务器。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 7 dynamiconly
@@ -1276,7 +1472,8 @@ declare namespace wifi {
     dnsServers: number[];
 
     /**
-     * 域名。
+     * 域信息。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi Hide this for inner system use.
      * @since 7 dynamiconly
@@ -1287,16 +1484,21 @@ declare namespace wifi {
   }
 
   /**
-   * 描述扫描到的WLAN信息。
+   * Wi-Fi热点信息。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 6开始支持，从API version 9开始废弃。
    *
-   * @interface WifiScanInfo
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiScanInfo
    */
   interface WifiScanInfo {
-    /** WLAN SSID：最大长度为32
+    /**
+     * 热点的SSID，最大长度为32字节，编码格式为UTF-8。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1304,7 +1506,9 @@ declare namespace wifi {
      */
     ssid: string;
 
-    /** WLAN BSSID(MAC)：长度为6
+    /**
+     * 热点的BSSID，例如：00:11:22:33:44:55。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1312,7 +1516,9 @@ declare namespace wifi {
      */
     bssid: string;
 
-    /** 热点能力
+    /**
+     * 热点能力。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1320,7 +1526,9 @@ declare namespace wifi {
      */
     capabilities: string;
 
-    /** 加密类型：参考WifiSecurityType的定义
+    /**
+     * Wi-Fi加密类型。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1328,7 +1536,9 @@ declare namespace wifi {
      */
     securityType: WifiSecurityType;
 
-    /** 接收信号强度指示(RSSI)
+    /**
+     * 热点的信号强度(dBm)。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1336,7 +1546,9 @@ declare namespace wifi {
      */
     rssi: number;
 
-    /** 频段，1:2.4G，2:5G
+    /**
+     * Wi-Fi接入点的频段。1表示2.4GHz；2表示5GHz。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1344,7 +1556,9 @@ declare namespace wifi {
      */
     band: number;
 
-    /** 频率
+    /**
+     * Wi-Fi接入点的频率，单位：MHz。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1352,7 +1566,9 @@ declare namespace wifi {
      */
     frequency: number;
 
-    /** 带宽
+    /**
+     * Wi-Fi接入点的带宽。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1361,7 +1577,8 @@ declare namespace wifi {
     channelWidth: number;
 
     /**
-     * 时间戳
+     * 时间戳。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1371,16 +1588,21 @@ declare namespace wifi {
   }
 
   /**
-   * 描述WLAN加密类型。
+   * 表示加密类型的枚举。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 6开始支持，从API version 9开始废弃。
    *
-   * @enum { number } WifiSecurityType
    * @syscap SystemCapability.Communication.WiFi.Core
    * @since 6 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.WifiSecurityType
    */
   enum WifiSecurityType {
-    /** 无效的加密类型
+    /**
+     * 无效加密类型。
+     *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1388,7 +1610,9 @@ declare namespace wifi {
      */
     WIFI_SEC_TYPE_INVALID = 0,
 
-    /** 开放
+    /**
+     * 开放加密类型。
+     *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1397,37 +1621,43 @@ declare namespace wifi {
     WIFI_SEC_TYPE_OPEN = 1,
 
     /**
-     * 有线等效保密(WEP)
+     * Wired Equivalent Privacy (WEP)加密类型。
+     *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiSecurityType.WIFI_SEC_TYPE_WEP
-     * */
+     */
     WIFI_SEC_TYPE_WEP = 2,
 
     /**
-     * 预共享密钥(PSK)
+     * Pre-shared key (PSK)加密类型。
+     *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiSecurityType.WIFI_SEC_TYPE_PSK
-     *  */
+     */
     WIFI_SEC_TYPE_PSK = 3,
 
     /**
-     * 等同认证(SAE)
+     * Simultaneous Authentication of Equals (SAE)加密类型。
+     *
      * @syscap SystemCapability.Communication.WiFi.Core
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiSecurityType.WIFI_SEC_TYPE_SAE
-     * */
+     */
     WIFI_SEC_TYPE_SAE = 4,
   }
 
   /**
-   * WLAN连接信息。
+   * 提供Wi-Fi连接的相关信息。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 6开始支持，从API version 9开始废弃。
    *
-   * @interface WifiLinkedInfo
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 6 dynamiconly
    * @deprecated since 9
@@ -1435,25 +1665,30 @@ declare namespace wifi {
    */
   interface WifiLinkedInfo {
     /**
-     * WLAN热点的SSID
+     * 热点的SSID，最大长度为32字节，编码格式为UTF-8。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.ssid
-     * */
+     */
     ssid: string;
 
     /**
-     *  WLAN热点的BSSID
+     * 热点的BSSID，例如：00:11:22:33:44:55。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.bssid
-     * */
+     */
     bssid: string;
 
     /**
-     * WLAN连接的ID(唯一标识)。
+     * 网络配置ID。 
+     * 
+     * **系统接口：** 此接口为系统接口。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1463,52 +1698,58 @@ declare namespace wifi {
     networkId: number;
 
     /**
-     * WLAN AP的RSSI(dBm)。
+     * 热点的信号强度(dBm)。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.rssi
-     * */
+     */
     rssi: number;
 
     /**
-     * WLAN AP的频段。
+     * Wi-Fi接入点的频段。1表示2.4GHz；2表示5GHz。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.band
-     *  */
+     */
     band: number;
 
     /**
-     * WLAN AP的速度。
+     * Wi-Fi接入点的速度，单位Mbps。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.linkSpeed
-     *  */
+     */
     linkSpeed: number;
 
     /**
-     * WLAN AP的频率。
+     * Wi-Fi接入点的频率，单位：MHz。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.frequency
-     *  */
+     */
     frequency: number;
 
     /**
-     * 此WLAN连接的AP的SSID是否隐藏。
+     * Wi-Fi接入点是否是隐藏网络。true:是隐藏网络，false:不是隐藏网络。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.isHidden
-     *  */
+     */
     isHidden: boolean;
 
     /**
-     * 此WLAN连接是否限制数据量。
+     * Wi-Fi接入点是否限制数据量。true: 限制，false:不限制。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
@@ -1517,8 +1758,10 @@ declare namespace wifi {
     isRestricted: boolean;
 
     /**
+     * 连接负载，值越大表示负载越高。 
+     * 
+     * **系统接口：** 此接口为系统接口。
      *
-     * 此WLAN连接的负载值。值越大表示负载越高。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1528,7 +1771,10 @@ declare namespace wifi {
     chload: number;
 
     /**
-     * 此WLAN连接的信噪比(SNR)。
+     * 信噪比，单位：dB。 
+     * 
+     * **系统接口：** 此接口为系统接口。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1538,27 +1784,30 @@ declare namespace wifi {
     snr: number;
 
     /**
+     * 设备的MAC地址。
      *
-     * 设备的WLAN MAC地址。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.macAddress
-     *  */
+     */
     macAddress: string;
 
     /**
-     * 此WLAN连接的IP地址。
+     * Wi-Fi连接的IP地址。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.ipAddress
-     *  */
+     */
     ipAddress: number;
 
     /**
+     * 请求状态。 
+     * 
+     * **系统接口：** 此接口为系统接口。
      *
-     * 此WLAN连接的 supplicant 状态。
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1568,94 +1817,103 @@ declare namespace wifi {
     suppState: SuppState;
 
     /**
-     * 此WLAN连接的状态。
+     * Wi-Fi连接状态。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiLinkedInfo.connState
-     * */
+     */
     connState: ConnState;
   }
 
   /**
-   * WLAN IP信息。
+   * IP信息。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 7开始支持，从API version 9开始废弃。
    *
-   * @interface IpInfo
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 7 dynamiconly
    * @deprecated since 9
    * @useinstead ohos.wifiManager/wifiManager.IpInfo
    */
   interface IpInfo {
-     /**
-     * WLAN连接的IP地址
+    /**
+     * IP地址。
+     *
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpInfo.ipAddress
-     *  */
+     */
     ipAddress: number;
 
     /**
-     * WLAN连接的网关
+     * 网关。
+     *
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpInfo.gateway
-     *  */
+     */
     gateway: number;
 
     /**
-     * WLAN连接的网络掩码
+     * 掩码。
+     *
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpInfo.netmask
-     *  */
+     */
     netmask: number;
 
     /**
+     * 主DNS服务器IP地址。
      *
-     * WLAN连接的主DNS服务器IP地址
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpInfo.primaryDns
-     *  */
+     */
     primaryDns: number;
 
     /**
-     * WLAN连接的辅助DNS服务器IP地址
+     * 备DNS服务器IP地址。
+     *
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpInfo.secondDns
-     *  */
+     */
     secondDns: number;
 
     /**
-     * WLAN连接的DHCP服务器IP地址
+     * DHCP服务端IP地址。
+     *
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpInfo.serverIp
-     *  */
+     */
     serverIp: number;
 
     /**
-     * WLAN连接的IP地址租约时长
+     * IP地址租用时长，单位：秒(s)。
+     *
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpInfo.leaseDuration
-     * */
+     */
     leaseDuration: number;
   }
 
   /**
-   * WLAN热点配置信息。
+   * 热点配置信息。
    *
-   * @interface HotspotConfig
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -1664,60 +1922,64 @@ declare namespace wifi {
    */
   interface HotspotConfig {
     /**
-     * WLAN热点的SSID
+     * 热点的SSID，编码格式为UTF-8。
+     *
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.HotspotConfig.ssid
-     * */
+     */
     ssid: string;
 
     /**
-     * WLAN热点的加密类型
+     * 加密类型。
+     *
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.HotspotConfig.securityType
-     * */
+     */
     securityType: WifiSecurityType;
 
     /**
-     * WLAN热点的频段
+     * 热点的带宽。1: 2.4G, 2: 5G, 3: 双模频段
+     *
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.HotspotConfig.band
-     *  */
+     */
     band: number;
 
     /**
-     * WLAN热点的密码
+     * 热点的密钥。
+     *
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.HotspotConfig.preSharedKey
-     *  */
+     */
     preSharedKey: string;
 
     /**
-     * WLAN热点允许的最大连接数
+     * 最大设备连接数。
+     *
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.HotspotConfig.maxConn
-     *  */
+     */
     maxConn: number;
   }
 
   /**
-   * WLAN站点信息。
+   * 接入的设备信息。
    *
-   * @interface StationInfo
    * @syscap SystemCapability.Communication.WiFi.AP.Core
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -1726,40 +1988,42 @@ declare namespace wifi {
    */
   interface StationInfo {
     /**
-     * WLAN客户端的网络名称
+     * 设备名称。
+     *
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.StationInfo.name
-     *  */
+     */
     name: string;
 
     /**
-     * WLAN客户端的MAC地址
+     * MAC地址。
+     *
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.StationInfo.macAddress
-     * */
+     */
     macAddress: string;
 
     /**
-     * WLAN客户端的IP地址
+     * IP地址。
+     *
      * @syscap SystemCapability.Communication.WiFi.AP.Core
      * @systemapi
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.StationInfo.ipAddress
-     * */
+     */
     ipAddress: string;
   }
 
   /**
-   * WLAN IP类型枚举。
+   * 表示IP类型的枚举。
    *
-   * @enum { number } IpType
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 7 dynamiconly
@@ -1768,40 +2032,42 @@ declare namespace wifi {
    */
   enum IpType {
     /**
-     * 使用静态配置的IP设置
+     * 静态IP。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpType.STATIC
-     *  */
+     */
     STATIC,
 
     /**
-     * 使用动态配置的IP设置
+     * 通过DHCP获取。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpType.DHCP
-     * */
+     */
     DHCP,
 
     /**
-     *  未分配IP详情
+     * 未指定。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 7 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.IpType.UNKNOWN
-     *  */
+     */
     UNKNOWN,
   }
 
   /**
-   * supplicant状态枚举。
+   * 表示请求状态的枚举。
    *
-   * @enum { number } SuppState
    * @syscap SystemCapability.Communication.WiFi.STA
    * @systemapi Hide this for inner system use.
    * @since 6 dynamiconly
@@ -1809,7 +2075,9 @@ declare namespace wifi {
    * @useinstead ohos.wifiManager/wifiManager.SuppState
    */
   export enum SuppState {
-    /** supplicant未与AP关联或已与AP断开连接。
+    /**
+     * 已断开。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1819,76 +2087,85 @@ declare namespace wifi {
     DISCONNECTED,
 
     /**
-     * 网络接口已禁用。
+     * 接口禁用。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.INTERFACE_DISABLED
-     * */
+     */
     INTERFACE_DISABLED,
 
     /**
-     * supplicant已禁用。
+     * 未激活。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.INACTIVE
-     * */
+     */
     INACTIVE,
 
     /**
-     * supplicant正在扫描WLAN连接。
+     * 扫描中。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.SCANNING
-     * */
+     */
     SCANNING,
 
     /**
-     * supplicant正在与指定AP进行认证。
+     * 认证中。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.AUTHENTICATING
-     *  */
+     */
     AUTHENTICATING,
 
     /**
-     * supplicant正在与指定AP关联。
+     * 关联中。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.ASSOCIATING
-     * */
+     */
     ASSOCIATING,
 
     /**
-     * supplicant已与指定AP关联。
+     * 已关联。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.ASSOCIATED
-     * */
+     */
     ASSOCIATED,
 
     /**
-     * 四次握手正在进行中。
+     * 四次握手。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.FOUR_WAY_HANDSHAKE
-     *  */
+     */
     FOUR_WAY_HANDSHAKE,
 
-    /** 群组握手正在进行中。
+    /**
+     * 组握手。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
@@ -1899,39 +2176,45 @@ declare namespace wifi {
 
     /**
      * 所有认证已完成。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.COMPLETED
-     *  */
+     */
     COMPLETED,
 
     /**
-     * 与 supplicant 建立连接失败。
+     * 连接建立失败。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.UNINITIALIZED
-     *  */
+     */
     UNINITIALIZED,
 
     /**
-     * supplicant处于未知或无效状态。
+     * 无效值。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @systemapi
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.SuppState.INVALID
-     *  */
+     */
     INVALID
   }
 
   /**
-   * WLAN连接状态枚举。
+   * 表示Wi-Fi连接状态的枚举。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 6开始支持，从API version 9开始废弃。
    *
-   * @enum { number } ConnState
    * @syscap SystemCapability.Communication.WiFi.STA
    * @since 6 dynamiconly
    * @deprecated since 9
@@ -1940,81 +2223,92 @@ declare namespace wifi {
   export enum ConnState {
     /**
      * 设备正在搜索可用的AP。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.ConnState.SCANNING
-     * */
+     */
     SCANNING,
 
     /**
-     * WLAN连接正在建立。
+     * 正在建立Wi-Fi连接。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.ConnState.CONNECTING
-     * */
+     */
     CONNECTING,
 
     /**
-     * WLAN连接正在认证。
+     * Wi-Fi连接正在认证中。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.ConnState.AUTHENTICATING
-     * */
+     */
     AUTHENTICATING,
 
     /**
-     * 正在获取WLAN连接的IP地址。
+     * 正在获取Wi-Fi连接的IP地址。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.ConnState.OBTAINING_IPADDR
-     * */
+     */
     OBTAINING_IPADDR,
 
     /**
-     * WLAN连接已建立。
+     * Wi-Fi连接已建立。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.ConnState.CONNECTED
-     *  */
+     */
     CONNECTED,
 
     /**
-     * WLAN连接正在断开。
+     * Wi-Fi连接正在断开。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.ConnState.DISCONNECTING
-     *  */
+     */
     DISCONNECTING,
 
     /**
-     * WLAN连接已断开。
+     * Wi-Fi连接已断开。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.ConnState.DISCONNECTED
-     * */
+     */
     DISCONNECTED,
 
     /**
-     * WLAN连接建立失败。
+     * Wi-Fi连接建立失败。
+     *
      * @syscap SystemCapability.Communication.WiFi.STA
      * @since 6 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.ConnState.UNKNOWN
-     * */
+     */
     UNKNOWN
   }
 
   /**
-   * P2P设备信息。
+   * 表示P2P设备信息。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
-   * @interface WifiP2pDevice
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -2022,54 +2316,63 @@ declare namespace wifi {
    */
   interface WifiP2pDevice {
     /**
-     * 设备名称
+     * 设备名称。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pDevice.deviceName
-     *  */
+     */
     deviceName: string;
 
     /**
-     * 设备MAC地址
+     * 设备MAC地址。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pDevice.deviceAddress
-     * */
+     */
     deviceAddress: string;
 
     /**
-     *  主要设备类型
+     * 主设备类型。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pDevice.primaryDeviceType
-     * */
+     */
     primaryDeviceType: string;
 
     /**
-     * 设备状态
+     * 设备状态。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pDevice.deviceStatus
-     * */
+     */
     deviceStatus: P2pDeviceStatus;
 
     /**
-     * 设备群组能力
+     * 群组能力，以位掩码形式表示群组支持的特性。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pDevice.groupCapabilitys
-     *  */
+     */
     groupCapabilitys: number;
   }
 
   /**
-   * P2P配置。
-   * @interface WifiP2PConfig
+   * 表示P2P配置信息。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
+   *
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -2077,7 +2380,8 @@ declare namespace wifi {
    */
   interface WifiP2PConfig {
     /**
-     * 设备MAC地址
+     * 设备地址。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2086,7 +2390,8 @@ declare namespace wifi {
     deviceAddress: string;
 
     /**
-     * 群组网络ID。创建群组时，-1表示创建临时群组，-2表示创建持久群组
+     * 网络ID。创建群组时-1表示创建临时组，-2表示创建永久组。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2095,36 +2400,43 @@ declare namespace wifi {
     netId: number;
 
     /**
-     * 此{@code WifiP2pConfig}实例的密码短语
+     * 群组密钥。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2PConfig.passphrase
-     *  */
+     */
     passphrase: string;
 
     /**
-     * 群组名称
+     * 群组名称。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2PConfig.groupName
-     *  */
+     */
     groupName: string;
 
     /**
-     * 群组所有者频段
+     * 群组带宽。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2PConfig.goBand
-     *  */
+     */
     goBand: GroupOwnerBand;
   }
 
   /**
-   * P2P群组信息。
-   * @interface WifiP2pGroupInfo
+   * 表示P2P群组相关信息。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
+   *
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -2132,51 +2444,58 @@ declare namespace wifi {
    */
   interface WifiP2pGroupInfo {
     /**
-     * 是否为群组所有者
+     * 是否是群主。true:是群主，false:不是群主。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo.isP2pGo
-     *  */
+     */
     isP2pGo: boolean;
 
     /**
-     * 群组所有者信息
+     * 群组的设备信息。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo.ownerInfo
-     *  */
+     */
     ownerInfo: WifiP2pDevice;
 
     /**
-     * 群组密码短语
+     * 群组密钥。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo.passphrase
-     *  */
+     */
     passphrase: string;
 
     /**
-     * 接口名称
+     * 接口名称。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo.interface
-     *  */
+     */
     interface: string;
 
     /**
-     * 群组名称
+     * 群组名称。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo.groupName
-     *  */
+     */
     groupName: string;
 
-    /** 网络ID
+    /**
+     * 网络ID。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2184,7 +2503,9 @@ declare namespace wifi {
      */
     networkId: number;
 
-    /** 频率
+    /**
+     * 群组的频率，单位：MHz。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2193,28 +2514,33 @@ declare namespace wifi {
     frequency: number;
 
     /**
-     * 客户端列表
+     * 接入的设备列表信息。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo.clientDevices
-     * */
+     */
     clientDevices: WifiP2pDevice[];
 
     /**
-     * 群组所有者IP地址
+     * 群组IP地址。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pGroupInfo.goIpAddress
-     * */
+     */
     goIpAddress: string;
   }
 
   /**
-   * P2P连接状态。
+   * 表示P2P连接状态的枚举。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
-   * @enum { number } P2pConnectState
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -2222,7 +2548,8 @@ declare namespace wifi {
    */
   enum P2pConnectState {
     /**
-     * P2P已断开连接。
+     * 断开状态。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2231,7 +2558,8 @@ declare namespace wifi {
     DISCONNECTED = 0,
 
     /**
-     * P2P已连接。
+     * 连接状态。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2241,8 +2569,12 @@ declare namespace wifi {
   }
 
   /**
-   * P2P连接信息。
-   * @typedef WifiP2pLinkedInfo
+   * 提供P2P连接的相关信息。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
+   *
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -2250,37 +2582,43 @@ declare namespace wifi {
    */
   interface WifiP2pLinkedInfo {
     /**
-     * 连接状态
+     * P2P连接状态。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pLinkedInfo.connectState
-     * */
+     */
     connectState: P2pConnectState;
 
     /**
-     * 是否为群组所有者
+     * 是否是群主。true:是群主，false:不是群主。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pLinkedInfo.isGroupOwner
-     * */
+     */
     isGroupOwner: boolean;
 
     /**
-     * 群组所有者地址
+     * 群组MAC地址。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
      * @useinstead ohos.wifiManager/wifiManager.WifiP2pLinkedInfo.groupOwnerAddr
-     *  */
+     */
     groupOwnerAddr: string;
   }
 
   /**
-   * P2P设备状态。
+   * 表示设备状态的枚举。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
-   * @enum { number } P2pDeviceStatus
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -2288,7 +2626,8 @@ declare namespace wifi {
    */
   enum P2pDeviceStatus {
     /**
-     * 表示P2P设备已连接。
+     * 连接状态。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2297,7 +2636,8 @@ declare namespace wifi {
     CONNECTED = 0,
 
     /**
-     * 表示P2P设备已邀请。
+     * 邀请状态。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2306,7 +2646,8 @@ declare namespace wifi {
     INVITED = 1,
 
     /**
-     * 表示P2P设备失败。
+     * 失败状态。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2315,7 +2656,8 @@ declare namespace wifi {
     FAILED = 2,
 
     /**
-     * 表示P2P设备可用。
+     * 可用状态。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2324,7 +2666,8 @@ declare namespace wifi {
     AVAILABLE = 3,
 
     /**
-     * 表示P2P设备不可用。
+     * 不可用状态。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2334,9 +2677,12 @@ declare namespace wifi {
   }
 
   /**
-   * P2P群组所有者频段。
+   * 表示群组带宽的枚举。
+   * 
+   * > **说明：**
+   * >
+   * > 从API version 8开始支持，从API version 9开始废弃。
    *
-   * @enum { number } GroupOwnerBand
    * @syscap SystemCapability.Communication.WiFi.P2P
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -2344,7 +2690,8 @@ declare namespace wifi {
    */
   enum GroupOwnerBand {
     /**
-     * 默认频段。
+     * 自动模式。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2353,7 +2700,8 @@ declare namespace wifi {
     GO_BAND_AUTO = 0,
 
     /**
-     * 2.4G频段。
+     * 2GHz。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2362,7 +2710,8 @@ declare namespace wifi {
     GO_BAND_2GHZ = 1,
 
     /**
-     * 5G频段。
+     * 5GHz。
+     *
      * @syscap SystemCapability.Communication.WiFi.P2P
      * @since 8 dynamiconly
      * @deprecated since 9

@@ -1400,6 +1400,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.1.0]
    * @atomicservice
    * @since 26.0.0 dynamic
    */

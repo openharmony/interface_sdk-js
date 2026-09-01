@@ -65,7 +65,7 @@ export enum ErrorType {
  */
 export interface ErrorInfo<T extends Error = BusinessError> {
   /**
-   * 错误码。errorCode的类型T为[BusinessError](docroot://reference/apis-basic-services-kit/js-apis-base.md)类型。
+   * 错误码。errorCode的类型T为[BusinessError]{@link ../@ohos.base.BusinessError}类型。
    *
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 20 dynamic
@@ -279,7 +279,7 @@ export declare interface SoundPool {
    * > - 同一时间通过同一个资源句柄或加载路径描述读写文件时存在竞争关系，将导致播放异常。
    *
    * @param {int} fd - 资源句柄，通过
-   *     [resourceManager.getRawFd](docroot://reference/apis-localization-kit/js-apis-resource-manager.md)
+   *     [getRawFd]{@link ../@ohos.resourceManager:resourceManager.ResourceManager.getRawFd}
    *     获取。
    * @param {long} offset - 资源偏移量，需要基于预置资源的信息输入，非法值会造成音视频资源解析错误。
    * @param {long} length - 资源长度，需要基于预置资源的信息输入，非法值会造成音视频资源解析错误。
@@ -304,7 +304,7 @@ export declare interface SoundPool {
    * > - 同一时间通过同一个资源句柄或加载路径描述读写文件时存在竞争关系，将导致播放异常。
    *
    * @param {int} fd - 资源句柄，通过
-   *     [resourceManager.getRawFd](docroot://reference/apis-localization-kit/js-apis-resource-manager.md)
+   *     [getRawFd]{@link ../@ohos.resourceManager:resourceManager.ResourceManager.getRawFd}
    *     获取。
    * @param {long} offset - 资源偏移量，需要基于预置资源的信息输入，非法值会造成音视频资源解析错误。
    * @param {long} length - 资源长度，需要基于预置资源的信息输入，非法值会造成音视频资源解析错误。
@@ -391,7 +391,7 @@ export declare interface SoundPool {
   stop(streamID: int): Promise<void>;
   /**
    * 设置同一ID音频在播放时的打断模式。创建soundPool之后，该接口仅在首次调用soundPool的Play函数之前设置有效，期间可多次设置，否则将默认使用
-   * [SAME_SOUND_INTERRUPT](docroot://reference/apis-media-kit/arkts-media-media-soundinterruptmode-e.md)，即对同一ID的音频，如果前者尚未播放完成，后者在播放前会先打断前
+   * [SAME_SOUND_INTERRUPT]{@link ../@ohos.multimedia.media:media.SoundInterruptMode.SAME_SOUND_INTERRUPT}，即对同一ID的音频，如果前者尚未播放完成，后者在播放前会先打断前
    * 者的播放。
    *
    * @param { media.SoundInterruptMode } interruptMode - 同一ID音频在播放时的打断模式，通过media.SoundInterruptMode枚举获取。
@@ -636,7 +636,7 @@ export declare interface SoundPool {
   offPlayFinished(): void;
 
   /**
-   * 监听[SoundPool](docroot://reference/apis-media-kit/js-apis-inner-multimedia-soundPool.md#soundpool)的错误事件，该事件仅用于错误提示。使
+   * 监听[SoundPool]{@link SoundPool}的错误事件，该事件仅用于错误提示。使
    * 用callback异步回调。
    *
    * @param {'error'} type - 错误事件回调类型，支持的事件：'error'，用户操作和系统都会触发此事件。
@@ -720,7 +720,7 @@ export declare interface SoundPool {
   offPlayFinishedWithStreamId(): void;
 
   /**
-   * 监听[SoundPool](docroot://reference/apis-media-kit/js-apis-inner-multimedia-soundPool.md#soundpool)的错误事件，并返回包含错误码、错误发
+   * 监听[SoundPool]{@link SoundPool}的错误事件，并返回包含错误码、错误发
    * 生阶段、资源ID和音频流ID的[ErrorInfo]{@link ErrorInfo}。使用callback异步回调。
    *
    * @param { 'errorOccurred' } type - 事件回调类型，支持的事件为'errorOccurred'，当用户或系统操作导致错误，触发该事件。

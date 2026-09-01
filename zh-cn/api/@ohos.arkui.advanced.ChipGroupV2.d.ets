@@ -1197,6 +1197,16 @@ export declare struct ChipGroupV2IconGroupSuffix {
  * [状态管理（V1）](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v1)，状态管理（V2）增强了对数据对象的深度观察与管理能力，不再局限于组
  * 件层级。借助状态管理（V2），开发者可以更灵活地控制组件的数据和状态，实现更高效的用户界面刷新。
  *
+ * ## 导入模块
+ *
+ * ```ts
+ * import { ChipV2Size, ChipGroupV2 } from '@kit.ArkUI';
+ * ```
+ *
+ * ## 子组件
+ * 
+ * 不支持设置子组件。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

@@ -3357,6 +3357,19 @@ declare namespace commonEventManager {
     COMMON_EVENT_VOLUME_ENCRYPTION_POLICY_SET = 'usual.event.VOLUME_ENCRYPTION_POLICY_SET',
 
     /**
+     * This common event indicates whether a specific volume is available for use on a PC with an extended data disk.
+     * A broadcast is sent after the extended data disk is mounted during system startup or after the user logs in.
+     * 
+     * This event is supported only on PCs/2-in-1 devices.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_DATA_VOLUME_STATUS_REPORT = 'usual.event.DATA_VOLUME_STATUS_REPORT',
+
+    /**
      * This common event indicates that the skill information of an application has been changed.
      *
      * To receive this common event, your application must have the ohos.permission.MANAGE_SKILL_PRIVILEGE permission.

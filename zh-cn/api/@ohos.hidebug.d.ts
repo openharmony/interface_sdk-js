@@ -281,6 +281,13 @@ declare namespace hidebug {
      * @since 23 static
      */
     cpuUsage: double;
+    /**
+     * 线程名。
+     *
+     * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+     * @since 26.1.0 dynamic&static
+     */
+    threadName?: string;
   }
 
   /**
@@ -1422,5 +1429,16 @@ declare namespace hidebug {
    * @since 24 dynamic&static
    */
   function getRssInfo(): RssInfo;
+
+  /**
+ 	 * 获取应用程序的运行唯一标识符。
+ 	 *
+ 	 * @returns { string } 返回运行唯一标识ID字符串。失败时返回空字符串。
+ 	 * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
+ 	 * @FaAndStageModel
+ 	 * @atomicservice
+ 	 * @since 26.1.0 dynamic&static
+ 	 */
+  function getAppRunningUniqueId(): string;
 }
 export default hidebug;

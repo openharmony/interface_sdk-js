@@ -51,7 +51,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead telephony.call#dialCall
    */
   function dial(phoneNumber: string, options: DialOptions, callback: AsyncCallback<boolean>): void;
 
@@ -65,13 +64,12 @@ declare namespace call {
    *
    * @permission ohos.permission.PLACE_CALL
    * @param { string } phoneNumber - Phone number.
-   * @param { DialOptions } options - Call option, which indicates whether the call is a voice call or video call.
+   * @param { DialOptions } [options] - Call option, which indicates whether the call is a voice call or video call.
    * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation is
    *     successful, and the value **false** indicates the opposite.
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead telephony.call#dialCall
    */
   function dial(phoneNumber: string, options?: DialOptions): Promise<boolean>;
 
@@ -90,7 +88,6 @@ declare namespace call {
    * @syscap SystemCapability.Telephony.CallManager
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead telephony.call#dialCall
    */
   function dial(phoneNumber: string, callback: AsyncCallback<boolean>): void;
 
@@ -401,7 +398,7 @@ declare namespace call {
    * return the result.
    *
    * @param { string } phoneNumber - Phone number.
-   * @param { EmergencyNumberOptions } options - Emergency number options.
+   * @param { EmergencyNumberOptions } [options] - Emergency number options.
    * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the called
    *     number is an emergency number, and the value **false** indicates the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -462,7 +459,7 @@ declare namespace call {
    * A formatted phone number is a standard numeric string, for example, 555 0100.
    *
    * @param { string } phoneNumber - Phone number.
-   * @param { NumberFormatOptions } options - Number formatting options, for example, country code.
+   * @param { NumberFormatOptions } [options] - Number formatting options, for example, country code.
    * @returns { Promise<string> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2. Incorrect parameters types;
