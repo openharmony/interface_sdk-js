@@ -672,8 +672,8 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * 
    * > **说明：**
    * >
-   * > - 默认值：[ImmersiveOptions]{@link ImmersiveOptions}的style为ImmersiveStyle.ULTRA_THICK的
-   * > [ImmersiveMaterial]{@link ImmersiveMaterial}对象。设置undefined时与默认值保持一致。
+   * > - 默认值：[ImmersiveOptions]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveOptions}的style为ImmersiveStyle.ULTRA_THICK的
+   * > [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}对象。设置undefined时与默认值保持一致。
    * > - 不同的材质具有不同的视觉效果，包括背景透明度、模糊程度、阴影样式等方面的差异，该接口影响背景色
    * > [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、背景模糊
    * > [backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions)}
@@ -695,7 +695,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * > **系统接口：** 此接口为系统接口。
    * 
    * > **说明：** 当取值为 DISTORTION_AUTO 时，需设置
-   * > [ImmersiveMaterial]{@link ImmersiveMaterial}类型材质方可生效，并依据设备算力档位自动生效非线性效果（高中档算力设备生效，
+   * > [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}类型材质方可生效，并依据设备算力档位自动生效非线性效果（高中档算力设备生效，
    * > 低档算力设备不生效）。非线性动画会增加渲染开销，建议在低端设备上谨慎使用。
    * > 各枚举取值含义请参见[DistortionMode]{@link DistortionMode}。
    *
