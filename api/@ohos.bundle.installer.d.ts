@@ -1247,6 +1247,12 @@ declare namespace installer {
      * being installed (supported since API version 26.1.0). If this key is not present, the policy defaults to
      * **UNSPECIFIED** (0). If the value is invalid (not a decimal string integer or out of range [0, 8]), this key
      * is ignored and the policy defaults to **UNSPECIFIED**.
+      * - **ohos.bms.param.disableInstallEventReport**: If the value is **true**, the installation broadcast event
+      * is not sent after the installation is complete (supported since API version 26.1.0). If this key is not present
+      * or the value is not **true**, the installation broadcast event is sent as usual.
+      * - **ohos.bms.param.bundleEnableState**: If the value is **false**, the application is installed in disabled
+      * state (enabled is false). If the value is **true** or this key is not present, the application is installed
+      * in enabled state (enabled is true, default behavior) (supported since API version 26.1.0).
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1316,6 +1322,22 @@ declare namespace installer {
      * @since 23 static
      */
     appIndex?: int;
+    /**
+     * Extended parameters, represented as an array of the Parameters type. The default value is empty.
+     * The options of **Parameters.key** are as follows:
+     *
+     * - **ohos.bms.param.disableInstallEventReport**: If the value is **true**, the installation broadcast event
+     * is not sent after the clone is created (supported since API version 26.1.0). If this key is not present
+     * or the value is not **true**, the installation broadcast event is sent as usual.
+     * - **ohos.bms.param.bundleEnableState**: If the value is **false**, the clone is created in disabled state
+     * (enabled is false). If the value is **true** or this key is not present, the clone is created in enabled
+     * state (enabled is true, default behavior) (supported since API version 26.1.0).
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 26.1.0
+     */
+    parameters?: Array<Parameters>;
   }
 
   /**

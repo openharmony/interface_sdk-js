@@ -1177,7 +1177,11 @@ declare namespace installer {
      * ohos.bms.param.deviceModeDistributionPolicy"：value值为
      * [DeviceModeDistributionPolicy]{@link @ohos.bundle.bundleManager:bundleManager.DeviceModeDistributionPolicy}
      * 枚举值的十进制字符串（例如**"4"**）。用于指定正在安装应用的设备模式分发策略（自API version 26.1.0起支持）。若未传入该键，则策略默认为**UNSPECIFIED**（0）。
-     * 若值非法（不是十进制整数字符串或超出[0, 8]范围），则忽略该键，策略默认为**UNSPECIFIED**。
+     * 若值非法（不是十进制整数字符串或超出[0, 8]范围），则忽略该键，策略默认为**UNSPECIFIED**。</br>
+      * - "ohos.bms.param.disableInstallEventReport"：若对应value值为"true"，表示安装完成后不发送安装广播事件（从API version 26.1.0开始支持）。
+      * 若不传入该键或value值非"true"，则正常发送安装广播。</br>
+      * - "ohos.bms.param.bundleEnableState"：若对应value值为"false"，表示应用安装后处于禁用状态（enabled为false）。
+      * 若对应value值为"true"或不传入该键，表示应用安装后处于启用状态（enabled为true，默认行为）（从API version 26.1.0开始支持）。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1246,6 +1250,18 @@ declare namespace installer {
      * @since 23 static
      */
     appIndex?: int;
+    /**
+     * 扩展参数，Parameters类型的数组，默认值为空。Parameters.key取值支持：</br>
+     * - "ohos.bms.param.disableInstallEventReport"：若对应value值为"true"，表示分身创建完成后不发送安装广播事件（从API version 26.1.0开始支持）。
+     * 若不传入该键或value值非"true"，则正常发送安装广播。</br>
+     * - "ohos.bms.param.bundleEnableState"：若对应value值为"false"，表示分身创建后处于禁用状态（enabled为false）。
+     * 若对应value值为"true"或不传入该键，表示分身创建后处于启用状态（enabled为true，默认行为）（从API version 26.1.0开始支持）。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @since 26.1.0
+     */
+    parameters?: Array<Parameters>;
   }
 
   /**
