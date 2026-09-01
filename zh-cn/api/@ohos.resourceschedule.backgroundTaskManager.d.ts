@@ -1997,6 +1997,17 @@ declare namespace backgroundTaskManager {
      * @since 26.0.0 dynamic&static
      */
     MODE_NEARLINK = 14,
+
+    /**
+     * USB业务。
+     * 
+     * 使用场景举例：通过USB设备进行音频播放。
+     * 
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MODE_NEARLINK = 16
   }
 
   
@@ -2554,7 +2565,16 @@ declare namespace backgroundTaskManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    SYSTEM_CANCEL_USER_UNAUTHORIZED = 14
+    SYSTEM_CANCEL_USER_UNAUTHORIZED = 14,
+
+    /**
+     * 申请USB类型长时任务，但是未检测到USB设备。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_CANCEL_NOT_USE_USB = 16
   }
 
   /**
@@ -2749,6 +2769,15 @@ declare namespace backgroundTaskManager {
      * @since 26.0.0 dynamic&static
      */
     SYSTEM_SUSPEND_USER_UNAUTHORIZED = 19,
+
+    /**
+     * 申请USB类型长时任务，但是未检测到USB设备。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_SUSPEND_USB_NOT_USED = 20
   }
 
   /**

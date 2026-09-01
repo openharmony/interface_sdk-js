@@ -2165,6 +2165,17 @@ declare namespace backgroundTaskManager {
      * @since 26.0.0 dynamic&static
      */
     MODE_NEARLINK = 14,
+
+    /**
+     * USB.
+     * 
+     * Use scenario: An application transitions into the background during the process of file transfer using NearLink.
+     * 
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MODE_NEARLINK = 16,
   }
 
   
@@ -2751,7 +2762,16 @@ declare namespace backgroundTaskManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    SYSTEM_CANCEL_USER_UNAUTHORIZED = 14
+    SYSTEM_CANCEL_USER_UNAUTHORIZED = 14,
+
+    /**
+     * A continuous task of the **USB** type is requested, but USB device is not in use.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_CANCEL_NOT_USE_USB = 16
   }
 
   /**
@@ -2950,6 +2970,15 @@ declare namespace backgroundTaskManager {
      * @since 26.0.0 dynamic&static
      */
     SYSTEM_SUSPEND_USER_UNAUTHORIZED = 19,
+
+    /**
+     * A continuous task of the **USB** type is requested, but USB device is not in use.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_SUSPEND_USB_NOT_USED = 20
   }
 
   /**
