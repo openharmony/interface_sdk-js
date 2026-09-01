@@ -882,7 +882,7 @@ declare namespace picker {
 
     /**
      * 创建DocumentViewPicker对象，推荐使用该构造函数，获取context参考
-     * [getHostContext](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#gethostcontext12)。
+     * [getHostContext]{@link @ohos.arkui.UIContext:UIContext#getHostContext}。
      *
      * @param { Context } context - 应用上下文（仅支持UIAbilityContext）。Stage模型的应用Context定义见[Context]{@link ./app/context}。
      * @syscap SystemCapability.FileManagement.UserFileService
@@ -1112,7 +1112,7 @@ declare namespace picker {
 
     /**
      * 创建AudioViewPicker对象，推荐使用该构造函数，获取context参考
-     * [getHostContext](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#gethostcontext12)。
+     * [getHostContext]{@link @ohos.arkui.UIContext:UIContext#getHostContext}。
      *
      * @param { Context } context - 应用上下文（仅支持UIAbilityContext）。Stage模型的应用Context定义见[Context]{@link ./app/context}。
      * @syscap SystemCapability.FileManagement.UserFileService
