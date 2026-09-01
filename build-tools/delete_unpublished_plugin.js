@@ -16,7 +16,6 @@
 const fs = require('fs');
 const path = require('path');
 const commander = require('commander');
-const { kMaxLength } = require('buffer');
 
 let arkts = null;
 let arktsGlobal = null;
