@@ -113,7 +113,7 @@ interface CircleInterface {
 }
 
 /**
- * 除支持[通用属性]{@link ./common}以及[图形绘制通用属性](docroot://reference/apis-arkui/arkui-ts/ts-drawing-components-common.md)外，还支持以下
+ * 除支持[通用属性]{@link CommonMethod}以及[图形绘制通用属性](docroot://reference/apis-arkui/arkui-ts/ts-drawing-components-common.md)外，还支持以下
  * 属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -169,7 +169,7 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {
  * >
  * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * 
- * ###### 子组件
+ * ## 子组件
  * 
  * 无
  *

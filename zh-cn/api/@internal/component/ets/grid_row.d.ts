@@ -544,9 +544,9 @@ interface GridRowInterface {
 }
 
 /**
- * 除支持[通用属性]{@link ./common}外，还支持以下属性：
+ * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性：
  * 
- * 除支持[通用事件]{@link ./common}外，还支持以下事件：
+ * 除支持[通用事件]{@link CommonMethod}外，还支持以下事件：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -607,7 +607,7 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
  * >
  * > 该组件从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * 
- * ###### 子组件
+ * ## 子组件
  * 
  * 可以包含GridCol子组件。
  *

@@ -22548,30 +22548,15 @@ declare class CommonMethod<T> {
   scale(options: Optional<ScaleOptions>): T;
 
   /**
-   * Default number of occupied columns, indicating the number of occupied grid columns when the number of columns (span) of the corresponding size is not set in the useSizeType attribute.
+   * 默认占用列数。
    *
-   * @param { number } value
+   * @param { number } value - 默认占用列数，指useSizeType属性没有设置对应尺寸的列数（span）时，占用的栅格列数，需为非负整数。传入负数或超出GridContainer总列数时，使用默认值1。
+   * <br>**说明：**<br>- 调用该属性时，其父组件或祖先组件必须是GridContainer。<br>- 设置了栅格span属性，组件的宽度由栅格布局决定。
+   * <br>默认值：1
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Default number of occupied columns, indicating the number of occupied grid columns when the number of columns (span) of the corresponding size is not set in the useSizeType attribute.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Default number of occupied columns, indicating the number of occupied grid columns when the number of columns (span) of the corresponding size is not set in the useSizeType attribute.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
    * @since 11 dynamiconly
    * @deprecated since 14
    * @useinstead grid_col/GridColInterface and grid_row/GridRowInterface
@@ -22579,33 +22564,19 @@ declare class CommonMethod<T> {
   gridSpan(value: number): T;
 
   /**
-   * The default offset column number indicates the number of offset columns of the current component in the start direction of the parent component when the useSizeType attribute does not set the offset of the corresponding dimension. That is,
-   * the current component is located in the nth column.
+   * 默认偏移列数。
    *
-   * @param { number } value
+   * @param { number } value - 默认偏移列数，指useSizeType属性没有设置对应尺寸的偏移（offset）时，当前组件沿着父组件Start方向偏移的列数，即组件起始位置相对于父组件Start方向偏移n列，需为非负整数。
+   * 传入负数时，使用默认值0。当useSizeType设置了对应尺寸的offset时，gridOffset设置无效。
+   * <br>**说明：**<br>- 调用该属性时，其父组件或祖先组件必须是GridContainer。
+   * <br>- 配置该属性后，当前组件在父组件水平方向的布局不再跟随父组件原有的布局方式，而是沿着父组件的Start方向偏移一定位移。
+   * <br>- 偏移位移&nbsp;=&nbsp;（列宽&nbsp;+&nbsp;间距）\*&nbsp;偏移列数。
+   * <br>- 设置了偏移(gridOffset)的组件之后的兄弟组件会根据该组件进行相对布局。
+   * <br>默认值：0
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The default offset column number indicates the number of offset columns of the current component in the start direction of the parent component when the useSizeType attribute does not set the offset of the corresponding dimension. That is,
-   * the current component is located in the nth column.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The default offset column number indicates the number of offset columns of the current component in the start direction of the parent component when the useSizeType attribute does not set the offset of the corresponding dimension. That is,
-   * the current component is located in the nth column.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
    * @since 11 dynamiconly
    * @deprecated since 14
    * @useinstead grid_col/GridColInterface and grid_row/GridRowInterface
@@ -23187,9 +23158,16 @@ declare class CommonMethod<T> {
   enabled(value: boolean): T;
 
   /**
-   * Sets the number of occupied columns and offset columns for a specific device width type.
+   * 设置在特定设备宽度类型下的占用列数和偏移列数。
    *
-   * @param { object } value
+   * @param { object } value - 设置在特定设备宽度类型下的占用列数和偏移列数，span：占用列数（需为非负整数）。传入负数或超出GridContainer总列数时，使用默认值；offset：偏移列数（需为非负整数）。传入负数时，使用默认值0。
+   * <br>当值为number类型时，仅设置列数，当格式如{"span":&nbsp;1,&nbsp;"offset":&nbsp;0}时，指同时设置占用列数与偏移列数。
+   * <br>-&nbsp;xs：指设备宽度类型为SizeType.XS（<320vp）时的占用列数和偏移列数。
+   * <br>-&nbsp;sm：指设备宽度类型为SizeType.SM（320vp-600vp）时的占用列数和偏移列数。
+   * <br>-&nbsp;md：指设备宽度类型为SizeType.MD（600vp-840vp）时的占用列数和偏移列数。
+   * <br>-&nbsp;lg：指设备宽度类型为SizeType.LG（≥840vp）时的占用列数和偏移列数。
+   * <br>各尺寸类型的详细断点配置请参见[GridContainer](ts-container-gridcontainer.md)。
+   * <br>**说明：**<br>- 调用该属性时，其父组件或祖先组件必须是GridContainer。
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
