@@ -3813,8 +3813,6 @@ declare class WebResourceResponse {
    *     ArrayBuffer type indicates binary data.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
-   * @atomicservice [since 26.1.0]
    * @since 26.1.0 dynamic
    */
   setResponseBody(data: string | number | Resource | ArrayBuffer): void;
