@@ -2667,7 +2667,7 @@ export interface Rect {
  * @since 20 dynamic
  * @since 23 static
  */
-interface AccessibilityGrid {
+export interface AccessibilityGrid {
   /**
    * 网格行索引。
    *
@@ -2696,7 +2696,7 @@ interface AccessibilityGrid {
  * @since 20 dynamic
  * @since 23 static
  */
-interface AccessibilitySpan {
+export interface AccessibilitySpan {
   /**
    * 超链接文本编号。
    *
