@@ -183,7 +183,7 @@ declare namespace emitter {
   /**
    * 取消事件ID为eventId的所有订阅。
    * 
-   * 使用该接口取消某个事件订阅后，已通过[emit]{@link emitter.emit(eventId: string)}接口发布但尚未被执行的事件将被取消。
+   * 使用该接口取消某个事件订阅后，已通过[emit]{@link emitter#emit(event: InnerEvent, data?: EventData)}接口发布但尚未被执行的事件将被取消。
    *
    * @param { long } eventId - 事件ID，由开发者定义，用于辨别事件。
    * @syscap SystemCapability.Notification.Emitter
@@ -210,10 +210,10 @@ declare namespace emitter {
   function off(eventId: string): void;
 
   /**
-   * 取消事件ID为eventId且回调处理函数为callback的订阅。仅当已使用[on]{@link emitter.on(event: InnerEvent, callback: Callback<EventData>)}或
-   * [once]{@link emitter.once(event: InnerEvent, callback: Callback<EventData>)}接口订阅callback时，该接口才生效。
+   * 取消事件ID为eventId且回调处理函数为callback的订阅。仅当已使用[on]{@link emitter#on(event: InnerEvent, callback: Callback<EventData>)}或
+   * [once]{@link emitter#once(event: InnerEvent, callback: Callback<EventData>)}接口订阅callback时，该接口才生效。
    * 
-   * 使用该接口取消某个事件订阅后，已通过[emit]{@link emitter.emit(eventId: string)}接口发布但尚未被执行的事件将被取消。
+   * 使用该接口取消某个事件订阅后，已通过[emit]{@link emitter#emit(event: InnerEvent, data?: EventData)}接口发布但尚未被执行的事件将被取消。
    *
    * @param { long } eventId - 事件ID，由开发者定义，用于辨别事件。
    * @param { Callback<EventData> } callback - 回调函数，指定要取消订阅的事件处理函数，需与订阅时使用的
@@ -227,10 +227,10 @@ declare namespace emitter {
   function off(eventId: long, callback: Callback<EventData>): void;
 
   /**
-   * 取消事件ID为eventId且回调处理函数为callback的订阅。仅当已使用[on]{@link emitter.on(eventId: string, callback: Callback<EventData>)}或
-   * [once]{@link emitter.once(eventId: string, callback: Callback<EventData>)}接口订阅callback时，该接口才生效。
+   * 取消事件ID为eventId且回调处理函数为callback的订阅。仅当已使用[on]{@link emitter#on(eventId: string, callback: Callback<EventData>)}或
+   * [once]{@link emitter#once(eventId: string, callback: Callback<EventData>)}接口订阅callback时，该接口才生效。
    * 
-   * 使用该接口取消某个事件订阅后，已通过[emit]{@link emitter.emit(eventId: string)}接口发布但尚未被执行的事件将被取消。
+   * 使用该接口取消某个事件订阅后，已通过[emit]{@link emitter#emit(eventId: string)}接口发布但尚未被执行的事件将被取消。
    *
    * @param { string } eventId - 事件ID。
    *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
@@ -260,10 +260,10 @@ declare namespace emitter {
 
   /**
    * 取消事件ID为eventId且回调处理函数为callback的订阅。仅当已使用
-   * [on]{@link emitter.on<T>(eventId: string, callback: Callback<GenericEventData<T>>)}或
-   * [once]{@link emitter.once<T>(eventId: string, callback: Callback<GenericEventData<T>>)}接口订阅callback时，该接口才生效。
+   * [on]{@link emitter#on(eventId: string, callback: Callback<GenericEventData<T>>)}或
+   * [once]{@link emitter#once(eventId: string, callback: Callback<GenericEventData<T>>)}接口订阅callback时，该接口才生效。
    * 
-   * 使用该接口取消某个事件订阅后，已通过[emit]{@link emitter.emit(eventId: string)}接口发布但尚未被执行的事件将被取消。
+   * 使用该接口取消某个事件订阅后，已通过[emit]{@link emitter#emit(eventId: string)}接口发布但尚未被执行的事件将被取消。
    *
    * @param { string } eventId - 事件ID。
    *     不可为空字符串，大小不超过10240字节，超出部分会被截断。
@@ -809,11 +809,11 @@ declare namespace emitter {
 
     /**
      * 取消订阅当前Emitter类实例的事件。仅当已使用
-     * [on]{@link emitter.Emitter#on<T>(eventId: string, callback: Callback<GenericEventData<T>>)}或
-     * [once]{@link emitter.Emitter#once<T>(eventId: string, callback: Callback<GenericEventData<T>>)}接口订阅了事件ID为eventId且
+     * [on]{@link emitter.Emitter#on(eventId: string, callback: Callback<GenericEventData<T>>)}或
+     * [once]{@link emitter.Emitter#once(eventId: string, callback: Callback<GenericEventData<T>>)}接口订阅了事件ID为eventId且
      * 回调处理函数为callback的事件时，该接口才生效。
      *
-     * 使用该接口取消事件订阅后，已通过[emit]{@link emitter.Emitter#emit<T>(eventId: string, data?: GenericEventData<T>)}接口发布但尚未被执行的事件将被取消。
+     * 使用该接口取消事件订阅后，已通过[emit]{@link emitter.Emitter#emit(eventId: string, data?: GenericEventData<T>)}接口发布但尚未被执行的事件将被取消。
      *
      * @param { string } eventId - 事件ID。
      *     不可为空字符串，大小不超过10240字节，超出部分会被截断。

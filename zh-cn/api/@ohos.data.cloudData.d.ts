@@ -23,12 +23,10 @@ import type relationalStore from './@ohos.data.relationalStore';
 import commonType from './@ohos.data.commonType';
 
 /**
- * 端云服务提供端云协同和端云共享能力。
- * 端云协同提供结构化数据（RDB Store，关系型数据库）端云同步的能力。即：云作为数据的中心节点，通过与云空间的数据同步，实现数据云备份、同账号设备间的数据一致性。
- * 端云共享是在端云协同能力基础上，实现跨账号的数据共享。其中，端云共享资源标识是指：对于应用发起共享的每一条数据记录，该条数据在进行端云同步时会生成唯一的共享资源标识（字符串类型的值），此标识作为该条数据记录共享时的识别标识。
- * 端云共享参与者是指：共享发起者根据好友列表选中的参与当前数据共享的所有人员。
- * 端云共享邀请码是指：共享发起后，在共享的服务端会生成当前共享操作的邀请码，并将该邀请码附加到当前共享邀请中，通过推送消息推送到被邀请者的设备端，被邀请者可以通过该邀请码进行邀请的确认。
- * 
+ * 端云服务提供端云策略能力。
+ * <br>
+ * <br>端云策略提供端云同步策略配置的能力。
+ *
  * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
  * @since 10 dynamic
  * @since 23 static
@@ -298,7 +296,7 @@ declare namespace cloudData {
   }
 
   /**
-   * 端云协同数据库级清除配置信息。
+   * 端云协同数据库级清除规则。
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
@@ -306,7 +304,7 @@ declare namespace cloudData {
    */
   interface DBActionInfo {
     /**
-     * 数据库默认数据清除方式。
+     * 数据库默认数据清除规则。
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -315,7 +313,7 @@ declare namespace cloudData {
     action: ClearAction;
 
     /**
-     * 要清除数据的表信息及清除规则。键为表名称，值为该表的清除方式。当未配置该参数时，默认使用数据库的数据清除方式。
+     * 待清除数据的表信息及各表的清除规则。键为表名称，值为该表的清除规则。当未配置该参数时，默认使用数据库的数据清除规则。
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -325,15 +323,16 @@ declare namespace cloudData {
   }
 
   /**
-   * 端云协同数据库级清除配置。
+   * 端云协同数据库级清除规则。
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
+   * @stagemodelonly
    * @since 23 dynamic&static
    */
   interface ClearConfig {
     /**
-      * 要清除数据的库信息及清除规则。键为数据库名称，值为该数据库的清除配置信息。
+      * 待清除数据的库信息及各库的清除规则。键为数据库名称，值为该数据库的清除规则。
       *
       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
       * @systemapi
@@ -387,8 +386,9 @@ declare namespace cloudData {
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - 已登录的云账号ID。
-     * @param { object } switches - 各应用的端云协同开关信息。true为打开该应用端云开关，false为关闭该应用端云开关。 [since 10 - 10]
-     * @param { Record<string, boolean> } switches - 各应用的端云协同开关信息。true为打开该应用端云开关，false为关闭该应用端云开关。 [since 11]
+     * @param { object } switches - 各应用的端云协同开关信息。键为应用的包名，值为该应用的开关状态，true为打开该应用端云开关，false为关闭该应用端云开关。 [since 10 - 10]
+     * @param { Record<string, boolean> } switches - 各应用的端云协同开关信息。键为应用的包名，值为该应用的开关状态，true为打开该应用端云开关，false为关闭该应用端云开
+     *     关。 [since 11]
      * @param { AsyncCallback<void> } callback - 回调函数。当打开端云协同功能成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
@@ -413,8 +413,9 @@ declare namespace cloudData {
       *
       * @permission ohos.permission.CLOUDDATA_CONFIG
       * @param { string } accountId - 已登录的云账号ID。
-      * @param { object } switches - 各应用的端云协同开关信息。true为打开该应用端云开关，false为关闭该应用端云开关。 [since 10 - 10]
-      * @param { Record<string, boolean> } switches - 各应用的端云协同开关信息。true为打开该应用端云开关，false为关闭该应用端云开关。 [since 11]
+      * @param { object } switches - 各应用的端云协同开关信息。键为应用的包名，值为该应用的开关状态，true为打开该应用端云开关，false为关闭该应用端云开关。 [since 10 - 10]
+      * @param { Record<string, boolean> } switches - 各应用的端云协同开关信息。键为应用的包名，值为该应用的开关状态，true为打开该应用端云开关，false为关闭该应用端云开
+      *     关。 [since 11]
       * @returns { Promise<void> } Promise对象，无返回结果。
       * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by
       *     VerifyAccessToken.
@@ -546,7 +547,7 @@ declare namespace cloudData {
     ): Promise<void>;
 
     /**
-     * 通知云端的数据变更，可以通过extInfo中的extraData字段指定变更的数据库名和表名，可通过userId指定用户ID，使用Promise异步回调。
+     * 通知云端的数据变更，可以通过extInfo中的extraData字段指定变更的数据库名和表名，可通过userId指定用户账号ID，使用Promise异步回调。
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { ExtraData } extInfo - 透传数据，包含通知数据变更后的应用信息。
@@ -589,11 +590,11 @@ declare namespace cloudData {
     static notifyDataChange(extInfo: ExtraData, callback: AsyncCallback<void>): void;
 
     /**
-     * 通知云端的数据变更，可以通过extInfo中的extraData字段指定变更的数据库名和表名，可通过userId指定用户ID，使用callback异步回调。
+     * 通知云端的数据变更，可以通过extInfo中的extraData字段指定变更的数据库名和表名，可通过userId指定用户账号ID，使用callback异步回调。
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { ExtraData } extInfo - 透传数据，包含通知数据变更后的应用信息。
-     * @param { int } userId - 用户ID，对应为系统中现有的用户ID。
+     * @param { int } userId - 用户账号ID，指系统中现有的用户账号ID。
      * @param { AsyncCallback<void> } callback - 回调函数。当数据变更通知成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission verification failed, which
      *     is usually returned by <b>VerifyAccessToken</b>.
@@ -685,7 +686,7 @@ declare namespace cloudData {
      * @param { string } accountId - 已登录的云账号ID。
      * @param { string } bundleName - 应用包名。
      * @param { string } [storeId] - 数据库名称。默认值为空字符串，此时查询当前应用下所有数据库上一次端云同步信息。
-     * @returns { Promise<Record<string, SyncInfo>> } 返回数据库名以及上一次端云同步的信息结果集。
+     * @returns { Promise<Record<string, SyncInfo>> } 返回以数据库名为键，上一次端云同步信息为值的结果集。
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
      *     uses system API.
@@ -786,8 +787,8 @@ declare namespace cloudData {
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - 已登录的云账号ID。
-     * @param { Record<string, ClearAction> } appActions - 要清除数据的应用信息及清除规则。 [since 11]
-     * @param { Record<string, ClearAction> } appActions - 要清除数据的应用信息及清除规则。 [since 10 - 10]
+     * @param { Record<string, ClearAction> } appActions - 待清除数据的应用信息及各应用的清除规则，键为应用包名，值为清除规则。 [since 11]
+     * @param { Record<string, ClearAction> } appActions - 待清除数据的应用信息及各应用的清除规则，键为应用包名，值为清除规则。 [since 10 - 10]
      * @param { AsyncCallback<void> } callback - 回调函数。当清除本地下载的云端数据成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
@@ -812,8 +813,8 @@ declare namespace cloudData {
       *
       * @permission ohos.permission.CLOUDDATA_CONFIG
       * @param { string } accountId - 已登录的云账号ID。
-      * @param { object } appActions - 要清除数据的应用信息及清除规则。 [since 10 - 10]
-      * @param { Record<string, ClearAction> } appActions - 要清除数据的应用信息及清除规则。 [since 11]
+      * @param { object } appActions - 待清除数据的应用信息及各应用的清除规则，键为应用包名，值为清除规则。 [since 10 - 10]
+      * @param { Record<string, ClearAction> } appActions - 待清除数据的应用信息及各应用的清除规则，键为应用包名，值为清除规则。 [since 11]
       * @returns { Promise<void> } Promise对象，无返回结果。
       * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by
       *     VerifyAccessToken.
@@ -835,9 +836,9 @@ declare namespace cloudData {
      *
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - 已登录的云账号ID。
-     * @param { Record<string, ClearAction> } appActions - 要清除数据的应用信息及清除规则。
-     * @param { Record<string, ClearConfig> } [config] - 端云协同数据库级清除配置信息。键为应用包名，值为该应用数据库清除规则。清除规则优先级：表级 > 数据库级 > 应用级。当未配置
-     *     该参数时，默认使用应用级的数据清除方式。
+     * @param { Record<string, ClearAction> } appActions - 待清除数据的应用信息及各应用的清除规则，键为应用包名，值为清除规则。
+     * @param { Record<string, ClearConfig> } [config] - 端云协同数据库级清除规则。键为应用包名，值为该应用数据库清除规则。清除规则优先级：表级 > 数据库级 > 应用级。当未配置该参
+     *     数时，默认使用应用级的数据清除规则。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
@@ -1017,7 +1018,7 @@ declare namespace cloudData {
   function setCloudStrategy(strategy: StrategyType, param?: Array<commonType.ValueType>): Promise<void>;
 
   /**
-   * 提供端云共享的方法，包括发起共享、取消共享、退出共享、更改共享数据权限、查找共享参与者、确认邀请、更改已确认的邀请、查找共享资源。
+   * 提供端云共享的方法，包括发起共享、取消共享、退出共享、更改共享数据权限、查询共享参与者、确认邀请、更改已确认的邀请、查询共享资源。
    *
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @systemapi
@@ -1325,7 +1326,7 @@ declare namespace cloudData {
       writable?: boolean;
 
       /**
-       * 被共享者是否可读取共享的数据。true表示可读取，false表示不可读取，默认不可读取
+       * 被共享者是否可读取共享的数据。true表示可读取，false表示不可读取，默认不可读取。
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1405,7 +1406,7 @@ declare namespace cloudData {
       state?: State;
 
       /**
-       * 指定的共享数据权限。默认为Privilege的默认值。
+       * 指定的共享数据权限。默认为[Privilege]{@link cloudData.sharing.Privilege}的默认值。
        *
        * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
        * @systemapi
@@ -1426,13 +1427,12 @@ declare namespace cloudData {
     }
 
     /**
-     * 根据谓词条件匹配的数据申请共享资源标识并发起共享，返回已共享资源的结果集。
-	 * 如果指定了列字段，则返回的结果集中同时包含对应列的字段值，使用Promise异步回调。
+     * 根据谓词条件匹配的数据申请共享资源标识并发起共享，返回已共享资源的结果集。如果指定了列字段，则返回的结果集中同时包含对应列的字段值，使用Promise异步回调。
      *
      * @param { string } storeId - 数据库名称。
-     * @param { relationalStore.RdbPredicates } predicates - 表示查找共享资源标识的数据的谓词条件。
+     * @param { relationalStore.RdbPredicates } predicates - 表示查询共享资源标识的数据的谓词条件。
      * @param { Array<Participant> } participants - 端云共享的参与者。
-     * @param { Array<string> } [columns] - 表示要查找的列字段名。默认为undefined，不返回列字段。
+     * @param { Array<string> } [columns] - 表示要查询的列字段名。默认为undefined，不返回列字段。
      * @returns { Promise<relationalStore.ResultSet> } Promise对象，返回查询并共享的共享资源标识结果集。
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
@@ -1455,7 +1455,7 @@ declare namespace cloudData {
      * 根据谓词条件匹配的数据申请共享资源标识并发起共享，返回已共享资源的结果集，使用callback异步回调。
      *
      * @param { string } storeId - 数据库名称。
-     * @param { relationalStore.RdbPredicates } predicates - 表示查找共享资源标识的数据的谓词条件。
+     * @param { relationalStore.RdbPredicates } predicates - 表示查询共享资源标识的数据的谓词条件。
      * @param { Array<Participant> } participants - 端云共享的参与者。
      * @param { AsyncCallback<relationalStore.ResultSet> } callback - 回调函数。返回查询并共享的共享资源标识结果集。
      * @throws { BusinessError } 202 - Permission verification failed,
@@ -1476,15 +1476,13 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * 根据谓词条件匹配的数据申请共享资源标识并发起共享，返回已共享资源的结果集
-	 * 并根据指定的列字段，返回的结果集中同时包含对应列的字段值，使用callback异步回调。
+     * 根据谓词条件匹配的数据申请共享资源标识并发起共享，返回已共享资源的结果集。并根据指定的列字段，返回的结果集中同时包含对应列的字段值，使用callback异步回调。
      *
      * @param { string } storeId - 数据库名称。
-     * @param { relationalStore.RdbPredicates } predicates - 表示查找共享资源标识的数据的谓词条件。
+     * @param { relationalStore.RdbPredicates } predicates - 表示查询共享资源标识的数据的谓词条件。
      * @param { Array<Participant> } participants - 端云共享的参与者。
-     * @param { Array<string> } columns - 表示要查找的列字段名。
-     * @param { AsyncCallback<relationalStore.ResultSet> } callback -
-     *     回调函数。返回查询并共享的共享资源标识结果集。
+     * @param { Array<string> } columns - 表示要查询的列字段名。
+     * @param { AsyncCallback<relationalStore.ResultSet> } callback - 回调函数。返回查询并共享的共享资源标识结果集。
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1547,11 +1545,11 @@ declare namespace cloudData {
     ): Promise<Result<Array<Result<Participant>>>>;
 
     /**
-     * 根据指定的共享资源标识和共享参与者发起共享邀请，使用callback异步回调。
+     * 根据指定的共享资源标识和共享参与者取消共享，使用callback异步回调。
      *
      * @param { string } sharingResource - 端云共享数据的资源标识。
-     * @param { Array<Participant> } participants - 端云共享的参与者。
-     * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - 回调函数。返回端云共享的结果。
+     * @param { Array<Participant> } participants - 端云共享参与者。
+     * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - 回调函数。返回取消共享的结果。
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1569,11 +1567,11 @@ declare namespace cloudData {
     ): void;
 
     /**
-     * 根据指定的共享资源标识和共享参与者发起共享邀请，使用Promise异步回调。
+     * 根据指定的共享资源标识和共享参与者取消共享，使用Promise异步回调。
      *
      * @param { string } sharingResource - 端云共享数据的资源标识。
      * @param { Array<Participant> } participants - 端云共享的参与者。
-     * @returns { Promise<Result<Array<Result<Participant>>>> } Promise对象，返回端云共享的结果。
+     * @returns { Promise<Result<Array<Result<Participant>>>> } Promise对象，返回取消共享的结果。
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1670,8 +1668,7 @@ declare namespace cloudData {
      * 根据指定的共享资源标识查询当前共享的参与者，使用callback异步回调。
      *
      * @param { string } sharingResource - 端云共享数据的资源标识。
-     * @param { AsyncCallback<Result<Array<Participant>>> } callback -
-     *     回调函数。返回查找共享参与者的结果。
+     * @param { AsyncCallback<Result<Array<Participant>>> } callback - 回调函数。返回查询共享参与者的结果。
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1705,8 +1702,7 @@ declare namespace cloudData {
      * 根据指定的共享邀请码查询当前共享的参与者，使用callback异步回调。
      *
      * @param { string } invitationCode - 端云共享的邀请码。
-     * @param { AsyncCallback<Result<Array<Participant>>> } callback -
-     *     回调函数。返回查找共享参与者的结果。
+     * @param { AsyncCallback<Result<Array<Participant>>> } callback - 回调函数。返回查询共享参与者的结果。
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1726,7 +1722,7 @@ declare namespace cloudData {
      * 根据指定的共享邀请码查询当前共享的参与者，使用Promise异步回调。
      *
      * @param { string } invitationCode - 端云共享的邀请码。
-     * @returns { Promise<Result<Array<Participant>>> } Promise对象，返回查找共享参与者的结果。
+     * @returns { Promise<Result<Array<Participant>>> } Promise对象，返回查询共享参与者的结果。
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1887,7 +1883,7 @@ declare namespace cloudData {
   /**
    * 在已打开端云同步且应用关闭自动同步的条件下，注册自动同步触发事件通知。当满足自动触发条件时，回调函数会被调用。
    *
-   * @param { Callback<AutoSyncTriggerInfo> } observer - 回调函数。
+   * @param { Callback<AutoSyncTriggerInfo> } observer - 回调函数，返回自动同步触发信息。
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @stagemodelonly

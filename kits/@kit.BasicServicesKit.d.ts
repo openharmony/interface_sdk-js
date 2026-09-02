@@ -23,6 +23,7 @@ import configPolicy from '@ohos.configPolicy';
 import customConfig from '@ohos.customization.customConfig';
 import distributedAccount from '@ohos.account.distributedAccount';
 import osAccount from '@ohos.account.osAccount';
+import authorization from '@ohos.account.osAccount.authorization';
 import PrintExtensionAbility from '@ohos.app.ability.PrintExtensionAbility';
 import { AsyncCallback, BusinessError, Callback, ErrorCallback } from '@ohos.base';
 import batteryInfo from '@ohos.batteryInfo';
@@ -86,7 +87,7 @@ export {
   OnDownloadCompleteResponse, PrintExtensionAbility, Request, RequestData, RequestFile,
   SetBrightnessModeOptions, SetBrightnessOptions, SetKeepScreenOnOptions, UploadRequestOptions,
   UploadResponse, WallpaperExtensionAbility, appAccount, batteryInfo, batteryStats, brightness, charger, configPolicy,
-  customConfig, deviceAttest, deviceInfo, distributedAccount, osAccount, pasteboard, power, print, scan, request, cacheDownload, runningLock,
+  customConfig, deviceAttest, deviceInfo, distributedAccount, osAccount, authorization, pasteboard, power, print, scan, request, cacheDownload, runningLock,
   screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
   systemTimer, thermal, update, usb, usbManager, serialManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, systemLoad, intelligentVoice, selectionManager, SelectionExtensionAbility,
@@ -111,12 +112,13 @@ import request from '@ohos.request';
 import appAccount from '@ohos.account.appAccount';
 import distributedAccount from '@ohos.account.distributedAccount';
 import osAccount from '@ohos.account.osAccount';
+import authorization from '@ohos.account.osAccount.authorization';
 import intelligentScene from '@ohos.intelligentScene';
 import { Available } from '@ohos.annotation';
 
 export {
   zlib, configPolicy, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, customConfig, systemDateTime,
   deviceInfo,systemTimer, systemLoad, request, commonEventManager, emitter, StaticSubscriberExtensionAbility,
-  StaticSubscriberExtensionContext, appAccount, distributedAccount, osAccount, intelligentScene, Available
+  StaticSubscriberExtensionContext, appAccount, distributedAccount, osAccount, authorization, intelligentScene, Available
 };
 /*** endif */

@@ -14,12 +14,16 @@
  */
 
 /**
- * @file
+ * @file WallpaperExtensionAbility
  * @kit BasicServicesKit
  */
 
 /**
- * class of wallpaper extension ability.
+ * WallpaperExtensionAbility为壁纸扩展模块，提供应用生命周期回调和监听壁纸变化的能力。
+ * <br>
+ * > **说明：**
+ * >
+ * > 本模块接口均为系统接口。
  *
  * @syscap SystemCapability.MiscServices.Wallpaper
  * @systemapi Hide this for inner system use.
@@ -30,6 +34,10 @@
 declare class WallpaperExtensionAbility {
   /**
    * 初始化壁纸扩展应用。在拉起Extension壁纸扩展应用时触发回调，执行初始化应用操作。不支持多线程并发调用。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 10开始支持，从API version 23开始废弃。
    *
    * @param { object } want - 当前Extension相关的Want类型信息，包括ability名称、bundle名称等。
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -42,6 +50,10 @@ declare class WallpaperExtensionAbility {
 
   /**
    * 监听壁纸变化。在壁纸变化时触发回调。不支持多线程并发调用。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 10开始支持，从API version 23开始废弃。
    *
    * @param { number } wallpaperType - 壁纸类型。主屏幕壁纸为0，锁屏壁纸为1。
    * @syscap SystemCapability.MiscServices.Wallpaper
@@ -54,6 +66,10 @@ declare class WallpaperExtensionAbility {
 
   /**
    * 清理壁纸扩展应用资源。在销毁壁纸扩展应用时触发回调，执行资源清理。不支持多线程并发调用。
+   * <br>
+   * > **说明：**
+   * >
+   * > 从 API version 10开始支持，从API version 23开始废弃。
    *
    * @syscap SystemCapability.MiscServices.Wallpaper
    * @systemapi Hide this for inner system use.

@@ -1635,6 +1635,99 @@ declare namespace bundleManager {
   }
 
   /**
+   * Define the enumeration of device mode distribution policies, which is used to specify how an application
+   * is distributed on a device.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum DeviceModeDistributionPolicy {
+    /**
+     * Unspecified device mode distribution policy.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    UNSPECIFIED = 0,
+    /**
+     * The application is only available in primary mode.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    MAIN_ONLY = 1,
+    /**
+     * The application is only available in secondary mode.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SUB_ONLY = 2,
+    /**
+     * The application is available in both modes with identical package body.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    UNIVERSAL_IDENTICAL_PACKAGE = 3,
+    /**
+     * The application is available in both modes with different package body.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    UNIVERSAL_DIFFERENT_PACKAGE = 4,
+    /**
+     * The application is partially compatible across modes with identical package body.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    PARTIAL_COMPATIBLE_IDENTICAL_PACKAGE = 5,
+    /**
+     * The application is partially compatible across modes with different package body.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    PARTIAL_COMPATIBLE_DIFFERENT_PACKAGE = 6,
+    /**
+     * The application is fully compatible across modes with identical package body.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    FULL_COMPATIBLE_IDENTICAL_PACKAGE = 7,
+    /**
+     * The application is fully compatible across modes with different package body.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    FULL_COMPATIBLE_DIFFERENT_PACKAGE = 8
+  }
+
+  /**
    * Obtains the bundle information of the current application based on the given bundle flags. This API uses a promise
    * to return the result.
    *
@@ -4591,6 +4684,38 @@ declare namespace bundleManager {
    * @since 26.0.0 dynamic&static
    */
   function getInstalledBundleList(bundleFlags: int): Promise<Array<BundleInfo>>;
+
+  /**
+   * Filters the bundle list by device mode distribution policies.
+   * This API uses a promise to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > The input parameter cannot be empty. All values must be within the range of the enumerated values of
+   * > DeviceModeDistributionPolicy, and the policies for all different packages
+   * > (UNIVERSAL_DIFFERENT_PACKAGE, PARTIAL_COMPATIBLE_DIFFERENT_PACKAGE, and FULL_COMPATIBLE_DIFFERENT_PACKAGE)
+   * > must be included.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { Array<DeviceModeDistributionPolicy> } policies - Array of DeviceModeDistributionPolicy values.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
+   * @throws { BusinessError } 17700097 - The device does not support the dual mode.
+   * @throws { BusinessError } 17700098 - The input parameter is invalid. It is either outside the range of valid
+   *     enum values or does not include the following required enum values: [
+   *     DeviceModeDistributionPolicy.UNIVERSAL_DIFFERENT_PACKAGE,
+   *     DeviceModeDistributionPolicy.PARTIAL_COMPATIBLE_DIFFERENT_PACKAGE,
+   *     DeviceModeDistributionPolicy.FULL_COMPATIBLE_DIFFERENT_PACKAGE].
+   * @throws { BusinessError } 17700099 - The device is installing or uninstalling an application,
+   *     or a previous API call is still being processed. Please try again.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function filterBundleListByDeviceModeDistributionPolicies(
+    policies: Array<DeviceModeDistributionPolicy>): Promise<void>;
 
   /**
    * Defines the application information.

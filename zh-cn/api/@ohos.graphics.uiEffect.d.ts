@@ -390,6 +390,54 @@ declare namespace uiEffect {
      * @since 26.0.0 dynamiconly
      */
     blurBubblesRise(param: BlurBubblesRiseEffectParam): Filter;
+
+    /**
+     * 对图像应用柔和光晕泛光效果，在明亮区域周围产生柔和的光晕。
+     *
+     * > **说明**
+     * >
+     * > 建议作为前景滤镜使用。
+     *
+     * @param { Color } tintColor - 指定应用于光晕泛光的颜色色调。
+     *     该值无限制，推荐范围为 [0, 1)。Alpha 通道无效。
+     *     小于 0 或大于等于 1 的值无实际效果。
+     *     当红、绿、蓝三个分量均设为 0 时，不应用色调，光晕泛光保留原始颜色。
+     * @param { double } bloomFactor - 控制光晕泛光的亮度。
+     *     该值无限制，推荐范围为 [0, 10]。
+     *     设为 0 时，光晕泛光无可见效果。
+     * @param { double } glowExposure - 控制光晕泛光的扩散范围。
+     *     该值无限制，推荐范围为 [0, 10]。
+     *     设为 0 时，光晕泛光无可见效果。
+     * @returns { Filter } - 返回附加了光晕泛光效果的 Filter。
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    haloBloom(tintColor: Color, bloomFactor: double, glowExposure: double): Filter;
+
+    /**
+     * 对图像应用旋转模糊效果，在指定中心点周围产生旋转运动拖影。
+     *
+     * > **说明**
+     * >
+     * > 建议作为前景滤镜使用。
+     *
+     * @param { common2D.Point } center - 以归一化坐标指定模糊中心点。
+     *     [0, 0] 表示左上角，[0.5, 0.5] 表示中心，[1, 1] 表示右下角。
+     * @param { double } angle - 以弧度指定旋转模糊的角度范围。
+     *     该值无限制，推荐范围为 [-2π, 2π]。
+     *     正值表示顺时针旋转，负值表示逆时针旋转。
+     * @param { int } samples - 指定旋转模糊的采样数量。
+     *     该值会被截断到 [0, 128] 范围内。
+     *     值越大效果越平滑，但处理开销也越大；通常 32 即可满足需求。
+     * @returns { Filter } - 返回附加了旋转模糊效果的 Filter。
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    spinBlur(center: common2D.Point, angle: double, samples: int): Filter;
   }
 
   /**
@@ -941,6 +989,89 @@ declare namespace uiEffect {
   }
 
   /**
+   * WarpedRingParam 用于指定光环的半径、宽度、变化量、旋转、3D 朝向和噪声演化。
+   * 
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface WarpedRingParam {
+
+    /**
+     * 定义光环的半径，从光环中心到其厚度中点测量。
+     * 该值无限制，推荐范围为 [0, 1]。小于 0 的值无实际效果。
+     * 设为 1 时，光环的直径等于组件宽度和高度中的较小值。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    radius: double;
+
+    /**
+     * 定义光环厚度的一半，从中心线到任一侧边缘测量。
+     * 该值无限制，推荐范围为 [0, 0.5]。小于 0 的值无实际效果。
+     * 调整该效果时，建议使用 0.01 的步长以获得更好的效果。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    baseHalfWidth: double;
+
+    /**
+     * 定义沿光环圆周方向的变化量。
+     * 该值无限制，推荐范围为 [0, 1]。小于 0 的值无实际效果。
+     * 值越接近 0，光环越接近圆形。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    widthVariation: double;
+
+    /**
+     * 定义光环绕其中心旋转的角度。
+     * 该值无限制，推荐范围为 [-2π, 2π]。
+     * 正值表示顺时针旋转，负值表示逆时针旋转。
+     * 与 noiseEvolution 配合使用时，可使噪声沿光环圆周流动。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    rotateAngle: double;
+
+    /**
+     * 定义光环 3D 朝向循环的进度。
+     * 输入值会对 1 取模，映射到 [0, 1) 范围内。
+     * 值为 0 表示初始位置，值为 1 表示完成一次完整旋转后的位置。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    rotate3DProgress: double;
+
+    /**
+     * 定义噪声图案随时间的演化。
+     * 该值无限制，持续动画化该值可产生动态噪声效果。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    noiseEvolution: double;
+  }
+
+  /**
    * 混合器类型，用于描述混合效果。
    *
    * @unionmember { BrightnessBlender } 提亮混合器
@@ -1270,6 +1401,202 @@ declare namespace uiEffect {
   }
 
   /**
+   * 枚举 SweepRefractionMask 的棱镜形状类型。
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum PrismShapeType {
+  
+    /**
+     * 圆角矩形棱镜形状。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    ROUNDED_RECT = 0,
+
+    /**
+     * 椭圆棱镜形状。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    ELLIPSE = 1
+  }
+
+  /**
+   * 创建 SweepRefractionMask 的必选参数。
+   * 
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface SweepRefractionParam {
+
+    /**
+     * 设置棱镜遮罩的归一化半径。
+     * 取值范围为 [0, 10]，超出范围的值在实现时会被截断。
+     * 当 maskRadius等于1.0时, 等于组件宽度。
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    maskRadius: double;
+
+    /**
+     * 设置棱镜的归一化边缘厚度。
+     * 取值范围为 [1, 1000]，超出范围的值在实现时会被截断。
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    edgeThickness: double;
+
+    /**
+     * 设置棱镜的折射强度。
+     * 取值范围为 [0, 1]，超出范围的值在实现时会被截断。
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    refractAmount: double;
+
+    /**
+     * 设置扫光波纹的宽度。
+     * 取值范围为 [0.01, 1]，超出范围的值在实现时会被截断。
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    rippleWidth: double;
+
+    /**
+     * 设置扫光的位置偏移。
+     * 取值范围为 [-2, 2]，超出范围的值在实现时会被截断。
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    sweepOffset: double;
+
+    /**
+     * 设置色散偏移量。
+     * 取值范围为 [0, 0.5]，超出范围的值在实现时会被截断。
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    chromaDelta: double;
+  }
+
+  /**
+   * 创建 SweepRefractionMask 的可选参数。
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface SweepRefractionMaskOptions {
+
+    /**
+     * 棱镜形状类型。
+     *
+     * @default {PrismShapeType.ROUNDED_RECT}
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shapeType?: PrismShapeType;
+
+    /**
+     * 棱镜形状的归一化圆角半径，仅在 shapeType 为 ROUNDED_RECT 时生效。
+     * 取值范围为 [0, 1]，超出范围的值将在实现时被截断。
+     * 当 cornerRadius 为 1.0 时，等于组件高度。
+     *
+     * @default {0.16}
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    cornerRadius?: double;
+
+    /**
+     * 棱镜的归一化宽度。
+     * 取值范围为 [0.01, 2]，超出范围的值将在实现时被截断。
+     * 当 prismWidth 为 1.0 时，等于组件宽度。
+     *
+     * @default {1.0}
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    prismWidth?: double;
+
+    /**
+     * 棱镜的归一化高度。
+     * 取值范围为 [0.01, 2]，超出范围的值将在实现时被截断。
+     * 当 prismHeight 为 1.0 时，等于组件高度。
+     *
+     * @default {1.0}
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    prismHeight?: double;
+
+    /**
+     * 扫光中心的归一化 X 坐标。
+     * 取值范围为 [0, 1]，超出范围的值将在实现时被截断。
+     * 0.0 表示左边缘，1.0 表示右边缘，默认值为 0.0。
+     *
+     * @default {0.0}
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    sweepCenterX?: double;
+
+    /**
+     * 扫光中心的归一化 Y 坐标。
+     * 取值范围为 [0, 1]，超出范围的值将在实现时被截断。
+     * 0.0 表示上边缘，1.0 表示下边缘，默认值为 0.0。
+     *
+     * @default {0.0}
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    sweepCenterY?: double;
+  }
+
+  /**
    * Mask效果类，作为Filter以及VisualEffect的输入使用。不同类型的Mask提供不同的灰度分布模式，如波环遮罩、径向渐变、像素图遮罩等。
    *
    * @syscap SystemCapability.Graphics.Drawing
@@ -1393,6 +1720,81 @@ declare namespace uiEffect {
      * @since 23 static
      */
     static createUseEffectMask(useEffect: boolean): Mask;
+
+    /**
+     * 创建一个模拟棱镜色散效果的扫光折射遮罩 Mask 实例。
+     * 该遮罩会在组件上生成一条带有颜色分离效果的扫光光带。
+     * 
+     * @param { SweepRefractionParam } param - 扫光折射遮罩的必选参数，
+     * 包括mask半径、棱镜边缘厚度、折射强度、波纹宽度、扫光偏移和色散偏移.
+     * @param { SweepRefractionMaskOptions } [options] - 扫光折射遮罩的可选参数，
+     * 包括棱镜形状、圆角半径、棱镜尺寸和扫光中心。
+     * @returns { Mask } - 返回带有扫光折射效果的 Mask。
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    static createSweepRefractionMask(param: SweepRefractionParam,
+      options?: SweepRefractionMaskOptions): Mask;
+
+    /**
+     * 创建一个表示扭曲光环的 Mask 实例。
+     *
+     * @param { WarpedRingParam } ringParam - 配置扭曲光环的形状。
+     * @returns { Mask } - 返回带有扭曲光环蒙版效果的 Mask。
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    static createWarpedRingMask(ringParam: WarpedRingParam): Mask;
+
+    /**
+     * 创建一个分形玻璃蒙版。它通过分形条纹对输入纹理进行周期性水平位移采样，
+     * 产生类似玻璃折射的扭曲效果。
+     * 扭曲效果关于图像垂直轴对称。
+     * 配合 displacementDistort 使用，可产生光栅折射的视觉效果。
+     *
+     * @param { int } glassNum - 分形玻璃条纹的数量。
+     *     取值范围为 [0, 100]；超出范围的值将在内部被截断。
+     * @param { double } glassStrength - 分形玻璃的扭曲强度。
+     *     取值范围为 [0, 10]；超出范围的值将在内部被截断。
+     * @param { double } glassSoftness - 分形玻璃条纹的边缘柔和度。
+     *     取值范围为 [0, 0.01]；超出范围的值将在内部被截断。
+     * @param { boolean } isSymmetric - 是否启用对称扭曲。
+     *     「对称」指关于图像的垂直轴进行对称。
+     * @param { image.PixelMap } [refractMask] - 由 image 模块创建的 PixelMap 实例。
+     *     可选参数，用于控制分形效果的有效区域。
+     *     如果提供该参数，glassNum 不再表示条纹数量；glassNum 和 glassStrength 共同决定折射强度。
+     * @returns { Mask } - 带有分形玻璃蒙版效果的 Mask 实例。
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    static createFractalGlassMask(glassNum: int, glassStrength: double, glassSoftness: double,
+      isSymmetric: boolean, refractMask?: image.PixelMap): Mask;
+
+    /**
+     * 创建一个双目蒙版。生成一个左右对称的双椭圆弧形蒙版形状，
+     * 与 maskDispersion 滤镜配合使用，用于控制色散效果的作用区域和方向。
+     *
+     * @param { double } radiusX - 双目椭圆的半长轴。
+     *     取值范围为 [0, 1.0]；超出范围的值将在内部被截断。
+     * @param { double } radiusY - 双目椭圆的半短轴。
+     *     取值范围为 [0, 1.0]；超出范围的值将在内部被截断。
+     * @param { double } gap - 每个椭圆中心相对于原点的水平偏移。
+     *     取值范围为 [0, 1.0]；超出范围的值将在内部被截断。
+     * @param { double } softness - 双目蒙版形状的边缘柔和度。
+     *     取值范围为 [0, 1.0]；超出范围的值将在内部被截断。
+     * @returns { Mask } - 带有双目蒙版效果的 Mask 实例。
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    static createBinocularMask(radiusX: double, radiusY: double, gap: double, softness: double): Mask;
   }
 
   /**

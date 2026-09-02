@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,6 +19,7 @@
 import type { AsyncCallback, Callback } from './@ohos.base';
 import type common from './@ohos.app.ability.common';
 import type Want from './@ohos.app.ability.Want';
+import window from './@ohos.window';
 /**
  * Data loss prevention (DLP) is a system solution provided to prevent data disclosure. This module provides APIs for 
  * cross-device file access management, encrypted storage, and access authorization. DLP protects sensitive files 
@@ -711,6 +712,31 @@ declare namespace dlpPermission {
      * @since 11
      */
     function startDLPManagerForResult(context: common.UIAbilityContext, want: Want): Promise<DLPManagerResult>;
+    /**
+     * Starts the DLP manager application on the current page in borderless mode.
+     * This API uses a promise to return the result.
+     * 
+     * This API starts the DLP manager application to configure file permissions and return the user operation result to
+     * the caller.
+     * 
+     * > **NOTE**
+     * >
+     * > This API can be called only by domain accounts.
+     *
+     * @param { common.Context } context - Ability context information.
+     * @param { Want } want - Request object, which must contain the **uri** and **displayName** fields.
+     * @param { window.Window } window - Window object used to start the DLP manager application.
+     * @returns { Promise<DLPManagerResult> } Promise used to return the **DLPManagerResult** object.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
+     * @throws { BusinessError } 19100001 - Invalid parameter value.
+     * @throws { BusinessError } 19100011 - The system ability works abnormally.
+     * @throws { BusinessError } 19100016 - The uri field is missing in the want parameter.
+     * @throws { BusinessError } 19100017 - The displayName field is missing in the want parameter.
+     * @syscap SystemCapability.Security.DataLossPrevention
+     * @StageModelOnly
+     * @since 26.1.0
+     */
+    function startDLPManagerForResult(context: common.Context, want: Want, window: window.Window): Promise<DLPManagerResult>;
     /**
      * Enumerates the DLP sandbox gathering policy types. **GATHERING** allows the DLP files of the same permission type
      * to be opened in a sandbox. For example, open different tab pages in a sandbox. **NON_GATHERING** allows different

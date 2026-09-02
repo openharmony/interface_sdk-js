@@ -27,7 +27,8 @@
  * results.
  *
  * @syscap SystemCapability.Global.FontManager
- * @systemapi
+ * @systemapi [since 19 - 26.0.0]
+ * @publicapi [since 26.1.0]
  * @since 19 dynamic
  * @since 23 static
  */
@@ -190,5 +191,141 @@ declare namespace fontManager {
      */
     onResult(result : int): void;
   }
+
+  /**
+   * Enumerates the font scopes.
+   *
+   * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum FontScope {  
+    /**
+     * Application-level font. The font is cleared when the application exits, the font service exits,
+     * the account is stopping, or the device restarts.
+     *
+     * @syscap SystemCapability.Global.FontManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    APP = 0,
+
+    /**
+     * Session-level font. The font is cleared when the account is stopping or the device restarts.
+     *
+     * @syscap SystemCapability.Global.FontManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SESSION = 1
+  }
+
+  /**
+   * Observer for font service death events. When the font service dies unexpectedly, the
+   * {@link FontClientObserver.onServiceDied} callback is invoked.
+   *
+   * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface FontClientObserver {  
+    /**
+     * Called when the font service is died.
+     *
+     * @syscap SystemCapability.Global.FontManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    onServiceDied(): void;
+  }
+
+  /**
+   * Installs a scope font file from a specified path into the system font library. This API uses a promise to return
+   * the result.
+   *
+   * @permission ohos.permission.UPDATE_SCOPE_FONT
+   * @param { string } url - Path to the font file to be installed. Only .ttf and .ttc font files are supported.
+   * @param { FontScope } scope - Font scope. The value must be an enumerated value of {@link FontScope}.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 31100101 - The font does not exist.
+   * @throws { BusinessError } 31100102 - The font is not supported.
+   * @throws { BusinessError } 31100103 - Failed to copy the font file.
+   * @throws { BusinessError } 31100104 - The font file is installed.
+   * @throws { BusinessError } 31100105 - Exceeded the maximum number of installed files.
+   * @throws { BusinessError } 31100110 - Call failed due to system error.
+   * @throws { BusinessError } 31100115 - The font observer is not registered.
+   * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function installScopeFont(url: string, scope: FontScope): Promise<void>;
+
+  /**
+   * Uninstalls a scope font file from the system font library by URL. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.UPDATE_SCOPE_FONT
+   * @param { string } url - URL of the font to be uninstalled.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 31100108 - Failed to delete the font file.
+   * @throws { BusinessError } 31100110 - Call failed due to system error.
+   * @throws { BusinessError } 31100112 - The scope font is not found.
+   * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function uninstallScopeFont(url: string): Promise<void>;
+
+  /**
+   * Queries the scope of a font by URL. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.UPDATE_SCOPE_FONT
+   * @param { string } url - URL of the font to query.
+   * @returns { Promise<FontScope> } Promise used to return the query result.
+   *     <br>- The {@link FontScope} value is returned.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 31100110 - Call failed due to system error.
+   * @throws { BusinessError } 31100112 - The scope font is not found.
+   * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function getFontScope(url: string): Promise<FontScope>;
+
+  /**
+   * Registers a font service death observer. When the font service dies unexpectedly,
+   * the {@link FontClientObserver.onServiceDied} callback is invoked.
+   *
+   * @permission ohos.permission.UPDATE_SCOPE_FONT
+   * @param { FontClientObserver } observer - Font service death observer.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 31100110 - Call failed due to system error.
+   * @throws { BusinessError } 31100113 - The font observer is already registered.
+   * @throws { BusinessError } 31100114 - The maximum number of font observers has been reached.
+   * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function onFontObserver(observer: FontClientObserver): void;
+
+  /**
+   * Unregisters the font service death observer.
+   *
+   * @permission ohos.permission.UPDATE_SCOPE_FONT
+   * @param { FontClientObserver } observer - Font service death observer.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 31100110 - Call failed due to system error.
+   * @throws { BusinessError } 31100115 - The font observer is not registered.
+   * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function offFontObserver(observer: FontClientObserver): void;
 }
 export default fontManager;

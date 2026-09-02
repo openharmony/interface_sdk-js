@@ -75,8 +75,17 @@ def run_unpublished_tool(nodejs, unpublished_tool, input_dir, output_dir, mode, 
     else:
         print(f"[copy_runtimeapi] WARNING: ets2panda lib dir not found: {ets2panda_lib}")
     print(f"[copy_runtimeapi] running delete_unpublished_plugin.js --mode {mode} on {input_dir}")
-    p = subprocess.Popen([nodejs, tool, "--input", input_dir, "--output", output_dir, "--mode", mode, "--sdk-path", sdk_path, "--subdirs", "api,kits,arkts"], stdout=subprocess.PIPE, env=env)
-    p.wait()
+    try:
+        p = subprocess.Popen([nodejs, tool, "--input", input_dir, "--output", output_dir, "--mode", mode, "--sdk-path", sdk_path, "--subdirs", "api,kits,arkts"], stdout=subprocess.PIPE, env=env)
+        p.wait()
+        if p.returncode != 0:
+            print(f"[copy_runtimeapi] ERROR: delete_unpublished_plugin.js exited with code {p.returncode}")
+    except subprocess.SubprocessError as e:
+        print(f"[copy_runtimeapi] ERROR: failed to run delete_unpublished_plugin.js: {e}")
+    except FileNotFoundError as e:
+        print(f"[copy_runtimeapi] ERROR: executable not found: {e}")
+    except OSError as e:
+        print(f"[copy_runtimeapi] ERROR: error running delete_unpublished_plugin.js: {e}")
 
 
 def main():

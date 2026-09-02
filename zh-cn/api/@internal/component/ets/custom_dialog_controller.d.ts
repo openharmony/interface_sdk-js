@@ -681,9 +681,9 @@ declare interface CustomDialogControllerOptions {
    * 
    * **说明：**
    * 
-   * - 默认值：[ImmersiveOptions]{@link @ohos.arkui.uiMaterial.ImmersiveOptions}的style为
+   * - 默认值：[ImmersiveOptions]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveOptions}}的style为
    * ImmersiveStyle.ULTRA_THICK的
-   * [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial.ImmersiveMaterial}对象。设置undefined时与默认值保持
+   * [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}对象。设置undefined时与默认值保持
    * 一致。
    * - 不同的材质具有不同的效果，该接口影响背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、背景模糊
    * [backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions)}

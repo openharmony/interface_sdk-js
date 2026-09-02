@@ -1822,7 +1822,7 @@ declare namespace window {
   interface WindowProperties {
     /**
      * Window size, which can be obtained from the page lifecycle
-     * [onPageShow]{@link @ohos.app.ability.UIAbility:UIAbility.onPageShow} or the
+     * [onPageShow]{@link BaseCustomComponent#onPageShow} or the
      * application lifecycle [onForeground]{@link @ohos.app.ability.UIAbility:UIAbility.onForeground}.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -3202,7 +3202,7 @@ declare namespace window {
    *
    * @param { string } name - Window name. When searching for a child window or system window, use the window name in
    *     [Configuration]{@link @ohos.window:window.Configuration}. When searching for the main window, use
-   *     [getWindowName](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getwindowname12) to obtain the
+   *     [getWindowName]{@link UIContext.getWindowName(): string | undefined} to obtain the
    *     window name of the current instance.
    * @returns { Window } Window found. If the window with the specified name does not exist, error code 1300002
    *     is thrown.
@@ -3616,7 +3616,7 @@ declare namespace window {
    * for the main window and its child windows. This API uses a promise to return the result.
    *
    * To transfer mouse input events, the source window must call this API within the callback of the
-   * [onTouch]{@link onTouch} event (the event type must
+   * [onTouch]{@link CommonMethod#onTouch} event (the event type must
    * be **TouchType.Down**). After a successful call, the system sends a **TouchType.Up** event to the source window and
    * a **TouchType.Down** event to the target window.
    *
@@ -3652,7 +3652,7 @@ declare namespace window {
    * only for the main window and its child windows. This API uses a promise to return the result.
    *
    * To transfer touchscreen input events, the source window must call this API within the callback of the
-   * [onTouch]{@link onTouch} event (the event type must
+   * [onTouch]{@link CommonMethod#onTouch} event (the event type must
    * be **TouchType.Down**). After a successful call, the system sends a **TouchType.Up** event to the source window and
    * a **TouchType.Down** event to the target window.
    *
@@ -7514,7 +7514,7 @@ declare namespace window {
      * @param { 'uiExtensionSecureLimitChange' } eventType - Event type. The value is fixed at
      *     **'uiExtensionSecureLimitChange'**, indicating that the UIExtensionAbility security restrictions in the
      *     window changes.
-     * @param { Callback<boolean> } callback - Callback used to return the result. If a value is passed in, the
+     * @param { Callback<boolean> } [callback] - Callback used to return the result. If a value is passed in, the
      *     corresponding subscription is canceled. If no value is passed in, all subscriptions to the specified event
      *     are canceled.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -7979,7 +7979,7 @@ declare namespace window {
      * the callback.
      *
      * @param { string } name - Name of the named route page.
-     * @param { LocalStorage } storage - Page-level UI state storage unit, which is used to transfer the state attribute
+     * @param { LocalStorage } [storage] - Page-level UI state storage unit, which is used to transfer the state attribute
      *     for the page.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
@@ -8553,7 +8553,7 @@ declare namespace window {
      *
      * @param { 'touchOutside' } type - Event type. The value is fixed at **'touchOutside'**, indicating the touch event
      *     outside this window.
-     * @param { Callback<void> } callback - Callback used to return the touch event outside this window. If a value is
+     * @param { Callback<void> } [callback] - Callback used to return the touch event outside this window. If a value is
      *     passed in, the corresponding subscription is canceled. If no value is passed in, all subscriptions to the
      *     specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
@@ -8961,7 +8961,7 @@ declare namespace window {
      *
      * @param { 'noInteractionDetected' } type - Event type. The value is fixed at **'noInteractionDetected'**,
      *     indicating that there is no interaction event in the window within the specified period.
-     * @param { Callback<void> } callback - Callback invoked when there is no interaction event in the current window
+     * @param { Callback<void> } [callback] - Callback invoked when there is no interaction event in the current window
      *     within the specified period. If a value is passed in, the corresponding subscription is canceled. If no value
      *     is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
@@ -9133,7 +9133,7 @@ declare namespace window {
      *
      * @param { 'dialogTargetTouch' } type - Event type. The value is fixed at **'dialogTargetTouch'**, indicating the
      *     touch event of the target window in the modal window mode.
-     * @param { Callback<void> } callback - Callback invoked when the touch event occurs in the target window of the
+     * @param { Callback<void> } [callback] - Callback invoked when the touch event occurs in the target window of the
      *     modal window mode. If a value is passed in, the corresponding subscription is canceled. If no value is passed
      *     in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
@@ -9185,7 +9185,7 @@ declare namespace window {
      *
      * @param { 'windowEvent' } type - Event type. The value is fixed at **'windowEvent'**, indicating the window
      *     lifecycle change event.
-     * @param { Callback<WindowEventType> } callback - Callback used to return the window lifecycle state. If a value is
+     * @param { Callback<WindowEventType> } [callback] - Callback used to return the window lifecycle state. If a value is
      *     passed in, the corresponding subscription is canceled. If no value is passed in, all subscriptions to the
      *     specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
@@ -9439,7 +9439,7 @@ declare namespace window {
      *
      * @param { 'subWindowClose' } type - Event type. The value is fixed at **'subWindowClose'**, indicating the child
      *     window close event.
-     * @param { Callback<void> } callback - Callback invoked when the close button in the top-right corner of the child
+     * @param { Callback<void> } [callback] - Callback invoked when the close button in the top-right corner of the child
      *     window is clicked. It does not return any parameter. The return value of the internal logic of the callback
      *     function determines whether to continue to close the child window. If **true** of the Boolean type is
      *     returned, the child window is not closed. If **false** or other non-Boolean types are returned, the child
@@ -9462,7 +9462,7 @@ declare namespace window {
     /**
      * Unsubscribes from the event indicating that the child window is closed.
      *
-     * @param { Callback<void> } [callback ] - Unregister the callback function.
+     * @param { Callback<void> } [callback] - Unregister the callback function.
      *     If not provided, all callbacks for the given event type will be removed.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
@@ -9483,7 +9483,7 @@ declare namespace window {
      * The callback function in this API is executed asynchronously. For synchronous close events of child windows,
      * refer to [on('subWindowClose')]{@link window.Window.on(type: 'subWindowClose', callback: Callback<void>)}. For
      * synchronous close events of the main window, refer to
-     * [on('windowStageClose')]{@link window.Window.on(type: 'windowStageClose', callback: Callback<void>)}.
+     * [on('windowStageClose')]{@link window.WindowStage.on(type: 'windowStageClose', callback: Callback<void>)}.
      *
      * @param { 'windowWillClose' } type - Event type. The value is fixed at **'windowWillClose'**, indicating the
      *     window close event.
@@ -9533,7 +9533,7 @@ declare namespace window {
      *
      * @param { 'windowWillClose' } type - Event type. The value is fixed at **'windowWillClose'**, indicating the
      *     window close event.
-     * @param { Callback<void, Promise<boolean>> } callback - Callback invoked when the close button in the top-right
+     * @param { Callback<void, Promise<boolean>> } [callback] - Callback invoked when the close button in the top-right
      *     corner of the window is clicked. It does not return any parameter. The internal logic of the callback
      *     function requires a return value of the Promise<boolean> type. In the returned Promise function,
      *     **resolve(true)** means not to close the window, and **resolve(false)** or **reject** means to continue to
@@ -12348,7 +12348,7 @@ declare namespace window {
      *     scenario.
      * @param { boolean } isMinimizeButtonVisible - Whether to show the minimize button. **true** to show, **false**
      *     otherwise.
-     * @param { boolean } isCloseButtonVisible - Whether to show the close button. **true** to show, **false**
+     * @param { boolean } [isCloseButtonVisible] - Whether to show the close button. **true** to show, **false**
      *     otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
@@ -12597,7 +12597,7 @@ declare namespace window {
      * @param { 'windowTitleButtonRectChange' } type - Event type. The value is fixed at
      *     **'windowTitleButtonRectChange'**, indicating that the change event of the rectangle that holds the minimize,
      *     maximize, and close buttons.
-     * @param { Callback<TitleButtonRect> } callback - Callback used to return the new rectangle. If a value is passed
+     * @param { Callback<TitleButtonRect> } [callback] - Callback used to return the new rectangle. If a value is passed
      *     in, the corresponding subscription is canceled. If no value is passed in, all subscriptions to the specified
      *     event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
@@ -14168,7 +14168,7 @@ declare namespace window {
      * before loading the new content. Exercise caution when using it.
      *
      * @param { string } path of the page to which the content will be loaded
-     * @param { LocalStorage } storage The data object shared within the content instance loaded by the window
+     * @param { LocalStorage } [storage] The data object shared within the content instance loaded by the window
      * @returns { Promise<void> }
      * @throws { BusinessError } 401 - Parameter error. Possible cause:
      *     1. Mandatory parameters are left unspecified;
@@ -14262,7 +14262,7 @@ declare namespace window {
      * Loads content by named router
      *
      * @param { string } name - name of the page to which the content will be loaded.
-     * @param { LocalStorage } storage - The data object shared within the content instance loaded by the window.
+     * @param { LocalStorage } [storage] - The data object shared within the content instance loaded by the window.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *                                                                  2. Incorrect parameter types.
@@ -14329,7 +14329,7 @@ declare namespace window {
      *
      * @param { 'windowStageEvent' } eventType Event type.
      *     The value is fixed at 'windowStageEvent', indicating the window stage lifecycle change event.
-     * @param { Callback<WindowStageEventType> } callback Callback used to return the window stage lifecycle state.
+     * @param { Callback<WindowStageEventType> } [callback] Callback used to return the window stage lifecycle state.
      *     If a value is passed in, the corresponding subscription is canceled.
      *     If no value is passed in, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
@@ -14473,7 +14473,7 @@ declare namespace window {
      *
      * @param { 'windowStageClose' } eventType The value is fixed at 'windowStageClose', indicating the window stage
      *     close event.
-     * @param { Callback<void> } callback Callback function requires a boolean return value to determine whether to
+     * @param { Callback<void> } [callback] Callback function requires a boolean return value to determine whether to
      *     close the current main window.
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;
@@ -14648,7 +14648,7 @@ declare namespace window {
      *     The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300005 - This window stage is abnormal. Possible cause:
-     *     The window is not created or destroyed. [since 20]
+     *     The window stage is not created or destroyed. [since 20]
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
      * @atomicservice

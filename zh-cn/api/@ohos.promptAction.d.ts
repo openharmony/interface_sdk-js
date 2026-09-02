@@ -305,14 +305,14 @@ declare namespace promptAction {
         /**
          * 设置组件的系统材质。
          * <br/>默认值：如果主动设置了backgroundBlurStyle或backgroundColor接口，默认值是无系统材质效果，否则默认值
-         * 是style为ImmersiveStyle.ULTRA_THICK的[ImmersiveMaterial](arkts-apis-uimaterial.md#immersivematerial)对象。
+         * 是style为ImmersiveStyle.ULTRA_THICK的[ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}对象。
          * 设置undefined时与默认值保持一致。 
          * <br/>**说明：** 
          * <br />不同系统材质对应不同的属性影响效果，该接口影响
-         * 背景色[backgroundColor](arkui-ts/ts-universal-attributes-background.md#backgroundcolor)、
-         * 边框颜色[borderColor](arkui-ts/ts-universal-attributes-border.md#bordercolor)、
-         * 边框宽度[borderWidth](arkui-ts/ts-universal-attributes-border.md#borderwidth)、
-         * 阴影[shadow](arkui-ts/ts-universal-attributes-image-effect.md#shadow)，不建议与上述接口一起使用。
+         * 背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、
+         * 边框颜色[borderColor]{@link CommonMethod#borderColor}、
+         * 边框宽度[borderWidth]{@link CommonMethod#borderWidth}、
+         * 阴影[shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
@@ -471,7 +471,7 @@ declare namespace promptAction {
          * <br/>默认值：{ x: 0, y: 0, width: '100%', height: '100%' } 
          * <br/>**说明：**
          * <br/>showInSubWindow为true时，maskRect不生效。
-         * <br/>maskRect在设置[Rectangle](arkui-ts/ts-methods-alert-dialog-box.md#rectangle8类型说明)中的部分属性后，若未设置其余的属性，
+         * <br/>maskRect在设置[Rectangle]{@link common#Rectangle}中的部分属性后，若未设置其余的属性，
          * 则其余属性的默认值为0。
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -684,7 +684,7 @@ declare namespace promptAction {
          */
         levelMode?: LevelMode;
         /**
-         * 置页面级对话框需要显示的层级下的[节点UniqueID](js-apis-arkui-frameNode.md#getuniqueid12)。
+         * 置页面级对话框需要显示的层级下的[节点UniqueID]{@link FrameNode#getUniqueId}。
          * <br/>取值范围：大于等于0的数字。
          * <br />**说明：** 
          * <br />- 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。
@@ -727,13 +727,13 @@ declare namespace promptAction {
         /**
          * 设置弹窗的系统材质。
          * <br />**说明：**
-         * <br/>- 默认值：[ImmersiveOptions](arkts-apis-uimaterial.md#immersiveoptions)的style为ImmersiveStyle.ULTRA_THICK的
-         * [ImmersiveMaterial](arkts-apis-uimaterial.md#immersivematerial)对象。设置undefined时与默认值保持一致。
+         * <br/>- 默认值：[ImmersiveOptions]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveOptions}的style为ImmersiveStyle.ULTRA_THICK的
+         * [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}对象。设置undefined时与默认值保持一致。
          * <br/>- 不同的材质具有不同的效果，该接口影响
-         * 背景色[backgroundColor](arkui-ts/ts-universal-attributes-background.md#backgroundcolor)、
-         * 背景模糊[backgroundBlurStyle](arkui-ts/ts-universal-attributes-background.md#backgroundblurstyle9)、
-         * 背景效果[backgroundEffect](arkui-ts/ts-universal-attributes-background.md#backgroundeffect11)、
-         * 阴影[shadow](arkui-ts/ts-universal-attributes-image-effect.md#shadow)，不建议与上述接口一起使用。
+         * 背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、
+         * 背景模糊[backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions)}、
+         * 背景效果[backgroundEffect]{@link CommonMethod#backgroundEffect(options: BackgroundEffectOptions)}、
+         * 阴影[shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
@@ -905,7 +905,7 @@ declare namespace promptAction {
          * <br/>默认值：{ x: 0, y: 0, width: '100%', height: '100%' }
          * <br/>**说明：** 
          * <br/>showInSubWindow为true时，maskRect不生效。
-         * <br/>maskRect在设置[Rectangle](arkui-ts/ts-methods-alert-dialog-box.md#rectangle8类型说明)中的部分属性后，若未设置其余的属性，则其余属性的默认值为0。
+         * <br/>maskRect在设置[Rectangle]{@link common#Rectangle}中的部分属性后，若未设置其余的属性，则其余属性的默认值为0。
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
@@ -1186,7 +1186,7 @@ declare namespace promptAction {
          */
         levelMode?: LevelMode;
         /**
-         * 设置页面级弹窗需要显示的层级下的[节点UniqueID](js-apis-arkui-frameNode.md#getuniqueid12)。
+         * 设置页面级弹窗需要显示的层级下的[节点UniqueID]{@link FrameNode#getUniqueId}。
          * <br/>取值范围：大于等于0的数字。
          * <br />**说明：** 
          * <br />- 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。
@@ -1240,16 +1240,17 @@ declare namespace promptAction {
         /**
          * 设置弹窗的系统材质。
          * <br/>**说明：**
-         * <br/>- 默认值：[ImmersiveOptions](arkts-apis-uimaterial.md#immersiveoptions)的style为
-         * ImmersiveStyle.ULTRA_THICK的[ImmersiveMaterial](arkts-apis-uimaterial.md#immersivematerial)对象。
+         * <br/>- 默认值：[ImmersiveOptions]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveOptions}的style为
+         * ImmersiveStyle.ULTRA_THICK的[ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}对象。
          * 设置undefined时与默认值保持一致。
          * <br/>- 不同的材质具有不同的效果，该接口影响
-         * 背景色[backgroundColor](arkui-ts/ts-universal-attributes-background.md#backgroundcolor)、
-         * 背景模糊[backgroundBlurStyle](arkui-ts/ts-universal-attributes-background.md#backgroundblurstyle9)、
-         * 背景效果[backgroundEffect](arkui-ts/ts-universal-attributes-background.md#backgroundeffect11)、
-         * 边框颜色[borderColor](arkui-ts/ts-universal-attributes-border.md#bordercolor)、
-         * 边框宽度[borderWidth](arkui-ts/ts-universal-attributes-border.md#borderwidth)、
-         * 阴影[shadow](arkui-ts/ts-universal-attributes-image-effect.md#shadow)，不建议与上述接口一起使用。
+         * 背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、
+         * 背景模糊
+         * [backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions)}、
+         * 背景效果[backgroundEffect]{@link CommonMethod#backgroundEffect(options: BackgroundEffectOptions)}、
+         * 边框颜色[borderColor]{@link CommonMethod#borderColor}、
+         * 边框宽度[borderWidth]{@link CommonMethod#borderWidth}、
+         * 阴影[shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
@@ -1706,7 +1707,7 @@ declare namespace promptAction {
          */
         levelMode?: LevelMode;
         /**
-         * 设置页面级菜单需要显示的层级下的[节点UniqueID](js-apis-arkui-frameNode.md#getuniqueid12)。
+         * 设置页面级菜单需要显示的层级下的[节点UniqueID]{@link @FrameNode#getUniqueId}。
          * <br/>取值范围：大于等于0的数字。
          * <br />**说明：**
          * <br />- 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。
