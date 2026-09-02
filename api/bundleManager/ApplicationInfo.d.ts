@@ -285,12 +285,12 @@ export interface ApplicationInfo {
    * These are applications developed by an enterprise for its internal use by employees only. They are not distributed
    * through public channels like AppGallery but are distributed internally via the enterprise's own channels. <!--RP2--
    * ><!--RP2End--><li>**enterprise_mdm**: enterprise
-   * [Mobile Device Management (MDM) application](docroot://mdm/mdm-kit-term.md#mdm-application-device-administrator-application)
+   * [Mobile Device Management (MDM) application](docroot://mdm/mdm-kit-term.md#mdm-app)
    * . <!--Del-->To install a common enterprise application, you must have
    * [administrator privileges]{@link ./../@ohos.enterprise.adminManager:adminManager.enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, callback: AsyncCallback<void>)}
    * . <!--DelEnd--><!--RP3--><!--RP3End--><li>**enterprise_normal**: standard enterprise application. These
    * applications do not need to be released to AppGallery. Instead, they can be distributed and installed through an
-   * enterprise [MDM application](docroot://mdm/mdm-kit-term.md#mdm-application-device-administrator-application) and
+   * enterprise [MDM application](docroot://mdm/mdm-kit-term.md#mdm-app) and
    * offline installer. <!--RP4--><!--RP4End--><li>**os_integration**: pre-installed application. They are not available
    * for third-party applications. <li>crowdtesting: application under crowdtesting, which is distributed by AppGallery
    * to a limited number of users and come with a set expiration date. When the system detects that the validity period
