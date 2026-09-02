@@ -78,17 +78,6 @@ export enum SuppressWarningsType {
   COMPATIBILITY = 'compatibility',
 
   /**
-   * Multi-device warning.
-   * This warning is generated when the system capability obtained by calling the API
-   * is not supported on the target device.
-   *
-   * @syscap SystemCapability.Base
-   * @stagemodelonly
-   * @since 26.1.0 static
-   */
-  SYSCAP = 'syscap',
-
-  /**
    * Permission warning.
    * This warning is generated when an API that requires permissions is called
    * but the corresponding permissions are not declared in the configuration file.

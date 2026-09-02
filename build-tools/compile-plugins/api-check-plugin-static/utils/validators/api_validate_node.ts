@@ -172,7 +172,6 @@ export abstract class BaseValidator {
     if (!program) {
       return true;
     }
-    const nodeSourceText = program.sourceCode || '';
     const nodeSourceFile = program.fileName;
     const mapKey = `${warnName}_${sceneName}_${nodeSourceFile}`;
     if (suppressWarningsCheckPlugin.has(mapKey)) {
@@ -182,6 +181,7 @@ export abstract class BaseValidator {
       }
     } else {
       try {
+        const nodeSourceText = program.sourceCode || '';
         const contentChecker = contentRegex.test(nodeSourceText);
         const commentMap = new Map([
           [sceneName, contentChecker]
