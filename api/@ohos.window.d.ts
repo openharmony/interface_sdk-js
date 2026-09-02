@@ -4290,15 +4290,13 @@ declare namespace window {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. The list is empty; 2. The windowId is not a
-   *     positive integer; 3. The insertAfter is smaller than -3; 4. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
    *     capabilities.
-   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not found or has
-   *     been destroyed, or the target main window specified by insertAfter is not found.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is not found;
+   *     2. The window has been destroyed; 3. The target main window specified by insertAfter is not found.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-   * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The window is not a main window, or
-   *     the window is not in the current application process.
+   * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: 1. The window is not a main window;
+   *     2. The window is not in the current application process.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 26.0.0 dynamic&static
