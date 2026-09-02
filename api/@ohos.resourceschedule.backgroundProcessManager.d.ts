@@ -89,6 +89,26 @@ declare namespace backgroundProcessManager {
     }
 
     /**
+     * The type of clearing background apps.
+     *
+     * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    export enum ClearType {
+        /**
+         * clear recent cards.
+         *
+         * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
+         * @systemapi Hide this for inner system use.
+         * @stagemodelonly
+         * @since 26.1.0 dynamic&static
+         */
+        CLEAR_RECENT_CARDS = 1
+    }
+
+    /**
      * Sets the child process priority. After a child process is suppressed, the CPU resources that can be obtained will
      * be limited. If the scheduling policy of the main process changes, for example, from the background to the 
      * foreground, the child process changes with the main process. To suppress the child process, call this API again.
@@ -180,6 +200,22 @@ declare namespace backgroundProcessManager {
      * @since 23 dynamic&static
      */
     function getPowerSaveMode(pid: int): Promise<PowerSaveMode>;
+
+    /**
+     * One-tap background app cleanup
+     * 
+     * @permission ohos.permission.CLEAR_BACKGROUND_APPS
+     * @param { ClearType } clearType - the type of clearing background apps.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system app.
+     * @throws { BusinessError } 31800002 - Parameter error.
+     * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    function clearBackgroundApps(clearType: ClearType): Promise<void>;
 }
 
 export default backgroundProcessManager;
