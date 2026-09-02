@@ -3604,8 +3604,8 @@ declare namespace bundleManager {
    *
    * No permission is required for obtaining the caller's own information.
    *
-   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST or
-   *     (ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or
+   *     (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
    * @param { string } bundleName - Bundle name.
    * @param { int } userId - User ID on the device.
    * @returns { Promise<AppProvisionInfo> } Promise used to return the provision profile obtained.
