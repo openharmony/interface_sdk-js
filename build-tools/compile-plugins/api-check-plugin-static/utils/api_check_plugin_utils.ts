@@ -783,18 +783,21 @@ function extractVersionRange(commentText: string): { start: string, end: string 
     return undefined;
   }
 
+  // 匹配 [since ...] 格式的版本范围标记
   const VERSION_RANGE_PATTERN: RegExp = /\[since (.*?)\]/;
 
   if (!commentText.match(VERSION_RANGE_PATTERN)) {
     return undefined;
   }
 
+  // 提取括号内的版本范围文本，去除 since/[/] 标记
   const rawVersionRange: string = commentText.match(VERSION_RANGE_PATTERN)![0]
     .replace('since', '')
     .replace('[', '')
     .replace(']', '')
     .trim();
 
+  // 按'-'拆分为start和end两个版本号
   const versionParts: string[] = rawVersionRange.split('-');
   if (versionParts.length !== 2) {
     return undefined;
@@ -1111,25 +1114,34 @@ export function checkPermissionTag(
   node?: arkts.AstNode,
   declaration?: arkts.AstNode
 ): boolean {
+  // 筛选出所有@permission标签
   const permissionTags: JSDocTag[] = jsDocTags.filter((tag: JSDocTag) => {
     return tag.tag === PERMISSION_TAG_CHECK_NAME;
   });
 
+  // 无@permission标签，不需要检查
   if (permissionTags.length === 0) {
     return false;
   }
 
+  // 收集所有未通过验证的permission表达式，用于拼接报错信息
   let commentAll: string = '';
 
+  // 遍历每个@permission标签，逐个验证
   for (const permissionTag of permissionTags) {
     let comment: string = permissionTag.comment ?? '';
 
+    // 空表达式跳过
     if (comment === '') {
       continue;
     }
 
+    // 尝试提取版本范围 [since x - y]
     const versionRange = extractVersionRange(comment);
 
+    // 若存在版本范围，检查是否与项目SDK版本相交
+    //   相交：该permission标签在当前SDK版本生效，去除版本标记后继续验证
+    //   不相交：该permission标签在当前SDK版本不生效，跳过
     if (versionRange) {
       if (checkVersionRangeIntersection(versionRange)) {
         comment = comment.replace(/\[since (.*?)\]/, '').trim();
@@ -1138,18 +1150,24 @@ export function checkPermissionTag(
       }
     }
 
+    // 验证permission表达式是否满足项目配置的权限集合
+    //   满足：该permission标签验证通过，跳过
     if (validPermission(comment, globalObject.projectConfig.permissionsArray)) {
       continue;
     }
 
+    // permission未通过验证，检查是否被@SuppressWarnings抑制
+    //   被抑制：跳过该permission标签
     const suppressor = new PermissionWarningSuppressor();
     if (node && suppressor.isApiVersionHandled(node)) {
       continue;
     }
 
+    // 未被抑制，收集该permission表达式用于后续报错
     commentAll += `${comment} and `;
   }
 
+  // 若存在未通过验证的permission，更新错误信息并返回true（需要提示）
   if (commentAll !== '') {
     commentAll = PERMISSION_TAG_CHECK_ERROR.replace('$DT', commentAll);
     config.message = commentAll.replace(/\s*and\s*$/, '').trim();
@@ -1357,8 +1375,12 @@ function checkVersionRangeIntersection(versionRange: { start: string; end: strin
   let isflag = false;
   const startVersion = versionRange.start;
   const endVersion = versionRange.end;
+  // 取项目编译SDK版本作为比较基准（min和max相同，即检查单一版本是否落在范围内）
   const minSDKVersion = globalObject.projectConfig.compileSdkVersion;
   const maxSDKVersion = globalObject.projectConfig.compileSdkVersion;
+  // isVersionRangeIntersect 返回"是否相交"，此处取反：
+  //   相交（当前SDK版本在范围内）→ 返回true，表示permission标签生效
+  //   不相交（当前SDK版本不在范围内）→ 返回false，表示permission标签不生效
   isflag = isVersionRangeIntersect(startVersion, endVersion, minSDKVersion, maxSDKVersion);
   return !isflag;
 }
