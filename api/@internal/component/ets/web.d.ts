@@ -3667,12 +3667,12 @@ declare class WebResourceResponse {
 
   /**
    * Sets the response data.
-   * 
+   *
    * > **NOTE**
    * >
    * > - This API does not support obtaining HSP resources based on Resource objects. To obtain HSP resources,
    * > use {@link setResponseBody} instead.
-   * 
+   *
    * @param { string | number | Resource } data - The response data.
    *     string type indicates strings in HTML format.
    *     number type indicates file handle.
