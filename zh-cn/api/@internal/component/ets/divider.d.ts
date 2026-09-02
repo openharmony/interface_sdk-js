@@ -23,8 +23,11 @@
  * 
  * > **说明：**
  * 
- * > 如果出现分割线粗细不一或者消失的问题，请参考
- * > [组件级像素取整常见问题]{@link ./common}。
+ * > 如果出现分割线粗细不一或者消失的问题，请参考[组件级像素取整常见问题]{@link pixelRound}。
+ * 
+ * ## 子组件
+ *
+ * 无
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -48,7 +51,7 @@ interface DividerInterface {
   }
   
   /**
-   * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性：
+   * 支持[通用属性]{@link CommonMethod}。
    * 
    * 支持[通用事件]{@link CommonMethod}。
    *
@@ -63,7 +66,10 @@ interface DividerInterface {
     /**
      * 设置分割线的方向，支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性方法。
      *
-     * @param { boolean } value - 使用水平分割线还是垂直分割线。<br/>false：水平分割线；true：垂直分割线。<br/>默认值：false <br />非法值：按默认值处理。
+     * @param { boolean } value - 使用水平分割线还是垂直分割线。
+     * <br>false：水平分割线；true：垂直分割线。
+     * <br>默认值：false 
+     * <br>非法值：按默认值处理。
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -76,8 +82,10 @@ interface DividerInterface {
     /**
      * 设置分割线的颜色，支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性方法。
      *
-     * @param { ResourceColor } value - 分割线颜色。<br/>默认值：'#33182431' <br />非法值：按默认值处理。 <br/>支持通过
-     *     [WithTheme]{@link with_theme}设置通用分割线颜色。
+     * @param { ResourceColor } value - 分割线颜色。
+     * <br>默认值：'#33182431'
+     * <br>非法值：按默认值处理。
+     * <br>支持通过[WithTheme]{@link with_theme}设置通用分割线颜色。
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -94,14 +102,17 @@ interface DividerInterface {
      * >
      * > - 分割线的宽度不支持百分比设置。
      * >
-     * > - 使用水平分割线时，strokeWidth控制高度，优先级低于通用属性[height]{@link CommonMethod#height(value: Length)}；使用垂直分割线时，strokeWidth控制宽度，优
-     * > 先级低于通用属性[width]{@link CommonMethod#width(value: Length)}。
+     * > - 使用水平分割线时，strokeWidth控制高度，优先级低于通用属性[height]{@link CommonMethod#height(value: Length)}；
+     * 使用垂直分割线时，strokeWidth控制宽度，优先级低于通用属性[width]{@link CommonMethod#width(value: Length)}。
      * >
      * > - 超过通用属性设置大小时，按照通用属性进行裁切。
      * >
      * > - 如果设备硬件存在1像素取整后分割线不显示问题，建议使用2像素。
      *
-     * @param { number | string } value - 分割线宽度。<br/>默认值：1px  <br />非法值：按默认值处理。 <br/>单位：vp
+     * @param { number | string } value - 分割线宽度。
+     * <br>默认值：1px
+     * <br>非法值：按默认值处理。
+     * <br>单位：vp
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -114,7 +125,9 @@ interface DividerInterface {
     /**
      * 设置分割线的端点样式，支持[attributeModifier]{@link CommonMethod#attributeModifier}动态设置属性方法。
      *
-     * @param { LineCapStyle } value - 分割线的端点样式。<br/>默认值：LineCapStyle.Butt <br />非法值：按默认值处理。
+     * @param { LineCapStyle } value - 分割线的端点样式。
+     * <br>默认值：LineCapStyle.Butt
+     * <br>非法值：按默认值处理。
      * @returns { DividerAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -130,8 +143,7 @@ interface DividerInterface {
    * 
    * > **说明：**
    * 
-   * > 如果出现分割线粗细不一或者消失的问题，请参考
-   * > [组件级像素取整常见问题]{@link ./common}。
+   * > 如果出现分割线粗细不一或者消失的问题，请参考[组件级像素取整常见问题]{@link pixelRound}。
    * 
    * ## 子组件
    * 
@@ -147,7 +159,7 @@ interface DividerInterface {
   declare const Divider: DividerInterface;
   
   /**
-   * Defines Divider Component instance.
+   * 分割线组件实例
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]

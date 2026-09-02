@@ -484,7 +484,8 @@ declare class CanvasPath {
 }
 
 /**
- * 路径对象，支持通过对象的接口进行路径的描述，并通过Canvas的stroke接口或者fill接口进行绘制。
+ * 路径对象，支持通过对象的接口进行路径的描述和组合，并通过Canvas的stroke接口或者fill接口进行绘制。
+ * Path2D支持复用路径、组合多个路径、基于SVG路径字符串创建路径等功能，适用于需要多次绘制相同路径、动态组合复杂图形或基于SVG路径数据绘制图形的场景。
  *
  * > **说明：**
  * >
@@ -507,11 +508,12 @@ declare class Path2D extends CanvasPath {
   /**
    * 将另一个路径添加到当前的路径对象中，并使用Matrix2D对象对新添加的路径对象进行图形变换。
    *
-   * @param { Path2D } path - 需要添加到当前路径的路径对象，路径单位：px。
-   *    <br>异常值undefined和null按无效值处理。
-   * @param { Matrix2D } transform - 新增路径的变换矩阵对象。
-   *    <br>异常值undefined和null按无效值处理。
-   *    <br>默认值：null。
+   * @param { Path2D } path - 需要添加到当前路径的路径对象。
+   * <br>异常值undefined和null按无效值处理。
+   * @param { Matrix2D } transform - 新增路径的变换矩阵对象，用于对添加的路径进行平移、旋转、缩放等变换。
+   * 当需要对添加的路径进行图形变换时传入此参数，不需要变换时可不传。不传入时默认为null，表示不对路径进行变换。
+   * <br>异常值undefined和null按无效值处理。
+   * <br>默认值：null
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -522,7 +524,7 @@ declare class Path2D extends CanvasPath {
   addPath(path: Path2D, transform?: Matrix2D): void;
 
   /**
-   * 构造二维变换矩阵对象，默认值是属性全为0的矩阵。
+   * 构造一个空的Path2D对象。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -534,12 +536,12 @@ declare class Path2D extends CanvasPath {
   constructor();
 
   /**
-   * 构造二维变换矩阵对象，默认值是属性全为0的矩阵，支持配置Matrix2D对象的单位模式。
+   * 构造一个空的Path2D对象，支持配置Path2D对象的单位模式。
    *
-   * @param { LengthMetricsUnit } [unit] - 用来配置Matrix2D对象的单位模式，配置后无法动态更改，配置方法同[CanvasRenderingContext2D]{@link Canvas}
-   *     。
-   *     <br>默认值：DEFAULT
-   *     <br>异常值NaN和Infinity按默认值处理。
+   * @param { LengthMetricsUnit } [unit] - 用来配置Path2D对象的单位模式，配置后无法动态更改，
+   * 配置方法同[CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
+   * <br>异常值NaN和Infinity按默认值处理。
+   * <br>默认值：DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -552,7 +554,7 @@ declare class Path2D extends CanvasPath {
   /**
    * 使用路径对象构造Path2D对象。
    *
-   * @param { Path2D } path - 路径对象。
+   * @param { Path2D } path - 需要复制的路径对象，新创建的Path2D对象将包含与原路径相同的路径数据。异常值null和undefined时创建空路径对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -565,12 +567,11 @@ declare class Path2D extends CanvasPath {
   /**
    * 使用路径对象构造Path2D对象，支持配置Path2D对象的单位模式。
    *
-   * @param { Path2D } path - 路径对象。
+   * @param { Path2D } path - 需要复制的Path2D路径对象，用于基于现有路径创建新的Path2D对象。传入的路径对象不会被修改，新创建的对象将包含该路径的完整副本。 
    * @param { LengthMetricsUnit } [unit] - 用来配置Path2D对象的单位模式，配置后无法动态更改，
-   *    配置方法同
-   *    [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
-   *    <br>异常值NaN和Infinity按默认值处理。
-   *    <br>默认值：DEFAULT。
+   * 配置方法同[CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
+   * <br>异常值NaN和Infinity按默认值处理。
+   * <br>默认值：DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -584,8 +585,7 @@ declare class Path2D extends CanvasPath {
    * 使用符合SVG路径描述规范的路径字符串构造Path2D对象。
    *
    * @param { string } d - 符合SVG路径描述规范的路径字符串，格式参考
-   *    [SVG路径描述规范]{@link ./path}，
-   *    异常值按无效值处理。
+   * [SVG路径描述规范]{@link path}，异常值按无效值处理。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -599,13 +599,11 @@ declare class Path2D extends CanvasPath {
    * 使用符合SVG路径描述规范的路径字符串构造Path2D对象，支持配置Path2D对象的单位模式。
    *
    * @param { string } description - 符合SVG路径描述规范的路径字符串，格式参考
-   *    [SVG路径描述规范]{@link ./path}，
-   *    异常值按无效值处理。
+   * [SVG路径描述规范]{@link path}，异常值按无效值处理。
    * @param { LengthMetricsUnit } [unit] - 用来配置Path2D对象的单位模式，配置后无法动态更改，
-   *    配置方法同
-   *    [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
-   *    <br>异常值NaN和Infinity按默认值处理。
-   *    <br>默认值：DEFAULT。
+   * 配置方法同[CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
+   * <br>异常值NaN和Infinity按默认值处理。
+   * <br>默认值：DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -964,7 +962,8 @@ declare class ImageBitmap {
 }
 
 /**
- * ImageData对象可以存储canvas渲染的像素数据。
+ * ImageData对象用于存储Canvas渲染的像素数据，支持对像素进行读取、修改和操作，适用于图像处理、像素级编辑、特效滤镜等场景。
+ * 通过ImageData可以精确控制图像的每个像素点，实现自定义图像处理算法，为Canvas绘图提供灵活的像素级数据访问能力。
  *
  * > **说明：**
  * >
@@ -980,7 +979,11 @@ declare class ImageBitmap {
  */
 declare class ImageData {
   /**
-   * 一维数组，保存了相应的颜色数据，数据值范围为0到255。
+   * 一维数组，保存了RGBA格式的像素数据，每个像素占4字节，依次为R、G、B、A，数据值范围为0到255。
+   * > **说明：**
+   * >
+   * > 可使用[px2vp]{@link UIContext#px2vp}
+   * > 接口进行单位转换。 
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -994,6 +997,10 @@ declare class ImageData {
   /**
    * 矩形区域实际像素高度。
    * <br>单位为px。
+   * > **说明：**
+   * >
+   * > 可使用[px2vp]{@link UIContext#px2vp}
+   * > 接口进行单位转换。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1025,13 +1032,16 @@ declare class ImageData {
   /**
    * 创建宽为width，高为height，像素为data的ImageData，如果data未定义，则填充值全为0的一维数组。
    *
-   * @param { number } width - 矩形区域宽度，默认单位为vp。
-   *    <br>异常值NaN和Infinity按0处理。
-   * @param { number } height - 矩形区域高度，默认单位为vp。
-   *    <br>异常值NaN和Infinity按0处理。
-   * @param { Uint8ClampedArray } data - 一维数组，保存了相应的颜色数据，数据值范围为0到255。
-   *    <br>传入异常值undefined时，data为undefined。
-   *    <br/>默认值：值全为0的一维数组。
+   * @param { number } width - 矩形区域宽度，单位由unit参数决定，默认单位为vp。宽高不超过16384px，最大面积不超过16000px*16000px，超过最大面积则无法正常绘制。
+   * 当创建面积超过536870911平方像素时，返回对象的width和height为0，data为undefined。
+   * <br>异常值NaN、Infinity、负数和0按0处理。
+   * @param { number } height - 矩形区域高度，单位由unit参数决定，默认单位为vp。宽高不超过16384px，最大面积不超过16000px*16000px，超过最大面积则无法正常绘制。
+   * 当创建面积超过536870911平方像素时，返回对象的width和height为0，data为undefined。
+   * <br>异常值NaN、Infinity、负数和0按0处理。
+   * @param { Uint8ClampedArray } data - 一维数组，保存了RGBA格式的像素数据，每个像素占4字节，依次为R、G、B、A，数据值范围为0到255。
+   * 当需要自定义ImageData的像素数据时传入此参数，如需要对图像进行像素级别的处理或修改。
+   * <br>传入异常值undefined时，data为undefined。
+   * <br>默认值：值全为0的一维数组。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -1045,18 +1055,18 @@ declare class ImageData {
    * 创建宽为width，高为height，像素为data的ImageData，如果data未定义，则填充值全为0的一维数组，
    * 支持使用unit配置ImageData对象的单位模式。
    *
-   * @param { number } width - 矩形区域宽度，默认单位为vp。
-   *    <br>异常值NaN和Infinity按0处理。
-   * @param { number } height - 矩形区域高度，默认单位为vp。
-   *    <br>异常值NaN和Infinity按0处理。
-   * @param { Uint8ClampedArray } data - 一维数组，保存了相应的颜色数据，数据值范围为0到255。
-   *    <br>传入异常值undefined时，data为undefined。
-   *    <br/>默认值：值全为0的一维数组。
-   * @param { LengthMetricsUnit } [unit] - 用来配置ImageData对象的单位模式，配置后无法动态更改，
-   *    配置方法同
-   *    [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
-   *    <br>异常值undefined、NaN和Infinity按默认值处理。
-   *    <br>默认值：DEFAULT。
+   * @param { number } width - 矩形区域宽度，单位由unit参数决定，默认单位为vp。宽高不超过16384px，最大面积不超过16000px*16000px，超过最大面积则无法正常绘制。
+   * 当创建面积超过536870911平方像素时，返回对象的width和height为0，data为undefined。
+   * <br>异常值NaN、Infinity、负数和0按0处理。
+   * @param { number } height - 矩形区域高度，单位由unit参数决定，默认单位为vp。宽高不超过16384px，最大面积不超过16000px*16000px，超过最大面积则无法正常绘制。
+   * 当创建面积超过536870911平方像素时，返回对象的width和height为0，data为undefined。
+   * <br>异常值NaN、Infinity、负数和0按0处理。
+   * @param { Uint8ClampedArray } data - 一维数组，保存了RGBA格式的像素数据，每个像素占4字节，依次为R、G、B、A，数据值范围为0到255。
+   * 当需要自定义ImageData的像素数据时传入此参数，如需要对图像进行像素级别的处理或修改。
+   * @param { LengthMetricsUnit } [unit] - 用来配置ImageData对象的单位模式，配置后无法动态更改，配置方法同[CanvasRenderingContext2D]{@link CanvasRenderingContext2D}。
+   * 当需要使用vp单位实现响应式布局或适配不同屏幕密度时传入此参数。
+   * <br>异常值undefined、NaN和Infinity按默认值处理。
+   * <br>默认值：DEFAULT。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3019,10 +3029,6 @@ declare interface CanvasParams {
 
 /**
  * 提供画布组件，用于自定义绘制图形。
- * 
- * > **说明：**
- * >
- * > 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -3197,10 +3203,6 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
 /**
  * 提供画布组件，用于自定义绘制图形。
  * 
- * > **说明：**
- * >
- * > 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * 
  * ## 子组件
  * 
  * 不支持。
@@ -3217,10 +3219,6 @@ declare const Canvas: CanvasInterface;
 
 /**
  * 提供画布组件，用于自定义绘制图形。
- * 
- * > **说明：**
- * >
- * > 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * 
  * ## 子组件
  * 
