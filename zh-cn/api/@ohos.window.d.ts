@@ -4075,6 +4075,101 @@ declare namespace window {
   function moveMainWindowToTargetDisplay(displayId: long, windowId: int, userId?: int): Promise<void>;
 
   /**
+   * 枚举主窗口层级可调整到的目标位置。
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 26.0.0
+   */
+  enum WindowPosition {
+    /**
+     * 非置顶，普通模式。作为独立动作，用于取消主窗口的全局置顶状态。
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 26.0.0
+     */
+    NOT_TOPMOST = -3,
+    /**
+     * 全局置顶。设置该值需要 ohos.permission.WINDOW_TOPMOST 权限。
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 26.0.0
+     */
+    TOPMOST = -2,
+    /**
+     * 将窗口放置在所有应用窗口的最底部。
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 26.0.0
+     */
+    BOTTOM = -1,
+    /**
+     * 将窗口放置在所有应用窗口的顶部，单次调整。
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 26.0.0
+     */
+    TOP = 0
+  }
+
+  /**
+   * 描述主窗口的层级调整位置。
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 26.0.0
+   */
+  interface WindowPositionOptions {
+    /**
+     * 需要调整层级的主窗口ID，该窗口必须是当前应用进程内的主窗口。
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 26.0.0
+     */
+    windowId: number;
+    /**
+     * 要调整到的位置。若取值大于0，则为另一个主窗口的ID，目标窗口将放置在该主窗口的下层；否则为
+     * [WindowPosition]{@link window.WindowPosition} 哨兵值，将窗口放置在所有应用窗口的底部或顶部，或切换其全局置顶状态。
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 26.0.0
+     */
+    insertAfter: number;
+  }
+
+  /**
+   * 调整当前应用进程内一个或多个主窗口的层级。该接口使用Promise异步回调。
+   *
+   * 支持的调整方式如下：
+   * - 将主窗口放置在另一个主窗口的下层。
+   * - 将主窗口放置在所有应用窗口的最底部。
+   * - 将主窗口放置在所有应用窗口的顶部。
+   * - 将主窗口切换为全局置顶，或取消其全局置顶状态。
+   *
+   * 设置全局置顶状态需要 ohos.permission.WINDOW_TOPMOST 权限。
+   *
+   * @permission ohos.permission.WINDOW_TOPMOST
+   * @param { Array<WindowPositionOptions> } list - 需要调整层级的主窗口位置列表，不能为空。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
+   * @throws { BusinessError } 201 - 权限校验失败。应用未获得调用该接口所需的权限。
+   * @throws { BusinessError } 401 - 参数错误。可能原因：1、list为空；2、windowId不是正整数；3、insertAfter小于-3；4、参数类型错误。
+   * @throws { BusinessError } 801 - 能力不支持。设备能力有限，无法调用该接口。
+   * @throws { BusinessError } 1300002 - 窗口状态异常。可能原因：窗口不存在或已被销毁，或insertAfter指定的目标主窗口不存在。
+   * @throws { BusinessError } 1300003 - 窗口管理器服务异常。
+   * @throws { BusinessError } 1300004 - 非法操作。可能原因：窗口不是主窗口，或窗口不在当前应用进程内。
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function setWindowPosition(list: Array<WindowPositionOptions>): Promise<void>;
+
+  /**
    * 窗口显示方向类型枚举。<!--Del-->不同枚举值之间的区别可查询
    * [窗口Orientation枚举值8\~10或12和枚举值13\~16的区别(API9)](docroot://faqs/faqs-window-manager.md#窗口orientation枚举值810或12和枚举值1316的区别api9)
    * 。<!--DelEnd-->
