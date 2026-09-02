@@ -727,14 +727,14 @@ declare namespace dlpPermission {
      * @param { Want } want - Request object, which must contain the **uri** and **displayName** fields.
      * @param { window.Window } window - Window object used to start the DLP manager application.
      * @returns { Promise<DLPManagerResult> } Promise used to return the **DLPManagerResult** object.
-     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @throws { BusinessError } 19100016 - The uri field is missing in the want parameter.
      * @throws { BusinessError } 19100017 - The displayName field is missing in the want parameter.
      * @syscap SystemCapability.Security.DataLossPrevention
      * @StageModelOnly
-     * @since 26.1.0
+     * @since 26.2.0
      */
     function startDLPManagerForResult(context: common.Context, want: Want, window: window.Window): Promise<DLPManagerResult>;
     /**
