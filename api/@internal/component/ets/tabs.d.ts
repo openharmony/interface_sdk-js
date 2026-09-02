@@ -419,6 +419,18 @@ declare class TabsController {
    * @since 13 dynamic
    */
   setTabBarOpacity(opacity: number): void;
+
+  /**
+   * Get the current display mode of the Tabs.
+   *
+   * @returns { TabBarDisplayMode } The current display mode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  getBarDisplayMode(): TabBarDisplayMode;
 }
 
 /**
@@ -1098,7 +1110,7 @@ declare type OnTabsContentDidScrollCallback = (selectedIndex: number, index: num
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.2.0 dynamic
  */
 declare enum TabBarStyle {
   /**
@@ -1108,7 +1120,7 @@ declare enum TabBarStyle {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.2.0 dynamic
    */
   BOTTOM = 0,
 
@@ -1119,7 +1131,7 @@ declare enum TabBarStyle {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.2.0 dynamic
    */
   SIDEBAR = 1,
 
@@ -1131,7 +1143,7 @@ declare enum TabBarStyle {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.2.0 dynamic
    */
   SIDEBAR_ADAPTABLE = 2,
 }
@@ -1146,7 +1158,7 @@ declare enum TabBarStyle {
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.2.0 dynamic
  */
 declare type TabsSidebarSearchFilterCallback = (tabIndex: number, text: string) => boolean;
 
@@ -1157,7 +1169,7 @@ declare type TabsSidebarSearchFilterCallback = (tabIndex: number, text: string) 
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.2.0 dynamic
  */
 declare interface TabsSidebarSearchableOptions {
   /**
@@ -1167,7 +1179,7 @@ declare interface TabsSidebarSearchableOptions {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.2.0 dynamic
    */
   searchText?: ResourceStr;
 
@@ -1178,7 +1190,7 @@ declare interface TabsSidebarSearchableOptions {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.2.0 dynamic
    */
   placeholder?: ResourceStr;
 
@@ -1190,7 +1202,7 @@ declare interface TabsSidebarSearchableOptions {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.2.0 dynamic
    */
   searchCallback?: (text: string) => void;
 
@@ -1201,7 +1213,7 @@ declare interface TabsSidebarSearchableOptions {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.2.0 dynamic
    */
   searchFilter?: TabsSidebarSearchFilterCallback;
 }
@@ -1216,7 +1228,7 @@ declare interface TabsSidebarSearchableOptions {
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.2.0 dynamic
  */
 declare enum TabBarDisplayMode {
   /**
@@ -1226,7 +1238,7 @@ declare enum TabBarDisplayMode {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.2.0 dynamic
    */
   BOTTOM_TABBAR = 0,
 
@@ -1237,7 +1249,7 @@ declare enum TabBarDisplayMode {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.2.0 dynamic
    */
   SIDEBAR = 1,
 }
@@ -1249,7 +1261,7 @@ declare enum TabBarDisplayMode {
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.2.0 dynamic
  */
 declare interface TabsBreakpointType<T> {
   /**
@@ -1259,7 +1271,7 @@ declare interface TabsBreakpointType<T> {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.2.0 dynamic
    */
   sm?: T;
 
@@ -1270,7 +1282,7 @@ declare interface TabsBreakpointType<T> {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.2.0 dynamic
    */
   md?: T;
 
@@ -1281,7 +1293,7 @@ declare interface TabsBreakpointType<T> {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.2.0 dynamic
    */
   lg?: T;
 }
@@ -2002,7 +2014,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.2.0 dynamic
    */
   barStyle(style: Optional<TabBarStyle>): TabsAttribute;
 
@@ -2018,22 +2030,22 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.2.0 dynamic
    */
   sidebarPosition(position: Optional<BarPosition>): TabsAttribute;
 
   /**
    * Sets the header content of the sidebar tab bar.
    *
-   * @param { ComponentContent } header - Header content of the sidebar tab bar.
+   * @param { Optional<ComponentContent> } header - Header content of the sidebar tab bar.
    * @returns { TabsAttribute } - the attribute of the tabs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.2.0 dynamic
    */
-  sidebarHeader(header: ComponentContent): TabsAttribute;
+  sidebarHeader(header: Optional<ComponentContent>): TabsAttribute;
 
   /**
    * Sets the search options for the sidebar tab bar.
@@ -2044,7 +2056,7 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.2.0 dynamic
    */
   sidebarSearchable(searchOptions?: TabsSidebarSearchableOptions): TabsAttribute;
 
@@ -2058,9 +2070,93 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.2.0 dynamic
    */
   barDisplayModeBreakpoint(style: Optional<TabsBreakpointType<TabBarDisplayMode>>): TabsAttribute;
+
+
+  /**
+   * Triggered after the TabBar display mode changes.
+   *
+   * @param { Optional<Callback<TabBarDisplayMode>> } callback - Display mode change callback.
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  onBarDisplayModeChange(callback: Optional<Callback<TabBarDisplayMode>>): TabsAttribute;
+
+  /**
+   * Sets the selected color of the tab icon in sidebar mode.
+   *
+   * @param { Optional<ResourceColor> } value - Selected color of the tab icon in sidebar mode.
+   *     <br>Default value: **#ff182431**.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  sidebarSelectedIconColor(value: Optional<ResourceColor>): TabsAttribute;
+ 
+  /**
+   * Sets the selected color of the tab text in sidebar mode.
+   *
+   * @param { Optional<ResourceColor> } value - Selected color of the tab text in sidebar mode.
+   *     <br>Default value: **#ff182431**.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  sidebarSelectedTextColor(value: Optional<ResourceColor>): TabsAttribute;
+ 
+  /**
+   * Sets the unselected color of the tab icon in sidebar mode.
+   *
+   * @param { Optional<ResourceColor> } value - Unselected color of the tab icon in sidebar mode.
+   *     <br>Default value: **#99182431**.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  sidebarUnselectedIconColor(value: Optional<ResourceColor>): TabsAttribute;
+ 
+  /**
+   * Sets the unselected color of the tab text in sidebar mode.
+   *
+   * @param { Optional<ResourceColor> } value - Unselected color of the tab text in sidebar mode.
+   *     <br>Default value: **#99182431**.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  sidebarUnselectedTextColor(value: Optional<ResourceColor>): TabsAttribute;
+ 
+  /**
+   * Sets the selected color of the tab board in sidebar mode.
+   *
+   * @param { Optional<ResourceColor> } value - Selected color of the tab board in sidebar mode.
+   *     <br>Default value: **#19007DFF**.
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  sidebarSelectedBoardColor(value: Optional<ResourceColor>): TabsAttribute;
 }
 
 /**
