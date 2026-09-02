@@ -1487,7 +1487,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      */
-    on(type: 'serviceDie', callback?: Callback<{}>): void;
+    on(type: 'serviceDie', callback: Callback<{}>): void;
 
     /**
      * 注册设备管理服务死亡回调，以便在服务死亡时通知应用。使用callback异步回调。
