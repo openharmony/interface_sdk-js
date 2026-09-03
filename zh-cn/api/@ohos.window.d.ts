@@ -1730,66 +1730,6 @@ declare namespace window {
   }
 
   /**
-   * 枚举窗口焦点状态变化的触发原因。
-   *
-   * @syscap SystemCapability.Window.SessionManager
-   * @since 26.0.0
-   */
-  enum FocusChangeReason {
-    /**
-     * 默认原因，即焦点状态因用户点击以外的其他原因发生变化。
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 26.0.0
-     */
-    DEFAULT = 0,
-    /**
-     * 用户点击窗口导致焦点状态发生变化。
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 26.0.0
-     */
-    CLICK = 1
-  }
-
-  /**
-   * 描述窗口的焦点状态变化信息。
-   *
-   * @syscap SystemCapability.Window.SessionManager
-   * @since 26.0.0
-   */
-  interface WindowFocusState {
-    /**
-     * 窗口是否获得焦点。**true** 表示窗口获得焦点，**false** 表示未获得焦点。
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 26.0.0
-     */
-    focused: boolean;
-    /**
-     * 焦点状态变化的原因。
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 26.0.0
-     */
-    focusChangeReason: FocusChangeReason;
-    /**
-     * 下一个获得焦点的窗口ID。该字段仅在窗口失去焦点且下一个获得焦点的窗口与当前窗口处于同一进程时有效。
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 26.0.0
-     */
-    nextFocusedWindowId?: number;
-    /**
-     * 上一个获得焦点的窗口ID。该字段仅在窗口获得焦点且上一个获得焦点的窗口与当前窗口处于同一进程时有效。
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @since 26.0.0
-     */
-    preFocusedWindowId?: number;
-  }
-
-  /**
    * 窗口所在显示设备和窗口自定义的显示密度信息，是与像素单位无关的缩放系数，即显示大小缩放系数。
    *
    * @syscap SystemCapability.Window.SessionManager
@@ -9026,43 +8966,6 @@ declare namespace window {
      * @since 23 static
      */
     offWindowHighlightChange(callback?: Callback<boolean>): void;
-
-    /**
-     * 开启窗口焦点状态变化事件的监听。
-     *
-     * @param { 'windowFocusStateChange' } type - 监听事件，固定为'windowFocusStateChange'，即窗口焦点状态变化事件。
-     * @param { Callback<WindowFocusState> } callback - 回调函数。当本窗口的焦点状态发生变化时回调，用于返回窗口的焦点状态变化信息，
-     *     包括窗口是否获得焦点、变化原因以及同一进程内相邻获得焦点的窗口ID。
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types;
-     *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    on(type: 'windowFocusStateChange', callback: Callback<WindowFocusState>): void;
-
-    /**
-     * 关闭窗口焦点状态变化事件的监听。
-     *
-     * @param { 'windowFocusStateChange' } type - 监听事件，固定为'windowFocusStateChange'，即窗口焦点状态变化事件。
-     * @param { Callback<WindowFocusState> } [callback] - 回调函数。若传入参数，则关闭该监听。若未传入参数，则关闭所有窗口焦点状态变化的监听。
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types;
-     *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    off(type: 'windowFocusStateChange', callback?: Callback<WindowFocusState>): void;
 
     /**
      * 绑定模态窗口与目标窗口，成功绑定后，目标窗口不能响应用户操作。同时添加目标窗口销毁监听，使用Promise异步回调。

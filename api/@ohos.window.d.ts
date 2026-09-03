@@ -9710,9 +9710,6 @@ declare namespace window {
      * @param { Callback<WindowFocusState> } callback - Callback used to return the focus state change information of
      *     the window, including whether the window gains focus, the reason for the change, and the IDs of the adjacent
      *     focused windows in the same process.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types;
-     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
@@ -9725,6 +9722,23 @@ declare namespace window {
     on(type: 'windowFocusStateChange', callback: Callback<WindowFocusState>): void;
 
     /**
+     * Registers the callback of the window focus state change event.
+     *
+     * @param { Callback<WindowFocusState> } callback - Callback used to return the focus state change information of
+     *     the window, including whether the window gains focus, the reason for the change, and the IDs of the adjacent
+     *     focused windows in the same process.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The window is not created or destroyed.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 26.0.0 static
+     */
+    onWindowFocusStateChange(callback: Callback<WindowFocusState>): void;
+
+    /**
      * Unsubscribes from the focus state change event of the window.
      *
      * @param { 'windowFocusStateChange' } type - Event type. The value is fixed at **'windowFocusStateChange'**,
@@ -9732,9 +9746,6 @@ declare namespace window {
      * @param { Callback<WindowFocusState> } [callback] - Callback used to return the focus state change information of
      *     the window. If a value is passed in, the corresponding subscription is canceled. If no value is passed in, all
      *     subscriptions to the specified event are canceled.
-     * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types;
-     *     3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
@@ -9745,6 +9756,23 @@ declare namespace window {
      * @since 26.0.0 dynamic
      */
     off(type: 'windowFocusStateChange', callback?: Callback<WindowFocusState>): void;
+
+    /**
+     * Unregisters the callback of the window focus state change event.
+     *
+     * @param { Callback<WindowFocusState> } [callback] - Callback used to return the focus state change information of
+     *     the window. If a value is passed in, the corresponding subscription is canceled. If no value is passed in, all
+     *     subscriptions to the specified event are canceled.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The window is not created.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 26.0.0 static
+     */
+    offWindowFocusStateChange(callback?: Callback<WindowFocusState>): void;
 
     /**
      * Binds the modal window to the target window. After the binding is successful, the target window cannot respond to
