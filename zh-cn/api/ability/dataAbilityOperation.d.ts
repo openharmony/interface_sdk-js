@@ -59,7 +59,7 @@ export interface DataAbilityOperation {
   valuesBucket?: rdb.ValuesBucket;
 
   /**
-   * 指示包含一组键值对的valuesBucket对象。
+   * 指示数据值的反向引用，用于应用批处理中前一步操作生成的键值。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.FAModel
    * @famodelonly

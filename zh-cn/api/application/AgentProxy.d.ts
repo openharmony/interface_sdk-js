@@ -29,7 +29,7 @@
  */
 export interface AgentProxy {
   /**
-   * 向AgentExtensionAbility发送数据。
+   * 客户端调用此接口向AgentExtensionAbility服务端发送数据。
    *
    * @param { string } data - 要发送的数据。
    * @throws { BusinessError } 35600002 - Failed to send the IPC message.
@@ -41,9 +41,9 @@ export interface AgentProxy {
   sendData(data: string): void;
 
   /**
-   * 向AgentExtensionAbility发送鉴权。
+   * 客户端调用此接口向AgentExtensionAbility服务端发送安全认证请求。
    *
-   * @param { string } handshakeData - 要发送的握手数据。
+   * @param { string } handshakeData - 待发送给AgentExtensionAbility服务端的安全认证数据。
    * @throws { BusinessError } 35600002 - Failed to send the IPC message.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
@@ -51,4 +51,4 @@ export interface AgentProxy {
    * @since 24 dynamic&static
    */
   authorize(handshakeData: string): void;
-}
+}

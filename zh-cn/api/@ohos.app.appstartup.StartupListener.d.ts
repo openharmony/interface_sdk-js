@@ -41,7 +41,8 @@ declare class StartupListener {
   /**
    * 在所有启动任务完成时调用。
    *
-   * @param { BusinessError<void> } error - 错误信息。
+   * @param { BusinessError<void> } error - 启动任务执行的错误信息。成功时error为null，失败时包含错误码和错误描述，
+   *     可通过error.code获取错误码、error.message获取错误描述。可能的错误码包括28800001、28800002、28800003和28800004。
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
    * @since 12 dynamic
