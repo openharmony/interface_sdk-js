@@ -1471,7 +1471,7 @@ declare namespace distributedDeviceManager {
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 10 dynamic
      */
-    on(type: 'serviceDie', callback?: Callback<{}>): void;
+    on(type: 'serviceDie', callback: Callback<{}>): void;
 
     /**
      * Register a serviceError callback so that the application can be notified when devicemanager service died
