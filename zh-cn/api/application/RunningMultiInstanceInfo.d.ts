@@ -19,8 +19,9 @@
  */
 
 /**
- * 定义多实例应用在运行态的结构信息，通过appManager的
- * [getRunningMultiAppInfo]{@link ./../@ohos.app.ability.appManager:appManager.getRunningMultiAppInfo}来获取。
+ * 定义多实例应用在运行态的结构信息，包含实例标识、应用UID和进程ID。通过appManager的
+ * [getRunningMultiAppInfo]{@link ./../@ohos.app.ability.appManager:appManager.getRunningMultiAppInfo}来获取，用于监控和管理多实例应用的运行状态。
+ * 应用多实例相关开发指南请参见[创建应用多实例](docroot://quick-start/multiInstance.md)。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi

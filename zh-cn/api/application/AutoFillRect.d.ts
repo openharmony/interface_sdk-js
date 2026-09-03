@@ -29,7 +29,7 @@
  */
 export default interface AutoFillRect {
   /**
-   * AutoFill表单或页面节点与页面左边界的距离。
+   * AutoFill表单或页面节点与页面左边界的距离，单位是px。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -40,7 +40,7 @@ export default interface AutoFillRect {
   left: double;
 
   /**
-   * AutoFill表单或页面节点与页面上边界的距离。
+   * AutoFill表单或页面节点与页面上边界的距离，单位是px。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -51,7 +51,7 @@ export default interface AutoFillRect {
   top: double;
 
   /**
-   * AutoFill表单或页面节点的宽度。
+   * AutoFill表单或页面节点的宽度，单位是px。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -62,7 +62,7 @@ export default interface AutoFillRect {
   width: double;
 
   /**
-   * AutoFill表单或页面节点的高度。
+   * AutoFill表单或页面节点的高度，单位是px。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi

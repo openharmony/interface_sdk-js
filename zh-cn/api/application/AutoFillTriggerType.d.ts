@@ -48,7 +48,7 @@ export enum AutoFillTriggerType {
   MANUAL_REQUEST = 1,
 
   /**
-   * 粘贴拉起自动填充服务，可通过在密码保险箱内长按用户名或密码选择安全复制后，再长按任意输入控件弹出二级菜单，选择粘贴，拉起自动填充服务。
+   * 粘贴拉起自动填充服务，仅在用户已从密码保险箱内长按用户名或密码选择安全复制后，通过长按任意输入控件弹出二级菜单并选择粘贴时拉起自动填充服务。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi

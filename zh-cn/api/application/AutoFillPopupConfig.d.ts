@@ -62,7 +62,7 @@ export default interface AutoFillPopupConfig {
  */
 export interface PopupSize {
   /**
-   * 气泡弹窗的宽。
+   * 气泡弹窗的宽，单位是px。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -73,7 +73,7 @@ export interface PopupSize {
   width: double;
 
   /**
-   * 气泡弹窗的高。
+   * 气泡弹窗的高，单位是px。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi

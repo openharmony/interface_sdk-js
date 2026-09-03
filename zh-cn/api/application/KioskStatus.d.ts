@@ -48,7 +48,7 @@ export interface KioskStatus {
   kioskBundleName: string;
 
   /**
-   * 进入Kiosk模式的应用的UID。
+   * 进入Kiosk模式的应用的UID，由系统分配，为正整数。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
