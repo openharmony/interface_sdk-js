@@ -3726,7 +3726,11 @@ export abstract class FrameCallback {
   /**
    * 在下一帧进行渲染时，该方法将被执行。
    *
-   * @param { number } frameTimeInNano - 下一帧渲染开始执行的时间，以纳秒为单位。<br/>取值范围：[0, +∞)
+   * 继承FrameCallback类并重写该方法后，可配合[UIContext]{@link @ohos.arkui.UIContext}中的
+   * [postFrameCallback]{@link UIContext#postFrameCallback}和
+   * [postDelayedFrameCallback]{@link UIContext#postDelayedFrameCallback}使用。
+   * 
+   * @param { number } frameTimeInNano - 下一帧渲染开始执行的时间，以纳秒为单位，由系统回调时传入，开发者无需手动传入。<br>取值范围：[0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3736,9 +3740,10 @@ export abstract class FrameCallback {
   onFrame(frameTimeInNano: number): void;
 
   /**
-   * 在下一帧渲染结束时，如果距离下一个Vsync信号到来还有1ms以上的剩余时间，该方法将被执行，否则将顺延至后面的帧。
+   * 下一帧渲染任务结束后，若当前时间到下一个VSync信号的剩余时间大于1ms，则执行该回调；若剩余时间小于等于1ms，则将回调顺延至后续某一帧，待当前时间到下一个VSync信号的剩余时间大于1ms时执行。
+   * 若当前没有已请求的下一帧，系统会自动请求一帧。
    *
-   * @param { number } timeLeftInNano - 这一帧剩余的空闲时间，以纳秒为单位。<br/>取值范围：[0, +∞)
+   * @param { number } timeLeftInNano - 这一帧剩余的空闲时间，以纳秒为单位，由系统回调时传入，开发者无需手动传入。<br>取值范围：[0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
