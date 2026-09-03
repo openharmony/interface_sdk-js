@@ -14,16 +14,8 @@
  */
 
 /**
- * The **LiveFormExtensionAbility** module, inherited from 
- * [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}, provides interactive widget functions,
- *  including creating and destroying interactive widgets.
- * 
- * > **NOTE**
- * 
- * > Exceptions may occur if some APIs are called. For details about the API list, see 
- * > [Appendix](docroot://reference/apis-form-kit/js-apis-app-form-LiveFormExtensionAbility.md#appendix).
  *
- * @file
+ * @file LiveFormExtensionAbility
  * @kit FormKit
  */
 
@@ -33,8 +25,8 @@ import type UIExtensionContentSession from './@ohos.app.ability.UIExtensionConte
 import formInfo from './@ohos.app.form.formInfo';
 
 /**
- * Provides information about a live form.
- * @typedef { LiveFormInfo }
+ * 互动卡片信息。
+ *
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @atomicservice
@@ -43,7 +35,7 @@ import formInfo from './@ohos.app.form.formInfo';
  */
 export interface LiveFormInfo {
   /**
-   * The form id of the live form.
+   * 卡片id。
    *
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
@@ -54,7 +46,7 @@ export interface LiveFormInfo {
   formId: string;
 
   /**
-   * The live form display area.
+   * 卡片位置和大小信息。
    *
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
@@ -65,8 +57,7 @@ export interface LiveFormInfo {
   rect: formInfo.Rect;
 
   /**
-   * The form border radius.
-   * Unit: vp, The value must be greater than or equal to 0.
+   * 卡片圆角半径信息。取值大于等于0，单位vp。
    *
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
@@ -78,8 +69,10 @@ export interface LiveFormInfo {
 }
 
 /**
- * Interactive widget extension class. It provides APIs for the widget provider to receive notifications about widget 
- * creation and destruction.
+ * 互动卡片扩展类，用于实现互动卡片的提供方功能。包含互动卡片提供方接收创建和销毁互动卡片的通知接口，开发者可在这些回调中实现卡片的初始化、数据绑定、资源清理等逻辑。
+ * [onLiveFormCreate]{@link LiveFormExtensionAbility#onLiveFormCreate}在用户切换互动卡片状态为激活态时触发，用于初始化和数据绑定；
+ * [onLiveFormDestroy]{@link LiveFormExtensionAbility#onLiveFormDestroy}在用户切换互动卡片状态为非激活态时触发，用于资源清理。两者形成完整的生命周期管理，应确保在
+ * create中分配的资源在destroy中正确释放。
  *
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
@@ -89,8 +82,7 @@ export interface LiveFormInfo {
  */
 declare class LiveFormExtensionAbility extends ExtensionAbility {
   /**
-   * Context of the **LiveFormExtensionAbility**. This context is inherited from 
-   * [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}.
+   * LiveFormExtensionAbility的上下文环境，继承自[ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}。
    *
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
@@ -110,10 +102,14 @@ declare class LiveFormExtensionAbility extends ExtensionAbility {
   liveFormContext: LiveFormExtensionContext;
 
   /**
-   * Called after the UI content of **LiveFormExtensionAbility** is created.
+   * LiveFormExtensionAbility实例创建完成的回调。当用户切换到互动卡片激活态时，系统会自动调用此回调，开发者可在此回调中进行卡片初始化、数据绑定等操作。
+   * 
+   * - 与onLiveFormDestroy()方法成对使用，构成完整的互动卡片生命周期。
+   * - 当互动卡片切换为非激活态时，系统会自动调用onLiveFormDestroy()进行资源清理。
+   * - 开发者应确保在onLiveFormCreate中申请的资源在onLiveFormDestroy中正确释放，避免内存泄漏。
    *
-   * @param { LiveFormInfo } liveFormInfo - Interactive widget information, including the widget ID.
-   * @param { UIExtensionContentSession } session - UI information.
+   * @param { LiveFormInfo } liveFormInfo - 互动卡片信息，用于标识处于激活态的互动卡片，包括卡片id等信息。
+   * @param { UIExtensionContentSession } session - LiveFormExtensionAbility的界面会话对象，用于管理与卡片的交互会话。
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice
@@ -123,9 +119,9 @@ declare class LiveFormExtensionAbility extends ExtensionAbility {
   onLiveFormCreate(liveFormInfo: LiveFormInfo, session: UIExtensionContentSession): void;
 
   /**
-   * Called to clear resources when this **LiveFormExtensionAbility** is destroyed.
+   * LiveFormExtensionAbility生命周期回调，在销毁时回调，执行资源清理等操作。
    *
-   * @param { LiveFormInfo } liveFormInfo - Interactive widget information, including the widget ID.
+   * @param { LiveFormInfo } liveFormInfo - 互动卡片信息，用于标识处于非激活态的互动卡片，包括卡片id等信息。
    * @syscap SystemCapability.Ability.Form
    * @stagemodelonly
    * @atomicservice

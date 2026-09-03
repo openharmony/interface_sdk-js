@@ -14,39 +14,38 @@
  */
 
 /**
- * @file
+ * @file FormEditExtensionAbility
  * @kit FormKit
  */
 import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
 import FormEditExtensionContext from './application/FormEditExtensionContext';
 
 /**
- * The **FormEditExtensionAbility** module, inherited from 
- * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}, provides the widget editing 
- * function.
- * 
+ * FormEditExtensionAbility模块提供卡片编辑功能，支持用户在卡片提供方应用内编辑卡片内容，适用于需要动态更新卡片展示信息、实现卡片个性化配置的场景。继承自
+ * [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}。
+ *
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
  * @since 18 dynamic
  * @since 23 static
  */
 declare class FormEditExtensionAbility extends UIExtensionAbility {
-/**
-  * Indicates configuration information about a form edit extension ability context.
-  *
-  * @syscap SystemCapability.Ability.Form
-  * @stagemodelonly
-  * @since 18 dynamic
-  */
-	context: FormEditExtensionContext;
+	/**
+	 * FormEditExtensionAbility的上下文环境。
+	 *
+	 * @syscap SystemCapability.Ability.Form
+	 * @stagemodelonly
+	 * @since 18 dynamic
+	 */
+    context: FormEditExtensionContext;
 
-/**
-  * Indicates configuration information about a form edit extension ability context.
-  *
-  * @syscap SystemCapability.Ability.Form
-  * @stagemodelonly
-  * @since 23 static
-  */
-	formEditContext: FormEditExtensionContext;
+    /**
+     * FormEditExtensionAbility的上下文环境。
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @stagemodelonly
+     * @since 23 static
+     */
+    formEditContext: FormEditExtensionContext;
 }
 export default FormEditExtensionAbility;
