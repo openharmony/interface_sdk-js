@@ -13286,7 +13286,7 @@ declare interface SheetTitleBarBackgroundBlurOptions {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamiconly
+   * @since 26.2.0 dynamiconly
    */
   maskExtraHeight?: LengthMetrics;
 
@@ -13304,7 +13304,7 @@ declare interface SheetTitleBarBackgroundBlurOptions {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamiconly
+   * @since 26.2.0 dynamiconly
    */
   maskColor?: ResourceColor;
 
@@ -13317,7 +13317,7 @@ declare interface SheetTitleBarBackgroundBlurOptions {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamiconly
+   * @since 26.2.0 dynamiconly
    */
   effectiveDistance?: LengthMetrics;
 }
