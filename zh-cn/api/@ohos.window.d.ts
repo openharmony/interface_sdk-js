@@ -7128,8 +7128,7 @@ declare namespace window {
      * 
      * 应用注册帧率变化监听后，只有当客户端UI内容发生重绘时（如页面切换、和可响应组件交互、设置背景色和透明度等），才会触发注册的回调。但当同时使用该接口和
      * [postFrameCallback]{@link @ohos.arkui.UIContext:UIContext#postFrameCallback}、
-     * [postDelayedFrameCallback](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#postdelayedframecallback12)
-     * 、
+     * [postDelayedFrameCallback]{@link @ohos.arkui.UIContext:UIContext#postDelayedFrameCallback}、
      * [displaySync.on('frame')]{@link @ohos.graphics.displaySync:displaySync.DisplaySync.on(type: 'frame', callback: Callback<IntervalInfo>)}
      * 中的任意一个时，即使无UI内容重绘，也可能触发回调。
      *
@@ -7151,8 +7150,7 @@ declare namespace window {
      * 
      * 应用注册帧率变化监听后，只有当客户端UI内容发生重绘时（如页面切换、和可响应组件交互、设置背景色和透明度等），才会触发注册的回调。但当同时使用该接口和
      * [postFrameCallback]{@link @ohos.arkui.UIContext:UIContext#postFrameCallback}、
-     * [postDelayedFrameCallback](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#postdelayedframecallback12)
-     * 、
+     * [postDelayedFrameCallback]{@link @ohos.arkui.UIContext:UIContext#postDelayedFrameCallback}、
      * [displaySync.on('frame')]{@link @ohos.graphics.displaySync:displaySync.DisplaySync.on(type: 'frame', callback: Callback<IntervalInfo>)}
      * 中的任意一个时，即使无UI内容重绘，也可能触发回调。
      *
