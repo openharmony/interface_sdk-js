@@ -294,7 +294,7 @@ declare namespace componentSnapshot {
     /**
          * 组件截图的最大宽度限制。
          * 
-         * 取值范围：（-∞，+∞）
+         * 取值范围：[0, +∞)。无法获取限制时返回-1。
          * 
          * 单位：px
          *
@@ -306,7 +306,7 @@ declare namespace componentSnapshot {
     /**
          * 组件截图的最大高度限制。
          * 
-         * 取值范围：（-∞，+∞）
+         * 取值范围：[0, +∞)。无法获取限制时返回-1。
          * 
          * 单位：px
          *
