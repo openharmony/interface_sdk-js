@@ -136,7 +136,7 @@ declare interface TerminationInfo {
  */
 declare interface SecurityUIExtensionProxy {
   /**
-   * 用于在双方建立连接成功后，向被拉起的Ability发送数据，提供异步发送能力。数据将被扩展Ability通过setReceiveDataCallback接收处理。
+   * 用于在双方建立连接成功后，向被拉起的Ability发送数据，提供异步发送能力。数据将被拉起的Ability通过setReceiveDataCallback接收处理。
    *
    * @param { Record<string, Object> } data - 异步发送给被拉起的Ability的数据。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -148,6 +148,7 @@ declare interface SecurityUIExtensionProxy {
 
   /**
    * 用于在双方建立连接成功后，向被拉起的Ability同步发送数据，数据将被拉起的Ability通过setReceiveDataForResultCallback处理并返回结果。
+   * 以下错误码的详细介绍请参见UIExtension错误码。
    *
    * @param { Record<string, Object> } data - 同步发送给被拉起的Ability的数据。
    * @returns { Record<string, Object> } 被拉起的Ability对同步发送请求处理后返回的响应数据。
@@ -164,7 +165,7 @@ declare interface SecurityUIExtensionProxy {
    * 在双方建立连接成功后，订阅被拉起的Ability异步注册时触发的回调。使用callback异步回调。
    *
    * @param { 'asyncReceiverRegister' } type - 固定填'asyncReceiverRegister'，代表订阅被拉起的Ability异步注册时触发的回调。
-   * @param { Callback<UIExtensionProxy> } callback - 回调函数。订阅被拉起的Ability注册setReceiveDataCallback后触发的回调。
+   * @param { Callback<UIExtensionProxy> } callback - 回调函数。被拉起的Ability注册setReceiveDataCallback后触发的回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -173,10 +174,10 @@ declare interface SecurityUIExtensionProxy {
   on(type: 'asyncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
 
   /**
-   * 在双方建立连接成功后，订阅被拉起的Ability同步注册时触发的回调。使用callback异步回调。
+   * 在双方建立连接成功后，订阅被拉起的Ability异步注册时触发的回调。使用callback异步回调。
    *
-   * @param { 'syncReceiverRegister' } type - 固定填'syncReceiverRegister'，代表订阅被拉起的Ability同步注册时触发的回调。
-   * @param { Callback<UIExtensionProxy> } callback - 回调函数。被拉起的Ability注册setReceiveDataForResultCallback后触发的回调。
+   * @param { 'syncReceiverRegister' } type - 固定填'asyncReceiverRegister'，代表订阅被拉起的Ability异步注册时触发的回调。
+   * @param { Callback<UIExtensionProxy> } callback - 回调函数。被拉起的Ability注册setReceiveDataCallback后触发的回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -185,7 +186,7 @@ declare interface SecurityUIExtensionProxy {
   on(type: 'syncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
 
   /**
-   * 取消订阅被拉起的Ability异步注册时触发的回调。使用callback异步回调。
+   * 取消订阅被拉起的Ability异步注册时触发的回调。
    *
    * @param { 'asyncReceiverRegister' } type - 固定填'asyncReceiverRegister'，取消订阅被拉起的Ability异步注册时触发的回调。
    * @param { Callback<UIExtensionProxy> } [callback] - 回调函数。为空时取消订阅所有异步注册的回调。非空时取消订阅指定的异步注册回调。
@@ -197,9 +198,9 @@ declare interface SecurityUIExtensionProxy {
   off(type: 'asyncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
 
   /**
-   * 取消订阅被拉起的Ability同步注册时触发的回调。使用callback异步回调。
+   * 取消订阅被拉起的Ability异步注册时触发的回调。
    *
-   * @param { 'syncReceiverRegister' } type - 固定填'syncReceiverRegister'，取消订阅被拉起的Ability同步注册时触发的回调。
+   * @param { 'syncReceiverRegister' } type - 固定填'asyncReceiverRegister'，取消订阅被拉起的Ability异步注册时触发的回调。
    * @param { Callback<UIExtensionProxy> } [callback] - 回调函数。为空时取消订阅所有同步注册的回调。非空时取消订阅指定的同步注册回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -252,11 +253,10 @@ interface SecurityUIExtensionComponentInterface {
  */
 declare class SecurityUIExtensionComponentAttribute extends CommonMethod<SecurityUIExtensionComponentAttribute> {
   /**
-   * UIExtensionAbility连接完成时触发的回调，使用callback异步回调。之后可通过返回的[SecurityUIExtensionProxy]{@link SecurityUIExtensionProxy}向被拉起的Ability发送数据。
+   * UIExtensionAbility连接完成时触发的回调，使用callback异步回调。之后可通过返回的SecurityUIExtensionProxy向被拉起的Ability发送数据。
    *
    * @param { import('../api/@ohos.base').Callback<SecurityUIExtensionProxy> } callback - 回调函数，
-   * 入参为SecurityUIExtensionProxy，
-   * 可用于向对端Ability发送数据及事件订阅。
+   *         入参为SecurityUIExtensionProxy，可用于向对端Ability发送数据及事件订阅。
    * @returns { SecurityUIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -296,7 +296,7 @@ declare class SecurityUIExtensionComponentAttribute extends CommonMethod<Securit
   ): SecurityUIExtensionComponentAttribute;
 
   /**
-   * 被拉起的UIExtensionAbility通过调用[terminateSelfWithResult]{@link ../../../application/UIAbilityContext:UIAbilityContext#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}或[terminateSelf]{@link ../../../application/UIAbilityContext:UIAbilityContext#terminateSelf(callback: AsyncCallback<void>)}正常退出时触发此回调。使用callback异步回调。
+   * 被拉起的UIExtensionAbility通过调用terminateSelfWithResult或terminateSelf正常退出时触发此回调。使用callback异步回调。
    *
    * @param { Callback<TerminationInfo> } callback - 回调函数，入参用于接收UIExtensionAbility的返回结果。
    * @returns { SecurityUIExtensionComponentAttribute }

@@ -49,7 +49,7 @@ declare enum DpiFollowStrategy {
 }
 
 /**
- * 表示不同类型的WindowModeFollowStrategy的枚举。
+ * 窗口Mode跟随策略，用于设置窗口Mode，使其能够跟随宿主或UIExtensionAbility。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -79,7 +79,7 @@ declare enum WindowModeFollowStrategy {
 }
 
 /**
- * 该接口用于在构造时设置UIExtensionComponentAttribute的选项。
+ * 用于在UIExtensionComponent进行构造时传递可选的构造参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -150,7 +150,7 @@ declare interface UIExtensionOptions {
 }
 
 /**
- * 用于表示被拉起的UIExtensionAbility通过调用terminateSelfWithResult或者terminateSelf正常退出时的返回结果。
+ * 用于表示被拉起的UIExtensionAbility通过调用`terminateSelfWithResult`或者`terminateSelf`正常退出时的返回结果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -191,9 +191,7 @@ declare interface TerminationInfo {
 declare type ReceiveCallback = import('../api/@ohos.base').Callback<Record<string, Object>>;
 
 /**
- * 该接口用于向UIExtensionAbility发送数据。<br/>
- * 当UIExtensionAbility连接成功时，<br/>
- * 它从UIExtensionComponent的onRemoteReady回调中返回。
+ * 用于在双方建立连接成功后，组件使用方将数据发送给被拉起的Ability，并订阅和取消订阅扩展Ability的注册事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -202,11 +200,10 @@ declare type ReceiveCallback = import('../api/@ohos.base').Callback<Record<strin
  */
 declare interface UIExtensionProxy {
   /**
-   * 该接口用于向UIExtensionAbility发送数据。
+   * 用于在双方建立连接成功后，组件使用方将数据发送给被拉起的Ability的场景，提供异步发送数据。
    *
    * @param { object } data - 异步发送给被拉起的UIExtensionAbility的数据。API version 18之前的版本，data的类型为Object。 [since 10 - 17]
-   * @param { Record<string, Object> } data - 异步发送给被拉起的UIExtensionAbility的数据。
-   *                                     API version 18之前的版本，data的类型为Object。 [since 18]
+   * @param { Record<string, Object> } data - 异步发送给被拉起的UIExtensionAbility的数据。API version 18之前的版本，data的类型为Object。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -215,12 +212,14 @@ declare interface UIExtensionProxy {
   send(data: Record<string, Object>): void;
 
   /**
-   * 该接口用于向UIExtensionAbility发送数据，并以阻塞方式等待结果。
+   * 用于在双方建立连接成功后，组件使用方将数据发送给被拉起的Ability的场景，提供同步发送数据。
+   * 以下错误码的详细介绍请参见UIExtension错误码。
    *
-   * @param { object } data - 发送给UIExtensionAbility的数据 [since 11 - 17]
-   * @param { Record<string, Object> } data - 发送给UIExtensionAbility的数据。 [since 18]
-   * @returns { object } data - 从UIExtensionAbility传输回来的数据 [since 11 - 17]
-   * @returns { Record<string, Object> } data - 从UIExtensionAbility传输回来的数据。 [since 18]
+   * @param { object } data - 同步发送给被拉起的UIExtensionAbility的数据。API version 18之前的版本，data的类型为Object。 [since 11 - 17]
+   * @param { Record<string, Object> } data - 同步发送给被拉起的UIExtensionAbility的数据。API version 18之前的版本，data的类型为Object。
+   *         [since 18]
+   * @returns { object } 扩展Ability回复的数据。 [since 11 - 17]
+   * @returns { Record<string, Object> } 扩展Ability回复的数据。 [since 18]
    * @throws { BusinessError } 100011 - 没有注册响应该请求的回调。
    * @throws { BusinessError } 100012 - 传输数据失败。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -231,11 +230,11 @@ declare interface UIExtensionProxy {
   sendSync(data: Record<string, Object>): Record<string, Object>;
 
   /**
-   * 注册监听器，用于监听UIExtensionAbility注册异步数据接收回调。
+   * 用于在双方建立连接成功后，组件使用方订阅被拉起的Ability发生异步注册的场景。
    *
    * @param { 'asyncReceiverRegister' } type - 事件类型，取值为'asyncReceiverRegister'，表示订阅扩展Ability发生异步注册回调。
-   * @param { function } callback - 回调函数。扩展Ability注册setReceiveDataCallback后触发的回调。 [since 11 - 17]
-   * @param { Callback<UIExtensionProxy> } callback - 回调函数。扩展Ability注册setReceiveDataCallback后触发的回调。 [since 18]
+   * @param { function } callback - 回调函数。订阅扩展Ability注册setReceiveDataCallback后触发的回调。 [since 11 - 17]
+   * @param { Callback<UIExtensionProxy> } callback - 回调函数。订阅扩展Ability注册setReceiveDataCallback后触发的回调。 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -244,11 +243,11 @@ declare interface UIExtensionProxy {
   on(type: 'asyncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
 
   /**
-   * 注册监听器，用于监听UIExtensionAbility注册同步数据接收回调。
+   * 用于在双方建立连接成功后，组件使用方订阅被拉起的Ability发生异步注册的场景。
    *
-   * @param { 'syncReceiverRegister' } type - 事件类型，取值为'syncReceiverRegister'，表示订阅扩展Ability发生同步注册回调。
-   * @param { function } callback - 回调函数。扩展Ability注册setReceiveDataForResultCallback后触发的回调。 [since 11 - 17]
-   * @param { Callback<UIExtensionProxy> } callback - 回调函数。扩展Ability注册setReceiveDataForResultCallback后触发的回调。 [since 18]
+   * @param { 'syncReceiverRegister' } type - 事件类型，取值为'asyncReceiverRegister'，表示订阅扩展Ability发生异步注册回调。
+   * @param { function } callback - 回调函数。订阅扩展Ability注册setReceiveDataCallback后触发的回调。 [since 11 - 17]
+   * @param { Callback<UIExtensionProxy> } callback - 回调函数。订阅扩展Ability注册setReceiveDataCallback后触发的回调。 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -257,10 +256,11 @@ declare interface UIExtensionProxy {
   on(type: 'syncReceiverRegister', callback: Callback<UIExtensionProxy>): void;
 
   /**
-   * 注销监听UIExtensionAbility注册异步数据接收回调的监听器。
+   * 用于在双方建立连接成功后，组件使用方取消订阅被拉起的Ability发生异步注册的场景。本方法与on('asyncReceiverRegister')配合使用，用于取消通过on('asyncReceiverRegister')
+   * 注册的订阅。当不再需要监听异步注册事件时（如组件销毁前），应调用本方法取消订阅，避免回调无法释放。
    *
    * @param { 'asyncReceiverRegister' } type - 事件类型，取值为'asyncReceiverRegister'，表示取消订阅扩展Ability发生异步注册回调。
-   * @param { function } callback - 回调函数。为空代表取消订阅所有扩展Ability异步注册后触发回调；非空代表取消订阅对应的异步注册回调。 [since 11 - 17]
+   * @param { function } callback - 回调函数。为空代表取消订阅所有扩展Ability异步注册后触发的回调。<br> 非空代表取消订阅对应的异步注册回调。 [since 11 - 17]
    * @param { Callback<UIExtensionProxy> } [callback] - 回调函数。为空代表取消订阅所有扩展Ability异步注册后触发回调；非空代表取消订阅对应的异步注册回调。 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -270,10 +270,11 @@ declare interface UIExtensionProxy {
   off(type: 'asyncReceiverRegister', callback?: Callback<UIExtensionProxy>): void;
 
   /**
-   * 注销监听UIExtensionAbility注册同步数据接收回调的监听器。
+   * 用于在双方建立连接成功后，组件使用方取消订阅被拉起的Ability发生异步注册的场景。本方法与on('asyncReceiverRegister')配合使用，用于取消通过on('asyncReceiverRegister')
+   * 注册的订阅。当不再需要监听异步注册事件时（如组件销毁前），应调用本方法取消订阅，避免回调无法释放。
    *
-   * @param { 'syncReceiverRegister' } type - 事件类型，取值为'syncReceiverRegister'，表示取消订阅扩展Ability发生同步注册回调。
-   * @param { function } callback - 回调函数。为空代表取消订阅所有扩展Ability同步注册后触发回调；非空代表取消订阅对应的同步注册回调。 [since 11 - 17]
+   * @param { 'syncReceiverRegister' } type - 事件类型，取值为'asyncReceiverRegister'，表示取消订阅扩展Ability发生异步注册回调。
+   * @param { function } callback - 回调函数。为空代表取消订阅所有扩展Ability异步注册后触发的回调。<br> 非空代表取消订阅对应的异步注册回调。 [since 11 - 17]
    * @param { Callback<UIExtensionProxy> } [callback] - 回调函数。为空代表取消订阅所有扩展Ability同步注册后触发回调；非空代表取消订阅对应的同步注册回调。 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -322,9 +323,10 @@ interface UIExtensionComponentInterface {
  */
 declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComponentAttribute> {
   /**
-   * 当远程UIExtensionAbility对象就绪可以接收数据时回调的回调函数。
+   * UIExtensionAbility连接完成时的回调，之后可使用proxy向被拉起的Ability发送数据。
    *
-   * @param { import('../api/@ohos.base').Callback<UIExtensionProxy> } callback - 当远程UIExtensionAbility对象就绪可以接收数据时回调的回调函数。
+   * @param { import('../api/@ohos.base').Callback<UIExtensionProxy> } callback - 回调函数。
+   *         UIExtensionAbility连接完成后触发，入参为UIExtensionProxy，可通过proxy向被拉起的Ability发送数据。
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -336,10 +338,11 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
   ): UIExtensionComponentAttribute;
 
   /**
-   * 当接收到来自UIExtensionAbility的数据时回调。
+   * 收到被拉起的Ability发送的数据时触发的回调。使用callback异步回调。
    *
    * @param { import('../api/@ohos.base').Callback<{ [key: string]: Object }> } callback - 当接收到来自UIExtensionAbility的数据时回调 [since 10 - 17]
-   * @param { ReceiveCallback } callback - 当接收到来自UIExtensionAbility的数据时回调 [since 18]
+   * @param { ReceiveCallback } callback - 回调函数，返回收到的来自被拉起的Ability的数据。
+   *         API version 18之前的版本，callback的类型为Callback\<Record\<string, Object\>\>。 [since 18]
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -349,11 +352,12 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
   onReceive(callback: ReceiveCallback): UIExtensionComponentAttribute;
 
   /**
-   * 当UIExtensionAbility携带结果数据终止时回调。
+   * 被拉起的Ability扩展调用terminateSelfWithResult时会先触发本回调函数，再触发onRelease。
+   * 本回调内可处理被拉起的Ability的结果数据，可参考AbilityResult。
    *
    * @param { import('../api/@ohos.base').Callback<{code: number;want?: import('../api/@ohos.app.ability.Want').default;
-    *     }> } callback
-    *     - 当UIExtensionAbility携带结果数据终止时回调。
+   *     }> } callback
+   *     - 当UIExtensionAbility携带结果数据终止时回调。
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -370,8 +374,9 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
   ): UIExtensionComponentAttribute;
 
   /**
-   * 用于处理被拉起的Ability销毁时的回调。被拉起的Ability扩展调用terminateSelfWithResult或者terminateSelf时会触发本回调，此时releaseCode为0，即正常销毁。
-   * 被拉起的Ability扩展意外Crash或被kill时，触发本回调，此时releaseCode为1。
+   * 用于处理被拉起的Ability销毁时的回调。
+   * 被拉起的Ability扩展调用terminateSelfWithResult或者terminateSelf时会触发本回调，此时code为0，即正常销毁。
+   * 被拉起的Ability扩展意外Crash或被kill时，触发本回调，此时code为1。
    *
    * @param { import('../api/@ohos.base').Callback<number> } callback - 回调函数，对端Ability销毁时的code，0为正常销毁，1为异常销毁。
    * @returns { UIExtensionComponentAttribute }
@@ -387,9 +392,9 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
   ): UIExtensionComponentAttribute;
 
   /**
-   * 当发生除与UIExtensionAbility断开连接之外的其他错误时回调。
+   * 被拉起的Ability扩展在运行过程中发生异常时触发本回调。可通过回调参数中的code、name和message获取错误信息并做处理，业务错误码详细介绍请参见UIExtension错误码。
    *
-   * @param { import('../api/@ohos.base').ErrorCallback } callback - 当发生除与UIExtensionAbility断开连接之外的其他错误时回调。
+   * @param { import('../api/@ohos.base').ErrorCallback } callback - 回调函数。返回报错信息。
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -401,9 +406,9 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
   ): UIExtensionComponentAttribute;
 
   /**
-   * 当嵌入式UI的提供方终止时回调。
+   * 被拉起的UIExtensionAbility通过调用`terminateSelfWithResult`或者`terminateSelf`正常退出时，触发本回调函数。
    *
-   * @param { Callback<TerminationInfo> } callback - 用于返回UIExtensionAbility结果的回调。
+   * @param { Callback<TerminationInfo> } callback - 回调函数，入参用于接收UIExtensionAbility的返回结果，类型为TerminationInfo。
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -413,9 +418,9 @@ declare class UIExtensionComponentAttribute extends CommonMethod<UIExtensionComp
   onTerminated(callback: Callback<TerminationInfo>): UIExtensionComponentAttribute;
 
   /**
-   * 当UIExtensionAbility绘制首帧时回调的回调函数。
+   * 被拉起的UIExtensionAbility绘制第一帧时触发本回调。
    *
-   * @param { Callback<void> } callback - 当UIExtensionAbility绘制首帧时回调的回调函数。类型为void。
+   * @param { Callback<void> } callback - 回调函数。UIExtensionAbility绘制第一帧时触发本回调，类型为void。
    * @returns { UIExtensionComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

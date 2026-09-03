@@ -19,7 +19,8 @@
  */
 
 /**
- * DPI跟随策略，用于设置DPI，使其能够跟随宿主或EmbeddedUIExtensionAbility。
+ * DPI跟随策略，用于设置DPI，使其能够跟随宿主或EmbeddedUIExtensionAbility。例如，当EmbeddedUIExtensionAbility需要与宿主应用保持视觉一致性时，可选择跟随宿主DPI；
+ * 当EmbeddedUIExtensionAbility需要独立适配自身资源的DPI配置时，可选择跟随EmbeddedUIExtensionAbility DPI。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -52,7 +53,8 @@ import { Callback, ErrorCallback } from '../../@ohos.base';
 import { CommonMethod } from './common';
 
 /**
- * 窗口模式跟随策略，用于设置窗口模式跟随宿主或EmbeddedUIExtensionAbility。
+ * 窗口模式跟随策略，用于设置窗口模式跟随宿主或EmbeddedUIExtensionAbility。例如，当EmbeddedUIExtensionAbility需要与宿主应用保持一致的窗口模式（如全屏、分屏）时，可选择跟随宿主；
+ * 当EmbeddedUIExtensionAbility需要独立控制窗口模式时，可选择跟随EmbeddedUIExtensionAbility。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -234,17 +236,10 @@ declare interface TerminationInfo {
  */
 declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentAttribute> {
   /**
-   * 当启动的EmbeddedUIExtensionAbility通过调用
-   * [terminateSelfWithResult]{@link @ohos.app.ability.UIExtensionContentSession:UIExtensionContentSession#terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback<void>)}
-   * 或
-   * [terminateSelf]{@link @ohos.app.ability.UIExtensionContentSession:UIExtensionContentSession#terminateSelf(callback: AsyncCallback<void>)}
-   * 正常退出时回调。
+   * 被拉起的EmbeddedUIExtensionAbility通过调用terminateSelfWithResult或者terminateSelf正常退出时，触发本回调函数。
    *
-   * > **说明**
-   * >
-   * > 该接口不能在[attributeModifier]{@link CommonMethod#attributeModifier}内调用。
-   *
-   * @param { import('../api/@ohos.base').Callback<TerminationInfo> } callback - 用于返回EmbeddedUIExtensionAbility结果的回调。
+   * @param { import('../api/@ohos.base').Callback<TerminationInfo> } callback - 回调函数，
+   *         入参用于接收EmbeddedUIExtensionAbility的返回结果，类型为TerminationInfo。
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -254,14 +249,12 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
   onTerminated(callback: import('../api/@ohos.base').Callback<TerminationInfo>): EmbeddedComponentAttribute;
 
   /**
-   * 当启动的EmbeddedUIExtensionAbility运行过程中发生错误时调用。通过回调参数中的**code**、**name**和**message**可以获取并处理错误信息。关于错误码的详细信息，请参见[UIExtension错误码](docroot://reference/apis-arkui/errorcode-uiextension.md)。
+   * 被拉起的EmbeddedUIExtensionAbility在运行过程中发生异常，或出现拉起EmbeddedUIExtensionAbility失败、通知提供方切后台/销毁EmbeddedUIExtensionAbility失败、
+   * 在EmbeddedUIExtensionAbility中嵌套使用EmbeddedComponent等异常情形时，触发本回调。
+   * 可通过回调参数中的code、name和message获取错误信息并做处理，业务错误码详细介绍请参见UIExtension错误码。
    *
-   * > **说明**
-   * >
-   * > 该接口不能在[attributeModifier]{@link CommonMethod#attributeModifier}内调用。
-   *
-   * @param { import('../api/@ohos.base').ErrorCallback } callback - 用于返回
-   *     [BusinessError]{@link @ohos.base:BusinessError}类型错误信息的回调。基于**code**、**name**和**message**参数可以获取并处理错误信息。
+   * @param { import('../api/@ohos.base').ErrorCallback } callback - 回调函数，入参用于接收异常信息，类型为BusinessError，可通过参数中的`code`、
+   *         `name`和`message`获取错误信息并做处理。
    * @returns { EmbeddedComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -271,7 +264,7 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
   onError(callback: import('../api/@ohos.base').ErrorCallback): EmbeddedComponentAttribute;
 
   /**
-   * EmbeddedUIExtensionAbility绘制首帧时的回调。
+   * 被拉起的EmbeddedUIExtensionAbility绘制第一帧时触发该回调。
    *
    * @param { Callback<void> } callback - 回调函数，在EmbeddedUIExtensionAbility绘制第一帧时触发。
    * @returns { EmbeddedComponentAttribute }
@@ -284,27 +277,7 @@ declare class EmbeddedComponentAttribute extends CommonMethod<EmbeddedComponentA
 }
 
 /**
- * **EmbeddedComponent**组件用于支持在当前页面嵌入本应用内或满足跨应用权限条件的其他[EmbeddedUIExtensionAbility]{@link @ohos.app.ability.EmbeddedUIExtensionAbility:EmbeddedUIExtensionAbility}提供的UI。EmbeddedUIExtensionAbility运行在独立进程中，完成页面布局和渲染。
- *
- * 通常用于需要进程隔离的模块化开发场景。
- *
- * > **说明：**
- * >
- * > EmbeddedComponent组件宽高默认值和最小值均为10vp。
- * > 不支持如下与宽高相关的属性：“constraintSize”、“aspectRatio”、“layoutWeight”、“flexBasis”、“flexGrow”和“flexShrink”。
- *
- * ###### 约束
- *
- * **EmbeddedComponent**仅支持在拥有多进程权限的设备上使用。
- *
- * **EmbeddedComponent**只能在UIAbility中使用，且默认情况下被拉起的EmbeddedUIExtensionAbility需与UIAbility属于同一应用。
- * 从API版本26.0.0开始，在同时满足以下条件时，允许**EmbeddedComponent**跨应用拉起EmbeddedUIExtensionAbility：
- * - **EmbeddedComponent**所属应用申请了ohos.permission.SUPPORT_CROSS_APP_EMBED_FOR_OA权限（该权限仅企业普通应用可申请）；
- * - 该应用的appIdentifier在EmbeddedUIExtensionAbility支持的应用清单（即extensionAbilities标签的appIdentifierAllowList属性）中。
- *
- * ###### 子组件
- *
- * 不支持
+ * 创建跨进程嵌入式组件，用于显示同包名或满足跨应用权限条件的EmbeddedUIExtensionAbility的UI。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

@@ -3704,9 +3704,10 @@ declare enum AccessibilityRoleType {
 }
 
 /**
- * Defines the callback type used in accessibility focus. The value of isFocus indicates whether the current component is focused
+ * 定义onAccessibilityFocus中使用的回调类型。
+ *
  * @typedef {function} AccessibilityFocusCallback
- * @param {boolean} isFocus - if component is focused,isFocus will be true. else isFocus is false.
+ * @param { boolean } isFocus - 用于表示组件是否获焦。<br>true：当前组件获焦。<br>false：当前组件失焦。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3798,11 +3799,11 @@ declare enum AccessibilityActionInterceptResult {
 }
 
 /**
- * 定义在可访问性操作拦截中使用的回调类型。
- * action的值表示可访问性动作类型。
+ * 定义onAccessibilityActionIntercept中使用的回调类型。
+ *
  * @typedef { function } AccessibilityActionInterceptCallback
- * @param { AccessibilityAction } action - 可访问性操作类型的枚举。
- * @returns { AccessibilityActionInterceptResult } 继续执行操作、中断操作或事件冒泡的结果
+ * @param { AccessibilityAction } action - 当前触发的无障碍控制操作类型。
+ * @returns { AccessibilityActionInterceptResult } 无障碍控制操作拦截结果，用于决定是否拦截当前组件的无障碍控制操作及后续处理方式。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -21196,11 +21197,11 @@ declare class CommonMethod<T> {
   onHoverMove(event: Callback<HoverEvent>): T;
 
   /**
-   * Trigger a accessibility hover event.
+   * 开启无障碍模式后，单指触摸绑定了该回调且可被无障碍聚焦的组件时，触发该回调。
    *
-   * @param { AccessibilityCallback } callback - A callback instance used when the component is touched after accessibility mode is enabled.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { AccessibilityCallback } callback - 提供开启无障碍模式后的无障碍悬浮回调事件，当单指触摸绑定该回调的可被无障碍识别为可聚焦的组件时触发该回调。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -21209,12 +21210,15 @@ declare class CommonMethod<T> {
   onAccessibilityHover(callback: AccessibilityCallback): T;
 
   /**
-   * prompt for current component and descendants unable to handle accessibility hover event
+   * 当开启朗读类辅助应用（如屏幕朗读器）且手指触摸在组件区域，同时该组件及子组件全部没有被无障碍悬浮识别为可聚焦时，会触发该回调，并通过回调参数返回该触摸事件对应的TouchEvent。仅支持手指触摸。
+   * 不支持触摸位置位于以下组件区域内的场景，包括UIExtension、Web、FormComponent、XComponent，以及与第三方UI框架对接的场景。在上述场景下，该回调接口无法生效。
+   * 组件无法被无障碍悬浮识别为可聚焦的主要原因包括，组件的无障碍重要性accessibilityLevel为"no"或者"no-hide-descendants"；
+   * 组件无文本且未配置无障碍文本accessibilityText，同时不支持点击或长按操作。
    *
-   * @param { AccessibilityTransparentCallback } callback - A callback instance used when current component and
-   * descendants not handled accessibility hover event
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { AccessibilityTransparentCallback } callback - 提供开启朗读类辅助应用后未能被无障碍悬浮响应的触摸事件。
+   *         当手指触摸在组件区域，且该组件及子组件全部没有被无障碍悬浮识别为可聚焦时，触发该回调。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -23591,11 +23595,12 @@ declare class CommonMethod<T> {
   overlay(value: string | CustomBuilder | ComponentContent, options?: OverlayOptions): T;
 
   /**
-   * Config toolbar for current component.
+   * 为绑定该属性的组件，在窗口顶部标题栏相应分栏创建由ToolBarItem构成的工具栏，分栏位置由绑定该属性的组件所在分栏决定。CustomBuilder必须由ToolBarItem构成，该工具栏才能生效。
+   * 适用于在分栏导航场景下，需要在标题栏区域集成快捷操作入口（如收藏、分享、编辑等操作按钮）的应用。
    *
-   * @param { CustomBuilder } value
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { CustomBuilder } value - 为当前组件配置CustomBuilder类型的自定义工具栏。CustomBuilder必须由ToolBarItem构成，该工具栏才能生效。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @since 20 dynamic
@@ -24051,11 +24056,12 @@ declare class CommonMethod<T> {
    * @test
    */
   /**
-   * 控件标识，开发者可以通过标识来区分不同控件
+   * 组件的唯一标识，唯一性由使用者保证。
+   * 此接口仅用于对应用的测试。与id同时使用时，后赋值的属性会覆盖先赋值的属性，建议仅设置id。
    *
-   * @param { string } value
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { string } value - 组件的唯一标识，唯一性由使用者保证。与id同时使用时，后赋值的属性会覆盖先赋值的属性，建议仅设置id。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -24065,7 +24071,7 @@ declare class CommonMethod<T> {
   key(value: string): T;
 
   /**
-   * Id. User can set an id to the component to identify it.
+   * 组件的id，开发者可以为组件设置id来标识该组件。
    *
    * @param { string } value
    * @returns { T }
@@ -24074,7 +24080,7 @@ declare class CommonMethod<T> {
    * @since 8
    */
   /**
-   * Id. User can set an id to the component to identify it.
+   * 组件的id，开发者可以为组件设置id来标识该组件。
    *
    * @param { string } value
    * @returns { T }
@@ -24084,7 +24090,7 @@ declare class CommonMethod<T> {
    * @since 9
    */
   /**
-   * Id. User can set an id to the component to identify it.
+   * 组件的id，开发者可以为组件设置id来标识该组件。
    *
    * @param { string } value
    * @returns { T }
@@ -24095,11 +24101,11 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Id. User can set an id to the component to identify it.
+   * 组件的唯一标识，唯一性由使用者保证。若同一个组件设置了多个id，最后设置的生效。当未设置id时，组件默认id为空。与key同时使用时，后赋值的属性会覆盖先赋值的属性。
    *
-   * @param { string } value
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { string } value - 组件的唯一标识，唯一性由使用者保证。与key同时使用时，后赋值的属性会覆盖先赋值的属性。
+   * @returns { T } 返回当前组件，用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
    * @form
@@ -24706,9 +24712,9 @@ declare class CommonMethod<T> {
   keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
 
   /**
-   * Sets whether to enable accessibility grouping.
+   * 设置是否启用无障碍分组。
    *
-   * @param { boolean } value - set group with accessibility, default value is false.
+   * @param { boolean } value - 设置无障碍分组，默认值为false。
    * @returns { T }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24716,9 +24722,9 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets whether to enable accessibility grouping.
+   * 设置是否启用无障碍分组。
    *
-   * @param { boolean } value - set group with accessibility, default value is false.
+   * @param { boolean } value - 设置无障碍分组，默认值为false。
    * @returns { T }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24727,16 +24733,20 @@ declare class CommonMethod<T> {
    * @since 11
    */
   /**
-   * Sets whether to enable accessibility grouping.
+   * 设置是否启用无障碍分组。启用无障碍分组后，组件及其子组件作为一整个可选中组件，无障碍服务不再关注子组件内容。
+   * 若组件启用无障碍分组，当组件不包含通用文本属性，同时未设置无障碍文本accessibilityText时，将默认拼接其子组件的通用文本属性作为组件的合并文本。
+   * 若某一子组件没有通用文本属性，则忽略该子组件不进行拼接，此时合并文本不使用子组件的无障碍文本。
+   * 当子组件accessibilityLevel设置为"yes"时则不受accessibilityGroup约束，在满足屏幕朗读其他规则下，子组件可聚焦。
+   * 通过accessibilityPreferred启用优先拼接无障碍文本进行朗读后，将优先拼接其子组件的无障碍文本属性作为组件的合并文本。
+   * 若某一子组件未设置无障碍文本，则继续拼接该子组件的通用文本属性，若该子组件没有通用文本属性，则忽略该子组件不进行拼接。
+   * 从API version 23开始，通过accessibilityOptions中的相关配置项（stateControllerRoleType或stateControllerId、
+   * actionControllerRoleType或actionControllerId），可以指定一个特定子组件，由该子组件的状态信息和点击事件来接管当前聚合组件的无障碍能力。
    *
-   * <p><strong>NOTE</strong>
-   * <br>Whether to enable accessibility grouping. When accessibility grouping is enabled,
-   * <br>the component and all its children are treated as a single selectable unit, and the accessibility
-   * <br>service will no longer focus on the individual child components.</p>
-   *
-   * @param { boolean } value - set group with accessibility, default value is false.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { boolean } value - 无障碍分组，设置为true时表示该组件及其所有子组件为一整个可以选中的组件，无障碍服务将不再关注其子组件内容，会合并子组件的文本与无障碍信息，并将其发送至无障碍服务；
+   *         设置为false表示不启用无障碍分组。
+   *     默认值：false
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -24746,23 +24756,24 @@ declare class CommonMethod<T> {
   accessibilityGroup(value: boolean): T;
 
   /**
-   * Sets whether to enable accessibility grouping.
+   * 设置是否启用无障碍分组。启用无障碍分组后，组件及其子组件作为一整个可选中组件，无障碍服务不再关注子组件内容。
+   * 若组件启用无障碍分组，当组件不包含通用文本属性，同时未设置无障碍文本accessibilityText时，将默认拼接其子组件的通用文本属性作为组件的合并文本。
+   * 若某一子组件没有通用文本属性，则忽略该子组件不进行拼接，此时合并文本不使用子组件的无障碍文本。
+   * 当子组件accessibilityLevel设置为"yes"时则不受accessibilityGroup约束，在满足屏幕朗读其他规则下，子组件可聚焦。
+   * 通过accessibilityPreferred启用优先拼接无障碍文本进行朗读后，将优先拼接其子组件的无障碍文本属性作为组件的合并文本。
+   * 若某一子组件未设置无障碍文本，则继续拼接该子组件的通用文本属性，若该子组件没有通用文本属性，则忽略该子组件不进行拼接。
+   * 从API version 23开始，通过accessibilityOptions中的相关配置项（stateControllerRoleType或stateControllerId、
+   * actionControllerRoleType或actionControllerId），可以指定一个特定子组件，由该子组件的状态信息和点击事件来接管当前聚合组件的无障碍能力。
    *
-   * <p><strong>NOTE</strong>
-   * <br>If accessibility grouping is enabled and the component does not contain a universal text attribute
-   * <br>or an accessibility text attribute, the system will concatenate the universal text attributes of
-   * <br>its child components to form a merged text for the component. If a child component lacks a universal
-   * <br>text attribute, it will be ignored in the concatenation process.
-   *
-   * <br>When accessibilityPreferred is set to true, the system will prioritize concatenating the accessibility
-   * <br>text attributes of the child components to form the merged text. If a child component lacks an
-   * <br>accessibility text attribute, the system will continue to concatenate its universal text attribute.
-   * <br>If a child component lacks both, it will be ignored.</p>
-   *
-   * @param { boolean } isGroup - set group with accessibility, default value is false.
-   * @param { AccessibilityOptions } accessibilityOptions - accessibilityOptions for accessibility, default value is false.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { boolean } isGroup - 无障碍分组，设置为true时表示该组件及其所有子组件为一整个可以选中的组件，无障碍服务将不再关注其子组件内容，会合并子组件的文本与无障碍信息，并将其发送至无障碍服务；
+   *         设置为false表示不启用无障碍分组。
+   *     默认值：false
+   * @param { AccessibilityOptions } accessibilityOptions - 无障碍分组的配置选项对象，包含以下属性：<br/>
+   *         - accessibilityPreferred：设置为true时，使应用优先拼接无障碍文本进行朗读；设置为false时，应用进行屏幕朗读时不会优先使用无障碍文本。
+   *     - stateControllerRoleType或stateControllerId：从API version 23开始支持，指定一个特定子组件，使用该子组件的状态信息作为当前聚合组件的无障碍状态。
+   *     - actionControllerRoleType或actionControllerId：从API version 23开始支持，指定一个特定子组件，使用该子组件的点击事件作为当前聚合组件的无障碍操作。
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -24772,9 +24783,9 @@ declare class CommonMethod<T> {
   accessibilityGroup(isGroup: boolean, accessibilityOptions: AccessibilityOptions): T;
 
   /**
-   * Sets the accessibility text.
+   * 设置无障碍文本。
    *
-   * @param { string } value - set accessibility text, default value is "".
+   * @param { string } value - 设置无障碍文本，默认值为""。
    * @returns { T }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24782,9 +24793,9 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets the accessibility text.
+   * 设置无障碍文本。
    *
-   * @param { string } value - set accessibility text, default value is "".
+   * @param { string } value - 设置无障碍文本，默认值为""。
    * @returns { T }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24793,13 +24804,15 @@ declare class CommonMethod<T> {
    * @since 11
    */
   /**
-   * Sets the accessibility text.
-   * When a component does not contain a text attribute, you can use this API to set an accessibility
-   * text attribute, so that accessibility services can announce the specified content for the component.
+   * 设置无障碍文本，支持通过Resource引用资源文件。当组件不包含文本属性时，开发人员可通过设置无障碍文本属性，使不包含文字信息的组件能够播报无障碍文本的内容；当组件同时包含文本属性时，在朗读场景仅播报无障碍文本。
    *
-   * @param { string } value - set accessibility text, default value is "".
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { string } value - 无障碍文本，当组件不包含文本属性时，屏幕朗读选中此组件时不播报，使用者无法清楚地知道当前选中了什么组件。
+   *         为了解决此场景，开发人员可为不包含文字信息的组件设置无障碍文本，当屏幕朗读选中此组件时播报无障碍文本的内容，帮助屏幕朗读的使用者清楚地知道自己选中了什么组件。
+   *     默认值：“”<br/>**说明：**<br/>若组件既拥有文本属性，又拥有无障碍文本属性，则组件被选中时，仅播报无障碍文本内容。
+   *     若组件设置了无障碍分组属性为true，但是既没有无障碍文本属性，也没有文本属性，会对其子节点的组件进行文本拼接（深度优先）。
+   *     不对无障碍文本属性进行拼接，如需优先拼接无障碍文本，则需设置accessibilityGroup的accessibilityPreferred。
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -24809,10 +24822,12 @@ declare class CommonMethod<T> {
   accessibilityText(value: string): T;
 
   /**
-   * 指定屏幕朗读扫动走焦过程中组件的下一个焦点。
-   * @param { string } nextId - 下一个被指定聚焦组件的[唯一标识id]{@link CommonMethod#id}。若唯一标识id无对应组件，则设置的accessibilityNextFocusId不存在，设置无效。
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * 指定屏幕朗读扫动走焦过程中组件的下一个焦点，并支持配置详细参数。
+   * 通过AccessibilityNextFocusParams参数，可以配置是否在无障碍下一个焦点处理过程中查找后代节点中的焦点。
+   *
+   * @param { string } nextId - 下一个被指定聚焦组件的唯一标识id。若唯一标识id无对应组件，则设置的accessibilityNextFocusId不存在，设置无效。
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -24822,10 +24837,11 @@ declare class CommonMethod<T> {
   accessibilityNextFocusId(nextId: string): T;
 
   /**
-   * 为页面设置屏幕朗读初始焦点。
-   * @param { boolean } focus - 为页面设置屏幕朗读初始焦点。值为true则表示该组件为当前页默认首焦点，值为false或其他值无效。
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * 为页面设置屏幕朗读初始焦点。屏幕朗读首次进入当前页面时，会将焦点定位到设置为true的组件，便于开发者引导用户优先关注页面核心内容。
+   *
+   * @param { boolean } focus - 为页面设置屏幕朗读初始焦点。值为true则表示该组件为当前页默认首焦点，值为false则不设置该组件为默认首焦点。
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -24836,9 +24852,12 @@ declare class CommonMethod<T> {
 
   /**
    * 设置当前组件和宿主应用为同page模式。
+   * 针对跨进程嵌入式显示的组件，例如EmbeddedComponent，其子树场景中出现的跳焦问题，可通过设置accessibilityUseSamePage属性解决。
+   * 因跨进程嵌入式显示的组件启动进程的页面变化事件与宿主页面变化事件发送时序不一致，可能导致焦点从当前组件移至另一组件，此现象称为“跳焦”。
+   *
    * @param { AccessibilitySamePageMode } pageMode - 当前跨进程嵌入式显示的组件和宿主应用的同page模式。
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -24849,13 +24868,13 @@ declare class CommonMethod<T> {
 
   /**
    * 设置无障碍节点是否支持屏幕朗读滚动操作。当屏幕朗读在扫动走焦时，若容器内当前页面无可聚焦的组件，会发起一次自动滚动操作。
-   * @param { boolean } isTriggerable - 用于表示组件是否支持该能力。
-   *     <br>**true**：屏幕朗读焦点切换而容器内当前页面无可聚焦的组件时，需要自动滚动操作。
-   *     <br>**false**：屏幕朗读焦点切换而容器内当前页面无可聚焦的组件时，不需要自动滚动操作。
-   *     <br>**undefined**：还原默认值。
-   *     <br>默认值：**true**
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   *
+   * @param { boolean } isTriggerable - 用于表示组件是否支持该能力。<br/>支持的值为：<br/>true：屏幕朗读焦点切换而容器内当前页面无可聚焦的组件时，需要自动滚动操作。
+   *     false：屏幕朗读焦点切换而容器内当前页面无可聚焦的组件时，不需要自动滚动操作。<br/>undefined：还原默认值。<br/>默认值：true。<br/>**说明：**
+   *     1. 该属性不影响原先无障碍节点属性ElementAttributeValues中的scrollable。<br/>2. 组件在屏幕朗读下的滚动逻辑由屏幕朗读根据该属性和组件是否支持scroll来决定。
+   *     3. 该属性为通用属性，所有基础组件均可配置。建议配置的滚动组件类型，如List、Grid、Scroll、WaterFlow等。
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -24865,16 +24884,15 @@ declare class CommonMethod<T> {
   accessibilityScrollTriggerable(isTriggerable: boolean): T;
 
   /**
-   * Sets the accessibility text.
-   * <p><strong>NOTE</strong>
-   * If a component has both text content and accessibility text, only the accessibility text is announced.
-   * <br>If a component is grouped for accessibility purposes but lacks both text content and accessibility
-   * <br>text, the screen reader will concatenate text from its child components (depth-first traversal).
-   * <br>To prioritize accessibility text concatenation, set accessibilityPreferred in accessibilityGroup.
-   * </p>
-   * @param { Resource } text - set accessibility text
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * 设置无障碍文本，支持通过Resource引用资源文件。当组件不包含文本属性时，开发人员可通过设置无障碍文本属性，使不包含文字信息的组件能够播报无障碍文本的内容；当组件同时包含文本属性时，在朗读场景仅播报无障碍文本。
+   *
+   * @param { Resource } text - 无障碍文本引用资源，当组件不包含文本属性时，屏幕朗读选中此组件时不播报，使用者无法清楚地知道当前选中了什么组件。
+   *         为了解决此场景，开发人员可为不包含文字信息的组件设置无障碍文本，当屏幕朗读选中此组件时播报无障碍文本的内容，帮助屏幕朗读的使用者清楚地知道自己选中了什么组件。
+   *     **说明：**<br/>若组件既拥有文本属性，又拥有无障碍文本属性，则组件被选中时，仅播报无障碍文本内容。
+   *     若组件设置了无障碍分组属性为true，但是既没有无障碍文本属性，也没有文本属性，会对其子节点的组件进行文本拼接（深度优先）。
+   *     不对无障碍文本属性进行拼接，如需优先拼接无障碍文本，则需设置accessibilityGroup的accessibilityPreferred。
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -24884,10 +24902,11 @@ declare class CommonMethod<T> {
   accessibilityText(text: Resource): T;
 
   /**
-   * 设置无障碍组件类型，特定组件类型有特定的朗读方式，可以根据应用诉求，修改组件类型，用于控制无障碍模式下对组件的朗读方式和朗读内容。
-   * @param { AccessibilityRoleType } role - 屏幕朗读播报的组件类型，如按钮、图表。具体类型可由开发者自定义。
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * 设置无障碍组件类型，不同组件类型有对应的朗读方式，可以根据应用诉求，修改组件类型，用于控制无障碍模式下对组件的朗读方式和朗读内容。
+   *
+   * @param { AccessibilityRoleType } role - 屏幕朗读播报的组件类型，如按钮、图表。具体类型可由开发者根据需要选择。
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -24897,10 +24916,11 @@ declare class CommonMethod<T> {
   accessibilityRole(role: AccessibilityRoleType): T;
 
   /**
-   * Register accessibility focus callback,when the component is focused or out of focus,the callback will be executed
-   * @param { AccessibilityFocusCallback } callback - accessibility focus callback function
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * 该接口在无障碍模式下，设置无障碍节点获焦、失焦状态的回调函数。当无障碍焦点移入或移出当前组件，导致获焦、失焦状态发生变化时，触发回调函数。
+   *
+   * @param { AccessibilityFocusCallback } callback - 在无障碍模式下，当组件获焦、失焦状态发生变化时，向注册方通知当前状态。入参设置为undefined时，取消回调注册。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -24910,11 +24930,12 @@ declare class CommonMethod<T> {
   onAccessibilityFocus(callback: AccessibilityFocusCallback): T;
 
   /**
-   * 注册可访问性操作拦截回调，
-   * 当要执行可访问性操作时，将执行回调
-   * @param { AccessibilityActionInterceptCallback } callback - 可访问性操作拦截回调函数
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * 该接口在无障碍模式下，可在无障碍控制操作触发前通知注册的回调函数，由注册方决定是否拦截该次无障碍控制操作。对不支持点击操作的组件，即使注册该回调也不会被触发。
+   *
+   * @param { AccessibilityActionInterceptCallback } callback - 在无障碍模式且组件支持点击的前提下，在无障碍控制操作触发前通知注册方该次无障碍控制操作，
+   *         由注册方决定是否拦截该操作。未开启无障碍模式或组件不支持点击时，回调均不会触发。<br> 入参设置为undefined时，取消回调注册。
+   * @returns { T } 返回当前组件。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -24924,11 +24945,11 @@ declare class CommonMethod<T> {
   onAccessibilityActionIntercept(callback: AccessibilityActionInterceptCallback): T;
 
   /**
-   * 设置组件的文本提示信息，供无障碍辅助应用查询。
+   * 设置组件的文本提示信息，仅在与车机交互的场景下供车机的无障碍服务监听并响应。
    *
-   * @param { string } value - 组件的文本提示信息，供无障碍辅助应用查询。
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { string } value - 组件的文本提示信息，仅在与车机交互的场景下供车机的无障碍服务监听并响应。
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -24938,12 +24959,12 @@ declare class CommonMethod<T> {
   accessibilityTextHint(value: string): T;
 
   /**
-   * 设置无障碍说明。该属性用于为用户进一步说明当前组件，开发人员可为组件设置相对较详细的解释文本，帮助用户理解将要执行的操作。
+   * 设置无障碍说明，支持通过Resource引用资源文件。该属性用于为用户进一步说明当前组件，开发人员可为组件设置相对较详细的解释文本，帮助用户理解将要执行的操作。
    *
    * @param { string } value - 无障碍说明，用于为用户进一步说明当前组件，开发人员可为组件的该属性设置相对较详细的解释文本，帮助用户理解将要执行的操作。如帮助用户理解将要执行的操作可能导致什么后果，尤其是当这些后果无法从组件本身属性与无障碍文本中了解到时。若组件既拥有文本属性又拥有无障碍说明属性，则组件被选中时，先播报组件的文本属性，再播报无障碍说明属性的内容。
-   *     <br>默认值：**""**
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   *     默认值：“”
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form [since 12]
@@ -24954,15 +24975,11 @@ declare class CommonMethod<T> {
 
   /**
    * 设置无障碍说明，支持通过Resource引用资源文件。该属性用于为用户进一步说明当前组件，开发人员可为组件设置相对较详细的解释文本，帮助用户理解将要执行的操作。
-   * <p><strong>NOTE</strong>:
-   * <br>Reference resource of the accessibility description. You can specify further explanation
-   * <br>of the current component, for example, possible operation consequences, especially those that
-   * <br>cannot be learned from component attributes and accessibility text. If a component contains
-   * <br>both text information and the accessibility description, the text is read first and then the
-   * <br>accessibility description, when the component is selected.</p>
-   * @param { Resource } description - set description of accessibility
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   *
+   * @param { Resource } description - 无障碍说明引用资源，用于为用户进一步说明当前组件，开发人员可为组件的该属性设置相对较详细的解释文本，帮助用户理解将要执行的操作。
+   *         如帮助用户理解将要执行的操作可能导致什么后果，尤其是当这些后果无法从组件本身属性与无障碍文本中了解到时。若组件既拥有文本属性又拥有无障碍说明属性，则组件被选中时，先播报组件的文本属性，再播报无障碍说明属性的内容。
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -24972,10 +24989,9 @@ declare class CommonMethod<T> {
   accessibilityDescription(description: Resource): T;
 
   /**
-   * Sets the accessibility level.
-   * This property determines whether the component can be recognized by accessibility services.
+   * 设置无障碍重要性。该属性用于控制组件是否可被无障碍辅助服务所识别。
    *
-   * @param { string } value - set accessibility level, default value is auto.
+   * @param { string } value - 设置无障碍重要性，默认值为auto。
    * @returns { T }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24983,10 +24999,9 @@ declare class CommonMethod<T> {
    * @since 10
    */
   /**
-   * Sets the accessibility level.
-   * This property determines whether the component can be recognized by accessibility services.
+   * 设置无障碍重要性。该属性用于控制组件是否可被无障碍辅助服务所识别。
    *
-   * @param { string } value - set accessibility level, default value is auto.
+   * @param { string } value - 设置无障碍重要性，默认值为auto。
    * @returns { T }
       * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -24995,25 +25010,17 @@ declare class CommonMethod<T> {
    * @since 11
    */
   /**
-   * Sets the accessibility level.
-   * This property determines whether the component can be recognized by accessibility services.
-   * <p>
-   * Accessibility level, which is used to decide whether a component can be identified by the accessibility service.
-   * <br>The options are as follows:
-   * <br>"auto": The component's recognizability is determined by the accessibility grouping service and ArkUI.
-   * <br>"yes": The component can be recognized by accessibility services.
-   * <br>"no": The component cannot be recognized by accessibility services.
-   * <br>"no-hide-descendants": Neither the component nor its child components can be recognized by accessibility services.
-   * <strong>NOTE</strong>
-   * <br>When accessibilityLevel is set to "auto", the component's recognizability depends on the following factors:
-   * <br>1. The accessibility service internally determines whether the component can be recognized.
-   * <br>2. If the parent component's accessibilityGroup property has isGroup set to true, the accessibility service will
-   * <br>not focus on its child components, making them unrecognizable.
-   * <br>3. If the parent component's accessibilityLevel is set to "no-hide-descendants", the component will not be
-   * <br>recognized by accessibility services.</p>
-   * @param { string } value - set accessibility level, default value is auto.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * 设置无障碍重要性。该属性用于控制某个组件是否可被无障碍辅助服务所识别。
+   *
+   * @param { string } value - 无障碍重要性，用于控制某个组件是否可被无障碍辅助服务所识别。<br/>支持的值为：<br/>
+   *         "auto"：当前组件由无障碍辅助服务和ArkUI进行综合判断组件是否可被无障碍辅助服务所识别。
+   *     "yes"：当前组件可被无障碍辅助服务所识别。当父组件启用无障碍分组时，设置为"yes"的子组件不受分组约束，在满足屏幕朗读其他规则下仍可聚焦。<br/>"no"：当前组件不可被无障碍辅助服务所识别。
+   *     "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。<br/>默认值："auto"<br/>**说明：**
+   *     当accessibilityLevel设置成"auto"时，组件是否可被无障碍辅助服务所识别取决于以下多方面因素：<br/>1. 组件是否可被识别由无障碍辅助服务内部判断，自行选择。
+   *     2. 若组件的父组件accessibilityGroup属性中isGroup设置为true，无障碍服务将不再关注其子组件内容，组件不可被无障碍辅助服务所识别。
+   *     3. 若组件的父组件accessibilityLevel属性设置为"no-hide-descendants"，组件不可被无障碍辅助服务所识别。
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -25023,11 +25030,13 @@ declare class CommonMethod<T> {
   accessibilityLevel(value: string): T;
 
   /**
-   * 设置无障碍虚拟子节点。对自绘制组件传入一个自定义的CustomBuilder，该CustomBuilder中的组件在后端仅做布局不做显示，辅助应用获取无障碍节点信息时会返回CustomBuilder中的节点信息。
+   * 设置无障碍虚拟子节点。对自绘制组件传入一个CustomBuilder，该CustomBuilder中的组件在后端仅做布局不做显示，辅助应用获取无障碍节点信息时会返回CustomBuilder中的节点信息。
+   * 如使用画布组件Canvas时，可以通过虚拟节点设置相应位置和大小匹配的占位组件，让无障碍服务识别到对应区域的自绘制信息。
    *
-   * @param { CustomBuilder } builder - 无障碍虚拟子节点，使开发者可以对自绘制组件传入一个自定义的CustomBuilder，该CustomBuilder中的组件在后端仅做布局不做显示，辅助应用获取无障碍节点信息时会返回CustomBuilder中的节点信息。
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { CustomBuilder } builder - 无障碍虚拟子节点，使开发者可以对自绘制组件传入一个CustomBuilder，该CustomBuilder中的组件在后端仅做布局不做显示，
+   *         辅助应用获取无障碍节点信息时会返回CustomBuilder中的节点信息。
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form [since 12]
@@ -25037,15 +25046,17 @@ declare class CommonMethod<T> {
   accessibilityVirtualNode(builder: CustomBuilder): T;
 
   /**
-   * 无障碍节点是否选中的状态维护，用于支持多选的情况使用，表示组件是否被选中。此接口只影响屏幕朗读场景下的组件状态播报信息。
+   * 无障碍节点是否选中的状态维护，用于支持多选，表示组件是否被选中。此接口只影响屏幕朗读场景下的组件状态播报信息。
    *
-   * @param { boolean } isCheck - 用于表示组件是否被选中。
-   *     <br>**true**：当前组件被选中。
-   *     <br>**false**：当前组件未被选中。
-   *     <br>**undefined**：由组件自行确定选中状态。
-   *     <br>默认值：**undefined**
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { boolean } isCheck - 用于表示组件是否被选中。<br/>支持的值为：<br/>true：当前组件被选中。<br/>false：当前组件未被选中。<br/>
+   *         undefined：由组件自行确定选中状态。<br/>默认值：undefined
+   *     **说明：**<br/>1. 使用该接口设置true或false后，会默认修改该组件的checkable属性为true。
+   *     2. accessibilityChecked属性代表组件是多选模式，而accessibilitySelected属性代表组件是单选模式。
+   * 组件不能同时存在两种选择模式，会造成无障碍状态冲突，导致屏幕朗读等无障碍辅助应用无法正确识别选中状态。如使用当前接口设置组件为多选模式（设置为true、false），
+   * 则需要保证未使用accessibilitySelected函数设置属性为true或者false，如果已设置，需使用accessibilitySelected函数设置accessibilitySelected属性为undefined
+   * 模式。
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -25055,15 +25066,17 @@ declare class CommonMethod<T> {
   accessibilityChecked(isCheck: boolean): T;
 
   /**
-   * 无障碍节点是否选中的状态维护，用于支持单选的情况使用，表示组件是否被选中。此接口只影响屏幕朗读场景下的组件状态播报信息。
+   * 无障碍节点是否选中的状态维护，用于支持单选，表示组件是否被选中。此接口只影响屏幕朗读场景下的组件状态播报信息。
    *
-   * @param { boolean } isSelect - 用于表示组件是否被选中。
-   *     <br>**true**：当前组件被选中。
-   *     <br>**false**：当前组件未被选中。
-   *     <br>**undefined**：由组件自行确定选中状态。
-   *     <br>默认值：**undefined**
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { boolean } isSelect - 用于表示组件是否被选中。<br/>支持的值为：<br/>true：当前组件被选中。<br/>false：当前组件未被选中。<br/>
+   *         undefined：由组件自行确定选中状态。<br/>默认值：undefined
+   *     **说明：**
+   *     1. accessibilityChecked属性代表组件是多选模式，而accessibilitySelected属性代表组件是单选模式。
+   * 组件不能同时存在两种选择模式，会造成无障碍状态冲突，导致屏幕朗读等无障碍辅助应用无法正确识别选中状态。
+   *     如使用当前接口设置组件为单选模式（true、false），则需要保证未使用accessibilityChecked函数设置属性为true或者false；
+   *     如果已设置，需使用accessibilityChecked函数设置accessibilityChecked属性为undefined模式。
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -25373,11 +25386,12 @@ declare class CommonMethod<T> {
   onSizeChange(event: SizeChangeCallback): T;
 
   /**
-   * 无障碍焦点绿框的绘制层级设置功能。默认层级是跟随组件。
+   * 设置无障碍焦点绿框的绘制层级。
    *
-   * @param { FocusDrawLevel } drawLevel - 无障碍绘制能力，默认情况下绘制聚焦节点本身。
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { FocusDrawLevel } drawLevel - 无障碍焦点绿框的绘制层级，用于控制绿框的绘制位置。默认情况下在聚焦节点层级绘制（即绘制聚焦节点本身）。
+   *         可选值及含义参见FocusDrawLevel枚举，包括在聚焦节点层级绘制和在Z序控制顶层绘制两种模式。
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -25520,10 +25534,9 @@ declare class CommonMethod<T> {
   /**
    * 设置组件的状态播报文本，用于屏幕朗读场景下清晰说明组件当前的实时状态。屏幕朗读时会优先播报该状态文本。
    *
-   * @param { string | Resource | undefined } description - 需要播报组件当前状态的语音播报文本。
-   *     <br>设置文本超过1000字符时，截取前1000字符进行播报。
-   *     <br>**undefined**：播报文本默认为空。
-   * @returns { T } 返回调用该接口的组件引用。
+   * @param { string | Resource | undefined } description - 需要播报组件当前状态的语音播报文本。<br/>设置文本超过1000字符时，截取前1000字符进行播报。<br/>
+   *         undefined：播报文本默认为空。
+   * @returns { T } 返回当前对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -25534,12 +25547,12 @@ declare class CommonMethod<T> {
   accessibilityStateDescription(description: string | Resource | undefined): T;
 
   /**
-   * 设置组件的无障碍操作的可选参数，用于限制或修改屏幕朗读等辅助应用发起的操作行为。
+   * 设置组件无障碍操作的可选参数，用于限制或修改屏幕朗读等辅助应用发起的操作行为。
    *
-   * @param { AccessibilityActionOptions | undefined } option - 无障碍操作的参数，用于限制或者修改无障碍操作下的滑动行为。
-   *     <br>AccessibilityActionOptions中的scrollStep用于设置无障碍操作下的滑动步数。
-   *     <br>取值为**undefined**时scrollStep按1处理。
-   * @returns { T } 返回调用该接口的组件引用。
+   * @param { AccessibilityActionOptions | undefined } option - 无障碍操作的参数，用于限制或者修改无障碍操作下的滑动行为。<br/>
+   *         AccessibilityActionOptions中的scrollStep用于设置无障碍操作下的滑动步数。
+   *     取值为undefined时scrollStep按1处理。
+   * @returns { T } 返回当前对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -25551,12 +25564,13 @@ declare class CommonMethod<T> {
 
   /**
    * 指定屏幕朗读扫动走焦过程中组件的下一个焦点，并支持配置详细参数。
-   * <br>通过AccessibilityNextFocusParams参数，可以配置是否在无障碍下一个焦点处理过程中查找后代节点中的焦点。
-   * @param { string } nextId - 下一个被指定聚焦组件的[唯一标识id]{@link CommonMethod#id}。若唯一标识id无对应组件，则设置的accessibilityNextFocusId不存在，设置无效。
-   * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - 无障碍下一个焦点处理的详细参数，用于配置是否在后代节点中查找可聚焦节点。
-   *     <br>取值为**undefined**时，不配置下一个焦点处理的详细参数，不在后代节点中查找焦点。
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * 通过AccessibilityNextFocusParams参数，可以配置是否在无障碍下一个焦点处理过程中查找后代节点中的焦点。
+   *
+   * @param { string } nextId - 下一个被指定聚焦组件的唯一标识id。若唯一标识id无对应组件，则设置的accessibilityNextFocusId不存在，设置无效。
+   * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - 无障碍下一个焦点处理的详细参数，用于配置是否在后代节点中查找可聚焦节点。<br/>
+   *         取值为undefined时，不配置下一个焦点处理的详细参数，不在后代节点中查找焦点。
+   * @returns { T } 返回当前对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -25585,9 +25599,9 @@ declare class CommonMethod<T> {
    * 设置组件的自定义无障碍操作，支持开发者设置一个自定义actions的数组，用于给组件按操作名进行自定义操作的回调绑定。
    *
    * @param { Array<AccessibilityCustomAction> | undefined } actions - 自定义无障碍操作数组，每个操作包含操作名称和回调，用于给组件按操作名进行自定义操作的回调绑定。
-   *     <br>**说明**：数组长度最大支持16个，超出部分将不生效。
-   *     <br>取值为**undefined**时，不设置自定义操作。
-   * @returns { T } 返回调用方法的组件实例。
+   *         <br/>**说明：**<br/>数组长度最大支持16个，超出部分将不生效。
+   *     取值为undefined时，不设置自定义操作。
+   * @returns { T } 返回当前对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -25598,11 +25612,12 @@ declare class CommonMethod<T> {
   accessibilityCustomActions(actions: Array<AccessibilityCustomAction> | undefined): T;
 
   /**
-   * 设置组件的检查器标签，该标签仅在DevEco Studio上显示。
+   * 设置组件的调测标签。未设置时，组件调测标签默认为空字符串。对同一组件多次调用本接口时，后设置的标签会覆盖先前的标签。
    *
-   * @param { string | undefined } label - 检查器标签。
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { string | undefined } label - 组件的调测标签，需在整个应用内保持唯一，以便在调测时准确定位和区分节点。对同一组件多次调用本接口时，后设置的标签会覆盖先前的标签。
+   *         传入undefined时清除调测标签，调测标签默认为空字符串。
+   * @returns { T } 返回当前组件，可用于链式调用。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -29741,13 +29756,12 @@ declare interface Callback<T, V = void> {
 declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void;
 
 /**
- * Defines the callback type used in accessibility hover events.
- * The value of isHover indicates whether the touch is hovering over the component.
- * The value of event contains information about AccessibilityHoverEvent.
+ * 提供开启无障碍模式后的无障碍悬浮回调事件类型。
  *
  * @typedef { function } AccessibilityCallback
- * @param { boolean } isHover
- * @param { AccessibilityHoverEvent } event
+ * @param { boolean } isHover - 表示开启无障碍模式后，手指在组件上触发由Touch事件转换成的无障碍悬浮事件，手指进入时为true，退出时为false。
+ * @param { AccessibilityHoverEvent } event - 无障碍悬浮事件对象，用于获取触发无障碍悬浮事件时的详细信息，包括无障碍悬浮动作类型（type）、手指相对于组件/窗口/屏幕的坐标（x、y、
+ *         windowX、windowY、displayX、displayY、globalDisplayX、globalDisplayY）等属性。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -29757,10 +29771,11 @@ declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void;
 declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHoverEvent) => void;
 
 /**
- * Defines the callback type used in accessibility hover transparent event.
+ * 提供开启朗读类辅助应用后未能被无障碍悬浮响应的触摸事件回调类型。
  *
  * @typedef { function } AccessibilityTransparentCallback
- * @param { TouchEvent } event - The value of event contains information about original accessibility hover event.
+ * @param { TouchEvent } event - 原始Touch事件对象，用于获取无法被无障碍悬浮识别为可聚焦组件的触摸事件的详细信息，包括触摸点坐标、触摸类型等属性。
+ *         <br>**说明：** TouchEvent对象的触摸事件类型TouchType为四种无障碍悬浮事件类型中的一种，分别为HOVER_ENTER、HOVER_MOVE、HOVER_EXIT和HOVER_CANCEL。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

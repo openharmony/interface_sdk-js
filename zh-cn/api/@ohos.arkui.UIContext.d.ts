@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -160,7 +160,7 @@ export class UIInspector {
   /**
    * 注册组件布局和组件绘制送显完成回调通知。例如，开发者可在组件布局完成后获取组件精确尺寸，或在送显完成后执行截图、动画同步等操作。
    *
-   * @param { string } id - 指定组件id，该id通过通用属性[id]{@link CommonMethod#id}或者[key]{@link CommonMethod#key}设置。
+   * @param { string } id - 指定组件id，该id通过通用属性id或者key设置。
    * @returns { inspector.ComponentObserver } 组件回调事件监听句柄，用于注册和取消注册监听回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -171,10 +171,9 @@ export class UIInspector {
   createComponentObserver(id: string): inspector.ComponentObserver;
 
   /**
-   * 注册组件布局和组件绘制送显完成回调通知。送显指节点的绘制命令发送到图形服务并完成显示。例如，开发者可在组件布局完成后获取组件精确尺寸，或在送显完成后执行截图、动画同步等操作。
-   * 相比createComponentObserver，新增支持传入UniqueID（系统为节点分配的唯一标识）。
+   * 注册组件布局和组件绘制送显完成回调通知。例如，开发者可在组件布局完成后获取组件精确尺寸，或在送显完成后执行截图、动画同步等操作。
    *
-   * @param { string | number } id - 类型为string时，为指定的组件id，该id通过通用属性[id]{@link CommonMethod#id}或者[key]{@link CommonMethod#key}设置。使用组件id创建监听句柄时，请确保该id对应的组件已经存在，否则后续监听无法生效。类型为number时，为系统为节点分配的唯一标识UniqueID，UniqueID通过getUniqueId获取。使用UniqueID创建监听句柄时，请确保UniqueID对应的节点已经存在，否则后续监听无法生效。number的取值范围为1~2147483647的整数。
+   * @param { string | number } id - 指定组件id，该id通过通用属性id或者key设置。
    * @returns { inspector.ComponentObserver } 组件回调事件监听句柄，用于注册和取消注册监听回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3035,9 +3034,10 @@ export class Magnifier {
 export interface AtomicServiceBar {
 
   /**
-   * Set the visibility of the bar, except the icon.
+   * 通过该方法设置原子化服务menuBar是否可见。
    *
-   * @param { boolean } visible - whether this bar is visible.
+   * @param { boolean } visible - 原子化服务menuBar是否可见。true表示设置menuBar可见，false表示设置menuBar不可见。
+   *         从API version 12开始，在原子化服务中该参数将被忽略。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -3046,9 +3046,10 @@ export interface AtomicServiceBar {
   setVisible(visible: boolean): void;
 
   /**
-   * Set the background color of the bar.
+   * 通过该方法设置原子化服务menuBar的背景颜色。
    *
-   * @param { Nullable< Color | number | string> } color - the color to set, undefined indicates using default.
+   * @param { Nullable< Color | number | string> } color - 原子化服务menuBar的背景颜色，undefined代表使用默认颜色。
+   *         number为HEX格式颜色，支持rgb或者argb，示例：0xffffff。string为rgb或者argb格式颜色，示例：'#ffffff'。从API version 12开始，在原子化服务中该参数将被忽略。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice [since 12]
@@ -3057,9 +3058,9 @@ export interface AtomicServiceBar {
   setBackgroundColor(color: Nullable< Color | number | string>): void;
 
   /**
-   * Set the title of the bar.
+   * 通过该方法设置原子化服务menuBar的标题内容。
    *
-   * @param { string } content - the content of the bar.
+   * @param { string } content - 原子化服务menuBar中的标题内容。从API version 12开始，在原子化服务中该参数将被忽略。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice [since 12]
@@ -3068,9 +3069,9 @@ export interface AtomicServiceBar {
   setTitleContent(content: string): void;
 
   /**
-   * Set the font style of the bar's title.
+   * 通过该方法设置原子化服务menuBar标题的字体样式。
    *
-   * @param { FontStyle } font - the font style of the bar's title.
+   * @param { FontStyle } font - 原子化服务menuBar标题中的字体样式。从API version 12开始，在原子化服务中该参数将被忽略。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice [since 12]
@@ -3079,9 +3080,10 @@ export interface AtomicServiceBar {
   setTitleFontStyle(font: FontStyle): void;
 
   /**
-   * Set the color of the icon on the bar.
+   * 通过该方法设置原子化服务menuBar图标的颜色。
    *
-   * @param { Nullable< Color | number | string> } color - the color to set to icon, undefined indicates using default.
+   * @param { Nullable< Color | number | string> } color - 原子化服务menuBar图标的颜色，undefined代表使用默认颜色。
+   *         number为HEX格式颜色，支持rgb或者argb，示例：0xffffff。string为rgb或者argb格式颜色，示例：'#ffffff'。从API version 12开始，在原子化服务中该参数将被忽略。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice [since 12]
@@ -3090,9 +3092,9 @@ export interface AtomicServiceBar {
   setIconColor(color: Nullable< Color | number | string>): void;
 
   /**
-   * Get size and position of the bar.
+   * 获取原子化服务menuBar相对窗口的布局信息。
    *
-   * @returns { Frame } The size and position of bar in vp relative to window.
+   * @returns { Frame } 原子化服务menuBar的大小和位置。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3102,10 +3104,10 @@ export interface AtomicServiceBar {
   getBarRect(): Frame;
 
   /**
-   * 当appbar的组件大小发生变化时会触发调用。
+   * 当原子化服务menuBar（即AtomicServiceMenuBar，右上角菜单功能胶囊）的大小或位置发生变化时，触发注册的回调，返回menuBar最新的布局信息。
+   * 该布局信息包含了menuBar的大小和位置，其中位置已考虑左右margin的影响。
    *
-   * @param { Callback<Frame> } callback - 回调函数的参数为Frame。当传入的callback为undefined时表示取消监听appbar组件的大小变化。
-   *     回调函数触发时，回调函数的参数不可能为undefined或者null。
+   * @param { Callback<Frame> } callback - AtomicServiceMenuBar布局变化时的回调，返回变化后的布局信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5177,9 +5179,9 @@ export class UIContext {
   dispatchKeyEvent(node: number | string, event: KeyEvent): boolean;
 
   /**
-   * Get AtomicServiceBar.
+   * 获取AtomicServiceBar对象，通过该对象设置原子化服务menuBar的属性。
    *
-   * @returns { Nullable<AtomicServiceBar> } The atomic service bar.
+   * @returns { Nullable<AtomicServiceBar> } 如果是原子化服务则返回AtomicServiceBar类型，否则返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
