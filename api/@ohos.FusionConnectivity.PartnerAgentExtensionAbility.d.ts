@@ -45,12 +45,11 @@ type PartnerAgentExtensionAbilityDestroyReason = partnerAgent.PartnerAgentExtens
  * Class for the PartnerAgentExtensionAbility.
  * Applications can use this ability to discover devices.
  *
- * @extends ExtensionAbility
  * @syscap SystemCapability.Communication.FusionConnectivity.Core
  * @stagemodelonly
  * @since 23 dynamic
  */
-export default class PartnerAgentExtensionAbility extends ExtensionAbility {
+export default declare class PartnerAgentExtensionAbility extends ExtensionAbility {
 
   /**
    * Context of the PartnerAgentExtensionAbility.
