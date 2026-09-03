@@ -1259,7 +1259,8 @@ declare namespace installer {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 26.1.0
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
      */
     parameters?: Array<Parameters>;
   }

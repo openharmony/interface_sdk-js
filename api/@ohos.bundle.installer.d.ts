@@ -1249,7 +1249,7 @@ declare namespace installer {
      * is ignored and the policy defaults to **UNSPECIFIED**.
       * - **ohos.bms.param.disableInstallEventReport**: If the value is **true**, the installation broadcast event
       * is not sent after the installation is complete (supported since API version 26.1.0). If this key is not present
-      * or the value is not **true**, the installation broadcast event is sent as usual.
+      * or the value is not **true**, the installation event is sent as usual.
       * - **ohos.bms.param.bundleEnableState**: If the value is **false**, the application is installed in disabled
       * state (enabled is false). If the value is **true** or this key is not present, the application is installed
       * in enabled state (enabled is true, default behavior) (supported since API version 26.1.0).
@@ -1335,7 +1335,8 @@ declare namespace installer {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
-     * @since 26.1.0
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
      */
     parameters?: Array<Parameters>;
   }
