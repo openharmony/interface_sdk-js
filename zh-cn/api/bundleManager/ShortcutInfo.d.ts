@@ -238,6 +238,38 @@ export interface ShortcutWant {
    * @since 23 static
    */
   parameters?: Array<ParameterItem>;
+
+  /**
+   * 拉起快捷方式时要执行的操作，与[Want]{@link ./../@ohos.app.ability.Want:Want#action}的**action**字段一致。
+   * 在隐式Want模式下与**uri**或**parameters**配合使用，指定要执行的操作。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  action?: string;
+
+  /**
+   * 拉起快捷方式时要匹配的URI，与[Want]{@link ./../@ohos.app.ability.Want:Want#uri}的**uri**字段一致。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  uri?: string;
+
+  /**
+   * 拉起快捷方式时Want对象的处理方式，取值为枚举类型[Flags]{@link ./../@ohos.app.ability.wantConstant:wantConstant.Flags}，
+   * 与[Want]{@link ./../@ohos.app.ability.Want:Want#flags}的**flags**字段一致。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  flags?: int;
 }
 
 /**
