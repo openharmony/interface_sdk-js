@@ -395,7 +395,7 @@ declare namespace pluginComponentManager {
    * @param { Want } source - request请求发送方相关信息。
    * @param { string } name - 请求的组件名称。
    * @param { KVObject } data - request事件中传递的数据内容，以键值对形式存储，键和值类型由业务定义。
-   * @returns { RequestEventResult } 返回request事件结果。 [since 12]
+   * @returns { RequestEventResult } 注册request监听方法后，接收到请求事件时回应请求的数据类型。 [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice [since 12]
    * @since 8 dynamic
@@ -403,9 +403,10 @@ declare namespace pluginComponentManager {
   type OnRequestEventCallback = (source: Want, name: string, data: KVObject) => RequestEventResult;
 
   /**
-   * 组件提供方向组件使用方主动发送组件和数据。适用于提供方数据更新后需主动通知使用方刷新显示的场景。
+   * 组件提供方向组件使用方主动发送组件与数据。适用于需要主动推送插件组件模板的场景，例如跨应用内容分享、应用内嵌入的外部插件组件内容动态更新等。push 由组件提供方主动发起推送，request 由组件使用方主动发起请求；
+   * 注意两者参数结构相近但 owner/target 含义相反，请勿混用。组件使用方需通过onPush事件监听接收数据，事件监听接口请参见@ohos.pluginComponent (PluginComponentManager)。
    *
-   * @param { PushParameters } param - 推送组件的详细参数。
+   * @param { PushParameters } param - 组件提供方要发送的参数。
    * @param { AsyncCallback<void> } callback - 此次接口调用的异步回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice [since 12]
@@ -414,10 +415,11 @@ declare namespace pluginComponentManager {
   function push(param: PushParameters, callback: AsyncCallback<void>): void;
 
   /**
-   * 组件使用方向组件提供方主动请求组件。适用于使用方需按需获取提供方组件及数据的场景。
+   * 组件使用方向组件提供方主动请求组件。适用于使用方需要按需动态获取插件组件模板的场景，例如动态加载其他应用提供的插件内容、按需展示跨应用组件等。
+   * 组件提供方需通过onRequest事件监听响应请求，并通过回调返回组件模板信息，事件监听接口请参见@ohos.pluginComponent (PluginComponentManager)。
    *
    * @param { RequestParameters } param - 组件模板的详细请求信息。
-   * @param { AsyncCallback<RequestCallbackParameters> } callback - 此次请求的异步回调，通过回调接口的参数返回请求所获取的数据。
+   * @param { AsyncCallback<RequestCallbackParameters> } callback - 此次请求的异步回调，通过回调接口的参数返回请求响应的数据。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @atomicservice [since 12]
    * @since 8 dynamic
@@ -425,7 +427,8 @@ declare namespace pluginComponentManager {
   function request(param: RequestParameters, callback: AsyncCallback<RequestCallbackParameters>): void;
 
   /**
-   * 组件提供方向组件使用方主动发送组件与数据。组件使用方需通过onPush事件监听接收数据。
+   * 组件提供方向组件使用方主动发送组件与数据。适用于需要主动推送插件组件模板的场景，例如跨应用内容分享、应用内嵌入的外部插件组件内容动态更新等。push 由组件提供方主动发起推送，request 由组件使用方主动发起请求；
+   * 注意两者参数结构相近但 owner/target 含义相反，请勿混用。组件使用方需通过onPush事件监听接收数据，事件监听接口请参见@ohos.pluginComponent (PluginComponentManager)。
    *
    * @param { PushParameterForStage } param - 组件提供方要发送的参数。
    * @param { AsyncCallback<void> } callback - 此次接口调用的异步回调。
@@ -437,7 +440,8 @@ declare namespace pluginComponentManager {
   function push(param: PushParameterForStage, callback: AsyncCallback<void>): void;
 
   /**
-   * 组件使用方向组件提供方主动请求组件。组件提供方需通过onRequest事件监听响应请求，并通过回调返回组件模板信息。
+   * 组件使用方向组件提供方主动请求组件。适用于使用方需要按需动态获取插件组件模板的场景，例如动态加载其他应用提供的插件内容、按需展示跨应用组件等。
+   * 组件提供方需通过onRequest事件监听响应请求，并通过回调返回组件模板信息，事件监听接口请参见@ohos.pluginComponent (PluginComponentManager)。
    *
    * @param { RequestParameterForStage } param - 组件模板的详细请求信息。
    * @param { AsyncCallback<RequestCallbackParameters> } callback - 此次请求的异步回调，通过回调接口的参数返回请求响应的数据。

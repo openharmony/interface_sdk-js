@@ -111,7 +111,7 @@ declare interface PluginErrorData {
 }
 
 /**
- * 发生错误时触发的回调。
+ * 发生错误时触发事件回调。
  *
  * @param { PluginErrorData } info - 插件错误数据
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -163,8 +163,8 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
   /**
    * 组件加载完成时触发回调。
    *
-   * @param { function } callback [since 9 - 17]
-   * @param { VoidCallback } callback [since 18]
+   * @param { function } callback - 组件加载完成时触发事件回调。 [since 9 - 17]
+   * @param { VoidCallback } callback - 组件加载完成时触发事件回调。 [since 18]
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -175,8 +175,8 @@ declare class PluginComponentAttribute extends CommonMethod<PluginComponentAttri
   /**
    * 组件加载错误时触发回调。
    *
-   * @param { function } callback [since 9 - 17]
-   * @param { PluginErrorCallback } callback [since 18]
+   * @param { function } callback - 组件加载错误时触发事件回调。 [since 9 - 17]
+   * @param { PluginErrorCallback } callback - 组件加载错误时触发事件回调。 [since 18]
    * @returns { PluginComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

@@ -19,7 +19,7 @@
  */
 
 /**
- * 用于运行Abc的Worker线程对象。
+ * 用于运行Abc的Worker线程对象。需通过worker.ThreadWorker创建。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
