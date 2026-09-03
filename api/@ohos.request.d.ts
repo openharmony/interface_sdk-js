@@ -1754,7 +1754,7 @@ declare namespace request {
      *     upload task failure.
      * @param { Callback<Array<TaskState>> } [callback] - Callback to unregister. If this parameter is not specified,
      *     all callbacks of the current type will be unregistered.
-     * @throws { BusinessError } 401 - the parameters check fails. Possible causes:
+     * @throws { BusinessError } 401 - The parameters check fails. Possible causes:
      *     <br> 1. Missing mandatory parameters.
      *     <br> 2. Incorrect parameter type.
      *     <br> 3. Parameter verification failed. [since 12]
