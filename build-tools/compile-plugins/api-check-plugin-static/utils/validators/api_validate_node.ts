@@ -656,7 +656,7 @@ export class CommentSuppressWarningsValidator extends BaseValidator implements N
 
     // 检查父节点是否为成员表达式（如a.b），若不是则无需向上遍历
     let current: arkts.AstNode = nodeStatement.node.parent;
-    if (!arkts.isMemberExpression(current) || !current.object) {
+    if (!current || !arkts.isMemberExpression(current) || !current.object) {
       return nodeStatement;
     }
 
@@ -770,7 +770,7 @@ export class CommentSuppressWarningsValidator extends BaseValidator implements N
     // 检查点1：箭头函数的父节点（即包含箭头函数的调用表达式，如 .onClick(() => {...}) 中的 onClick）
     //   若该调用表达式的callee有注释，则标记为链式调用
     let callExpr: arkts.AstNode | null = arrowFuncNode.parent;
-    if (this.hasChainCallNodeComment(callExpr.callee)) {
+    if (callExpr && callExpr.callee && this.hasChainCallNodeComment(callExpr.callee)) {
       chainCallNode.isChainedCall.chainNode = callExpr.callee;
       chainCallNode.isChainedCall.isChain = true;
       return chainCallNode;
@@ -862,12 +862,10 @@ export class CommentSuppressWarningsValidator extends BaseValidator implements N
     }
     const hasSuppressWarnings = (comment: string): boolean => /\/\/\s*@SuppressWarnings\s/g.test(comment);
     const hasCompatibility = (comment: string): boolean => /(^|[\s,])compatibility($|[\s,])/.test(comment);
-    const hasSyscap = (comment: string): boolean => /(^|[\s,])syscap($|[\s,])/.test(comment);
     const hasPermission = (comment: string): boolean => /(^|[\s,])permission($|[\s,])/.test(comment);
     return comments.some(comment => hasSuppressWarnings(comment) &&
       (
         (hasCompatibility(comment) && (this.warningTypeName === 'since' || this.warningTypeName === 'available')) ||
-        (hasSyscap(comment) && this.warningTypeName === 'syscap') ||
         (hasPermission(comment) && this.warningTypeName === 'permission')
       )
     );
