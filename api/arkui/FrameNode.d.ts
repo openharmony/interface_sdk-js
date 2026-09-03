@@ -2183,7 +2183,7 @@ export namespace typeNode {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. the type of the node is error.
    *     2. the node is null or undefined.
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 15 and will not
-   *     be threw above API version 24. [since 15 - 24]
+   *     be thrown above API version 24. [since 15 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 23]
@@ -2446,7 +2446,7 @@ export namespace typeNode {
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node is
    *     incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 20 and will not
-   *     be threw above API version 24. [since 20 - 24]
+   *     be thrown above API version 24. [since 20 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2710,7 +2710,7 @@ export namespace typeNode {
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 20 and will not
-   *     be threw above API version 24. [since 20 - 24]
+   *     be thrown above API version 24. [since 20 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3351,7 +3351,7 @@ export namespace typeNode {
    * @throws { BusinessError } 100023 - Parameter error. Possible causes: 1. The component type of the node
    *     is incorrect. 2. The node is null or undefined. 3. The controller is null or undefined.
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 20 and will not
-   *     be threw above API version 24. [since 20 - 24]
+   *     be thrown above API version 24. [since 20 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
