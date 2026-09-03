@@ -559,7 +559,7 @@ export interface ChipV2SymbolIconConfig {
  * @noninterop
  */
 @ObservedV2
-export abstract class ChipV2SymbolIcon extends ChipV2Icon {
+export declare abstract class ChipV2SymbolIcon extends ChipV2Icon {
   /**
    * Symbol normal.
    *
@@ -1228,7 +1228,7 @@ export interface IChipV2OptionsConfig {
  * @since 26.0.0 static
  */
 @ObservedV2
-export class ChipV2Options {
+export declare class ChipV2Options {
   /**
    * Chip label.
    *
