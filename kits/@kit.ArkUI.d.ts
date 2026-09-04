@@ -157,7 +157,10 @@ import { AppStorageV2, PersistenceV2, Type, UIUtils, ConnectOptions, Binding, Mu
 CustomComponentLifecycleState, ComponentInit, ComponentAppear, ComponentBuilt, ComponentReuse, 
 ComponentActive, ComponentInactive,
 ComponentRecycle, ComponentDisappear, CollectionType, ConnectOptionsCollections,
-CustomComponentContext, IReusePool, IReusableInfo } from '@ohos.arkui.StateManagement';
+CustomComponentContext, IReusePool, IReusableInfo,
+StorageDefaultCreator, TypeConstructorWithArgs, PersistenceErrorCallback, TypeConstructor, TypeDecorator,
+MonitorCallback, MonitorOptions, GetterCallback, SetterCallback, ObservedResult, DecoratorInfo, ElementInfo
+} from '@ohos.arkui.StateManagement';
 import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.shape';
 import {
   AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DialogPresenter, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager,
@@ -405,7 +408,10 @@ export {
   RowLayoutAlgorithm, ColumnLayoutAlgorithm, StackLayoutAlgorithm, GridLayoutAlgorithm, CustomLayoutAlgorithm, LayoutAlgorithm, DynamicLayout, DynamicLayoutAttribute,
   LazyLayoutDirection, LazyLayoutHelper, LazyCustomLayoutAlgorithmOptions, LazyCustomLayoutAlgorithm, LazyLayoutAlgorithm, LazyDynamicLayout, LazyDynamicLayoutAttribute,
   ContainerReader, ContainerReaderAttribute, BreakpointOptions, LazyColumnLayout, LazyColumnLayoutAttribute,
-  CustomComponentContext, IReusePool, IReusableInfo, PopupV2, PopupV2InitInfo, PopupV2Button,
+  CustomComponentContext, IReusePool, IReusableInfo,
+  StorageDefaultCreator, TypeConstructorWithArgs, PersistenceErrorCallback, TypeConstructor, TypeDecorator,
+  MonitorCallback, MonitorOptions, GetterCallback, SetterCallback, ObservedResult, DecoratorInfo, ElementInfo,
+  PopupV2, PopupV2InitInfo, PopupV2Button,
   BackPressActionProposal, BaseGestureHandlingProposal, ClickActionProposal, GestureHandlingResolution, NoneActionProposal, PageSwitchActionProposal, ScrollActionProposal, SelectActionProposal, SmartGestureController, TargetedGestureProposal,
   LazyVWaterFlowLayout, LazyVWaterFlowLayoutAttribute, LazyWaterFlowLayoutAttribute,
   SelectionContainer, SelectionContainerAttribute, SelectionContainerInstance, SelectionContainerTextJoinStyle, SelectionContainerMenuOptions, SelectionContainerEditMenuOptions, OnMenuItemClickWithTextCallback, SelectionContainerOptions, SelectionContainerController,
