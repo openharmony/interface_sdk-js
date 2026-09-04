@@ -1330,7 +1330,7 @@ declare namespace installer {
      * or the value is not **true**, the installation event is sent as usual.
      * - **ohos.bms.param.bundleEnableState**: If the value is **false**, the clone is created in disabled state
      * (enabled is false). If the value is **true** or this key is not present, the clone is created in enabled
-     * state (enabled is true, default behavior).
+     * state (enabled is true, default behavior) .
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
