@@ -34,10 +34,12 @@ export class PermissionWarningSuppressor extends BaseWarningSuppressor {
    * @returns True if the warning is properly suppressed, false otherwise
    */
   public isApiVersionHandled(node: arkts.AstNode): boolean {
+    // 节点为空，无法检查抑制状态
     if (!node) {
       return false;
     }
 
+    // 通过组合验证器检查该节点是否被 @SuppressWarnings 注解或注释抑制
     return this.validators.validate(node);
   }
 }

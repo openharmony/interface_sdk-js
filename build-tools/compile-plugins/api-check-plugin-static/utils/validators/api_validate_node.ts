@@ -27,7 +27,7 @@ import {
   API_INTERFACE_WHITE_LIST
 } from '../api_check_plugin_define';
 import { globalObject, suppressWarningsCheckPlugin } from '../../index';
-import { ParsedVersion } from '../api_check_plugin_typedef';
+import { ParsedVersion, NodeParentModel } from '../api_check_plugin_typedef';
 import {
   comparePointVersion,
   defaultFormatCheckerCompatibileIntegerAndMSF,
@@ -168,12 +168,10 @@ export abstract class BaseValidator {
     const commentRegex = /\/\/\s*@SuppressWarnings\s/g;
     const annotationRegex = /\s*@SuppressWarnings\s*(\()/g;
     const contentRegex = sceneName === 'comment_suppressWarnings' ? commentRegex : annotationRegex;
-    const nodeDecl = arkts.getDecl(node);
-    const program = !nodeDecl ? undefined : arkts.getProgramFromAstNode(nodeDecl);
+    const program = !node ? undefined : arkts.getProgramFromAstNode(node);
     if (!program) {
       return true;
     }
-    const nodeSourceText = program.ast.dumpSrc() || '';
     const nodeSourceFile = program.fileName;
     const mapKey = `${warnName}_${sceneName}_${nodeSourceFile}`;
     if (suppressWarningsCheckPlugin.has(mapKey)) {
@@ -183,6 +181,7 @@ export abstract class BaseValidator {
       }
     } else {
       try {
+        const nodeSourceText = program.sourceCode || '';
         const contentChecker = contentRegex.test(nodeSourceText);
         const commentMap = new Map([
           [sceneName, contentChecker]
@@ -550,12 +549,361 @@ export class AnnotateSuppressWarningsValidator extends BaseValidator implements 
     }
 
     return prop.value.elements.some((item: arkts.AstNode) => {
-      let elementName: string = '';
-      if (arkts.isIdentifier(item)) {
-        elementName = item.name;
-      }
+      const elementName: string = item.dumpSrc() || '';
       return elementName.includes(ruleValues);
     });
+  }
+}
+
+export class CommentSuppressWarningsValidator extends BaseValidator implements NodeValidator {
+  private warningTypeName: string = '';
+
+  constructor(warnName: string) {
+    super();
+    this.warningTypeName = warnName;
+  }
+
+  validate(node: arkts.AstNode): boolean {
+    return this.checkSuppressWarningsCache(this.warningTypeName, node, 'comment_suppressWarnings') &&
+      this.checkCommentsWarning(node);
+  }
+
+  private checkCommentsWarning(node: arkts.AstNode): boolean {
+    if (arkts.isIdentifier(node)) {
+      const nodeDecl = arkts.getDecl(node);
+      const program = nodeDecl ? arkts.getProgramFromAstNode(nodeDecl) : undefined;
+      if (!program || !program.sourceCode) {
+        return false;
+      }
+      const commentsMessage: string[] | null = this.getAllClosestComments(node);
+      if (!commentsMessage) {
+        return false;
+      }
+      return this.checkCommentsMessage(commentsMessage);
+    }
+    return false;
+  }
+
+  private getAllClosestComments(node: arkts.AstNode): string[] | null {
+    let comments: string[] = [];
+    const nodeStatement: NodeParentModel | null = this.getChainCallNode(this.findNodeParentStatement(node));
+    if (!nodeStatement) {
+      return null;
+    }
+
+    let commentNode: arkts.AstNode = nodeStatement.node;
+    if (nodeStatement.isChainedCall.isChain && nodeStatement.isChainedCall.chainNode) {
+      commentNode = nodeStatement.isChainedCall.chainNode;
+    }
+
+    const leadingComments = arkts.getCommentsStringFromDeclaration(commentNode);
+    comments = leadingComments ? leadingComments.split('\n').map((item: string): string => {
+      return item.trim();
+    }) : [];
+    return comments;
+  }
+
+  /**
+   * 从报警节点出发，沿AST向上遍历，定位应关联 @SuppressWarnings 注释的语句节点。
+   *
+   * 遍历在遇到 BlockStatement、ImportDeclaration、AnnotationDeclaration 或无父节点时停止。
+   * 遍历过程中，若发现带注释的链式调用根节点或语句级节点（Identifier/VariableDeclarator），
+   * 则标记 isChain=true 并记录该节点，提前终止遍历。
+   *
+   * 支持两类场景：
+   *
+   * 1. 链式调用场景：报警节点位于链式调用（如 Button().id().fontSize()）中。
+   *    向上遍历时，若 MemberExpression 的 object 为 CallExpression，则通过 findChainCallRoot
+   *    定位链式调用根节点，若根节点含注释则标记为链式调用。
+   *    Example:
+   *    ```typescript
+   *    // '@SuppressWarnings' compatibility
+   *    Button('test')
+   *      .id('test')
+   *      .fontSize('xxx') // will not trigger compatible warning
+   *
+   *    Button('test')
+   *      // '@SuppressWarnings' compatibility
+   *      .id('test')
+   *      .fontSize('xxx') // will not trigger compatible warning
+   *    ```
+   *
+   * 2. 普通调用场景：报警节点位于普通成员访问（如 const test = a.b）中。
+   *    向上遍历到语句级节点，若该节点含注释则标记。
+   *    Example:
+   *    ```typescript
+   *    // '@SuppressWarnings' compatibility
+   *    const test = a.b // will not trigger compatible warning
+   *    ```
+   *
+   * @param node - 触发告警的 Identifier 节点
+   * @returns NodeParentModel：
+   *   - node：遍历停止时的语句节点
+   *   - isChainedCall.isChain：是否找到带注释的链式调用根节点或语句节点
+   *   - isChainedCall.chainNode：isChain 为 true 时为带注释的节点，否则为初始报警节点
+   */
+  private findNodeParentStatement(node: arkts.Identifier): NodeParentModel | null {
+    // 非Identifier节点不处理
+    if (!arkts.isIdentifier(node)) {
+      return null;
+    }
+
+    // 初始化结果：node为当前报警节点，isChain=false，chainNode为报警节点本身
+    let nodeStatement: NodeParentModel = {
+      node: node,
+      isChainedCall: { isChain: false, chainNode: node }
+    }
+
+    // 检查父节点是否为成员表达式（如a.b），若不是则无需向上遍历
+    let current: arkts.AstNode = nodeStatement.node.parent;
+    if (!current || !arkts.isMemberExpression(current) || !current.object) {
+      return nodeStatement;
+    }
+
+    // 向上遍历AST，直到遇到块语句/import声明/注解声明/无父节点时停止
+    while (nodeStatement.node &&
+      !arkts.isBlockStatement(nodeStatement.node) &&
+      !arkts.isImportDeclaration(nodeStatement.node) &&
+      !arkts.isAnnotationDeclaration(nodeStatement.node) &&
+      nodeStatement.node.parent
+    ) {
+      const memberExpr = nodeStatement.node;
+      // 场景1：链式调用——当前节点是成员表达式且其object为调用表达式
+      //   如 Button().id().fontSize() 中的 Button().id 部分
+      //   通过findChainCallRoot找到链式调用根节点，若根节点有注释则标记
+      if (arkts.isMemberExpression(memberExpr) && memberExpr.object && arkts.isCallExpression(memberExpr.object)) {
+        const findcallExpreNode: arkts.AstNode | null = this.findChainCallRoot(memberExpr.object);
+        if (this.hasChainCallNodeComment(findcallExpreNode)) {
+          nodeStatement.isChainedCall.chainNode = findcallExpreNode;
+          nodeStatement.isChainedCall.isChain = true;
+          break;
+        }
+      }
+      // 场景2：普通调用——当前节点是标识符或变量声明，且该节点有注释
+      //   如 const test = a.b 中的 test 或 a.b 语句
+      if ((arkts.isIdentifier(nodeStatement.node) || arkts.isVariableDeclarator(nodeStatement.node)) && this.hasChainCallNodeComment(nodeStatement.node)) {
+        nodeStatement.isChainedCall.chainNode = nodeStatement.node;
+        nodeStatement.isChainedCall.isChain = true;
+        break;
+      }
+      // 继续向上遍历
+      nodeStatement.node = nodeStatement.node.parent;
+    }
+    return nodeStatement;
+  }
+
+  /**
+   * 在 findNodeParentStatement 基础上，处理报警节点位于箭头函数体内且箭头函数属于链式调用的场景。
+   *
+   * 当报警节点位于如 .onClick(() => { a.b }) 的箭头函数体内时，需向上追溯到箭头函数所属的
+   * 链式调用节点，检查其是否含 @SuppressWarnings 注释。
+   *
+   * 若 findNodeParentStatement 已确定是链式调用，或报警节点不在箭头函数内，则直接返回。
+   * 否则依次检查以下节点是否含注释：
+   *   1. 箭头函数父节点的 callee（如 .onClick 中的 onClick）
+   *   2. 遍历前的备份节点（箭头函数体内的语句节点）
+   *   3. 链式调用根节点（如 Button().id().onClick() 中的 Button()）
+   *
+   * 注释抑制规则示例：
+   *   - 注释在 .onClick 前 → 箭头函数体内的报警被抑制
+   *   - 注释在箭头函数体内、报警节点前 → 报警被抑制
+   *   - 注释在 Button() 前、.id() 前 → 报警不被抑制（注释不在链式调用根节点上）
+   *
+   * Example:
+   * ```typescript
+   * Button()
+   *   .id('text')
+   *   // '@SuppressWarnings' compatibility
+   *   .onClick(() => {
+   *     a.b  // will not trigger compatible warning
+   *   })
+   *
+   * Button()
+   *   .id('text')
+   *   .onClick(() => {
+   *     // '@SuppressWarnings' compatibility
+   *     a.b  // will not trigger compatible warning
+   *   })
+   *
+   * Button()
+   *   // '@SuppressWarnings' compatibility
+   *   .id('text')
+   *   .onClick(() => {
+   *     a.b  // will trigger compatible warning
+   *   })
+   *
+   * // '@SuppressWarnings' compatibility
+   * Button().id('test').fontSize('10').onClick(() => {}) // will not trigger compatible warning
+   * ```
+   *
+   * @param node - findNodeParentStatement 的返回结果
+   * @returns 处理后的 NodeParentModel，isChainedCall 可能被更新为链式调用场景
+   */
+  private getChainCallNode(node: NodeParentModel | null): NodeParentModel | null {
+    // 输入为空直接返回
+    if (!node) {
+      return null;
+    }
+    // 备份遍历前的节点（箭头函数体内的语句节点），用于后续检查
+    const chainBakNode: arkts.AstNode = node.node;
+    let chainCallNode: NodeParentModel = node;
+
+    // 判断报警节点是否在箭头函数体内
+    const isInArrowFunction = this.checkIsInArrowFunction(chainCallNode.node);
+
+    // 若findNodeParentStatement已确定是链式调用，或不在箭头函数内，无需进一步处理
+    if (chainCallNode.isChainedCall.isChain || !isInArrowFunction) {
+      return chainCallNode;
+    }
+
+    // 向上找到箭头函数表达式节点
+    let arrowFuncNode: arkts.AstNode | null = chainCallNode.node;
+    while (arrowFuncNode && !arkts.isArrowFunctionExpression(arrowFuncNode)) {
+      arrowFuncNode = arrowFuncNode.parent;
+    }
+
+    // 未找到箭头函数或无父节点，直接返回
+    if (!arrowFuncNode || !arrowFuncNode.parent) {
+      return chainCallNode;
+    }
+
+    // 检查点1：箭头函数的父节点（即包含箭头函数的调用表达式，如 .onClick(() => {...}) 中的 onClick）
+    //   若该调用表达式的callee有注释，则标记为链式调用
+    let callExpr: arkts.AstNode | null = arrowFuncNode.parent;
+    if (callExpr && callExpr.callee && this.hasChainCallNodeComment(callExpr.callee)) {
+      chainCallNode.isChainedCall.chainNode = callExpr.callee;
+      chainCallNode.isChainedCall.isChain = true;
+      return chainCallNode;
+    }
+    // 向上找到CallExpression（如 .onClick(() => {...})）
+    while (callExpr && !arkts.isCallExpression(callExpr)) {
+      callExpr = callExpr.parent;
+    }
+
+    // 检查该CallExpression的callee是否为成员表达式（说明箭头函数属于链式调用）
+    if (callExpr && arkts.isCallExpression(callExpr) &&
+      callExpr.callee && arkts.isMemberExpression(callExpr.callee)) {
+
+      // 检查点2：备份节点（箭头函数体内的语句节点）是否有注释
+      if (this.hasChainCallNodeComment(chainBakNode)) {
+        chainCallNode.isChainedCall.chainNode = chainBakNode;
+        chainCallNode.isChainedCall.isChain = true;
+        return chainCallNode;
+      }
+
+      // 检查点3：链式调用根节点（如 Button().id().onClick() 中的 Button()）是否有注释
+      const chainNode = this.findChainCallRoot(callExpr);
+
+      if (this.hasChainCallNodeComment(chainNode)) {
+        chainCallNode.isChainedCall.chainNode = chainNode;
+        chainCallNode.isChainedCall.isChain = true;
+        return chainCallNode;
+      }
+      // 以上检查点均无注释，返回未标记的结果
+      return chainCallNode;
+    }
+
+    return chainCallNode;
+  }
+
+  private checkIsInArrowFunction(node: arkts.AstNode): boolean {
+    let current: arkts.AstNode | null = node;
+    while (current) {
+      if (arkts.isArrowFunctionExpression(current)) {
+        return true;
+      }
+      if (arkts.isBlockStatement(current)) {
+        if (current.parent && arkts.isArrowFunctionExpression(current.parent)) {
+          return true;
+        }
+      }
+      current = current.parent;
+    }
+    return false;
+  }
+
+  private findChainCallRoot(node: arkts.AstNode): arkts.AstNode | null {
+    if (!node) {
+      return null;
+    }
+    let current: arkts.AstNode = node;
+    while (arkts.isCallExpression(current) && current.callee && arkts.isMemberExpression(current.callee) && current.callee.object) {
+      current = current.callee.object;
+    }
+    return current;
+  }
+
+  /**
+   * Determine whether the annotation information for the alarm node exists.
+   * 
+   * @param node - The node that has generated an alarm.
+   * @returns - Return the annotation information of the alarm node.
+   */
+  private hasChainCallNodeComment(node: arkts.AstNode): boolean {
+    const program = node ? arkts.getProgramFromAstNode(node) : undefined;
+    if (!program || !program.sourceCode) {
+      return false;
+    }
+    const sourceFileText = program.sourceCode;
+    if (!sourceFileText) {
+      return false;
+    }
+    let comments: string[] = [];
+    const leadingComments = arkts.getCommentsStringFromDeclaration(node);
+    comments = leadingComments ? leadingComments.split('\n').map((item: string): string => {
+      return item.trim();
+    }) : [];
+    return this.checkCommentsMessage(comments);
+  }
+
+  private checkCommentsMessage(comments: string[]): boolean {
+    if (this.hasNotSupportScene(comments)) {
+      return false;
+    }
+    const hasSuppressWarnings = (comment: string): boolean => /\/\/\s*@SuppressWarnings\s/g.test(comment);
+    const hasCompatibility = (comment: string): boolean => /(^|[\s,])compatibility($|[\s,])/.test(comment);
+    const hasPermission = (comment: string): boolean => /(^|[\s,])permission($|[\s,])/.test(comment);
+    return comments.some(comment => hasSuppressWarnings(comment) &&
+      (
+        (hasCompatibility(comment) && (this.warningTypeName === 'since' || this.warningTypeName === 'available')) ||
+        (hasPermission(comment) && this.warningTypeName === 'permission')
+      )
+    );
+  }
+
+  /**
+   * check is not support scene.
+   * 
+   * 1.mulitiLineCommentScene: muliti-line comment scene.
+   * Example:
+   * ```typescript
+   * // '@SuppressWarnings' compatibility
+   * /*
+   * * '@SuppressWarnings' compatibility
+   * /
+   * // test
+   * ```
+   * 
+   * 2./^\/\/\s*@SuppressWarnings\s*(\/+)/: Therer are two or more double slashes.
+   * Example:
+   * ```typescript
+   * // '@SuppressWarnings' // compatibility
+   * ```
+   * @param comments - scene comments
+   * @returns - Return the corresponding result based on the annotation information of the input parameter.
+   */
+  private hasNotSupportScene(comments: string[]): boolean {
+    const mulitiLineCommentScene = /\/\*+/g;
+    for (const item of comments) {
+      if (/^\/\/\s*@SuppressWarnings\s*(\/+)/.test(item)) {
+        return true;
+      }
+
+      if (mulitiLineCommentScene.test(item)) {
+        return true;
+      }
+    }
+    return false;
   }
 }
 
