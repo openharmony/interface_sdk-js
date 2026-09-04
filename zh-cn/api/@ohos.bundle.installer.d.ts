@@ -1252,10 +1252,10 @@ declare namespace installer {
     appIndex?: int;
     /**
      * 扩展参数，Parameters类型的数组，默认值为空。Parameters.key取值支持：</br>
-     * - "ohos.bms.param.disableInstallEventReport"：若对应value值为"true"，表示分身创建完成后不发送安装广播事件（从API version 26.1.0开始支持）。
+     * - "ohos.bms.param.disableInstallEventReport"：若对应value值为"true"，表示分身创建完成后不发送安装广播事件。
      * 若不传入该键或value值非"true"，则正常发送安装广播。</br>
      * - "ohos.bms.param.bundleEnableState"：若对应value值为"false"，表示分身创建后处于禁用状态（enabled为false）。
-     * 若对应value值为"true"或不传入该键，表示分身创建后处于启用状态（enabled为true，默认行为）（从API version 26.1.0开始支持）。
+     * 若对应value值为"true"或不传入该键，表示分身创建后处于启用状态（enabled为true，默认行为）。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
