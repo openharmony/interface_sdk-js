@@ -1054,7 +1054,7 @@ declare namespace notification {
    * 取消本应用指定组下的通知（Callback形式）。
    *
    * @param { string } groupName - 通知组名称，此名称需要在发布通知时通过
-   *     [NotificationRequest]{@link notification.requestEnableNotification(callback: AsyncCallback<void>)}对象指定。
+   *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest}对象指定。
    * @param { AsyncCallback<void> } callback - 取消本应用指定组下通知的回调函数。
    * @syscap SystemCapability.Notification.Notification
    * @since 8
