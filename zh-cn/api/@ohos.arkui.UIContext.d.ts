@@ -3253,6 +3253,10 @@ export class SwiperDynamicSyncScene extends DynamicSyncScene {
 /**
  * 提供Marquee组件动态帧率的配置能力，支持在Marquee组件运行动画时动态调节帧率，优化性能和功耗，适用于需要在跑马灯场景中平衡动画流畅度和系统资源消耗的场景。
  *
+ * > **说明：**
+ * >
+ * > - MarqueeDynamicSyncScene继承自[DynamicSyncScene]{@link @ohos.arkui.UIContext}，对应[Marquee]{@link ./@internal/component/ets/marquee}的动态帧率场景。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice

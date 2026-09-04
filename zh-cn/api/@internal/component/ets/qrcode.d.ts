@@ -24,6 +24,8 @@
  * > **说明：**
  * >
  * > - 二维码组件的像素点数量与内容有关，组件尺寸过小可能导致内容无法展示，此时需要适当调整组件尺寸。
+ * >
+ * > <!--RP1--><!--RP1End-->
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
