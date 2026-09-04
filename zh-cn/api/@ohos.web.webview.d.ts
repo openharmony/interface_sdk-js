@@ -8714,7 +8714,7 @@ declare namespace webview {
     mediaTakeOver: boolean;
 
     /**
-     * Constructs a **BackForwardCacheSupportedFeatures** object.
+     * BackForwardCacheSupportedFeatures的构造函数。
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
@@ -8750,6 +8750,8 @@ declare namespace webview {
      * 设置为0或负数时，前进后退缓存功能不生效。
      * 
      * 默认值：600。
+     * 
+     * 单位：秒。
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
