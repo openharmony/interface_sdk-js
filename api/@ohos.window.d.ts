@@ -5288,6 +5288,42 @@ declare namespace window {
      * @since 26.0.0 dynamic&static
      */
     isWindowLimitsForcible?: boolean;
+
+    /**
+     * Whether the window starts in a minimized state.
+     * If true, the window will not be brought to the foreground.
+     * This parameter only takes effect within the same application.
+     *
+     * @default false
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    minimizeOnStart?: boolean;
+
+    /**
+     * Whether to hide the dock icon and the hover thumbnail preview.
+     * If true, the current window will not display its icon and hover thumbnail preview on the dock.
+     * This parameter only takes effect within the same application.
+     *
+     * @default false
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    excludeFromDock?: boolean;
+
+    /**
+     * Whether to hide the window from the multitasking center.
+     * If true, the current window will not be displayed in the multitasking center.
+     * This parameter only takes effect within the same application.
+     *
+     * @default false
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    excludeFromRecent?: boolean;
   }
 
   /**
