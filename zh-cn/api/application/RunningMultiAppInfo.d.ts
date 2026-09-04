@@ -26,6 +26,9 @@ import { RunningMultiInstanceInfo } from './RunningMultiInstanceInfo';
  * # 使用说明
  * 
  * 通过appManager的[getRunningMultiAppInfo]{@link ./../@ohos.app.ability.appManager:appManager.getRunningMultiAppInfo}来获取。
+ * 该接口根据应用包名查询应用的多开运行态信息，返回的RunningMultiAppInfo结构包含应用的多开模式（{@link MultiAppMode}）及对应的运行实例信息：
+ * 当应用处于分身模式（APP_CLONE）时，runningAppClones字段返回分身应用信息；
+ * 当应用处于多实例模式（MULTI_INSTANCE）时，runningMultiInstances字段返回多实例应用信息。
  */
 /**
  * 定义应用多开在运行态的结构信息。

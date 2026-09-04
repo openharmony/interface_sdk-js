@@ -44,7 +44,7 @@ import Want from '../@ohos.app.ability.Want';
  */
 export interface AbilityResult {
   /**
-   * 目标方的UIAbility被拉起并退出后，目标方返回给拉起方的结果码。<br/>-?正常情况下，返回目标方传递的结果码。<br/>-?异常情况下，返回-1。
+   * 目标方的UIAbility被拉起并退出后，目标方返回给拉起方的结果码。<br/>-正常情况下，返回目标方传递的结果码。<br/>-异常情况下，返回-1。
    *
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice [since 11]
@@ -54,7 +54,7 @@ export interface AbilityResult {
   resultCode: int;
 
   /**
-   * 表示UIAbility被拉起并退出后返回的数据。
+   * 表示UIAbility被拉起并退出后返回给调用方的数据，可以携带返回的参数或信息。不传入时默认为null。
    *
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice [since 11]

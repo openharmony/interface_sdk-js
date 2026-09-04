@@ -29,7 +29,7 @@
  */
 export enum AutoFillType {
   /**
-   * 表示未指定的类型。
+   * 未指定的类型。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -51,7 +51,7 @@ export enum AutoFillType {
   PASSWORD = 1,
 
   /**
-   * 用户名的类型。
+   * 用户名类型。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -62,7 +62,7 @@ export enum AutoFillType {
   USER_NAME = 2,
 
   /**
-   * 新密码的类型。
+   * 新密码类型。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi

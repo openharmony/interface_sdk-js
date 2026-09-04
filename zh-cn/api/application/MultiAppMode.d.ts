@@ -47,7 +47,7 @@ export enum MultiAppMode {
   /**
    * 应用支持多实例模式。
    * 
-   * **说明：** 只支持2in1设备。
+   * **说明：** 只支持PC/2in1设备。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
