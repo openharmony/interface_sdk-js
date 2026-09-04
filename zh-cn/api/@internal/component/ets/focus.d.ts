@@ -90,7 +90,7 @@ declare enum FocusPriority {
   AUTO = 0,
 
   /**
-   * 容器内优先获焦的优先级。优先级高于AUTO。
+   * 容器首次获焦时优先获焦的优先级。优先级高于AUTO。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

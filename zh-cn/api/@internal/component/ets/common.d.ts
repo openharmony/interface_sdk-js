@@ -20080,8 +20080,9 @@ declare class CommonMethod<T> {
    * >
    * > - 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { function } event - 触摸事件信息。value的值为包含子节点信息的数组。
-   * @returns { T } 返回当前组件。
+   * @param { function } event - 自定义触摸测试的回调函数，用于接收包含子节点触摸测试信息的数组value，
+   * value中仅包含开发者通过id属性设置了id的命名节点的信息，并返回TouchResult以控制子节点的事件分发策略。
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -23562,7 +23563,8 @@ declare class CommonMethod<T> {
    *
    * > **说明：**
    * >
-   * > - overlay会将浮层组件覆盖在所绑定的组件上方，阻塞用户对浮层下方组件的所有交互操作。
+   * > - overlay会将浮层组件覆盖在所绑定的组件上方，阻塞用户对浮层下方组件的所有交互操作。若需用户可操作下方组件，应在浮层builder的最外层组件上配置`.hitTestBehavior(HitTestMode.Transparent)`。
+   * 此配置在通过浮层实现水印时尤其重要，因为水印显示不应妨碍用户对下层组件的操作。
    * > - 多次调用overlay接口时，如果同时传入string类型和
    * > [CustomBuilder]{@link CustomBuilder}类型，或者同时传入string类型和
    * > [ComponentContent]{@link ComponentContent}类型，浮层内容会叠加显示。
@@ -23582,9 +23584,10 @@ declare class CommonMethod<T> {
    *     **ComponentContent** is recommended. [since 10 - 11]
    * @param { string | CustomBuilder | ComponentContent } value - 遮罩文本内容或自定义组件构造函数。<br/>**说明：**<br/>自定义组件作为浮层时，不支持键盘走焦到自
    *     定义组件中。通过CustomBuilder设置浮层时，浮层中的内容会在页面刷新时销毁并重新创建，存在一定的性能损耗，页面频繁刷新的场景推荐使用ComponentContent方式设置浮层。 [since 12]
-   * @param { OverlayOptions } [options] - 浮层的定位。<br/>**说明：**<br/>API version 12之前，options: <br/>{<br/>align?: 
+   * @param { OverlayOptions } [options] - 浮层的定位。当需要自定义浮层相对于组件的方位或偏移量时传入该参数；不传入时，浮层默认按照`align`的默认值`TopStart`定位，
+   * 并使用默认偏移量`offset: { x: 0, y: 0 }`，显示在组件左上角。<br/>**说明：**<br/>API version 12之前，options: <br/>{<br/>align?: 
    *     [Alignment]{@link Alignment}, <br/>offset?: {x?: number, y?: number}<br/>} [since 12]
-   * @returns { T } 返回当前组件。
+   * @returns { T } 返回当前组件，可用于链式调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
@@ -25203,7 +25206,8 @@ declare class CommonMethod<T> {
   attributeModifier(modifier: AttributeModifier<T>): T;
 
   /**
-   * 动态设置组件绑定的手势。
+   * 动态设置组件绑定的手势，适用于需要根据组件状态或用户操作动态切换手势绑定的场景。
+   * 若在当次手势操作过程中触发了组件上的手势动态切换，该切换效果在当次手势结束（所有手指抬起）后的下一次手势操作中生效。
    *
    * 说明：
    * gestureModifier不支持自定义组件。
@@ -25349,8 +25353,12 @@ declare class CommonMethod<T> {
   /**
    * 给组件绑定自定义事件拦截回调。
    *
-   * @param { Callback<TouchEvent, HitTestMode> } callback - 自定义事件拦截回调。在做触摸测试时回调此函数。
-   *    通过返回值设置组件的HitTestMode。
+   * > **说明：**
+   * >
+   * > - 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
+   * 
+   * @param { Callback<TouchEvent, HitTestMode> } callback - 自定义事件拦截回调。在做[触摸测试](docroot://ui/arkts-interaction-basic-principles.md#触摸测试)时回调此函数。
+   * 通过返回值设置组件的HitTestMode。使用TouchEvent中的touches属性前，需先校验其是否为空。
    * @returns { T } 返回当前组件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

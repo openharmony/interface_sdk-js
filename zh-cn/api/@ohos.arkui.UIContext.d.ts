@@ -2791,7 +2791,7 @@ export interface SwiperItemInfo {
 }
 
 /**
- * 提供获取组件绘制区域坐标和大小的能力。
+ * 提供获取组件绘制区域坐标、大小、平移、缩放、旋转及仿射矩阵等属性信息的能力，适用于需要查询组件绘制区域信息的场景，帮助开发者获取组件布局结果。
  *
  * > **说明：**
  * >
@@ -2813,11 +2813,15 @@ export class ComponentUtils {
    * > **说明：**
    * >
    * > 该接口需要在目标组件布局完成以后获取目标组件区域大小信息，建议在[布局回调]{@link @ohos.arkui.inspector:inspector}中使用该接口。如果组件动态创建但未挂载组件树，则无法通过该接口获取正常的
-   * > 组件信息。因为组件在未挂载组件树的情况下，一般未经过UI框架正常的测量与布局，此时请确保组件正常挂载组件树后再尝试获取组件信息。
+   * > 组件信息。因为此时组件一般未经过UI框架的测量与布局，请确保组件已挂载到组件树后再尝试获取组件信息。
+   * >
+   * > 该接口返回的组件位置为布局位置，某些属性计算不支持，如位置设置类[offset]{@link CommonMethod#offset}、[markAnchor]{@link CommonMethod#markAnchor}、[Edges]{@link Edges}
+   * 和[LocalizedEdges]{@link LocalizedEdges}类型的[position]{@link CommonMethod#position}，以及图形变换类[rotate]{@link CommonMethod#rotate}、
+   * [translate]{@link CommonMethod#translate}、[scale]{@link CommonMethod#scale}、[transform]{@link CommonMethod#transform}。
+   * 可使用替代接口[getPositionToWindowWithTransform]{@link FrameNode#getPositionToWindowWithTransform}，获取组件相对于窗口且带有绘制属性的位置偏移。
    *
-   * @param { string } id - 组件唯一标识id。
-   * @returns { componentUtils.ComponentInfo } Size, position, translation, scaling, rotation, and affine matrix
-   *     information of the component.
+   * @param { string } id - 组件唯一标识id，需确保该id对应的组件已挂载到组件树且完成布局。
+   * @returns { componentUtils.ComponentInfo } 组件大小、位置、平移、缩放、旋转及仿射矩阵属性信息。
    * @throws { BusinessError } 100001 - UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3295,12 +3299,12 @@ export class DragController {
    * @param { CustomBuilder | DragItemInfo } custom - 拖拽发起后跟手效果所拖拽的对象。 <br/> **说明：** <br/>不支持全局builder。如果builder中使用了
    *     [Image]{@link image}组件，应尽量开启同步加载，即配置Image的[syncLoad]{@link ImageAttribute#syncLoad}为true。该builder只用于生成当次拖拽中显示的图
    *     片。builder的根组件宽高为0时，无法生成拖拽显示的图片导致拖拽失败。builder的修改不会同步到当前正在拖拽的图片，对builder的修改需要在下一次拖拽时生效。
-   * @param { dragController.DragInfo } dragInfo - 拖拽信息。
+   * @param { dragController.DragInfo } dragInfo - 拖拽信息对象，用于指定发起拖拽的触摸点、拖拽过程中携带的数据、额外信息等拖拽配置信息。
    * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback used to return the result.<br>
    *     - **event**: drag event information that includes only the drag result.<br>- **extraParams**: extra
    *     information about the drag event. [since 11 - 11]
-   * @param { AsyncCallback<dragController.DragEventParam> } callback - 拖拽结束返回结果的回调<br/>- event：拖拽事件信息，仅包括拖拽结果。<br/>-
-   *     extraParams：拖拽事件额外信息。 [since 12]
+   * @param { AsyncCallback<dragController.DragEventParam> } callback - 拖拽结束返回结果的回调，回调参数包括err和data：err表示错误信息，data表示拖拽事件结果；
+   * data.event为拖拽事件信息，仅包括拖拽结果，data.extraParams为拖拽事件额外信息。 [since 12]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -3318,12 +3322,15 @@ export class DragController {
   /**
    * 主动发起拖拽能力，传入拖拽发起后跟手效果所拖拽的对象以及携带拖拽信息。通过Promise返回拖拽事件结果。
    *
-   * @param { CustomBuilder | DragItemInfo } custom - 拖拽发起后跟手效果所拖拽的对象。
-   * @param { dragController.DragInfo } dragInfo - 拖拽信息。
+   * @param { CustomBuilder | DragItemInfo } custom - 拖拽发起后跟手效果所拖拽的对象。当仅需通过builder生成当次拖拽中显示的图片时，使用CustomBuilder；当需要同时提供pixelMap、builder或extraInfo等拖拽项信息时，使用DragItemInfo。
+   * <br> **说明：** <br>CustomBuilder不支持全局builder。如果builder中使用了Image组件，应尽量开启同步加载，即配置Image的[syncLoad]{@link ImageAttribute#syncLoad}为true。
+   * 该builder只用于生成当次拖拽中显示的图片。builder的根组件宽高为0时，无法生成拖拽显示的图片导致拖拽失败。builder的修改不会同步到当前正在拖拽的图片，对builder的修改需要在下一次拖拽时生效。
+   * @param { dragController.DragInfo } dragInfo - 拖拽信息对象。
    * @returns { Promise<{ event: DragEvent, extraParams: string }> } Callback used to return the result.
    *     <br>- **event**: drag event information that includes only the drag result.
    *     <br>- **extraParams**: extra information about the drag event. [since 11 - 11]
-   * @returns { Promise<dragController.DragEventParam> } A Promise with the drag event information. [since 12]
+   * @returns { Promise<dragController.DragEventParam> } Promise对象。resolve返回拖拽结束结果：
+   * <br/>- event：拖拽事件信息，仅包括拖拽结果。<br/>- extraParams：拖拽事件额外信息。reject返回错误信息。 [since 12]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -3510,9 +3517,15 @@ export class MeasureUtils {
 }
 
 /**
- * 提供控制焦点的能力，如清除、移动和激活焦点等功能。
+ * 提供控制焦点的能力，如清除、移动和激活焦点等功能，适用于需要管理页面或组件焦点状态、控制焦点流转的场景，可帮助开发者优化键盘等输入方式下的焦点交互体验。
  *
  * > **说明：**
+ *
+ * > - 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
+ * > - 本Class首批接口从API version 12开始支持。
+ * >
+ * > - 本模块接口仅可在Stage模型下使用。
  * >
  * > 以下API需先使用UIContext中的[getFocusController()]{@link UIContext#getFocusController}方法获取FocusController实例，再通过该实例调用对应方法。
  *
@@ -3536,7 +3549,7 @@ export class FocusController {
   clearFocus(): void;
 
   /**
-   * 通过组件的id将焦点转移到组件树对应的实体节点，当前帧生效。
+   * 通过组件的id将焦点转移到组件树对应的实体节点，当前帧生效，适用于需要在表单校验、页面初始化或键盘操作流程中主动将焦点定位到指定组件的场景。
    *
    * @param { string } key - 节点对应的[组件标识]{@link common}。
    * @throws { BusinessError } 150001 - the component cannot be focused.
@@ -3564,7 +3577,7 @@ export class FocusController {
   activate(isActive: boolean, autoInactive?: boolean): void;
 
   /**
-   * 返回UI实例的焦点激活态。
+   * 返回UI实例的焦点激活态。适用于需要根据当前焦点激活状态决定是否启用方向键走焦或更新焦点提示的场景。
    *
    * 焦点激活态可参考[基础概念：焦点激活态](docroot://ui/arkts-common-events-focus-event.md#基础概念)。
    *
@@ -3592,7 +3605,7 @@ export class FocusController {
   setAutoFocusTransfer(isAutoFocusTransfer: boolean): void;
 
   /**
-   * 设置按键事件处理的优先级。
+   * 设置按键事件处理的优先级，适用于父子组件都需要处理按键事件时，开发者需要控制按键事件优先分发策略的场景。
    *
    * @param { KeyProcessingMode } mode - 按键处理模式。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3614,7 +3627,7 @@ export class FocusController {
 export type PointerStyle = pointer.PointerStyle;
 
 /**
- * 提供光标样式设置的能力。
+ * 提供鼠标光标样式设置的能力，支持恢复默认鼠标光标样式、设置系统鼠标光标样式以及设置自定义鼠标光标样式，适用于需要根据界面交互状态动态调整鼠标光标显示效果的场景，有助于提升界面交互提示的清晰度。
  *
  * > **说明：**
  * >
@@ -3632,6 +3645,10 @@ export class CursorController {
 
   /**
    * 恢复默认的光标样式。
+   *
+   * > **说明：**
+   * >
+   * > 该接口调用后不会立即生效，而是在下一帧改变鼠标光标样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3662,12 +3679,14 @@ export class CursorController {
    *
    * > **说明：**
    * >
-   * > 该接口调用后不会立即生效，而是在下一帧改变鼠标光标样式。
+   * > - 该接口调用后不会立即生效，而是在下一帧改变鼠标光标样式。
+   * > - 仅支持设置静态图片，不支持设置动态图片。
    *
    * @param { image.PixelMap } value - 自定义鼠标光标样式的像素图。最大尺寸为256*256px，超过该尺寸时设置自定义鼠标光标样式不生效。
-   * @param { int } [focusX] - 自定义光标的焦点X坐标。焦点指的是鼠标实际点击的位置，焦点设置为(0, 0)时表示图片左上角为实际点击位置。<br/>默认值：0<br/>单位：px<br/>取值范围：
-   *     [0, +∞)
-   * @param { int } [focusY] - 自定义光标的焦点Y坐标。<br/>默认值：0<br/>单位：px<br/>取值范围：[0, +∞)
+   * @param { int } [focusX] - 自定义光标焦点的X坐标。以光标图片左上角为原点，向右为正方向。该焦点将在显示时与系统鼠标指针的屏幕坐标对齐，鼠标的点击、拖拽等操作均以此点为准。
+   * <br>默认值：0<br>单位：px<br>取值范围：[0, 图片宽度]，超出取值范围时按默认值处理。
+   * @param { int } [focusY] - 自定义光标焦点的Y坐标。以光标图片左上角为原点，向下为正方向。结合focusX共同确定图像内代表实际交互位置的点。
+   * <br>默认值：0<br>单位：px<br>取值范围：[0, 图片高度]，超出取值范围时按默认值处理。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -4029,7 +4048,7 @@ export class ComponentSnapshot {
    * @param { NodeIdentity } end - 范围结束的组件的ID。
    * @param { boolean } isStartRect - 范围是否以开始组件的外接矩形为准。<br/>true表示以开始组件的外接矩形为准，false表示以结束组件的外接矩形为准。<br/>默认值为true。
    * @param { componentSnapshot.SnapshotOptions } [options] - 截图相关的自定义参数，不支持region参数。
-   * @returns { Promise<image.PixelMap> } Result of the snapshot.
+   * @returns { Promise<image.PixelMap> } 截图返回的结果。
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 100001 - Invalid ID detected.
    * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options. [since 23]
