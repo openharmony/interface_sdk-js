@@ -707,7 +707,7 @@ export interface TargetInfo {
    * 指定popup或menu绑定的目标节点。<br/>**说明：** <br/>
    * 1. 当id是number时，对应组件实例的UniqueID，此id由系统保证唯一性。<br/>
    * 2. 当id是string时，对应[通用属性id]{@link CommonMethod#id}所指定的组件
-   *    此id的唯一性需由开发者确保，但实际可能会有多个。
+   *    此id的唯一性需由开发者确保，但实际可能会有多个相同id的组件的可能性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -718,8 +718,8 @@ export interface TargetInfo {
   id: string | number;
 
   /**
-   * 目标节点所在的自定义组件的UniqueID。当上述id指定为string类型时，可通过此属性圈定范围。
-   * 方便开发者在一定范围内保证id: string的唯一性。
+   * 目标节点所在的自定义组件的UniqueID。当上述id指定为string类型且需要在指定自定义组件范围内查找目标节点时，可通过此属性圈定范围，
+   * 方便开发者在一定范围内保证id: string的唯一性。默认不指定自定义组件范围。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1369,7 +1369,11 @@ export class PromptAction {
 }
 
 /**
- * 提供统一的Dialog API。
+ * 提供统一的Dialog API，可创建并显示固定样式弹出框、自定义样式弹出框，并支持更新与关闭弹出框。适用于应用中需要弹出提示、确认、选择等弹出框交互的场景。
+ * 
+ * > **说明：**
+ * >
+ * > 以下API需先使用UIContext中的[getDialogPresenter()](arkts-apis-uicontext-uicontext.md#getdialogpresenter)方法获取到DialogPresenter对象，再通过该对象调用对应方法。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1379,10 +1383,11 @@ export class PromptAction {
  */
 export class DialogPresenter {
   /**
-   * 提供一个固定样式的对话框。
+   * 提供一个固定样式的弹出框，返回对话结果。使用Promise异步回调。适用于使用系统统一样式展示提示或确认信息的场景。
    *
-   * @param { dialog.DialogStyleOptions } [options] - 对话框选项。
-   * @returns { Promise<DialogResult> } 用于返回对话结果的Promise。
+   * @param { dialog.DialogStyleOptions } [options] - 固定样式弹出框的配置选项，用于配置弹出框的标题、副标题、消息、按钮及工作表项等内容。弹出框样式（背景、对齐、蒙层、避让等）
+   *      继承自[dialog.DialogBaseOptions](js-apis-dialog.md#dialogbaseoptions)。<br/>**说明：** dialog.DialogBaseOptions中的isModal与showInSubWindow不能同时设置为true。
+   * @returns { Promise<DialogResult> } Promise对象，返回对话结果，包含弹出框ID。
    * @throws { BusinessError } 103306 - The dialog cannot be opened due to node mount failure.
    * @throws { BusinessError } 103308 - The dialog cannot be opened due to subwindow create failure.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1394,18 +1399,11 @@ export class DialogPresenter {
   present(options?: dialog.DialogStyleOptions): Promise<DialogResult>;
 
   /**
-   * 提供一个自定义样式的对话框，其中包含所提供的内容。
+   * 提供一个自定义样式的弹出框，其中包含所提供的内容，返回对话结果，使用Promise异步回调。适用于需要自定义弹出框内容、布局和样式的场景。
    *
-   * content参数通过联合类型接受CustomBuilder或ComponentContent：
-   * -CustomBuilder：自定义对话框内容的生成器函数。
-   * - ComponentContent：支持状态驱动更新的ComponentContent。
-   *
-   * > **说明**
-   * > isModal = true和showInSubWindow = true不能同时使用。
-   *
-   * @param { CustomBuilder | CustomBuilderWithId | ComponentContent<Object> } content - 自定义对话框内容。
-   * @param { dialog.DialogCustomOptions } [options] - 自定义对话框选项。
-   * @returns { Promise<DialogResult> } 用于返回对话结果的Promise。
+   * @param { CustomBuilder | CustomBuilderWithId | ComponentContent<Object> } content - 自定义弹出框内容，支持三种类型：CustomBuilder（自定义内容的生成器函数）、CustomBuilderWithId（支持传入ID的生成器函数）、ComponentContent（支持状态驱动更新的组件内容）。
+   * @param { dialog.DialogCustomOptions } [options] - 自定义弹出框的配置选项，用于配置弹出框的背景、对齐、蒙层、避让等样式，继承自dialog.DialogBaseOptions。
+   * @returns { Promise<DialogResult> } Promise对象，返回对话结果，包含弹出框ID。
    * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exist. The ComponentContent has already been opened.
    * @throws { BusinessError } 103306 - The dialog cannot be opened due to node mount failure.
@@ -1419,11 +1417,11 @@ export class DialogPresenter {
   present(content: CustomBuilder | CustomBuilderWithId | ComponentContent<Object>, options?: dialog.DialogCustomOptions): Promise<DialogResult>;
 
   /**
-   * 更新已呈现的自定义对话框。
+   * 更新已弹出的自定义弹出框，无返回结果。使用Promise异步回调。适用于弹出框已弹出后需要动态更新其样式或位置的交互场景。
    *
-   * @param { ComponentContent<Object> } content - 用于标识对话框的内容。
-   * @param { dialog.DialogBaseOptions } [options] - 要更新的选项。
-   * @returns { Promise<void> } 不会返回任何值的Promise。
+   * @param { ComponentContent<Object> } content - 用于标识弹出框的组件内容。
+   * @param { dialog.DialogBaseOptions } [options] - 要更新的弹出框选项。目前仅支持更新alignment、offset、autoCancel、maskColor。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - Dialog content not found. The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1435,11 +1433,12 @@ export class DialogPresenter {
   update(content: ComponentContent<Object>, options?: dialog.DialogBaseOptions): Promise<void>;
 
   /**
-   * 关闭对话框。
-   * 接受对话ID（由当前返回）或ComponentContent引用。
+   * 关闭弹出框，无返回结果。使用Promise异步回调。适用于在用户完成交互后关闭弹出框的场景。
+   * 
+   * 接受弹出框ID（由[present](#present)返回的[DialogResult](js-apis-dialog.md#dialogresult)中的dialogId）或[ComponentContent](./js-apis-arkui-ComponentContent.md)引用作为target，关闭对应的弹出框。
    *
-   * @param { int | ComponentContent<Object> } target - 要取消的对话ID或组件内容。
-   * @returns { Promise<void> } 不会返回任何值的Promise。
+   * @param { int | ComponentContent<Object> } target - 要关闭的弹出框ID或组件内容。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - Dialog content not found. The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1531,12 +1530,8 @@ export declare type NodeRenderStateChangeCallback = (state: NodeRenderState, nod
 export declare type GestureListenerCallback = (info: GestureTriggerInfo) => void;
 
 /**
-* Defines the PageInfo type.
-* The value of routerPageInfo indicates the information of the router page, or undefined if the
-* frameNode does not have router page information. And the value of navDestinationInfo indicates
-* the information of the navDestination, or undefined if the frameNode does not have navDestination
-* information.
-*
+ * Router和NavDestination等页面信息，若无对应的Router或NavDestination页面信息，则对应属性为undefined。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1546,7 +1541,8 @@ export declare type GestureListenerCallback = (info: GestureTriggerInfo) => void
 export interface PageInfo {
 
   /**
-   * the property of router page information.
+   * Router页面信息，包含当前Router页面的路由状态和页面信息。当页面为Router页面时，可通过此属性获取对应的Router页面信息；
+   * 若当前页面不是Router页面，则该属性为undefined。若无对应的Router页面信息，则该属性为undefined。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1557,7 +1553,8 @@ export interface PageInfo {
   routerPageInfo?: observer.RouterPageInfo;
 
   /**
-   * the property of navDestination information.
+   * NavDestination页面信息，包含当前NavDestination页面的导航状态和页面信息。当页面为NavDestination页面时，可通过此属性获取对应的NavDestination页面信息；
+   * 若当前页面不是NavDestination页面，则该属性为undefined。若无对应的NavDestination页面信息，则该属性为undefined。
    *
    * @type { ?observer.NavDestinationInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1570,9 +1567,8 @@ export interface PageInfo {
 }
 
 /**
-* the property of OverlayManager.
-*
- * @interface OverlayManagerOptions
+* 初始化OverlayManager时所用参数。
+* 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1582,7 +1578,8 @@ export interface PageInfo {
 export interface OverlayManagerOptions {
 
   /**
-   * the render property of overlay node.
+   * 是否渲染overlay根节点，true表示渲染overlay根节点，false表示不渲染overlay根节点，默认值为true。
+   * 通过将该参数设置为false，可以解决OverlayManager显示在PhotoPickerComponent上层时，PhotoPickerComponent无法选中照片的问题。
    *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1594,7 +1591,7 @@ export interface OverlayManagerOptions {
   renderRootOverlay?: boolean;
 
   /**
-   * Set whether support backPressed event or not.
+   * 是否支持通过侧滑手势关闭OverlayManager下的ComponentContent，true表示可以通过侧滑关闭，false表示不可以通过侧滑关闭，默认值为false。
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1604,6 +1601,20 @@ export interface OverlayManagerOptions {
    * @since 19 dynamic
    */
   enableBackPressedEvent?: boolean;
+
+  /**
+   * 拦截Overlay侧滑返回事件的回调。
+   * 说明：
+   * 1. 注册该回调且enableBackPressedEvent设置为true时，侧滑返回事件不会自动关闭Overlay，而是调用该回调决定事件是否向下层组件传递。
+   * 2. 返回true表示拦截该事件（事件被消费，不会向下层传递）；返回false表示不拦截，事件将向下层组件透传。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onBackPress?: OnOverlayBackPressCallback;
 }
 
 /**
@@ -2712,7 +2723,7 @@ export class UIObserver {
 }
 
 /**
-* Swiper组件的内容区信息。
+* Swiper组件的内容区信息，包含Swiper组件标识、唯一标识符及当前显示状态的子组件信息，用于获取Swiper运行时的内容区状态。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2723,7 +2734,7 @@ export class UIObserver {
 export interface SwiperContentInfo {
 
   /**
-   * Swiper组件的id。
+   * Swiper组件通过通用属性id设置的标识符，由开发者指定。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2734,7 +2745,7 @@ export interface SwiperContentInfo {
   id: string;
 
   /**
-   * Swiper子组件的唯一标识符。
+   * Swiper组件的唯一标识符。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2757,7 +2768,7 @@ export interface SwiperContentInfo {
 }
 
 /**
-* Swiper子组件的信息。
+* Swiper子组件的信息，包含子组件的唯一标识符和索引，可通过SwiperContentInfo获取。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2768,7 +2779,7 @@ export interface SwiperContentInfo {
 export interface SwiperItemInfo {
 
   /**
-   * SwiperItem的uniqueId值。
+   * Swiper子组件的唯一标识符。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2779,7 +2790,7 @@ export interface SwiperItemInfo {
   uniqueId: number;
 
   /**
-   * Swiper子组件在Swiper中的索引。
+   * Swiper子组件在Swiper中的索引，取值从0开始，最大值为Swiper子组件数量-1。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3174,7 +3185,7 @@ export interface GestureTriggerInfo {
 }
 
 /**
- * 该参数用于指定需要监听的手势回调阶段（传入空数组将无效），仅当手势触发指定阶段时才会发送通知。
+ * 该参数用于指定需要监听的手势回调阶段（传入空数组时不监听任何手势回调阶段），仅当手势触发指定阶段时才会发送通知。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3185,7 +3196,7 @@ export interface GestureTriggerInfo {
 export interface GestureObserverConfigs {
 
   /**
-   * 手势事件对象。
+   * 需要监听的手势回调阶段。传入空数组将无效，仅当手势触发指定阶段时才会发送通知。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3677,13 +3688,15 @@ export class CursorController {
 }
 
 /**
- * class ContextMenuController
- *
- * 提供控制菜单关闭的能力。
+ * 提供控制菜单关闭的能力。开发者可以通过此接口在特定场景下（如定时关闭、点击外部区域关闭等）主动关闭菜单。
  *
  * > **说明：**
  * >
+ * > - 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
  * > - 本Class首批接口从API version 12开始支持。
+ * >
+ * > - 本模块接口仅可在Stage模型下使用。
  *
  * > - 以下API需先使用UIContext中的[getContextMenuController()]{@link UIContext#getContextMenuController}方法获取
  * > ContextMenuController实例，再通过此实例调用对应方法。
@@ -3697,7 +3710,7 @@ export class CursorController {
 export declare class ContextMenuController {
 
   /**
-   * 关闭菜单
+   * 关闭当前通过bindContextMenu展示的菜单。若当前无菜单展示，调用本方法无效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

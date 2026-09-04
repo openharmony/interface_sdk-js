@@ -1111,9 +1111,9 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   menuBackgroundEffect(effect: Optional<BackgroundEffectOptions>): SelectAttribute;
 
   /**
-   * Sets the distortion animation mode of the select with the new material.
+   * 系统材质下，设置下拉菜单的扭曲动画模式。未通过该接口设置时，默认为DistortionMode.DISTORTION_AUTO。
    *
-   * @param { DistortionMode } mode - Animation mode. The default value is DistortionMode.DISTORTION_AUTO.
+   * @param { DistortionMode } mode - 设置系统材质下下拉菜单的扭曲动画模式。
    * @returns { SelectAttribute } - the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1123,9 +1123,9 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
   menuDistortionMode(mode: DistortionMode): SelectAttribute;
 
   /**
-   * Sets the edgelight animation mode of the select with the new material.
+   * 系统材质下，设置下拉菜单的流光动画模式。未通过该接口设置时，默认为EdgeLightMode.EDGELIGHT_DISABLED。
    *
-   * @param { EdgeLightMode } mode - Animation mode. The default value is EdgeLightMode.EDGELIGHT_DISABLED.
+   * @param { EdgeLightMode } mode - 设置系统材质下下拉菜单的流光动画模式。
    * @returns { SelectAttribute } - the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi

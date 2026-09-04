@@ -208,7 +208,7 @@ export declare class ArcButtonProgressConfig {
  */
 interface CommonArcButtonOptions {
     /**
-     * 上下弧形按钮类型属性。
+     * 弧形按钮的显示位置，用于控制按钮位于圆形屏幕的上方或底部。
      * 
      * 默认值：ArcButtonPosition.BOTTOM_EDGE。
      *
@@ -412,7 +412,7 @@ interface CommonArcButtonOptions {
  */
 export declare class ArcButtonOptions {
     /**
-     * 上下弧形按钮类型属性。
+     * 弧形按钮的显示位置，用于控制按钮位于圆形屏幕的上方或底部。
      * 
      * 默认值：ArcButtonPosition.BOTTOM_EDGE。
      *

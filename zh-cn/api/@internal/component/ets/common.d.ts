@@ -14315,23 +14315,13 @@ declare interface StateStyles {
 }
 
 /**
- * Defines the options of popup message.
- *
- * @interface PopupMessageOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @since 10
- */
-/**
  * 气泡文本的样式。
  *
- * @interface PopupMessageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface PopupMessageOptions {
 
@@ -14440,7 +14430,6 @@ declare enum DismissReason {
 /**
  * 气泡关闭的信息。
  *
- * @interface DismissPopupAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -15241,7 +15230,11 @@ declare interface TipsOptions {
   arrowPointPosition?: ArrowPointPosition;
 
   /**
-   * The width of the arrow.
+   * 设置气泡箭头宽度。若所设置的宽度超过所在边的长度减去两倍的气泡圆角大小，则不绘制气泡箭头。
+   * 默认值：16
+   * 单位：vp
+   * 说明：
+   * 不支持设置百分比。
    *
    * @type { ?Dimension }
    * @default 16.0_vp.
@@ -15254,7 +15247,11 @@ declare interface TipsOptions {
   arrowWidth?: Dimension;
 
   /**
-   * The height of the arrow.
+   * 设置气泡箭头高度。
+   * 默认值：8
+   * 单位：vp
+   * 说明：
+   * 不支持设置百分比。
    *
    * @type { ?Dimension }
    * @default 8.0_vp.
@@ -18198,6 +18195,15 @@ declare class TouchResult {
 
 /**
  * 深度空间中的三维向量。
+ * 用于为组件设置空间效果参数。
+ *
+ * > **说明：**
+ * >
+ * > - 空间效果仅作用于[DepthComponent](./ts-basic-components-depthcomponent-sys.md)的子组件，且仅当DepthComponent相关参数设置正确才能生效。
+ * >
+ * > - 空间效果不支持[Web](../../../web/web-component-overview.md)、[XComponent](./ts-basic-components-xcomponent.md)、[RichEditor](./ts-basic-components-richeditor.md)、[RichText](./ts-basic-components-richtext.md)、[Video](./ts-media-components-video.md)、[Component3D](./ts-basic-components-component3d.md)、[EmbeddedComponent](./ts-container-embedded-component.md)组件。
+ * >
+ * > - 本模块为系统接口。
  *
  * @interface DepthVector3
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18247,6 +18253,15 @@ declare interface DepthVector3 {
 
 /**
  * 深度空间中的4D向量。
+ * 用于为组件设置空间效果参数。
+ *
+ * > **说明：**
+ * >
+ * > - 空间效果仅作用于[DepthComponent](./ts-basic-components-depthcomponent-sys.md)的子组件，且仅当DepthComponent相关参数设置正确才能生效。
+ * >
+ * > - 空间效果不支持[Web](../../../web/web-component-overview.md)、[XComponent](./ts-basic-components-xcomponent.md)、[RichEditor](./ts-basic-components-richeditor.md)、[RichText](./ts-basic-components-richtext.md)、[Video](./ts-media-components-video.md)、[Component3D](./ts-basic-components-component3d.md)、[EmbeddedComponent](./ts-container-embedded-component.md)组件。
+ * >
+ * > - 本模块为系统接口。
  *
  * @interface DepthVector4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18311,6 +18326,15 @@ declare interface DepthVector4 {
 
 /**
  * 深度空间中的RGB颜色。
+ * 用于为组件设置空间效果参数。
+ *
+ * > **说明：**
+ * >
+ * > - 空间效果仅作用于[DepthComponent](./ts-basic-components-depthcomponent-sys.md)的子组件，且仅当DepthComponent相关参数设置正确才能生效。
+ * >
+ * > - 空间效果不支持[Web](../../../web/web-component-overview.md)、[XComponent](./ts-basic-components-xcomponent.md)、[RichEditor](./ts-basic-components-richeditor.md)、[RichText](./ts-basic-components-richtext.md)、[Video](./ts-media-components-video.md)、[Component3D](./ts-basic-components-component3d.md)、[EmbeddedComponent](./ts-container-embedded-component.md)组件。
+ * >
+ * > - 本模块为系统接口。
  *
  * @interface DepthColorRGB
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18361,6 +18385,15 @@ declare interface DepthColorRGB {
 
 /**
  * 三维空间中的空间角位置。
+ * 用于为组件设置空间效果参数。
+ *
+ * > **说明：**
+ * >
+ * > - 空间效果仅作用于[DepthComponent](./ts-basic-components-depthcomponent-sys.md)的子组件，且仅当DepthComponent相关参数设置正确才能生效。
+ * >
+ * > - 空间效果不支持[Web](../../../web/web-component-overview.md)、[XComponent](./ts-basic-components-xcomponent.md)、[RichEditor](./ts-basic-components-richeditor.md)、[RichText](./ts-basic-components-richtext.md)、[Video](./ts-media-components-video.md)、[Component3D](./ts-basic-components-component3d.md)、[EmbeddedComponent](./ts-container-embedded-component.md)组件。
+ * >
+ * > - 本模块为系统接口。
  *
  * @interface SpatialPosition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18422,6 +18455,15 @@ declare interface SpatialPosition {
 
 /**
  * 空间效果选项。
+ * 用于为组件设置空间效果参数。
+ *
+ * > **说明：**
+ * >
+ * > - 空间效果仅作用于[DepthComponent](./ts-basic-components-depthcomponent-sys.md)的子组件，且仅当DepthComponent相关参数设置正确才能生效。
+ * >
+ * > - 空间效果不支持[Web](../../../web/web-component-overview.md)、[XComponent](./ts-basic-components-xcomponent.md)、[RichEditor](./ts-basic-components-richeditor.md)、[RichText](./ts-basic-components-richtext.md)、[Video](./ts-media-components-video.md)、[Component3D](./ts-basic-components-component3d.md)、[EmbeddedComponent](./ts-container-embedded-component.md)组件。
+ * >
+ * > - 本模块为系统接口。
  *
  * @interface SpatialEffectParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -24633,6 +24675,15 @@ declare class CommonMethod<T> {
 
   /**
    * 将空间效果应用于组件。
+   * 用于为组件设置空间效果参数。
+   *
+   * > **说明：**
+   * >
+   * > - 空间效果仅作用于[DepthComponent](./ts-basic-components-depthcomponent-sys.md)的子组件，且仅当DepthComponent相关参数设置正确才能生效。
+   * >
+   * > - 空间效果不支持[Web](../../../web/web-component-overview.md)、[XComponent](./ts-basic-components-xcomponent.md)、[RichEditor](./ts-basic-components-richeditor.md)、[RichText](./ts-basic-components-richtext.md)、[Video](./ts-media-components-video.md)、[Component3D](./ts-basic-components-component3d.md)、[EmbeddedComponent](./ts-container-embedded-component.md)组件。
+   * >
+   * > - 本模块为系统接口。
    *
    * @param { SpatialEffectParams | undefined } params - 空间效果参数。
    * @returns { T }
