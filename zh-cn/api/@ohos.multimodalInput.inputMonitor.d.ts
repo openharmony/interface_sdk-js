@@ -665,7 +665,8 @@ declare namespace inputMonitor {
    * @param { Callback<SwipeInward> } receiver - 回调函数，返回向内滑动事件。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic
@@ -694,7 +695,8 @@ declare namespace inputMonitor {
    * @param { Callback<SwipeInward> } [receiver] - 需要取消监听的回调函数。若不填，则取消当前应用监听的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permit error.
-   * @throws { BusinessError } 401 - Parameter error.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputMonitor
    * @systemapi hide for inner use
    * @since 12 dynamic

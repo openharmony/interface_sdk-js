@@ -93,7 +93,7 @@ declare namespace infraredEmitter {
   function transmitInfrared(infraredFrequency: long, pattern: Array<long>): void;
 
   /**
-   * 查询设备支持的红外信号的频率范围。建议先使用[hasIrEmitter]接口查询设备是否支持红外发射器。
+   * 查询设备支持的红外信号的频率范围。建议先使用[hasIrEmitter]{@link infraredEmitter.hasIrEmitter}接口查询设备是否支持红外发射器。
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
    * @returns { Array<InfraredFrequency> } 红外信号的频率范围，包含多组最大和最小频率。<br/>从API version 23开始，当设备不具有红外发射器，返回一组最大和最小频率，且均为0Hz。
