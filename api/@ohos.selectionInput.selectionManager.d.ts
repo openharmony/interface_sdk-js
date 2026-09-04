@@ -159,7 +159,7 @@ declare namespace selectionManager {
    *     word selection app.
    * @returns { Promise<Panel> } Promise used to return the **Panel** object created, which can be used to set, display,
    *     hide, and move the panel, and subscribe to events.
-   * @throws { BusinessError } 33600001 - Selection service exception.
+   * @throws { BusinessError } 33600001 - Selection service invocation exception.
    * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
@@ -177,7 +177,7 @@ declare namespace selectionManager {
    *
    * @param { Panel } panel - Word selection panel to destroy.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 33600001 - Selection service exception.
+   * @throws { BusinessError } 33600001 - Selection service invocation exception.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]
    * @publicapi [since 24]
@@ -366,7 +366,7 @@ declare namespace selectionManager {
      *     **resources/base/profile/main_pages.json** file of the project in the stage model. The FA model is not
      *     supported.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600001 - Selection service invocation exception.
      * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
@@ -383,7 +383,7 @@ declare namespace selectionManager {
      * [createPanel]{@link selectionManager.createPanel}. This API uses a promise to return the result.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600001 - Selection service invocation exception.
      * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
@@ -401,7 +401,7 @@ declare namespace selectionManager {
      * not called proactively, the panel is automatically hidden when it loses focus.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600001 - Selection service invocation exception.
      * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
@@ -418,7 +418,7 @@ declare namespace selectionManager {
      * result. This API must be called in the **onTouch** callback, and the event type must be **TouchType.Down**.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600001 - Selection service invocation exception.
      * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
@@ -443,7 +443,7 @@ declare namespace selectionManager {
      *     direction of the Y axis is downward. The y-coordinate of an extended screen may be negative, depending on the
      *     screen layout.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600001 - Selection service invocation exception.
      * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
@@ -467,7 +467,7 @@ declare namespace selectionManager {
      *     direction of the Y axis is downward. The y-coordinate of an extended screen may be negative, depending on the
      *     screen layout.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600001 - Selection service invocation exception.
      * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @stagemodelonly
