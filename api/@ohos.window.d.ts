@@ -4205,7 +4205,7 @@ declare namespace window {
    *
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 26.0.0
+   * @since 26.1.0
    */
   enum WindowPosition {
     /**
@@ -4213,7 +4213,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 26.0.0
+     * @since 26.1.0
      */
     NOT_TOPMOST = -3,
     /**
@@ -4221,7 +4221,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 26.0.0
+     * @since 26.1.0
      */
     TOPMOST = -2,
     /**
@@ -4229,7 +4229,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 26.0.0
+     * @since 26.1.0
      */
     BOTTOM = -1,
     /**
@@ -4237,7 +4237,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 26.0.0
+     * @since 26.1.0
      */
     TOP = 0
   }
@@ -4247,7 +4247,7 @@ declare namespace window {
    *
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 26.0.0
+   * @since 26.1.0
    */
   interface WindowPositionOptions {
     /**
@@ -4256,7 +4256,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 26.0.0
+     * @since 26.1.0
      */
     windowId: number;
     /**
@@ -4267,7 +4267,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 26.0.0
+     * @since 26.1.0
      */
     insertAfter: number;
   }
@@ -4299,7 +4299,7 @@ declare namespace window {
    *     2. The window is not in the current application process.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 26.1.0 dynamic&static
    */
   function setWindowPosition(list: Array<WindowPositionOptions>): Promise<void>;
 
