@@ -1818,7 +1818,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.1.0
      */
-    preFocusedWindowId?: number;
+    prevFocusedWindowId?: number;
   }
 
   /**
