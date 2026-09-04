@@ -1650,6 +1650,40 @@ declare namespace photoAccessHelper {
       imageFileUri: string,
       videoFileUri: string
     ): Promise<MovingPhoto>;
+
+    /**
+     * Request composite auxiliary image data.
+     * 
+     * The AI enhancement generates an additional image. Together with the original image,
+     *     they form a composite image. One image is displayed externally, while the other serves as an auxiliary image.
+     * 
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Context } context - Context of the ability instance.
+     * @param { PhotoAsset } asset - PhotoAsset to request.
+     * @param { MediaAssetDataHandler<ArrayBuffer> } dataHandler - Callback will be called when the requested data is
+     *     ready.
+     * @returns { Promise<string> } Promise used to return the request ID, which can be used in
+     *     [cancelRequest]{@link photoAccessHelper.MediaAssetManager.cancelRequest} to cancel a request.
+     * @throws { BusinessError } 201 - Permission denied. Permission denied.
+     *     The application does not have the required permission ohos.permission.READ_IMAGEVIDEO.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - Scene parameters validate failed, possible causes:
+     *     1. The asset is not a cloud-enhanced composite photo asset.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     Possible causes:
+     *     1. The database is corrupted;
+     *     2. The file system is abnormal;
+     *     3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @FaAndStageModel
+     * @since 26.1.0 dynamic&static
+     */
+    static requestCompositeAuxiliaryImageData(
+      context: Context,
+      asset: PhotoAsset,
+      dataHandler: MediaAssetDataHandler<ArrayBuffer>
+    ): Promise<string>;
   }
 
   /**
