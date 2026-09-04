@@ -32,7 +32,7 @@
  */
 export interface RunningAppClone {
   /**
-   * 分身应用的索引。
+   * 分身应用的索引，用于标识不同的分身实例。索引从0开始，按分身创建顺序递增，0表示主应用实例，1及以上表示分身实例。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi

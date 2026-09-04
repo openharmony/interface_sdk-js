@@ -21,9 +21,9 @@
 import type AppStateData from './AppStateData';
 
 /**
- * 定义应用启动和退出的状态监听，可以作为
+ * 定义应用启动、前后台和退出的状态监听，可以作为
  * [appManager.on('appForegroundState')]{@link ./../@ohos.app.ability.appManager:appManager.on(type: 'appForegroundState', observer: AppForegroundStateObserver)}
- * 的入参监听所有应用的启动和退出的变化。
+ * 的入参监听所有应用的启动、前后台和退出的变化。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
@@ -31,7 +31,7 @@ import type AppStateData from './AppStateData';
  */
 export default class AppForegroundStateObserver {
   /**
-   * 应用启动和退出状态发生变化时，系统会触发该回调。
+   * 应用启动、前后台和退出状态发生变化时，系统会触发该回调。
    *
    * @param { AppStateData } appStateData - 应用状态信息。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
