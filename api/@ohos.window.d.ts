@@ -1763,21 +1763,21 @@ declare namespace window {
    * Enumerates the reasons for the window focus state change.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @since 26.0.0
+   * @since 26.1.0
    */
   enum FocusChangeReason {
     /**
      * The focus state changes due to a default reason other than a user click.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.0.0
+     * @since 26.1.0
      */
     DEFAULT = 0,
     /**
      * The focus state changes because the user clicks the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.0.0
+     * @since 26.1.0
      */
     CLICK = 1
   }
@@ -1786,21 +1786,21 @@ declare namespace window {
    * Describes the focus state change information of the window.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @since 26.0.0
+   * @since 26.1.0
    */
   interface WindowFocusState {
     /**
      * Whether the window gains focus. **true** if the window gains focus, **false** otherwise.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.0.0
+     * @since 26.1.0
      */
     focused: boolean;
     /**
      * Reason for the focus state change.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.0.0
+     * @since 26.1.0
      */
     focusChangeReason: FocusChangeReason;
     /**
@@ -1808,7 +1808,7 @@ declare namespace window {
      * window is in the same process as this window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.0.0
+     * @since 26.1.0
      */
     nextFocusedWindowId?: number;
     /**
@@ -1816,7 +1816,7 @@ declare namespace window {
      * focused window is in the same process as this window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.0.0
+     * @since 26.1.0
      */
     preFocusedWindowId?: number;
   }
@@ -9717,7 +9717,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 26.0.0 dynamic
+     * @since 26.1.0 dynamic
      */
     on(type: 'windowFocusStateChange', callback: Callback<WindowFocusState>): void;
 
@@ -9734,7 +9734,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     onWindowFocusStateChange(callback: Callback<WindowFocusState>): void;
 
@@ -9753,7 +9753,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 26.0.0 dynamic
+     * @since 26.1.0 dynamic
      */
     off(type: 'windowFocusStateChange', callback?: Callback<WindowFocusState>): void;
 
@@ -9770,7 +9770,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
-     * @since 26.0.0 static
+     * @since 26.1.0 static
      */
     offWindowFocusStateChange(callback?: Callback<WindowFocusState>): void;
 
