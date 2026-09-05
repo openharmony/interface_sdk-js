@@ -396,6 +396,18 @@ export declare class SymbolOptions {
  * > 额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到SubHeader本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议SubHeader设置通用属性和
  * > 通用事件。
  *
+ * ###### 子组件
+ *
+ * 无
+ *
+ * > **说明：**
+ * >
+ * > 不支持设置文本类型的子组件。
+ *
+ * ###### SubHeaderAttribute
+ * 
+ * 不支持[通用事件]{@link common}。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 18]

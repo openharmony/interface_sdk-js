@@ -79,6 +79,11 @@ export declare enum SplitPolicy {
 *
 * > MultiNavigation在深层嵌套场景下，可能存在路由动效异常的问题。
 *
+ *
+ * ###### 子组件
+ *
+ * 不可以包含子组件。
+ *
  * @struct { MultiNavigation }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

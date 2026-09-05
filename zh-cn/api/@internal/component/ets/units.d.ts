@@ -19,7 +19,7 @@
  */
 
 /**
- * Defines the data type of the interface restriction.
+ * 定义接口限制的数据类型。
  *
  * @typedef { import('../api/global/resource').Resource } Resource
  * @interface Resource
@@ -27,7 +27,7 @@
  * @since 7
  */
 /**
- * Defines the data type of the interface restriction.
+ * 定义接口限制的数据类型。
  *
  * @typedef { import('../api/global/resource').Resource } Resource
  * @interface Resource
@@ -36,7 +36,7 @@
  * @since 9
  */
 /**
- * Defines the data type of the interface restriction.
+ * 定义接口限制的数据类型。
  *
  * @typedef { import('../api/global/resource').Resource } Resource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -45,7 +45,7 @@
  * @since 10
  */
 /**
- * Defines the data type of the interface restriction.
+ * 定义接口限制的数据类型。
  *
  * @typedef { import('../api/global/resource').Resource } Resource
  * @syscap SystemCapability.ArkUI.ArkUI.Full

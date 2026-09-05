@@ -201,7 +201,7 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   popupFont(font: Optional<Font>): ArcAlphabetIndexerAttribute;
 
   /**
-   * 设置弧形字母索引条默认字体样式。
+   * 设置弧形字母索引条默认字体样式，即未选中状态下索引项的字体样式。
    *
    * @param { Optional<Font> } font - 字母索引条默认字体样式，用于设置索引条上所有字母的显示效果，包括文字大小、粗细、倾斜角度和字体族等。<br/>默认值：<br/>{<br/>size:'13.0fp',<br/> style:FontStyle.Normal,<br/>
    *     weight:500,<br/> family:'HarmonyOS Sans'<br/>}
