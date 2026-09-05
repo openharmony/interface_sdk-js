@@ -21,6 +21,7 @@
 import type { AsyncCallback } from './@ohos.base';
 import type { ChildProcessArgs } from './@ohos.app.ability.ChildProcessArgs';
 import type { ChildProcessOptions } from './@ohos.app.ability.ChildProcessOptions';
+import type { ChildProcessInformation as _ChildProcessInformation } from './application/ChildProcessInformation';
 
 /**
  * childProcessManager模块提供子进程管理能力，支持子进程创建和启动操作。
@@ -81,6 +82,15 @@ declare namespace childProcessManager {
      */
     APP_SPAWN_FORK = 1
   }
+
+  /**
+   * 定义子进程信息。
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export type ChildProcessInformation = _ChildProcessInformation;
 
   /**
    * 启动[ArkTS子进程](docroot://application-models/ability-terminology.md#arkts子进程)。使用Promise异步回调。
@@ -217,6 +227,33 @@ declare namespace childProcessManager {
    * @since 26.0.0 dynamic&static
    */
   function isNativeChildProcessSupported(): boolean;
+
+  /**
+   * 获取当前应用的子进程信息。该接口使用promise返回
+   * 的结果。
+   * 返回的子进程包括通过创建的子进程
+   * [startChildProcess]{@link @ohos.app.ability.childProcessManager:childProcessManager.startChildProcess} (在
+   * APP_SPAWN_FORK模式)，
+   * [startArkChildProcess]{@link @ohos.app.ability.childProcessManager:childProcessManager.startArkChildProcess}，以及
+   * [startNativeChildProcess]{@link @ohos.app.ability.childProcessManager:childProcessManager.startNativeChildProcess}.
+   * 【OH_Ability_CreateNativeChildProcess】
+   * 【OH_Ability_CreateNativeChildProcessWithConfigs】
+   * 【OH_Ability_StartNativeChildProcess】
+   * 【OH_Ability_StartNativeChildProcessWithConfigs】
+   *
+   * > **说明**
+   * > >
+   * > 在返回的列表中不包含在以FORK方式启动的子进程。
+   * > 如果不存在子进程，则返回空数组。
+   *
+   * @returns { Promise<Array<ChildProcessInformation>> } Promise用于返回孩子的信息
+   *     当前应用的进程。
+   * @throws { BusinessError } 16000050 - Connect to system service failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function getChildProcessInfos(): Promise<Array<ChildProcessInformation>>;
 }
 
 export default childProcessManager;
