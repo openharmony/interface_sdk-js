@@ -50,7 +50,7 @@ declare namespace uiAppearance {
   enum DarkMode {
 
     /**
-     * Always display with dark mode.
+     * 系统始终为深色。
      *
      * @syscap SystemCapability.ArkUI.UiAppearance
      * @systemapi hide this for inner system use [since 10 - 19]
@@ -60,7 +60,7 @@ declare namespace uiAppearance {
     ALWAYS_DARK = 0,
 
     /**
-     * Always display with light mode.
+     * 系统始终为浅色。
      *
      * @syscap SystemCapability.ArkUI.UiAppearance
      * @systemapi hide this for inner system use [since 10 - 19]
