@@ -150,7 +150,7 @@ declare class Context extends BaseContext {
    * 
    * > **说明：**
    * >
-   * > 需要开发者手动在`\<module-name>\resource`路径下创建`resfile`目录。创建的`resfile`目录仅支持以只读方式访问。
+   * > 需要开发者手动在`\<module-name>\resources`路径下创建`resfile`目录。创建的`resfile`目录仅支持以只读方式访问。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -324,7 +324,7 @@ declare class Context extends BaseContext {
   /**
    * 获取当前应用上下文。
    *
-   * @returns { ApplicationContext } 应用上下文。
+   * @returns { ApplicationContext } 应用上下文，提供应用级别的上下文能力，包括应用生命周期管理、环境变量配置等。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2
    *     .Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

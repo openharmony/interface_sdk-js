@@ -1431,7 +1431,9 @@ declare class UIAbilityContext extends Context {
    *
    * > **说明：**
    * >
-   * > 组件启动规则详见：[组件启动规则（Stage模型）](docroot://application-models/component-startup-rules.md)。
+   * > 组件启动规则详见：[设备内组件启动规则](docroot://application-models/component-startup-rules-inner-device.md)、
+   * > [跨设备组件启动规则](docroot://application-models/component-startup-rules-cross-device.md)。
+   * > 该接口不支持连接分身应用的ServiceExtensionAbility。
    *
    * @param { Want } want - 连接ServiceExtensionAbility的Want信息。
    * @param { ConnectOptions } options - 回调对象，返回服务连接成功、连接失败、断开的信息。

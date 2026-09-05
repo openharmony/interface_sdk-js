@@ -46,8 +46,8 @@ export default class Want {
   bundleName?: string;
 
   /**
-   * 应用的Ability组件名。在应用启动场景中表示被拉起方的Ability组件名。如果在Want中该字段同时指定了BundleName和AbilityName，则Want可以直接匹配到指定的Ability。AbilityName需要
-   * 在一个应用的范围内保证唯一。
+   * 表示待启动的Ability名称。如果在Want中该字段同时指定了BundleName和AbilityName，则Want可以直接匹配到指定的Ability。
+   * 如需进一步精确匹配，还可配合moduleName字段使用。AbilityName需要在一个应用的范围内保证唯一。
    *
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform [since 10]
