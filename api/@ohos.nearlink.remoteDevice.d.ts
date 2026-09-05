@@ -18,7 +18,6 @@
  * @kit ConnectivityKit
  */
 
-import type { Callback } from '@ohos.base';
 import nearlinkConstant from '@ohos.nearlink.constant';
 
 /**
