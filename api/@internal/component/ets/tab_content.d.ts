@@ -110,6 +110,40 @@ declare enum LayoutMode {
 }
 
 /**
+ * Enumerates the visibility of the tab.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.2.0 dynamic
+ */
+declare enum TabVisibility {
+ 
+  /**
+   * The tab is visible.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  VISIBLE = 0,
+ 
+  /**
+   * The tab is hidden.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  HIDDEN = 1
+}
+
+/**
  * Represents an indicator style object.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1084,6 +1118,35 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
    * @since 12 dynamic
    */
   onWillHide(event: VoidCallback): TabContentAttribute;
+
+  /**
+   * Sets the default visibility of the tab.
+   *
+   * > **NOTE**
+   * >
+   * > - When **visibility** is **TabVisibility.HIDDEN** and **displayMode** is **TabBarDisplayMode.SIDEBAR**, the tab
+   * > is not displayed in the sidebar but remains visible in the bottom tab bar.
+   * > - When **visibility** is **TabVisibility.HIDDEN** and **displayMode** is **TabBarDisplayMode.BOTTOM_TABBAR**, the
+   * > tab is not displayed in the bottom tab bar but remains visible in the sidebar.
+   * > - When **visibility** is **TabVisibility.HIDDEN** and **displayMode** is not set, the tab is not displayed in
+   * > both display modes.
+   * > - Hidden tab content can still be switched and displayed using **TabsController.changeIndex()** or by modifying
+   * > the **index** state variable.
+   *
+   * @param { TabVisibility } visibility - Visibility of the tab.
+   *     <br>Default value: **TabVisibility.VISIBLE**.
+   * @param { TabBarDisplayMode } [displayMode] - Display mode corresponding to the visibility.<br>When not set,
+   *     **visibility** applies to both the sidebar and bottom tab bar.<br>When set to **TabBarDisplayMode.SIDEBAR**,
+   *     **visibility** applies only to the sidebar.<br>When set to **TabBarDisplayMode.BOTTOM_TABBAR**,
+   *     **visibility** applies only to the bottom tab bar.
+   * @returns { TabContentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  tabBarVisibility(visibility: TabVisibility, displayMode?: TabBarDisplayMode): TabContentAttribute;
 }
 
 /**
