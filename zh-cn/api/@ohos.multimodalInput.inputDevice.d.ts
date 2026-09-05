@@ -614,7 +614,7 @@ declare namespace inputDevice {
    * 设置键盘按键的重复时延，使用callback异步回调。
    *
    * @param { int } delay - 键盘按键的重复时延，默认值500ms，调节范围[300ms, 1000ms]。
-   * @param { AsyncCallback<void> } callback - 回调函数。当设置键盘按键重复时延成功，err为undefined，否则为错误对象。
+   * @param { AsyncCallback<void> } callback - 回调函数。当设置键盘按键重复延迟时间成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
