@@ -29,6 +29,7 @@ import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
 import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { DrawableDescriptor } from '../../@ohos.arkui.drawableDescriptor';
+import { TabBarDisplayMode } from './tabs';
 
 /**
  * Enum for the mode of the tab bar when selected.
@@ -92,6 +93,34 @@ export declare enum LayoutMode {
    * @since 23 static
    */
   HORIZONTAL = 2
+}
+
+/**
+ * Enumerates the visibility of the tab.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.2.0 static
+ */
+export declare enum TabVisibility {
+ 
+  /**
+   * The tab is visible.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  VISIBLE = 0,
+ 
+  /**
+   * The tab is hidden.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  HIDDEN = 1
 }
 
 /**
@@ -788,6 +817,33 @@ export declare interface TabContentAttribute extends CommonMethod {
    * @unpublished
    */
   default setTabContentOptions(): this;
+
+  /**
+   * Sets the default visibility of the tab.
+   *
+   * > **NOTE**
+   * >
+   * > - When **visibility** is **TabVisibility.HIDDEN** and **displayMode** is **TabBarDisplayMode.SIDEBAR**, the tab
+   * > is not displayed in the sidebar but remains visible in the bottom tab bar.
+   * > - When **visibility** is **TabVisibility.HIDDEN** and **displayMode** is **TabBarDisplayMode.BOTTOM_TABBAR**, the
+   * > tab is not displayed in the bottom tab bar but remains visible in the sidebar.
+   * > - When **visibility** is **TabVisibility.HIDDEN** and **displayMode** is not set, the tab is not displayed in
+   * > both display modes.
+   * > - Hidden tab content can still be switched and displayed using **TabsController.changeIndex()** or by modifying
+   * > the **index** state variable.
+   *
+   * @param { TabVisibility } visibility - Visibility of the tab.
+   *     <br>Default value: **TabVisibility.VISIBLE**.
+   * @param { TabBarDisplayMode | undefined } displayMode - Display mode corresponding to the visibility.
+   *     **undefined** means the visibility applies to both sidebar and bottom tab bar.
+   *     When set to **TabBarDisplayMode.SIDEBAR**, **visibility** applies only to the sidebar.
+   *     When set to **TabBarDisplayMode.BOTTOM_TABBAR**, **visibility** applies only to the bottom tab bar.
+   * @returns { TabContentAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  default tabBarVisibility(visibility: TabVisibility, displayMode: TabBarDisplayMode | undefined): this;
 }
 
 /**
