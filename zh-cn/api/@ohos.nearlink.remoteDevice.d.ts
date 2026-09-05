@@ -18,6 +18,7 @@
  * @kit ConnectivityKit
  */
 
+import type { Callback } from '@ohos.base';
 import nearlinkConstant from '@ohos.nearlink.constant';
 
 /**
@@ -26,6 +27,7 @@ import nearlinkConstant from '@ohos.nearlink.constant';
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
  * @since 26.0.0 dynamic
+ * @since 26.1.0 static
  */
 declare namespace remoteDevice {
   /**
@@ -34,6 +36,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   type PairingState = nearlinkConstant.PairingState;
 
@@ -43,6 +46,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   type ConnectionState = nearlinkConstant.ConnectionState;
 
@@ -52,6 +56,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   type DeviceClass = nearlinkConstant.DeviceClass;
 
@@ -61,6 +66,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   type AcbState = nearlinkConstant.AcbState;
 
@@ -71,6 +77,7 @@ declare namespace remoteDevice {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   type ConnectionInterval = nearlinkConstant.ConnectionInterval;
 
@@ -84,6 +91,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function createRemoteDevice(address: string): RemoteDevice;
 
@@ -103,6 +111,7 @@ declare namespace remoteDevice {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function onPairingRequest(callback: Callback<PairingRequestParam>): void;
 
@@ -116,6 +125,7 @@ declare namespace remoteDevice {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function offPairingRequest(callback?: Callback<PairingRequestParam>): void;
 
@@ -130,6 +140,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function onPairingStateChange(callback: Callback<PairingStateParam>): void;
 
@@ -143,6 +154,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function offPairingStateChange(callback?: Callback<PairingStateParam>): void;
 
@@ -159,6 +171,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function onConnectionStateChange(callback: Callback<ConnectionStateParam>): void;
 
@@ -172,6 +185,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function offConnectionStateChange(callback?: Callback<ConnectionStateParam>): void;
 
@@ -188,6 +202,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function onAcbStateChange(callback: Callback<AcbStateParam>): void;
 
@@ -201,6 +216,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function offAcbStateChange(callback?: Callback<AcbStateParam>): void;
 
@@ -211,6 +227,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   interface RemoteDevice {
     /**
@@ -224,6 +241,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     startPairing(): Promise<void>;
 
@@ -240,6 +258,7 @@ declare namespace remoteDevice {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     startCrediblePairing(): Promise<void>;
 
@@ -256,6 +275,7 @@ declare namespace remoteDevice {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     removePairedDevice(): Promise<void>;
 
@@ -272,6 +292,7 @@ declare namespace remoteDevice {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     cancelDevicePairing(): Promise<void>;
 
@@ -290,6 +311,7 @@ declare namespace remoteDevice {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     setPairingPasscode(passcode: string): Promise<void>;
 
@@ -308,6 +330,7 @@ declare namespace remoteDevice {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     setPairingConfirmation(accept: boolean): void;
 
@@ -324,6 +347,7 @@ declare namespace remoteDevice {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     connect(): Promise<void>;
 
@@ -340,6 +364,7 @@ declare namespace remoteDevice {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     disconnect(): Promise<void>;
 
@@ -354,6 +379,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     getPairingState(): PairingState;
 
@@ -368,6 +394,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     getDeviceName(): string;
 
@@ -382,6 +409,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     getDeviceClass(): DeviceClass;
 
@@ -396,6 +424,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     getConnectionState(): ConnectionState;
 
@@ -414,6 +443,7 @@ declare namespace remoteDevice {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     setDeviceAlias(alias: string): void;
 
@@ -430,6 +460,7 @@ declare namespace remoteDevice {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     getDeviceAlias(): string;
 
@@ -445,6 +476,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     getAcbState(): AcbState;
 
@@ -459,6 +491,7 @@ declare namespace remoteDevice {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     getDeviceModel(): DeviceModel;
 
@@ -473,6 +506,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     getDeviceInformation(): DeviceInformation;
 
@@ -489,6 +523,7 @@ declare namespace remoteDevice {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     getRssiValue(): Promise<int>;
 
@@ -505,6 +540,7 @@ declare namespace remoteDevice {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     setConnectionInterval(interval: ConnectionInterval): void;
   }
@@ -515,6 +551,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   interface PairingStateParam {
     /**
@@ -524,6 +561,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     address: string;
     /**
@@ -532,6 +570,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     preState: PairingState;
     /**
@@ -540,6 +579,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     state: PairingState;
     /**
@@ -548,6 +588,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     reason: PairingReason;
     /**
@@ -556,6 +597,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     reasonMsg?: string;
   }
@@ -566,6 +608,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   enum PairingReason {
     /**
@@ -574,6 +617,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     PAIRING_REASON_SUCCESS = 0,
     /**
@@ -582,6 +626,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     PAIRING_REASON_FAILURE = 1,
     /**
@@ -590,6 +635,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     PAIRING_REASON_ACB_CONNECTION_FAIL = 2,
     /**
@@ -598,6 +644,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     PAIRING_REASON_EXCEED_ACB_MAX = 3,
     /**
@@ -606,6 +653,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     PAIRING_REASON_REMOTE_CANCELED = 4,
     /**
@@ -614,6 +662,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     PAIRING_REASON_LOCAL_CANCELED = 5,
     /**
@@ -622,6 +671,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     PAIRING_REASON_AUTH_FAIL = 6
   }
@@ -632,6 +682,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   interface PairingRequestParam {
     /**
@@ -641,6 +692,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     address: string;
     /**
@@ -649,6 +701,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     passkey: string;
     /**
@@ -657,6 +710,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     pairingType: PairingType;
   }
@@ -667,6 +721,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   enum PairingType {
     /**
@@ -675,6 +730,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     NO_PASSKEY_CONFIRMATION = 0,
     /**
@@ -683,6 +739,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     PAIRING_TYPE_PASSCODE = 1,
     /**
@@ -691,6 +748,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     PAIRING_TYPE_NUMBER_COMPARE = 2
   }
@@ -701,6 +759,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   interface ConnectionStateParam {
     /**
@@ -710,6 +769,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     address: string;
     /**
@@ -718,6 +778,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     preState: ConnectionState;
     /**
@@ -726,6 +787,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     state: ConnectionState;
     /**
@@ -734,6 +796,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     connectionReason: ConnectionReason;
     /**
@@ -742,6 +805,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     reasonMsg?: string;
   }
@@ -752,6 +816,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   enum ConnectionReason {
     /**
@@ -760,6 +825,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     CONNECTION_SUCCESS = 0,
     /**
@@ -768,6 +834,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     CONNECTION_FAILURE = 1,
     /**
@@ -776,6 +843,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     CONNECTION_LOCAL_DISCONNECT = 2,
     /**
@@ -784,6 +852,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     CONNECTION_REMOTE_DISCONNECT = 3,
     /**
@@ -792,6 +861,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     CONNECTION_FAIL_ACB_CONNECTION = 4,
     /**
@@ -800,6 +870,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     CONNECTION_FAIL_SERVICE_DISCOVERY = 5,
     /**
@@ -808,6 +879,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     CONNECTION_FAIL_NO_AVAILABLE_SERVICE = 6,
     /**
@@ -816,6 +888,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     CONNECTION_FAIL_CONNECTION_NUM_LIMITED = 7
   }
@@ -826,6 +899,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   interface AcbStateParam {
     /**
@@ -834,6 +908,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     address: string;
 
@@ -843,6 +918,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     state: AcbState;
   }
@@ -854,6 +930,7 @@ declare namespace remoteDevice {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   interface DeviceModel {
     /**
@@ -863,6 +940,7 @@ declare namespace remoteDevice {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     modelId: string;
 
@@ -873,6 +951,7 @@ declare namespace remoteDevice {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     subModelId: string;
 
@@ -883,6 +962,7 @@ declare namespace remoteDevice {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     iconId: string;
   }
@@ -893,6 +973,7 @@ declare namespace remoteDevice {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   interface DeviceInformation {
     /**
@@ -902,6 +983,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     manufacturerData: string;
 
@@ -912,6 +994,7 @@ declare namespace remoteDevice {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     modelData: string;
   }

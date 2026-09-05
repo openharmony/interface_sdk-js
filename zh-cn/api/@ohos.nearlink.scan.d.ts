@@ -28,6 +28,7 @@ import nearlinkConstant from '@ohos.nearlink.constant';
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
  * @since 26.0.0 dynamic
+ * @since 26.1.0 static
  */
 declare namespace scan {
   /**
@@ -49,6 +50,7 @@ declare namespace scan {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function startScan(filters: ScanFilters[] | null, options?: ScanOptions): Promise<void>;
 
@@ -64,6 +66,7 @@ declare namespace scan {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function stopScan(): Promise<void>;
 
@@ -78,6 +81,7 @@ declare namespace scan {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function onDeviceFound(callback: Callback<ScanResults[]>): void;
 
@@ -90,6 +94,7 @@ declare namespace scan {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function offDeviceFound(callback?: Callback<ScanResults[]>): void;
 
@@ -99,6 +104,7 @@ declare namespace scan {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   interface ScanResults {
     /**
@@ -107,6 +113,7 @@ declare namespace scan {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     address: string;
     /**
@@ -116,6 +123,7 @@ declare namespace scan {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     rssi: int;
     /**
@@ -124,6 +132,7 @@ declare namespace scan {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     data: ArrayBuffer;
     /**
@@ -132,6 +141,7 @@ declare namespace scan {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     deviceName: string;
     /**
@@ -140,6 +150,7 @@ declare namespace scan {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     isConnectable: boolean;
     /**
@@ -148,6 +159,7 @@ declare namespace scan {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     deviceClass?: nearlinkConstant.DeviceClass;
   }
@@ -158,6 +170,7 @@ declare namespace scan {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   interface ScanFilters {
     /**
@@ -166,6 +179,7 @@ declare namespace scan {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     address?: string;
 
@@ -175,6 +189,7 @@ declare namespace scan {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     deviceName?: string;
 
@@ -184,6 +199,7 @@ declare namespace scan {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     manufacturerId?: int;
 
@@ -193,6 +209,7 @@ declare namespace scan {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     manufacturerData?: ArrayBuffer;
 
@@ -202,6 +219,7 @@ declare namespace scan {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     manufacturerDataMask?: ArrayBuffer;
 
@@ -212,6 +230,7 @@ declare namespace scan {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     rssi?: int;
   }
@@ -222,6 +241,7 @@ declare namespace scan {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   interface ScanOptions {
     /**
@@ -230,6 +250,7 @@ declare namespace scan {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     scanMode?: ScanMode;
 
@@ -240,6 +261,7 @@ declare namespace scan {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     duration?: int;
   }
@@ -250,6 +272,7 @@ declare namespace scan {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   enum ScanMode {
     /**
@@ -258,6 +281,7 @@ declare namespace scan {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     SCAN_MODE_LOW_POWER = 0,
     /**
@@ -266,6 +290,7 @@ declare namespace scan {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     SCAN_MODE_BALANCED = 1,
     /**
@@ -275,6 +300,7 @@ declare namespace scan {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     SCAN_MODE_LOW_LATENCY = 2
   }

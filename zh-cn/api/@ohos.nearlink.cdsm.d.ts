@@ -26,6 +26,7 @@ import type { Callback } from '@ohos.base';
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
  * @since 26.0.0 dynamic
+ * @since 26.1.0 static
  */
 declare namespace cdsm {
   /**
@@ -43,6 +44,7 @@ declare namespace cdsm {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   function createCdsmClient(address: string): CdsmClient;
 
@@ -58,6 +60,7 @@ declare namespace cdsm {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   interface CdsmClient {
     /**
@@ -71,6 +74,7 @@ declare namespace cdsm {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     getCdsmInfo(): CdsmInfo;
 
@@ -83,6 +87,7 @@ declare namespace cdsm {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     onCdsmInfoChange(callback: Callback<CdsmInfo>): void;
 
@@ -94,6 +99,7 @@ declare namespace cdsm {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     offCdsmInfoChange(callback?: Callback<CdsmInfo>): void;
   }
@@ -104,6 +110,7 @@ declare namespace cdsm {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   interface CdsmInfo {
     /**
@@ -112,6 +119,7 @@ declare namespace cdsm {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     members: CdsmMemberInfo[];
   }
@@ -122,6 +130,7 @@ declare namespace cdsm {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   interface CdsmMemberInfo {
     /**
@@ -130,6 +139,7 @@ declare namespace cdsm {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     address: string;
     /**
@@ -138,6 +148,7 @@ declare namespace cdsm {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     state: CdsmConnectionState;
   }
@@ -148,6 +159,7 @@ declare namespace cdsm {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.1.0 static
    */
   enum CdsmConnectionState {
     /**
@@ -156,6 +168,7 @@ declare namespace cdsm {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     DISCONNECTED = 0,
     /**
@@ -164,6 +177,7 @@ declare namespace cdsm {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.1.0 static
      */
     CONNECTED = 1
   }
