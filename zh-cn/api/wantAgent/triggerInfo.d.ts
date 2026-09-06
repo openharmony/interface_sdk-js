@@ -25,7 +25,7 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * 作为[trigger](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent.md#wantagenttrigger)的入参定义触发WantAgent所需
+ * 作为[trigger]{@link @ohos.app.ability.wantAgent:wantAgent.trigger(agent: WantAgent, triggerInfo: TriggerInfo, callback?: AsyncCallback<CompleteData>)}的入参定义触发WantAgent所需
  * 要的信息。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -35,13 +35,13 @@ import { RecordData } from '../@ohos.base';
  */
 export interface TriggerInfo {
   /**
-   * 表示传递的公共事件数据，仅当WantAgent实例的
-   * [OperationType](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent.md#operationtype)类型是'
-   * SEND_COMMON_EVENT'时有效。该字段与发布者使用
+   * 表示传递的公共事件代码，仅当WantAgent实例的
+   * [OperationType]{@link @ohos.app.ability.wantAgent:wantAgent.OperationType}类型是
+   * 'SEND_COMMON_EVENT'时有效。该字段与发布者使用
    * [commonEventManager.publish]{@link @ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
    * 发布公共事件时，传递
-   * [CommonEventPublishData](docroot://reference/apis-basic-services-kit/js-apis-inner-commonEvent-commonEventPublishData.md#属性)
-   * 公共事件数据中的`code`字段含义一致。
+   * [CommonEventPublishData]{@link ../commonEvent/commonEventPublishData:CommonEventPublishData}
+   * 公共事件数据中的`code`字段含义一致。取值根据公共事件类型确定。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -62,8 +62,8 @@ export interface TriggerInfo {
 
   /**
    * 表示公共事件订阅者的权限。仅当WantAgent实例的
-   * [OperationType](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent.md#operationtype)类型是'
-   * SEND_COMMON_EVENT'时，该字段生效。
+   * [OperationType]{@link @ohos.app.ability.wantAgent:wantAgent.OperationType}类型是
+   * 'SEND_COMMON_EVENT'时，该字段生效。若权限为null，则接收方无需具备任何权限。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -73,7 +73,8 @@ export interface TriggerInfo {
   permission?: string;
 
   /**
-   * 额外数据。
+   * 额外数据，用于传递自定义扩展信息。参数为键值对对象，key为字符串类型的键名，value为任意类型的值。
+   * 建议使用类型安全的extraInfos属性替代本属性。如果同时设置了extraInfo和extraInfos，extraInfos将生效，extraInfo将被忽略。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -90,7 +91,8 @@ export interface TriggerInfo {
   extraInfo?: Record<string, RecordData>;
 
   /**
-   * 额外数据。推荐使用该属性替代extraInfo，设置该属性后，extraInfo不再生效。
+   * 额外数据，用于传递自定义键值对信息，类型安全。推荐使用该属性替代extraInfo。与extraInfo同时设置时，本属性优先生效。
+   * 当需要在触发WantAgent时携带额外的自定义数据时传入此参数，不传入时默认为null，不会携带额外数据。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -107,7 +109,7 @@ export interface TriggerInfo {
   extraInfos?: Record<string, RecordData>;
 
   /**
-   * 触发启动Ability的wantAgent时，由该属性指定启动参数。
+   * 当触发wantAgent启动Ability时，由该属性指定启动参数。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi

@@ -41,7 +41,7 @@ export default interface UIServiceExtensionConnectCallback {
    * 
    * > **说明：**
    * >
-   * > 组件启动规则详见：[组件启动规则（Stage模型）](docroot://application-models/component-startup-rules.md)。
+   * > 组件启动规则详见：[设备内组件启动规则](docroot://application-models/component-startup-rules-inner-device.md)。
    *
    * @param { Record<string, Object> } data - 接收UIServiceExtension连接回调数据。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -66,7 +66,7 @@ export default interface UIServiceExtensionConnectCallback {
    * 
    * > **说明：**
    * >
-   * > 组件启动规则详见：[组件启动规则（Stage模型）](docroot://application-models/component-startup-rules.md)。
+   * > 组件启动规则详见：[设备内组件启动规则](docroot://application-models/component-startup-rules-inner-device.md)。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

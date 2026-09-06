@@ -30,9 +30,9 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * 定义触发WantAgent所需要的信息，可以作为
+ * WantAgentInfo用于定义触发WantAgent所需要的信息，可以作为
  * [getWantAgent](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent.md#wantagentgetwantagent)的入参创建指定的
- * WantAgent对象。
+ * WantAgent对象。适用于需要延迟执行Ability启动、发送公共事件等场景，支持自定义请求码和动作执行属性，帮助开发者灵活控制WantAgent的行为。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @atomicservice [since 12]
@@ -51,7 +51,7 @@ export interface WantAgentInfo {
   wants: Array<Want>;
 
   /**
-   * 动作类型。
+   * 动作类型。不设置时无默认动作类型。
    *
    * 从API version 7 开始支持，从API version 11 开始废弃，建议使用actionType<sup>11+</sup>替代。
    *
@@ -74,7 +74,7 @@ export interface WantAgentInfo {
   actionType?: abilityWantAgent.OperationType;
 
   /**
-   * 开发者自定义的请求码，用于标识将被执行的动作。
+   * 开发者自定义的请求码，用于标识将被执行的动作。从API version 7开始支持。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -84,7 +84,7 @@ export interface WantAgentInfo {
   requestCode: int;
 
   /**
-   * 动作执行属性。
+   * 动作执行属性。不设置时无执行属性。
    * 
    * 从API version 7 开始支持，从API version 11 开始废弃，建议使用actionFlags<sup>11+</sup>替代。
    *
@@ -97,7 +97,7 @@ export interface WantAgentInfo {
   wantAgentFlags?: Array<wantAgent.WantAgentFlags>;
 
   /**
-   * 动作执行属性。
+   * 动作执行属性。不设置时无执行属性。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -107,7 +107,8 @@ export interface WantAgentInfo {
   actionFlags?: Array<abilityWantAgent.WantAgentFlags>;
 
   /**
-   * 额外数据。
+   * 额外数据，用于传递自定义扩展信息。参数为键值对对象，key为字符串类型的键名，value为任意类型的值。
+   * 建议使用类型安全的extraInfos属性替代本属性。如果同时设置了extraInfo和extraInfos，extraInfos将生效，extraInfo将被忽略。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -125,7 +126,8 @@ export interface WantAgentInfo {
   extraInfo?: Record<string, RecordData>;
 
   /**
-   * 额外数据。推荐使用该属性替代extraInfo，设置该属性后，extraInfo不再生效。
+   * 额外数据，用于传递自定义键值对信息，类型安全。推荐使用该属性替代extraInfo。与extraInfo同时设置时，本属性优先生效。
+   * 当需要在触发WantAgent时携带额外的自定义数据时传入此参数，不传入时默认为null，不会携带额外数据。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @atomicservice [since 12]
@@ -143,10 +145,8 @@ export interface WantAgentInfo {
 
   /**
    * 用户ID。
-   * 
    * 取值范围：大于等于0。
-   * 
-   * 默认值为调用方所在用户ID。
+   * 当需要指定特定用户时传入此参数，适用于跨用户操作场景（如系统应用管理其他用户的应用）。不传入时默认为调用方所在用户ID。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -157,9 +157,9 @@ export interface WantAgentInfo {
 }
 
 /**
- * 定义触发本地WantAgent所需要的信息，可以作为
+ * LocalWantAgentInfo定义触发本地WantAgent所需要的信息，可以作为
  * [createLocalWantAgent](docroot://reference/apis-ability-kit/js-apis-app-ability-wantAgent-sys.md#wantagentcreatelocalwantagent20)
- * 的入参创建指定的本地WantAgent对象。
+ * 的入参创建指定的本地WantAgent对象。本地WantAgent仅在当前应用进程内有效，适用于进程内的延迟执行场景。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi
@@ -169,7 +169,7 @@ export interface WantAgentInfo {
  */
 export interface LocalWantAgentInfo {
   /**
-   * 将被执行的动作列表。当前只支持一个want。传入多个时只取wants数组的第一个成员。
+   * 将被执行的动作列表。当前只支持一个Want。传入多个Want时，系统仅使用wants数组的第一个成员，其他成员将被忽略。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -180,7 +180,7 @@ export interface LocalWantAgentInfo {
   wants: Array<Want>;
 
   /**
-   * 将被执行的动作类型。
+   * 将被执行的动作类型，用于指定WantAgent的触发方式（如启动Ability、发送事件等）。具体取值参见OperationType枚举说明。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
@@ -191,7 +191,7 @@ export interface LocalWantAgentInfo {
   operationType?: abilityWantAgent.OperationType;
 
   /**
-   * 开发者自定义的请求码，用于标识将被执行的动作。
+   * 开发者自定义的请求码，用于标识将被执行的动作，便于后续通过该请求码识别和匹配对应的动作。建议使用唯一值以避免混淆。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi

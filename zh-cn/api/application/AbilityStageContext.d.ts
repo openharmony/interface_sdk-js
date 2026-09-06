@@ -36,7 +36,7 @@ import Context from './Context';
  */
 declare class AbilityStageContext extends Context {
   /**
-   * AbilityStage对应的ModuleInfo对象。
+   * AbilityStage对应的HapModuleInfo对象，可用来获取当前模块的名称、路径等信息。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -48,7 +48,7 @@ declare class AbilityStageContext extends Context {
   currentHapModuleInfo: HapModuleInfo;
 
   /**
-   * 环境变量。
+   * 环境配置对象。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -60,7 +60,7 @@ declare class AbilityStageContext extends Context {
   config: Configuration;
 
   /**
-   * 启动能力Stage的ElementName对象。
+   * 创建AbilityStage时的元素名称信息。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

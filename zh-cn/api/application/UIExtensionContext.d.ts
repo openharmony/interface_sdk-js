@@ -45,7 +45,7 @@ import UIServiceExtensionConnectCallback from './UIServiceExtensionConnectCallba
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
- * @since 10 dynamic
+ * @since 12 dynamic
  * @since 23 static
  */
 declare class UIExtensionContext extends ExtensionContext {
@@ -150,7 +150,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * > 组件启动规则详见：[组件启动规则（Stage模型）](docroot://application-models/component-startup-rules.md)。
    *
    * @param { Want } want - 启动UIAbility时必要的Want，包含待启动UIAbility的名称等信息。
-   * @param { StartOptions } [options] - 启动UIAbility所携带的额外参数。
+   * @param { StartOptions } [options] - 启动UIAbility所携带的额外参数，用于自定义启动行为（如指定显示屏幕ID、窗口模式等）。
+   *     当需要自定义启动配置时传入此参数，不传入时使用系统默认启动配置。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -415,7 +416,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * 
    * > **说明：**
    * >
-   * > 组件启动规则详见：[组件启动规则（Stage模型）](docroot://application-models/component-startup-rules.md)。
+   * > 组件启动规则详见：[设备内组件启动规则（仅对系统应用开放）](docroot://application-models/component-startup-rules-inner-device-sys.md)
+   * > 和[跨设备组件启动规则（仅对系统应用开放）](docroot://application-models/component-startup-rules-cross-device-sys.md)。
    *
    * @param { Want } want - 启动Ability的want信息。
    * @param { StartOptions } [options] - 启动Ability所携带的参数。
@@ -741,7 +743,7 @@ declare class UIExtensionContext extends ExtensionContext {
   disconnectUIServiceExtensionAbility(proxy: UIServiceProxy): Promise<void>;
 
   /**
-   * 启动一个ServiceExtensionAbility。使用Promise异步回调。
+   * 启动一个ServiceExtensionAbility，用于提供后台服务能力。使用Promise异步回调。
    *
    * @param { Want } want - 启动ServiceExtensionAbility的Want信息。
    * @returns { Promise<void> } Promise对象，无返回结果。
@@ -770,11 +772,12 @@ declare class UIExtensionContext extends ExtensionContext {
   startServiceExtensionAbility(want: Want): Promise<void>;
 
   /**
-   * 启动一个指定系统账号下的ServiceExtensionAbility。使用Promise异步回调。
+   * 启动一个指定系统账号下的ServiceExtensionAbility，用于提供后台服务能力。使用Promise异步回调。
    * 
    * > **说明：**
    * >
-   * > 组件启动规则详见：[组件启动规则（Stage模型）](docroot://application-models/component-startup-rules.md)。
+   * > 组件启动规则详见：[设备内组件启动规则（仅对系统应用开放）](docroot://application-models/component-startup-rules-inner-device-sys.md)
+   * > 和[跨设备组件启动规则（仅对系统应用开放）](docroot://application-models/component-startup-rules-cross-device-sys.md)。
    * >
    * > 当accountId为当前用户时，无需进行权限校验。
    *
@@ -818,8 +821,8 @@ declare class UIExtensionContext extends ExtensionContext {
    * > 该接口需要在窗口创建之前调用。建议在[UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}的
    * > [onCreate]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility#onCreate}生命周期内调用。
    *
-   * @param { boolean } isForbidden - 是否允许[UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}
-   *     拉起的页面被使用方的页面覆盖。true表示不允许，false表示允许。
+   * @param { boolean } isForbidden - 设置是否禁止[UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}
+   *     拉起的页面被使用方的页面覆盖。true表示禁止，false表示允许。
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
@@ -836,7 +839,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * 
    * > **说明**：
    * >
-   * > - 调用该接口后会创建新的资源管理器对象，如果此前有缓存资源管理器，需要进行更新。
+   * > - 调用该接口后会创建新的资源管理器对象，如果此前有缓存资源管理器，开发者需要更新缓存的资源管理器引用，以使用新创建的资源管理器对象。
    * >
    * > - 深浅色模式生效的优先级：UIExtensionAbility的深浅色模式 > 应用的深浅色模式（
    * > [ApplicationContext.setColorMode]{@link ./application/ApplicationContext:ApplicationContext.setColorMode}）> 系统的深浅色模

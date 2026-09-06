@@ -33,7 +33,7 @@ declare interface AbilityStartCallback {
    * 拉起UIExtensionAbility执行失败的回调。
    *
    * @param { int } code - 拉起UIExtensionAbility执行失败时返回的结果码。
-   * @param { string } name - 拉起UIExtensionAbility执行失败时返回的名称。
+   * @param { string } name - 拉起UIExtensionAbility执行失败时返回的错误名称，用于标识错误类型。
    * @param { string } message - 拉起UIExtensionAbility执行失败时返回的错误信息。
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
