@@ -2137,8 +2137,8 @@ export declare class Parameter {
    */
   injectActionType?: InjectActionType;
   /**
-   * Configured when executing [AccessibilityAction]{@link @ohos.accessibility:AccessibilityAction}.
-   * EXECUTE_CUSTOM_ACTION. Name of the custom action.
+   * Configured when executing [AccessibilityAction]{@link @ohos.accessibility:AccessibilityAction}.EXECUTE_CUSTOM_ACTION.
+   * Name of the custom action.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
