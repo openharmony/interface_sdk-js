@@ -45,7 +45,7 @@ export interface Callback<T> {
 
   /**
    *
-   * @param { T } data - Common callback information. The type is defined by the developer.
+   * @param { T } data - Common callback information. You need to define the callback type.
    *     The callback is used to return data of the corresponding type. No data is returned if the callback fails.
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
@@ -75,7 +75,7 @@ export interface ErrorCallback<T extends Error = BusinessError> {
 
   /**
    *
-   * @param { T } err - Common error information returned when the API fails to be called.
+   * @param { T } err - Common error information returned when the API call fails.
    *     The default type is **BusinessError**, including the error code (**code**)
    *     and optional additional data (**data**).
    * @syscap SystemCapability.Base
@@ -106,13 +106,13 @@ export interface AsyncCallback<T, E = void> {
 
   /**
    *
-   * @param { BusinessError<E> } err - Common error information returned when the API fails to be called,
+   * @param { BusinessError<E> } err - Common error information returned when the API call fails,
    *     including the error code and optional additional data.
-   *     If the **E** parameter is not specified, the default value **void** is used.
+   *     If the parameter of the **E** type is not specified, the default value **void** is used.
    *     In this case, **BusinessError** contains only the error code.
    *     If the API call succeeds, this parameter returns **null**.
    * @param { T } data - Data returned asynchronously when the API is successfully called. The data type is defined by
-   *     the developer. This parameter is unavailable when the API fails to be called.
+   *     the developer. This parameter is unavailable when the API call fails.
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
    * @form [since 12]
@@ -137,7 +137,7 @@ export interface AsyncCallback<T, E = void> {
 export interface BusinessError<T = void> extends Error {
 
   /**
-   * Error code returned when the API fails to be called. The specific error code is defined by each API. For details,
+   * Error code returned when the API call fails. The specific error code is defined by each API. For details,
    * see the error code description of the corresponding API.
    *
    * @syscap SystemCapability.Base
@@ -149,7 +149,7 @@ export interface BusinessError<T = void> extends Error {
   code: number;
 
   /**
-   * Error message returned when the API fails to be called. If this parameter is left empty, the error object does not
+   * Additional error information returned when the API call fails. If this parameter is left empty, the error object does not
    * contain additional data.
    *
    * @syscap SystemCapability.Base

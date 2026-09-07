@@ -82,7 +82,7 @@ export const enum SuppressWarningsType {
   /**
    * Compatibility warning.
    * This warning is generated when the start version of the API called is later than
-   * the compatible SDK version set for the project(compatibleSdkVersion specified in build-profile.json5).
+   * the compatible SDK version (**compatibleSdkVersion** specified in **build-profile.json5**) set for the project.
    * It is recommended that this warning be suppressed when version check
    * or compatibility processing has been performed.
    * Suppressing this warning without proper handling may cause devices running earlier versions to malfunction.
