@@ -5869,13 +5869,12 @@ declare namespace media {
     getID(): string;
 
     /**
-     * Set the audio and video feature filtering items of the MediaSource,
-     * After the user defines the audio and video filtering items of the MediaSource,
-     * When playing or downloading MediaSource data offline,
-     * Preferentially perform a corresponding operation in the filtering feature.
+     * 设置MediaSource的音视频特征筛选项，
+     * 用户定义MediaSource的音视频筛选项后，
+     * 在播放或离线下载MediaSource数据时，
+     * 优先在筛选特征内执行对应的操作。
      *
-     * @param { TrackSelectionFilter } filter - Specifies the audio and video features of the pre-downloaded streaming
-     *     media.
+     * @param { TrackSelectionFilter } filter - 指定预下载流媒体的音视频特征。
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -5883,10 +5882,10 @@ declare namespace media {
     setTrackSelectionFilter(filter: TrackSelectionFilter): void;
 
     /**
-     * Obtains the configured audio and video feature filtering values.
+     * 获取已配置的音视频特征筛选值
      *
-     * @returns { TrackSelectionFilter | undefined } If the TrackSelectionFilter object exists,
-     *     the TrackSelectionFilter object is returned. Otherwise, the TrackSelectionFilter object is returned.
+     * @returns { TrackSelectionFilter | undefined } 如果存在TrackSelectionFilter对象，
+     *     返回TrackSelectionFilter对象。 否则, 返回TrackSelectionFilter对象。
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
