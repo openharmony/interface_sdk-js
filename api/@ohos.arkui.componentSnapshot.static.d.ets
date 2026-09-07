@@ -225,8 +225,8 @@ declare namespace componentSnapshot {
      */
     export interface SnapshotSizeLimitation {
       /**
-       * Maximum width limitation for component snapshot, in PX. Value range: [0, +∞).
-       *     Returns -1 if the limitation cannot be obtained.
+       * Maximum width limitation for component snapshot, in PX. The normal value range is (0, +∞).
+       *     A value of -1 indicates that the component snapshot size limitation query failed.
        *
        * @type { int }
        * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -235,8 +235,8 @@ declare namespace componentSnapshot {
        */
       maxWidth: int;
       /**
-       * Maximum height limitation for component snapshot, in PX. Value range: [0, +∞).
-       *     Returns -1 if the limitation cannot be obtained.
+       * Maximum height limitation for component snapshot, in PX. The normal value range is (0, +∞).
+       *     A value of -1 indicates that the component snapshot size limitation query failed.
        *
        * @type { int }
        * @syscap SystemCapability.ArkUI.ArkUI.Full

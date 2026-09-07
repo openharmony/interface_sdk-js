@@ -378,7 +378,7 @@ declare namespace componentSnapshot {
     /**
      * Maximum width of a component screenshot.
      *
-     * Value range: (-∞, +∞)
+     * The normal value range is (0, +∞). A value of -1 indicates that the component snapshot size limitation query failed.
      *
      * Unit: px.
      *
@@ -393,7 +393,7 @@ declare namespace componentSnapshot {
     /**
      * Maximum height of a component screenshot.
      *
-     * Value range: (-∞, +∞)
+     * The normal value range is (0, +∞). A value of -1 indicates that the component snapshot size limitation query failed.
      *
      * Unit: px.
      *
