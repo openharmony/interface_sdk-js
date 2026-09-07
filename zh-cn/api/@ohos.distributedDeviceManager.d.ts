@@ -1845,8 +1845,9 @@ declare namespace distributedDeviceManager {
      *     1. 10: Operating system based on OpenHarmony
      *     2. 11: Operating system not based on OpenHarmony
      *     3. -1: Unknown
-     * @throws { BusinessError } 201 - User permission verify failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11600102 - Failed to obtain service.
      * @throws { BusinessError } 11600110 - Invalid network ID.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
