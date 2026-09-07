@@ -2320,7 +2320,7 @@ declare namespace media {
     AVERR_PARAMETER_OUT_OF_RANGE = 5400108,
 
     /**
-     * The parameter value means session does not exist
+     * 表示传入的会话ID不存在。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
@@ -11848,6 +11848,14 @@ declare namespace media {
 
   /**
    * 离线下载任务状态枚举。
+   * 
+   * @unionmember { 'init' } 下载任务初始化。
+   * @unionmember { 'queued' } 下载任务排队等待。
+   * @unionmember { 'running' } 下载任务正在运行。
+   * @unionmember { 'completed' } 下载任务已完成。
+   * @unionmember { 'paused' } 下载任务已暂停。
+   * @unionmember { 'removing' } 下载任务正在移除。
+   * @unionmember { 'error' } 下载任务出错。
    * @syscap SystemCapability.Multimedia.Media.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
