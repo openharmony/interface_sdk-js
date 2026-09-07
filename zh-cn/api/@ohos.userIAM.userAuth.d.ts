@@ -2470,6 +2470,175 @@ declare namespace userAuth {
    * @since 23 static
    */
   function queryReusableAuthResult(authParam: AuthParam): Uint8Array;
+
+  /**
+   * 枚举用户识别状态。
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.1.0 dynamic&static
+   */
+  enum UserRecognitionStatus {
+    /**
+     * 不确定机主。
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    UNCERTAIN = 0,
+
+    /**
+     * 识别的用户与前台用户不匹配。
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    MISMATCH = 1,
+
+    /**
+     * 识别的用户与前台用户匹配。
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    MATCH = 2
+  }
+
+  /**
+   * 用户识别结果。
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.1.0 dynamic&static
+   */
+  interface UserRecognitionResult {
+    /**
+     * 识别状态。取值请参见{@link userAuth.UserRecognitionStatus}。
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    status: UserRecognitionStatus;
+
+    /**
+     * 识别出的用户ID，非负整数。
+     * 取值限定为整数。
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    userId: int;
+
+    /**
+     * 识别出的用户信息。
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    userInfo: string;
+
+    /**
+     * 认证信任级别。仅在状态为
+     * {@link userAuth.UserRecognitionStatus.MATCH}时有效。具体取值请参见
+     * {@link userAuth.AuthTrustLevel}。
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    authTrustLevel?: AuthTrustLevel;
+  }
+
+  /**
+   * 定义接收用户识别结果的回调。
+   *
+   * @param { UserRecognitionResult } result - 识别结果。
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.1.0 dynamic&static
+   */
+  type UserRecognitionResultCallback = (result: UserRecognitionResult) => void;
+
+  /**
+   * 提供用户识别结果查询和订阅接口，使用
+   * {@link userAuth.getUserRecognitionMgr}获取**UserRecognitionMgr**实例。
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.1.0 dynamic&static
+   */
+  interface UserRecognitionMgr {
+    /**
+     * 获取最新的用户识别结果。该接口使用promise返回结果。
+     *
+     * @returns { Promise<UserRecognitionResult> } Promise用于返回识别结果。
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    getUserRecognitionResult(): Promise<UserRecognitionResult>;
+
+    /**
+     * 订阅用户识别变更事件。
+     *
+     * @param { UserRecognitionResultCallback } callback - 接收识别结果的回调。
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    onUserRecognitionChange(callback: UserRecognitionResultCallback): void;
+
+    /**
+     * 取消订阅用户识别变更事件。
+     *
+     * @param { UserRecognitionResultCallback } [callback] - 取消注册的回调。如果未指定该参数，
+     *     则取消订阅所有已注册的回调。
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    offUserRecognitionChange(callback?: UserRecognitionResultCallback): void;
+  }
+
+  /**
+   * 获取一个{@link userAuth.UserRecognitionMgr}实例，用于查询和订阅用户
+   * 识别结果。
+   *
+   * > **说明**
+   * > 每次调用都会返回一个新的**UserRecognitionMgr**实例。需使用同一实例进行订阅和取消订阅。
+   *
+   * @permission ohos.permission.ACCESS_USER_PASSIVE_RECOGNITION
+   * @returns { UserRecognitionMgr | null } 用户识别管理器实例。如果设备不支持此能力则返回null。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.1.0 dynamic&static
+   */
+  function getUserRecognitionMgr(): UserRecognitionMgr | null;
 }
 
 export default userAuth;
