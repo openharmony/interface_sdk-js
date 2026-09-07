@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Distributed KV Store
  * @kit ArkData
  */
 

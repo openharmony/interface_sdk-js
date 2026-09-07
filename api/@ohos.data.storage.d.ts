@@ -14,7 +14,7 @@
 */
 
 /**
- * @file
+ * @file Lightweight Data Storage
  * @kit ArkData
  */
 

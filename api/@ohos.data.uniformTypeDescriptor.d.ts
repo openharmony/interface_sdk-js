@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Uniform Data Definition and Description
  * @kit ArkData
  */
 

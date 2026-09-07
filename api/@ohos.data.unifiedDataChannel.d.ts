@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Unified Data Channel
  * @kit ArkData
  */
 

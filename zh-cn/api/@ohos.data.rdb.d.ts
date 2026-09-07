@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 关系型数据库
  * @kit ArkData
  */
 

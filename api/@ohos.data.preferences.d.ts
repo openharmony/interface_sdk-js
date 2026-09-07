@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file User Preferences
  * @kit ArkData
  */
 

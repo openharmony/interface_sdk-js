@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Wallpaper
  * @kit BasicServicesKit
  */
 

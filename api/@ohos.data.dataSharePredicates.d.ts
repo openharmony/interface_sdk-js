@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file DataShare Predicates
  * @kit ArkData
  */
 

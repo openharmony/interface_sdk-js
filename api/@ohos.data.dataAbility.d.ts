@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file DataAbility Predicates
  * @kit ArkData
  */
 

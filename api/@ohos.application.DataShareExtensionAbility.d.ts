@@ -16,7 +16,7 @@
 /**
  * The **DataShareExtensionAbility** module provides data share services based on the ExtensionAbility.
  *
- * @file
+ * @file DataShare ExtensionAbility
  * @kit ArkData
  */
 

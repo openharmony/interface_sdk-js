@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Distributed Data Object
  * @kit ArkData
  */
 
