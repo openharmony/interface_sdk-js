@@ -17,6 +17,7 @@
  * @file
  * @kit AbilityKit
  */
+import { ChildProcessInformation } from './ChildProcessInformation';
 import window from '../@ohos.window';
 import InteropAbilityLifecycleCallback from '../@ohos.app.ability.InteropAbilityLifecycleCallback';
 /*** if arkts dynamic */
@@ -344,6 +345,21 @@ declare class ApplicationContext extends Context {
    * @since 23 static
    */
   getRunningProcessInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
+
+  /**
+   * 获取当前应用的UIAbility子进程信息。该接口使用了一个promise。
+   * 来返回结果。
+   * 返回的子进程是通过ProcessMode.NEW_PROCESS_ATTACH_TO_PARENT通过startAbility创建的。
+   *
+   * @returns { Promise<Array<ChildProcessInformation>> } Promise用于返回UIA的相关信息
+   *     当前应用程序的子进程。如果不存在子进程，则返回空数组。
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Connect to system service failed.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  getUIAbilityChildProcessInfos(): Promise<Array<ChildProcessInformation>>;
 
   /**
    * 终止应用的所有进程，进程退出时不会正常执行完整的应用生命周期流程。使用Promise异步回调。仅支持主线程调用。
