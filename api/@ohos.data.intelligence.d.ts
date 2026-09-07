@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file ArkData Intelligence Platform
  * @kit ArkData
  */
 

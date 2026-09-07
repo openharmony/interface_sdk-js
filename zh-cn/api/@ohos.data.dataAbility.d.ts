@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file DataAbility谓词
  * @kit ArkData
  */
 

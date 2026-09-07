@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file RDB Store
  * @kit ArkData
  */
 
