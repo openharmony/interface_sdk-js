@@ -2854,6 +2854,178 @@ declare namespace userAuth {
    * @since 23 static
    */
   function queryReusableAuthResult(authParam: AuthParam): Uint8Array;
+
+  /**
+   * Enumerates the user recognition status.
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.1.0 dynamic&static
+   */
+  enum UserRecognitionStatus {
+    /**
+     * Uncertain recognition status. It indicates that recognition is in progress or has not reached a conclusion.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    UNCERTAIN = 0,
+
+    /**
+     * The recognized user does not match the active OS user.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    MISMATCH = 1,
+
+    /**
+     * The recognized user matches the active OS user.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    MATCH = 2
+  }
+
+  /**
+   * Defines the user recognition result.
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.1.0 dynamic&static
+   */
+  interface UserRecognitionResult {
+    /**
+     * Recognition status. For details about the values, see {@link userAuth.UserRecognitionStatus}.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    status: UserRecognitionStatus;
+
+    /**
+     * ID of the recognized OS user. The value is a non-negative integer.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    userId: int;
+
+    /**
+     * Information about the recognized user.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    userInfo: string;
+
+    /**
+     * Authentication trust level. Only returned when the status is
+     * {@link userAuth.UserRecognitionStatus.MATCH}. For details about the values, see
+     * {@link userAuth.AuthTrustLevel}.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    authTrustLevel?: AuthTrustLevel;
+  }
+
+  /**
+   * Defines the callback used to receive the user recognition result.
+   *
+   * @param { UserRecognitionResult } result - Recognition result.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.1.0 dynamic&static
+   */
+  type UserRecognitionResultCallback = (result: UserRecognitionResult) => void;
+
+  /**
+   * Provides APIs for querying and subscribing to user recognition results. Use
+   * {@link userAuth.getUserRecognitionMgr} to obtain a **UserRecognitionMgr** instance.
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.1.0 dynamic&static
+   */
+  interface UserRecognitionMgr {
+    /**
+     * Obtains the latest user recognition result. This API uses a promise to return the result.
+     *
+     * @returns { Promise<UserRecognitionResult> } Promise used to return the recognition result.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    getUserRecognitionResult(): Promise<UserRecognitionResult>;
+
+    /**
+     * Subscribes to user recognition change events.
+     *
+     * @param { UserRecognitionResultCallback } callback - Callback used to receive the recognition result.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    onUserRecognitionChange(callback: UserRecognitionResultCallback): void;
+
+    /**
+     * Unsubscribes from user recognition change events.
+     *
+     * @param { UserRecognitionResultCallback } [callback] - Callback to unregister. If this parameter is not specified,
+     *     all registered callbacks are unsubscribed.
+     * @throws { BusinessError } 12500002 - General operation error.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    offUserRecognitionChange(callback?: UserRecognitionResultCallback): void;
+  }
+
+  /**
+   * Obtains a {@link userAuth.UserRecognitionMgr} instance, which is used to query and subscribe to the user
+   * recognition result.
+   *
+   * > **NOTE**
+   *
+   * > Each call returns a new **UserRecognitionMgr** instance. Keep the same instance for paired on/off calls.
+   *
+   * > If the device does not support this capability, **null** is returned.
+   *
+   * @permission ohos.permission.ACCESS_USER_PASSIVE_RECOGNITION
+   * @returns { UserRecognitionMgr | null } User recognition manager instance. Returns **null** if the device does not
+   *     support this capability.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.1.0 dynamic&static
+   */
+  function getUserRecognitionMgr(): UserRecognitionMgr | null;
 }
 
 export default userAuth;
