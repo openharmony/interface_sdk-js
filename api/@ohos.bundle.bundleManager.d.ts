@@ -1643,7 +1643,7 @@ declare namespace bundleManager {
    * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
-  enum DeviceModeDistributionPolicy {
+  export enum DeviceModeDistributionPolicy {
     /**
      * Unspecified device mode distribution policy.
      *
