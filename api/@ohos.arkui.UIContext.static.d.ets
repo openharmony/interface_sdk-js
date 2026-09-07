@@ -3230,7 +3230,7 @@ export declare class ComponentSnapshot {
  * @stagemodelonly
  * @since 26.0.0 static
  */
-export abstract class BaseGestureHandlingProposal {
+export declare abstract class BaseGestureHandlingProposal {
 
   /**
    * The smart gesture action to be performed. Defines the specific operation triggered by the gesture.
@@ -3258,7 +3258,7 @@ export abstract class BaseGestureHandlingProposal {
  * @stagemodelonly
  * @since 26.0.0 static
  */
-export abstract class TargetedGestureProposal extends BaseGestureHandlingProposal {
+export declare abstract class TargetedGestureProposal extends BaseGestureHandlingProposal {
 
   /**
    * The target frame node for gesture handling. This node will receive and process the gesture events.

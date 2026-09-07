@@ -3271,7 +3271,7 @@ export declare class ComponentSnapshot {
  * @stagemodelonly
  * @since 26.0.0 static
  */
-export abstract class BaseGestureHandlingProposal {
+export declare abstract class BaseGestureHandlingProposal {
   /**
    * 要执行的智能手势操作。定义手势触发的具体操作。
    *
@@ -3298,7 +3298,7 @@ export abstract class BaseGestureHandlingProposal {
  * @stagemodelonly
  * @since 26.0.0 static
  */
-export abstract class TargetedGestureProposal extends BaseGestureHandlingProposal {
+export declare abstract class TargetedGestureProposal extends BaseGestureHandlingProposal {
   /**
    * 手势处理的目标节点。该节点将接收并处理手势事件。
    *
