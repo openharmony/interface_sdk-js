@@ -228,6 +228,31 @@ declare class LazyVGridLayoutAttribute extends LazyGridLayoutAttribute<LazyVGrid
    * @since 19 dynamic
    */
   columnsTemplate(value: string): LazyVGridLayoutAttribute;
+
+  /**
+   * Number of columns in the current grid layout. If this attribute is not set, one column will be used.
+   *
+   * When template is of the string type, refer to
+   * [columnsTemplate(value: string)]{@link LazyVGridLayoutAttribute#columnsTemplate(value: string)} for the
+   * usage.
+   *
+   * When template is of the **ItemFillPolicy** type, the number of columns is determined based on the
+   * [breakpoint type](docroot://ui/arkts-layout-development-grid-layout.md#breakpoints) corresponding to the width of
+   * the **LazyVGridLayout** component.
+   *
+   * For example, the **ItemFillPolicy.BREAKPOINT_DEFAULT** component displays two columns when the component width
+   * falls within the sm or smaller breakpoint range, three columns for the md breakpoint range, and five columns for
+   * the lg or larger breakpoint range, with each column being 1 fr.
+   *
+   * @param { string | ItemFillPolicy } template - Number of columns in the current grid layout.
+   * @returns { LazyVGridLayoutAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  columnsTemplate(template: string | ItemFillPolicy): LazyVGridLayoutAttribute;
 }
 
 /**
