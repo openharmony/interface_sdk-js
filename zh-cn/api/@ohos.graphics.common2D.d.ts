@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 2D图形通用数据类型
  * @kit ArkGraphics2D
  */
 /**

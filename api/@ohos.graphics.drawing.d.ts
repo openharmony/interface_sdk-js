@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Drawing Module
  * @kit ArkGraphics2D
  */
 
