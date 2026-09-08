@@ -23,7 +23,7 @@
  * > 
  * > - Since API version 12, the APIs of this module are supported in ArkTS widgets.
  *
- * @file
+ * @file Public Callback Information
  * @kit BasicServicesKit
  */
 
