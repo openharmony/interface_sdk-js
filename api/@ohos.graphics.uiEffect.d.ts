@@ -534,6 +534,10 @@ declare namespace uiEffect {
      * The color mapping is cyclic; for example, given 5 colors sorted by brightness
      * anchor position in ascending order, the color mapping sequence is 1-->2-->3-->4-->5-->1.
      *
+     * > **NOTE**
+     * >
+     * > It is recommended to use as a foreground filter.
+     *
      * @param { Array<Color> } colors - The colors to apply. Each color value must be
      *     greater than or equal to 0.0, with a recommended range of [0, 1].
      *     Values less than 0 have no effect. Color values greater than 1.0 are treated as 1.0.
