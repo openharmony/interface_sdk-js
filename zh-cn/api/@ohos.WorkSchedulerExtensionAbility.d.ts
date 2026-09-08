@@ -16,7 +16,7 @@
 /**
  * 本模块提供延迟任务回调能力。开发者可重写模块接口，在延迟任务触发时，系统可通过本模块接口回调应用，在回调里处理任务逻辑。
  *
- * @file
+ * @file 延迟任务调度回调
  * @kit BackgroundTasksKit
  */
 
@@ -56,7 +56,7 @@ declare class WorkSchedulerExtensionAbility {
   context: WorkSchedulerExtensionContext;
 
   /**
-   * 开始延迟任务调度回调。
+   * 开始延迟任务调度回调。当满足调度条件时触发该回调。
    *
    * @param {workScheduler.WorkInfo} work  - 要添加到执行队列的任务。
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -67,8 +67,8 @@ declare class WorkSchedulerExtensionAbility {
   onWorkStart(work: workScheduler.WorkInfo): void;
 
   /**
-   * 结束延迟任务调度回调。当延迟任务2分钟超时或应用调用[stopWork]{@link @ohos.resourceschedule.workScheduler:workScheduler.stopWork}
-   * 接口取消任务时，触发该回调。
+   * 结束延迟任务调度回调。当延迟任务2分钟超时或应用调用
+   * [stopWork]{@link @ohos.resourceschedule.workScheduler:workScheduler.stopWork}接口取消任务时，触发该回调。
    *
    * @param {workScheduler.WorkInfo} work  - 执行队列中要结束回调的任务。
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler

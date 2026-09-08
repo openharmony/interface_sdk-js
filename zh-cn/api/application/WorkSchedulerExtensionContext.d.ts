@@ -34,10 +34,10 @@ import type Want from '../@ohos.app.ability.Want';
  */
 declare class WorkSchedulerExtensionContext extends ExtensionContext {
   /**
-   * 启动ServiceExtensionAbility，使用Promise异步回调。
+   * 启动ServiceExtensionAbility，用于在后台任务执行时需要启动关联的Service能力，使用Promise异步回调。
    *
-   * @param { Want } want - 启动Ability的want信息。
-   * @returns { Promise<void> } 无返回结果的Promise对象。
+   * @param { Want } want - 启动Ability的want信息，需包含bundleName和abilityName等必要字段。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -62,9 +62,9 @@ declare class WorkSchedulerExtensionContext extends ExtensionContext {
   startServiceExtensionAbility(want: Want): Promise<void>;
 
   /**
-   * 停止ServiceExtensionAbility，使用Promise异步回调。
+   * 停止ServiceExtensionAbility，用于在后台任务结束或不再需要关联的Service能力，使用Promise异步回调。
    *
-   * @param { Want } want - 停止Ability的want信息。
+   * @param { Want } want - 停止Ability的want信息，需包含bundleName和abilityName等必要字段。
    * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
@@ -87,7 +87,7 @@ declare class WorkSchedulerExtensionContext extends ExtensionContext {
   stopServiceExtensionAbility(want: Want): Promise<void>;
 }
 /**
- * Define a WorkSchedulerExtensionContext.
+ * WorkSchedulerExtensionContext是WorkSchedulerExtensionAbility的上下文环境。
  *
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @stagemodelonly

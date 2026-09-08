@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 后台任务管理
  * @kit API10LessDeprecatedModules
  */
 
@@ -82,7 +82,7 @@ declare namespace backgroundTaskManager {
   function cancelSuspendDelay(requestId: number): void;
 
   /**
-   * 获取本次短时任务的剩余时间，使用callback异步回调。
+   * 获取应用程序进入挂起状态前的剩余时间，使用callback异步回调。
    *
    * @param { number } requestId  - 延迟挂起的请求ID。这个值通过调用
    *     [requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}方法获取。
@@ -95,11 +95,11 @@ declare namespace backgroundTaskManager {
   function getRemainingDelayTime(requestId: number, callback: AsyncCallback<number>): void;
 
   /**
-   * 获取本次短时任务的剩余时间，使用Promise异步回调。
+   * 获取应用程序进入挂起状态前的剩余时间，使用Promise异步回调。
    *
    * @param { number } requestId  - 延迟挂起的请求ID。这个值通过调用
    *     [requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}方法获取。
-   * @returns { Promise<number> } Promise对象，返回本次短时任务的剩余时间，单位：ms。
+   * @returns { Promise<number> } Promise对象。返回应用程序进入挂起状态之前的剩余时间，单位：ms。
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 7
    * @deprecated since 9
@@ -114,7 +114,7 @@ declare namespace backgroundTaskManager {
    *
    * @param { string } reason  - 延迟挂起申请的原因。
    * @param { Callback<void> } callback  - 延迟即将超时的回调函数，一般在超时前6秒通过此回调通知应用。
-   * @returns { DelaySuspendInfo } 返回延迟挂起信息。
+   * @returns { DelaySuspendInfo } 返回延迟挂起信息。包含当前任务的任务ID和剩余时间。
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 7
    * @deprecated since 9
@@ -126,8 +126,9 @@ declare namespace backgroundTaskManager {
    * 向系统申请长时任务，使用callback异步回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context  - 应用运行的上下文。<br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
-   *     [Context]{@link ./application/Context:Context}。
+   * @param { Context } context - 应用运行的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context:Context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
    * @param { BackgroundMode } bgMode  - 向系统申请的后台模式。
    * @param { WantAgent } wantAgent  - 通知参数，用于指定长时任务通知点击后跳转的界面。
    * @param { AsyncCallback<void> } callback  - 回调函数，申请长时任务成功时，err为undefined，否则为错误对象。
@@ -142,9 +143,9 @@ declare namespace backgroundTaskManager {
    * 向系统申请长时任务，使用promise异步回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context  - - 应用运行的上下文。<br>FA模型的应用Context定义见[Context]{@link
-   *     ./app/context}。<br>Stage模型的应用Context定义见
-   *     [Context]{@link ./application/Context:Context}。
+   * @param { Context } context - 应用运行的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context:Context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
    * @param { BackgroundMode } bgMode  - 向系统申请的后台模式。
    * @param { WantAgent } wantAgent  - 通知参数，用于指定长时任务通知点击跳转的界面。
    * @returns { Promise<void> } Promise对象，无返回结果。
@@ -158,8 +159,9 @@ declare namespace backgroundTaskManager {
   /**
    * 向系统申请取消长时任务，使用callback异步回调。
    *
-   * @param { Context } context  - 应用运行的上下文。<br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
-   *     [Context]{@link ./application/Context:Context}。
+   * @param { Context } context - 应用运行的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context:Context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
    * @param { AsyncCallback<void> } callback  - 回调函数，取消长时任务成功时，err为undefined，否则为错误对象。
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 8
@@ -171,9 +173,9 @@ declare namespace backgroundTaskManager {
   /**
    * 向系统申请取消长时任务，使用promise异步回调。
    *
-   * @param { Context } context  - - 应用运行的上下文。<br>FA模型的应用Context定义见[Context]{@link
-   *     ./app/context}。<br>Stage模型的应用Context定义见
-   *     [Context]{@link ./application/Context:Context}。
+   * @param { Context } context - 应用运行的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context:Context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 8
@@ -276,6 +278,10 @@ declare namespace backgroundTaskManager {
     /**
      * 计算任务（仅在特定设备生效）。
      *
+     * **说明：** 从API version 21开始，对PC/2in1设备、非PC/2in1设备但申请了ACL权限为
+     * [ohos.permission.KEEP_BACKGROUND_RUNNING_SYSTEM](docroot://security/AccessToken/restricted-permissions.md#ohospermissionkeep_background_running_system)
+     * 的应用开放。 API version 20及之前版本，仅对PC/2in1设备开放。
+     * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 8
      * @deprecated since 9

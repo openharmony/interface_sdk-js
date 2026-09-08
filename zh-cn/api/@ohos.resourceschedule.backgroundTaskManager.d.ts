@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 后台任务管理
  * @kit BackgroundTasksKit
  */
 
@@ -62,7 +62,7 @@ declare namespace backgroundTaskManager {
     /**
      * 长时任务主类型
      * 
-     * **说明：** 主类型与子类型必须匹配。
+     * **说明：** 主类型与子类型必须匹配。具体对应关系请参考长时任务主类型与子类型对照表。
      *
      * @returns { BackgroundTaskMode[] } the background modes
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -75,7 +75,7 @@ declare namespace backgroundTaskManager {
     /**
      * 长时任务主类型
      * 
-     * **说明：** 主类型与子类型必须匹配。
+     * **说明：** 主类型与子类型必须匹配。具体对应关系请参考长时任务主类型与子类型对照表。
      *
      * @param { BackgroundTaskMode[] } value
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -88,7 +88,7 @@ declare namespace backgroundTaskManager {
     /**
      * 长时任务子类型。
      * 
-     * **说明：** 主类型与子类型必须匹配。
+     * **说明：** 主类型与子类型必须匹配。具体对应关系请参考长时任务主类型与子类型对照表。
      *
      * @returns { BackgroundTaskSubmode[] } the background submodes
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -101,7 +101,7 @@ declare namespace backgroundTaskManager {
     /**
      * 长时任务子类型。
      * 
-     * **说明：** 主类型与子类型必须匹配。
+     * **说明：** 主类型与子类型必须匹配。具体对应关系请参考长时任务主类型与子类型对照表。
      *
      * @param { BackgroundTaskSubmode[] } value
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -240,7 +240,7 @@ declare namespace backgroundTaskManager {
      *
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
      * @returns { boolean } 返回长时任务主类型是否支持。true表示支持，false表示不支持。
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @atomicservice [since 26.0.0]
@@ -250,17 +250,18 @@ declare namespace backgroundTaskManager {
     isModeSupported(): boolean;
 
     /**
-     * 请求用户授权是否能在后台长时间运行，使用callback异步回调。接口调用成功会弹出用户授权弹框，建议应用在前台时调用该接口，提示用户进行授权。仅适用于特殊场景类型
+     * 请求用户授权是否能在后台长时间运行，使用callback异步回调。接口调用成功后会发送带提示音的用户授权横幅通知。
+     * 用户授权“本次允许”或“始终允许”后，再次请求授权时将直接回调上次授权结果，不再弹出横幅通知。
+     * 建议应用在前台时调用该接口，提示用户进行授权。仅适用于特殊场景类型
      * [MODE_SPECIAL_SCENARIO_PROCESSING]{@link backgroundTaskManager.BackgroundTaskMode}的长时任务。
      *
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-     * @param { Context } context  - 应用运行的上下文。
-     *     <br>
-     *     <br>FA模型的应用Context定义见[Context]{@link./app/context}。<br>Stage模型的应用Context定义
-     *     见[Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility
-     *     申请。
+     * @param { Context } context - 应用运行的上下文。
+     *     <br>FA模型的应用Context定义见[Context]{@link ./app/context:Context}。
+     *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+     *     <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
      * @param { Callback<UserAuthResult> } callback  - 用户操作后，返回授权结果。
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 9800004 - System service operation failed.
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -271,12 +272,15 @@ declare namespace backgroundTaskManager {
     requestAuthFromUser(context: Context, callback: Callback<UserAuthResult>): void;
 
     /**
-     * 向用户请求MODE_SPECIAL_SCENARIO_PROCESSING授权时，会弹出对话框。
+     * 请求用户授权是否能在后台长时间运行，使用callback异步回调。接口调用成功后会发送授权弹窗。
+     * 用户授权“本次允许”、“始终允许”或“不允许”后，再次请求授权时将直接回调上次授权结果，不再弹出授权弹窗。
+     * 建议应用在前台时调用该接口，提示用户进行授权。仅适用于特殊场景类型
+     * [MODE_SPECIAL_SCENARIO_PROCESSING]{@link backgroundTaskManager.BackgroundTaskMode}的长时任务。
      *
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
      * @param { Context } context - App running context.
      * @param { Callback<UserAuthResult> } callback - The callback of the function.
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 9800004 - System service operation failed.
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -289,13 +293,12 @@ declare namespace backgroundTaskManager {
      * 查询用户是否授权能在后台长时间运行。使用Promise异步回调。
      *
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-     * @param { Context } context  - 应用运行的上下文
-     *     <br>
-     *     <br>FA模型的应用Context定义见[Context]{@link./app/context}。<br>Stage模型的应用Context定
-     *     义见[Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持
-     *     ServiceAbility申请。
+     * @param { Context } context - 应用运行的上下文。
+     *     <br>FA模型的应用Context定义见[Context]{@link ./app/context:Context}。
+     *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+     *     <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
      * @returns { Promise<UserAuthResult> } Promise对象，返回用户授权结果。
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 9800004 - System service operation failed.
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -306,12 +309,15 @@ declare namespace backgroundTaskManager {
     checkSpecialScenarioAuth(context: Context): Promise<UserAuthResult>;
 
     /**
-     * 特殊场景长时任务申请用户授权，未授权时不会抛出异常。
+     * 查询用户是否授权能在后台长时间运行。使用Promise异步回调。
+     * 当未授权时，返回授权结果[NOT_DETERMINED]{@link backgroundTaskManager.UserAuthResult}；
+     * 当未配置特殊场景类型[MODE_SPECIAL_SCENARIO_PROCESSING]{@link backgroundTaskManager.BackgroundTaskMode}的长时任务时，
+     * 返回授权结果为[NOT_SUPPORTED]{@link backgroundTaskManager.UserAuthResult}。
      *
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
      * @param { Context } context - 应用上下文
      * @returns { Promise<UserAuthResult> } 用户授权结果
-     * @throws { BusinessError } 201 - 无权限
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 9800004 - 系统服务无响应
      * @throws { BusinessError } 9800005 - 长时任务校验错误
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -322,6 +328,12 @@ declare namespace backgroundTaskManager {
 
     /**
      * 通知进度信息。
+     * 
+     * **说明：** 该属性仅适用于通过
+     * [startBackgroundRunning()]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request: ContinuousTaskRequest)}接口申请长时任务，
+     * 且长时任务类型包含数据传输类型[MODE_DATA_TRANSFER]{@link backgroundTaskManager.BackgroundTaskMode}。
+     * 
+     * 在[updateBackgroundRunning()]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, request: ContinuousTaskRequest)}接口中不允许使用该属性。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -332,7 +344,13 @@ declare namespace backgroundTaskManager {
     /**
      * 通知进度信息。
      *
-     * @param { ProgressInfo | undefined } value - 通知进度信息。
+     * **说明：** 该属性仅适用于通过
+     * [startBackgroundRunning()]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request: ContinuousTaskRequest)}接口申请长时任务，
+     * 且长时任务类型包含数据传输类型[MODE_DATA_TRANSFER]{@link backgroundTaskManager.BackgroundTaskMode}。
+     * 
+     * 在[updateBackgroundRunning()]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, request: ContinuousTaskRequest)}接口中不允许使用该属性。
+     * 
+     * @param { ProgressInfo | undefined } value
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
      * @since 26.1.0 static
@@ -341,6 +359,12 @@ declare namespace backgroundTaskManager {
 
     /**
      * 通知进度信息。
+     * 
+     * **说明：** 该属性仅适用于通过
+     * [startBackgroundRunning()]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request: ContinuousTaskRequest)}接口申请长时任务，
+     * 且长时任务类型包含数据传输类型[MODE_DATA_TRANSFER]{@link backgroundTaskManager.BackgroundTaskMode}。
+     * 
+     * 在[updateBackgroundRunning()]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, request: ContinuousTaskRequest)}接口中不允许使用该属性。
      *
      * @returns { ProgressInfo | undefined } 通知进度信息。
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -375,8 +399,9 @@ declare namespace backgroundTaskManager {
      */
     fileName: string;
     /**
-     * 通知进度。如果该字段不存在，则不显示通知进度环，显示为普通通知。
-     * 取值限定为整数。
+     * 通知进度。取值范围：[0,100]。
+     * 
+     * **说明：** 如果该字段存在，则通知有进度环，通知类型为实况窗通知。如果该字段不存在或值为100，则通知无进度环，通知类型为普通通知。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -384,7 +409,9 @@ declare namespace backgroundTaskManager {
      */
     progressValue?: int;
     /**
-     * 下载进度达到100%时是否静音。
+     * 通知进度达到100时是否静音，true表示静音，false表示非静音（响铃+震动），默认为false。
+     * 
+     * **说明：** 该字段仅在progressValue字段值为100时生效。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -402,8 +429,7 @@ declare namespace backgroundTaskManager {
    */
   export interface DataTransferProgress {  
     /**
-     * 长时任务ID。
-     * 取值限定为整数。
+     * 长时任务ID。必须是存在的ID。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -412,7 +438,7 @@ declare namespace backgroundTaskManager {
     continuousTaskId: int;
 
     /**
-     * 通知参数，用于指定点击长时任务通知后跳转的界面。
+     * 通知参数，用于指定点击长时任务通知后跳转的界面。默认为申请长时任务时传入的wantAgent。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -439,7 +465,7 @@ declare namespace backgroundTaskManager {
    */
   interface DelaySuspendInfo {
     /**
-     * 应用实际申请的短时任务时间，单位：ms。
+     * 短时任务的请求ID。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
      * @since 9 dynamic
@@ -447,7 +473,7 @@ declare namespace backgroundTaskManager {
      */
     requestId: int;
     /**
-     * Actual duration of the transient task requested by the application, in milliseconds.
+     * 应用实际申请的短时任务时间，单位：ms。
      * <br>Unit:ms
      * 
      * **说明：** 申请时间最长为3分钟，低电量（[BatteryCapacityLevel]{@link @ohos.batteryInfo:batteryInfo.BatteryCapacityLevel}为LEVEL_LOW）
@@ -703,7 +729,6 @@ declare namespace backgroundTaskManager {
     bundleName?: string;
     /**
      * 应用分身ID。
-     * 取值范围为全体整数。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 23 dynamic
@@ -724,7 +749,6 @@ declare namespace backgroundTaskManager {
   interface BackgroundTaskStateInfo {  
     /**
      * 用户ID。
-     * 取值范围为全体整数。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi Hide this for inner system use.
@@ -745,7 +769,6 @@ declare namespace backgroundTaskManager {
     bundleName: string;
     /**
      * 应用分身ID。
-     * 取值范围为全体整数。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi Hide this for inner system use.
@@ -755,7 +778,7 @@ declare namespace backgroundTaskManager {
      */
     appIndex: int;
     /**
-     * 授权结果。
+     * 授权结果，表示长时任务授权状态。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi Hide this for inner system use.
@@ -793,7 +816,8 @@ declare namespace backgroundTaskManager {
     suspendState: boolean;
 
     /**
-     * 长时任务暂停原因。
+     * 长时任务暂停原因，恒为-1。
+     * 建议使用[suspendMessage]{@link backgroundTaskManager.SuspendMessage}字段获取长时任务暂停的具体原因。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @since 20 dynamic
@@ -918,7 +942,7 @@ declare namespace backgroundTaskManager {
      */
     isPersistent: boolean;
     /**
-     * 进程或应用申请，取值为true表示进程申请。取值为false表示应用申请。
+     * 进程或应用申请，取值为true表示进程申请。取值为false表示应用申请，能效资源对整个应用的所有进程有效。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -966,15 +990,15 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * 取消短时任务。
+   * 取消短时任务。适用于应用任务已完成、需要提前释放后台资源等场景。
    *
-   * @param { int } requestId  - 短时任务的请求ID。通过申请短时任务[requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}
-   *     接口获取。
+   * @param { int } requestId  - 短时任务的请求ID。
+   *     通过申请短时任务[requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}接口获取。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   *     <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
@@ -988,14 +1012,14 @@ declare namespace backgroundTaskManager {
   /**
    * 获取本次短时任务的剩余时间，使用callback异步回调。
    *
-   * @param { int } requestId  - 短时任务的请求ID。通过申请短时任务[requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}
-   *     接口获取。
+   * @param { int } requestId  - 短时任务的请求ID。
+   *     通过申请短时任务[requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}接口获取。
    * @param { AsyncCallback<int> } callback  - 回调函数，返回本次短时任务的剩余时间，单位：ms。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   *     <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
@@ -1009,14 +1033,14 @@ declare namespace backgroundTaskManager {
   /**
    * 获取本次短时任务的剩余时间，使用Promise异步回调。
    *
-   * @param { int } requestId  - 短时任务的请求ID。通过申请短时任务[requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}
-   *     接口获取。
+   * @param { int } requestId  - 短时任务的请求ID。
+   *     通过申请短时任务[requestSuspendDelay]{@link backgroundTaskManager.requestSuspendDelay}接口获取。
    * @returns { Promise<int> } Promise对象，返回本次短时任务的剩余时间，单位：ms。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   *     <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
@@ -1028,7 +1052,7 @@ declare namespace backgroundTaskManager {
   function getRemainingDelayTime(requestId: int): Promise<int>;
 
   /**
-   * 申请短时任务。
+   * 申请短时任务。适用于应用即将退至后台、需要短暂延迟挂起以便完成关键操作（如保存数据、上传进度等）等场景。
    * 
    * > **说明：**
    * >
@@ -1036,12 +1060,12 @@ declare namespace backgroundTaskManager {
    *
    * @param { string } reason  - 申请短时任务的原因。
    * @param { Callback<void> } callback  - 短时任务即将超时的回调函数，一般在超时前6秒，通过此回调通知应用。
-   * @returns { DelaySuspendInfo } 返回短时任务信息。
+   * @returns { DelaySuspendInfo } 返回短时任务信息。包含当前短时任务的任务ID和剩余时间。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types.
+   *     2. Incorrect parameters types.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   *     <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
@@ -1058,7 +1082,7 @@ declare namespace backgroundTaskManager {
    * @returns { Promise<TransientTaskInfo> } Promise对象，返回所有短时任务信息。
    * @throws { BusinessError } 9900001 - Caller information verification failed for a transient task.
    * @throws { BusinessError } 9900003 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   *     <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9900004 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask
    * @since 20 dynamic
@@ -1067,26 +1091,27 @@ declare namespace backgroundTaskManager {
   function getTransientTaskInfo(): Promise<TransientTaskInfo>;
 
   /**
-   * 申请长时任务，支持申请一种类型，使用callback异步回调。长时任务申请成功后，会有通知栏消息，没有提示音。一个UIAbility（FA模型则为ServiceAbility）同一时刻仅支持通过本接口支持申请一个长时任务，可以通过
-   * API version 21新增接口
+   * 申请长时任务，支持申请一种类型，使用callback异步回调。长时任务申请成功后，会有通知栏消息，没有提示音。
+   * 一个UIAbility（FA模型则为ServiceAbility）同一时刻仅支持通过本接口支持申请一个长时任务，可以通过API version 21新增接口
    * [startBackgroundRunning]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request:ContinuousTaskRequest)}
-   * 申请多个长时任务。
+   * 申请多个长时任务。</br>从API版本26.1.0开始，通过本接口申请的长时任务，包含数据传输类型时，可以通过
+   * [updateDataTransferProgress()]{@link backgroundTaskManager.updateDataTransferProgress}接口更新长时任务通知，可选择通知是否有进度环，进度为100时是否响铃。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context  - 应用运行的上下文。
-   *     <br>
-   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
-   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { Context } context - 应用运行的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context:Context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   *     <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
    * @param { BackgroundMode } bgMode  - 长时任务类型。
    * @param { WantAgent } wantAgent  - 通知参数，用于指定点击长时任务通知后跳转的界面。
    * @param { AsyncCallback<void> } callback  - 回调函数，申请长时任务成功时，err为undefined，否则为错误对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   *     <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
@@ -1103,23 +1128,24 @@ declare namespace backgroundTaskManager {
    * 申请长时任务，支持申请一种类型，使用Promise异步回调。长时任务申请成功后，会有通知栏消息，没有提示音。一个UIAbility（FA模型则为ServiceAbility）同一时刻仅支持通过本接口支持申请一个长时任务，可以通过
    * API version 21新增接口
    * [startBackgroundRunning]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request:ContinuousTaskRequest)}
-   * 申请多个长时任务。
+   * 申请多个长时任务。</br>从API版本26.1.0开始，通过本接口申请的长时任务，包含数据传输类型时，可以通过
+   * [updateDataTransferProgress()]{@link backgroundTaskManager.updateDataTransferProgress}接口更新长时任务通知，可选择通知是否有进度环，进度为100时是否响铃。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context  - 应用运行的上下文。
-   *     <br>
-   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
-   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { Context } context - 应用运行的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context:Context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   *     <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
    * @param { BackgroundMode } bgMode  - 长时任务类型。
    * @param { WantAgent } wantAgent  - 通知参数，用于指定点击长时任务通知后跳转的界面。
    * @returns { Promise<void> } 无返回结果的Promise对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   *     <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
@@ -1136,26 +1162,26 @@ declare namespace backgroundTaskManager {
    * 申请长时任务，支持申请多种类型，使用Promise异步回调。长时任务申请成功后，会有通知栏消息，没有提示音。一个UIAbility（FA模型则为ServiceAbility）同一时刻仅支持通过本接口支持申请一个长时任务，可以通过
    * API version 21新增接口
    * [startBackgroundRunning]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request:ContinuousTaskRequest)}
-   * 申请多个长时任务。
+   * 申请多个长时任务。</br>从API版本26.1.0开始，通过本接口申请的长时任务，包含数据传输类型时，可以通过
+   * [updateDataTransferProgress()]{@link backgroundTaskManager.updateDataTransferProgress}接口更新长时任务通知，可选择通知是否有进度环，进度为100时是否响铃。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context  - 应用运行的上下文
-   *     <br>
-   *     FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
-   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
-   * @param { string[] } bgModes  - 长时任务类型
-   *     <br>
-   *     取值范围请参考长时任务类型中的[配置项](docroot://task-management/continuous-task.md#使用场景)。<br>
-   *     **说明：** 支持传入一个或多个类型。
+   * @param { Context } context - 应用运行的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context:Context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   *     <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { string[] } bgModes  - 长时任务类型，取值范围请参考长时任务类型中的
+   *     [配置项](docroot://task-management/continuous-task.md#使用场景)。
+   *     <br>**说明：** 支持传入一个或多个类型。
    * @param { WantAgent } wantAgent  - 通知参数，用于指定点击长时任务通知后跳转的界面。
    * @returns { Promise<ContinuousTaskNotification> } Promise对象，返回
    *     [ContinuousTaskNotification]{@link backgroundTaskManager.ContinuousTaskNotification}类型对象。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   *     <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
@@ -1172,16 +1198,18 @@ declare namespace backgroundTaskManager {
    * 申请长时任务，一个UIAbility（FA模型则为ServiceAbility）下支持通过本接口申请多个长时任务，使用Promise异步回调。通过本接口申请长时任务时，支持与已存在的长时任务合并通知，具体请参考
    * [ContinuousTaskRequest]{@link backgroundTaskManager.ContinuousTaskRequest}。</br>同一时间最多可存在10个长时任务，长时任务申请成功后，会有通知栏消息，
    * 没有提示音。</br>如果通过本接口申请的一个长时任务中同时包含多种类型，且包含数据传输类型，则在通知栏会发送2个长时任务通知，一个为数据传输类型，另一个为其他类型的合并通知。任意一个通知被移除时，长时任务取消，且另一个通知也会同
-   * 步移除。接口返回的长时任务通知Id为数据传输类型的Id，主要用于数据传输的进度更新。
+   * 步移除。接口返回的长时任务通知Id为数据传输类型的Id，主要用于数据传输的进度更新。</br>从API版本26.1.0开始，通过本接口申请长时任务时，支持包含数据传输类型的长时任务直接发送进度模版通知，
+   * 可选择通知是否有进度环，进度为100时是否响铃，具体请参考[ProgressInfo]{@link backgroundTaskManager.ProgressInfo}。
+   * 也可以通过[updateDataTransferProgress()]{@link backgroundTaskManager.updateDataTransferProgress}接口更新长时任务通知。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context  - 应用运行的上下文
-   *     <br>
-   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
-   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { Context } context - 应用运行的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context:Context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   *     <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
    * @param { ContinuousTaskRequest } request  - 长时任务请求信息，包括长时任务主类型、子类型等。
    * @returns { Promise<ContinuousTaskNotification> } Promise对象，返回长时任务通知信息，包括长时任务ID等。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
@@ -1195,31 +1223,30 @@ declare namespace backgroundTaskManager {
   function startBackgroundRunning(context: Context, request: ContinuousTaskRequest): Promise<ContinuousTaskNotification>;
 
   /**
-   * 更新长时任务类型，使用Promise异步回调。长时任务更新成功后，会有通知栏消息，没有提示音。</br>更新长时任务前，可以通过
-   * [getAllContinuousTasks]{@link backgroundTaskManager.getAllContinuousTasks(context: Context)}接口获取当前所有长时任务信息，如果当前没有已经
-   * 存在的长时任务，会更新失败。</br>该接口仅支持更新如下三个接口申请的长时任务：</br>
-   * [startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback:AsyncCallback&lt;void&gt;): void]{@link backgroundTaskManager.startBackgroundRunning(context: Context, bgMode:BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>)}
-   * </br>
-   * [startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise&lt;void&gt;]{@linkbackgroundTaskManager.startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent)}
-   * </br>
-   * [startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent):Promise&lt;ContinuousTaskNotification&gt;]{@link backgroundTaskManager.startBackgroundRunning(context: Context,bgModes: string[], wantAgent: WantAgent)}
+   * 更新长时任务，使用Promise异步回调。更新成功后仅显示通知栏消息，不播放提示音。适用于应用功能切换（如从音视频播放切换到录音）等需要调整长时任务以匹配新业务的场景。
+   * 
+   * 更新长时任务前，可以通过[getAllContinuousTasks]{@link backgroundTaskManager.getAllContinuousTasks(context: Context)}
+   * 接口获取当前所有长时任务信息，如果当前没有已经存在的长时任务，会更新失败。
+   *     </br>调用本接口前，必须先申请长时任务，该接口仅支持更新如下三个接口申请的长时任务：
+   *     </br>[startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent, callback:AsyncCallback&lt;void&gt;): void]{@link backgroundTaskManager.startBackgroundRunning(context: Context, bgMode:BackgroundMode, wantAgent: WantAgent, callback: AsyncCallback<void>)}
+   *     </br>[startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent): Promise&lt;void&gt;]{@linkbackgroundTaskManager.startBackgroundRunning(context: Context, bgMode: BackgroundMode, wantAgent: WantAgent)}
+   *     </br>[startBackgroundRunning(context: Context, bgModes: string[], wantAgent: WantAgent):Promise&lt;ContinuousTaskNotification&gt;]{@link backgroundTaskManager.startBackgroundRunning(context: Context,bgModes: string[], wantAgent: WantAgent)}
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context  - 应用运行的上下文。
-   *     <br>
-   *     <br>FA模型的应用Context定义见[Context]{@link./app/context}。<br>Stage模型的应用Context定义见
-   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
-   * @param { string[] } bgModes  - 更新后的长时任务类型
-   *     <br>取值范围请参考长时任务类型中的[配置项](docroot://task-management/continuous-task.md#使用场景)。
+   * @param { Context } context - 应用运行的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context:Context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   *     <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { string[] } bgModes - 更新后的长时任务类型，取值范围请参考长时任务类型中的[配置项](docroot://task-management/continuous-task.md#使用场景)。
    *     <br> **说明：** 支持传入一个或多个类型。
    * @returns { Promise<ContinuousTaskNotification> } Promise对象，返回
-   *     [ContinuousTaskNotification]{@link backgroundTaskManager.ContinuousTaskNotification}类型对象。
-   * @throws { BusinessError } 201 - Permission denied.
+   *     [ContinuousTaskNotification]{@link backgroundTaskManager.ContinuousTaskNotification}长时任务通知信息对象。
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   *     <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
@@ -1233,7 +1260,8 @@ declare namespace backgroundTaskManager {
   function updateBackgroundRunning(context: Context, bgModes: string[]): Promise<ContinuousTaskNotification>;
 
   /**
-   * 更新长时任务，使用Promise异步回调。长时任务更新成功后，会有通知栏消息，没有提示音。
+   * 更新长时任务，使用Promise异步回调。更新成功后仅显示通知栏消息，不播放提示音。
+   * 适用于应用功能切换（如从音视频播放切换到录音）等需要调整长时任务以匹配新业务的场景。
    *
    * 更新长时任务还存在如下约束限制：
    *
@@ -1242,13 +1270,13 @@ declare namespace backgroundTaskManager {
    * 3. 如果待更新的长时任务或指定的更新类型中包含数据传输类型，直接返回失败。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context  - 应用运行的上下文
-   *     <br>
-   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
-   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { Context } context - 应用运行的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context:Context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   *     <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
    * @param { ContinuousTaskRequest } request  - 长时任务请求信息，包括待更新的长时任务ID等。
    * @returns { Promise<ContinuousTaskNotification> } Promise对象，返回更新后的长时任务通知信息，包括长时任务ID等。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
@@ -1262,12 +1290,12 @@ declare namespace backgroundTaskManager {
   function updateBackgroundRunning(context: Context, request: ContinuousTaskRequest): Promise<ContinuousTaskNotification>;
 
   /**
-   * 更新通知。仅支持数据传输类型长时任务。
+   * 更新长时任务通知。仅支持更新包含数据传输类型的长时任务通知。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context - 应用运行的上下文。
+   * @param { Context } context - 应用运行的上下文。<br> **说明：** Stage模型中，仅支持UIAbility申请。
    * @param { DataTransferProgress } progressInfo - 长时任务通知进度信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
@@ -1281,18 +1309,18 @@ declare namespace backgroundTaskManager {
   /**
    * 取消当前UIAbility（FA模型则为ServiceAbility）下所有长时任务，使用callback异步回调。也可以通过
    * [stopBackgroundRunning]{@link backgroundTaskManager.stopBackgroundRunning(context: Context, continuousTaskId: int)}
-   * 接口取消指定Id的长时任务。
+   * 接口取消指定Id的长时任务。适用于应用功能已完成、应用即将退出等场景。
    *
-   * @param { Context } context  - 应用运行的上下文。
-   *     <br>
-   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
-   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { Context } context - 应用运行的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context:Context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   *     <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
    * @param { AsyncCallback<void> } callback  - 回调函数，取消长时任务成功时，err为undefined，否则为错误对象。
-   * @throws { BusinessError } 201 - Permission denied. [since 9 - 18]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API. [since 9 - 18]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   *     <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
@@ -1308,15 +1336,18 @@ declare namespace backgroundTaskManager {
   /**
    * 取消当前UIAbility（FA模型则为ServiceAbility）下所有长时任务，使用Promise异步回调。也可以通过
    * [stopBackgroundRunning]{@link backgroundTaskManager.stopBackgroundRunning(context: Context, continuousTaskId: int)}
-   * 接口取消指定Id的长时任务。
+   * 接口取消指定Id的长时任务。适用于应用功能已完成、应用即将退出等场景。
    *
-   * @param { Context } context  - 应用运行的上下文。
-   * @returns { Promise<void> } 无返回结果的Promise对象。
-   * @throws { BusinessError } 201 - Permission denied. [since 9 - 18]
+   * @param { Context } context - 应用运行的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context:Context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   *     <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API. [since 9 - 18]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   *     <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
@@ -1332,15 +1363,14 @@ declare namespace backgroundTaskManager {
   /**
    * 取消指定Id的长时任务，使用Promise异步回调。也可以通过
    * [stopBackgroundRunning]{@link backgroundTaskManager.stopBackgroundRunning(context: Context, callback:AsyncCallback<void>)}
-   * 取消当前UIAbility下所有长时任务。
+   * 取消当前UIAbility下所有长时任务。。适用于应用功能已完成、应用即将退出等场景。
    *
-   * @param { Context } context  - 应用运行的上下文。
-   *     <br>
-   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
-   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { Context } context - 应用运行的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context:Context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   *     <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
    * @param { int } continuousTaskId  - 长时任务ID。
-   *     <br>取值限定为整数。
-   *     - 长时任务ID。<br>**说明：** 可以通过
+   *     <br>**说明：** 可以通过
    *     [startBackgroundRunning]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request:ContinuousTaskRequest)}
    *     接口的返回值获取当前申请的长时任务ID，或者通过
    *     [getAllContinuousTasks]{@link backgroundTaskManager.getAllContinuousTasks(context: Context, includeSuspended:boolean)}
@@ -1362,13 +1392,14 @@ declare namespace backgroundTaskManager {
    * 获取所有长时任务信息，如长时任务ID、长时任务类型等，使用Promise异步回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context  - 应用运行的上下文。
-   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
-   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { Context } context - 应用运行的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context:Context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   *     <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
    * @returns { Promise<ContinuousTaskInfo[]> } Promise对象，返回所有长时任务信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   *     <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -1381,12 +1412,13 @@ declare namespace backgroundTaskManager {
    * 获取所有长时任务信息，如长时任务ID、长时任务类型等。可选择是否获取暂停的长时任务信息，使用Promise异步回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { Context } context  - 应用运行的上下文。
-   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context}。<br>Stage模型的应用Context定义见
-   *     [Context]{@link ./application/Context:Context}。 <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
+   * @param { Context } context - 应用运行的上下文。
+   *     <br>FA模型的应用Context定义见[Context]{@link ./app/context:Context}。
+   *     <br>Stage模型的应用Context定义见[Context]{@link ./application/Context:Context}。
+   *     <br> **说明：** Stage模型中，仅支持UIAbility申请；FA模型中，仅支持ServiceAbility申请。
    * @param { boolean } includeSuspended  - 是否获取暂停的长时任务信息， true表示获取， false表示不获取。
    * @returns { Promise<ContinuousTaskInfo[]> } Promise对象，返回所有长时任务信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     2. Failed to apply for memory.
    * @throws { BusinessError } 9800004 - System service operation failed.
@@ -1402,8 +1434,8 @@ declare namespace backgroundTaskManager {
    *
    * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
    * @returns { Promise<ContinuousTaskInfo[]> } Promise对象，返回所有长时任务信息。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @systemapi
@@ -1418,8 +1450,8 @@ declare namespace backgroundTaskManager {
    *
    * @permission ohos.permission.SET_BACKGROUND_TASK_STATE
    * @param { BackgroundTaskStateInfo } stateInfo  - 授权的必要信息，包括用户ID、应用包名、应用分身ID等。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -1436,8 +1468,8 @@ declare namespace backgroundTaskManager {
    * @permission ohos.permission.SET_BACKGROUND_TASK_STATE
    * @param { BackgroundTaskStateInfo } stateInfo  - 授权的必要信息，包括用户ID、应用包名、应用分身ID等。
    * @returns { UserAuthResult } 授权结果。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -1452,9 +1484,9 @@ declare namespace backgroundTaskManager {
    * 注册长时任务变化回调。
    *
    * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
-   * @param { BackgroundTaskSubscriber } subscriber  - 后台任务监听对象，包含长时任务开始，长时任务更新，长时任务结束。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
+   * @param { BackgroundTaskSubscriber } subscriber  - 长时任务状态变化监听对象，包含长时任务开始，长时任务更新，长时任务结束的回调接口。
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -1468,9 +1500,9 @@ declare namespace backgroundTaskManager {
    * 解注册长时任务变化回调。
    *
    * @permission ohos.permission.GET_BACKGROUND_TASK_INFO
-   * @param { BackgroundTaskSubscriber } subscriber  - 后台任务监听对象，包含长时任务开始，长时任务更新，长时任务结束。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
+   * @param { BackgroundTaskSubscriber } subscriber  - 长时任务状态变化监听对象，包含长时任务开始，长时任务更新，长时任务结束的回调接口。
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -1481,16 +1513,16 @@ declare namespace backgroundTaskManager {
   function unsubscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): void;
 
   /**
-   * 申请能效资源。
+   * 申请或释放能效资源。释放操作仅对本次申请的资源生效。
    *
    * @param { EfficiencyResourcesRequest } request  - 请求的必要信息，包括资源类型、超时时间等。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   *     <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9800003 - Internal transaction failed.
    * @throws { BusinessError } 9800004 - System service operation failed.
    * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
@@ -1504,8 +1536,8 @@ declare namespace backgroundTaskManager {
   /**
    * 释放已申请的全部能效资源。
    *
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Parameter verification failed.
    * @throws { BusinessError } 9800001 - Memory operation failed.
    * @throws { BusinessError } 9800002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
@@ -1524,10 +1556,10 @@ declare namespace backgroundTaskManager {
    * 获取已申请的所有能效资源信息，如能效资源类型等，使用Promise异步回调。
    *
    * @returns { Promise<EfficiencyResourcesInfo[]> } Promise对象，返回所有能效资源信息。
-   * @throws { BusinessError } 202 - Not System App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 18700001 - Caller information verification failed for an energy resource request.
    * @throws { BusinessError } 18700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   *     <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 18700004 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
    * @systemapi
@@ -1541,10 +1573,10 @@ declare namespace backgroundTaskManager {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { 'continuousTaskCancel' } type  - 事件回调类型，固定取值为'continuousTaskCancel'，表示长时任务取消。
-   * @param { Callback<ContinuousTaskCancelInfo> } callback  - 回调函数，返回长时任务取消原因等信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { Callback<ContinuousTaskCancelInfo> } callback  - 回调函数，返回长时任务取消原因等信息。当长时任务被取消时触发此回调。
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
-   *     <br> 2. Register a exist callback type; 3. Parameter verification failed.
+   *     2. Register a exist callback type; 3. Parameter verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 15 dynamic
    */
@@ -1555,7 +1587,7 @@ declare namespace backgroundTaskManager {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Callback<ContinuousTaskCancelInfo> } callback - the callback of continuous task cancel.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
    *     2. Register a exist callback type; 3. Parameter verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -1567,11 +1599,11 @@ declare namespace backgroundTaskManager {
    * 解除长时任务取消的监听，使用callback异步回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
-   * @param { 'continuousTaskCancel' } type  - 取消长时任务，固定取值为'continuousTaskCancel'。
+   * @param { 'continuousTaskCancel' } type  - 事件回调类型，固定取值为'continuousTaskCancel'，表示长时任务取消。
    * @param { Callback<ContinuousTaskCancelInfo> } [callback]  - 需要取消监听的回调函数，未传入则取消所有注册回调。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
-   *     <br> 2. Unregister type has not register; 3. Parameter verification failed.
+   *     2. Unregister type has not register; 3. Parameter verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 15 dynamic
    */
@@ -1582,7 +1614,7 @@ declare namespace backgroundTaskManager {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Callback<ContinuousTaskCancelInfo> } [callback] - the callback of continuous task cancel.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Callback parameter error;
    *     2. Unregister type has not register; 3. Parameter verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -1597,8 +1629,8 @@ declare namespace backgroundTaskManager {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { 'continuousTaskSuspend' } type  - 事件回调类型，固定取值为'continuousTaskSuspend'，表示长时任务暂停。
-   * @param { Callback<ContinuousTaskSuspendInfo> } callback  - 回调函数，返回长时任务暂停原因等信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { Callback<ContinuousTaskSuspendInfo> } callback  - 回调函数，返回长时任务暂停原因等信息。当长时任务为暂停状态时触发此回调。
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 20 dynamic
@@ -1612,7 +1644,7 @@ declare namespace backgroundTaskManager {
    * 
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Callback<ContinuousTaskSuspendInfo> } callback - the callback of continuous task suspend.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 23 static
@@ -1625,7 +1657,7 @@ declare namespace backgroundTaskManager {
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { 'continuousTaskSuspend' } type  - 事件回调类型，固定取值为'continuousTaskSuspend'，表示长时任务暂停。
    * @param { Callback<ContinuousTaskSuspendInfo> } [callback]  - 需要取消监听的回调函数，未传入则取消所有注册的暂停回调。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 20 dynamic
@@ -1637,7 +1669,7 @@ declare namespace backgroundTaskManager {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Callback<ContinuousTaskSuspendInfo> } [callback] - the callback of continuous task suspend.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 23 static
@@ -1645,12 +1677,12 @@ declare namespace backgroundTaskManager {
   function offContinuousTaskSuspend(callback?: Callback<ContinuousTaskSuspendInfo>): void;
 
   /**
-   * 注册长时任务激活的监听，使用callback异步回调。应用回前台激活暂停的长时任务。
+   * 注册长时任务激活的监听，使用callback异步回调。暂停的长时任务激活时回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { 'continuousTaskActive' } type  - 事件回调类型，固定取值为'continuousTaskActive'，表示长时任务激活。
-   * @param { Callback<ContinuousTaskActiveInfo> } callback  - 回调函数，返回长时任务激活相关信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { Callback<ContinuousTaskActiveInfo> } callback  - 回调函数，返回长时任务激活相关信息。当暂停的长时任务被激活时触发此回调。
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 20 dynamic
@@ -1658,11 +1690,11 @@ declare namespace backgroundTaskManager {
   function on(type: 'continuousTaskActive', callback: Callback<ContinuousTaskActiveInfo>): void;
   
   /**
-   * 注册长时任务激活的监听，使用callback异步回调。应用回前台激活暂停的长时任务。
+   * 注册长时任务激活的监听，使用callback异步回调。暂停的长时任务激活时回调。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Callback<ContinuousTaskActiveInfo> } callback - the callback of continuous task active.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 23 static
@@ -1675,7 +1707,7 @@ declare namespace backgroundTaskManager {
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { 'continuousTaskActive' } type  - 事件回调类型，固定取值为'continuousTaskActive'，表示长时任务激活。
    * @param { Callback<ContinuousTaskActiveInfo> } [callback]  - 需要取消监听的回调函数，未传入则取消所有注册的激活回调。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 20 dynamic
@@ -1687,7 +1719,7 @@ declare namespace backgroundTaskManager {
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
    * @param { Callback<ContinuousTaskActiveInfo> } [callback] - the callback of continuous task active.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 23 static
@@ -1827,14 +1859,17 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * 长时任务主类型。通常与长时任务子类型[BackgroundTaskSubmode]{@link backgroundTaskManager.BackgroundTaskSubmode}配合使用，对照关系请参考长时任务主类型与子类型
+   * 长时任务主类型。
+   * 
+   * 通常与长时任务子类型[BackgroundTaskSubmode]{@link backgroundTaskManager.BackgroundTaskSubmode}配合使用，对照关系请参考长时任务主类型与子类型
    * 对照表，两者共同作为API version 21新增的
    * [申请]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request: ContinuousTaskRequest)}、
-   * [更新]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, request: ContinuousTaskRequest)}长时任务接口入参
-   * ，用于指定长时任务类型。</br>仅当主类型为MODE_SPECIAL_SCENARIO_PROCESSING特殊场景类型，或非PC/2in1设备主类型为MODE_TASK_KEEPING计算任务时，调用长时任务相关接口时需同时申
+   * [更新]{@link backgroundTaskManager.updateBackgroundRunning(context: Context, request: ContinuousTaskRequest)}长时任务接口入参，用于指定长时任务类型。
+   * 
+   * 仅当主类型为MODE_SPECIAL_SCENARIO_PROCESSING特殊场景类型，或非PC/2in1设备主类型为MODE_TASK_KEEPING计算任务时，调用长时任务相关接口时需同时申
    * 请ACL权限
-   * [ohos.permission.KEEP_BACKGROUND_RUNNING_SYSTEM](docroot://security/AccessToken/restricted-permissions.md#ohospermissionkeep_background_running_system)
-   * ，其他场景无需申请该权限。
+   * [ohos.permission.KEEP_BACKGROUND_RUNNING_SYSTEM](docroot://security/AccessToken/restricted-permissions.md#ohospermissionkeep_background_running_system)，
+   * 其他场景无需申请该权限。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice [since 26.0.0]
@@ -1973,7 +2008,7 @@ declare namespace backgroundTaskManager {
     /**
      * 特殊场景类型（仅对Phone、Tablet、PC/2in1设备开放）。
      * 
-     * 使用场景举例：应用在后台导出媒体文件、应用使用三方投播组件在后台进行投播，场景需与长时任务子类型相匹配。
+     * 使用场景举例：应用在后台导出媒体文件、应用使用三方投播组件在后台进行投播、应用在后台有室内运动场景，场景需与长时任务子类型相匹配。
      * 
      * **说明：**
      * 
@@ -2001,7 +2036,9 @@ declare namespace backgroundTaskManager {
 
   
   /**
-   * 长时任务子类型。通常与长时任务主类型[BackgroundTaskMode]{@link backgroundTaskManager.BackgroundTaskMode}配合使用，对照关系请参考长时任务主类型与子类型对照表，两者
+   * 长时任务子类型。
+   * 
+   * 通常与长时任务主类型[BackgroundTaskMode]{@link backgroundTaskManager.BackgroundTaskMode}配合使用，对照关系请参考长时任务主类型与子类型对照表，两者
    * 共同作为API version 21新增的申请、更新长时任务接口入参，用于指定长时任务类型。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -2204,7 +2241,7 @@ declare namespace backgroundTaskManager {
     RUNNING_LOCK = 1 << 7,
 
     /**
-     * 申请后不拦截Sensor回调。
+     * 申请后不拦截SENSOR回调。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply
      * @systemapi Hide this for inner system use.
@@ -2477,6 +2514,10 @@ declare namespace backgroundTaskManager {
   
     /**
      * 申请AUDIO_PLAYBACK类型长时任务，但是未播放音视频。
+     * 
+     * **说明：** 需要先注册暂停回调
+     * [on('continuousTaskSuspend')]{@link backgroundTaskManager.on(type: 'continuousTaskSuspend', callback: Callback<ContinuousTaskSuspendInfo>)}，
+     * 当连续检测失败时，系统取消对应的长时任务，返回该取消原因。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
@@ -2752,7 +2793,7 @@ declare namespace backgroundTaskManager {
   }
 
   /**
-   * 用户授权结果。
+   * 用户授权结果，表示长时任务授权状态。
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @since 22 dynamic
