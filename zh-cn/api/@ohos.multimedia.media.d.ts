@@ -11595,7 +11595,7 @@ declare namespace media {
      * 注册转码进度更新事件，并通过注册的回调方法通知开发者。开发者只能注册一个进度更新事件的回调方法，当开发者重复注册时，以最后一次注册的回调接口为准。使用callback异步回调。
      *
      * @param { 'progressUpdate' } type - 进度更新事件回调类型，支持的事件：'progressUpdate'，在转码过程中系统会自动触发此事件。
-     * @param { Callback<int> } callback - 回调函数，返回进度更新事件，函数中的参数number，表示当前转码进度。
+     * @param { Callback<int> } callback - 回调函数，返回进度更新事件，函数中的参数number，表示当前转码百分比进度。
      * @syscap SystemCapability.Multimedia.Media.AVTranscoder
      * @atomicservice [since 22]
      * @since 12 dynamic
