@@ -3651,6 +3651,60 @@ declare namespace photoAccessHelper {
      */
     ATTACHMENT_SIZE = 'attachment_size',
     /**
+     * The asset owner in share album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SHARE_OWNER_INFO = 'share_owner_info',
+    /**
+     * The risk status of share album asset.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SHARE_RISK_STATUS = 'share_risk_status',
+    /**
+     * The risk type of share album asset.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SHARE_RISK_TYPE = 'share_risk_type',
+    /**
+     * The photo visibility of photo asset.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    PHOTO_VISIBILITY = 'photo_visibility',
+    /**
+     * The share group of share album asset.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SHARE_GROUP = 'share_group',
+    /**
+     * The share date day of share album asset.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SHARE_DATE_DAY = 'share_date_day',
+    /**
      * The mode of the music master.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -3868,7 +3922,43 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    FILE_HIDDEN = 'file_hidden'
+    FILE_HIDDEN = 'file_hidden',
+    /**
+     * The risk status of share album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SHARE_RISK_STATUS = 'share_risk_status',
+    /**
+     * The risk type of share album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SHARE_RISK_TYPE = 'share_risk_type',
+    /**
+     * The owner of share album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SHARE_ALBUM_OWNER = 'share_album_owner',
+    /**
+     * The cloudId of album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    CLOUD_ID = 'cloud_id'
   }
 
   /**
@@ -4521,7 +4611,16 @@ declare namespace photoAccessHelper {
      * @since 11 dynamic
      * @since 23 static
      */
-    SMART = 4096
+    SMART = 4096,
+    /**
+     * Share album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SHARE = 8192
   }
 
   /**
@@ -4714,6 +4813,15 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     HIGHLIGHT_SUGGESTIONS,
+    /**
+     * Share album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SHARE = 8193
     /**
      * Any album.
      *
@@ -5086,6 +5194,42 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     readonly dateModified?: long;
+    /**
+     * Risk type of share album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    readonly shareRiskType?: string;
+    /**
+     * Risk status of share album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    readonly shareRiskStatus?: ShareAlbumRiskStatus;
+    /**
+     * CloudId of album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    readonly cloudId?: string;
+    /**
+     * The owner of share album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    readonly shareAlbumOwner?: string;
     /**
      * Commits the modification on the album attributes to the database. This API uses an asynchronous callback to 
      * return the result.
@@ -7687,6 +7831,46 @@ declare namespace photoAccessHelper {
     offTrashedPhotoChange(callback?: Callback<PhotoAssetChangeInfos>): void;
 
     /**
+     * Subscribes to changes of share photos and videos.
+     *
+     * @permission ohos.permission.MANAGE_SHARE_PHOTO
+     * @param { Callback<PhotoAssetChangeInfos> } callback Callback used to notify the application of the changes.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes:
+     *     The same callback is registered repeatedly.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 
+     *     <br>1. The database is corrupted. 
+     *     <br>2. The file system is abnormal. 
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 26.1.0 dynamic&static
+     */
+    onSharePhotoChange(callback: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
+     * Unsubscribes from changes of share photos and videos.
+     *
+     * @permission ohos.permission.MANAGE_SHARE_PHOTO
+     * @param { Callback<PhotoAssetChangeInfos> } [callback] Callback used for unsubscription.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes:
+     *     The same callback is unregistered repeatedly.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 
+     *     <br>1. The database is corrupted. 
+     *     <br>2. The file system is abnormal. 
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 26.1.0 dynamic&static
+     */
+    offSharePhotoChange(callback?: Callback<PhotoAssetChangeInfos>): void;
+
+    /**
      * Subscribes to album changes.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
@@ -7801,6 +7985,46 @@ declare namespace photoAccessHelper {
      * @since 23 static
      */
     offTrashedAlbumChange(callback?: Callback<AlbumChangeInfos>): void;
+
+        /**
+     * Subscribes to changes of the share album.
+     *
+     * @permission ohos.permission.MANAGE_SHARE_PHOTO
+     * @param { Callback<AlbumChangeInfos> } callback Callback used to notify the application of the changes.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes:
+     *     The same callback is registered repeatedly.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 
+     *     <br>1. The database is corrupted. 
+     *     <br>2. The file system is abnormal. 
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 26.1.0 dynamic&static
+     */
+    onShareAlbumChange(callback: Callback<AlbumChangeInfos>): void;
+
+    /**
+     * Unsubscribes from changes in the share album.
+     *
+     * @permission ohos.permission.MANAGE_SHARE_PHOTO
+     * @param { Callback<AlbumChangeInfos> } [callback] Callback used for unsubscription.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 The scenario parameter verification fails. Possible causes:
+     *     The same callback is unregistered repeatedly.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 
+     *     <br>1. The database is corrupted. 
+     *     <br>2. The file system is abnormal. 
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @since 26.1.0 dynamic&static
+     */
+    offShareAlbumChange(callback?: Callback<AlbumChangeInfos>): void;
 
     /**
      * Registers a listener for changes of a single common asset. This API uses an asynchronous callback to return the 
@@ -8525,10 +8749,10 @@ declare namespace photoAccessHelper {
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
      *     <br>1. Asset to be cloned has been deleted or hidden;
-     *     <br>2. Asset to be cloned is cloud pictures, which can not be cloned;
-     *     <br>3. The Target Album does not exist.
-     *     <br>4. Insufficient system space.
-     *     <br>5. Automatic renaming is not supported.
+     *     <br>2. The Target Album does not exist.
+     *     <br>3. Insufficient system space.
+     *     <br>4. Automatic renaming is not supported.
+     *     <br>5. The clone task is interrupted.
      * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
      *     <br>Possible causes: 1. Database corrupted; 2. The file system is abnormal; 3. The IPC request timed out.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -8686,6 +8910,96 @@ declare namespace photoAccessHelper {
      * @since 26.1.0 dynamic&static
      */
     convertAssetToCompatibleAsset(assets: Array<PhotoAsset>): Promise<Array<PhotoAsset>>;
+
+    /**
+     * Applies media changes of share album. This API uses a promise to return the target Album or null.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO and ohos.permission.MANAGE_SHARE_PHOTO
+     * @param { MediaShareAlbumChangeRequest } mediaChangeRequest - Request for share album changes.
+     * @returns { Promise<Album|null> } Promise used to return the target album or null.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1. The mediaShareAlbumRequest is null.
+     *     2. The operator must be the owner of the share album when creating the album.
+     *     3. The operator must be the owner of the share album when adding share member.
+     *     4. The operator must be the owner of the share album or device owner of share album member
+     *        when updating share member status.
+     *     5. The shared album member status update logic does not meet expectations.
+     *     6. The operator must be the owner of the share album when deleting share member.
+     *     7. The target Album is not exist.
+     *     8. The operator must be the owner of the share album when modifying the share album name.
+     *     9. The CoverUri is deleted or riskControlled.
+     *     10. The operator must be the owner of the share album when setting the cover of the album.
+     *     11. The operator must be the owner of the share album when resetting the cover of the album.
+     *     12. This member does not belong to the current shared album.
+     * @throws { BusinessError } 23800201 - Operation not supported. Possible causes: 1. Request must be from share album.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    applyShareAlbumChanges(mediaChangeRequest: MediaShareAlbumChangeRequest): Promise<Album|null>;
+	
+    /**
+     * Clone assets in shared albums.
+     * Resources can be copied from a common album to a shared album.
+     * Assets in a shared album can be copied to a common album.
+     * You can copy assets from a shared album to a shared album.
+     *
+     * @permission ohos.permission.WRITE_IMAGEVIDEO and ohos.permission.MANAGE_SHARE_PHOTO
+     * @param { string } owner - The owner of share album.
+     * @param { PhotoAsset[] } assets - Assets to be cloned.
+     * @param { Album } targetAlbum - Target Album.
+     * @param { long } shareGroup - The share group of assets to be cloned.
+     * @param { BatchOperationOptions } [option] - Option for performing batch operations on assets.
+     * @returns { Promise<PhotoAsset[]> } Promise used to return list of successful assets.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. Asset to be cloned has been deleted or hidden;
+     *     <br>2. Asset to be cloned is cloud pictures, which can not be cloned;
+     *     <br>3. The Target Album does not exist.
+     *     <br>4. Insufficient system space.
+     *     <br>5. Automatic renaming is not supported.
+     *     <br>6. The clone task is interrupted.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes:
+     *     <br>1. Database corrupted;
+     *     <br>2. The file system is abnormal;
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    cloneWithShareAlbum(owner:string, assets: PhotoAsset[], targetAlbum: Album, shareGroup: long,
+      option?: BatchOperationOptions): Promise<PhotoAsset[]>;
+
+    /**
+     * Query shared photo albums.
+     *
+     * @permission ohos.permission.MANAGE_SHARE_PHOTO
+     * @param { FetchOptions } [options] - Retrieval options.
+     * @returns { Promise<FetchResult<Album>> } Promise used to return fetch result of album.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. The column field does not support querying.
+     *     <br>2. Filter conditions do not match expectations.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes:
+     *     <br>1. Database corrupted;
+     *     <br>2. The file system is abnormal;
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    getShareAlbums(options?: FetchOptions): Promise<FetchResult<Album>>;
   }
   
   /**
@@ -9281,6 +9595,50 @@ declare namespace photoAccessHelper {
     dateModifiedMs?: long;
 
     /**
+     * The risk status of share album asset.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shareRiskStatus?: ShareAlbumRiskStatus;
+
+    /**
+     * The date day of the share album asset to be shared.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shareDateDay?: int;
+
+    /**
+     * The visibility of photo.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    photoVisibility?: int;
+
+    /**
+     * The group of the share album assets to be shared.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shareGroup?: long;
+
+    /**
      * The asset source type.
      * Default value: 0.
      *
@@ -9547,6 +9905,15 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     lpath?: string;
+    /**
+     * The risk status of share album.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shareRiskStatus?: ShareAlbumRiskStatus;
   }
 
   /**
@@ -13023,6 +13390,382 @@ declare namespace photoAccessHelper {
      * @since 26.0.0 dynamic&static
      */
     operateAttribute(operation: AlbumOperation): void;
+  }
+
+  /**
+   * Enumerates the risk status of share album.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum ShareAlbumRiskStatus {  
+    /**
+     * Under review.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    UNDER_REVIEW = 0,
+    /**
+     * Low review risk.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    LOW_REVIEW_RISK = 1,
+    /**
+     * High review risk.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    HIGH_REVIEW_RISK = 2
+  }
+
+  /**
+   * Enumerates the member status of share album.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum ShareMemberStatus {  
+    /**
+     * Member is being invited.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    INVITING = 0,
+    /**
+     * Member has accepted the invitation.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    ACCEPTED = 1,
+    /**
+     * Member declined the invitation.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    DECLINED = 2,
+    /**
+     * Member requested to join.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    REQUESTING = 3
+  }
+
+  /**
+   * Member information
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export class MemberInfo {  
+    /**
+     * Member identity information.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    public member: string;
+
+    /**
+     * Member status.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    public status: ShareMemberStatus;
+  }
+  
+  /**
+   * Member information of shared album
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export class ShareAlbumMemberInfo {  
+    /**
+     * Share album owner.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    public shareAlbumOwner: string;
+
+    /**
+     * Member information.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    public memberInfos: MemberInfo[];
+  }
+
+  /**
+   * Represents a change request for managing the share album.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  class MediaShareAlbumChangeRequest implements MediaChangeRequest {  
+    /**
+     * A readonly member for type checking.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    readonly comment: string;
+	
+    /**
+     * Constructor used to initialize a new MediaShareAlbumChangeRequest.
+     *
+     * @permission ohos.permission.MANAGE_SHARE_PHOTO
+     * @param { Album } album - Share album to change.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1. the album is not share album.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    public constructor(album: Album);
+	
+    /**
+     * Creates a MediaShareAlbumChangeRequest instance of creating share album.
+     *
+     * @permission ohos.permission.MANAGE_SHARE_PHOTO and ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Context } context - Context of the ability instance.
+     * @param { string } owner - The OwnerId of share album.
+     * @param { string } name - Name of the album.
+     * @param { string } cloudId - The cloudId of share album.
+     * @param { string } lpath - The virtual path of share album.
+     * @returns { MediaShareAlbumChangeRequest|null } - Returns a MediaAlbumChangeRequest instance.
+     *     if the operation fails, returns null.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1. The context is null.
+     *     2. The album name must meet the following requirements:
+     *     The total length of the album name must be between 1 and 255 characters.
+     *     It must not contain any invalid characters, which are: . \ / : * ? " ' ` < > | { } [ ]
+     *     It is case-insensitive.
+     *     3. The lpath does not meet the uniqueness requirement.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    public static createShareAlbum(context: Context, owner: string, name: string, cloudId: 
+      string, lpath: string): MediaShareAlbumChangeRequest|null;
+	
+    /**
+     * Delete share album.
+     *
+     * @permission ohos.permission.MANAGE_SHARE_PHOTO and ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Context } context - Context of the ability instance.
+     * @param { string } owner - The OwnerId of share album.
+     * @param { Album[] } albums - Array of albums to delete.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. The context is null.
+     *     <br>2. The albums are not share album.
+     *     <br>3. The operator must be the owner of the share album when deleting the album.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    public static deleteShareAlbum(context: Context, owner: string, albums: Album[]): Promise<void>;
+	
+    /**
+     * Delete member share album.
+     *
+     * @permission ohos.permission.MANAGE_SHARE_PHOTO and ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Context } context - Context of the ability instance.
+     * @param { string } owner - The OwnerId of share album.
+     * @param { Album[] } albums - Array of albums to delete.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. The context is null.
+     *     <br>2. The albums are not share album.
+     *     <br>3. The operator must be the member of the share album when deleting the local share album.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    public static deleteMemberShareAlbum(context: Context, owner: string, albums: Album[]): Promise<void>;
+	
+    /**
+     * Delete assets of share album.
+     *
+     * @permission ohos.permission.MANAGE_SHARE_PHOTO and ohos.permission.WRITE_IMAGEVIDEO
+     * @param { Context } context - Context of the ability instance.
+     * @param { string } owner - The OwnerId of share album.
+     * @param { string[] } assets - Assets to delete.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. The context is null.
+     *     <br>2. The albums are not share album.
+     *     <br>3. Asset uri array size is empty or bigger than 500.
+     *     <br>4. When a deleted photo belongs to a shared album, only the album owner or the person
+     *     who shared the photo can delete it.
+     * @throws { BusinessError } 23800301 - Internal system error. You are advised to retry and check the logs.
+     *     Possible causes: 1. The database is corrupted. 2. The file system is abnormal. 3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    public static deleteShareAssets(context: Context, owner: string, assets: string[]): Promise<void>;
+	
+    /**
+     * Add member of share Album.
+     *
+     * @permission ohos.permission.MANAGE_SHARE_PHOTO and ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } owner - The OwnerId of share album.
+     * @param { string } member - The member of share album.
+     * @param { ShareMemberStatus } status - The share member status.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     1. The albums are not share album.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    public addShareMember(owner: string, member: string, status: ShareMemberStatus): void;
+	
+    /**
+     * update share member status.
+     *
+     * @permission ohos.permission.MANAGE_SHARE_PHOTO and ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } owner - The OwnerId of share album.
+     * @param { string } member - The member of share album.
+     * @param { ShareMemberStatus } status - The share member status.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     The albums are not share album.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    public updateShareMemberStatus(owner: string, member: string, status: ShareMemberStatus): void;
+	
+    /**
+     * delete share member.
+     *
+     * @permission ohos.permission.MANAGE_SHARE_PHOTO and ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } owner - The OwnerId of share album.
+     * @param { string } member - The member of share album.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. The albums are not share album.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    public deleteShareMember(owner: string, member: string): void;
+	
+    /**
+     * set the name of share album.
+     *
+     * @permission ohos.permission.MANAGE_SHARE_PHOTO and ohos.permission.WRITE_IMAGEVIDEO
+     * @param { string } owner - The OwnerId of share album.
+     * @param { string } name - The name of share album to modified.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. The albums are not share album.
+     *     <br>2. The album name must meet the following requirements:
+     *     The total length of the album name must be between 1 and 255 characters.
+     *     It must not contain any invalid characters, which are: . \ / : * ? " ' ` < > | { } [ ]
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    public setShareAlbumName(owner: string, name: string): void;
+	
+    /**
+     * Get the member information of share album.
+     *
+     * @permission ohos.permission.MANAGE_SHARE_PHOTO
+     * @param { Context } context - Context of the ability instance.
+     * @param { string } owner - The OwnerId of share album.
+     * @param { Album } album - The target album.
+     * @returns { Promise<ShareAlbumMemberInfo> } - Promise used to return member information of share album.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. The context is null.
+     *     <br>2. The albums are not share album.
+     * @throws { BusinessError } 23800301 - Internal system error.It is recommended to retry and check the logs.
+     *     <br>Possible causes:1. Database corrupted.2. The file system is abnormal.3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    public static getShareAlbumMemberInfo(context: Context, owner: string, 
+      album: Album): Promise<ShareAlbumMemberInfo>;
   }
 
   /**
