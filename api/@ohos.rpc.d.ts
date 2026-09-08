@@ -14,7 +14,7 @@
  */
 
 /**
- * @file RPC Communication
+ * @file RPC
  * @kit IPCKit
  */
 
