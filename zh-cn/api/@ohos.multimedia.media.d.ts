@@ -547,8 +547,7 @@ declare namespace media {
   function createVideoPlayer(): Promise<VideoPlayer>;
 
   /**
-   * 该接口自API version 9起停止维护，建议使用AVRecorder。
-   * 创建视频录制实例。
+   * 创建视频录制实例（一台设备只允许创建一个录制实例）。使用callback异步回调。
    *
    * @param { AsyncCallback<VideoRecorder> } callback - 回调函数，返回VideoRecorder实例，失败时返回null。
    * @throws { BusinessError } 5400101 - No memory. Return by callback.
@@ -560,8 +559,7 @@ declare namespace media {
   function createVideoRecorder(callback: AsyncCallback<VideoRecorder>): void;
 
   /**
-   * 该接口自API version 9起停止维护，建议使用AVRecorder。
-   * 创建视频录制实例。
+   * 创建视频录制实例（一台设备只允许创建一个录制实例）。使用callback异步回调。
    *
    * @param { AsyncCallback<VideoRecorder | undefined> } callback - 回调函数，返回VideoRecorder实例，失败时返回null。
    * @throws { BusinessError } 202 - Not System App.
@@ -573,8 +571,7 @@ declare namespace media {
   function createVideoRecorder(callback: AsyncCallback<VideoRecorder | undefined>): void;
 
   /**
-   * 该接口自API version 9起停止维护，建议使用AVRecorder。
-   * 创建视频录制实例。
+   * 创建视频录制实例（一台设备只允许创建一个录制实例）。使用Promise异步回调。
    *
    * @returns { Promise<VideoRecorder> } Promise对象，返回VideoRecorder实例，失败时返回null。
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
@@ -586,8 +583,7 @@ declare namespace media {
   function createVideoRecorder(): Promise<VideoRecorder>;
 
   /**
-   * 该接口自API version 9起停止维护，建议使用AVRecorder。
-   * 创建视频录制实例。
+   * 创建视频录制实例（一台设备只允许创建一个录制实例）。使用Promise异步回调。
    *
    * @returns { Promise<VideoRecorder | undefined> } Promise对象，返回VideoRecorder实例，失败时返回null。
    * @throws { BusinessError } 202 - Not System App.
@@ -1036,7 +1032,7 @@ declare namespace media {
     /**
      * 获取媒体元数据。使用callback异步回调。
      *
-     * @param { AsyncCallback<AVMetadata> } callback - 回调函数。异步返回音视频元数据对象（AVMetadata）。
+     * @param { AsyncCallback<AVMetadata> } callback - 回调函数。当获取媒体元数据成功，err为undefined，data为获取到的AVMetadata实例，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted. [since 23]
@@ -1049,7 +1045,7 @@ declare namespace media {
     /**
      * 获取媒体元数据。使用callback异步回调。
      *
-     * @param { AsyncCallback<AVMetadata | undefined> } callback - 回调函数。异步返回音视频元数据对象（AVMetadata）。
+     * @param { AsyncCallback<AVMetadata | undefined> } callback - 回调函数。当获取媒体元数据成功，err为undefined，data为获取到的AVMetadata实例，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @throws { BusinessError } 5411012 - Http cleartext traffic is not permitted.
@@ -1104,7 +1100,7 @@ declare namespace media {
     /**
      * 获取音频专辑封面。使用callback异步回调。
      *
-     * @param { AsyncCallback<image.PixelMap> } callback - 回调函数。异步返回专辑封面。
+     * @param { AsyncCallback<image.PixelMap> } callback - 回调函数。当获取音频专辑封面成功，err为undefined，data为获取到的PixelMap实例，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
@@ -1116,7 +1112,7 @@ declare namespace media {
     /**
      * 获取音频专辑封面。使用callback异步回调。
      *
-     * @param { AsyncCallback<image.PixelMap | undefined> } callback - 回调函数。异步返回专辑封面。
+     * @param { AsyncCallback<image.PixelMap | undefined> } callback - 回调函数。当获取音频专辑封面成功，err为undefined，data为获取到的PixelMap实例，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400106 - Unsupported format. Returned by callback.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
@@ -1325,7 +1321,7 @@ declare namespace media {
     /**
      * 释放资源。使用Promise异步回调。
      *
-     * @returns { Promise<void> } 异步方式释放资源release方法的Promise返回值。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVMetadataExtractor
      * @crossplatform [since 12]
@@ -1789,7 +1785,7 @@ declare namespace media {
     /**
      * 释放资源。使用Promise异步回调。
      *
-     * @returns { Promise<void> } 异步方式释放资源release方法的Promise返回值。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @since 12 dynamic
@@ -2320,7 +2316,7 @@ declare namespace media {
     AVERR_PARAMETER_OUT_OF_RANGE = 5400108,
 
     /**
-     * The parameter value means session does not exist
+     * 表示传入的会话ID不存在。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
@@ -5869,13 +5865,12 @@ declare namespace media {
     getID(): string;
 
     /**
-     * Set the audio and video feature filtering items of the MediaSource,
-     * After the user defines the audio and video filtering items of the MediaSource,
-     * When playing or downloading MediaSource data offline,
-     * Preferentially perform a corresponding operation in the filtering feature.
+     * 设置MediaSource的音视频特征筛选项，
+     * 用户定义MediaSource的音视频筛选项后，
+     * 在播放或离线下载MediaSource数据时，
+     * 优先在筛选特征内执行对应的操作。
      *
-     * @param { TrackSelectionFilter } filter - Specifies the audio and video features of the pre-downloaded streaming
-     *     media.
+     * @param { TrackSelectionFilter } filter - 指定预下载流媒体的音视频特征。
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -5883,10 +5878,10 @@ declare namespace media {
     setTrackSelectionFilter(filter: TrackSelectionFilter): void;
 
     /**
-     * Obtains the configured audio and video feature filtering values.
+     * 获取已配置的音视频特征筛选值
      *
-     * @returns { TrackSelectionFilter | undefined } If the TrackSelectionFilter object exists,
-     *     the TrackSelectionFilter object is returned. Otherwise, the TrackSelectionFilter object is returned.
+     * @returns { TrackSelectionFilter | undefined } 如果存在TrackSelectionFilter对象，
+     *     返回TrackSelectionFilter对象。 否则, 返回TrackSelectionFilter对象。
      * @syscap SystemCapability.Multimedia.Media.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -6834,12 +6829,14 @@ declare namespace media {
      */
     isWatermarkSupported(): Promise<boolean>;
     /**
-     * 为AVRecorder设置水印。使用Promise异步回调。
-     * 
-     * 只能在prepare()事件触发后且start()事件触发前调用。
+     * 给AVRecorder设置水印图像。使用Promise异步回调。<br>
      *
-     * @param { image.PixelMap } watermark - 水印图片。
-     * @param { WatermarkConfig } config - 水印配置。
+     * 当且仅当[prepare]{@link media.AVRecorder#prepare(config: AVRecorderConfig)}事件成功触发后，
+     * 且在[start]{@link media.AVRecorder#start()}之前，才能调用setWatermark方法。
+     *
+     * @param { image.PixelMap } watermark - 图像PixelMap数据。<br/>当前支持规格:<br/>- 当前仅支持pixelformat为RGBA8888。
+     * <br/>- 原图像为8K时->水印图像限制范围3072x288，原图像为4K时->水印图像限制范围1536x144。
+     * @param { WatermarkConfig } config - 水印的相关配置参数。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - The parameter check failed.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -7673,7 +7670,7 @@ declare namespace media {
     longitude: double;
   }
   /**
-   * 设置AVRecorder的水印配置。水印位置从左上角开始计算。
+   * 设置给AVRecorder的水印相关配置，该位置以画面的左上角为开始点。
    *
    * @syscap SystemCapability.Multimedia.Media.Core
    * @systemapi
@@ -7682,7 +7679,7 @@ declare namespace media {
    */
   interface WatermarkConfig {
     /**
-     * 水印到顶部像素行的偏移量。
+     * 显示位置，距离图像顶部的像素偏移量。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
@@ -7691,7 +7688,7 @@ declare namespace media {
      */
     top: int;
     /**
-     * 水印到左侧像素行的偏移量。
+     * 显示位置，距离图像左部的像素偏移量。
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @systemapi
@@ -7879,7 +7876,7 @@ declare namespace media {
    */
   interface AudioRecorder {
     /**
-     * 录音准备。
+     * 录制准备，根据传入的配置参数初始化录制资源（包括编码器、采样率、声道数等），完成录制前的准备工作。
      * 
      * > **说明：**
      * > > 从API version 6开始支持，从API version 9开始废弃，建议使用
@@ -8026,15 +8023,14 @@ declare namespace media {
   }
 
     /**
-     * 从API version 9起停止维护，请使用AVRecorderState。
-     * 描述视频录制状态。
+     * 视频录制的状态机。可通过state属性获取当前状态。
      *
-     * @unionmember { 'idle' } 空闲状态。视频录制器已创建但未初始化。
-     * @unionmember { 'prepared' } 准备就绪状态。视频录制器已准备好录制。
-     * @unionmember { 'playing' } 播放状态。视频录制器正在录制。
-     * @unionmember { 'paused' } 暂停状态。视频录制器已暂停。
-     * @unionmember { 'stopped' } 停止状态。视频录制器已停止。
-     * @unionmember { 'error' } 错误状态。发生错误。
+     * @unionmember { 'idle' } 视频录制空闲。
+     * @unionmember { 'prepared' } 视频录制参数设置完成。
+     * @unionmember { 'playing' } 视频正在录制。
+     * @unionmember { 'paused' } 视频暂停录制。
+     * @unionmember { 'stopped' } 视频录制停止。
+     * @unionmember { 'error' } 错误状态。
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
      * @since 9 dynamic
@@ -8044,8 +8040,11 @@ declare namespace media {
   type VideoRecordState = 'idle' | 'prepared' | 'playing' | 'paused' | 'stopped' | 'error';
 
   /**
-   * 该接口自API version 9起停止维护，建议使用AVRecorder。
-   * 视频录制管理类，用于视频录制。在调用VideoRecorder的方法前，必须先通过createVideoRecorder()创建一个VideoRecorder实例。
+   * > **说明：**
+   * > AVRecorder<sup>9+</sup>发布后，VideoRecorder停止维护，建议使用[AVRecorder]{@link media.AVRecorder}替代。
+   *
+   * 视频录制管理类，用于录制视频媒体。在调用VideoRecorder的方法前，需要先通过[createVideoRecorder()]{@link media.createVideoRecorder()}
+   * 构建一个[VideoRecorder]{@link media.VideoRecorder}实例。
    *
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @systemapi
@@ -8054,11 +8053,11 @@ declare namespace media {
    */
   interface VideoRecorder {
     /**
-     * 视频录制准备。
+     * 进行视频录制的参数设置。使用callback异步回调。
      *
      * @permission ohos.permission.MICROPHONE
-     * @param { VideoRecorderConfig } config - 录制参数。
-     * @param { AsyncCallback<void> } callback - 回调函数，准备录制完成时返回。
+     * @param { VideoRecorderConfig } config - 配置视频录制的相关参数。
+     * @param { AsyncCallback<void> } callback - 回调函数。视频录制参数设置成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied. Return by callback.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -8072,11 +8071,11 @@ declare namespace media {
      */
     prepare(config: VideoRecorderConfig, callback: AsyncCallback<void>): void;
     /**
-     * 视频录制准备。
+     * 进行视频录制的参数设置。使用Promise异步回调。
      *
      * @permission ohos.permission.MICROPHONE
-     * @param { VideoRecorderConfig } config - 录制参数。
-     * @returns { Promise<void> } Promise对象，准备录制完成时返回。
+     * @param { VideoRecorderConfig } config - 配置视频录制的相关参数。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
@@ -8090,9 +8089,13 @@ declare namespace media {
      */
     prepare(config: VideoRecorderConfig): Promise<void>;
     /**
-     * 获取录制surface。必须在prepare完成后和start之前调用。
+     * 获得录制需要的surface。使用callback异步回调。
+     * 开发者从此surface中获取surfaceBuffer，填入相应的数据。
+     * 应当注意，填入的视频数据需要携带时间戳（单位ns），buffersize。时间戳的起始时间请以系统启动时间为基准。
+     * 只能在[prepare()]{@link media.VideoRecorder#prepare(config: VideoRecorderConfig, callback: AsyncCallback<void>)}
+     * 接口调用后调用。
      *
-     * @param { AsyncCallback<string> } callback - 回调函数，返回输入surface id字符串。
+     * @param { AsyncCallback<string> } callback - 回调函数。获得录制需要的surface成功，err为undefined，data为获取到的surfaceBuffer，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -8104,9 +8107,14 @@ declare namespace media {
     getInputSurface(callback: AsyncCallback<string>): void;
 
     /**
-     * 获取录制surface。必须在prepare完成后和start之前调用。
+     * 获得录制需要的surface。使用callback异步回调。
+     * 开发者从此surface中获取surfaceBuffer，填入相应的数据。
+     * 应当注意，填入的视频数据需要携带时间戳（单位ns），buffersize。时间戳的起始时间请以系统启动时间为基准。
+     * 只能在[prepare()]{@link media.VideoRecorder#prepare(config: VideoRecorderConfig, callback: AsyncCallback<void>)}
+     * 接口调用后调用。
      *
-     * @param { AsyncCallback<string | undefined> } callback - 回调函数，返回输入surface id字符串。
+     * @param { AsyncCallback<string | undefined> } callback - 回调函数。获得录制需要的surface成功，err为undefined，
+     * data为获取到的surfaceBuffer，否则为错误对象。
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400103 - I/O error. Return by callback.
@@ -8118,9 +8126,12 @@ declare namespace media {
     getInputSurface(callback: AsyncCallback<string | undefined>): void;
 
     /**
-     * 获取录制surface。必须在prepare完成后和start之前调用。
+     * 获得录制需要的surface。使用Promise异步回调。
+     * 开发者从此surface中获取surfaceBuffer，填入相应的数据。
+     * 应当注意，填入的视频数据需要携带时间戳（单位ns），buffersize。时间戳的起始时间请以系统启动时间为基准。
+     * 只能在[prepare()]{@link media.VideoRecorder#prepare(config: VideoRecorderConfig)}接口调用后调用。
      *
-     * @returns { Promise<string> } Promise对象，返回输入surface id字符串。
+     * @returns { Promise<string> } Promise对象，返回surface。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -8132,9 +8143,12 @@ declare namespace media {
     getInputSurface(): Promise<string>;
 
     /**
-     * 获取录制surface。必须在prepare完成后和start之前调用。
+     * 获得录制需要的surface。使用Promise异步回调。
+     * 开发者从此surface中获取surfaceBuffer，填入相应的数据。
+     * 应当注意，填入的视频数据需要携带时间戳（单位ns），buffersize。时间戳的起始时间请以系统启动时间为基准。
+     * 只能在[prepare()]{@link media.VideoRecorder#prepare(config: VideoRecorderConfig)}接口调用后调用。
      *
-     * @returns { Promise<string | undefined> } Promise对象，返回输入surface id字符串。
+     * @returns { Promise<string | undefined> } Promise对象，返回surface。
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - I/O error. Return by promise.
@@ -8146,9 +8160,13 @@ declare namespace media {
     getInputSurface(): Promise<string | undefined>;
 
     /**
-     * 开始视频录制。
+     * 开始视频录制。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - 回调函数，开始录制完成时返回。
+     * 在[prepare()]{@link media.VideoRecorder#prepare(config: VideoRecorderConfig, callback: AsyncCallback<void>)}
+     * 和[getInputSurface()]{@link media.VideoRecorder#getInputSurface(callback: AsyncCallback<string>)}后调用，
+     * 需要依赖数据源先给surface传递数据。
+     *
+     * @param { AsyncCallback<void> } callback - 回调函数。开始视频录制成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -8160,9 +8178,13 @@ declare namespace media {
      */
     start(callback: AsyncCallback<void>): void;
     /**
-     * 开始视频录制。
+     * 开始视频录制。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise对象，开始录制完成时返回。
+     * 在[prepare()]{@link media.VideoRecorder#prepare(config: VideoRecorderConfig)}
+     * 和[getInputSurface()]{@link media.VideoRecorder#getInputSurface()}后调用，
+     * 需要依赖数据源先给surface传递数据。
+     *
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -8174,9 +8196,12 @@ declare namespace media {
      */
     start(): Promise<void>;
     /**
-     * 暂停视频录制。
+     * 暂停视频录制。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - 回调函数，暂停录制完成时返回。
+     * 在[start()]{@link media.VideoRecorder#start(callback: AsyncCallback<void>)}后调用。
+     * 可以通过调用[resume()]{@link media.VideoRecorder#resume(callback: AsyncCallback<void>)}接口来恢复录制。
+     *
+     * @param { AsyncCallback<void> } callback - 回调函数。暂停视频录制成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -8188,9 +8213,12 @@ declare namespace media {
      */
     pause(callback: AsyncCallback<void>): void;
     /**
-     * 暂停视频录制。
+     * 暂停视频录制。使用callback异步回调。
      *
-     * @returns { Promise<void> } Promise对象，暂停录制完成时返回。
+     * 在[start()]{@link media.VideoRecorder#start()}后调用。
+     * 可以通过调用[resume()]{@link media.VideoRecorder#resume()}接口来恢复录制。
+     *
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -8202,9 +8230,9 @@ declare namespace media {
      */
     pause(): Promise<void>;
     /**
-     * 恢复视频录制。
+     * 恢复视频录制。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - 回调函数，恢复录制完成时返回。
+     * @param { AsyncCallback<void> } callback - 回调函数。恢复视频录制成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -8216,9 +8244,9 @@ declare namespace media {
      */
     resume(callback: AsyncCallback<void>): void;
     /**
-     * 恢复视频录制。
+     * 恢复视频录制。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise对象，恢复录制完成时返回。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -8230,9 +8258,12 @@ declare namespace media {
      */
     resume(): Promise<void>;
     /**
-     * 停止视频录制。
+     * 停止视频录制。使用callback异步回调。
      *
-     * @param { AsyncCallback<void>  } callback - 回调函数，停止录制完成时返回。
+     * 需要重新调用[prepare()]{@link media.VideoRecorder#prepare(config: VideoRecorderConfig, callback: AsyncCallback<void>)}
+     * 和[getInputSurface()]{@link media.VideoRecorder#getInputSurface(callback: AsyncCallback<void>)}接口才能重新录制。
+     *
+     * @param { AsyncCallback<void>  } callback - 回调函数。停止视频录制成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by callback.
      * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -8244,9 +8275,12 @@ declare namespace media {
      */
     stop(callback: AsyncCallback<void>): void;
     /**
-     * 停止视频录制。
+     * 停止视频录制。使用callback异步回调。
      *
-     * @returns { Promise<void> } Promise对象，停止录制完成时返回。
+     * 需要重新调用[prepare()]{@link media.VideoRecorder#prepare(config: VideoRecorderConfig)}
+     * 和[getInputSurface()]{@link media.VideoRecorder#getInputSurface()}接口才能重新录制。
+     *
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
@@ -8258,9 +8292,9 @@ declare namespace media {
      */
     stop(): Promise<void>;
     /**
-     * 释放视频录制资源。
+     * 释放视频录制资源。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - 回调函数，释放资源完成时返回。
+     * @param { AsyncCallback<void> } callback - 回调函数。释放视频录制资源成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @throws { BusinessError } 202 - Not System App. [since 12]
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
@@ -8270,10 +8304,10 @@ declare namespace media {
      */
     release(callback: AsyncCallback<void>): void;
     /**
-     * 释放视频录制资源。
+     * 释放视频录制资源。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise对象，释放资源完成时返回。
-     * @throws { BusinessError } 5400105 - Service died. Return by callback.
+     * @returns { Promise<void> } Promise对象，无返回结果。
+     * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @throws { BusinessError } 202 - Not System App. [since 12]
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -8282,10 +8316,12 @@ declare namespace media {
      */
     release(): Promise<void>;
     /**
-     * 重置视频录制。
-     * 在重置之前，必须先调用stop()停止录制。重置后，必须调用prepare()设置录制配置以进行下一次录制。
+     * 重置视频录制。使用callback异步回调。
      *
-     * @param { AsyncCallback<void> } callback - 回调函数，重置完成时返回。
+     * 需要重新调用[prepare()]{@link media.VideoRecorder#prepare(config: VideoRecorderConfig, callback: AsyncCallback<void>)}
+     * 和[getInputSurface()]{@link media.VideoRecorder#getInputSurface(callback: AsyncCallback<void>)}接口才能重新录制。
+     *
+     * @param { AsyncCallback<void> } callback - 回调函数。重置视频录制成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
      * @throws { BusinessError } 202 - Not System App. [since 12]
@@ -8296,10 +8332,12 @@ declare namespace media {
      */
     reset(callback: AsyncCallback<void>): void;
     /**
-     * 重置视频录制。
-     * 在重置之前，必须先调用stop()停止录制。重置后，必须调用prepare()设置录制配置以进行下一次录制。
+     * 重置视频录制。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise对象，重置完成时返回。
+     * 需要重新调用[prepare()]{@link media.VideoRecorder#prepare(config: VideoRecorderConfig)}
+     * 和[getInputSurface()]{@link media.VideoRecorder#getInputSurface()}接口才能重新录制。
+     *
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @throws { BusinessError } 202 - Not System App. [since 12]
@@ -8311,9 +8349,9 @@ declare namespace media {
     reset(): Promise<void>;
 
     /**
-     * 监听视频录制错误事件。
+     * 开始订阅视频录制错误事件，当上报error错误事件后，用户需处理error事件，退出录制操作。使用callback异步回调。
      *
-     * @param { 'error' } type - 视频录制错误事件的类型。
+     * @param { 'error' } type - 录制错误事件回调类型'error'。<br/>-&nbsp;'error'：视频录制过程中发生错误，触发该事件。
      * @param { ErrorCallback } callback - 回调函数，监听视频录制错误事件。
      * @throws { BusinessError } 5400103 - I/O error. Return by callback.
      * @throws { BusinessError } 5400105 - Service died. Return by callback.
@@ -9519,7 +9557,7 @@ declare namespace media {
   }
 
   /**
-   * 视频录制配置参数定义。
+   * 视频录制的配置文件。
    *
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @systemapi
@@ -9528,7 +9566,7 @@ declare namespace media {
    */
   interface VideoRecorderProfile {
     /**
-     * 音频比特率，单位为bit/s。
+     * 音频编码比特率，选择音频录制时必填。
      *
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -9538,7 +9576,7 @@ declare namespace media {
     readonly audioBitrate: int;
 
     /**
-     * 音频声道数。
+     * 音频采集声道数，选择音频录制时必填。
      *
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -9548,7 +9586,7 @@ declare namespace media {
     readonly audioChannels: int;
 
     /**
-     * 音频编码格式。
+     * 音频编码格式，选择音频录制时必填。
      *
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -9558,7 +9596,7 @@ declare namespace media {
     readonly audioCodec: CodecMimeType;
 
     /**
-     * 音频采样率，单位为Hz。
+     * 音频采样率，选择音频录制时必填。
      *
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -9568,7 +9606,7 @@ declare namespace media {
     readonly audioSampleRate: int;
 
     /**
-     * 输出文件格式。
+     * 文件的容器格式。
      *
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -9578,7 +9616,7 @@ declare namespace media {
     readonly fileFormat: ContainerFormatType;
 
     /**
-     * 视频比特率，单位为bit/s。
+     * 视频编码比特率。
      *
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -9598,7 +9636,7 @@ declare namespace media {
     readonly videoCodec: CodecMimeType;
 
     /**
-     * 视频宽度，单位为像素（px）。
+     * 录制视频帧的宽。
      *
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -9608,7 +9646,7 @@ declare namespace media {
     readonly videoFrameWidth: int;
 
     /**
-     * 视频高度，单位为像素（px）。
+     * 录制视频帧的高。
      *
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -9618,7 +9656,7 @@ declare namespace media {
     readonly videoFrameHeight: int;
 
     /**
-     * 视频帧率，单位为fps。
+     * 录制视频帧率。
      *
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -9770,7 +9808,11 @@ declare namespace media {
   }
 
   /**
-   * 视频录制配置定义。
+   * 表示视频录制的参数设置。
+   *
+   * 通过audioSourceType和videoSourceType区分纯视频录制和音视频录制（纯音频录制请使用[AVRecorder]{@link media.AVRecorder}或
+   * [AudioRecorder]{@link media.AudioRecorder}）。
+   * 纯视频录制时，仅需要设置videoSourceType；音视频录制时，audioSourceType和videoSourceType均需要设置。
    *
    * @syscap SystemCapability.Multimedia.Media.VideoRecorder
    * @systemapi
@@ -9779,7 +9821,7 @@ declare namespace media {
    */
   interface VideoRecorderConfig {
     /**
-     * 音频源类型，详见AudioSourceType。
+     * 视频录制的音频源类型，选择音频录制时必填。
      *
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -9788,7 +9830,7 @@ declare namespace media {
      */
     audioSourceType?: AudioSourceType;
     /**
-     * 视频源类型，详见VideoSourceType。
+     * 视频录制的视频源类型。
      *
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -9797,7 +9839,7 @@ declare namespace media {
      */
     videoSourceType: VideoSourceType;
     /**
-     * 视频录制配置参数，可通过getVideoRecorderProfile获取，详见VideoRecorderProfile。
+     * 视频录制的profile。
      *
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -9806,9 +9848,7 @@ declare namespace media {
      */
     profile: VideoRecorderProfile;
     /**
-     * 视频输出URI。支持两种URI格式。
-     * 格式：scheme + "://" + "context"。
-     * fd格式：fd://fd
+     * 视频输出URL：fd://xx&nbsp;(fd&nbsp;number)<br/>![](figures/image-url.png)
      *
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -9817,8 +9857,7 @@ declare namespace media {
      */
     url: string;
     /**
-     * 设置视频输出文件中的旋转角度，用于文件播放。仅mp4格式支持。
-     * 旋转角度取值为{0, 90, 180, 270}，默认值为0。
+     * 录制的视频旋转角度，单位为度（°）。仅支持0°、90°、180°和270°，默认值为0°。
      *
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -9827,7 +9866,7 @@ declare namespace media {
      */
     rotation?: int;
     /**
-     * 地理位置信息。
+     * 录制视频的地理位置，默认不记录地理位置信息。
      *
      * @syscap SystemCapability.Multimedia.Media.VideoRecorder
      * @systemapi
@@ -9987,6 +10026,18 @@ declare namespace media {
 
   /**
    * 音视频录制配置参数。
+   *
+   * <h6>音频参数配置对照表</h6>
+   *
+   * 此处提供音频参数配置的对照表，每项的具体释义，可查看下述字段解释。
+   *
+   * |编码格式|封装格式|采样率|比特率|声道数|
+   * |----|----|----|----|----|
+   * |AUDIO_AAC|MP4,M4A|[8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000, 64000, 88200, 96000]|[32000-500000]|[1-2]|
+   * |AUDIO_MP3|MP3|[8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000]|<br>- 采样率使用16000以下时，对应比特率范围为[8000, 16000, 32000, 40000, 48000, 56000, 64000]。<br>- 采样率使用16000~32000时对应的比特率范围为[8000, 16000, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 160000]。<br>- 采样率使用32000以上时对应的比特率范围为[32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 160000, 192000, 224000, 256000, 320000]。|[1-2]|
+   * |AUDIO_G711MU|WAV|[8000]|[64000]|[1]|
+   * |AUDIO_AMR_NB<sup>18+</sup> |AMR|[8000]|[4750, 5150, 5900, 6700, 7400, 7950, 10200, 12200]|[1]|
+   * |AUDIO_AMR_WB<sup>18+</sup> |AMR|[16000]|[6600, 8850, 12650, 14250, 15850, 18250, 19850, 23050, 23850]|[1]|
    *
    * @syscap SystemCapability.Multimedia.Media.AVRecorder
    * @crossplatform [since 12]
@@ -10162,7 +10213,7 @@ declare namespace media {
     enableTemporalScale?: boolean;
 
     /**
-     * 是否启用视频编码策略以实现质量稳定编码。
+     * 视频录制是否选择稳定质量模式，选择视频录制时选填，enableStableQualityMode默认为false。设置为true时，启用视频编码策略以实现质量稳定的编码。
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
      * @systemapi
@@ -10997,8 +11048,11 @@ declare namespace media {
    * [createAVScreenCaptureRecorder()]{@link @ohos.multimedia.media:media.createAVScreenCaptureRecorder()}创建一个
    * AVScreenCaptureRecorder实例。
    * 
+   * 典型使用流程：createAVScreenCaptureRecorder → init → startRecording → pauseRecording/resumeRecording → stopRecording → release。
+   * 
    * > **说明：**
    * >
+   * > - 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
    * > - 本Interface首批接口从API version 12开始支持。
    *
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -11009,7 +11063,9 @@ declare namespace media {
     /**
      * 进行录屏初始化，设置录屏参数。使用Promise异步回调。
      *
-     * @param { AVScreenCaptureRecordConfig } config - 配置屏幕录制的相关参数。
+     * @param { AVScreenCaptureRecordConfig } config - 配置录屏的相关参数。关键配置项包括：fd（文件描述符）、frameWidth（视频宽度）、
+     * frameHeight（视频高度）等。详细配置说明请参考{@link AVScreenCaptureRecordConfig}。文件（通常是MP4）需要先由开发者创建，
+     * 并赋予写权限，再将文件fd传给此参数。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types. 3. Parameter verification failed. Return by promise.
@@ -11046,7 +11102,7 @@ declare namespace media {
     stopRecording(): Promise<void>;
 
     /**
-     * 暂停录屏。使用Promise异步回调。
+     * 暂停录屏。使用Promise异步回调。在录制过程中需要临时中断录制时调用此接口，例如用户临时离开或需要切换应用时。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operation not be permitted. Return by promise.
@@ -11104,6 +11160,8 @@ declare namespace media {
 
     /**
      * 设置在Picker中隐藏的窗口列表，在下一次显示Picker时生效。使用Promise异步回调。
+     * 
+     * 在需要排除特定窗口不被用户选择时调用此接口，例如隐藏应用自身窗口、隐私窗口或不相关的后台窗口。
      *
      * @param { Array<int> } excludedWindows - 需要在Picker中隐藏的窗口列表，窗口属性获取方法可以参考
      *     [getWindowProperties]{@link @ohos.window:window.Window.getWindowProperties}。
@@ -11848,6 +11906,14 @@ declare namespace media {
 
   /**
    * 离线下载任务状态枚举。
+   * 
+   * @unionmember { 'init' } 下载任务初始化。
+   * @unionmember { 'queued' } 下载任务排队等待。
+   * @unionmember { 'running' } 下载任务正在运行。
+   * @unionmember { 'completed' } 下载任务已完成。
+   * @unionmember { 'paused' } 下载任务已暂停。
+   * @unionmember { 'removing' } 下载任务正在移除。
+   * @unionmember { 'error' } 下载任务出错。
    * @syscap SystemCapability.Multimedia.Media.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static

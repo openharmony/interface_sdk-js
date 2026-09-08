@@ -39,9 +39,8 @@ import { Resource } from './global/resource';
  */
 export enum AccessibilityAction {
   /**
-   * Gains accessibility focus. The [Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.
-   * accessibilityFocusScene parameter must be configured, with the parameter value being the accessibility focus 
-   * scenario type.
+   * Gains accessibility focus. The [Parameter]{@link ./application/AccessibilityExtensionContext:Parameter}.accessibilityFocusScene
+   * parameter must be configured, with the parameter value being the accessibility focus scenario type.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi

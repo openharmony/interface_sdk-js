@@ -2926,7 +2926,7 @@ declare namespace avSession {
      * 取消指定资源id进行播放的事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
      *
      * @param { 'playWithAssetId' } type - 关闭对应的监听事件，支持的事件是`'playWithAssetId'`。
-     * @param { Callback<string> } callback - 回调函数。当监听事件取消成功，err为undefined，否则返回错误对象。
+     * @param { Callback<string> } [callback] - 回调函数。当监听事件取消成功，err为undefined，否则返回错误对象。
      *     <br>该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。参数assetId是媒体ID。
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -3143,7 +3143,7 @@ declare namespace avSession {
      * 取消目标循环模式变化事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
      *
      * @param { 'setTargetLoopMode' } type - 关闭对应的监听事件，支持关闭事件`'setTargetLoopMode'`。
-     * @param { Callback<LoopMode> } callback - 回调函数，参数表示目标循环模式。
+     * @param { Callback<LoopMode> } [callback] - 回调函数，参数表示目标循环模式。
      *     <br>- 当监听事件取消成功，err为undefined，否则返回错误对象。
      *     <br>- 该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -3483,7 +3483,7 @@ declare namespace avSession {
      * 取消通话接听事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
      *
      * @param { 'answer' } type - 关闭对应的监听事件，支持的事件是`'answer'`。
-     * @param { Callback<void> } callback - 回调函数。当监听事件取消成功，err为undefined，否则返回错误对象。
+     * @param { Callback<void> } [callback] - 回调函数。当监听事件取消成功，err为undefined，否则返回错误对象。
      *     <br>该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
@@ -3538,7 +3538,7 @@ declare namespace avSession {
      * 取消通话挂断事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
      *
      * @param { 'hangUp' } type - 关闭对应的监听事件，支持的事件是`'hangUp'`。
-     * @param { Callback<void> } callback - 回调函数。当监听事件取消成功，err为undefined，否则返回错误对象。
+     * @param { Callback<void> } [callback] - 回调函数。当监听事件取消成功，err为undefined，否则返回错误对象。
      *     <br>该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types.
@@ -3593,7 +3593,7 @@ declare namespace avSession {
      * 取消通话静音事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
      *
      * @param { 'toggleCallMute' } type - 关闭对应的监听事件，支持的事件是`'toggleCallMute'`。
-     * @param { Callback<void> } callback - 回调函数。当监听事件取消成功，err为undefined，否则返回错误对象。
+     * @param { Callback<void> } [callback] - 回调函数。当监听事件取消成功，err为undefined，否则返回错误对象。
      *     <br>该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.2.Incorrect
      *     parameter types.
@@ -3646,7 +3646,7 @@ declare namespace avSession {
      * 取消扩展屏投播显示设备变化事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
      *
      * @param { 'castDisplayChange' } type - 关闭对应的监听事件，支持的事件是`'castDisplayChange'`。
-     * @param { Callback<CastDisplayInfo> } callback - 回调函数。当监听事件取消成功，err为undefined，否则返回错误对象。该参数为可选参数，若不填写该参数，则认为取消所有相关会
+     * @param { Callback<CastDisplayInfo> } [callback] - 回调函数。当监听事件取消成功，err为undefined，否则返回错误对象。该参数为可选参数，若不填写该参数，则认为取消所有相关会
      *     话的事件监听。
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types.
@@ -4458,7 +4458,7 @@ declare namespace avSession {
      * 取消设置请求播放事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
      *
      * @param { 'requestPlay' } type - 取消对应的监听事件，支持事件`'requestPlay'`。
-     * @param { Callback<AVQueueItem> } callback - 回调函数，参数AVQueueItem是当前正在播放的媒体内容。当监听事件取消成功，err为undefined，否则返回错误对象。该参数为可
+     * @param { Callback<AVQueueItem> } [callback] - 回调函数，参数AVQueueItem是当前正在播放的媒体内容。当监听事件取消成功，err为undefined，否则返回错误对象。该参数为可
      *     选参数，若不填写该参数，则认为取消所有相关会话的事件监听。
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types.
@@ -4506,7 +4506,7 @@ declare namespace avSession {
      * 取消设置播放结束事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
      *
      * @param { 'endOfStream' } type - 取消对应的监听事件，支持事件`'endOfStream'`。
-     * @param { Callback<void> } callback - 回调函数。当监听事件取消成功，err为undefined，否则返回错误对象。该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。
+     * @param { Callback<void> } [callback] - 回调函数。当监听事件取消成功，err为undefined，否则返回错误对象。该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types.
      * @throws { BusinessError } 6600101 - Session service exception
@@ -4602,7 +4602,7 @@ declare namespace avSession {
      * 取消会话有效命令变化事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
      *
      * @param { 取消对应的监听事件，支持事件`'validCommandChange'`。 } type - 取消对应的监听事件，支持事件`'validCommandChange'`。
-     * @param { Callback<Array<AVCastControlCommandType>> } callback - 回调函数。参数commands是有效命令的集合。
+     * @param { Callback<Array<AVCastControlCommandType>> } [callback] - 回调函数。参数commands是有效命令的集合。
      *     <br>该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types.
@@ -5297,7 +5297,7 @@ declare namespace avSession {
      * 取消半模态窗口变化事件监听。指定callback，可取消对应监听；未指定callback，取消所有事件监听。
      *
      * @param { 取消对应的监听事件，支持事件`'pickerStateChange'`。 } type - 取消对应的监听事件，支持事件`'pickerStateChange'`。
-     * @param { Callback<AVCastPickerState> } callback - 回调函数，参数state是变化后的半模态窗口状态。
+     * @param { Callback<AVCastPickerState> } [callback] - 回调函数，参数state是变化后的半模态窗口状态。
      *     <br>当监听事件取消成功，err为undefined，否则返回错误对象。
      *     <br>该参数为可选参数，若不填写该参数，则认为取消所有相关会话的事件监听。
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -7862,8 +7862,8 @@ declare namespace avSession {
      * 获取播放设备信息。结果通过callback异步回调方式返回。
      *
      * @param { AsyncCallback<OutputDeviceInfo> } callback - 回调函数，返回播放设备信息。
-     * @throws { BusinessError } 600101 - Session service exception.
-     * @throws { BusinessError } 600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10 dynamic
      * @since 23 static
@@ -7874,8 +7874,8 @@ declare namespace avSession {
      * 获取播放设备信息。结果通过Promise异步回调方式返回。
      *
      * @returns { Promise<OutputDeviceInfo> } Promise对象，返回播放设备信息。
-     * @throws { BusinessError } 600101 - Session service exception.
-     * @throws { BusinessError } 600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
      * @since 10 dynamic
@@ -7933,11 +7933,11 @@ declare namespace avSession {
      * @param { AsyncCallback<void> } callback - 回调函数。当事件发送成功，err为undefined，否则返回错误对象。
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Parameter verification failed.
-     * @throws { BusinessError } 600101 - Session service exception.
-     * @throws { BusinessError } 600102 - The session does not exist.
-     * @throws { BusinessError } 600103 - The session controller does not exist.
-     * @throws { BusinessError } 600105 - Invalid session command.
-     * @throws { BusinessError } 600106 - The session is not activated.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600105 - Invalid session command.
+     * @throws { BusinessError } 6600106 - The session is not activated.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10 dynamic
      * @since 23 static
@@ -7951,11 +7951,11 @@ declare namespace avSession {
      * @returns { Promise<void> } Promise对象。当事件发送成功，无返回结果，否则返回错误对象。
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      *     2.Parameter verification failed.
-     * @throws { BusinessError } 600101 - Session service exception.
-     * @throws { BusinessError } 600102 - The session does not exist.
-     * @throws { BusinessError } 600103 - The session controller does not exist.
-     * @throws { BusinessError } 600105 - Invalid session command.
-     * @throws { BusinessError } 600106 - The session is not activated.
+     * @throws { BusinessError } 6600101 - Session service exception.
+     * @throws { BusinessError } 6600102 - The session does not exist.
+     * @throws { BusinessError } 6600103 - The session controller does not exist.
+     * @throws { BusinessError } 6600105 - Invalid session command.
+     * @throws { BusinessError } 6600106 - The session is not activated.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
      * @since 10 dynamic

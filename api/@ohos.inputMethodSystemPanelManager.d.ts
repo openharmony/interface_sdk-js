@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Input Method System Panel Manager (System API)
  * @kit IMEKit
  */
 import type { Callback } from './@ohos.base';

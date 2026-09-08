@@ -133,7 +133,7 @@ declare namespace selectionManager {
    * @param { Context } ctx - 当前划词面板依赖的上下文信息，需使用SelectionExtensionAbility提供的上下文。
    * @param { PanelInfo } info - 划词面板的配置信息，用于指定面板类型、位置和宽高。单个划词应用仅允许创建一个MENU_PANEL和一个MAIN_PANEL。
    * @returns { Promise<Panel> } Promise对象，返回当前创建的划词面板对象，可用于面板内容设置、显示、隐藏、移动及事件订阅等管理操作。
-   * @throws { BusinessError } 33600001 - Selection service exception.
+   * @throws { BusinessError } 33600001 - Selection service invocation exception.
    * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
@@ -150,7 +150,7 @@ declare namespace selectionManager {
    *
    * @param { Panel } panel - 要销毁的面板对象。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 33600001 - Selection service exception.
+   * @throws { BusinessError } 33600001 - Selection service invocation exception.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]
    * @publicapi [since 24]
@@ -334,7 +334,7 @@ declare namespace selectionManager {
      *
      * @param { string } path - 要加载到面板中的页面内容的路径，Stage模型下该路径需添加到工程的resources/base/profile/main_pages.json文件中，不支持FA模型。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600001 - Selection service invocation exception.
      * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
@@ -350,7 +350,7 @@ declare namespace selectionManager {
      * Panel实例后调用。使用Promise异步回调。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600001 - Selection service invocation exception.
      * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
@@ -366,7 +366,7 @@ declare namespace selectionManager {
      * Panel实例后调用。使用Promise异步回调。如不主动调用，面板在失焦时会自动隐藏。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600001 - Selection service invocation exception.
      * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
@@ -381,7 +381,7 @@ declare namespace selectionManager {
      * 回调。该接口需在onTouch的回调函数中调用，并且事件类型为TouchType.Down。
      *
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600001 - Selection service invocation exception.
      * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi [since 20 - 23]
@@ -402,7 +402,7 @@ declare namespace selectionManager {
      * @param { int } x - 目标位置在屏幕全局坐标系下的x轴坐标，单位为px。全局坐标系以主屏幕左上角为原点，x轴正方向向右；扩展屏的x坐标视屏幕布局可能为负值。
      * @param { int } y - 目标位置在屏幕全局坐标系下的y轴坐标，单位为px。全局坐标系以主屏幕左上角为原点，y轴正方向向下；扩展屏的y坐标视屏幕布局可能为负值。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600001 - Selection service invocation exception.
      * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @systemapi
@@ -418,7 +418,7 @@ declare namespace selectionManager {
      * @param { int } x - 目标位置在屏幕全局坐标系下的x轴坐标，单位为px。全局坐标系以主屏幕左上角为原点，x轴正方向向右；扩展屏的x坐标视屏幕布局可能为负值。
      * @param { int } y - 目标位置在屏幕全局坐标系下的y轴坐标，单位为px。全局坐标系以主屏幕左上角为原点，y轴正方向向下；扩展屏的y坐标视屏幕布局可能为负值。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 33600001 - Selection service exception.
+     * @throws { BusinessError } 33600001 - Selection service invocation exception.
      * @throws { BusinessError } 33600002 - This selection window has been destroyed.
      * @syscap SystemCapability.SelectionInput.Selection
      * @stagemodelonly

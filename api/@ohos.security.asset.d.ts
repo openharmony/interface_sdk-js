@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Asset Store Service
  * @kit AssetStoreKit
  */
 
@@ -35,7 +35,8 @@ declare namespace asset {
    * @param { AssetMap } attributes - Attributes of the asset to add, including the asset plaintext,
    *     access control attributes, and custom data.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - The caller doesn't have the permission.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -98,8 +99,9 @@ declare namespace asset {
    * @param { AssetMap } attributes - Attributes of the asset to add, including the asset plaintext, access control
    *     attributes, and custom data.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - The caller doesn't have the permission.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -130,7 +132,8 @@ declare namespace asset {
    *
    * @param { AssetMap } attributes - Attributes of the asset to add, including the asset plaintext,
    *     access control attributes, and custom data.
-   * @throws { BusinessError } 201 - The caller doesn't have the permission.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -188,8 +191,9 @@ declare namespace asset {
    * @param { AssetMap } query - Attributes of the asset to remove, such as the asset alias, access control attributes,
    *     and custom data.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - The caller doesn't have the permission.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -299,8 +303,9 @@ declare namespace asset {
    *     and custom data.
    * @param { AssetMap } attributesToUpdate - New attributes of the asset, such as the asset plaintext and custom data.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - The caller doesn't have the permission.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -425,8 +430,9 @@ declare namespace asset {
    *     access control attributes, and custom data.
    * @returns { Promise<Uint8Array> } Promise used to return a challenge value.
    *     <br>**NOTE**: The challenge value is used for subsequent user authentication.
-   * @throws { BusinessError } 201 - The caller doesn't have the permission.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -531,8 +537,9 @@ declare namespace asset {
    * @param { AssetMap } query - Conditions for querying the asset, such as the asset aliases,
    *     access control attributes, and custom data.
    * @returns { Promise<Array<AssetMap>> } Promise used to return the result obtained.
-   * @throws { BusinessError } 201 - The caller doesn't have the permission.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -628,8 +635,9 @@ declare namespace asset {
    * @param { AssetMap } handle - Handle of the query operation, including the challenge value returned by
    *     [asset.preQueryAsUser]{@link asset.preQueryAsUser}.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - The caller doesn't have the permission.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -1338,14 +1346,14 @@ declare namespace asset {
    */
   enum ErrorCode {
     /**
-     * The caller does not have the permission.
+     * Permission verification failed. The application does not have the permission required to call the API.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 11
      */
     PERMISSION_DENIED = 201,
     /**
-     * The caller is not a system application.
+     * Permission verification failed. A non-system application calls a system API.
      *
      * @syscap SystemCapability.Security.Asset
      * @since 12

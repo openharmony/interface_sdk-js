@@ -54,7 +54,7 @@ declare namespace reminderAgentManager {
    *     After the agent-powered reminder is
    *     published, **err** is **undefined**, and **data** is the ID of the published reminder. Otherwise, **err** is an
    *     error object.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700001 - Notification is not enabled.
    * @throws { BusinessError } 1700002 - The number of reminders exceeds the limit.
@@ -77,7 +77,7 @@ declare namespace reminderAgentManager {
    * @permission ohos.permission.PUBLISH_AGENT_REMINDER
    * @param { ReminderRequest } reminderReq - Request used for publishing the reminder.
    * @returns { Promise<int> } Promise used to return the published reminder ID.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700001 - Notification is not enabled.
    * @throws { BusinessError } 1700002 - The number of reminders exceeds the limit.
@@ -208,7 +208,7 @@ declare namespace reminderAgentManager {
    * @param { ReminderRequest } reminderReq - Request instance used to set detailed information such as the reminder
    *     type and ringing duration.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @throws { BusinessError } 1700007 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.ReminderAgent
@@ -279,7 +279,7 @@ declare namespace reminderAgentManager {
    *     API is called.
    * @param { Date } date - Non-reminder date.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
@@ -297,7 +297,7 @@ declare namespace reminderAgentManager {
    *     [publishReminder]{@link reminderAgentManager.publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<int>)}
    *     API is called.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 12 dynamic
@@ -314,7 +314,7 @@ declare namespace reminderAgentManager {
    *     [publishReminder]{@link reminderAgentManager.publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback<int>)}
    *     API is called.
    * @returns { Promise<Array<Date>> } Promise used to return all the non-reminder dates.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 1700003 - The reminder does not exist.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 12 dynamic
@@ -328,7 +328,7 @@ declare namespace reminderAgentManager {
    * the ohos.permission.PUBLISH_AGENT_REMINDER permission.
    *
    * @returns { Promise<Array<ReminderInfo>> } Promise used to return all the valid reminders.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @since 12 dynamic
    * @since 23 static
@@ -341,7 +341,7 @@ declare namespace reminderAgentManager {
    * @permission ohos.permission.PUBLISH_AGENT_REMINDER
    * @param { Callback<Array<ReminderState>> } callback - Callback used to return the agent-powered reminder state.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 1700007 - If the input parameter is not valid parameter.
    * @syscap SystemCapability.Notification.ReminderAgent
    * @stagemodelonly
