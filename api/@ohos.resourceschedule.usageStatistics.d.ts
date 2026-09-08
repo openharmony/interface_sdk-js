@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Device Usage Statistics
  * @kit BackgroundTasksKit
  */
 
