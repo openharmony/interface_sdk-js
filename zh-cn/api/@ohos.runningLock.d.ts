@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file RunningLock锁
  * @kit BasicServicesKit
  */
 

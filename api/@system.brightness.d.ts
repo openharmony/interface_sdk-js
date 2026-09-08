@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Screen Brightness
  * @kit BasicServicesKit
  */
 

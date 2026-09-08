@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Thermal Management
  * @kit BasicServicesKit
  */
 
