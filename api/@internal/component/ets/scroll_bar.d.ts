@@ -115,8 +115,8 @@ declare interface ScrollBarOptions {
 
 /**
  * The **ScrollBar** component is designed to be used together with scrollable components such as
- * [ArcList]{@link @ohos.arkui.ArcList}, [List]{@link list}, [Grid]{@link grid}, [Scroll]{@link scroll}, and
- * [WaterFlow]{@link water_flow}.
+ * [ArcList]{@link @ohos.arkui.ArcList}, [List]{@link ./list}, [Grid]{@link ./grid}, [Scroll]{@link ./scroll}, and
+ * [WaterFlow]{@link ./water_flow}.
  *
  * > **NOTE**
  * >
@@ -124,11 +124,11 @@ declare interface ScrollBarOptions {
  * > earliest API version.
  * >
  * > - If the size of the main axis direction is not set for **ScrollBar**, the **maxSize** value in the
- * > [layout constraints]{@link FrameNode:LayoutConstraint} of the parent component is used. If the parent component of
- * > the **ScrollBar** component contains a scrollable component, such as [ArcList]{@link @ohos.arkui.ArcList},
- * > [List]{@link list}, [Grid]{@link grid}, [Scroll]{@link scroll}, or [WaterFlow]{@link water_flow}, you are advised
- * > to set the size in the main axis direction of the **ScrollBar**; otherwise, the size in the main axis direction of
- * > **ScrollBar** may become infinite.
+ * > [layout constraints]{@link ../../../arkui/FrameNode:LayoutConstraint} of the parent component is used. If the
+ * > parent component of the **ScrollBar** component contains a scrollable component, such as
+ * > [ArcList]{@link @ohos.arkui.ArcList}, [List]{@link ./list}, [Grid]{@link ./grid}, [Scroll]{@link ./scroll}, or
+ * > [WaterFlow]{@link ./water_flow}, you are advised to set the size in the main axis direction of the **ScrollBar**;
+ * > otherwise, the size in the main axis direction of **ScrollBar** may become infinite.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -154,7 +154,7 @@ interface ScrollBarInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * In addition to the [universal attributes]{@link ./common}, the following attributes are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -184,7 +184,8 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
    * > according to the desired logic.
    *
    * @param { Optional<boolean> } enabled - Whether nested scrolling is enabled. The value **true** means that nested
-   *     scrolling is enabled, and **false** means the opposite.<br>Default value: **false**
+   *     scrolling is enabled, and **false** means the opposite.
+   *     <br>Default value: **false**
    * @returns { ScrollBarAttribute } The attribute of the scroll bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -198,7 +199,8 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
    * Sets the color of the scrollbar slider. This parameter is valid only when the scrollbar does not contain child
    * components.
    *
-   * @param { Optional<ColorMetrics> } color - Scrollbar color.<br>Default value: **ColorMetrics.numeric(0x66182431)**
+   * @param { Optional<ColorMetrics> } color - Scrollbar color.
+   *     <br>Default value: **ColorMetrics.numeric(0x66182431)**
    * @returns { ScrollBarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -211,8 +213,8 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
 
 /**
  * The **ScrollBar** component is designed to be used together with scrollable components such as
- * [ArcList]{@link @ohos.arkui.ArcList}, [List]{@link list}, [Grid]{@link grid}, [Scroll]{@link scroll}, and
- * [WaterFlow]{@link water_flow}.
+ * [ArcList]{@link @ohos.arkui.ArcList}, [List]{@link ./list}, [Grid]{@link ./grid}, [Scroll]{@link ./scroll}, and
+ * [WaterFlow]{@link ./water_flow}.
  *
  * > **NOTE**
  * >
@@ -220,11 +222,11 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
  * > earliest API version.
  * >
  * > - If the size of the main axis direction is not set for **ScrollBar**, the **maxSize** value in the
- * > [layout constraints]{@link FrameNode:LayoutConstraint} of the parent component is used. If the parent component of
- * > the **ScrollBar** component contains a scrollable component, such as [ArcList]{@link @ohos.arkui.ArcList},
- * > [List]{@link list}, [Grid]{@link grid}, [Scroll]{@link scroll}, or [WaterFlow]{@link water_flow}, you are advised
- * > to set the size in the main axis direction of the **ScrollBar**; otherwise, the size in the main axis direction of
- * > **ScrollBar** may become infinite.
+ * > [layout constraints]{@link ../../../arkui/FrameNode:LayoutConstraint} of the parent component is used. If the
+ * > parent component of the **ScrollBar** component contains a scrollable component, such as
+ * > [ArcList]{@link @ohos.arkui.ArcList}, [List]{@link ./list}, [Grid]{@link ./grid}, [Scroll]{@link ./scroll}, or
+ * > [WaterFlow]{@link ./water_flow}, you are advised to set the size in the main axis direction of the **ScrollBar**;
+ * > otherwise, the size in the main axis direction of **ScrollBar** may become infinite.
  *
  * ###### Child Components
  *
@@ -276,7 +278,7 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
  * }
  * ```
  *
- * ![en-us_image_0000001232775585](figures/en-us_image_0000001232775585.gif)
+ * ![scrollBar1](figures/scrollBar1.gif)
  *
  * ###### Example 2: Implementing a ScrollBar Component Without Child Components
  *
@@ -321,7 +323,7 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
  * }
  * ```
  *
- * ![en-us_image_scrollbar](figures/en-us_image_scrollbar.gif)
+ * ![en-us_image_scrollbar](figures/image-scrollbar.gif)
  *
  * ###### Example 3: Enabling Nested Scrolling
  *
