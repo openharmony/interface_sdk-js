@@ -411,7 +411,7 @@ declare namespace advertising {
    *     js-apis-app-ability-common). [since 11 - 11]     
    * @param { common.UIAbilityContext } [context] - Context of the UIAbility. If this parameter is not set, the value is
    *     obtained from @ohos.app.ability.common. [since 12]
-   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
    *     unspecified.
    * @throws { BusinessError } 21800001 - System internal error.
    * @throws { BusinessError } 21800004 - Failed to display the ad.
@@ -445,11 +445,11 @@ declare namespace advertising {
      * @param { AdRequestParams } adParam - Ad request parameters.
      * @param { AdOptions } adOptions - Ad configuration parameters.
      * @param { AdLoadListener } listener - Callback listener for ad requests.
-     * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
      *     unspecified.2. Incorrect parameter types. 3.Parameter verification failed
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
-     * @throws { BusinessError } 801 - Device not supported. [since 12]
+     * @throws { BusinessError } 801 - Capability not supported. [since 12]
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
      * @since 11
@@ -462,11 +462,11 @@ declare namespace advertising {
      * @param { AdRequestParams[] } adParams - Ad request parameters.
      * @param { AdOptions } adOptions - Ad configuration parameters.
      * @param { MultiSlotsAdLoadListener } listener - Callback listener for ad requests.
-     * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
      *     unspecified.2. Incorrect parameter types. 3.Parameter verification failed
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
-     * @throws { BusinessError } 801 - Device not supported. [since 12]
+     * @throws { BusinessError } 801 - Capability not supported. [since 12]
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
      * @since 11
@@ -482,9 +482,9 @@ declare namespace advertising {
    *     **Note:** The **adId** parameter of this API can be empty.
    * @param { AdOptions } adOptions - Ad configuration parameters.
    * @returns { Promise<string> } Promise used to return the ad data of the string type.
-   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are
    *     left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Device not supported.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 21800001 - System internal error.
    * @syscap SystemCapability.Advertising.Ads
    * @since 12
@@ -498,9 +498,9 @@ declare namespace advertising {
    * @param { string } adResponse - Ad response body.
    * @param { MultiSlotsAdLoadListener } listener - Callback listener for ad requests.
    * @param { common.UIAbilityContext } context - Context of the UIAbility.
-   * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are
+   * @throws { BusinessError } 401 - Parameter error.Possible causes: 1. Mandatory parameters are
    *     left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Device not supported.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 21800001 - System internal error.
    * @throws { BusinessError } 21800005 - Failed to parse the ad response.
    * @syscap SystemCapability.Advertising.Ads
@@ -515,7 +515,7 @@ declare namespace advertising {
    *
    * @param { web_webview.WebviewController } controller - Web component controller.
    * @param { common.UIAbilityContext } context - Context of the UIAbility.
-   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
    *     unspecified.
    * @throws { BusinessError } 21800001 - System internal error.
    * @syscap SystemCapability.Advertising.Ads
@@ -531,7 +531,7 @@ declare namespace advertising {
    * @param { web_webview.WebviewController } controller - Web component controller.
    * @param { common.UIAbilityContext } context - Context of the UIAbility.
    * @param { boolean } needRefresh - Whether to refresh the page (true: yes; false: no).
-   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: Mandatory parameters are left
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left
    *     unspecified.
    * @throws { BusinessError } 21800001 - System internal error.
    * @syscap SystemCapability.Advertising.Ads
@@ -547,7 +547,7 @@ declare namespace advertising {
    *
    * @param { web_webview.WebviewController } controller - Web component controller.
    * @param { boolean } needRefresh - Whether to refresh the page (true: yes; false: no).
-   * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: Mandatory parameters are left
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left
    *     unspecified.
    * @throws { BusinessError } 21800001 - System internal error.
    * @syscap SystemCapability.Advertising.Ads

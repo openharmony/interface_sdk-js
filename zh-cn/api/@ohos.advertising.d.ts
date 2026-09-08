@@ -435,7 +435,7 @@ declare namespace advertising {
      *     unspecified.2. Incorrect parameter types. 3.Parameter verification failed
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
-     * @throws { BusinessError } 801 - Device not supported. [since 12]
+     * @throws { BusinessError } 801 - Capability not supported. [since 12]
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
      * @since 11
@@ -452,7 +452,7 @@ declare namespace advertising {
      *     unspecified.2. Incorrect parameter types. 3.Parameter verification failed
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
-     * @throws { BusinessError } 801 - Device not supported. [since 12]
+     * @throws { BusinessError } 801 - Capability not supported. [since 12]
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
      * @since 11
@@ -469,7 +469,7 @@ declare namespace advertising {
    * @returns { Promise<string> } Promise对象，返回字符类型的广告数据。
    * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are
    *     left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Device not supported.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 21800001 - System internal error.
    * @syscap SystemCapability.Advertising.Ads
    * @since 12
@@ -484,7 +484,7 @@ declare namespace advertising {
    * @param { common.UIAbilityContext } context - UIAbility的上下文环境。
    * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are
    *     left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Device not supported.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 21800001 - System internal error.
    * @throws { BusinessError } 21800005 - Failed to parse the ad response.
    * @syscap SystemCapability.Advertising.Ads
