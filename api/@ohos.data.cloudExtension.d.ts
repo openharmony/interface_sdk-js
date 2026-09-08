@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Device-Cloud Sharing Extension
  * @kit ArkData
  */
 

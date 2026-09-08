@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Common Data Types
  * @kit ArkData
  */
 
