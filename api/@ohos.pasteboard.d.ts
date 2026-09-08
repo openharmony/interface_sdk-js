@@ -18,10 +18,13 @@
  * @kit BasicServicesKit
  */
 
-import { AsyncCallback, Callback, RecordData } from './@ohos.base';
+import { AsyncCallback, Callback } from './@ohos.base';
 import Want from './@ohos.app.ability.Want';
 import image from './@ohos.multimedia.image';
 import unifiedDataChannel from './@ohos.data.unifiedDataChannel';
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * This module provides the capabilities of managing the system pasteboard to support the copy and paste functions. You
