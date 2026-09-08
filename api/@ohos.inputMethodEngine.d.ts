@@ -245,6 +245,16 @@ declare namespace inputMethodEngine {
   const PATTERN_ONE_TIME_CODE: int;
 
   /**
+   * The numeric verification code edit box. The value is fixed at 15.
+   * The value should be an integer.
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  const PATTERN_ONE_TIME_CODE_NUMBER: int;
+  
+  /**
    * The edit box is being selected.
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
