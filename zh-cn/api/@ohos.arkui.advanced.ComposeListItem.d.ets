@@ -14,8 +14,16 @@
 */
 
 /**
-  * @file
-  * @kit ArkUI
+ * ###### 子组件
+ *
+ * 无
+ *
+ * ###### 事件
+ *
+ * 不支持[通用事件]{@link ./@internal/component/ets/common}。
+ *
+ * @file
+ * @kit ArkUI
  */
 
 /**

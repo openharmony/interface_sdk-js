@@ -19,8 +19,8 @@
  */
 
 /**
-* 滚动条方向枚举。
-*
+ * 滚动条方向枚举。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -53,19 +53,19 @@ declare enum ScrollBarDirection {
 }
 
 /**
-* 滚动条组件参数。
-*
-* > **说明：**
-* >
-* > - ScrollBar组件用于显示并控制所绑定可滚动组件的滚动位置。设置子组件时，该子组件作为自定义滚动条滑块，并随可滚动组件的滚动位置移动。
-* >
-* > - 滚动条组件与可滚动组件通过Scroller进行绑定，且只有当两者方向相同时，才能联动。一个可滚动组件可以绑定多个ScrollBar组件，一个ScrollBar组件只能绑定一个可滚动组件。
-* >
-* > - 从API version 12开始，ScrollBar组件没有子节点时，支持显示默认样式的滚动条。
-* >
-* > - ScrollBar组件的显隐是通过BarState设置，组件内部会自动根据BarState设置调整opacity来控制显隐，因此ScrollBar组件设置
-* > [opacity]{@link CommonMethod#opacity(opacity: Optional<number | Resource>)}属性不生效。
-*
+ * 滚动条组件参数。
+ * 
+ * > **说明：**
+ * >
+ * > - ScrollBar组件用于显示并控制所绑定可滚动组件的滚动位置。设置子组件时，该子组件作为自定义滚动条滑块，并随可滚动组件的滚动位置移动。
+ * >
+ * > - 滚动条组件与可滚动组件通过Scroller进行绑定，且只有当两者方向相同时，才能联动。一个可滚动组件可以绑定多个ScrollBar组件，一个ScrollBar组件只能绑定一个可滚动组件。
+ * >
+ * > - 从API version 12开始，ScrollBar组件没有子节点时，支持显示默认样式的滚动条。
+ * >
+ * > - ScrollBar组件的显隐是通过BarState设置，组件内部会自动根据BarState设置调整opacity来控制显隐，因此ScrollBar组件设置
+ * > [opacity]{@link CommonMethod#opacity(opacity: Optional<number | Resource>)}属性不生效。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -75,7 +75,7 @@ declare enum ScrollBarDirection {
 declare interface ScrollBarOptions {
 
   /**
-   * 可滚动组件的控制器。用于与可滚动组件进行绑定。
+   * 可滚动组件的控制器。用于与可滚动组件进行绑定，且仅当ScrollBar与可滚动组件方向相同时才能联动。一个可滚动组件可以绑定多个ScrollBar组件，一个ScrollBar组件只能绑定一个可滚动组件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -86,7 +86,7 @@ declare interface ScrollBarOptions {
   scroller: Scroller;
 
   /**
-   * 滚动条的方向，控制可滚动组件对应方向的滚动。<br/>默认值：ScrollBarDirection.Vertical
+   * 滚动条的方向，控制可滚动组件对应方向的滚动。可滚动内容为纵向布局时设置为ScrollBarDirection.Vertical；可滚动内容为横向布局时设置为ScrollBarDirection.Horizontal。<br/>默认值：ScrollBarDirection.Vertical
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -97,7 +97,7 @@ declare interface ScrollBarOptions {
   direction?: ScrollBarDirection;
 
   /**
-   * 滚动条状态。<br/>默认值：BarState.Auto
+   * 滚动条状态。BarState.Auto表示按需显示，BarState.On表示常驻显示，BarState.Off表示不显示。<br/>默认值：BarState.Auto
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -109,15 +109,17 @@ declare interface ScrollBarOptions {
 }
 
 /**
-* 滚动条组件ScrollBar，用于配合可滚动组件使用，如[ArcList]{@link @ohos.arkui.ArcList}、[List]{@link ./list}、[Grid]{@link ./grid}、
-* [Scroll]{@link ./scroll}、[WaterFlow]{@link ./water_flow}，提供可视化的滚动指示和控制能力，支持自定义滚动条样式。
-*
-* > **说明：**
-* >
-* > - ScrollBar主轴方向不设置大小时，采用父组件[布局约束]{@link ../../../arkui/FrameNode:LayoutConstraint}中的maxSize作为主轴方向大小。如果ScrollBar的父组件
-* > 存在可滚动组件，如[ArcList]{@link @ohos.arkui.ArcList}、[List]{@link ./list}、[Grid]{@link ./grid}、[Scroll]{@link ./scroll}、
-* > [WaterFlow]{@link ./water_flow}，建议设置ScrollBar主轴方向大小，否则ScrollBar主轴方向大小可能为无穷大。
-*
+ * 滚动条组件ScrollBar，用于配合可滚动组件使用，如[ArcList]{@link @ohos.arkui.ArcList}、[List]{@link ./list}、[Grid]{@link ./grid}、
+ * [Scroll]{@link ./scroll}、[WaterFlow]{@link ./water_flow}，提供可视化的滚动指示和控制能力，支持自定义滚动条样式。
+ *
+ * > **说明：**
+ * >
+ * > - 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+ * >
+ * > - ScrollBar主轴方向不设置大小时，采用父组件[布局约束]{@link ../../../arkui/FrameNode:LayoutConstraint}中的maxSize作为主轴方向大小。如果ScrollBar的父组件
+ * > 存在可滚动组件，如[ArcList]{@link @ohos.arkui.ArcList}、[List]{@link ./list}、[Grid]{@link ./grid}、[Scroll]{@link ./scroll}、
+ * > [WaterFlow]{@link ./water_flow}，建议设置ScrollBar主轴方向大小，否则ScrollBar主轴方向大小可能为无穷大。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -142,8 +144,8 @@ interface ScrollBarInterface {
 }
 
 /**
-* 除支持[通用属性]{@link ./common}外，还支持以下属性：
-*
+ * 除支持[通用属性]{@link ./common}外，还支持以下属性：
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -152,12 +154,19 @@ interface ScrollBarInterface {
  * @noninterop
  */
 declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
-
   /**
    * 设置滚动条是否嵌套滚动。用于多层滚动容器、嵌套列表等需要通过滚动条拖动内层可滚动组件并联动父级滚动的场景，仅当ScrollBar通过Scroller与可滚动组件绑定时生效。
    *
+   * > **说明：**
+   * >
+   * > 滚动条使能嵌套滚动时，滚动条的滚动偏移量会先发送给绑定的内层滚动组件，内层滚动组件再根据设置的嵌套滚动优先级依次传递给外层父滚动组件。
+   * >
+   * > WaterFlow组件的布局模式为移动窗口式（[WaterFlowLayoutMode.SLIDING_WINDOW](docroot://reference/apis-arkui/arkui-ts/ts-container-waterflow.md#waterflowlayoutmode12)）时，不支持嵌套滚动。
+   * >
+   * > 设置嵌套滚动模式为[PARALLEL](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#nestedscrollmode10)时，父子组件同时滚动，需要开发者在[onScrollFrameBegin](docroot://reference/apis-arkui/arkui-ts/ts-container-scroll.md#onscrollframebegin9)中按照所需逻辑，自行设置父子组件滚动顺序。
+   *
    * @param { Optional<boolean> } enabled - 是否执行嵌套滚动。当需要在多层滚动容器之间传递滚动事件时设置为true；不需要嵌套滚动时设置为false。<br/>默认值：false
-   * @returns { ScrollBarAttribute } ScrollBar组件的属性。
+   * @returns { ScrollBarAttribute } 滚动条的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -280,7 +289,7 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
  * }
  * ```
  *
- * ![en-us_image_0000001232775585](figures/en-us_image_0000001232775585.gif)
+ * ![scrollBar1](figures/scrollBar1.gif)
  *
  * ###### Example 2: Implementing a ScrollBar Component Without Child Components
  *
@@ -325,7 +334,7 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
  * }
  * ```
  *
- * ![en-us_image_scrollbar](figures/en-us_image_scrollbar.gif)
+ * ![en-us_image_scrollbar](figures/image-scrollbar.gif)
  *
  * ###### Example 3: Enabling Nested Scrolling
  *
@@ -406,8 +415,8 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
 declare const ScrollBar: ScrollBarInterface;
 
 /**
-* ScrollBar组件实例。
-*
+ * ScrollBar组件实例。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]

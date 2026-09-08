@@ -14,6 +14,14 @@
  */
 
 /**
+ * ######  Child Components
+ * 
+ * Not supported
+ * 
+ * ###### Events
+ * 
+ * The [universal events]{@link ./@internal/component/ets/common} are not supported.
+ *
  * @file
  * @kit ArkUI
  */
@@ -241,7 +249,7 @@ export interface GridObjectSortComponentOptions {
  * >
  * > - If the **GridObjectSortComponent** component has [universal attributes]{@link ./@internal/component/ets/common}
  * > and [universal events]{@link ./@internal/component/ets/common} configured, the compiler toolchain automatically
- * > generates an additional **__Common__** node and mounts the universal attributes and universal events on this node
+ * > generates an additional \_\_Common\_\_ node and mounts the universal attributes and universal events on this node
  * > rather than the **GridObjectSortComponent** component itself. As a result, the configured universal attributes and
  * > universal events may fail to take effect or behave as intended. For this reason, avoid using universal attributes
  * > and events with the **GridObjectSortComponent** component.
