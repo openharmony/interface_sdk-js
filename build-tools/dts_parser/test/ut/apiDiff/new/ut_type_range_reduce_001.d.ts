@@ -1,1 +1,0 @@
-declare type TestAlign = "center" | "end" | "left" | "right";
