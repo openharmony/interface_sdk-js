@@ -4204,7 +4204,6 @@ declare namespace window {
    * Enumerates the target positions to which the z-order of a main window can be adjusted.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
    * @since 26.1.0
    */
   enum WindowPosition {
@@ -4212,7 +4211,6 @@ declare namespace window {
      * Not topmost, normal mode. Used as an independent action to cancel the global topmost state of a main window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 26.1.0
      */
     NOT_TOPMOST = -3,
@@ -4220,7 +4218,6 @@ declare namespace window {
      * Global topmost. To set this value, you need the ohos.permission.WINDOW_TOPMOST permission.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 26.1.0
      */
     TOPMOST = -2,
@@ -4228,7 +4225,6 @@ declare namespace window {
      * Places the window at the bottom of all application windows.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 26.1.0
      */
     BOTTOM = -1,
@@ -4236,7 +4232,6 @@ declare namespace window {
      * Places the window at the top of all application windows, for a single adjustment.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 26.1.0
      */
     TOP = 0
@@ -4246,7 +4241,6 @@ declare namespace window {
    * Describes the position of a main window to adjust its z-order.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
    * @since 26.1.0
    */
   interface WindowPositionOptions {
@@ -4255,7 +4249,6 @@ declare namespace window {
      * application process.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 26.1.0
      */
     windowId: number;
@@ -4266,7 +4259,6 @@ declare namespace window {
      * application windows, or toggling its global topmost state.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice
      * @since 26.1.0
      */
     insertAfter: number;
@@ -4298,7 +4290,6 @@ declare namespace window {
    * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: 1. The window is not a main window;
    *     2. The window is not in the current application process.
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice
    * @since 26.1.0 dynamic&static
    */
   function setWindowPosition(list: Array<WindowPositionOptions>): Promise<void>;
