@@ -4284,11 +4284,12 @@ declare namespace window {
    *     required to call the API.
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
    *     capabilities.
-   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 1. The window is not found;
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 
+   *     1. The window to be adjusted cannot be found：not created or not belong to current process;
    *     2. The window has been destroyed; 3. The target main window specified by insertAfter is not found.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-   * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: 1. The window is not a main window;
-   *     2. The window is not in the current application process.
+   * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: 1. Invalid window type. Only main windows are supported.
+   *     2. The target main window specified by insertAfter cannot be found: not created or not belong to current process;
    * @syscap SystemCapability.Window.SessionManager
    * @since 26.1.0 dynamic&static
    */
