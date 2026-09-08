@@ -2490,11 +2490,16 @@ export declare class WebResourceResponse {
     /**
      * Sets the response data.
      *
-     * @param { string | int | Resource | ArrayBuffer } data - the response data.
-     *                                                         string type indicate strings in HTML format.
-     *                                                         number type indicate file handle.
-     *                                                         Resource type indicate $rawfile resource.
-     *                                                         ArrayBuffer type indicate binary data.
+     * > **NOTE**
+     * >
+     * > - This API does not support obtaining HSP resources based on Resource objects.
+     * > To obtain HSP resources, use {@link setResponseBody} instead.
+     *
+     * @param { string | int | Resource | ArrayBuffer } data - The response data.
+     *     string type indicates strings in HTML format.
+     *     int type indicates file handle.
+     *     Resource type indicates $rawfile resource.
+     *     ArrayBuffer type indicates binary data.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
      */
@@ -2555,6 +2560,24 @@ export declare class WebResourceResponse {
      * @since 23 static
      */
     getResponseIsReady(): boolean;
+    /**
+     * Sets the response data.
+     *
+     * > **NOTE**
+     * >
+     * > - This API supports obtaining HSP resources based on Resource objects,
+     * > which {@link setResponseData} does not support.
+     *
+     * @param { string | int | Resource | ArrayBuffer } data - The response data.
+     *     string type indicates strings in HTML format.
+     *     int type indicates file handle.
+     *     Resource type indicates $rawfile resource or HSP resource.
+     *     ArrayBuffer type indicates binary data.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.1.0 static
+     */
+    setResponseBody(data: string | int | Resource | ArrayBuffer): void;
 }
 /**
  * Defines the Web's request/response header.

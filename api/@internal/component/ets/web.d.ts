@@ -3666,18 +3666,22 @@ declare class WebResourceResponse {
   getResponseCode(): number;
 
   /**
-   * Sets the data in the resource response.
+   * Sets the response data.
    *
-   * @param { string | number | Resource } data - Resource response data to set. When set to a string, the value
-   *     indicates a string in HTML format. When set to a number, the value indicates a file handle, which is closed by
-   *     the system **Web** component. When set to a **Resource** object, the value indicates the file resources in the
-   *     **rawfile** directory of the application. When set to an **ArrayBuffer** object, the value indicates the
-   *     original binary data of a resource. [since 9 - 10]
-   * @param { string | number | Resource | ArrayBuffer } data - Resource response data to set. When set to a string, the
-   *     value indicates a string in HTML format. When set to a number, the value indicates a file handle, which is
-   *     closed by the system **Web** component. When set to a **Resource** object, the value indicates the file
-   *     resources in the **rawfile** directory of the application. When set to an **ArrayBuffer** object, the value
-   *     indicates the original binary data of a resource. [since 11]
+   * > **NOTE**
+   * >
+   * > - This API does not support obtaining HSP resources based on Resource objects. To obtain HSP resources,
+   * > use {@link setResponseBody} instead.
+   *
+   * @param { string | number | Resource } data - The response data.
+   *     string type indicates strings in HTML format.
+   *     number type indicates file handle.
+   *     Resource type indicates $rawfile resource. [since 9 - 10]
+   * @param { string | number | Resource | ArrayBuffer } data - The response data.
+   *     string type indicates strings in HTML format.
+   *     number type indicates file handle.
+   *     Resource type indicates $rawfile resource.
+   *     ArrayBuffer type indicates binary data. [since 11]
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
    * @atomicservice [since 11]
@@ -3793,6 +3797,25 @@ declare class WebResourceResponse {
    * @since 13 dynamic
    */
   getResponseIsReady(): boolean;
+
+  /**
+   * Sets the response data.
+   *
+   * > **NOTE**
+   * >
+   * > - This API supports obtaining HSP resources based on Resource objects, which {@link setResponseData} does not
+   * > support.
+   *
+   * @param { string | number | Resource | ArrayBuffer } data - The response data.
+   *     string type indicates strings in HTML format.
+   *     number type indicates file handle.
+   *     Resource type indicates $rawfile resource or HSP resource.
+   *     ArrayBuffer type indicates binary data.
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.1.0 dynamic
+   */
+  setResponseBody(data: string | number | Resource | ArrayBuffer): void;
 }
 
 /**
