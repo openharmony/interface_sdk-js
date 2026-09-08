@@ -1960,7 +1960,7 @@ export declare interface AccessibilityElement {
  * @since 20 dynamic
  * @since 23 static
  */
-interface AccessibilityGrid {
+export interface AccessibilityGrid {
   /**
    * Grid row index.
    *
@@ -1990,7 +1990,7 @@ interface AccessibilityGrid {
  * @since 20 dynamic
  * @since 23 static
  */
-interface AccessibilitySpan {
+export interface AccessibilitySpan {
   /**
    * Hyperlink text number.
    *
@@ -2137,8 +2137,8 @@ export declare class Parameter {
    */
   injectActionType?: InjectActionType;
   /**
-   * Configured when executing [AccessibilityAction]{@link @ohos.accessibility:AccessibilityAction}.
-   * EXECUTE_CUSTOM_ACTION. Name of the custom action.
+   * Configured when executing [AccessibilityAction]{@link @ohos.accessibility:AccessibilityAction}.EXECUTE_CUSTOM_ACTION.
+   * Name of the custom action.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi

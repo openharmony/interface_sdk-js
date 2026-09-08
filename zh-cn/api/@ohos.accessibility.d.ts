@@ -1274,9 +1274,9 @@ declare namespace accessibility {
   function on(type: 'screenReaderStateChange', callback: Callback<boolean>): void;
 
   /**
-   * Register the observe of the screen reader state changed.
+   * 监听屏幕朗读功能启用状态变化事件。使用callback异步回调。
    *
-   * @param { Callback<boolean> } callback Asynchronous callback interface.
+   * @param { Callback<boolean> } callback - 回调函数，在屏幕朗读启用状态变化时将状态通过此函数进行通知。
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @crossplatform
    * @form
