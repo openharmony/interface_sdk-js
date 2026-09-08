@@ -134,7 +134,6 @@
     "SystemCapability.Communication.NetManager.Core",
     "SystemCapability.Communication.NetManager.MDNS",
     "SystemCapability.Communication.NetManager.NetSharing",
-    "SystemCapability.Communication.NetManager.Vpn",
     "SystemCapability.Communication.NetStack",
     "SystemCapability.Account.AppAccount",
     "SystemCapability.Account.OsAccount",
