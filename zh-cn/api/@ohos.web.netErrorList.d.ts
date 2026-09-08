@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 网络协议栈错误列表
  * @kit ArkWeb
  */
 
