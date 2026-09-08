@@ -14,7 +14,7 @@
  */
 
 /**
- * @file External Key Management
+ * @file 外部密钥管理
  * @kit UniversalKeystoreKit
  */
 

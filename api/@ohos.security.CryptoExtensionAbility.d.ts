@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Key Extension Ability
  * @kit UniversalKeystoreKit
  */
 
