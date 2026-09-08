@@ -3455,9 +3455,9 @@ declare namespace rpc {
      * 
      * > **说明：**
      * >
-     * >开发者应优先选择重写onRemoteMessageRequest方法，其中可以自由实现同步和异步的消息处理。
+     * > 开发者应优先选择重写onRemoteMessageRequest方法，其中可以自由实现同步和异步的消息处理。
      * >
-     * >开发者同时重写onRemoteRequest和onRemoteMessageRequest方法时，仅onRemoteMessageRequest方法生效。
+     * > 开发者同时重写onRemoteRequest和onRemoteMessageRequest方法时，仅onRemoteMessageRequest方法生效。
      *
      * @param { int } code - 对端发送的服务请求码。
      * @param { MessageSequence } data - 携带客户端调用参数的MessageSequence对象。
