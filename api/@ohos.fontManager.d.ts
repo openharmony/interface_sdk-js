@@ -317,7 +317,6 @@ declare namespace fontManager {
    * Unregisters the font service death observer.
    *
    * @permission ohos.permission.UPDATE_SCOPE_FONT
-   * @param { FontClientObserver } observer - Font service death observer.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 31100110 - Call failed due to system error.
@@ -326,6 +325,6 @@ declare namespace fontManager {
    * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
-  function offFontObserver(observer: FontClientObserver): void;
+  function offFontObserver(): void;
 }
 export default fontManager;
