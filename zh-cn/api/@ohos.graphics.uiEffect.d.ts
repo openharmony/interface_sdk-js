@@ -450,7 +450,7 @@ declare namespace uiEffect {
      *     小于0时无效果。颜色值大于1.0时按1.0处理。
      *     数量范围为[1, 5]，数量小于1时无效果；数量为1时为纯色效果；
      *     数量大于5时，效果仅应用前5个颜色。
-     * @param { Array<number> } positions - 每个颜色对应的亮度锚点位置。数量必须与colors的数量一致，
+     * @param { Array<double> } positions - 每个颜色对应的亮度锚点位置。数量必须与colors的数量一致，
      *     不一致时无效果。取值范围为[0.0, 1.0]，超出范围时按边界值处理。
      * @returns { Filter } - 返回挂载了颜色亮度映射效果的Filter。
      * @syscap SystemCapability.Graphics.Drawing
@@ -458,7 +458,7 @@ declare namespace uiEffect {
      * @stagemodelonly
      * @since 26.2.0 dynamic&static
      */
-    mapColorByBrightness(colors: Array<Color>, positions: Array<number>): Filter;
+    mapColorByBrightness(colors: Array<Color>, positions: Array<double>): Filter;
   }
 
   /**

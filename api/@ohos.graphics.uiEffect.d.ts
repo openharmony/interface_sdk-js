@@ -540,7 +540,7 @@ declare namespace uiEffect {
      *     The array length range is [1, 5]. When the length is less than 1, the effect
      *     does not take effect; when the length is 1, a solid color effect is applied;
      *     when the length is greater than 5, the effect applies the first 5 colors.
-     * @param { Array<number> } positions - The brightness anchor positions corresponding
+     * @param { Array<double> } positions - The brightness anchor positions corresponding
      *     to each color. The array length must be equal to the length of colors;
      *     otherwise, the effect does not take effect. The value range is [0.0, 1.0],
      *     and values outside the range are clamped to the boundary values.
@@ -550,7 +550,7 @@ declare namespace uiEffect {
      * @stagemodelonly
      * @since 26.2.0 dynamic&static
      */
-    mapColorByBrightness(colors: Array<Color>, positions: Array<number>): Filter;
+    mapColorByBrightness(colors: Array<Color>, positions: Array<double>): Filter;
   }
 
   /**
