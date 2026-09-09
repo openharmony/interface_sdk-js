@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Application Context
  * @kit ArkUI
  */
 
