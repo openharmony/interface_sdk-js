@@ -15608,7 +15608,16 @@ declare namespace photoAccessHelper {
      * @since 22 dynamic
      * @since 26.0.0 static
      */
-    HDC_RETAIN_FORCE = 1
+    HDC_RETAIN_FORCE = 1,
+    /**
+     * Deletes the local metadata and thumbnails of shared files and shared albums from the cloud.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SHARE_RETAIN_FORCE = 2
   }
 
   /**
