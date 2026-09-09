@@ -537,7 +537,27 @@ declare namespace camera {
      * @since 18 dynamic
      * @since 23 static
      */
-    CAMERA_LENS_RETRACTED = 7400112
+    CAMERA_LENS_RETRACTED = 7400112,
+
+    /**
+     * Unsupported multiple camera combination.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.1 dynamic&static
+     */
+    UNSUPPORTED_MULTI_CAMERA_COMBINATION = 7400113,
+
+    /**
+     * Parameter out of range.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.1 dynamic&static
+     */
+    PARAM_OUT_OF_RANGE = 7400115
   }
 
   /**
@@ -13237,6 +13257,36 @@ declare namespace camera {
   type ImageType = image.Image | image.Picture;
 
   /**
+   * Enumerates the auxiliary photo types.
+   *
+   * @syscap SystemCapability.Multimedia.Camera.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.1 dynamic&static
+   */
+  enum CameraAuxiliaryPhotoType {
+    /**
+     * Auxiliary photo type: oxygen photo.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.1 dynamic&static
+     */
+    OXYGEN = 0,
+
+    /**
+     * Auxiliary photo type: pigmentation photo.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.1 dynamic&static
+     */
+    PIGMENTATION = 1
+  }
+
+  /**
    * **CapturePhoto** provides APIs for obtaining the objects of the full-quality image and the uncompressed image.
    *
    * @syscap SystemCapability.Multimedia.Camera.Core
@@ -13254,6 +13304,26 @@ declare namespace camera {
      * @since 23 dynamic&static
      */
     main: ImageType;
+
+    /**
+     * Object of the oxygen auxiliary photo.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.1 dynamic&static
+     */
+    oxygenPhoto?: ImageType;
+
+    /**
+     * Object of the pigmentation auxiliary photo.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.1 dynamic&static
+     */
+    pigmentationPhoto?: ImageType;
 
     /**
      * Releases output resources. This API uses a promise to return the result.
@@ -14369,6 +14439,37 @@ declare namespace camera {
      * @since 23 static
      */
     enableMovingPhoto(enabled: boolean): void;
+
+    /**
+     * Check if the automatic auxiliary photo delivery is supported.
+     *
+     * @param { CameraAuxiliaryPhotoType } auxPhotoType - Target auxiliary photo type for delivery.
+     * @returns { boolean } TRUE if the type of delivery image is supported; FALSE otherwise.
+     * @throws { BusinessError } 7400115 - Parameter out of the range. The auxPhotoType value is invalid. Check the
+     *     CameraAuxiliaryPhotoType enum for valid values.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.1 dynamic&static
+     */
+    isAutoAuxiliaryPhotoDeliverySupported(auxPhotoType: CameraAuxiliaryPhotoType): boolean;
+
+    /**
+     * Enable or disable auto auxiliary photo delivery.
+     *
+     * @param { CameraAuxiliaryPhotoType[] } auxPhotoTypes - Target auxiliary photo types for delivery.
+     * @param { boolean } enable - Target state for auto auxiliary photo delivery.
+     * @throws { BusinessError } 801 - Capability not supported. Check if the camera device supports the required
+     *     auxiliary photo types by using capability query APIs.
+     * @throws { BusinessError } 7400115 - Parameter out of the range. The auxPhotoType value is invalid. Check the
+     *     CameraAuxiliaryPhotoType enum for valid values.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.1 dynamic&static
+     */
+    setAutoAuxiliaryPhotosDeliveryEnabled(auxPhotoTypes: CameraAuxiliaryPhotoType[], enable: boolean): void;
 
     /**
      * Checks whether the specified photo quality prioritization strategy is supported.
