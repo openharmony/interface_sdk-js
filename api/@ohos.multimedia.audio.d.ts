@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Audio Renderer, Capturer And Management
  * @kit AudioKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Audio Haptic
  * @kit AudioKit
  */
 

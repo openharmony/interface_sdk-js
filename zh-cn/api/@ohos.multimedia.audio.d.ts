@@ -14,7 +14,7 @@
  */
 
 /**
-  * @file
+  * @file 音频渲染、采集和管理
   * @kit AudioKit
  */
 import { ErrorCallback, AsyncCallback, Callback, BusinessError } from './@ohos.base';
@@ -87,7 +87,7 @@ declare namespace audio {
      * @since 9 dynamic
      * @since 23 static
      */
-    ERROR_TIMEOUT       = 6800105,
+    ERROR_TIMEOUT = 6800105,
     /**
      * 音频流数量达到限制。
      *
@@ -95,7 +95,7 @@ declare namespace audio {
      * @since 9 dynamic
      * @since 23 static
      */
-    ERROR_STREAM_LIMIT  = 6800201,
+    ERROR_STREAM_LIMIT = 6800201,
     /**
      * 系统处理异常。
      *
@@ -4419,14 +4419,6 @@ declare namespace audio {
 
     /**
      * 取消监听指定过滤条件下最高优先级输出设备变化事件。使用callback异步回调。
-     * | 参数名   | 类型                                   | 必填 | 说明
-     * |
-     * | -------- | -------------------------------------- | ---- | ----------------------------------------------------
-     * -------- |
-     * | type     | string | 是   | 事件回调类型，支持的事件为'preferredOutputDeviceChangeByFilter'，当取消监听指定过滤条件下最高优先级输出设备变化事件时，触发该事件。
-     * |
-     * | callback | Callback\<[AudioDeviceDescriptors]{@link @ohos.multimedia.audio:audio.AudioDeviceDescriptors}> | 否 |
-     *  回调函数，返回优先级最高的输出设备信息。 |
      *
      * @param { 'preferredOutputDeviceChangeByFilter' } type - 要监听的事件类型。仅支持 preferredOutputDeviceChangeByFilter 事件。
      * @param { Callback<AudioDeviceDescriptors> } [callback] - 订阅中使用的回调函数。
@@ -4569,12 +4561,6 @@ declare namespace audio {
 
     /**
      * 取消监听指定过滤条件下最高优先级输入设备变化事件。使用callback异步回调。
-     * | 参数名   | 类型                                   | 必填 | 说明
-     * |
-     * | -------- | -------------------------------------- | ---- | ----------------------------------------------------
-     * -------- |
-     * | callback | Callback\<[AudioDeviceDescriptors]{@link @ohos.multimedia.audio:audio.AudioDeviceDescriptors}> | 否 |
-     *  回调函数，返回优先级最高的输入设备信息。 |
      *
      * @param { Callback<AudioDeviceDescriptors> } [callback] - 回调函数，返回优先级最高的输入设备信息。
      * @throws { BusinessError } 202 - Not system App.
@@ -13747,7 +13733,7 @@ declare namespace audio {
      * @since 12 dynamic
      * @since 23 static
      */
-    TTS_MUTE  = 2,
+    TTS_MUTE = 2,
     /**
      * 通话语音流静音。
      *
