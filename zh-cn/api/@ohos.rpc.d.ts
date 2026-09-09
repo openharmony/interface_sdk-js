@@ -22,6 +22,7 @@ import type { AsyncCallback } from './@ohos.base';
 
 /**
  * 本模块提供进程间通信能力，包括设备内的进程间通信（IPC）和设备间的进程间通信（RPC），前者基于Binder驱动，后者基于软总线驱动。
+ *
  * 本模块从API version 9开始支持异常返回功能。
  *
  * @syscap SystemCapability.Communication.IPC.Core
