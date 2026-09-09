@@ -38,7 +38,7 @@ declare namespace deviceManager {
    * @param { int } busType - Device bus type specified by [BusType]{@link deviceManager.BusType}. If this parameter is
    *     left empty, all types of devices are searched.
    * @returns { Array<Readonly<Device>> } List of peripheral devices obtained.
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception or busType parameter error.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10 dynamic
@@ -59,7 +59,7 @@ declare namespace deviceManager {
    * @param { AsyncCallback<{deviceId: number; remote: rpc.IRemoteObject;}> } callback - Callback used to return the
    *     result. When the device is bound successfully, **err** is **undefined**, and **data** contains the device ID
    *     and the bound device driver communication object. Otherwise, **err** is an error object.
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2
    *     .Incorrect parameter types.
    *     3.Parameter verification failed.
@@ -86,7 +86,7 @@ declare namespace deviceManager {
    *     is successfully bound, **err** is **undefined** and **data** is a
    *     [RemoteDeviceDriver]{@link deviceManager.RemoteDeviceDriver} object that contains the device ID and remote
    *     object. Otherwise, **err** is an error object.
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    *     3.Parameter verification failed.
@@ -112,7 +112,7 @@ declare namespace deviceManager {
    *     Otherwise, **err** is an error object.
    * @returns { Promise<{deviceId: number; remote: rpc.IRemoteObject;}> } Promise used to return an object containing
    *     the device ID and **IRemoteObject**.
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    *     3.Parameter verification failed.
@@ -137,7 +137,7 @@ declare namespace deviceManager {
    *     disconnected, the value of **err** is **undefined** and the value of **data** is the ID of the unbound device.
    *     Otherwise, **err** is an error object.
    * @returns { Promise<RemoteDeviceDriver> } Promise used to return a **RemoteDeviceDriver** object.
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    *     3.Parameter verification failed.
@@ -157,7 +157,7 @@ declare namespace deviceManager {
    * @param { AsyncCallback<number> } callback - Callback used to return the result. When the bound device is
    *     disconnected, the value of **err** is **undefined** and the value of **data** is the ID of the unbound device.
    *     Otherwise, **err** is an error object.
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
@@ -174,7 +174,7 @@ declare namespace deviceManager {
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - Device ID, which can be obtained via **queryDevices()**.
    * @returns { Promise<number> } Promise used to return the ID of the unbound device.
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    *     3.Parameter verification failed.
@@ -196,7 +196,7 @@ declare namespace deviceManager {
    *     device information is obtained by default. If no external device is connected and no device ID is passed, an
    *     empty array is returned.
    * @returns { Array<Readonly<DeviceInfo>> } List of detailed information about peripherals.
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission denied. A non-system application cannot call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
@@ -214,7 +214,7 @@ declare namespace deviceManager {
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { string } driverUid - Driver UID, which can be obtained by using **queryDeviceInfo**.
    * @returns { Array<Readonly<DriverInfo>> } List of detailed information about peripheral drivers.
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission denied. A non-system application cannot call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
@@ -237,7 +237,7 @@ declare namespace deviceManager {
    *     disconnected, the value of **err** is **undefined** and the value of **data** is the ID of the unbound device.
    *     Otherwise, **err** is an error object.
    * @returns { Promise<RemoteDeviceDriver> } Promise used to return a **RemoteDeviceDriver** object.
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
    * @throws { BusinessError } 26300002 - The driver service does not allow any client to bind.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -252,7 +252,7 @@ declare namespace deviceManager {
    * @permission ohos.permission.ACCESS_DDK_DRIVERS
    * @param { long } deviceId - Device ID, which can be obtained via [queryDevices]{@link deviceManager.queryDevices}.
    * @returns { Promise<int> } Promise used to return the ID of the unbound device.
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
    * @throws { BusinessError } 26300003 - There is no binding relationship.
    * @syscap SystemCapability.Driver.ExternalDevice
