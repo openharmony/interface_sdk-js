@@ -291,6 +291,9 @@ declare namespace dlpPermission {
      * When processing files in the DLP sandbox, the system determines the operations that can be performed for the 
      * current user to prevent calling unauthorized capabilities.
      *
+     * You are advised to call [isInSandbox]{@link dlpPermission.isInSandbox()} first to check whether the current
+     * environment is a sandbox environment.
+     *
      * @returns { Promise<DLPPermissionInfo> } Promise used to return the permission information about the DLP file. The
      *     operation is successful if no error is reported.
      * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
@@ -541,7 +544,7 @@ declare namespace dlpPermission {
      * @param { Array<string> } docUris - URIs of the files to be canceled with the retention state. The length of the
      *     array is not limited. Each string contains a maximum of 4095 bytes. If the string is out of range, error code
      *     401 is thrown.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the cancellation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -604,8 +607,8 @@ declare namespace dlpPermission {
      * Obtains the sandbox applications in the retention state of an application. This API uses an asynchronous callback
      * to return the result.
      * 
-     * This API is used to query the sandbox retention information of a specified application, so that the sandbox 
-     * environment in the retention state can be checked or managed.This API can be called only in non-DLP sandbox
+     * This API is used to query the sandbox retention information of the current application, so that the sandbox 
+     * environment in the retention state can be checked or managed. This API can be called only in non-DLP sandbox
      * applications.
      *
      * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Callback used to return the result. If the
@@ -641,8 +644,8 @@ declare namespace dlpPermission {
     function getDLPFileAccessRecords(): Promise<Array<AccessedDLPFileInfo>>;
     /**
      * Obtains the list of DLP files that are accessed recently. After the API is successfully called, the file access 
-     * records are returned, which can be used to track and manage the usage of DLP files. This API uses an asynchronous
-     * callback to return the result.
+     * records are returned, which can be used to track and manage the usage of DLP files. This API can be called only
+     * in non-DLP sandbox applications. This API uses an asynchronous callback to return the result.
      * 
      * This API is used to obtain the list of DLP files that are accessed recently, which can be used to track and 
      * manage file usage.
@@ -669,6 +672,7 @@ declare namespace dlpPermission {
     export interface DLPManagerResult {
         /**
          * Result code returned after the DLP manager application is started and exits. The value ranges from 0 to 3.
+         * The value **0** indicates success, while other values indicate failure.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @StageModelOnly
@@ -713,7 +717,7 @@ declare namespace dlpPermission {
      */
     function startDLPManagerForResult(context: common.UIAbilityContext, want: Want): Promise<DLPManagerResult>;
     /**
-     * Starts the DLP manager application on the current page in borderless mode.
+     * Starts the DLP manager application in a specified window in borderless mode.
      * This API uses a promise to return the result.
      * 
      * This API starts the DLP manager application to configure file permissions and return the user operation result to
@@ -961,7 +965,8 @@ declare namespace dlpPermission {
      *     out of range, error code 401 is thrown.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
      *     default super user ID is **100**. The value range is [0, 2<sup>31</sup>-1]. If the value is out of range, the
-     *     excess part will be truncated.
+     *     excess part will be truncated. If the value of the passed parameter is less than 0, an error log is
+     *     generated.
      * @param { number } appIndex - DLP sandbox index, which is the value returned after **installDLPSandbox** is
      *     successfully called. It is used to identify the installed DLP sandbox. The value range is [1000, 1100]. If
      *     the value is out of range, an error log is generated.
@@ -1625,7 +1630,9 @@ declare namespace dlpPermission {
         /**
          * Closes a **DLPFile** object. This API uses a promise to return the result.
          * 
-         * After calling [openDLPFile]{@link dlpPermission.openDLPFile(ciphertextFd: number, appId: string)} to return a
+         * After calling
+         * [generateDLPFile]{@link dlpPermission.generateDLPFile(plaintextFd: number, ciphertextFd: number, property: DLPProperty)}
+         * /[openDLPFile]{@link dlpPermission.openDLPFile(ciphertextFd: number, appId: string)} to return a
          * **DLPFile** object, the system must call **closeDLPFile()** to release resources after using the object.
          * 
          * This API is used when the file owner decides to close a DLP file.
@@ -1685,11 +1692,12 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { number } plaintextFd - FD of the plaintext file to be encrypted. The value range is
-     *     [0, 2<sup>31</sup>-1]. If the value of **fd** is less than 0, an error log is generated, and the function
-     *     stops running. If the value of **fd** is greater than 2<sup>31</sup>-1, the excess part will be truncated.
+     *     [0, 2<sup>31</sup>-1]. If the value of **plaintextFd** is less than 0, an error log is generated, and the
+     *     function stops running. If the value of **plaintextFd** is greater than 2<sup>31</sup>-1, the excess part
+     *     will be truncated.
      * @param { number } ciphertextFd - FD of the encrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value
-     *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd**
-     *     is greater than 2<sup>31</sup>-1, the excess part will be truncated.
+     *     of **ciphertextFd** is less than 0, an error log is generated, and the function stops running. If the value
+     *     of **ciphertextFd** is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner
      *     account, and contact account information.
      * @returns { Promise<DLPFile> } Promise used to return the result. If the value is **resolve**, a **DLPFile**
@@ -1715,19 +1723,20 @@ declare namespace dlpPermission {
     /**
      * Generates a DLP file, which is an encrypted file that can be accessed only by authorized users. The users can 
      * have the full control permission or read-only permission on the DLP file. Obtains a **DLPFile** object. This API 
-     * uses an asynchronous callback to return the result. After using the **DLPFile** object, call **closeDLPFile** to 
-     * close the object to prevent resource leakage.
+     * uses an asynchronous callback to return the result. After using the **DLPFile** object, call
+     * [closeDLPFile]{@link dlpPermission.DLPFile.closeDLPFile()} to close the object to prevent resource leakage.
      * 
      * After calling **generateDLPFile()** to return a **DLPFile** object, the system must call **closeDLPFile()** to 
      * release resources after using the object.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { number } plaintextFd - FD of the plaintext file to be encrypted. The value range is
-     *     [0, 2<sup>31</sup>-1]. If the value of **fd** is less than 0, an error log is generated, and the function
-     *     stops running. If the value of **fd** is greater than 2<sup>31</sup>-1, the excess part will be truncated.
+     *     [0, 2<sup>31</sup>-1]. If the value of **plaintextFd** is less than 0, an error log is generated, and the
+     *     function stops running. If the value of **plaintextFd** is greater than 2<sup>31</sup>-1, the excess part
+     *     will be truncated.
      * @param { number } ciphertextFd - FD of the encrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value
-     *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd**
-     *     is greater than 2<sup>31</sup>-1, the excess part will be truncated.
+     *     of **ciphertextFd** is less than 0, an error log is generated, and the function stops running. If the value
+     *     of **ciphertextFd** is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner
      *     account, and contact account information.
      * @param { AsyncCallback<DLPFile> } callback - Callback used to return the result. If the DLP file generation is
@@ -2017,8 +2026,8 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
      * @param { number } dlpFd - FD of the DLP file to be queried. The value range is [0, 2<sup>31</sup>-1]. If the 
-     *     value of **fd** is less than 0, an error log is generated, and the function stops running. If the value 
-     *     of **fd** is greater than 2<sup>31</sup>-1, the excess part will be truncated.
+     *     value of **dlpFd** is less than 0, an error log is generated, and the function stops running. If the value 
+     *     of **dlpFd** is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @returns { Promise<string> } Promise used to return the JSON string of the DLP policy. The length cannot exceed
      *     4,194,304 bytes.
      * @throws { BusinessError } 201 - Permission denied.
@@ -2053,11 +2062,11 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
      * @param { number } dlpFd - FD of the DLP file to be decrypted. The value range is [0, 2<sup>31</sup>-1]. If the
-     *     value of **fd** is less than 0, n error log is generated, and the function stops running. If the value of 
-     *     **fd** is greater than 2<sup>31</sup>-1, the excess part will be truncated.
+     *     value of **dlpFd** is less than 0, n error log is generated, and the function stops running. If the value of 
+     *     **dlpFd** is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { number } plaintextFd - FD of the decrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value
-     *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd** 
-     *     is greater than 2<sup>31</sup>, the excess part will be truncated.
+     *     of **plaintextFd** is less than 0, an error log is generated, and the function stops running. If the value of
+     *     **plaintextFd** is greater than 2<sup>31</sup>, the excess part will be truncated.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 20 - 20]
@@ -2206,8 +2215,7 @@ declare namespace dlpPermission {
         /**
          * Unregisters a callback from the SA.
          * 
-         * This API unregisters a callback and releases resources when an application exits, ensuring that the callback 
-         * capability is correctly released.
+         * This API unregisters a callback and releases resources when an application exits.
          * 
          * > **NOTE**
          * >
