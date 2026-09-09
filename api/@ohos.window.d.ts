@@ -4204,35 +4204,35 @@ declare namespace window {
    * Enumerates the target positions to which the z-order of a main window can be adjusted.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @since 26.1.0
+   * @since 26.1.0 dynamic&static
    */
   enum WindowPosition {
     /**
      * Not topmost, normal mode. Used as an independent action to cancel the global topmost state of a main window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.1.0
+     * @since 26.1.0 dynamic&static
      */
     NOT_TOPMOST = -3,
     /**
      * Global topmost. To set this value, you need the ohos.permission.WINDOW_TOPMOST permission.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.1.0
+     * @since 26.1.0 dynamic&static
      */
     TOPMOST = -2,
     /**
      * Places the window at the bottom of all application windows.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.1.0
+     * @since 26.1.0 dynamic&static
      */
     BOTTOM = -1,
     /**
      * Places the window at the top of all application windows, for a single adjustment.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.1.0
+     * @since 26.1.0 dynamic&static
      */
     TOP = 0
   }
@@ -4241,15 +4241,15 @@ declare namespace window {
    * Describes the position of a main window to adjust its z-order.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @since 26.1.0
+   * @since 26.1.0 dynamic&static
    */
-  interface WindowPositionOptions {
+  interface WindowPositionParams {
     /**
      * ID of the main window whose z-order is to be adjusted. The window must be a main window in the current
      * application process.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.1.0
+     * @since 26.1.0 dynamic&static
      */
     windowId: number;
     /**
@@ -4259,7 +4259,7 @@ declare namespace window {
      * application windows, or toggling its global topmost state.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.1.0
+     * @since 26.1.0 dynamic&static
      */
     insertAfter: number;
   }
@@ -4277,7 +4277,7 @@ declare namespace window {
    * Setting the global topmost state requires the ohos.permission.WINDOW_TOPMOST permission.
    *
    * @permission ohos.permission.WINDOW_TOPMOST
-   * @param { Array<WindowPositionOptions> } list - List of window position options to adjust. The list must not be
+   * @param { Array<WindowPositionParams> } list - List of window position options to adjust. The list must not be
    *     empty.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -4291,9 +4291,10 @@ declare namespace window {
    * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: 1. Invalid window type. Only main windows are supported.
    *     2. The target main window specified by insertAfter cannot be found: not created or not belong to current process;
    * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
-  function setWindowPosition(list: Array<WindowPositionOptions>): Promise<void>;
+  function setWindowPosition(list: Array<WindowPositionParams>): Promise<void>;
 
   /**
    * Enumerates the window orientations. <!--Del-->For details of the differences between different enumerated values,
