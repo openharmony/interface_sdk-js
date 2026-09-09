@@ -1810,7 +1810,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.1.0 dynamic&static
      */
-    nextFocusedWindowId?: number;
+    nextFocusedWindowId?: int;
     /**
      * ID of the previous focused window. This field is valid only when the window is focused and the previous
      * focused window is in the same process as this window.
@@ -1818,7 +1818,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.1.0 dynamic&static
      */
-    prevFocusedWindowId?: number;
+    prevFocusedWindowId?: int;
   }
 
   /**
