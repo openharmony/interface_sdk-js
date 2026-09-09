@@ -2799,16 +2799,14 @@ declare namespace media {
   }
 
   /**
-   * 播放管理类，用于管理和播放媒体资源。在调用AVPlayer的方法前，需要先通过
-   * [createAVPlayer()]{@link @ohos.multimedia.media:media.createAVPlayer(callback: AsyncCallback<AVPlayer>)}构建一个
-   * AVPlayer实例。
+   * 播放管理类，用于管理和播放媒体资源。支持音视频播放、播放控制（播放、暂停、停止、跳转、倍速等）、状态管理和事件监听。在调用AVPlayer的方法前，需要先通过
+   * [createAVPlayer()]{@link @ohos.multimedia.media:media.createAVPlayer(callback: AsyncCallback<AVPlayer>)}构建一个AVPlayer实例。
    * 
    * 在使用AVPlayer实例的方法时，建议开发者注册相关回调，主动获取当前状态变化。
    * [on('stateChange')]{@link media.AVPlayer.on(type: 'stateChange', callback: OnAVPlayerStateChangeHandle)}：监听播放状态机
    * AVPlayerState切换。[on('error')]{@link media.AVPlayer.on(type: 'error', callback: ErrorCallback)}：监听错误事件。
    * 
-   * 应用需要按照实际业务需求合理使用AVPlayer对象，按需创建并及时释放，避免持有过多AVPlayer实例导致内存消耗过大，否则在一定情况下可能导致系统终止应用。
-   * 
+   * 应用需要控制AVPlayer实例数量，播放结束后应及时调用release()释放资源。建议同时持有的AVPlayer实例数量不超过合理范围，避免内存消耗过大触发系统保护机制终止应用。
    * Audio/Video播放demo可参考：[音频播放开发指导](docroot://media/media/using-avplayer-for-playback.md)、
    * [视频播放开发指导](docroot://media/media/video-playback.md)。
    * 
@@ -5228,6 +5226,22 @@ declare namespace media {
      * @since 23 dynamic&static
      */
     TOTAL_STALLING_TIME  = 'total_stalling_time',
+
+    /**
+     * 累计唇部异步计数。
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    LIP_ASYNC_COUNT  = 'lip_async_count',
+
+    /**
+     * 播放期间总唇部异步持续时间，单位为毫秒。
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TOTAL_LIP_ASYNC_TIME  = 'total_lip_async_time',
   }
 
   /**
@@ -5239,14 +5253,14 @@ declare namespace media {
   type PlaybackMetrics = Record<PlaybackMetricsKey, Object>;
 
   /**
-   * Provides player statistic info.
+   * 提供播放统计数据信息。
    *
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 12 dynamic
    */
   interface PlaybackInfo {
     /**
-     * key:value pair, key see @PlaybackInfoKey.
+     * 键值对，键请看 @PlaybackInfoKey.
      *
      * @syscap SystemCapability.Multimedia.Media.Core
      * @since 12 dynamic
@@ -5255,7 +5269,7 @@ declare namespace media {
   }
 
   /**
-   * Provides the container definition for media description key-value pairs.
+   * 提供媒体描述键值对的容器定义。
    *
    * @syscap SystemCapability.Multimedia.Media.Core
    * @since 23 static
@@ -5885,7 +5899,7 @@ declare namespace media {
   }
 
   /**
-   * 媒体MIME类型，通过[setMimeType]{@link @ohos.multimedia.media:media.MediaSource.setMimeType}设置。
+   * 媒体MIME类型，通过[setMimeType]{@link media.MediaSource.setMimeType}设置。
    *
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
@@ -5904,7 +5918,7 @@ declare namespace media {
     APPLICATION_M3U8 = 'application/m3u8',
   }
   /**
-   * 播放器首选播放设置。
+   * 播放策略，播放器首选播放设置。
    *
    * @syscap SystemCapability.Multimedia.Media.Core
    * @atomicservice
