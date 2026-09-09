@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 
-import { BusinessError} from '../../@ohos.base'
+import { BusinessError} from '../../@ohos.base';
 import colorSpaceManager from '../../@ohos.graphics.colorSpaceManager';
 import { CommonMethod, PixelMap, DepthVector3, DepthVector4, DepthColorRGB } from './common';
 import { ResourceStr } from './units';
@@ -504,8 +504,9 @@ export declare function DepthComponent(
  * @returns { DepthComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @unpublished
  * @stagemodelonly
- * @since 26.0.0 staticonly
+ * @since 26.1.0 staticonly
  */
 @Builder
 export declare function DepthComponent(

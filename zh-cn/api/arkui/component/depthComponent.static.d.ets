@@ -28,9 +28,10 @@
  */
 
 import { BusinessError} from '../../@ohos.base';
+import colorSpaceManager from '../../@ohos.graphics.colorSpaceManager';
 import { CommonMethod, PixelMap, DepthVector3, DepthVector4, DepthColorRGB } from './common';
 import { ResourceStr } from './units';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 
 /**
  * 景深空间类型枚举。
@@ -288,6 +289,17 @@ export declare interface DepthComponentOptions {
    * @since 26.0.0 static
    */
   render3DScale?: double;
+
+  /**
+   * 背景资源色域。
+   *
+   * @default colorSpaceManager.ColorSpace.SRGB
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  colorSpace?: colorSpaceManager.ColorSpace;
 }
 
 /**
@@ -502,6 +514,7 @@ export declare interface DepthComponentAttribute extends CommonMethod {
  * @returns { DepthComponentAttribute } - 景深组件属性配置项
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
+ * @unpublished
  * @stagemodelonly
  * @since 26.0.0 static
  */
@@ -510,4 +523,21 @@ export declare function DepthComponent(
     background: ResourceStr | PixelMap,
     options?: DepthComponentOptions,
     content_?: CustomBuilder,
+): DepthComponentAttribute;
+
+/**
+ * 定义深度组件
+ *
+ * @param { CustomBuilderT<DepthComponentAttribute> } style_ - 深度组件属性实例。
+ * @param { CustomBuilder } [content_] - 容器。
+ * @returns { DepthComponentAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.1.0 staticonly
+ */
+@Builder
+export declare function DepthComponent(
+  style_: CustomBuilderT<DepthComponentAttribute>,
+  content_?: CustomBuilder,
 ): DepthComponentAttribute;
