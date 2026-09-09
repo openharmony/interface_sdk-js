@@ -719,16 +719,14 @@ declare namespace media {
   function createAVScreenCaptureRecorder(): Promise<AVScreenCaptureRecorder | undefined>;
 
   /**
-   * Reports the user selection result in the screen capture privacy dialog box to the AVScreenCapture server to
-   * determine whether to start screen capture. Screen capture starts only when the user touches a button to
-   * continue the operation.
-   * This API is called by the system application that creates the dialog box.
+   * 上报录屏隐私弹窗的选择结果到ScreenCapture的服务端，用于判断是否开始录屏。如果用户选择“不允许”则不进行录屏，
+   * 如果用户选择“允许”则开始录屏。使用Promise异步回调。
+   * 
+   * 此接口提供给创建弹窗的系统应用调用。
    *
-   * @param {int} sessionId Session ID of the AVScreenCapture service, which is sent to the application when
-   *     the AVScreenCapture server starts the privacy dialog box.
-   * @param {string} choice User choice, including whether screen capture is agreed, selected display ID,
-   *     and window ID. For details, see JsonData in the example below.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param {int} sessionId AVScreenCapture服务会话Id，会由AVScreenCapture拉起隐私弹窗时传给应用。
+   * @param {string} choice 用户的选择内容，包含是否同意录屏、选择的屏幕Id和窗口Id等。可见示例中JsonData样例。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types. 3.Parameter verification failed.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
@@ -740,10 +738,10 @@ declare namespace media {
   function reportAVScreenCaptureUserChoice(sessionId: int, choice: string): Promise<void>;
 
   /**
-   * get Configurations which user can changes from AVScreenCapture server
+   * 从服务器获取用户可更改的系统隐私保护和应用隐私保护配置。使用Promise异步回调。
    *
-   * @param { int } sessionId The AVScreenCapture server session ID.
-   * @returns { Promise<string> } Returns a configurable configuration item string.
+   * @param { int } sessionId AVScreenCapture服务会话Id，由AVScreenCapture拉起隐私弹窗时传给应用。
+   * @returns { Promise<string> } Promise对象，返回系统隐私保护和应用隐私保护状态，失败时返回空字符串。
    * @throws { BusinessError } 202  Called from Non-System applications. Return by promise.
    * @throws { BusinessError } 5400109 - Sessions not exist. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -785,12 +783,9 @@ declare namespace media {
   function createAVTranscoder(): Promise<AVTranscoder | undefined>;
 
   /**
-   * Obtains a **ScreenCaptureMonitor** instance. This API uses a promise to return the result.
+   * 获取录屏监控模块实例。使用Promise异步回调。
    *
-   * @returns { Promise<ScreenCaptureMonitor> } Promise used to return the result. The instance can be used to query
-   *     and monitor the status of the system screen recorder.
-   *     <br>If the operation is successful,
-   *     a **ScreenCaptureMonitor** instance is returned; otherwise, **null** is returned.
+   * @returns { Promise<ScreenCaptureMonitor> } Promise对象，返回ScreenCaptureMonitor实例，失败时返回null。
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 5400101 - No memory. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -11803,8 +11798,8 @@ declare namespace media {
   }
 
   /**
-   * A class that provides APIs to query and monitor the system screen recorder status. Before calling any API,
-   * you must use getScreenCaptureMonitor() to obtain a ScreenCaptureMonitor instance.
+   * 录屏状态监控类，用于查询和监听系统录屏的录屏状态。在调用ScreenCaptureMonitor方法前，
+   * 需要先通过[getScreenCaptureMonitor()]{@link getScreenCaptureMonitor()}构建一个[ScreenCaptureMonitor]{@link ScreenCaptureMonitor}实例。
    *
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
@@ -11813,13 +11808,13 @@ declare namespace media {
    */
   interface ScreenCaptureMonitor {
     /**
-     * Subscribes to state change events of the system screen recorder. From the ScreenCaptureEvent event reported,
-     * you can determine whether the system screen recorder is working.
+     * 开始订阅系统录屏的录屏状态。当上报ScreenCaptureEvent事件后，
+     * 用户可以根据ScreenCaptureEvent事件得知系统录屏当前处于开启还是停止的状态。使用callback异步回调。
      *
-     * @param { 'systemScreenRecorder' } type - Event type, which is **'systemScreenRecorder'** in this case.
-     *     This event is triggered when the state of the system screen recorder changes.
-     * @param { Callback<ScreenCaptureEvent> } callback - Callback invoked when the event is triggered,
-     *     where ScreenCaptureEvent indicates the new state.
+     * @param { 'systemScreenRecorder' } type - 录屏状态回调类型'systemScreenRecorder'。<br>
+     * - 'systemScreenRecorder'：系统录屏应用的录屏状态发生变化，触发该事件。
+     * @param { Callback<ScreenCaptureEvent> } callback - 回调函数，返回系统录屏状态。
+     * [ScreenCaptureEvent]{@link ScreenCaptureEvent}表示切换到的状态。
      * @throws { BusinessError } 202 - Not System App.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
@@ -11843,13 +11838,12 @@ declare namespace media {
     onSystemScreenRecorder(callback: Callback<ScreenCaptureEvent>): void;
 
     /**
-     * Unsubscribes from state change events of the system screen recorder.
+     * 取消订阅系统录屏的录屏状态。使用callback异步回调。
      *
-     * @param { 'systemScreenRecorder' } type - Event type, which is **'systemScreenRecorder'** in this case.
-     *     This event is triggered when the state of the system screen recorder changes.
-     * @param { Callback<ScreenCaptureEvent> } [callback] - Callback invoked when the event is triggered,
-     *     where ScreenCaptureEvent indicates the new state. If this parameter is not specified,
-     *     the last subscription event is canceled.
+     * @param { 'systemScreenRecorder' } type - 录屏状态回调类型'systemScreenRecorder'。<br>
+     * - 'systemScreenRecorder'：系统录屏应用的录屏状态发生变化，触发该事件。
+     * @param { Callback<ScreenCaptureEvent> } [callback] - 回调函数，返回系统录屏状态。
+     * [ScreenCaptureEvent]{@link ScreenCaptureEvent}表示切换到的状态，不填此参数则会取消最后一次订阅事件。
      * @throws { BusinessError } 202 - Not System App.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
@@ -11872,7 +11866,7 @@ declare namespace media {
     offSystemScreenRecorder(callback?: Callback<ScreenCaptureEvent>): void;
 
     /**
-     * Whether the system screen recorder is working.
+     * 系统录屏是否处于录屏状态。true表示处于录屏状态；false表示不处于录屏状态。
      *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
