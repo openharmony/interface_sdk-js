@@ -157,6 +157,34 @@ declare namespace cliManager {
     policy?: string;
 
     /**
+     * 表示命令是否作为Shell命令执行。
+     *
+     * true：作为Shell命令执行，false：不作为Shell命令执行。
+     *
+     * 默认值：true。
+     *
+     * @default true
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    isShellCommand?: boolean;
+
+    /**
+     * 从访问令牌管理器获取的唯一标识符。
+     *
+     * 默认值：""。
+     *
+     * @default ""
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    challenge?: string;
+
+    /**
      * 事件回调函数，用于接收工具事件。若提供该参数，将自动订阅会话事件。
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core

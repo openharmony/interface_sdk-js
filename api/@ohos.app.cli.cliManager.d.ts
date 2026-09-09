@@ -147,6 +147,28 @@ declare namespace cliManager {
     policy?: string;
 
     /**
+     * Indicates whether the command is executed as a shell command.
+     *
+     * @default true
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    isShellCommand?: boolean;
+
+    /**
+     * Indicates the unique identifier obtained from the access token manager.
+     *
+     * @default ""
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    challenge?: string;
+
+    /**
      * Indicates the event callback for receiving tool events. If provided, auto-subscribe is performed.
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
