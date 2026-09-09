@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 绘制模块
  * @kit ArkGraphics2D
  */
 

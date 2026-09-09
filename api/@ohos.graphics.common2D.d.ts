@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Common Data Types of 2D Graphics
  * @kit ArkGraphics2D
  */
 /**
