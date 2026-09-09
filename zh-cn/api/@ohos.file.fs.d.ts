@@ -14,7 +14,7 @@
  */
 
 /**
- * @file @ohos.file.fs (文件管理)
+ * @file 文件管理
  * @kit CoreFileKit
  */
 
@@ -2057,7 +2057,7 @@ declare function moveDir(src: string, dest: string, mode?: number): Promise<void
 /**
  * 移动源目录及其内容至目标路径下。使用callback异步回调。
  *
- * 移动模式为目录级别抛异常。当目标目录下存在与源目录名冲突的目录，则抛出异常。
+ * 移动模式为目录级别抛异常。当目标目录下存在与源目录名冲突的非空目录，则抛出异常。
  *
  * > **说明：**
  * >
@@ -2093,7 +2093,7 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
 /**
  * 移动源目录及其内容至目标路径下。使用callback异步回调。
  *
- * 移动模式为目录级别抛异常。当目标目录下存在与源目录名冲突的目录，则抛出异常。
+ * 移动模式为目录级别抛异常。当目标目录下存在与源目录名冲突的非空目录，则抛出异常。
  *
  * > **说明：**
  * >
@@ -2114,7 +2114,7 @@ declare function moveDir(src: string, dest: string, callback: AsyncCallback<void
  *
  * @param { string } src - 源目录的应用沙箱路径。
  * @param { string } dest - 目标目录的应用沙箱路径。
- * @param { number } mode - 移动模式。<br/>- mode为0，目录级别抛异常。若目标目录下存在与源目录名冲突的目录，则抛出异常。<br/>
+ * @param { number } mode - 移动模式。<br/>- mode为0，目录级别抛异常。若目标目录下存在与源目录名冲突的非空目录，则抛出异常。<br/>
  *     - mode为1，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部移动至目标目录下，目标目录下未冲突文件将继续保留。<br/>
  *     - mode为2，文件级别强制覆盖。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件，未冲突文件将继续保留。<br/>
  *     - mode为3，目录级别强制覆盖。移动源目录至目标目录下，目标目录下移动的目录内容与源目录完全一致。若目标目录下存在与源目录名冲突的目录，该目录下所有原始文件将被删除。
@@ -2152,7 +2152,7 @@ declare function moveDir(src: string, dest: string, mode: number, callback: Asyn
  *
  * @param { string } src - 源目录的应用沙箱路径。
  * @param { string } dest - 目标目录的应用沙箱路径。
- * @param { number } mode - 移动模式。<br/>- mode为0，目录级别抛异常。若目标目录下存在与源目录名冲突的目录，则抛出异常。<br/>
+ * @param { number } mode - 移动模式。<br/>- mode为0，目录级别抛异常。若目标目录下存在与源目录名冲突的非空目录，则抛出异常。<br/>
  *     - mode为1，文件级别抛异常。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部移动至目标目录下，目标目录下未冲突文件将继续保留，
  *     且冲突文件信息将在抛出异常的data属性中以Array<[ConflictFiles]{@link ConflictFiles}>形式提供。<br/>
  *     - mode为2，文件级别强制覆盖。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件
@@ -2174,7 +2174,7 @@ declare function moveDir(src: string, dest: string, mode: number, callback: Asyn
  *
  * @param { string } src - 源目录的应用沙箱路径。
  * @param { string } dest - 目标目录的应用沙箱路径。
- * @param { number } [mode] - 移动模式，默认值为0。<br/>- mode为0，目录级别抛异常。若目标目录下存在与源目录名冲突的目录，则抛出异常。<br/>- mode为1，文件级别抛异常。目标目录下存在与
+ * @param { number } [mode] - 移动模式，默认值为0。<br/>- mode为0，目录级别抛异常。若目标目录下存在与源目录名冲突的非空目录，则抛出异常。<br/>- mode为1，文件级别抛异常。目标目录下存在与
  *     源目录名冲突的目录，若冲突目录下存在同名文件，则抛出异常。源目录下未冲突的文件全部移动至目标目录下，目标目录下未冲突文件将继续保留，且冲突文件信息将在抛出异常的data属性中以Array<
  *     [ConflictFiles]{@link ConflictFiles}>形式提供。<br/>- mode为2，文件级别强制覆盖。目标目录下存在与源目录名冲突的目录，若冲突目录下存在同名文件，则强制覆盖冲突目录下所有同名文件
  *     ，未冲突文件将继续保留。<br/>- mode为3，目录级别强制覆盖。移动源目录至目标目录下，目标目录下移动的目录内容与源目录完全一致。若目标目录下存在与源目录名冲突的目录，该目录下所有原始文件将被删除。
@@ -4712,7 +4712,7 @@ export class AtomicFile {
   failWrite(): void;
 
   /**
-   * 删除AtomicFile类，会删除原始文件和临时文件。
+   * 删除AtomicFile对应的原始文件和临时文件。
    *
    * @throws { BusinessError } 13900001 Operation not permitted
    * @throws { BusinessError } 13900002 No such file or directory
@@ -4761,7 +4761,7 @@ declare interface Stat {
    *
    * - 0o020：用户组写。对于普通文件，所有用户组可写入文件；对于目录，所有用户组可创建/删除目录项。
    *
-   * - 0o010：用户组执行。对于普通文件，所有用户组可执行文件；对于目录，所有用户组是否可在目录中搜索给定路径名。
+   * - 0o010：用户组执行。对于普通文件，所有用户组可执行文件；对于目录，所有用户组可在目录中搜索给定路径名。
    *
    * - 0o004：其他读。对于普通文件，其余用户可读取文件；对于目录，其他用户组可读取目录项。
    *
@@ -5320,7 +5320,7 @@ declare interface Stream {
 
 /**
  *
- * 事件监听类，当监听的文件或目录发生变动事件时触发回调。
+ * 事件监听接口，当监听的文件或目录发生变动事件时触发回调。
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform [since 20]
@@ -5330,7 +5330,7 @@ export interface WatchEventListener {
   /**
    * 文件或目录发生变动事件时触发的回调。
    *
-   * @param { WatchEvent } event - 回调的事件类。
+   * @param { WatchEvent } event - 回调的事件接口。
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform [since 20]
    * @since 10 dynamic
@@ -5339,7 +5339,7 @@ export interface WatchEventListener {
 }
 
 /**
- * 事件类
+ * 事件接口
  *
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform [since 20]
@@ -5793,7 +5793,7 @@ export interface ListFileExtOptions {
  */
 export interface RandomAccessFileOptions {
   /**
-   * 表示文件的起始偏移位置，单位为Byte。可选，默认从当前位置开始读。
+   * 表示文件的起始偏移位置，单位为Byte。可选，默认从当前位置。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @crossplatform [since 20]

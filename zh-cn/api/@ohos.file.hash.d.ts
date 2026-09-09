@@ -14,7 +14,7 @@
  */
 
 /**
- * @file @ohos.file.hash (文件哈希处理)
+ * @file 文件哈希处理
  * @kit CoreFileKit
  */
 

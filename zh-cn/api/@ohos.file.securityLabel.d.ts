@@ -14,7 +14,7 @@
  */
 
 /**
- * @file @ohos.file.securityLabel (数据标签)
+ * @file 数据标签
  * @kit CoreFileKit
  */
 
