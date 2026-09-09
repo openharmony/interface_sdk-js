@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Charger
  * @kit BasicServicesKit
  */
 

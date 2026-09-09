@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 耗电统计
  * @kit BasicServicesKit
  */
 

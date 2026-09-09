@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 充电类型
  * @kit BasicServicesKit
  */
 

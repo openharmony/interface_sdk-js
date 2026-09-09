@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 电量信息
  * @kit BasicServicesKit
  */
 

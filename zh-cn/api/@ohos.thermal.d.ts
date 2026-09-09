@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 热管理
  * @kit BasicServicesKit
  */
 

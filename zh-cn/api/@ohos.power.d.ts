@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 系统电源管理
  * @kit BasicServicesKit
  */
 

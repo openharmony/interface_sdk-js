@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Battery Information
  * @kit BasicServicesKit
  */
 

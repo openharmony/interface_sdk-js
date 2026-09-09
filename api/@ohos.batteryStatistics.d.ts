@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Battery Statistics
  * @kit BasicServicesKit
  */
 

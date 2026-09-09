@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 屏幕亮度
  * @kit BasicServicesKit
  */
 
