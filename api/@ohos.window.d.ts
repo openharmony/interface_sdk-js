@@ -1763,21 +1763,21 @@ declare namespace window {
    * Enumerates the reasons for the window focus state change.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @since 26.1.0
+   * @since 26.1.0 dynamic&static
    */
   enum FocusChangeReason {
     /**
      * The focus state changes due to a default reason other than a user click.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.1.0
+     * @since 26.1.0 dynamic&static
      */
     DEFAULT = 0,
     /**
      * The focus state changes because the user clicks the window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.1.0
+     * @since 26.1.0 dynamic&static
      */
     CLICK = 1
   }
@@ -1786,21 +1786,21 @@ declare namespace window {
    * Describes the focus state change information of the window.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @since 26.1.0
+   * @since 26.1.0 dynamic&static
    */
   interface WindowFocusState {
     /**
      * Whether the window gains focus. **true** if the window gains focus, **false** otherwise.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.1.0
+     * @since 26.1.0 dynamic&static
      */
     focused: boolean;
     /**
      * Reason for the focus state change.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.1.0
+     * @since 26.1.0 dynamic&static
      */
     focusChangeReason: FocusChangeReason;
     /**
@@ -1808,7 +1808,7 @@ declare namespace window {
      * window is in the same process as this window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.1.0
+     * @since 26.1.0 dynamic&static
      */
     nextFocusedWindowId?: number;
     /**
@@ -1816,7 +1816,7 @@ declare namespace window {
      * focused window is in the same process as this window.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.1.0
+     * @since 26.1.0 dynamic&static
      */
     prevFocusedWindowId?: number;
   }
