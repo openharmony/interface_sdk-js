@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 企业设备管理扩展能力上下文环境
  * @kit MDMKit
  */
 
@@ -46,8 +46,8 @@ declare class EnterpriseAdminExtensionContext extends ExtensionContext {
    * 在
    * [EnterpriseAdminExtensionAbility]{@link ./../@ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility}
    * 组件中直接启动另外一个组件（页面没有弹窗提醒），目前支持[UIAbility]{@link ./../@ohos.app.ability.UIAbility}，
-   * [AppServiceExtensionAbility]{@link ./../@ohos.app.ability.AppServiceExtensionAbility:AppServiceExtensionAbility}。使用
-   * Promise异步回调。
+   * [AppServiceExtensionAbility]{@link ./../@ohos.app.ability.AppServiceExtensionAbility:AppServiceExtensionAbility}。
+   * 调用成功后，目标组件将被启动并进入运行状态。使用Promise异步回调。
    * 
    * > **说明：**
    * >
@@ -60,8 +60,10 @@ declare class EnterpriseAdminExtensionContext extends ExtensionContext {
    * > 如果被启动的UIAbility有权限保护，需要额外申请对应的权限。
    *
    * @permission ohos.permission.ENTERPRISE_START_ABILITIES
-   * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
+   * @param { Want } admin - 企业设备管理扩展组件。admin参数需传入当前应用自身的企业设备管理扩展组件信息，
+   *     Want中必须包含当前应用的企业设备管理扩展能力的abilityName和所在应用的bundleName。设置后系统将以此参数验证调用方的设备管理员身份和权限。
    * @param { Want } want - 启动组件的必要信息，Want中必须包含被启动组件的abilityName和所在应用的bundleName。
+   *     设置后系统将根据bundleName定位目标应用，根据abilityName定位并启动目标组件。
    * @returns { Promise<void> } 无返回结果的Promise对象。当启动组件失败时，会抛出错误对象。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200014 - Failed to start the ability.

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file EnterpriseAdminExtensionContext
  * @kit MDMKit
  */
 
@@ -50,7 +50,8 @@ declare class EnterpriseAdminExtensionContext extends ExtensionContext {
    * [EnterpriseAdminExtensionAbility]{@link ./../@ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility}
    * component (without pop-up prompts on the page). Currently, [UIAbility]{@link ./../@ohos.app.ability.UIAbility} and
    * [AppServiceExtensionAbility]{@link ./../@ohos.app.ability.AppServiceExtensionAbility:AppServiceExtensionAbility}
-   * are supported. This API uses a promise to return the result.
+   * are supported. After the API is called successfully, the target component is started and enters the running state. 
+   * This API uses a promise to return the result.
    *
    * > **NOTE**
    * >
@@ -65,9 +66,11 @@ declare class EnterpriseAdminExtensionContext extends ExtensionContext {
    *
    * @permission ohos.permission.ENTERPRISE_START_ABILITIES
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of
-   *     **EnterpriseAdminExtensionAbility** and the app bundle name.
+   *     **EnterpriseAdminExtensionAbility** and the app bundle name. 
+   *     After being set, the system uses this parameter to verify the device administrator identity and permissions of the caller.
    * @param { Want } want - Mandatory information for starting a component. The **Want** must contain the ability name
    *     of the component to be started and the bundle name of the app where the component is located.
+   *     After being set, the system locates the target application based on bundleName, and locates and starts the target component based on abilityName.
    * @returns { Promise<void> } Promise that returns no value. If the component fails to be started, an error object is
    *     thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.

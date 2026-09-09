@@ -68,7 +68,7 @@ declare namespace dateTimeManager {
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { number } time - Timestamp to set, in ms.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise that returns no value. If the operations fails, an error object is thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission

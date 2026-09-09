@@ -178,8 +178,8 @@ declare namespace accountManager {
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { string } name - 用户ID，指定具体用户，取值范围：大于等于0。
-   * @param { osAccount.OsAccountType } type - 要添加的账号的类型。<br/>取值范围：ADMIN、NORMAL、GUEST。<br/>· ADMIN：管理员账号。<br/>· NORMAL：普
-   *     通账号。<br/>· GUEST：访客账号。
+   * @param { osAccount.OsAccountType } type - 要添加的账号的类型。<br/>取值范围：ADMIN、NORMAL、GUEST。<br/>· ADMIN：管理员账号。
+   *     <br/>· NORMAL：普通账号。<br/>· GUEST：访客账号。
    * @returns { osAccount.OsAccountInfo } 返回添加的账号信息。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -204,8 +204,8 @@ declare namespace accountManager {
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { boolean } disallow - 是否禁止创建账号，true表示禁止创建，false表示允许创建。
-   * @param { number } [accountId] - 用户ID，指定具体用户。当不传入此参数时，表示禁止所有用户添加账号；当传入此参数时，表示禁止指定用户添加账号。取值范围：大于等于0。<br/>accountId可以通
-   *     过[getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
+   * @param { number } [accountId] - 用户ID，指定具体用户。当不传入此参数时，表示禁止所有用户添加账号；当传入此参数时，表示禁止指定用户添加账号。取值范围：大于等于0。
+   *     <br/>accountId可以通过[getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -271,8 +271,8 @@ declare namespace accountManager {
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。
    * @param { string } name - 账号名，指要添加的账号的名称。无法创建同名、名称为空的账号，创建同名账号时会报错误码9201003，创建名称为空的账号时会报错误码401。
-   * @param { osAccount.OsAccountType } type - 要添加的账号的类型。<br/>取值范围：ADMIN、NORMAL、GUEST。<br/>· ADMIN：管理员账号。<br/>· NORMAL：普
-   *     通账号。<br/>· GUEST：访客账号。
+   * @param { osAccount.OsAccountType } type - 要添加的账号的类型。<br/>取值范围：ADMIN、NORMAL、GUEST。<br/>· ADMIN：管理员账号。
+   *     <br/>· NORMAL：普通账号。<br/>· GUEST：访客账号。
    * @returns { Promise<osAccount.OsAccountInfo> } Promise对象，返回添加的账号信息。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -351,7 +351,7 @@ declare namespace accountManager {
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 204 - Access denied due to user access control policy. Possible causes:
-   *     1. The operation is restricted by the OS-account constraint.
+   *     1. The operation is restricted by the OS-account constraint;
    *     2. The required privilege for the operation has not been granted.
    * @throws { BusinessError } 801 - Capability not supported.
    *     Failed to call the API due to limited device capabilities.
@@ -388,8 +388,8 @@ declare namespace accountManager {
   function removeOsAccount(admin: Want, accountId: number): Promise<void>;
 
   /**
-   * 切换系统账号。当前仅支持手机、平板设备使用，只能在[createNormalOsAccount]{@link accountManager.createNormalOsAccount}创建的普通系统账号和默认系统账号 (ID为10
-   * 0) 之间切换。
+   * 切换系统账号。当前仅支持手机、平板设备使用，只能在[createNormalOsAccount]{@link accountManager.createNormalOsAccount}创建的普通系统账号和默认系统账号 
+   * (ID为100) 之间切换。
    *
    * @permission ohos.permission.ENTERPRISE_INTERACT_ACROSS_LOCAL_ACCOUNTS
    * @param { Want } admin - 企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。

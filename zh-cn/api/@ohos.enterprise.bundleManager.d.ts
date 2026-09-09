@@ -784,9 +784,7 @@ declare namespace bundleManager {
    *     <br> accountId可以通过@ohos.account.osAccount中的
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}等接口来获取。
    *     <br> - 调用接口时，若传入accountId，表示指定用户。
-   *     <br> - 调用接口时，若未传入accountId，表示当前用户。*@ohos.account.osAccount** to obtain the user ID.
-   *     <br> - If **accountId** is passed in, this API applies to the specified user.
-   *     <br> - If **accountId** is not passed in, this API applies to the current user.
+   *     <br> - 调用接口时，若未传入accountId，表示当前用户。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
