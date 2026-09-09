@@ -3291,7 +3291,7 @@ declare namespace media {
 
     /**
      * 指定是否强制加载视频。该接口仅在AVPlayer处于prepared、playing或paused状态时可调用。
-     * 使用Promise异步回调。
+     * 使用Promise异步回调。true表示强制加载视频，false表示不强制加载视频。
      *
      * @param { boolean } force - 指定是否强制加载视频。
      * @returns { Promise<void> } Promise对象，无返回结果。
@@ -3913,6 +3913,22 @@ declare namespace media {
      * @since 23 static
      */
     getMediaKeySystemInfos(): Array<drm.MediaKeySystemInfo>;
+
+    /**
+     * 启用摄像头的后处理功能进行视频播放。
+     * 只有当AVPlayer处于initialized状态时，才能调用此接口。
+     * 
+     * @returns { Promise<void> } Promise对象，无返回结果。
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    enableCameraPostprocessing(): Promise<void>;
 
     /**
      * 监听mediaKeySystemInfoUpdate事件。
