@@ -4251,7 +4251,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.1.0 dynamic&static
      */
-    windowId: number;
+    windowId: int;
     /**
      * Position to adjust to. If the value is greater than 0, it is the ID of another main window, and the target window
      * is placed below that main window. Otherwise, it is one of the
@@ -4261,7 +4261,7 @@ declare namespace window {
      * @syscap SystemCapability.Window.SessionManager
      * @since 26.1.0 dynamic&static
      */
-    insertAfter: number;
+    insertAfter: int;
   }
 
   /**
@@ -4289,7 +4289,7 @@ declare namespace window {
    *     2. The window has been destroyed;
    *     3. The target main window specified by insertAfter cannot be found: not created or not belong to current process;
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-   * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: 1. Invalid window type. Only main windows are supported.
+   * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Invalid window type. Only main windows are supported.
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.1.0 dynamic&static
