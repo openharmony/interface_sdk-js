@@ -9715,7 +9715,8 @@ declare namespace window {
      *     The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.1.0 static
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
      */
     onWindowFocusStateChange(callback: Callback<WindowFocusState>): void;
 
@@ -9732,7 +9733,8 @@ declare namespace window {
      *     The window is not created.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @since 26.1.0 static
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
      */
     offWindowFocusStateChange(callback?: Callback<WindowFocusState>): void;
 
