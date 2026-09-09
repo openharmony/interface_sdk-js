@@ -25,10 +25,6 @@
  * a session channel. This module is applicable to scenarios that require cross-device collaboration and multi-device
  * data transfer, simplifying the development of cross-device interaction.
  *
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs and can be used only in the stage model.
- *
  * @syscap SystemCapability.Communication.SoftBus.Core
  * @systemapi
  * @stagemodelonly

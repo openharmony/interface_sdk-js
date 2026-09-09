@@ -23,10 +23,6 @@
  * 应用可以获取同一账号下的可信设备，注册监听器以接收跨设备数据，并通过会话通道向指定设备发送数据。适用于需要跨设备协作和
  * 多设备数据传递的场景，可降低跨设备交互的开发复杂度。
  *
- * > **说明：**
- * >
- * > 本模块接口为系统接口，仅可在Stage模型下使用。
- *
  * @syscap SystemCapability.Communication.SoftBus.Core
  * @systemapi
  * @stagemodelonly
