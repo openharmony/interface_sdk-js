@@ -3610,7 +3610,7 @@ declare namespace bundleManager {
    * @param { string } bundleName - Bundle name.
    * @param { int } userId - User ID on the device.
    *     <br>The value should be an integer.
-   * @returns { Promise<AppProvisionInfo> } Promise used to return the provision profile obtained.
+   * @returns { Promise<Array<AppProvisionInfo>> } Promise used to return the provision profile obtained.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 17700001 - The specified bundleName is not found.
@@ -3620,7 +3620,7 @@ declare namespace bundleManager {
    * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
-  function getAppProvisionInfoInDevice(bundleName: string, userId: int): Promise<AppProvisionInfo>;
+  function getAppProvisionInfoInDevice(bundleName: string, userId: int): Promise<Array<AppProvisionInfo>>;
 
   /**
    * Obtains the [provision]{@link bundleManager/AppProvisionInfo} configuration file information of all applications
