@@ -602,7 +602,7 @@ declare namespace dlpPermission {
      * @returns { Promise<DLPManagerResult> } Promise对象。打开DLP权限管理应用并退出后的结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @throws { BusinessError } 19100016 - The uri field is missing in the want parameter.
