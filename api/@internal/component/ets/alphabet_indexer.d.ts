@@ -280,7 +280,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    *
    * Since API version 26.0.0, if neither **popupBackground** nor
    * [popupBackgroundBlurStyle]{@link AlphabetIndexerAttribute#popupBackgroundBlurStyle} is called or the **value**
-   * parameter is set to **undefined**, the **THIN** style of
+   * parameter is set to **undefined**, the **THICK** style of
    * **[ImmersiveStyle](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivestyle)** is displayed by
    * default on devices with high- and mid-level computing power, and the white background is displayed by default on
    * devices with low-level computing power. If **popupBackgroundBlurStyle** is called and the **value** parameter is
@@ -586,7 +586,7 @@ declare class AlphabetIndexerAttribute extends CommonMethod<AlphabetIndexerAttri
    * Sets the background blur style of the pop-up window. In versions earlier than API version 26.0.0, if this API is
    * not called, the **COMPONENT_REGULAR** value in **BlurStyle** is used by default. Since API version 26.0.0, if
    * neither [popupBackground]{@link AlphabetIndexerAttribute#popupBackground} nor **popupBackgroundBlurStyle** is
-   * called or the value is **undefined**, the **THIN** style of
+   * called or the value is **undefined**, the **THICK** style of
    * [ImmersiveStyle](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivestyle) is used by default on
    * devices with high- and mid-level computing power, and the white background is used by default on devices with low-
    * level computing power.
