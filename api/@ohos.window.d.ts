@@ -4204,6 +4204,7 @@ declare namespace window {
    * Enumerates the target positions to which the z-order of a main window can be adjusted.
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
   enum WindowPosition {
@@ -4211,6 +4212,7 @@ declare namespace window {
      * Not topmost, normal mode. Used as an independent action to cancel the global topmost state of a main window.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
     NOT_TOPMOST = -3,
@@ -4218,6 +4220,7 @@ declare namespace window {
      * Global topmost. To set this value, you need the ohos.permission.WINDOW_TOPMOST permission.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
     TOPMOST = -2,
@@ -4225,6 +4228,7 @@ declare namespace window {
      * Places the window at the bottom of all application windows.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
     BOTTOM = -1,
@@ -4232,6 +4236,7 @@ declare namespace window {
      * Places the window at the top of all application windows, for a single adjustment.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
     TOP = 0
