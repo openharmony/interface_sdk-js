@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 自定义节点
  * @kit ArkUI
  */
 
