@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Defines the context of driver extension
+ * @file 定义驱动程序扩展的上下文
  * @kit DriverDevelopmentKit
  */
 
