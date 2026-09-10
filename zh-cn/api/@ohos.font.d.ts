@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Custom Font Registration
+ * @file 注册自定义字体
  * @kit ArkUI
  */
 
