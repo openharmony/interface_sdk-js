@@ -1012,8 +1012,6 @@ declare class ColorMetrics {
   /**
    * Get red value.
    * Returns red channel value as a floating-point number.
-   * For SDR colors, value is in range [0, 1].
-   * For HDR colors, value can be greater than 1.0 to represent extended brightness.
    *
    * @returns { double } The red value.
    *     Valid range:
@@ -1029,8 +1027,6 @@ declare class ColorMetrics {
   /**
    * Get green value.
    * Returns green channel value as a floating-point number.
-   * For SDR colors, value is in range [0, 1].
-   * For HDR colors, value can be greater than 1.0 to represent extended brightness.
    *
    * @returns { double } The green value.
    *     Valid range:
@@ -1046,8 +1042,6 @@ declare class ColorMetrics {
   /**
    * Get blue value.
    * Returns blue channel value as a floating-point number.
-   * For SDR colors, value is in range [0, 1].
-   * For HDR colors, value can be greater than 1.0 to represent extended brightness.
    *
    * @returns { double } The blue value.
    *     Valid range:
