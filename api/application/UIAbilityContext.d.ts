@@ -2503,6 +2503,29 @@ declare class UIAbilityContext extends Context {
    */
   setAbilityInstanceInfo(label: string, icon: image.PixelMap): Promise<void>;
 
+ /**
+   * Sets the icon and label for this UIAbility. The icon and label can be displayed in the task center and the shortcut
+   *     bar. This API uses a promise to return the result.
+   * This API can be properly called only on PCs/2-in-1 devices. If it is called on other device types, error code 801 
+   *     is returned.
+   * **Required permissions**: ohos.permission.SET_ABILITY_INSTANCE_INFO
+   *
+   * @permission ohos.permission.SET_ABILITY_INSTANCE_INFO
+   * @param { string } label - New icon label. The label cannot be an empty string, and can contain a maximum of 1024 bytes.
+   * @param { image.PixelMap } icon - Icon. The recommended icon size is 512 px * 512 px.
+   * @param { string } groupId - The icon aggregation label for UIAbility within the application on the shortcut bar.
+   *     The length must not exceed 64 characters.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Window operations encountered failures.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  setAbilityInstanceInfo(label: string, icon: image.PixelMap, groupId: string): Promise<void>;
+
   /**
    * When the first UIAbility launched under a module needs to redirect to another UIAbility, the target UIAbility is 
    * known as the DelegatorAbility. For details about how to set up the DelegatorAbility, see step 1 in the example 

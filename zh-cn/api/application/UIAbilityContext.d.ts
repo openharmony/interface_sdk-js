@@ -2298,6 +2298,25 @@ declare class UIAbilityContext extends Context {
   setAbilityInstanceInfo(label: string, icon: image.PixelMap): Promise<void>;
 
   /**
+   * 设置当前UIAbility实例的图标和标签信息。图标与标签信息可在任务中心和快捷栏的界面中显示。使用Promise异步回调。
+   * 该接口仅在PC/2in1设备中可正常调用，在其他设备中返回801错误码。
+   *
+   * @permission ohos.permission.SET_ABILITY_INSTANCE_INFO
+   * @param { string } label - 新的图标标签。标签长度不超过1024字节，且不可为空字符串。
+   * @param { image.PixelMap } icon - 新的图标。建议图标大小为512px*512px。
+   * @param { string } groupId - 应用内UIAbility在快捷栏上的图标聚合标签。长度不超过64个字符。
+   * @returns { Promise<void> } Promise对象，包含接口执行结果。
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Window operations encountered failures.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  setAbilityInstanceInfo(label: string, icon: image.PixelMap, groupId: string): Promise<void>;
+
+  /**
    * 设置UIAbility的深浅色模式。调用该接口前需要保证该UIAbility对应页面已完成加载。仅支持主线程调用。
    *
    * > **说明**：
