@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 驱动扩展能力
  * @kit DriverDevelopmentKit
  */
 
