@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 分布式硬件管理
  * @kit DistributedServiceKit
  */
 
