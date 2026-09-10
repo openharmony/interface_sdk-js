@@ -4288,7 +4288,7 @@ declare namespace window {
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
    *     capabilities.
    * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 
-   *     1. The window to be adjusted cannot be found：not created or not belong to current process;
+   *     1. The window to be adjusted cannot be found: not created or not belong to current process;
    *     2. The window has been destroyed;
    *     3. The target main window specified by insertAfter cannot be found: not created or not belong to current process;
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
