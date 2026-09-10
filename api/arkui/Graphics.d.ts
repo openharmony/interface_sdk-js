@@ -1010,15 +1010,12 @@ declare class ColorMetrics {
   isHDR(): boolean;
 
   /**
-   * Get red value.
-   * Returns red channel value as a floating-point number.
-   * For SDR colors, value is in range [0, 1].
-   * For HDR colors, value can be greater than 1.0 to represent extended brightness.
+   * 获取ColorMetrics颜色的R分量（红色），以浮点数形式返回红色通道值。
    *
-   * @returns { double } The red value.
-   *     Valid range:
-   *     For SDR colors: [0, 1].
-   *     Fro HDR colors: [0, +∞), values > 1.0 indicate HDR brightness.
+   * @returns { double } 颜色的R分量（红色）。
+   *     取值范围：
+   *     对于SDR颜色，取值范围为[0, 1]。
+   *     对于HDR颜色，该值可以大于1.0，以表示扩展亮度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -1027,15 +1024,12 @@ declare class ColorMetrics {
   getRedValue(): double;
 
   /**
-   * Get green value.
-   * Returns green channel value as a floating-point number.
-   * For SDR colors, value is in range [0, 1].
-   * For HDR colors, value can be greater than 1.0 to represent extended brightness.
+   * 获取ColorMetrics颜色的G分量（绿色），值是大于等于0的浮点数。
    *
-   * @returns { double } The green value.
-   *     Valid range:
-   *     For SDR colors: [0, 1].
-   *     Fro HDR colors: [0, +∞), values > 1.0 indicate HDR brightness.
+   * @returns { double } 颜色的G分量（绿色）。
+   *     取值范围：
+   *     对于SDR颜色，取值范围是[0, 1]。
+   *     对于HDR颜色，该值可以大于1.0，以表示扩展亮度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -1044,15 +1038,12 @@ declare class ColorMetrics {
   getGreenValue(): double;
 
   /**
-   * Get blue value.
-   * Returns blue channel value as a floating-point number.
-   * For SDR colors, value is in range [0, 1].
-   * For HDR colors, value can be greater than 1.0 to represent extended brightness.
-   *
-   * @returns { double } The blue value.
-   *     Valid range:
-   *     For SDR colors: [0, 1].
-   *     Fro HDR colors: [0, +∞), values > 1.0 indicate HDR brightness.
+   * 获取ColorMetrics颜色的B分量（蓝色），值是大于等于0的浮点数。
+   * 
+   * @returns { double } 颜色的B分量（蓝色）。
+   *     取值范围：
+   *     对于SDR颜色，取值范围为[0, 1]。
+   *     对于HDR颜色，该值可以大于1.0，以表示扩展亮度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
