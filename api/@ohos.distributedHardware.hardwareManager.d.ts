@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Distributed Hardware Manager
  * @kit DistributedServiceKit
  */
 
