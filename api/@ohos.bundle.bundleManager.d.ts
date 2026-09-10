@@ -3675,6 +3675,48 @@ declare namespace bundleManager {
 
   /**
    * Obtains the [provision]{@link bundleManager/AppProvisionInfo} configuration file information of all applications
+   * based in the device on the given user ID. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.GET_INSTALLED_BUNDLE_LIST or
+   *     (ohos.permission.GET_INSTALLED_BUNDLE_LIST and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { int } userId - User ID on the device.
+   *     <br>The value should be an integer.
+   * @returns { Promise<Array<AppProvisionInfo>> } Promise used to return the provision profile obtained.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API.
+   * @throws { BusinessError } 17700004 - The specified user id is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function getAllAppProvisionInfoInDevice(userId: int): Promise<Array<AppProvisionInfo>>;
+
+  /**
+   * Obtains the provision profile based in device on the given bundle name and user ID. 
+   * This API uses a promise to return the result.
+   *
+   * No permission is required for obtaining the caller's own information.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or
+   *     (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { string } bundleName - Bundle name.
+   * @param { int } userId - User ID on the device.
+   *     <br>The value should be an integer.
+   * @returns { Promise<Array<AppProvisionInfo>> } Promise used to return the provision profile obtained.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function getAppProvisionInfoInDevice(bundleName: string, userId: int): Promise<Array<AppProvisionInfo>>;
+
+  /**
+   * Obtains the [provision]{@link bundleManager/AppProvisionInfo} configuration file information of all applications
    * based on the given user ID. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or
@@ -4202,6 +4244,26 @@ declare namespace bundleManager {
    * @since 23 static
    */
   function setAdditionalInfo(bundleName: string, additionalInfo: string): void;
+
+  /**
+   * Sets additional information for a specified application instance. This API can be called only by AppGallery.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Bundle name.
+   * @param { string } additionalInfo - Additional information to set.
+   * @param { int } appIndex - Index of the application mode.The value must be equal to 0 or 10000.
+   *     <br>The value should be an integer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700053 - The caller is not AppGallery.
+   * @throws { BusinessError } 17700061 - AppIndex not in valid range.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function setAdditionalInfoByIndex(bundleName: string, additionalInfo: string, appIndex: int): void;
 
   /**
    * Deletes an .abc file based on the specified file path. This API uses a promise to return the result.
