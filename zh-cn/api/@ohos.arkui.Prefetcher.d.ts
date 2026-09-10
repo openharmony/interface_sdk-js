@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Prefetching
+ * @file 内容预取
  * @kit ArkUI
  */
 

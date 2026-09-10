@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Custom Node
  * @kit ArkUI
  */
 
