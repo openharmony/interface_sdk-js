@@ -1026,7 +1026,7 @@ declare class ColorMetrics {
 
   /**
    * 获取ColorMetrics颜色的B分量（蓝色）。
-   * 
+   *
    * @returns { double } 颜色的B分量（蓝色），值是大于等于0的浮点数。
    *     取值范围：
    *     对于SDR颜色，取值范围为[0, 1]。
