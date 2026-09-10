@@ -23,6 +23,8 @@ import type { AsyncCallback } from './@ohos.base';
 /**
  * 本模块提供进程间通信能力，包括设备内的进程间通信（IPC）和设备间的进程间通信（RPC），前者基于Binder驱动，后者基于软总线驱动。
  *
+ * 本模块从API version 9开始支持异常返回功能。
+ *
  * @syscap SystemCapability.Communication.IPC.Core
  * @atomicservice [since 26.0.0]
  * @since 7 dynamic
@@ -3455,9 +3457,9 @@ declare namespace rpc {
      * 
      * > **说明：**
      * >
-     * >开发者应优先选择重写onRemoteMessageRequest方法，其中可以自由实现同步和异步的消息处理。
+     * > 开发者应优先选择重写onRemoteMessageRequest方法，其中可以自由实现同步和异步的消息处理。
      * >
-     * >开发者同时重写onRemoteRequest和onRemoteMessageRequest方法时，仅onRemoteMessageRequest方法生效。
+     * > 开发者同时重写onRemoteRequest和onRemoteMessageRequest方法时，仅onRemoteMessageRequest方法生效。
      *
      * @param { int } code - 对端发送的服务请求码。
      * @param { MessageSequence } data - 携带客户端调用参数的MessageSequence对象。
