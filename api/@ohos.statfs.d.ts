@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file statfs
  * @kit API10LessDeprecatedModules
  */
 

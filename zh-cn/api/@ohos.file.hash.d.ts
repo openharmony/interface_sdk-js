@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 文件哈希处理
  * @kit CoreFileKit
  */
 

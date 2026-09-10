@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 文件系统空间统计
  * @kit CoreFileKit
  */
 
