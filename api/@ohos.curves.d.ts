@@ -463,7 +463,7 @@ declare namespace curves {
   interface TrailOptimization {
     /**
      * Animation progress threshold.
-     * <br>Value range: <0, 1>.
+     * <br>Value range: [0, 1].
      *
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -474,7 +474,7 @@ declare namespace curves {
     progressThreshold?: number;
     /**
      * Response decay factor.
-     * Value range: <0, 1>.
+     * Value range: (0, 1].
      *
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
