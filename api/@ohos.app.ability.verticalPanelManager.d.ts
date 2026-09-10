@@ -221,7 +221,6 @@ declare namespace verticalPanelManager {
 
   /**
    * export the const string of bundleName and provide it for sourceAppInfo.
-   * @constant
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
@@ -232,7 +231,6 @@ declare namespace verticalPanelManager {
 
   /**
    * export the const string of moduleName and provide it for sourceAppInfo.
-   * @constant
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
@@ -243,7 +241,6 @@ declare namespace verticalPanelManager {
 
   /**
    * export the const string of abilityName and provide it for sourceAppInfo.
-   * @constant
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
@@ -254,7 +251,6 @@ declare namespace verticalPanelManager {
 
   /**
    * export the const string of windowId and provide it for sourceAppInfo.
-   * @constant
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
@@ -265,7 +261,6 @@ declare namespace verticalPanelManager {
 
   /**
    * export the const string of screenMode and provide it for sourceAppInfo.
-   * @constant
    * @syscap SystemCapability.Ability.AppExtension.VerticalPanel
    * @systemapi
    * @stagemodelonly
