@@ -22,7 +22,7 @@
  * > 
  * > - 从API version 12开始，本模块接口支持在ArkTS卡片中使用。
  *
- * @file
+ * @file 公共回调信息
  * @kit BasicServicesKit
  */
 
