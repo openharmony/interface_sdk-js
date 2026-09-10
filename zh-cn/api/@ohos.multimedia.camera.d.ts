@@ -14,7 +14,7 @@
  */
 
 /**
- * @file AutoDeviceSwitch
+ * @file 相机管理
  * @kit CameraKit
  */
 
