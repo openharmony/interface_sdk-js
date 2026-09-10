@@ -19,6 +19,7 @@
  */
 
 import type Want from './@ohos.app.ability.Want';
+import common from './@ohos.enterprise.common';
 
 /**
  * 本模块提供系统管理能力，包括NTP时间服务器设置、OTA升级策略管理、系统更新管理、按键事件处理策略、日志收集、设备激活锁管理等功能。适用于企业设备管理场景，帮助企业管理员统一管控设备系统配置、升级策略和安全策略，提升企业设备管理效率
@@ -1297,6 +1298,120 @@ declare namespace systemManager {
    * @since 26.0.0
    */
   function isOtaUpdateNonceEnable(admin: Want): boolean;
+
+  /**
+   * Adds allowed printer IP addresses for device. The policy takes effect for all accounts.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Array<string> } ipAddresses - ipAddresses indicate the IP address list of printer.
+   *     Each IP address must be in IPv4 format or IPV6 format.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200019 - The policy list has exceeded the limit.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function addAllowedPrinterIPAddressesForDevice(ipAddresses: Array<string>): void;
+
+  /**
+   * Removes allowed printer IP addresses for device. The policy takes effect for all accounts.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Array<string> } ipAddresses - ipAddresses indicate the IP address list of printer to be removed.
+   *     Each IP address must be in IPv4 format or IPV6 format.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function removeAllowedPrinterIPAddressesForDevice(ipAddresses: Array<string>): void;
+
+  /**
+   * Gets allowed printer IP addresses for device.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { common.QueryPolicy } [queryPolicy] - queryPolicy indicates the policy of query.
+   *     <br>Default value: common.QueryPolicy.SELF.
+   * @returns { Array<string> } Returns the IP address list of printer.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function getAllowedPrinterIPAddressesForDevice(queryPolicy?: common.QueryPolicy): Array<string>;
+
+  /**
+   * Adds allowed printer IP addresses for current account. The policy takes effect only for current account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Array<string> } ipAddresses - ipAddresses indicates the IP address list of printer.
+   *     Each IP address must be in IPv4 format or IPV6 format.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200019 - The policy list has exceeded the limit.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function addAllowedPrinterIPAddressesForAccount(ipAddresses: Array<string>): void;
+
+  /**
+   * Removes allowed printer IP addresses for current account. The policy takes effect only for current account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { Array<string> } ipAddresses - ipAddresses indicates the IP address list of printer.
+   *     Each IP address must be in IPv4 format or IPV6 format.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function removeAllowedPrinterIPAddressesForAccount(ipAddresses: Array<string>): void;
+
+  /**
+   * Gets allowed printer IP addresses for current account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { common.QueryPolicy } [queryPolicy] - queryPolicy indicates the policy of query.
+   *     <br>Default value: common.QueryPolicy.SELF.
+   * @returns { Array<string> } Returns the IP address list of printer.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function getAllowedPrinterIPAddressesForAccount(queryPolicy?: common.QueryPolicy): Array<string>;
 }
 
 export default systemManager;
