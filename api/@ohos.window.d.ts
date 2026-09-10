@@ -1763,6 +1763,7 @@ declare namespace window {
    * Enumerates the reasons for the window focus state change.
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
   enum FocusChangeReason {
@@ -1770,6 +1771,7 @@ declare namespace window {
      * The focus state changes due to a default reason other than a user click.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
     DEFAULT = 0,
@@ -1777,6 +1779,7 @@ declare namespace window {
      * The focus state changes because the user clicks the window.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
     CLICK = 1
@@ -1786,6 +1789,7 @@ declare namespace window {
    * Describes the focus state change information of the window.
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
   interface WindowFocusState {
@@ -1793,6 +1797,7 @@ declare namespace window {
      * Whether the window gains focus. **true** if the window gains focus, **false** otherwise.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
     focused: boolean;
@@ -1800,6 +1805,7 @@ declare namespace window {
      * Reason for the focus state change.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
     focusChangeReason: FocusChangeReason;
@@ -1808,6 +1814,7 @@ declare namespace window {
      * window is in the same process as this window.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
     nextFocusedWindowId?: int;
@@ -1816,6 +1823,7 @@ declare namespace window {
      * focused window is in the same process as this window.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
     prevFocusedWindowId?: int;
