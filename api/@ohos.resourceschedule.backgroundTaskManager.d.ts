@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Background Task Management
  * @kit BackgroundTasksKit
  */
 
