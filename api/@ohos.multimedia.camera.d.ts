@@ -7212,11 +7212,11 @@ declare namespace camera {
    * [AutoExposure]{@link camera.AutoExposure}, [WhiteBalance]{@link camera.WhiteBalance}, [Focus]{@link camera.Focus}, 
    * [Zoom]{@link camera.Zoom}, [ColorManagement]{@link camera.ColorManagement}, 
    * [AutoDeviceSwitch]{@link camera.AutoDeviceSwitch}, [Macro]{@link camera.Macro}, 
-   * [ManualExposure](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualExposure.md), 
-   * [ManualFocus](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualFocus.md), 
-   * [ManualIso](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualIso.md), 
-   * [OIS](docroot://reference/apis-camera-kit/arkts-apis-camera-OIS.md), and 
-   * [Aperture](docroot://reference/apis-camera-kit/arkts-apis-camera-Aperture.md).
+   * [ManualExposure]{@link camera.ManualExposure}, 
+   * [ManualFocus]{@link camera.ManualFocus}, 
+   * [ManualIso]{@link camera.ManualIso}, 
+   * [OIS]{@link camera.OIS}, and 
+   * [Aperture]{@link camera.Aperture}.
    * 
    * It implements a photo session, which provides operations on the flash, exposure, white balance, focus, zoom, color 
    * space, macro mode, manual exposure, manual focus, manual ISO setting, optical image stabilization (OIS), and 
@@ -7860,11 +7860,11 @@ declare namespace camera {
    * [Zoom]{@link camera.Zoom}, [Stabilization]{@link camera.Stabilization}, 
    * [ColorManagement]{@link camera.ColorManagement}, [AutoDeviceSwitch]{@link camera.AutoDeviceSwitch}, 
    * [Macro]{@link camera.Macro}, [ControlCenter]{@link camera.ControlCenter}, 
-   * [ManualExposure](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualExposure.md), 
-   * [ManualFocus](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualFocus.md), 
-   * [ManualIso](docroot://reference/apis-camera-kit/arkts-apis-camera-ManualIso.md), 
-   * [OIS](docroot://reference/apis-camera-kit/arkts-apis-camera-OIS.md), and 
-   * [Aperture](docroot://reference/apis-camera-kit/arkts-apis-camera-Aperture.md).
+   * [ManualExposure]{@link camera.ManualExposure}, 
+   * [ManualFocus]{@link camera.ManualFocus}, 
+   * [ManualIso]{@link camera.ManualIso}, 
+   * [OIS]{@link camera.OIS}, and 
+   * [Aperture]{@link camera.Aperture}.
    * 
    * It implements a video session, which provides operations on the flash, exposure, white balance, focus, zoom, video 
    * stabilization, color space, macro mode and controller, manual exposure, manual focus, manual ISO, optical image 
