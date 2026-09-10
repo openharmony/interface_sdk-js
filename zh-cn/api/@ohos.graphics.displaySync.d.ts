@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 可变帧率
  * @kit ArkGraphics2D
  */
 

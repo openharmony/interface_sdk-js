@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Variable Frame Rate
  * @kit ArkGraphics2D
  */
 
