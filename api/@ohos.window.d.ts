@@ -4241,6 +4241,7 @@ declare namespace window {
    * Describes the position of a main window to adjust its z-order.
    *
    * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
   interface WindowPositionParams {
@@ -4249,6 +4250,7 @@ declare namespace window {
      * application process.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
     windowId: int;
@@ -4259,6 +4261,7 @@ declare namespace window {
      * application windows, or toggling its global topmost state.
      *
      * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
     insertAfter: int;
