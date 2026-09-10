@@ -1835,6 +1835,112 @@ declare interface RichEditorBuilderSpanOptions {
 }
 
 /**
+ * 定义**RichEditor**中BuilderSpan的身份与位置信息。
+ *
+ * > **说明：**
+ * >
+ * > 当**RichEditor**组件使用[RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions}构造时，不支持此接口。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.2.0 dynamic
+ */
+declare interface BuilderSpanInfo {
+  /**
+   * 开发者自定义的追踪标识，用于跟踪BuilderSpan。框架不强制唯一性约束，由开发者自行保证唯一性。
+   * 未传入时，值为**undefined**。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  id?: string;
+
+  /**
+   * BuilderSpan在文本内容中的当前偏移位置。
+   * 该值由框架维护，随文本内容变化动态更新。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  offset?: number;
+}
+
+/**
+ * 定义**RichEditor**的BuilderSpan对象，提供身份识别与生命周期感知能力。
+ *
+ * > **说明：**
+ * >
+ * > 当**RichEditor**组件使用[RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions}构造时，不支持此接口。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.2.0 dynamic
+ */
+declare interface RichEditorBuilderSpan {
+  /**
+   * 自定义组件构造器。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  builder: CustomBuilder;
+
+  /**
+   * BuilderSpan挂载到**RichEditor**时触发的回调。
+   * 回调接收一个[BuilderSpanInfo]{@link BuilderSpanInfo}对象，包含id和offset。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  onAttach?: Callback<BuilderSpanInfo>;
+
+  /**
+   * BuilderSpan从**RichEditor**中被移除时触发的回调。
+   * 包括通过deleteSpans API删除、IME键盘删除、剪切操作以及普通Undo降级等删除场景。
+   * 回调接收一个[BuilderSpanInfo]{@link BuilderSpanInfo}对象，包含id和offset。
+   *
+   * > **说明：**
+   * >
+   * > 在拖拽撤销（undoStyle=KEEP_STYLE）场景中，onDetach回调不会被触发，
+   * > 因为BuilderSpan正在被恢复而非被删除。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  onDetach?: Callback<BuilderSpanInfo>;
+
+  /**
+   * 无障碍朗读功能属性。缺省时，取[AccessibilitySpanOptions]{@link AccessibilitySpanOptions}的默认值。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  accessibilitySpanOptions?: AccessibilitySpanOptions;
+}
+
+/**
  * 设置提示文本的字体样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2740,6 +2846,32 @@ declare class RichEditorController extends RichEditorBaseController {
   addBuilderSpan(value: CustomBuilder, options?: RichEditorBuilderSpanOptions): number;
 
   /**
+   * 在**RichEditor**中添加自定义布局（BuilderSpan），提供身份识别与生命周期感知能力。
+   *
+   * > **说明：**
+   * >
+   * > - BuilderSpan对象中的[onAttach]{@link RichEditorBuilderSpan#onAttach}和
+   * > [onDetach]{@link RichEditorBuilderSpan#onDetach}回调接收一个[BuilderSpanInfo]{@link BuilderSpanInfo}
+   * > 对象，包含span的id和offset。
+   * >
+   * > - 当**RichEditor**组件使用[RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions}构造时，
+   * > 不支持此接口。
+   * >
+   * > - 撤销/重做不会还原BuilderSpan对象。通过撤销还原时，被移除的BuilderSpan会降级为空格文本Span。
+   *
+   * @param { RichEditorBuilderSpan } value - BuilderSpan对象，包含构造器、生命周期回调和无障碍配置。
+   * @param { BuilderSpanInfo } [info] - BuilderSpan的身份与位置信息。**info.id**用于标识BuilderSpan，
+   *     **info.offset**用于指定插入位置。省略时，BuilderSpan追加到末尾且id为undefined。
+   * @returns { number } 添加完成的builderSpan在所有Span中的索引位置。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  addRichEditorBuilderSpan(value: RichEditorBuilderSpan, info?: BuilderSpanInfo): number;
+
+  /**
    * 在RichEditor中添加图标小符号（SymbolSpan）。如果组件光标闪烁，插入后光标位置更新为新插入SymbolSpan的后面。
    * 
    * SymbolSpan暂不支持手势、复制操作和拖拽处理。
@@ -2814,6 +2946,32 @@ declare class RichEditorController extends RichEditorBaseController {
    * @since 10 dynamic
    */
   getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult>;
+
+  /**
+   * 获取指定范围内BuilderSpan的身份与位置信息。
+   *
+   * > **说明：**
+   * >
+   * > - 当**RichEditor**组件使用[RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions}构造时，
+   * > 不支持此接口。
+   * >
+   * > - 通过接口[addBuilderSpan]{@link RichEditorController#addBuilderSpan}创建的BuilderSpan，
+   * > 返回的[BuilderSpanInfo]{@link BuilderSpanInfo}中id为**undefined**（匿名）。
+   * >
+   * > - 返回的[BuilderSpanInfo]{@link BuilderSpanInfo}中的**offset**字段反映当前实际偏移位置，
+   * > 随文本内容变化动态更新。
+   *
+   * @param { RichEditorRange } [value] - 目标BuilderSpan的范围。
+   *     <br>省略时，返回所有BuilderSpan信息。
+   * @returns { Array<BuilderSpanInfo> } BuilderSpan身份与位置信息数组。
+   *     <br>当controller未绑定组件或绑定controller的组件被释放时，返回**undefined**。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  getRichEditorBuilderSpans(value?: RichEditorRange): Array<BuilderSpanInfo>;
 
   /**
    * 获取指定范围的段落信息。
