@@ -997,7 +997,7 @@ declare class ColorMetrics {
   isHDR(): boolean;
 
   /**
-   * 获取ColorMetrics颜色的R分量（红色）。
+   * 获取ColorMetrics颜色的R分量，以浮点数形式返回红色通道值。
    *
    * @returns { double } 颜色的R分量（红色），值是大于等于0的浮点数。
    *     取值范围：
@@ -1011,7 +1011,7 @@ declare class ColorMetrics {
   getRedValue(): double;
 
   /**
-   * 获取ColorMetrics颜色的G分量（绿色）。
+   * 获取ColorMetrics颜色的G分量，以浮点数形式返回绿色通道值。
    *
    * @returns { double } 颜色的G分量（绿色），值是大于等于0的浮点数。
    *     取值范围：
@@ -1025,7 +1025,7 @@ declare class ColorMetrics {
   getGreenValue(): double;
 
   /**
-   * 获取ColorMetrics颜色的B分量（蓝色）。
+   * 获取ColorMetrics颜色的B分量，以浮点数形式返回蓝色通道值。
    *
    * @returns { double } 颜色的B分量（蓝色），值是大于等于0的浮点数。
    *     取值范围：
