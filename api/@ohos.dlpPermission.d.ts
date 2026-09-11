@@ -737,7 +737,7 @@ declare namespace dlpPermission {
      * @throws { BusinessError } 19100016 - The uri field is missing in the want parameter.
      * @throws { BusinessError } 19100017 - The displayName field is missing in the want parameter.
      * @syscap SystemCapability.Security.DataLossPrevention
-     * @StageModelOnly
+     * @stagemodelonly
      * @since 26.2.0
      */
     function startDLPManagerForResult(context: common.Context, want: Want, window: window.Window): Promise<DLPManagerResult>;
