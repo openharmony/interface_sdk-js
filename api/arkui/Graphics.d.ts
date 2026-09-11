@@ -1015,7 +1015,7 @@ declare class ColorMetrics {
    *
    * @returns { double } The red value.
    *     Valid range:
-   *     For SDR colors: [0, 1].
+   *     For SDR colors: [0, 1]. 
    *     Fro HDR colors: [0, +∞), values > 1.0 indicate HDR brightness.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
