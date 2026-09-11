@@ -1010,7 +1010,7 @@ declare class ColorMetrics {
   isHDR(): boolean;
 
   /**
-   * Get red value. 
+   * Get red value.
    * Returns red channel value as a floating-point number.
    *
    * @returns { double } The red value.
