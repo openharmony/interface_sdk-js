@@ -285,7 +285,7 @@ declare namespace common {
     SELF = 0,
 
     /**
-     * 所有管理员设置的应用
+     * 所有管理员设置的策略。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
