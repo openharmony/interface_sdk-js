@@ -831,7 +831,7 @@ declare namespace dlpPermission {
         tokenID: number;
         /**
          * Index of the DLP sandbox application to be bound. This parameter is not returned by default. It is returned 
-         * only when the sandbox application is previewed.
+         * only when the sandbox application is Preview.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
