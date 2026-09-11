@@ -1800,7 +1800,7 @@ declare namespace window {
      * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
-    focused: boolean;
+    isFocused: boolean;
     /**
      * Reason for the focus state change.
      *
@@ -1811,7 +1811,8 @@ declare namespace window {
     focusChangeReason: FocusChangeReason;
     /**
      * ID of the next focused window. This field is valid only when the window is unfocused and the next focused
-     * window is in the same process as this window.
+     * window is in the same process as this window. The default value is **undefined**.
+     * The value should be an integer
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -1820,7 +1821,8 @@ declare namespace window {
     nextFocusedWindowId?: int;
     /**
      * ID of the previous focused window. This field is valid only when the window is focused and the previous
-     * focused window is in the same process as this window.
+     * focused window is in the same process as this window.The default value is **undefined**.
+     * The value should be an integer
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
