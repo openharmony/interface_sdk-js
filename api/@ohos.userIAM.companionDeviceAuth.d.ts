@@ -163,7 +163,7 @@ declare namespace companionDeviceAuth {
 
   /**
    * Defines the device service ID. It uniquely identifies a device and its user, including the device ID type, device
-   * ID, and user ID.
+   * ID, user ID, and sub-profile ID.
    *
    * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
    * @systemapi Hide this for inner system use.
@@ -204,11 +204,25 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     deviceUserId: int;
+
+    /**
+     * Device sub-profile ID. It is an integer greater than or equal to 0 and is used to distinguish
+     * different sub-profile under the same user on the same device.
+     * The value should be an integer. Default value: The default value is -1.
+     *
+     * @default -1
+     * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    deviceSubProfileId?: int;
   }
 
   /**
    * Defines the device status information. It describes the current status of the companion device, including the
-   * device service ID, user name, model information, device name, online status, and list of supported service IDs.
+   * device service ID, user name, model information, device name, online status, list of supported service IDs,
+   * and device sub-profile name.
    *
    * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
    * @systemapi Hide this for inner system use.
@@ -218,7 +232,7 @@ declare namespace companionDeviceAuth {
   interface DeviceStatus {
     /**
      * Key device information. It uniquely identifies a device, including the device ID type, device ID, and device user
-     * ID.
+     * ID, and device sub-profile ID.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
      * @systemapi Hide this for inner system use.
@@ -280,6 +294,20 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     supportedBusinessIds: int[];
+
+    /**
+     * Device sub-profile name. It corresponds to the nickname of the distributed account,
+     * serving as the display name of the foreground sub-profile on the device, and is displayed
+     * on the device selection screen.
+     * Default value: The default value is "".
+     *
+     * @default ""
+     * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    deviceSubProfileName?: string;
   }
 
   /**
@@ -608,8 +636,8 @@ declare namespace companionDeviceAuth {
   interface DeviceSelectResult {
     /**
      * Device information list. It contains the device service identifier information selected by the user. Each
-     * **DeviceKey** contains the device ID type, device ID, and device user ID. The system will perform subsequent
-     * operations such as adding a template or performing authentication based on this information.
+     * **DeviceKey** contains the device ID type, device ID, device user ID, and device sub-profile ID. The system  will
+     * perform subsequent operations such as adding a template or performing authentication based on this information.
      *
      * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
      * @systemapi Hide this for inner system use.
