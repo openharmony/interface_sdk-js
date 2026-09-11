@@ -4377,7 +4377,7 @@ declare namespace bundleManager {
    * > 入参不能为空。所有值必须在的枚举值范围内。
    * > DeviceModeDistributePolicy，以及所有不同套餐的策略（通用差分包、部分兼容差分包和全兼容差分包）必须包含。
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.SWITCH_MULTI_MODE_BUNDLE
    * @param { Array<DeviceModeDistributionPolicy> } policies - DeviceModeDistributionPolicy值的数组。
    * @returns { Promise<void> } Promise 对象，无返回值。
    * @throws { BusinessError } 201 - Permission denied.

@@ -4758,7 +4758,7 @@ declare namespace bundleManager {
    * > (UNIVERSAL_DIFFERENT_PACKAGE, PARTIAL_COMPATIBLE_DIFFERENT_PACKAGE, and FULL_COMPATIBLE_DIFFERENT_PACKAGE)
    * > must be included.
    *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @permission ohos.permission.SWITCH_MULTI_MODE_BUNDLE
    * @param { Array<DeviceModeDistributionPolicy> } policies - Array of DeviceModeDistributionPolicy values.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
