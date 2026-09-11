@@ -931,11 +931,11 @@ declare namespace dlpPermission {
      *     out of range, error code 401 is thrown.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
      *     default super user ID is **100**.<br>The value range is [0, 2<sup>31</sup>-1]. If the value is out of range,
-     *     the excess part will be truncated. If the value of the passed parameter is less than 0, an error log is
-     *     generated.
+     *     the excess part will be truncated. If the value of **userId** is less than 0, an error log is generated, and
+     *     the function stops running.
      * @param { number } appIndex - DLP sandbox index, which is the value returned after **installDLPSandbox** is
-     *     successfully called. It is used to identify the installed DLP sandbox. The value range is [1000, 1100]. If
-     *     the value is out of range, an error log is generated.
+     *     successfully called. It is used to identify the installed DLP sandbox. The value range is [1000, 1100].
+     *     If the value of **appIndex** is less than 0, an error log is generated, and the function stops running.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -965,11 +965,11 @@ declare namespace dlpPermission {
      *     out of range, error code 401 is thrown.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
      *     default super user ID is **100**. The value range is [0, 2<sup>31</sup>-1]. If the value is out of range, the
-     *     excess part will be truncated. If the value of the passed parameter is less than 0, an error log is
-     *     generated.
+     *     excess part will be truncated. If the value of **userId** is less than 0, an error log is generated, and
+     *     the function stops running.
      * @param { number } appIndex - DLP sandbox index, which is the value returned after **installDLPSandbox** is
-     *     successfully called. It is used to identify the installed DLP sandbox. The value range is [1000, 1100]. If
-     *     the value is out of range, an error log is generated.
+     *     successfully called. It is used to identify the installed DLP sandbox. The value range is [1000, 1100].
+     *     If the value of **appIndex** is less than 0, an error log is generated, and the function stops running.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the DLP sandbox uninstallation
      *     is successful, **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
