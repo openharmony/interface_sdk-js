@@ -235,7 +235,7 @@ declare interface RichEditorSpanPosition {
   spanIndex: number;
 
   /**
-   * Span内容在RichEditor内的起始和结束位置。
+   * Span内容在RichEditor内的起始和结束位置，取值范围为[起始位置, 结束位置)，结束位置对应的Span不包含在内。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -418,8 +418,8 @@ declare interface RichEditorTextStyle {
    * 
    * 设置 Font Feature 属性，Font Feature 是 OpenType 字体的高级排版能力，如支持连字、数字等宽等特性，一般用在自定义字体中，其能力需要字体本身支持。
    * 
-   * 更多 Font Feature 能力介绍可参考 https://www.w3.org/TR/css-fonts-3/#font-feature-settings-prop 和 https://sparanoid.com/lab/
-   * opentype-features/
+   * 更多 Font Feature 能力介绍可参考[font-feature-settings property](https://www.w3.org/TR/css-fonts-3/#font-feature-settings-prop)和
+   * [OpenType Features](https://sparanoid.com/lab/opentype-features/)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -828,7 +828,7 @@ declare interface RichEditorImageSpanStyle {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.1.0 dynamiconly
    */
   resizable?: ResizableOptions;
 }
@@ -1153,7 +1153,7 @@ declare interface RichEditorParagraphResult {
   style: RichEditorParagraphStyle;
 
   /**
-   * 段落起始和结束位置。
+   * 段落起始和结束位置，取值范围为[起始位置, 结束位置)，结束位置对应的内容不包含在内。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1288,7 +1288,7 @@ declare interface RichEditorTextSpanResult {
   textStyle: RichEditorTextStyleResult;
 
   /**
-   * 文本Span内容里有效内容的起始和结束位置。
+   * 文本Span内容里有效内容的起始和结束位置，取值范围为[起始位置, 结束位置)，结束位置对应的内容不包含在内。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1424,7 +1424,7 @@ declare interface RichEditorImageSpanStyleResult {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.1.0 dynamiconly
    */
   resizable?: ResizableOptions;
 }
@@ -1484,7 +1484,7 @@ declare interface RichEditorImageSpanResult {
   imageStyle: RichEditorImageSpanStyleResult;
 
   /**
-   * Span里图片的起始和结束位置。
+   * Span里图片的起始和结束位置，取值范围为[起始位置, 结束位置)，结束位置对应的内容不包含在内。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1562,7 +1562,7 @@ declare interface RichEditorRange {
   start?: number;
 
   /**
-   * 文本的结束位置，省略或者超出文本范围时表示无穷大。
+   * 文本的结束位置，与start共同表示选中文本的范围[start, end)，结束位置对应的内容不包含在内，省略或者超出文本范围时表示无穷大。
    *
    * @default text length
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2149,7 +2149,7 @@ declare interface RichEditorSymbolSpanOptions {
  */
 declare interface RichEditorSelection {
   /**
-   * 选中范围。
+   * 选中范围，取值范围为[起始位置, 结束位置)，结束位置对应的内容不包含在内。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2250,7 +2250,7 @@ declare interface RichEditorDeleteValue {
   direction: RichEditorDeleteDirection;
 
   /**
-   * 删除内容长度。
+   * 删除内容长度，删除范围为[offset, offset + length)，结束位置对应的内容不包含在内。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2602,7 +2602,7 @@ declare class RichEditorBaseController implements TextEditControllerEx {
    * 3. 组件内无菜单时，接口调用后也无菜单显示。
    *
    * @param { number } selectionStart - 选中开始位置。
-   * @param { number } selectionEnd - 选中结束位置。
+   * @param { number } selectionEnd - 选中结束位置，选中范围为[selectionStart, selectionEnd)，结束位置对应的内容不包含在内。
    * @param { SelectionOptions } [options] - 选择项配置，用于控制选中操作时的菜单弹出策略。
    *     <br>当需要自定义菜单弹出行为（如强制显示或隐藏菜单）时传入此参数；
    *     <br>省略时默认使用MenuPolicy.DEFAULT，遵循系统默认菜单弹出策略。
@@ -3525,9 +3525,9 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   caretColor(value: ResourceColor): RichEditorAttribute;
 
   /**
-   * 设置文本选中的底板颜色。如果未设置不透明度，默认为20%不透明度。
+   * 设置文本选中高亮颜色。如果未设置不透明度或设置为完全不透明，默认使用20%不透明度。
    *
-   * @param { ResourceColor } value - 文本选中的底板颜色。<br/>默认为20%不透明度。
+   * @param { ResourceColor } value - 文本选中高亮颜色。<br/>默认为20%不透明度。
    * @returns { RichEditorAttribute } The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4099,7 +4099,7 @@ declare type SubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => vo
  * 自定义选择菜单弹出时触发的回调事件。
  *
  * @param { number } start - 选中内容的起始位置。
- * @param { number } end - 选中内容的终止位置。
+ * @param { number } end - 选中内容的终止位置，选中范围为[start, end)，结束位置对应的内容不包含在内。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4112,7 +4112,7 @@ declare type MenuOnAppearCallback = (start: number, end: number) => void;
  * 自定义选择菜单显示或隐藏时触发的回调事件。
  *
  * @param { number } start - 选中内容的起始位置。
- * @param { number } end - 选中内容的终止位置。
+ * @param { number } end - 选中内容的终止位置，选中范围为[start, end)，结束位置对应的内容不包含在内。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
