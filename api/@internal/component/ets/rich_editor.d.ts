@@ -1787,6 +1787,117 @@ declare interface RichEditorBuilderSpanOptions {
 }
 
 /**
+ * Defines the identity and position information of a BuilderSpan in **RichEditor**.
+ *
+ * > **NOTE**
+ * >
+ * > This interface is not supported when the **RichEditor** component is constructed with
+ * > [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions}.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.2.0 dynamic
+ */
+declare interface BuilderSpanInfo {
+  /**
+   * Developer-defined tracking identifier for tracking BuilderSpan. The framework does not enforce uniqueness constraints;
+   * developers are responsible for ensuring uniqueness.
+   * When not provided, the value is **undefined**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  id?: string;
+
+  /**
+   * Current offset position of the BuilderSpan in the text content.
+   * This value is maintained by the framework and dynamically updated as text content changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  offset?: number;
+}
+
+/**
+ * Defines the BuilderSpan object of **RichEditor**, providing identity recognition and lifecycle awareness capabilities.
+ *
+ * > **NOTE**
+ * >
+ * > This interface is not supported when the **RichEditor** component is constructed with
+ * > [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions}.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.2.0 dynamic
+ */
+declare interface RichEditorBuilderSpan {
+  /**
+   * Custom component builder.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  builder: CustomBuilder;
+
+  /**
+   * Callback triggered when the BuilderSpan is attached to **RichEditor**.
+   * The callback receives a [BuilderSpanInfo]{@link BuilderSpanInfo} object containing the id and offset.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  onAttach?: Callback<BuilderSpanInfo>;
+
+  /**
+   * Callback triggered when the BuilderSpan is removed from **RichEditor**.
+   * This includes deletion scenarios such as deletion via deleteSpans API, IME keyboard deletion, cut operations,
+   * and normal Undo degradation.
+   * The callback receives a [BuilderSpanInfo]{@link BuilderSpanInfo} object containing the id and offset.
+   *
+   * > **NOTE**
+   * >
+   * > In drag undo (undoStyle=KEEP_STYLE) scenarios, the onDetach callback is not triggered
+   * > because the BuilderSpan is being restored rather than deleted.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  onDetach?: Callback<BuilderSpanInfo>;
+
+  /**
+   * Accessibility reading feature. When omitted, the default value of
+   * [AccessibilitySpanOptions]{@link AccessibilitySpanOptions} is used.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  accessibilitySpanOptions?: AccessibilitySpanOptions;
+}
+
+/**
  * Style of the placeholder text.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2704,6 +2815,36 @@ declare class RichEditorController extends RichEditorBaseController {
   addBuilderSpan(value: CustomBuilder, options?: RichEditorBuilderSpanOptions): number;
 
   /**
+   * Adds a custom layout (BuilderSpan) in **RichEditor**, providing identity recognition
+   * and lifecycle awareness capabilities.
+   *
+   * > **NOTE**
+   * >
+   * > - The [onAttach]{@link RichEditorBuilderSpan#onAttach} and
+   * > [onDetach]{@link RichEditorBuilderSpan#onDetach} callbacks in the BuilderSpan object receive a
+   * > [BuilderSpanInfo]{@link BuilderSpanInfo} object containing the span's id and offset.
+   * >
+   * > - This interface is not supported when the **RichEditor** component is constructed with
+   * > [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions}.
+   * >
+   * > - Undo/redo does not restore BuilderSpan objects. When restored via undo, removed BuilderSpans
+   * > degrade to whitespace text Spans.
+   *
+   * @param { RichEditorBuilderSpan } value - BuilderSpan object, containing the builder, lifecycle callbacks,
+   *     and accessibility configuration.
+   * @param { BuilderSpanInfo } [info] - Identity and position information of the BuilderSpan. **info.id** is used
+   *     to identify the BuilderSpan, **info.offset** specifies the insertion position. When omitted, the
+   *     BuilderSpan is appended to the end with id as **undefined**.
+   * @returns { number } Index position of the added BuilderSpan among all Spans.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  addRichEditorBuilderSpan(value: RichEditorBuilderSpan, info?: BuilderSpanInfo): number;
+
+  /**
    * Adds a symbol span. If the caret in the component is blinking, the caret position is updated to be after the 
    * inserted symbol span.
    * 
@@ -2779,6 +2920,34 @@ declare class RichEditorController extends RichEditorBaseController {
    * @since 10 dynamic
    */
   getSpans(value?: RichEditorRange): Array<RichEditorImageSpanResult | RichEditorTextSpanResult>;
+
+  /**
+   * Obtains the identity and position information of BuilderSpans within the specified range.
+   *
+   * > **NOTE**
+   * >
+   * > - This interface is not supported when the **RichEditor** component is constructed with
+   * > [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions}.
+   * >
+   * > - BuilderSpans created via the legacy [addBuilderSpan]{@link RichEditorController#addBuilderSpan}
+   * > interface have **undefined** as their id (anonymous) in the returned
+   * > [BuilderSpanInfo]{@link BuilderSpanInfo}.
+   * >
+   * > - The **offset** field in the returned [BuilderSpanInfo]{@link BuilderSpanInfo} reflects the current
+   * > actual offset position and is dynamically updated as text content changes.
+   *
+   * @param { RichEditorRange } [value] - Range of target BuilderSpans.
+   *     <br>When omitted, returns all BuilderSpan information.
+   * @returns { Array<BuilderSpanInfo> } Array of BuilderSpan identity and position information.
+   *     <br>Returns **undefined** when the controller is not bound to a component or the component bound
+   *     to the controller is released.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  getRichEditorBuilderSpans(value?: RichEditorRange): Array<BuilderSpanInfo>;
 
   /**
    * Obtains the paragraph information within a specified range.
