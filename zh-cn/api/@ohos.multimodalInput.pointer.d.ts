@@ -1356,11 +1356,12 @@ declare namespace pointer {
    * 获取触控板滚轴方向，使用callback异步回调。
    *
    * @param { AsyncCallback<boolean> } callback - 回调函数。当获取触控板滚轴方向成功，err为undefined，state是true与手指滑动的方向一致；否则为错误对象。
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - SystemAPI permission error. [since 10 - 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @systemapi hide for inner use.
+   * @systemapi hide for inner use. [since 10 - 26.0.0]
+   * @publicapi [since 26.1.0]
    * @since 10 dynamic
    * @since 23 static
    */
@@ -1370,11 +1371,12 @@ declare namespace pointer {
    * 获取触控板滚轴方向，使用Promise异步回调。
    *
    * @returns { Promise<boolean> } Promise对象。返回true表示触控板滚轴方向与手指滑动的方向一致；返回false表示触控板滚轴方向与手指滑动的方向相反。默认为true。
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - SystemAPI permission error. [since 10 - 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @systemapi hide for inner use.
+   * @systemapi hide for inner use. [since 10 - 26.0.0]
+   * @publicapi [since 26.1.0]
    * @since 10 dynamic
    * @since 23 static
    */
