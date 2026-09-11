@@ -14,7 +14,7 @@
  */
 
 /**
- * @file @ohos.statfs (statfs)
+ * @file statfs
  * @kit API10LessDeprecatedModules
  */
 

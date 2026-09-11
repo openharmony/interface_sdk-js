@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 目录环境能力
  * @kit CoreFileKit
  */
 

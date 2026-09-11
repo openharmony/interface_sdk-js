@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file File System Space Statistics
  * @kit CoreFileKit
  */
 

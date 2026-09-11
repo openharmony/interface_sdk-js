@@ -14,7 +14,7 @@
  */
 
 /**
- * @file @ohos.file.statvfs (文件系统空间统计)
+ * @file 文件系统空间统计
  * @kit CoreFileKit
  */
 
