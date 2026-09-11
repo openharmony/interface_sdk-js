@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 应用协同接口管理
  * @kit DistributedServiceKit
  */
 
