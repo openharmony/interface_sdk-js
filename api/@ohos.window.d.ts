@@ -4201,7 +4201,7 @@ declare namespace window {
   function moveMainWindowToTargetDisplay(displayId: long, windowId: int, userId?: int): Promise<void>;
 
   /**
-   * Enumerates the target positions to which the z-order of a main window can be adjusted.
+   * Enumerates the target z-order to which the z-order of a main window can be adjusted.
    *
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
@@ -4209,7 +4209,8 @@ declare namespace window {
    */
   enum WindowPosition {
     /**
-     * Not topmost, normal mode. Used as an independent action to cancel the global topmost state of a main window.
+     * Not topmost, normal mode. Used as an independent action to cancel the global topmost state of a main window,
+     * and you need the ohos.permission.WINDOW_TOPMOST permission to cancel
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -4225,7 +4226,7 @@ declare namespace window {
      */
     TOPMOST = -2,
     /**
-     * Places the window at the bottom of all application windows.
+     * Places the main window at the bottom of all application main windows,for a single adjustment.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -4233,7 +4234,7 @@ declare namespace window {
      */
     BOTTOM = -1,
     /**
-     * Places the window at the top of all application windows, for a single adjustment.
+     * Places the main window at the top of all application main windows, for a single adjustment.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -4263,7 +4264,7 @@ declare namespace window {
      * Position to adjust to. If the value is greater than 0, it is the ID of another main window, and the target window
      * is placed below that main window. Otherwise, it is one of the
      * [WindowPosition]{@link window.WindowPosition} sentinel values, placing the window at the bottom or top of all
-     * application windows, or toggling its global topmost state.
+     * application main windows, or toggling its global topmost state.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -4273,7 +4274,7 @@ declare namespace window {
   }
 
   /**
-   * Adjusts the z-order of one or more main windows in the current application process. This API uses a promise to
+   * Adjusts the position of one or more main windows in the current application process. This API uses a promise to
    * return the result.
    *
    * The supported adjustments are as follows:
@@ -4293,11 +4294,12 @@ declare namespace window {
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
    *     capabilities.
    * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 
-   *     1. The window to be adjusted cannot be found: not created or not belong to current process;
-   *     2. The window has been destroyed;
-   *     3. The target main window specified by insertAfter cannot be found: not created or not belong to current process;
+   *     1. The window to be adjusted cannot be found: not created, has been destroyed or not belong to current process;
+   *     2. The target main window specified by insertAfter cannot be found: not created, has been destroyed or not
+   *     belong to current process;
    * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-   * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Invalid window type. Only main windows are supported.
+   * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Invalid window type.
+   *     Only main windows are supported.
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.1.0 dynamic&static
