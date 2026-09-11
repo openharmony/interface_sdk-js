@@ -797,8 +797,8 @@ declare namespace dlpPermission {
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { string } bundleName - 应用包名。最小7字节，最大128字节。超出范围时抛出错误码401。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。<br>取值范围为[0, 2<sup>31</sup>-1]，超出范围将被截断。当传入参数值小于0
-     *     时，输出错误日志。
-     * @param { number } appIndex - DLP沙箱号，即installDLPSandbox接口调用成功后的返回值，用于标识已安装的DLP沙箱。取值范围为[1000, 1100]，超出范围时输出错误日志。
+     *     时，输出错误日志，函数停止运行。
+     * @param { number } appIndex - DLP沙箱号，即installDLPSandbox接口调用成功后的返回值，用于标识已安装的DLP沙箱。取值范围为[1000, 1100]。当小于0时，输出错误日志。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -824,8 +824,8 @@ declare namespace dlpPermission {
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { string } bundleName - 应用包名。最小7字节，最大128字节。超出范围时抛出错误码401。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。取值范围为[0, 2<sup>31</sup>-1]，超出范围将被截断。当传入参数值小于0
-     *     时，输出错误日志。
-     * @param { number } appIndex - DLP沙箱号，即installDLPSandbox接口调用成功后的返回值，用于标识已安装的DLP沙箱。取值范围为[1000, 1100]，超出范围时输出错误日志。
+     *     时，输出错误日志，函数停止运行。
+     * @param { number } appIndex - DLP沙箱号，即installDLPSandbox接口调用成功后的返回值，用于标识已安装的DLP沙箱。取值范围为[1000, 1100]。当小于0时，输出错误日志。
      * @param { AsyncCallback<void> } callback - 回调函数。当卸载DLP沙箱成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
