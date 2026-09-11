@@ -25,7 +25,7 @@
  */
 
 /**
- * Deletion direction.
+ * Defines the deletion direction.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -35,7 +35,7 @@
  */
 declare enum RichEditorDeleteDirection {
   /**
-   * Backward.
+   * Deletes backward.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -46,7 +46,7 @@ declare enum RichEditorDeleteDirection {
   BACKWARD,
 
   /**
-   * Forward.
+   * Deletes forward.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -58,7 +58,7 @@ declare enum RichEditorDeleteDirection {
 }
 
 /**
- * Provides the span type information.
+ * Enumerates span types.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -68,7 +68,7 @@ declare enum RichEditorDeleteDirection {
  */
 declare enum RichEditorSpanType {
   /**
-   * The span type is text.
+   * Text span.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -79,7 +79,7 @@ declare enum RichEditorSpanType {
   TEXT = 0,
 
   /**
-   * The span type is image.
+   * Image span.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -90,7 +90,7 @@ declare enum RichEditorSpanType {
   IMAGE = 1,
 
   /**
-   * The span type is image and text.
+   * Mixed text and image span.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -101,7 +101,7 @@ declare enum RichEditorSpanType {
   MIXED = 2,
 
   /**
-   * The span type is BuilderSpan.
+   * Span of the custom layout type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -112,8 +112,9 @@ declare enum RichEditorSpanType {
   BUILDER = 3,
 
   /**
-   * When this type is registered but **TEXT**, **IMAGE**, **MIXED**, or **BUILDER** types are not registered, this type
-   * will be triggered and displayed for those registered types.
+   * When a menu of this type is registered but no TEXT, IMAGE, MIXED, or BUILDER menu is registered, the text type, 
+   * image type, mixed text-image type, and custom layout type all trigger and display the menu corresponding to this 
+   * type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -125,7 +126,7 @@ declare enum RichEditorSpanType {
 }
 
 /**
- * Enumerates the options for whether to retain the original style during undo/redo operations.
+ * Enumerates the options for whether to retain the original style upon undo operations.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -135,7 +136,7 @@ declare enum RichEditorSpanType {
  */
 declare enum UndoStyle {
   /**
-   * Undo/Redo operations do not retain the original style.
+   * The original style is not retained upon undo operations.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -146,7 +147,7 @@ declare enum UndoStyle {
   CLEAR_STYLE = 0,
 
   /**
-   * Undo/Redo operations retain the original style.
+   * The original style is retained upon undo operations.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -158,7 +159,7 @@ declare enum UndoStyle {
 }
 
 /**
- * Response type of the menu.
+ * Enumerates the response types of the menu.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -201,9 +202,8 @@ declare enum RichEditorResponseType {
   SELECT = 2,
 
   /**
-   * If this menu is registered, but **RIGHT_CLICK**, **LONG_PRESS**, and **SELECT** menus are not registered, the menu 
-   * will be displayed when the right mouse button is clicked, the menu is long-pressed, or the menu is selected using 
-   * the mouse.
+   * When a menu of this type is registered while **RIGHT_CLICK**, **LONG_PRESS**, and **SELECT** menus are not 
+   * registered, the menu will be displayed for those unregistered types.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -215,7 +215,7 @@ declare enum RichEditorResponseType {
 }
 
 /**
- * Provides the span position information.
+ * Defines span position information.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -248,7 +248,7 @@ declare interface RichEditorSpanPosition {
 }
 
 /**
- * Provides the text style information.
+ * Provides text style information.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -258,7 +258,12 @@ declare interface RichEditorSpanPosition {
  */
 declare interface RichEditorTextStyle {
   /**
-   * Font color.
+   * Text color.
+   * 
+   * Default value: $r('sys.color.font_primary'). When [shaderStyle]{@link RichEditorParagraphStyle} is also set, 
+   * shaderStyle takes precedence over fontColor.
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -269,7 +274,11 @@ declare interface RichEditorTextStyle {
   fontColor?: ResourceColor;
 
   /**
-   * Font size. The default unit is fp.
+   * Sets the font size. When Length is of the number type, the unit fp is used. Value range of the number type: (0, +∞
+   * ). If the value is set to 0 or a negative value, the default value is used. The default font size is 16fp. 
+   * Percentage strings are not supported.
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -281,6 +290,8 @@ declare interface RichEditorTextStyle {
 
   /**
    * Font style.
+   * 
+   * Default value: **FontStyle.Normal**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -292,6 +303,16 @@ declare interface RichEditorTextStyle {
 
   /**
    * Font weight.
+   * 
+   * For the number type, the value ranges from 100 to 900, at an interval of 100. The default value is 400. A larger 
+   * value indicates a heavier font. If the value is out of range, the default value 400 is used.
+   * 
+   * For the string type, only the string form of the number type value is supported, for example, "400". In addition, "
+   * bold", "bolder", "lighter", "regular", and "medium" correspond to the respective enum values in FontWeight.
+   * 
+   * Default value: FontWeight.Normal.
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -302,7 +323,10 @@ declare interface RichEditorTextStyle {
   fontWeight?: number | FontWeight | string;
 
   /**
-   * Font family.
+   * Sets the font list. Currently, the 'HarmonyOS Sans' font and [registered custom fonts]{@link @ohos.font:font} are 
+   * supported. Default font: 'HarmonyOS Sans'. 
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -313,7 +337,7 @@ declare interface RichEditorTextStyle {
   fontFamily?: ResourceStr;
 
   /**
-   * Style, color, and thickness of the text decoration.
+   * Style, color, and thickness of text decoration.
    * 
    * Default value of **type**: **TextDecorationType.None**
    * 
@@ -334,11 +358,17 @@ declare interface RichEditorTextStyle {
   decoration?: DecorationStyleInterface;
 
   /**
-   * Text shadow. It supports input parameters in an array to implement multiple text shadows.
+   * Sets the text shadow effect.
    * 
-   * **NOTE**
+   * Default value: undefined, which means no text shadow effect is set.
    * 
-   * Only the shadow blur radius, color, and offset can be set. Smart color picking is not supported.
+   * This API supports an array as the input parameter to implement multiple text shadows.
+   * 
+   * **Note:**
+   * 
+   * Only the shadow blur radius, color, and offset can be set. Smart color picking is not supported. 
+   * 
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -349,7 +379,10 @@ declare interface RichEditorTextStyle {
   textShadow?: ShadowOptions | Array<ShadowOptions>;
 
   /**
-   * Letter spacing. The default unit is fp.
+   * Sets the character spacing of the text. The default unit is fp. Default value: 0. When the value is negative, the 
+   * text is compressed. 
+   * 
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -360,7 +393,16 @@ declare interface RichEditorTextStyle {
   letterSpacing?: number | string;
 
   /**
-   * Line height. The default unit is fp.
+   * Sets the line height of the text.
+   * 
+   * Default value: if not set, the line height adapts to the font size.
+   * 
+   * Value range of the number type: (0, +∞). If the value is not greater than 0, the line height is not limited and 
+   * adapts to the font size. For the number type, the unit is fp. Percentage strings are not supported. When the 
+   * lineHeight value is smaller than the actual rendered height of the text at the current font size, the 
+   * [fallbackLineSpacing]{@link RichEditorAttribute#fallbackLineSpacing} attribute takes effect. 
+   * 
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -373,8 +415,7 @@ declare interface RichEditorTextStyle {
   /**
    * Whether half leading is enabled.
    * 
-   * Whether half leading is enabled. Half leading is the leading split in half and applied equally to the top and 
-   * bottom edges. The value **true** means that half leading is enabled, and **false** means the opposite.
+   * **true**: Half leading is enabled. **false**: Half leading is not enabled.
    * 
    * Default value: **false**
    *
@@ -387,7 +428,25 @@ declare interface RichEditorTextStyle {
   halfLeading?: boolean;
 
   /**
-   * Font feature.
+   * Sets the font feature, for example, monospaced digits. If this parameter is not specified, proportional digits are 
+   * used by default. Invalid characters are disregarded, and the default is preserved.
+   * 
+   * Format: normal | <feature-tag-value>
+   * 
+   * Format of **<feature-tag-value>**: <string> [ <integer> | on | off ]
+   * 
+   * There can be multiple **<feature-tag-value>** values, which are separated by commas (,).
+   * 
+   * For example, the input format for monospaced clock fonts is "ss01" on.
+   * 
+   * For details about the supported font features, see [Font Feature List]{@link TextAttribute#fontFeature}.
+   * 
+   * Font features are advanced typographic features, such as ligatures and monospace, for OpenType fonts. They are 
+   * typically used in custom fonts and require the support of the font itself.
+   * 
+   * For more information about the font features, visit
+   * [font-feature-settings property](https://www.w3.org/TR/css-fonts-3/#font-feature-settings-prop) and
+   * [OpenType Features](https://sparanoid.com/lab/opentype-features/). 
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -419,17 +478,21 @@ declare interface RichEditorTextStyle {
   textBackgroundStyle?: TextBackgroundStyle;
 
   /**
-   * Text stroke width. If the unit value of LengthMetrics is [PERCENT]{@link ./../../../arkui/Graphics:LengthUnit}, the
-   * current setting does not take effect and is processed as 0.
+   * Text stroke width. If the unit value of LengthMetrics is [PERCENT]{@link ../../../arkui/Graphics:LengthUnit}, the 
+   * current setting does not take effect and is treated as 0.
    * 
-   * If the value is less than 0, the value is an entity word. If the value is greater than 0, the value is an outline 
-   * word. If the value is equal to 0, there is no stroke effect.
+   * If the value is less than 0, the text is rendered as solid; if greater than 0, the text is rendered as outline; if 
+   * equal to 0, no stroke effect is applied.
    * 
-   * The default value is 0vp.
+   * Default value: 0.
    * 
-   * Unit: LengthMetrics is followed by LengthMetrics when the type is LengthMetrics, and vp when the type is number.
+   * Unit: follows LengthMetrics when the type is LengthMetrics, and is vp when the type is number.
    * 
    * Value range: (-∞, +∞)
+   * 
+   * When set together with [shaderStyle]{@link RichEditorParagraphStyle}, shaderStyle does not take effect.
+   * 
+   * **Atomic service API:** Since API version 23, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -442,9 +505,9 @@ declare interface RichEditorTextStyle {
   /**
    * Text stroke color.
    * 
-   * Default value: Follow the font color.
+   * Default value: follows the font color.
    * 
-   * Sets the font color for abnormal values.
+   * When the value is invalid, it follows the font color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -455,7 +518,11 @@ declare interface RichEditorTextStyle {
   strokeColor?: ResourceColor;
 
   /**
-   * The stroke join style of the text.
+   * Text stroke join style.
+   * 
+   * Default value: StrokeJoinStyle.MITER_JOIN.
+   * 
+   * **Atomic service API:** Since API version 26.0.0, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -489,7 +556,9 @@ declare interface LeadingMarginPlaceholder {
   pixelMap: PixelMap;
 
   /**
-   * Image size. This parameter cannot be set in percentage.
+   * Image size, in vp by default. Percentage is not supported.
+   * 
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -501,7 +570,7 @@ declare interface LeadingMarginPlaceholder {
 }
 
 /**
- * Describes the paragraph style.
+ * Defines the paragraph style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -511,7 +580,7 @@ declare interface LeadingMarginPlaceholder {
  */
 declare interface RichEditorParagraphStyle {
   /**
-   * Horizontal alignment mode of the text. 
+   * Horizontal alignment of the text paragraph. 
    * 
    * Default value: **TextAlign.START**
    *
@@ -524,7 +593,7 @@ declare interface RichEditorParagraphStyle {
   textAlign?: TextAlign;
 
   /**
-   * Vertical alignment of text paragraphs.
+   * Vertical alignment mode of text paragraphs.
    * 
    * Default value: **TextVerticalAlign.BASELINE**.
    *
@@ -537,8 +606,11 @@ declare interface RichEditorParagraphStyle {
   textVerticalAlign?: TextVerticalAlign;
 
   /**
-   * Indent of the paragraph. It has no effect if the paragraph starts with an image or builder span. If of the 
-   * **Dimension** type, this parameter cannot be set in percentage. Default value: **{"size":["0.00px","0.00px"]}**
+   * Paragraph indentation. When a paragraph contains only ImageSpan or BuilderSpan, this attribute does not take 
+   * effect. When the parameter is of the Dimension type, setting it in percentage form is not supported, and the 
+   * default unit is vp. Default value: {"size":["0.00px","0.00px"]} 
+   * 
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -549,9 +621,11 @@ declare interface RichEditorParagraphStyle {
   leadingMargin?: Dimension | LeadingMarginPlaceholder;
 
   /**
-   * Word break rule.
+   * Line break rule.
    * 
-   * Default value: **WordBreak.BREAK_WORD**
+   * Default value: WordBreak.BREAK_WORD.
+   * 
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -577,11 +651,15 @@ declare interface RichEditorParagraphStyle {
   lineBreakStrategy?: LineBreakStrategy;
 
   /**
-   * Spacing between paragraphs.
+   * Paragraph spacing.
    * 
    * Unit: fp
    * 
-   * Default value: **0**
+   * Value range: [0, +∞). If a negative value is passed in, the default value is used.
+   * 
+   * The default paragraph spacing is 0.
+   * 
+   * **Atomic service API:** Since API version 19, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -592,9 +670,9 @@ declare interface RichEditorParagraphStyle {
   paragraphSpacing?: number;
 
   /**
-   * Sets the text direction.
+   * Text direction.
    * 
-   * Default value: TextDirection.DEFAULT
+   * Default value: **TextDirection.DEFAULT**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -605,7 +683,15 @@ declare interface RichEditorParagraphStyle {
   textDirection?: TextDirection;
 
   /**
-   * Set shader style.
+   * Text shader effect.
+   * 
+   * Default value: undefined, which means no shader effect is set.
+   * 
+   * When this API is set together with strokeWidth in [RichEditorTextStyle]{@link RichEditorTextStyle}, this API does 
+   * not take effect, and shaderStyle has a higher priority than fontColor in 
+   * [RichEditorTextStyle]{@link RichEditorTextStyle}.
+   * 
+   * **Atomic service API:** Since API version 26.0.0, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -617,7 +703,7 @@ declare interface RichEditorParagraphStyle {
 }
 
 /**
- * Defines a custom paste event.
+ * Defines a user paste event.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -627,7 +713,9 @@ declare interface RichEditorParagraphStyle {
  */
 declare interface PasteEvent {
   /**
-   * Prevents the default paste event.
+   * Prevents the system default paste event.
+   * 
+   * When omitted, the system default paste behavior is executed.
    *
    * @type { ?function } [since 11 - 11]
    * @type { ?Callback<void> } [since 12]
@@ -641,7 +729,7 @@ declare interface PasteEvent {
 }
 
 /**
- * Provides the text span information.
+ * Defines text span information.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -685,7 +773,7 @@ declare interface RichEditorTextSpan {
 }
 
 /**
- * Image layout information.
+ * Defines image layout information.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -695,9 +783,11 @@ declare interface RichEditorTextSpan {
  */
 interface RichEditorLayoutStyle {
   /**
-   * Margins in different directions of the component.
+   * Margin type, used to describe the margins of a component in different directions.
    * 
-   * When the parameter is of the **Dimension** type, the four margins take effect.
+   * Default value: the margins in all four directions are 0.
+   * 
+   * When the parameter is of the Dimension type, the margins in all four directions take effect simultaneously.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -708,9 +798,11 @@ interface RichEditorLayoutStyle {
   margin?: Dimension | Margin;
 
   /**
-   * Radius of the rounded corners of the component.
+   * Border radius type, used to describe the border radius of a component.
    * 
-   * If of the **Dimension** type, this parameter cannot be set in percentage.
+   * Default value: the border radius is 0.
+   * 
+   * When the parameter is of the Dimension type, setting it in Percentage form is not supported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -722,7 +814,7 @@ interface RichEditorLayoutStyle {
 }
 
 /**
- * Sets the image span style.
+ * Image style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -732,9 +824,12 @@ interface RichEditorLayoutStyle {
  */
 declare interface RichEditorImageSpanStyle {
   /**
-   * Width and height of the image, in px. Default value: varies by the value of **objectFit**. If the value of 
-   * **objectFit** is **Cover**, the image height is the component height minus the top and bottom paddings, and the 
-   * image width is the component width minus the left and right paddings.
+   * Width and height of the image, in vp by default. Default value: related to the value of objectFit. Different 
+   * objectFit values have different default sizes. When objectFit is set to Cover, the image height is the component 
+   * height minus the top and bottom padding of the component, and the image width is the component width minus the left
+   * and right padding of the component. Setting the size in percentage is not supported.  
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -746,6 +841,10 @@ declare interface RichEditorImageSpanStyle {
 
   /**
    * Vertical alignment mode of the image.
+   * 
+   * Default value: ImageSpanAlignment.BOTTOM 
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -756,7 +855,11 @@ declare interface RichEditorImageSpanStyle {
   verticalAlign?: ImageSpanAlignment;
 
   /**
-   * Scale mode of the image.
+   * Image scaling type.
+   * 
+   * Default value: ImageFit.Cover.  
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -767,7 +870,9 @@ declare interface RichEditorImageSpanStyle {
   objectFit?: ImageFit;
 
   /**
-   * Image layout style. Default value: **{"borderRadius":"","margin":""}**
+   * Image layout style. Default value: {"borderRadius":"","margin":""}
+   * 
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -778,7 +883,9 @@ declare interface RichEditorImageSpanStyle {
   layoutStyle?: RichEditorLayoutStyle;
 
   /**
-   * Resizable image options.
+   * Image resizing options.
+   * 
+   * **Atomic service API:** Since API version 26.1.0, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -800,9 +907,11 @@ declare interface RichEditorImageSpanStyle {
  */
 declare interface RichEditorSymbolSpanStyle {
   /**
-   * Size of the symbol span. The default unit is fp.
+   * Sets the size of the SymbolSpan component. The default unit is fp.
    * 
-   * The default value follows the theme.
+   * Value range of the number type: (0, +∞). When set to 0, the default font size is used.
+   * 
+   * Default value: follows the theme.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -826,7 +935,7 @@ declare interface RichEditorSymbolSpanStyle {
   fontColor?: Array<ResourceColor>;
 
   /**
-   * Weight of the symbol span.
+   * Font weight of the symbol span.
    * 
    * For the number type, the value ranges from 100 to 900, at an interval of 100. A larger value indicates a heavier 
    * font weight. The default value is **400**.
@@ -875,11 +984,9 @@ declare interface RichEditorSymbolSpanStyle {
 /**
  * Provides the text span style information returned by the backend.
  * 
- * While **fontWeight** in **RichEditorTextStyle** sets the font weight, **fontWeight** in **RichEditorTextStyleResult**
- * returns the set font weight after conversion to digits.
+ * While **fontWeight** in **RichEditorTextStyle** sets the font weight,
  * 
- * Conversion relationship between fontWeight in RichEditorSymbolSpanStyle and RichEditorSymbolSpanStyleResult, the 
- * conversion relationship is the same as that of fontWeight in RichEditorTextStyle and RichEditorTextStyleResult.
+ * **fontWeight** in **RichEditorTextStyleResult** returns the set font weight after conversion to digits.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -944,7 +1051,7 @@ declare interface RichEditorTextStyleResult {
   fontFamily: string;
 
   /**
-   * Text decorative line.
+   * Text decoration.
    *
    * @type { object } [since 10 - 11]
    * @type { DecorationStyleResult } [since 12]
@@ -996,8 +1103,7 @@ declare interface RichEditorTextStyleResult {
   /**
    * Whether half leading is enabled.
    * 
-   * Whether half leading is enabled. Half leading is the leading split in half and applied equally to the top and 
-   * bottom edges. The value **true** means that half leading is enabled, and **false** means the opposite.
+   * **true**: Half leading is enabled. **false**: Half leading is not enabled.
    * 
    * Default value: **false**
    *
@@ -1066,7 +1172,11 @@ declare interface RichEditorTextStyleResult {
   strokeColor?: ResourceColor;
 
   /**
-   * Get the stroke join style of the text.
+   * Corner style of the text stroke.
+   * 
+   * Default value: StrokeJoinStyle.MITER_JOIN.
+   * 
+   * **Atomic service API:** Since API version 26.0.0, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1194,7 +1304,7 @@ declare interface RichEditorSymbolSpanStyleResult {
 }
 
 /**
- * Provides the text span information.
+ * Defines text span information.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1259,7 +1369,11 @@ declare interface RichEditorTextSpanResult {
   symbolSpanStyle?: RichEditorSymbolSpanStyle;
 
   /**
-   * Content of the **SymbolSpan** component.
+   * SymbolSpan resource content.
+   * 
+   * Default value: undefined.
+   * 
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1271,6 +1385,10 @@ declare interface RichEditorTextSpanResult {
 
   /**
    * Paragraph style.
+   * 
+   * If omitted, the system default paragraph style is used.
+   * 
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1294,7 +1412,11 @@ declare interface RichEditorTextSpanResult {
   /**
    * URL information.
    * 
-   * Default value: **undefined**
+   * Default value: undefined.
+   * 
+   * Pass this parameter when a hyperlink style needs to be set for the text.
+   * 
+   * **Atomic service API:** Since API version 19, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1316,7 +1438,7 @@ declare interface RichEditorTextSpanResult {
  */
 declare interface RichEditorImageSpanStyleResult {
   /**
-   * Width and height of the image, in px. Default value: varies by the value of **objectFit**. If the value of 
+   * Width and height of the image, in px. Default value depends on the **objectFit** setting. If the value of 
    * **objectFit** is **Cover**, the image height is the component height minus the top and bottom paddings, and the 
    * image width is the component width minus the left and right paddings.
    *
@@ -1352,6 +1474,8 @@ declare interface RichEditorImageSpanStyleResult {
 
   /**
    * Image layout style.
+   * 
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1362,7 +1486,9 @@ declare interface RichEditorImageSpanStyleResult {
   layoutStyle?: RichEditorLayoutStyle;
 
   /**
-   * Resizable image options.
+   * Image resizing options.
+   * 
+   * **Atomic service API:** Since API version 26.1.0, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1494,8 +1620,7 @@ declare interface RichEditorImageSpan {
  */
 declare interface RichEditorRange {
   /**
-   * Start position of the span whose style needs to be updated. If this parameter is left empty or set to a negative 
-   * value, the value **0** will be used.
+   * Start position of the text. If this parameter is omitted or set to a negative value, the start position is 0.
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1507,8 +1632,7 @@ declare interface RichEditorRange {
   start?: number;
 
   /**
-   * End position of the span whose style needs to be updated. If this parameter is left empty or set to a value beyond 
-   * the range, it indicates infinity.
+   * End position of the text. If this parameter is omitted or exceeds the text range, the end position is infinite.
    *
    * @default text length
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1521,7 +1645,7 @@ declare interface RichEditorRange {
 }
 
 /**
- * User gesture event.
+ * Defines a user gesture event.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1531,11 +1655,11 @@ declare interface RichEditorRange {
  */
 declare interface RichEditorGesture {
   /**
-   * Triggered when [ClickEvent]{@link common:ClickEvent} occurs.
+   * Triggered when a click event occurs.
    * 
    * It is executed on completion of a single click.
    * 
-   * On a double-click, the first click triggers the callback event.
+   * For a double-click scenario, the first click triggers this callback.
    *
    * @type { ?function } [since 11 - 11]
    * @type { ?Callback<ClickEvent> } [since 12]
@@ -1548,7 +1672,7 @@ declare interface RichEditorGesture {
   onClick?: Callback<ClickEvent>;
 
   /**
-   * Triggered when the user performs a long press.
+   * Triggered when a long press event occurs.
    * 
    * It is executed on completion of a long press.
    *
@@ -1563,9 +1687,8 @@ declare interface RichEditorGesture {
   onLongPress?: Callback<GestureEvent>;
 
   /**
-   * [GestureEvent]{@link gesture:GestureEvent} indicates the double-tap event.
-   * 
-   * Callback event when the double-tap is complete.
+   * Callback for the double-click event, triggered when the user completes a double-click operation. The callback 
+   * parameter is a [GestureEvent]{@link GestureEvent} object that contains gesture event information.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1576,7 +1699,7 @@ declare interface RichEditorGesture {
 }
 
 /**
- * Describes the options for adding a text span.
+ * Defines the options for adding a text span.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1586,11 +1709,10 @@ declare interface RichEditorGesture {
  */
 declare interface RichEditorTextSpanOptions {
   /**
-   * Position of the text span to be added. If this parameter is omitted, the paragraph is added to the end of all 
-   * content.
+   * Position of the text span to be added. If this parameter is omitted, the span is added to the end of all content.
    * 
-   * If the value specified is less than 0, the paragraph is placed at the beginning of all content. If the value is 
-   * greater than the length of all content, the paragraph is placed at the end of all content.
+   * If the value specified is less than 0, the span is placed at the beginning of all content. If the value is greater 
+   * than the length of all content, the span is placed at the end of all content.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1601,7 +1723,10 @@ declare interface RichEditorTextSpanOptions {
   offset?: number;
 
   /**
-   * Style of the text span to be added. If this parameter is left empty, the default text style will be used.
+   * Text style information. Pass this parameter when custom styles such as text color, font size, and font weight need 
+   * to be set. If omitted, the system default text information is used.     
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1612,7 +1737,11 @@ declare interface RichEditorTextSpanOptions {
   style?: RichEditorTextStyle;
 
   /**
-   * Paragraph style.
+   * Paragraph style. Pass this parameter when paragraph-level layout properties such as text alignment, indentation, 
+   * and line breaking rules need to be set. If not passed, the system default paragraph style (left-aligned, no 
+   * indentation, word-based line breaking) is used.                     
+   * 
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1623,7 +1752,10 @@ declare interface RichEditorTextSpanOptions {
   paragraphStyle?: RichEditorParagraphStyle;
 
   /**
-   * Behavior-triggered callback. If this parameter is left empty, only the default system behavior is supported.
+   * Behavior trigger callback. Pass this parameter when the tap or long-press interaction behavior of a text span needs
+   * to be customized. If omitted, only the system default behavior is used.      
+   * 
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1648,7 +1780,7 @@ declare interface RichEditorTextSpanOptions {
 }
 
 /**
- * Sets whether to support keyboard avoidance.
+ * Whether to support keyboard avoidance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1694,7 +1826,10 @@ declare interface RichEditorImageSpanOptions {
   offset?: number;
 
   /**
-   * Image style.
+   * Image style information. Pass this parameter when you need to customize the image size, vertical alignment mode, 
+   * scaling type, and other styles. If this parameter is omitted, the default image style of the system is used.     
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1705,7 +1840,8 @@ declare interface RichEditorImageSpanOptions {
   imageStyle?: RichEditorImageSpanStyle;
 
   /**
-   * Behavior-triggered callback. If this parameter is left empty, only the default system behavior is supported.
+   * Gesture event that triggers a callback. If this parameter is omitted, only the default system behavior is 
+   * supported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1716,7 +1852,10 @@ declare interface RichEditorImageSpanOptions {
   gesture?: RichEditorGesture;
 
   /**
-   * Callback triggered on mouse hover. If this parameter is omitted, no corresponding action is taken.
+   * Callback triggered when the mouse hovers over the component. If this parameter is omitted, the mouse hover callback
+   * behavior is not executed.     
+   * 
+   * **Atomic service API:** Since API version 14, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1728,7 +1867,7 @@ declare interface RichEditorImageSpanOptions {
 }
 
 /**
- * Sets the offset and style of the builder.
+ * Sets the offset position and style of the inserted builder.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1738,8 +1877,10 @@ declare interface RichEditorImageSpanOptions {
  */
 declare interface RichEditorBuilderSpanOptions {
   /**
-   * Position of the builder span to be added. If this parameter is omitted or set to an invalid value, the span is 
-   * added to the end of all content.
+   * Position to add the builder. Value range: [0, total content length]. If omitted or if the value is less than 0 or 
+   * greater than the total content length, it is added to the end of all content.
+   * 
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1750,8 +1891,10 @@ declare interface RichEditorBuilderSpanOptions {
   offset?: number;
 
   /**
-   * Background color of the builder when it is dragged independently. If no valid value is specified, the default color
-   * is used.
+   * Sets the background color of the backboard when a BuilderSpan is dragged individually. If this parameter is not 
+   * configured or an invalid color value is passed, the default value is used.
+   * 
+   * Default value: the drag backboard color that follows the system theme.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1761,10 +1904,11 @@ declare interface RichEditorBuilderSpanOptions {
   dragBackgroundColor? : ColorMetrics;
 
   /**
-   * Whether to apply a shadow when the builder is dragged independently. If no valid value is specified, a shadow is 
-   * applied. The value **true** means to apply a shadow, and **false** means the opposite.
+   * Sets whether a shadow is needed when a BuilderSpan is dragged individually. The value **true** means that a shadow 
+   * is needed, and **false** means that a shadow is not needed. If this parameter is not configured or an invalid value
+   * is passed, the default value is used.
    * 
-   * Default value: **true**
+   * Default value: **true**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1774,8 +1918,8 @@ declare interface RichEditorBuilderSpanOptions {
   isDragShadowNeeded?: boolean;
 
   /**
-   * Accessibility settings. By default, the default value of 
-   * [AccessibilitySpanOptions]{@link text_common:AccessibilitySpanOptions} is used.
+   * Accessibility settings. By default, the default value of [AccessibilitySpanOptions]{@link AccessibilitySpanOptions}
+   * is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1898,7 +2042,7 @@ declare interface RichEditorBuilderSpan {
 }
 
 /**
- * Style of the placeholder text.
+ * Sets the style of the placeholder text.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1908,9 +2052,9 @@ declare interface RichEditorBuilderSpan {
  */
 declare interface PlaceholderStyle {
   /**
-   * Style of the placeholder text.
+   * Sets the prompt text style.
    * 
-   * The default value follows the theme.
+   * The default value follows the theme settings.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1921,9 +2065,9 @@ declare interface PlaceholderStyle {
   font?: Font;
 
   /**
-   * Color of the placeholder text.
+   * Sets the prompt text color.
    * 
-   * The default value follows the theme.
+   * The default value follows the theme settings.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1954,7 +2098,8 @@ declare interface RichEditorSpanStyleOptions extends RichEditorRange { }
  * 
  * > **NOTE**
  * >
- * > Applicable scope of the API: spans involved in the specified range.
+ * > Scope of the API: the paragraphs covered by the specified range, that is, the paragraph where the range starts, the
+ * > paragraph where the range ends, and all paragraphs in between.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2013,7 +2158,7 @@ declare interface RichEditorUpdateTextSpanStyleOptions extends RichEditorSpanSty
 }
 
 /**
- * Image style options.
+ * Defines the image span style options.
  * 
  * Inherits [RichEditorSpanStyleOptions]{@link RichEditorSpanStyleOptions}.
  *
@@ -2049,7 +2194,7 @@ declare interface RichEditorUpdateImageSpanStyleOptions extends RichEditorSpanSt
  */
 declare interface RichEditorUpdateSymbolSpanStyleOptions extends RichEditorSpanStyleOptions {
   /**
-   * Style of the symbol span.
+   * Style information of the SymbolSpan.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2071,10 +2216,10 @@ declare interface RichEditorUpdateSymbolSpanStyleOptions extends RichEditorSpanS
  */
 declare interface RichEditorSymbolSpanOptions {
   /**
-   * Position of the symbol span to be added. If this parameter is omitted, the span is added to the end of all content.
+   * Position at which the SymbolSpan is added. If omitted, it is added to the end of all content.
    * 
-   * If the value is less than 0, the span is added to the beginning of all content. If the value is greater than the 
-   * length of all content, the span is added to the end of all content.
+   * If the value is less than 0, it is added to the beginning of all content; if the value is greater than the length 
+   * of all content, it is added to the end of all content.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2085,7 +2230,8 @@ declare interface RichEditorSymbolSpanOptions {
   offset?: number;
 
   /**
-   * Style of the symbol span. If this parameter is left empty, the default style will be used.
+   * Style information of the SymbolSpan. Pass this parameter when you need to customize the color, size, weight, 
+   * rendering policy, and other styles of the SymbolSpan; if omitted, the system default style information is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2097,7 +2243,7 @@ declare interface RichEditorSymbolSpanOptions {
 }
 
 /**
- * Provides information about the selected content.
+ * Defines information about the selected content.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2107,7 +2253,7 @@ declare interface RichEditorSymbolSpanOptions {
  */
 declare interface RichEditorSelection {
   /**
-   * Range of the selected.
+   * Range of the selection.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2130,7 +2276,7 @@ declare interface RichEditorSelection {
 }
 
 /**
- * Information about the text to be inserted.
+ * Defines information about the text to be inserted.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2162,7 +2308,11 @@ declare interface RichEditorInsertValue {
   insertValue: string;
 
   /**
-   * Content of the preview text to be inserted.
+   * Preview text content to be inserted.
+   * 
+   * Default value: empty string.
+   * 
+   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2174,7 +2324,7 @@ declare interface RichEditorInsertValue {
 }
 
 /**
- * Provides information about the delete operation and the deleted content.
+ * Defines information about the deletion operation and the content to be deleted.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2184,7 +2334,7 @@ declare interface RichEditorInsertValue {
  */
 declare interface RichEditorDeleteValue {
   /**
-   * Offset of the deleted content.
+   * Offset of the content to be deleted.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2206,7 +2356,7 @@ declare interface RichEditorDeleteValue {
   direction: RichEditorDeleteDirection;
 
   /**
-   * Length of the deleted content.
+   * Length of the content to be deleted.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2217,7 +2367,7 @@ declare interface RichEditorDeleteValue {
   length: number;
 
   /**
-   * Information about the deleted text or image span.
+   * Information about the text or image spans to be deleted.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2229,7 +2379,7 @@ declare interface RichEditorDeleteValue {
 }
 
 /**
- * Image and text change information.
+ * Defines image and text change information.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2283,7 +2433,10 @@ declare interface RichEditorChangeValue {
   replacedSymbolSpans: Array<RichEditorTextSpanResult>;
 
   /**
-   * Reason why the component content changes.
+   * Reason for the component content change, used to identify the operation type that triggers the content change (such
+   * as user input, paste, cut, and so on). It must be obtained by registering the onWillChange callback. Developers can
+   * make corresponding processing decisions for different change reasons in the onWillChange callback based on the 
+   * value of changeReason. The default value of this field is undefined.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2348,7 +2501,11 @@ declare interface RichEditorStyledStringOptions {
  */
 declare interface SelectionMenuOptions {
   /**
-   * Callback invoked when the custom context menu on selection appears.
+   * Callback invoked when the custom selection menu is displayed. If custom logic needs to be executed when the menu is
+   * displayed (for example, recording user operations or dynamically adjusting menu content), this parameter can be 
+   * passed; if it is not passed, no additional callback is triggered.
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @type { ?function } [since 10 - 11]
    * @type { ?MenuOnAppearCallback } [since 12]
@@ -2361,7 +2518,11 @@ declare interface SelectionMenuOptions {
   onAppear?: MenuOnAppearCallback;
 
   /**
-   * Callback invoked when the custom context menu on selection disappears.
+   * Callback invoked when the custom selection menu is closed. If custom logic needs to be executed when the menu is 
+   * closed (for example, restoring the UI state or clearing temporary data), this parameter can be passed; if it is not
+   * passed, no additional callback is triggered.
+   * 
+   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @type { ?function } [since 10 - 11]
    * @type { ?Callback<void> } [since 12]
@@ -2387,7 +2548,10 @@ declare interface SelectionMenuOptions {
   menuType?: MenuType;
 
   /**
-   * Callback invoked when the custom context menu on selection is shown.
+   * Callback invoked when the custom selection menu is shown. If custom logic needs to be executed when the menu is 
+   * shown, this parameter can be passed; if it is not passed, no callback is triggered.
+   * 
+   * **Atomic service API:** Since API version 15, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2398,7 +2562,10 @@ declare interface SelectionMenuOptions {
   onMenuShow?: MenuCallback;
 
   /**
-   * Callback invoked when the custom context menu on selection is hidden.
+   * Callback invoked when the custom selection menu is hidden. If custom logic needs to be executed when the menu is 
+   * hidden, this parameter can be passed; if it is not passed, no callback is triggered.
+   * 
+   * **Atomic service API:** Since API version 15, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2409,7 +2576,13 @@ declare interface SelectionMenuOptions {
   onMenuHide?: MenuCallback;
 
   /**
-   * Options of the preview menu. This parameter is valid only in **RichEditor**.
+   * Options of the preview menu. This parameter takes effect only in RichEditor.
+   * 
+   * Since API version 26.0.0, this parameter also takes effect in the Text component.
+   * 
+   * If this parameter is not passed, the preview menu uses the default configuration.
+   * 
+   * **Atomic service API:** Since API version 18, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2432,13 +2605,13 @@ declare interface SelectionMenuOptions {
  */
 declare interface PreviewMenuOptions {
   /**
-   * Vibration effect when the menu is displayed. This parameter takes effect when ImageSpan or BuilderSpan is bound to 
-   * the preview menu.
+   * Vibration effect when the menu pops up. It takes effect when an ImageSpan or BuilderSpan is bound to a preview 
+   * menu.
    * 
-   * Default value: **HapticFeedbackMode.DISABLED** (no vibration when the menu is displayed)
+   * Default value: HapticFeedbackMode.DISABLED, which means no vibration when the menu pops up.
    * 
-   * Note: The settings take effect only when the application has the ohos.permission.VIBRATE permission and the user 
-   * has enabled haptic feedback.
+   * **Note:** It takes effect only when the application has the ohos.permission.VIBRATE permission, the user has 
+   * enabled haptic feedback, and the system hardware supports it.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2462,7 +2635,8 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   /**
    * Obtains the current caret position.
    * 
-   * If the caret position cannot be obtained (for example, the controller is not bound to a component), -1 is returned.
+   * If the caret position cannot be obtained (for example, when the controller is not bound to the component), the 
+   * return value is **-1**.
    *
    * @returns { number } Position of the caret.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2474,7 +2648,10 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   getCaretOffset(): number;
 
   /**
-   * Sets the cursor offset.
+   * Sets the caret position.
+   * 
+   * When the controller is not bound to a component or the component bound to the controller is released, this API 
+   * returns false and the setting fails.
    *
    * @param { number } offset - Offset of the caret. If it exceeds the range of all content, the setting will fail.
    * @returns { boolean } Whether the caret offset is set successfully.
@@ -2488,7 +2665,10 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   setCaretOffset(offset: number): boolean;
 
   /**
-   * Closes the custom or default context menu on selection.
+   * Closes the custom selection menu or the system default selection menu.
+   * 
+   * When the controller is not bound to a component or the component bound to the controller is released, this API call
+   * does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2501,9 +2681,10 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   /**
    * Obtains the preset text style of a user.
    *
-   * @returns { RichEditorTextStyle } Preset typing style.
-   *     <br>If no component is bound to the controller or the component bound to the controller is released, **undefined**
-   *     is returned.
+   * @returns { RichEditorTextStyle } A user-preset text input style object that contains style attributes such as font
+   *     color, size, and weight. It can be used to query the input text style configuration of the current component.
+   *     <br>When the controller is not bound to a component, or the component bound to the controller is released,
+   *     undefined is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2514,8 +2695,12 @@ declare class RichEditorBaseController implements TextEditControllerEx {
 
   /**
    * Sets the preset typing style.
+   * 
+   * When the controller is not bound to a component or the component bound to the controller is released, this API call
+   * does not take effect.
    *
-   * @param { RichEditorTextStyle } value - Preset typing style.
+   * @param { RichEditorTextStyle } value - Preset text input style, including font color, size, weight, and other
+   *     attributes, used to set the default style for subsequently input text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2525,8 +2710,9 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   setTypingStyle(value: RichEditorTextStyle): void;
 
   /**
-   * Sets the preset paragraph style. The input text takes effect only when the component content is empty or a line 
-   * break is added at the end of the component.
+   * Sets the user-preset paragraph style. It takes effect only when the component content is empty or text is entered 
+   * after a line break at the end of the component. When the controller is not bound to a component or the component 
+   * bound to the controller is released, this API call does not take effect.
    *
    * @param { RichEditorParagraphStyle } style - Preset paragraph style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2538,28 +2724,33 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   setTypingParagraphStyle(style: RichEditorParagraphStyle): void;
 
   /**
-   * Sets the range of content selection. The selected content is highlighted.
+   * Selects the content in the component, and the backplate of the selected part is highlighted.
    * 
-   * If both selectionStart and selectionEnd are set to -1, all the content is selected. If both selectionStart and 
-   * selectionEnd are set to 0, the selected content can be cleared.
+   * If both **selectionStart** and **selectionEnd** are set to **-1**, all content is selected. If both 
+   * **selectionStart** and **selectionEnd** are set to **0**, the current selection is cleared.
    * 
    * If this API is called when the text box is not focused, the selected effect is not displayed.
    * 
-   * Since API version 12, on 2-in-1 devices, regardless of the value of **options**, calling the **setSelection** API 
-   * will not display the menu. In addition, if there is already a menu present within the component, calling the 
-   * **setSelection** API will close the menu.
-   * 
-   * On non-2-in-1 devices, when **options** is set to **MenuPolicy.DEFAULT**, the following rules apply:
+   * Since API version 12, on PC/2-in-1 devices (which can be determined by obtaining the device type through 
+   * deviceInfo.deviceType), calling setSelection does not pop up a menu regardless of the value of options. If a menu 
+   * already exists in the component, calling setSelection closes the menu. On non-PC/2-in-1 devices, when options is 
+   * set to MenuPolicy.DEFAULT, the following rules apply:
    * 
    * 1. If the component has a selection handle menu, calling the API will not close the menu,
-   *    and the menu position will be adjusted.
-   * 2. If the component has a menu without a selection handle, calling the API will not close the menu,
-   *    and the menu position will remain unchanged.
+   * and the menu position will be adjusted.
+   * 2. If the component has a menu without a selection handle, calling the API will not
+   * close the menu, and the menu position will remain unchanged.
    * 3. If there is no menu within the component, calling the API will not display the menu.
    *
    * @param { number } selectionStart - Start position of the selection.
    * @param { number } selectionEnd - End position of the selection.
-   * @param { SelectionOptions } [options] - Configuration of options. [since 12]
+   * @param { SelectionOptions } [options] - Selection option configuration, used to control the menu popup policy
+   *     during selection operations.
+   *     <br>Pass this parameter when you need to customize the menu popup behavior (such as forcing the menu to show or
+   *     hide);
+   *     <br>when omitted, MenuPolicy.DEFAULT is used by default, following the system default menu popup policy.
+   *     <br>For the applicable scenarios of each MenuPolicy value, see the SelectionOptions object
+   *     description. [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2569,10 +2760,10 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
   /**
-   * Obtains the editing state of this **RichEditor** component.
+   * Obtains the current editing state of the rich text. If the controller is not bound to a component or the component 
+   * bound to the controller is released, false is returned.
    *
-   * @returns { boolean } Editing state. The value **true** indicates the editing state, and **false** indicates the non
-   *     -editing state.
+   * @returns { boolean } true indicates the editing state, and false indicates the non-editing state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2583,6 +2774,9 @@ declare class RichEditorBaseController implements TextEditControllerEx {
 
   /**
    * Exits the editing state.
+   * 
+   * If the controller is not bound to a component or the component bound to the controller is released, this API call 
+   * does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2593,11 +2787,12 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   stopEditing(): void;
 
   /**
-   * Obtains a **LayoutManager** object.
+   * Obtains the **LayoutManager** object.
    *
-   * @returns { LayoutManager } **LayoutManager** object.
-   *     <br>If no component is bound to the controller or the component bound to the controller is released, **undefined**
-   *     is returned.
+   * @returns { LayoutManager } Layout manager object, which can be used to obtain information such as the layout
+   *     position of the component content.
+   *     <br>Returns undefined when the controller is not bound to a component or the component bound to the controller
+   *     is released.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2609,9 +2804,10 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   /**
    * Obtains the preview text.
    *
-   * @returns { PreviewText } Preview text.
-   *     <br>If no component is bound to the controller or the component bound to the controller is released, **undefined**
-   *     is returned.
+   * @returns { PreviewText } Preview text information, including the candidate text content pre-displayed by the input
+   *     method and its start position.
+   *     <br>Returns undefined when the controller is not bound to a component or the component bound to the controller
+   *     is released.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2621,10 +2817,15 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   getPreviewText(): PreviewText;
 
   /**
-   * Scroll the input field component to make the specified content visible.
+   * Scrolls the content in the specified range into the visible area.
    *
-   * @param { TextRange } [range] - The visible range.
-   *     If the parameter is invalid, this method will have no effect.
+   * @param { TextRange } [range] - Content range to scroll into the visible area, including the start position and end
+   *     position of the content.
+   *     <br>The start position must be less than or equal to the end position; otherwise, the API call does not take
+   *     effect. A start position less than 0 is treated as 0, and an end position greater than the total text length is
+   *     treated as the total text length.
+   *     <br>If no range is specified, all content is used by default. If no start position is specified, the start
+   *     position defaults to 0; if no end position is specified, the end position defaults to the total text length.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @atomicservice
@@ -2633,8 +2834,8 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   scrollToVisible(range?: TextRange): void;
 
   /**
-   * Obtains the relative position of the caret in the **RichEditor** component. If the caret is not blinking, the API 
-   * returns **undefined**.
+   * Returns the position of the current caret relative to the RichEditor component. If the caret does not blink or the 
+   * controller is not bound to a component, undefined is returned.
    *
    * @returns { RectResult | undefined } Relative position of the caret in the **RichEditor** component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2646,10 +2847,10 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   getCaretRect(): RectResult | undefined;
 
   /**
-   * The capability of deleting characters is provided. If no content is selected, the character before the caret is 
-   * deleted. If some content is selected, the selected content is deleted.
+   * Deletes the character before the caret or the selected content. If no content is selected, one character before the
+   * current caret position is deleted. If content is selected, the selected content is deleted.
    * 
-   * This API cannot be used in the pre-screen display scenario.
+   * This API is not supported in preview display scenarios.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2660,10 +2861,12 @@ declare class RichEditorBaseController implements TextEditControllerEx {
   deleteBackward(): void;
 
   /**
-   * Set the styledString placeholder.
+   * Sets the placeholder text of the styled string when there is no input.
    *
-   * @param { StyledString } styledString - The styledString for placeholder.
-   *     If the parameter is invalid, this method will have no effect.
+   * @param { StyledString } styledString - Sets the placeholder text of the styled string. It takes higher priority
+   *     than the placeholder text set by the [placeholder]{@link RichEditorAttribute#placeholder} attribute.
+   *     <br>The placeholder text does not support gesture events bound to the [GestureStyle]{@link GestureStyle} of the
+   *     styled string, or hyperlink navigation provided by [UrlStyle]{@link UrlStyle}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2679,12 +2882,17 @@ declare class RichEditorBaseController implements TextEditControllerEx {
  * 
  * > **NOTE**
  * >
- * > When the length of the content exceeds the height of the display area of the component, the insertion interface (
- * > such as [addTextSpan]{@link RichEditorController.addTextSpan}, 
- * > [addImageSpan]{@link RichEditorController.addImageSpan}, 
- * > [addBuilderSpan]{@link RichEditorController.addBuilderSpan} and 
- * > [addSymbolSpan]{@link RichEditorController.addSymbolSpan}) is called. The component automatically scrolls the 
- * > content to make the end of the inserted content visible.
+ * > When the content length exceeds the height of the component's display area, the insertion APIs (such as 
+ * > [addTextSpan]{@link RichEditorController#addTextSpan}, [addImageSpan]{@link RichEditorController#addImageSpan}, 
+ * > [addBuilderSpan]{@link RichEditorController#addBuilderSpan}, and 
+ * > [addSymbolSpan]{@link RichEditorController#addSymbolSpan}) are called. The component automatically scrolls to keep 
+ * > the end of the inserted content visible.
+ * 
+ * ###### Objects to Import
+ * 
+ * ```ts
+ * controller: RichEditorController = new RichEditorController();
+ * ```
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2694,12 +2902,16 @@ declare class RichEditorBaseController implements TextEditControllerEx {
  */
 declare class RichEditorController extends RichEditorBaseController {
   /**
-   * Adds a text span. If the caret in the component is blinking, the caret position is updated to be after the inserted
-   * text span.
+   * Adds text content. If the component cursor is blinking, the cursor position is updated to after the newly inserted 
+   * text after insertion. When the controller is not bound to a component or the component bound to the controller is 
+   * released, this API call does not take effect.
    *
-   * @param { ResourceStr } content - Text content.<br>The Resource type is supported since API version 20. [since 20]
+   * @param { ResourceStr } content - Text content.
+   *     <br>The Resource type is supported since API version 20. [since 20]
    * @param { RichEditorTextSpanOptions } [options] - Text options.
-   * @returns { number } Index of the added text span in all spans.
+   *     <br>Pass this parameter when you need to set information such as the offset position, text style, and paragraph
+   *     style. If this parameter is not passed, the text is inserted at the end of the content using the default style.
+   * @returns { number } Index of the added **TextSpan** among all spans.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
@@ -2709,15 +2921,18 @@ declare class RichEditorController extends RichEditorBaseController {
   addTextSpan(content: ResourceStr, options?: RichEditorTextSpanOptions): number;
 
   /**
-   * Adds an image span. If the caret in the component is blinking, the caret position is updated to be after the 
-   * inserted image span.
+   * Adds image content. If the component cursor is blinking, the cursor position is updated to after the newly inserted
+   * image after insertion. When the controller is not bound to a component or the component bound to the controller is 
+   * released, this API call does not take effect.
    * 
-   * This API is a synchronous API. In a weak network environment, directly adding network images may block the UI 
-   * thread and cause screen freezing. To avoid potential loading issues, do not directly add a network image.
+   * This API is a synchronous API. Adding network images directly under poor network conditions may block the UI thread
+   * and result in screen freezing. To avoid potential loading issues, do not directly add a network image.
    *
    * @param { PixelMap | ResourceStr } value - Image content.
    * @param { RichEditorImageSpanOptions } [options] - Image options.
-   * @returns { number } Index of the added image span in all spans.
+   *     <br>Pass this parameter when you need to set the image style, offset position, or paragraph style; if it is not
+   *     passed, the image is inserted at the end of the content using the default style.
+   * @returns { number } Index of the added **ImageSpan** among all spans.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
@@ -2727,85 +2942,80 @@ declare class RichEditorController extends RichEditorBaseController {
   addImageSpan(value: PixelMap | ResourceStr, options?: RichEditorImageSpanOptions): number;
 
   /**
-   * Adds a custom layout (BuilderSpan) to **RichEditor**.
+   * Adds a custom layout (**BuilderSpan**) to **RichEditor**.
    * 
    * > **NOTE**
    * >
-   * > - This API adds a builder span to take up space in the layout. It calls the system **measure** method to 
-   * > calculate the actual length, width, and position.
+   * > - When a placeholder span is added to the **RichEditor** component, the placeholder span calls the system 
+   * > **measure** method to calculate its actual width, height, and position.
    * >
-   * > - You can use [RichEditorBuilderSpanOptions]{@link RichEditorBuilderSpanOptions} to set the index of the builder 
-   * > in the **RichEditor** component (with one character as the unit).
+   * > - You can use [RichEditorBuilderSpanOptions]{@link RichEditorBuilderSpanOptions} to set the index of this builder
+   * > in **RichEditor** (one character counts as one unit).
    * >
-   * > - This builder span is unfocusable, draggable, and equipped with certain universal attributes. It behaves 
-   * > similarly to an image span in terms of placeholder and deletion functionality, and it is treated as a single 
-   * > character in length.
+   * > - This placeholder span cannot be focused, supports dragging, and supports some universal attributes. Its 
+   * > placeholder and deletion capabilities are equivalent to those of **ImageSpan**, and its length is regarded as one
+   * > character.
    * >
-   * > - Custom menus can be set using [bindSelectionMenu]{@link RichEditorAttribute.bindSelectionMenu}.
+   * > - You can set a custom menu through [bindSelectionMenu]{@link RichEditorAttribute#bindSelectionMenu}.
    * >
-   * > - The information about the builder span cannot be obtained through 
-   * > [getSpans]{@link RichEditorController.getSpans}, [getSelection]{@link RichEditorController.getSelection}, 
-   * > [onSelect]{@link RichEditorAttribute.onSelect}, or [aboutToDelete]{@link RichEditorAttribute.aboutToDelete}.
+   * > - The **builderSpan** information cannot be obtained through [getSpans]{@link RichEditorController#getSpans}, 
+   * > [getSelection]{@link RichEditorController#getSelection}, [onSelect]{@link RichEditorAttribute#onSelect}, or 
+   * > [aboutToDelete]{@link RichEditorAttribute#aboutToDelete}.
    * >
-   * > - The builder span cannot be updated using [updateSpanStyle]{@link RichEditorController.updateSpanStyle} or 
-   * > [updateParagraphStyle]{@link RichEditorController.updateParagraphStyle}.
+   * > - The builder cannot be updated through [updateSpanStyle]{@link RichEditorController#updateSpanStyle} or 
+   * > [updateParagraphStyle]{@link RichEditorController#updateParagraphStyle}.
    * >
-   * > - Copying or pasting the builder span does not take effect.
+   * > - Copying or pasting this builder node does not take effect.
    * >
-   * > - The layout constraints of the builder span are passed in from the **RichEditor** component. If the size of the 
-   * > outermost component in the builder span is not set, the size of the **RichEditor** is used as the value of 
-   * > **maxSize**.
+   * > - The layout constraints of the builder are passed in by **RichEditor**. If the outermost component in the 
+   * > builder does not have its size set, the size of **RichEditor** is used as the maxSize.
    * >
-   * > - The gesture event mechanism of the builder span is the same as the universal gesture event mechanism. If 
-   * > transparent transmission is not set in the builder, only the child components in the builder respond.
+   * > - The gesture-related event mechanism of the builder is the same as that of universal gesture events. If pass-
+   * > through is not set in the builder, only the child components in the builder respond.
    * >
-   * > - If the caret in the component is blinking, the caret position is updated to be after the inserted image span.
-   * 
-   * Only the following universal attributes are supported: 
-   * [size](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#size), 
-   * [padding](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#padding), 
-   * [margin](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#margin), 
-   * [aspectRatio](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-layout-constraints.md#aspectratio), 
-   * [borderStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#borderstyle), 
-   * [borderWidth](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#borderwidth), 
-   * [borderColor](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#bordercolor), 
-   * [borderRadius](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#borderradius), 
-   * [backgroundColor](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backgroundcolor), 
-   * [backgroundBlurStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backgroundblurstyle9)
-   * , [opacity]{@link common}, 
-   * [blur](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#blur), 
-   * [backdropBlur](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-background.md#backdropblur), 
-   * [shadow](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#shadow), 
-   * [grayscale](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#grayscale), 
-   * [brightness](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#brightness), 
-   * [saturate](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#saturate), 
-   * [contrast](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#contrast), 
-   * [invert](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#invert), 
-   * [sepia](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#sepia), 
-   * [hueRotate](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#huerotate), 
-   * [colorBlend](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#colorblend), 
-   * [linearGradientBlur](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#lineargradientblur12)
-   * , [clip](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-sharp-clipping.md#clip12), 
-   * [mask](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-sharp-clipping.md#mask12), 
-   * [foregroundBlurStyle](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-foreground-blur-style.md#foregroundblurstyle)
-   * , 
-   * [accessibilityGroup](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitygroup)
-   * , 
-   * [accessibilityText](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitytext)
-   * , 
-   * [accessibilityDescription](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitydescription)
-   * , 
-   * [accessibilityLevel](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-accessibility.md#accessibilitylevel)
-   * , 
-   * [sphericalEffect](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#sphericaleffect12)
-   * , [lightUpEffect](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#lightupeffect12),
-   * 
-   * [pixelStretchEffect](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#pixelstretcheffect12)
-   * .
+   * > - If the component cursor is blinking, the cursor position is updated to after the newly inserted builder after 
+   * > insertion.
+   * >
+   * > - For the node text of [addBuilderSpan]{@link RichEditorController#addBuilderSpan}, the 
+   * > [enableDataDetector]{@link RichEditorAttribute#enableDataDetector}, 
+   * > [dataDetectorConfig]{@link RichEditorAttribute#dataDetectorConfig}, and 
+   * > [enableSelectedDataDetector]{@link RichEditorAttribute#enableSelectedDataDetector} functions do not take effect.
+   * > Only the following universal attributes are supported: [size]{@link CommonMethod#size}, 
+   * > [padding]{@link CommonMethod#padding}, [margin]{@link CommonMethod#margin}, 
+   * > [aspectRatio]{@link CommonMethod#aspectRatio}, [borderStyle]{@link CommonMethod#borderStyle}, 
+   * > [borderWidth]{@link CommonMethod#borderWidth}, [borderColor]{@link CommonMethod#borderColor}, 
+   * > [borderRadius]{@link CommonMethod#borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses)}, 
+   * > [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, 
+   * > [backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle(value: BlurStyle,
+   * > options?: BackgroundBlurStyleOptions)},
+   * > [opacity]{@link ./common}, [blur]{@link CommonMethod#blur(value: number, options?: BlurOptions)}, 
+   * > [backdropBlur]{@link CommonMethod#backdropBlur(value: number, options?: BlurOptions)}, 
+   * > [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}, 
+   * > [grayscale]{@link CommonMethod#grayscale(value: number)}, 
+   * > [brightness]{@link CommonMethod#brightness(value: number)}, 
+   * > [saturate]{@link CommonMethod#saturate(value: number)}, [contrast]{@link CommonMethod#contrast(value: number)}, 
+   * > [invert]{@link CommonMethod#invert(value: number | InvertOptions)}, 
+   * > [sepia]{@link CommonMethod#sepia(value: number)}, 
+   * > [hueRotate]{@link CommonMethod#hueRotate(value: number | string)}, 
+   * > [colorBlend]{@link CommonMethod#colorBlend(value: Color | string | Resource)}, 
+   * > [linearGradientBlur]{@link CommonMethod#linearGradientBlur(value: number, options: LinearGradientBlurOptions)}, 
+   * > [clip]{@link CommonMethod#clip(value: boolean)}, [mask]{@link CommonMethod#mask(value: ProgressMask)}, 
+   * > [foregroundBlurStyle]{@link CommonMethod#foregroundBlurStyle(value: BlurStyle,
+   * > options?: ForegroundBlurStyleOptions)},
+   * > [accessibilityGroup]{@link CommonMethod#accessibilityGroup(value: boolean)}, 
+   * > [accessibilityText]{@link CommonMethod#accessibilityText(value: string)}, 
+   * > [accessibilityDescription]{@link CommonMethod#accessibilityDescription(value: string)}, 
+   * > [accessibilityLevel]{@link CommonMethod#accessibilityLevel}, 
+   * > [sphericalEffect]{@link CommonMethod#sphericalEffect(value: number)}, 
+   * > [lightUpEffect]{@link CommonMethod#lightUpEffect(value: number)}, 
+   * > [pixelStretchEffect]{@link CommonMethod#pixelStretchEffect(options: PixelStretchEffectOptions)}.
    *
-   * @param { CustomBuilder } value - Custom component.
-   * @param { RichEditorBuilderSpanOptions } [options] - Builder options.
-   * @returns { number } Index of the added builder span in all spans.
+   * @param { CustomBuilder } value - Custom layout content, used to create a BuilderSpan placeholder component in
+   *     RichEditor.
+   * @param { RichEditorBuilderSpanOptions } [options] - Builder options. Pass this parameter when you need to set the
+   *     offset position or accessibility attributes of the builder; when omitted, the builder is added to the end of
+   *     all content.
+   * @returns { number } Index of the added **builderSpan** among all spans.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2845,14 +3055,17 @@ declare class RichEditorController extends RichEditorBaseController {
   addRichEditorBuilderSpan(value: RichEditorBuilderSpan, info?: BuilderSpanInfo): number;
 
   /**
-   * Adds a symbol span. If the caret in the component is blinking, the caret position is updated to be after the 
-   * inserted symbol span.
+   * Adds an icon symbol (**SymbolSpan**) to **RichEditor**. If the component cursor is blinking, the cursor position is
+   * updated to after the newly inserted **SymbolSpan** after insertion.
    * 
-   * Currently, gestures, copying, and dragging are not supported.
+   * **SymbolSpan** does not support gestures, copy operations, or drag processing.
    *
-   * @param { Resource } value - Symbol resource object.
+   * @param { Resource } value - Reference to the SymbolSpan icon resource, used to specify a system preset or custom
+   *     Symbol icon.
    * @param { RichEditorSymbolSpanOptions } [options] - Symbol options.
-   * @returns { number } Index of the added symbol span in all spans.
+   *     <br>Pass this parameter when you need to set the offset position or style of the SymbolSpan; if it is not
+   *     passed, the SymbolSpan is inserted at the end of the content with the default style.
+   * @returns { number } Index of the added **SymbolSpan** among all spans.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2862,10 +3075,11 @@ declare class RichEditorController extends RichEditorBaseController {
   addSymbolSpan(value: Resource, options?: RichEditorSymbolSpanOptions ): number;
 
   /**
-   * Updates the text, image, or symbol span style.
+   * Updates the style of text, images, or **SymbolSpan**.
    * 
-   * If only part of a span is updated, the span is split into multiple spans based on the updated part and the non-
-   * updated part.
+   * If only part of a span is updated, the span is split into multiple spans based on the updated part and the 
+   * unupdated part. When the controller is not bound to a component or the component bound to the controller is 
+   * released, this API call does not take effect.
    * 
    * Calling this API will not close the custom context menu on selection by default.
    *
@@ -2884,7 +3098,7 @@ declare class RichEditorController extends RichEditorBaseController {
   /**
    * Updates the paragraph style.
    *
-   * @param { RichEditorParagraphStyleOptions } value - Information about the paragraph style.
+   * @param { RichEditorParagraphStyleOptions } value - Paragraph style options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2894,10 +3108,11 @@ declare class RichEditorController extends RichEditorBaseController {
   updateParagraphStyle(value: RichEditorParagraphStyleOptions): void;
 
   /**
-   * Deletes the text and image spans in a specified range.
+   * Deletes the text and images within the specified range. This API does not take effect when the controller is not 
+   * bound to a component or the component bound to the controller is released.
    *
-   * @param { RichEditorRange } [value] - Range of the target spans. If this parameter is left empty, all text and image
-   *     spans will be deleted.
+   * @param { RichEditorRange } [value] - Range of the target spans. If this parameter is omitted, all text and image
+   *     spans are deleted.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
@@ -2909,10 +3124,13 @@ declare class RichEditorController extends RichEditorBaseController {
   /**
    * Obtains span information.
    *
-   * @param { RichEditorRange } [value] - Range of the target span.
-   * @returns { Array<RichEditorImageSpanResult | RichEditorTextSpanResult> } Text and image span information.
-   *     <br>If no component is bound to the controller or the component bound to the controller is released, **undefined**
-   *     is returned.
+   * @param { RichEditorRange } [value] - Range of the span to obtain.
+   *     <br>If omitted, information about all spans is obtained.
+   * @returns { Array<RichEditorImageSpanResult | RichEditorTextSpanResult> } Detailed information about the text and
+   *     image spans within the specified range, including the position, content, style, and other attributes of each
+   *     span. It can be used to query and manipulate the text and image content in the component.
+   *     <br>Returns undefined when the controller is not bound to a component or the component bound to the controller
+   *     is released.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
@@ -2952,10 +3170,13 @@ declare class RichEditorController extends RichEditorBaseController {
   /**
    * Obtains the paragraph information within a specified range.
    *
-   * @param { RichEditorRange } [value] - Range of the paragraphs to obtain.
-   * @returns { Array<RichEditorParagraphResult> } Information about the selected paragraphs.
-   *     <br>If no component is bound to the controller or the component bound to the controller is released, **undefined**
-   *     is returned.
+   * @param { RichEditorRange } [value] - Range of the paragraph to obtain.
+   *     <br>If omitted, information about all paragraphs is obtained.
+   * @returns { Array<RichEditorParagraphResult> } Paragraph information within the selection range, including the style
+   *     and start/end positions of each paragraph. It can be used to query paragraph layout attributes or update
+   *     paragraph styles.
+   *     <br>Returns undefined when the controller is not bound to a component or the component bound to the controller
+   *     is released.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2965,12 +3186,13 @@ declare class RichEditorController extends RichEditorBaseController {
   getParagraphs(value?: RichEditorRange): Array<RichEditorParagraphResult>;
 
   /**
-   * Obtains the range and span information of the selected content. If no text is selected, this API returns the 
-   * information about the span where the caret is located.
+   * Obtains the range and span information of the selection. If no text is selected, this API returns the information 
+   * about the span where the caret is located.
    *
-   * @returns { RichEditorSelection } Provides information about the selected content.
-   *     <br>If no component is bound to the controller or the component bound to the controller is released, **undefined**
-   *     is returned.
+   * @returns { RichEditorSelection } Detailed information about the start and end positions of the selection range and
+   *     the selected text and images.
+   *     <br>Returns undefined when the controller is not bound to a component or the component bound to the controller
+   *     is released.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2980,10 +3202,13 @@ declare class RichEditorController extends RichEditorBaseController {
   getSelection(): RichEditorSelection;
 
   /**
-   * Converts a styled string into a span.
+   * Converts a styled string to a span.
    *
    * @param { StyledString } value - Styled string before conversion.
-   * @returns { Array<RichEditorSpan> } Text and image span information.
+   * @returns { Array<RichEditorSpan> } Text and image span information obtained after parsing the styled string. It can
+   *     be used to query the content, style, and position of each span in the styled string.
+   *     <br>Returns undefined when the controller is not bound to a component or the component bound to the controller
+   *     is released.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2994,11 +3219,14 @@ declare class RichEditorController extends RichEditorBaseController {
   fromStyledString(value: StyledString): Array<RichEditorSpan>;
 
   /**
-   * Convert the component content within the given range into a styled string. SymbolSpan and BuilderSpan cannot be 
-   * converted.
+   * Converts the component content within the given range to a styled string. **SymbolSpan** and **BuilderSpan** cannot
+   * be converted.
    *
    * @param { RichEditorRange } value - Source range.
-   * @returns { StyledString } Styled string after conversion.
+   * @returns { StyledString } Styled string obtained after converting the content in the specified range of the
+   *     component. It can be used to transfer rich text content across components or perform style editing operations.
+   *     <br>If the controller is not bound to a component or the component bound to the controller is released,
+   *     **undefined** is returned.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3030,8 +3258,14 @@ declare type RichEditorSpan = RichEditorImageSpanResult | RichEditorTextSpanResu
  * ```
  */
 /**
- * Represents the controller of the **RichEditor** component constructed using the styled string. Inherits from 
+ * Represents the controller of the **RichEditor** component built with the styled string. Inherits from 
  * [RichEditorBaseController]{@link RichEditorBaseController}.
+ * 
+ * ###### Objects to Import
+ * 
+ * ```ts
+ * controller: RichEditorStyledStringController = new RichEditorStyledStringController();
+ * ```
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3045,14 +3279,15 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
    * 
    * > **NOTE**
    * >
-   * > - When this interface is called, the StyledString of the rich text component is fully replaced and rendered 
-   * > again.
+   * > - When this API is called, the **StyledString** of the **RichEditor** component is fully replaced and re-
+   * > rendered.
    * >
-   * > - When the content exceeds the component area, the component automatically scrolls up until the content is 
-   * > visible at the end.
+   * > - When the content exceeds the component area, the component automatically scrolls up until the end of the 
+   * > content is visible.
    *
-   * @param { StyledString } styledString - Styled string.<br>**NOTE**<br>The child class
-   *     [MutableStyledString]{@link styled_string:MutableStyledString} of **StyledString** can also serve as the
+   * @param { StyledString } styledString - Styled string.
+   *     <br>**NOTE**
+   *     <br>The child class [MutableStyledString]{@link MutableStyledString} of **StyledString** can also serve as the
    *     argument.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3066,8 +3301,8 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
    * Obtains the styled string displayed in the **RichEditor** component.
    *
    * @returns { MutableStyledString } Styled string displayed in the rich text component.
-   *     <br>If no component is bound to the controller or the component bound to the controller is released, **undefined**
-   *     is returned.
+   *     <br>If no component is bound to the controller or the component bound to the controller is released,
+   *     **undefined** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -3080,8 +3315,8 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
    * Obtains the current selection range of the **RichEditor** component.
    *
    * @returns { RichEditorRange } Selection range.
-   *     <br>If no component is bound to the controller or the component bound to the controller is released, **undefined**
-   *     is returned.
+   *     <br>If no component is bound to the controller or the component bound to the controller is released,
+   *     **undefined** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3091,9 +3326,9 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
   getSelection(): RichEditorRange;
 
   /**
-   * Registers the callback for the text content change. This callback is triggered only when the text content is 
-   * changed by backend programs, and is not triggered when 
-   * [setStyledString]{@link RichEditorStyledStringController.setStyledString} is called.
+   * Registers a callback for the text content change. This callback is triggered only when the text content is changed 
+   * by backend programs, and is not triggered when 
+   * [setStyledString]{@link RichEditorStyledStringController#setStyledString} is called.
    *
    * @param { StyledStringChangedListener } listener - Callback listener for text content changes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3106,11 +3341,11 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
 }
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * In addition to the [universal attributes]{@link ./common}, the following attributes are supported.
  * 
- * In addition to the [universal events]{@link common}, [OnDidChangeCallback]{@link text_common:OnDidChangeCallback}, 
- * [StyledStringChangedListener]{@link text_common:StyledStringChangedListener}, 
- * [StyledStringChangeValue]{@link text_common:StyledStringChangeValue}, and the following events are supported.
+ * In addition to the [universal events]{@link ./common}, [OnDidChangeCallback]{@link OnDidChangeCallback}, 
+ * [StyledStringChangedListener]{@link StyledStringChangedListener}, 
+ * [StyledStringChangeValue]{@link StyledStringChangeValue}, and the following events are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3121,11 +3356,12 @@ declare class RichEditorStyledStringController extends RichEditorBaseController 
  */
 declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
-   * Triggered after the **RichEditor** component is initialized.
+   * Triggered after the rich text component is initialized. After initialization, the component can respond to input 
+   * and interaction normally.
    *
-   * @param { function } callback - Triggered when initialization of the **RichEditor** component is
+   * @param { function } callback - Callback invoked when the initialization of the **RichEditor** component is
    *     complete. [since 10 - 11]
-   * @param { Callback<void> } callback - Triggered when initialization of the **RichEditor** component is
+   * @param { Callback<void> } callback - Callback invoked when the initialization of the **RichEditor** component is
    *     complete. [since 12]
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3137,24 +3373,23 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   onReady(callback: Callback<void>): RichEditorAttribute;
 
   /**
-   * Invoked when content is selected.
+   * Triggered when content is selected via left mouse button double-click and triggered again upon left mouse button 
+   * release.
    * 
-   * If a mouse device is used for selection, this callback is invoked when the left mouse button is double-clicked to 
-   * select content and invoked again when the button is released.
+   * Triggered when content is selected via long press, and triggered again upon finger release.
    * 
-   * If a finger is used for selection, this callback is invoked by a long press and invoked again when the finger is 
-   * released.
+   * The **onSelect** callback is not invoked during continuous selection adjustment with mouse or touch gestures, or 
+   * during triple-click paragraph selection.
    * 
-   * If the selected area is continuously modified by using a finger or mouse or if the selected area is triple-clicked,
-   * the onSelect callback is not invoked.
-   * 
-   * If the selection area needs to be detected in real time or the RichEditor component constructed using 
-   * [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions} is used, use the onSelectionChange API.
+   * If the selection area needs to be detected in real time or the **RichEditor** component is built with 
+   * [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions}, use the **onSelectionChange** API.
    *
    * @param { function } callback - [RichEditorSelection]{@link RichEditorSelection} indicates information about all the
-   *     selected spans.<br>Callback invoked when content is selected. [since 10 - 11]
+   *     selected spans.
+   *     <br>Callback invoked when content is selected. [since 10 - 11]
    * @param { Callback<RichEditorSelection> } callback - [RichEditorSelection]{@link RichEditorSelection} indicates
-   *     information about all the selected spans.<br>Callback invoked when content is selected. [since 12]
+   *     information about all the selected spans.
+   *     <br>Callback invoked when content is selected. [since 12]
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3169,8 +3404,9 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * the start and end positions of the selection area are the same.
    *
    * @param { Callback<RichEditorRange> } callback - [RichEditorRange]{@link RichEditorRange} indicates the start and
-   *     end positions of the content selection area.<br>Callback invoked when the content selection area changes or the
-   *     caret position changes in the editing state.
+   *     end positions of the content selection area.
+   *     <br>Callback invoked when the content selection area changes or the caret position changes in the editing
+   *     state.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3183,17 +3419,22 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Triggered when content is about to be entered in the input method.
    * 
-   * This callback is not supported when the **RichEditor** component constructed with 
+   * It can be used in scenarios where input content needs to be intercepted, such as filtering sensitive words, 
+   * restricting the input format, and validating the input in real time.
+   * 
+   * This callback is not supported when the **RichEditor** component built with 
    * [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions} is used.
    *
-   * @param { function } callback - [RichEditorInsertValue]{@link RichEditorInsertValue} indicates whether content will
-   *     be entered in the input method.<br>**true**: The component adds the content.<br>**false**: The component does
-   *     not add the content.<br>Callback invoked when content is about to be entered in the input
-   *     method. [since 10 - 11]
+   * @param { function } callback - [RichEditorInsertValue]{@link RichEditorInsertValue} is the content information to
+   *     be input by the input method.
+   *     <br>The value true means that the component performs the content addition operation, and false means that the
+   *     component does not perform the content addition operation.
+   *     <br>Callback invoked before the input method inputs content. [since 10 - 11]
    * @param { Callback<RichEditorInsertValue, boolean> } callback - [RichEditorInsertValue]{@link RichEditorInsertValue}
-   *     indicates whether content will be entered in the input method.<br>**true**: The component adds the content.<br>
-   *     **false**: The component does not add the content.<br>Callback invoked when content is about to be entered in
-   *     the input method. [since 12]
+   *     is the content information to be input by the input method.
+   *     <br>The value true means that the component performs the content addition operation, and false means that the
+   *     component does not perform the content addition operation.
+   *     <br>Callback invoked before the input method inputs content. [since 12]
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3204,21 +3445,21 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   aboutToIMEInput(callback: Callback<RichEditorInsertValue, boolean>): RichEditorAttribute;
 
   /**
-   * Triggered when text input in the input method is complete.
+   * Triggered when text input is completed via the input method editor.
    * 
-   * This callback can return information about only one text span. If the editing operation involves returning 
-   * information about multiple text spans, you are advised to use the 
-   * [onDidIMEInput]{@link RichEditorAttribute.onDidIMEInput} API.
+   * This API can return information about only one text span. You are advised to use the 
+   * [onDidIMEInput]{@link RichEditorAttribute#onDidIMEInput} API if the edit operation involves returning information 
+   * about multiple text spans.
    * 
-   * This callback is not supported when the **RichEditor** component constructed with 
+   * This callback is not supported when the **RichEditor** component built with 
    * [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions} is used.
    *
    * @param { function } callback - [RichEditorTextSpanResult]{@link RichEditorTextSpanResult} indicates the text span
-   *     information after text input is complete.<br>Callback invoked when text input in the input method is
-   *     complete. [since 10 - 11]
+   *     information after text input is complete.
+   *     <br>Callback invoked after IME input is completed. [since 10 - 11]
    * @param { Callback<RichEditorTextSpanResult> } callback - [RichEditorTextSpanResult]{@link RichEditorTextSpanResult}
-   *     indicates the text span information after text input is complete.<br>Callback invoked when text input in the
-   *     input method is complete. [since 12]
+   *     indicates the text span information after text input is complete.
+   *     <br>Callback invoked after IME input is completed. [since 12]
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3229,19 +3470,17 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   onIMEInputComplete(callback: Callback<RichEditorTextSpanResult>): RichEditorAttribute;
 
   /**
-   * Triggered when text input in the input method is complete.
+   * Triggered when text input is completed via the input method editor.
    * 
-   * This callback is not supported when the **RichEditor** component constructed with 
+   * This callback is not supported when the **RichEditor** component built with 
    * [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions} is used.
    * 
    * > **NOTE**
    * >
-   * > This API can be called in 
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
-   * > since API version 20.
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
    *
-   * @param { Callback<TextRange> } callback - **TextRange** indicates the text range for the current input.<br>Callback
-   *     invoked when text input in the input method is complete.
+   * @param { Callback<TextRange> } callback - **TextRange** indicates the text range for the current input.
+   *     <br>Callback invoked when IME input is completed.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3252,19 +3491,30 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   onDidIMEInput(callback: Callback<TextRange>): RichEditorAttribute;
 
   /**
-   * Triggered when content is about to be deleted in the input method.
+   * Triggered when content is about to be deleted via the IME.
    * 
-   * This callback is not supported when the **RichEditor** component constructed with 
+   * It is suitable for scenarios where deletion operations need to be intercepted, such as preventing the deletion of 
+   * key content and saving the history before deletion to support undo. Together with 
+   * [onDeleteComplete]{@link RichEditorAttribute#onDeleteComplete}, it forms a will/did timing pattern: 
+   * **aboutToDelete** is triggered before deletion, and **onDeleteComplete** is triggered after deletion is complete. 
+   * When **aboutToDelete** returns **false**, the component does not perform the deletion operation, and 
+   * **onDeleteComplete** is not triggered. The two can be used at the same time.
+   * 
+   * This callback is not supported when the **RichEditor** component built with 
    * [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions} is used.
    *
-   * @param { function } callback - [RichEditorDeleteValue]{@link RichEditorDeleteValue} indicates the text or image
-   *     span where the content to be deleted is located.<br>**true**: Content is deleted.<br>**false**: Content is not
-   *     deleted.<br>Callback invoked when content is about to be deleted in the input method. It is executed when a
-   *     candidate word is touched in preview text. [since 10 - 11]
+   * @param { function } callback - [RichEditorDeleteValue]{@link RichEditorDeleteValue} is the text or image Span
+   *     information where the content to be deleted is located.
+   *     <br>**true** indicates that the component performs the deletion operation, and **false** indicates that the
+   *     component does not perform the deletion operation.
+   *     <br>Callback before the input method deletes content. This callback is executed when the English preview text
+   *     is tapped to select a candidate word. [since 10 - 11]
    * @param { Callback<RichEditorDeleteValue, boolean> } callback - [RichEditorDeleteValue]{@link RichEditorDeleteValue}
-   *     indicates the text or image span where the content to be deleted is located.<br>**true**: Content is deleted.<
-   *     br>**false**: Content is not deleted.<br>Callback invoked when content is about to be deleted in the input
-   *     method. It is executed when a candidate word is touched in preview text. [since 12]
+   *     is the text or image Span information where the content to be deleted is located.
+   *     <br>**true** indicates that the component performs the deletion operation, and **false** indicates that the
+   *     component does not perform the deletion operation.
+   *     <br>Callback before the input method deletes content. This callback is executed when the English preview text
+   *     is tapped to select a candidate word. [since 12]
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3275,9 +3525,9 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   aboutToDelete(callback: Callback<RichEditorDeleteValue, boolean>): RichEditorAttribute;
 
   /**
-   * Triggered when content is deleted in the input method.
+   * Triggered when content is deleted via the IME.
    * 
-   * This callback is not supported when the **RichEditor** component constructed with 
+   * This callback is not supported when the **RichEditor** component built with 
    * [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions} is used.
    *
    * @param { function } callback - Triggered when deletion in the input method is completed. [since 10 - 11]
@@ -3292,25 +3542,28 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   onDeleteComplete(callback: Callback<void>): RichEditorAttribute;
 
   /**
-   * Specifies whether copy and paste is allowed for text content.
+   * Sets whether the component supports copying and pasting text content.
    * 
    * Since API version 20, copied or cut text from the **RichEditor** component includes HTML-formatted content in the 
    * pasteboard.
    * 
-   * - Only TextSpan and ImageSpan can add HTML content to the pasteboard. Other span types (such as BuilderSpan, 
-   * SymbolSpan, and CustomSpan) cannot add HTML content to the pasteboard.
-   * - For styled strings, refer to [toHtml]{@link styled_string:StyledString.toHtml} for supported HTML conversion 
-   * scope.
+   * - Only [TextSpan]{@link RichEditorTextSpanOptions} and [ImageSpan]{@link RichEditorImageSpanOptions} support adding
+   * HTML content to the pasteboard. Other span types, such as [BuilderSpan]{@link RichEditorBuilderSpanOptions}, 
+   * [SymbolSpan]{@link RichEditorSymbolSpanOptions}, and [CustomSpan]{@link CustomSpan}, cannot add HTML content.
+   * - For styled strings, refer to [toHtml]{@link StyledString#toHtml} for supported HTML conversion scope.
    * 
-   * If copyOptions is not set to CopyOptions.None, a text selection menu will be displayed when you long-press the 
-   * component content. If a custom context menu is defined through **bindSelectionMenu** or other approaches, it will 
-   * be displayed.
+   * When **copyOptions** is not set to **CopyOptions.None**, long-pressing the component content brings up the text 
+   * selection menu. If a custom text selection menu is defined through 
+   * [bindSelectionMenu]{@link RichEditorAttribute#bindSelectionMenu} or other means, the custom menu is displayed 
+   * instead.
    * 
-   * If copyOptions is set to CopyOptions.None, the copy, cut, translate, share, search, and write-aid functions are 
-   * disabled, and drag-and-drop operations are not supported.
+   * When **copyOptions** is set to **CopyOptions.None**, the copy, cut, translate, share, search, and Celia Writer 
+   * features are disabled, and drag-and-drop operations are not supported. In addition, the entity recognition menu of 
+   * [enableDataDetector]{@link RichEditorAttribute#enableDataDetector} and the AI menu of 
+   * [enableSelectedDataDetector]{@link RichEditorAttribute#enableSelectedDataDetector} are restricted.
    *
-   * @param { CopyOptions } value - Whether copy and paste is allowed for text content.<br>Default value:
-   *     **CopyOptions.LocalDevice**
+   * @param { CopyOptions } value - Whether the text content supports copy and paste.
+   *     <br>Default value: CopyOptions.LocalDevice
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3321,14 +3574,19 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   copyOptions(value: CopyOptions): RichEditorAttribute;
 
   /**
-   * Sets the custom context menu on text selection. If the custom menu is too long, embed a [Scroll]{@link scroll} 
-   * component to prevent the keyboard from being blocked.
+   * Sets a custom selection menu. It supports custom menu styles and trigger conditions, and is suitable for scenarios 
+   * that require deep menu customization. When the custom menu is too long, it is recommended to nest a 
+   * [Scroll]{@link ./scroll} component inside to prevent the keyboard from being obscured.
    *
-   * @param { RichEditorSpanType } spanType - Menu type.<br>Default value:<br>RichEditorSpanType.TEXT
+   * @param { RichEditorSpanType } spanType - Type of the menu.
+   *     <br>Default value: RichEditorSpanType.TEXT
    * @param { CustomBuilder } content - Menu content.
-   * @param { ResponseType | RichEditorResponseType } responseType - Response type of the menu.<br> Default value:<br>
-   *     ResponseType.LongPress [since 11]
-   * @param { SelectionMenuOptions } [options] - Menu options.
+   * @param { ResponseType | RichEditorResponseType } responseType - Response type of the menu.
+   *     <br> Default value:
+   *     <br>ResponseType.LongPress [since 11]
+   * @param { SelectionMenuOptions } [options] - Options of the menu.
+   *     <br>Pass this parameter when you need to customize the menu pop-up/close callback, specify the menu type, and
+   *     other information. If this parameter is not passed, the default selection menu options are used.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3345,27 +3603,31 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * When a custom keyboard is set, activating the text box opens the specified custom component, instead of the system 
    * input method.
    * 
-   * The custom keyboard's height can be set through the **height** attribute of the custom component's root node, and 
-   * its width is fixed at the default value.
+   * The height of the custom keyboard can be set through the **height** attribute of the root node of the custom 
+   * component. The width cannot be set, and the default system keyboard width is used.
    * 
-   * The custom keyboard cannot obtain focus, but it blocks gesture events.
+   * The custom keyboard cannot obtain the focus, but it blocks gesture events.
    * 
    * By default, the custom keyboard is closed when the input component loses the focus.
    * 
+   * The custom keyboard supports the continue function. You can call the 
+   * [setCustomKeyboardContinueFeature]{@link @ohos.arkui.UIContext:UIContext.setCustomKeyboardContinueFeature} API to 
+   * set whether the custom keyboard remains persistent during input field switches.
+   * 
    * > **NOTE**
    * >
-   * > This API can be called within 
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
-   * > since API version 23.
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 23.
    *
-   * @param { CustomBuilder } value - Custom keyboard.<br>When undefined is passed, the system keyboard is used by
-   *     default. [since 10 - 22]
-   * @param { KeyboardOptions } [options] - Whether to support keyboard avoidance.<br>When undefined is passed,
-   *     avoidance is not supported by default. [since 12 - 22]
-   * @param { CustomBuilder | ComponentContent | undefined } value - Custom keyboard.<br>When undefined is passed, the
-   *     system keyboard is used by default. [since 23]
-   * @param { KeyboardOptions | undefined } [options] - Whether to support keyboard avoidance.<br>When undefined is
-   *     passed, avoidance is not supported by default. [since 23]
+   * @param { CustomBuilder } value - Custom keyboard.
+   *     <br>When **undefined** is passed, the system keyboard is used by default. [since 10 - 22]
+   * @param { KeyboardOptions } [options] - Sets whether the custom keyboard supports the avoidance feature. 
+   *     <br>When undefined is passed in or the parameter is omitted, avoidance is not supported by
+   *     default. [since 12 - 22]
+   * @param { CustomBuilder | ComponentContent | undefined } value - Custom keyboard.
+   *     <br>When **undefined** is passed, the system keyboard is used by default. [since 23]
+   * @param { KeyboardOptions | undefined } [options] - Sets whether the custom keyboard supports the avoidance feature.
+   *     
+   *     <br>When undefined is passed in or the parameter is omitted, avoidance is not supported by default. [since 23]
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3377,11 +3639,12 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
                  options?: KeyboardOptions | undefined): RichEditorAttribute;
 
   /**
-   * Triggered when a paste operation is performed. You can use this API to override the default system behavior so that
-   * both images and text can be pasted.
+   * Triggered before pasting is complete.
+   * 
+   * Developers can use this method to override the default system behavior and implement pasting of images and text.
    *
-   * @param { function } callback - Callback used to subscribe to the pasted text content. [since 11 - 11]
-   * @param { PasteEventCallback } callback - Callback used to subscribe to the pasted text content. [since 12]
+   * @param { function } callback - Callback used to subscribe to the pasted content. [since 11 - 11]
+   * @param { PasteEventCallback } callback - Callback used to subscribe to the pasted content. [since 12]
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3392,26 +3655,32 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   onPaste(callback: PasteEventCallback): RichEditorAttribute;
 
   /**
-   * Enables recognition for special entities within the text.
+   * Sets whether to recognize special entities in the text, including phone numbers, email addresses, URL links, dates,
+   * and addresses. The specific recognition types can be configured through the 
+   * [dataDetectorConfig]{@link RichEditorAttribute#dataDetectorConfig} attribute.
    * 
-   * For this API to work, the target device must provide the text recognition capability.
+   * This API depends on the device system's text entity recognition capability. Otherwise, the setting does not take 
+   * effect.
    * 
-   * If enableDataDetector is set to true and the [dataDetectorConfig]{@link RichEditorAttribute.dataDetectorConfig} 
-   * attribute is not specified, the system identifies all types of entities by default, and changes the color and 
-   * decoration of these entities to the preset style.
+   * When **enableDataDetector** is set to **true** and the 
+   * [dataDetectorConfig]{@link RichEditorAttribute#dataDetectorConfig} attribute is not specified, the system 
+   * recognizes all types of entities by default, and changes the color and decoration of these entities to the preset 
+   * style.
    * 
-   * Touching and right-clicking an entity opens a context menu with actions based on entity type, while left-clicking 
+   * Touching or right-clicking an entity opens a context menu with actions based on entity type, while left-clicking 
    * triggers the first menu option directly.
    * 
-   * This API does not work for the node text of **addBuilderSpan**.
+   * This feature does not take effect on the node text of [addBuilderSpan]{@link RichEditorController#addBuilderSpan}.
    * 
    * When **copyOptions** is set to **CopyOptions.None**, the menu displayed after an entity is clicked does not provide
    * the text selection or copy functionality.
    * 
    * <!--RP1--><!--RP1End-->
    *
-   * @param { boolean } enable - Whether to enable text recognition.<br>**true** to enable, **false** otherwise.<br>
-   *     Default value: **false**.
+   * @param { boolean } enable - Whether to enable text recognition.
+   *     <br>true indicates that special entity recognition is enabled, and false indicates that special entity
+   *     recognition is disabled.
+   *     <br>Default value: false
    * @returns { RichEditorAttribute } The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3424,14 +3693,16 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Sets whether to enable preview text.
    * 
+   * After this feature is enabled, the pinyin and stroke characters entered during input method input are displayed in 
+   * the component.
+   * 
    * > **NOTE**
    * >
-   * > This API can be called within 
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
-   * > since API version 18.
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 18.
    *
-   * @param { boolean } enable - Whether to enable preview text.<br>**true** to enable, **false** otherwise.<br>Default
-   *     value: **true**
+   * @param { boolean } enable - Whether to enable the preview feature.
+   *     <br>The value true means to enable it, and false means to disable it.
+   *     <br>Default value: true
    * @returns { RichEditorAttribute } The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3442,10 +3713,10 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   enablePreviewText(enable: boolean): RichEditorAttribute;
 
   /**
-   * Configures special entity recognition settings, including entity types to detect, display styles for detected 
-   * entities, and long-press preview options.
+   * Configures text special entity recognition settings, including detectable entity types, entity display styles, and 
+   * long-press preview availability.
    * 
-   * This API must be used together with [enableDataDetector]{@link RichEditorAttribute.enableDataDetector}. It takes 
+   * This API must be used together with [enableDataDetector]{@link RichEditorAttribute#enableDataDetector}. It takes 
    * effect only when **enableDataDetector** is set to **true**.
    * 
    * When entities A and B overlap, the following rules are followed:
@@ -3464,28 +3735,28 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   dataDetectorConfig(config: TextDataDetectorConfig): RichEditorAttribute;
 
   /**
-   * Sets whether to enable the AI menu function for text selection. After this function is enabled, the email address, 
-   * phone number, website address, date, and address in the selection area can be identified, and the corresponding AI 
-   * menu items can be displayed in the text selection menu. By default, the AI menu feature is enabled.
+   * Sets whether to enable the AI menu feature for text selection. After this feature is enabled, the entities such as 
+   * email address, phone number, website URL, date, and address in the selection area can be recognized, and the 
+   * corresponding AI menu items can be displayed in the text selection menu. By default, the AI menu feature is 
+   * enabled.
    * 
-   * When the AI menu function is enabled, after a text is selected in the component, the corresponding AI menu item is 
-   * displayed in the text selection menu, including the URL (opening a connection) and email (creating an email) in 
-   * [TextMenuItemId]{@link text_common:TextMenuItemId}., phoneNumber (call), address (navigation), and dateTime (new 
-   * event).
+   * When the AI menu feature is enabled, after text is selected in the component, the text selection menu can display 
+   * the corresponding AI menu items, including url (open link), email (create email), phoneNumber (call), address (
+   * navigate to), and dateTime (create schedule) in [TextMenuItemId]{@link TextMenuItemId}.
    * 
-   * When the AI menu takes effect, the corresponding options can be displayed only when the selected scope contains 
-   * only one complete AI entity. This menu item does not appear at the same time as the askAI menu item in 
-   * [TextMenuItemId]{@link text_common:TextMenuItemId}.
+   * When the AI menu is active, the corresponding menu item is displayed only if the selected range contains exactly 
+   * one complete AI entity. This menu item does not appear at the same time as the **askAI** menu item in 
+   * [TextMenuItemId]{@link TextMenuItemId}.
    * 
-   * This function takes effect only when [copyOptions]{@link RichEditorAttribute.copyOptions} is set to 
-   * CopyOptions.LocalDevice or CopyOptions.CROSS_DEVICE.
+   * This feature takes effect only when [copyOptions]{@link RichEditorAttribute#copyOptions} is set to 
+   * **CopyOptions.LocalDevice** or **CopyOptions.CROSS_DEVICE**.
    * 
-   * This API depends on the text recognition capability at the bottom layer of the device. Otherwise, the setting does 
-   * not take effect.
+   * This API depends on the text recognition capability of the device; otherwise, the setting does not take effect.
    *
-   * @param { boolean | undefined } enable - Whether to enable text recognition. The value **true** means to enable text
-   *     recognition, and **false** means the opposite.<br>If **undefined** or **null** is passed, the attribute is
-   *     reset to the default value.
+   * @param { boolean | undefined } enable - Whether to enable the text selection AI menu function. The value **true**
+   *     indicates enabled, and **false** indicates disabled.
+   *     <br>Default value: **true**.
+   *     <br>When set to **undefined** or **null**, the default value is used.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3495,16 +3766,19 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   enableSelectedDataDetector(enable: boolean | undefined): RichEditorAttribute;
 
   /**
-   * Sets the placeholder text, which is displayed when there is no input.
+   * Sets the prompt text displayed when there is no input.
+   * 
+   * After this attribute is set, the prompt text is displayed when the component has no content, and it automatically 
+   * disappears after the user starts entering content.
    * 
    * > **NOTE**
    * >
-   * > This API can be called within 
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
-   * > since API version 18.
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 18.
    *
    * @param { ResourceStr } value - Placeholder text.
-   * @param { PlaceholderStyle } [style] - Style of the placeholder text.<br>By default, the style follows the theme.
+   * @param { PlaceholderStyle } [style] - Font style of the prompt text.
+   *     <br>Pass this parameter when you need to customize the color, font size, and other styles of the placeholder;
+   *     if omitted, the theme style is used by default.
    * @returns { RichEditorAttribute } The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3517,8 +3791,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Sets the color of the caret and selection handle in the text box.
    *
-   * @param { ResourceColor } value - Color of the caret and selection handle in the text box.<br>Default value:
-   *     **'#007DFF'**
+   * @param { ResourceColor } value - Color of the caret and selection handle in the text box.
+   *     <br>Default value: **'#007DFF'**
    * @returns { RichEditorAttribute } The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3529,9 +3803,10 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   caretColor(value: ResourceColor): RichEditorAttribute;
 
   /**
-   * Sets the background color of the selected text. If the opacity is not set, a 20% opacity will be used.
+   * Sets the highlight color of the selected text. If the opacity is not set or is set to fully opaque, a 20% opacity 
+   * is used by default.
    *
-   * @param { ResourceColor } value - Background color of the selected text.<br>By default, a 20% opacity is applied.
+   * @param { ResourceColor } value - Highlight color of the selected text.<br/>The default value is 20% opacity.
    * @returns { RichEditorAttribute } The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3544,8 +3819,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Triggered when the content editing state in the component changes.
    *
-   * @param { Callback<boolean> } callback - Callback invoked when the editing state of all content in the component
-   *     changes. The value **true** indicates the editing state, and **false** indicates the non-editing state.
+   * @param { Callback<boolean> } callback - Callback invoked when the editing state changes.
+   *     <br>true indicates the editing state, and false indicates the non-editing state.
    * @returns { RichEditorAttribute } returns The attribute of the rich editor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3557,8 +3832,13 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
 
   /**
    * Sets the Enter key type of the soft keyboard.
+   * 
+   * After this attribute is set, the icon and trigger behavior of the Enter key on the soft keyboard change according 
+   * to the specified type, and different EnterKeyType values correspond to different Enter key styles.
    *
-   * @param { EnterKeyType } value - Type of the Enter key.<br>Default value: **EnterKeyType.NEW_LINE**
+   * @param { EnterKeyType } value - Type of the Enter key on the soft keyboard.
+   *     <br>The default value is EnterKeyType.NEW_LINE.
+   *     <br>For the applicable scenarios of each enum value, see the EnterKeyType enum description.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3571,7 +3851,8 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Triggered when the Enter key on the soft keyboard is pressed.
    *
-   * @param { SubmitCallback } callback - Callback used to return the subscription event.
+   * @param { SubmitCallback } callback - Callback invoked when the Enter key on the soft keyboard is pressed, used to
+   *     receive the Enter key type and submit event information.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3582,16 +3863,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   onSubmit(callback: SubmitCallback): RichEditorAttribute;
 
   /**
-   * Invoked when any addition or deletion operation is about to be performed in the component.
+   * Triggers the callback before the component performs an add or delete operation. Together with 
+   * [onDidChange]{@link RichEditorAttribute#onDidChange}, it forms a will/did timing pattern: onWillChange is triggered
+   * before the add or delete operation, and onDidChange is triggered after the add or delete operation. When 
+   * onWillChange returns false, the component does not perform the add or delete operation, and onDidChange is not 
+   * triggered. The two can be used at the same time.
    * 
-   * This callback is not supported when the **RichEditor** component constructed with 
+   * This callback is not supported when the **RichEditor** component built with 
    * [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions} is used.
    * 
    * > **NOTE**
    * >
-   * > This API can be called within 
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
-   * > since API version 18.
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 18.
    *
    * @param { Callback<RichEditorChangeValue, boolean> } callback - The triggered function before text content is about
    *     to change.
@@ -3605,17 +3888,15 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   onWillChange(callback: Callback<RichEditorChangeValue, boolean>) : RichEditorAttribute;
 
   /**
-   * Triggered after an addition or deletion operation is performed in the component. This callback is not executed if 
+   * Triggered after an addition or deletion operation is performed on the component. This callback is not executed if 
    * there is no actual addition or deletion of text.
    * 
-   * This callback is not supported when the **RichEditor** component constructed with 
+   * This callback is not supported when the **RichEditor** component built with 
    * [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions} is used.
    * 
    * > **NOTE**
    * >
-   * > This API can be called within 
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
-   * > since API version 18.
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 18.
    *
    * @param { OnDidChangeCallback } callback - The triggered function after content changed.
    * @returns { RichEditorAttribute }
@@ -3628,10 +3909,10 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   onDidChange(callback: OnDidChangeCallback) : RichEditorAttribute;
 
   /**
-   * Triggered during cutting. You can use this method to override the system's default behavior and implement the 
+   * Triggered on cut operations. You can use this method to override the system's default behavior and implement the 
    * cutting of text and images.
    * 
-   * The **RichEditor** component constructed using [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions}
+   * The **RichEditor** component built with [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions} 
    * supports text and image cutting by default.
    *
    * @param { Callback<CutEvent> } callback - Defines a custom cut event.
@@ -3645,11 +3926,11 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   onCut(callback: Callback<CutEvent>): RichEditorAttribute;
 
   /**
-   * Triggered during copy. You can use this method to override the system's default behavior and implement the copying 
-   * of text and images.
+   * Triggered on copy operations. You can use this method to override the system's default behavior and implement the 
+   * copying of text and images.
    * 
-   * The **RichEditor** component constructed using [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions}
-   * supports copying of text and images by default.
+   * The **RichEditor** component built with [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions} 
+   * supports text and image copying by default.
    *
    * @param { Callback<CopyEvent> } callback - User copy event.
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
@@ -3662,14 +3943,25 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   onCopy(callback: Callback<CopyEvent>): RichEditorAttribute;
 
   /**
-   * Triggers a callback before a component is bound to an input method.
+   * Triggered before the component is bound to the IME.
    * 
-   * Call the [setExtraConfig]{@link text_common:IMEClient.setExtraConfig} method of 
-   * [IMEClient]{@link text_common:IMEClient} to set input method extension information. After the input method is bound
-   * , it receives this extension information, which can be used to implement custom functionality.
+   * Applies to scenarios that require customizing the input method behavior, such as setting input method extension 
+   * configurations to implement specific input modes and custom input method functions.
+   * 
+   * Call the [setExtraConfig]{@link IMEClient.setExtraConfig} method of [IMEClient]{@link IMEClient} to set input 
+   * method extension information. After the input method is bound, it receives this extension information which can be 
+   * used to implement custom functionality.
+   * 
+   * <!--Del-->
+   * 
+   * Since API version 26.0.0, before the input box is about to bind the input method, you can set the keyboard style 
+   * through the system API 
+   * [setKeyboardAppearanceConfig]{@link @ohos.arkui.UIContext:UIContext#setKeyboardAppearanceConfig} of `UIContext`. <!
+   * --DelEnd-->
    *
-   * @param { Callback<IMEClient> | undefined } callback - Callback triggered before the component is bound to an input
-   *     method.<br>If the value is undefined, the bound callback event is cleared.
+   * @param { Callback<IMEClient> | undefined } callback - Callback invoked before the component is bound to the input
+   *     method.
+   *     <br>When the value is undefined, the bound callback event is cleared.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3680,23 +3972,23 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   onWillAttachIME(callback: Callback<IMEClient> | undefined): RichEditorAttribute;
 
   /**
-   * Sets the extended options of the default system menu, including the text content, icon, and callback.
+   * Sets the extended options for the default system menu, including text content, icons, and callback methods.
    * 
-   * When 
-   * [disableMenuItems](docroot://reference/apis-arkui/arkts-apis-uicontext-textmenucontroller.md#disablemenuitems20) or
+   * Difference from [bindSelectionMenu]{@link RichEditorAttribute#bindSelectionMenu}: editMenuOptions adds extension 
+   * items on top of the system default menu style, with the trigger conditions unchanged, and is suitable for scenarios
+   * where only menu item extension is needed; bindSelectionMenu fully customizes the menu style and trigger conditions,
+   * and is suitable for scenarios where deep menu customization is needed.
    * 
-   * [disableSystemServiceMenuItems](docroot://reference/apis-arkui/arkts-apis-uicontext-textmenucontroller.md#disablesystemservicemenuitems20)
-   * is used to disable system service menu items in the context menu on selection, the disabled menu options will be 
-   * excluded from the parameter list in the [onCreateMenu]{@link text_common:EditMenuOptions.onCreateMenu} callback of 
-   * **editMenuOptions**.
+   * When [disableMenuItems]{@link @ohos.arkui.UIContext:TextMenuController.disableMenuItems} or 
+   * [disableSystemServiceMenuItems]{@link @ohos.arkui.UIContext:TextMenuController.disableSystemServiceMenuItems} is 
+   * used to disable system service menu items in the text selection menu, the disabled menu options will be excluded 
+   * from the parameter list in the [onCreateMenu]{@link EditMenuOptions.onCreateMenu} callback of **editMenuOptions**.
    * 
    * > **NOTE**
    * >
-   * > This API can be called within 
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
-   * > since API version 18.
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 18.
    *
-   * @param { EditMenuOptions } editMenu - Extended options of the custom context menu on selection.
+   * @param { EditMenuOptions } editMenu - Extended options of the custom menu.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3712,12 +4004,12 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * 
    * > **NOTE**
    * >
-   * > This API can be called within 
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
-   * > since API version 18.
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 18.
    *
-   * @param { boolean } isEnabled - Whether to bring up the keyboard when a component obtains focus in a way other than
-   *     clicking.<br>**true**: yes; **false**: no<br>Default value: **true**
+   * @param { boolean } isEnabled - Whether to pop up the soft keyboard when the **TextInput** component obtains focus
+   *     in a way other than clicking.
+   *     <br>**true**: yes; **false**: no
+   *     <br>Default value: **true**
    * @returns { RichEditorAttribute } Returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3732,13 +4024,15 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
    * 
    * > **NOTE**
    * >
-   * > This API can be called in 
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
-   * > since API version 20.
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
    *
-   * @param { boolean } isEnabled - Whether to enable haptic feedback.<br>Default value: **true**. **true** to enable;
-   *     **false** otherwise.<br>**NOTE**<br>Haptic feedback takes effect only when the application has the
-   *     ohos.permission.VIBRATE permission, the user has enabled haptic feedback, and the system hardware supports it.
+   * @param { boolean } isEnabled - Whether to enable haptic feedback.
+   *     <br>Default value: true. The value true means to enable haptic feedback, and false means to disable it.
+   *     <br>**Note:**
+   *     <br>Haptic feedback takes effect only when the application has the ohos.permission.VIBRATE permission, the user
+   *     has enabled haptic feedback, and the system hardware supports it.
+   *     <br>Different device types vary in their support for vibration hardware. Haptic feedback is unavailable on
+   *     device types without vibration hardware.
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3749,15 +4043,14 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   enableHapticFeedback(isEnabled: boolean): RichEditorAttribute;
 
   /**
-   * Sets the display mode of the **RichEditor** scrollbar.
+   * Display mode of the RichEditor scroll bar.
    * 
    * > **NOTE**
    * >
-   * > This API can be called within 
-   * > [attributeModifier](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-attribute-modifier.md#attributemodifier)
-   * > since API version 18.
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 18.
    *
-   * @param { BarState } state - Scrollbar display mode.<br>Default value: **BarState.Auto**
+   * @param { BarState } state - Display mode of the RichEditor scroll bar.
+   *     <br>Default value: BarState.Auto
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3768,13 +4061,16 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   barState(state: BarState): RichEditorAttribute;
 
   /**
-   * Sets the maximum length of the component content. When the total length of the content (including text, images, 
-   * symbols, and builders) reaches this value, no more content can be added.
+   * Sets the maximum length of the component content.
    *
-   * @param { Optional<number> } maxLength - Maximum number of characters for text input.<br>Default value: **Infinity**
-   *     , which means unlimited input. The **undefined** type is supported.<br>**NOTE**<br>If this attribute is not set
-   *     or is set to an invalid value, the default value is used. If a decimal number is specified, the integer part is
-   *     used.
+   * @param { Optional<number> } maxLength - Maximum input length of the content. When the total length of the content (
+   *     including text, images, symbols, and builders) reaches this value, no more content can be added.
+   *     <br>Default value: Infinity, which means unlimited input.
+   *     <br>**NOTE**
+   *     <br>Value range:
+   *     [0, +∞). If this attribute is not set or is set to undefined or a negative number,
+   *     the default value Infinity is used. If it is set to 0, no content can be entered.
+   *     If it is set to a decimal, the integer part is used.
    * @returns { RichEditorAttribute }  returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3785,14 +4081,15 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   maxLength(maxLength: Optional<number>): RichEditorAttribute;
 
   /**
-   * Sets the maximum number of lines that the rich text can display. When **maxLines** is set, content that exceeds the
-   * specified number of lines can be scrolled to display. If both the component height and **maxLines** are set, the 
-   * component height takes precedence.
+   * Sets the maximum number of lines that the component can display.
    *
-   * @param { Optional<number> } maxLines - Maximum number of lines that the rich text can display. When **maxLines** is
-   *     set, content that exceeds the specified number of lines can be scrolled to display. If both the component
-   *     height and **maxLines** are set, the component height takes precedence.<br>Default value: **UINT32_MAX**, which
-   *     means unlimited input. The **undefined** type is supported.<br>Value range: (0, UINT32_MAX]
+   * @param { Optional<number> } maxLines - Sets the maximum number of lines that the rich text can display. maxLines is
+   *     the number of displayable lines. When maxLines is set, the content beyond the limit can be scrolled for
+   *     display. If both the component height and the maximum number of lines are set, the component height takes
+   *     effect first.
+   *     <br>Value range: (0, UINT32_MAX].
+   *     <br>Default value: UINT32_MAX, which means unlimited input.
+   *     <br>When set to 0, a negative number, undefined, or null, the default value is used.
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3803,10 +4100,14 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   maxLines(maxLines: Optional<number>): RichEditorAttribute;
 
   /**
-   * Sets whether to enable automatic spacing between Chinese and Western characters.
+   * Whether to enable automatic spacing between Chinese and Western characters. This is applicable to scenarios such as
+   * mixed Chinese and English content (for example, news articles and technical documents) that require an improved 
+   * reading experience between Chinese and Western characters. When enabled, spacing is automatically inserted between 
+   * Chinese and Western characters; when disabled, no spacing is inserted.
    *
-   * @param { Optional<boolean> } enable - Whether to enable automatic spacing between Chinese and Western characters.<
-   *     br>**true** to enable, **false** otherwise.<br>Default value: **false**.
+   * @param { Optional<boolean> } enable - Whether to enable automatic spacing between Chinese and Western text.
+   *     <br>true indicates that automatic spacing is enabled, and false indicates that it is disabled.
+   *     <br>Default value: false
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3818,9 +4119,14 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   
   /**
    * Sets the keyboard appearance.
+   * 
+   * Applicable to scenarios where the keyboard visual style needs to be adjusted based on the application theme or 
+   * immersive scenarios, such as using the DARK appearance in dark mode.
    *
-   * @param { Optional<KeyboardAppearance> } appearance - Keyboard appearance.<br>Default value:
-   *     **KeyboardAppearance.NONE_IMMERSIVE**
+   * @param { Optional<KeyboardAppearance> } appearance - Keyboard appearance.
+   *     <br>Default value: KeyboardAppearance.NONE_IMMERSIVE.
+   *     <br>For the applicable scenarios of each enum value, see the KeyboardAppearance enum description.
+   *     <br>When set to undefined or null, the default value is used.
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3830,11 +4136,13 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): RichEditorAttribute;
 
   /**
-   * Sets whether to prevent the back button press from being propagated to other components or applications.
+   * Sets whether to prevent the back key from being passed through. This is applicable to scenarios such as preventing 
+   * the back action to avoid data loss when edited content is not saved, and preventing users from accidentally exiting
+   * editing in dialog box editing.
    *
-   * @param { Optional<boolean> } isStopped - Whether to prevent the back button press from being propagated to other
-   *     components or applications.<br>**true** to prevent, **false** otherwise.<br>Default value: **true**. If an
-   *     invalid value is provided, the default value is used.
+   * @param { Optional<boolean> } isStopped - Whether to prevent the back key event from being propagated.
+   *     <br>**true**: Propagation is prevented. **false**: Propagation is allowed.
+   *     <br>Default value: **true** Invalid values are treated as the default value.
    * @returns { RichEditorAttribute } - returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3845,14 +4153,15 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   stopBackPress(isStopped: Optional<boolean>): RichEditorAttribute;
 
   /**
-   * Sets whether to retain the original content style when undoing or redoing an action.
+   * Sets whether to retain the original content style upon undo operations.
    * 
-   * When the [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions} is used to build the RichEditor 
-   * component, the original content style is retained by default during undo and redo, and is not affected by the 
-   * attributes set by this API.
+   * When the [RichEditorStyledStringOptions]{@link RichEditorStyledStringOptions} is used to build the **RichEditor** 
+   * component, the original content style is retained by default upon undo operations, and is not affected by the 
+   * attribute set by this API.
    *
-   * @param { Optional<UndoStyle> } style - Whether to retain the original style when undoing an operation. Default
-   *     value: **UndoStyle.CLEAR_STYLE**.
+   * @param { Optional<UndoStyle> } style - Option for whether to retain the original style when undoing or restoring.
+   *     <br>Default value: UndoStyle.CLEAR_STYLE.
+   *     <br>If this parameter is set to undefined or null, the default value is used.
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3865,8 +4174,9 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   /**
    * Sets the color of the scrollbar.
    *
-   * @param { Optional<ColorMetrics> } color - Color of the scrollbar.<br>Default value: **'#66182431'**, displayed as
-   *     gray.<br>Note: If an abnormal value is set, the default value is used.
+   * @param { Optional<ColorMetrics> } color - Color of the scrollbar.
+   *     <br>Default value: **'#66182431'**, displayed as gray.
+   *     <br>Note: Invalid values are treated as the default value.
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3877,18 +4187,17 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   scrollBarColor(color: Optional<ColorMetrics>): RichEditorAttribute;
 
   /**
-   * Sets whether to enable the single-line mode. If this interface is not used, the single-line mode is disabled by 
-   * default.
+   * Sets whether to enable single-line mode. The single-line mode is disabled by default when this API is not 
+   * specified.
    * 
    * > **NOTE**
    * >
-   * > The scroll bar is not displayed in single-line mode.
-   * >
-   * > In single-line mode, the newline character is displayed as a space.
+   * > In single-line mode, line breaks are displayed as spaces.
    *
-   * @param { boolean | undefined } isEnable - Whether to enable the single-line mode.<br>The value true indicates that
-   *     the single-line mode is enabled, and the value false indicates that the single-line mode is disabled.<br>If
-   *     this attribute is set to undefined or null, the value false is used and the single-line mode is not enabled.
+   * @param { boolean | undefined } isEnable - Whether to enable single-line mode.
+   *     <br>The value true means to enable single-line mode, and false means the opposite.
+   *     <br>If this parameter is set to undefined or null, it is processed as false, and single-line mode is not
+   *     enabled.
    * @returns { RichEditorAttribute } - returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3899,10 +4208,11 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   singleLine(isEnable: boolean | undefined): RichEditorAttribute;
 
   /**
-   * Sets the drag and view style.
+   * Sets the drag preview style. This is applicable to scenarios where the appearance of dragged content needs to be 
+   * customized, such as a drag preview effect that matches the application theme style.
    *
-   * @param { SelectedDragPreviewStyle | undefined } value - Drag and preview style. If this attribute is set to
-   *     undefined, the style will be reset.
+   * @param { SelectedDragPreviewStyle | undefined } value - Drag preview style. If it is set to **undefined**, the
+   *     style will be reset.
    * @returns { RichEditorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3913,12 +4223,15 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): RichEditorAttribute;
 
   /**
-   * Sets whether to add a spacing between the first and last lines to avoid text truncation. If this interface is not 
-   * used, the spacing is not increased by default.
+   * Whether to add spacing to the first and last lines to avoid text truncation. This is applicable to scenarios such 
+   * as text being clipped due to a small custom font line height and compact typesetting. If this API is not used, no 
+   * spacing is added by default.
    *
-   * @param { Optional<boolean> } include - Whether to add a spacing between the first and last lines to avoid text
-   *     truncation.<br>The value true indicates that the space between the first line and the last line is added. The
-   *     value false indicates that the space between the first line and the last line is not added.
+   * @param { Optional<boolean> } include - Whether to add spacing to the first and last lines to avoid text truncation.
+   *     <br>The value true means to add spacing to the first and last lines, and false means not to add spacing to the
+   *     first and last lines.
+   *     <br>Default value: false
+   *     <br>If this parameter is set to undefined or null, the default value is used.
    * @returns { RichEditorAttribute } - returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3929,17 +4242,21 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   includeFontPadding(include: Optional<boolean>): RichEditorAttribute;
 
   /**
-   * For multi-line text overlay, the line height can be automatically adjusted based on the actual text height. This 
-   * API is not used to set the line height. By default, the line height is not automatically adjusted based on the 
-   * actual text height.
+   * Whether the line height is adaptively based on the actual text height in multi-line text overlay scenarios.
    * 
-   * This API depends on the lineHeight attribute of [RichEditorTextStyle]{@link RichEditorTextStyleResult}. When the 
-   * value of lineHeight is less than the actual height of the text rendered under the current font size, the 
-   * fallbackLineSpacing property takes effect.
+   * This is applicable to scenarios such as mixed text with different font sizes and chat message bubbles that need to 
+   * avoid text overlap. If this API is not used, the line height is not adapted based on the actual text height by 
+   * default.
+   * 
+   * This API depends on the **lineHeight** property of [RichEditorTextStyle]{@link RichEditorTextStyle}. When the value
+   * of **lineHeight** is less than the actual height of the text rendered under the current font size, the 
+   * **fallbackLineSpacing** attribute takes effect.
    *
-   * @param { Optional<boolean> } enabled - Whether the line height is adaptive based on the actual text height.<br>The
-   *     value true indicates that the line height is automatically adjusted based on the actual text height. The value
-   *     false indicates that the line height is not automatically adjusted based on the actual text height.
+   * @param { Optional<boolean> } enabled - Whether the line height adapts based on the actual text height.
+   *     <br>true indicates that the line height adapts based on the actual text height, and false indicates the
+   *     opposite.
+   *     <br>Default value: false.
+   *     <br>When set to undefined or null, the default value is used.
    * @returns { RichEditorAttribute } - returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3950,18 +4267,21 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   fallbackLineSpacing(enabled: Optional<boolean>): RichEditorAttribute;
 
   /**
-   * Sets whether to enable punctuation compression at the beginning of a line.
+   * Sets whether to enable leading punctuation compression.
+   * 
+   * This is applicable to scenarios where leading punctuation needs to be aligned with the body text.
    * 
    * > **NOTE**
    * >
-   * > By default, the punctuation at the beginning of a line is not compressed.
+   * > Leading punctuation is not compressed by default.
    * >
-   * > For details about the punctuation that supports compression, see the punctuation range of the line header 
-   * > compression of [ParagraphStyle]{@link ./../../../@ohos.graphics.text:text.ParagraphStyle}.
+   * > For the range of punctuation marks that support leading compression, see 
+   * > [ParagraphStyle]{@link @ohos.graphics.text:text.ParagraphStyle}.
    *
-   * @param { Optional<boolean> } enabled - Whether to enable punctuation compression at the beginning of a line.<br>
-   *     true indicates that punctuation compression is enabled at the beginning of a line. false indicates that
-   *     punctuation compression is disabled at the beginning of a line.
+   * @param { Optional<boolean> } enabled - Whether to enable leading punctuation compression.
+   *     <br>true indicates that leading punctuation compression is enabled, and false indicates that it is disabled.
+   *     <br>Default value: false.
+   *     <br>When set to undefined or null, the default value is used.
    * @returns { RichEditorAttribute } - returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3972,10 +4292,22 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   compressLeadingPunctuation(enabled: Optional<boolean>): RichEditorAttribute;
 
   /**
-   * Whether to avoid an orphan word on the last line of the paragraph.
+   * Whether to enable orphan character optimization during text typesetting.
+   * 
+   * This is applicable to scenarios such as long-text typesetting and e-book reading where a paragraph's last line 
+   * containing only one character affects the reading experience. If this API is not used, orphan character 
+   * optimization is disabled by default.
+   * 
+   * Orphan character optimization improves text layout by processing orphan characters (the first character of the last
+   * line of a paragraph) more efficiently. When enabled, it adjusts line break points to avoid orphan characters as 
+   * much as possible. The orphan character optimization feature takes effect only when the wordBreak attribute of 
+   * [RichEditorParagraphStyle]{@link RichEditorParagraphStyle} is not BREAK_ALL and the 
+   * [locale]{@link @ohos.graphics.text:text.TextStyle} of the first 
+   * [TextStyle]{@link @ohos.graphics.text:text.TextStyle} of the text to be laid out is "zh-Hans" or "zh-Hant".
    *
-   * @param { Optional<boolean> } enabled - The default value is false,
-   *     indicates the flag whether to enable this feature.
+   * @param { Optional<boolean> } enabled - Whether to enable orphan word optimization for the last line of a paragraph.
+   *     <br>The value true means to enable orphan word optimization, and false means the opposite.
+   *     <br>Default value: false. When set to undefined or null, orphan word optimization is not enabled.
    * @returns { RichEditorAttribute } - returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -3985,11 +4317,14 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   orphanCharOptimization(enabled: Optional<boolean>): RichEditorAttribute;
 
   /**
-   * Whether to enable horizontal scrolling when text is wider than the view.
-   * The default value is false, and text will be wrapped by the view.
+   * Sets whether to enable horizontal scrolling when the text width exceeds the content area width. This is applicable 
+   * to scenarios where long text content (such as code snippets and long URLs) needs to be displayed without automatic 
+   * line wrapping. If this API is not used for configuration, horizontal scrolling is disabled by default.
    *
-   * @param { Optional<boolean> } enabled - whether to enable horizontal scrolling.
-   *     True means enable this feature, false means disable this feature.
+   * @param { Optional<boolean> } enabled - Whether to enable horizontal scrolling.
+   *     <br>The value true means to enable horizontal scrolling, and the value false means to disable horizontal
+   *     scrolling, in which case the text wraps automatically.
+   *     <br>Default value: false. When this parameter is set to undefined or null, horizontal scrolling is not enabled.
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4000,9 +4335,18 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
   horizontalScrolling(enabled: Optional<boolean>): RichEditorAttribute;
 
   /**
-   * Whether to enable punctuation overflow at line ends.
+   * Sets whether to enable hanging punctuation at the end of a line.
+   * 
+   * When enabled, a single punctuation mark at the end of a line is allowed to exceed the typesetting width without 
+   * wrapping. This is suitable for scenarios where you need to prevent a punctuation mark at the end of a line from 
+   * wrapping to the beginning of the next line, so as to improve the typesetting aesthetics. If this API is not called,
+   * punctuation marks are not hung by default.
    *
-   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @param { Optional<boolean> } enabled - Whether to enable hanging punctuation at the end of a line.
+   *     <br>The value **true** means to enable hanging punctuation at the end of a line, and **false** means the
+   *     opposite.
+   *     <br>Default value: **false**. When this parameter is set to **undefined** or **null**, hanging punctuation is
+   *     not enabled.
    * @returns { RichEditorAttribute } returns the instance of the RichEditorAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4024,7 +4368,9 @@ declare class RichEditorAttribute extends CommonMethod<RichEditorAttribute> {
  */
 declare interface CutEvent {
   /**
-   * Prevents the default cut event.
+   * Whether to prevent the system default cut event.
+   * 
+   * If omitted, the system default cut behavior is performed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4046,7 +4392,9 @@ declare interface CutEvent {
  */
 declare interface CopyEvent {
   /**
-   * Prevents the default cut event.
+   * Whether to prevent the system default copy event.
+   * 
+   * If omitted, the system default copy behavior is executed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4122,9 +4470,9 @@ declare type MenuOnAppearCallback = (start: number, end: number) => void;
 declare type MenuCallback = (start: number, end: number) => void;
 
 /**
- * Represents the callback invoked when the paste is about to be completed.
+ * Represents the callback invoked when a paste operation is about to complete.
  *
- * @param { PasteEvent } [event] - User paste event.
+ * @param { PasteEvent } [event] - Defines the user paste event. When omitted, paste event information is not received.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4134,11 +4482,12 @@ declare type MenuCallback = (start: number, end: number) => void;
 declare type PasteEventCallback = (event?: PasteEvent) => void;
 
 /**
- * Represents the callback invoked on mouse hover.
+ * Defines the callback triggered on hover.
  *
- * @param { boolean } status - Whether the mouse pointer is hovering over the component. The value **true** means that
- *     the mouse pointer enters the component, and **false** means that the mouse pointer leaves the component.
- * @param { HoverEvent } event - Hover event.
+ * @param { boolean } status - Whether the mouse hovers over the component. The value **true** indicates that the mouse
+ *     hovers over the component, and **false** indicates that the mouse leaves the component.
+ * @param { HoverEvent } event - Mouse hover event object, which contains the detailed information about the hover event
+ *     (such as the mouse position).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4148,7 +4497,14 @@ declare type PasteEventCallback = (event?: PasteEvent) => void;
 declare type OnHoverCallback = (status: boolean, event: HoverEvent) => void;
 
 /**
- * Provides an interface for writing texts.
+ * **RichEditor** is a component that supports interactive text editing and mixture of text and imagery.
+ * 
+ * > **NOTE**
+ * >
+ * > - This component is supported since API version 10. Newly added content in later versions is marked with a 
+ * > superscript to indicate the version in which it was introduced.
+ * >
+ * > - This component supports [WithTheme]{@link ./with_theme} since API version 26.0.0.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4159,7 +4515,6 @@ declare type OnHoverCallback = (status: boolean, event: HoverEvent) => void;
  */
 interface RichEditorInterface {
   /**
-   * Called when create RichEditor.
    *
    * @param { RichEditorOptions } value - Options for initializing the component.
    * @returns { RichEditorAttribute }
@@ -4202,8 +4557,14 @@ declare const RichEditorInstance: RichEditorAttribute;
  * 
  * > **NOTE**
  * >
- * > This component is supported since API version 10. Updates will be marked with a superscript to indicate their 
- * > earliest API version.
+ * > - This component is supported since API version 10. Newly added content in later versions is marked with a 
+ * > superscript to indicate the version in which it was introduced.
+ * >
+ * > - This component supports [WithTheme]{@link ./with_theme} since API version 26.0.0.
+ * 
+ * ###### Child Components
+ * 
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
