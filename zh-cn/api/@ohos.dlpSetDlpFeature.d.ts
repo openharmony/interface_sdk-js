@@ -14,12 +14,12 @@
  */
 
 /**
- * @file 设置数据防泄漏入口
+ * @file 设置数据防泄露入口
  * @kit DataProtectionKit
  */
 
 /**
- * 本模块提供数据防泄漏（Data Loss Prevention，简称为DLP）特性开关的控制能力，包括开启和关闭DLP特性开关、返回特性开关设置结果等，帮助企业满足数据安全合规要求，实现机密文件的访问控制和加密保护。
+ * 本模块提供数据防泄露（Data Loss Prevention，简称为DLP）特性开关的控制能力，包括开启和关闭DLP特性开关、返回特性开关设置结果等，帮助企业满足数据安全合规要求，实现机密文件的访问控制和加密保护。
  * 
  * **使用场景**：
  * 
@@ -111,7 +111,7 @@ declare namespace dlpSetDlpFeature {
      * 
      * 当特性开关处于开启状态时，右键单击支持加密的文件，右键菜单中会显示“加密保护”选项。可加密类型包括：.txt，.pdf，.xls，.xlsx，.ppt，.pptx，.doc，.docx。
      * 
-     * 企业策略开启或关闭数据防泄漏功能时使用此接口。
+     * 企业策略开启或关闭数据防泄露功能时使用此接口。
      *
      * @param { DlpFeatureStatus } status - DLP特性开关状态。ENABLED_FEATURE用于开启DLP特性，菜单中显示"加密保护"选项；NOT_ENABLED_FEATURE用于关闭DLP特性
      *     ，菜单中不显示"加密保护"选项。超出此范围抛出错误码401。
