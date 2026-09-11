@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Buffer
  * @kit ArkTS
  */
 

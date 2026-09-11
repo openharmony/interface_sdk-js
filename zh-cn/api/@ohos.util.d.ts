@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 工具函数
  * @kit ArkTS
  */
 

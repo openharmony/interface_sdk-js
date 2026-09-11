@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 启动子线程
  * @kit ArkTS
  */
 

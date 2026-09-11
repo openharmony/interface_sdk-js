@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file JSON解析与生成
  * @kit ArkTS
  */
 
