@@ -466,6 +466,21 @@ declare namespace unifiedDataChannel {
      * @since 23 static
      */
     get overview(): Record<string, long>;
+
+    /**
+     * File name extensions of file records in the unified data.
+     *
+     * The extensions are unique, include the leading period, and use lowercase ASCII letters. For example, the file
+     * name extension of **myphoto.png** is **.png**. If no valid file name extension is available, an empty array is
+     * returned.
+     *
+     * @returns { Array<string> } File name extensions in the order in which they first occur.
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    get filenameExtensions(): Array<string>;
   }
 
   /**

@@ -491,6 +491,20 @@ declare namespace unifiedDataChannel {
      * @since 23 static
      */
     get overview(): Record<string, long>;
+
+    /**
+     * 统一数据中文件记录的文件扩展名。
+     *
+     * 扩展名是唯一的，包括前导句点，并使用小写ASCII字母。例如，文件
+     * **myphoto.png**的扩展名是**.png**。如果没有有效的文件扩展名，则返回空数组。
+     *
+     * @returns { Array<string> } 文件扩展名按其首次出现的顺序排列。
+     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    get filenameExtensions(): Array<string>;
   }
 
   /**
