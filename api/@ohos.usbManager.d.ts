@@ -18,7 +18,7 @@
  * @kit BasicServicesKit
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * The **usbManager** module provides USB device management functions, including USB device list query, bulk data
@@ -2419,6 +2419,78 @@ declare namespace usbManager {
      * @useinstead usbManager.USBDeviceRequestParams
      */
     data: Uint8Array;
+  }
+
+  /**
+   * Claims a USB device interface exclusively. When this API is called, the system checks whether the specified USB interface has been claimed by another process to avoid conflicts during declaration.
+   * If **force** is set to **true**, the operating system first releases the interface from the kernel driver and then grants control to the calling app.
+   * After the interface is claimed exclusively, other processes can still claim the same interface by calling [usbManager.claimInterface]{@link usbManager.claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean)}.
+   * You can use the **onConflict** callback to receive such conflict notifications.
+   *
+   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus address and device address. You need to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
+   * @param { USBInterface } iface - Index of the target USB interface. You can call [usbManager.getDevices]{@link usbManager.getDevices()} to obtain the device information and identify the USB interface based on the ID.
+   * @param { boolean } [force] - Whether to forcibly claim the USB interface. The default value is **false**, indicating that the USB interface is not forcibly claimed. You can set this parameter as required.
+   *     <br>The default value is **false**.
+   * @param { Callback<InterfaceConflictInfo> } [onConflict] - Callback used to return the conflict information when other processes
+   *     claim the same USB interface by calling [usbManager.claimInterface]{@link usbManager.claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean)}
+   *     non-exclusively after the interface is claimed exclusively. If this parameter is not specified, no notification is sent when such a conflict occurs.
+   *     <br>Default value: no callback is triggered.
+   * @throws { BusinessError } 14400001 - Permission denied.
+   * @throws { BusinessError } 14400004 - Service exception.
+   * @throws { BusinessError } 14400007 - Resource busy. Possible cause:
+   *     The interface is claimed by another program or driver.
+   * @throws { BusinessError } 14400010 - USB driver error. Possible causes:
+   *     <br>1. The device is not connected using [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}.
+   *     <br>2. The USB device state is abnormal.
+   * @syscap SystemCapability.USB.USBManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function claimInterfaceExclusive(pipe: USBDevicePipe, iface: USBInterface, force?: boolean,
+    onConflict?: Callback<InterfaceConflictInfo>): void;
+
+  /**
+   * Describes the conflict information when the USB interface that has been exclusively claimed is claimed by another process in non-exclusive mode
+   * by calling [usbManager.claimInterfaceExclusive]{@link usbManager.claimInterfaceExclusive(pipe: USBDevicePipe, iface: USBInterface, force?: boolean, onConflict?: Callback<InterfaceConflictInfo>)}.
+   *
+   * > **NOTE**
+   * >
+   * > This callback is triggered when another process calls
+   * > [usbManager.claimInterface]{@link usbManager.claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean)}
+   *     non-exclusively to claim the same USB interface. The exclusive holder of the interface can learn about potential access conflicts through this callback.
+   *
+   * @syscap SystemCapability.USB.USBManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface InterfaceConflictInfo {
+    /**
+     * Bus address of the USB device.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    busNum: int;
+
+    /**
+     * Device address of the USB device.
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    devAddr: int;
+
+    /**
+     * ID of the USB interface that has been claimed by another process.
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    interfaceId: int;
   }
 }
 
