@@ -244,7 +244,7 @@ declare namespace dialog {
      * 对话框的背景模糊样式。
      * <br>设置为BlurStyle.NONE将禁用背景模糊。
      *
-     * @default BlurStyle.COMPONENT_ULTRA_THICK
+     * @default BlurStyle.NONE
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -1108,7 +1108,7 @@ export interface DialogDismissal {
   dismiss: VoidCallback;
 
   /**
-   * 无法关闭对话框的原因。
+   * 触发弹出框关闭操作的原因类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
