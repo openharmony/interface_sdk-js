@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Animator
  * @kit ArkUI
  */
 
