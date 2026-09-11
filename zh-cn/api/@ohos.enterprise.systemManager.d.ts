@@ -1300,11 +1300,10 @@ declare namespace systemManager {
   function isOtaUpdateNonceEnable(admin: Want): boolean;
 
   /**
-   * Adds allowed printer IP addresses for device. The policy takes effect for all accounts.
+   * 添加打印机IP地址白名单
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
-   * @param { Array<string> } ipAddresses - ipAddresses indicate the IP address list of printer.
-   *     Each IP address must be in IPv4 format or IPV6 format.
+   * @param { Array<string> } ipAddresses - 打印机IP地址。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1321,11 +1320,10 @@ declare namespace systemManager {
   function addAllowedPrinterIPAddressesForDevice(ipAddresses: Array<string>): void;
 
   /**
-   * Removes allowed printer IP addresses for device. The policy takes effect for all accounts.
+   * 白名单中移除打印机IP地址
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
-   * @param { Array<string> } ipAddresses - ipAddresses indicate the IP address list of printer to be removed.
-   *     Each IP address must be in IPv4 format or IPV6 format.
+   * @param { Array<string> } ipAddresses - 打印机IP地址。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1340,12 +1338,12 @@ declare namespace systemManager {
   function removeAllowedPrinterIPAddressesForDevice(ipAddresses: Array<string>): void;
 
   /**
-   * Gets allowed printer IP addresses for device.
+   * 查询打印机IP地址白名单
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
-   * @param { common.QueryPolicy } [queryPolicy] - queryPolicy indicates the policy of query.
-   *     <br>Default value: common.QueryPolicy.SELF.
-   * @returns { Array<string> } Returns the IP address list of printer.
+   * @param { common.QueryPolicy } [queryPolicy] - 查询的策略。
+   *     <br>默认值: common.QueryPolicy.SELF。
+   * @returns { Array<string> } 打印机IP地址。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -1357,11 +1355,10 @@ declare namespace systemManager {
   function getAllowedPrinterIPAddressesForDevice(queryPolicy?: common.QueryPolicy): Array<string>;
 
   /**
-   * Adds allowed printer IP addresses for current account. The policy takes effect only for current account.
+   * 添加当前用户下打印机IP地址白名单
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
-   * @param { Array<string> } ipAddresses - ipAddresses indicates the IP address list of printer.
-   *     Each IP address must be in IPv4 format or IPV6 format.
+   * @param { Array<string> } ipAddresses - 打印机IP地址。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1378,10 +1375,10 @@ declare namespace systemManager {
   function addAllowedPrinterIPAddressesForAccount(ipAddresses: Array<string>): void;
 
   /**
-   * Removes allowed printer IP addresses for current account. The policy takes effect only for current account.
+   * 从用户级白名单中移除打印机IP地址
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
-   * @param { Array<string> } ipAddresses - ipAddresses indicates the IP address list of printer.
+   * @param { Array<string> } ipAddresses - 打印机IP地址。
    *     Each IP address must be in IPv4 format or IPV6 format.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
@@ -1397,12 +1394,12 @@ declare namespace systemManager {
   function removeAllowedPrinterIPAddressesForAccount(ipAddresses: Array<string>): void;
 
   /**
-   * Gets allowed printer IP addresses for current account.
+   * 查询用户级打印机IP地址白名单
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
-   * @param { common.QueryPolicy } [queryPolicy] - queryPolicy indicates the policy of query.
-   *     <br>Default value: common.QueryPolicy.SELF.
-   * @returns { Array<string> } Returns the IP address list of printer.
+   * @param { common.QueryPolicy } [queryPolicy] - 查询的策略。
+   *     <br>默认值: common.QueryPolicy.SELF。
+   * @returns { Array<string> } 打印机IP地址
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.

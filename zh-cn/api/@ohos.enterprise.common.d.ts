@@ -268,7 +268,7 @@ declare namespace common {
   }
 
   /**
-   * The policy of query enterprise device management policy.
+   * 查询企业设备管理策略
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -276,7 +276,7 @@ declare namespace common {
    */
   export enum QueryPolicy {  
     /**
-     * Query the policy set by self.
+     * 自己设置的策略。
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -285,7 +285,7 @@ declare namespace common {
     SELF = 0,
 
     /**
-     * Query the policy set by all administrators.
+     * 所有管理员设置的应用
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
