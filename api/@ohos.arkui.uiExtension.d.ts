@@ -296,7 +296,7 @@ declare namespace uiExtension {
      * @returns { Promise<window.Window> } Promise used to return the subwindow.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible causes:
      *     1. The window is not created or destroyed.
      *     2. Internal task error.
      *     3. The subWindow has been created and cannot be created again.
