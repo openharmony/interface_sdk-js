@@ -13005,7 +13005,7 @@ declare interface SheetOptions extends BindOptions {
   /**
    * Offset of the sheet. Bottom spacing, which is effective only when the sheet is a bottom sheet. The **detents** 
    * property of [SheetOptions]{@link SheetOptions} is not supported. This property has no effect when the y-axis value 
-   * is set to a negative number.
+   * is set to a positive number.
    * 
    * Default value: 0 vp for both the x-axis and y-axis
    *
