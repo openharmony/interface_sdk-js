@@ -9730,7 +9730,6 @@ declare namespace window {
      */
     onWindowFocusStateChange(callback: Callback<WindowFocusState>): void;
 
-
     /**
      * Unregisters the callback of the window focus state change event.
      *
