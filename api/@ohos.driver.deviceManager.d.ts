@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Peripheral Management
  * @kit DriverDevelopmentKit
  */
 
