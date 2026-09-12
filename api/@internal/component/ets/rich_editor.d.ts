@@ -262,8 +262,6 @@ declare interface RichEditorTextStyle {
    * 
    * Default value: $r('sys.color.font_primary'). When [shaderStyle]{@link RichEditorParagraphStyle} is also set, 
    * shaderStyle takes precedence over fontColor.
-   * 
-   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -277,8 +275,6 @@ declare interface RichEditorTextStyle {
    * Sets the font size. When Length is of the number type, the unit fp is used. Value range of the number type: (0, +∞
    * ). If the value is set to 0 or a negative value, the default value is used. The default font size is 16fp. 
    * Percentage strings are not supported.
-   * 
-   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -311,8 +307,6 @@ declare interface RichEditorTextStyle {
    * bold", "bolder", "lighter", "regular", and "medium" correspond to the respective enum values in FontWeight.
    * 
    * Default value: FontWeight.Normal.
-   * 
-   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -325,8 +319,6 @@ declare interface RichEditorTextStyle {
   /**
    * Sets the font list. Currently, the 'HarmonyOS Sans' font and [registered custom fonts]{@link @ohos.font:font} are 
    * supported. Default font: 'HarmonyOS Sans'. 
-   * 
-   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -367,8 +359,6 @@ declare interface RichEditorTextStyle {
    * **Note:**
    * 
    * Only the shadow blur radius, color, and offset can be set. Smart color picking is not supported. 
-   * 
-   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -381,8 +371,6 @@ declare interface RichEditorTextStyle {
   /**
    * Sets the character spacing of the text. The default unit is fp. Default value: 0. When the value is negative, the 
    * text is compressed. 
-   * 
-   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -401,8 +389,6 @@ declare interface RichEditorTextStyle {
    * adapts to the font size. For the number type, the unit is fp. Percentage strings are not supported. When the 
    * lineHeight value is smaller than the actual rendered height of the text at the current font size, the 
    * [fallbackLineSpacing]{@link RichEditorAttribute#fallbackLineSpacing} attribute takes effect. 
-   * 
-   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -491,8 +477,6 @@ declare interface RichEditorTextStyle {
    * Value range: (-∞, +∞)
    * 
    * When set together with [shaderStyle]{@link RichEditorParagraphStyle}, shaderStyle does not take effect.
-   * 
-   * **Atomic service API:** Since API version 23, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -521,8 +505,6 @@ declare interface RichEditorTextStyle {
    * Text stroke join style.
    * 
    * Default value: StrokeJoinStyle.MITER_JOIN.
-   * 
-   * **Atomic service API:** Since API version 26.0.0, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -557,8 +539,6 @@ declare interface LeadingMarginPlaceholder {
 
   /**
    * Image size, in vp by default. Percentage is not supported.
-   * 
-   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -609,8 +589,6 @@ declare interface RichEditorParagraphStyle {
    * Paragraph indentation. When a paragraph contains only ImageSpan or BuilderSpan, this attribute does not take 
    * effect. When the parameter is of the Dimension type, setting it in percentage form is not supported, and the 
    * default unit is vp. Default value: {"size":["0.00px","0.00px"]} 
-   * 
-   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -624,8 +602,6 @@ declare interface RichEditorParagraphStyle {
    * Line break rule.
    * 
    * Default value: WordBreak.BREAK_WORD.
-   * 
-   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -658,8 +634,6 @@ declare interface RichEditorParagraphStyle {
    * Value range: [0, +∞). If a negative value is passed in, the default value is used.
    * 
    * The default paragraph spacing is 0.
-   * 
-   * **Atomic service API:** Since API version 19, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -690,8 +664,6 @@ declare interface RichEditorParagraphStyle {
    * When this API is set together with strokeWidth in [RichEditorTextStyle]{@link RichEditorTextStyle}, this API does 
    * not take effect, and shaderStyle has a higher priority than fontColor in 
    * [RichEditorTextStyle]{@link RichEditorTextStyle}.
-   * 
-   * **Atomic service API:** Since API version 26.0.0, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -828,8 +800,6 @@ declare interface RichEditorImageSpanStyle {
    * objectFit values have different default sizes. When objectFit is set to Cover, the image height is the component 
    * height minus the top and bottom padding of the component, and the image width is the component width minus the left
    * and right padding of the component. Setting the size in percentage is not supported.  
-   * 
-   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -843,8 +813,6 @@ declare interface RichEditorImageSpanStyle {
    * Vertical alignment mode of the image.
    * 
    * Default value: ImageSpanAlignment.BOTTOM 
-   * 
-   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -858,8 +826,6 @@ declare interface RichEditorImageSpanStyle {
    * Image scaling type.
    * 
    * Default value: ImageFit.Cover.  
-   * 
-   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -871,8 +837,6 @@ declare interface RichEditorImageSpanStyle {
 
   /**
    * Image layout style. Default value: {"borderRadius":"","margin":""}
-   * 
-   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -884,8 +848,6 @@ declare interface RichEditorImageSpanStyle {
 
   /**
    * Image resizing options.
-   * 
-   * **Atomic service API:** Since API version 26.1.0, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1175,8 +1137,6 @@ declare interface RichEditorTextStyleResult {
    * Corner style of the text stroke.
    * 
    * Default value: StrokeJoinStyle.MITER_JOIN.
-   * 
-   * **Atomic service API:** Since API version 26.0.0, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1372,8 +1332,6 @@ declare interface RichEditorTextSpanResult {
    * SymbolSpan resource content.
    * 
    * Default value: undefined.
-   * 
-   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1387,8 +1345,6 @@ declare interface RichEditorTextSpanResult {
    * Paragraph style.
    * 
    * If omitted, the system default paragraph style is used.
-   * 
-   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1415,8 +1371,6 @@ declare interface RichEditorTextSpanResult {
    * Default value: undefined.
    * 
    * Pass this parameter when a hyperlink style needs to be set for the text.
-   * 
-   * **Atomic service API:** Since API version 19, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1474,8 +1428,6 @@ declare interface RichEditorImageSpanStyleResult {
 
   /**
    * Image layout style.
-   * 
-   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1487,8 +1439,6 @@ declare interface RichEditorImageSpanStyleResult {
 
   /**
    * Image resizing options.
-   * 
-   * **Atomic service API:** Since API version 26.1.0, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1725,8 +1675,6 @@ declare interface RichEditorTextSpanOptions {
   /**
    * Text style information. Pass this parameter when custom styles such as text color, font size, and font weight need 
    * to be set. If omitted, the system default text information is used.     
-   * 
-   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1740,8 +1688,6 @@ declare interface RichEditorTextSpanOptions {
    * Paragraph style. Pass this parameter when paragraph-level layout properties such as text alignment, indentation, 
    * and line breaking rules need to be set. If not passed, the system default paragraph style (left-aligned, no 
    * indentation, word-based line breaking) is used.                     
-   * 
-   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1754,8 +1700,6 @@ declare interface RichEditorTextSpanOptions {
   /**
    * Behavior trigger callback. Pass this parameter when the tap or long-press interaction behavior of a text span needs
    * to be customized. If omitted, only the system default behavior is used.      
-   * 
-   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1828,8 +1772,6 @@ declare interface RichEditorImageSpanOptions {
   /**
    * Image style information. Pass this parameter when you need to customize the image size, vertical alignment mode, 
    * scaling type, and other styles. If this parameter is omitted, the default image style of the system is used.     
-   * 
-   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1854,8 +1796,6 @@ declare interface RichEditorImageSpanOptions {
   /**
    * Callback triggered when the mouse hovers over the component. If this parameter is omitted, the mouse hover callback
    * behavior is not executed.     
-   * 
-   * **Atomic service API:** Since API version 14, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1879,8 +1819,6 @@ declare interface RichEditorBuilderSpanOptions {
   /**
    * Position to add the builder. Value range: [0, total content length]. If omitted or if the value is less than 0 or 
    * greater than the total content length, it is added to the end of all content.
-   * 
-   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2311,8 +2249,6 @@ declare interface RichEditorInsertValue {
    * Preview text content to be inserted.
    * 
    * Default value: empty string.
-   * 
-   * **Atomic service API:** Since API version 12, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2504,8 +2440,6 @@ declare interface SelectionMenuOptions {
    * Callback invoked when the custom selection menu is displayed. If custom logic needs to be executed when the menu is
    * displayed (for example, recording user operations or dynamically adjusting menu content), this parameter can be 
    * passed; if it is not passed, no additional callback is triggered.
-   * 
-   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @type { ?function } [since 10 - 11]
    * @type { ?MenuOnAppearCallback } [since 12]
@@ -2521,8 +2455,6 @@ declare interface SelectionMenuOptions {
    * Callback invoked when the custom selection menu is closed. If custom logic needs to be executed when the menu is 
    * closed (for example, restoring the UI state or clearing temporary data), this parameter can be passed; if it is not
    * passed, no additional callback is triggered.
-   * 
-   * **Atomic service API:** Since API version 11, this API is supported in atomic services.
    *
    * @type { ?function } [since 10 - 11]
    * @type { ?Callback<void> } [since 12]
@@ -2550,8 +2482,6 @@ declare interface SelectionMenuOptions {
   /**
    * Callback invoked when the custom selection menu is shown. If custom logic needs to be executed when the menu is 
    * shown, this parameter can be passed; if it is not passed, no callback is triggered.
-   * 
-   * **Atomic service API:** Since API version 15, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2564,8 +2494,6 @@ declare interface SelectionMenuOptions {
   /**
    * Callback invoked when the custom selection menu is hidden. If custom logic needs to be executed when the menu is 
    * hidden, this parameter can be passed; if it is not passed, no callback is triggered.
-   * 
-   * **Atomic service API:** Since API version 15, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2581,8 +2509,6 @@ declare interface SelectionMenuOptions {
    * Since API version 26.0.0, this parameter also takes effect in the Text component.
    * 
    * If this parameter is not passed, the preview menu uses the default configuration.
-   * 
-   * **Atomic service API:** Since API version 18, this API is supported in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
