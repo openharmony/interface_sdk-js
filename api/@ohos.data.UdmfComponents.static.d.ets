@@ -22,9 +22,26 @@
 import uniformDataStruct from '@ohos.data.uniformDataStruct';
 import { PropRef } from '@ohos.arkui.stateManagement';
 import { Component, Builder } from '@ohos.arkui.component';
-
 /**
- * Enumerates the form card types.
+ * A content card designed in the [ContentForm](js-apis-data-uniformDataStruct.md#contentform14) struct. You can set the title (mandatory), description, application icon, application name, redirection link, and content image for the content card. When a user taps the card, a callback of the pass event is triggered to redirect the user to the specified page if the target link is set.
+ *
+ * **Use scenarios**:
+ * - Display of shared content in social applications
+ * - Instant message card
+ * - Content recommendation card
+ *
+ * > **NOTE**
+ * >
+ * > This component is supported since API version 20. Updates will be marked with a superscript to indicate their earliest API version.
+ * >
+ * > The APIs of this module can be used only in the stage model.
+ *
+ * ###### Child Component
+ *
+ * N/A
+ */
+/**
+ * Enumerates content card types, including large, medium, and small.
  *
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @stagemodelonly
@@ -32,7 +49,7 @@ import { Component, Builder } from '@ohos.arkui.component';
  */
 declare enum FormType {
   /**
-   * Big form card, with fixed size of 4 x 4.
+   * 4 × 4. The default card width is 200 vp, and the default height is 200 vp.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
@@ -41,7 +58,7 @@ declare enum FormType {
   TYPE_BIG = 0,
 
   /**
-   * Medium-sized form card, with fixed size of 4 x 2.
+   * 4 × 2. The default card width is 200 vp, and the default height is 100 vp.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
@@ -50,7 +67,7 @@ declare enum FormType {
   TYPE_MID = 1,
 
   /**
-   * Small form card, with fixed size of 2 x 1.
+   * 2 x 1. The default card width is 137 vp, and the default height is 83 vp.
    *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
@@ -60,7 +77,9 @@ declare enum FormType {
 }
 
 /**
- * Defines a content form card.
+ * Defines the information of a content card component that is displayed in an application, including the title,
+ * description, content image, application information, and the like. It is applicable to scenarios such as content
+ * distribution, social updates, and message notifications.
  *
  * @syscap SystemCapability.DistributedDataManager.UDMF.Core
  * @stagemodelonly
