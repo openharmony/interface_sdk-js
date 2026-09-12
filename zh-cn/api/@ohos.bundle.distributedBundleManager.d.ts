@@ -21,6 +21,7 @@
 import { AsyncCallback } from './@ohos.base';
 import { ElementName } from './bundleManager/ElementName';
 import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundleManager/RemoteAbilityInfo';
+import { ModuleMetadata } from './bundleManager/ApplicationInfo';
 /**
  * # 系统能力
  * 
@@ -244,6 +245,28 @@ declare namespace distributedBundleManager {
    * @since 26.0.0 dynamic&static
    */
   function getRemoteBundleVersionCode(deviceId: string, bundleName: string): Promise<long>;
+
+  /**
+   * 获取指定远程设备上指定包名的应用元数据信息。使用Promise异步回调。
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } deviceId - 远程设备ID（实为 networkId，分布式网络标识）。可以通过
+   *     [getAvailableDeviceList]{@link @ohos.distributedDeviceManager:distributedDeviceManager.DeviceManager.getAvailableDeviceListSync}
+   *     获取所有可信设备列表，取值为可信设备信息下networkId字段。
+   * @param { string } bundleName - 应用的包名。
+   * @returns { Promise<Array<ModuleMetadata>> } Promise对象，调用成功返回ModuleMetadata数组（每个元素携带一个模块的metadata）；调用失败返回错误对象。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+   * @throws { BusinessError } 17700007 - The specified device ID is not found.
+   * @throws { BusinessError } 17700027 - The distributed service is not running.
+   * @syscap SystemCapability.BundleManager.DistributedBundleFramework
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function getRemoteMetadata(deviceId: string, bundleName: string): Promise<Array<ModuleMetadata>>;
 
   /**
    * 包含远程的ability信息。
