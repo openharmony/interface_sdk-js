@@ -4821,7 +4821,7 @@ declare namespace photoAccessHelper {
      * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
-    SHARE = 8193
+    SHARE = 8193,
     /**
      * Any album.
      *
