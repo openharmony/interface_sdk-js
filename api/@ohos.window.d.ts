@@ -1760,6 +1760,78 @@ declare namespace window {
   }
 
   /**
+   * Enumerates the reasons for the window focus state change.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum FocusChangeReason {
+    /**
+     * The focus state changes due to a default reason other than a user click.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    DEFAULT = 0,
+    /**
+     * The focus state changes because the user clicks the window.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    CLICK = 1
+  }
+
+  /**
+   * Describes the focus state change information of the window.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface WindowFocusState {
+    /**
+     * Whether the window gains focus. **true** if the window gains focus, **false** otherwise.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    isFocused: boolean;
+    /**
+     * Reason for the focus state change.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    focusChangeReason: FocusChangeReason;
+    /**
+     * ID of the next focused window. This field is valid only when the window is unfocused and the next focused
+     * window is in the same process as this window. The default value is **undefined**.
+     * The value should be an integer
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    nextFocusedWindowId?: int;
+    /**
+     * ID of the previous focused window. This field is valid only when the window is focused and the previous
+     * focused window is in the same process as this window.The default value is **undefined**.
+     * The value should be an integer
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    prevFocusedWindowId?: int;
+  }
+
+  /**
    * Describes the information about the display density of the screen where the window is located and the window's
    * custom display density. It is a scale factor independent of pixel units, that is, a factor for scaling display
    * size.
@@ -9675,6 +9747,41 @@ declare namespace window {
      * @since 23 static
      */
     offWindowHighlightChange(callback?: Callback<boolean>): void;
+
+
+    /**
+     * Registers the callback of the window focus state change event.
+     *
+     * @param { Callback<WindowFocusState> } callback - Callback used to return the focus state change information of
+     *     the window, including whether the window gains focus, the reason for the change, and the IDs of the adjacent
+     *     focused windows in the same process.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The window is not created or destroyed.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    onWindowFocusStateChange(callback: Callback<WindowFocusState>): void;
+
+    /**
+     * Unregisters the callback of the window focus state change event.
+     *
+     * @param { Callback<WindowFocusState> } [callback] - Callback used to return the focus state change information of
+     *     the window. If a value is passed in, the corresponding subscription is canceled. If no value is passed in, all
+     *     subscriptions to the specified event are canceled.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The window is not created.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    offWindowFocusStateChange(callback?: Callback<WindowFocusState>): void;
 
     /**
      * Binds the modal window to the target window. After the binding is successful, the target window cannot respond to
