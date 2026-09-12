@@ -18,7 +18,10 @@
  */
 import uniformDataStruct from '@ohos.data.uniformDataStruct';
 /**
- * A content card designed in the [ContentForm](js-apis-data-uniformDataStruct.md#contentform14) struct. You can set the title (mandatory), description, application icon, application name, redirection link, and content image for the content card. When a user taps the card, a callback of the pass event is triggered to redirect the user to the specified page if the target link is set.
+ * A content card designed in the [ContentForm](js-apis-data-uniformDataStruct.md#contentform14) struct. You can set the
+ * title (mandatory), description, application icon, application name, redirection link, and content image for the
+ * content card. When a user taps the card, a callback of the pass event is triggered to redirect the user to the
+ * specified page if the target link is set.
  *
  * **Use scenarios**:
  * - Display of shared content in social applications
@@ -27,7 +30,8 @@ import uniformDataStruct from '@ohos.data.uniformDataStruct';
  *
  * > **NOTE**
  * >
- * > This component is supported since API version 20. Updates will be marked with a superscript to indicate their earliest API version.
+ * > This component is supported since API version 20. Updates will be marked with a superscript to indicate their
+ * earliest API version.
  * >
  * > The APIs of this module can be used only in the stage model.
  *
