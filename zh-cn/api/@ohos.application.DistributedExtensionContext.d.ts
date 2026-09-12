@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Distributed Extension Context
+ * @file 分布式协同扩展能力实现
  * @kit DistributedServiceKit
  */
 

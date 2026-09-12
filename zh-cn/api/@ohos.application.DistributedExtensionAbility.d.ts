@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 分布式协同扩展能力
  * @kit DistributedServiceKit
  */
 
