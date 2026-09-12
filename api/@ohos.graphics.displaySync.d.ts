@@ -27,6 +27,7 @@ import { ExpectedFrameRateRange } from './arkui/component/common';
  * The displaySync module allows your application to draw its custom UI content at a specified frame rate.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice [since 26.2.0]
  * @since 11 dynamic
  * @since 23 static
  */
@@ -36,6 +37,7 @@ declare namespace displaySync {
    * arrives and the timestamp when the next frame is expected to arrive.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice [since 26.2.0]
    * @since 11 dynamic
    * @since 23 static
    */
@@ -44,6 +46,7 @@ declare namespace displaySync {
      * Time when the current frame arrives, in nanoseconds.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice [since 26.2.0]
      * @since 11 dynamic
      * @since 23 static
      */
@@ -53,6 +56,7 @@ declare namespace displaySync {
      * Expected arrival time of the next frame, in nanoseconds.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice [since 26.2.0]
      * @since 11 dynamic
      * @since 23 static
      */
@@ -66,6 +70,7 @@ declare namespace displaySync {
    * a **DisplaySync** instance.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice [since 26.2.0]
    * @since 11 dynamic
    * @since 23 static
    */
@@ -80,6 +85,7 @@ declare namespace displaySync {
      *     <br> 3. Parameter verification failed.
      *     or check if ExpectedFrameRateRange is valid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice [since 26.2.0]
      * @since 11 dynamic
      * @since 23 static
      */
@@ -91,6 +97,7 @@ declare namespace displaySync {
      * @param { 'frame' } type - Event type. The value is fixed at **'frame'**.
      * @param { Callback<IntervalInfo> } callback - Callback used for subscription.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice [since 26.2.0]
      * @since 11 dynamic
      */
     on(type: 'frame', callback: Callback<IntervalInfo>): void;
@@ -100,6 +107,7 @@ declare namespace displaySync {
      * 
      * @param { Callback<IntervalInfo> } callback - Callback used for subscription.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice [since 26.2.0]
      * @since 23 static
      */
     onFrame(callback: Callback<IntervalInfo>): void;
@@ -111,6 +119,7 @@ declare namespace displaySync {
      * @param { Callback<IntervalInfo> } [callback] - Callback used for unsubscription.
      *     If no value is passed in, all subscriptions to the specified event are canceled.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice [since 26.2.0]
      * @since 11 dynamic
      */
     off(type: 'frame', callback?: Callback<IntervalInfo>): void;
@@ -121,6 +130,7 @@ declare namespace displaySync {
      * @param { Callback<IntervalInfo> } [callback] - Callback used for unsubscription.
      *     If no value is passed in, all subscriptions to the specified event are canceled.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice [since 26.2.0]
      * @since 23 static
      */
     offFrame(callback?: Callback<IntervalInfo>): void;
@@ -129,6 +139,7 @@ declare namespace displaySync {
      * Starts callback for each frame.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice [since 26.2.0]
      * @since 11 dynamic
      * @since 23 static
      */
@@ -138,6 +149,7 @@ declare namespace displaySync {
      * Stops callback for each frame.
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice [since 26.2.0]
      * @since 11 dynamic
      * @since 23 static
      */
@@ -149,6 +161,7 @@ declare namespace displaySync {
    * 
    * @returns { DisplaySync } **DisplaySync** object created.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice [since 26.2.0]
    * @since 11 dynamic
    * @since 23 static
    */
