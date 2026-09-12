@@ -2659,6 +2659,29 @@ declare namespace util {
      * @since 26.0.0 dynamiconly
      */
     static setTrackGlobalRef(enable: boolean): void;
+
+    /**
+     * 获取当前调用线程所属 ArkTS 虚拟机正在使用的全局 handle 数量。可用于维测场景，例如根据全局 handle 数量决定是否
+     * 生成内存快照。
+     *
+     * > **说明：**
+     * >
+     * > 该计数是在调用线程所属的虚拟机上查询的。在 worker 中调用此接口返回的是该 worker 自身虚拟机的计数，而非主
+     * > 虚拟机的计数。
+     * >
+     * > 仅统计强引用（global handle）的数量，不包含弱引用（WeakRef）和 Sendable 引用（SendableRef）。弱引用存储在
+     * > 独立的弱引用链表中，Sendable 引用存储在独立的 Sendable 全局存储中，均不在本接口的遍历范围内。
+     * >
+     * > 返回值受强引用创建/删除操作的影响。例如，napi_create_strong_reference、napi_delete_strong_reference 会相应
+     * > 增减计数，而 napi_create_strong_sendable_reference、napi_delete_strong_sendable_reference 不会影响计数结果。
+     *
+     * @returns { number } 返回当前虚拟机正在使用的全局 handle 数量，该值大于等于 0。
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.2.0 dynamiconly
+     */
+    static getGlobalHandleCount(): number;
   }
 
   /**
