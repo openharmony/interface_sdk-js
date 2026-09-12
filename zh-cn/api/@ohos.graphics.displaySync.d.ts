@@ -107,7 +107,6 @@ declare namespace displaySync {
      * 
      * @param { Callback<IntervalInfo> } callback - 订阅函数。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice [since 26.2.0]
      * @since 23 static
      */
     onFrame(callback: Callback<IntervalInfo>): void;
@@ -128,7 +127,6 @@ declare namespace displaySync {
      * 
      * @param { Callback<IntervalInfo> } [callback] - 订阅函数，参数不填时，默认取消全部订阅函数。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice [since 26.2.0]
      * @since 23 static
      */
     offFrame(callback?: Callback<IntervalInfo>): void;

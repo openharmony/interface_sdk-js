@@ -107,7 +107,6 @@ declare namespace displaySync {
      * 
      * @param { Callback<IntervalInfo> } callback - Callback used for subscription.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice [since 26.2.0]
      * @since 23 static
      */
     onFrame(callback: Callback<IntervalInfo>): void;
@@ -130,7 +129,6 @@ declare namespace displaySync {
      * @param { Callback<IntervalInfo> } [callback] - Callback used for unsubscription.
      *     If no value is passed in, all subscriptions to the specified event are canceled.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice [since 26.2.0]
      * @since 23 static
      */
     offFrame(callback?: Callback<IntervalInfo>): void;
