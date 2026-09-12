@@ -736,7 +736,7 @@ declare namespace pointer {
   /**
    * 使用同步方式获取当前鼠标移动速度。
    *
-   * @returns { int } 返回鼠标移动速度，范围1-20。
+   * @returns { int } 返回鼠标移动速度，范围[1, 20]。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    * 2. Incorrect parameter types; 3. Parameter verification failed.
@@ -1208,7 +1208,7 @@ declare namespace pointer {
   /**
    * 设置鼠标滚动行数，使用callback异步回调。
    *
-   * @param { int } rows - 鼠标滚动行数，范围1-100，默认为3。
+   * @param { int } rows - 鼠标滚动行数，范围[1, 100]，默认为3。
    * @param { AsyncCallback<void> } callback - 回调函数。当设置鼠标滚动行数成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1223,7 +1223,7 @@ declare namespace pointer {
   /**
    * 设置鼠标滚动行数，使用Promise异步回调。
    *
-   * @param { int } rows - 鼠标滚动行数，范围1-100，默认为3。
+   * @param { int } rows - 鼠标滚动行数，范围[1, 100]，默认为3。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;

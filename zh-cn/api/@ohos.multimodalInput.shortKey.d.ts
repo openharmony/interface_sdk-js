@@ -40,7 +40,7 @@ declare namespace shortKey {
    * @param { AsyncCallback<void> } callback - 回调函数。当设置快捷键拉起Ability的延迟时间成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
    * @systemapi hide for inner use
    * @since 10 dynamic
@@ -56,7 +56,7 @@ declare namespace shortKey {
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.ShortKey
    * @systemapi hide for inner use
    * @since 10 dynamic

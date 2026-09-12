@@ -274,8 +274,8 @@ declare namespace inputEventClient {
   function injectTouchEvent(touchEvent: TouchEventData): void;
 
   /**
-    * 允许事件注入权限。
-    *
+   * 允许事件注入权限。
+   *
    * @permission ohos.permission.INJECT_INPUT_EVENT
    * @param { boolean } result - 授权结果（true表示：允许事件注入，false表示：不允许事件注入）。
    * @throws { BusinessError } 201 - Permission denied.
