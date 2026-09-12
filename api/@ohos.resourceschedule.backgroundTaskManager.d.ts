@@ -1266,6 +1266,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
+   * @throws { BusinessError } 9800008 - The requested continuous task is not supported on this device type. [since 26.2.0]
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice [since 26.0.0]
    * @since 21 dynamic
@@ -1348,6 +1349,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
+   * @throws { BusinessError } 9800008 - The requested continuous task is not supported on this device type. [since 26.2.0]
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice [since 26.0.0]
    * @since 21 dynamic
@@ -2173,9 +2175,9 @@ declare namespace backgroundTaskManager {
      * 
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.2.0 dynamic&static
      */
-    MODE_USB = 16
+    MODE_USB_CONNECTION = 16
   }
 
   
@@ -2765,11 +2767,11 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_USER_UNAUTHORIZED = 14,
 
     /**
-     * A continuous task of the **USB** type is requested, but USB device is not in use.
+     * A continuous task of the **USB_CONNECTION** type is requested, but USB device is not in use.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.2.0 dynamic&static
      */
     SYSTEM_CANCEL_NOT_USE_USB = 16
   }
@@ -2972,11 +2974,11 @@ declare namespace backgroundTaskManager {
     SYSTEM_SUSPEND_USER_UNAUTHORIZED = 19,
 
     /**
-     * A continuous task of the **USB** type is requested, but USB device is not in use.
+     * A continuous task of the **USB_CONNECTION** type is requested, but USB device is not in use.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.2.0 dynamic&static
      */
     SYSTEM_SUSPEND_USB_NOT_USED = 20
   }
