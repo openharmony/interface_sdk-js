@@ -116,6 +116,7 @@ declare namespace wantAgent {
    *
    * @param { WantAgent } agent - WantAgent对象。
    * @param { AsyncCallback<Want> } callback - 回调函数。当获取WantAgent对象want成功，err中code为0，data为获取到的Want数据；否则err会返回对应的错误码和错误信息。
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
@@ -133,6 +134,7 @@ declare namespace wantAgent {
    *
    * @param { WantAgent } agent - WantAgent对象。
    * @returns { Promise<Want> } Promise对象，返回WantAgent对象的want。
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.

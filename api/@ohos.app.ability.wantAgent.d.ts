@@ -130,6 +130,7 @@ declare namespace wantAgent {
    *
    * @param { WantAgent } agent - Target WantAgent object.
    * @param { AsyncCallback<Want> } callback - Callback used to return the Want.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
@@ -148,6 +149,7 @@ declare namespace wantAgent {
    *
    * @param { WantAgent } agent - Target WantAgent object.
    * @returns { Promise<Want> } Promise used to return the Want.
+   * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types.
    * @throws { BusinessError } 16000007 - Service busy. There are concurrent tasks. Try again later.
