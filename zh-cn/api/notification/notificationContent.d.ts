@@ -419,7 +419,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
  * >
  * > - 用户点击成组展示的通知，查看各个通知详情时，该通知的展示效果变化为展开态。
  * >
- * > - 实际显示效果依赖于设备能力和通知中心UI样式。
+ * > - 实际显示效果依赖于设备能力和通知中心UI样式<!--RP1--><!--RP1End-->。
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
@@ -446,7 +446,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
   expandedTitle: string;
 
   /**
-   * 通知展开后显示的图片内容。图标像素的总字节数不能超过2MB（图标像素的总字节数通过
+   * 通知展开后显示的右侧图标。图标像素的总字节数不能超过2MB（图标像素的总字节数通过
    * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取）。
    *
    * @syscap SystemCapability.Notification.Notification
