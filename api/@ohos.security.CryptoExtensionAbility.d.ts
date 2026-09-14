@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -29,10 +29,10 @@ import certificateManager from '@ohos.security.certManager';
  * @stagemodelonly
  * @since 22
  */
-export const enum HuksCryptoExtensionResultCode {
+export const enum HuksCryptoExtensionResultCode { 
   /**
    * An error occurred in the crypto extension. Possible causes:
-   *
+   * 
    * 1. The input parameter is invalid.
    * 2. The crypto extension encountered an unresolvable error state.
    *
@@ -43,7 +43,7 @@ export const enum HuksCryptoExtensionResultCode {
   HUKS_CRYPTO_EXTENSION_ERR_EXTENSION_FAIL = 34800000,
   /**
    * The UKey does not exist. Possible causes:
-   *
+   * 
    * 1. The UKey has been removed.
    * 2. The crypto extension maintained an error UKey state.
    *
@@ -70,7 +70,7 @@ export const enum HuksCryptoExtensionResultCode {
   HUKS_CRYPTO_EXTENSION_ERR_PIN_NO_AUTH = 34800003,
   /**
    * The handle does not exist. Possible causes:
-   *
+   * 
    * 1. The handle you entered is invalid.
    * 2. The states of huks service and crypto extension are inconsistent. Due to an exception,
    * the handle held by huks service was not released.
@@ -218,7 +218,6 @@ export interface HuksCryptoExtensionResult {
  * @since 26.0.0
  */
 export interface HuksCryptoExtensionParam {
-
   /**
    * Parameter tag, which is used to distinguish parameters.
    *
@@ -227,7 +226,6 @@ export interface HuksCryptoExtensionParam {
    * @since 26.0.0
    */
   tag: huksExternalCrypto.HuksExternalCryptoTag | huks.HuksTag | number;
-
   /**
    * Value of the tag.
    *
@@ -236,7 +234,7 @@ export interface HuksCryptoExtensionParam {
    * @since 26.0.0
    */
   value: boolean | int | bigint | Uint8Array;
-}
+  }
 
 /**
  * Defines options used in the APIs.
@@ -246,7 +244,6 @@ export interface HuksCryptoExtensionParam {
  * @since 26.0.0
  */
 export interface HuksCryptoExtensionParams {
-
   /**
    * The properties of the operation.
    *
@@ -255,7 +252,6 @@ export interface HuksCryptoExtensionParams {
    * @since 26.0.0
    */
   properties: HuksCryptoExtensionParam[];
-
   /**
    * The input data of the operation.
    *
@@ -273,7 +269,6 @@ export interface HuksCryptoExtensionParams {
  * @since 22
  */
 declare class CryptoExtensionAbility {
-
   /**
    * Callback to get the resource ID of the crypto extension.
    *
@@ -292,7 +287,6 @@ declare class CryptoExtensionAbility {
    * @since 26.0.0
    */
   onGetResourceId(params: HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
-
   /**
    * Callback to be called to open the resource handle before crypto operations.
    * NOTE: the handle returned must be closed by onCloseResource.
@@ -319,7 +313,6 @@ declare class CryptoExtensionAbility {
    */
   onOpenResource(resourceId: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam> |
      HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
-
   /**
    * Callback to be called to close the resource handle.
    *
@@ -346,7 +339,6 @@ declare class CryptoExtensionAbility {
    */
   onCloseResource(handle: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam> |
       HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
-
   /**
    * Callback to be called to do general get operations of the provider.
    *
@@ -377,7 +369,6 @@ declare class CryptoExtensionAbility {
    */
   onGetProperty(handle: string, propertyId: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam> |
       HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
-
   /**
    * Callback to perform set operations of the provider.
    *
@@ -407,7 +398,6 @@ declare class CryptoExtensionAbility {
    */
   onSetProperty(handle: string, propertyId: string, params: HuksCryptoExtensionParam[]):
       Promise<HuksCryptoExtensionResult>;
-
   /**
    * Callback to be called to verify PIN of the provider handle.
    *
@@ -436,7 +426,6 @@ declare class CryptoExtensionAbility {
    */
   onAuthUkeyPin(handle: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam> |
       HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
-
   /**
    * Callback to get the PIN auth state of the provider handle.
    *
@@ -463,7 +452,6 @@ declare class CryptoExtensionAbility {
    */
   onGetUkeyPinAuthState(handle: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam> |
       HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
-
   /**
    * Callback to clear the PIN auth state of the provider handle.
    *
@@ -490,7 +478,6 @@ declare class CryptoExtensionAbility {
    */
   onClearUkeyPinAuthState(handle: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam> |
       HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
-
   /**
    * Callback to do the initialize operation.
    *
@@ -518,7 +505,6 @@ declare class CryptoExtensionAbility {
    */
   onInitSession(handle: string, params: huks.HuksOptions | HuksCryptoExtensionParams):
       Promise<HuksCryptoExtensionResult>;
-
   /**
    * Callback to do update operation.
    *
@@ -546,7 +532,6 @@ declare class CryptoExtensionAbility {
    */
   onUpdateSession(initHandle: string, params: huks.HuksOptions | HuksCryptoExtensionParams):
       Promise<HuksCryptoExtensionResult>;
-
   /**
    * Callback to do the finish operation.
    *
@@ -574,7 +559,6 @@ declare class CryptoExtensionAbility {
    */
   onFinishSession(initHandle: string, params: huks.HuksOptions | HuksCryptoExtensionParams):
       Promise<HuksCryptoExtensionResult>;
-
   /**
    * Callback to export certificates specified by the resource id.
    *
@@ -600,7 +584,6 @@ declare class CryptoExtensionAbility {
    */
   onExportCertificate(resourceId: string, params?: Array<huksExternalCrypto.HuksExternalCryptoParam> |
       HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
-
   /**
    * Callback to import a certificate specified by the resource handle.
    *
@@ -652,7 +635,6 @@ declare class CryptoExtensionAbility {
    */
   onEnumCertificates(params?: Array<huksExternalCrypto.HuksExternalCryptoParam> | HuksCryptoExtensionParam[]):
       Promise<HuksCryptoExtensionResult>;
-
   /**
    * Callback to generate a key pair specified by the resource handle.
    *
