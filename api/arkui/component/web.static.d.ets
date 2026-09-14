@@ -6892,6 +6892,18 @@ export declare interface EmbedOptions {
      * @since 23 static
      */
     supportCssDisplayChange?: boolean;
+    /**
+     * Whether the {@link onNativeEmbedVisibilityChange} event supports the rotate and skew attributes
+     * of the CSS transform of the embed element.
+     * <br>Default value is false. If true, the visibility changes caused by the rotate and skew
+     * attributes of the CSS transform of the embed element will be reported through the
+     * {@link onNativeEmbedVisibilityChange} event.
+     *
+     * @default false
+     * @syscap SystemCapability.Web.Webview.Core
+     * @since 26.0.0 static
+     */
+    supportTransformRotateAndSkew?: boolean;
 }
 /**
  * Enum type supplied to {@link gestureFocusMode} for setting the web gesture focus mode.

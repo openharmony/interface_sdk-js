@@ -10205,6 +10205,21 @@ declare interface EmbedOptions {
    * @since 20 dynamic
    */
   supportCssDisplayChange?: boolean;
+  /**
+   * Whether the same-layer rendering visibility API supports the rotate and skew attributes of the CSS transform.
+   *
+   * By default, the visibility status of same-layer tags relative to the viewport is supported.
+   *
+   * If this attribute is set to **true**, the visibility changes caused by the rotate and skew attributes of the CSS
+   * transform can be reported.
+   *
+   * Otherwise, the visibility changes caused by the rotate and skew attributes of the CSS transform are not reported.
+   *
+   * @default false
+   * @syscap SystemCapability.Web.Webview.Core
+   * @since 26.0.0 dynamic
+   */
+  supportTransformRotateAndSkew?: boolean;
 }
 
 /**
