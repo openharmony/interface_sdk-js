@@ -7927,6 +7927,162 @@ declare namespace drawing {
   }
 
   /**
+   * 定义精灵图序列帧动画的插值模式。
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum AtlasInterpolationMode {
+    /**
+     * 无插值。每一帧作为独立步骤单独显示。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    NONE = 0,
+    /**
+     * 帧间插值。在相邻帧之间进行平滑过渡。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    FRAME_BLEND = 1,
+  }
+
+  /**
+   * 定义精灵图序列帧动画的图集帧参数。
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface AtlasImage {
+    /**
+     * 精灵图集图片。
+     * 通过image模块创建，为PixelMap实例。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    atlasImage: image.PixelMap;
+
+    /**
+     * 精灵图集的行数。
+     * 取值范围为[1, totalFrame]，超出范围的值将在内部被钳制。
+     *
+     * > **说明：**
+     * >
+     * > rows * (frameHeight + 2 * padding) 不得超过图集图片的高度。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    rows: int;
+
+    /**
+     * 精灵图集的列数。
+     * 取值范围为[1, totalFrame]，超出范围的值将在内部被钳制。
+     *
+     * > **说明：**
+     * >
+     * > cols * (frameWidth + 2 * padding) 不得超过图集图片的宽度。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    cols: int;
+
+    /**
+     * 单帧的宽度。
+     * 取值范围为[1, 8192]，超出范围的值将在内部被钳制。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    frameWidth: double;
+
+    /**
+     * 单帧的高度。
+     * 取值范围为[1, 8192]，超出范围的值将在内部被钳制。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    frameHeight: double;
+
+    /**
+     * 帧之间的间距，用于防止帧边界处的纹理渗透。
+     * 取值范围为[0, 64]，超出范围的值将在内部被钳制。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    padding: double;
+
+    /**
+     * 当前帧在图集中的索引。
+     * 取值范围为[0, totalFrame - 1]，超出范围的值将在内部被钳制。
+     *
+     * > **说明：**
+     * >
+     * > 该字段可通过animateTo进行动画驱动。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    frameIndex: double;
+
+    /**
+     * 图集中的总帧数。
+     * 取值范围为[1, rows * cols]，超出范围的值将在内部被钳制。
+     *
+     * > **说明：**
+     * >
+     * > 不得超过 rows * cols。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    totalFrame: int;
+
+    /**
+     * 帧动画的插值模式。
+     * NONE(0) = 无插值，每帧独立显示；
+     * FRAME_BLEND(1) = 帧间插值，相邻帧之间平滑过渡。
+     * 超出范围的值将被钳制为1。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    mode: AtlasInterpolationMode;
+  }
+
+  /**
    * 本Class是提供处理坐标点的工具类，支持对坐标点进行取反、偏移等操作，适用于需要对坐标点进行变换处理的图形绘制场景。
    * 
    * > **说明：**

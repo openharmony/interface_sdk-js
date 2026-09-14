@@ -8496,6 +8496,161 @@ declare namespace drawing {
   }
 
   /**
+   * Defines the interpolation mode for sprite sheet frame animation.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum AtlasInterpolationMode {
+    /**
+     * No interpolation. Each frame is displayed independently as a discrete step.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    NONE = 0,
+    /**
+     * Inter-frame interpolation. Smooth transition between adjacent frames.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    FRAME_BLEND = 1,
+  }
+
+  /**
+   * Defines the atlas frame parameters for sprite sheet frame animation.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface AtlasImage {
+    /**
+     * Sprite sheet atlas image.
+     * Created through the image module as a PixelMap instance.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    atlasImage: image.PixelMap;
+
+    /**
+     * Number of rows in the sprite sheet atlas.
+     * The value range is [1, totalFrame]; out-of-range values will be clamped internally.
+     *
+     * > **NOTE**
+     * >
+     * > rows * (frameHeight + 2 * padding) must not exceed the atlas image height.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    rows: int;
+
+    /**
+     * Number of columns in the sprite sheet atlas.
+     * The value range is [1, totalFrame]; out-of-range values will be clamped internally.
+     *
+     * > **NOTE**
+     * >
+     * > cols * (frameWidth + 2 * padding) must not exceed the atlas image width.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    cols: int;
+
+    /**
+     * Width of a single frame in pixels.
+     * The value range is [1, 8192]; out-of-range values will be clamped internally.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    frameWidth: double;
+
+    /**
+     * Height of a single frame in pixels.
+     * The value range is [1, 8192]; out-of-range values will be clamped internally.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    frameHeight: double;
+
+    /**
+     * Padding between frames in pixels, used to prevent texture bleeding at frame boundaries.
+     * The value range is [0, 64]; out-of-range values will be clamped internally.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    padding: double;
+
+    /**
+     * Current frame index in the atlas.
+     * The value range is [0, totalFrame - 1]; out-of-range values will be clamped internally.
+     *
+     * > **NOTE**
+     * >
+     * > This field is animated by animateTo.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    frameIndex: double;
+
+    /**
+     * Total number of frames in the atlas.
+     * The value range is [1, rows * cols]; out-of-range values will be clamped internally.
+     *
+     * > **NOTE**
+     * >
+     * > Must not exceed rows * cols.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    totalFrame: int;
+
+    /**
+     * Interpolation mode for frame animation.
+     * NONE(0) = no interpolation, each frame displayed independently;
+     * FRAME_BLEND(1) = frame interpolation, smooth transition between adjacent frames.
+     * Out-of-range values will be clamped to 1.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    mode: AtlasInterpolationMode;
+  }
+
+  /**
    * This class offers a comprehensive set of operations for handling common2D Point objects.
    *
    * @syscap SystemCapability.Graphics.Drawing

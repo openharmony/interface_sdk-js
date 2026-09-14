@@ -21,6 +21,7 @@
 import { AsyncCallback } from './@ohos.base';
 import type common2D from './@ohos.graphics.common2D';
 import type image from './@ohos.multimedia.image';
+import type drawing from './@ohos.graphics.drawing';
 /*** if arkts static */
 import { LinearGradientBlurOptions } from '@ohos.arkui.component';
 /*** endif */
@@ -796,6 +797,30 @@ declare namespace uiEffect {
      * @since 26.0.0 dynamiconly
      */
     distortionCollapse(distortionParam: DistortionParam): VisualEffect;
+
+    /**
+     * Adds a glass marble effect to the component. The glass marble effect composites a marble with material 
+     * parameters and an optional content layer to produce a realistic glass-like visual with refraction, 
+     * dispersion, halo, shadow, and glow.
+     *
+     * > **NOTE**
+     * 
+     * > It is applied to the background layer of the component.
+     *
+     * @param { GlassMarbleMaterialParam } material - The material parameters controlling background color, opacity,
+     *     reflection map, shadow, caustic, and shape scaling.
+     * @param { GlassMarbleSphereParam | Mask } marbleShell - Required shape parameter. It can be sphere geometry
+     *     parameters (center and radius) or a prebuilt resource map mask.
+     * @param { GlassMarbleContentParam } [content] - Optional content parameters including a content mask,
+     *     tint color, scaling, saturation, and chromatic dispersion of the blended content.
+     * @returns { VisualEffect } - Returns the VisualEffect with the glass sphere effect attached.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    glassMarbleEffect(material: GlassMarbleMaterialParam, marbleShell: GlassMarbleSphereParam | Mask,
+      content?: GlassMarbleContentParam): VisualEffect;
   }
 
   /**
@@ -1213,6 +1238,256 @@ declare namespace uiEffect {
      * @since 26.1.0 dynamic&static
      */
     noiseEvolution: double;
+  }
+
+  /**
+   * Material parameters for the glass marble. Controls material properties (background color,
+   * opacity, reflection map, shadow, caustic) and shape scaling.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface GlassMarbleMaterialParam {
+    /**
+     * Average background color, the alpha channel is not used.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    averageBgColor: Color;
+
+    /**
+     * Overall opacity of the glass effect.
+     * The value range is [0, 1]; a value of 0 is fully transparent, 1 is fully opaque.
+     * Out‑of‑range values will be clamped internally.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    opacity: double;
+
+    /**
+     * Vertical offset of the shadow, normalized to the shape radius.
+     * The value range is [-1, 1]; out‑of‑range values will be clamped internally.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shadowOffset: double;
+
+    /**
+     * Radius of the shadow, normalized to the shape radius.
+     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shadowRadius: double;
+
+    /**
+     * Edge softness of the shadow.
+     * The value range is [0, 1]; a value of 0 produces a hard edge, 1 produces a fully soft edge.
+     * Out‑of‑range values will be clamped internally.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shadowEdgeSoftness: double;
+
+    /**
+     * Overall opacity of the shadow.
+     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shadowOpacity: double;
+
+    /**
+     * Vertical offset of the caustic (focused light), normalized to the shape radius.
+     * The value range is [-1, 1]; out‑of‑range values will be clamped internally.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    causticOffset: double;
+
+    /**
+     * Radius of the caustic (focused light), normalized to the shape radius.
+     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    causticRadius: double;
+
+    /**
+     * Edge softness of the caustic (focused light).
+     * The value range is [0, 1]; a value of 0 produces a hard edge, 1 produces a fully soft edge.
+     * Out‑of‑range values will be clamped internally.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    causticEdgeSoftness: double;
+
+    /**
+     * Overall opacity of the caustic (focused light).
+     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    causticOpacity: double;
+
+    /**
+     * Scaling factor applied to the glass shape.
+     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
+     * 
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shapeScale: double;
+
+    /**
+     * Reflection map used for environment reflections on the glass surface.
+     * Created through the image module as a PixelMap instance.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    reflectionMap: image.PixelMap;
+  }
+
+  /**
+   * Content parameters for the glass marble. Controls how the content mask is blended inside
+   * the glass shape, including the content mask itself, tint color, scaling, saturation,
+   * and chromatic dispersion.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface GlassMarbleContentParam {
+    /**
+     * Content mask to blend additional content inside the glass shape.
+     * When provided, the content mask is sampled and composited with the glass material.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    contentMask: Mask;
+
+    /**
+     * Tint color applied to the content blended inside the glass shape.
+     * The alpha channel is used as the mix coefficient between the original content color and
+     * the tint color.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    contentTintColor: Color;
+
+    /**
+     * Scaling factor applied to the content blended inside the glass shape.
+     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    contentScale: double;
+ 
+    /**
+     * Saturation of the content blended inside the glass shape.
+     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    contentSaturation: double;
+ 
+    /**
+     * Chromatic dispersion of the content blended inside the glass shape.
+     * Controls the color separation at the content edges.
+     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    contentDispersion: double;
+  }
+
+  /**
+   * Sphere shape parameters for the glass marble. Defines the geometry of the glass shape
+   * through a center position and a radius, all in normalized coordinates relative to the
+   * component bounds.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface GlassMarbleSphereParam {
+    /**
+     * Normalized center position of the sphere shape.
+     * [0, 0] represents the top-left corner and [1, 1] represents the bottom-right corner
+     * of the component bounds. Values outside [0, 1] will be clamped internally.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    center: [double, double];
+
+    /**
+     * Normalized radius of the sphere shape.
+     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
+     * A value of 1 means the sphere diameter equals the minimum of the component's width and height.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    radius: double;
   }
 
   /**
@@ -2026,6 +2301,19 @@ declare namespace uiEffect {
      * @since 26.1.0 dynamic&static
      */
     static createBinocularMask(radiusX: double, radiusY: double, gap: double, softness: double): Mask;
+
+    /**
+     * Creates an atlas frame mask for sprite sheet frame animation.
+     * The mask carries atlas frame parameters used to drive atlas frame animation.
+     *
+     * @param { AtlasImage } atlasInfo - the atlas frame parameters.
+     * @returns { Mask } - Returns a Mask with the atlas frame parameters.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    static createAtlasFrameMask(atlasInfo: drawing.AtlasImage): Mask;
   }
 
   /**

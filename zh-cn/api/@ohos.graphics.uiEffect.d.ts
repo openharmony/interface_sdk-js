@@ -21,6 +21,7 @@
 import { AsyncCallback } from './@ohos.base';
 import type common2D from './@ohos.graphics.common2D';
 import type image from './@ohos.multimedia.image';
+import type drawing from './@ohos.graphics.drawing';
 /*** if arkts static */
 import { LinearGradientBlurOptions } from '@ohos.arkui.component';
 /*** endif */
@@ -682,6 +683,29 @@ declare namespace uiEffect {
      * @since 26.0.0 dynamiconly
      */
     distortionCollapse(distortionParam: DistortionParam): VisualEffect;
+
+    /**
+     * 为组件添加玻璃弹珠效果。玻璃弹珠效果将弹珠与材质参数以及可选的内容层进行合成，
+     * 产生具有折射、色散、光晕、阴影和发光的真实玻璃质感视觉效果。
+     *
+     * > **说明**
+     * 
+     * > 作用于组件的背景层。
+     *
+     * @param { GlassMarbleMaterialParam } material - 材质参数，控制背景色、透明度、
+     *     反射贴图、阴影、焦散和形状缩放。
+     * @param { GlassMarbleSphereParam | Mask } marbleShell - 必选的形状参数。可以是球体几何参数
+     *     （圆心和半径），也可以是预置的资源图遮罩。
+     * @param { GlassMarbleContentParam } [content] - 可选的内容参数，包括内容遮罩、
+     *     混合内容的着色颜色、缩放、饱和度和色散。
+     * @returns { VisualEffect } - 返回附加了玻璃球效果的VisualEffect。
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    glassMarbleEffect(material: GlassMarbleMaterialParam, marbleShell: GlassMarbleSphereParam | Mask,
+      content?: GlassMarbleContentParam): VisualEffect;
   }
 
   /**
@@ -1069,6 +1093,252 @@ declare namespace uiEffect {
      * @since 26.1.0 dynamic&static
      */
     noiseEvolution: double;
+  }
+
+  /**
+   * 玻璃弹珠的材质参数。控制材质属性（背景色、透明度、反射贴图、阴影、焦散）以及形状缩放。
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface GlassMarbleMaterialParam {
+    /**
+     * 平均背景色，不使用alpha通道。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    averageBgColor: Color;
+
+    /**
+     * 玻璃效果的整体透明度。
+     * 取值范围为[0, 1]；0表示完全透明，1表示完全不透明。
+     * 超出范围的值将在内部被截断。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    opacity: double;
+
+    /**
+     * 阴影的垂直偏移量，按形状半径归一化。
+     * 取值范围为[-1, 1]；超出范围的值将在内部被截断。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shadowOffset: double;
+
+    /**
+     * 阴影的半径，按形状半径归一化。
+     * 取值范围为[0, 1]；超出范围的值将在内部被截断。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shadowRadius: double;
+
+    /**
+     * 阴影的边缘柔和度。
+     * 取值范围为[0, 1]；0产生硬边缘，1产生完全柔和的边缘。
+     * 超出范围的值将在内部被截断。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shadowEdgeSoftness: double;
+
+    /**
+     * 阴影的整体透明度。
+     * 取值范围为[0, 1]；超出范围的值将在内部被截断。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shadowOpacity: double;
+
+    /**
+     * 焦散（聚焦光线）的垂直偏移量，按形状半径归一化。
+     * 取值范围为[-1, 1]；超出范围的值将在内部被截断。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    causticOffset: double;
+
+    /**
+     * 焦散（聚焦光线）的半径，按形状半径归一化。
+     * 取值范围为[0, 1]；超出范围的值将在内部被截断。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    causticRadius: double;
+
+    /**
+     * 焦散（聚焦光线）的边缘柔和度。
+     * 取值范围为[0, 1]；0产生硬边缘，1产生完全柔和的边缘。
+     * 超出范围的值将在内部被截断。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    causticEdgeSoftness: double;
+
+    /**
+     * 焦散（聚焦光线）的整体透明度。
+     * 取值范围为[0, 1]；超出范围的值将在内部被截断。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    causticOpacity: double;
+
+    /**
+     * 应用于玻璃形状的缩放系数。
+     * 取值范围为[0, 1]；超出范围的值将在内部被截断。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    shapeScale: double;
+
+    /**
+     * 用于玻璃表面环境反射的反射贴图。
+     * 通过image模块创建为PixelMap实例。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    reflectionMap: image.PixelMap;
+  }
+
+  /**
+   * 玻璃弹珠的内容参数。控制内容遮罩在玻璃形状内部的混合方式，
+   * 包括内容遮罩本身、着色颜色、缩放、饱和度和色散。
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface GlassMarbleContentParam {
+    /**
+     * 用于在玻璃形状内部混合附加内容的内容遮罩。
+     * 提供时，将对内容遮罩进行采样并与玻璃材质合成。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    contentMask: Mask;
+
+    /**
+     * 应用于玻璃形状内部混合内容的着色颜色。
+     * alpha通道用作原始内容颜色与着色颜色之间的混合系数。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    contentTintColor: Color;
+
+    /**
+     * 应用于玻璃形状内部混合内容的缩放系数。
+     * 取值范围为[0, 1]；超出范围的值将在内部被截断。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    contentScale: double;
+
+    /**
+     * 玻璃形状内部混合内容的饱和度。
+     * 取值范围为[0, 1]；超出范围的值将在内部被截断。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    contentSaturation: double;
+
+    /**
+     * 玻璃形状内部混合内容的色散。
+     * 控制内容边缘的颜色分离程度。
+     * 取值范围为[0, 1]；超出范围的值将在内部被截断。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    contentDispersion: double;
+  }
+
+  /**
+   * 玻璃弹珠的球体形状参数。通过圆心位置和半径定义玻璃形状的几何结构，
+   * 均采用相对于组件边界的归一化坐标。
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface GlassMarbleSphereParam {
+    /**
+     * 球体形状的归一化圆心位置。
+     * [0, 0]表示组件边界的左上角，[1, 1]表示组件边界的右下角。
+     * 超出[0, 1]范围的值将在内部被截断。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    center: [double, double];
+
+    /**
+     * 球体形状的归一化半径。
+     * 取值范围为[0, 1]；超出范围的值将在内部被截断。
+     * 值为1表示球的直径等于组件宽度和高度的较小值。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    radius: double;
   }
 
   /**
@@ -1817,6 +2087,19 @@ declare namespace uiEffect {
      * @since 26.1.0 dynamic&static
      */
     static createBinocularMask(radiusX: double, radiusY: double, gap: double, softness: double): Mask;
+
+    /**
+     * 创建用于精灵图集序列帧动画的图集帧遮罩。
+     * 该遮罩携带用于驱动图集序列帧动画的图集帧参数。
+     *
+     * @param { AtlasImage } atlasInfo - 图集帧参数。
+     * @returns { Mask } - 返回携带图集帧参数的Mask实例。
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    static createAtlasFrameMask(atlasInfo: drawing.AtlasImage): Mask;
   }
 
   /**
