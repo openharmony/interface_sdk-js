@@ -117,6 +117,7 @@ declare namespace dlpSetDlpFeature {
      *     ，菜单中不显示"加密保护"选项。超出此范围抛出错误码401。
      * @returns { Promise<StatusInfoResult> } Promise对象。设置DLP特性开关状态，返回DLP特性开关状态设置的结果信息。
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
+     * @throws { BusinessError } 801 - Capability not supported because car not support DLP feature. [since 26.1.0]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
