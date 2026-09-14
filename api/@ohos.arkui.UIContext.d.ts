@@ -6449,6 +6449,28 @@ export class UIContext {
    * @since 26.0.0 dynamic
    */
   getSmartGestureController(): SmartGestureController;
+
+  /**
+   * Applies the default safe area immersive strategy on the current page. This API applies to scenarios such as
+   * full-screen or immersive applications. You can centrally configure the safe area immersive strategy before the
+   * first layout. After the strategies are applied, the way the page handles the safe area is adjusted based on
+   * the specified strategies.
+   *
+   * > **NOTE**
+   * >
+   * > - Dynamic update is not supported. This API takes effect only when called before the first layout process
+   * > starts on the current page. If it is called after the page enters the first layout process, the applied
+   * > strategies remain unchanged and this API does not take effect.
+   *
+   * @param { ImmersiveStrategy[] } types - Immersive strategies to apply. An empty array clears all applied
+   *     immersive strategies.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  applyDefaultImmersiveStrategy(...types: ImmersiveStrategy[]): void;
 }
 
 /**
