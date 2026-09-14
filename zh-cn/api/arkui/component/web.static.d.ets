@@ -6771,11 +6771,11 @@ export declare interface EmbedOptions {
      */
     supportCssDisplayChange?: boolean;
     /**
-     * Whether the embed element supports the CSS rotate and skew attributes.
+     * Whether the embed element supports the rotate and skew attributes of the CSS transform.
      * <br>The CSS rotate attribute rotates an element around a fixed point on the 2D plane, and the
      * CSS skew attribute skews an element along the X and/or Y axis.
-     * <br>Default value is false. If true, the CSS rotate and skew attributes of the embed element
-     * are supported.
+     * <br>Default value is false. If true, the rotate and skew attributes of the CSS transform of
+     * the embed element are supported. If false, they are not supported.
      *
      * @default false
      * @syscap SystemCapability.Web.Webview.Core

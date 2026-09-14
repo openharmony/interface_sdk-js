@@ -9258,9 +9258,13 @@ declare interface EmbedOptions {
    */
   supportCssDisplayChange?: boolean;
   /**
-   * 设置同层渲染是否支持CSS的rotate和skew属性。
+   * 设置同层渲染是否支持CSS transform中的rotate和skew属性。
    *
    * CSS的rotate属性用于将元素围绕定点旋转，skew属性用于将元素沿X轴和/或Y轴倾斜。
+   *
+   * 设置为true时，支持CSS transform中的rotate和skew属性。
+   *
+   * 设置为false时，不支持CSS transform中的rotate和skew属性。
    *
    * @default false
    * @syscap SystemCapability.Web.Webview.Core

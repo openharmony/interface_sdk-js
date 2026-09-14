@@ -10206,10 +10206,14 @@ declare interface EmbedOptions {
    */
   supportCssDisplayChange?: boolean;
   /**
-   * Whether the same-layer rendering supports the CSS rotate and skew attributes.
+   * Whether the same-layer rendering supports the rotate and skew attributes of the CSS transform.
    *
    * The CSS rotate attribute rotates an element around a fixed point on the 2D plane, and the CSS skew attribute
    * skews an element along the X and/or Y axis.
+   *
+   * If this attribute is set to **true**, the rotate and skew attributes of the CSS transform are supported.
+   *
+   * Otherwise, the rotate and skew attributes of the CSS transform are not supported.
    *
    * @default false
    * @syscap SystemCapability.Web.Webview.Core
