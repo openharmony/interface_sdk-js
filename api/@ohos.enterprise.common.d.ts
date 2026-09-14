@@ -293,7 +293,7 @@ declare namespace common {
      * @since 26.1.0
      */
     SELF = 0,
- 
+
     /**
      * Query the policy set by all administrators.
      *
@@ -303,6 +303,63 @@ declare namespace common {
      */
     ALL = 1
   }
+
+  /**
+   * The managed feature.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.1
+   */
+  export enum ManagedFeature {
+    /**
+     * The feature of local hota domain.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.1
+     */
+    LOCAL_HOTA_DOMAIN = 0,
+
+    /**
+     * The feature of add user extend credential.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.1
+     */
+    USER_EXTEND_CREDENTIAL = 1,
+
+    /**
+     * The feature of set device security level.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.1
+     */
+    DEVICE_SECURITY_LEVEL = 2,
+
+    /**
+     * The feature of set printer ip address policy.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.1
+     */
+    PRINTER_IP_ADDRESS_POLICY = 3
+  }
+
+  /**
+   * Checks whether a specified feature is supported.
+   *
+   * @param { ManagedFeature } feature - The feature of enterprise device management.
+   * @returns { boolean } The value **true** indicates that the specified feature is supported, and the
+   *     value **false** indicates the opposite.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.1
+   */
+  function isFeatureSupported(feature: ManagedFeature): boolean;
 
   /**
    * **EnterpriseAdminExtensionContext** is the context of
