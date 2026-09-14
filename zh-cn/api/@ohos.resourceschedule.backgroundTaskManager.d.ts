@@ -2615,7 +2615,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     SYSTEM_CANCEL_NOT_USE_NEARLINK = 15,
 
