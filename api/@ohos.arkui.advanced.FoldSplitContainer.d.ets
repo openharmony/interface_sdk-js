@@ -55,7 +55,7 @@ export declare enum ExtraRegionPosition {
     BOTTOM = 2
 }
 /**
- * Layout information for the expanded state.
+ * Defines layout information for the expanded state.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -65,9 +65,11 @@ export declare enum ExtraRegionPosition {
  */
 export interface ExpandedRegionLayoutOptions {
     /**
-     * Width ratio between the primary and extra regions. This setting takes effect only when **extra**
-     * is effective.
-     * The value should be an integer. Default value: {@link.PresetSplitRatio}.LAYOUT_3V2.
+     * Ratio of the primary area width to the expanded area width. The value can be a preset value of 
+     * **PresetSplitRatio** or a custom value. The value range is (0, +∞). If a value less than or equal to 0 is passed,
+     * the default value is used. This field takes effect only when **extra** is valid.
+     * 
+     * Default value: [PresetSplitRatio]{@link PresetSplitRatio}.LAYOUT_3V2
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -77,8 +79,12 @@ export interface ExpandedRegionLayoutOptions {
      */
     horizontalSplitRatio?: number;
     /**
-     * Height ratio between the primary and extra regions.
-     * The value range is all integers. Default value: {@link.PresetSplitRatio}.LAYOUT_1V1.
+     * Ratio of the primary area height to the secondary area height. The value can be a preset value of 
+     * **PresetSplitRatio** or a custom value. The value range is (0, +∞). If a value less than or equal to 0 is passed,
+     * the default value is used. For example, when the value is 1.5, the primary area height is 1.5 times the secondary
+     * area height (that is, a 3:2 ratio).
+     * 
+     * Default value: [PresetSplitRatio]{@link PresetSplitRatio}.LAYOUT_1V1
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -88,12 +94,11 @@ export interface ExpandedRegionLayoutOptions {
      */
     verticalSplitRatio?: number;
     /**
-     * Whether the extra region extends perpendicularly through the entire component from top to bottom.
-     * The value **true** means that the extra region extends perpendicularly through the entire component
-     * from top to bottom, and **false** means the opposite. This setting takes effect only when **extra**
-     * is effective.
-     *
-     * Default value: **true**.
+     * Whether the expanded area runs through the entire component from top to bottom. The value **true** means the 
+     * expanded area runs through the entire component, and **false** means the opposite. This field takes effect only 
+     * when **extra** is valid.
+     * 
+     * Default value: **true**
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -103,10 +108,10 @@ export interface ExpandedRegionLayoutOptions {
      */
     isExtraRegionPerpendicular?: boolean;
     /**
-     * Position information of the extra region. This setting takes effect only when
-     * **isExtraRegionPerpendicular** is set to **false**.
-     *
-     * Default value: **ExtraRegionPosition.top**.
+     * Position of the expanded area. The options are **TOP** (upper half) and **BOTTOM** (lower half). This field takes
+     * effect when **isExtraRegionPerpendicular** is set to **false** and **extra** is valid.
+     * 
+     * Default value: `ExtraRegionPosition.TOP`
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -117,14 +122,14 @@ export interface ExpandedRegionLayoutOptions {
     extraRegionPosition?: ExtraRegionPosition;
 }
 /**
- * Layout information for the semi-folded state.
- *
+ * Defines layout information for the hover state.
+ * 
  * > **NOTE**
  * >
- * > 1. In semi-folded state, the device contains an avoidance area, and layout calculations must account for
- * > the impact of this avoidance area on the overall layout.
- * > 2. In semi-folded mode, the upper screen is dedicated to content display, and the lower screen is
- * > reserved for interaction.
+ * > 1. In the hover state, the device has an avoidance area (the area near the crease where content may be invisible or
+ * > restricted), and the impact of this area must be considered during layout calculation.
+ * >
+ * > 2. In hover mode, the upper half of the screen is the display area, and the lower half is the operation area.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -134,9 +139,13 @@ export interface ExpandedRegionLayoutOptions {
  */
 export interface HoverModeRegionLayoutOptions {
     /**
-     * Width ratio between the primary and extra regions. This setting takes effect only when **extra**
-     * is effective.
-     * The value range is all integers. Default value: {@link.PresetSplitRatio}.LAYOUT_3V2.
+     * Ratio of the primary area width to the expanded area width. The value can be a preset value from 
+     * **PresetSplitRatio** or a custom value, with a value range of (0, +∞). If a value less than or equal to 0 is 
+     * passed, the default value is used. This field takes effect when **extra** is valid and **showExtraRegion** is set
+     * to **true**. "extra is valid" means that the **extra** parameter is passed to the **FoldSplitContainer** 
+     * component.
+     * 
+     * Default value: [PresetSplitRatio]{@link PresetSplitRatio}.LAYOUT_3V2
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -146,10 +155,10 @@ export interface HoverModeRegionLayoutOptions {
      */
     horizontalSplitRatio?: number;
     /**
-     * Whether to display the extra region in the half-folded state. The value **true** means to display
-     * the extra region in the half-folded state, and **false** means the opposite.
-     *
-     * Default value: **false**.
+     * Whether to display the expanded area when the foldable screen is in the hover state. The value **true** means to 
+     * display the expanded area, and **false** means not to display it.
+     * 
+     * Default value: **false**
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -159,10 +168,11 @@ export interface HoverModeRegionLayoutOptions {
      */
     showExtraRegion?: boolean;
     /**
-     * Position information of the extra region. This setting takes effect only when **showExtraRegion**
-     * is set to **true**.
-     *
-     * Default value: **ExtraRegionPosition.top**.
+     * Position information of the expanded area. The value can be **TOP** (upper area) or **BOTTOM** (lower area). This
+     * field takes effect when **extra** is valid and **showExtraRegion** is set to **true**. "extra is valid" means 
+     * that the **extra** parameter is passed to the **FoldSplitContainer** component.
+     * 
+     * Default value: `ExtraRegionPosition.TOP`
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -173,7 +183,7 @@ export interface HoverModeRegionLayoutOptions {
     extraRegionPosition?: ExtraRegionPosition;
 }
 /**
- * Provides the layout information of the folded state.
+ * Defines the layout information for the folded state.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -183,8 +193,12 @@ export interface HoverModeRegionLayoutOptions {
  */
 export interface FoldedRegionLayoutOptions {
     /**
-     * Height ratio between the primary and extra regions.
-     * The value range is all integers. Default value: {@link.PresetSplitRatio}.LAYOUT_1V1.
+     * Ratio of the primary area height to the secondary area height. The value can be a **PresetSplitRatio** preset 
+     * value or a custom value. The value range is (0, +∞). If a value less than or equal to 0 is passed, the default 
+     * value is used. This field takes effect only in the folded state layout. For example, when the value is 1.5, it 
+     * indicates that the primary area height is 1.5 times the secondary area height (i.e., a 3:2 ratio).
+     * 
+     * Default value: [PresetSplitRatio]{@link PresetSplitRatio}.LAYOUT_1V1
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -205,7 +219,9 @@ export interface FoldedRegionLayoutOptions {
  */
 export declare enum PresetSplitRatio {
     /**
-     * 1:1.
+     * 1:1 ratio, indicating that the primary area and secondary area are equal in size. When used for 
+     * **verticalSplitRatio**, the height ratio of the upper and lower areas is 1:1. When used for 
+     * **horizontalSplitRatio**, the width ratio of the left and right areas is 1:1.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -215,7 +231,10 @@ export declare enum PresetSplitRatio {
      */
     LAYOUT_1V1 = 1,
     /**
-     * 2:3.
+     * 2:3 ratio, indicating that the primary area is approximately 0.667 times (2/3) the size of the secondary area, 
+     * that is, the primary area occupies 2/5 and the secondary area occupies 3/5. When used for **verticalSplitRatio**,
+     * the height ratio of the upper and lower areas is 2:3. When used for **horizontalSplitRatio**, the width ratio of 
+     * the left and right areas is 2:3.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -225,7 +244,10 @@ export declare enum PresetSplitRatio {
      */
     LAYOUT_2V3 = 0.6666666666666666,
     /**
-     * 3:2.
+     * 3:2 ratio, indicating that the primary area is 1.5 times the size of the secondary area, that is, the primary 
+     * area occupies 3/5 and the secondary area occupies 2/5. When used for **verticalSplitRatio**, the height ratio of 
+     * the upper and lower areas is 3:2. When used for **horizontalSplitRatio**, the width ratio of the left and right 
+     * areas is 3:2.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -236,7 +258,8 @@ export declare enum PresetSplitRatio {
     LAYOUT_3V2 = 1.5
 }
 /**
- * Provides information about the device or application's folding, rotation, and window state.
+ * Provides device or application information covering fold status, hover mode, application rotation, and window status 
+ * type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -246,7 +269,7 @@ export declare enum PresetSplitRatio {
  */
 export interface HoverModeStatus {
     /**
-     * Fold status of the device.
+     * Fold status of the device, including expanded, half-folded, and fully folded states.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -256,8 +279,8 @@ export interface HoverModeStatus {
      */
     foldStatus: display.FoldStatus;
     /**
-     * Whether the application is in the hover state. The value **true** means that the application
-     * is in the hover state, and **false** means the opposite.
+     * Whether the app is currently in hover state. The value **true** indicates hover state, and **false** indicates 
+     * non-hover state.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -267,7 +290,7 @@ export interface HoverModeStatus {
      */
     isHoverMode: boolean;
     /**
-     * Rotation angle of the application.
+     * App rotation angle, in degrees.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -277,7 +300,7 @@ export interface HoverModeStatus {
      */
     appRotation: number;
     /**
-     * Window mode.
+     * Window mode, including full-screen, split-screen, and freeform window modes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -288,10 +311,9 @@ export interface HoverModeStatus {
     windowStatusType: window.WindowStatusType;
 }
 /**
- * Implements a handler for the **onHoverStatusChange** event.
+ * Defines an event handler for hover state changes.
  *
- * @param { HoverModeStatus } status - Callback function triggered when the foldable device enters or exits
- *     the semi-folded state.
+ * @param { HoverModeStatus } status - Status information when the foldable screen enters or exits hover mode.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 22]
@@ -300,18 +322,20 @@ export interface HoverModeStatus {
  */
 export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void;
 /**
- * **FoldSplitContainer** is a layout container designed to manage regions for two-panel and three-panel
- * arrangements on a foldable device across various states, including the expanded state, the semi-folded state,
- * and the folded state.
- *
+ * The **FoldSplitContainer** component implements split-screen layout, providing region control for two-panel and three
+ * -panel layouts on foldable screens in the expanded state (device fully unfolded), hover state (device half-folded), 
+ * and folded state (device fully folded). It is suitable for responsive layout adaptation scenarios in foldable screen 
+ * apps, helping developers implement intelligent split-panel layouts across multiple screen states and improving user 
+ * experience. For details about fold status, see [display.FoldStatus]{@link @ohos.display:display.FoldStatus}.
+ * 
  * > **NOTE**
  * >
- * > By default, a two-panel layout is used when the window width is less than or equal to 600 vp.
- * > When the window width exceeds 600 vp, an extended area is supported alongside the top-bottom split layout.
- * > A semi-folded state layout can be triggered when the window width is greater than 600 vp and the device
- * > is in a horizontal, half-folded posture. In the semi-folded layout, visual avoidance for the screen
- * > crease area is applied, and the extended area cannot span across the crease. The extended area can also
- * > be configured not to display in the semi-folded state.
+ * > - When the window width is less than or equal to 600 vp, the split-screen layout is used by default. When the 
+ * > window width is greater than 600 vp, an expanded area can be supported in addition to the top-bottom split. When 
+ * > the window width is greater than 600 vp and the device is in landscape half-folded state, the hover state layout 
+ * > can be triggered. In the hover state layout, the crease area is avoided and the expanded area cannot cross the 
+ * > crease area. In the hover state, you can set not to display the expanded area. For details, see 
+ * > [Examples](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-FoldSplitContainer.md#examples).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -322,7 +346,8 @@ export type OnHoverStatusChangeHandler = (status: HoverModeStatus) => void;
 @Component
 export declare struct FoldSplitContainer {
     /**
-     * Callback function for the primary region.
+     * Callback function for building the UI content of the primary area. This callback function has no parameters and 
+     * no return value, and is invoked during component layout.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -333,7 +358,8 @@ export declare struct FoldSplitContainer {
     @BuilderParam
     primary: Callback<void>;
     /**
-     * Callback function for the extra region.
+     * Callback function for building the UI content of the secondary area. This callback function has no parameters and
+     * no return value, and is invoked during component layout.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -344,8 +370,10 @@ export declare struct FoldSplitContainer {
     @BuilderParam
     secondary: Callback<void>;
     /**
-     * Callback function for the extra region. If this parameter is not provided,
-     * there is no corresponding region.
+     * Callback function for building the UI content of the expanded area. Pass this parameter when a three-column 
+     * layout or an additional content area is needed. This parameter can be omitted when no expanded area is required. 
+     * This callback function has no parameters and no return value. When not passed, no corresponding area is 
+     * displayed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -356,7 +384,9 @@ export declare struct FoldSplitContainer {
     @BuilderParam
     extra?: Callback<void>;
     /**
-     * Layout information for the expanded state.
+     * Expanded state layout information, used to control whether the expanded area spans through, the area ratio, and 
+     * the position in the expanded state of a foldable screen. The expanded area is supported when the window width is 
+     * greater than 600 vp.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -367,7 +397,9 @@ export declare struct FoldSplitContainer {
     @Prop
     expandedLayoutOptions: ExpandedRegionLayoutOptions;
     /**
-     * Layout information for the semi-folded state.
+     * Hover state layout information, used to control whether the expanded area is displayed, the area ratio, and the 
+     * position in the semi-folded hover state of a foldable screen. The hover state layout is triggered when the window
+     * width is greater than 600 vp and the device is in landscape semi-folded state.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -378,7 +410,9 @@ export declare struct FoldSplitContainer {
     @Prop
     hoverModeLayoutOptions: HoverModeRegionLayoutOptions;
     /**
-     * Layout information for the folded state.
+     * Folded state layout information, used to control the height ratio between the primary area and the secondary area
+     * in the folded state of a foldable screen. This takes effect when the device is in the folded state. A split-
+     * screen layout is used by default when the window width is less than or equal to 600 vp.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -389,7 +423,9 @@ export declare struct FoldSplitContainer {
     @Prop
     foldedLayoutOptions: FoldedRegionLayoutOptions;
     /**
-     * Animation settings. The value **null** indicates that the animation is disabled.
+     * Parameters for setting animation effects. The value **null** indicates that animation is disabled.
+     * 
+     * Default value: **null**
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -400,7 +436,8 @@ export declare struct FoldSplitContainer {
     @Prop
     animationOptions?: AnimateParam | null;
     /**
-     * Callback function triggered when the foldable device enters or exits the semi-folded state.
+     * Callback function triggered when the foldable screen enters or exits hover mode. When not passed, no callback is 
+     * made for hover state changes.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly

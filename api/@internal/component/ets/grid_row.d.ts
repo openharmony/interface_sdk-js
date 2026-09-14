@@ -29,8 +29,14 @@
  */
 declare interface GridRowSizeOption {
   /**
-   * Gutter size for minimum device width.
-   * Unit: vp. Default value: **0vp**.
+   * Gutter of the grid child components on minimum-width type devices. Value range: a number or string greater than or 
+   * equal to 0.
+   * 
+   * Default value: **0vp**
+   * 
+   * Unit: vp
+   * 
+   * Invalid value: handled as the default value.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -41,8 +47,14 @@ declare interface GridRowSizeOption {
   xs?: Length,
 
   /**
-   * Gutter size for small device width.
-   * Unit: vp. Default value: **0vp**.
+   * Gutter of the grid child components on small-width type devices. Value range: a number or string greater than or 
+   * equal to 0.
+   * 
+   * Default value: **0vp**
+   * 
+   * Unit: vp
+   * 
+   * Invalid value: handled as the default value.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -53,8 +65,14 @@ declare interface GridRowSizeOption {
   sm?: Length,
 
   /**
-   * Gutter size for medium device width.
-   * Unit: vp. Default value: **0vp**.
+   * Gutter of the grid child components on medium-width type devices. Value range: a number or string greater than or 
+   * equal to 0.
+   * 
+   * Default value: **0vp**
+   * 
+   * Unit: vp
+   * 
+   * Invalid value: handled as the default value.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -65,8 +83,14 @@ declare interface GridRowSizeOption {
   md?: Length,
 
   /**
-   * Gutter size for large device width.
-   * Unit: vp. Default value: **0vp**.
+   * Gutter of the grid child components on large-width type devices. Value range: a number or string greater than or 
+   * equal to 0.
+   * 
+   * Default value: **0vp**
+   * 
+   * Unit: vp
+   * 
+   * Invalid value: handled as the default value.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -77,8 +101,14 @@ declare interface GridRowSizeOption {
   lg?: Length,
 
   /**
-   * Gutter size for extra large device width.
-   * Unit: vp. Default value: **0vp**.
+   * Gutter of the grid child components on extra-large-width type devices. Value range: a number or string greater than
+   * or equal to 0.
+   * 
+   * Default value: **0vp**
+   * 
+   * Unit: vp
+   * 
+   * Invalid value: handled as the default value.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -89,8 +119,14 @@ declare interface GridRowSizeOption {
   xl?: Length,
 
   /**
-   * Gutter size for extra extra large device width.
-   * Unit: vp. Default value: **0vp**.
+   * Gutter of the grid child components on extra-extra-large-width type devices. Value range: a number or string 
+   * greater than or equal to 0.
+   * 
+   * Default value: **0vp**
+   * 
+   * Unit: vp
+   * 
+   * Invalid value: handled as the default value.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -102,27 +138,38 @@ declare interface GridRowSizeOption {
 }
 
 /**
- * Describes the numbers of grid columns for devices with different grid sizes.
+ * Describes the grid column number configuration for different device width types.
  * 
- * In versions earlier than API version 20: When **GridRow** column spans are configured only at specific breakpoints, 
- * unconfigured breakpoints inherit values from the next smaller configured breakpoint. If no smaller breakpoint exists,
- * the default column count (12) is used for unconfigured breakpoints.
- * 
+ * Before API Version 20, if only partial breakpoints are set for **GridRow**'s grid column count, unconfigured 
+ * breakpoints inherit the column count from the nearest smaller configured breakpoint (for instance, **sm** is the 
+ * nearest smaller breakpoint of **md**). If no such smaller breakpoint is configured, the default grid column count 12 
+ * is used as a fallback.
+ *
  * <!--code_no_check-->
- * 
- * Since API version 20: When **GridRow** column spans are configured only at specific breakpoints, unconfigured 
- * breakpoints inherit values from the next smaller configured breakpoint. If no smaller breakpoint exists, values are 
- * inherited from the next larger configured breakpoint.
- * 
+ *
+ * ```ts
+ * columns: {xs:2, md:4, lg:8} // Equivalent to columns: {xs:2, sm:2, md:4, lg:8, xl:8, xxl:8}.
+ * columns: {md:4, lg:8} // Equivalent to columns: {xs:12, sm:12, md:4, lg:8, xl:8, xxl:8}.
+ * ```
+ *
+ * Since API version 20, if only partial breakpoints are set for **GridRow**'s grid column count, unconfigured
+ * breakpoints inherit the column count from the nearest smaller configured breakpoint. If no smaller configured
+ * breakpoint is available, the value from the nearest larger configured breakpoint is used as a fallback.
+ *
  * <!--code_no_check-->
- * 
- * Recommendation: Explicitly configure **GridRow** column spans for all required breakpoints to prevent unexpected 
+ *
+ * ```ts
+ * columns: {xs:2, md:4, lg:8} // Equivalent to columns: {xs:2, sm:2, md:4, lg:8, xl:8, xxl:8}.
+ * columns: {md:4, lg:8} // Equivalent to columns: {xs:4, sm:4, md:4, lg:8, xl:8, xxl:8}.
+ * ```
+ *
+ * Recommendation: Explicitly configure **GridRow** column spans for all required breakpoints to prevent unexpected
  * layout behavior caused by automatic value inheritance.
  * 
  * The width of each column is the content area size of the **GridRow** component minus the gutter of the grid child 
- * components, and then divided by the total number of columns. For example, if **columns** is set to **12**, **gutter**
- * is set to **10px**, and **padding** is set to **20px** for a **GridRow** component with a width of 800 px, the width 
- * of each column is (800 – 20 × 2 – 10 × 11)/12.
+ * components, and then divided by the total number of columns. For example, if a **GridRow** with a width of 800 vp has
+ * **columns** set to 12, **gutter** set to 10 vp, and **padding** set to 20 vp, the width of each column is (800 – 20 ×
+ * 2 – 10 × 11)/12.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -132,7 +179,12 @@ declare interface GridRowSizeOption {
  */
 declare interface GridRowColumnOption {
   /**
-   * Number of grid columns on the device where the grid size is xs.
+   * Number of grid columns of the grid container on a minimum-width device. The value is a positive integer.
+   * 
+   * - Before API version 20: the default value is **12**.
+   * - Since API version 20: the default value is **2**.
+   * 
+   * If an invalid value is set, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -143,7 +195,12 @@ declare interface GridRowColumnOption {
   xs?: number,
 
   /**
-   * Number of grid columns on the device where the grid size is sm.
+   * Number of grid columns of the grid container on a small-width device. The value is a positive integer.
+   * 
+   * - Before API version 20: the default value is **12**.
+   * - Since API version 20: the default value is **4**.
+   * 
+   * If an invalid value is set, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -154,7 +211,12 @@ declare interface GridRowColumnOption {
   sm?: number,
 
   /**
-   * Number of grid columns on the device where the grid size is md.
+   * Number of grid columns of the grid container on a medium-width device. The value is a positive integer.
+   * 
+   * - Before API version 20: the default value is **12**.
+   * - Since API version 20: the default value is **8**.
+   * 
+   * If an invalid value is set, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -165,7 +227,12 @@ declare interface GridRowColumnOption {
   md?: number,
 
   /**
-   * Number of grid columns on the device where the grid size is lg.
+   * Number of grid columns of the grid container on a large-width device. The value is a positive integer.
+   * 
+   * - Before API version 20: the default value is **12**.
+   * - Since API version 20: the default value is **12**.
+   * 
+   * If an invalid value is set, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -176,7 +243,12 @@ declare interface GridRowColumnOption {
   lg?: number,
 
   /**
-   * Number of grid columns on the device where the grid size is xl.
+   * Number of grid columns of the grid container on an extra-large-width device. The value is a positive integer.
+   * 
+   * - Before API version 20: the default value is **12**.
+   * - Since API version 20: the default value is **12**.
+   * 
+   * If an invalid value is set, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -187,7 +259,12 @@ declare interface GridRowColumnOption {
   xl?: number,
 
   /**
-   * Number of grid columns on the device where the grid size is xxl.
+   * Number of grid columns of the grid container on an extra-extra-large-width device. The value is a positive integer.
+   * 
+   * - Before API version 20: the default value is **12**.
+   * - Since API version 20: the default value is **12**.
+   * 
+   * If an invalid value is set, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -210,8 +287,13 @@ declare interface GridRowColumnOption {
  */
 declare interface GutterOption {
   /**
-   * Horizontal spacing between grid child components. 
-   * Unit: vp.
+   * Horizontal gutter between child components in the grid. Value range: a number or string greater than or equal to 0.
+   * 
+   * Default value: **0vp**.
+   * 
+   * Invalid value: the default value is used.
+   * 
+   * Unit: vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -222,8 +304,13 @@ declare interface GutterOption {
   x?: Length | GridRowSizeOption,
 
   /**
-   * Vertical spacing between grid child components.
-   * Unit: vp.
+   * Vertical gutter between child components in the grid. Value range: a number or string greater than or equal to 0.
+   * 
+   * Default value: **0vp**.
+   * 
+   * Invalid value: the default value is used.
+   * 
+   * Unit: vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -245,7 +332,8 @@ declare interface GutterOption {
  */
 declare enum BreakpointsReference {
   /**
-   * The window is used as a reference.
+   * Uses the window as the reference. Breakpoint calculation is based on the app window size, suitable for scenarios 
+   * where responsive layout needs to adapt to overall window size changes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -256,7 +344,9 @@ declare enum BreakpointsReference {
   WindowSize,
 
   /**
-   * The container is used as a reference.
+   * Uses the container as the reference. Breakpoint calculation is based on the size of the **GridRow** component 
+   * itself, suitable for scenarios where responsive layout needs to adapt to component container size changes, for 
+   * example, when **GridRow** is nested in another container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -275,19 +365,19 @@ declare enum BreakpointsReference {
  * > - Grid elements can be arranged only in the **Row** or **RowReverse** direction, but not in the **Column** or 
  * > **ColumnReverse** direction.
  * >
- * > - The location and size of a grid child component can be calculated only based on **span** and **offset**. If the 
- * > **span** values of child components add up to a number greater than the allowed number of columns, the grid will 
- * > automatically wrap lines.
+ * > - The location and size of a grid child component can only be calculated through **span** and **offset**. When the 
+ * > **span** values of multiple child components exceed the specified number of columns, they automatically wrap to a 
+ * > new row.
  * >
- * > - If the **span** value of a single child component exceeds the maximum number of columns, the maximum number of 
- * > columns is used.
+ * > - When the **span** of a single element exceeds the maximum number of columns, the **span** is set to the maximum 
+ * > number of columns by default.
  * >
- * > - If a child component takes up more than the total number of columns according to its **offset** and **span** 
- * > settings, it will be placed in a new row.
+ * > - When the **offset** of a new row plus the **span** of the child component exceeds the total number of columns, 
+ * > the next child component is placed on a new row.
  * >
- * > - Example: Item1: GridCol({ span: 6 }), Item2: GridCol({ span: 8, offset:11 })
- * > >
- * > > ![figures/gridRowOffsetToNextLine.png](docroot://reference/apis-arkui/arkui-ts/figures/gridRowOffsetToNextLine.png)
+ * > - Example: Item1: GridCol({ span: 6 }), Item2: GridCol({ span: 8, offset:11 }).
+ * >
+ * > ![figures/gridRowOffsetToNextLine.png](docroot://reference/apis-arkui/arkui-ts/figures/gridRowOffsetToNextLine.png)
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -297,7 +387,7 @@ declare enum BreakpointsReference {
  */
 declare enum GridRowDirection {
   /**
-   * Grid elements are arranged in the row direction.
+   * Grid elements are arranged in the row direction. This is suitable for regular LTR (left-to-right) layout scenarios.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -308,7 +398,8 @@ declare enum GridRowDirection {
   Row,
 
   /**
-   * Grid elements are arranged in the reverse row direction.
+   * Grid elements are arranged in the reverse row direction. This is suitable for RTL (right-to-left) language layouts 
+   * or scenarios that require reverse arrangement.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -322,8 +413,18 @@ declare enum GridRowDirection {
 /**
  * Sets breakpoints for the responsive grid container. For details about breakpoints, see 
  * [Breakpoints](docroot://ui/arkts-layout-development-grid-layout.md#breakpoints).
- * 
+ *
  * <!--code_no_check-->
+ *
+ * ```ts
+ * // Enable the xs, sm, and md breakpoints.
+ * breakpoints: {value: ['100vp', '200vp']}
+ * // Enable four breakpoints: xs, sm, md, and lg. The breakpoint range must be monotonically increasing.
+ * breakpoints: {value: ['320vp', '600vp', '840vp']}
+ * // Enable five breakpoints: xs, sm, md, lg, and xl. The count of breakpoint ranges must not be greater than
+ * // the total number of configurable breakpoints minus one.
+ * breakpoints: {value: ['320vp', '600vp', '840vp', '1080vp']}
+ * ```
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -333,13 +434,17 @@ declare enum GridRowDirection {
  */
 declare interface BreakPoints {
   /**
-   * Array of monotonically increasing breakpoints.
+   * Monotonically increasing array of breakpoint positions. The string format is "number+vp", for example, "320vp" and 
+   * "600vp".
    * 
-   * Default value: **["320vp", "600vp", "840vp"]**
+   * Default value: **["320vp", "600vp", "840vp"]** 
    * 
-   * Invalid values are treated as the default value.
+   * Invalid value: The default value is used.
    * 
-   * Unit: vp.
+   * Unit: vp
+   * 
+   * The default breakpoints apply to most scenarios. You can customize them for special screen sizes or specific layout
+   * requirements.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -350,11 +455,12 @@ declare interface BreakPoints {
   value?: Array<string>,
 
   /**
-   * Breakpoint switching reference.
+   * Reference object for breakpoint switching. The options are **WindowSize** (using the window as the reference) and 
+   * **ComponentSize** (using the container as the reference).
    * 
-   * Default value: **BreakpointsReference.WindowSize**
+   * Default value: **BreakpointsReference.WindowSize** 
    * 
-   * Invalid values are treated as the default value.
+   * Invalid value: The default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -376,13 +482,13 @@ declare interface BreakPoints {
  */
 declare interface GridRowOptions {
   /**
-   * Gutter of the grid layout.
+   * Grid layout gutter.
    * 
-   * Default value: **0**
+   * Default value: **0vp**
    * 
-   * Invalid values are treated as the default value.
+   * Invalid value: The default value is used.
    * 
-   * Unit: vp.
+   * Unit: vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -393,14 +499,14 @@ declare interface GridRowOptions {
   gutter?: Length | GutterOption;
 
   /**
-   * Number of columns in the grid layout.
+   * Number of layout columns.
    * 
-   * The value is an integer greater than 0.
+   * The value must be a positive integer.
    * 
-   * - Before API version 20: The default value is 12.
-   * - API version 20 or later: The default value is { xs: 2, sm: 4, md: 8, lg: 12, xl: 12, xxl: 12 }.
+   * - Before API version 20: The default value is **12**.
+   * - Since API version 20: The default value is **{ xs: 2, sm: 4, md: 8, lg: 12, xl: 12, xxl: 12 }**.
    * 
-   * Invalid values are treated as the default value.
+   * Invalid value: The default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -411,20 +517,22 @@ declare interface GridRowOptions {
   columns?: number | GridRowColumnOption;
 
   /**
-   * Array of breakpoint values and the corresponding reference based on the application window or container size.
+   * Used to set the monotonically increasing array of breakpoint positions, and the reference object for breakpoint 
+   * switching (based on the app window or container size).
    * 
    * Default value:
-   *
-   * ```
-   * {
-   *   value: ["320vp", "600vp", "840vp"],
-   *   reference: BreakpointsReference.WindowSize
-   * }
-   * ```
    * 
-   * Invalid values are treated as the default value.
+   * **{
    * 
-   * Unit: vp.
+   * value: ["320vp", "600vp", "840vp"],
+   * 
+   * reference: BreakpointsReference.WindowSize
+   * 
+   * }**
+   * 
+   * Invalid value: The default value is used.
+   * 
+   * Unit: vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -435,11 +543,13 @@ declare interface GridRowOptions {
   breakpoints?: BreakPoints;
 
   /**
-   * Arrangement direction of the grid layout.
+   * Grid layout arrangement direction. Supports **Row** (row-wise arrangement, suitable for conventional LTR layouts) 
+   * and **RowReverse** (reverse row-wise arrangement, suitable for RTL layouts or scenarios requiring reverse 
+   * arrangement).
    * 
    * Default value: **GridRowDirection.Row**
    * 
-   * Invalid values are treated as the default value.
+   * Invalid value: The default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -451,7 +561,13 @@ declare interface GridRowOptions {
 }
 
 /**
- * Defines the new version of grid-container component.
+ * The responsive grid layout provides rules for layout design and resolves issues of dynamic layout across devices with
+ * different sizes, thereby ensuring layout consistency across layouts on different devices.
+ * 
+ * The **GridRow** component is used in a grid layout, together with its child component [GridCol]{@link ./grid_col}.
+ * 
+ * It supports dynamically adjusting the number of columns and gutter sizes based on device sizes and breakpoints to 
+ * implement responsive layout.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -462,9 +578,12 @@ declare interface GridRowOptions {
  */
 interface GridRowInterface {
   /**
-   * Creates a **GridRow** container.
+   * Defines a grid row layout container. It can only be used with grid child components in grid layout scenarios.
    *
-   * @param { GridRowOptions } option
+   * @param { GridRowOptions } option - Layout options of the grid row layout container. This parameter is passed when
+   *     you need to customize the grid layout (such as setting the number of columns, gutter, breakpoint positions, and
+   *     arrangement direction). If not passed, the default configuration is used. **GridRow** must be used together
+   *     with [GridCol]{@link ./grid_col} child components.
    * @returns { GridRowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -476,6 +595,8 @@ interface GridRowInterface {
 }
 
 /**
+ * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
+ * 
  * In addition to the [universal events]{@link CommonMethod}, the following events are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -487,16 +608,20 @@ interface GridRowInterface {
  */
 declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
   /**
-   * Triggered when the breakpoint changes.
-   *
+   * Triggered when the breakpoint changes. The **breakpoints** parameter received by the callback indicates the current
+   * breakpoint value (with possible values of **"xs"**, **"sm"**, **"md"**, **"lg"**, **"xl"**, and **"xxl"**). You can
+   * perform corresponding UI layout adjustments or service logic processing based on the breakpoint value in the 
+   * callback.
+   * 
    * > **NOTE**
-   * > >
-   * > When [breakpointsreference](#breakpointsreference) is set to **BreakpointsReference.ComponentSize**, you are not
-   * > advised to dynamically change the [padding]{@link CommonMethod#padding} or [margin]{@link CommonMethod#margin}
-   * > attribute value of the **GridRow** component in the **onBreakpointChange** callback.
+   * >
+   * > - When [breakpointsreference]{@link BreakpointsReference} is set to **BreakpointsReference.ComponentSize**, do 
+   * > not dynamically modify the [padding]{@link CommonMethod#padding} or [margin]{@link CommonMethod#margin} attribute
+   * > of the **GridRow** component in the **onBreakpointChange** callback. Otherwise, it may cause cyclic triggering of
+   * > component size calculation, layout jitter, or rendering performance degradation.
    *
-   * @param { function } callback - Breakpoint change. The value can be
-   *     **"xs"**, **"sm"**, **"md"**, **"lg"**, **"xl"**, or **"xxl"**.
+   * @param { function } callback - Callback invoked when the breakpoint changes. The parameter **breakpoints**
+   *     indicates the current breakpoint value, which can be `"xs"`, `"sm"`, `"md"`, `"lg"`, `"xl"`, or `"xxl"`.
    * @returns { GridRowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -507,14 +632,16 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
   onBreakpointChange(callback: (breakpoints: string) => void): GridRowAttribute;
 
   /**
-   * Sets the alignment mode of the **GridCol** components along the vertical main axis of the **GridRow** component. 
-   * The alignment mode of the **GridCol** component can also be set using **alignSelf(ItemAlign)**. If both of the
-   * preceding methods are used, the setting of **alignSelf(ItemAlign)** prevails.
+   * Sets the alignment mode of **GridCol** within **GridRow** along the cross axis. The **GridCol** component can also 
+   * set its own alignment mode through **alignSelf([ItemAlign]{@link ItemAlign})**. When both alignment modes are set, 
+   * the setting of the **GridCol** component takes precedence.
    *
-   * @param { ItemAlign } value - Alignment mode of the **GridCol** components along the vertical main axis of the
-   *     **GridRow** component.<br>Default value: **ItemAlign.Start**<br>Invalid values are treated as the default
-   *     value.<br><br>**NOTE**<br>**ItemAlign** supports the following enums: **ItemAlign.Start**, **ItemAlign.Center**,
-   *     **ItemAlign.End**, and **ItemAlign.Stretch**.
+   * @param { ItemAlign } value - Alignment mode of **GridCol** within **GridRow** along the cross axis.
+   *     <br>Default value: **ItemAlign.Start**
+   *     <br>Invalid value: The default value is used.
+   *     <br>**NOTE**
+   *     <br>The supported **ItemAlign** values are: **ItemAlign.Start**, **ItemAlign.Center**, **ItemAlign.End**,
+   *     **ItemAlign.Stretch**.
    * @returns { GridRowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -529,11 +656,15 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
 /**
  * The responsive grid layout provides rules for layout design and resolves issues of dynamic layout across devices with
  * different sizes, thereby ensuring layout consistency across layouts on different devices.
+ * 
+ * The **GridRow** component is used in a grid layout, together with its child component [GridCol]{@link ./grid_col}.
+ * 
+ * It supports dynamically adjusting the number of columns and gutter sizes based on device sizes and breakpoints to 
+ * implement responsive layout.
  *
- * The **GridRow** component is used in a grid layout, together with its child component [GridCol]{@link GridCol}.
- * > **Child Components**
- * >
- * > This component can contain the **GridCol** child component.
+ * ###### Child Components
+ * 
+ * This component can contain the **GridCol** child component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
