@@ -2767,6 +2767,15 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_USER_UNAUTHORIZED = 14,
 
     /**
+     * A continuous task of the **NEARLINK** type is requested, but nearlink is not in use.
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SYSTEM_CANCEL_NOT_USE_NEARLINK = 15,
+
+    /**
      * A continuous task of the **USB_CONNECTION** type is requested, but USB device is not in use.
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
