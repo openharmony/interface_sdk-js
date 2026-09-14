@@ -23,28 +23,6 @@ import lang from './@arkts.lang'
 /*** endif */
 
 /**
- * 内建Array类型。
- *
- * @syscap SystemCapability.Utils.Lang
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.1.0 dynamiconly
- */
-type BuiltinArray<T> = Array<T>;
-
-/**
- * 内建Map类型。
- *
- * @syscap SystemCapability.Utils.Lang
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.1.0 dynamiconly
- */
-type BuiltinMap<K, V> = Map<K, V>;
-
-/**
  * 本模块提供的ArkTS容器集，可以用于并发场景下的高性能数据传递。功能与JavaScript内建的对应容器类似，但ArkTS容器实例无法通过`"."`或者`"[]"`添加或更新属性。
  * ArkTS容器在多个并发实例间传递时，其默认行为是引用传递，支持多个并发实例可以同时操作同一个容器实例。另外，也支持拷贝传递，即每个并发实例持有一个ArkTS容器实例。
  * ArkTS容器并不是线程安全的，内部使用了fail-fast（快速失败）机制：当检测多个并发实例同时对容器进行结构性改变时，会触发异常。因此，在多线程读写容器时，容器使用方需要使用ArkTS提供的异步锁机制保证ArkTS容器的安全访问。
@@ -181,10 +159,10 @@ declare namespace collections {
     (value: ElementType, index: number, array: ArrayType) => boolean;
 
   /**
-   * ArkTS Array判定函数类型，被Array类的'retainAll'接口使用，用来判断数组元素是否满足测试条件。
+   * ArkTS Array断言函数类型，被Array类的'retainAll'接口使用，用来判断数组元素是否满足测试条件。
    *
    * @param { ElementType } value - 当前正在处理的元素。
-   * @returns { boolean } 判定函数的结果，若当前元素满足判定函数则为真，否则为假。
+   * @returns { boolean } 断言函数的结果，若当前元素满足断言函数则为真，否则为假。
    * @syscap SystemCapability.Utils.Lang
    * @stagemodelonly
    * @crossplatform
@@ -699,9 +677,9 @@ declare namespace collections {
      */
     containsAll(elements: Array<T>): boolean;
     /**
-     * 检查指定内建Array中的所有元素是否均包含在此ArkTS Array中。
+     * 检查指定JavaScript内建Array中的所有元素是否均包含在此ArkTS Array中。
      *
-     * @param { BuiltinArray<T> } elements - 要检查的内建Array。
+     * @param { readonly T[] } elements - 要检查的JavaScript内建Array。
      * @returns { boolean } 检查结果。如果指定的所有元素均包含在此Array中，则返回**true**；
      *     否则返回**false**。
      * @throws { BusinessError } 10200011 - The containsAll method cannot be bound.
@@ -712,7 +690,7 @@ declare namespace collections {
      * @atomicservice
      * @since 26.1.0 dynamiconly
      */
-    containsAll(elements: BuiltinArray<T>): boolean;
+    containsAll(elements: readonly T[]): boolean;
     /**
      * 仅保留此ArkTS Array中包含在指定ArkTS Array中的元素。
      *
@@ -729,9 +707,9 @@ declare namespace collections {
      */
     retainAll(elements: Array<T>): boolean;
     /**
-     * 仅保留此ArkTS Array中包含在指定内建Array中的元素。
+     * 仅保留此ArkTS Array中包含在指定JavaScript内建Array中的元素。
      *
-     * @param { BuiltinArray<T> } elements - 允许保留元素的内建Array。
+     * @param { readonly T[] } elements - 允许保留元素的JavaScript内建Array。
      * @returns { boolean } 操作结果。如果从此Array中移除了任意元素，则返回**true**；
      *     否则返回**false**。
      * @throws { BusinessError } 10200011 - The retainAll method cannot be bound.
@@ -742,11 +720,11 @@ declare namespace collections {
      * @atomicservice
      * @since 26.1.0 dynamiconly
      */
-    retainAll(elements: BuiltinArray<T>): boolean;
+    retainAll(elements: readonly T[]): boolean;
     /**
-     * 仅保留此ArkTS Array中满足指定判定函数的元素。
+     * 仅保留此ArkTS Array中满足指定断言函数的元素。
      *
-     * @param { ArrayElementPredicateFn<T> } predicate - 用于测试每个元素的判定函数。
+     * @param { ArrayElementPredicateFn<T> } predicate - 用于测试每个元素的断言函数。
      * @returns { boolean } 操作结果。如果从此Array中移除了任意元素，则返回**true**；
      *     否则返回**false**。
      * @throws { BusinessError } 10200011 - The retainAll method cannot be bound.
@@ -1282,9 +1260,9 @@ declare namespace collections {
      */
     putAll(from: Map<K, V>): void;
     /**
-     * 使用指定内建Map中的键值对更新该Map。
+     * 使用指定JavaScript内建Map中的键值对更新该Map。
      *
-     * @param { BuiltinMap<K, V> } from - 提供键值对的内建Map。
+     * @param { ReadonlyMap<K, V> } from - 提供键值对的JavaScript内建Map。
      * @throws { BusinessError } 10200011 - The putAll method cannot be bound.
      * @throws { BusinessError } 10200201 - Concurrent modification exception
      * @syscap SystemCapability.Utils.Lang
@@ -1293,7 +1271,7 @@ declare namespace collections {
      * @atomicservice
      * @since 26.1.0 dynamiconly
      */
-    putAll(from: BuiltinMap<K, V>): void;
+    putAll(from: ReadonlyMap<K, V>): void;
     /**
      * 向该Map添加或更新一个指定的键值对。
      *
