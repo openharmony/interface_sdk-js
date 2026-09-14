@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Context Base Class of the Stage Model
  * @kit AbilityKit
  */
 

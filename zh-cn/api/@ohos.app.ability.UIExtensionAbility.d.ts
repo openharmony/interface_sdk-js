@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 带界面的ExtensionAbility组件
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file AbilityStage组件管理器
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 支持分享详情页接入的ExtensionAbility组件
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Base Class for @InsightIntentEntry Intent Execution
  * @kit AbilityKit
  */
 

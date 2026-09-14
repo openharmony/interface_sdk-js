@@ -21,7 +21,7 @@
  * 
  * > The APIs of this module can be used only in the FA model.
  *
- * @file
+ * @file Context Base Class of the FA Model
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 可嵌入式UIAbility组件
  * @kit AbilityKit
  */
 

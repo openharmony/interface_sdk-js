@@ -23,7 +23,7 @@
  * UIExtensionAbility corresponds to one UIExtensionContentSession object, and these objects operate independently 
  * without interfering with each other.
  *
- * @file
+ * @file UI Operation Class with UI Extension Capability
  * @kit AbilityKit
  */
 

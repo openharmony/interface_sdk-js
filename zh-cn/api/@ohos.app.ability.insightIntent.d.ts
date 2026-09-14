@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 意图框架基础定义
  * @kit AbilityKit
  */
 

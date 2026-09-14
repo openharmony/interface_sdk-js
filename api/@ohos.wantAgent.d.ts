@@ -17,7 +17,7 @@
  * The WantAgent module provides APIs for creating and comparing WantAgent objects, and obtaining the user ID and bundle
  *  name of a WantAgent object.
  *
- * @file
+ * @file WantAgent Module
  * @kit API10LessDeprecatedModules
  */
 

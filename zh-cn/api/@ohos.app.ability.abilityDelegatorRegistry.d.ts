@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file AbilityDelegatorRegistry
  * @kit TestKit
  */
 

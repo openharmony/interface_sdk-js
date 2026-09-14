@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file System Environment Module
  * @kit AbilityKit
  */
 

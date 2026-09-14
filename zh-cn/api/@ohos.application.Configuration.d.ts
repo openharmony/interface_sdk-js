@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Configuration
  * @kit API10LessDeprecatedModules
  */
 

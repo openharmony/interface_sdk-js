@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Constants Related to Environment Variables
  * @kit AbilityKit
  */
 

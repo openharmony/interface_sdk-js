@@ -24,7 +24,7 @@
  * >
  * > The APIs provided by this module can listen for lifecycle changes of the UIAbility within the same process.
  *
- * @file
+ * @file UIAbility Lifecycle Callback Listener
  * @kit AbilityKit
  */
 

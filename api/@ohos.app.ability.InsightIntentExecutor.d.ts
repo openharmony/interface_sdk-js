@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Base Class for Intent Execution
  * @kit AbilityKit
  */
 

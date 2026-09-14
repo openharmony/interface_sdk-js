@@ -20,7 +20,7 @@
  * 用场景是通知处理。例如，当用户点击通知时，会触发WantAgent的[trigger]{@link trigger}接口，并拉起目标应用。具体使用请参考
  * [通知模块](docroot://notification/notification-with-wantagent.md)。
  *
- * @file
+ * @file WantAgent模块
  * @kit AbilityKit
  */
 

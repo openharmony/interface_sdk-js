@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file ExtensionAbility for Custom Actions
  * @kit AbilityKit
  */
 
