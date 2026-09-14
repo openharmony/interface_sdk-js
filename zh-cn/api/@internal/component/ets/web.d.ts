@@ -9258,13 +9258,15 @@ declare interface EmbedOptions {
    */
   supportCssDisplayChange?: boolean;
   /**
-   * 设置同层渲染可见性接口是否支持CSS transform中的rotate和skew属性。
+   * 设置同层渲染可见性接口是否支持CSS的rotate和skew属性。
+   *
+   * CSS的rotate属性用于将元素围绕定点旋转，skew属性用于将元素沿X轴和/或Y轴倾斜，两者均可能改变同层标签在视口内的可见性。
    *
    * 同层渲染可见性接口默认支持同层标签相对于视口的可见状态。
    *
-   * 设置为true时，支持上报CSS transform中的rotate和skew属性导致的可见状态变化。
+   * 设置为true时，支持上报同层标签因CSS的rotate和skew属性导致的可见状态变化。
    *
-   * 设置为false时，不支持上报CSS transform中的rotate和skew属性导致的可见状态变化。
+   * 设置为false时，不支持上报因CSS的rotate和skew属性导致的可见状态变化。
    *
    * @default false
    * @syscap SystemCapability.Web.Webview.Core
