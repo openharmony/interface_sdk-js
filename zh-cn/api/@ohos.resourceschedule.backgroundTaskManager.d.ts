@@ -1215,6 +1215,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
+   * @throws { BusinessError } 9800008 - The requested continuous task is not supported on this device type. [since 26.2.0]
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice [since 26.0.0]
    * @since 21 dynamic
@@ -1282,6 +1283,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800005 - Continuous task verification failed.
    * @throws { BusinessError } 9800006 - Notification verification failed for a continuous task.
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
+   * @throws { BusinessError } 9800008 - The requested continuous task is not supported on this device type. [since 26.2.0]
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @atomicservice [since 26.0.0]
    * @since 21 dynamic
@@ -2032,6 +2034,17 @@ declare namespace backgroundTaskManager {
      * @since 26.0.0 dynamic&static
      */
     MODE_NEARLINK = 14,
+
+    /**
+     * USB业务。
+     * 
+     * 使用场景举例：通过USB设备进行音频播放。
+     * 
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    MODE_USB_CONNECTION = 16
   }
 
   
@@ -2595,7 +2608,16 @@ declare namespace backgroundTaskManager {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    SYSTEM_CANCEL_USER_UNAUTHORIZED = 14
+    SYSTEM_CANCEL_USER_UNAUTHORIZED = 14,
+
+    /**
+     * 申请USB类型长时任务，但是未检测到USB设备。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    SYSTEM_CANCEL_NOT_USE_USB = 16
   }
 
   /**
@@ -2790,6 +2812,15 @@ declare namespace backgroundTaskManager {
      * @since 26.0.0 dynamic&static
      */
     SYSTEM_SUSPEND_USER_UNAUTHORIZED = 19,
+
+    /**
+     * 申请USB类型长时任务，但是未检测到USB设备。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    SYSTEM_SUSPEND_USB_NOT_USED = 20
   }
 
   /**
