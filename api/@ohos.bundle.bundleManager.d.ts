@@ -306,6 +306,24 @@ declare namespace bundleManager {
      * @since 26.0.0 dynamic&static
      */
     GET_BUNDLE_INFO_WITH_SANDBOX_CLONE = 0x00100000,
+    /**
+     * Used to obtain the bundle information of an application installed by any device.
+     * It is valid only in the
+     * [getAllAppCloneBundleInfo]{@link bundleManager.getAllAppCloneBundleInfo}
+     * and
+     * [getAllBundleInfo]{@link bundleManager.getAllBundleInfo}
+     * and
+     * [getAllBundleInfoInstances]{@link bundleManager.getAllBundleInfoInstances}
+     * APIs.
+     *
+     * **System API**: This flag can be used only in system APIs.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    GET_BUNDLE_INFO_OF_ALL_DEVICE_MODE = 0x00200000,
   }
 
   /**
@@ -1994,6 +2012,24 @@ declare namespace bundleManager {
    * @since 23 static
    */
   function getAllBundleInfo(bundleFlags: int, userId?: int): Promise<Array<BundleInfo>>;
+
+  /**
+   * Obtains all the bundle information in the system based on the given bundle name and bundle flags.
+   * This API uses a type of promise to return the result.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Bundle name.
+   * @param { int } bundleFlags - Type of the bundle information to obtain.
+   * @returns { Promise<Array<BundleInfo>> } Promise used to return an array of bundle information.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function getAllBundleInfoInstances(bundleName: string, bundleFlags: int): Promise<Array<BundleInfo>>;
 
   /**
    * Obtains all the application information in the system based on the given application flags. This API uses an
