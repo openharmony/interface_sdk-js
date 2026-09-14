@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 3D场景资源类型声明
  * @kit ArkGraphics3D
  */
 
