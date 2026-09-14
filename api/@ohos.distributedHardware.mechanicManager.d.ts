@@ -552,6 +552,56 @@ declare namespace mechanicManager {
   function disconnectDevice(mechId: int): Promise<Result>;
 
   /**
+   * Subscribes to device battery level change information.
+   * Before calling this method, ensure that the device is connected.
+   *
+   * @param { int } mechId - ID of the mechanical device.
+   * @param { Callback<BatteryLevelInfo> } callback - Callback used to return the current battery level.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 33300001 - Service exception.
+   * @throws { BusinessError } 33300002 - Device not connected.
+   * @throws { BusinessError } 33300003 - Feature not supported.
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  function onBatteryLevelChange(mechId: int, callback: Callback<BatteryLevelInfo>): void;
+
+  /**
+   * Unsubscribes to device battery level change information.
+   *
+   * @param { int } mechId - ID of the mechanical device.
+   * @param { Callback<BatteryLevelInfo> } [callback] - Callback function that returns the current battery level.
+   *      <br>If not specified, all callbacks registered for this mechId will be removed.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 33300001 - Service exception.
+   * @throws { BusinessError } 33300002 - Device not connected.
+   * @throws { BusinessError } 33300003 - Feature not supported.
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  function offBatteryLevelChange(mechId: int, callback?: Callback<BatteryLevelInfo>): void;
+
+  /**
+   * Obtains the adsorb state of a device.
+   * Before calling this method, ensure that the device is connected.
+   *
+   * @param { int } mechId - ID of the mechanical device.
+   * @returns { AdsorbState } Returns the current device adsorb state.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 33300001 - Service exception.
+   * @throws { BusinessError } 33300002 - Device not connected.
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  function getDeviceAdsorbState(mechId: int): AdsorbState;
+
+  /**
    * Mechanical device information.
    * @typedef MechInfo
    * @syscap SystemCapability.Mechanic.Core
@@ -1198,13 +1248,22 @@ declare namespace mechanicManager {
     DESKTOP_GIMBAL_DEVICE = 1,
 
     /**
-     * Wheeled?mounted base device.
+     * Wheeled‑mounted base device.
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
      * @since 26.0.0 dynamic&static
      */
-    WHEELED_BASE_DEVICE = 2
+    WHEELED_BASE_DEVICE = 2,
+
+    /**
+     * Pocket Gimbal Camera device
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    POCKET_GIMBAL_CAMERA_DEVICE = 3
   }
 
   /**
@@ -1377,7 +1436,7 @@ declare namespace mechanicManager {
      * @since 26.0.0 dynamic&static
      */
     mode?: MarchingMode;
-    }
+  }
 
   /**
    * Speed gear definition.
@@ -1585,6 +1644,36 @@ declare namespace mechanicManager {
      * @since 26.0.0 dynamic&static
      */
     HEAD_SHAKE = 10,
+
+    /**
+     * Action of turning the head to align with the base.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    HEAD_TURN_TO_BASE = 11,
+
+    /**
+     * Action of turning the base to align with the head.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    BASE_TURN_TO_HEAD = 12,
+
+    /**
+     * Action of performing a front-to-back flip of the head.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    FRONT_TO_BACK_FLIP = 13,
 
     /**
      * Action of happy.
@@ -1872,6 +1961,91 @@ declare namespace mechanicManager {
      */
     custdata: string;
   }
+
+  /**
+   * Mechanic device state.
+   * The state indicates whether the device is adsorbed or unadsorbed.
+   *
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  export enum AdsorbState {
+    /**
+     * Unknown state. Indicates that the adsorption state is unknown.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    UNKNOWN = -1,
+
+    /**
+     * Adsorbed state. Indicates that the device has been adsorbed.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    ADSORBED = 0,
+
+    /**
+     * Unadsorbed state. Indicates that the device is not adsorbed.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    UNADSORBED = 1
+  }
+
+
+  /**
+   * Definition of battery level information.
+   *
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  export interface BatteryLevelInfo {
+    /**
+     * ID of the mechanical device corresponding to the battery level information.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    mechId: int;
+
+    /**
+     * Battery level percentage(in %).
+     * The value is an integer in the range [0, 100]. 0 indicates empty battery and 100 indicates full battery.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    batteryLevel: int;
+
+    /**
+     * Indicates whether the device is charging.
+     * The value is true when charging and false otherwise.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    isCharging: boolean;
+  }
+
 }
 
 export default mechanicManager;
