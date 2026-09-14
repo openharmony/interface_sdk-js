@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file System Material
  * @kit ArkUI
  */
 
