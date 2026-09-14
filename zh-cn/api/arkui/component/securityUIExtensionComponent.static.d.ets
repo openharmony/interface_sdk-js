@@ -129,8 +129,8 @@ export declare interface SecurityUIExtensionProxy {
    *
    * @param { Record<string, RecordData> } data - 同步发送给被拉起的Ability的数据。
    * @returns { Record<string, RecordData> } data - 被拉起的Ability对同步发送请求处理后返回的响应数据。
-   * @throws { BusinessError } 100011 - 没有注册响应该请求的回调。
-   * @throws { BusinessError } 100012 - 传输数据失败。
+   * @throws { BusinessError } 100011 - No callback has been registered to respond to this request.
+   * @throws { BusinessError } 100012 - Transferring data failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
