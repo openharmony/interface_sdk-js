@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file @InsightIntentEntry的意图执行基类
  * @kit AbilityKit
  */
 

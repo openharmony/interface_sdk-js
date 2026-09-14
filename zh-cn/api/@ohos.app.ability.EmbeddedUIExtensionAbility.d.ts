@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 支持跨进程界面嵌入的ExtensionAbility组件
  * @kit AbilityKit
  */
 

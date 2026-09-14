@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file ExtensionAbility with UI
  * @kit AbilityKit
  */
 

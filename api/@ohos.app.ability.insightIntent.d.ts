@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Basic Definitions of InsightIntent Framework
  * @kit AbilityKit
  */
 

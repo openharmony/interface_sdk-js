@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 系统环境变化监听器
  * @kit AbilityKit
  */
 

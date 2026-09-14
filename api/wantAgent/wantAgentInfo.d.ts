@@ -16,7 +16,7 @@
 /**
  * The module defines the information required for triggering the WantAgent.
  *
- * @file
+ * @file WantAgentInfo
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Intent Provider Management
  * @kit AbilityKit
  */
 

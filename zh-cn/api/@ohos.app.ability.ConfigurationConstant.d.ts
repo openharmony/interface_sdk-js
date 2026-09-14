@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 环境变量相关的常量定义
  * @kit AbilityKit
  */
 

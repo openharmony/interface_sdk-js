@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 意图执行上下文
  * @kit AbilityKit
  */
 

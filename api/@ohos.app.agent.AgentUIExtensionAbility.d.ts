@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file UI-based Agent Extension Component
  * @kit AbilityKit
  */
 import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Stage模型的上下文基类
  * @kit AbilityKit
  */
 

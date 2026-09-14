@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file TriggerInfo
  * @kit AbilityKit
  */
 

@@ -25,7 +25,7 @@
  * application is started. For details, see 
  * [Notification](docroot://notification/notification-with-wantagent.md).
  *
- * @file
+ * @file WantAgent Module
  * @kit AbilityKit
  */
 

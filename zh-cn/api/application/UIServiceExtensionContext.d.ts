@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file UIServiceExtensionContext
+ * @kit AbilityKit
+ */
+
 import ExtensionContext from './ExtensionContext';
 import type Want from '../@ohos.app.ability.Want';
 import type StartOptions from '../@ohos.app.ability.StartOptions';
