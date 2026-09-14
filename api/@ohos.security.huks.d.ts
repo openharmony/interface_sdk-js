@@ -1777,7 +1777,8 @@ declare namespace huks {
    * > policy, and destruction method in the privacy statement.
    * <!--RP6End-->
    *
-   * @permission ohos.permission.ATTEST_KEY
+   * @permission ohos.permission.ATTEST_KEY[since 11]
+   * @permission ohos.permission.ATTEST_KEY or ohos.permission.ENTERPRISE_ATTEST_KEY[since26.2.0]
    * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
    * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
    * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
@@ -1809,7 +1810,9 @@ declare namespace huks {
   /**
    * Attests a key for the specified user. This API uses a promise to return the result.
    *
-   * @permission ohos.permission.ATTEST_KEY and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @permission ohos.permission.ATTEST_KEY and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS [since 11]
+   * @permission (ohos.permission.ATTEST_KEY and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS) or
+   *     (ohos.permission.ENTERPRISE_ATTEST_KEY and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS) [since 26.2.0]
    * @param { number } userId - User ID.
    * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
    * @param { HuksOptions } huksOptions - Options for attesting the key.
@@ -1857,7 +1860,8 @@ declare namespace huks {
    * > policy, and destruction method in the privacy statement.
    * <!--RP6End-->
    *
-   * @permission ohos.permission.ATTEST_KEY
+   * @permission ohos.permission.ATTEST_KEY [since 11]
+   * @permission ohos.permission.ATTEST_KEY or ohos.permission.ENTERPRISE_ATTEST_KEY [since 26.2.0]
    * @param { string } keyAlias - Alias of the key. The certificate to be obtained stores the key.
    * @param { HuksOptions } options - Parameters and data required for obtaining the certificate.
    * @returns { Promise<HuksReturnResult> } Promise that returns the operation result. When the call is successful, the
