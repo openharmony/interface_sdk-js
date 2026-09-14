@@ -552,7 +552,16 @@ declare namespace restrictions {
      * @stagemodelonly
      * @since 26.0.0
      */
-    OTA_UPDATE = 50
+    OTA_UPDATE = 50,
+
+    /**
+     * 系统回退。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    SYSTEM_ROLLBACK = 51
   }
 
   /**
