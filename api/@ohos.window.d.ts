@@ -4273,6 +4273,112 @@ declare namespace window {
   function moveMainWindowToTargetDisplay(displayId: long, windowId: int, userId?: int): Promise<void>;
 
   /**
+   * Enumerates the target z-order to which the z-order of a main window can be adjusted.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum WindowPosition {
+    /**
+     * Not topmost, normal mode. Used as an independent action to cancel the global topmost state of a main window,
+     * and you need the ohos.permission.WINDOW_TOPMOST permission to cancel
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    NOT_TOPMOST = -3,
+    /**
+     * Global topmost. To set this value, you need the ohos.permission.WINDOW_TOPMOST permission.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    TOPMOST = -2,
+    /**
+     * Places the main window at the bottom of all application main windows,for a single adjustment.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    BOTTOM = -1,
+    /**
+     * Places the main window at the top of all application main windows, for a single adjustment.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    TOP = 0
+  }
+
+  /**
+   * Describes the position of a main window to adjust its z-order.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface WindowPositionParams {
+    /**
+     * ID of the main window whose z-order is to be adjusted. The window must be a main window in the current
+     * application process.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    windowId: int;
+    /**
+     * Position to adjust to. If the value is greater than 0, it is the ID of another main window, and the target window
+     * is placed below that main window. Otherwise, it is one of the
+     * [WindowPosition]{@link window.WindowPosition} sentinel values, placing the window at the bottom or top of all
+     * application main windows, or toggling its global topmost state.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    insertAfter: int;
+  }
+
+  /**
+   * Adjusts the position of one or more main windows in the current application process. This API uses a promise to
+   * return the result.
+   *
+   * The supported adjustments are as follows:
+   * - Place a main window below another main window.
+   * - Place a main window at the bottom of all application windows.
+   * - Place a main window at the top of all application windows.
+   * - Toggle a main window to the global topmost state or cancel the global topmost state.
+   *
+   * Setting the global topmost state requires the ohos.permission.WINDOW_TOPMOST permission.
+   *
+   * @permission ohos.permission.WINDOW_TOPMOST
+   * @param { Array<WindowPositionParams> } list - List of window position options to adjust. The list must not be
+   *     empty.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *     capabilities.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 
+   *     1. The window to be adjusted cannot be found: not created, has been destroyed or not belong to current process;
+   *     2. The target main window specified by insertAfter cannot be found: not created, has been destroyed or not
+   *     belong to current process;
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Invalid window type.
+   *     Only main windows are supported.
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function setWindowPosition(list: Array<WindowPositionParams>): Promise<void>;
+
+  /**
    * Enumerates the window orientations. <!--Del-->For details of the differences between different enumerated values,
    * see
    * [What is the difference between orientation values 8 to 10 or 12 and values 13 to 16 (API version 9)](docroot://faqs/faqs-window-manager.md#what-is-the-difference-between-orientation-values-8-to-10-or-12-and-values-13-to-16-api-version-9)
