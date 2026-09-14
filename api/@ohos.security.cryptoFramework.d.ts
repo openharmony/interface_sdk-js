@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Crypto Framework
  * @kit CryptoArchitectureKit
  */
 import type { AsyncCallback } from './@ohos.base';

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 加解密算法库框架
  * @kit CryptoArchitectureKit
  */
 import type { AsyncCallback } from './@ohos.base';
