@@ -2611,6 +2611,15 @@ declare namespace backgroundTaskManager {
     SYSTEM_CANCEL_USER_UNAUTHORIZED = 14,
 
     /**
+     * 申请NEARLINK类型长时任务，但是未使用星闪相关业务。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    SYSTEM_CANCEL_NOT_USE_NEARLINK = 15,
+
+    /**
      * 申请USB类型长时任务，但是未检测到USB设备。
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
