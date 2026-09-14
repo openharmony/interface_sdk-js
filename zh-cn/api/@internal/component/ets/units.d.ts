@@ -14,545 +14,212 @@
  */
 
 /**
- * @file
- * @kit ArkUI
+ *
+  * @file
+  * @kit ArkUI
  */
 
 /**
- * 定义接口限制的数据类型。
+ * 资源引用类型，用于设置组件属性的值。各类资源文件，需要放入特定子目录中存储管理，资源目录的示例请参考
+ * [资源分类](docroot://quick-start/resource-categories-and-access.md#资源分类)。
  *
- * @typedef { import('../api/global/resource').Resource } Resource
- * @interface Resource
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * 定义接口限制的数据类型。
+ * > **说明：**
+ * >
+ * > - 引用资源类型时，需确保资源类型对象内的数据类型与当前以资源类型作为参数的属性方法本身的类型一致。例如某个属性方法支持设置string | Resource，那么在使用Resource引用类型时，其数据类型也应当为string。
+ * >
+ * > - 引用资源类型时，需确保资源类型对象用法为当前支持的用法，否则当前以资源类型作为参数的属性效果将和不设置该属性相同。
+ * >
+ * > - $rawfile不支持通过[预览器](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/ide-previewer-arkts-js)预览。
  *
- * @typedef { import('../api/global/resource').Resource } Resource
- * @interface Resource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * 定义接口限制的数据类型。
- *
- * @typedef { import('../api/global/resource').Resource } Resource
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义接口限制的数据类型。
- *
- * @typedef { import('../api/global/resource').Resource } Resource
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare type Resource = import('../api/global/resource').Resource;
 
 /**
- * 定义包含字符串、数字和资源单位的长度属性。
+ * 长度类型，用于描述尺寸单位。
  *
- * @typedef { string | number | Resource } Length
+ * @unionmember { string } 需要显式指定[像素单位]{@link ./common}，如'10px'，也可设置百分比字符串，如'100%'。<br/>**说明：** <br/>不指定像素单位时，默认单位vp，如'1
+ *     0'，等同于10。
+ * @unionmember { number } 默认单位vp。
+ * @unionmember { Resource } 资源引用类型，引入系统资源或者应用资源中的尺寸。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义包含字符串、数字和资源单位的长度属性。
- *
- * @typedef { string | number | Resource } Length
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义包含字符串、数字和资源单位的长度属性。
- *
- * @typedef { string | number | Resource } Length
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义包含字符串、数字和资源单位的长度属性。
- *
- * @typedef { string | number | Resource } Length
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare type Length = string | number | Resource;
 
 /**
- * 定义长度属性，单位为像素（px）。
- * @typedef { `${number}px` } PX
+ * 长度类型，用于描述以px像素单位为单位的长度。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
+ * @crossplatform [since 18]
+ * @form [since 23]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
-/**
- * 定义长度属性，单位为像素（px）。
- * @typedef { `${number}px` } PX
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * 定义长度属性，单位为像素（px）。
- * @typedef { `${number}px` } PX
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
- */
-/**
- * 定义长度属性，单位为像素（px）。
- * @typedef { `${number}px` } PX
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
- */
-declare type PX = `${number}px`
+declare type PX = `${number}px`;
 
 /**
- * 定义长度属性，可以是数字或以 vp 为单位的数字。
- * @typedef { `${number}vp` | number } VP
+ * 长度类型，用于描述以vp为单位的长度。
+ *
+ * @unionmember { `${number}vp` } Viewport pixel unit. The unit vp can be included, for example, **'10vp'**.
+ * @unionmember { number } 需要指定数字，如10。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
+ * @crossplatform [since 18]
+ * @form [since 23]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
-/**
- * 定义长度属性，可以是数字或以 vp 为单位的数字。
- * @typedef { `${number}vp` | number } VP
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * 定义长度属性，可以是数字或以 vp 为单位的数字。
- * @typedef { `${number}vp` | number } VP
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
- */
-/**
- * 定义长度属性，可以是数字或以 vp 为单位的数字。
- * @typedef { `${number}vp` | number } VP
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
- */
-declare type VP = `${number}vp` | number
+declare type VP = `${number}vp` | number;
 
 /**
- * 定义长度属性，单位为fp。
- * @typedef { `${number}fp` } FP
+ * 长度类型，用于描述以fp像素单位为单位的长度。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
+ * @crossplatform [since 18]
+ * @form [since 23]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
-/**
- * 定义长度属性，单位为fp。
- * @typedef { `${number}fp` } FP
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * 定义长度属性，单位为fp。
- * @typedef { `${number}fp` } FP
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
- */
-/**
- * 定义长度属性，单位为fp。
- * @typedef { `${number}fp` } FP
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
- */
-declare type FP = `${number}fp`
+declare type FP = `${number}fp`;
 
 /**
- * 定义长度属性，单位为lpx。
- * @typedef { `${number}lpx` } LPX
+ * 长度类型，用于描述以lpx像素单位为单位的长度。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
+ * @crossplatform [since 18]
+ * @form [since 23]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
-/**
- * 定义长度属性，单位为lpx。
- * @typedef { `${number}lpx` } LPX
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * 定义长度属性，单位为lpx。
- * @typedef { `${number}lpx` } LPX
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
- */
-/**
- * 定义长度属性，单位为lpx。
- * @typedef { `${number}lpx` } LPX
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
- */
-declare type LPX = `${number}lpx`
+declare type LPX = `${number}lpx`;
 
 /**
- * 定义长度属性，单位为百分比。
- * @typedef { `${number}%` } Percentage
+ * 长度类型，用于描述以百分比单位为单位的长度。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
+ * @crossplatform [since 18]
+ * @form [since 23]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
-/**
- * 定义长度属性，单位为百分比。
- * @typedef { `${number}%` } Percentage
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * 定义长度属性，单位为百分比。
- * @typedef { `${number}%` } Percentage
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
- */
-/**
- * 定义长度属性，单位为百分比。
- * @typedef { `${number}%` } Percentage
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
- */
-declare type Percentage = `${number}%`
+declare type Percentage = `${number}%`;
 
 /**
- * Defines the angle property with number in units of deg.
+ * 角度类型，用于描述以deg为单位的角度。
  *
- * @typedef { `${number}deg` } Degree
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
-/**
- * Defines the angle property with number in units of deg.
- *
- * @typedef { `${number}deg` } Degree
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
- */
-declare type Degree = `${number}deg`
+declare type Degree = `${number}deg`;
 
 /**
- * 定义具有数值和单位（vp|px|fp|lpx|%）以及资源的尺寸属性。
+ * 长度类型，用于描述尺寸单位。
  *
- * @typedef { PX | VP | FP | LPX | Percentage | Resource } Dimension
+ * @unionmember { PX } 需要指定以px像素单位，如'10px'。
+ * @unionmember { VP } 需要指定数字或vp像素单位，如10或'10vp'。
+ * @unionmember { FP } 需要指定以fp像素单位，如'10fp'。
+ * @unionmember { LPX } 需要指定以lpx像素单位，如'10lpx'。
+ * @unionmember { Percentage } 需要指定以百分比单位，如'10%'。
+ * @unionmember { Resource } 资源引用类型，引入系统资源或者应用资源中的尺寸。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * 定义具有数值和单位（vp|px|fp|lpx|%）以及资源的尺寸属性。
- *
- * @typedef { PX | VP | FP | LPX | Percentage | Resource } Dimension
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * 定义具有数值和单位（vp|px|fp|lpx|%）以及资源的尺寸属性。
- *
- * @typedef { PX | VP | FP | LPX | Percentage | Resource } Dimension
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
- */
-/**
- * 定义具有数值和单位（vp|px|fp|lpx|%）以及资源的尺寸属性。
- *
- * @typedef { PX | VP | FP | LPX | Percentage | Resource } Dimension
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @crossplatform [since 18]
+ * @form [since 23]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare type Dimension = PX | VP | FP | LPX | Percentage | Resource;
 
 /**
- * Defines the string which can use resource.
+ * 字符串类型，用于描述字符串入参可以使用的类型。
  *
- * @typedef { string | Resource } ResourceStr
+ * @unionmember { string } 字符串类型。
+ * @unionmember { Resource } 资源引用类型，引入系统资源或者应用资源中的字符串。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the string which can use resource.
- *
- * @typedef { string | Resource } ResourceStr
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the string which can use resource.
- *
- * @typedef { string | Resource } ResourceStr
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the string which can use resource.
- *
- * @typedef { string | Resource } ResourceStr
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @stagemodelonly
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare type ResourceStr = string | Resource;
 
 /**
- * Defines the padding property.
+ * 内边距类型，用于描述组件不同方向的内边距。
+ *
+ * 引入该对象时，至少传入一个参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the padding property.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the padding property.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the padding property.
- *
- * @typedef { object } Padding
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare type Padding = {
   /**
-   * top property.
+   * 上内边距，组件内元素距组件顶部的尺寸。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * top property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   * @form
-   */
-  /**
-   * top property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * top property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   top?: Length;
 
   /**
-   * right property.
+   * 右内边距，组件内元素距组件右边界的尺寸。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * right property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   * @form
-   */
-  /**
-   * right property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * right property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   right?: Length;
 
   /**
-   * bottom property.
+   * 下内边距，组件内元素距组件底部的尺寸。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * bottom property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   * @form
-   */
-  /**
-   * bottom property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * bottom property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   bottom?: Length;
 
   /**
-   * left property.
+   * 左内边距，组件内元素距组件左边界的尺寸。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * left property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   * @form
-   */
-  /**
-   * left property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * left property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   left?: Length;
 }
 
 /**
- * Defines the localized padding property.
+ * 内边距类型，用于描述组件不同方向的内边距。
  *
- * @interface LocalizedPadding
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -561,11 +228,9 @@ declare type Padding = {
  * @since 12 dynamic
  */
 declare interface LocalizedPadding {
-
   /**
-   * top property.
+   * 上内边距，组件内元素距组件顶部的尺寸。
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -576,9 +241,12 @@ declare interface LocalizedPadding {
   top?: LengthMetrics;
 
   /**
-   * end property.
+   * 右内边距，组件内元素距组件右边界的尺寸。
    *
-   * @type { ?LengthMetrics }
+   * 从右至左显示语言模式下为
+   *
+   * 左内边距，组件内元素距组件左边界的尺寸。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -589,9 +257,8 @@ declare interface LocalizedPadding {
   end?: LengthMetrics;
 
   /**
-   * bottom property.
+   * 下内边距，组件内元素距组件底部的尺寸。
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -602,9 +269,12 @@ declare interface LocalizedPadding {
   bottom?: LengthMetrics;
 
   /**
-   * start property.
+   * 左内边距，组件内元素距组件左边界的尺寸。
    *
-   * @type { ?LengthMetrics }
+   * 从右至左显示语言模式下为
+   *
+   * 右内边距，组件内元素距组件右边界的尺寸。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -616,211 +286,93 @@ declare interface LocalizedPadding {
 }
 
 /**
- * Defines the margin property.
+ * 外边距类型，用于描述组件不同方向的外边距。
  *
- * @typedef { Padding } Margin
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the margin property.
+ * 引入该对象时，至少传入一个参数。
  *
- * @typedef { Padding } Margin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the margin property.
- *
- * @typedef { Padding } Margin
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the margin property.
- *
- * @typedef { Padding } Margin
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare type Margin = Padding;
 
 /**
- * Defines the border width property.
+ * 边框宽度类型，用于描述组件边框不同方向的宽度。
  *
- * @typedef { EdgeWidths } EdgeWidth
+ * 引入该对象时，至少传入一个参数。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Defines the border width property.
- *
- * @typedef { EdgeWidths } EdgeWidth
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare type EdgeWidth = EdgeWidths;
 
 /**
- * Defines the border width property.
+ * 边框宽度类型，用于描述组件边框不同方向的宽度。
  *
- * @typedef { object } EdgeWidths
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the border width property.
+ * 引入该对象时，至少传入一个参数。
  *
- * @typedef { object } EdgeWidths
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
+ * @crossplatform [since 10]
  * @form
- * @since 10
- */
-/**
- * Defines the border width property.
- *
- * @typedef { object } EdgeWidths
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare type EdgeWidths = {
   /**
-   * top property.
+   * 组件上边框宽度。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * top property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * top property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   top?: Length;
 
   /**
-   * right property.
+   * 组件右边框宽度。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * right property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * right property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   right?: Length;
 
   /**
-   * bottom property.
+   * 组件下边框宽度。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * bottom property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * bottom property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   bottom?: Length;
 
   /**
-   * left property.
+   * 组件左边框宽度。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * left property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * left property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   left?: Length;
 }
 
 /**
- * Defines the localized border width property.
+ * 边框宽度类型，用于描述组件边框不同方向的宽度。
  *
- * @interface LocalizedEdgeWidths
+ * 引入该对象时，至少传入一个参数。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -829,11 +381,9 @@ declare type EdgeWidths = {
  * @since 12 dynamic
  */
 declare interface LocalizedEdgeWidths {
-
   /**
-   * top property.
+   * 组件上边框宽度。
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -844,9 +394,10 @@ declare interface LocalizedEdgeWidths {
   top?: LengthMetrics;
 
   /**
-   * end property.
+   * 组件右边框宽度。
    *
-   * @type { ?LengthMetrics }
+   * 从右至左显示语言模式下为组件左边框宽度。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -857,9 +408,8 @@ declare interface LocalizedEdgeWidths {
   end?: LengthMetrics;
 
   /**
-   * bottom property.
+   * 组件下边框宽度。
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -870,9 +420,10 @@ declare interface LocalizedEdgeWidths {
   bottom?: LengthMetrics;
 
   /**
-   * start property.
+   * 组件左边框宽度。
    *
-   * @type { ?LengthMetrics }
+   * 从右至左显示语言模式下为组件右边框宽度。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -884,268 +435,127 @@ declare interface LocalizedEdgeWidths {
 }
 
 /**
- * Defines the outline width property.
+ * 引入该对象时，至少传入一个参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
- * Defines the outline width property.
- *
- * @typedef { object } EdgeOutlineWidths
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare type EdgeOutlineWidths = {
   /**
-   * top outline width property.
+   * 上侧外描边宽度。
    *
-   * @type { ?Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   * @form
-   */
-  /**
-   * top outline width property.
-   *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @atomicservice
-   * @since 12
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   top?: Dimension;
 
   /**
-   * right outline width property.
+   * 右侧外描边宽度。
    *
-   * @type { ?Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   * @form
-   */
-  /**
-   * right outline width property.
-   *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @atomicservice
-   * @since 12
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   right?: Dimension;
 
   /**
-   * bottom outline width property.
+   * 下侧外描边宽度。
    *
-   * @type { ?Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   * @form
-   */
-  /**
-   * bottom outline width property.
-   *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @atomicservice
-   * @since 12
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   bottom?: Dimension;
 
   /**
-   * left outline width property.
+   * 左侧外描边宽度。
    *
-   * @type { ?Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   * @form
-   */
-  /**
-   * left outline width property.
-   *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @atomicservice
-   * @since 12
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   left?: Dimension;
 }
 
 /**
- * Defines the border radius property.
+ * 圆角类型，用于描述组件边框圆角半径。
  *
- * @typedef { object } BorderRadiuses
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the border radius property.
+ * 引用该对象时，至少传入一个参数。
  *
- * @typedef { object } BorderRadiuses
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
+ * @crossplatform [since 10]
  * @form
- * @since 10
- */
-/**
- * Defines the border radius property.
- *
- * @typedef { object } BorderRadiuses
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare type BorderRadiuses = {
   /**
-   * top-left property.
+   * 组件左上角圆角半径。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * top-left property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * top-left property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   topLeft?: Length;
 
   /**
-   * top-right property.
+   * 组件右上角圆角半径。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * top-right property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * top-right property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   topRight?: Length;
 
   /**
-   * bottom-left property.
+   * 组件左下角圆角半径。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * bottom-left property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * bottom-left property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   bottomLeft?: Length;
 
   /**
-   * bottom-right property.
+   * 组件右下角圆角半径。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * bottom-right property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * bottom-right property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   bottomRight?: Length;
 }
 
 /**
- * Defines the localized border radius property.
+ * 圆角类型，用于描述组件边框圆角半径。
  *
- * @interface LocalizedBorderRadiuses
+ * 引用该对象时，至少传入一个参数。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1154,11 +564,11 @@ declare type BorderRadiuses = {
  * @since 12 dynamic
  */
 declare interface LocalizedBorderRadiuses {
-
   /**
-   * top-start property.
+   * 组件左上角圆角半径。
    *
-   * @type { ?LengthMetrics }
+   * 从右至左显示语言模式下为组件右上角圆角半径。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1169,9 +579,10 @@ declare interface LocalizedBorderRadiuses {
   topStart?: LengthMetrics;
 
   /**
-   * top-end property.
+   * 组件右上角圆角半径。
    *
-   * @type { ?LengthMetrics }
+   * 从右至左显示语言模式下为组件左上角圆角半径。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1182,9 +593,10 @@ declare interface LocalizedBorderRadiuses {
   topEnd?: LengthMetrics;
 
   /**
-   * bottom-start property.
+   * 组件左下角圆角半径。
    *
-   * @type { ?LengthMetrics }
+   * 从右至左显示语言模式下为组件右下角圆角半径。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1195,9 +607,10 @@ declare interface LocalizedBorderRadiuses {
   bottomStart?: LengthMetrics;
 
   /**
-   * bottom-end property.
+   * 组件右下角圆角半径。
    *
-   * @type { ?LengthMetrics }
+   * 从右至左显示语言模式下为组件左下角圆角半径。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1209,269 +622,127 @@ declare interface LocalizedBorderRadiuses {
 }
 
 /**
- * Defines the outline radius property.
+ * 引入该对象时，至少传入一个参数。
  *
- * @typedef { object } OutlineRadiuses
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
- * Defines the outline radius property.
- *
- * @typedef { object } OutlineRadiuses
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare type OutlineRadiuses = {
   /**
-   * top-left property.
+   * 左上角圆角半径。
    *
-   * @type { ?Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   * @form
-   */
-  /**
-   * top-left property.
-   *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @atomicservice
-   * @since 12
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   topLeft?: Dimension;
 
   /**
-   * top-right property.
+   * 右上角圆角半径。
    *
-   * @type { ?Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   * @form
-   */
-  /**
-   * top-right property.
-   *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @atomicservice
-   * @since 12
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   topRight?: Dimension;
 
   /**
-   * bottom-left property.
+   * 左下角圆角半径。
    *
-   * @type { ?Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   * @form
-   */
-  /**
-   * bottom-left property.
-   *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @atomicservice
-   * @since 12
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   bottomLeft?: Dimension;
 
   /**
-   * bottom-right property.
+   * 右下角圆角半径。
    *
-   * @type { ?Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   * @form
-   */
-  /**
-   * bottom-right property.
-   *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @atomicservice
-   * @since 12
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   bottomRight?: Dimension;
 }
 
 /**
- * Defines the border color property.
+ * 边框颜色，用于描述组件边框四条边的颜色。
  *
- * @typedef { object } EdgeColors
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the border color property.
+ * 引入该对象时，至少传入一个参数。
  *
- * @typedef { object } EdgeColors
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
+ * @crossplatform [since 10]
  * @form
- * @since 10
- */
-/**
- * Defines the border color property.
- *
- * @typedef { object } EdgeColors
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare type EdgeColors = {
   /**
-   * top property.
+   * 组件上边框颜色。
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * top property.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * top property.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   top?: ResourceColor;
 
   /**
-   * right property.
+   * 组件右边框颜色
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * right property.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * right property.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   right?: ResourceColor;
 
   /**
-   * bottom property.
+   * 组件下边框颜色。
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * bottom property.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * bottom property.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   bottom?: ResourceColor;
 
   /**
-   * left property.
+   * 组件左边框颜色。
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * left property.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * left property.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   left?: ResourceColor;
 }
 
 /**
- * Defines the localized border color property.
+ * 边框颜色，用于描述组件边框四条边的颜色。
  *
- * @interface LocalizedEdgeColors
+ * 引入该对象时，至少传入一个参数。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1480,11 +751,9 @@ declare type EdgeColors = {
  * @since 12 dynamic
  */
 declare interface LocalizedEdgeColors {
-
   /**
-   * top property.
+   * 组件上边框颜色。
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1495,9 +764,10 @@ declare interface LocalizedEdgeColors {
   top?: ResourceColor;
 
   /**
-   * end property.
+   * 组件右边框颜色。
    *
-   * @type { ?ResourceColor }
+   * 从右至左显示语言模式下为组件左边框颜色。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1508,9 +778,8 @@ declare interface LocalizedEdgeColors {
   end?: ResourceColor;
 
   /**
-   * bottom property.
+   * 组件下边框颜色。
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1521,9 +790,10 @@ declare interface LocalizedEdgeColors {
   bottom?: ResourceColor;
 
   /**
-   * start property.
+   * 组件左边框颜色。
    *
-   * @type { ?ResourceColor }
+   * 从右至左显示语言模式下为组件右边框颜色。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1535,9 +805,10 @@ declare interface LocalizedEdgeColors {
 }
 
 /**
- * Defines the localized margin property.
+ * 外边距类型，用于描述组件不同方向的外边距。
  *
- * @typedef { LocalizedPadding } LocalizedMargin
+ * 引入该对象时，至少传入一个参数。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1548,479 +819,207 @@ declare interface LocalizedEdgeColors {
 declare type LocalizedMargin = LocalizedPadding;
 
 /**
- * Defines the border style property.
+ * 边框样式，用于描述组件边框四条边的样式。
  *
- * @typedef { object } EdgeStyles
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the border style property.
+ * 引入该对象时，至少传入一个参数。
  *
- * @typedef { object } EdgeStyles
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
+ * @crossplatform [since 10]
  * @form
- * @since 10
- */
-/**
- * Defines the border style property.
- *
- * @typedef { object } EdgeStyles
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare type EdgeStyles = {
   /**
-   * top property.
+   * 组件上边框样式。
    *
-   * @type { ?BorderStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * top property.
-   *
-   * @type { ?BorderStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * top property.
-   *
-   * @type { ?BorderStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   top?: BorderStyle;
 
   /**
-   * right property.
+   * 组件右边框样式。
    *
-   * @type { ?BorderStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * right property.
-   *
-   * @type { ?BorderStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * right property.
-   *
-   * @type { ?BorderStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   right?: BorderStyle;
 
   /**
-   * bottom property.
+   * 组件下边框样式。
    *
-   * @type { ?BorderStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * bottom property.
-   *
-   * @type { ?BorderStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * bottom property.
-   *
-   * @type { ?BorderStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   bottom?: BorderStyle;
 
   /**
-   * left property.
+   * 组件左边框样式。
    *
-   * @type { ?BorderStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * left property.
-   *
-   * @type { ?BorderStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * left property.
-   *
-   * @type { ?BorderStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   left?: BorderStyle;
 }
 
 /**
- * Defines the outline style property.
+ * 引入该对象时，至少传入一个参数。
  *
- * @typedef { object } EdgeOutlineStyles
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
- * Defines the outline style property.
- *
- * @typedef { object } EdgeOutlineStyles
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare type EdgeOutlineStyles = {
   /**
-   * top property.
+   * 上侧外描边样式。
    *
-   * @type { ?OutlineStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   * @form
-   */
-  /**
-   * top property.
-   *
-   * @type { ?OutlineStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @atomicservice
-   * @since 12
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   top?: OutlineStyle;
 
   /**
-   * right property.
+   * 右侧外描边样式。
    *
-   * @type { ?OutlineStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   * @form
-   */
-  /**
-   * right property.
-   *
-   * @type { ?OutlineStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @atomicservice
-   * @since 12
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   right?: OutlineStyle;
 
   /**
-   * bottom property.
+   * 下侧外描边样式。
    *
-   * @type { ?OutlineStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   * @form
-   */
-  /**
-   * bottom property.
-   *
-   * @type { ?OutlineStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @atomicservice
-   * @since 12
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   bottom?: OutlineStyle;
 
   /**
-   * left property.
+   * 左侧外描边样式。
    *
-   * @type { ?OutlineStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   * @form
-   */
-  /**
-   * left property.
-   *
-   * @type { ?OutlineStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @atomicservice
-   * @since 12
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   left?: OutlineStyle;
 }
 
 /**
- * Defines the offset property.
+ * 相对布局完成位置坐标偏移量。
  *
- * @typedef { object } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defines the offset property.
- *
- * @typedef { object } Offset
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the offset property.
- *
- * @typedef { object } Offset
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare type Offset = {
   /**
-   * dx property.
+   * 水平方向偏移量。
    *
-   * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * dx property.
-   *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * dx property.
-   *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   dx: Length;
 
   /**
-   * dy property.
+   * 竖直方向偏移量。
    *
-   * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * dy property.
-   *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * dy property.
-   *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   dy: Length;
 }
 
 /**
- * Defines the color which can use resource.
+ * 颜色类型，用于描述资源颜色类型。
  *
- * @typedef { Color | number | string | Resource } ResourceColor
+ * @unionmember { Color } 颜色枚举值。
+ * @unionmember { number } HEX格式颜色，支持rgb或者argb。示例：0xffffff，0xffff0000。number无法识别传入位数，格式选择依据值的大小，例如0x00ffffff作rgb格式解析。
+ * @unionmember { string } 支持rgb、rgba或者argb的格式颜色。<br/>rgb格式颜色示例：'#ffffff'、'rgb(255, 100, 255)'。<br/>rgba格式颜色示例：'rgba(25
+ *     5, 100, 255, 0.5)'。<br/>argb格式颜色示例：'#ff000000'。
+ * @unionmember { Resource } 使用引入资源的方式，引入系统资源或者应用资源中的颜色。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the color which can use resource.
- *
- * @typedef { Color | number | string | Resource } ResourceColor
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the color which can use resource.
- *
- * @typedef { Color | number | string | Resource } ResourceColor
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the color which can use resource.
- *
- * @typedef { Color | number | string | Resource } ResourceColor
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare type ResourceColor = Color | number | string | Resource;
 
 /**
- * Defines the length constrain property.
+ * 长度约束，用于对组件最大、最小长度做限制。
  *
- * @typedef { object } LengthConstrain
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform [since 10]
  * @form
- * @since 9
- */
-/**
- * Defines the length constrain property.
- *
- * @typedef { object } LengthConstrain
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the length constrain property.
- *
- * @typedef { object } LengthConstrain
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare type LengthConstrain = {
   /**
-   * minimum length.
+   * 组件最小长度。
    *
-   * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * minimum length.
-   *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * minimum length.
-   *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   minLength: Length;
 
   /**
-   * maximum length.
+   * 组件最大长度。
    *
-   * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
    * @form
-   */
-  /**
-   * maximum length.
-   *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   * @form
-   */
-  /**
-   * maximum length.
-   *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   maxLength: Length;
 }
 
 /**
- * 定义VoidCallback。
+ * 无参数、无返回值的函数回调类型，用于定义不需要传递数据且不返回结果的回调场景。
  *
- * @typedef { function } VoidCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2030,9 +1029,8 @@ declare type LengthConstrain = {
 declare type VoidCallback = () => void;
 
 /**
- * Defines length metrics unit.
+ * 定义长度属性单位。
  *
- * @typedef { import('../api/arkui/Graphics').LengthMetricsUnit } LengthMetricsUnit
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2043,9 +1041,8 @@ declare type VoidCallback = () => void;
 declare type LengthMetricsUnit = import('../api/arkui/Graphics').LengthMetricsUnit;
 
 /**
- * Defines LengthMetrics.
+ * 定义长度属性。
  *
- * @typedef { import('../api/arkui/Graphics').LengthMetrics } LengthMetrics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2055,9 +1052,8 @@ declare type LengthMetricsUnit = import('../api/arkui/Graphics').LengthMetricsUn
 declare type LengthMetrics = import('../api/arkui/Graphics').LengthMetrics;
 
 /**
- * Defines ColorMetrics.
+ * 定义混合颜色。
  *
- * @typedef { import('../api/arkui/Graphics').ColorMetrics } ColorMetrics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2067,132 +1063,63 @@ declare type LengthMetrics = import('../api/arkui/Graphics').LengthMetrics;
 declare type ColorMetrics = import('../api/arkui/Graphics').ColorMetrics;
 
 /**
- * Defines the font used for text.
+ * 设置文本样式。
  *
- * @interface Font
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the font used for text.
+ * > **说明：**
+ * >
+ * > 可以使用[loadFontSync]{@link @ohos.graphics.text:text.FontCollection#loadFontSync}注册自定义字体。
  *
- * @interface Font
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the font used for text.
- *
- * @interface Font
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface Font {
-
   /**
-   * font size.
+   * 设置文本尺寸，Length为number类型时，使用fp单位。不支持设置百分比字符串。
    *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * font size.
+   * 默认值：16.0
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * font size.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   size?: Length;
 
   /**
-   * font weight.
+   * 设置文本的字体粗细，number类型取值[100, 900]，取值间隔为100，取值越大，字体越粗。
    *
-   * @type { ?(FontWeight | number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * font weight.
+   * 默认值：400 | FontWeight.Normal
    *
-   * @type { ?(FontWeight | number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * font weight.
-   *
-   * @type { ?(FontWeight | number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   weight?: FontWeight | number | string;
 
   /**
-   * font family.
+   * 字体列表。默认字体'HarmonyOS Sans'。
    *
-   * @type { ?(string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * font family.
+   * 使用多个字体时，请用逗号','分隔，字体的优先级按顺序生效。例如：'Arial,HarmonyOS Sans'。
    *
-   * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * font family.
-   *
-   * @type { ?(string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   family?: string | Resource;
 
   /**
-   * font style.
+   * 设置文本的字体样式。
    *
-   * @type { ?FontStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * font style.
+   * 默认值：FontStyle.Normal
    *
-   * @type { ?FontStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * font style.
-   *
-   * @type { ?FontStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   style?: FontStyle;
 }
@@ -2207,7 +1134,6 @@ declare interface Font {
  * @since 8 dynamic
  */
 declare interface Area {
-
   /**
    * 目标元素的宽度。
    * 
@@ -2258,130 +1184,48 @@ declare interface Area {
 }
 
 /**
- * 定义位置。
+ * 位置类型，用于表示一个坐标点。
  *
- * @interface Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义位置。
- *
- * @interface Position
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义位置。
- *
- * @interface Position
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义位置。
- *
- * @interface Position
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface Position {
-
   /**
-   * 位置X坐标。
+   * x轴坐标。
    *
-   * @type { ?Length }
+   * 单位：vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * 位置X坐标。
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * 位置X坐标。
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 位置X坐标。
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   x?: Length;
 
   /**
-   * 位置Y坐标。
+   * y轴坐标。
    *
-   * @type { ?Length }
+   * 单位：vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * 位置Y坐标。
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * 位置Y坐标。
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 位置Y坐标。
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   y?: Length;
 }
 
 /**
- * Defines the LocalizedPosition.
+ * 位置类型，用于表示一个坐标点。
  *
- * @interface LocalizedPosition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2389,11 +1233,9 @@ declare interface Position {
  * @since 12 dynamic
  */
 declare interface LocalizedPosition {
-
   /**
-   * Coordinate start of the Position.
+   * LTR模式时x轴相对左边坐标，RTL模式x轴相对右边坐标。
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2403,9 +1245,8 @@ declare interface LocalizedPosition {
   start?: LengthMetrics;
 
   /**
-   * Coordinate top of the Position.
+   * y轴坐标。
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2416,9 +1257,8 @@ declare interface LocalizedPosition {
 }
 
 /**
- * Defines the Edges.
+ * 位置类型，表示相对四边的偏移量。同时设置top和bottom，仅top生效；同时设置left和right，仅left生效。
  *
- * @interface Edges
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2427,11 +1267,9 @@ declare interface LocalizedPosition {
  * @since 12 dynamic
  */
 declare interface Edges {
-
   /**
-   * top property.
+   * 相对顶边的偏移量。
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2442,9 +1280,8 @@ declare interface Edges {
   top?: Dimension;
 
   /**
-   * left property.
+   * 相对左边的偏移量。
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2455,9 +1292,8 @@ declare interface Edges {
   left?: Dimension;
 
   /**
-   * bottom property.
+   * 相对底边的偏移量。
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2468,9 +1304,8 @@ declare interface Edges {
   bottom?: Dimension;
 
   /**
-   * right property.
+   * 相对右边的偏移量。
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2482,9 +1317,8 @@ declare interface Edges {
 }
 
 /**
- * Defines the LocalizedEdges.
+ * 位置类型，表示相对四边的偏移量。同时设置top和bottom，仅top生效；同时设置start和end，仅start生效。
  *
- * @interface LocalizedEdges
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2492,11 +1326,9 @@ declare interface Edges {
  * @since 12 dynamic
  */
 declare interface LocalizedEdges {
-
   /**
-   * top property.
+   * 相对顶边的偏移量。
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2506,9 +1338,8 @@ declare interface LocalizedEdges {
   top?: LengthMetrics;
 
   /**
-   * start property.
+   * LTR模式时相对左边的偏移量，RTL模式时相对右边的偏移量。
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2518,9 +1349,8 @@ declare interface LocalizedEdges {
   start?: LengthMetrics;
 
   /**
-   * bottom property.
+   * 相对底边的偏移量。
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2530,9 +1360,8 @@ declare interface LocalizedEdges {
   bottom?: LengthMetrics;
 
   /**
-   * end property.
+   * LTR模式时相对右边的偏移量，RTL模式时相对左边的偏移量。
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2543,605 +1372,223 @@ declare interface LocalizedEdges {
 }
 
 /**
- * Defines the Bias.
+ * 设置组件在锚点约束下的偏移参数。
  *
- * @interface Bias
+ * 以水平方向Bias为例，其值为组件到左锚点的距离 D<sub>start</sub>与组件到水平方向锚点间总距离 D<sub>start</sub> +  D<sub>end</sub>的比值。镜像语言下，D<sub>start</
+ * sub>为组件到右锚点的距离。下图中D<sub>width</sub>表示组件宽度。
+ *
+ * ![bias_horizontal_example.png](docroot://reference/apis-arkui/arkui-ts/figures/bias_horizontal_example.png)
+ *
+ * 竖直方向同理，其值为组件到上锚点的距离D<sub>top</sub>与组件到竖直方向锚点间总距离D<sub>top</sub> + D<sub>bottom</sub>的比值。下图中D<sub>height</sub>表示组件高度。
+ *
+ * ![bias_vertical_example.png](docroot://reference/apis-arkui/arkui-ts/figures/bias_vertical_example.png)
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
- * Defines the Bias.
- *
- * @interface Bias
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface Bias {
-
   /**
-   * Horizontal ratio of the Bias, it must be >= 0.
+   * 水平方向上的bias值。
    *
-   * @type { ?number }
+   * 当子组件的width属性有正确值并且有2个水平方向的锚点时生效，设置的值必须大于等于0。
+   *
+   * 默认值： 0.5
+   *
    * @default 0.5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * Horizontal ratio of the Bias, it must be >= 0.
-   *
-   * @type { ?number }
-   * @default 0.5
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   horizontal?: number;
 
   /**
-   * Vertical ratio of the Bias, it must be >= 0.
+   * 垂直方向上的bias值。
    *
-   * @type { ?number }
+   * 当子组件的height属性有正确值并且有2个垂直方向的锚点时生效，设置的值必须大于等于0。
+   *
+   * 默认值： 0.5
+   *
    * @default 0.5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * Vertical ratio of the Bias, it must be >= 0.
-   *
-   * @type { ?number }
-   * @default 0.5
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   vertical?: number;
 }
 
 /**
- * Defines the constrain size options.
+ * 约束尺寸类型，用于描述组件布局时对尺寸大小的范围限制。
  *
- * @interface ConstraintSizeOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the constrain size options.
+ * > **说明：**
+ * >
+ * > 在[Row]{@link ./row}、[Column]{@link ./column}、[RelativeContainer]{@link ./relative_container}组件中，width、height设置auto表
+ * > 示自适应子组件。在[TextInput]{@link ./text_input}组件中，width设置auto表示自适应文本宽度。
  *
- * @interface ConstraintSizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the constrain size options.
- *
- * @interface ConstraintSizeOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the constrain size options.
- *
- * @interface ConstraintSizeOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface ConstraintSizeOptions {
-
   /**
-   * Defines the min width.
+   * 元素最小宽度。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Defines the min width.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the min width.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines the min width.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   minWidth?: Length;
 
   /**
-   * Defines the max width.
+   * 元素最大宽度。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Defines the max width.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the max width.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines the max width.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   maxWidth?: Length;
 
   /**
-   * Defines the min height.
+   * 元素最小高度。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Defines the min height.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the min height.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines the min height.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   minHeight?: Length;
 
   /**
-   * Defines the max height.
+   * 元素最大高度。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Defines the max height.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the max height.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines the max height.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   maxHeight?: Length;
 }
 
 /**
- * 定义尺寸选项。
+ * 宽高尺寸类型，用于描述组件布局时的宽高尺寸大小。
  *
- * @interface SizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * 定义尺寸选项。
- *
- * @interface SizeOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * 定义尺寸选项。
- *
- * @interface SizeOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * 定义尺寸选项。
- *
- * @interface SizeOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface SizeOptions {
-
   /**
-   * 定义宽度。
+   * 元素宽度。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * 定义宽度。
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * 定义宽度。
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 定义宽度。
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   width?: Length;
 
   /**
-   * 定义高度。
+   * 元素高度。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * 定义高度。
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * 定义高度。
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * 定义高度。
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   height?: Length;
 }
 
 /**
- * Defines the options of border.
+ * 边框属性集合，用于描述边框相关信息。
  *
- * @interface BorderOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the options of border.
- *
- * @interface BorderOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the options of border.
- *
- * @interface BorderOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the options of border.
- *
- * @interface BorderOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the options of border.
- *
- * @interface BorderOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface BorderOptions {
-
   /**
-   * Defines the border width.
+   * 设置边框宽度。
    *
-   * @type { ?Length }
+   * @type { ?(EdgeWidths | Length) } [since 9 - 11]
+   * @type { ?(EdgeWidths | Length | LocalizedEdgeWidths) } [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Defines the border width.
-   *
-   * @type { ?(EdgeWidths | Length) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the border width.
-   *
-   * @type { ?(EdgeWidths | Length) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines the border width.
-   *
-   * @type { ?(EdgeWidths | Length) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Defines the border width.
-   *
-   * @type { ?(EdgeWidths | Length | LocalizedEdgeWidths) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   width?: EdgeWidths | Length | LocalizedEdgeWidths;
 
   /**
-   * Defines the border color.
+   * 设置边框颜色。
    *
-   * @type { ?ResourceColor }
+   * @type { ?(EdgeColors | ResourceColor) } [since 9 - 11]
+   * @type { ?(EdgeColors | ResourceColor | LocalizedEdgeColors) } [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Defines the border color.
-   *
-   * @type { ?(EdgeColors | ResourceColor) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the border color.
-   *
-   * @type { ?(EdgeColors | ResourceColor) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines the border color.
-   *
-   * @type { ?(EdgeColors | ResourceColor) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Defines the border color.
-   *
-   * @type { ?(EdgeColors | ResourceColor | LocalizedEdgeColors) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   color?: EdgeColors | ResourceColor | LocalizedEdgeColors;
 
   /**
-   * Defines the border radius.
+   * 设置边框圆角半径。
    *
-   * @type { ?Length }
+   * @type { ?(BorderRadiuses | Length) } [since 9 - 11]
+   * @type { ?(BorderRadiuses | Length | LocalizedBorderRadiuses) } [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Defines the border radius.
-   *
-   * @type { ?(BorderRadiuses | Length) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the border radius.
-   *
-   * @type { ?(BorderRadiuses | Length) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines the border radius.
-   *
-   * @type { ?(BorderRadiuses | Length) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Defines the border radius.
-   *
-   * @type { ?(BorderRadiuses | Length | LocalizedBorderRadiuses) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   radius?: BorderRadiuses | Length | LocalizedBorderRadiuses;
 
   /**
-   * Defines the border style.
+   * 设置边框样式。
    *
-   * @type { ?BorderStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Defines the border style.
-   *
-   * @type { ?(EdgeStyles | BorderStyle) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the border style.
-   *
-   * @type { ?(EdgeStyles | BorderStyle) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines the border style.
-   *
-   * @type { ?(EdgeStyles | BorderStyle) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   style?: EdgeStyles | BorderStyle;
 
   /**
-   * Defines the gap of dash when BorderStyle is dashed.
+   * 设置虚线的线段间距，仅在边框样式为虚线时生效。
    *
-   * @type { ?(EdgeWidths | LengthMetrics | LocalizedEdgeWidths) }
+   * 不支持设置百分比。
+   *
+   * **卡片能力：** 该接口不支持在ArkTS卡片中使用。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3151,9 +1598,12 @@ declare interface BorderOptions {
   dashGap?: EdgeWidths | LengthMetrics | LocalizedEdgeWidths;
 
   /**
-   * Defines the length of dash when BorderStyle is dashed.
+   * 设置虚线的线段长度，仅在边框样式为虚线时生效。
    *
-   * @type { ?(EdgeWidths | LengthMetrics | LocalizedEdgeWidths) }
+   * 不支持设置百分比。
+   *
+   * **卡片能力：** 该接口不支持在ArkTS卡片中使用。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3164,264 +1614,144 @@ declare interface BorderOptions {
 }
 
 /**
- * 定义外描边的参数选项
+ * 外描边选项设置。
  *
- * @interface OutlineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
- * 定义外描边的参数选项
- *
- * @interface OutlineOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface OutlineOptions {
-
   /**
-   * Defines the outline width.
+   * 设置外描边宽度，不支持百分比。
    *
-   * @type { ?(EdgeOutlineWidths | Dimension) }
+   * 默认值：0，外描边效果中width为必设项，否则不显示外描边。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * Defines the outline width.
-   *
-   * @type { ?(EdgeOutlineWidths | Dimension) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   width?: EdgeOutlineWidths | Dimension;
 
   /**
-   * Defines the outline color.
+   * 设置外描边颜色。
    *
-   * @type { ?(EdgeColors | ResourceColor) }
+   * 默认值：Color.Black
+   *
+   * @type { ?(EdgeColors | ResourceColor) } [since 11 - 11]
+   * @type { ?(EdgeColors | ResourceColor | LocalizedEdgeColors) } [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * Defines the outline color.
-   *
-   * @type { ?(EdgeColors | ResourceColor | LocalizedEdgeColors) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   color?: EdgeColors | ResourceColor | LocalizedEdgeColors;
 
   /**
-   * Defines the outline radius.
+   * 设置外描边圆角半径，不支持百分比。
    *
-   * @type { ?(OutlineRadiuses | Dimension) }
+   * 默认值：0
+   *
+   * 最大生效值：组件width/2 + outlineWidth或组件height/2 + outlineWidth。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * Defines the outline radius.
-   *
-   * @type { ?(OutlineRadiuses | Dimension) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   radius?: OutlineRadiuses | Dimension;
 
   /**
-   * Defines the outline style.
+   * 设置外描边样式。
    *
-   * @type { ?(EdgeOutlineStyles | OutlineStyle) }
+   * 默认值：OutlineStyle.SOLID
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * Defines the outline style.
-   *
-   * @type { ?(EdgeOutlineStyles | OutlineStyle) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   style?: EdgeOutlineStyles | OutlineStyle;
 }
 
 /**
- * Define the style of checkbox mark.
+ * 定义checkbox标记的样式。
  *
- * @interface MarkStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Define the style of checkbox mark.
- *
- * @interface MarkStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface MarkStyle {
-
   /**
-   * Define the stroke color of checkbox mark.
+   * 内部图标颜色。默认值：Color.White
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Define the stroke color of checkbox mark.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   strokeColor?: ResourceColor;
 
   /**
-   * Define the size of checkbox mark.
+   * 内部图标大小，单位vp。默认大小与多选框组件宽度相同。
    *
-   * @type { ?Length }
+   * 不支持百分比形式设置。设置为非法值时，按照默认值处理。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Define the size of checkbox mark.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   size?: Length;
 
   /**
-   * Define the stroke width of checkbox mark.
+   * 内部图标粗细，单位vp。不支持设置百分比。设置为非法值时，按照默认值处理。默认值：2
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Define the stroke width of checkbox mark.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   strokeWidth?: Length;
 }
 
 /**
- * Defines the ColorFilter object.
+ * 创建具有4*5矩阵的颜色过滤器。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
+ * @crossplatform [since 10]
  * @form
- * @since 9
- */
-/**
- * Defines the ColorFilter object.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the ColorFilter object.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class ColorFilter {
-
   /**
-   * Creates ColorFilter with 4*5 matrix.
+   * ColorFilter的构造函数，创建具有4\*5矩阵的颜色过滤器。
    *
-   * @param { number[] } value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
+   * @param { number[] } value 4*5颜色矩阵的值，[m*n]位于m行和n列中矩阵值，矩阵是行优先的。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform [since 10]
    * @form
-   * @since 9
-   */
-  /**
-   * Creates ColorFilter with 4*5 matrix.
-   *
-   * @param { number[] } value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Creates ColorFilter with 4*5 matrix.
-   *
-   * @param { number[] } value 4*5 color matrix values. The value[m*n] is located in the m row and n column. The matrix is row-first.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor(value: number[]);
 }
@@ -3436,7 +1766,6 @@ declare class ColorFilter {
  * @since 11 dynamic
  */
 declare interface TouchPoint {
-
   /**
    * 跟手点X轴坐标。
    *
@@ -3461,9 +1790,8 @@ declare interface TouchPoint {
 }
 
 /**
- * Defines the DirectionalEdgesT interface.
+ * 边缘宽度类型，用于描述组件边缘不同方向的宽度。支持全球化。
  *
- * @interface DirectionalEdgesT
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3472,11 +1800,9 @@ declare interface TouchPoint {
  * @since 12 dynamic
  */
 declare interface DirectionalEdgesT<T> {
-
   /**
-   * Start edge.
+   * 起始边缘的属性。在LTR的方向下，为左边缘，在RTL的方向下，为右边缘。
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3487,9 +1813,8 @@ declare interface DirectionalEdgesT<T> {
   start: T;
 
   /**
-   * End edge.
+   * 终止边缘的属性。在LTR的方向下，为右边缘，在RTL的方向下，为左边缘。
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3500,9 +1825,8 @@ declare interface DirectionalEdgesT<T> {
   end: T;
 
   /**
-   * Top edge.
+   * 顶部边缘的属性。
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3513,9 +1837,8 @@ declare interface DirectionalEdgesT<T> {
   top: T;
 
   /**
-   * Bottom edge.
+   * 底部边缘的属性。
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3527,9 +1850,8 @@ declare interface DirectionalEdgesT<T> {
 }
 
 /**
- * Defines the struct of DividerStyleOptions.
+ * 分割线样式属性集合，用于描述分割线相关信息。
  *
- * @interface DividerStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3537,11 +1859,9 @@ declare interface DirectionalEdgesT<T> {
  * @since 12 dynamic
  */
 declare interface DividerStyleOptions {
-
   /**
-   * The strokeWidth of Divider.
+   * 分割线的线宽。
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3551,9 +1871,8 @@ declare interface DividerStyleOptions {
   strokeWidth?: LengthMetrics;
 
   /**
-   * The color of Divider.
+   * 分割线的颜色。
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3563,9 +1882,8 @@ declare interface DividerStyleOptions {
   color?: ResourceColor;
 
   /**
-   * The startMargin of Divider.
+   * 分割线与菜单侧边起始端的距离。
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3575,9 +1893,8 @@ declare interface DividerStyleOptions {
   startMargin?: LengthMetrics;
 
   /**
-   * The endMargin of Divider.
+   * 分割线与菜单侧边结束端的距离。
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3587,9 +1904,8 @@ declare interface DividerStyleOptions {
   endMargin?: LengthMetrics;
 
   /**
-   * The mode of Divider.
+   * 设置分割线模式。
    *
-   * @type { ?DividerMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3600,9 +1916,8 @@ declare interface DividerStyleOptions {
 }
 
 /**
- * Defines the ChainWeightOptions interface.
+ * 链中组件的布局权重。
  *
- * @interface ChainWeightOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3610,11 +1925,13 @@ declare interface DividerStyleOptions {
  * @since 14 dynamic
  */
 declare interface ChainWeightOptions {
-
   /**
-   * Horizontal ChainWeight.
+   * 组件在水平方向的布局权重，设置大于0的数字时生效。
    *
-   * @type { ?(number) }
+   * 默认值：0
+   *
+   * 异常值：0
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3624,9 +1941,12 @@ declare interface ChainWeightOptions {
   horizontal?: number;
 
   /**
-   * Vertical ChainWeight.
+   * 组件在竖直方向的布局权重，设置大于0的数字时生效。
    *
-   * @type { ?(number) }
+   * 默认值：0
+   *
+   * 异常值：0
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3637,9 +1957,8 @@ declare interface ChainWeightOptions {
 }
 
 /**
- * Defines the struct of AccessibilityOptions.
+ * 定义AccessibilityOptions的结构体。
  *
- * @interface AccessibilityOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3647,11 +1966,15 @@ declare interface ChainWeightOptions {
  * @since 14 dynamic
  */
 declare interface AccessibilityOptions {
-
   /**
-   * accessibilityPreferred -在连接子组件字符串时，是否应该优先考虑accessibilityText。
+   * 若accessibilityPreferred设置为true，则深度遍历每个子节点时优先选择该子节点的无障碍文本accessibilityText。
    *
-   * @type { ?(boolean) }
+   * 若无障碍文本为空则选择本身Text文本，最终将拼接完成的文本设置给accessibilityText与Text都为空的父节点。
+   *
+   * 若accessibilityPreferred设置为false，表示不启用此功能。
+   *
+   * 默认值：false
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3661,9 +1984,18 @@ declare interface AccessibilityOptions {
   accessibilityPreferred?: boolean;
 
   /**
-   * stateControllerRoleType - 通过该可选参数指定特定类型的子组件，配置AccessibilityGroup的容器组件进行无障碍聚合后，会将该子组件的选中状态和状态播报文本作为聚合组件的状态和播报文本。从而聚合屏幕朗读下的状态播报，避免需要对子组件单独进行聚焦。
+   * 指定特定类型的子组件。配置
+   * [accessibilityGroup]{@link CommonMethod#accessibilityGroup(isGroup: boolean, accessibilityOptions: AccessibilityOptions)}
+   * 的容器组件进行无障碍聚合后，会将该特定类型的子组件的选中状态和状态播报文本作为聚合组件的状态和播报文本。从而聚合屏幕朗读下的状态播报，避免需要对子组件单独进行聚焦。
    *
-   * @type { ?AccessibilityRoleType }
+   * **说明：**
+   *
+   * 如果聚合组件内有多个相同类型的子组件，则以组件树上该聚合组件下的第一个查找到的子组件为控制组件。
+   *
+   * 不支持跨进程嵌入式组件内的特定类型，例如：卡片、EmbeddedUIExtension。
+   *
+   * 默认值：无指定组件
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3673,9 +2005,16 @@ declare interface AccessibilityOptions {
   stateControllerRoleType?: AccessibilityRoleType;
 
   /**
-   * stateControllerId -通过该可选参数指定特定ID的子组件，配置AccessibilityGroup的容器组件进行无障碍聚合后，会将该子组件的选中状态和状态播报文本作为聚合组件的状态和播报文本。从而聚合屏幕朗读下的状态播报，避免需要对子组件单独进行聚焦。
+   * 指定特定[唯一标识ID]{@link CommonMethod#id}的子组件。配置
+   * [accessibilityGroup]{@link CommonMethod#accessibilityGroup(isGroup: boolean, accessibilityOptions: AccessibilityOptions)}
+   * 的容器组件进行无障碍聚合后，会将该特定标识的子组件的选中状态和状态播报文本作为聚合组件的状态和播报文本。从而聚合屏幕朗读下的状态播报，避免需要对子组件单独进行聚焦。
+   * **说明：**
+   * 如果聚合组件内有多个相同类型的子组件，则以组件树上该聚合组件下的第一个查找到的子组件为控制组件。
+   * 如果与stateControllerRoleType同时配置，则优先匹配ID一致的组件。
+   * 不支持跨进程嵌入式组件内的特定类型，例如：卡片、EmbeddedUIExtension。
+   * 默认值：无指定组件
+   * 。
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3685,9 +2024,20 @@ declare interface AccessibilityOptions {
   stateControllerId?: string;
 
   /**
-   * stateControllerRoleType - 通过该可选参数指定特定类型的子组件，配置AccessibilityGroup的容器组件进行无障碍聚合后，如果触发无障碍的控制操作时，会将操作转发给该特定类型的子组件。从而聚合屏幕朗读下的点击事件，避免需要对子组件单独进行聚焦。
+   * 指定特定类型的子组件。配置
+   * [accessibilityGroup]{@link CommonMethod#accessibilityGroup(isGroup: boolean, accessibilityOptions: AccessibilityOptions)}
+   * 的容器组件进行无障碍聚合后，如果触发无障碍的控制操作时，会将操作转发给该特定类型的子组件。从而聚合屏幕朗读下的点击事件，避免需要对子组件单独进行聚焦。
    *
-   * @type { ?AccessibilityRoleType }
+   * **说明：**
+   *
+   * 如果聚合组件内有多个相同类型的子组件，则以组件树上该聚合组件下的第一个查找到的子组件为控制组件。
+   *
+   * 当前只支持无障碍点击操作。
+   *
+   * 不支持跨进程嵌入式组件内的特定类型，例如：卡片、EmbeddedUIExtension。
+   *
+   * 默认值：无指定组件
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3697,9 +2047,17 @@ declare interface AccessibilityOptions {
   actionControllerRoleType?: AccessibilityRoleType;
 
   /**
-   * 通过该可选参数指定特定ID的子组件，配置AccessibilityGroup的容器组件进行无障碍聚合后，如果触发无障碍的控制操作时，会将操作转发给该特定类型的子组件。从而聚合屏幕朗读下的点击事件，避免需要对子组件单独进行聚焦。
+   * 指定特定[唯一标识ID]{@link CommonMethod#id}的子组件。配置
+   * [accessibilityGroup]{@link CommonMethod#accessibilityGroup(isGroup: boolean, accessibilityOptions: AccessibilityOptions)}
+   * 的容器组件进行无障碍聚合后，如果触发无障碍的控制操作时，会将操作转发给该特定标识的子组件。从而聚合屏幕朗读下的点击事件，避免需要对子组件单独进行聚焦。
+   * **说明：**
+   * 如果聚合组件内有多个相同类型的子组件，则以组件树上该聚合组件下的第一个查找到的子组件为控制组件。
+   * 当前只支持无障碍点击操作。
+   * 如果与actionControllerRoleType同时配置，则优先匹配ID一致的组件。
+   * 不支持跨进程嵌入式组件内的特定类型，例如：卡片、EmbeddedUIExtension。
+   * 默认值：无指定组件
+   * 。
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3710,9 +2068,8 @@ declare interface AccessibilityOptions {
 }
 
 /**
- * 包含无障碍操作的参数的结构体。
+ * 设置组件的无障碍操作的可选参数，用于限制或修改屏幕朗读等辅助应用发起的操作行为。仅[Slider]{@link ./slider}组件支持使用。在其他组件使用该接口时，编译环节可正常通过，但接口功能不生效。
  *
- * @interface AccessibilityActionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3721,11 +2078,14 @@ declare interface AccessibilityOptions {
  * @since 23 dynamic
  */
 declare interface AccessibilityActionOptions {
-
   /**
-   * scrollStep - 无障碍手势触发的无障碍滚动操作中的组件操作步长。只支持slider组件。默认值基于组件默认值
+   * 无障碍手势触发的无障碍滚动操作中的组件操作步数。默认值基于组件默认值。
+   * 不支持的组件配置不生效。
+   * 当前支持组件：[slider]{@link ./slider}，用于slider组件聚焦后通过手势上下扫动触发slider组件的滑动操作。滑动距离：scrollStep*
+   * [step](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-slider.md#slideroptions)。取值范围：
+   * [1, ([max](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-slider.md#slideroptions) - [min](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-slider.md#slideroptions))/[step](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-slider.md#slideroptions)]，
+   * 默认值为1。超出取值范围时取默认值1；在取值范围内，scrollStep为非整数时向下取整。
    *
-   * @type { ?(number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3737,7 +2097,7 @@ declare interface AccessibilityActionOptions {
 }
 
 /**
- * 定义用于配置下一个可访问性焦点转换的参数的结构。
+ * 定义无障碍自定义下一个焦点处理过程中可使用的详细参数对象。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3747,10 +2107,12 @@ declare interface AccessibilityActionOptions {
  * @since 26.0.0 dynamic
  */
 declare interface AccessibilityNextFocusParams {
-
   /**
-   * descendantMode -确定焦点搜索是否应考虑
-   * 在下一个可访问性焦点操作。
+   * 是否在无障碍自定义下一个焦点处理过程中查找后代节点中的焦点。
+   *
+   * true表示在无障碍自定义下一个焦点处理过程中查找后代节点中的焦点；false表示在无障碍自定义下一个焦点处理过程中不查找后代节点中的焦点。
+   *
+   * 默认值：false
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3763,9 +2125,8 @@ declare interface AccessibilityNextFocusParams {
 }
 
 /**
- * 定义AccessibilityCustomAction的结构体，可以在可访问性下的自定义操作处理中处理。
+ * 自定义无障碍操作接口。
  *
- * @interface AccessibilityCustomAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3774,11 +2135,13 @@ declare interface AccessibilityNextFocusParams {
  * @since 26.0.0 dynamic
  */
 declare interface AccessibilityCustomAction {
-
   /**
-   * name -指定自定义操作的名称。
+   * 自定义操作的名称，用于标识和绑定操作回调。
    *
-   * @type { ResourceStr }
+   * **说明：**
+   *
+   * 名称的文本长度需在128字节以内，超出部分将被截断。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3789,9 +2152,8 @@ declare interface AccessibilityCustomAction {
   name: ResourceStr;
 
   /**
-   * onAction -处理自定义操作的回调。
+   * 处理自定义操作的回调。
    *
-   * @type { VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3803,9 +2165,8 @@ declare interface AccessibilityCustomAction {
 }
 
 /**
- * 定义滚动条边距选项。
+ * 滚动条边距。
  *
- * @interface ScrollBarMargin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3813,11 +2174,9 @@ declare interface AccessibilityCustomAction {
  * @since 20 dynamic
  */
 declare interface ScrollBarMargin {
-
   /**
-   * 滚动条的起始边距。
+   * 滚动条起始边距。<br/>默认值：0，单位：vp
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3827,9 +2186,8 @@ declare interface ScrollBarMargin {
   start?: LengthMetrics;
 
   /**
-   * 滚动条的末尾边距。
+   * 滚动条末尾边距。<br/>默认值：0，单位：vp
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3840,9 +2198,8 @@ declare interface ScrollBarMargin {
 }
 
 /**
- * 定义缓存计数信息。
+ * 缓存数量信息。
  *
- * @interface CacheCountInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3850,11 +2207,10 @@ declare interface ScrollBarMargin {
  * @since 22 dynamic
  */
 declare interface CacheCountInfo {
-
   /**
-   * 最小缓存数量。
+   * 最小缓存数，当实际缓存数小于最小缓存数时，在滚动动画帧间空闲时隙加载缓存。小于0时按1处理。
+   * 取值范围：[0, +∞)，。
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3862,11 +2218,10 @@ declare interface CacheCountInfo {
    * @since 22 dynamic
    */
   minCount: number;
-
   /**
-   * 最大缓存数量。
+   * 最大缓存数，当实际缓存数大于最大缓存数时，缓存内容会回收或释放，当UI空闲时（无动画或用户操作），会加载缓存到最大缓存数。小于minCount时按minCount处理。
+   * 取值范围：[minCount, +∞)，。
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3879,6 +2234,7 @@ declare interface CacheCountInfo {
 /**
  * 描述一个二维坐标。
  *
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3886,7 +2242,7 @@ declare interface CacheCountInfo {
  * @since 26.0.0 dynamic
  */
 declare interface Coordinate2D {
-
+ 
   /**
    * 横坐标。
    *
@@ -3897,7 +2253,7 @@ declare interface Coordinate2D {
    * @since 26.0.0 dynamic
    */
   x: double;
-
+ 
   /**
    * 纵坐标。
    *
@@ -3911,9 +2267,8 @@ declare interface Coordinate2D {
 }
 
 /**
- * 定义一个响应式item填充模式，可以在WaterFlow、Grid、List和Swiper组件中使用。
+ * 响应式布局填充模式，用于WaterFlow、Grid、List、Swiper和LazyVWaterFlowLayout组件。LazyVWaterFlowLayout组件从API版本26.0.0开始支持。
  *
- * @typedef { PresetFillType } ResponsiveFillType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3923,9 +2278,8 @@ declare interface Coordinate2D {
 declare type ResponsiveFillType = PresetFillType;
 
 /**
- * 定义一个适合WaterFlow、Grid、List和Swiper组件的响应式item布局。
+ * 定义一个适用于WaterFlow、Grid、List、Swiper和LazyVWaterFlowLayout组件的响应式布局策略。LazyVWaterFlowLayout组件从API版本26.0.0开始支持。
  *
- * @interface ItemFillPolicy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3933,11 +2287,9 @@ declare type ResponsiveFillType = PresetFillType;
  * @since 22 dynamic
  */
 declare interface ItemFillPolicy {
-
   /**
-   * 指定不同响应断点的列数。
+   * 为不同的响应式断点指定列数。默认值为BREAKPOINT_DEFAULT。
    *
-   * @typedef { ?ResponsiveFillType }
    * @default ResponsiveFillType.BREAKPOINT_DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
