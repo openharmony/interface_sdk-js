@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file XML转换
  * @kit ArkTS
  */
 

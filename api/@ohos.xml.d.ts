@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file XML Parsing and Generation
  * @kit ArkTS
  */
 

@@ -33,7 +33,7 @@
  * 例如在以下示例中，针对value的计算，1758783600000大于INT32_MAX，此时会通过TaggedDouble存储；1758783600在INT32范围内，此时会通过TaggedInt存储。
  * 由于以上存储方式的差异，当对其进行hash算法即会计算出不同的hash值，从而导致映射结果不同，产生与预期不一致的现象。
  *
- * @file
+ * @file 非线性容器LightWeightSet
  * @kit ArkTS
  */
 

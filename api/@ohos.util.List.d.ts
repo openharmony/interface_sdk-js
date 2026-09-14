@@ -35,7 +35,7 @@
  * > - Container classes, implemented in static languages, have restrictions on storage locations and properties, and do
  * > not support custom properties or methods.
  *
- * @file
+ * @file Linear Container List
  * @kit ArkTS
  */
 
