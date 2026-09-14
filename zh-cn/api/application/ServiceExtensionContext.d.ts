@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file ServiceExtensionContext
+ * @kit AbilityKit
+ */
+
 import { Caller } from '../@ohos.app.ability.UIAbility';
 import OpenLinkOptions from '../@ohos.app.ability.OpenLinkOptions';
 import AtomicServiceOptions from '../@ohos.app.ability.AtomicServiceOptions';

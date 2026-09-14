@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Child Process Startup Options
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Zip模块
  * @kit BasicServicesKit
  */
 

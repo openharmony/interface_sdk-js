@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 启动框架任务监听器
  * @kit AbilityKit
  */
 

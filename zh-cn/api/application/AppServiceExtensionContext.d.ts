@@ -13,6 +13,11 @@
  * limitations under the License.
  */
 
+/**
+ * @file 应用后台服务扩展组件上下文
+ * @kit AbilityKit
+ */
+
 import ExtensionContext from './ExtensionContext';
 import { ConnectOptions } from '../ability/connectOptions';
 import Want from '../@ohos.app.ability.Want';

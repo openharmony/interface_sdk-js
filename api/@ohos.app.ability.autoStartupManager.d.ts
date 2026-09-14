@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Auto-Startup Management
  * @kit AbilityKit
  */
 

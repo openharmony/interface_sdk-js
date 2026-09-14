@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file AutoStartupCallback
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file AppStartup Configuration Entry
  * @kit AbilityKit
  */
 
