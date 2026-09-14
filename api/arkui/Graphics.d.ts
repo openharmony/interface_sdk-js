@@ -1012,13 +1012,11 @@ declare class ColorMetrics {
   /**
    * Get red value.
    * Returns red channel value as a floating-point number.
-   * For SDR colors, value is in range [0, 1].
-   * For HDR colors, value can be greater than 1.0 to represent extended brightness.
    *
    * @returns { double } The red value.
    *     Valid range:
-   *     For SDR colors: [0, 1].
-   *     Fro HDR colors: [0, +∞), values > 1.0 indicate HDR brightness.
+   *     For SDR colors: [0.0, 1.0].
+   *     Fro HDR colors: [0.0, +∞), values > 1.0 indicate HDR brightness.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -1029,13 +1027,11 @@ declare class ColorMetrics {
   /**
    * Get green value.
    * Returns green channel value as a floating-point number.
-   * For SDR colors, value is in range [0, 1].
-   * For HDR colors, value can be greater than 1.0 to represent extended brightness.
    *
    * @returns { double } The green value.
    *     Valid range:
-   *     For SDR colors: [0, 1].
-   *     Fro HDR colors: [0, +∞), values > 1.0 indicate HDR brightness.
+   *     For SDR colors: [0.0, 1.0].
+   *     Fro HDR colors: [0.0, +∞), values > 1.0 indicate HDR brightness.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -1046,13 +1042,11 @@ declare class ColorMetrics {
   /**
    * Get blue value.
    * Returns blue channel value as a floating-point number.
-   * For SDR colors, value is in range [0, 1].
-   * For HDR colors, value can be greater than 1.0 to represent extended brightness.
    *
    * @returns { double } The blue value.
    *     Valid range:
-   *     For SDR colors: [0, 1].
-   *     Fro HDR colors: [0, +∞), values > 1.0 indicate HDR brightness.
+   *     For SDR colors: [0.0, 1.0].
+   *     Fro HDR colors: [0.0, +∞), values > 1.0 indicate HDR brightness.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
