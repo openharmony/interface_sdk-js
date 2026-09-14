@@ -201,7 +201,7 @@ declare namespace inputDevice {
    * asynchronous callback to return the result.
    *
    * @param { 'change' } type - Event type. This field has a fixed value of **change**.
-   * @param { Callback<DeviceListener> } listener - Callback to unregister. If this parameter is left unspecified,
+   * @param { Callback<DeviceListener> } [listener] - Callback to unregister. If this parameter is left unspecified,
    *     listening for hot swap events of all input devices will be canceled.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -420,6 +420,7 @@ declare namespace inputDevice {
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @stagemodelonly
+     * @readonly
      * @since 26.1.0 dynamic&static
      */
     displayId?: int;
