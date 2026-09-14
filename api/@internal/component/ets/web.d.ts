@@ -10206,18 +10206,10 @@ declare interface EmbedOptions {
    */
   supportCssDisplayChange?: boolean;
   /**
-   * Whether the same-layer rendering visibility API supports the CSS rotate and skew attributes.
+   * Whether the same-layer rendering supports the CSS rotate and skew attributes.
    *
    * The CSS rotate attribute rotates an element around a fixed point on the 2D plane, and the CSS skew attribute
-   * skews an element along the X and/or Y axis. Both of them may change the visibility of same-layer tags in the
-   * viewport.
-   *
-   * By default, the visibility status of same-layer tags relative to the viewport is supported.
-   *
-   * If this attribute is set to **true**, the visibility changes of same-layer tags caused by the CSS rotate and
-   * skew attributes can be reported.
-   *
-   * Otherwise, the visibility changes caused by the CSS rotate and skew attributes are not reported.
+   * skews an element along the X and/or Y axis.
    *
    * @default false
    * @syscap SystemCapability.Web.Webview.Core

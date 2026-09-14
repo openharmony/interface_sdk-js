@@ -6771,13 +6771,11 @@ export declare interface EmbedOptions {
      */
     supportCssDisplayChange?: boolean;
     /**
-     * Whether the {@link onNativeEmbedVisibilityChange} event supports the CSS rotate and skew
-     * attributes of the embed element.
+     * Whether the embed element supports the CSS rotate and skew attributes.
      * <br>The CSS rotate attribute rotates an element around a fixed point on the 2D plane, and the
      * CSS skew attribute skews an element along the X and/or Y axis.
-     * <br>Default value is false. If true, the visibility changes caused by the CSS rotate and skew
-     * attributes of the embed element will be reported through the
-     * {@link onNativeEmbedVisibilityChange} event.
+     * <br>Default value is false. If true, the CSS rotate and skew attributes of the embed element
+     * are supported.
      *
      * @default false
      * @syscap SystemCapability.Web.Webview.Core
