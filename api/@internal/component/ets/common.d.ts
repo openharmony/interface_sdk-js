@@ -13173,9 +13173,8 @@ declare interface SheetOptions extends BindOptions {
    * Supports customizing blur parameters via options.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
    * @since 26.1.0 dynamiconly
    */
   titleBarBackgroundBlur?: SheetTitleBarBackgroundBlurOptions;
@@ -13211,9 +13210,8 @@ declare interface SheetOptions extends BindOptions {
    * Default value: **undefined**, indicating that no material is set.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
    * @since 26.1.0 dynamiconly
    */
   closeButtonMaterial?: SystemUiMaterial;
@@ -13258,9 +13256,8 @@ declare enum SheetTitleBarBackgroundBlur {
  * All sub-properties are optional; unset properties use system default values.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
  * @since 26.1.0 dynamiconly
  */
 declare interface SheetTitleBarBackgroundBlurOptions {
@@ -13270,9 +13267,8 @@ declare interface SheetTitleBarBackgroundBlurOptions {
    * Default value: **SheetTitleBarBackgroundBlur.NONE**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
    * @since 26.1.0 dynamiconly
    */
   blurStyle?: SheetTitleBarBackgroundBlur;
@@ -13283,9 +13279,8 @@ declare interface SheetTitleBarBackgroundBlurOptions {
    * Default value: **32vp**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
    * @since 26.2.0 dynamiconly
    */
   maskExtraHeight?: LengthMetrics;
@@ -13301,9 +13296,8 @@ declare interface SheetTitleBarBackgroundBlurOptions {
    * and #E5202224 is used in dark mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
    * @since 26.2.0 dynamiconly
    */
   maskColor?: ResourceColor;
@@ -13314,9 +13308,8 @@ declare interface SheetTitleBarBackgroundBlurOptions {
    * Default value: **8vp**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
    * @since 26.2.0 dynamiconly
    */
   effectiveDistance?: LengthMetrics;
