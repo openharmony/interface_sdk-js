@@ -196,6 +196,84 @@ declare namespace securityManager {
   }
 
   /**
+   * Add credential information.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  export interface AddCredentialInfo {
+    /**
+     * Authentication plugin information.
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    pluginInfo: string;
+
+    /**
+     * Authentication token.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    authToken?: Uint8Array;
+  }
+
+  /**
+   * Remove credential information.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  export interface RemoveCredentialInfo {
+    /**
+     * Credential ID.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    credentialId: Uint8Array;
+
+    /**
+     * Authentication token.
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    authToken?: Uint8Array;
+  }
+
+  /**
+   * Use extended credential information.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  export interface UserExtCredentialInfo {
+    /**
+     * Credential ID.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    credentialId: Uint8Array;
+
+    /**
+     * Authentication plugin information.
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    pluginInfo: string;
+  }
+
+  /**
    * Enumerates the encryption algorithms used to process password data.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -1429,6 +1507,188 @@ declare namespace securityManager {
    * @since 26.1.0
    */
   function getDeviceSecurityLevelPolicy(): DeviceSecurityLevelPolicy;
+
+  /**
+   * Opens a credential change session for the specified account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *    <br>Value range:[0, +∞).
+   * @returns { Promise<Uint8Array> } Returns the promise of this function.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function openSession(accountId: number): Promise<Uint8Array>;
+
+  /**
+   * Closes a credential change session for the specified account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *    <br>Value range:[0, +∞).
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function closeSession(accountId: number): void;
+
+  /**
+   * Adds the extended user credential for an account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { AddCredentialInfo } info - info indicates the the infomation required to add the credential.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *    <br>Value range:[0, +∞).
+   * @returns { Promise<Uint8Array> } Returns the credential ID.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @throws { BusinessError } 9201052 - USB key session time out.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function addUserExtendCredential(info: AddCredentialInfo, accountId: number): Promise<Uint8Array>;
+
+  /**
+   * Removes the extended user credential.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { RemoveCredentialInfo } info - info indicates the the infomation required to remove the credential.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *    <br>Value range:[0, +∞).
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @throws { BusinessError } 9201052 - USB key session time out.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function removeUserExtendCredential(info: RemoveCredentialInfo, accountId: number): void;
+
+  /**
+   * Gets the extended user credential information of the specified account.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *    <br>Value range:[0, +∞).
+   * @returns { Promise<UserExtCredentialInfo[]> } Returns the list of extended user credential information.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function getUserExtendCredential(accountId: number): Promise<UserExtCredentialInfo[]>;
+
+  /**
+   * Sets the unlock policy.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { UnlockPolicy } policy - policy indicates the unlock policy.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *    <br>Value range:[0, +∞).
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function setUnlockPolicy(policy: UnlockPolicy, accountId: number): void;
+
+  /**
+   * Gets the unlock policy.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *    <br>Value range:[0, +∞).
+   * @returns { UnlockPolicy } Returns the unlock policy.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function getUnlockPolicy(accountId: number): UnlockPolicy;
+
+  /**
+   * The policy of unlock device.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  export enum UnlockPolicy {
+
+    /**
+     * Default authentication method.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    DEFAULT = 0,
+
+    /**
+     * Use only extended authentication.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    EXTENDED_AUTH_ONLY = 1,
+
+    /**
+     * Combines authentication using extended authentication and system authentication.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    EXTENDED_AUTH_REQUIRED = 2
+  }
 }
 
 /*** if arkts dynamic */
