@@ -1001,7 +1001,7 @@ declare class ColorMetrics {
    *
    * @returns { double } 颜色的R分量（红色），值是大于等于0的浮点数。
    *     取值范围：
-   *     对于SDR颜色，取值范围为[0, 1.0]。
+   *     对于SDR颜色，取值范围为[0.0, 1.0]。
    *     对于HDR颜色，该值可以大于1.0，以表示扩展亮度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1015,7 +1015,7 @@ declare class ColorMetrics {
    *
    * @returns { double } 颜色的G分量（绿色），值是大于等于0的浮点数。
    *     取值范围：
-   *     对于SDR颜色，取值范围是[0, 1.0]。
+   *     对于SDR颜色，取值范围是[0.0, 1.0]。
    *     对于HDR颜色，该值可以大于1.0，以表示扩展亮度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1029,7 +1029,7 @@ declare class ColorMetrics {
    *
    * @returns { double } 颜色的B分量（蓝色），值是大于等于0的浮点数。
    *     取值范围：
-   *     对于SDR颜色，取值范围为[0, 1.0]。
+   *     对于SDR颜色，取值范围为[0.0, 1.0]。
    *     对于HDR颜色，该值可以大于1.0，以表示扩展亮度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
