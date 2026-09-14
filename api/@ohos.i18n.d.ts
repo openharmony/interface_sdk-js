@@ -1373,7 +1373,6 @@ declare namespace i18n {
      * @crossplatform [since 10]
      * @atomicservice [since 12]
      * @since 8 dynamic
-     * @since 23 static
      */
     set(year: int, month: int, date:int, hour?: int, minute?: int, second?: int): void;
 
