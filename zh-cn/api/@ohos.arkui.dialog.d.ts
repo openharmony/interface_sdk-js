@@ -244,7 +244,7 @@ declare namespace dialog {
      * 对话框的背景模糊样式。
      * <br>设置为BlurStyle.NONE将禁用背景模糊。
      *
-     * @default BlurStyle.NONE
+     * @default BlurStyle.COMPONENT_ULTRA_THICK
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform

@@ -244,7 +244,7 @@ declare namespace dialog {
      * Background blur style of the dialog box.
      * <br>Setting this parameter to BlurStyle.NONE disables the background blur.
      *
-     * @default BlurStyle.NONE
+     * @default BlurStyle.COMPONENT_ULTRA_THICK
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
