@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 定制配置
  * @kit BasicServicesKit
  */
 
