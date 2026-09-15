@@ -6771,15 +6771,15 @@ export declare interface EmbedOptions {
      */
     supportCssDisplayChange?: boolean;
     /**
-     * Whether the embed element supports the rotate and skew attributes of the CSS transform.
-     * <br>The CSS rotate attribute rotates an element around a fixed point on the 2D plane, and the
-     * CSS skew attribute skews an element along the X and/or Y axis.
-     * <br>Default value is false. If true, the rotate and skew attributes of the CSS transform of
-     * the embed element are supported. If false, they are not supported.
+     * Whether the same-layer rendering component supports CSS transform rotate and skew.
+     * When set to true, the same-layer rendering component correctly handles CSS transform rotate/skew.
+     * When set to false or not set, retains the original behavior.
+     * This attribute takes effect only when `enableNativeEmbedMode` is enabled and cannot be dynamically modified.
      *
      * @default false
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 26.0.0 static
+     * @stagemodelonly
+     * @since 26.2.0 static
      */
     supportTransformRotateAndSkew?: boolean;
 }

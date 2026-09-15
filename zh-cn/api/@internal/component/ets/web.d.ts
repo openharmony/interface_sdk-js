@@ -9258,17 +9258,18 @@ declare interface EmbedOptions {
    */
   supportCssDisplayChange?: boolean;
   /**
-   * 设置同层渲染是否支持CSS transform中的rotate和skew属性。
+   * 同层渲染组件是否支持CSS变换旋转和倾斜。
    *
-   * CSS的rotate属性用于将元素围绕定点旋转，skew属性用于将元素沿X轴和/或Y轴倾斜。
+   * 该属性仅在enableNatvieEmbedMode开关打开时生效，不支持动态修改。
    *
-   * 设置为true时，支持CSS transform中的rotate和skew属性。
+   * 设置为**true**时，同层渲染组件可以正确处理CSS变换旋转/倾斜。
    *
-   * 设置为false时，不支持CSS transform中的rotate和skew属性。
+   * 设置为**false**或未设置时，保留原始行为。
    *
    * @default false
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 26.0.0 dynamic
+   * @stagemodelonly
+   * @since 26.2.0 dynamic
    */
   supportTransformRotateAndSkew?: boolean;
 }
