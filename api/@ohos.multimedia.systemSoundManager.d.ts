@@ -710,6 +710,19 @@ declare namespace systemSoundManager {
      * @since 23 static
      */
     NOTIFICATION = 40,
+
+    /**
+     * Haptics in alarm scenario. Used to configure vibration feedback for alarm tones.
+     * This type can be used with getToneHapticsSettings and setToneHapticsSettings to
+     * read or modify the vibration settings for alarm scenarios.
+     * Value: 41 represents the alarm scenario identifier for haptic feedback configuration.
+     * 
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    ALARM = 41,
   }
 
   /**
