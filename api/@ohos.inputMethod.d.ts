@@ -127,7 +127,7 @@ declare namespace inputMethod {
    *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
    *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
    * @returns { InputMethodProperty } property of the default input method.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
    * @throws { BusinessError } 12800023 - the specified user does not exist.
@@ -160,7 +160,7 @@ declare namespace inputMethod {
    *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
    *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
    * @returns { ElementName } the information of system input method config ability.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
    * @throws { BusinessError } 12800023 - the specified user does not exist.
@@ -188,7 +188,7 @@ declare namespace inputMethod {
    * @param { InputMethodProperty } target - Target input method.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
-   * @throws { BusinessError } 201 - permissions check fails. [since 9 - 10]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API. [since 9 - 10]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
@@ -214,7 +214,7 @@ declare namespace inputMethod {
    * @param { InputMethodProperty } target - Target input method.
    * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the switching is
    *     successful, and **false** means the opposite.
-   * @throws { BusinessError } 201 - permissions check fails. [since 9 - 10]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API. [since 9 - 10]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
@@ -243,7 +243,7 @@ declare namespace inputMethod {
    *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
    *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
    * @returns { InputMethodProperty } the property of the current input method.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
    * @throws { BusinessError } 12800023 - the specified user does not exist.
@@ -274,7 +274,7 @@ declare namespace inputMethod {
    * @param { InputMethodSubtype } target - Target input method subtype.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
-   * @throws { BusinessError } 201 - permissions check fails. [since 9 - 10]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API. [since 9 - 10]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
@@ -303,7 +303,7 @@ declare namespace inputMethod {
    * @param { InputMethodSubtype } target - Target input method subtype.
    * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the switching is
    *     successful, and **false** means the opposite.
-   * @throws { BusinessError } 201 - permissions check fails. [since 9 - 10]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API. [since 9 - 10]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
@@ -332,7 +332,7 @@ declare namespace inputMethod {
    *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
    *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
    * @returns { InputMethodSubtype } the subtype of the current input method.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
    * @throws { BusinessError } 12800023 - the specified user does not exist.
@@ -362,7 +362,7 @@ declare namespace inputMethod {
    * @param { InputMethodSubtype } inputMethodSubtype - Target input method subtype.
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined** and **data** is **true**. Otherwise, **err** is an error object.
-   * @throws { BusinessError } 201 - permissions check fails. [since 9 - 10]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API. [since 9 - 10]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
@@ -393,7 +393,7 @@ declare namespace inputMethod {
    * @param { InputMethodSubtype } inputMethodSubtype - Target input method subtype.
    * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the switching is
    *     successful, and **false** means the opposite.
-   * @throws { BusinessError } 201 - permissions check fails. [since 9 - 10]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API. [since 9 - 10]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
@@ -415,8 +415,8 @@ declare namespace inputMethod {
    * @param { string } bundleName - Bundle name of the target input method.
    * @param { string } [subtypeId] - Input method subtype.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - permissions check fails.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
@@ -440,8 +440,8 @@ declare namespace inputMethod {
    *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
    *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - permissions check fails.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
@@ -582,7 +582,7 @@ declare namespace inputMethod {
      * @param { 'imeShow' } type - Event type, which is **'imeShow'**.
      * @param { function } callback - Callback used to return the soft keyboard information of the input method panel in
      *     the fixed state.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10 dynamic
@@ -610,7 +610,7 @@ declare namespace inputMethod {
      * @param { 'imeHide' } type - Event type, which is **'imeHide'**.
      * @param { function } callback - Callback used to return the soft keyboard information of the input method panel in
      *     the fixed state.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10 dynamic
@@ -637,7 +637,7 @@ declare namespace inputMethod {
      * @returns { boolean } Whether the input method panel is shown.
      *     <br>- The value **true** means that the input method panel is shown.
      *     <br>- The value **false** means that the input method panel is hidden.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
@@ -657,7 +657,7 @@ declare namespace inputMethod {
      * @returns { boolean } Whether the input method panel is shown.
      *     <br>- The value **true** means that the input method panel is shown.
      *     <br>- The value **false** means that the input method panel is hidden.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -739,7 +739,7 @@ declare namespace inputMethod {
      *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
      *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
      * @returns { Array<InputMethodSubtype> } the subtype of target input method.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
@@ -841,7 +841,7 @@ declare namespace inputMethod {
      *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
      *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
      * @returns { Array<InputMethodProperty> } the list of input methods.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
@@ -903,7 +903,7 @@ declare namespace inputMethod {
      *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
      *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
      * @returns { Array<InputMethodProperty> } the list of all input methods.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
@@ -1040,8 +1040,8 @@ declare namespace inputMethod {
      * @param { string } extensionName - Extension name of the input method.
      * @param { EnabledState } enabledState - Whether the input method is enabled.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - permissions check fails.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800018 - input method is not found.
@@ -1065,8 +1065,8 @@ declare namespace inputMethod {
      *     If the caller is not a user 0 application, the value defaults to the caller's user ID.
      *     If the caller is a user 0 application, the value defaults to the foreground user ID of the main screen.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 201 - permissions check fails.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800018 - input method is not found.
@@ -1107,7 +1107,7 @@ declare namespace inputMethod {
      * Subscribe to the input method change event.
      *
      * @param { ImeChangeWithUserIdCallback } callback - the callback called when the current input method changes.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @stagemodelonly
@@ -1120,7 +1120,7 @@ declare namespace inputMethod {
      *
      * @param { ImeChangeWithUserIdCallback } [callback] - the callback called when the current input method changes,
      *     when the subscriber unsubscribes all callbacks, this parameter can be left blank.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @stagemodelonly
@@ -1132,7 +1132,7 @@ declare namespace inputMethod {
      * Subscribes to input window show events.
      *
      * @param { Callback<Array<InputWindowInfo>> } callback - the callback called when input method shows.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @stagemodelonly
@@ -1156,7 +1156,7 @@ declare namespace inputMethod {
      * Subscribes to input window hidden events.
      *
      * @param { Callback<Array<InputWindowInfo>>} callback - the callback called when input method hides.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 23 static
@@ -1192,7 +1192,7 @@ declare namespace inputMethod {
      *
      * @returns { InputMethodProperty } Default input method attributes. Only the `name` and `id` attributes are
      *     guaranteed to be correct. Other attributes may be empty.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1227,7 +1227,7 @@ declare namespace inputMethod {
      *     <br> If the caller is an application of user 0, the value of this parameter is the foreground user ID of the
      *     main screen.
      * @returns { CursorInfo } Cursor information of the specified user.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1. No edit box is bound to the current input method application under the specified user.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible causes:
@@ -1805,7 +1805,7 @@ declare namespace inputMethod {
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1827,7 +1827,7 @@ declare namespace inputMethod {
      *
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1850,8 +1850,8 @@ declare namespace inputMethod {
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @param { long } displayId - Display ID.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - permissions check fails.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1875,7 +1875,7 @@ declare namespace inputMethod {
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1897,7 +1897,7 @@ declare namespace inputMethod {
      *
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1920,8 +1920,8 @@ declare namespace inputMethod {
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @param { long } displayId - Display ID.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - permissions check fails.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
