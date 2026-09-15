@@ -41,7 +41,7 @@ declare namespace continuationManager {
    * @param { 'deviceSelected' } type - 监听的事件类型，固定值"deviceSelected"。
    * @param { number } token - 注册后的token。
    * @param { Callback<Array<ContinuationResult>> } callback - 当用户从设备选择模块中选择设备时调用，返回设备ID、设备类型和设备名称供开发者使用。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -62,7 +62,7 @@ declare namespace continuationManager {
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { 'deviceSelected' } type - 取消监听的事件类型，固定值"deviceSelected"。
    * @param { number } token - 注册后的token。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -84,7 +84,7 @@ declare namespace continuationManager {
    * @param { 'deviceUnselected' } type - 监听的事件类型，固定值"deviceUnselected"。
    * @param { number } token - 注册后的token。
    * @param { Callback<Array<ContinuationResult>> } callback - 当用户从设备选择模块中断开设备时调用，返回设备ID、设备类型和设备名称供开发者使用。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -105,7 +105,7 @@ declare namespace continuationManager {
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { 'deviceUnselected' } type - 取消监听的事件类型，固定值"deviceUnselected"。
    * @param { number } token - 注册后的token。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -317,7 +317,7 @@ declare namespace continuationManager {
    *
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { AsyncCallback<number> } callback - AsyncCallback形式返回流转管理服务连接后生成的token。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -336,7 +336,7 @@ declare namespace continuationManager {
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { ContinuationExtraParams } options - 过滤可选择设备列表的额外参数。
    * @param { AsyncCallback<number> } callback - AsyncCallback形式返回流转管理服务连接后生成的token。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -355,7 +355,7 @@ declare namespace continuationManager {
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { ContinuationExtraParams } [options] - 过滤可选择设备列表的额外参数，该参数可缺省。
    * @returns { Promise<number> } Promise形式返回流转管理服务连接后生成的token。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    *     <br>2. Parameter verification failed;
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -374,7 +374,7 @@ declare namespace continuationManager {
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { number } token - 注册后的token。
    * @param { AsyncCallback<void> } callback - 回调函数。当解注册成功，err为undefined，否则返回错误对象。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -393,7 +393,7 @@ declare namespace continuationManager {
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { number } token - 注册后的token。
    * @returns { Promise<void> } Promise形式返回接口调用结果。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -414,7 +414,7 @@ declare namespace continuationManager {
    * @param { string } deviceId - 设备ID。
    * @param { DeviceConnectState } status - 设备连接状态。
    * @param { AsyncCallback<void> } callback - 回调函数。当通知设备成功，err为undefined，否则返回错误对象。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -440,7 +440,7 @@ declare namespace continuationManager {
    * @param { string } deviceId - 设备ID。
    * @param { DeviceConnectState } status - 设备连接状态。
    * @returns { Promise<void> } Promise形式返回接口调用结果。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -459,7 +459,7 @@ declare namespace continuationManager {
    * @permission ohos.permission.DISTRIBUTED_DATASYNC
    * @param { number } token - 注册后的token。
    * @param { AsyncCallback<void> } callback - 回调函数。当模块选择完成，err为undefined，否则返回错误对象。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -479,7 +479,7 @@ declare namespace continuationManager {
    * @param { number } token - 注册后的token。
    * @param { ContinuationExtraParams } options - 过滤可选择设备列表的额外参数。
    * @param { AsyncCallback<void> } callback - 回调函数。当模块选择完成，err为undefined，否则返回错误对象。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
@@ -503,7 +503,7 @@ declare namespace continuationManager {
    * @param { number } token - 注册后的token。
    * @param { ContinuationExtraParams } [options] - 过滤可选择设备列表的额外参数，该参数可缺省。
    * @returns { Promise<void> } Promise形式返回接口调用结果。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    *     <br>2. Parameter verification failed;
    * @throws { BusinessError } 16600001 - The system ability works abnormally.
