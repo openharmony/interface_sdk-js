@@ -302,9 +302,9 @@ declare class XComponentController {
    *
    * @param { ImageAnalyzerConfig } config - 执行AI分析所需要的入参，用于配置AI分析功能。
    * @returns { Promise<void> } Promise对象，无返回结果。用于获取AI分析是否成功执行。
-   * @throws { BusinessError } 110001 - 不支持图像分析特性。
-   * @throws { BusinessError } 110002 - 图像分析正在执行中。
-   * @throws { BusinessError } 110003 - 图像分析已停止。
+   * @throws { BusinessError } 110001 - Image analysis feature is unsupported.
+   * @throws { BusinessError } 110002 - Image analysis is currently being executed.
+   * @throws { BusinessError } 110003 - Image analysis is stopped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
