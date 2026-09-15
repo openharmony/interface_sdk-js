@@ -31,7 +31,7 @@ import FormEditExtensionContext from './application/FormEditExtensionContext';
  */
 declare class FormEditExtensionAbility extends UIExtensionAbility {
 	/**
-	 * FormEditExtensionAbility的上下文环境。
+	 * FormEditExtensionAbility的上下文环境，FormEditExtensionContext继承自UIExtensionContext。提供拉起编辑页面的能力。
 	 *
 	 * @syscap SystemCapability.Ability.Form
 	 * @stagemodelonly
