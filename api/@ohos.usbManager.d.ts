@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,27 +14,37 @@
  */
 
 /**
- * @file
+ * @file USB Manager
  * @kit BasicServicesKit
  */
 
 import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
- * The **usbManager** module provides USB device management functions, including USB device list query, bulk data
- * transfer, control transfer, and permission control on the host side as well as USB interface management,
- * and function switch and query on the device side.
+ * This module provides APIs for managing USB devices, including USB device list query,
+ * bulk data transfer, control transfer, and permission control on the host side as well
+ * as port management, and function switch and query on the device side. This module can
+ * be used to exchange data with USB devices, manage USB device permissions, and dynamically
+ * switch the USB device mode.
  *
- * > **NOTE**
- * >
- * > Perform the following steps when using the APIs with the [usbManager.USBDevicePipe]{@link usbManager.USBDevicePipe} parameter:
- * > **Before use**:
- * > 1. Call [usbManager.getDevices]{@link usbManager.getDevices()} to obtain the USB device list.
- * > 2. Call [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)} to request the temporary device access permission.
- * > 3. Call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain [usbManager.USBDevicePipe]{@link usbManager.USBDevicePipe} as an input parameter.
- * > **After use**:
- * > Call [usbManager.closePipe]{@link usbManager.closePipe(USBDevicePipe: pipe)} to close a USB device pipe.
- * >
+ * ###### How to Use
+ *
+ * Perform the following steps when using the APIs with the
+ * [USBDevicePipe]{@link usbManager.USBDevicePipe} parameter:
+ *
+ * **Before use**:
+ *
+ * 1. Call [usbManager.getDevices]{@link usbManager.getDevices} to obtain the USB device list.
+ * 2. Call [usbManager.requestRight]{@link usbManager.requestRight} to request the temporary
+ *    device access permission.
+ * 3. Call [usbManager.connectDevice]{@link usbManager.connectDevice} to obtain **USBDevicePipe**
+ *    as an input parameter.
+ *
+ * **After use**:
+ *
+ * Call [usbManager.closePipe]{@link usbManager.closePipe} to disable the USB connection channel.
+ *
+ * ![usbManager](docroot://reference/figures/usbManager.png)
  *
  * @syscap SystemCapability.USB.USBManager
  * @since 9 dynamic
@@ -42,15 +52,18 @@ import { AsyncCallback, Callback } from './@ohos.base';
  */
 declare namespace usbManager {
   /**
-   * Obtains the list of USB devices connected to the host.
+   * Obtains the list of USB devices connected to the host. After the API is called successfully,
+   * a list of connected devices is returned, including the device name, manufacturer, and
+   * product information.
    *
    * > **NOTE**
    * >
-   * > Third-party applications are not allowed to obtain the device serial number from the **serial** field unless they
-   * > request permission using [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)}
-   * > and then initiate a control transfer to obtain it.
+   * > Third-party apps cannot directly obtain the device serial number from the **serial** field
+   * > through the **getDevices()** API. This field is unavailable to third-party apps. To obtain
+   * > the serial number, third-party apps need to request permissions to access the device and
+   * > then initiate a control transfer.
    *
-   * @returns { Array<Readonly<USBDevice>> } USB device list.
+   * @returns { Array<Readonly<USBDevice>> } Device information list.
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
@@ -59,22 +72,31 @@ declare namespace usbManager {
   function getDevices(): Array<Readonly<USBDevice>>;
 
   /**
-   * Connects to the USB device based on the device information returned by **getDevices()**. If the USB service is
-   * abnormal, **undefined** may be returned. Check whether the return value of the API is empty.
+   * Connects to the USB device based on the device information returned by **getDevices()**.
+   * After the API is called successfully, a device connection channel is established for
+   * subsequent data transmission and device control operations. After using the channel, you
+   * can call [usbManager.closePipe]{@link usbManager.closePipe} to disable the USB connection
+   * channel. If the USB service is abnormal, **undefined** is returned. Check whether the return
+   * value of the API is empty.
    *
-   * 1. Call [usbManager.getDevices]{@link usbManager.getDevices()} to obtain the USB device list.
-   * 2. Call [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)} to request the device access permission.
+   * 1. Call [usbManager.getDevices]{@link usbManager.getDevices} to obtain the USB device
+   *    information and the **USBDevice** value.
+   * 2. Call [usbManager.requestRight]{@link usbManager.requestRight} to request the device
+   *    access permission.
    *
-   * @param { USBDevice } device - USB device. The **busNum** and **devAddress** parameters obtained by
-   *     [usbManager.getDevices]{@link usbManager.getDevices()} are used to determine a USB device. Other parameters are passed transparently.
-   * @returns { Readonly<USBDevicePipe> } USB device pipe for data transfer.
+   * @param { USBDevice } device - USB device. The **busNum** and **devAddress** parameters obtained
+   *     by [getDevices]{@link usbManager.getDevices} are used to determine a USB device. Other
+   *     attributes (such as **name** and **vendorId**) are not involved in device matching.
+   * @returns { Readonly<USBDevicePipe> } **USBDevicePipe** object, which is used in subsequent data
+   *     transfer and device control.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
    *
    *     <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
-   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe
+   *     access right first.
    * @throws { BusinessError } 14400004 Service exception. Possible causes:
    *
    *     <br>1. No accessory is plugged in. [since 23] [staticonly]
@@ -87,12 +109,14 @@ declare namespace usbManager {
 
   /**
    * Checks whether the application has the permission to access the device.
-   * Checks whether the user, for example, the application or system, has the device access permissions. The value **
-   * true** is returned if the user has the device access permissions; the value **false** is returned otherwise.
    *
-   * @param { string } deviceName - Device name, which is name of USBDevice, obtained from the device list returned by [usbManager.getDevices]{@link usbManager.getDevices()}.
-   * @returns { boolean } Returns **true** if the application has the permission to access the device; returns **false**
-   *     otherwise.
+   * The value **true** is returned if the user has the device access permissions; the value
+   * **false** is returned otherwise.
+   *
+   * @param { string } deviceName - Device name, which is the name of the USBDevice in the device list
+   *     obtained by [getDevices]{@link usbManager.getDevices}.
+   * @returns { boolean } true indicates that the application has the permission to access the device,
+   *     and false indicates that it does not.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -106,13 +130,15 @@ declare namespace usbManager {
   function hasRight(deviceName: string): boolean;
 
   /**
-   * Requests the temporary device access permission for the application. This API uses a promise to return the result.
-   * System applications are granted the device access permission by default, and you do not need to apply for the
-   * permission separately.
+   * Requests the temporary permission for the app to access the device. This API uses a promise
+   * to return the result. System apps are granted the device access permission by default, and
+   * you do not need to call this API to request the permission.
    *
-   * @param { string } deviceName - Device name, which is name of USBDevice, obtained from the device list returned by [usbManager.getDevices]{@link usbManager.getDevices()}.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the temporary device
-   *     access permissions are granted; and the value **false** indicates the opposite.
+   * @param { string } deviceName - Device name, which is the name of the USBDevice in the device list
+   *     obtained by [getDevices]{@link usbManager.getDevices}.
+   * @returns { Promise<boolean> } Promise object that returns the result of the temporary permission
+   *     request. The value true indicates that the temporary permission request is successful; the
+   *     value false indicates that the temporary permission request fails.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -126,12 +152,14 @@ declare namespace usbManager {
   function requestRight(deviceName: string): Promise<boolean>;
 
   /**
-   * Removes the device access permission for the application. System applications are granted the device access
-   * permission by default, and calling this API will not revoke the permission.
+   * Removes the permission for an app to access the device. System apps are granted the device
+   * access permission by default, and calling this API will not revoke the permission.
    *
-   * @param { string } deviceName - Device name, which is name of USBDevice, obtained from the device list returned by [usbManager.getDevices]{@link usbManager.getDevices()}.
-   * @returns { boolean } Permission removal result. The value **true** indicates that the access permission is removed
-   *     successfully; and the value **false** indicates the opposite.
+   * @param { string } deviceName - Device name, which is the name of the USBDevice in the device list
+   *     obtained by [getDevices]{@link usbManager.getDevices}.
+   * @returns { boolean } Returns the result of permission removal. The value **true** indicates that
+   *     the permission is removed successfully; the value **false** indicates that the permission
+   *     removal fails.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -145,10 +173,16 @@ declare namespace usbManager {
   function removeRight(deviceName: string): boolean;
 
   /**
-   * Converts the USB function list in the string format to a numeric mask in Device mode.
+   * Converts the USB function list in the string format to a numeric mask in Device mode. This API
+   * can be used to convert the USB function list in the string format in the configuration file or
+   * input by the user to a numeric mask used internally by the system, so that USB functions can be
+   * set by calling APIs such as **setDeviceFunctions**.
    *
-   * @param { string } funcs - Function list in string format.
-   * @returns { number } Function list in numeric mask format after conversion.
+   * @param { string } funcs - Function list in the string format. The options are as follows:
+   *     **none**, **acm**, **ecm**, **hdc**, **mtp**, **ptp**, **rndis**, **midi**, **audio_source**,
+   *     and **ncm**. Multiple functions can be separated by commas (,). If an invalid string is
+   *     passed, an exception will be thrown.
+   * @returns { number } Numeric mask of the function list after conversion.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -163,9 +197,13 @@ declare namespace usbManager {
   function usbFunctionsFromString(funcs: string): number;
 
   /**
-   * Converts the USB function list in the numeric mask format to a string in Device mode.
+   * Converts the USB function list in the numeric mask format to a string in Device mode. This API
+   * is applicable to scenarios where the USB function state needs to be displayed or saved as a
+   * string, for example, recording the current function configuration in logs or displaying the
+   * current function on the UI.
    *
-   * @param { FunctionType } funcs - USB function list in numeric mask format.
+   * @param { FunctionType } funcs - Numeric mask of the function list. Multiple functions can be
+   *     combined through bitwise operations.
    * @returns { string } Function list in string format after conversion.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
@@ -182,9 +220,14 @@ declare namespace usbManager {
 
   /**
    * Sets the current USB function list in Device mode. This API uses a promise to return the result.
+   * After this API is successfully called, the USB functions of the device will be switched to the
+   * specified function list. This API is applicable to scenarios where the system app needs to
+   * dynamically switch the USB functions of the device and configure the working mode of the device.
    *
-   * @param { FunctionType } funcs - USB function list in numeric mask format.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { FunctionType } funcs - Numeric mask of the function list. Multiple functions can be
+   *     combined through bitwise operations.
+   * @returns { Promise<void> } Promise used to return the result. If the API is called successfully,
+   *     no value is returned. If the call fails, an exception is thrown.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -200,10 +243,14 @@ declare namespace usbManager {
   function setCurrentFunctions(funcs: FunctionType): Promise<void>;
 
   /**
-   * Obtains the numeric mask combination for the USB function list in Device mode. When the developer mode is disabled,
-   *  **undefined** may be returned if no device is connected. Check whether the return value of the API is empty.
+   * Obtains the numeric mask combination for the USB function list in Device mode. This API can be
+   * used to check the USB function state, confirm the function configuration, or compare the status
+   * before and after function switching. When the developer mode is disabled, **undefined** is
+   * returned if no device is connected. Check whether the return value of the API is empty.
    *
-   * @returns { FunctionType } Numeric mask combination for the USB function list.
+   * @returns { FunctionType } Numeric mask combination for the USB function list. When the developer
+   *     mode is disabled and no device is connected, **undefined** is returned. Check whether the
+   *     return value is empty.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
@@ -213,8 +260,10 @@ declare namespace usbManager {
   function getCurrentFunctions(): FunctionType;
 
   /**
-   * Obtains the list of all physical USB ports. When the developer mode is disabled, **undefined** may be returned if
-   * no device is connected. Check whether the return value of the API is empty.
+   * Obtains the list of all physical USB ports. This API can be used to enumerate USB ports,
+   * perform port management, diagnose the device connection status, or query the port
+   * configuration information. When the developer mode is disabled, **undefined** is returned
+   * if no device is connected. Check whether the return value of the API is empty.
    *
    * @returns { Array<USBPort> } List of physical USB ports.
    * @syscap SystemCapability.USB.USBManager
@@ -226,9 +275,18 @@ declare namespace usbManager {
   function getPorts(): Array<USBPort>;
 
   /**
-   * Obtains the mask combination for the supported mode list of a given USB port.
+   * Obtains the mask combination for the supported mode list of a given USB port. This method is
+   * applicable when the system app needs to query the USB-C port capabilities to determine whether
+   * a specific mode (such as UFP, DFP, or DRP) is supported. The return value is the mask
+   * combination of **PortModeType**. You can determine whether the port supports a specific mode
+   * using bitwise operations. The **PortModeType** values are as follows: **NONE (0)**: no mode;
+   * **UFP (1)**: upstream port mode, **dataRole** is **DEVICE**; **DFP (2)**: downstream port mode,
+   * **dataRole** is **HOST**; **DRP (3)**: dual-role mode, which can switch between **UFP** and
+   * **DFP**; **NUM_MODES (4)**: not supported currently. You can determine whether the port supports
+   * the combination of power roles and data transfer roles based on the return value.
    *
-   * @param { number } portId - Port number.
+   * @param { number } portId - USB port number. The value is a non-negative integer, which can be
+   *     obtained from the port list returned by [getPortList]{@link usbManager.getPortList}.
    * @returns { PortModeType } Mask combination for the supported mode list.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
@@ -244,19 +302,30 @@ declare namespace usbManager {
   function getSupportedModes(portId: number): PortModeType;
 
   /**
-   * Adds the device access permission for the application. System applications are granted the device access permission
-   *  by default, and calling this API will not revoke the permission.
-   * [usbManager.requestRight]{(@link usbManager.requestRight)} triggers a dialog box to request for user authorization, whereas addDeviceAccessRight adds
-   * the access permission directly without displaying a dialog box.
+   * Adds the authorization for the app to access the device. System applications are granted the
+   * device access permission by default, and calling this API will not revoke the permission. This
+   * API can be used by system settings apps or device management apps to grant third-party apps the
+   * permission to access USB devices. The authorization takes effect immediately and is stored
+   * persistently. It remains valid even after the device is rebooted. The authorization applies to
+   * the specified USB device instance. Multiple apps can obtain the access permission for the same
+   * device at the same time.
+   *
+   * [usbManager.requestRight]{@link usbManager.requestRight} triggers a dialog box to request user
+   * authorization. **addDeviceAccessRight** does not trigger a dialog box but directly adds the
+   * device access permission for the app.
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { string } tokenId - Token ID of the software package.
-   * @param { string } deviceName - Device name.
-   * @returns { boolean } Permission addition result. The value **true** indicates that the access permission is added
-   *     successfully; and the value **false** indicates the opposite.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
-   *     call the API. [since 18]
-   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @param { string } tokenId - Unique ID of an app, which can be obtained using
+   *     [bundleManager.getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}.
+   * @param { string } deviceName - Device name, in the format of **bus-port**, for example, **1-1**.
+   *     The value can be found in the device list obtained using the
+   *     [getDevices]{@link usbManager.getDevices} API.
+   * @returns { boolean } Permission addition result. The value **true** indicates that the access
+   *     permission is added successfully; and the value **false** indicates the opposite.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+   *     permission required to call the API. [since 18]
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to
+   *     use system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -271,14 +340,20 @@ declare namespace usbManager {
   function addDeviceAccessRight(tokenId: string, deviceName: string): boolean;
 
   /**
-   * Converts the USB function list in the string format to a numeric mask in Device mode.
+   * Converts the USB function list in the string format to a numeric mask in Device mode. This API
+   * can be used to convert the USB function list in the string format in the configuration file or
+   * input by the user to a numeric mask used internally by the system, so that USB functions can be
+   * set by calling APIs such as **setDeviceFunctions**.
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { string } funcs - Function list in string format.
-   * @returns { int } Function list in numeric mask format after conversion.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
-   *     call the API. [since 18].
-   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @param { string } funcs - Function list in string format. The options are as follows: **none**,
+   *     **acm**, **ecm**, **hdc**, **mtp**, **ptp**, **rndis**, **midi**, **audio_source**, and **ncm**.
+   *     Multiple functions can be separated by commas (,).
+   * @returns { int } Numeric mask of the function list after conversion.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+   *     permission required to call the API. [since 18]
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use
+   *     system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -293,14 +368,20 @@ declare namespace usbManager {
   function getFunctionsFromString(funcs: string): int;
 
   /**
-   * Converts the USB function list in the numeric mask format to a string in Device mode.
+   * Converts the USB function list in the numeric mask format to a string in Device mode. This API
+   * is applicable to scenarios where the USB function state needs to be displayed or saved as a
+   * string, for example, recording the current function configuration in logs or displaying the
+   * current function on the UI.
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { FunctionType } funcs - USB function list in numeric mask format.
+   * @param { FunctionType } funcs - Numeric mask of the function list. Multiple functions can be
+   *     combined through bitwise operations. Some function values are not supported currently.
+   *     For details, see [FunctionType]{@link usbManager.FunctionType}.
    * @returns { string } Function list in string format after conversion.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
-   *     call the API. [since 18]
-   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+   *     permission required to call the API. [since 18]
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use
+   *     system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -330,13 +411,27 @@ declare namespace usbManager {
 
   /**
    * Sets the current USB function list in Device mode. This API uses a promise to return the result.
+   * After this API is successfully called, the USB functions of the device will be switched to the
+   * specified function list. Some USB functions may not be supported by the current device. Before
+   * setting the USB functions, you are advised to query the list of functions supported by the
+   * device. When developer mode is disabled, the operation may fail if no device is connected. In
+   * this case, an exception is thrown. Function switching triggers re-enumeration of the USB devices,
+   * and the connected host may need to re-identify the device. Multiple functions can be set through
+   * bitwise operations. However, some functions may be mutually exclusive or have different priorities.
+   * For details about the restrictions, see the device specifications. The function setting may fail
+   * due to device incompatibility, insufficient permissions, or system restrictions. For details,
+   * see the error code description.
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { FunctionType } funcs - USB function list in numeric mask format.
-   * @returns { Promise<void> } Promise used to return the result.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
-   *     call the API. [since 18]
-   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @param { FunctionType } funcs - Numeric mask of the function list. Multiple functions can be
+   *     combined through bitwise operations. Some functions may not be supported by the current device.
+   *     For details, see [FunctionType]{@link usbManager.FunctionType}.
+   * @returns { Promise<void> } Promise used to return the result. If the API is called successfully,
+   *     no value is returned. If the call fails, an exception is thrown.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+   *     permission required to call the API. [since 18]
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use
+   *     system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -369,14 +464,17 @@ declare namespace usbManager {
   function setDeviceFunctions(funcs: int): Promise<void>;
 
   /**
-   * Obtains the numeric mask combination for the USB function list in Device mode. When the developer mode is disabled,
-   *  **undefined** may be returned if no device is connected. Check whether the return value of the API is empty.
+   * Obtains the numeric mask combination for the USB function list in Device mode. This API can be
+   * used to check the USB function state, confirm the function configuration, or compare the status
+   * before and after function switching. When the developer mode is disabled, **undefined** is
+   * returned if no device is connected. Check whether the return value of the API is empty.
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
    * @returns { FunctionType } Numeric mask combination for the USB function list.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
-   *     call the API. [since 18]
-   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+   *     permission required to call the API. [since 18]
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use
+   *     system api.
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
@@ -400,14 +498,17 @@ declare namespace usbManager {
   function getDeviceFunctions(): int;
 
   /**
-   * Obtains the list of all physical USB ports. When the developer mode is disabled, **undefined** may be returned if
-   * no device is connected. Check whether the return value of the API is empty.
+   * Obtains the list of all physical USB ports. This API can be used to enumerate USB ports,
+   * perform port management, diagnose the device connection status, or query the port
+   * configuration information. When the developer mode is disabled, **undefined** is returned
+   * if no device is connected. Check whether the return value of the API is empty.
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
    * @returns { Array<USBPort> } List of physical USB ports.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
-   *     call the API. [since 18]
-   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+   *     permission required to call the API. [since 18]
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use
+   *     system api.
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 14400004 Service exception. Possible causes:
    *
@@ -420,14 +521,21 @@ declare namespace usbManager {
   function getPortList(): Array<USBPort>;
 
   /**
-   * Obtains the mask combination for the supported mode list of a given USB port.
+   * Obtains the mask combination for the supported mode list of a given USB port. This method is
+   * applicable when the system app needs to query the USB-C port capabilities to determine whether
+   * a specific mode (such as UFP, DFP, or DRP) is supported. When the developer mode is disabled,
+   * **undefined** is returned if no device is connected. Check whether the return value of the API
+   * is empty. For details about the enumerated values, see
+   * [PortModeType]{@link usbManager.PortModeType}.
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { int } portId - Port number.
+   * @param { int } portId - USB port number. The value can be obtained from the port list returned by
+   *     [getPortList]{@link usbManager.getPortList}.
    * @returns { PortModeType } Mask combination for the supported mode list.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
-   *     call the API. [since 18]
-   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+   *     permission required to call the API. [since 18]
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use
+   *     system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -442,24 +550,35 @@ declare namespace usbManager {
   function getPortSupportModes(portId: int): PortModeType;
 
   /**
-   * Sets the role types supported by a specified port, which can be **powerRole** (for charging) and **dataRole** (for
-   * data transfer). This API uses a promise to return the result.
+   * Sets the role types of a specified port, including **powerRole** (for charging) and
+   * **dataRole** (for data transfer). This API uses a promise to return the result. After the API
+   * is successfully called, the power role and data transfer role of the port are switched to the
+   * specified roles. This API can be used to dynamically switch the role of a USB port. When
+   * developer mode is disabled, the operation may fail if no device is connected. In this case, an
+   * exception is thrown. For details about role constraints, see
+   * [USBPortStatus]{@link usbManager.USBPortStatus}.
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { int } portId - Port number.
-   * @param { PowerRoleType } powerRole - Role for charging.
-   * @param { DataRoleType } dataRole - Role for data transfer.
-   * @returns { Promise<void> } Promise used to return the result.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
-   *     call the API. [since 18]
-   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @param { int } portId - Port number. The value can be obtained from the port list returned by
+   *     [getPortList]{@link usbManager.getPortList}.
+   * @param { PowerRoleType } powerRole - Power role type. The options are **NONE**, **SOURCE**
+   *     (providing power), and **SINK** (requiring external power supply).
+   * @param { DataRoleType } dataRole - Data transfer role. The options are **NONE**, **HOST**, and
+   *     **DEVICE**.
+   * @returns { Promise<void> } Promise used to return the result. If the API is called successfully,
+   *     no value is returned. If the call fails, an exception is thrown.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+   *     permission required to call the API. [since 18]
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use
+   *     system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
    *
    *     <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
-   * @throws { BusinessError } 14400003 - Unsupported operation. The current device does not support port role switching.
+   * @throws { BusinessError } 14400003 - Unsupported operation. The current device does not support
+   *     port role switching.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 12 dynamic
@@ -468,15 +587,31 @@ declare namespace usbManager {
   function setPortRoleTypes(portId: int, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<void>;
 
   /**
-   * Adds the permission to applications for accessing USB accessories.
-   * [usbManager.requestAccessoryRight]{(@link usbManager.requestAccessoryRight)} triggers a dialog box to request user authorization. **addAccessoryRight** does
-   * not trigger a dialog box but directly adds the device access permission for the application.
+   * Adds the permission to apps for accessing USB accessories. This API can be used by system apps
+   * to grant third-party apps the permission to access USB accessories.
+   * **usbManager.requestAccessoryRight** triggers a dialog box to request user authorization.
+   * **addAccessoryRight** does not trigger a dialog box but directly adds the device accessory
+   * access permission for the app. The authorization takes effect immediately and is stored
+   * persistently. It remains valid even after the device is rebooted. The authorization applies
+   * to the specified USB device accessory instance. Multiple apps can obtain the access permission
+   * for the same accessory at the same time. Unlike **requestAccessoryRight**, **addAccessoryRight**
+   * does not require user interaction and is suitable for scenarios where the system app
+   * automatically grants authorization.
+   *
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 14.
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { int } tokenId - Token ID of the application.
-   * @param { USBAccessory } accessory - USB accessory.
+   * @param { int } tokenId - Unique ID of an app, which can be obtained using
+   *     [bundleManager.getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf}.
+   * @param { USBAccessory } accessory - USB accessory object, including the accessory ID and
+   *     attributes. You can obtain the accessory list by calling
+   *     [getAccessoryList]{@link usbManager.getAccessoryList}. For details about the field definition,
+   *     see [USBAccessory]{@link usbManager.USBAccessory}.
    * @throws { BusinessError } 201 - The permission check failed.
-   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
+   * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use
+   *     system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1. Mandatory parameters are left unspecified.
@@ -495,31 +630,44 @@ declare namespace usbManager {
   function addAccessoryRight(tokenId: int, accessory: USBAccessory): void;
 
   /**
-   * Claims a USB device interface.
+   * Claims a USB device interface. After this API is called successfully, the app obtains exclusive
+   * control over the interface and can perform operations such as data transfer. Other apps cannot
+   * access the interface. After using the interface, call
+   * [releaseInterface]{@link usbManager.releaseInterface} to release the control over the interface.
+   *
+   * **Use scenarios**: Before transferring data over a USB device, you need to claim control over
+   * the interface to exclusively access the interface. For example, you need to claim control over
+   * the interface before reading data from or writing data to a USB storage device, collecting data
+   * from a USB camera, or communicating with a USB serial port.
    *
    * > **NOTE**
    * >
-   * > In USB programming, **claimInterface** is a common operation, which indicates that an application requests the
-   * > operating system to release a USB interface from the kernel driver and hand over the USB interface to a user
-   * > space program for control.<br>
-   * > > All the **claim** communication interfaces used below refer to the claim interface operations.
+   * > In USB programming, **claimInterface** is a common operation, which indicates that an app
+   * > requests the operating system to release a USB interface from the kernel driver and hand over
+   * > the USB interface to a user space program for control.
+   * >
+   * > All the **claim** communication interfaces used below refer to the claim interface operations.
    *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus number and device address. You need
-   *     to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @param { USBInterface } iface - USB interface. You can use [usbManager.getDevices]{@link usbManager.getDevices()}
-   *     to obtain device information and identify the USB interface based on the ID.
-   * @param { boolean } [force] - Whether to forcibly claim a USB interface. The default value is **false**, which means not
-   *     to forcibly claim a USB interface. You can set the value as required.
-   * @returns { int } Returns **0** if the **claim** interface is called successfully; returns an error code otherwise. The
-   *     error codes are as follows:
-   *
-   *     - 88080389: The service is not started. Possible causes: 1. No device is inserted. 2. The service exits abnormally.
-   *
-   *     - 88080486: The service is being initialized. Try again later.
-   *
-   *     - 88080488: No device access permission. Call the [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)} API to request authorization.
-   *
-   *     - -1: The driver is abnormal.
+   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus address and
+   *     device address. You need to call [connectDevice]{@link usbManager.connectDevice} to obtain
+   *     its value.
+   * @param { USBInterface } iface - USB interface. You can use [getDevices]{@link usbManager.getDevices}
+   *     to obtain device information and identify the USB interface based on its **id**.
+   * @param { boolean } [force] - Optional parameter that determines whether to forcibly claim the USB
+   *     interface. The default value is **false**, indicating that the USB interface is not forcibly
+   *     claimed. If no kernel driver occupies the interface, the claim is successful. Otherwise, the
+   *     claim fails. If this parameter is set to **true**, the kernel driver's control over the
+   *     interface is forcibly released and handed over to a user space program.
+   * @returns { int } Returns **0** if the **claim** interface is called successfully; returns an error
+   *     code otherwise. The error codes are as follows:
+   *     <br>- 88080389: The service is not started. Possible causes: 1. No device is inserted;
+   *     2. The service exits abnormally.
+   *     <br>- 88080486: The service is being initialized. Try again later.
+   *     <br>- 88080488: No permission to access the device. Call
+   *     [requestRight]{@link usbManager.requestRight} to request authorization first.
+   *     <br>- -1: The driver is abnormal. Possible causes: 1. The device connection is unstable or the
+   *     device is disconnected. 2. The USB driver fails to be loaded. 3. The kernel USB module is
+   *     abnormal.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -537,24 +685,25 @@ declare namespace usbManager {
    *
    * > **NOTE**
    * >
-   * > Before calling this API, call the
-   * > [usbManager.claimInterface]{@link usbManager.claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean)}
-   * >  API to claim a communication interface.
+   * > Before calling this API, call the [usbManager.claimInterface]{@link usbManager.claimInterface}
+   * > API to claim a communication interface.
    *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus number and device address. You need
-   *     to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @param { USBInterface } iface - USB interface. You can use [usbManager.getDevices]{@link usbManager.getDevices()}
-   *     to obtain device information and identify the USB interface based on the ID.
-   * @returns { int } Returns **0** if the USB interface is successfully released; returns an error code otherwise. The error
-   *     codes are as follows:
-   *
-   *     - 88080389: The service is not started. Possible causes: 1. No device is inserted. 2. The service exits abnormally.
-   *
-   *     - 88080486: The service is being initialized. Try again later.
-   *
-   *     - 88080488: No device access permission. Call the [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)} API to request authorization.
-   *
-   *     - -1: The driver is abnormal.
+   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus address and
+   *     device address. You need to call [connectDevice]{@link usbManager.connectDevice} to obtain
+   *     its value.
+   * @param { USBInterface } iface - USB interface whose control is to be released. You can use
+   *     [getDevices]{@link usbManager.getDevices} to obtain device information and identify the
+   *     interface based on its **id**.
+   * @returns { int } Returns **0** if the **release** interface is released successfully; returns an
+   *     error code otherwise. The error codes are as follows:
+   *     <br>- 88080389: The service is not started. Possible causes: 1. No device is inserted;
+   *     2. The service exits abnormally.
+   *     <br>- 88080486: The service is being initialized. Try again later.
+   *     <br>- 88080488: No permission to access the device. Call
+   *     [requestRight]{@link usbManager.requestRight} to request authorization first.
+   *     <br>- -1: The driver is abnormal. Possible causes: 1. The device connection is unstable or the
+   *     device is disconnected. 2. The USB driver fails to be loaded. 3. The kernel USB module is
+   *     abnormal.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -568,24 +717,37 @@ declare namespace usbManager {
   function releaseInterface(pipe: USBDevicePipe, iface: USBInterface): int;
 
   /**
-   * Sets the device configuration.
+   * Sets the device configuration. This API can be used to switch the working mode of a
+   * multi-functional USB device. For example, it can be used to switch to the printing mode or
+   * scanning mode for a device combining the printer and scanner functions, or switch a device
+   * from a low-power configuration to a high-power configuration to enable all functions. After
+   * the API is successfully called, the device configuration is switched to the specified
+   * configuration. Subsequent data transfer and device operations are performed based on the new
+   * configuration.
    *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus number and device address. You need
-   *     to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @param { USBConfiguration } config - USB configuration. You can use [usbManager.getDevices]{@link usbManager.getDevices()}
-   *     to obtain device information and identify the USB configuration based on the ID.
-   * @returns { int } Returns **0** if the USB configuration is successfully set; returns an error code otherwise. The error
-   *     codes are as follows:
+   * > **NOTE**
+   * >
+   * > Before calling this API, call the [usbManager.claimInterface]{@link usbManager.claimInterface}
+   * > API to claim a communication interface.
    *
-   *     - 88080389: The service is not started. Possible causes: 1. No device is inserted. 2. The service exits abnormally.
-   *
-   *     - 88080486: The service is being initialized. Try again later.
-   *
-   *     - 88080488: No device access permission. Call the [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)} API to request authorization.
-   *
-   *     - -1: The driver is abnormal.
-   *
-   *     - -17: I/O failure.
+   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus address and
+   *     device address. You need to call [connectDevice]{@link usbManager.connectDevice} to obtain
+   *     its value.
+   * @param { USBConfiguration } config - USB configuration. You can use
+   *     [getDevices]{@link usbManager.getDevices} to obtain device information and identify the
+   *     configuration based on its **id**.
+   * @returns { int } Result of the USB configuration. Returns **0** if the device configuration is set
+   *     successfully; returns an error code otherwise. The error codes are as follows:
+   *     <br>- 88080389: The service is not started. Possible causes: 1. No device is inserted;
+   *     2. The service exits abnormally.
+   *     <br>- 88080486: The service is being initialized. Try again later.
+   *     <br>- 88080488: No permission to access the device. Call
+   *     [requestRight]{@link usbManager.requestRight} to request authorization first.
+   *     <br>- -1: The driver is abnormal. Possible causes: 1. The device connection is unstable or the
+   *     device is disconnected. 2. The USB driver fails to be loaded. 3. The kernel USB module is
+   *     abnormal.
+   *     <br>- -17: I/O failure. Possible causes: 1. The I/O operation fails due to abnormal device
+   *     communication. 2. The data transfer is interrupted.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -599,31 +761,36 @@ declare namespace usbManager {
   function setConfiguration(pipe: USBDevicePipe, config: USBConfiguration): int;
 
   /**
-   * Sets a USB interface.
+   * Sets a USB interface. After the API is successfully called, the specified alternate setting is
+   * switched for the interfaces, and the endpoint configuration changes accordingly to match the
+   * transmission type.
    *
    * > **NOTE**
    * >
-   * > A USB interface may have multiple selection modes and supports dynamic switching. It is used to reset the
-   * > endpoint to match the transmission type during data transmission.
+   * > A USB interface may have multiple selection modes and supports dynamic switching. It is used
+   * > to reset the endpoint to match the transmission type during data transmission.
    * >
-   * > Before calling this API, call the
-   * > [usbManager.claimInterface]{@link usbManager.claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean)}
-   * >  API to claim a communication interface.
+   * > Before calling this API, call the [usbManager.claimInterface]{@link usbManager.claimInterface}
+   * > API to claim a communication interface.
    *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus number and device address. You need
-   *     to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @param { USBInterface } iface - USB interface. You can use [usbManager.getDevices]{@link usbManager.getDevices()}
-   *     to obtain device information and identify the USB interface based on its **id** and **alternateSetting**.
-   * @returns { int } Returns **0** if the USB interface is successfully set; returns an error code otherwise. The error
-   *     codes are as follows:
-   *
-   *     - 88080389: The service is not started. Possible causes: 1. No device is inserted. 2. The service exits abnormally.
-   *
-   *     - 88080486: The service is being initialized. Try again later.
-   *
-   *     - 88080488: No device access permission. Call the [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)} API to request authorization.
-   *
-   *     - -1: The driver is abnormal.
+   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus address and
+   *     device address. You need to call [connectDevice]{@link usbManager.connectDevice} to obtain
+   *     its value.
+   * @param { USBInterface } iface - USB interface. You can use [getDevices]{@link usbManager.getDevices}
+   *     to obtain device information and identify the USB interface based on its **id** and
+   *     **alternateSetting**. **id** is the unique identifier of the interface. **alternateSetting** is
+   *     used to switch between optional modes of the same interface. If **alternateSetting* is **0**,
+   *     optional modes are not supported.
+   * @returns { int } Result of the device interface setting. Returns **0** if the interface is set
+   *     successfully; returns an error code otherwise. The error codes are as follows:
+   *     <br>- 88080389: The service is not started. Possible causes: 1. No device is inserted;
+   *     2. The service exits abnormally.
+   *     <br>- 88080486: The service is being initialized. Try again later.
+   *     <br>- 88080488: No permission to access the device. Call
+   *     [requestRight]{@link usbManager.requestRight} to request authorization first.
+   *     <br>- -1: The driver is abnormal. Possible causes: 1. The device connection is unstable or the
+   *     device is disconnected. 2. The USB driver fails to be loaded. 3. The kernel USB module is
+   *     abnormal.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -637,20 +804,21 @@ declare namespace usbManager {
   function setInterface(pipe: USBDevicePipe, iface: USBInterface): int;
 
   /**
-   * Obtains a raw USB descriptor. If the USB service is abnormal, **undefined** may be returned. Check whether the
-   * return value of the API is empty.
+   * Obtains a raw USB descriptor. If the USB service is abnormal, **undefined** may be returned.
+   * Check whether the return value of the API is empty.
    *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus number and device address. You need
-   *     to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @returns { Uint8Array } Returns a raw USB descriptor if the operation is successful; returns **undefined** otherwise.
+   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus address and
+   *     device address. You need to call [connectDevice]{@link usbManager.connectDevice} to obtain
+   *     its value.
+   * @returns { Uint8Array } Returns the obtained raw data; returns undefined on failure.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
    *
    *     <br>2.Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
-   * @throws { BusinessError } 14400001 Access right denied. Call requestRight to get the USBDevicePipe access right first.
-   *     [since 23] [staticonly]
+   * @throws { BusinessError } 14400001 Access right denied. Call requestRight to get the USBDevicePipe
+   *     access right first. [since 23] [staticonly]
    * @throws { BusinessError } 14400004 Service exception. Possible causes:
    *
    *     <br>1. No accessory is plugged in. [since 23] [staticonly]
@@ -661,18 +829,20 @@ declare namespace usbManager {
   function getRawDescriptor(pipe: USBDevicePipe): Uint8Array;
 
   /**
-   * Obtains a file descriptor.
+   * Obtains a file descriptor. If the USB service is abnormal, an error code may be returned.
+   * Check whether the return value of the API is empty or check the error code.
    *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus number and device address. You need
-   *     to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @returns { int } Returns a file descriptor of the USB device if the operation is successful; returns an error code otherwise. The error
-   *     codes are as follows:
-   *
-   *     - 88080486: The service is being initialized. Try again later.
-   *
-   *     - 88080488: No device access permission. Call the [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)} API to request authorization.
-   *
-   *     - -1: The driver is abnormal.
+   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus address and
+   *     device address. You need to call [connectDevice]{@link usbManager.connectDevice} to obtain
+   *     its value.
+   * @returns { int } Returns the file descriptor corresponding to the device. If the operation fails,
+   *     one of the following error codes is returned:
+   *     <br>- 88080486: The service is being initialized. Try again later.
+   *     <br>- 88080488: No permission to access the device. Call
+   *     [requestRight]{@link usbManager.requestRight} to request authorization first.
+   *     <br>- -1: The driver is abnormal. Possible causes: 1. The device connection is unstable or the
+   *     device is disconnected. 2. The USB driver fails to be loaded. 3. The kernel USB module is
+   *     abnormal.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -688,17 +858,23 @@ declare namespace usbManager {
   /**
    * Performs control transfer. This API uses a promise to return the result.
    *
-   * @param { USBDevicePipe } pipe - USB device pipe. You need to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @param { USBControlParams } controlparam - Control transfer parameters. Set the parameters as required. For details, see
-   *     the USB protocol.
-   * @param { number } [timeout] - Timeout interval, in milliseconds. This parameter is optional. If the control transfer is
-   *     complete within the specified time, the size of the transferred or received data block is returned; otherwise, a
-   *     timeout error is returned. The default value is **0**, indicating that the system waits infinitely until the control
-   *     transfer is complete. Set this parameter as required.
-   * @returns { Promise<number> } Promise used to return the result, which is the size of the transferred or received data
-   *     block if the transfer is successful. If the API call fails, the following error codes are returned:
-   *
-   *     - -1: The driver is abnormal.
+   * @param { USBDevicePipe } pipe - USB device pipe, which is obtained by calling
+   *     [connectDevice]{@link usbManager.connectDevice}.
+   * @param { USBControlParams } controlparam - Control transfer parameters, including the **request**,
+   *     **target**, **reqType**, **value**, **index**, and **data** fields. For details about the
+   *     parameter types, see the USB protocol specifications. Set the parameters based on the device
+   *     and control request type.
+   * @param { number } [timeout] - Timeout interval, in milliseconds. This parameter is optional. If the
+   *     control transfer is complete within the specified time, the size of the transferred or received
+   *     data block is returned; otherwise, a timeout error is returned. The default value is **0**,
+   *     indicating that the system waits infinitely until the control transfer is complete. If a
+   *     negative number is passed, a parameter error is thrown. Set this parameter as required.
+   * @returns { Promise<number> } Promise used to return the result, which is the size of the transferred
+   *     or received data block if the transfer is successful. If the API call fails, the following
+   *     error codes are returned:
+   *     <br>- -1: The driver is abnormal. Possible causes: 1. The device connection is unstable or the
+   *     device is disconnected. 2. The USB driver fails to be loaded. 3. The kernel USB module is
+   *     abnormal.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -707,24 +883,36 @@ declare namespace usbManager {
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamiconly
    * @deprecated since 12
-   * @useinstead usbManager.usbControlTransfer(pipe: USBDevicePipe, requestparam: USBDeviceRequestParams, timeout?: int)
+   * @useinstead usbManager.usbControlTransfer(pipe: USBDevicePipe, requestparam: USBDeviceRequestParams,
+   *     timeout?: int)
    */
   function controlTransfer(pipe: USBDevicePipe, controlparam: USBControlParams, timeout?: number): Promise<number>;
 
   /**
-   * Performs control transfer. This API uses a promise to return the result.
+   * Performs control transfer. After the control command is transferred successfully, the size of the
+   * transferred or received data block is returned. This API can be used to exchange control commands
+   * with a USB device, such as obtaining the device descriptor, setting the device address, sending
+   * vendor-defined commands, and configuring HID device features. This API uses a promise to return
+   * the result.
    *
-   * @param { USBDevicePipe } pipe - USB device pipe. You need to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @param { USBDeviceRequestParams } requestparam - Control transfer parameters. Set the parameters as required. For
-   *     details, see the USB protocol.
-   * @param { int } [timeout] - Timeout interval.Unit: milliseconds. This parameter is optional. If the control transfer is
-   *     complete within the specified time, the size of the transferred or received data block is returned; otherwise, a
-   *     timeout error is returned. The default value is **0**, indicating that the system waits infinitely until the control
-   *     transfer is complete. Set this parameter as required.
-   * @returns { Promise<int> } Promise used to return the result, which is the size of the transferred or received data block
-   *     if the transfer is successful. If the API call fails, the following error codes are returned:
-   *
-   *     - -1: The driver is abnormal.
+   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus address and
+   *     device address. You need to call [connectDevice]{@link usbManager.connectDevice} to obtain
+   *     its value.
+   * @param { USBDeviceRequestParams } requestparam - Control transfer parameters, including the
+   *     **bmRequestType**, **bRequest**, **wValue**, **wIndex**, **wLength**, and **data** fields. For
+   *     details about the parameter types, see the USB protocol specifications. Set the parameters
+   *     based on the device and control request type.
+   * @param { int } [timeout] - Timeout interval, in milliseconds. This parameter is optional. If the
+   *     control transfer is complete within the specified time, the size of the transferred or received
+   *     data block is returned; otherwise, a timeout error is returned. The default value is **0**,
+   *     indicating that the system waits infinitely until the control transfer is complete. If a
+   *     negative number is passed, a parameter error is thrown. Set this parameter as required.
+   * @returns { Promise<int> } Promise used to return the result, which is the size of the transferred or
+   *     received data block if the transfer is successful. If the API call fails, the following error
+   *     codes are returned:
+   *     <br>- -1: The driver is abnormal. Possible causes: 1. The device connection is unstable or the
+   *     device is disconnected. 2. The USB driver fails to be loaded. 3. The kernel USB module is
+   *     abnormal.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -738,31 +926,46 @@ declare namespace usbManager {
   function usbControlTransfer(pipe: USBDevicePipe, requestparam: USBDeviceRequestParams, timeout?: int): Promise<int>;
 
   /**
-   * Performs bulk transfer. This API uses a promise to return the result.
+   * After the bulk transfer is complete, the size of the transferred or received data block is
+   * returned. This API uses a promise to return the result. Compared with **usbSubmitTransfer**,
+   * **bulkTransfer** is suitable for simple bulk transfer. It directly transfers data and endpoints
+   * through independent parameters and uses a promise to return the result. **usbSubmitTransfer** is
+   * suitable for scenarios that require more flexible control. It encapsulates parameters in the
+   * **UsbDataTransferParams** object, supports asynchronous callback, and allows you to cancel a
+   * transfer request using **usbCancelTransfer**.
    *
    * > **NOTE**
    * >
-   * > The total size of data (including **pipe**, **endpoint**, **buffer**, and **timeout**) to be transferred in a
-   * > single bulk transfer must be less than 200 KB. Otherwise, the transfer fails and **-1** is returned.
+   * > The total size of data (including **pipe**, **endpoint**, **buffer**, and **timeout**) to be
+   * > transferred in a single bulk transfer must be less than 200 KB. Otherwise, the transfer fails
+   * > and **-1** is returned.
    * >
-   * > Before calling this API, call the
-   * > [usbManager.claimInterface]{@link usbManager.claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean)}
-   * >  API to claim a communication interface.
+   * > Before calling this API, call the [usbManager.claimInterface]{@link usbManager.claimInterface}
+   * > API to claim a communication interface.
    *
-   * @param { USBDevicePipe } pipe - USB device pipe. You need to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @param { USBEndpoint } endpoint - USB endpoint, which is used to determine the USB interface for data transfer. You need
-   *     to call [usbManager.getDevices]{@link usbManager.getDevices()} to obtain the device information list and endpoint. Wherein, **address** is used to determine
-   *     the endpoint address, **direction** is used to determine the endpoint direction, and **interfaceId** is used to
-   *     determine the USB interface to which the endpoint belongs. Other parameters are passed transparently.
-   * @param { Uint8Array } buffer - Buffer for writing or reading data.
-   * @param { int } [timeout] - Timeout interval.Unit: milliseconds. This parameter is optional. If the bulk transfer is
-   *     complete within the specified time, the size of the transferred or received data block is returned; otherwise, a
-   *     timeout error is returned. The default value is **0**, indicating that the system waits infinitely until the control
-   *     transfer is complete. Set this parameter as required.
-   * @returns { Promise<int> } Promise used to return the result, which is the size of the transferred or received data block
-   *     if the transfer is successful. If the API call fails, the following error codes are returned:
-   *
-   *     - -1: The driver is abnormal.
+   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus address and
+   *     device address. You need to call [connectDevice]{@link usbManager.connectDevice} to obtain
+   *     its value.
+   * @param { USBEndpoint } endpoint - USB endpoint, which is used to determine the USB port for data
+   *     transfer. You need to call [getDevices]{@link usbManager.getDevices} to obtain the device
+   *     information list. In the **USBEndpoint** API, the **address** parameter indicates the endpoint
+   *     address. The **direction** parameter indicates the transmission direction of the endpoint, the
+   *     value **0** indicates output, and **128** indicates input. The **interfaceId** parameter
+   *     identifies the interface to which the endpoint belongs. Currently, other attributes are not
+   *     processed.
+   * @param { Uint8Array } buffer - Buffer for writing or reading data. The array length indicates the
+   *     buffer size. This parameter is used to write or read data during bulk transfer.
+   * @param { int } [timeout] - Timeout interval, in milliseconds. This parameter is optional. If the
+   *     bulk transfer is complete within the specified time, the size of the transferred or received
+   *     data block is returned; otherwise, a timeout error is returned. The default value is **0**,
+   *     indicating that the system waits infinitely until the control transfer is complete. If a
+   *     negative number is passed, a parameter error is thrown. Set this parameter as required.
+   * @returns { Promise<int> } Promise used to return the result, which is the size of the transferred
+   *     or received data block if the transfer is successful. If the API call fails, the following
+   *     error codes are returned:
+   *     <br>- -1: The driver is abnormal. Possible causes: 1. The device connection is unstable or the
+   *     device is disconnected. 2. The USB driver fails to be loaded. 3. The kernel USB module is
+   *     abnormal.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -782,20 +985,33 @@ declare namespace usbManager {
 
 
   /**
-   * Resets a USB peripheral.
+   * Resets the USB device. This API is applicable to scenarios where the USB device needs to be
+   * restored due to communication exceptions. For example, the device needs to be reinitialized
+   * after a device firmware upgrade, the device status needs to be restored when it is abnormal,
+   * or the device status needs to be reset during debugging. After this API is successfully called,
+   * the device is reset to the initial state. The previously set configurations and interface
+   * settings are cleared, and the device needs to be reinitialized.
    *
    * > **NOTE**
    * >
-   * > Previous configurations and APIs will be reset. Ensure that the related services have been completed before
-   * > calling this API.
+   * > Previous configurations and interface settings will be reset after this API is called. Ensure
+   * > that the related services have been completed before calling this API.
    *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus number and device address. You need
-   *     to call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
+   * 1. Call [usbManager.getDevices]{@link usbManager.getDevices} to obtain the USB device list.
+   * 2. Call [usbManager.requestRight]{@link usbManager.requestRight} to request the device access
+   *    permission.
+   * 3. Call [usbManager.connectDevice]{@link usbManager.connectDevice} to obtain **devicepipe** as an
+   *    input parameter.
+   *
+   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus address and
+   *     device address. You need to call [connectDevice]{@link usbManager.connectDevice} to obtain
+   *     its value.
    * @returns { boolean } Returns **true** if the device is reset successfully; returns **false** otherwise.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe
+   *     access right first.
    * @throws { BusinessError } 14400004 -Service exception. Possible causes: 1. No accessory is plugged in.
-   * @throws { BusinessError } 14400008 - No such device(it may have been disconnected).
+   * @throws { BusinessError } 14400008 - No such device(it may have been disconnected)
    * @throws { BusinessError } 14400010 - Other USB error. Possible causes:
    *
    *     <br>1.Unrecognized discard error code.
@@ -811,18 +1027,21 @@ declare namespace usbManager {
   function resetUsbDevice(pipe: USBDevicePipe): boolean;
 
   /**
-   * Closes a USB device pipe.
+   * Closes the USB device pipe.
    *
-   * 1. Call [usbManager.getDevices]{@link usbManager.getDevices()} to obtain the USB device list.
-   * 2. Call [usbManager.requestRight]{@link usbManager.requestRight(deviceName: string)} to request the device access permission.
-   * 3. Call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain **devicepipe** as an input parameter.
+   * 1. Call [usbManager.getDevices]{@link usbManager.getDevices} to obtain the device list;
+   * 2. Call [usbManager.requestRight]{@link usbManager.requestRight} to request the device access
+   *    permission.
+   * 3. Call [usbManager.connectDevice]{@link usbManager.connectDevice} to obtain **devicepipe** as an
+   *    input parameter.
    *
-   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the message control channel. You need to
-   *     call [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)} to obtain its value.
-   * @returns { int } Returns **0** if the USB device pipe is closed successfully; returns an error code otherwise. The error
-   *     codes are as follows:
-   *
-   *     - 22: The service is abnormal.
+   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the bus address and
+   *     device address. You need to call [connectDevice]{@link usbManager.connectDevice} to obtain
+   *     its value.
+   * @returns { int } Returns **0** if the USB device pipe is closed successfully; returns an error
+   *     code otherwise. The error codes are as follows:
+   *     <br>- 22: The service is abnormal. Possible causes: 1. The USB service is abnormal.
+   *     2. The USB device pipe is abnormal.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -836,14 +1055,15 @@ declare namespace usbManager {
   function closePipe(pipe: USBDevicePipe): int;
 
   /**
-   * Checks whether the application has the permission to access the USB accessory.
-   * You need to call [usbManager.getAccessoryList]{@link usbManager.getAccessoryList()} to obtain the accessory list
-   * and use [USBAccessory]{@link usbManager.USBAccessory} as a parameter.
+   * Checks whether the app has the permission to access USB accessories.
    *
-   * @param { USBAccessory } accessory - USB accessory, which is obtained through
-   *     [getAccessoryList]{@link usbManager.getAccessoryList()}.
-   * @returns { boolean } The value **true** indicates that the application has the permission to access the USB accessory; *
-   *     *false** indicates the opposite.
+   * You need to call [usbManager.getAccessoryList]{@link usbManager.getAccessoryList} to obtain the
+   * accessory list and use [USBAccessory]{@link usbManager.USBAccessory} as a parameter.
+   *
+   * @param { USBAccessory } accessory - USB accessory, which can be obtained through
+   *     [getAccessoryList]{@link usbManager.getAccessoryList}.
+   * @returns { boolean } The value **true** indicates that the app has the permission to access USB
+   *     accessories; **false** indicates the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1. Mandatory parameters are left unspecified.
@@ -862,15 +1082,17 @@ declare namespace usbManager {
   function hasAccessoryRight(accessory: USBAccessory): boolean;
 
   /**
-   * Requests the permission to access a USB accessory for a specified application. This API uses a promise to return
-   * the result.
-   * You need to call [usbManager.getAccessoryList]{@link usbManager.getAccessoryList()} to obtain the accessory list
-   * and use [USBAccessory]{@link usbManager.USBAccessory} as a parameter.
+   * Requests the permission to access USB accessories for a specified app. This API uses a promise
+   * to return the result.
    *
-   * @param { USBAccessory } accessory - USB accessory, which is obtained through
-   *     [getAccessoryList]{@link usbManager.getAccessoryList()}.
-   * @returns { Promise<boolean> } Promise used to return the application result. The value **true** indicates that the
-   *     device access permissions are granted; **false** indicates the opposite.
+   * You need to call [usbManager.getAccessoryList]{@link usbManager.getAccessoryList} to obtain the
+   * accessory list and use [USBAccessory]{@link usbManager.USBAccessory} as a parameter.
+   *
+   * @param { USBAccessory } accessory - USB accessory, which must be obtained through
+   *     [getAccessoryList]{@link usbManager.getAccessoryList}.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that
+   *     the app is granted with the permission to access USB accessories; **false** indicates the
+   *     opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1. Mandatory parameters are left unspecified.
@@ -889,12 +1111,15 @@ declare namespace usbManager {
   function requestAccessoryRight(accessory: USBAccessory): Promise<boolean>;
 
   /**
-   * Cancels the permission of the current application to access USB accessories.
-   * You need to call [usbManager.getAccessoryList]{@link usbManager.getAccessoryList()} to obtain the accessory list
-   * and use [USBAccessory]{@link usbManager.USBAccessory} as a parameter.
+   * Cancels the permission of the current app to access USB accessories. This API is called to cancel
+   * the accessory access permission requested using **requestAccessoryRight()**. This API must be
+   * used with **requestAccessoryRight()** in pairs.
    *
-   * @param { USBAccessory } accessory - USB accessory, which is obtained through
-   *     [getAccessoryList]{@link usbManager.getAccessoryList()}.
+   * You need to call [usbManager.getAccessoryList]{@link usbManager.getAccessoryList} to obtain the
+   * accessory list and use [USBAccessory]{@link usbManager.USBAccessory} as a parameter.
+   *
+   * @param { USBAccessory } accessory - USB accessory, which must be obtained through
+   *     [getAccessoryList]{@link usbManager.getAccessoryList}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1. Mandatory parameters are left unspecified.
@@ -915,8 +1140,8 @@ declare namespace usbManager {
   /**
    * Obtains the list of USB accessories connected to the host.
    *
-   * @returns { Array<Readonly<USBAccessory>> } List of USB accessories (read-only). Currently, only one USB accessory is
-   *     contained in the list.
+   * @returns { Array<Readonly<USBAccessory>> } List of USB accessories (read-only), including all available USB
+   *     accessories.
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
    * @throws { BusinessError } 14400004 - Service exception. Possible causes:
    *
@@ -928,21 +1153,28 @@ declare namespace usbManager {
   function getAccessoryList(): Array<Readonly<USBAccessory>>;
 
   /**
-   * Obtains the accessory handle and opens the accessory file descriptor. Then, the host can communicate with the
-   * accessory through the **read** and **write** APIs provided by Core File Kit.
-   * You need to call [usbManager.getAccessoryList]{@link usbManager.getAccessoryList()} to obtain the accessory list
-   * and use [USBAccessory]{@link usbManager.USBAccessory} as a parameter.
+   * Obtains the accessory handle and opens the accessory file descriptor. Then, the host can
+   * communicate with the accessory through the **read** and **write** APIs provided by Core File
+   * Kit. After using the accessory, call [closeAccessory]{@link usbManager.closeAccessory} to close
+   * the file descriptor.
    *
-   * @param { USBAccessory } accessory - USB accessory, which is obtained through
-   *     [getAccessoryList]{@link usbManager.getAccessoryList()}.
-   * @returns { USBAccessoryHandle } USB accessory handle.
+   * You need to call [usbManager.getAccessoryList]{@link usbManager.getAccessoryList} to obtain the
+   * accessory list and use [USBAccessory]{@link usbManager.USBAccessory} as a parameter. Before
+   * calling this API, call [usbManager.requestAccessoryRight]{@link usbManager.requestAccessoryRight}
+   * to request the permission to access the accessory. This API can be called only after the
+   * permission is granted (**true** is returned).
+   *
+   * @param { USBAccessory } accessory - USB accessory, which needs to be obtained through
+   *     [getAccessoryList]{@link usbManager.getAccessoryList}.
+   * @returns { USBAccessoryHandle } Describes the USB accessory handle.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1. Mandatory parameters are left unspecified.
    *
    *     <br>2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported. [since 18]
-   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe
+   *     access right first.
    * @throws { BusinessError } 14400004 - Service exception. Possible causes:
    *
    *     <br>1. No accessory is plugged in.
@@ -957,11 +1189,15 @@ declare namespace usbManager {
 
   /**
    * Closes the accessory file descriptor.
-   * You need to call [usbManager.openAccessory]{@link usbManager.openAccessory(accessory: USBAccessory)} to obtain the
-   * accessory list and use [USBAccessoryHandle]{@link usbManager.USBAccessoryHandle} as a parameter.
    *
-   * @param { USBAccessoryHandle } accessoryHandle - USB accessory handle, which is obtained through
-   *     [openAccessory]{@link usbManager.openAccessory(accessory: USBAccessory)}.
+   * You need to call [usbManager.getAccessoryList]{@link usbManager.getAccessoryList} to obtain the
+   * accessory list, and then call [usbManager.requestAccessoryRight]{@link usbManager.requestAccessoryRight}
+   * to request the permission to access the accessory. After the permission is granted, call
+   * [usbManager.openAccessory]{@link usbManager.openAccessory} to obtain the accessory handle. The
+   * obtained [USBAccessoryHandle]{@link usbManager.USBAccessoryHandle} is used as a parameter.
+   *
+   * @param { USBAccessoryHandle } accessoryHandle - USB accessory handle, which must be obtained through
+   *     [openAccessory]{@link usbManager.openAccessory}.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1. Mandatory parameters are left unspecified.
@@ -978,14 +1214,21 @@ declare namespace usbManager {
   function closeAccessory(accessoryHandle: USBAccessoryHandle): void;
 
   /**
-   * Represents the USB endpoint from which data is sent or received. You can obtain the USB endpoint through
-   * [USBInterface]{@link usbManager.USBInterface}.
+   * Defines a USB endpoint, which is used for data transfer between the host and the USB device.
+   * You can obtain the USB endpoint through [USBInterface]{@link usbManager.USBInterface}.
    *
-   * > **NOTE**
+   * > **Note:**
    * >
-   * > The host controller schedules the endpoint based on the endpoint type.
+   * > The host controller schedules endpoints based on their types. Different scheduling policies are
+   * > used for different types of endpoints. Bandwidth sharing scheduling is used for bulk endpoints,
+   * > which is suitable for non-real-time transmission of a large amount of data. Fixed polling
+   * > scheduling is used for interrupt endpoints, which is suitable for real-time transmission of a
+   * > small amount of data. Bandwidth reservation scheduling is used for isochronous endpoints, which
+   * > is suitable for real-time data streams such as audio and video.
    * >
-   * > The transmission characteristics are determined by the type during protocol layer packaging.
+   * > The transmission characteristics, including the data packet format, error processing mechanism,
+   * > and timeout policy, are determined based on the endpoint type during protocol layer packaging.
+   * > ![USBEndpoint](docroot://reference/figures/USBEndpoint.png)
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
@@ -1002,7 +1245,9 @@ declare namespace usbManager {
     address: int;
 
     /**
-     * Endpoint attributes.
+     * Endpoint attributes, indicating the transfer characteristics of the endpoint, including the
+     * transfer type (bulk, interrupt, or isochronous) and synchronization type. The value must comply
+     * with the USB endpoint descriptor specifications.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1011,7 +1256,8 @@ declare namespace usbManager {
     attributes: int;
 
     /**
-     * Endpoint interval.Unit: milliseconds.
+     * Endpoint interval, in milliseconds. This parameter indicates the interval for interrupt and
+     * isochronous endpoints. This field is not used for bulk endpoints.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1020,7 +1266,7 @@ declare namespace usbManager {
     interval: int;
 
     /**
-     * Maximum size of data packets on the endpoint.Unit: bytes.
+     * Maximum size of data packets on the endpoint, in bytes.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1073,8 +1319,8 @@ declare namespace usbManager {
   }
 
   /**
-   * Represents a USB interface. One [USBConfiguration]{@link usbManager.USBConfiguration} object can contain multiple *
-   * *USBInterface** instances, each providing a specific function.
+   * Represents a USB interface. One [USBConfiguration]{@link usbManager.USBConfiguration} object can
+   * contain multiple **USBInterface** instances, each providing a specific function.
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
@@ -1118,8 +1364,9 @@ declare namespace usbManager {
     subClass: int;
 
     /**
-     * Settings for alternating between descriptors of the same USB interface. The value size indicates the number of
-     * optional modes. The value 0 indicates that no optional mode is supported.
+     * Alternative setting index of the interface, which is used to switch between multiple optional
+     * descriptors of the same interface. The value **0** indicates the default setting, and other
+     * values indicate specific alternative settings.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1147,8 +1394,8 @@ declare namespace usbManager {
   }
 
   /**
-   * Represents the USB configuration. One [USBDevice]{@link usbManager.USBDevice} can contain multiple **USBConfig**
-   * instances.
+   * Represents the USB configuration. One [USBDevice]{@link usbManager.USBDevice} can contain multiple
+   * **USBConfig** instances.
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
@@ -1165,7 +1412,8 @@ declare namespace usbManager {
     id: int;
 
     /**
-     * Configuration attributes.
+     * Configuration attributes, indicating features such as the power supply mode and remote wakeup
+     * capability. The value must comply with the USB configuration descriptor specifications.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1174,7 +1422,7 @@ declare namespace usbManager {
     attributes: int;
 
     /**
-     * Maximum power consumption.Unit: mA.
+     * Maximum power consumption, in mA.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1183,7 +1431,7 @@ declare namespace usbManager {
     maxPower: int;
 
     /**
-     * Configuration name, which can be left empty.
+     * Configuration name, which can be an empty string.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1192,8 +1440,7 @@ declare namespace usbManager {
     name: string;
 
     /**
-     * Whether remote wakeup is supported. The value **true** indicates that the remote wakeup is supported, and **false
-     * ** indicates the opposite.
+     * Whether remote wakeup is supported. **true** if supported, and **false** otherwise.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1202,8 +1449,7 @@ declare namespace usbManager {
     isRemoteWakeup: boolean;
 
     /**
-     * Whether an independent power supply is supported. The value **true** indicates that an independent power supply
-     * is supported, and **false** indicates the opposite.
+     * Whether an independent power supply is supported. **true** if supported, and **false** otherwise.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1212,7 +1458,7 @@ declare namespace usbManager {
     isSelfPowered: boolean;
 
     /**
-     * Supported interface attributes.
+     * List of supported interfaces.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1248,7 +1494,9 @@ declare namespace usbManager {
     devAddress: int;
 
     /**
-     * Sequence number.
+     * Serial number. Third-party apps cannot obtain the device serial number from this field.
+     * This field is unavailable to third-party apps. To obtain the serial number, third-party apps
+     * need to request permissions to access the device and then initiate a control transfer.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1266,7 +1514,7 @@ declare namespace usbManager {
     name: string;
 
     /**
-     * Device manufacturer.
+     * Manufacturer name.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1284,7 +1532,7 @@ declare namespace usbManager {
     productName: string;
 
     /**
-     * Version number.
+     * Version.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1311,7 +1559,7 @@ declare namespace usbManager {
     productId: int;
 
     /**
-     * Device class.
+     * Device class code.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1320,7 +1568,7 @@ declare namespace usbManager {
     clazz: int;
 
     /**
-     * Device subclass.
+     * Device subclass code.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1348,7 +1596,7 @@ declare namespace usbManager {
   }
 
   /**
-   * Represents a USB device pipe, which is used to determine a USB device.
+   * Define a USB device pipe, which is used to determine the bus address and device address.
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
@@ -1384,7 +1632,7 @@ declare namespace usbManager {
    */
   export enum PowerRoleType {
     /**
-     * No function.
+     * None.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1394,7 +1642,7 @@ declare namespace usbManager {
     NONE = 0,
 
     /**
-     * External power supply
+     * Power supply for external devices.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1404,7 +1652,7 @@ declare namespace usbManager {
     SOURCE = 1,
 
     /**
-     * Internal power supply
+     * External power supply.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1424,7 +1672,7 @@ declare namespace usbManager {
    */
   export enum DataRoleType {
     /**
-     * No function.
+     * None.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1434,7 +1682,7 @@ declare namespace usbManager {
     NONE = 0,
 
     /**
-     * Host mode
+     * USB host.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1444,7 +1692,7 @@ declare namespace usbManager {
     HOST = 1,
 
     /**
-     * Device mode
+     * USB device.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1464,7 +1712,7 @@ declare namespace usbManager {
    */
   export enum PortModeType {
     /**
-     * No function.
+     * None.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1474,7 +1722,7 @@ declare namespace usbManager {
     NONE = 0,
 
     /**
-     * Upstream facing port, which functions as the sink of power supply
+     * Upstream facing port, which functions as the sink of power supply.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1484,7 +1732,7 @@ declare namespace usbManager {
     UFP = 1,
 
     /**
-     * Downstream facing port, which functions as the source of power supply
+     * Downstream facing port, which functions as the source of power supply.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1504,7 +1752,7 @@ declare namespace usbManager {
     DRP = 3,
 
     /**
-     * Not supported currently
+     * Not supported currently.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1515,7 +1763,13 @@ declare namespace usbManager {
   }
 
   /**
-   * Enumerates USB port roles.
+   * Enumerates USB port roles. **currentMode** indicates the current USB mode of the port. The value
+   * must be within the range of **supportedModes** of the USB port. **currentPowerRole** indicates
+   * the current power role, and **currentDataRole** indicates the current data transfer role. These
+   * fields are generally set as follows: In DFP mode, **dataRole** is **HOST**, and **powerRole** is
+   * **SOURCE**. In UFP mode, **dataRole** is **DEVICE**, and **powerRole** is **SINK**. The port
+   * status change is subject to hardware and system constraints. Some mode or role combinations may
+   * not be supported.
    *
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
@@ -1524,7 +1778,7 @@ declare namespace usbManager {
    */
   interface USBPortStatus {
     /**
-     * Current USB mode.
+     * Current USB mode. For details, see [PortModeType]{@link usbManager.PortModeType}.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1534,7 +1788,7 @@ declare namespace usbManager {
     currentMode: int;
 
     /**
-     * Current power role.
+     * Current power role of the device. For details, see [PowerRoleType]{@link usbManager.PowerRoleType}.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1544,7 +1798,8 @@ declare namespace usbManager {
     currentPowerRole: int;
 
     /**
-     * Current data role.
+     * Current data transfer role of the device. For details, see
+     * [DataRoleType]{@link usbManager.DataRoleType}.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1574,7 +1829,7 @@ declare namespace usbManager {
     id: int;
 
     /**
-     * Numeric mask combination for the supported mode list.
+     * Numeric mask combination for the supported mode list. **status.currentMode** must be supported.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1584,7 +1839,7 @@ declare namespace usbManager {
     supportedModes: PortModeType;
 
     /**
-     * USB port role.
+     * USB port role information. **currentMode** must be within the range of **supportedModes**.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1595,7 +1850,7 @@ declare namespace usbManager {
   }
 
   /**
-   * Represents control transfer parameters.
+   * Describes control transfer parameters.
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 12 dynamic
@@ -1603,7 +1858,11 @@ declare namespace usbManager {
    */
   interface USBDeviceRequestParams {
     /**
-     * Control request type.
+     * Request control type, which specifies the direction and type of the control transfer. The value
+     * must comply with the USB protocol specifications. Common values are as follows: **0x00**:
+     * standard request from the host to the device; **0x20**: class request from the host to the device;
+     * **0x40**: vendor request from the host to the device; 0x80: standard request from the device to
+     * the host.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
@@ -1612,7 +1871,8 @@ declare namespace usbManager {
     bmRequestType: int;
 
     /**
-     * Request type.
+     * Request type, which indicates a specific USB control request command such as obtaining the
+     * descriptor or setting the address.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
@@ -1621,7 +1881,8 @@ declare namespace usbManager {
     bRequest: int;
 
     /**
-     * Request parameter.
+     * Request parameter, which is used to transfer the parameters required by the control request
+     * to the USB device.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
@@ -1630,7 +1891,8 @@ declare namespace usbManager {
     wValue: int;
 
     /**
-     * Index of the request parameter.
+     * Index value corresponding to the request parameter **wValue**, which is used to specify the
+     * target interface or endpoint of the control request.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
@@ -1639,7 +1901,8 @@ declare namespace usbManager {
     wIndex: int;
 
     /**
-     * Length of the requested data.Unit: bytes.
+     * Length of the request data, which is used to specify the number of data bytes expected to be
+     * received or sent during control transfer.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
@@ -1648,7 +1911,9 @@ declare namespace usbManager {
     wLength: int;
 
     /**
-     * Buffer for writing or reading data.
+     * Buffer for writing or reading data. The array length must be equal to the number of data bytes
+     * specified by **wLength**. It is used to control data transmission or reception during data
+     * transfer.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 12 dynamic
@@ -1666,7 +1931,8 @@ declare namespace usbManager {
    */
   export enum USBRequestTargetType {
     /**
-     * Device.
+     * The control request target is set to the USB device, which is used to control the entire
+     * device, for example, setting the device address or obtaining the device descriptor.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1675,7 +1941,8 @@ declare namespace usbManager {
     USB_REQUEST_TARGET_DEVICE = 0,
 
     /**
-     * Interface.
+     * The control request target is set to an interface of the USB device, which is used to control
+     * the interface, for example, setting the interface features or obtaining the interface descriptor.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1684,7 +1951,8 @@ declare namespace usbManager {
     USB_REQUEST_TARGET_INTERFACE = 1,
 
     /**
-     * Endpoint.
+     * The control request target is set to an endpoint of the USB device, which is used to control
+     * the endpoint, for example, clearing the endpoint stop state or obtaining the endpoint status.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1693,7 +1961,8 @@ declare namespace usbManager {
     USB_REQUEST_TARGET_ENDPOINT = 2,
 
     /**
-     * Other.
+     * The control request target is set to another unit, which is used to control the unit of a
+     * non-standard device, interface, or endpoint.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1703,7 +1972,8 @@ declare namespace usbManager {
   }
 
   /**
-   * Enumerates control request types.
+   * Enumerates control request types. Each type indicates a specific USB control request command
+   * such as obtaining the descriptor or setting the address.
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamic
@@ -1711,7 +1981,8 @@ declare namespace usbManager {
    */
   export enum USBControlRequestType {
     /**
-     * Standard.
+     * Standard request type, which is used to send standard control requests (such as the device
+     * descriptor, setting address, and setting configuration) defined by the USB protocol.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1720,7 +1991,8 @@ declare namespace usbManager {
     USB_REQUEST_TYPE_STANDARD = 0,
 
     /**
-     * Class.
+     * Class request type, which is used to send class-specific control requests (such as HID and
+     * mass storage class requests).
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1729,7 +2001,8 @@ declare namespace usbManager {
     USB_REQUEST_TYPE_CLASS = 1,
 
     /**
-     * Vendor.
+     * Vendor request type, which is used to send vendor-defined control requests. The request
+     * content is defined by the vendor.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -1785,7 +2058,8 @@ declare namespace usbManager {
     NONE = 0,
 
     /**
-     * ACM function.
+     * Abstract control model (ACM) with serial port communication function, which is used to
+     * simulate serial port devices.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1795,7 +2069,7 @@ declare namespace usbManager {
     ACM = 1,
 
     /**
-     * ECM function.
+     * Ethernet control model (ECM) with Ethernet control function, which is used for network sharing.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1805,7 +2079,7 @@ declare namespace usbManager {
     ECM = 2,
 
     /**
-     * HDC function.
+     * HarmonyOS device connector (HDC).
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1815,7 +2089,7 @@ declare namespace usbManager {
     HDC = 4,
 
     /**
-     * Media transmission.
+     * Media transfer protocol (MTP).
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1825,7 +2099,7 @@ declare namespace usbManager {
     MTP = 8,
 
     /**
-     * Image transmission.
+     * Picture transfer protocol (PTP).
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1835,7 +2109,8 @@ declare namespace usbManager {
     PTP = 16,
 
     /**
-     * Network sharing.
+     * Remote network driver interface specification (RNDIS), which is used for network sharing
+     * (not supported currently).
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1845,7 +2120,8 @@ declare namespace usbManager {
     RNDIS = 32,
 
     /**
-     * MIDI function.
+     * Musical instrument digital interface (MIDI), which is used for communication with MIDI devices
+     * (not supported currently).
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1855,7 +2131,7 @@ declare namespace usbManager {
     MIDI = 64,
 
     /**
-     * Audio function.
+     * Audio source, which is used for audio data transfer (not supported currently).
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1865,7 +2141,8 @@ declare namespace usbManager {
     AUDIO_SOURCE = 128,
 
     /**
-     * NCM transmission.
+     * Network control model (NCM), which is used for high-speed network sharing (not supported
+     * currently).
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
@@ -1902,7 +2179,8 @@ declare namespace usbManager {
     product: string;
 
     /**
-     * Description of an accessory.
+     * Description of an accessory, which is provided by the manufacturer to describe the functions,
+     * usage, or features of the accessory.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 14 dynamic
@@ -1930,7 +2208,8 @@ declare namespace usbManager {
   }
 
   /**
-   * Describes the USB accessory handle.
+   * Defines a USB accessory handle, including the accessory file descriptor. This API is used to
+   * communicate with the accessory through the **read** or **write** API provided by Core File Kit.
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 14 dynamic
@@ -1974,7 +2253,7 @@ declare namespace usbManager {
     USB_TRANSFER_FREE_BUFFER = 1,
 
     /**
-     * Automatically transfers after the callback is complete.
+     * Automatically releases transfer resources after the callback is complete.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -1983,7 +2262,7 @@ declare namespace usbManager {
     USB_TRANSFER_FREE_TRANSFER = 2,
 
     /**
-     * Adds an additional data packet to the transfer.
+     * Adds an additional data packet to be transferred.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2019,7 +2298,7 @@ declare namespace usbManager {
     TRANSFER_ERROR = 1,
 
     /**
-     * Transfer timeout.
+     * Transfer timed out.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2037,7 +2316,7 @@ declare namespace usbManager {
     TRANSFER_CANCELED = 3,
 
     /**
-     * Transfer stalled (at bulk/interrupt endpoint).
+     * Stall detected (bulk/interrupt endpoint).
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2055,7 +2334,7 @@ declare namespace usbManager {
     TRANSFER_NO_DEVICE = 5,
 
     /**
-     * Data overflow.
+     * Device sent more data than requested.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2073,7 +2352,7 @@ declare namespace usbManager {
    */
   export enum UsbEndpointTransferType {
     /**
-     * Real-time transfer.
+     * Isochronous transfer.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2082,7 +2361,7 @@ declare namespace usbManager {
     TRANSFER_TYPE_ISOCHRONOUS = 0x1,
 
     /**
-     * Performs bulk transfer.
+     * Bulk transfer.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2109,7 +2388,7 @@ declare namespace usbManager {
    */
   interface UsbIsoPacketDescriptor {
     /**
-     * Expected length of the read or written data.Unit: bytes.
+     * Expected length of the read/write operation, in bytes.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2118,7 +2397,7 @@ declare namespace usbManager {
     length: int;
 
     /**
-     * Actual length of the read or written data.Unit: bytes.
+     * Actual length of the read/write operation, in bytes.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2127,7 +2406,7 @@ declare namespace usbManager {
     actualLength: int;
 
     /**
-     * Status returned by callback.
+     * Status code of the isochronous transfer subpacket.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2137,7 +2416,9 @@ declare namespace usbManager {
   }
 
   /**
-   * As a USB data transfer interface, it is required for a client to initiate a transfer request.
+   * Defines a USB data transfer parameter object, which contains all parameters required for USB
+   * data transfer. It is used by the **usbSubmitTransfer** and **usbCancelTransfer** APIs to
+   * initiate transfer requests.
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
@@ -2145,8 +2426,8 @@ declare namespace usbManager {
    */
   interface UsbDataTransferParams {
     /**
-     * USB device pipe, which is used to determine the bus number and device address. You need to call
-     * [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}to obtain its value.
+     * USB device pipe, which is used to determine the bus address and device address. You need to
+     * call [connectDevice]{@link usbManager.connectDevice} to obtain its value.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2155,7 +2436,10 @@ declare namespace usbManager {
     devPipe: USBDevicePipe;
 
     /**
-     * USB transfer flag.
+     * USB transfer flag, which is used to control the transfer behavior. The options are as follows:
+     * **0**: Report short frames as errors; **1**: Automatically release the transfer buffer;
+     * **2**: Automatically release transfer resources after the callback is complete;
+     * **3**: Add an extra data packet to be transferred.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2164,7 +2448,10 @@ declare namespace usbManager {
     flags: UsbTransferFlags;
 
     /**
-     * Endpoint address, which is a positive integer.
+     * Endpoint address. The value is a positive integer within the range of [1, 255]. You need to
+     * call [getDevices]{@link usbManager.getDevices} to obtain the device information, use the
+     * **address** attribute of the endpoint to determine the endpoint information, and use the
+     * **direction** attribute to determine the endpoint direction.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2173,7 +2460,10 @@ declare namespace usbManager {
     endpoint: int;
 
     /**
-     * Transfer type.
+     * Transfer type, which specifies the USB data transfer mode. The options are as follows:
+     * **0x1**: real-time transfer, suitable for real-time data streams such as audio and video;
+     * **0x2**: bulk transfer, suitable for non-real-time transfer of a large amount of data;
+     * **0x3**: interrupt transfer, suitable for real-time transfer of a small amount of data.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2182,7 +2472,10 @@ declare namespace usbManager {
     type: UsbEndpointTransferType;
 
     /**
-     * Timeout duration.Unit: milliseconds.
+     * Timeout interval, in milliseconds. If the transfer is complete within the specified time, the
+     * size of the transferred or received data block is returned; otherwise, a timeout error is
+     * returned. The default value is **0**, indicating that the system waits infinitely until the
+     * control transfer is complete. If a negative number is passed, a parameter error is thrown.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2191,7 +2484,8 @@ declare namespace usbManager {
     timeout: int;
 
     /**
-     * Length of the data buffer.Unit: bytes. The value must be a non-negative number (expected length).
+     * Expected length of the data buffer, in bytes. The value must be a non-negative number in the
+     * range of [0, **INT_MAX**].
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2200,7 +2494,10 @@ declare namespace usbManager {
     length: int;
 
     /**
-     * Information returned by the callback.
+     * Callback invoked when the transfer is complete. The signature is
+     * **(err: Error, data: SubmitTransferCallback) => void**. If the operation is successful, **err**
+     * is **null**; if the operation fails, **err** is an error object. **data** contains information
+     * such as the transfer status and actual length.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2209,7 +2506,9 @@ declare namespace usbManager {
     callback: AsyncCallback<SubmitTransferCallback>;
 
     /**
-     * User data.
+     * User context data, which is used to pass custom context information in the callback. The size
+     * and format are defined by the user and specified in the transfer request. The data is returned
+     * in the callback without any modification.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2227,8 +2526,8 @@ declare namespace usbManager {
     buffer: Uint8Array;
 
     /**
-     * Number of data packets during real-time transfer, used only for I/Os with real-time transfer endpoints. The value
-     *  must be a non-negative number.
+     * Number of data packets during real-time transfer, used only for I/Os with real-time transfer
+     * endpoints. The value must be a non-negative number in the range of [0, **INT_MAX**].
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2238,20 +2537,24 @@ declare namespace usbManager {
   }
 
   /**
-   * Requests a USB data transfer.
+   * Submits an asynchronous transfer request. The result is returned immediately after this API is
+   * called. This API uses a callback to rerturn the actual read/write operation result. You can call
+   * [usbCancelTransfer]{@link usbManager.usbCancelTransfer} to cancel an asynchronous transfer request.
    *
    * > **NOTE**
    * >
    * > This API uses an asynchronous callback to return the result.
    * >
-   * > Before calling this API, call the
-   * > [usbManager.claimInterface]{@link usbManager.claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean)}
-   * >  API to claim a communication interface.
+   * > Before calling this API, call the [usbManager.claimInterface]{@link usbManager.claimInterface}
+   * > API to claim a communication interface.
    *
-   * @param { UsbDataTransferParams } transfer - As a USB data transfer interface, it is required for a client to initiate a
-   *     transfer request.
+   * @param { UsbDataTransferParams } transfer - As a USB data transfer interface, it is required for a
+   *     client to initiate a transfer request. Before calling this API, call the
+   *     [usbManager.claimInterface]{@link usbManager.claimInterface} API to claim a communication
+   *     interface.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe
+   *     access right first.
    * @throws { BusinessError } 14400007 - Resource busy. Possible causes:
    *
    *     <br>1. The transfer has already been submitted.
@@ -2269,25 +2572,33 @@ declare namespace usbManager {
   function usbSubmitTransfer(transfer: UsbDataTransferParams): void;
 
   /**
-   * Cancels an asynchronous USB data transfer request.
+   * Cancels an asynchronous USB data transfer request. This API can be used to proactively terminate
+   * an ongoing USB data transfer, for example, when a user manually cancels a long-time data
+   * transfer, when an error occurs after a transfer times out, or when the current transfer needs
+   * to be terminated during an app switch.
    *
    * > **NOTE**
    * >
-   * > This API is used to proactively cancel an unfinished USB data transfer request (for example, the one submitted by
-   * > **usbSubmitTransfer**).
-   * > Before calling this API, call the
-   * > [usbManager.claimInterface]{@link usbManager.claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean)}
-   * >  API to claim a communication interface.
+   * > This API can be used to proactively cancel an unfinished USB data transfer request, such as
+   * > the request submitted by usbSubmitTransfer.
+   * >
+   * > Before calling this API, call the [usbManager.claimInterface]{@link usbManager.claimInterface}
+   * > API to claim a communication interface.
    *
-   * @param { UsbDataTransferParams } transfer - Only the [USBDevicePipe]{@link usbManager.USBDevicePipe} and
-   *     [USBEndpoint]{@link usbManager.USBEndpoint} parameters should be specified in this API.
+   * @param { UsbDataTransferParams } transfer - Parameter whose transfer is canceled. The value of this
+   *     parameter is the same as that of the **transfer** parameter in the
+   *     [usbManager.usbSubmitTransfer]{@link usbManager.usbSubmitTransfer} API. Before calling this
+   *     API, call the [usbManager.claimInterface]{@link usbManager.claimInterface} API to claim a
+   *     communication interface.
    * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe access right first.
+   * @throws { BusinessError } 14400001 - Access right denied. Call requestRight to get the USBDevicePipe
+   *     access right first.
    * @throws { BusinessError } 14400008 - No such device (it may have been disconnected).
    * @throws { BusinessError } 14400010 - Other USB error. Possible causes:
    *
    *     <br>1.Unrecognized discard error code.
-   * @throws { BusinessError } 14400011 - The transfer is not in progress, or is already complete or cancelled.
+   * @throws { BusinessError } 14400011 - The transfer is not in progress, or is already complete or
+   *     cancelled.
    * @syscap SystemCapability.USB.USBManager
    * @since 18 dynamic
    * @since 23 static
@@ -2295,13 +2606,20 @@ declare namespace usbManager {
   function usbCancelTransfer(transfer: UsbDataTransferParams): void;
 
   /**
-   * Sets the role types supported by a specified port, which can be **powerRole** (for charging) and **dataRole** (for
-   * data transfer). This API uses a promise to return the result.
+   * Sets the roles of a specified port, including **powerRole** (for charging) and **dataRole**
+   * (for data transfer). This API uses a promise to return the result. After this API is successfully
+   * called, the port role will be switched to the specified role. This API can be used to dynamically
+   * switch the role of a USB port. When developer mode is disabled, the operation may fail if no
+   * device is connected. In this case, an exception is thrown.
    *
-   * @param { number } portId - Port number.
-   * @param { PowerRoleType } powerRole - Role for charging.
-   * @param { DataRoleType } dataRole - Role for data transfer.
-   * @returns { Promise<void> } Promise used to return the result.
+   * @param { number } portId - USB port number. The value is a non-negative integer, which can be
+   *     obtained from the port list returned by [getPortList]{@link usbManager.getPortList}.
+   * @param { PowerRoleType } powerRole - Power role type. The options are **NONE**, **SOURCE**
+   *     (providing power), and **SINK** (requiring external power supply).
+   * @param { DataRoleType } dataRole - Data transfer role. The options are **NONE**, **HOST**, and
+   *     **DEVICE**.
+   * @returns { Promise<void> } Promise used to return the result. If the API is called successfully,
+   *     no value is returned. If the call fails, an exception is thrown.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -2324,7 +2642,7 @@ declare namespace usbManager {
    */
   interface SubmitTransferCallback {
     /**
-     * Status after reading or writing is complete.
+     * Status of the read/write operation.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2333,7 +2651,7 @@ declare namespace usbManager {
     status: UsbTransferStatus;
 
     /**
-     * Packet information transferred in real time.
+     * Packet information of the isochronous transfer.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2342,7 +2660,7 @@ declare namespace usbManager {
     isoPacketDescs: Array<Readonly<UsbIsoPacketDescriptor>>;
 
     /**
-     * Actual length of the read or written data.Unit: bytes.
+     * Actual length of the read/write operation, in bytes.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 18 dynamic
@@ -2352,7 +2670,7 @@ declare namespace usbManager {
   }
 
   /**
-   * Represents control transfer parameters.
+   * Control transfer parameters.
    *
    * @syscap SystemCapability.USB.USBManager
    * @since 9 dynamiconly
@@ -2361,7 +2679,8 @@ declare namespace usbManager {
    */
   interface USBControlParams {
     /**
-     * Index of the request parameter.
+     * Index value corresponding to the request parameter **value**, which is used to specify the
+     * target interface or endpoint of the control request.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamiconly
@@ -2371,7 +2690,7 @@ declare namespace usbManager {
     index: number;
 
     /**
-     * Control request type.
+     * Request control type.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamiconly
@@ -2391,7 +2710,8 @@ declare namespace usbManager {
     target: USBRequestTargetType;
 
     /**
-     * Request parameter.
+     * Request parameter, which is used to transfer the parameters required by the control request
+     * to the USB device.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamiconly
@@ -2401,7 +2721,7 @@ declare namespace usbManager {
     value: number;
 
     /**
-     * Request type.
+     * Request type, which indicates a specific USB control request command.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamiconly

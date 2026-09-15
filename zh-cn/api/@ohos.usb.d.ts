@@ -14,7 +14,7 @@
  */
 
 /**
- * @file USB Manager
+ * @file USB管理
  * @kit BasicServicesKit
  */
 
