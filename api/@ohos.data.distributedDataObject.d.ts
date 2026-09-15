@@ -333,7 +333,7 @@ declare namespace distributedDataObject {
      *     letters, digits, and underscores (_), and cannot exceed 128 characters. If this parameter is set to "" or
      *     null, the distributed data object exits the network.
      * @param {AsyncCallback<void>} callback - Asynchronous callback invoked when the session ID is successfully set.
-     * @throws {BusinessError} 201 - Permission verification failed.
+     * @throws {BusinessError} 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
      *     2. The sessionId allows only letters, digits, and underscores(_), and cannot exceed 128 in length.
      * @throws {BusinessError} 15400001 - Failed to create the in-memory database.
@@ -348,7 +348,7 @@ declare namespace distributedDataObject {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC [since 9 - 19]
      * @param {AsyncCallback<void>} callback - Callback invoked when the distributed data object exits all sessions.
-     * @throws {BusinessError} 201 - Permission verification failed. [since 9 - 19]
+     * @throws {BusinessError} 201 - Permission verification failed. The application does not have the permission required to call the API. [since 9 - 19]
      * @throws {BusinessError} 401 - Parameter error. Incorrect parameter types.
      * @throws {BusinessError} 15400001 - Failed to create the in-memory database.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
@@ -368,7 +368,7 @@ declare namespace distributedDataObject {
      *     letters, digits, and underscores (_), and cannot exceed 128 characters. If this parameter is set to "" or
      *     null, or left empty, the distributed data object exits the network.
      * @returns {Promise<void>} Promise that returns no value.
-     * @throws {BusinessError} 201 - Permission verification failed.
+     * @throws {BusinessError} 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
      *     2. The sessionId allows only letters, digits, and underscores(_), and cannot exceed 128 in length.
      * @throws {BusinessError} 15400001 - Failed to create the in-memory database.
@@ -452,7 +452,8 @@ declare namespace distributedDataObject {
      *     contains information such as session ID, version, and device ID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9 dynamic
      * @since 23 static
@@ -468,7 +469,8 @@ declare namespace distributedDataObject {
      *     information such as session ID, version, and device ID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9 dynamic
      * @since 23 static
@@ -482,7 +484,8 @@ declare namespace distributedDataObject {
      * @param { AsyncCallback<RevokeSaveSuccessResponse> } callback - Callback used to return
      *     RevokeSaveSuccessResponse, which contains the session ID.
      * @throws { BusinessError } 401 - Parameter error. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9 dynamic
      * @since 23 static
@@ -494,7 +497,8 @@ declare namespace distributedDataObject {
      *
      * @returns { Promise<RevokeSaveSuccessResponse> } Promise used to return RevokeSaveSuccessResponse, which
      *     contains the session ID.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9 dynamic
      * @since 23 static
@@ -511,7 +515,8 @@ declare namespace distributedDataObject {
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 11 dynamic
      * @since 23 static
@@ -528,7 +533,8 @@ declare namespace distributedDataObject {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 11 dynamic
      * @since 23 static

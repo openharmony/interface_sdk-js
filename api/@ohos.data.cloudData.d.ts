@@ -410,13 +410,13 @@ declare namespace cloudData {
      * @param { Record<string, boolean> } switches - Device-cloud synergy settings for applications. The value **true**
      *     means to enable device-cloud synergy; the value **false** means the opposite. [since 11]
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
@@ -438,14 +438,13 @@ declare namespace cloudData {
       * @param { Record<string, boolean> } switches - Device-cloud synergy settings for applications. The value **true**
       *     means to enable device-cloud synergy; the value **false** means the opposite. [since 11]
       * @returns { Promise<void> } Promise that returns no value.
-      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by
-      *     VerifyAccessToken.
-      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-      *     uses system API.
+      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
       *     2. Incorrect parameter types;
       *     3. Parameter verification failed.
-      * @throws { BusinessError } 801 - Capability not supported.
+      * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+      *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
       * @systemapi
       * @since 10 dynamic
@@ -459,13 +458,13 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - ID of the cloud account.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
@@ -479,13 +478,13 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - ID of the cloud account.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
@@ -503,13 +502,13 @@ declare namespace cloudData {
      * @param { boolean } status - New device-cloud synergy setting. The value **true** means to enable device-cloud
      *     synergy; the value **false** means the opposite.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
@@ -531,13 +530,13 @@ declare namespace cloudData {
      * @param { boolean } status - New device-cloud synergy setting. The value **true** means to enable device-cloud
      *     synergy; the value **false** means the opposite.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
@@ -557,10 +556,10 @@ declare namespace cloudData {
      *     priority: application > database > table. If this parameter is not set, the application-level device-cloud
      *     synergy is used by default.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @stagemodelonly
@@ -583,14 +582,13 @@ declare namespace cloudData {
      * @param { int } [userId] - User ID. This parameter is optional. The default value is the current user ID. If this
      *     parameter is specified, the value must be an existing user ID in the system.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     *     is usually returned by <b>VerifyAccessToken</b>.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11 dynamic
@@ -608,14 +606,13 @@ declare namespace cloudData {
      *     has data changes.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     *     is usually returned by <b>VerifyAccessToken</b>.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11 dynamic
@@ -634,14 +631,13 @@ declare namespace cloudData {
      * @param { int } userId - User ID in the system.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     *     is usually returned by <b>VerifyAccessToken</b>.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11 dynamic
@@ -656,13 +652,13 @@ declare namespace cloudData {
      * @param { string } accountId - ID of the cloud account.
      * @param { string } bundleName - Bundle name of the application.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 10 dynamic
@@ -677,13 +673,13 @@ declare namespace cloudData {
      * @param { string } accountId - ID of the cloud account.
      * @param { string } bundleName - Bundle name of the application.
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 10 dynamic
@@ -701,13 +697,13 @@ declare namespace cloudData {
      * @param { string } [storeId] - Name of the RDB store. If this parameter is not specified, all local databases of
      *     this application are queried by default.
      * @returns { Promise<Record<string, Array<StatisticInfo>>> } Promise used to return the table name and statistics.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 12 dynamic
@@ -729,13 +725,13 @@ declare namespace cloudData {
      *     is used, this API queries the last device-cloud sync information of all databases of this application.
      * @returns { Promise<Record<string, SyncInfo>> } Promise used to return the database name and the result set of the
      *     last device-cloud sync.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 12 dynamic
@@ -755,12 +751,10 @@ declare namespace cloudData {
      *     The account ID is required by hashing cloud account.
      * @param { Array<BundleInfo> } bundleInfos - BundleInfo configuration array.
      * @returns { Promise<Record<string, Record<string, SyncInfo>>> } Promise used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed,
-     *     usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported
-     *     because the device does not support the device-cloud capability.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. the accountId is empty;
      *     2. the bundlename is null; 3. the number of bundleInfos exceeds the upper limit or the number is 0.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -779,12 +773,10 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { Array<BundleInfo> } bundleInfos - BundleInfo configuration array.
      * @param { Callback<Record<string, Record<string, SyncInfo>>> } progress - progress.
-     * @throws { BusinessError } 201 - Permission verification failed,
-     *     usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported
-     *     because the device does not support the device-cloud capability.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. bundlename is null;
      *     <br>2. the number of bundleInfos exceeds the upper limit or the number is 0.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -803,12 +795,10 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { Array<BundleInfo> } bundleInfos - BundleInfo configuration array.
      * @param { Callback<Record<string, Record<string, SyncInfo>>> } [progress] - Optional progress callback.
-     * @throws { BusinessError } 201 - Permission verification failed,
-     *     usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported
-     *     because the device does not support the device-cloud capability.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. bundlename is null;
      *     <br>2. the number of bundleInfos exceeds the upper limit or the number is 0.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -831,13 +821,13 @@ declare namespace cloudData {
      * @param { Record<string, ClearAction> } appActions - Information about the application whose data is to be cleared
      *     and the operation to perform. [since 11]
      * @param { AsyncCallback<void> } callback - Callback used to return the result.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
@@ -859,14 +849,13 @@ declare namespace cloudData {
       * @param { Record<string, ClearAction> } appActions - Information about the application whose data is to be
       *     cleared and the operation to perform. [since 11]
       * @returns { Promise<void> } Promise that returns no value.
-      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by
-      *     VerifyAccessToken.
-      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-      *     uses system API.
+      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
       *     2. Incorrect parameter types;
       *     3. Parameter verification failed.
-      * @throws { BusinessError } 801 - Capability not supported.
+      * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+      *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
       * @systemapi
       * @since 10 dynamic
@@ -886,10 +875,10 @@ declare namespace cloudData {
      *     priority: table > database > application. If this parameter is not set, the application-level data clearance
      *     mode is used by default.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @stagemodelonly
@@ -909,13 +898,13 @@ declare namespace cloudData {
      * @param { Array<commonType.ValueType> } param - Strategy parameters to set. If this parameter is not specified,
      *     the strategy configuration is deleted by default.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 12 dynamic
@@ -933,11 +922,10 @@ declare namespace cloudData {
      * @param { relationalStore.SyncMode } mode - Device-cloud sync mode.
      * @param { Callback<relationalStore.ProgressDetails> } progress - Callback used to return the sync progress.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed,
-     *     <br>usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     <br>application which is not a system application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
      *     <br>2. Missing GROUP BY clause.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -962,11 +950,10 @@ declare namespace cloudData {
      *     <br>the instance object of {@link relationalStore.CloudSyncConfig}
      * @param { Callback<relationalStore.ProgressDetails> } progress - Callback used to return the sync progress.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed,
-     *     <br>usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application is not a system application.
-     * @throws { BusinessError } 801 - Capability not supported
-     *     because the device does not support the device-cloud capability.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -985,12 +972,10 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { Array<BundleInfo> } bundleInfos - BundleInfo configuration array.
      * @returns { Promise<void> } : The promise returned by the function.
-     * @throws { BusinessError } 201 - Permission verification failed,
-     *     <br>usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system
-     *     application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported
-     *     because the device does not support the device-cloud capability.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. bundlename is null;
      *     <br>2. the number of bundleInfos exceeds the upper limit or the number is 0.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -1058,7 +1043,8 @@ declare namespace cloudData {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types;
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+   *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 12 dynamic
    * @since 23 static
@@ -1499,11 +1485,11 @@ declare namespace cloudData {
      * @param { Array<string> } [columns] - Columns in which the data is located.
      *     The default value is undefined, which means column names are not returned.
      * @returns { Promise<relationalStore.ResultSet> } Promise used to return the result set of the data to share.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1524,11 +1510,11 @@ declare namespace cloudData {
      * @param { relationalStore.RdbPredicates } predicates - Predicates for matching the data to share.
      * @param { Array<Participant> } participants - Participants of the share.
      * @param { AsyncCallback<relationalStore.ResultSet> } callback - Callback used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1552,11 +1538,11 @@ declare namespace cloudData {
      * @param { Array<string> } columns - Columns in which the data is located.
      * @param { AsyncCallback<relationalStore.ResultSet> } callback -
      *     Callback used to return the result set of the data to share.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1577,11 +1563,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - Shared resource ID.
      * @param { Array<Participant> } participants - Participants of the share.
      * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Callback used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1600,11 +1586,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - Shared resource ID.
      * @param { Array<Participant> } participants - Participants of the share.
      * @returns { Promise<Result<Array<Result<Participant>>>> } Promise used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1622,11 +1608,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - Shared resource ID.
      * @param { Array<Participant> } participants - Participants of the share.
      * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Callback used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1645,11 +1631,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - Shared resource ID.
      * @param { Array<Participant> } participants - Participants of the share.
      * @returns { Promise<Result<Array<Result<Participant>>>> } Promise used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1666,11 +1652,11 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - Shared resource ID.
      * @param { AsyncCallback<Result<void>> } callback - Callback used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1684,11 +1670,11 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - Shared resource ID.
      * @returns { Promise<Result<void>> } Promise used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1703,11 +1689,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - Shared resource ID.
      * @param { Array<Participant> } participants - Participants of the share.
      * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - Callback used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1726,11 +1712,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - Shared resource ID.
      * @param { Array<Participant> } participants - Participants of the share.
      * @returns { Promise<Result<Array<Result<Participant>>>> } Promise used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1748,11 +1734,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - Shared resource ID.
      * @param { AsyncCallback<Result<Array<Participant>>> } callback -
      *     Callback used to return the participants obtained.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1766,11 +1752,11 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - Shared resource ID.
      * @returns { Promise<Result<Array<Participant>>> } Promise used to return the participants obtained.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1785,11 +1771,11 @@ declare namespace cloudData {
      * @param { string } invitationCode - Invitation code of the share.
      * @param { AsyncCallback<Result<Array<Participant>>> } callback -
      *     Callback used to return the participants obtained.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1806,11 +1792,11 @@ declare namespace cloudData {
      *
      * @param { string } invitationCode - Invitation code of the share.
      * @returns { Promise<Result<Array<Participant>>> } Promise used to return the participants obtained.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1825,11 +1811,11 @@ declare namespace cloudData {
      * @param { string } invitationCode - Invitation code of the share.
      * @param { State } state - Confirmation state.
      * @param { AsyncCallback<Result<string>> } callback - Callback used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1844,11 +1830,11 @@ declare namespace cloudData {
      * @param { string } invitationCode - Invitation code of the share.
      * @param { State } state - Confirmation state.
      * @returns { Promise<Result<string>> } Promise used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1863,11 +1849,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - Shared resource ID.
      * @param { State } state - New confirmation state of the invitation.
      * @param { AsyncCallback<Result<void>> } callback - Callback used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1882,11 +1868,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - Shared resource ID.
      * @param { State } state - New confirmation state of the invitation.
      * @returns { Promise<Result<void>> } Promise used to return the result.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1971,7 +1957,8 @@ declare namespace cloudData {
    * Describes the triggering method for automatic device-cloud synchronization subscription.
    *
    * @param { Callback<AutoSyncTriggerInfo> } observer - Callback for automatic synchronization trigger interception.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+   *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -1982,7 +1969,8 @@ declare namespace cloudData {
    * Describes unsubscribing from the device-cloud automatic synchronization trigger mode.
    *
    * @param { Callback<AutoSyncTriggerInfo> } [observer] - Callback for automatic synchronization trigger interception.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+   *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
