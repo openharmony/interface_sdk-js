@@ -18,7 +18,7 @@
  * @kit ConnectivityKit
  */
 
-import type { AsyncCallback } from './@ohos.base';
+import type { AsyncCallback, Callback } from './@ohos.base';
 import type baseProfile from './@ohos.bluetooth.baseProfile';
 import type constant from './@ohos.bluetooth.constant';
 
@@ -103,6 +103,19 @@ declare namespace pbap {
    * @since 26.1.0 static
    */
   function createPbapServerProfile(): PbapServerProfile;
+
+  /**
+   * 创建PBAP客户端配置文件的实例。
+   *
+   * @returns { PbapClientProfile } 返回pbap客户端配置文件的实例。
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+   *     3. A dependent service feature is not supported.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function createPbapClientProfile(): PbapClientProfile;
 
   /**
    * 使用PbapServerProfile方法之前需要创建该类的实例进行操作，通过createPbapServerProfile()方法构造此实例。
@@ -316,6 +329,194 @@ declare namespace pbap {
      * @since 26.1.0 static
      */
     getPhoneBookAccessAuthorization(deviceId: string): Promise<AccessAuthorization>;
+  }
+
+  /**
+   * 管理PBAP客户端配置文件。
+   *
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface PbapClientProfile extends BaseProfile {
+    /**
+     * 将PBAP客户端连接与远程设备连接。
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - 设备ID。例如，“11:22:33:AA:BB:FF”。
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed.
+     *     A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900004 - Profile not supported.
+     * @throws { BusinessError } 2900099 - Internal system error. For example, IPC error.
+     *     Detailed error messages can be used to assist in locating the problem.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    connect(deviceId: string): void;
+
+    /**
+     * 断开PBAP客户端与远程设备的连接。
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - 设备ID。例如，“11:22:33:AA:BB:FF”。
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed.
+     *     A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900004 - Profile not supported.
+     * @throws { BusinessError } 2900099 - Internal system error. For example, IPC error.
+     *     Detailed error messages can be used to assist in locating the problem.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    disconnect(deviceId: string): void;
+
+    /**
+     * 获取PBAP电话本同步状态，只上报同步子状态。
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - 设备ID。例如，“11:22:33:AA:BB:FF”。
+     * @returns { SyncStateType } 返回电话簿同步状态。
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed.
+     *     A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900004 - Profile not supported.
+     * @throws { BusinessError } 2900099 - Internal system error. For example, IPC error.
+     *     Detailed error messages can be used to assist in locating the problem.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    getSyncState(deviceId: string): SyncStateType;
+
+    /**
+     * 订阅电话本同步状态变化事件。
+     * 只上报同步子状态。
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { Callback<SyncStateChangeParam> } callback - 用于监听事件的回调。
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed.
+     *     A non-system application calls a system API.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    onSyncStateChange(callback: Callback<SyncStateChangeParam>): void;
+
+    /**
+     * 取消订阅电话本同步状态变化事件。
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { Callback<SyncStateChangeParam> } [callback] - 用于监听事件的回调。
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed.
+     *     A non-system application calls a system API.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    offSyncStateChange(callback?: Callback<SyncStateChangeParam>): void;
+  }
+
+  /**
+   * 电话本同步状态变化信息。
+   *
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface SyncStateChangeParam {
+    /**
+     * 远程设备的地址。
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    deviceId: string;
+    /**
+     * 电话簿同步状态。
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    state: SyncStateType;
+  }
+
+  /**
+   * 电话本同步状态类型。
+   *
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum SyncStateType {
+    /**
+     * 电话簿同步处于空闲状态（未启动，例如已连接但未下载）。
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    PHONEBOOK_STATE_IDLE = 0,
+    /**
+     * 电话簿正在下载。
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    PHONEBOOK_STATE_DOWNLOADING = 1,
+    /**
+     * 电话本下载完成。
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    PHONEBOOK_STATE_DOWNLOADED = 2,
+    /**
+     * 电话本下载错误。
+     *
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    PHONEBOOK_STATE_DOWNLOAD_ERROR = 3
   }
 }
 
