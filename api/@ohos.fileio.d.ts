@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file File Management
  * @kit API10LessDeprecatedModules
  */
 

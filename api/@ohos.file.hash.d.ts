@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file File Hash Processing
  * @kit CoreFileKit
  */
 
