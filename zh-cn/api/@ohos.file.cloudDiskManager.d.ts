@@ -115,6 +115,17 @@ declare namespace cloudDiskManager {
      * @since 23 static
      */
     customAlias?: string;
+
+    /**
+     * 同步根是否支持占位符。
+     * true：表示同步根支持占位符。  默认值：false，表示同步根不支持占位符。 
+     *
+     * @syscap SystemCapability.FileManagement.CloudDiskManager
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    isSupportPlaceHolder?: boolean;
   }
 
   /**
