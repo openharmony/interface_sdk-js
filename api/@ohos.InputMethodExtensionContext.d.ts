@@ -145,8 +145,8 @@ declare class InputMethodExtensionContext extends ExtensionContext {
    * @param { number } accountId - ID of the target system account.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the starting is successful,
    *     **err** is **undefined**. Otherwise, **err** is an error object.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -180,8 +180,8 @@ declare class InputMethodExtensionContext extends ExtensionContext {
    * @param { Want } want - Want information about the target ability.
    * @param { number } accountId - ID of the target system account.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
@@ -243,8 +243,8 @@ declare class InputMethodExtensionContext extends ExtensionContext {
    * @param { Want } want - Want information about the target ability.
    * @param { number } accountId - ID of the target system account.
    * @returns { number } Result code of the connection.
-   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
