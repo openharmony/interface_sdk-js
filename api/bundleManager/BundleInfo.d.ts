@@ -279,6 +279,27 @@ export interface BundleInfo {
    * @since 26.0.0 dynamic&static
    */
   readonly sandboxCreatorBundleName?: string;
+
+  /**
+   * Define the enumeration of device mode distribution policies, which is used to specify how an application
+   * is distributed on a device.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  readonly deviceModeDistributionPolicy?: bundleManager.DeviceModeDistributionPolicy;
+
+  /**
+   * App sandbox policy for dual-mode (2in1/tablet) scenarios.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  readonly appSandboxPolicy?: bundleManager.AppSandboxPolicy;
 }
 
 /**
@@ -649,4 +670,55 @@ export interface AppClonePreference {
    * @since 26.0.0 dynamic&static
    */
   appIndex?: int;
+}
+
+/**
+ * Defines bundle extension policy information.
+ *
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.1.0 dynamic&static
+ */
+export interface BundleExtensionPolicyInfo {
+  /**
+   * Bundle name of the application.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  readonly bundleName: string;
+
+  /**
+   * Index of an application.
+   * The value should be an integer.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  readonly appIndex: int;
+
+  /**
+   * The device mode distribution policy of the application.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  readonly deviceModeDistributionPolicy: bundleManager.DeviceModeDistributionPolicy;
+
+  /**
+   * The application sandbox policy.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  readonly appSandboxPolicy: bundleManager.AppSandboxPolicy;
 }
