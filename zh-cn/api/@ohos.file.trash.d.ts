@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 回收站
  * @kit CoreFileKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 云盘管理
  * @kit CoreFileKit
  */
 
