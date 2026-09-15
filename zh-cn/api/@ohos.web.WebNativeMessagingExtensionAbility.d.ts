@@ -21,7 +21,7 @@
  * [ConnectionInfo]{@link ConnectionInfo}），并在连接断开或扩展销毁时完成资源释放。该能力主要用于浏览器扩展与应用通信的场景，实现高效的消息传递和数据交换，提升扩展的集成度和功能性。应用侧需自行管理管
  * 道读写、权限校验及Ability生命周期。
  *
- * @file
+ * @file Web原生消息扩展能力
  * @kit ArkWeb
  */
 

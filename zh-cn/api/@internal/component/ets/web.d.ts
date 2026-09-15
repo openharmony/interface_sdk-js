@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Web控制器
  * @kit ArkWeb
  */
 
