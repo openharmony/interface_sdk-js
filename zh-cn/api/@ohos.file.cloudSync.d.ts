@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 端云同步能力
  * @kit CoreFileKit
  */
 
