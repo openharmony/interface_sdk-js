@@ -10205,6 +10205,18 @@ declare interface EmbedOptions {
    * @since 20 dynamic
    */
   supportCssDisplayChange?: boolean;
+  /**
+   * Whether the same-layer rendering component supports CSS transform rotate and skew.
+   * This attribute takes effect only when enableNativeEmbedMode is enabled and cannot be dynamically modified.
+   * When set to **true**, the same-layer rendering component correctly handles CSS transform rotate/skew.
+   * When set to **false** or not set, retains the original behavior.
+   * 
+   * @default false
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.2.0 dynamic
+   */
+  supportTransformRotateAndSkew?: boolean;
 }
 
 /**

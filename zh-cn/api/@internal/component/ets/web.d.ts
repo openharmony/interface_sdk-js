@@ -9257,6 +9257,21 @@ declare interface EmbedOptions {
    * @since 20 dynamic
    */
   supportCssDisplayChange?: boolean;
+  /**
+   * 同层渲染组件是否支持CSS变换旋转和倾斜。
+   *
+   * 该属性仅在enableNatvieEmbedMode开关打开时生效，不支持动态修改。
+   *
+   * 设置为**true**时，同层渲染组件可以正确处理CSS变换旋转/倾斜。
+   *
+   * 设置为**false**或未设置时，保留原始行为。
+   *
+   * @default false
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.2.0 dynamic
+   */
+  supportTransformRotateAndSkew?: boolean;
 }
 
 /**
