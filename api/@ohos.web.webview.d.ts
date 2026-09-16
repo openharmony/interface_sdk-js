@@ -2613,8 +2613,8 @@ declare namespace webview {
   /**
    * Defines the data types supported by {@link onMessageEventExt}.
    *
-   * @unionmember { ArrayBuffer } String type. [since 11]
-   * @unionmember { string } Binary type. [since 11]
+   * @unionmember { ArrayBuffer } Binary type. [since 11]
+   * @unionmember { string } String type. [since 11]
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 9 dynamic
