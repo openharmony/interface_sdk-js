@@ -128,14 +128,13 @@ export declare interface LazyVGridLayoutAttribute extends LazyGridLayoutAttribut
   /**
    * This parameter specifies the number of columns in the current grid layout.
    *
-   * @param { string | ItemFillPolicy | undefined } template - Number of columns in the layout.
-   *     <br>Default value: <em>'1fr'</em>. Passing undefined will restore the default value.
+   * @param { ItemFillPolicy | undefined } template - Number of columns in the layout.
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.2.0 static
    */
-  default columnsTemplate(template: string | ItemFillPolicy | undefined): this;
+  default columnsTemplate(template: ItemFillPolicy | undefined): this;
 
   /**
    * Set LazyVGrid options.
