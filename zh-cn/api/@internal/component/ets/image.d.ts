@@ -476,7 +476,7 @@ interface ImageInterface {
    *     [fileUri.getUriFromPath(path)]{@link @ohos.file.fileuri:fileUri.getUriFromPath}方法将路径转换为应用沙箱URI，然后传入显示。同时需要保证目录包
    *     路径下的文件有可读权限。
    *     <br>Resource格式可以跨包/跨模块访问资源文件，是访问本地图片的推荐方式，具体示例参考
-   *     [访问跨HAP/HSP包资源](docroot://quick-start/resource-categories-and-access.md#访问跨haphsp包资源)。<br/>3. 当传入资源id或name为普通图片
+   *     [访问跨HAP/HSP包资源](docroot://quick-start/resource-categories-and-access.md#访问跨HAP/HSP包资源)。<br/>3. 当传入资源id或name为普通图片
    *     时，生成DrawableDescriptor对象。传入
    *     [AnimatedDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:AnimatedDrawableDescriptor}类型可播放PixelMap数组动画。
    *     <br>**说明：**<br/>- ArkTS卡片上支持gif图片格式动效，但仅在显示时播放一次。<br/>- ArkTS卡片上不支持http://等网络相关路径前缀和file://路径前缀的字符串。

@@ -92,7 +92,7 @@ declare namespace application {
 
   /**
    * 创建指定模块的上下文。创建出的模块上下文中[resourceManager.Configuration]{@link @ohos.resourceManager:resourceManager.Configuration}资源继承
-   * 自入参上下文，便于开发者获取[跨HAP/HSP包资源](docroot://quick-start/resource-categories-and-access.md#跨haphsp包应用资源)。使用Promise异步回调。
+   * 自入参上下文，便于开发者获取[跨HAP/HSP包资源](docroot://quick-start/resource-categories-and-access.md#访问跨HAP/HSP包资源)。使用Promise异步回调。
    * 
    * > **说明：**
    * >
@@ -113,7 +113,7 @@ declare namespace application {
 
   /**
     * 创建指定模块的上下文。创建出的模块上下文中[resourceManager.Configuration]{@link @ohos.resourceManager:resourceManager.Configuration}资源继承
-    * 自入参上下文，便于开发者获取[跨HAP/HSP包应用资源](docroot://quick-start/resource-categories-and-access.md#跨haphsp包应用资源)。
+    * 自入参上下文，便于开发者获取[跨HAP/HSP包应用资源](docroot://quick-start/resource-categories-and-access.md#访问跨HAP/HSP包资源)。
     * 
     * > **说明：**
     * >
