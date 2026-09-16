@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file System Event Logging
  * @kit PerformanceAnalysisKit
  */
 
