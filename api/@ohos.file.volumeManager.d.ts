@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Volume Management
  * @kit CoreFileKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 用户密钥管理
  * @kit CoreFileKit
  */
 

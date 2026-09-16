@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 最近访问列表
  * @kit CoreFileKit
  */
 
