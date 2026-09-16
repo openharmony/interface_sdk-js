@@ -540,7 +540,7 @@ declare namespace uiMaterial {
      * 
      * **说明**：该参数对支持沉浸式材质的所有档位的算力设备的显示效果生效。
      * 
-     * 默认值：undefined
+     * 默认值：Color.Transparent
      *
      * @default Color.Transparent
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -781,7 +781,7 @@ declare namespace uiMaterial {
      *
      * @param { ImmersiveOptions } [options] - 系统材质配置选项，包括材质样式、材质层赋色等。
      *     <br>默认值参考ImmersiveOptions接口各参数的默认值，即
-     *     `{style:uiMaterial.ImmersiveStyle.REGULAR, materialColor:undefined, colorInvert:false, applyShadow:true, interactive:false, lightEffect:undefined}`。
+     *     `{style:uiMaterial.ImmersiveStyle.REGULAR, materialColor:Color.Transparent, colorInvert:false, applyShadow:true, interactive:false, lightEffect:undefined}`。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
