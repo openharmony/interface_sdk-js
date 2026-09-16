@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 配置策略
  * @kit BasicServicesKit
  */
 
