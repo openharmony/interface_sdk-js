@@ -390,13 +390,13 @@ declare namespace cloudData {
      * @param { Record<string, boolean> } switches - 各应用的端云协同开关信息。键为应用的包名，值为该应用的开关状态，true为打开该应用端云开关，false为关闭该应用端云开
      *     关。 [since 11]
      * @param { AsyncCallback<void> } callback - 回调函数。当打开端云协同功能成功，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
@@ -417,14 +417,13 @@ declare namespace cloudData {
       * @param { Record<string, boolean> } switches - 各应用的端云协同开关信息。键为应用的包名，值为该应用的开关状态，true为打开该应用端云开关，false为关闭该应用端云开
       *     关。 [since 11]
       * @returns { Promise<void> } Promise对象，无返回结果。
-      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by
-      *     VerifyAccessToken.
-      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-      *     uses system API.
+      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
       *     2. Incorrect parameter types;
       *     3. Parameter verification failed.
-      * @throws { BusinessError } 801 - Capability not supported.
+      * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+      *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
       * @systemapi
       * @since 10 dynamic
@@ -438,13 +437,13 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - 已登录的云账号ID。
      * @param { AsyncCallback<void> } callback - 回调函数。当关闭端云协同成功，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
@@ -458,13 +457,13 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { string } accountId - 已登录的云账号ID。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
@@ -480,13 +479,13 @@ declare namespace cloudData {
      * @param { string } bundleName - 应用包名。
      * @param { boolean } status - 应用的端云协同开关信息。true为打开该应用端云开关，false为关闭该应用端云开关。
      * @param { AsyncCallback<void> } callback - 回调函数。当修改单个应用端云协同开关成功，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
@@ -507,13 +506,13 @@ declare namespace cloudData {
      * @param { string } bundleName - 应用包名。
      * @param { boolean } status - 应用的端云协同开关信息。true为打开该应用端云开关，false为关闭该应用端云开关。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
@@ -530,10 +529,10 @@ declare namespace cloudData {
      * @param { boolean } status - 应用的端云协同开关信息。true为打开该应用端云开关，false为关闭该应用端云开关。
      * @param { SwitchConfig } [config] - 端云协同数据库级开关配置信息。端云协同开关优先级：应用级 > 数据库级 > 表级。当未配置该参数时，默认使用应用级的开关配置信息。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @stagemodelonly
@@ -553,14 +552,13 @@ declare namespace cloudData {
      * @param { ExtraData } extInfo - 透传数据，包含通知数据变更后的应用信息。
      * @param { int } [userId] - 表示用户账号ID。此参数是可选的，默认值是当前用户账号ID，如果指定了此参数，则该值必须是系统中现有的用户账号ID。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     *     is usually returned by <b>VerifyAccessToken</b>.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11 dynamic
@@ -574,14 +572,13 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { ExtraData } extInfo - 透传数据，包含通知数据变更后的应用信息。
      * @param { AsyncCallback<void> } callback - 回调函数。当数据变更通知成功，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     *     is usually returned by <b>VerifyAccessToken</b>.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11 dynamic
@@ -596,14 +593,13 @@ declare namespace cloudData {
      * @param { ExtraData } extInfo - 透传数据，包含通知数据变更后的应用信息。
      * @param { int } userId - 用户账号ID，指系统中现有的用户账号ID。
      * @param { AsyncCallback<void> } callback - 回调函数。当数据变更通知成功，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 201 - Permission verification failed, which
-     *     is usually returned by <b>VerifyAccessToken</b>.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 11 dynamic
@@ -618,13 +614,13 @@ declare namespace cloudData {
      * @param { string } accountId - 已登录的云账号ID。
      * @param { string } bundleName - 应用包名。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 10 dynamic
@@ -639,13 +635,13 @@ declare namespace cloudData {
      * @param { string } accountId - 已登录的云账号ID。
      * @param { string } bundleName - 应用包名。
      * @param { AsyncCallback<void> } callback - 回调函数。当通知云端的数据变更成功，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 10 dynamic
@@ -661,13 +657,13 @@ declare namespace cloudData {
      * @param { string } bundleName - 应用包名。
      * @param { string } [storeId] - 数据库名称。默认值为空字符串，此时将查询当前应用所有的本地数据库。
      * @returns { Promise<Record<string, Array<StatisticInfo>>> } 返回以表名为键、统计信息数组为值的结果集。
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 12 dynamic
@@ -687,13 +683,13 @@ declare namespace cloudData {
      * @param { string } bundleName - 应用包名。
      * @param { string } [storeId] - 数据库名称。默认值为空字符串，此时查询当前应用下所有数据库上一次端云同步信息。
      * @returns { Promise<Record<string, SyncInfo>> } 返回以数据库名为键，上一次端云同步信息为值的结果集。
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 12 dynamic
@@ -713,12 +709,10 @@ declare namespace cloudData {
      * @param { Array<BundleInfo> } bundleInfos - 批量查询的应用信息数组。取值范围：数组长度为[1, 30]，超过该范围返回14800001错误码。
      * @returns { Promise<Record<string, Record<string, SyncInfo>>> } Promise对象，返回应用包名以及对应数据库的上一次端云同步信息结果集。外层Record的键为应用
      *     包名，内层Record的键为数据库名。
-     * @throws { BusinessError } 201 - Permission verification failed,
-     *     usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported
-     *     because the device does not support the device-cloud capability.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. the accountId is empty;
      *     2. the bundlename is null; 3. the number of bundleInfos exceeds the upper limit or the number is 0.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -738,12 +732,10 @@ declare namespace cloudData {
      * @param { Array<BundleInfo> } bundleInfos - 订阅的应用信息数组。取值范围：数组长度为[1, 30]，超过该范围返回14800001错误码。
      * @param { Callback<Record<string, Record<string, SyncInfo>>> } progress - 回调函数。返回应用包名以及对应数据库的同步信息结果集。外层Record的键为应用
      *     包名，内层Record的键为数据库名。
-     * @throws { BusinessError } 201 - Permission verification failed,
-     *     usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported
-     *     because the device does not support the device-cloud capability.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. bundlename is null;
      *     <br>2. the number of bundleInfos exceeds the upper limit or the number is 0.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -764,12 +756,10 @@ declare namespace cloudData {
      *     阅时保持一致。
      * @param { Callback<Record<string, Record<string, SyncInfo>>> } [progress] - 回调函数。如果传入此参数，则取消订阅指定的回调函数；如果不传此参数，则取消该
      *     应用的所有订阅。
-     * @throws { BusinessError } 201 - Permission verification failed,
-     *     usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported
-     *     because the device does not support the device-cloud capability.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. bundlename is null;
      *     <br>2. the number of bundleInfos exceeds the upper limit or the number is 0.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -790,13 +780,13 @@ declare namespace cloudData {
      * @param { Record<string, ClearAction> } appActions - 待清除数据的应用信息及各应用的清除规则，键为应用包名，值为清除规则。 [since 11]
      * @param { Record<string, ClearAction> } appActions - 待清除数据的应用信息及各应用的清除规则，键为应用包名，值为清除规则。 [since 10 - 10]
      * @param { AsyncCallback<void> } callback - 回调函数。当清除本地下载的云端数据成功，err为undefined，否则为错误对象。
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 10 dynamic
@@ -816,14 +806,13 @@ declare namespace cloudData {
       * @param { object } appActions - 待清除数据的应用信息及各应用的清除规则，键为应用包名，值为清除规则。 [since 10 - 10]
       * @param { Record<string, ClearAction> } appActions - 待清除数据的应用信息及各应用的清除规则，键为应用包名，值为清除规则。 [since 11]
       * @returns { Promise<void> } Promise对象，无返回结果。
-      * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by
-      *     VerifyAccessToken.
-      * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-      *     uses system API.
+      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
       * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
       *     2. Incorrect parameter types;
       *     3. Parameter verification failed.
-      * @throws { BusinessError } 801 - Capability not supported.
+      * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+      *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
       * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
       * @systemapi
       * @since 10 dynamic
@@ -840,10 +829,10 @@ declare namespace cloudData {
      * @param { Record<string, ClearConfig> } [config] - 端云协同数据库级清除规则。键为应用包名，值为该应用数据库清除规则。清除规则优先级：表级 > 数据库级 > 应用级。当未配置该参
      *     数时，默认使用应用级的数据清除规则。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @stagemodelonly
@@ -862,13 +851,13 @@ declare namespace cloudData {
      * @param { StrategyType } strategy - 配置的策略类型。
      * @param { Array<commonType.ValueType> } param - 策略参数。不填写时默认为空，默认取消所有配置。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types;
      *     3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
      * @since 12 dynamic
@@ -885,11 +874,10 @@ declare namespace cloudData {
      * @param { relationalStore.SyncMode } mode - 端云同步类型。
      * @param { Callback<relationalStore.ProgressDetails> } progress - 同步进度回调。返回ProgressDetails实例对象。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - Permission verification failed,
-     *     <br>usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     <br>application which is not a system application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions;
      *     <br>2. Missing GROUP BY clause.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -914,11 +902,10 @@ declare namespace cloudData {
      * @param { relationalStore.CloudSyncConfig } config - 云同步配置。
      * @param { Callback<relationalStore.ProgressDetails> } progress - 进度回调函数。返回ProgressDetails实例对象。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - Permission verification failed,
-     *     <br>usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Permission verification failed, application is not a system application.
-     * @throws { BusinessError } 801 - Capability not supported
-     *     because the device does not support the device-cloud capability.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Empty conditions.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
      * @systemapi
@@ -937,12 +924,10 @@ declare namespace cloudData {
      * @permission ohos.permission.CLOUDDATA_CONFIG
      * @param { Array<BundleInfo> } bundleInfos - 应用包信息配置数组。取值范围：数组长度为[1, 30]，超过该范围返回14800001错误码。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - Permission verification failed,
-     *     <br>usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system
-     *     application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported
-     *     because the device does not support the device-cloud capability.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. bundlename is null;
      *     <br>2. the number of bundleInfos exceeds the upper limit or the number is 0.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
@@ -1010,7 +995,8 @@ declare namespace cloudData {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2.
    *     Incorrect parameter types;
    *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+   *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @since 12 dynamic
    * @since 23 static
@@ -1434,11 +1420,11 @@ declare namespace cloudData {
      * @param { Array<Participant> } participants - 端云共享的参与者。
      * @param { Array<string> } [columns] - 表示要查询的列字段名。默认为undefined，不返回列字段。
      * @returns { Promise<relationalStore.ResultSet> } Promise对象，返回查询并共享的共享资源标识结果集。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1458,11 +1444,11 @@ declare namespace cloudData {
      * @param { relationalStore.RdbPredicates } predicates - 表示查询共享资源标识的数据的谓词条件。
      * @param { Array<Participant> } participants - 端云共享的参与者。
      * @param { AsyncCallback<relationalStore.ResultSet> } callback - 回调函数。返回查询并共享的共享资源标识结果集。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1483,11 +1469,11 @@ declare namespace cloudData {
      * @param { Array<Participant> } participants - 端云共享的参与者。
      * @param { Array<string> } columns - 表示要查询的列字段名。
      * @param { AsyncCallback<relationalStore.ResultSet> } callback - 回调函数。返回查询并共享的共享资源标识结果集。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1507,11 +1493,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - 端云共享数据的资源标识。
      * @param { Array<Participant> } participants - 端云共享的参与者。
      * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - 回调函数。返回端云共享的结果。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1529,11 +1515,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - 端云共享数据的资源标识。
      * @param { Array<Participant> } participants - 端云共享的参与者。
      * @returns { Promise<Result<Array<Result<Participant>>>> } Promise对象，返回端云共享的结果。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1550,11 +1536,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - 端云共享数据的资源标识。
      * @param { Array<Participant> } participants - 端云共享参与者。
      * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - 回调函数。返回取消共享的结果。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1572,11 +1558,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - 端云共享数据的资源标识。
      * @param { Array<Participant> } participants - 端云共享的参与者。
      * @returns { Promise<Result<Array<Result<Participant>>>> } Promise对象，返回取消共享的结果。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1592,11 +1578,11 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - 端云共享数据的资源标识。
      * @param { AsyncCallback<Result<void>> } callback - 回调函数。返回退出共享的结果。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1609,11 +1595,11 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - 端云共享数据的资源标识。
      * @returns { Promise<Result<void>> } Promise对象，返回退出端云共享的结果。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1627,11 +1613,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - 端云共享数据的资源标识。
      * @param { Array<Participant> } participants - 端云共享的参与者。
      * @param { AsyncCallback<Result<Array<Result<Participant>>>> } callback - 回调函数。返回更改权限的结果。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1649,11 +1635,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - 端云共享数据的资源标识。
      * @param { Array<Participant> } participants - 端云共享的参与者。
      * @returns { Promise<Result<Array<Result<Participant>>>> } Promise对象，返回更改共享参与者权限的结果。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1669,11 +1655,11 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - 端云共享数据的资源标识。
      * @param { AsyncCallback<Result<Array<Participant>>> } callback - 回调函数。返回查询共享参与者的结果。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1686,11 +1672,11 @@ declare namespace cloudData {
      *
      * @param { string } sharingResource - 端云共享数据的资源标识。
      * @returns { Promise<Result<Array<Participant>>> } Promise对象，返回查询共享参与者的结果。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1703,11 +1689,11 @@ declare namespace cloudData {
      *
      * @param { string } invitationCode - 端云共享的邀请码。
      * @param { AsyncCallback<Result<Array<Participant>>> } callback - 回调函数。返回查询共享参与者的结果。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1723,11 +1709,11 @@ declare namespace cloudData {
      *
      * @param { string } invitationCode - 端云共享的邀请码。
      * @returns { Promise<Result<Array<Participant>>> } Promise对象，返回查询共享参与者的结果。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1741,11 +1727,11 @@ declare namespace cloudData {
      * @param { string } invitationCode - 端云共享的邀请码。
      * @param { State } state - 确认邀请的状态。
      * @param { AsyncCallback<Result<string>> } callback - 回调函数。返回确认邀请的结果。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1759,11 +1745,11 @@ declare namespace cloudData {
      * @param { string } invitationCode - 端云共享的邀请码。
      * @param { State } state - 确认邀请的状态。
      * @returns { Promise<Result<string>> } Promise对象，返回确认共享邀请的结果。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1777,11 +1763,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - 端云共享数据的资源标识。
      * @param { State } state - 更改邀请的状态。
      * @param { AsyncCallback<Result<void>> } callback - 回调函数。返回更改邀请状态的结果。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1795,11 +1781,11 @@ declare namespace cloudData {
      * @param { string } sharingResource - 端云共享数据的资源标识。
      * @param { State } state - 更改邀请的状态。
      * @returns { Promise<Result<void>> } Promise对象，返回更改共享邀请状态的结果。
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
      * @since 11 dynamic
@@ -1884,7 +1870,8 @@ declare namespace cloudData {
    * 在已打开端云同步且应用关闭自动同步的条件下，注册自动同步触发事件通知。当满足自动触发条件时，回调函数会被调用。
    *
    * @param { Callback<AutoSyncTriggerInfo> } observer - 回调函数，返回自动同步触发信息。
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+   *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -1895,7 +1882,8 @@ declare namespace cloudData {
    * 取消订阅自动同步触发事件通知。
    *
    * @param { Callback<AutoSyncTriggerInfo> } [observer] - 回调函数。 若传入observer，则取消指定回调函数的订阅；若不传入observer，则取消所有已注册的订阅。
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+   *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
