@@ -2311,14 +2311,14 @@ declare namespace unifiedDataChannel {
     * @permission ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION [since 14]
     * @param { Intention } intention - 表示数据操作相关的数据通路类型，目前仅支持DRAG类型数据通道。
     * @param { ShareOptions } shareOptions - 指示[UnifiedData]{@link unifiedDataChannel.UnifiedData}支持的设备内使用范围。
-    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses
-    *     system API. [since 12 - 13]
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
+    *     API. [since 12 - 13]
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
     *     2. Incorrect parameter types;
     *     3. Parameter verification failed.
     * @throws { BusinessError } 20400001 - Settings already exist. To reconfigure, remove the existing sharing options.
-    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "
-    *     ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION". [since 14]
+    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+    *      required to call the API. [since 14]
     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
     * @systemapi [since 12 - 13]
     * @publicapi [since 14]
@@ -2334,13 +2334,13 @@ declare namespace unifiedDataChannel {
     *
     * @permission ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION [since 14]
     * @param { Intention } intention - 表示数据操作相关的数据通路类型，目前仅支持DRAG类型数据通道。
-    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-    *     uses system API. [since 12 - 13]
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
+    *     API. [since 12 - 13]
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
     *     2. Incorrect parameter types;
     *     3. Parameter verification failed.
-    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "
-    *     ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION". [since 14]
+    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+    *     required to call the API. [since 14]
     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
     * @systemapi [since 12 - 13]
     * @publicapi [since 14]

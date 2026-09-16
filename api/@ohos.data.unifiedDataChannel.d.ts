@@ -130,8 +130,43 @@ declare namespace unifiedDataChannel {
   type ValueType = int | long | double | string | boolean | image.PixelMap | Want | ArrayBuffer | RecordData | null | undefined;
 
   /**
-   * Defines URI permissions for drag intention.
-   * 
+   * URI authorization policy in drag-and-drop scenarios.
+   *
+   * >**NOTE**
+   * >
+   * >This authorization policy takes effect only in drag-and-drop scenarios and does not take effect in other scenarios.
+   *
+   * **Implementation mechanism** During drag-and-drop data transfer, the system grants temporary authorization to the
+   * target URI based on the UriPermission configuration. The authorization lifecycle is bound to the drag-and-drop
+   * session, and the temporary authorization is automatically cleared after the drag-and-drop is complete. When the
+   * receiving application accesses the URI, the system verifies the permission configuration to determine whether
+   * access is allowed. The PERSIST permission converts the temporary authorization into persistent authorization.
+   *
+   * Four permission policies are supported: no authorization, read, write, and persist. They can be used in
+   * combination, and only the following combinations take effect:
+   * - NONE only: no file authorization is granted.
+   * - READ only: only one-time read-only authorization is granted.
+   * - WRITE only: one-time read and write authorization is granted (write authorization includes read authorization).
+   * - READ+WRITE: one-time read and write authorization is granted, with the same effect as using WRITE only.
+   * - READ+PERSIST: persistent read authorization is granted.
+   * - WRITE+PERSIST: grants persistent read and write authorization.
+   * - READ+WRITE+PERSIST: grants persistent read and write authorization.
+   *
+   * Rules for applying the drag-and-drop authorization policy (in descending order of priority):
+   * - Single data level: The FileUri and HTML Unified Data Structures (UDS) and the File, Image, Video, Audio, Folder,
+   * and HTML Unified Data Content (UDC) structures support configuring authorization policy parameters, which take
+   * effect only for a single record at a time and have the highest priority.
+   * - UnifiedData level: The authorization parameters provided in UnifiedDataProperties take effect for a single
+   * drag-and-drop operation. If an authorization policy is configured for a piece of data, the configuration of that
+   * data takes precedence, with the next highest priority.
+   * - Default level: If no authorization policy is configured for either a single piece of data or
+   * UnifiedDataProperties, proxy authorization is performed according to the default drag-and-drop logic. The default
+   * logic is as follows:
+   *
+   *     - FileUri data (FileUri UDS or the File, Image, Video, Audio, and Folder UDC types): In the drag-and-drop
+   * scenario, the default authorization is READ+WRITE+PERSIST (read + write + persistent authorization).
+   *     - HTML data: read authorization is granted only for the URIs under the img tag in the HTML text.
+   *
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @stagemodelonly
    * @atomicservice
@@ -255,7 +290,9 @@ declare namespace unifiedDataChannel {
     getDelayData?: GetDelayData;
 
     /**
-     * Defines URI authorization policies for drag intention.
+     * URI authorization policies for the drag-and-drop scenario. The default value is READ+WRITE+PERSIST. This field
+     * takes effect only for a single data operation and has a lower priority. For details about the policies,
+     * see {@link UriPermission}.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
@@ -2149,8 +2186,13 @@ declare namespace unifiedDataChannel {
   }
 
   /**
-   * Inserts data to the UDMF public data channel. This API uses an asynchronous callback to return the unique 
-   * identifier of the data inserted.
+   * Writes data to the public data channel of the UDMF and generates a unique identifier for the data. This API uses
+   * an asynchronous callback to return the result.
+   *
+   * Implementation mechanism After receiving the UnifiedData object, the system verifies data integrity and serializes
+   * the data for storage. It routes the data to the corresponding storage space based on the intention value and
+   * generates a unique identifier key. The validity period of the data in the public data channel is managed by the
+   * system, and the default policy is to automatically clear the data after the application exits.
    *
    * @param { Options } options - Configuration for the data insertion operation. The **intention** field is mandatory (
    *     the DRAG channel is not supported). If it is not specified, error code 401 will be returned. The settings of
@@ -2170,8 +2212,8 @@ declare namespace unifiedDataChannel {
   function insertData(options: Options, data: UnifiedData, callback: AsyncCallback<string>): void;
 
   /**
-   * Inserts data to the UDMF public data channel. This API uses a promise to return the unique identifier of the data 
-   * inserted.
+   * Writes data to the public data channel of UDMF and generates a unique identifier for the data. This API uses a
+   * promise to return the result asynchronously.
    *
    * @param { Options } options - Configuration for the data insertion operation. The **intention** field is mandatory (
    *     the DRAG channel is not supported). If it is not specified, error code 401 will be returned. The settings of
@@ -2327,14 +2369,14 @@ declare namespace unifiedDataChannel {
     *     is supported.
     * @param { ShareOptions } shareOptions - Usage scope of the
     *     [UnifiedData]{@link unifiedDataChannel.UnifiedDataProperties}.
-    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses
-    *     system API. [since 12 - 13]
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
+    *     API. [since 12 - 13]
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
     *     2. Incorrect parameter types;
     *     3. Parameter verification failed.
     * @throws { BusinessError } 20400001 - Settings already exist. To reconfigure, remove the existing sharing options.
-    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "
-    *     ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION". [since 14]
+    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+    *      required to call the API. [since 14]
     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
     * @systemapi [since 12 - 13]
     * @publicapi [since 14]
@@ -2350,13 +2392,13 @@ declare namespace unifiedDataChannel {
     * @permission ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION [since 14]
     * @param { Intention } intention - Type of the data channel. Currently, only the data channel of the **DRAG** type
     *     is supported.
-    * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-    *     uses system API. [since 12 - 13]
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
+    *     API. [since 12 - 13]
     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
     *     2. Incorrect parameter types;
     *     3. Parameter verification failed.
-    * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission "
-    *     ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION". [since 14]
+    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+    *     required to call the API. [since 14]
     * @syscap SystemCapability.DistributedDataManager.UDMF.Core
     * @systemapi [since 12 - 13]
     * @publicapi [since 14]
