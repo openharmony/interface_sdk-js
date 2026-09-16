@@ -12359,7 +12359,7 @@ declare interface DragEvent {
   /**
    * 获取当前拖拽的x轴方向拖动速度。
    *
-   * @returns { number } 当前拖拽的x轴方向拖动速度。坐标轴原点为屏幕左上角，单位为vp，分正负方向速度，从左往右为正，反之为负。
+   * @returns { number } 当前拖拽的x轴方向拖动速度。坐标轴原点为屏幕左上角，单位为vp/s，分正负方向速度，从左往右为正，反之为负。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -12371,7 +12371,7 @@ declare interface DragEvent {
   /**
    * 获取当前拖拽的y轴方向拖动速度。
    *
-   * @returns { number } 当前拖拽的y轴方向拖动速度。坐标轴原点为屏幕左上角，单位为vp，分正负方向速度，从上往下为正，反之为负。
+   * @returns { number } 当前拖拽的y轴方向拖动速度。坐标轴原点为屏幕左上角，单位为vp/s，分正负方向速度，从上往下为正，反之为负。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -12383,7 +12383,7 @@ declare interface DragEvent {
   /**
    * 获取当前拖拽的主方向拖动速度。
    *
-   * @returns { number } 当前拖拽的主方向拖动速度。为xy轴方向速度的平方和的算术平方根，单位为vp。
+   * @returns { number } 当前拖拽的主方向拖动速度。为xy轴方向速度的平方和的算术平方根，单位为vp/s。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
