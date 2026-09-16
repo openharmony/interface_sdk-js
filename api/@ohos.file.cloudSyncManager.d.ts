@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Device-Cloud Sync Management
  * @kit CoreFileKit
  */
 
