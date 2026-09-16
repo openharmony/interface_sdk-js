@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 文件接口
  * @kit API10LessDeprecatedModules
  */
 
