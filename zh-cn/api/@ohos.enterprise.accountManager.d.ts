@@ -78,6 +78,17 @@ declare namespace accountManager {
      * @since 19
      */
     passwordExpirationNotification?: number;
+
+    /**
+     * 域账号是否支持USB key认证。
+     * 设置为**true**，表示域账号支持USB key登录；设置为**false**，表示域帐户不支持USB key身份验证。
+     * 默认值：false。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    supportUKeyAuthentication?: boolean;
   }
 
   /**
