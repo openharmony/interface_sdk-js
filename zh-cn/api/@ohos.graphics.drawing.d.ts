@@ -8072,7 +8072,7 @@ declare namespace drawing {
      * 帧动画的插值模式。
      * NONE(0) = 无插值，每帧独立显示；
      * FRAME_BLEND(1) = 帧间插值，相邻帧之间平滑过渡。
-     * 超出范围的值将被钳制为1。
+     * 超出范围的值将被钳制为FRAME_BLEND。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi

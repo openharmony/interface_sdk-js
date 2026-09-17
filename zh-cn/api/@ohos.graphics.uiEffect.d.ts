@@ -685,20 +685,20 @@ declare namespace uiEffect {
     distortionCollapse(distortionParam: DistortionParam): VisualEffect;
 
     /**
-     * 为组件添加玻璃弹珠效果。玻璃弹珠效果将弹珠与材质参数以及可选的内容层进行合成，
+     * 为组件添加玻璃弹珠效果。玻璃弹珠效果将玻璃弹珠与材质参数以及可选的内容层进行合成，
      * 产生具有折射、色散、光晕、阴影和发光的真实玻璃质感视觉效果。
      *
-     * > **说明**
-     * 
+     * > **说明：**
+     * >
      * > 作用于组件的背景层。
      *
      * @param { GlassMarbleMaterialParam } material - 材质参数，控制背景色、透明度、
      *     反射贴图、阴影、焦散和形状缩放。
-     * @param { GlassMarbleSphereParam | Mask } marbleShell - 必选的形状参数。可以是球体几何参数
+     * @param { GlassMarbleSphereParam | Mask } marbleShell - 必选的形状参数；可以是球体几何参数
      *     （圆心和半径），也可以是预置的资源图遮罩。
      * @param { GlassMarbleContentParam } [content] - 可选的内容参数，包括内容遮罩、
      *     混合内容的着色颜色、缩放、饱和度和色散。
-     * @returns { VisualEffect } - 返回附加了玻璃球效果的VisualEffect。
+     * @returns { VisualEffect } - 返回附加了玻璃弹珠效果的VisualEffect。
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly

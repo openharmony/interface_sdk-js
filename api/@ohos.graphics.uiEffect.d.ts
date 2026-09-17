@@ -799,21 +799,21 @@ declare namespace uiEffect {
     distortionCollapse(distortionParam: DistortionParam): VisualEffect;
 
     /**
-     * Adds a glass marble effect to the component. The glass marble effect composites a marble with material 
-     * parameters and an optional content layer to produce a realistic glass-like visual with refraction, 
+     * Adds a glass marble effect to the component. The glass marble effect composites a glass sphere with material
+     * parameters and an optional content layer to produce a realistic glass-like visual with refraction,
      * dispersion, halo, shadow, and glow.
      *
      * > **NOTE**
-     * 
+     * >
      * > It is applied to the background layer of the component.
      *
      * @param { GlassMarbleMaterialParam } material - The material parameters controlling background color, opacity,
      *     reflection map, shadow, caustic, and shape scaling.
-     * @param { GlassMarbleSphereParam | Mask } marbleShell - Required shape parameter. It can be sphere geometry
-     *     parameters (center and radius) or a prebuilt resource map mask.
+     * @param { GlassMarbleSphereParam | Mask } marbleShell - Required shape parameter; it can be either sphere
+     *     geometry parameters (center and radius) or a prebuilt resource map mask.
      * @param { GlassMarbleContentParam } [content] - Optional content parameters including a content mask,
      *     tint color, scaling, saturation, and chromatic dispersion of the blended content.
-     * @returns { VisualEffect } - Returns the VisualEffect with the glass sphere effect attached.
+     * @returns { VisualEffect } - Returns the VisualEffect with the glass marble effect attached.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -1251,7 +1251,7 @@ declare namespace uiEffect {
    */
   interface GlassMarbleMaterialParam {
     /**
-     * Average background color, the alpha channel is not used.
+     * Average background color. The alpha channel is not used.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1263,7 +1263,7 @@ declare namespace uiEffect {
     /**
      * Overall opacity of the glass effect.
      * The value range is [0, 1]; a value of 0 is fully transparent, 1 is fully opaque.
-     * Out‑of‑range values will be clamped internally.
+     * Out-of-range values will be clamped internally.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1274,8 +1274,8 @@ declare namespace uiEffect {
 
     /**
      * Vertical offset of the shadow, normalized to the shape radius.
-     * The value range is [-1, 1]; out‑of‑range values will be clamped internally.
-     * 
+     * The value range is [-1, 1]; out-of-range values will be clamped internally.
+     *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -1285,7 +1285,7 @@ declare namespace uiEffect {
 
     /**
      * Radius of the shadow, normalized to the shape radius.
-     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
+     * The value range is [0, 1]; out-of-range values will be clamped internally.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1296,8 +1296,8 @@ declare namespace uiEffect {
 
     /**
      * Edge softness of the shadow.
-     * The value range is [0, 1]; a value of 0 produces a hard edge, 1 produces a fully soft edge.
-     * Out‑of‑range values will be clamped internally.
+     * The value range is [0, 1]; a value of 0 produces a hard edge, and 1 produces a fully soft edge.
+     * Out-of-range values will be clamped internally.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1308,8 +1308,8 @@ declare namespace uiEffect {
 
     /**
      * Overall opacity of the shadow.
-     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
-     * 
+     * The value range is [0, 1]; out-of-range values will be clamped internally.
+     *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -1319,7 +1319,7 @@ declare namespace uiEffect {
 
     /**
      * Vertical offset of the caustic (focused light), normalized to the shape radius.
-     * The value range is [-1, 1]; out‑of‑range values will be clamped internally.
+     * The value range is [-1, 1]; out-of-range values will be clamped internally.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1330,8 +1330,8 @@ declare namespace uiEffect {
 
     /**
      * Radius of the caustic (focused light), normalized to the shape radius.
-     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
-     * 
+     * The value range is [0, 1]; out-of-range values will be clamped internally.
+     *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -1341,9 +1341,9 @@ declare namespace uiEffect {
 
     /**
      * Edge softness of the caustic (focused light).
-     * The value range is [0, 1]; a value of 0 produces a hard edge, 1 produces a fully soft edge.
-     * Out‑of‑range values will be clamped internally.
-     * 
+     * The value range is [0, 1]; a value of 0 produces a hard edge, and 1 produces a fully soft edge.
+     * Out-of-range values will be clamped internally.
+     *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -1353,8 +1353,8 @@ declare namespace uiEffect {
 
     /**
      * Overall opacity of the caustic (focused light).
-     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
-     * 
+     * The value range is [0, 1]; out-of-range values will be clamped internally.
+     *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -1364,8 +1364,8 @@ declare namespace uiEffect {
 
     /**
      * Scaling factor applied to the glass shape.
-     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
-     * 
+     * The value range is [0, 1]; out-of-range values will be clamped internally.
+     *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -1421,7 +1421,7 @@ declare namespace uiEffect {
 
     /**
      * Scaling factor applied to the content blended inside the glass shape.
-     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
+     * The value range is [0, 1]; out-of-range values will be clamped internally.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1432,7 +1432,7 @@ declare namespace uiEffect {
  
     /**
      * Saturation of the content blended inside the glass shape.
-     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
+     * The value range is [0, 1]; out-of-range values will be clamped internally.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1444,7 +1444,7 @@ declare namespace uiEffect {
     /**
      * Chromatic dispersion of the content blended inside the glass shape.
      * Controls the color separation at the content edges.
-     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
+     * The value range is [0, 1]; out-of-range values will be clamped internally.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -1479,7 +1479,7 @@ declare namespace uiEffect {
 
     /**
      * Normalized radius of the sphere shape.
-     * The value range is [0, 1]; out‑of‑range values will be clamped internally.
+     * The value range is [0, 1]; out-of-range values will be clamped internally.
      * A value of 1 means the sphere diameter equals the minimum of the component's width and height.
      *
      * @syscap SystemCapability.Graphics.Drawing
