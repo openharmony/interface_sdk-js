@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file ExtensionAbility for Cross-Process UI Embedding
  * @kit AbilityKit
  */
 

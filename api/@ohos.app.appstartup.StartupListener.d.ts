@@ -16,7 +16,7 @@
 /**
  * The module defines the task listener used in [App Startup](docroot://application-models/app-startup.md).
  *
- * @file
+ * @file AppStartup Task Listener
  * @kit AbilityKit
  */
 

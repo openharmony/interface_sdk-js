@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file AbilityDelegatorArgs
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Device Management
  * @kit DistributedServiceKit
  */
 

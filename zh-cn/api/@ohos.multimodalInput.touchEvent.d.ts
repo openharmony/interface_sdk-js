@@ -196,7 +196,7 @@ export declare enum SourceType {
   TOUCH_SCREEN = 0,
 
   /**
-   * 笔。
+   * 手写笔。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic

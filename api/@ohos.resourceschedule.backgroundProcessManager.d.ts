@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,8 +20,8 @@
 
 /**
  * The **backgroundProcessManager** module provides APIs for background child process management. You can use these APIs
- * to suppress and unsuppress child processes to prevent child processes from occupying too many system resources and 
- * causing system stuttering. The APIs take effect only for the child processes created through 
+ * to suppress and unsuppress child processes to prevent child processes from occupying too many system resources and
+ * causing system stuttering. The APIs take effect only for the child processes created through
  * [OH_Ability_StartNativeChildProcess](docroot://reference/apis-ability-kit/c-apis/capi-native-child-process-h.md#oh_ability_startnativechildprocess)
  * .
  *
@@ -39,8 +39,8 @@ declare namespace backgroundProcessManager {
      */
     export enum ProcessPriority {
         /**
-         * Compared with **PROCESS_INACTIVE**, **PROCESS_LOWER** has a more significant suppression effect and obtains 
-         * fewer CPU resources. You are advised to set this priority when executing background child processes that 
+         * Compared with **PROCESS_INACTIVE**, **PROCESS_LOWER** has a more significant suppression effect and obtains
+         * fewer CPU resources. You are advised to set this priority when executing background child processes that
          * cannot be perceived by users, such as background image-text pages.
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
@@ -69,7 +69,7 @@ declare namespace backgroundProcessManager {
      */
     export enum PowerSaveMode {
         /**
-         * Efficiency mode. Applications set to this mode will not enter the power saving mode, where fewer CPU 
+         * Efficiency mode. Applications set to this mode will not enter the power saving mode, where fewer CPU
          * resources are available.
          *
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
@@ -110,7 +110,7 @@ declare namespace backgroundProcessManager {
 
     /**
      * Sets the child process priority. After a child process is suppressed, the CPU resources that can be obtained will
-     * be limited. If the scheduling policy of the main process changes, for example, from the background to the 
+     * be limited. If the scheduling policy of the main process changes, for example, from the background to the
      * foreground, the child process changes with the main process. To suppress the child process, call this API again.
      *
      * @param { int } pid - ID of the child process to be suppressed, which is the **pid** parameter after the child
@@ -119,7 +119,8 @@ declare namespace backgroundProcessManager {
      *     API.
      * @param { ProcessPriority } priority - Suppression priority.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: priority is out of range.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 17 dynamic
      * @since 23 static
@@ -127,7 +128,7 @@ declare namespace backgroundProcessManager {
     function setProcessPriority(pid: int, priority: ProcessPriority): Promise<void>;
 
     /**
-     * Unsuppresses the child process. In this case, the child process follows the scheduling policy of the main 
+     * Unsuppresses the child process. In this case, the child process follows the scheduling policy of the main
      * process. If the scheduling policy of the main process changes, for example, from the background to the foreground
      * , the child process changes with the main process. The effect is the same as calling **resetProcessPriority**.
      *
@@ -143,20 +144,21 @@ declare namespace backgroundProcessManager {
 
     /**
      * Sets the power saving mode for a process. This API uses a promise to return the result.
-     * 
+     *
      * You can set to enter the power saving mode when:
-     * 
+     *
      * - The application is not focused, and there are no audio operations or UI updates.
      * - The application cannot obtain the power lock through the system framework.
-     * - The application needs to perform time-consuming computing tasks, such as compression, decompression, and 
-     * compilation, which are significantly restricted by CPU resources. (In this case, the power saving mode will be 
+     * - The application needs to perform time-consuming computing tasks, such as compression, decompression, and
+     * compilation, which are significantly restricted by CPU resources. (In this case, the power saving mode will be
      * enabled forcibly.)
      *
      * @permission ohos.permission.BACKGROUND_MANAGER_POWER_SAVE_MODE
      * @param { int } pid - Process ID.
      * @param { PowerSaveMode } powerSaveMode - Power saving mode.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
      * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
      *     <br>  1. Mandatory parameters are left unspecified;
      *     <br>  2. Incorrect parameter types; 3. PowerSaveMode status is out of range.
@@ -176,7 +178,8 @@ declare namespace backgroundProcessManager {
      * @param { int } pid - Process ID.
      * @returns { Promise<boolean> } Promise used to return the query result. The value **true** means that the process
      *     is in power saving mode; the value **false** means the opposite.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
      * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -192,7 +195,8 @@ declare namespace backgroundProcessManager {
      * @permission ohos.permission.BACKGROUND_MANAGER_POWER_SAVE_MODE
      * @param { int } pid - Process ID.<br>Value range: any integer greater than 0.
      * @returns { Promise<PowerSaveMode> } Promise that returns the power saving mode of a process.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
      * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -203,11 +207,12 @@ declare namespace backgroundProcessManager {
 
     /**
      * One-tap background app cleanup
-     * 
+     *
      * @permission ohos.permission.CLEAR_BACKGROUND_APPS
      * @param { ClearType } clearType - the type of clearing background apps.
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 31800002 - Parameter error.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager

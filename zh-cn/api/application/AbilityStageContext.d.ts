@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file AbilityStageContext
  * @kit AbilityKit
  */
 

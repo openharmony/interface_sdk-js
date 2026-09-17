@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 卷管理
  * @kit CoreFileKit
  */
 

@@ -14,9 +14,7 @@
  */
 
 /**
- 音振协同
- * @file
- 音振协同
+ * @file 音振协同
  * @kit AudioKit
  */
 

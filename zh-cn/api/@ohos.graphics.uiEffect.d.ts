@@ -1089,7 +1089,7 @@ declare namespace uiEffect {
    * @unionmember { BrightnessBlender } 提亮混合器
    * @unionmember { HdrBrightnessBlender } 支持HDR的提亮混合器 [since 20]
    * @unionmember { HdrDarkenBlender } 支持HDR的压暗混合器 [since 26.0.0]
-   * @unionmember { ColorfulBrightnessBlender } 具有提亮压暗效果的混合器（保持色相） [since 26.1.0]
+    * @unionmember { ColorfulBrightnessBlender } 具有提亮压暗效果的混合器（保持色相） [since 26.2.0]
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @stagemodelonly
@@ -1262,7 +1262,7 @@ declare namespace uiEffect {
    * @systemapi
    * @stagemodelonly
    * @form
-   * @since 26.1.0 dynamiconly
+   * @since 26.2.0 dynamiconly
    */
   interface ColorfulBrightnessBlenderOptions {
     /**
@@ -1275,7 +1275,7 @@ declare namespace uiEffect {
      * @systemapi
      * @stagemodelonly
      * @form
-     * @since 26.1.0 dynamiconly
+     * @since 26.2.0 dynamiconly
      */
     darkenWeight?: double;
 
@@ -1289,7 +1289,7 @@ declare namespace uiEffect {
      * @systemapi
      * @stagemodelonly
      * @form
-     * @since 26.1.0 dynamiconly
+     * @since 26.2.0 dynamiconly
      */
     vibrancyStrength?: double;
 
@@ -1303,7 +1303,7 @@ declare namespace uiEffect {
      * @systemapi
      * @stagemodelonly
      * @form
-     * @since 26.1.0 dynamiconly
+     * @since 26.2.0 dynamiconly
      */
     lumaDiff?: double;
 
@@ -1316,7 +1316,7 @@ declare namespace uiEffect {
      * @systemapi
      * @stagemodelonly
      * @form
-     * @since 26.1.0 dynamiconly
+     * @since 26.2.0 dynamiconly
      */
     hdrEnabled?: boolean;
 
@@ -1330,7 +1330,7 @@ declare namespace uiEffect {
      * @systemapi
      * @stagemodelonly
      * @form
-     * @since 26.1.0 dynamiconly
+     * @since 26.2.0 dynamiconly
      */
     tintedColorPercent?: double;
   }
@@ -1345,7 +1345,7 @@ declare namespace uiEffect {
    * @systemapi
    * @stagemodelonly
    * @form
-   * @since 26.1.0 dynamiconly
+   * @since 26.2.0 dynamiconly
    */
   interface ColorfulBrightnessBlender {
     /**
@@ -1355,7 +1355,7 @@ declare namespace uiEffect {
      * @systemapi
      * @stagemodelonly
      * @form
-     * @since 26.1.0 dynamiconly
+     * @since 26.2.0 dynamiconly
      */
     brightnessBlenderParam: BrightnessBlenderParam;
 
@@ -1366,7 +1366,7 @@ declare namespace uiEffect {
      * @systemapi
      * @stagemodelonly
      * @form
-     * @since 26.1.0 dynamiconly
+     * @since 26.2.0 dynamiconly
      */
     options?: ColorfulBrightnessBlenderOptions;
   }
@@ -1899,7 +1899,7 @@ declare namespace uiEffect {
    * @systemapi
    * @stagemodelonly
    * @form
-   * @since 26.1.0 dynamiconly
+   * @since 26.2.0 dynamiconly
    */
   function createColorfulBrightnessBlender(brightnessBlenderParam: BrightnessBlenderParam,
     options?: ColorfulBrightnessBlenderOptions): ColorfulBrightnessBlender;

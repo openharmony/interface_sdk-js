@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Universal Keystore
+ * @file 通用密钥库系统
  * @kit UniversalKeystoreKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Zip
  * @kit BasicServicesKit
  */
 

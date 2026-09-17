@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 意图装饰器定义
  * @kit AbilityKit
  */
 

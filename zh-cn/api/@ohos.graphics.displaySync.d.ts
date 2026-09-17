@@ -27,6 +27,7 @@ import { ExpectedFrameRateRange } from './arkui/component/common';
  * 可变帧率支持让开发者以指定帧率来运行UI业务，一般用于开发者自绘制UI，并且对于帧率有特定需求的场景，系统会根据设置的期望帧率、最小帧率和最大帧率来调整绘制频率，以满足不同场景的需求。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @atomicservice [since 26.2.0]
  * @since 11 dynamic
  * @since 23 static
  */
@@ -35,6 +36,7 @@ declare namespace displaySync {
    * 开发者可以从回调函数中获取帧绘制的时间戳信息，包含当前帧到达的时间timestamp和下一帧预期到达的时间targetTimestamp。
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice [since 26.2.0]
    * @since 11 dynamic
    * @since 23 static
    */
@@ -43,6 +45,7 @@ declare namespace displaySync {
      * 当前帧到达的时间（单位：纳秒）。系统启动以来的单调递增时间。
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice [since 26.2.0]
      * @since 11 dynamic
      * @since 23 static
      */
@@ -52,6 +55,7 @@ declare namespace displaySync {
      * 下一帧预期到达的时间（单位：纳秒）。系统启动以来的单调递增时间，值应大于timestamp。
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice [since 26.2.0]
      * @since 11 dynamic
      * @since 23 static
      */
@@ -63,6 +67,7 @@ declare namespace displaySync {
    * 下列API示例中都需先使用displaySync.create()方法获取到DisplaySync实例，再通过此实例调用对应方法。
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice [since 26.2.0]
    * @since 11 dynamic
    * @since 23 static
    */
@@ -79,6 +84,7 @@ declare namespace displaySync {
      *                                 3. Parameter verification failed.
      *                                 or check if ExpectedFrameRateRange is valid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice [since 26.2.0]
      * @since 11 dynamic
      * @since 23 static
      */
@@ -91,6 +97,7 @@ declare namespace displaySync {
      * @param { 'frame' } type - 设置回调的类型（只能是'frame'类型）。
      * @param { Callback<IntervalInfo> } callback - 订阅帧变化的回调函数。IntervalInfo包含timestamp（当前帧到达时间）和targetTimestamp（下一帧预期到达时间）两个属性，单位均为纳秒。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice [since 26.2.0]
      * @since 11 dynamic
      */
     on(type: 'frame', callback: Callback<IntervalInfo>): void;
@@ -110,6 +117,7 @@ declare namespace displaySync {
      * @param { 'frame' } type - 设置回调的类型（只能是'frame'类型）。
      * @param { Callback<IntervalInfo> } [callback] - 传入调用on('frame')时注册的回调函数，用于取消订阅该回调函数。必须在已通过on('frame')注册回调后使用。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice [since 26.2.0]
      * @since 11 dynamic
      */
     off(type: 'frame', callback?: Callback<IntervalInfo>): void;
@@ -127,6 +135,7 @@ declare namespace displaySync {
      * 使通过setExpectedFrameRateRange设置的期望帧率范围生效；如果通过on('frame')注册了回调函数，则开始请求VSync信号，触发已注册的回调，每帧执行一次。和stop方法配对使用。
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice [since 26.2.0]
      * @since 11 dynamic
      * @since 23 static
      */
@@ -137,6 +146,7 @@ declare namespace displaySync {
      * stop方法会解除DisplaySync与UI上下文和窗口的关联，通常无需特定的UI上下文。
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @atomicservice [since 26.2.0]
      * @since 11 dynamic
      * @since 23 static
      */
@@ -148,6 +158,7 @@ declare namespace displaySync {
    * 
    * @returns { DisplaySync } 返回DisplaySync对象实例，用于设置帧率范围、注册帧回调函数以及控制回调的启动和停止。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @atomicservice [since 26.2.0]
    * @since 11 dynamic
    * @since 23 static
    */

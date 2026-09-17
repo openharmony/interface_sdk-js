@@ -3912,7 +3912,10 @@ declare namespace relationalStore {
      * @returns { Float32Array } The value of the specified column as a float array.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - The capability is not supported because the database is not a vector DB.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
+     *     4. The database is not a vector DB.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800013 - Column index is out of bounds.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -4635,7 +4638,9 @@ declare namespace relationalStore {
      *
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported. [since 12]
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported. [since 12]
      * @throws { BusinessError } 14800000 - Inner error. [since 12]
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
@@ -5457,8 +5462,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
@@ -5503,8 +5507,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
@@ -5703,8 +5706,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
@@ -5741,8 +5743,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
@@ -5836,8 +5837,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -5860,8 +5860,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -5888,8 +5887,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -6118,7 +6116,9 @@ declare namespace relationalStore {
      * @returns { Promise<ModifyTime> } -
      *     The promise returned by the function. ModifyTime indicates the modify time of current row.
      *     If this table does not support cloud, the {@link ModifyTime} will be empty.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Need 3 - 4  parameter(s)! 2. The RdbStore must be not nullptr.
@@ -6156,7 +6156,9 @@ declare namespace relationalStore {
      * @param { AsyncCallback<ModifyTime> } callback -
      *     The callback of getModifyTime. ModifyTime indicates the modify time of current row.
      *     If this table does not support cloud, the {@link ModifyTime} will be empty.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Need 3 - 4  parameter(s)! 2. The RdbStore must be not nullptr.
@@ -6198,7 +6200,9 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the name of the table to check.
      * @param { long } cursor - Indicates the position of the data to be cleaned up.
      * @param { AsyncCallback<void> } callback - Indicates the callback invoked to return the result.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
@@ -6232,7 +6236,9 @@ declare namespace relationalStore {
      *
      * @param { string } table - Indicates the name of the table to check.
      * @param { AsyncCallback<void> } callback - The callback of clean.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Need 1 - 3  parameter(s). 2. The RdbStore must be not nullptr.
@@ -6269,7 +6275,9 @@ declare namespace relationalStore {
      * @param { string } table - Indicates the name of the table to check.
      * @param { long } [cursor] - Indicates the cursor.
      * @returns { Promise<void> } -The promise returned by the function.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
@@ -6308,8 +6316,7 @@ declare namespace relationalStore {
      * @param { long } [cursor] - Indicates the cursor.
      *     The value must be greater than 0. Default behavior: Clear all dirty data.
      * @returns { Promise<void> } -The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -6334,7 +6341,9 @@ declare namespace relationalStore {
      * @param { Array<string> } [columns] - The specified columns to query.
      * @returns { Promise<ResultSet> } -The promise returned by the function.
      *     {@link ResultSet} is query result.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
@@ -6370,7 +6379,9 @@ declare namespace relationalStore {
      *     The specified query condition by the instance object of {@link RdbPredicates}.
      * @param { AsyncCallback<ResultSet> } callback - The callback of querySharingResource.
      *     {@link ResultSet} is query result.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
@@ -6407,7 +6418,9 @@ declare namespace relationalStore {
      * @param { Array<string> } columns - The specified columns to query.
      * @param { AsyncCallback<ResultSet> } callback - The callback of querySharingResource.
      *     {@link ResultSet} is query result.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be not nullptr.
@@ -6445,7 +6458,10 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.). [since 12]
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
+     *     4. The sql(attach,begin,commit,rollback etc.). [since 12]
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
@@ -6482,7 +6498,10 @@ declare namespace relationalStore {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
-     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.). [since 12]
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
+     *     4. The sql(attach,begin,commit,rollback etc.). [since 12]
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
@@ -6519,7 +6538,10 @@ declare namespace relationalStore {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
-     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.). [since 12]
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
+     *     4. The sql(attach,begin,commit,rollback etc.). [since 12]
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted. [since 12]
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @throws { BusinessError } 14800015 - The database does not respond. [since 12]
@@ -6554,7 +6576,10 @@ declare namespace relationalStore {
      * @returns { Promise<ValueType> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
+     *     4. The sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -6591,7 +6616,10 @@ declare namespace relationalStore {
      * @returns { Promise<ValueType> } The promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
+     *     4. The sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -6691,7 +6719,10 @@ declare namespace relationalStore {
      *
      * @returns { Promise<long> } Returns the transaction ID.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: The RdbStore verification failed.
-     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
+     *     4. The sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -6976,8 +7007,7 @@ declare namespace relationalStore {
      * Restores a database from a specified database file.
      *
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
@@ -7013,7 +7043,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
@@ -7030,7 +7062,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
@@ -7050,7 +7084,9 @@ declare namespace relationalStore {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
@@ -7072,7 +7108,9 @@ declare namespace relationalStore {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
@@ -7099,7 +7137,9 @@ declare namespace relationalStore {
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800051 - The type of the distributed table does not match.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 10 dynamic
@@ -7114,11 +7154,10 @@ declare namespace relationalStore {
      *     key is the name of the table where the data is to be deleted,
      *     value is the device ID list of cross device end needs to be retained.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
      * @throws { BusinessError } 14800042 - The database does not exist. Possible causes: 1. The database is deleted;
@@ -7140,11 +7179,10 @@ declare namespace relationalStore {
      * @param { RdbPredicates } predicates -
      *     The specified query condition by the instance object of {@link RdbPredicates}.
      * @returns { Promise<long> } Returns the number of updated logs.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
-     * @throws { BusinessError } 14800014 - The RdbStore or ResultSet is already closed.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800015 - The database does not respond.
      * @throws { BusinessError } 14800021 - SQLite: Generic error.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -7169,7 +7207,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
@@ -7188,7 +7228,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
@@ -7210,7 +7252,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @FaAndStageModel
@@ -7231,7 +7275,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
@@ -7252,7 +7298,8 @@ declare namespace relationalStore {
      * @param { RdbPredicates } predicates - The specified sync condition by the instance object
      *     of {@link RdbPredicates}.
      * @returns { Promise<Array<SyncResult>> } devices sync result array, see {@link SyncResult} for details.
-     * @throws { BusinessError } 201 - the application does not have permission to call this function.
+     * @throws { BusinessError } 201 - Permission verification failed.
+     *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -7272,7 +7319,9 @@ declare namespace relationalStore {
      *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      *     3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type.
      *     5. The callback must be a function.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10 dynamic
@@ -7290,7 +7339,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error.
      *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      *     3. The mode must be a SyncMode of cloud. 4. The progress must be a callback type.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10 dynamic
@@ -7310,7 +7361,9 @@ declare namespace relationalStore {
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameter types.
      *     <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10 dynamic
@@ -7335,7 +7388,9 @@ declare namespace relationalStore {
      *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      *     3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty.
      *     5. The progress must be a callback type.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @since 10 dynamic
@@ -7356,9 +7411,10 @@ declare namespace relationalStore {
      *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      *     3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty.
      *     5. The progress must be a callback type. 6. The callback must be a function.
-     * @throws { BusinessError } 202 -
-     *     if permission verification failed, application which is not a system application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -7385,9 +7441,10 @@ declare namespace relationalStore {
      *     Possible causes: 1. Need 2 - 4  parameter(s). 2. The RdbStore must be not nullptr.
      *     3. The mode must be a SyncMode of cloud. 4. The tablesNames must be not empty.
      *     5. The progress must be a callback type.
-     * @throws { BusinessError } 202 - if permission verification failed, application which is not a system
-     *     application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -7413,8 +7470,10 @@ declare namespace relationalStore {
      * Stops synchronizing data with the cloud.
      *
      * @returns { Promise<void> } : The promise returned by the function.
-     * @throws { BusinessError } 801 - Capability not supported
-     *     because the device does not support the cloud synchronization capability.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
+     *     4. The device does not support the cloud synchronization capability.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @stagemodelonly
@@ -7435,7 +7494,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
@@ -7462,7 +7523,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 14800000 - Inner error.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
@@ -7482,7 +7545,9 @@ declare namespace relationalStore {
      *     {Array<string>}: the observer of data change events in the distributed database.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
@@ -7501,9 +7566,10 @@ declare namespace relationalStore {
      *     {Array<ChangeInfo>}: The change info of data change events in the distributed database.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform [since 26.1.0]
@@ -7522,7 +7588,9 @@ declare namespace relationalStore {
      *     {Array<ChangeInfo>}: The change info of data change events in the distributed database.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 23 static
@@ -7541,7 +7609,9 @@ declare namespace relationalStore {
      * @param { Callback<void> } observer - The observer of data change events in the database.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
@@ -7560,7 +7630,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed;
      *     <br>4. The event must be a not empty string; 5. The progress must be function.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11 dynamic
@@ -7571,7 +7643,9 @@ declare namespace relationalStore {
      * Register an automatic synchronization callback to the database.
      *
      * @param { Callback<ProgressDetails> } progress - Callback used to return the {@link ProgressDetails} result.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 23 static
@@ -7586,7 +7660,9 @@ declare namespace relationalStore {
      *     Indicates the callback used to return the SQL execution statistics {@link SqlExeInfo} in the database.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -7602,7 +7678,9 @@ declare namespace relationalStore {
      *     Indicates the callback used to return the SQL execution statistics {@link SqlExeInfo} in the database.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -7618,7 +7696,9 @@ declare namespace relationalStore {
      * @param { 'perfStat' } event - Event type, which must be 'perfStat'.
      * @param { Callback<SqlExecutionInfo> } observer - Callback used to return the SQL execution statistics
      *     {@link SqlExecutionInfo}.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -7631,7 +7711,9 @@ declare namespace relationalStore {
      *
      * @param { Callback<SqlExecutionInfo> } observer - Callback used to return the SQL execution statistics
      *     {@link SqlExecutionInfo}.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -7645,7 +7727,9 @@ declare namespace relationalStore {
      * @param { 'sqliteErrorOccurred' } event - Event type, which must be 'sqliteErrorOccurred'.
      * @param { Callback<ExceptionMessage> } observer - Callback used to return the SQL execution errorlog
      *     {@link ExceptionMessage }.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -7658,7 +7742,9 @@ declare namespace relationalStore {
      *
      * @param { Callback<ExceptionMessage> } observer - Callback used to return the SQL execution errorlog
      *     {@link ExceptionMessage }.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -7675,7 +7761,9 @@ declare namespace relationalStore {
      * @param { Callback<Array<string>> } observer - {Array<string>}: the data change observer already registered.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 9 dynamic
@@ -7693,9 +7781,10 @@ declare namespace relationalStore {
      *     {Array<ChangeInfo>}: the change info already registered.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform [since 26.1.0]
@@ -7717,7 +7806,9 @@ declare namespace relationalStore {
      *     {Array<ChangeInfo>}: the change info already registered.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 23 static
@@ -7734,7 +7825,9 @@ declare namespace relationalStore {
      * @param { Callback<void> } [observer] - The data change observer already registered. [since 12]
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
@@ -7753,7 +7846,9 @@ declare namespace relationalStore {
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Need 1 - 3  parameter(s)! 2. The RdbStore must be valid.
      *     3. The event must be a not empty string. 4. The progress must be function.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 11 dynamic
@@ -7765,7 +7860,9 @@ declare namespace relationalStore {
      *
      * @param { Callback<ProgressDetails> } [progress] - the specified sync condition by
      *     the instance object of {@link ProgressDetails}.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @since 23 static
@@ -7779,7 +7876,9 @@ declare namespace relationalStore {
      * @param { Callback<SqlExecutionInfo> } observer - Indicates the callback to unregister.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
@@ -7792,7 +7891,9 @@ declare namespace relationalStore {
      * Unsubscribes from the SQL statistics.
      *
      * @param { Callback<SqlExecutionInfo> } [observer] - Indicates the callback to unregister.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @stagemodelonly
@@ -7806,7 +7907,9 @@ declare namespace relationalStore {
      *
      * @param { 'perfStat' } event - Event type, which must be 'perfStat'.
      * @param { Callback<SqlExecutionInfo> } observer - Callback to unregister.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -7818,7 +7921,9 @@ declare namespace relationalStore {
      * Unsubscribes from the SQL performance statistics.
      *
      * @param { Callback<SqlExecutionInfo> } [observer] - Callback to unregister.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -7831,7 +7936,9 @@ declare namespace relationalStore {
      *
      * @param { 'sqliteErrorOccurred' } event - Indicates the event type, which must be 'sqliteErrorOccurred'.
      * @param { Callback<ExceptionMessage> } observer - Callback to unregister.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -7843,7 +7950,9 @@ declare namespace relationalStore {
      * Unsubscribes from the SQL execution error logs.
      *
      * @param { Callback<ExceptionMessage> } [observer] - Callback to unregister.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @crossplatform
@@ -7857,7 +7966,9 @@ declare namespace relationalStore {
      * @param { string } event - Indicates the subscription event.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800050 - Failed to obtain the subscription service.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
@@ -7889,7 +8000,9 @@ declare namespace relationalStore {
      * @returns { Promise<int> } Promise used to return the number of attached databases.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
@@ -7928,7 +8041,9 @@ declare namespace relationalStore {
      * @returns { Promise<int> } Promise used to return the number of attached databases.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
@@ -8098,8 +8213,7 @@ declare namespace relationalStore {
      * Lock cloud container before non-auto cloud sync.
      *
      * @returns { Promise<int> } The expired time of the lock, in ms.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 12 dynamic
@@ -8111,8 +8225,7 @@ declare namespace relationalStore {
      * Unlock cloud container.
      *
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed,
-     *     application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @since 12 dynamic
@@ -8149,7 +8262,9 @@ declare namespace relationalStore {
      *     If valid cryptoParam passed, the cryptoParam is used to rekey.
      *     If cryptoParam is null or not passed, the default cryptoParam is used.
      * @returns { Promise<void> } - Promise that returns no value.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -8174,7 +8289,9 @@ declare namespace relationalStore {
      * @param { string } locale - Language related to the locale.
      *     for example, zh. The value complies with the ISO 639 standard.
      * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @throws { BusinessError } 14800024 - SQLite: The database file is locked.
@@ -8191,7 +8308,9 @@ declare namespace relationalStore {
      *
      * @param { CryptoParam } cryptoParam - Crypto parameters.
      * @returns { Promise<void> } - Promise that returns no value.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800001 - Invalid arguments. Possible causes: 1. Parameter is out of valid range.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -9167,7 +9286,10 @@ declare namespace relationalStore {
      * @returns { Promise<ValueType> } Promise used to return the SQL execution result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
+     *     4. The sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -9215,7 +9337,10 @@ declare namespace relationalStore {
      * @returns { ValueType } SQL execution result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported the sql(attach,begin,commit,rollback etc.).
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+     *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+     *     3. A dependent service feature is not supported.
+     *     4. The sql(attach,begin,commit,rollback etc.).
      * @throws { BusinessError } 14800000 - Inner error.
      * @throws { BusinessError } 14800011 - The current operation failed because the database is corrupted.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
@@ -9324,8 +9449,8 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800029 - SQLite: The database is full. [since 12]
    * @throws { BusinessError } 14800030 - SQLite: Unable to open the database file. [since 12]
    * @throws { BusinessError } 14800020 - The secret key is corrupted or lost. [since 14]
-   * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 14]
-   * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 14]
+   * @throws { BusinessError } 14800022 - SQLite: Callback routine requested an abort. [since 12]
+   * @throws { BusinessError } 14800023 - SQLite: Access permission denied. [since 12]
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform [since 10]
    * @since 9 dynamic
@@ -9468,7 +9593,9 @@ declare namespace relationalStore {
    * @throws { BusinessError } 14800010 - Failed to open or delete the database by an invalid database path.
    * @throws { BusinessError } 14801001 - The operation is supported in the stage model only.
    * @throws { BusinessError } 14801002 - Invalid data group ID.
-   * @throws { BusinessError } 801 - Capability not supported. [since 12]
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability; 2. The chip does not support the capability;
+   *     3. A dependent service feature is not supported. [since 12]
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
    * @crossplatform
    * @since 10 dynamic

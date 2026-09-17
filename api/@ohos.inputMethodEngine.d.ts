@@ -892,7 +892,8 @@ declare namespace inputMethodEngine {
      * @param { 'callingDisplayDidChange' } type - Event type, which is **'callingDisplayDidChange'**.
      * @param { Callback<number> } callback - Callback used to return the screen ID of the window corresponding to the
      *     edit box.
-     * @throws { BusinessError } 801 - capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the capability;
+     *     2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 18 dynamic
      */
@@ -1189,7 +1190,8 @@ declare namespace inputMethodEngine {
      * Subscribe 'callingDisplayDidChange' event.
      *
      * @param { Callback<int> } callback - the callback called when calling display id changed.
-     * @throws { BusinessError } 801 - capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the capability;
+     *     2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
@@ -2292,7 +2294,8 @@ declare namespace inputMethodEngine {
      * Obtains the additional options for binding an input method.
      *
      * @returns { AttachOptions } Additional options for binding an input method.
-     * @throws { BusinessError } 801 - Capability not supported. [since 19 - 19]
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the capability;
+     *     2. The chip does not support the capability; 3. A dependent service feature is not supported. [since 19 - 19]
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19 dynamic
      */
@@ -2315,7 +2318,8 @@ declare namespace inputMethodEngine {
      *     value is fixed to **'attachOptionsDidChange'**.
      * @param { Callback<AttachOptions> } callback - Callback used to return the additional options for binding an input
      *     method.
-     * @throws { BusinessError } 801 - Capability not supported. [since 19 - 19]
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the capability;
+     *     2. The chip does not support the capability; 3. A dependent service feature is not supported. [since 19 - 19]
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19 dynamic
      */
@@ -3009,7 +3013,8 @@ declare namespace inputMethodEngine {
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
-     * @throws { BusinessError } 801 - capability not supported. [since 18]
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the capability;
+     *     2. The chip does not support the capability; 3. A dependent service feature is not supported. [since 18]
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
@@ -3139,7 +3144,7 @@ declare namespace inputMethodEngine {
      * @param { boolean } isPrivacyMode - Whether to set the input method panel to privacy mode.
      *     <br>- **true**: privacy mode.
      *     <br>- **false**: non-privacy mode.
-     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3473,7 +3478,8 @@ declare namespace inputMethodEngine {
      * available since API version 10)
      *
      * @param { ImmersiveEffect } effect - Immersive effect.
-     * @throws { BusinessError } 801 - capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the capability;
+     *     2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
      *     1. input method panel not created. 2. the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800013 - window manager service error.
@@ -3561,7 +3567,7 @@ declare namespace inputMethodEngine {
      *     number.
      * @param { double } offsetY - Offset of the shadow along the y-axis, in pixels. The value is a floating-point
      *     number.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
      *     Possible causes: Panel's flag is FLG_FIXED.

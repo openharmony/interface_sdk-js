@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file File interface
  * @kit API10LessDeprecatedModules
  */
 

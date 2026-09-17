@@ -19,7 +19,7 @@
  * ，并通过[onSessionCreate]{@link ./@ohos.app.ability.UIExtensionAbility:UIExtensionAbility.onSessionCreate}回调传递给开发者。一个
  * UIExtensionAbility组件对应一个UIExtensionContentSession对象，每个UIExtensionAbility组件的UIExtensionContentSession对象之间互不影响。
  *
- * @file
+ * @file 带界面扩展能力的界面操作类
  * @kit AbilityKit
  */
 

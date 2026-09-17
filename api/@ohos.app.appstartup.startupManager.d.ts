@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file AppStartup Management
  * @kit AbilityKit
  */
 

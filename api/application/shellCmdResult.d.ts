@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file ShellCmdResult
  * @kit AbilityKit
  */
 

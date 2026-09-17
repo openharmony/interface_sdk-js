@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Configuration Policy
  * @kit BasicServicesKit
  */
 

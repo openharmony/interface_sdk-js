@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Certificate Framework
  * @kit DeviceCertificateKit
  */
 import type { AsyncCallback } from './@ohos.base';

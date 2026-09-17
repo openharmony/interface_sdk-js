@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Distributed Extension Ability
  * @kit DistributedServiceKit
  */
 

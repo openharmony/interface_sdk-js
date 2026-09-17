@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file URI String Parsing
  * @kit ArkTS
  */
 

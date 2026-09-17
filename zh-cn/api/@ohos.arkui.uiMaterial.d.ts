@@ -542,7 +542,7 @@ declare namespace uiMaterial {
      * 
      * 默认值：undefined
      *
-     * @default Color.Transparent
+     * @default undefined
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform

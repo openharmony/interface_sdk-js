@@ -241,6 +241,41 @@ export interface ShortcutWant {
    * @since 23 static
    */
   parameters?: Array<ParameterItem>;
+
+  /**
+   * Action to take when starting the shortcut, consistent with the **action** field of
+   * [Want]{@link ./../@ohos.app.ability.Want:Want#action}. It is used with **uri** or **parameters** to specify the
+   * operation to be performed in implicit Want mode.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  action?: string;
+
+  /**
+   * URI to be matched when starting the shortcut, consistent with the **uri** field of
+   * [Want]{@link ./../@ohos.app.ability.Want:Want#uri}.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  uri?: string;
+
+  /**
+   * How the shortcut Want object will be handled. The value is of the enumeration type
+   * [Flags]{@link ./../@ohos.app.ability.wantConstant:wantConstant.Flags}, consistent with the **flags** field of
+   * [Want]{@link ./../@ohos.app.ability.Want:Want#flags}.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  flags?: int;
 }
 
 /**

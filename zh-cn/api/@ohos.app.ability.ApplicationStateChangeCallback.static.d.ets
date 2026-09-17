@@ -15,7 +15,7 @@
  */
 
 /**
- * @file
+ * @file 应用进程状态变化监听器
  * @kit AbilityKit
  */
 

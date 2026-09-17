@@ -167,7 +167,7 @@ export declare interface UIExtensionProxy {
    * AnonyMous Object Rectification
    *
    * @param { Record<string, RecordData> } data - 异步发送给被拉起的UIExtensionAbility的数据。API version 18之前的版本，data的类型为Object。
-   * @throws { BusinessError } 202 - 非系统应用不允许使用系统API。
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -180,9 +180,9 @@ export declare interface UIExtensionProxy {
    *
    * @param { Record<string, RecordData> } data - 同步发送给被拉起的UIExtensionAbility的数据。API version 18之前的版本，data的类型为Object。
    * @returns { Record<string, RecordData> } data - 扩展Ability回复的数据。
-   * @throws { BusinessError } 100011 - 没有注册响应该请求的回调。
-   * @throws { BusinessError } 100012 - 传输数据失败。
-   * @throws { BusinessError } 202 - 非系统应用不允许使用系统API。
+   * @throws { BusinessError } 100011 - No callback has been registered to respond to this request.
+   * @throws { BusinessError } 100012 - Transferring data failed.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -194,7 +194,7 @@ export declare interface UIExtensionProxy {
    * AnonyMous Object Rectification
    *
    * @param { Callback<UIExtensionProxy> } callback - 监听事件的回调。
-   * @throws { BusinessError } 202 - 非系统应用不允许使用系统API。
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -206,7 +206,7 @@ export declare interface UIExtensionProxy {
    * AnonyMous Object Rectification
    *
    * @param { Callback<UIExtensionProxy> } callback - 监听事件的回调。
-   * @throws { BusinessError } 202 - 非系统应用不允许使用系统API。
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -218,7 +218,7 @@ export declare interface UIExtensionProxy {
    * AnonyMous Object Rectification
    *
    * @param { Callback<UIExtensionProxy> } [callback] - 监听事件的回调。
-   * @throws { BusinessError } 202 - 非系统应用不允许使用系统API。
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -230,7 +230,7 @@ export declare interface UIExtensionProxy {
    * AnonyMous Object Rectification
    *
    * @param { Callback<UIExtensionProxy> } [callback] - 监听事件的回调。
-   * @throws { BusinessError } 202 - 非系统应用不允许使用系统API。
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -267,7 +267,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
    * @param { Callback<UIExtensionProxy> | undefined } callback - 回调函数。
    *     UIExtensionAbility连接完成后触发，入参为UIExtensionProxy，可通过proxy向被拉起的Ability发送数据。
    * @returns { UIExtensionComponentAttribute }
-   * @throws { BusinessError } 202 - 非系统应用不允许使用系统API。
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -290,7 +290,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
    *
    * @param { ErrorCallback<BusinessError> | undefined } callback - 回调函数。返回报错信息。
    * @returns { UIExtensionComponentAttribute }
-   * @throws { BusinessError } 202 - 非系统应用不允许使用系统API。
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly

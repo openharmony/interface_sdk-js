@@ -57,7 +57,7 @@
  * entity, which can pass parameters required for intent calls. For details on the parameters supported by this 
  * decorator, see [IntentEntityDecoratorInfo]{@link IntentEntityDecoratorInfo}.
  *
- * @file
+ * @file Intent Decorator
  * @kit AbilityKit
  */
 

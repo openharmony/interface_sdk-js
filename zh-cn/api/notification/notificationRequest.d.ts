@@ -561,10 +561,9 @@ export interface NotificationRequest {
   actionButtons?: Array<NotificationActionButton>;
 
   /**
-   * 通知小图标，默认为空。图标像素的总字节数不超过192KB（图标像素的总字节数通过
+   * 通知左侧图标，默认为空。系统自动生成，无需开发者配置。图标像素的总字节数不超过192KB（图标像素的总字节数通过
    * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），超出后设置不生效。
-   * 未设置`smallIcon`时，通知将展示应用默认图标。建议图标像素长宽为128*128。
-   * 实际显示效果依赖于设备能力和通知中心UI样式。
+   * 建议图标像素长宽为128*128。实际显示效果依赖于设备能力和通知中心UI样式<!--RP4--><!--RP4End-->。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -573,10 +572,11 @@ export interface NotificationRequest {
   smallIcon?: image.PixelMap;
 
   /**
-   * 通知大图标，默认为空。图标像素的总字节数不超过192KB（图标像素的总字节数通过
+   * 通知右侧图标，默认为空。当`content`使用
+   * [NotificationPictureContent]{@link ./notification/notificationContent:NotificationPictureContent}时，该参数设置不生效。
+   * 图标像素的总字节数不超过192KB（图标像素的总字节数通过
    * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），超出后设置不生效。
-   * 未设置`largeIcon`时，通知将不展示大图标。建议图标像素长宽为128*128。
-   * 实际显示效果依赖于设备能力和通知中心UI样式。
+   * 实际显示效果依赖于设备能力和通知中心UI样式<!--RP1--><!--RP1End-->。
    *
    * @syscap SystemCapability.Notification.Notification
    * @since 7 dynamic
@@ -585,19 +585,17 @@ export interface NotificationRequest {
   largeIcon?: image.PixelMap;
 
   /**
-   * 通知重叠图标，默认为空。图标像素的总字节数不超过192KB（图标像素的总字节数通过
+   * 通知重叠图标，替换通知左侧图标，默认为空。此接口只在[notificationSlotType]{@link NotificationRequest}
+   * 类型设置为SOCIAL_COMMUNICATION时生效。图标像素的总字节数不超过192KB（图标像素的总字节数通过
    * [getPixelBytesNumber]{@link @ohos.multimedia.image:image.PixelMap.getPixelBytesNumber}获取），超出后设置不生效。
-   * 未设置`overlayIcon`时，通知将不展示重叠图标。
-   * 
-   * 此接口只在[notificationSlotType]{@link NotificationRequest}类型设置为SOCIAL_COMMUNICATION时生效。
-   * 建议图标像素长宽为128*128。实际显示效果依赖于设备能力和通知中心UI样式。
+   * 建议图标像素长宽为128*128。实际显示效果依赖于设备能力和通知中心UI样式<!--RP3--><!--RP3End-->。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi [since 11 - 22]
    * @publicapi [since 23]
    * @since 11 dynamic
    * @since 23 static
-   */  
+   */
   overlayIcon?: image.PixelMap;
 
   /**

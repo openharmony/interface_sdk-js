@@ -1760,6 +1760,78 @@ declare namespace window {
   }
 
   /**
+   * Enumerates the reasons for the window focus state change.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum FocusChangeReason {
+    /**
+     * The focus state changes due to a default reason other than a user click.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    DEFAULT = 0,
+    /**
+     * The focus state changes because the user clicks the window.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    CLICK = 1
+  }
+
+  /**
+   * Describes the focus state change information of the window.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface WindowFocusState {
+    /**
+     * Whether the window gains focus. **true** if the window gains focus, **false** otherwise.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    isFocused: boolean;
+    /**
+     * Reason for the focus state change.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    focusChangeReason: FocusChangeReason;
+    /**
+     * ID of the next focused window. This field is valid only when the window is unfocused and the next focused
+     * window is in the same process as this window. The default value is **undefined**.
+     * The value should be an integer
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    nextFocusedWindowId?: int;
+    /**
+     * ID of the previous focused window. This field is valid only when the window is focused and the previous
+     * focused window is in the same process as this window.The default value is **undefined**.
+     * The value should be an integer
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    prevFocusedWindowId?: int;
+  }
+
+  /**
    * Describes the information about the display density of the screen where the window is located and the window's
    * custom display density. It is a scale factor independent of pixel units, that is, a factor for scaling display
    * size.
@@ -4199,6 +4271,112 @@ declare namespace window {
    * @since 26.0.0 dynamic&static
    */
   function moveMainWindowToTargetDisplay(displayId: long, windowId: int, userId?: int): Promise<void>;
+
+  /**
+   * Enumerates the target z-order to which the z-order of a main window can be adjusted.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  enum WindowPosition {
+    /**
+     * Not topmost, normal mode. Used as an independent action to cancel the global topmost state of a main window,
+     * and you need the ohos.permission.WINDOW_TOPMOST permission to cancel
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    NOT_TOPMOST = -3,
+    /**
+     * Global topmost. To set this value, you need the ohos.permission.WINDOW_TOPMOST permission.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    TOPMOST = -2,
+    /**
+     * Places the main window at the bottom of all application main windows,for a single adjustment.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    BOTTOM = -1,
+    /**
+     * Places the main window at the top of all application main windows, for a single adjustment.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    TOP = 0
+  }
+
+  /**
+   * Describes the position of a main window to adjust its z-order.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface WindowPositionParams {
+    /**
+     * ID of the main window whose z-order is to be adjusted. The window must be a main window in the current
+     * application process.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    windowId: int;
+    /**
+     * Position to adjust to. If the value is greater than 0, it is the ID of another main window, and the target window
+     * is placed below that main window. Otherwise, it is one of the
+     * [WindowPosition]{@link window.WindowPosition} sentinel values, placing the window at the bottom or top of all
+     * application main windows, or toggling its global topmost state.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    insertAfter: int;
+  }
+
+  /**
+   * Adjusts the position of one or more main windows in the current application process. This API uses a promise to
+   * return the result.
+   *
+   * The supported adjustments are as follows:
+   * - Place a main window below another main window.
+   * - Place a main window at the bottom of all application windows.
+   * - Place a main window at the top of all application windows.
+   * - Toggle a main window to the global topmost state or cancel the global topmost state.
+   *
+   * Setting the global topmost state requires the ohos.permission.WINDOW_TOPMOST permission.
+   *
+   * @permission ohos.permission.WINDOW_TOPMOST
+   * @param { Array<WindowPositionParams> } list - List of window position options to adjust. The list must not be
+   *     empty.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *     capabilities.
+   * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: 
+   *     1. The window to be adjusted cannot be found: not created, has been destroyed or not belong to current process;
+   *     2. The target main window specified by insertAfter cannot be found: not created, has been destroyed or not
+   *     belong to current process;
+   * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+   * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Invalid window type.
+   *     Only main windows are supported.
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function setWindowPosition(list: Array<WindowPositionParams>): Promise<void>;
 
   /**
    * Enumerates the window orientations. <!--Del-->For details of the differences between different enumerated values,
@@ -9675,6 +9853,41 @@ declare namespace window {
      * @since 23 static
      */
     offWindowHighlightChange(callback?: Callback<boolean>): void;
+
+
+    /**
+     * Registers the callback of the window focus state change event.
+     *
+     * @param { Callback<WindowFocusState> } callback - Callback used to return the focus state change information of
+     *     the window, including whether the window gains focus, the reason for the change, and the IDs of the adjacent
+     *     focused windows in the same process.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The window is not created or destroyed.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    onWindowFocusStateChange(callback: Callback<WindowFocusState>): void;
+
+    /**
+     * Unregisters the callback of the window focus state change event.
+     *
+     * @param { Callback<WindowFocusState> } [callback] - Callback used to return the focus state change information of
+     *     the window. If a value is passed in, the corresponding subscription is canceled. If no value is passed in, all
+     *     subscriptions to the specified event are canceled.
+     * @throws { BusinessError } 801 - Capability not supported.
+     *     Failed to call the API due to limited device capabilities.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The window is not created.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    offWindowFocusStateChange(callback?: Callback<WindowFocusState>): void;
 
     /**
      * Binds the modal window to the target window. After the binding is successful, the target window cannot respond to

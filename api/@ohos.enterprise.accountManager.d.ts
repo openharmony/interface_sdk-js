@@ -89,6 +89,19 @@ declare namespace accountManager {
      * @since 19
      */
     passwordExpirationNotification?: number;
+
+    /**
+     * Whether the domain account supports USB key authentication.
+     *
+     * If set to **true**, the domain account supports USB key authentication for login.If set to **false**,
+     * the domain account does not support USB key authentication.
+     * Default value: false.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    supportUKeyAuthentication?: boolean;
   }
 
   /**

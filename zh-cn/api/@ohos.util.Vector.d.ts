@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 线性容器Vector
  * @kit ArkTS
  */
 

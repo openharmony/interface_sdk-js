@@ -314,7 +314,7 @@ declare namespace hiTraceMeter {
   type TraceEventListener = (traceStatus: boolean) => void;
 
   /**
-   * Registers a callback to notify whether the application trace capture is enabled. This API uses a synchronous
+   * Registers a callback to notify whether the application trace capture is enabled. This API uses an asynchronous
    * callback to return the result.
    *
    * After the registration is successful, the callback is executed immediately. Subsequent callbacks are executed when

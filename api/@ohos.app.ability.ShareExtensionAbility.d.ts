@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file ExtensionAbility for Share Detail Page Integration
  * @kit AbilityKit
  */
 

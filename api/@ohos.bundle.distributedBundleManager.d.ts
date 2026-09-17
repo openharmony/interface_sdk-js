@@ -21,6 +21,7 @@
 import { AsyncCallback } from './@ohos.base';
 import { ElementName } from './bundleManager/ElementName';
 import { RemoteAbilityInfo as _RemoteAbilityInfo } from './bundleManager/RemoteAbilityInfo';
+import { ModuleMetadata } from './bundleManager/ApplicationInfo';
 /**
  * # System Capabilities
  *
@@ -261,6 +262,29 @@ declare namespace distributedBundleManager {
    * @since 26.0.0 dynamic&static
    */
   function getRemoteBundleVersionCode(deviceId: string, bundleName: string): Promise<long>;
+
+  /**
+   * Obtains the metadata of an app with a specified bundle name on a specified remote device.
+   * This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } deviceId - ID of the remote device, which is actually the networkId
+   *     (distributed network identifier). You can call getAvailableDeviceList to obtain all trusted
+   *     device lists; the value is the networkId field in the trusted device information.
+   * @param { string } bundleName - Bundle name of the app.
+   * @returns { Promise<Array<ModuleMetadata>> } Promise used to return an array of ModuleMetadata.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+   * @throws { BusinessError } 17700007 - The specified device ID is not found.
+   * @throws { BusinessError } 17700027 - The distributed service is not running.
+   * @syscap SystemCapability.BundleManager.DistributedBundleFramework
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function getRemoteMetadata(deviceId: string, bundleName: string): Promise<Array<ModuleMetadata>>;
 
   /**
    * Defines the remote ability information.

@@ -27,7 +27,7 @@
  * 2. 当UIAbility生命周期变化时，应用可以通过已注册的AbilityLifecycleCallback对象接收到UIAbility生命周期的变化通知。
  * 3. 当应用不需要监听UIAbility生命周期变化时，需要通过ApplicationContext.off('abilityLifecycle')接口取消监听。
  *
- * @file
+ * @file UIAbility生命周期回调监听器
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ability公共模块
  * @kit AbilityKit
  */
 

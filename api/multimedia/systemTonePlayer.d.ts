@@ -25,7 +25,7 @@
  * >
  * > - The APIs provided by this module are system APIs.
  *
- * @file
+ * @file System Tone Player
  * @kit AudioKit
  */
 

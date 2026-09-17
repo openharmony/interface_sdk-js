@@ -278,6 +278,33 @@ declare namespace common {
   }
 
   /**
+   * The policy of query enterprise device management policy.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  export enum QueryPolicy {
+    /**
+     * Query the policy set by self.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    SELF = 0,
+ 
+    /**
+     * Query the policy set by all administrators.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    ALL = 1
+  }
+
+  /**
    * **EnterpriseAdminExtensionContext** is the context of
    * [EnterpriseAdminExtensionAbility]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility}
    * and inherits from [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}.

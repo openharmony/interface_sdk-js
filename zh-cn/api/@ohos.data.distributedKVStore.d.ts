@@ -1771,16 +1771,16 @@ declare namespace distributedKVStore {
      *
      * @param { Array<ValuesBucket> } value - 表示要插入的数据。
      * @param { AsyncCallback<void> } callback - 回调函数。成功时err为undefined，失败时err为错误对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @systemapi
      * @StageModelOnly
-     * [@since](https://gitcode.com/since) 9 dynamic
+     * @since 9 dynamic
      */
     putBatch(value: Array<ValuesBucket>, callback: AsyncCallback<void>): void;
 
@@ -1789,16 +1789,16 @@ declare namespace distributedKVStore {
      *
      * @param { Array<ValuesBucket> } value - 表示要插入的数据。
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @systemapi
      * @StageModelOnly
-     * [@since](https://gitcode.com/since) 9 dynamic
+     * @since 9 dynamic
      */
     putBatch(value: Array<ValuesBucket>): Promise<void>;
 
@@ -1807,15 +1807,14 @@ declare namespace distributedKVStore {
      *
      * @param { Array<ValuesBucket> } value - 表示要插入的数据。
      * @param { AsyncCallback<void> } callback - 回调函数。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @systemapi
      * @stagemodelonly
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 23 static
      */
     putValuesBuckets(value: Array<ValuesBucket>, callback: AsyncCallback<void>): void;
 
@@ -1824,15 +1823,14 @@ declare namespace distributedKVStore {
      *
      * @param { Array<ValuesBucket> } value - 表示要插入的数据。
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 14800047 - The WAL file size exceeds the default limit.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @systemapi
      * @stagemodelonly
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 23 static
      */
     putValuesBuckets(value: Array<ValuesBucket>): Promise<void>;
 
@@ -1841,17 +1839,17 @@ declare namespace distributedKVStore {
      *
      * @param { string } key - 要删除数据的Key，不能为空且长度范围为1-[MAX_KEY_LENGTH]{@link distributedKVStore.Constants}。
      * @param { AsyncCallback<void> } callback - 回调函数。删除指定的数据成功，err为undefined，否则为错误对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types;
      *     <br>3.Parameter verification failed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     delete(key: string, callback: AsyncCallback<void>): void;
 
@@ -1860,17 +1858,17 @@ declare namespace distributedKVStore {
      *
      * @param { string } key - 要删除数据的Key，不能为空且长度范围为1-[MAX_KEY_LENGTH]{@link distributedKVStore.Constants}。
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types;
      *     <br>3.Parameter verification failed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     delete(key: string): Promise<void>;
 
@@ -1879,17 +1877,17 @@ declare namespace distributedKVStore {
      *
      * @param { dataSharePredicates.DataSharePredicates } predicates - 指示筛选条件，不允许为null。
      * @param { AsyncCallback<void> } callback - 回调函数。成功时err为undefined，失败时err为错误对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @systemapi
      * @StageModelOnly
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     delete(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<void>): void;
 
@@ -1898,17 +1896,17 @@ declare namespace distributedKVStore {
      *
      * @param { dataSharePredicates.DataSharePredicates } predicates - 指示筛选条件，不允许为null。
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @systemapi
      * @StageModelOnly
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     delete(predicates: dataSharePredicates.DataSharePredicates): Promise<void>;
 
@@ -1917,17 +1915,17 @@ declare namespace distributedKVStore {
      *
      * @param { string[] } keys - 表示要批量删除的键名列表，不能为空，数组中每个元素的长度范围为1-[MAX_KEY_LENGTH]{@link distributedKVStore.Constants}。
      * @param { AsyncCallback<void> } callback - 回调函数。批量删除指定的数据成功，err为undefined，否则为错误对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types;
      *     <br>3.Parameter verification failed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     deleteBatch(keys: string[], callback: AsyncCallback<void>): void;
 
@@ -1936,17 +1934,17 @@ declare namespace distributedKVStore {
      *
      * @param { string[] } keys - 表示要批量删除的键名列表，不能为空，数组中每个元素的长度范围为1-[MAX_KEY_LENGTH]{@link distributedKVStore.Constants}。
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types;
      *     <br>3.Parameter verification failed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     deleteBatch(keys: string[]): Promise<void>;
 
@@ -1965,13 +1963,13 @@ declare namespace distributedKVStore {
      *
      * @param { string } deviceId - 设备的networkId，标识要删除其数据的设备，不能为空。
      * @param { AsyncCallback<void> } callback - 回调函数。删除指定设备的数据成功，err为undefined，否则为错误对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Parameter verification failed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @stagemodelonly [staticonly]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     removeDeviceData(deviceId: string, callback: AsyncCallback<void>): void;
 
@@ -1990,13 +1988,13 @@ declare namespace distributedKVStore {
      *
      * @param { string } deviceId - 设备的networkId，标识要删除其数据的设备，不能为空。
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Parameter verification failed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.DistributedKVStore
      * @stagemodelonly [staticonly]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     removeDeviceData(deviceId: string): Promise<void>;
 
@@ -2005,17 +2003,17 @@ declare namespace distributedKVStore {
      *
      * @param { string } key - 要查询数据的Key，不能为空且长度范围为1-[MAX_KEY_LENGTH]{@link distributedKVStore.Constants}。
      * @param { AsyncCallback<boolean | string | long | double | Uint8Array> } callback - 回调函数。返回获取查询的值，值的类型取决于存储时的数据类型。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types;
      *     <br>3.Parameter verification failed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100004 - Not found.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100004 - Not found.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     get(key: string, callback: AsyncCallback<boolean | string | long | double | Uint8Array>): void;
 
@@ -2024,17 +2022,17 @@ declare namespace distributedKVStore {
      *
      * @param { string } key - 要查询数据的Key，不能为空且长度范围为1-[MAX_KEY_LENGTH]{@link distributedKVStore.Constants}。
      * @returns { Promise<boolean | string | long | double | Uint8Array> } Promise对象。返回指定键对应的值，值的类型取决于存储时的数据类型。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types;
      *     <br>3.Parameter verification failed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100004 - Not found.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100004 - Not found.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     get(key: string): Promise<boolean | string | long | double | Uint8Array>;
 
@@ -2044,15 +2042,15 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - 表示要匹配的键前缀，长度范围为1-[MAX_KEY_LENGTH]{@link distributedKVStore.Constants}。不能包含'^'，包含'^'
      *     将导致谓词失效，查询结果会返回数据库中的所有数据。
      * @param { AsyncCallback<Entry[]> } callback - 回调函数。返回匹配指定前缀的键值对列表。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(keyPrefix: string, callback: AsyncCallback<Entry[]>): void;
 
@@ -2062,15 +2060,15 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - 表示要匹配的键前缀，长度范围为1-[MAX_KEY_LENGTH]{@link distributedKVStore.Constants}。不能包含'^'，包含'^'
      *     将导致谓词失效，查询结果会返回数据库中的所有数据。
      * @returns { Promise<Entry[]> } Promise对象。返回匹配指定前缀的键值对列表。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(keyPrefix: string): Promise<Entry[]>;
 
@@ -2079,15 +2077,15 @@ declare namespace distributedKVStore {
      *
      * @param { Query } query - 表示要查询的对象。
      * @param { AsyncCallback<Entry[]> } callback - 回调函数。返回与指定Query对象匹配的键值对列表。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(query: Query, callback: AsyncCallback<Entry[]>): void;
 
@@ -2096,15 +2094,15 @@ declare namespace distributedKVStore {
      *
      * @param { Query } query - 表示查询对象。
      * @returns { Promise<Entry[]> } Promise对象。返回与指定Query对象匹配的键值对列表。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     getEntries(query: Query): Promise<Entry[]>;
 
@@ -2116,16 +2114,16 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - 表示要匹配的键前缀，长度范围为1-[MAX_KEY_LENGTH]{@link distributedKVStore.Constants}。不能包含'^'，包含'^'
      *     将导致谓词失效，查询结果会返回数据库中的所有数据。
      * @param { AsyncCallback<KVStoreResultSet> } callback - 回调函数。返回具有指定前缀的结果集。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100001 - Over max limits. [since 10]
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(keyPrefix: string, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -2137,16 +2135,16 @@ declare namespace distributedKVStore {
      * @param { string } keyPrefix - 表示要匹配的键前缀，长度范围为1-[MAX_KEY_LENGTH]{@link distributedKVStore.Constants}。不能包含'^'，包含'^'
      *     将导致谓词失效，查询结果会返回数据库中的所有数据。
      * @returns { Promise<KVStoreResultSet> } Promise对象。返回具有指定前缀的结果集。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100001 - Over max limits. [since 10]
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(keyPrefix: string): Promise<KVStoreResultSet>;
 
@@ -2157,16 +2155,16 @@ declare namespace distributedKVStore {
      *
      * @param { Query } query - 表示查询对象。
      * @param { AsyncCallback<KVStoreResultSet> } callback - 回调函数，获取与指定Query对象匹配的KVStoreResultSet对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100001 - Over max limits. [since 10]
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(query: Query, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -2177,16 +2175,16 @@ declare namespace distributedKVStore {
      *
      * @param { Query } query - 表示查询对象。
      * @returns { Promise<KVStoreResultSet> } Promise对象。获取与指定Query对象匹配的KVStoreResultSet对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100001 - Over max limits. [since 10]
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(query: Query): Promise<KVStoreResultSet>;
 
@@ -2195,17 +2193,17 @@ declare namespace distributedKVStore {
      *
      * @param { dataSharePredicates.DataSharePredicates } predicates - 指示筛选条件，不允许为null。
      * @param { AsyncCallback<KVStoreResultSet> } callback - 回调函数，获取与指定Predicates对象匹配的KVStoreResultSet对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100001 - Over max limits. [since 10]
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @systemapi
      * @StageModelOnly
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(predicates: dataSharePredicates.DataSharePredicates, callback: AsyncCallback<KVStoreResultSet>): void;
 
@@ -2214,17 +2212,17 @@ declare namespace distributedKVStore {
      *
      * @param { dataSharePredicates.DataSharePredicates } predicates - 指示筛选条件，不允许为null。
      * @returns { Promise<KVStoreResultSet> } Promise对象。返回KVStoreResultSet对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100001 - Over max limits. [since 10]
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100001 - Over max limits. [since 10]
      * @syscap SystemCapability.DistributedDataManager.DataShare.Provider
      * @systemapi
      * @StageModelOnly
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSet(predicates: dataSharePredicates.DataSharePredicates): Promise<KVStoreResultSet>;
 
@@ -2234,13 +2232,13 @@ declare namespace distributedKVStore {
      *
      * @param { KVStoreResultSet } resultSet - 表示要关闭的KVStoreResultSet对象。
      * @param { AsyncCallback<void> } callback - 回调函数。关闭KVStoreResultSet对象成功，err为undefined，否则为错误对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     closeResultSet(resultSet: KVStoreResultSet, callback: AsyncCallback<void>): void;
 
@@ -2250,13 +2248,13 @@ declare namespace distributedKVStore {
      *
      * @param { KVStoreResultSet } resultSet - 表示要关闭的KVStoreResultSet对象。
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     closeResultSet(resultSet: KVStoreResultSet): Promise<void>;
 
@@ -2265,16 +2263,16 @@ declare namespace distributedKVStore {
      *
      * @param { Query } query - 表示查询对象。
      * @param { AsyncCallback<int> } callback - 回调函数。返回与指定Query对象匹配的结果数。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100004 - Not found.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100004 - Not found.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSize(query: Query, callback: AsyncCallback<int>): void;
 
@@ -2283,16 +2281,16 @@ declare namespace distributedKVStore {
      *
      * @param { Query } query - 表示查询对象。
      * @returns { Promise<int> } Promise对象。获取与指定Query对象匹配的结果数。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Incorrect parameters types.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100003 - Database corrupted.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100004 - Not found.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100003 - Database corrupted.
+     * @throws { BusinessError } 15100004 - Not found.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     getResultSize(query: Query): Promise<int>;
 
@@ -2302,14 +2300,14 @@ declare namespace distributedKVStore {
      *
      * @param { string } file - 备份数据库的指定名称，不能为空，无长度限制，不能包含特殊字符'/'。
      * @param { AsyncCallback<void> } callback - 回调函数。当以指定名称备份数据库成功，err为undefined，否则为错误对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Parameter verification failed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     backup(file: string, callback: AsyncCallback<void>): void;
 
@@ -2319,14 +2317,14 @@ declare namespace distributedKVStore {
      *
      * @param { string } file - 备份数据库的指定名称，不能为空，无长度限制，不能包含特殊字符'/'。
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Parameter verification failed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     backup(file: string): Promise<void>;
 
@@ -2335,12 +2333,12 @@ declare namespace distributedKVStore {
      *
      * @param { BackupConfig } backupConfig - 备份数据库的信息（名称和路径）。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100000 - Input parameters do not meet the API requirements, such as invalid value
+     * @throws { BusinessError } 15100000 - Input parameters do not meet the API requirements, such as invalid value
      *     ranges, length limits, or incorrect formats.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
-     * [@since](https://gitcode.com/since) 24 dynamic&static
+     * @since 24 dynamic&static
      */
     backupEx(backupConfig: BackupConfig): Promise<void>;
 
@@ -2350,14 +2348,14 @@ declare namespace distributedKVStore {
      *
      * @param { string } file - 指定的数据库文件名称，不能为空，无长度限制，不能包含特殊字符'/'。
      * @param { AsyncCallback<void> } callback - 回调函数。当从指定的数据库文件恢复数据库成功，err为undefined，否则为错误对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Parameter verification failed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     restore(file: string, callback: AsyncCallback<void>): void;
 
@@ -2367,14 +2365,14 @@ declare namespace distributedKVStore {
      *
      * @param { string } file - 指定的数据库文件名称，不能为空，无长度限制，不能包含特殊字符'/'。
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Parameter verification failed.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     restore(file: string): Promise<void>;
 
@@ -2383,12 +2381,12 @@ declare namespace distributedKVStore {
      *
      * @param { BackupConfig } backupConfig - 备份数据库的信息（名称和路径）。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100000 - Input parameters do not meet the API requirements, such as invalid value
+     * @throws { BusinessError } 15100000 - Input parameters do not meet the API requirements, such as invalid value
      *     ranges, length limits, or incorrect formats.
-     * [@throws](https://gitcode.com/throws) { BusinessError } 15100005 - Database or result set already closed.
+     * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
-     * [@since](https://gitcode.com/since) 24 dynamic&static
+     * @since 24 dynamic&static
      */
     restoreEx(backupConfig: BackupConfig): Promise<void>;
 
@@ -2399,13 +2397,13 @@ declare namespace distributedKVStore {
      *
      * @param { Array<string> } files - 删除备份文件所指定的名称，不能为空，无长度限制，不能包含特殊字符'/'。
      * @param { AsyncCallback<Array<[string, int]>> } callback - 回调函数，返回删除备份的文件名及其处理结果。
-     * [@throws](https://gitcode.com/throws) { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
+     * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      *     <br>2.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly [staticonly]
      * @crossplatform [since 24]
-     * [@since](https://gitcode.com/since) 9 dynamic
-     * [@since](https://gitcode.com/since) 23 static
+     * @since 9 dynamic
+     * @since 23 static
      */
     deleteBackup(files: Array<string>, callback: AsyncCallback<Array<[string, int]>>): void;
 
@@ -3319,7 +3317,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - Promise对象。返回KVStoreResultSet对象。
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 15100001 - Over max limits. [since 10]
@@ -3338,7 +3336,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } Promise对象。返回KVStoreResultSet对象。
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 15100001 - Over max limits. [since 10]
@@ -3358,7 +3356,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<KVStoreResultSet> } callback - 回调函数，获取与指定Predicates对象匹配的KVStoreResultSet对象。
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 15100001 - Over max limits. [since 10]
@@ -3378,7 +3376,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<KVStoreResultSet> } Promise对象。返回KVStoreResultSet对象。
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 15100001 - Over max limits. [since 10]

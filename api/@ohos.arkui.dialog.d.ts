@@ -1109,7 +1109,7 @@ export interface DialogDismissal {
   dismiss: VoidCallback;
 
   /**
-   * Reason why the dialog box cannot be dismissed.
+   * Types of reasons triggering the dialog box close action.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

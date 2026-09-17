@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Distributed Extension Context
+ * @file 协同Extension上下文
  * @kit DistributedServiceKit
  */
 

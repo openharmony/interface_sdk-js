@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file FeatureAbility模块
  * @kit AbilityKit
  */
 

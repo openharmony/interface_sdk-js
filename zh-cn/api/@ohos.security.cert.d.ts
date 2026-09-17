@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 证书算法库框架
  * @kit DeviceCertificateKit
  */
 import type { AsyncCallback } from './@ohos.base';

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 分布式数据管理
  * @kit ArkData
  */
 

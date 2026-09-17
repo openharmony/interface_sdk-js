@@ -268,6 +268,33 @@ declare namespace common {
   }
 
   /**
+   * 查询企业设备管理策略
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  export enum QueryPolicy {  
+    /**
+     * 自己设置的策略。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    SELF = 0,
+
+    /**
+     * 所有管理员设置的策略。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.1.0
+     */
+    ALL = 1
+  }
+
+  /**
    * EnterpriseAdminExtensionContext是
    * [EnterpriseAdminExtensionAbility]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility}
    * 的上下文环境，继承自[ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}。

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Driver Extension Ability
  * @kit DriverDevelopmentKit
  */
 

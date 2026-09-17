@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ability Connection Manager
  * @kit DistributedServiceKit
  */
 

@@ -17,7 +17,7 @@
  * A DataAbilityHelper object is obtained through 
  * [acquireDataAbilityHelper]{@link ./../@ohos.ability.featureAbility:featureAbility.acquireDataAbilityHelper}.
  *
- * @file
+ * @file DataAbilityHelper
  * @kit AbilityKit
  */
 

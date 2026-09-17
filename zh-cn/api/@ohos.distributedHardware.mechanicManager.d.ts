@@ -551,6 +551,56 @@ declare namespace mechanicManager {
   function disconnectDevice(mechId: int): Promise<Result>;
 
   /**
+   * 订阅目标设备的电池电量变化信息
+   *
+   * @param { int } mechId - 需要订阅的设备id。
+   *     <br>取值限定为整数。
+   * @param { Callback<BatteryLevelInfo> } callback - 电池电量变化的回调函数。
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 33300001 - Service exception.
+   * @throws { BusinessError } 33300002 - Device not connected.
+   * @throws { BusinessError } 33300003 - Feature not supported.
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  function onBatteryLevelChange(mechId: int, callback: Callback<BatteryLevelInfo>): void;
+
+  /**
+   * 取消订阅电池电量变化信息
+   *
+   * @param { int } mechId - ID of the mechanical device.
+   * @param { Callback<BatteryLevelInfo> } [callback] - Callback function that returns the current battery level.
+   *      <br>If not specified, all callbacks registered for this mechId will be removed.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 33300001 - Service exception.
+   * @throws { BusinessError } 33300002 - Device not connected.
+   * @throws { BusinessError } 33300003 - Feature not supported.
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  function offBatteryLevelChange(mechId: int, callback?: Callback<BatteryLevelInfo>): void;
+
+  /**
+   * 获取对应的设备吸附状态
+   *
+   * @param { int } mechId - 机械体设备ID。
+   *     <br>取值限定为整数。
+   * @returns { AdsorbState } 返回机械体设备是否被吸附
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 33300001 - Service exception.
+   * @throws { BusinessError } 33300002 - Device not connected.
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  function getDeviceAdsorbState(mechId: int): AdsorbState;
+
+  /**
    * 机械设备信息
    * @typedef MechInfo
    * @syscap SystemCapability.Mechanic.Core
@@ -1221,7 +1271,16 @@ declare namespace mechanicManager {
      * @systemapi
      * @since 26.0.0 dynamic&static
      */
-    WHEELED_BASE_DEVICE = 2
+    WHEELED_BASE_DEVICE = 2,
+
+    /**
+     * 口袋云台相机
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    POCKET_GIMBAL_CAMERA_DEVICE = 3
   }
 
   /**
@@ -1396,7 +1455,7 @@ declare namespace mechanicManager {
      * @since 26.0.0 dynamic&static
      */
     mode?: MarchingMode;
-    }
+  }
 
   /**
    * 速度档位定义
@@ -1604,6 +1663,36 @@ declare namespace mechanicManager {
      * @since 26.0.0 dynamic&static
      */
     HEAD_SHAKE = 10,
+
+    /**
+     * 头向底座回正
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    HEAD_TURN_TO_BASE = 11,
+
+    /**
+     * 底座向头回正
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    BASE_TURN_TO_HEAD = 12,
+
+    /**
+     * 云台前后方向翻转
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    FRONT_TO_BACK_FLIP = 13,
 
     /**
      * 开心动作
@@ -1891,6 +1980,93 @@ declare namespace mechanicManager {
      */
     custdata: string;
   }
+
+  /**
+   * 手机吸附状态
+   *
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  export enum AdsorbState {
+    /**
+     * 未知状态
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    UNKNOWN = -1,
+
+    /**
+     * 吸附态
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    ADSORBED = 0,
+
+    /**
+     * 设备未被吸附
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    UNADSORBED = 1
+  }
+
+
+  /**
+   * 设备电池电量信息
+   *
+   * @syscap SystemCapability.Mechanic.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.2.0 dynamic&static
+   */
+  export interface BatteryLevelInfo {
+    /**
+     * ID of the mechanical device.
+     *        ID of the mechanical device.
+     *      ID of the mechanical device.
+     * 设备ID。
+     * 取值限定为整数。
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    mechId: int;
+
+    /**
+     * 电池电量值的百分比。
+     * 取值限定为整数。
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    batteryLevel: int;
+
+    /**
+     * 是否在充电。
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    isCharging: boolean;
+  }
+
 }
 
 export default mechanicManager;

@@ -15,7 +15,7 @@
  */
 
 /**
- * @file
+ * @file AppForegroundStateObserver
  * @kit AbilityKit
  */
 

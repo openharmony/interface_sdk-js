@@ -18,7 +18,7 @@
  * @kit BasicServicesKit
  */
 
-import { AsyncCallback } from './@ohos.base';
+import { AsyncCallback, Callback } from './@ohos.base';
 
 /**
  * 本模块主要提供管理USB设备的相关功能，包括主机端的查询USB设备列表、批量数据传输、控制命令传输、权限控制等；设备端的端口管理、功能切换及查询等。适用于需要与USB设备进行数据交互、管理USB设备权限、动态切换USB设备模式等场景。
@@ -2376,6 +2376,78 @@ declare namespace usbManager {
      * @useinstead usbManager.USBDeviceRequestParams
      */
     data: Uint8Array;
+  }
+
+  /**
+   * 独占方式声明USB设备接口。本接口在调用时检查指定的USB接口是否已被其他进程占用，避免声明时发生冲突。
+   * 设置**force**为**true**时，操作系统会先从内核驱动程序中释放该接口，再将控制权授予调用方应用。
+   * 独占声明成功后，其他进程仍可通过[usbManager.claimInterface]{@link usbManager.claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean)}声明同一接口；
+   * 可使用**onConflict**回调接收此类冲突通知。
+   *
+   * @param { USBDevicePipe } pipe - 总线地址和设备地址，通过调用[usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}获取。
+   * @param { USBInterface } iface - 目标USB接口的索引。可以使用[usbManager.getDevices]{@link usbManager.getDevices()}获取设备信息，并根据ID识别USB接口。
+   * @param { boolean } [force] - 是否强制声明USB接口。默认值为**false**，表示不强制声明USB接口。可以根据需要设置该值。
+   *     <br>默认值：false。
+   * @param { Callback<InterfaceConflictInfo> } [onConflict] - 回调函数，返回独占声明成功后其他进程通过非互斥的
+   *     [usbManager.claimInterface]{@link usbManager.claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean)}
+   *     接口声明同一USB接口时的冲突信息。如果不指定此参数，则发生此类冲突时不发送通知。
+   *     <br>默认值：不触发回调。
+   * @throws { BusinessError } 14400001 - Permission denied.
+   * @throws { BusinessError } 14400004 - Service exception.
+   * @throws { BusinessError } 14400007 - Resource busy. Possible cause:
+   *     The interface is claimed by another program or driver.
+   * @throws { BusinessError } 14400010 - USB driver error. Possible causes:
+   *     <br>1. The device is not connected using [usbManager.connectDevice]{@link usbManager.connectDevice(device: USBDevice)}.
+   *     <br>2. The USB device state is abnormal.
+   * @syscap SystemCapability.USB.USBManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function claimInterfaceExclusive(pipe: USBDevicePipe, iface: USBInterface, force?: boolean,
+    onConflict?: Callback<InterfaceConflictInfo>): void;
+
+  /**
+   * 描述当已独占声明的USB接口被其他进程以非独占方式声明时的冲突信息，通过调用
+   * [usbManager.claimInterfaceExclusive]{@link usbManager.claimInterfaceExclusive(pipe: USBDevicePipe, iface: USBInterface, force?: boolean, onConflict?: Callback<InterfaceConflictInfo>)}独占声明接口后使用。
+   *
+   * > **说明**
+   * >
+   * > 此回调在其他进程调用非互斥的
+   * > [usbManager.claimInterface]{@link usbManager.claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean)}
+   * > 接口声明同一USB接口时触发。独占持有方可通过此回调获知潜在的访问冲突。
+   *
+   * @syscap SystemCapability.USB.USBManager
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface InterfaceConflictInfo {
+    /**
+     * USB设备的总线地址。
+     * 取值限定为整数。
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    busNum: int;
+
+    /**
+     * USB设备的设备地址。
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    devAddr: int;
+
+    /**
+     * 被其他进程声明的USB接口的ID。
+     *
+     * @syscap SystemCapability.USB.USBManager
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    interfaceId: int;
   }
 }
 

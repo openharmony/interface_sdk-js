@@ -1,1 +1,0 @@
-declare type TestReturn = (value: string, ...args: string[]) => MethodDecorator | Test | string;

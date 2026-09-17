@@ -6892,6 +6892,18 @@ export declare interface EmbedOptions {
      * @since 23 static
      */
     supportCssDisplayChange?: boolean;
+    /**
+     * Whether the same-layer rendering component supports CSS transform rotate and skew.
+     * When set to true, the same-layer rendering component correctly handles CSS transform rotate/skew.
+     * When set to false or not set, retains the original behavior.
+     * This attribute takes effect only when `enableNativeEmbedMode` is enabled and cannot be dynamically modified.
+     *
+     * @default false
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.2.0 static
+     */
+    supportTransformRotateAndSkew?: boolean;
 }
 /**
  * Enum type supplied to {@link gestureFocusMode} for setting the web gesture focus mode.

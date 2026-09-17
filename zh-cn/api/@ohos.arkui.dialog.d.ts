@@ -1108,7 +1108,7 @@ export interface DialogDismissal {
   dismiss: VoidCallback;
 
   /**
-   * 无法关闭对话框的原因。
+   * 触发弹出框关闭操作的原因类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

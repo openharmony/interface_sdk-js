@@ -16,7 +16,7 @@
 /**
  * 定义触发WantAgent所需要的信息。
  *
- * @file
+ * @file WantAgentInfo
  * @kit AbilityKit
  */
 

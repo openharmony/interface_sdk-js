@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 协同Extension
  * @kit DistributedServiceKit
  */
 

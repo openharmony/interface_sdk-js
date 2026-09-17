@@ -180,6 +180,7 @@ template("ohos_handle_declaration_template") {
       deps += [
         ":copy_runtimeapi",
         ":ohos_ets_static",
+        ":validate_delete_unpublished",
       ]
     }
     deps += [ ":${_module_info_target}" ]
@@ -502,6 +503,40 @@ action("build_static_sdk_interop") {
     interface_sdk_path + "/static-interop/declaration",
     interface_sdk_path + "/static-interop/bridge",
   ]
+}
+
+# 校验unpublished处理后的api声明文件
+action("validate_delete_unpublished") {
+  deps = [ ":copy_runtimeapi" ]
+  external_deps = [
+    "ets_frontend:ohos_ets_bindings",
+    ohos_ets_koala_wrapper_deps,
+    ohos_ets_ui_plugins_deps,
+  ]
+  if (host_os == "mac") {
+    if (host_cpu == "arm64") {
+      node_path = "//prebuilts/build-tools/common/nodejs/node-v18.20.1-darwin-arm64/bin/node"
+    } else {
+      node_path = "//prebuilts/build-tools/common/nodejs/node-v14.21.1-darwin-x64/bin/node"
+    }
+  } else {
+    node_path =
+        "//prebuilts/build-tools/common/nodejs/node-v14.21.1-linux-x64/bin/node"
+  }
+  script = "//arkcompiler/ets_frontend/ets2panda/bindings/diagnostics.py"
+  _stamp = target_out_dir + "/${target_name}.stamp"
+  args = [
+    "--build-tools",
+    rebase_path(root_build_dir + "/ohos_ets/build-tools"),
+    "--node",
+    rebase_path(node_path, root_build_dir),
+    "--sdk-path",
+    rebase_path(target_out_dir + "/copy_runtimeapi"),
+    "--init-ast-cache",
+    "--stamp",
+    rebase_path(_stamp, root_build_dir),
+  ]
+  outputs = [ _stamp ]
 }
 
 # 运行处理static-interop工具所需要的依赖

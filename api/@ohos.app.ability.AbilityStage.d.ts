@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file AbilityStage Component Manager
  * @kit AbilityKit
  */
 

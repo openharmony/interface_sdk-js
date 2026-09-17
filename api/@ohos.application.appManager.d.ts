@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file appManager
  * @kit API10LessDeprecatedModules
  */
 

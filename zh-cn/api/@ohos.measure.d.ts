@@ -35,7 +35,7 @@
  * > measurement errors. As such, you are advised to perform iterative processing based on Unicode code points during 
  * > truncation.
  *
- * @file Text Measurement
+ * @file 文本计算
  * @kit ArkUI
  */
 

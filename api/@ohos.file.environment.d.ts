@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Directory Environment Capability
  * @kit CoreFileKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 支持业务操作自定义的ExtensionAbility组件
  * @kit AbilityKit
  */
 

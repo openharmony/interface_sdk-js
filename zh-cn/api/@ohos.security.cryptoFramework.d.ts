@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 加解密算法库框架
  * @kit CryptoArchitectureKit
  */
 import type { AsyncCallback } from './@ohos.base';
@@ -621,6 +621,7 @@ declare namespace cryptoFramework {
      * 获取密钥大小，单位为bits。密钥可以是对称密钥、公钥或私钥。
      *
      * @returns { int } 密钥大小，单位为bits。
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 17630001 - Crypto operation error.
@@ -749,6 +750,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
@@ -771,6 +773,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
@@ -807,6 +810,7 @@ declare namespace cryptoFramework {
      * 从私钥对象中获取公钥对象。使用Promise异步回调。
      *
      * @returns { Promise<PubKey> } Promise对象，返回公钥对象PubKey。
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 17630001 - Crypto operation error.
@@ -825,6 +829,7 @@ declare namespace cryptoFramework {
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
      * @returns { PubKey } 公钥对象。
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 17630001 - Crypto operation error.
@@ -840,6 +845,7 @@ declare namespace cryptoFramework {
      *
      * @param { AsyKeyDataItem } itemType - 指定密钥数据项类型。
      * @returns { Promise<Uint8Array> } Promise对象，返回指定密钥数据项类型的私钥数据。
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 17620003 - Parameter check failed.
@@ -860,6 +866,7 @@ declare namespace cryptoFramework {
      *
      * @param { AsyKeyDataItem } itemType - 指定密钥数据项类型。
      * @returns { Uint8Array } 返回指定密钥数据项类型的私钥数据。
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 17620003 - Parameter check failed.
@@ -925,6 +932,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
@@ -946,6 +954,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
@@ -962,6 +971,7 @@ declare namespace cryptoFramework {
      *
      * @param { AsyKeyDataItem } itemType - 指定密钥数据项类型。
      * @returns { Promise<Uint8Array> } Promise对象，返回指定密钥数据项类型的公钥数据。
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 17620003 - Parameter check failed.
@@ -1220,6 +1230,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
@@ -1310,6 +1321,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
@@ -1333,6 +1345,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
@@ -1392,6 +1405,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
@@ -1425,6 +1439,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
@@ -1455,6 +1470,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
@@ -1486,6 +1502,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
@@ -1535,6 +1552,7 @@ declare namespace cryptoFramework {
      *
      * @param { AsyncCallback<SymKey> } callback - 回调函数。当生成对称密钥成功时，err为undefined，data为获取到的SymKey；否则为
      *     错误对象。
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620004 - Invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
@@ -1552,6 +1570,7 @@ declare namespace cryptoFramework {
      * <br>目前使用OpenSSL的RAND_priv_bytes()作为底层能力生成随机密钥。
      *
      * @returns { Promise<SymKey> } Promise对象，返回对称密钥SymKey。
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620004 - Invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
@@ -1581,6 +1600,7 @@ declare namespace cryptoFramework {
      * 因此建议在子线程中调用同步API，以避免阻塞主线程。
      *
      * @returns { SymKey } 返回对称密钥SymKey。
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620004 - Invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework.Key.SymKey
@@ -1628,6 +1648,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620003 - Parameter check failed. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
@@ -1851,6 +1872,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
@@ -1922,6 +1944,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
@@ -1980,6 +2003,7 @@ declare namespace cryptoFramework {
      * 完成MAC计算并获取MAC计算结果。使用Promise异步回调。
      *
      * @returns { Promise<DataBlob> } Promise对象，返回MAC计算结果。
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
@@ -2018,6 +2042,7 @@ declare namespace cryptoFramework {
      * 获取Mac消息认证码的长度（字节数）。
      *
      * @returns { int } 返回Mac计算结果的字节长度。
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Mac [since 12]
@@ -2044,6 +2069,10 @@ declare namespace cryptoFramework {
   /**
    * 创建消息认证码实例。
    *
+   * > **说明**
+   * >
+   * > 此接口仅支持HMAC。推荐使用[createMac()]{@link cryptoFramework.createMac(macSpec: MacSpec): Mac}接口。
+   *
    * <br>支持的规格详见[HMAC消息认证码算法规格](docroot://security/CryptoArchitectureKit/crypto-compute-mac-overview.md)。
    *
    * @param { string } algName - 指定摘要算法，支持算法请参考
@@ -2053,6 +2082,7 @@ declare namespace cryptoFramework {
    *     <br>1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types;
    *     <br>3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
    * @throws { BusinessError } 17620001 - Memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Mac [since 12]
@@ -2085,6 +2115,7 @@ declare namespace cryptoFramework {
    * @since 23 static
    */
   function createMac(macSpec: MacSpec): Mac;
+
   /**
    * 消息摘要接口，定义计算消息摘要的方法。调用前，需通过[createMd]{@link cryptoFramework.createMd}方法创建一个Md实例。
    *
@@ -2186,6 +2217,8 @@ declare namespace cryptoFramework {
      * @param { AsyncCallback<DataBlob> } callback - 回调函数。当摘要计算成功时，err为undefined，data为获取到的摘要结果；否则为
      *     错误对象。
      * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620004 - Invalid function call. XOF(Extendable-Output Function) digest algorithms,
+     *     such as SHAKE128 and SHAKE256, do not support this API. [since 26.2.0]
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
@@ -2204,6 +2237,8 @@ declare namespace cryptoFramework {
      * @returns { Promise<DataBlob> } Promise对象，返回摘要计算结果。
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17620004 - Invalid function call. XOF digest algorithms, such as SHAKE128
+     *     and SHAKE256, do not support this API. [since 26.2.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
      * @stagemodelonly
@@ -2228,6 +2263,8 @@ declare namespace cryptoFramework {
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620004 - Invalid function call. XOF digest algorithms, such as SHAKE128
+     *     and SHAKE256, do not support this API. [since 26.2.0]
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
      * @FaAndStageModel
@@ -2239,9 +2276,63 @@ declare namespace cryptoFramework {
     digestSync(): DataBlob;
 
     /**
+     * 对SHAKE128、SHAKE256等XOF算法进行squeeze操作，输出指定长度的摘要。使用Promise异步回调。
+     *
+     * > **说明**
+     * >
+     * > 当前此接口与{@link squeezeSync}在每个**Md**实例上总共仅支持调用一次。
+     *
+     * @param { int } len - 输出摘要的字节长度。
+     *     <br>SHAKE128算法支持的长度范围为32到65536。
+     *     <br>SHAKE256算法支持的长度范围为64到65536。
+     * @returns { Promise<DataBlob> } Promise对象，返回生成的消息摘要。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Invalid len value;
+     * @throws { BusinessError } 17620004 - Invalid function call. The fixed-length digest algorithm, such as SHA256,
+     *     does not support this API.
+     * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.2.0 dynamic&static
+     */
+    squeeze(len: int): Promise<DataBlob>;
+
+    /**
+     * 对SHAKE128、SHAKE256等XOF算法进行squeeze操作，输出指定长度的摘要。通过同步方式返回结果。
+     *
+     * > **说明**
+     * >
+     * > 当前此接口与{@link squeeze}在每个**Md**实例上总共仅支持调用一次。
+     *
+     * <br><br>**说明：**
+     * <br>建议优先使用异步API，{@link squeeze}。同步API可能因系统繁忙、高负载等原因耗时较长而阻塞主线程。
+     * 因此建议在子线程中调用同步API，以避免阻塞主线程。
+     *
+     * @param { int } len - 输出摘要的字节长度。
+     *     <br>SHAKE128算法支持的长度范围为32到65536。
+     *     <br>SHAKE256算法支持的长度范围为64到65536。
+     * @returns { DataBlob } 生成的消息摘要。
+     * @throws { BusinessError } 17620001 - Memory operation failed.
+     * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
+     * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
+     *     <br>1. Invalid len value;
+     * @throws { BusinessError } 17620004 - Invalid function call. The fixed-length digest algorithm, such as SHA256,
+     *     does not support this API.
+     * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.2.0 dynamic&static
+     */
+    squeezeSync(len: int): DataBlob;
+
+    /**
      * 获取消息摘要的字节长度，单位为字节。
      *
      * @returns { int } 消息摘要长度。
+     * @throws { BusinessError } 17620004 - Invalid function call. XOF digest algorithms, such as SHAKE128
+     *     and SHAKE256, do not support this API. [since 26.2.0]
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
@@ -2546,7 +2637,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
      *     <br>1. Invalid opMode value;
      *     <br>2. Invalid iv length;
-     *     <br>3. Invalid key length.  [since 22]
+     *     <br>3. Invalid key length. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
      * @crossplatform [since 11]
@@ -2575,7 +2666,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620003 - Parameter check failed. Possible causes:
      *     <br>1. Invalid opMode value;
      *     <br>2. Invalid iv length;
-     *     <br>3. Invalid key length.  [since 22]
+     *     <br>3. Invalid key length. [since 22]
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Cipher [since 12]
      * @crossplatform [since 11]
@@ -2598,6 +2689,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 17630001 - Crypto operation error.
@@ -2796,6 +2888,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 17630001 - Crypto operation error.
@@ -3023,6 +3116,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 17630001 - Crypto operation error.
@@ -3076,6 +3170,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 17630001 - Crypto operation error.
@@ -3925,7 +4020,7 @@ declare namespace cryptoFramework {
      *     <br>3. Parameter verification failed.
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
-    * @throws { BusinessError } 17630001 - Crypto operation error.
+     * @throws { BusinessError } 17630001 - Crypto operation error.
      * @throws { BusinessError } 17620004 - Invalid function call. [since 26.0.0]
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Signature [since 12]
@@ -4330,7 +4425,6 @@ declare namespace cryptoFramework {
    * @since 23 static
    */
   function createVerify(algName: string): Verify;
-
   /**
    * 密钥协商接口，定义基于非对称密钥对生成共享密钥的方法。调用前，需通过
    * [createKeyAgreement(algName: string): KeyAgreement]{@link cryptoFramework.createKeyAgreement}方法创建一个
@@ -4377,6 +4471,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 17630001 - Crypto operation error.
@@ -5538,6 +5633,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
@@ -5560,6 +5656,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Key.AsymKey
@@ -6843,6 +6940,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
@@ -6864,6 +6962,7 @@ declare namespace cryptoFramework {
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Cipher
@@ -7121,6 +7220,7 @@ declare namespace cryptoFramework {
    *
    * @param { KemAlgNameId } algNameId - KEM的算法名称ID。
    * @returns { Kem } 返回对应算法的Kem实例。
+   * @throws { BusinessError } 801 - Capability not supported. [since 26.2.0]
    * @throws { BusinessError } 17620001 - Memory operation failed.
    * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
    * @throws { BusinessError } 17620003 - Parameter check failed.

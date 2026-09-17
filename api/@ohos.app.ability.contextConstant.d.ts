@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Context-related Constants
  * @kit AbilityKit
  */
 

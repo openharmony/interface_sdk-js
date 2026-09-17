@@ -186,11 +186,23 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     deviceUserId: int;
+
+    /**
+     * 设备子身份资料ID。设备上的子身份资料标识，为非负整数，用于区分同一设备同一用户下的不同子身份资料。
+     * 取值限定为整数。默认值：默认值为-1。
+     *
+     * @default -1
+     * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    deviceSubProfileId?: int;
   }
 
   /**
-     * 设备状态信息。用于描述伴随设备的当前状态，包括设备业务标识、用户名、型号信息、设备名、在线状态以及支持的业务ID列表等。
-     *
+   * 设备状态信息。用于描述伴随设备的当前状态，包括设备业务标识、用户名、型号信息、设备名、在线状态、支持的业务ID列表以及设备子身份资料名称等。
+   *
    * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
@@ -198,7 +210,7 @@ declare namespace companionDeviceAuth {
    */
   interface DeviceStatus {
     /**
-     * 设备关键信息。包含设备ID类型、设备ID和设备用户ID，作为设备的唯一标识。
+     * 设备关键信息。包含设备ID类型、设备ID、设备用户ID和设备子身份资料ID，作为设备的唯一标识。
      *
      * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
      * @systemapi Hide this for inner system use.
@@ -256,6 +268,18 @@ declare namespace companionDeviceAuth {
      * @since 23 dynamic&static
      */
     supportedBusinessIds: int[];
+
+    /**
+     * 设备子身份资料名称。对应分布式账号的昵称，作为设备上前台子身份资料的显示名称，用于在设备选择界面展示。
+     * 默认值：默认值为“”。
+     *
+     * @default ""
+     * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    deviceSubProfileName?: string;
   }
 
   /**
@@ -553,8 +577,8 @@ declare namespace companionDeviceAuth {
    */
   interface DeviceSelectResult {
     /**
-         * 设备信息列表。包含用户选择的设备业务标识信息，每个DeviceKey包含设备ID类型、设备ID和设备用户ID。系统会根据这些信息执行后续的添加模板或认证操作。
-         *
+     * 设备信息列表。包含用户选择的设备业务标识信息，每个DeviceKey包含设备ID类型、设备ID、设备用户ID和设备子身份资料ID。系统会根据这些信息执行后续的添加模板或认证操作。
+     *
      * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
      * @systemapi Hide this for inner system use.
      * @stagemodelonly

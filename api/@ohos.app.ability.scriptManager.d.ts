@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Script Management
  * @kit AbilityKit
  */
 

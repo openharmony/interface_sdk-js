@@ -1461,11 +1461,12 @@ declare namespace pointer {
    * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **undefined**, and **state** indicates whether the touchpad scroll direction matches the direction
    *     of finger movement (**true** indicates yes). Otherwise, **err** is an error object.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - SystemAPI permission error. [since 10 - 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @systemapi hide for inner use.
+   * @systemapi hide for inner use. [since 10 - 26.0.0]
+   * @publicapi [since 26.1.0]
    * @since 10 dynamic
    * @since 23 static
    */
@@ -1477,11 +1478,12 @@ declare namespace pointer {
    * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the touchpad
    *     scroll direction matches the direction of finger movement, and the value **false** indicates the opposite. The
    *     default value is **true**.
-   * @throws { BusinessError } 202 - SystemAPI permission error.
+   * @throws { BusinessError } 202 - SystemAPI permission error. [since 10 - 26.0.0]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
-   * @systemapi hide for inner use.
+   * @systemapi hide for inner use. [since 10 - 26.0.0]
+   * @publicapi [since 26.1.0]
    * @since 10 dynamic
    * @since 23 static
    */

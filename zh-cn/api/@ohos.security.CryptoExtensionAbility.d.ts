@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 密钥扩展能力
  * @kit UniversalKeystoreKit
  */
 

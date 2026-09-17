@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -119,28 +119,28 @@ declare namespace huksExternalCrypto {
   }
 
   /**
-   * Enumerates the Ukey PIN authentication states.
+   * Enumerates the UKey PIN authentication states.
    *
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
   export enum HuksExternalPinAuthState {
     /**
-     * The Ukey PIN is not authenticated.
+     * The UKey PIN is not authenticated.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
      */
     HUKS_EXT_CRYPTO_PIN_NO_AUTH = 0,
     /**
-     * The Ukey PIN is authenticated successfully.
+     * The UKey PIN is authenticated successfully.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
      */
     HUKS_EXT_CRYPTO_PIN_AUTH_SUCCEEDED = 1,
     /**
-     * The Ukey PIN is locked.
+     * The UKey PIN is locked.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
@@ -208,8 +208,12 @@ declare namespace huksExternalCrypto {
    *     is [HUKS_EXT_CRYPTO_TAG_ABILITY_NAME]{@link huksExternalCrypto.HuksExternalCryptoTagType}, indicating the
    *     ability name. Set this parameter based on the actual service requirements.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - check permission failed.
-   * @throws { BusinessError } 801 - api is not supported.
+   * @throws { BusinessError } 201 - Permission verification failed: call the registerProvider API,
+   *     missing Permission: ohos.permission.CRYPTO_EXTENSION_REGISTER.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000002 - the ability name param is missing.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000014 - memory is insufficient.
@@ -225,7 +229,7 @@ declare namespace huksExternalCrypto {
   /**
    * Unregisters a specified external Provider. This API uses a promise to return the result.
    *
-   * @permission  ohos.permission.CRYPTO_EXTENSION_REGISTER
+   * @permission ohos.permission.CRYPTO_EXTENSION_REGISTER
    * @param { string } providerName - Provider name, which contains a maximum of 128 characters. It is recommended that
    *     the value contain the vendor information, be globally unique, and not contain sensitive data such as personal
    *     contact information. If a provider has registered multiple extension capabilities, all the extension
@@ -238,8 +242,12 @@ declare namespace huksExternalCrypto {
    *     **params** parameter or the **params** parameter is not passed, all providers under the corresponding
    *     **providerName** are unregistered.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - check permission failed.
-   * @throws { BusinessError } 801 - api is not supported.
+   * @throws { BusinessError } 201 - Permission verification failed: call the unregisterProvider API,
+   *     missing Permission: ohos.permission.CRYPTO_EXTENSION_REGISTER.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000011 - the provider is not found.
    * @throws { BusinessError } 12000012 - Device environment or input parameter is abnormal.
@@ -264,7 +272,10 @@ declare namespace huksExternalCrypto {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - The caller is not a system application
    *     and is not allowed to use system applications.
-   * @throws { BusinessError } 801 - api is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - the UKey driver operation failed.
    * @throws { BusinessError } 12000011 - queried entity does not exist.
@@ -293,7 +304,10 @@ declare namespace huksExternalCrypto {
    * @returns { Promise<HuksExternalPinAuthState> } Promise used to return the authentication result.
    *     <br>**HUKS_EXT_CRYPTO_PIN_NO_AUTH**: The PIN authentication fails. **HUKS_EXT_CRYPTO_PIN_AUTH_SUCCEEDED**: The PIN
    *     authentication is successful. **HUKS_EXT_CRYPTO_PIN_LOCKED**: The PIN is locked.
-   * @throws { BusinessError } 801 - api is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - the UKey driver operation failed.
    * @throws { BusinessError } 12000011 - queried entity does not exist. This may happen
@@ -314,7 +328,10 @@ declare namespace huksExternalCrypto {
    *
    * @param { string } resourceId - Indicates the resource ID of the provider.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - Failed to call the UKey driver interface.
    *     Please check the UKey connection and driver status.
@@ -355,7 +372,10 @@ declare namespace huksExternalCrypto {
    * @returns { Promise<Array<HuksExternalCryptoParam>> } Promise that returns the operation result. If the call is
    *     successful, an array of the **HuksExternalCryptoParam** type is returned, containing the properties to be
    *     queried.
-   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - If the UKey driver operation failed. Possible causes:
    *     1. Error reported when the provider accesses the SKF interface of UKey.
@@ -387,7 +407,10 @@ declare namespace huksExternalCrypto {
    * @param { HuksExternalCryptoParam[] } [params] - Indicates the operation parameters.
    *     This parameter is optional and contains parameters related to the property ID needed to set.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - Failed to call the UKey driver interface.
    *     Please check the UKey connection and driver status.
@@ -417,7 +440,10 @@ declare namespace huksExternalCrypto {
    * @param { HuksExternalCryptoParam[] } params - Indicates the input operation parameters,
    *     including the bundle name, ability name, and the related information to get the resource ID.
    * @returns { Promise<string> } The promise returned by the function.
-   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000002 - The ability name, bundle name parameter or resource information is missing.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000011 - The provider is not found.
@@ -443,7 +469,10 @@ declare namespace huksExternalCrypto {
    * @param { string } resourceId - Indicates the resource ID of the provider.
    * @param { HuksExternalCryptoParam[] } [params] - Indicates the input operation parameters.
    * @returns { Promise<void> } Return value of the Promise type
-   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - Failed to call the UKey driver interface.
    *     Please check the UKey connection and driver status.
@@ -472,7 +501,10 @@ declare namespace huksExternalCrypto {
    * @param { string } resourceId - Indicates the resource ID of the provider.
    * @param { HuksExternalCryptoParam[] } [params] - Indicates the input operation parameters.
    * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes:
+   *     1. The hardware does not support the capability.
+   *     2. The chip does not support the capability.
+   *     3. A dependent service feature is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - Failed to call the UKey driver interface.
    *     Please check the UKey connection and driver status.

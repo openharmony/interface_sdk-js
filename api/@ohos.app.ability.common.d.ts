@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ability Common Module
  * @kit AbilityKit
  */
 

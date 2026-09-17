@@ -1,1 +1,0 @@
-declare type Test = (value: number, ...args: string[] | number[]) => void;

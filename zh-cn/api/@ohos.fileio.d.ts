@@ -14,7 +14,7 @@
  */
 
 /**
- * @file @ohos.fileio (文件管理)
+ * @file 文件管理
  * @kit API10LessDeprecatedModules
  */
 

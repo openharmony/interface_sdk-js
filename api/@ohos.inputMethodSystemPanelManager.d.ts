@@ -162,7 +162,7 @@ declare namespace inputMethodSystemPanelManager {
    *
    * @param { Callback<Record<string, CommandDataType>> } callback - Callback function, which is triggered
    *  when the input method application or system service sends a private data command.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @stagemodelonly
@@ -175,7 +175,7 @@ declare namespace inputMethodSystemPanelManager {
    *
    * @param { Callback<Record<string, CommandDataType>> } [callback] - Callback function.
    *  If this parameter is left empty, all callbacks will be unsubscribed from.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @stagemodelonly
@@ -187,7 +187,7 @@ declare namespace inputMethodSystemPanelManager {
    * Subscribes to system panel state change events.
    *
    * @param { Callback<SystemPanelStatus> } callback - Callback function, which is triggered when the system panel state changes.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @stagemodelonly
@@ -199,7 +199,7 @@ declare namespace inputMethodSystemPanelManager {
    * Unsubscribes from system panel state change events.
    *
    * @param { Callback<SystemPanelStatus> } [callback] - Callback function. If this parameter is left empty, all callbacks will be unsubscribed from.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @systemapi
    * @stagemodelonly
@@ -212,7 +212,7 @@ declare namespace inputMethodSystemPanelManager {
    *
    * @param { Record<string, CommandDataType> } commandData - Command data to be sent. The maximum size is 32 KB, and a maximum of five commands are allowed.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 12800026 - input method system panel error. Possible causes:
    *     1. the system panel not connected. 2. ipc failed due to the large amount of data transferred or other reasons.
    *     3. the caller is not system panel.
@@ -229,8 +229,8 @@ declare namespace inputMethodSystemPanelManager {
    *
    * @permission ohos.permission.CONNECT_IME_ABILITY
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - permissions check fails.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 12800008 - input method manager service error. Possible causes:
    *     a system error, such as null pointer, IPC exception.
    * @throws { BusinessError } 12800026 - input method system panel error. Possible causes:

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Internationalization
  * @kit LocalizationKit
  */
 

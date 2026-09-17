@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 应用多端协同管理
  * @kit DistributedServiceKit
  */
 
@@ -719,7 +719,7 @@ declare namespace abilityConnectionManager {
    * @param { 'receiveImage' } type - 事件注册类型，'receiveImage'。
    * @param { number } sessionId - 协同会话ID。
    * @param { Callback<EventCallbackInfo> } callback - 用于处理('receiveImage')事件的回调函数。
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -736,7 +736,7 @@ declare namespace abilityConnectionManager {
    * @param { 'receiveImage' } type - 事件注册类型，'receiveImage'。
    * @param { number } sessionId - 协同会话ID。
    * @param { Callback<EventCallbackInfo> } callback - 用于处理('receiveImage')事件的回调函数。
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -752,7 +752,7 @@ declare namespace abilityConnectionManager {
    *
    * @param { int } sessionId - Ability connection Session id.
    * @param { Callback<EventCallbackInfo> } callback - Used to handle ('receiveImage') command.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -768,7 +768,7 @@ declare namespace abilityConnectionManager {
    *
    * @param { int } sessionId - Ability connection Session id.
    * @param { Callback<EventCallbackInfo> } [callback] - Used to handle ('receiveImage') command.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -785,7 +785,7 @@ declare namespace abilityConnectionManager {
    * @param { 'collaborateEvent' } type - 事件注册类型，'collaborateEvent'。
    * @param { number } sessionId - 协同会话ID。
    * @param { Callback<CollaborateEventInfo> } callback - 错误事件回调函数。
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -802,7 +802,7 @@ declare namespace abilityConnectionManager {
    * @param { 'collaborateEvent' } type - 事件注册类型，'collaborateEvent'。
    * @param { number } sessionId - 协同会话ID。
    * @param { Callback<CollaborateEventInfo> } callback - 错误事件回调函数。
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -818,7 +818,7 @@ declare namespace abilityConnectionManager {
    *
    * @param { int } sessionId - Ability connection Session id.
    * @param { Callback<CollaborateEventInfo> } callback - Called when an error event comes.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -834,7 +834,7 @@ declare namespace abilityConnectionManager {
    *
    * @param { int } sessionId - Ability connection Session id.
    * @param { Callback<CollaborateEventInfo> } [callback] - Called when an error event comes.
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -857,10 +857,10 @@ declare namespace abilityConnectionManager {
    * @param { ConnectOptions } connectOptions - 应用设置的连接选项。
    * @returns { int} 成功创建的协同会话ID，用于后续的connect、acceptConnect、sendMessage、sendData、disconnect等接口调用。
    *     取值范围是大于100的整数。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
    * @stagemodelonly
    * @since 18 dynamic
@@ -1009,7 +1009,7 @@ declare namespace abilityConnectionManager {
    * @param { image.PixelMap } image - 表示图片信息。
    * @param { int } [quality] - 表示图像压缩质量，取值范围为0到100，默认值为30。
    * @returns { Promise<void> } 无返回值的Promise对象。
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -1027,7 +1027,7 @@ declare namespace abilityConnectionManager {
    * @param { StreamParam } param - 表示传输流的配置信息。
    * @returns {Promise<int>}  返回传输流ID的Promise对象。后续操作传输流的接口（如setSurfaceId、getSurfaceId、
    *     startStream、stopStream、destroyStream等）需要使用此ID。
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @throws { BusinessError } 32300001 - Only one stream can be created for the current session.
@@ -1049,7 +1049,7 @@ declare namespace abilityConnectionManager {
    * @param { string } surfaceId - 表示Surface的唯一标识符，需通过getSurfaceId接口获取。
    * @param { SurfaceParam } param - 表示Surface的配置参数，包括编码宽度、高度、像素格式等。
    *     配置后Surface将按照指定参数进行视频帧的编码和渲染。需在流启动前完成绑定。
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -1065,7 +1065,7 @@ declare namespace abilityConnectionManager {
    * @param { int } streamId - 表示传输流ID，需通过createStream接口创建传输流后获取。
    * @param { SurfaceParam } param - 表示Surface的配置参数。需在流启动前完成Surface绑定。
    * @returns {string}  Surface的唯一标识符，可用于后续setSurfaceId等操作。
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -1081,7 +1081,7 @@ declare namespace abilityConnectionManager {
    *
    * @param { int } streamId - 表示传输流ID，需通过createStream接口创建传输流后获取。
    * @param { SurfaceParam } param - 表示Surface的配置参数。
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -1097,7 +1097,7 @@ declare namespace abilityConnectionManager {
    * 需与createStream()方法配对使用，在业务结束后必须调用此方法销毁传输流以释放资源。
    *
    * @param { int } streamId - 表示传输流ID，需通过createStream接口创建传输流后获取。
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration
@@ -1115,7 +1115,7 @@ declare namespace abilityConnectionManager {
 
    *
    * @param { int } streamId - 表示传输流ID，需通过createStream接口创建传输流后获取。
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @throws { BusinessError } 32300002 - The stream at the receive end is not started.
@@ -1133,7 +1133,7 @@ declare namespace abilityConnectionManager {
    * 使用场景包括视频通话暂停、用户关闭摄像头、切换前后摄像头等需要临时停止视频传输时调用。
    *
    * @param { int } streamId - 表示传输流ID，需通过createStream接口创建传输流后获取。
-   * @throws { BusinessError } 202 - Not system App.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2.
    *     Incorrect parameter types.
    * @syscap SystemCapability.DistributedSched.AppCollaboration

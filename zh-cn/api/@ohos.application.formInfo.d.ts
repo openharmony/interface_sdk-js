@@ -375,9 +375,7 @@ declare namespace formInfo {
    */
   enum FormParam {
     /**
-     * Widget ID.
-     * 
-     * This is a system API.
+     * 卡片标识。
      *
      * @syscap SystemCapability.Ability.Form
      * @systemapi

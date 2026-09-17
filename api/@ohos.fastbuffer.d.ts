@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 /**
- * @file
+ * @file FastBuffer
  * @kit ArkTS
  */
 /**

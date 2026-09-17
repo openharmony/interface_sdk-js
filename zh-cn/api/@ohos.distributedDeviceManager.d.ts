@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 设备管理
  * @kit DistributedServiceKit
  */
 
@@ -1242,7 +1242,8 @@ declare namespace distributedDeviceManager {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param { Callback<DeviceStateChangeResult> } callback
      *     指示要注册的设备状态回调，返回设备状态和设备信息。
-     * @throws { BusinessError } 201 - Permission verification failed.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @syscap SystemCapability.DistributedHardware.DeviceManager
      * @since 23 static
      */
@@ -1806,8 +1807,9 @@ declare namespace distributedDeviceManager {
      *     ohos.permission.sec.ACCESS_UDID
      * @param { Array<string> } deviceIds - 应用程序可以获取的设备ID列表。
      * @returns { Array<DeviceIdentification> } DeviceIdentification列表。
-     * @throws { BusinessError } 201 - User permission verify failed.
-     * @throws { BusinessError } 202 - The caller is not a system application.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types;

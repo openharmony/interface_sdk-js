@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file DataUriUtils模块
  * @kit AbilityKit
  */
 

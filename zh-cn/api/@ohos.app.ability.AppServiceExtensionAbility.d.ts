@@ -58,7 +58,7 @@
  * 
  *   当所有连接方断开与AppServiceExtensionAbility实例的连接时，系统会触发该回调。
  *
- * @file
+ * @file 应用后台服务扩展组件
  * @kit AbilityKit
  */
 

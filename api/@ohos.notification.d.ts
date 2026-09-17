@@ -1084,7 +1084,7 @@ declare namespace notification {
    * return the result.
    *
    * @param { string } groupName - Name of the notification group, which is specified through
-   *     [NotificationRequest]{@link notification.requestEnableNotification} when the
+   *     [NotificationRequest]{@link ./notification/notificationRequest:NotificationRequest} when the
    *     notification is published.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.Notification.Notification

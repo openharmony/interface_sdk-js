@@ -14,14 +14,13 @@
  */
 
 /**
- * The Context module provides context for ability components or applications. It allows access to application-specific 
- * resources, as well as permission requests and verification.
+ * Context模块提供了Ability或Application的上下文的基础能力，包括允许访问特定于应用程序的资源、请求和验证权限等。
  * 
- * > **NOTE**
+ * > **说明**
  * 
- * > The APIs of this module can be used only in the FA model.
+ * > 本模块接口仅可在FA模型下使用。
  *
- * @file
+ * @file FA模型的上下文基类
  * @kit AbilityKit
  */
 

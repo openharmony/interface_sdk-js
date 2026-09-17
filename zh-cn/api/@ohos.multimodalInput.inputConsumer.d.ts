@@ -307,6 +307,8 @@ declare namespace inputConsumer {
    * @param { KeyOptions } keyOptions - 组合键选项，支持triggerType参数。
    * @param { KeyCommandCallback } callback - 回调函数，返回组合键选项和按键事件数据。
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
@@ -350,6 +352,8 @@ declare namespace inputConsumer {
    * @param { KeyOptions } keyOptions - 组合键选项，需与订阅时传入的keyOptions一致。
    * @param { KeyCommandCallback } [callback] - 需要取消订阅的回调函数。若不填，则取消当前应用组合键选项已订阅的所有回调函数。
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi Hide this for inner system use.
    * @stagemodelonly

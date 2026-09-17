@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 开机自启管理能力
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 系统事件打点
  * @kit PerformanceAnalysisKit
  */
 

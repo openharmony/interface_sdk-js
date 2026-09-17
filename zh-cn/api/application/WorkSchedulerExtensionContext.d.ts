@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 延迟任务调度回调上下文
  * @kit BackgroundTasksKit
  */
 

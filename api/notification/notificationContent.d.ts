@@ -445,7 +445,7 @@ export interface NotificationMultiLineContent extends NotificationBasicContent {
  * > - When a user taps a group notification to view the notification details, the display effect of this
  * > notification changes to the expanded state.
  * >
- * > - The actual display effect depends on the device capabilities and the notification center UI style.
+ * > - The actual display effect depends on the device capabilities and the notification center UI style<!--RP1--><!--RP1End-->.
  *
  * @syscap SystemCapability.Notification.Notification
  * @since 7 dynamic
@@ -474,7 +474,7 @@ export interface NotificationPictureContent extends NotificationBasicContent {
   expandedTitle: string;
 
   /**
-   * Picture content displayed after the notification is expanded. The total bytes of the image pixels (obtained
+   * Right icon displayed after notification expansion. The total bytes of the image pixels (obtained
    * through getPixelBytesNumber) cannot exceed 2 MB.
    *
    * @syscap SystemCapability.Notification.Notification
