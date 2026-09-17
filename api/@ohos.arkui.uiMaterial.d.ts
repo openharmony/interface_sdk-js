@@ -519,9 +519,9 @@ declare namespace uiMaterial {
      * Note: This parameter takes effect only for the display effect of devices with high- and mid-level computing 
      * power.
      * 
-     * Default value: **Color.Transparent**
+     * Default value: **undefined**
      *
-     * @default Color.Transparent
+     * @default undefined
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
