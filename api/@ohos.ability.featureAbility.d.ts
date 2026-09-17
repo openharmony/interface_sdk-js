@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file FeatureAbility Module
  * @kit AbilityKit
  */
 

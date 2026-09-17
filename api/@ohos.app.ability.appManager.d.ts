@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Application Management
  * @kit AbilityKit
  */
 

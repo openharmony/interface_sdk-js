@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file ParticleAbility Module
  * @kit AbilityKit
  */
 

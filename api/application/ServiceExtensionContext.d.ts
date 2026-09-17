@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file ServiceExtensionContext
  * @kit AbilityKit
  */
 

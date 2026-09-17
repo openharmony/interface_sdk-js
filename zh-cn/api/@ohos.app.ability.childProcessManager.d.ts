@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 子进程管理
  * @kit AbilityKit
  */
 

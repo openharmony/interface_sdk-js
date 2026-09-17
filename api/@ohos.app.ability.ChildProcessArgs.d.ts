@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Child Process Arguments
  * @kit AbilityKit
  */
 

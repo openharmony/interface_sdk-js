@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Application Memory Optimizer
  * @kit AbilityKit
  */
 

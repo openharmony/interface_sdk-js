@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 启动框架管理能力
  * @kit AbilityKit
  */
 

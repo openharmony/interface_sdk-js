@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Child Process Base Class
  * @kit AbilityKit
  */
 

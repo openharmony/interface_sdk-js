@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Application Process State Change Listener
  * @kit AbilityKit
  */
 
