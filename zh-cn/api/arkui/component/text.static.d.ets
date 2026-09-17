@@ -22,7 +22,7 @@ import { CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder'
 import { EllipsisMode, TextCase, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextSelectableMode } from "./enums";
 import { Resource, ResourceColor, Font, Length, LengthMetrics, ResourceStr } from "./units";
 
-import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle, TextDirection, ShaderStyle, LineSpacingOptions, TextVerticalAlign, ContentTransition, TextContentAlign, FontVariation, IncrementalUpdatePolicy } from "./textCommon";
+import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle, TextDirection, ShaderStyle, LineSpacingOptions, TextVerticalAlign, ContentTransition, TextContentAlign, FontVariation, IncrementalUpdatePolicy, StrokeJoinStyle } from "./textCommon";
 import { DecorationStyleInterface, StyledString } from "./styledString";
 import { SelectionMenuOptions } from "./richEditor";
 import { ComponentBuilder } from "./../stateManagement/runtime";
@@ -778,6 +778,40 @@ export declare interface TextAttribute extends CommonMethod {
    * @since 23 static
    */
   default onTextSelectionChange(callback: ((selectionStart: int, selectionEnd: int) => void) | undefined): this;
+
+  /**
+   * 设置文本描边宽度。
+   *
+   * @param { LengthMetrics | undefined } width - 文本描边宽度。取值为undefined时，按默认值处理。
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  default strokeWidth(width: LengthMetrics | undefined): this;
+
+  /**
+   * 设置文本描边颜色。
+   *
+   * @param { ResourceColor | undefined } color - 文本描边颜色。取值为undefined时，按默认值处理。
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  default strokeColor(color: ResourceColor | undefined): this;
+
+  /**
+   * 设置文本描边拐角样式。
+   *
+   * @param { StrokeJoinStyle | undefined } strokeJoinStyle - 文本描边拐角样式。取值为undefined时，按默认值处理。
+   * @returns { TextAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  default strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): this;
+
   /**
    * 设置文字特性效果，比如数字等宽的特性。
    *

@@ -938,6 +938,53 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   selectedBackgroundColor(color: ResourceColor): TextAttribute;
 
   /**
+   * Sets the text stroke width.
+   *
+   * @param { Optional<LengthMetrics> } width - Text stroke width.
+   *     When the unit of **LengthMetrics** is **px**:<br>Values < 0: solid text.<br>Values > 0: outlined text.
+   *     <br>Default value: **0** (no stroke).
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  strokeWidth(width: Optional<LengthMetrics>): TextAttribute;
+
+  /**
+   * Sets the text stroke color.
+   *
+   * @param { Optional<ResourceColor> } color - Stroke color.
+   *     <br>Default value: font color. Invalid values are treated as
+   *     the default value.
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  strokeColor(color: Optional<ResourceColor>): TextAttribute;
+
+  /**
+   * Sets the join style of the text stroke.
+   *
+   * @param { StrokeJoinStyle | undefined } strokeJoinStyle - Join style of the text stroke.<br>If the value is
+   *     **undefined**, the join style is set to the default value **StrokeJoinStyle.MITER_JOIN**. For details, see
+   *     [StrokeJoinStyle](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#strokejoinstyle).
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): TextAttribute;
+
+  /**
    * Applies gradient or solid color effects to text. Supports [RadialGradientStyle]{@link RadialGradientStyle},
    * [LinearGradientStyle]{@link LinearGradientStyle}, and [ColorShaderStyle]{@link ColorShaderStyle}. **shaderStyle**
    * takes precedence over [fontColor]{@link SymbolSpanAttribute#fontColor} and AI-based styling. For solid colors,
