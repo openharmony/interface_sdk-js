@@ -533,11 +533,12 @@ declare namespace usageStatistics {
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { string } bundleName - 应用的bundleName。
    * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示应用为常用应用；返回false表示指定应用不是常用应用或bundleName无效。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -558,11 +559,12 @@ declare namespace usageStatistics {
    * @param { string } bundleName - 应用的bundleName。
    * @returns { Promise<boolean> } Promise对象。
    *     若应用为常用应用，返回true；若指定应用不是常用应用或bundleName无效，则返回false。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -582,11 +584,12 @@ declare namespace usageStatistics {
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { string } bundleName - 应用的bundleName。
    * @returns { boolean } 若应用为常用应用，返回true；若指定应用不是常用应用或bundleName无效，则返回false。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -606,10 +609,12 @@ declare namespace usageStatistics {
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { AsyncCallback<int> } callback - 回调函数。
    *     当查询成功，err为undefined，data为当前应用优先级分组结果，值越小，优先级越高；否则为错误对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -630,9 +635,10 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @returns { Promise<int> } Promise对象。返回当前应用优先级分组结果，值越小，优先级越高。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -653,9 +659,10 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @returns { int } 返回当前应用优先级分组结果，值越小，优先级越高。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -678,10 +685,12 @@ declare namespace usageStatistics {
    * @param { string } bundleName - 应用的bundleName。
    * @param { AsyncCallback<int> } callback - 回调函数。
    *     当查询成功，err为undefined，data为指定应用的优先级分组结果，值越小，优先级越高；否则为错误对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -703,10 +712,12 @@ declare namespace usageStatistics {
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { string } bundleName - 应用的bundleName。
    * @returns { Promise<int> } Promise对象。返回指定应用的优先级分组结果，值越小，优先级越高。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -728,10 +739,12 @@ declare namespace usageStatistics {
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { string } bundleName - 应用的bundleName。
    * @returns { int } 返回应用的优先级分组结果，值越小，优先级越高。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -765,10 +778,12 @@ declare namespace usageStatistics {
    * @param { long } end - 结束时间，单位：ms。
    * @param { AsyncCallback<BundleStatsMap> } callback - 回调函数。
    *     当查询成功，err为undefined，data为指定时间段内应用使用时长的具体信息；否则为错误对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -790,10 +805,12 @@ declare namespace usageStatistics {
    * @param { long } begin - 起始时间，单位：ms。
    * @param { long } end - 结束时间，单位：ms。
    * @returns { Promise<BundleStatsMap> } Promise对象。返回指定时间段内应用使用时长的具体信息。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -824,10 +841,12 @@ declare namespace usageStatistics {
    * @param { long } begin - 起始时间，单位：ms。
    * @param { long } end - 结束时间，单位：ms。
    * @returns { Promise<AppStatsMap> } Promise对象。返回指定时间段内应用使用的具体信息。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -848,10 +867,12 @@ declare namespace usageStatistics {
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { Record<string, Array<long>> } appInfo - 参数为map结构，key是bundleName，value是查询应用的index（可以有多个，通过Array传入）。
    * @returns { Promise<AppStatsMap> } Promise对象。返回指定bundleName和index应用使用的具体信息。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -935,10 +956,12 @@ declare namespace usageStatistics {
    * @param { long } end - 结束时间，单位：ms。
    * @param { AsyncCallback<Array<BundleStatsInfo>> } callback - 回调函数。
    *     当查询成功，err为undefined，data为指定时间段间隔内，应用使用时长的统计信息；否则为错误对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -966,10 +989,12 @@ declare namespace usageStatistics {
    * @param { long } begin - 起始时间，单位：ms。
    * @param { long } end - 结束时间，单位：ms。
    * @returns { Promise<Array<BundleStatsInfo>> } Promise对象。返回指定时间段间隔内，应用使用时长的统计信息。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -996,11 +1021,12 @@ declare namespace usageStatistics {
    * @param { long } end - 结束时间，单位：ms。
    * @param { AsyncCallback<Array<BundleEvents>> } callback - 回调方法。
    *     当查询成功，err为undefined，data为起始和结束时间段内，所有应用的事件集合；否则为错误对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1022,11 +1048,12 @@ declare namespace usageStatistics {
    * @param { long } begin - 起始时间，单位：ms。
    * @param { long } end - 结束时间，单位：ms。
    * @returns { Promise<Array<BundleEvents>> } Promise对象。返回起始和结束时间段内，所有应用的事件集合。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1049,8 +1076,9 @@ declare namespace usageStatistics {
      * @param { long } end - 结束时间。<br/>单位：ms
      * @param { int } maxNum - 返回的事件的条数。<br/>取值范围：[1, 1000]。
      * @returns { Promise<Array<BundleEvents>> } Promise对象，返回起始和结束时间段内，所有应用的事件集合。
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Not System App.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 10000001 - Memory operation failed.
      * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
      *     <br> 2. Failed to apply for memory.
@@ -1075,10 +1103,10 @@ declare namespace usageStatistics {
    * @param { long } end - 结束时间，单位：ms。
    * @param { AsyncCallback<Array<BundleEvents>> } callback - 回调方法。
    *     当查询成功，err为undefined，data为指定起始和结束时间段内，当前应用的事件集合；否则为错误对象。
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1099,10 +1127,10 @@ declare namespace usageStatistics {
    * @param { long } begin - 起始时间，单位：ms。
    * @param { long } end - 结束时间，单位：ms。
    * @returns { Promise<Array<BundleEvents>> } Promise对象。返回指定起始和结束时间段内，当前应用的事件集合。
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1124,7 +1152,7 @@ declare namespace usageStatistics {
     * @param { long } end - 结束时间。<br/>单位：ms
     * @param { int } maxNum - 返回的事件的条数。<br/>取值范围：[1, 1000]
     * @returns { Promise<Array<BundleEvents>> } Promise对象，返回指定起始和结束时间段内，当前应用的事件集合。
-    * @throws { BusinessError } 202 - Not System App.
+    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
     * @throws { BusinessError } 10000001 - Memory operation failed.
     * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
     *     <br> 2. Failed to apply for memory.
@@ -1148,11 +1176,12 @@ declare namespace usageStatistics {
    * @param { int } maxNum - 使用记录的条数，取值范围为[1，1000]。
    * @param { AsyncCallback<Array<HapModuleInfo>> } callback - 回调方法。
    *     当查询成功，err为undefined，data为FA模型下各应用不用Hap包的使用记录（不超过maxNum条）；否则为错误对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1173,11 +1202,12 @@ declare namespace usageStatistics {
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { int } maxNum - 使用记录的条数，取值范围为[1，1000]。
    * @returns { Promise<Array<HapModuleInfo>> } Promise对象，返回不超过maxNum条，FA模型下各应用不用Hap包的使用记录。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1198,11 +1228,12 @@ declare namespace usageStatistics {
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { AsyncCallback<Array<HapModuleInfo>> } callback - 回调函数。
    *     当查询成功，err为undefined，data为FA模型下各应用不用Hap包的使用记录（不超过1000条）；否则为错误对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1224,11 +1255,12 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @returns { Promise<Array<HapModuleInfo>> } Promise对象。返回FA模型下各应用不用Hap包的使用记录（不超过1000条）。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1321,11 +1353,12 @@ declare namespace usageStatistics {
    * @param { GroupType } newGroup - 应用分组类型。
    * @param { AsyncCallback<void> } callback - 回调函数。
    *     当设置成功，err为undefined；否则为错误对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1347,11 +1380,12 @@ declare namespace usageStatistics {
    * @param { string } bundleName - 应用的bundleName。
    * @param { GroupType } newGroup - 应用分组类型。
    * @returns { Promise<void> } 无返回结果的Promise对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1374,11 +1408,12 @@ declare namespace usageStatistics {
    * @param { Callback<AppGroupCallbackInfo> } groupCallback - 返回的应用分组变化信息。
    * @param { AsyncCallback<void> } callback - 回调函数。
    *     当注册监听成功，err为undefined；否则为错误对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1399,11 +1434,12 @@ declare namespace usageStatistics {
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { Callback<AppGroupCallbackInfo> } groupCallback - 返回的应用分组变化信息。
    * @returns { Promise<void> } 无返回结果的Promise对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1423,11 +1459,12 @@ declare namespace usageStatistics {
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { AsyncCallback<void> } callback - 回调函数。
    *     当解除监听成功，err为undefined；否则为错误对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1446,11 +1483,12 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @returns { Promise<void> } 无返回结果的Promise对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1472,11 +1510,12 @@ declare namespace usageStatistics {
    * @param { long } end - 结束时间，单位：ms。
    * @param { AsyncCallback<Array<DeviceEventStats>> } callback - 回调函数。
    *     当查询成功，err为undefined，data为起始和结束时间段内，系统事件（休眠、唤醒、解锁、锁屏）的统计信息；否则为错误对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1498,11 +1537,12 @@ declare namespace usageStatistics {
    * @param { long } begin - 起始时间，单位：ms。
    * @param { long } end - 结束时间，单位：ms。
    * @returns { Promise<Array<DeviceEventStats>> } Promise对象。返回起始和结束时间段内，系统事件（休眠、唤醒、解锁、锁屏）的统计信息。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1525,11 +1565,12 @@ declare namespace usageStatistics {
    * @param { long } end - 结束时间，单位：ms。
    * @param { AsyncCallback<Array<DeviceEventStats>> } callback - 回调函数。
    *     当查询成功，err为undefined，data为指定起始和结束时间段内，所有应用的通知次数；否则为错误对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
@@ -1555,11 +1596,12 @@ declare namespace usageStatistics {
    * @param { long } begin - 起始时间，单位：ms。
    * @param { long } end - 结束时间，单位：ms。
    * @returns { Promise<Array<DeviceEventStats>> } Promise对象。返回指定起始和结束时间段内，所有应用的通知次数。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
    *     <br> 2. Failed to apply for memory.
