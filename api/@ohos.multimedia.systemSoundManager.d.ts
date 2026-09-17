@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file System Sound Management
  * @kit AudioKit
  */
 
