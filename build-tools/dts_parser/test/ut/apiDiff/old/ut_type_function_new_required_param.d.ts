@@ -1,1 +1,0 @@
-export type Test = (a: Error | any) => void;

@@ -1,4 +1,4 @@
-#  API声明文件公共仓
+# API声明文件公共仓
 
 ## 简介
 
@@ -36,9 +36,6 @@ JS/TS API 公共仓，用来提交 API d.ts 声明文件以及API相关工具。
    |  └─collect_base_api.js
    └─diff_api                      #比较两个版本sdk差异工具（新）
    |  └─src
-   └─dts_parser                    #解析d.ts文件的工具
-   |  ├─src
-   |  └─test
    └─jsdoc_format_plugin           #检查并修复jsdoc规范错误的工具
    |  ├─loader
    |  ├─src
@@ -52,4 +49,3 @@ JS/TS API 公共仓，用来提交 API d.ts 声明文件以及API相关工具。
 ## 相关仓
 
 [interface-sdk_js](https://gitee.com/openharmony/interface_sdk-js/tree/master)
-
