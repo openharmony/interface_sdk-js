@@ -154,6 +154,8 @@ export declare class LazyVWaterFlowLayoutAttribute extends LazyWaterFlowLayoutAt
    *
    * @param { string | ItemFillPolicy | undefined } value - 布局中的列数。
    *     <br>默认值：'1fr'
+   *     <br>普通模板串（非repeat形式）中每项仅支持'数字+fr'、'数字+px'、'数字+%'三种格式，不支持vp（如columnsTemplate('100vp 100vp')）
+   *     <br>设置为'0fr'时，该列的列宽为0，不显示子组件；设置为其他非法值时，子组件显示为固定1列
    * @returns { LazyVWaterFlowLayoutAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
