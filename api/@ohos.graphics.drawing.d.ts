@@ -8613,7 +8613,7 @@ declare namespace drawing {
      *
      * > **NOTE**
      * >
-     * > This field is animated by animateTo.
+     * > This field is animated by [animateTo]{@link @ohos.arkui.UIContext:UIContext.animateTo}
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi

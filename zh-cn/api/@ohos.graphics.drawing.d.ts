@@ -8044,7 +8044,7 @@ declare namespace drawing {
      *
      * > **说明：**
      * >
-     * > 该字段可通过animateTo进行动画驱动。
+     * > 该字段可通过[animateTo]{@link @ohos.arkui.UIContext:UIContext.animateTo}进行动画驱动。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
