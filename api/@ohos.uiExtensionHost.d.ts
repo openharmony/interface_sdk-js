@@ -300,7 +300,7 @@ declare namespace uiExtensionHost {
      *     4. It is not allowed to create non-secure window when secure extension exists.
      *     5. Permission denied for creating a system window or a modal subwindow.
      *     6. Subwindow level exceeds the maximum limit.
-     *     7.The extension ability type or the parent of the extension subwindow is invalid.
+     *     7. The extension ability type or the parent of the extension subwindow is invalid.
      * @throws { BusinessError } 1300035 - Creating a subwindow is not allowed in the current context. Possible cause:
      *     1. An AgentUIExtensionAbility cannot create a subwindow.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -330,7 +330,7 @@ declare namespace uiExtensionHost {
      *     4. It is not allowed to create non-secure window when secure extension exists.
      *     5. Permission denied for creating a system window or a modal subwindow.
      *     6. Subwindow level exceeds the maximum limit.
-     *     7.The extension ability type or the parent of the extension subwindow is invalid.
+     *     7. The extension ability type or the parent of the extension subwindow is invalid.
      * @throws { BusinessError } 1300035 - Creating a subwindow is not allowed in the current context. Possible cause:
      *     1. An AgentUIExtensionAbility cannot create a subwindow.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
