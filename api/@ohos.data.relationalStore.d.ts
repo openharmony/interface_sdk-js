@@ -8327,6 +8327,24 @@ declare namespace relationalStore {
      * @since 23 static
      */
     rekeyEx(cryptoParam: CryptoParam): Promise<void>;
+    
+    /**
+     * Requests full data donation for specified distributed tables.
+     *
+     * @param { Array<string> } tables - Indicates the list of distributed table names to be fully donated.
+     *     Must not be empty.
+     *     <br>The maximum length is 20.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 14800001 - Invalid arguments. Parameter out of range or empty table list.
+     * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @throws { BusinessError } 14800043 - The database does not support this scenario.
+     * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    requestFullDataDonation(tables: Array<string>): Promise<void>;
   }
 
   /**
