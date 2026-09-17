@@ -720,6 +720,17 @@ export declare struct SubHeaderV2 {
   @Param
   readonly icon?: SubHeaderV2IconType;
   /**
+   * End icon of the title.
+   * The **endIcon** attribute takes effect only when **primaryTitle** or **secondaryTitle** is used for **title**.
+   * Default value: **undefined**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.1.0 static
+   */
+  @Param
+  readonly endIcon?: SubHeaderV2IconType;
+  /**
    * Title of the subheader.
    *
    * Default value: **undefined**

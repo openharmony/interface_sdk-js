@@ -476,7 +476,7 @@ export interface SubHeaderV2OperationItemOptions {
    */
   action?: SubHeaderV2OperationItemAction;
   /**
-   * 子标题右侧操作项无障碍描述。
+   * 子标题尾部操作项无障碍描述。
    * 
    * 默认值：undefined
    *
@@ -486,7 +486,7 @@ export interface SubHeaderV2OperationItemOptions {
    */
   accessibilityText?: ResourceStr;
   /**
-   * 子标题右侧操作项无障碍说明，用于为用户进一步说明当前组件。
+   * 子标题尾部操作项无障碍说明，用于为用户进一步说明当前组件。
    * 
    * 默认值：“单指双击即可执行”。
    *
@@ -496,17 +496,17 @@ export interface SubHeaderV2OperationItemOptions {
    */
   accessibilityDescription?: ResourceStr;
   /**
-   * 子标题右侧操作项无障碍重要性。
+   * 子标题尾部操作项无障碍重要性。
    * 
    * 支持的值为：
    * 
-   * "auto"：当前子标题右侧操作项由无障碍分组服务和ArkUI进行综合判断是否可被无障碍辅助服务所识别。
+   * "auto"：当前子标题尾部操作项由无障碍分组服务和ArkUI进行综合判断是否可被无障碍辅助服务所识别。
    * 
-   * "yes"：当前子标题右侧操作项可被无障碍辅助服务所识别。
+   * "yes"：当前子标题尾部操作项可被无障碍辅助服务所识别。
    * 
-   * "no"：当前子标题右侧操作项不可被无障碍辅助服务所识别。
+   * "no"：当前子标题尾部操作项不可被无障碍辅助服务所识别。
    * 
-   * "no-hide-descendants"：当前子标题右侧操作项及其所有子组件不可被无障碍辅助服务所识别。
+   * "no-hide-descendants"：当前子标题尾部操作项及其所有子组件不可被无障碍辅助服务所识别。
    * 
    * 默认值：“yes”。
    *
@@ -522,11 +522,11 @@ export interface SubHeaderV2OperationItemOptions {
    */
   accessibilityLevel?: string;
   /**
-   * 子标题右侧操作项是否为默认焦点。
+   * 子标题尾部操作项是否为默认焦点。
    * 
-   * true：子标题右侧操作项是默认焦点。
+   * true：子标题尾部操作项是默认焦点。
    * 
-   * false：子标题右侧操作项不是默认焦点。
+   * false：子标题尾部操作项不是默认焦点。
    * 
    * 默认值：false
    *
@@ -537,9 +537,9 @@ export interface SubHeaderV2OperationItemOptions {
    */
   defaultFocus?: boolean;
   /**
-   * 子标题右侧操作项id。需要为子标题右侧操作项设置id的时候设置此参数，缺省时不设置此参数。
+   * 子标题尾部操作项id。需要为子标题尾部操作项设置id的时候设置此参数，缺省时不设置此参数。
    * 
-   * 默认值：undefined，表示不设置子标题右侧操作项id。
+   * 默认值：undefined，表示不设置子标题尾部操作项id。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -585,7 +585,7 @@ export declare class SubHeaderV2OperationItem {
    */
   constructor(options: SubHeaderV2OperationItemOptions);
   /**
-   * 子标题右侧操作项无障碍描述。 
+   * 子标题尾部操作项无障碍描述。 
    * 
    * 默认值：undefined
    *
@@ -596,7 +596,7 @@ export declare class SubHeaderV2OperationItem {
   @Trace
   public accessibilityText?: ResourceStr;
   /**
-   * 子标题右侧操作项无障碍说明，用于为用户进一步说明当前组件。
+   * 子标题尾部操作项无障碍说明，用于为用户进一步说明当前组件。
    * 
    * 默认值：“单指双击即可执行”。
    *
@@ -607,17 +607,17 @@ export declare class SubHeaderV2OperationItem {
   @Trace
   public accessibilityDescription?: ResourceStr;
   /**
-   * 子标题右侧操作项无障碍重要性。
+   * 子标题尾部操作项无障碍重要性。
    * 
    * 支持的值为：
    * 
-   * "auto"：当前子标题右侧操作项由无障碍分组服务和ArkUI进行综合判断是否可被无障碍辅助服务所识别。
+   * "auto"：当前子标题尾部操作项由无障碍分组服务和ArkUI进行综合判断是否可被无障碍辅助服务所识别。
    * 
-   * "yes"：当前子标题右侧操作项可被无障碍辅助服务所识别。
+   * "yes"：当前子标题尾部操作项可被无障碍辅助服务所识别。
    * 
-   * "no"：当前子标题右侧操作项不可被无障碍辅助服务所识别。
+   * "no"：当前子标题尾部操作项不可被无障碍辅助服务所识别。
    * 
-   * "no-hide-descendants"：当前子标题右侧操作项及其所有子组件不可被无障碍辅助服务所识别。
+   * "no-hide-descendants"：当前子标题尾部操作项及其所有子组件不可被无障碍辅助服务所识别。
    * 
    * 默认值：“yes”。
    *
@@ -634,11 +634,11 @@ export declare class SubHeaderV2OperationItem {
   @Trace
   public accessibilityLevel?: string;
   /**
-   * 子标题右侧操作项是否为默认焦点。
+   * 子标题尾部操作项是否为默认焦点。
    * 
-   * true：子标题右侧操作项是默认焦点。
+   * true：子标题尾部操作项是默认焦点。
    * 
-   * false：子标题右侧操作项不是默认焦点。
+   * false：子标题尾部操作项不是默认焦点。
    * 
    * 默认值：false
    *
@@ -650,9 +650,9 @@ export declare class SubHeaderV2OperationItem {
   @Trace
   public defaultFocus?: boolean;
   /**
-   * 子标题右侧操作项id。需要为子标题右侧操作项设置id的时候设置此参数，缺省时不设置此参数。
+   * 子标题尾部操作项id。需要为子标题尾部操作项设置id的时候设置此参数，缺省时不设置此参数。
    * 
-   * 默认值：undefined，表示不设置子标题右侧操作项id。
+   * 默认值：undefined，表示不设置子标题尾部操作项id。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -707,6 +707,17 @@ export declare struct SubHeaderV2 {
   @Param
   readonly icon?: SubHeaderV2IconType;
   /**
+   * 标题尾部图标设置项，用于为标题添加尾部图标标识。
+   * 当title使用primaryTitle或secondaryTitle属性时，设置endIcon属性才会生效。
+   * 默认值：undefined。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.1.0 static
+   */
+  @Param
+  readonly endIcon?: SubHeaderV2IconType;
+  /**
    * 标题设置项。
    * 
    * 默认值：undefined
@@ -728,7 +739,7 @@ export declare struct SubHeaderV2 {
   @Param
   readonly select?: SubHeaderV2Select;
   /**
-   * 操作区元素样式，用于定义子标题右侧操作按钮的显示形式。
+   * 操作区元素样式，用于定义子标题尾部操作按钮的显示形式。
    * 
    * 默认值：SubHeaderV2OperationType.BUTTON
    *
@@ -738,7 +749,7 @@ export declare struct SubHeaderV2 {
   @Param
   readonly operationType?: SubHeaderV2OperationType;
   /**
-   * 操作区的设置项，用于配置子标题右侧的操作按钮。
+   * 操作区的设置项，用于配置子标题尾部的操作按钮。
    * 
    * 默认值：undefined
    * 
