@@ -1611,7 +1611,6 @@ declare namespace securityManager {
    * @stagemodelonly
    * @since 26.1.0
    */
-
   function getUserExtendCredential(accountId: number): Promise<UserExtCredentialInfo[]>;
 
   /**
