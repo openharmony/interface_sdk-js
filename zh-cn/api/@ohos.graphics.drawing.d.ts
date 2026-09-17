@@ -7977,7 +7977,7 @@ declare namespace drawing {
 
     /**
      * 精灵图集的行数。
-     * 取值范围为[1, totalFrame]，超出范围的值将在内部被钳制。
+     * 取值范围为[1, totalFrame]，超出范围的值将在内部被截断。
      *
      * > **说明：**
      * >
@@ -7992,7 +7992,7 @@ declare namespace drawing {
 
     /**
      * 精灵图集的列数。
-     * 取值范围为[1, totalFrame]，超出范围的值将在内部被钳制。
+     * 取值范围为[1, totalFrame]，超出范围的值将在内部被截断。
      *
      * > **说明：**
      * >
@@ -8007,7 +8007,7 @@ declare namespace drawing {
 
     /**
      * 单帧的宽度。
-     * 取值范围为[1, 8192]，超出范围的值将在内部被钳制。
+     * 取值范围为[1, 8192]，超出范围的值将在内部被截断。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -8018,7 +8018,7 @@ declare namespace drawing {
 
     /**
      * 单帧的高度。
-     * 取值范围为[1, 8192]，超出范围的值将在内部被钳制。
+     * 取值范围为[1, 8192]，超出范围的值将在内部被截断。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -8029,7 +8029,7 @@ declare namespace drawing {
 
     /**
      * 帧之间的间距，用于防止帧边界处的纹理渗透。
-     * 取值范围为[0, 64]，超出范围的值将在内部被钳制。
+     * 取值范围为[0, 64]，超出范围的值将在内部被截断。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -8040,7 +8040,7 @@ declare namespace drawing {
 
     /**
      * 当前帧在图集中的索引。
-     * 取值范围为[0, totalFrame - 1]，超出范围的值将在内部被钳制。
+     * 取值范围为[0, totalFrame - 1]，超出范围的值将在内部被截断。
      *
      * > **说明：**
      * >
@@ -8055,7 +8055,7 @@ declare namespace drawing {
 
     /**
      * 图集中的总帧数。
-     * 取值范围为[1, rows * cols]，超出范围的值将在内部被钳制。
+     * 取值范围为[1, rows * cols]，超出范围的值将在内部被截断。
      *
      * > **说明：**
      * >
@@ -8072,7 +8072,7 @@ declare namespace drawing {
      * 帧动画的插值模式。
      * NONE(0) = 无插值，每帧独立显示；
      * FRAME_BLEND(1) = 帧间插值，相邻帧之间平滑过渡。
-     * 超出范围的值将被钳制为FRAME_BLEND。
+     * 超出范围的值将被截断为FRAME_BLEND。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi

@@ -2306,14 +2306,14 @@ declare namespace uiEffect {
      * Creates an atlas frame mask for sprite sheet frame animation.
      * The mask carries atlas frame parameters used to drive atlas frame animation.
      *
-     * @param { AtlasImage } atlasInfo - the atlas frame parameters.
+     * @param { drawing.AtlasImage } atlasImage - the atlas frame parameters.
      * @returns { Mask } - Returns a Mask with the atlas frame parameters.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
-    static createAtlasFrameMask(atlasInfo: drawing.AtlasImage): Mask;
+    static createAtlasFrameMask(atlasImage: drawing.AtlasImage): Mask;
   }
 
   /**
