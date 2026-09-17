@@ -14,7 +14,7 @@
 */
 
 /**
- * @file
+ * @file (媒体服务)
  * @kit MediaKit
  */
 
