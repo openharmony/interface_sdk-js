@@ -26,7 +26,6 @@ import Want from './@ohos.app.ability.Want';
  * information, mounting or unmounting a volume, partitioning a disk, and formatting a volume.
  *
  * @syscap SystemCapability.FileManagement.StorageService.Volume
- * @systemapi
  * @since 9 dynamic
  * @since 23 static
  */
@@ -1147,6 +1146,193 @@ declare namespace volumeManager {
    * @since 26.0.0 dynamic&static
    */
   function isVolumeInUse(volumePath: string): Promise<boolean>;
+  /**
+   * External disk information.
+   *
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  export interface ExternalDiskInfo {  
+    /**
+     * Disk ID, in the disk-{Primary device ID}-{Secondary device ID} format, such as **disk-8-0**.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    diskId: string;
+
+    /**
+     * Disk device type.
+     * **1**: SD card.
+     * **2**: USB flash disk.
+     * **3**: CD/DVD/BD.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    diskType: int;
+
+    /**
+     * Volume ID list on the disk. A disk can contain multiple volumes, such as **["vol-8-1", "vol-8-2"]**.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    volumeIds: Array<string>;
+
+    /**
+     * Vendor ID of the USB device, assigned by USB-IF to identify the device manufacturer.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    vendorId: int;
+
+    /**
+     * Product ID of the USB device, assigned by the manufacturer to identify a specific product model.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    productId: int;
+  }
+
+  /**
+   * External volume information.
+   *
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  export interface ExternalVolumeInfo {  
+    /**
+     * Volume ID, in the vol-{Primary device ID}-{Secondary device ID} format, such as **vol-8-1**.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    volumeId: string;
+
+    /**
+     * Volume UUID, which uniquely identifies a volume irrespective of the card insertion sequence. However, the UUID of
+     * a volume will change after the volume is formatted, such as **3C16-F61F**.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    uuid: string;
+
+    /**
+     * ID of the disk to which the volume belongs. A disk can have one or more volumes. The disk ID is in the disk-{
+     * Primary device ID}-{Secondary device ID} format, such as **disk-8-0**.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    diskId: string;
+
+    /**
+     * Description of the volume. Formatting the volume changes its description, such as **"MyUSB"**.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    description: string;
+
+    /**
+     * Volume status.
+     * **0**: The volume is unmounted.
+     * **1**: The volume is being checked.
+     * **2**: The volume is mounted.
+     * **3**: The volume is being ejected.
+     * The value should be an integer.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    state: int;
+
+    /**
+     * Total size of the volume.
+     * Unit: Byte.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    totalSize: long;
+
+    /**
+     * Available size of the volume.
+     * Unit: Byte.
+     * 
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    freeSize: long;
+
+    /**
+     * Path of the volume mounted. Generally, the path is **\/mnt/data/external/{uuid}**. Formatting the volume changes
+     * its mount path.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    path: string;
+
+    /**
+     * File system type. Common file systems are **fat32**, **ntfs**, **exfat**, **ext4**, **udf**, and **iso9660**.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    fsType: string;
+  }
+
+  /**
+   * Obtains information about all external storage physical disks. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.GET_STORAGE_VOLUME_INFO
+   * @returns { Promise<Array<ExternalDiskInfo>> } Promise used to return the external storage physical disk
+   *     information list.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  function getExternalDiskInfos(): Promise<Array<ExternalDiskInfo>>;
+
+  /**
+   * Obtains information about all external storage volumes. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.GET_STORAGE_VOLUME_INFO
+   * @returns { Promise<Array<ExternalVolumeInfo>> } Promise used to return the external storage volume
+   *     information list.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  function getExternalVolumeInfos(): Promise<Array<ExternalVolumeInfo>>;
 }
 
 export default volumeManager;
