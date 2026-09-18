@@ -13221,9 +13221,8 @@ declare interface SheetOptions extends BindOptions {
  * Enum of title bar background blur styles.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
  * @since 26.0.1 dynamiconly
  */
 declare enum SheetTitleBarBackgroundBlur {
@@ -13231,9 +13230,8 @@ declare enum SheetTitleBarBackgroundBlur {
    * No blur effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
    * @since 26.0.1 dynamiconly
    */
   NONE = 0,
@@ -13243,9 +13241,8 @@ declare enum SheetTitleBarBackgroundBlur {
    * The gradient range adapts to the title bar height, using system preset values.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
    * @since 26.0.1 dynamiconly
    */
   GRADIENT = 1
