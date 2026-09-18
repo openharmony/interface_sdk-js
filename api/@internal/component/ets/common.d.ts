@@ -11646,7 +11646,7 @@ declare interface DragEvent {
    * Obtains the dragging velocity along the x-axis.
    *
    * @returns { number } Dragging velocity along the x-axis. The origin of the coordinate axis is the upper left corner
-   *     of the screen. The unit is vp. The velocity is positive if the movement is from left to right, and it is
+   *     of the screen. The unit is vp/s. The velocity is positive if the movement is from left to right, and it is
    *     negative if the movement is from right to left.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11660,7 +11660,7 @@ declare interface DragEvent {
    * Obtains the dragging velocity along the y-axis.
    *
    * @returns { number } Dragging velocity along the y-axis. The origin of the coordinate axis is the upper left corner
-   *     of the screen. The unit is vp. The velocity is positive if the movement is from top to bottom, and it is
+   *     of the screen. The unit is vp/s. The velocity is positive if the movement is from top to bottom, and it is
    *     negative if the movement is from bottom to top.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11674,7 +11674,7 @@ declare interface DragEvent {
    * Obtains the dragging velocity along the main axis.
    *
    * @returns { number } Dragging velocity along the main axis. The value is the arithmetic square root of the sum of
-   *     the squares of the velocities along the x-axis and y-axis, in vp.
+   *     the squares of the velocities along the x-axis and y-axis, in vp/s.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
