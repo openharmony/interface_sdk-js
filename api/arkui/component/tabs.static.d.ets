@@ -761,6 +761,35 @@ export declare enum TabBarStyle {
 }
 
 /**
+ * Enumerates the display styles of the tab side bar.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.2.0 static
+ */
+export declare enum TabsSidebarDisplayStyle {
+  /**
+   * The embedded style. The tab bar is embedded in the content area of the **Tabs** container,
+   * taking up space within it.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  EMBED = 0,
+ 
+  /**
+   * The displaced style. The tab bar is displayed as a sidebar,
+   * pushing the content area of the **Tabs** container aside.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  DISPLACE = 1,
+}
+
+/**
  * Search filter callback.
  *
  * @param { int } tabIndex - Index of the tab to filter.
@@ -1543,6 +1572,18 @@ export declare interface TabsAttribute extends CommonMethod {
    * @since 26.2.0 static
    */
   default sidebarSelectedBoardColor(value: ResourceColor | undefined): TabsAttribute;
+
+  /**
+   * Sets the display style of the sidebar for the **Tab** component.
+   *
+   * @param { TabsSidebarDisplayStyle | undefined } style - Display style of the sidebar for the **Tabs** component.
+   *     <br>Default value: **SidebarDisplayStyle.EMBED**
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  default sidebarDisplayStyle(style: TabsSidebarDisplayStyle | undefined): this;
 }
 
 /**
