@@ -405,7 +405,8 @@ export interface ChipGroupItemOptions {
    * 
    * The supported values are:
    * 
-   * **"auto"**: The chip in the **ChipGroup** is converted to "yes", which applies to most scenarios.
+   * **"auto"**: The chip in the **ChipGroup** is converted to **"yes"** when **action** is set, and to **"no"**
+   * otherwise. This applies to most scenarios.
    * 
    * **"yes"**: The chip in the **ChipGroup** can be recognized by accessibility services, which applies to scenarios 
    * where accessibility needs to be explicitly enabled.

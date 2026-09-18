@@ -226,13 +226,13 @@ declare class ColumnAttribute extends CommonMethod<ColumnAttribute> {
     *
     * > **NOTE**
     * >
-    * > During the column layout, if [flexShrink]{@link CommonController#flexShrink} is not set for a child component, the
+    * > During the column layout, if [flexShrink]{@link CommonMethod#flexShrink} is not set for a child component, the
     * > child component is not compressed by default. This can result in the total main axis size of all child components
     * > exceeding the container's main axis size, which makes **FlexAlign.Center** and **FlexAlign.End** ineffective.
     *
     * @param { FlexAlign } value - Alignment format of child components in the vertical direction.
     *     <br>Default value: **FlexAlign.Start**
-    *     <br>**Note:** If the child component does not set [flexShrink]{@link CommonController#flexShrink},
+    *     <br>**Note:** If the child component does not set [flexShrink]{@link CommonMethod#flexShrink},
     *     **FlexAlign.Center** and **FlexAlign.End** may not take effect. For details, see the description below. When
     *     this parameter is set to **FlexAlign.SpaceBetween**, **FlexAlign.SpaceAround**, or **FlexAlign.SpaceEvenly**,
     *     the [space]{@link ColumnOptions} attribute does not take effect.

@@ -229,7 +229,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
    * currently selected. Developers can set accessibility text for such icons, which is announced by the screen reader 
    * upon selection.
    * 
-   * Default value: **' '**
+   * Default value: **''**
    * 
    * When the value is **undefined**, the default value is used.
    *
@@ -249,7 +249,7 @@ export interface SuffixIconOptions extends IconCommonOptions {
    * accessibility description attribute, when the suffix icon is selected, the system first announces the text 
    * attribute of the suffix icon, and then announces the content of the accessibility description attribute.
    * 
-   * Default value: **' '**
+   * Default value: **''**
    * 
    * When the value is **undefined**, the default value is used.
    *
@@ -349,7 +349,7 @@ export interface AccessibilityOptions {
    * such a component is selected, the screen reader announces the specified accessibility text, informing the user 
    * which component is selected.
    * 
-   * Default value: **' '**
+   * Default value: **''**
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -367,7 +367,7 @@ export interface AccessibilityOptions {
    * attributes and accessibility text alone. If a component contains both text information and the accessible 
    * description, the text is announced first and then the accessible description, when the component is selected.
    * 
-   * Default value: **' '**
+   * Default value: **''**
    * 
    * If the value is **undefined**, the default value is used.
    *

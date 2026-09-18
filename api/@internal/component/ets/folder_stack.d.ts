@@ -152,7 +152,7 @@ interface OnFoldStatusChangeInfo {
 declare type OnFoldStatusChangeCallback = (event: OnFoldStatusChangeInfo) => void;
 
 /**
- * Defines the current allback invoked when the hover state of the device changes.
+ * Defines the current callback invoked when the hover state of the device changes.
  *
  * @param { HoverEventParam } param - Parameters related to the hover state of the device, including the fold state,
  *     hover state, application orientation, and window mode enumeration of the device.

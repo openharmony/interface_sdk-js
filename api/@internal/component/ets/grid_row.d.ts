@@ -519,17 +519,9 @@ declare interface GridRowOptions {
   /**
    * Used to set the monotonically increasing array of breakpoint positions, and the reference object for breakpoint 
    * switching (based on the app window or container size).
-   * 
-   * Default value:
-   * 
-   * **{
-   * 
-   * value: ["320vp", "600vp", "840vp"],
-   * 
-   * reference: BreakpointsReference.WindowSize
-   * 
-   * }**
-   * 
+   *
+   * Default value: **{value: ["320vp", "600vp", "840vp"], reference: BreakpointsReference.WindowSize}**
+   *
    * Invalid value: The default value is used.
    * 
    * Unit: vp

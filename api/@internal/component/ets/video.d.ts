@@ -359,9 +359,8 @@ declare interface VideoOptions {
    * 
    * The string format can be used to load network videos and local videos, and is commonly used to load network videos.
    * 
-   * - Network video URLs are supported. For details about the formats supported by network video URLs, see 
-   * [Formats Supported by Streaming Media]
-   * (docroot://media/media/streaming-media-playback-development-guide.md#formats-supported-by-streaming-media).
+   * - Network video URLs are supported. For details about the formats supported by network video URLs, see
+   * [Formats Supported by Streaming Media](docroot://media/media/streaming-media-playback-development-guide.md#formats-supported-by-streaming-media).
    * - Strings with the file:// path prefix are supported, that is, the app sandbox URI (see 
    * [uriOrPath]{@link @ohos.file.fileuri:fileUri.FileUri#constructor}): **file://<bundleName>/<sandboxPath>**. It is 
    * used to read resources in the app sandbox path. Ensure that the files in the directory package path have read 
@@ -587,16 +586,16 @@ declare class VideoController {
   /**
    * Requests full-screen playback.
    *
-    * > **NOTE**
-    * >
-    * > The built-in full-screen feature of the **Video** component only sets the video content to full screen and
-    * > displays the default controller. It does not support displaying a custom title or controller. If additional
-    * > functionality is required, implement custom full-screen features.
-    *
-    * @param { boolean } value - Whether to play in full-screen mode (fill the app window).
-    *     <br>The value **true** requests full-screen playback, and **false** does not request full-screen playback.
-    *     <br>Default value: **false**
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * > **NOTE**
+   * >
+   * > The built-in full-screen feature of the **Video** component only sets the video content to full screen and
+   * > displays the default controller. It does not support displaying a custom title or controller. If additional
+   * > functionality is required, implement custom full-screen features.
+   *
+   * @param { boolean } value - Whether to play in full-screen mode (fill the app window).
+   *     <br>The value **true** requests full-screen playback, and **false** does not request full-screen playback.
+   *     <br>Default value: **false**
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -886,8 +885,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
     * > The style of the control bar built into the **Video** component cannot be customized. To customize the control
     * > bar, set the **controls** attribute to **false** and implement the style or functions of the control bar by
     * > yourself. For details, see
-    * > [Video Playback]
-    * > (https://gitcode.com/openharmony/applications_app_samples/tree/master/code/BasicFeature/Media/VideoPlay).
+    * > [Video Playback](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/BasicFeature/Media/VideoPlay).
     *
     * @param { boolean } value - Whether to display the control bar for video playback.
     *     <br>**true**: the control bar is displayed; **false**: the control bar is not displayed.

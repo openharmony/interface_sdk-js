@@ -33,17 +33,17 @@
  * object, and call [setTransform]{@link CanvasPattern#setTransform} to apply the graphic transformation 
  * corresponding to the **Matrix2D** object to subsequent drawing content.
  * 2. In [CanvasPattern]{@link CanvasPattern}, call 
- * [setTransform](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-canvaspattern.md#settransform) 
+ * [setTransform]{@link CanvasPattern#setTransform} 
  * to apply the graphic transformation corresponding to the **Matrix2D** object to the 
  * [CanvasPattern]{@link CanvasPattern} object.
  * 3. In [Path2D]{@link Path2D}, call 
- * [addPath](docroot://reference/apis-arkui/arkui-ts/ts-components-canvas-path2d.md#addpath) 
+ * [addPath]{@link Path2D#addPath} 
  * to apply the graphic transformation corresponding to the **Matrix2D** object to the 
  * [Path2D]{@link Path2D} object.
  *
  * > **NOTE**
  * >
- * > You can use the [px2vp](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#px2vp12) API for unit
+ * > You can use the [px2vp]{@link UIContext#px2vp} API for unit
  * > conversion.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

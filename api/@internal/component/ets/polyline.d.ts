@@ -84,7 +84,7 @@ declare interface PolylineOptions {
  * > **NOTE**
  * >
  * > This component is supported since API version 7. Updates to new APIs in later versions are marked with a 
- * > superscript to indicate their 
+ * > superscript to indicate their earliest API version.
  * >
  * > This component supports updating constructor parameters through the 
  * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the 
@@ -176,7 +176,7 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
  * > **NOTE**
  * >
  * > This component is supported since API version 7. Updates to new APIs in later versions are marked with a 
- * > superscript to indicate their 
+ * > superscript to indicate their earliest API version.
  * >
  * > This component supports updating constructor parameters through the 
  * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the 

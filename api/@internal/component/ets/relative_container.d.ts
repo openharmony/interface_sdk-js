@@ -170,15 +170,9 @@ declare interface GuideLineStyle {
    * **Axis.Vertical** guideline can be declared only by using **start** (percentages are not allowed). If the 
    * **height** of the container is declared as **"auto"**, the position of an **Axis.Horizontal** guideline can be 
    * declared only by using **start** (percentages are not allowed).
-   * 
-   * Default value:
-   * 
-   * **{
-   * 
-   * start: 0
-   * 
-   * }**
-   * 
+   *
+   * Default value: **{ start: 0 }**
+   *
    * Invalid value: The default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -451,9 +445,8 @@ declare interface LocalizedBarrierStyle {
  */
 declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerAttribute> {
   /**
-   * Sets the 
-   * [guidelines]
-   * (docroot://ui/arkts-layout-development-relative-layout.md#positioning-child-components-using-guidelines)
+   * Sets the
+   * [guidelines](docroot://ui/arkts-layout-development-relative-layout.md#positioning-child-components-using-guidelines)
    * in the **RelativeContainer** component. Each element in the array represents a guideline. Typical usage
    * aligning child components based on virtual reference lines, creating flexibly adjustable reference lines for 
    * positioning, and laying out multiple child components based on the same baseline.

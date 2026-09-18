@@ -204,25 +204,25 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    */
   alignItems(value: VerticalAlign): RowAttribute;
 
-   /**
-    * Sets the alignment format of child components in the horizontal direction. After this attribute is set, child 
-    * components are aligned in the specified manner in the horizontal direction. By default, child components are 
-    * aligned at the start.
-    *
-    * > **NOTE**
-    * >
-    * > In a Row layout, if child components do not have [flexShrink]{@link CommonMethod#flexShrink} set, they are not
-    * > shrunk by default. That is, the sum of the main axis sizes of all child components may exceed the main axis of
-    * > the container. In this case, the alignment behavior of **FlexAlign.Center** and **FlexAlign.End** changes, and
-    * > the start position of child components is the same as that of **FlexAlign.Start**.
-    *
-    * @param { FlexAlign } value - Alignment format of child components in the horizontal direction.
-    *     <br>Default value: **FlexAlign.Start**
-    *     <br>**Note:** Since API version 9, the **space** parameter does not take effect when **space** is a negative
-    *     number or **justifyContent** is set to **FlexAlign.SpaceBetween**, **FlexAlign.SpaceAround**, or
-    *     **FlexAlign.SpaceEvenly**.
-    * @returns { RowAttribute }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
+  /**
+   * Sets the alignment format of child components in the horizontal direction. After this attribute is set, child 
+   * components are aligned in the specified manner in the horizontal direction. By default, child components are 
+   * aligned at the start.
+   *
+   * > **NOTE**
+   * >
+   * > In a Row layout, if child components do not have [flexShrink]{@link CommonMethod#flexShrink} set, they are not
+   * > shrunk by default. That is, the sum of the main axis sizes of all child components may exceed the main axis of
+   * > the container. In this case, the alignment behavior of **FlexAlign.Center** and **FlexAlign.End** changes, and
+   * > the start position of child components is the same as that of **FlexAlign.Start**.
+   *
+   * @param { FlexAlign } value - Alignment format of child components in the horizontal direction.
+   *     <br>Default value: **FlexAlign.Start**
+   *     <br>**Note:** Since API version 9, the **space** parameter does not take effect when **space** is a negative
+   *     number or **justifyContent** is set to **FlexAlign.SpaceBetween**, **FlexAlign.SpaceAround**, or
+   *     **FlexAlign.SpaceEvenly**.
+   * @returns { RowAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
    * @atomicservice [since 11]
