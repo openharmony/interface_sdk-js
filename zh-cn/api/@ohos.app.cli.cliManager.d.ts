@@ -167,7 +167,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     isShellCommand?: boolean;
 
@@ -180,7 +180,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     challenge?: string;
 

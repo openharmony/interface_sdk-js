@@ -1396,7 +1396,7 @@ export declare interface TabsAttribute extends CommonMethod {
    * @returns { TabsAttribute } Returns the instance of the TabsAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    * @unpublished
    */
   default setTabsOptions(options?: TabsOptions): this;
@@ -1640,7 +1640,7 @@ export declare function Tabs(
  * @returns { TabsAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @unpublished
  */
 @Builder

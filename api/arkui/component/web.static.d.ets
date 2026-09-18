@@ -2575,7 +2575,7 @@ export declare class WebResourceResponse {
      *     ArrayBuffer type indicates binary data.
      * @syscap SystemCapability.Web.Webview.Core
      * @stagemodelonly
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     setResponseBody(data: string | int | Resource | ArrayBuffer): void;
 }
@@ -2639,7 +2639,7 @@ export declare class WebResourceError {
       *
       * @returns { int } Return the custom error code of the Web resource.
       * @syscap SystemCapability.Web.Webview.Core
-      * @since 26.1.0 static
+      * @since 26.0.1 static
       */
     getCustomErrorCode(): int;
 }

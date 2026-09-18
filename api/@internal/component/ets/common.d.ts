@@ -779,7 +779,7 @@ declare class ReadonlyEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -789,7 +789,7 @@ declare class ReadonlyEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -799,7 +799,7 @@ declare class ReadonlyEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -809,7 +809,7 @@ declare class ReadonlyEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -897,7 +897,7 @@ declare function Env<T>(key: SystemEnvKey<T> | SystemProperties): PropertyDecora
  * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice
  * @since 22 dynamic
  */
@@ -923,7 +923,7 @@ declare enum SystemProperties {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -940,7 +940,7 @@ declare enum SystemProperties {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -957,7 +957,7 @@ declare enum SystemProperties {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -974,7 +974,7 @@ declare enum SystemProperties {
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -13175,7 +13175,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   titleBarBackgroundBlur?: SheetTitleBarBackgroundBlurOptions;
 
@@ -13189,7 +13189,7 @@ declare interface SheetOptions extends BindOptions {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   titleBarHoverMode?: SheetTitleBarHoverMode;
 
@@ -13201,7 +13201,7 @@ declare interface SheetOptions extends BindOptions {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   scrollBarState?: BarState;
 
@@ -13212,7 +13212,7 @@ declare interface SheetOptions extends BindOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   closeButtonMaterial?: SystemUiMaterial;
 }
@@ -13224,7 +13224,7 @@ declare interface SheetOptions extends BindOptions {
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.1.0 dynamiconly
+ * @since 26.0.1 dynamiconly
  */
 declare enum SheetTitleBarBackgroundBlur {
   /**
@@ -13234,7 +13234,7 @@ declare enum SheetTitleBarBackgroundBlur {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   NONE = 0,
 
@@ -13246,7 +13246,7 @@ declare enum SheetTitleBarBackgroundBlur {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   GRADIENT = 1
 }
@@ -13258,7 +13258,7 @@ declare enum SheetTitleBarBackgroundBlur {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
- * @since 26.1.0 dynamiconly
+ * @since 26.0.1 dynamiconly
  */
 declare interface SheetTitleBarBackgroundBlurOptions {
   /**
@@ -13269,7 +13269,7 @@ declare interface SheetTitleBarBackgroundBlurOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   blurStyle?: SheetTitleBarBackgroundBlur;
 
@@ -13322,7 +13322,7 @@ declare interface SheetTitleBarBackgroundBlurOptions {
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.1.0 dynamiconly
+ * @since 26.0.1 dynamiconly
  */
 declare enum SheetTitleBarHoverMode {
   /**
@@ -13332,7 +13332,7 @@ declare enum SheetTitleBarHoverMode {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   STANDARD = 0,
 
@@ -13344,7 +13344,7 @@ declare enum SheetTitleBarHoverMode {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   STACK = 1
 }
@@ -24870,7 +24870,7 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   markLayeredRender(value: boolean | undefined): T;
 

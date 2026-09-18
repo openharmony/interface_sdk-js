@@ -262,7 +262,7 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
      * @systemapi
      * @unpublished
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
      */
     setUIExtensionComponentOptions(want: Want, options?: UIExtensionOptions): this;
 
@@ -364,7 +364,7 @@ export declare function UIExtensionComponent(
  * @systemapi
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  */
 @Builder
 export declare function UIExtensionComponent(

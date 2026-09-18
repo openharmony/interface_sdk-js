@@ -27,7 +27,7 @@ import nearlinkConstant from '@ohos.nearlink.constant';
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
  * @since 26.0.0 dynamic
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 declare namespace ssap {
   /**
@@ -36,7 +36,7 @@ declare namespace ssap {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   type ConnectionState = nearlinkConstant.ConnectionState;
 
@@ -54,7 +54,7 @@ declare namespace ssap {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function createClient(address: string): Client;
 
@@ -70,7 +70,7 @@ declare namespace ssap {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function createServer(): Server;
 
@@ -84,7 +84,7 @@ declare namespace ssap {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface Client {
     /**
@@ -98,7 +98,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     connect(): Promise<void>;
 
@@ -113,7 +113,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     disconnect(): Promise<void>;
 
@@ -127,7 +127,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     close(): void;
 
@@ -142,7 +142,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     getServices(): Promise<Service[]>;
 
@@ -160,7 +160,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     readProperty(property: Property): Promise<Property>;
 
@@ -179,7 +179,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     writeProperty(property: Property, writeType: PropertyWriteType): Promise<void>;
 
@@ -199,7 +199,7 @@ declare namespace ssap {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     readDescriptor(descriptor: PropertyDescriptor): Promise<PropertyDescriptor>;
 
@@ -225,7 +225,7 @@ declare namespace ssap {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     writeDescriptor(descriptor: PropertyDescriptor): Promise<void>;
 
@@ -244,7 +244,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     setPropertyNotification(property: Property, enable: boolean): Promise<void>;
 
@@ -266,7 +266,7 @@ declare namespace ssap {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     setPropertyIndication(property: Property, enable: boolean): Promise<void>;
 
@@ -283,7 +283,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     requestMtuSize(mtu: int): Promise<void>;
 
@@ -303,7 +303,7 @@ declare namespace ssap {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     callMethod(method: Method): Promise<Method>;
 
@@ -316,7 +316,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     onPropertyChange(callback: Callback<Property>): void;
 
@@ -328,7 +328,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     offPropertyChange(callback?: Callback<Property>): void;
 
@@ -342,7 +342,7 @@ declare namespace ssap {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     onEventNotify(callback: Callback<Event>): void;
 
@@ -355,7 +355,7 @@ declare namespace ssap {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     offEventNotify(callback?: Callback<Event>): void;
 
@@ -368,7 +368,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     onConnectionStateChange(callback: Callback<ConnectionChangeState>): void;
 
@@ -380,7 +380,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     offConnectionStateChange(callback?: Callback<ConnectionChangeState>): void;
 
@@ -393,7 +393,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     onMtuChange(callback: Callback<int>): void;
 
@@ -405,7 +405,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     offMtuChange(callback?: Callback<int>): void;
   }
@@ -420,7 +420,7 @@ declare namespace ssap {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface Server {
     /**
@@ -436,7 +436,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     addService(service: Service): void;
 
@@ -454,7 +454,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     removeService(serviceUuid: string): void;
 
@@ -468,7 +468,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     close(): void;
 
@@ -488,7 +488,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     notifyPropertyChanged(address: string, property: Property): Promise<void>;
 
@@ -506,7 +506,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     sendResponse(response: ServerResponse): void;
 
@@ -519,7 +519,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     onConnectionStateChange(callback: Callback<ConnectionChangeState>): void;
 
@@ -531,7 +531,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     offConnectionStateChange(callback?: Callback<ConnectionChangeState>): void;
 
@@ -544,7 +544,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     onPropertyRead(callback: Callback<PropertyReadRequest>): void;
 
@@ -556,7 +556,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     offPropertyRead(callback?: Callback<PropertyReadRequest>): void;
 
@@ -569,7 +569,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     onPropertyWrite(callback: Callback<PropertyWriteRequest>): void;
 
@@ -581,7 +581,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     offPropertyWrite(callback?: Callback<PropertyWriteRequest>): void;
 
@@ -594,7 +594,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     onMtuChange(callback: Callback<int>): void;
 
@@ -606,7 +606,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     offMtuChange(callback?: Callback<int>): void;
   }
@@ -617,7 +617,7 @@ declare namespace ssap {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface Service {
     /**
@@ -626,7 +626,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     serviceUuid: string;
     /**
@@ -635,7 +635,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     properties: Property[];
     /**
@@ -645,7 +645,7 @@ declare namespace ssap {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     methods?: Method[];
     /**
@@ -655,7 +655,7 @@ declare namespace ssap {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     events?: Event[];
   }
@@ -666,7 +666,7 @@ declare namespace ssap {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface Property {
     /**
@@ -675,7 +675,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     serviceUuid: string;
     /**
@@ -684,7 +684,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     propertyUuid: string;
     /**
@@ -693,7 +693,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     value: ArrayBuffer;
     /**
@@ -702,7 +702,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     descriptors?: PropertyDescriptor[];
     /**
@@ -713,7 +713,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     operation?: int;
   }
@@ -725,7 +725,7 @@ declare namespace ssap {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface Method {
     /**
@@ -736,7 +736,7 @@ declare namespace ssap {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     serviceUuid: string;
     /**
@@ -746,7 +746,7 @@ declare namespace ssap {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     methodUuid: string;
     /**
@@ -756,7 +756,7 @@ declare namespace ssap {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     parameter?: ArrayBuffer;
     /**
@@ -766,7 +766,7 @@ declare namespace ssap {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     result?: ArrayBuffer;
   }
@@ -778,7 +778,7 @@ declare namespace ssap {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface Event {
     /**
@@ -789,7 +789,7 @@ declare namespace ssap {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     serviceUuid: string;
     /**
@@ -799,7 +799,7 @@ declare namespace ssap {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     eventUuid: string;
     /**
@@ -809,7 +809,7 @@ declare namespace ssap {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     parameter?: ArrayBuffer;
   }
@@ -820,7 +820,7 @@ declare namespace ssap {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface PropertyDescriptor {
     /**
@@ -829,7 +829,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     serviceUuid: string;
     /**
@@ -838,7 +838,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     propertyUuid: string;
     /**
@@ -847,7 +847,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     value: ArrayBuffer;
     /**
@@ -856,7 +856,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     descriptorType: PropertyDescriptorType;
     /**
@@ -865,7 +865,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     isWriteable?: boolean;
   }
@@ -876,7 +876,7 @@ declare namespace ssap {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface PropertyReadRequest {
     /**
@@ -885,7 +885,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     address: string;
     /**
@@ -894,7 +894,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     serviceUuid: string;
     /**
@@ -903,7 +903,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     propertyUuid: string;
     /**
@@ -912,7 +912,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     requestId: int;
   }
@@ -923,7 +923,7 @@ declare namespace ssap {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface PropertyWriteRequest {
     /**
@@ -932,7 +932,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     address: string;
     /**
@@ -941,7 +941,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     serviceUuid: string;
     /**
@@ -950,7 +950,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     propertyUuid: string;
     /**
@@ -959,7 +959,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     value: ArrayBuffer;
     /**
@@ -968,7 +968,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     requestId: int;
     /**
@@ -977,7 +977,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     writeType: PropertyWriteType;
   }
@@ -988,7 +988,7 @@ declare namespace ssap {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface ServerResponse {
     /**
@@ -997,7 +997,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     address: string;
     /**
@@ -1007,7 +1007,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     requestId: int;
     /**
@@ -1016,7 +1016,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     value: ArrayBuffer;
   }
@@ -1027,7 +1027,7 @@ declare namespace ssap {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface ConnectionChangeState {
     /**
@@ -1036,7 +1036,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     address: string;
     /**
@@ -1045,7 +1045,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     state: ConnectionState;
   }
@@ -1056,7 +1056,7 @@ declare namespace ssap {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   enum PropertyDescriptorType {
     /**
@@ -1065,7 +1065,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     PROPERTY = 1,
     /**
@@ -1074,7 +1074,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     CLIENT_PROPERTY_CONFIG = 2,
     /**
@@ -1083,7 +1083,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     SERVER_PROPERTY_CONFIG = 3,
     /**
@@ -1092,7 +1092,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     PROPERTY_FORMAT = 4,
     /**
@@ -1101,7 +1101,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     TYPE_VENDOR = 255
   }
@@ -1112,7 +1112,7 @@ declare namespace ssap {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   enum Operation {
     /**
@@ -1121,7 +1121,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     READABLE = 0x01,
     /**
@@ -1130,7 +1130,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     WRITE_NO_RESPONSE = 0x02,
     /**
@@ -1139,7 +1139,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     WRITE_WITH_RESPONSE = 0x04,
     /**
@@ -1148,7 +1148,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     NOTIFY = 0x08
   }
@@ -1159,7 +1159,7 @@ declare namespace ssap {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   enum PropertyWriteType {
     /**
@@ -1168,7 +1168,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     WRITE = 1,
     /**
@@ -1177,7 +1177,7 @@ declare namespace ssap {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     WRITE_NO_RESPONSE = 2
   }

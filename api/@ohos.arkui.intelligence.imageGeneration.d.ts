@@ -911,7 +911,7 @@ declare namespace imageGeneration {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     recoverFromCache?: boolean;
   }
@@ -1015,7 +1015,7 @@ declare namespace imageGeneration {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   function startSmartCanvasService(
     context: common.ServiceExtensionContext | common.UIAbilityContext | common.UIExtensionContext): Promise<void>;
@@ -1136,7 +1136,7 @@ declare namespace imageGeneration {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   function hasRecoverCacheInGeneratorDialog(uiContext: UIContext): boolean;
 }

@@ -1443,7 +1443,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function onCallDetailsChange(callback: Callback<CallAttributeOptions>): void;
 
@@ -1484,7 +1484,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function offCallDetailsChange(callback?: Callback<CallAttributeOptions>): void;
 
@@ -1523,7 +1523,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function onCallEventChange(callback: Callback<CallEventOptions>): void;
 
@@ -1564,7 +1564,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function offCallEventChange(callback?: Callback<CallEventOptions>): void;
 
@@ -1605,7 +1605,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function onCallDisconnectedCause(callback: Callback<DisconnectedDetails>): void;
 
@@ -1647,7 +1647,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function offCallDisconnectedCause(callback?: Callback<DisconnectedDetails>): void;
 
@@ -1686,7 +1686,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function onMmiCodeResult(callback: Callback<MmiCodeResults>): void;
 
@@ -1727,7 +1727,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function offMmiCodeResult(callback?: Callback<MmiCodeResults>): void;
 
@@ -1767,7 +1767,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function onAudioDeviceChange(callback: Callback<AudioDeviceCallbackInfo>): void;
 
@@ -1808,7 +1808,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function offAudioDeviceChange(callback?: Callback<AudioDeviceCallbackInfo>): void;
 
@@ -1847,7 +1847,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function onPostDialDelay(callback: Callback<string>): void;
 
@@ -1887,7 +1887,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function offPostDialDelay(callback?: Callback<string>): void;
 
@@ -2750,7 +2750,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function onImsCallModeChange(callback: Callback<ImsCallModeInfo>): void;
 
@@ -2791,7 +2791,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function offImsCallModeChange(callback?: Callback<ImsCallModeInfo>): void;
 
@@ -2831,7 +2831,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function onCallSessionEvent(callback: Callback<CallSessionEvent>): void;
 
@@ -2872,7 +2872,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function offCallSessionEvent(callback?: Callback<CallSessionEvent>): void;
 
@@ -2913,7 +2913,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function onPeerDimensionsChange(callback: Callback<PeerDimensionsDetail>): void;
 
@@ -2955,7 +2955,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function offPeerDimensionsChange(callback?: Callback<PeerDimensionsDetail>): void;
 
@@ -2996,7 +2996,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function onCameraCapabilitiesChange(callback: Callback<CameraCapabilities>): void;
 
@@ -3038,7 +3038,7 @@ declare namespace call {
    * @throws { BusinessError } 8300999 - Unknown error code.
    * @syscap SystemCapability.Telephony.CallManager
    * @systemapi Hide this for inner system use.
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function offCameraCapabilitiesChange(callback?: Callback<CameraCapabilities>): void;
 

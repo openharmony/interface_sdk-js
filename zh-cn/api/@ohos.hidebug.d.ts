@@ -204,7 +204,7 @@ declare namespace hidebug {
    * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function dumpJsHeapData(filename : string) : void;
 
@@ -221,7 +221,7 @@ declare namespace hidebug {
    * @stagemodelonly
    * @atomicservice
    * @since 24 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function dumpJsHeapData(filename : string, needClean : boolean) : void;
 
@@ -285,7 +285,7 @@ declare namespace hidebug {
      * 线程名。
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     threadName?: string;
   }
@@ -1117,7 +1117,7 @@ declare namespace hidebug {
    *
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   enum JsRawHeapTrimLevel {
     /**
@@ -1125,7 +1125,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 20 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     TRIM_LEVEL_1 = 0,
     /**
@@ -1133,7 +1133,7 @@ declare namespace hidebug {
      *
      * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
      * @since 20 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     TRIM_LEVEL_2 = 1
   }
@@ -1151,7 +1151,7 @@ declare namespace hidebug {
    * @param { JsRawHeapTrimLevel } level - 转储堆快照的裁剪级别，默认为TRIM_LEVEL_1。
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 20 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function setJsRawHeapTrimLevel(level: JsRawHeapTrimLevel): void;
 
@@ -1179,7 +1179,7 @@ declare namespace hidebug {
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @atomicservice
    * @since 18 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function dumpJsRawHeapData(needGC?: boolean): Promise<string>;
 
@@ -1209,7 +1209,7 @@ declare namespace hidebug {
    * @stagemodelonly
    * @atomicservice
    * @since 24 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function dumpJsRawHeapData(needGC: boolean, needClean: boolean): Promise<string>;
 
@@ -1240,7 +1240,7 @@ declare namespace hidebug {
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function dumpJsRawHeapData(needGC: boolean, needClean: boolean, processDump: boolean): Promise<Array<string>>;
 
@@ -1437,7 +1437,7 @@ declare namespace hidebug {
  	 * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
  	 * @FaAndStageModel
  	 * @atomicservice
- 	 * @since 26.1.0 dynamic&static
+ 	 * @since 26.0.1 dynamic&static
  	 */
   function getAppRunningUniqueId(): string;
 }

@@ -67,7 +67,7 @@ export declare interface HyperlinkAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    */
   default setHyperlinkOptions(address: string | Resource | undefined, content?: string | Resource): this;
 }
@@ -101,7 +101,7 @@ export declare function Hyperlink(
   * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  */
 @Builder

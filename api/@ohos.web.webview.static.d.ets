@@ -5711,7 +5711,7 @@ declare namespace webview {
          *     <br>The value should be an integer.
          * @syscap SystemCapability.Web.Webview.Core
          * @stagemodelonly
-         * @since 26.1.0 static
+         * @since 26.0.1 static
          */
         setCustomErrorCode(customErrorCode: int): void;
         /**
@@ -5720,7 +5720,7 @@ declare namespace webview {
          * @returns { int } Return the custom error code that was set for this response.
          * @syscap SystemCapability.Web.Webview.Core
          * @stagemodelonly
-         * @since 26.1.0 static
+         * @since 26.0.1 static
          */
         getCustomErrorCode(): int;
     }
@@ -5796,7 +5796,7 @@ declare namespace webview {
          *     error code directly to the application through onErrorReceive.
          * @throws { BusinessError } 17100021 - The resource handler is invalid.
          * @syscap SystemCapability.Web.Webview.Core
-         * @since 26.1.0 static
+         * @since 26.0.1 static
          */
         didFail(code: WebNetErrorList, completeIfNoResponse: boolean, customErrorCode: int): void;
     }

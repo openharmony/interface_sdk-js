@@ -167,7 +167,7 @@ declare namespace collections {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   type ArrayElementPredicateFn<ElementType> = (value: ElementType) => boolean;
 
@@ -673,7 +673,7 @@ declare namespace collections {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     containsAll(elements: Array<T>): boolean;
     /**
@@ -688,7 +688,7 @@ declare namespace collections {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     containsAll(elements: readonly T[]): boolean;
     /**
@@ -703,7 +703,7 @@ declare namespace collections {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     retainAll(elements: Array<T>): boolean;
     /**
@@ -718,7 +718,7 @@ declare namespace collections {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     retainAll(elements: readonly T[]): boolean;
     /**
@@ -733,7 +733,7 @@ declare namespace collections {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     retainAll(predicate: ArrayElementPredicateFn<T>): boolean;
     /**
@@ -1151,7 +1151,7 @@ declare namespace collections {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     containsValue(value: V): boolean;
     /**
@@ -1184,7 +1184,7 @@ declare namespace collections {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     remove(key: K): V | undefined;
     /**
@@ -1243,7 +1243,7 @@ declare namespace collections {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     put(key: K, value: V): V | undefined;
     /**
@@ -1256,7 +1256,7 @@ declare namespace collections {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     putAll(from: Map<K, V>): void;
     /**
@@ -1269,7 +1269,7 @@ declare namespace collections {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     putAll(from: ReadonlyMap<K, V>): void;
     /**

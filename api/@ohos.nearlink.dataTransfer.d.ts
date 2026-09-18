@@ -28,7 +28,7 @@ import nearlinkConstant from '@ohos.nearlink.constant';
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
  * @since 26.0.0 dynamic
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 declare namespace dataTransfer {
   /**
@@ -37,7 +37,7 @@ declare namespace dataTransfer {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   type ConnectionState = nearlinkConstant.ConnectionState;
 
@@ -61,7 +61,7 @@ declare namespace dataTransfer {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function createPort(uuid: string): void;
 
@@ -82,7 +82,7 @@ declare namespace dataTransfer {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function destroyPort(uuid: string): void;
 
@@ -102,7 +102,7 @@ declare namespace dataTransfer {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function connect(params: ConnectionParams): Promise<void>;
 
@@ -124,7 +124,7 @@ declare namespace dataTransfer {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function disconnect(params: ConnectionParams): Promise<void>;
 
@@ -141,7 +141,7 @@ declare namespace dataTransfer {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function onConnectionStateChanged(callback: Callback<ConnectionResult>): void;
 
@@ -158,7 +158,7 @@ declare namespace dataTransfer {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function offConnectionStateChanged(callback?: Callback<ConnectionResult>): void;
 
@@ -180,7 +180,7 @@ declare namespace dataTransfer {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function writeData(params: DataParams): Promise<void>;
 
@@ -196,7 +196,7 @@ declare namespace dataTransfer {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function onReadData(callback: Callback<DataParams>): void;
 
@@ -213,7 +213,7 @@ declare namespace dataTransfer {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function offReadData(callback?: Callback<DataParams>): void;
 
@@ -233,7 +233,7 @@ declare namespace dataTransfer {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function getConnectionState(params: ConnectionStateParams): ConnectionState;
 
@@ -243,7 +243,7 @@ declare namespace dataTransfer {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface ConnectionParams {
     /**
@@ -252,7 +252,7 @@ declare namespace dataTransfer {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     address: string;
     /**
@@ -263,7 +263,7 @@ declare namespace dataTransfer {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     uuid: string;
     /**
@@ -272,7 +272,7 @@ declare namespace dataTransfer {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     transferMode?: TransferMode;
   }
@@ -283,7 +283,7 @@ declare namespace dataTransfer {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface DataParams {
     /**
@@ -292,7 +292,7 @@ declare namespace dataTransfer {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     address: string;
     /**
@@ -303,7 +303,7 @@ declare namespace dataTransfer {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     uuid: string;
     /**
@@ -315,7 +315,7 @@ declare namespace dataTransfer {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     data: ArrayBuffer;
   }
@@ -326,7 +326,7 @@ declare namespace dataTransfer {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface ConnectionResult {
     /**
@@ -335,7 +335,7 @@ declare namespace dataTransfer {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     address: string;
     /**
@@ -346,7 +346,7 @@ declare namespace dataTransfer {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     uuid: string;
     /**
@@ -355,7 +355,7 @@ declare namespace dataTransfer {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     mtu: int;
     /**
@@ -364,7 +364,7 @@ declare namespace dataTransfer {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     state: ConnectionState;
   }
@@ -375,7 +375,7 @@ declare namespace dataTransfer {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface ConnectionStateParams {
     /**
@@ -384,7 +384,7 @@ declare namespace dataTransfer {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     address: string;
     /**
@@ -395,7 +395,7 @@ declare namespace dataTransfer {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     uuid: string;
   }
@@ -406,7 +406,7 @@ declare namespace dataTransfer {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   enum TransferMode {
     /**
@@ -416,7 +416,7 @@ declare namespace dataTransfer {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     BASIC = 0,
     /**
@@ -426,7 +426,7 @@ declare namespace dataTransfer {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     RELIABLE = 1
   }

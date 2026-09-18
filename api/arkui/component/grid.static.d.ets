@@ -802,7 +802,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    */
   default setGridOptions(scroller?: Scroller, layoutOptions?: GridLayoutOptions): this;
 
@@ -907,7 +907,7 @@ export declare abstract class ExtendableGrid implements GridAttribute {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  */
 @Builder

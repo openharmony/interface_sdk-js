@@ -357,7 +357,7 @@ declare class ApplicationContext extends Context {
    * @throws { BusinessError } 16000050 - Connect to system service failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   getUIAbilityChildProcessInfos(): Promise<Array<ChildProcessInformation>>;
 

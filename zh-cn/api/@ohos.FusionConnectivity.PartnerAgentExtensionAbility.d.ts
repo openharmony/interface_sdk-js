@@ -27,7 +27,7 @@ import ExtensionAbility from './@ohos.app.ability.ExtensionAbility';
  * @syscap SystemCapability.Communication.FusionConnectivity.Core
  * @stagemodelonly
  * @since 23 dynamic
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 type PartnerDeviceAddress = partnerAgent.PartnerDeviceAddress;
 
@@ -37,7 +37,7 @@ type PartnerDeviceAddress = partnerAgent.PartnerDeviceAddress;
  * @syscap SystemCapability.Communication.FusionConnectivity.Core
  * @stagemodelonly
  * @since 23 dynamic
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 type PartnerAgentExtensionAbilityDestroyReason = partnerAgent.PartnerAgentExtensionAbilityDestroyReason;
 
@@ -48,7 +48,7 @@ type PartnerAgentExtensionAbilityDestroyReason = partnerAgent.PartnerAgentExtens
  * @syscap SystemCapability.Communication.FusionConnectivity.Core
  * @stagemodelonly
  * @since 23 dynamic
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export default class PartnerAgentExtensionAbility extends ExtensionAbility {
 
@@ -58,7 +58,7 @@ export default class PartnerAgentExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
    * @since 23 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   context: PartnerAgentExtensionContext;
 
@@ -72,7 +72,7 @@ export default class PartnerAgentExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
    * @since 23 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   onDestroyWithReason(reason: PartnerAgentExtensionAbilityDestroyReason): void;
 
@@ -84,7 +84,7 @@ export default class PartnerAgentExtensionAbility extends ExtensionAbility {
    * @syscap SystemCapability.Communication.FusionConnectivity.Core
    * @stagemodelonly
    * @since 23 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   onDeviceDiscovered(deviceAddress: PartnerDeviceAddress): void;
 }

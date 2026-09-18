@@ -200,14 +200,14 @@ declare namespace securityManager {
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   export interface AddCredentialInfo {
     /**
      * Authentication plugin information.
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     pluginInfo: string;
 
@@ -216,7 +216,7 @@ declare namespace securityManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     authToken?: Uint8Array;
   }
@@ -226,7 +226,7 @@ declare namespace securityManager {
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   export interface RemoveCredentialInfo {
     /**
@@ -234,7 +234,7 @@ declare namespace securityManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     credentialId: Uint8Array;
 
@@ -242,7 +242,7 @@ declare namespace securityManager {
      * Authentication token.
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     authToken?: Uint8Array;
   }
@@ -252,7 +252,7 @@ declare namespace securityManager {
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   export interface UserExtCredentialInfo {
     /**
@@ -260,7 +260,7 @@ declare namespace securityManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     credentialId: Uint8Array;
 
@@ -268,7 +268,7 @@ declare namespace securityManager {
      * Authentication plugin information.
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     pluginInfo: string;
   }
@@ -305,7 +305,7 @@ declare namespace securityManager {
    * 
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   export enum DeviceSecurityLevelPolicy {
     /**
@@ -313,7 +313,7 @@ declare namespace securityManager {
      * 
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     DEFAULT_ENFORCED = 0,
 
@@ -322,7 +322,7 @@ declare namespace securityManager {
      * 
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     ALLOW_BALANCED = 1,
 
@@ -331,7 +331,7 @@ declare namespace securityManager {
      * 
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     ALLOW_FLEXIBLE = 2,
   }
@@ -1489,7 +1489,7 @@ declare namespace securityManager {
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function setDeviceSecurityLevelPolicy(level: DeviceSecurityLevelPolicy): void;
 
@@ -1504,7 +1504,7 @@ declare namespace securityManager {
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function getDeviceSecurityLevelPolicy(): DeviceSecurityLevelPolicy;
 
@@ -1525,7 +1525,7 @@ declare namespace securityManager {
    * @throws { BusinessError } 9200016 - Service timeout.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function openSession(accountId: number): Promise<Uint8Array>;
 
@@ -1545,7 +1545,7 @@ declare namespace securityManager {
    * @throws { BusinessError } 9200016 - Service timeout.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function closeSession(accountId: number): void;
 
@@ -1568,7 +1568,7 @@ declare namespace securityManager {
    * @throws { BusinessError } 9201052 - USB key session time out.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function addUserExtendCredential(info: AddCredentialInfo, accountId: number): Promise<Uint8Array>;
 
@@ -1590,7 +1590,7 @@ declare namespace securityManager {
    * @throws { BusinessError } 9201052 - USB key session time out.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function removeUserExtendCredential(info: RemoveCredentialInfo, accountId: number): void;
 
@@ -1609,7 +1609,7 @@ declare namespace securityManager {
    * @throws { BusinessError } 9200016 - Service timeout.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function getUserExtendCredential(accountId: number): Promise<UserExtCredentialInfo[]>;
 
@@ -1629,7 +1629,7 @@ declare namespace securityManager {
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function setUnlockPolicy(policy: UnlockPolicy, accountId: number): void;
 
@@ -1649,7 +1649,7 @@ declare namespace securityManager {
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function getUnlockPolicy(accountId: number): UnlockPolicy;
 
@@ -1658,7 +1658,7 @@ declare namespace securityManager {
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   export enum UnlockPolicy {
 
@@ -1667,7 +1667,7 @@ declare namespace securityManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     DEFAULT = 0,
 
@@ -1676,7 +1676,7 @@ declare namespace securityManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     EXTENDED_AUTH_ONLY = 1,
 
@@ -1685,7 +1685,7 @@ declare namespace securityManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     EXTENDED_AUTH_REQUIRED = 2
   }

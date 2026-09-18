@@ -26,7 +26,7 @@ import UIAbilityContext from './application/UIAbilityContext';
  *
  * @syscap SystemCapability.Customization.AssessmentConfiguration
  * @stagemodelonly
- * @since 26.1.0 dynamic&static
+ * @since 26.0.1 dynamic&static
  */
 declare namespace assessment {
 
@@ -35,7 +35,7 @@ declare namespace assessment {
    *
    * @syscap SystemCapability.Customization.AssessmentConfiguration
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface AssessmentConfig {
     /**
@@ -43,7 +43,7 @@ declare namespace assessment {
      *
      * @syscap SystemCapability.Customization.AssessmentConfiguration
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     duration: int;
 
@@ -52,7 +52,7 @@ declare namespace assessment {
      *
      * @syscap SystemCapability.Customization.AssessmentConfiguration
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     allowedApps: Array<string>;
   }
@@ -62,7 +62,7 @@ declare namespace assessment {
    *
    * @syscap SystemCapability.Customization.AssessmentConfiguration
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   enum AssessmentErrorCode {
     /**
@@ -70,7 +70,7 @@ declare namespace assessment {
      *
      * @syscap SystemCapability.Customization.AssessmentConfiguration
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     OK = 0,
 
@@ -79,7 +79,7 @@ declare namespace assessment {
      *
      * @syscap SystemCapability.Customization.AssessmentConfiguration
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     USER_CANCEL = 1,
 
@@ -88,7 +88,7 @@ declare namespace assessment {
      *
      * @syscap SystemCapability.Customization.AssessmentConfiguration
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     TIMEOUT = 2,
 
@@ -97,7 +97,7 @@ declare namespace assessment {
      *
      * @syscap SystemCapability.Customization.AssessmentConfiguration
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     SYSTEM_ERROR = 3,
 
@@ -106,7 +106,7 @@ declare namespace assessment {
      *
      * @syscap SystemCapability.Customization.AssessmentConfiguration
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     ENV_ANOMALY = 4,
   }
@@ -116,7 +116,7 @@ declare namespace assessment {
    *
    * @syscap SystemCapability.Customization.AssessmentConfiguration
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface AssessmentError {
     /**
@@ -124,7 +124,7 @@ declare namespace assessment {
      *
      * @syscap SystemCapability.Customization.AssessmentConfiguration
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     code: AssessmentErrorCode;
 
@@ -133,7 +133,7 @@ declare namespace assessment {
      *
      * @syscap SystemCapability.Customization.AssessmentConfiguration
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     message?: string;
   }
@@ -143,7 +143,7 @@ declare namespace assessment {
    *
    * @syscap SystemCapability.Customization.AssessmentConfiguration
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface AssessmentInterruptInfo {
     /**
@@ -151,7 +151,7 @@ declare namespace assessment {
      *
      * @syscap SystemCapability.Customization.AssessmentConfiguration
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     code: AssessmentErrorCode;
 
@@ -160,7 +160,7 @@ declare namespace assessment {
      *
      * @syscap SystemCapability.Customization.AssessmentConfiguration
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     message: string;
   }
@@ -170,7 +170,7 @@ declare namespace assessment {
    *
    * @syscap SystemCapability.Customization.AssessmentConfiguration
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface IAssessmentCallback {
     /**
@@ -179,7 +179,7 @@ declare namespace assessment {
      * @param { AssessmentError } error - Error information. code=0 indicates success.
      * @syscap SystemCapability.Customization.AssessmentConfiguration
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     onBegin(error: AssessmentError): void;
 
@@ -190,7 +190,7 @@ declare namespace assessment {
      *     reason and detailed description.
      * @syscap SystemCapability.Customization.AssessmentConfiguration
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     onInterrupted(info: AssessmentInterruptInfo): void;
 
@@ -199,7 +199,7 @@ declare namespace assessment {
      *
      * @syscap SystemCapability.Customization.AssessmentConfiguration
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     onEnd(): void;
   }
@@ -221,7 +221,7 @@ declare namespace assessment {
    *     Possible cause: Assessment resource conflict.
    * @syscap SystemCapability.Customization.AssessmentConfiguration
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function begin(context: UIAbilityContext, config: AssessmentConfig, callback: IAssessmentCallback): void;
 
@@ -240,7 +240,7 @@ declare namespace assessment {
    *     Possible cause: Cannot terminate another active assessment.
    * @syscap SystemCapability.Customization.AssessmentConfiguration
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function end(context: UIAbilityContext): void;
 
@@ -253,7 +253,7 @@ declare namespace assessment {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Customization.AssessmentConfiguration
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function isActive(): boolean;
 
@@ -266,7 +266,7 @@ declare namespace assessment {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Customization.AssessmentConfiguration
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function getConfiguration(): AssessmentConfig;
 }

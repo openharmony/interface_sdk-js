@@ -421,7 +421,7 @@ declare namespace inputDevice {
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @stagemodelonly
      * @readonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     displayId?: int;
   }
@@ -905,7 +905,7 @@ declare namespace inputDevice {
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function bindToDisplay(inputDeviceId: int, displayId: int): Promise<void>;
 }

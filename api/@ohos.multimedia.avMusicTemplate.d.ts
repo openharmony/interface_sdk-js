@@ -501,7 +501,7 @@ declare namespace avMusicTemplate {
    * @returns { Promise<OperResult> } Promise used to return OperResult.
    * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   type CustomCommandEvent = (command: string, args: string) => Promise<OperResult>;
 
@@ -1230,7 +1230,7 @@ declare namespace avMusicTemplate {
      * @throws { BusinessError } 35000012 - AVMusicTemplate error.
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     onCustomCommand(callback: CustomCommandEvent): void;
 
@@ -1244,7 +1244,7 @@ declare namespace avMusicTemplate {
      * @throws { BusinessError } 35000012 - AVMusicTemplate error.
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     offCustomCommand(callback?: CustomCommandEvent): void;
 
@@ -1835,7 +1835,7 @@ declare namespace avMusicTemplate {
      * @throws { BusinessError } 35000006 - AVMusicTemplateController does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     sendCustomCommand(command: string, args: string): Promise<OperResult>;
 
@@ -3770,7 +3770,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     extras?: string;
   }
@@ -4334,7 +4334,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     PLAY_MUSIC_LIST = 'playMusicList',
 
@@ -4343,7 +4343,7 @@ declare namespace avMusicTemplate {
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     PLAY_VIDEO_LIST = 'playVideoList'
   }

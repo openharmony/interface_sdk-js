@@ -813,7 +813,7 @@ export declare interface TabContentAttribute extends CommonMethod {
    * @returns { TabContentAttribute } Returns the instance of the TabContentAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    * @unpublished
    */
   default setTabContentOptions(): this;
@@ -870,7 +870,7 @@ export declare function TabContent(
  * @returns { TabContentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @unpublished
  */
 @Builder

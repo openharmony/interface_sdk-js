@@ -67,7 +67,7 @@ declare namespace abilityToolAccessCtrl {
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @FaAndStageModel
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   interface RemoteControlParams {
     /**
@@ -76,7 +76,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     challenge?: string;
     /**
@@ -85,7 +85,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     remoteControlTicket?: string;
     /**
@@ -94,7 +94,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     controlledDeviceName?: string;
     /**
@@ -103,7 +103,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     controllerDeviceName?: string;
     /**
@@ -112,7 +112,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     signVerifyMsg?: string;
   }
@@ -163,7 +163,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     remoteInfo?: RemoteInfo;
 
@@ -195,7 +195,7 @@ declare namespace abilityToolAccessCtrl {
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @FaAndStageModel
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   interface RemoteInfo {
 
@@ -205,7 +205,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     role: Role;
 
@@ -215,7 +215,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     remoteId: string;
 
@@ -225,7 +225,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     domainId: string;
 
@@ -235,7 +235,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     remoteControlParams?: RemoteControlParams;
   }
@@ -430,7 +430,7 @@ declare namespace abilityToolAccessCtrl {
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @FaAndStageModel
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   interface RemoteAuthPackage {
 
@@ -440,7 +440,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     remoteMessage: string;
 
@@ -450,7 +450,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     challenge: string;
 
@@ -460,7 +460,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     ticket: string;
   }
@@ -502,7 +502,7 @@ declare namespace abilityToolAccessCtrl {
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @FaAndStageModel
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   interface RemoteUserAuthResults {
 
@@ -512,7 +512,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     results: RemoteUserAuthItem[];
 
@@ -522,7 +522,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     permissionQuery: PermissionQuery;
   }
@@ -533,7 +533,7 @@ declare namespace abilityToolAccessCtrl {
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @FaAndStageModel
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   interface RemoteUserAuthItem {
 
@@ -543,7 +543,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     permission: string;
 
@@ -553,7 +553,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     authResult: string;
   }
@@ -624,7 +624,7 @@ declare namespace abilityToolAccessCtrl {
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @FaAndStageModel
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   enum Role {
     /**
@@ -633,7 +633,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     CONTROLLER = 0x01,
 
@@ -643,7 +643,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     CONTROLLED = 0x02
   }
@@ -684,7 +684,7 @@ declare namespace abilityToolAccessCtrl {
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @FaAndStageModel
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   enum RemoteGrantStatus {
     /**
@@ -693,7 +693,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     ENABLE = 0x01,
 
@@ -703,7 +703,7 @@ declare namespace abilityToolAccessCtrl {
      * @syscap SystemCapability.Security.Asset
      * @systemapi
      * @FaAndStageModel
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     DISABLE = 0x02
   }
@@ -782,7 +782,7 @@ declare namespace abilityToolAccessCtrl {
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @FaAndStageModel
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   export function generateControllerDevicePackage(remoteUserAuthResult: RemoteUserAuthResults[]):
     Promise<RemoteAuthPackage[]>;
@@ -807,7 +807,7 @@ declare namespace abilityToolAccessCtrl {
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @FaAndStageModel
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   export function generateControlledDevicePackage(permissionQuery: PermissionQuery[]): Promise<RemoteAuthPackage[]>;
 
@@ -831,7 +831,7 @@ declare namespace abilityToolAccessCtrl {
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @FaAndStageModel
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   export function verifyControllerDevicePackage(ticketInfo: RemoteAuthPackage[], remoteInfo: RemoteInfo):
     Promise<boolean[]>;
@@ -855,7 +855,7 @@ declare namespace abilityToolAccessCtrl {
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @FaAndStageModel
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   export function verifyControlledDevicePackage(ticketInfo: RemoteAuthPackage[]): Promise<boolean[]>;
 
@@ -876,7 +876,7 @@ declare namespace abilityToolAccessCtrl {
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @FaAndStageModel
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   export function getRemoteGrantStatus(): Promise<RemoteGrantStatus>;
 
@@ -899,7 +899,7 @@ declare namespace abilityToolAccessCtrl {
    * @syscap SystemCapability.Security.Asset
    * @systemapi
    * @FaAndStageModel
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   export function updateRemoteGrantStatus(remoteGrantStatus: RemoteGrantStatus): Promise<void>;
 }

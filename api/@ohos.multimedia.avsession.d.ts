@@ -131,7 +131,7 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function getSessionDescriptorsForAudioZone(userId: int): Promise<Array<Readonly<AVSessionDescriptor>>>;
 
@@ -416,7 +416,7 @@ declare namespace avSession {
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function startAVPlaybackForAudioZone(userId: int, bundleName: string, assetId: string, info?: CommandInfo): Promise<void>;
 
@@ -877,7 +877,7 @@ declare namespace avSession {
    * @throws { BusinessError } 6700101 - Session service is not running.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function onSessionCreateForAudioZone(userId: int, callback: Callback<AVSessionDescriptor>): void;
 
@@ -892,7 +892,7 @@ declare namespace avSession {
    * @throws { BusinessError } 6700101 - Session service is not running.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function offSessionCreateForAudioZone(userId: int, callback?: Callback<AVSessionDescriptor>): void;
 
@@ -907,7 +907,7 @@ declare namespace avSession {
    * @throws { BusinessError } 6700101 - Session service is not running.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function onSessionDestroyForAudioZone(userId: int, callback: Callback<AVSessionDescriptor>): void;
 
@@ -922,7 +922,7 @@ declare namespace avSession {
    * @throws { BusinessError } 6700101 - Session service is not running.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function offSessionDestroyForAudioZone(userId: int, callback?: Callback<AVSessionDescriptor>): void;
 
@@ -937,7 +937,7 @@ declare namespace avSession {
    * @throws { BusinessError } 6700101 - Session service is not running.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function onTopSessionChangeForAudioZone(userId: int, callback: Callback<AVSessionDescriptor>): void;
 
@@ -952,7 +952,7 @@ declare namespace avSession {
    * @throws { BusinessError } 6700101 - Session service is not running.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function offTopSessionChangeForAudioZone(userId: int, callback?: Callback<AVSessionDescriptor>): void;
 
@@ -1795,7 +1795,7 @@ declare namespace avSession {
    * @param { Record<string, Object> } args - arguments associated with event
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 23 static
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   type EventProcess = (event: string, args: Record<string, Object>) => void;
 
@@ -7532,7 +7532,7 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     userId?: int;
   }
@@ -7580,7 +7580,7 @@ declare namespace avSession {
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     readonly userId?: int;
 
@@ -10194,7 +10194,7 @@ declare namespace avSession {
      *
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     ERR_CODE_SERVICE_NOT_RUNNING = 6700101,
   }

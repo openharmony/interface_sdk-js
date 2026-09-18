@@ -64,7 +64,7 @@ declare namespace a2dp {
    *     3. A dependent service feature is not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function createA2dpSnkProfile(): A2dpSinkProfile;
 
@@ -342,7 +342,7 @@ declare namespace a2dp {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     getCurrentFullCodecInfo(deviceId: string): CodecInfoList[];
 
@@ -458,7 +458,7 @@ declare namespace a2dp {
    *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface A2dpSinkProfile extends BaseProfile {
     /**
@@ -483,7 +483,7 @@ declare namespace a2dp {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     connect(deviceId: string): void;
 
@@ -507,7 +507,7 @@ declare namespace a2dp {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     disconnect(deviceId: string): void;
 
@@ -532,7 +532,7 @@ declare namespace a2dp {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     getPlayingState(deviceId: string): PlayingState;
   }
@@ -582,7 +582,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     codecBitRate?: CodecBitRate;
     /**
@@ -590,7 +590,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     codecFrameLength?: CodecFrameLength;
   }
@@ -600,7 +600,7 @@ declare namespace a2dp {
    *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 19 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface CodecInfoList {
     /**
@@ -608,7 +608,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     codecType: CodecType;
     /**
@@ -616,7 +616,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     codecBitsPerSampleArray: CodecBitsPerSample[];
     /**
@@ -624,7 +624,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     codecChannelModeArray: CodecChannelMode[];
     /**
@@ -632,7 +632,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     codecSampleRateArray: CodecSampleRate[];
     /**
@@ -640,7 +640,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     codecBitRateArray: CodecBitRate[];
     /**
@@ -648,7 +648,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     codecFrameLengthArray: CodecFrameLength[];
   }
@@ -884,7 +884,7 @@ declare namespace a2dp {
    *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 19 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   enum CodecBitRate {
     /**
@@ -892,7 +892,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     CODEC_BIT_RATE_96000 = 0,
     /**
@@ -900,7 +900,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     CODEC_BIT_RATE_128000 = 1,
     /**
@@ -908,7 +908,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     CODEC_BIT_RATE_192000 = 2,
     /**
@@ -916,7 +916,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     CODEC_BIT_RATE_256000 = 3,
     /**
@@ -924,7 +924,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     CODEC_BIT_RATE_320000 = 4,
     /**
@@ -932,7 +932,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     CODEC_BIT_RATE_480000 = 5,
     /**
@@ -940,7 +940,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     CODEC_BIT_RATE_640000 = 6,
     /**
@@ -948,7 +948,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     CODEC_BIT_RATE_960000 = 7,
     /**
@@ -956,7 +956,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     CODEC_BIT_RATE_ABR = 8,
     /**
@@ -964,7 +964,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 21 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     CODEC_BIT_RATE_1500000 = 9,
     /**
@@ -972,7 +972,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 21 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     CODEC_BIT_RATE_2300000 = 10
   }
@@ -982,7 +982,7 @@ declare namespace a2dp {
    *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 19 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   enum CodecFrameLength {
     /**
@@ -990,7 +990,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     CODEC_FRAME_LENGTH_5MS = 0,
     /**
@@ -998,7 +998,7 @@ declare namespace a2dp {
      *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 19 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     CODEC_FRAME_LENGTH_10MS = 1
   }

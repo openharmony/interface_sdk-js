@@ -2764,7 +2764,7 @@ declare namespace usbManager {
    *     <br>2. The USB device state is abnormal.
    * @syscap SystemCapability.USB.USBManager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function claimInterfaceExclusive(pipe: USBDevicePipe, iface: USBInterface, force?: boolean,
     onConflict?: Callback<InterfaceConflictInfo>): void;
@@ -2781,7 +2781,7 @@ declare namespace usbManager {
    *
    * @syscap SystemCapability.USB.USBManager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface InterfaceConflictInfo {
     /**
@@ -2790,7 +2790,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     busNum: int;
 
@@ -2799,7 +2799,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     devAddr: int;
 
@@ -2808,7 +2808,7 @@ declare namespace usbManager {
      *
      * @syscap SystemCapability.USB.USBManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     interfaceId: int;
   }

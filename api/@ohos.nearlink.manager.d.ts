@@ -27,7 +27,7 @@ import type { Callback } from '@ohos.base';
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
  * @since 26.0.0 dynamic
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 declare namespace manager {
 
@@ -39,7 +39,7 @@ declare namespace manager {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function isNearLinkSupported(): boolean;
 
@@ -56,7 +56,7 @@ declare namespace manager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function enable(): void;
 
@@ -72,7 +72,7 @@ declare namespace manager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function disable(): void;
 
@@ -85,7 +85,7 @@ declare namespace manager {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function getState(): NearlinkState;
 
@@ -103,7 +103,7 @@ declare namespace manager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function getLocalAddress(): string;
 
@@ -119,7 +119,7 @@ declare namespace manager {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function getLocalName(): string;
 
@@ -135,7 +135,7 @@ declare namespace manager {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function getPairedDevices(): string[];
 
@@ -157,7 +157,7 @@ declare namespace manager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function setConnectionMode(mode: ConnectionMode, duration: int): Promise<void>;
 
@@ -174,7 +174,7 @@ declare namespace manager {
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function factoryReset(): Promise<void>;
 
@@ -187,7 +187,7 @@ declare namespace manager {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function onStateChange(callback: Callback<NearlinkState>): void;
 
@@ -202,7 +202,7 @@ declare namespace manager {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function offStateChange(callback?: Callback<NearlinkState>): void;
 
@@ -212,7 +212,7 @@ declare namespace manager {
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   enum NearlinkState {
     /**
@@ -221,7 +221,7 @@ declare namespace manager {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     STATE_TURNING_ON = 0,
     /**
@@ -230,7 +230,7 @@ declare namespace manager {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     STATE_ON = 1,
     /**
@@ -239,7 +239,7 @@ declare namespace manager {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     STATE_TURNING_OFF = 2,
     /**
@@ -248,7 +248,7 @@ declare namespace manager {
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     STATE_OFF = 3
   }
@@ -260,7 +260,7 @@ declare namespace manager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   enum ConnectionMode {
     /**
@@ -270,7 +270,7 @@ declare namespace manager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     SLE_MODE_UNCONNECTABLE = 0,
     /**
@@ -280,7 +280,7 @@ declare namespace manager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     SLE_MODE_CONNECTABLE = 1
   }

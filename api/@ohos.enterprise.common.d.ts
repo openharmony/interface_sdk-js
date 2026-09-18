@@ -282,7 +282,7 @@ declare namespace common {
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   export enum QueryPolicy {
     /**
@@ -290,7 +290,7 @@ declare namespace common {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     SELF = 0,
  
@@ -299,7 +299,7 @@ declare namespace common {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     ALL = 1
   }

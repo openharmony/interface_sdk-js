@@ -638,7 +638,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
      * @throws { BusinessError } 12100006 - Operation not allowed. The toggle status of the specified permission
      *     has already been set by
-     *     [setPermissionRequestToggleStatus]{@link abilityAccessCtrl.AtManager.setPermissionRequestToggleStatus(permissionName: Permissions, status: PermissionRequestToggleStatus, subProfileId: int)}. [since 26.1.0]
+     *     [setPermissionRequestToggleStatus]{@link abilityAccessCtrl.AtManager.setPermissionRequestToggleStatus(permissionName: Permissions, status: PermissionRequestToggleStatus, subProfileId: int)}. [since 26.0.1]
      * @throws { BusinessError } 12100007 - Service exception.
      * @throws { BusinessError } 12100009 - Common inner error. A database error occurs.
      * @syscap SystemCapability.Security.AccessToken
@@ -677,7 +677,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     setPermissionRequestToggleStatus(
       permissionName: Permissions,
@@ -699,7 +699,7 @@ declare namespace abilityAccessCtrl {
      * @throws { BusinessError } 12100001 - Invalid parameter. The permissionName exceeds 256 characters, or the
      *     specified permission is not a user_grant permission.
      * @throws { BusinessError } 12100003 - The specified permission does not exist.
-     * @throws { BusinessError } 12100004 - This API must be used together with [setPermissionRequestToggleStatus]{@link abilityAccessCtrl.AtManager.setPermissionRequestToggleStatus(permissionName: Permissions, status: PermissionRequestToggleStatus)}. [since 26.1.0]
+     * @throws { BusinessError } 12100004 - This API must be used together with [setPermissionRequestToggleStatus]{@link abilityAccessCtrl.AtManager.setPermissionRequestToggleStatus(permissionName: Permissions, status: PermissionRequestToggleStatus)}. [since 26.0.1]
      * @throws { BusinessError } 12100007 - Service exception.
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
@@ -733,7 +733,7 @@ declare namespace abilityAccessCtrl {
      * @syscap SystemCapability.Security.AccessToken
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamiconly
+     * @since 26.0.1 dynamiconly
      */
     getPermissionRequestToggleStatus(
       permissionName: Permissions,

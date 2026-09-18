@@ -535,7 +535,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301600 - Failed to operate the geofence.
    * @syscap SystemCapability.Location.Location.Geofence
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function onGnssFenceStatusChange(request: GeofenceRequest, want: WantAgent): void;
 
@@ -573,7 +573,7 @@ declare namespace geoLocationManager {
    * @throws { BusinessError } 3301100 - The location switch is off.
    * @throws { BusinessError } 3301600 - Failed to operate the geofence.
    * @syscap SystemCapability.Location.Location.Geofence
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function offGnssFenceStatusChange(request: GeofenceRequest, want: WantAgent): void;
 
@@ -1674,7 +1674,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @atomicservice
    * @since 20 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function getPoiInfo(): Promise<PoiInfo>;
 
@@ -1695,7 +1695,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Geofence
    * @atomicservice
    * @since 20 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function addBeaconFence(fenceRequest: BeaconFenceRequest): Promise<int>;
 
@@ -1713,7 +1713,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Geofence
    * @atomicservice
    * @since 20 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function removeBeaconFence(beaconFence?: BeaconFence): Promise<void>;
 
@@ -1724,7 +1724,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Geofence
    * @atomicservice
    * @since 20 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function isBeaconFenceSupported(): boolean;
 
@@ -1829,7 +1829,7 @@ declare namespace geoLocationManager {
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function getCurrentDistrict(params?: DistrictRequestParams): Promise<DistrictInfo>;
 
@@ -1852,7 +1852,7 @@ declare namespace geoLocationManager {
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function startBluetoothSearch(
       request: BluetoothSearchRequestParams, callback: Callback<BluetoothScanResult>): void;
@@ -1869,7 +1869,7 @@ declare namespace geoLocationManager {
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function stopBluetoothSearch(callback?: Callback<BluetoothScanResult>): void;
 
@@ -1899,7 +1899,7 @@ declare namespace geoLocationManager {
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function getPostProcessingTrack(sportsType: SportsType): Promise<Array<Location>>;
 
@@ -1923,7 +1923,7 @@ declare namespace geoLocationManager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function addFusionFence(fenceRequestParams: FusionFenceRequestParams): Promise<void>;
 
@@ -1943,7 +1943,7 @@ declare namespace geoLocationManager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function removeFusionFence(identifier: string): Promise<void>;
   
@@ -1958,7 +1958,7 @@ declare namespace geoLocationManager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function isFusionFenceSupported(): boolean;
 
@@ -1969,7 +1969,7 @@ declare namespace geoLocationManager {
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   export interface BluetoothSearchRequestParams {  
     /**
@@ -1979,7 +1979,7 @@ declare namespace geoLocationManager {
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     deviceIdArray: Array<string>;
 
@@ -1992,7 +1992,7 @@ declare namespace geoLocationManager {
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     rssiThreshold?: int;
   }
@@ -2004,7 +2004,7 @@ declare namespace geoLocationManager {
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface DistrictInfo {  
     /**
@@ -2015,7 +2015,7 @@ declare namespace geoLocationManager {
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     locale?: string;
 
@@ -2026,7 +2026,7 @@ declare namespace geoLocationManager {
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     countryCode?: string;
 
@@ -2037,7 +2037,7 @@ declare namespace geoLocationManager {
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     countryName?: string;
 
@@ -2048,7 +2048,7 @@ declare namespace geoLocationManager {
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     administrativeArea?: string;
 
@@ -2059,7 +2059,7 @@ declare namespace geoLocationManager {
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     subAdministrativeArea?: string;
 
@@ -2070,7 +2070,7 @@ declare namespace geoLocationManager {
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     locality?: string;
 
@@ -2081,7 +2081,7 @@ declare namespace geoLocationManager {
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     subLocality?: string;
   } 
@@ -2093,7 +2093,7 @@ declare namespace geoLocationManager {
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   export interface DistrictRequestParams {  
     /**
@@ -2107,7 +2107,7 @@ declare namespace geoLocationManager {
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     locale?: string;
 
@@ -2120,7 +2120,7 @@ declare namespace geoLocationManager {
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     timeoutMs?: int;
   }
@@ -2419,7 +2419,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     tac?: int;
 
@@ -3865,7 +3865,7 @@ declare namespace geoLocationManager {
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     additionalInfo?: string;
   }
@@ -3987,7 +3987,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Geofence
    * @atomicservice
    * @since 20 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   export interface BeaconFenceRequest {
     /**
@@ -3996,7 +3996,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     beacon: BeaconFence;
 
@@ -4006,7 +4006,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     transitionCallback?: Callback<GeofenceTransition>;
 
@@ -4016,7 +4016,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Geofence
      * @atomicservice
      * @since 20 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     fenceExtensionAbilityName?: string;
   }
@@ -4289,7 +4289,7 @@ declare namespace geoLocationManager {
      * @stagemodelonly
      * @crossplatform
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     GEOFENCE_TRANSITION_EVENT_APPROACHING_GEOFENCE = 8,
 
@@ -4301,7 +4301,7 @@ declare namespace geoLocationManager {
      * @stagemodelonly
      * @crossplatform
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     GEOFENCE_TRANSITION_EVENT_LEAVING_GEOFENCE = 16,
 
@@ -4313,7 +4313,7 @@ declare namespace geoLocationManager {
      * @stagemodelonly
      * @crossplatform
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     GEOFENCE_TRANSITION_EVENT_NEAR_WANDER = 32
   }
@@ -4824,7 +4824,7 @@ declare namespace geoLocationManager {
      * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     SKIING = 4
   }
@@ -4893,7 +4893,7 @@ declare namespace geoLocationManager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   export interface FusionFenceRequestParams {  
     /**
@@ -4905,7 +4905,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     identifier: string;
 
@@ -4916,7 +4916,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     scene: FusionFenceScene;
 
@@ -4930,7 +4930,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     fenceType: int;
 
@@ -4941,7 +4941,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     poiType?: string;
 
@@ -4952,7 +4952,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     poiLocation: Point;
 
@@ -4966,7 +4966,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     monitorTransitionEvents: int;
 	
@@ -4980,7 +4980,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     loiterTimeMs: int;
 	
@@ -4991,7 +4991,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     gnssFences?: Array<GnssFence>;
 	
@@ -5002,7 +5002,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     cellFences?: Array<CellFence>;
 	
@@ -5013,7 +5013,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     wifiFences?: Array<WifiFence>;
 
@@ -5024,7 +5024,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     expirationMs: double;
 
@@ -5035,7 +5035,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     fenceTransitionCallback: Callback<FusionFenceTransition>;
   }
@@ -5047,7 +5047,7 @@ declare namespace geoLocationManager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   export interface FusionFenceTransition {  
     /**
@@ -5057,7 +5057,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     identifier: string;
 
@@ -5068,7 +5068,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     scene: FusionFenceScene;
 
@@ -5079,7 +5079,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     transitionEvent: GeofenceTransitionEvent;
   }
@@ -5091,7 +5091,7 @@ declare namespace geoLocationManager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   export interface GnssFence {  
     /**
@@ -5103,7 +5103,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     gnssFenceType: int;
 	
@@ -5114,7 +5114,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     circularFence?: Geofence;
 	
@@ -5125,7 +5125,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     polygon?: Array<Point>;
   }
@@ -5137,7 +5137,7 @@ declare namespace geoLocationManager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   export interface CellFence {  
     /**
@@ -5147,7 +5147,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     cellInfos: Array<CellInfo>;
   }
@@ -5159,7 +5159,7 @@ declare namespace geoLocationManager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   export interface WifiFence {  
     /**
@@ -5169,7 +5169,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     type: WifiFingerprintType;
 
@@ -5180,7 +5180,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     wifiFeatures: Array<WirelessSignalFeature>;
   }
@@ -5192,7 +5192,7 @@ declare namespace geoLocationManager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   export interface WirelessSignalFeature {  
     /**
@@ -5203,7 +5203,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     rssiAvg: int;
 
@@ -5214,7 +5214,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     rssiStandardDeviation: double;
 	
@@ -5225,7 +5225,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     mac: Array<string>;
   }
@@ -5236,7 +5236,7 @@ declare namespace geoLocationManager {
    * @syscap SystemCapability.Location.Location.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   export interface Point {  
     /**
@@ -5245,7 +5245,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     latitude: double;
 	
@@ -5255,7 +5255,7 @@ declare namespace geoLocationManager {
      * @syscap SystemCapability.Location.Location.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     longitude: double;
   }
@@ -5376,7 +5376,7 @@ declare namespace geoLocationManager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   export enum GnssFenceType {  
     /**
@@ -5386,7 +5386,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     POLYGON = 1,
 
@@ -5397,7 +5397,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     CIRCULAR = 2
   }
@@ -5409,7 +5409,7 @@ declare namespace geoLocationManager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   export enum WifiFingerprintType {  
     /**
@@ -5419,7 +5419,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     SEMANTIC = 1,
 
@@ -5430,7 +5430,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     LOCATION = 2
   }
@@ -5442,7 +5442,7 @@ declare namespace geoLocationManager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   export enum FusionFenceType {  
     /**
@@ -5452,7 +5452,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     GNSS = 1,
 	
@@ -5463,7 +5463,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     CELLULAR = 2,
 	
@@ -5474,7 +5474,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     WIFI = 4,
 	
@@ -5485,7 +5485,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     BLUETOOTH = 8
   }
@@ -5497,7 +5497,7 @@ declare namespace geoLocationManager {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   export enum FusionFenceScene {  
     /**
@@ -5507,7 +5507,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     AIRPORT = 1,
 
@@ -5518,7 +5518,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     TRAIN_STATION = 2,
 	
@@ -5529,7 +5529,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     SUBWAY = 3,
 
@@ -5540,7 +5540,7 @@ declare namespace geoLocationManager {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     SHOP = 4
   }

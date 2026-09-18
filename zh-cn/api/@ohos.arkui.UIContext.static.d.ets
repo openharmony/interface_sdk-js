@@ -1074,7 +1074,7 @@ export declare class PromptAction {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export class DialogPresenter {
   /**
@@ -1086,7 +1086,7 @@ export class DialogPresenter {
    * @throws { BusinessError } 103308 - The dialog cannot be opened due to subwindow create failure.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   present(options?: dialog.DialogStyleOptions): Promise<DialogResult>;
 
@@ -1108,7 +1108,7 @@ export class DialogPresenter {
    * @throws { BusinessError } 103308 - The dialog cannot be opened due to subwindow create failure.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   present(content: CustomBuilder | CustomBuilderWithId | ComponentContent<Object>, options?: dialog.DialogCustomOptions): Promise<DialogResult>;
 
@@ -1122,7 +1122,7 @@ export class DialogPresenter {
    * @throws { BusinessError } 103303 - Dialog content not found. The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   update(content: ComponentContent<Object>, options?: dialog.DialogBaseOptions): Promise<void>;
 
@@ -1136,7 +1136,7 @@ export class DialogPresenter {
    * @throws { BusinessError } 103303 - Dialog content not found. The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   dismiss(target: int | ComponentContent<Object>): Promise<void>;
 }
@@ -3868,7 +3868,7 @@ export declare class UIContext {
    * @returns { DialogPresenter } Dialog object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   getDialogPresenter(): DialogPresenter;
 
