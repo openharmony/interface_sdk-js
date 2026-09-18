@@ -1708,23 +1708,23 @@ declare namespace securityManager {
    * @stagemodelonly
    * @since 26.1.0
    */
-    function setWeakPinEnable(isEnable: boolean, fd?: number): void;
- 
-    /**
-     * Check whether weak PIN verification is enabled.
-     *
-     * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
-     * @returns { boolean } Returns true if weak PIN verification is enabled; returns false otherwise.
-     * @throws { BusinessError } 201 - Permission verification failed.
-     *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-     * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-     * @throws { BusinessError } 9200016 - Service timeout.
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 26.1.0
-     */
-    function isWeakPinEnabled(): boolean;
+  function setWeakPinEnable(isEnable: boolean, fd?: number): void;
+
+  /**
+   * Check whether weak PIN verification is enabled.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @returns { boolean } Returns true if weak PIN verification is enabled; returns false otherwise.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.1.0
+   */
+  function isWeakPinEnabled(): boolean;
 }
 
 /*** if arkts dynamic */
