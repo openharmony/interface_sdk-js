@@ -90,7 +90,7 @@ export declare interface ToolBarItemAttribute {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @unpublished
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
      */
     setToolBarItemOptions(options?: ToolBarItemOptions): this;
     /**
@@ -99,7 +99,7 @@ export declare interface ToolBarItemAttribute {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @unpublished
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
      */
     applyAttributesFinish(): void;
 }
@@ -131,7 +131,7 @@ export declare function ToolBarItem(
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  */
 @Builder
 export declare function ToolBarItem(

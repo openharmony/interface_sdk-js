@@ -637,7 +637,7 @@ declare interface NavigationOptions {
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.0.1 dynamic
  */
 declare interface PreloadOptions {
   /**
@@ -647,7 +647,7 @@ declare interface PreloadOptions {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   onDestroy?: Callback<void>;
 }
@@ -1351,7 +1351,7 @@ declare class NavPathStack {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   preloadPath(info: NavPathInfo, options?: PreloadOptions): Promise<void>;
 }
@@ -2347,7 +2347,7 @@ declare interface NavigationConfiguration {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   clearContentStackOnPrimaryNavigation?: boolean;
 
@@ -2362,7 +2362,7 @@ declare interface NavigationConfiguration {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   recyclePagesOnLowMemory?: boolean;
 }

@@ -128,7 +128,7 @@ declare namespace window {
    * Enumerates the window types.
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 12]
    * @since 7 dynamic
    * @since 23 static
@@ -299,7 +299,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 10 dynamic
      * @since 23 static
@@ -1190,7 +1190,7 @@ declare namespace window {
    * Describes the rectangular area of the window, in vp.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 23 dynamic&static
    */
   interface RectInVP {
@@ -1199,7 +1199,7 @@ declare namespace window {
      * Left boundary of the rectangle, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1209,7 +1209,7 @@ declare namespace window {
      * Top boundary of the rectangle, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1219,7 +1219,7 @@ declare namespace window {
      * Width of the rectangle, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1229,7 +1229,7 @@ declare namespace window {
      * Height of the rectangle, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1540,7 +1540,7 @@ declare namespace window {
    * [immersive layout](docroot://windowmanager/window-terminology.md#immersive-layout) adaptation.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 23 dynamic&static
    */
   interface UIEnvAvoidAreaVP {
@@ -1556,7 +1556,7 @@ declare namespace window {
      * Rectangle centered to the left of the window's two diagonals, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     leftRect: RectInVP;
@@ -1565,7 +1565,7 @@ declare namespace window {
      * Rectangle centered at the top of the window's two diagonals, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     topRect: RectInVP;
@@ -1574,7 +1574,7 @@ declare namespace window {
      * Rectangle centered to the right of the window's two diagonals, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     rightRect: RectInVP;
@@ -1583,7 +1583,7 @@ declare namespace window {
      * Rectangle centered at the bottom of the window's two diagonals, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     bottomRect: RectInVP;
@@ -1626,7 +1626,7 @@ declare namespace window {
    * Describes the window size, in vp.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 23 dynamic&static
    */
   interface SizeInVP {
@@ -1634,7 +1634,7 @@ declare namespace window {
      * Window width, in vp. The value is a floating-point number.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1644,7 +1644,7 @@ declare namespace window {
      * Window height, in vp. The value is a floating-point number.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1764,7 +1764,7 @@ declare namespace window {
    *
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   enum FocusChangeReason {
     /**
@@ -1772,7 +1772,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     DEFAULT = 0,
     /**
@@ -1780,7 +1780,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     CLICK = 1
   }
@@ -1790,7 +1790,7 @@ declare namespace window {
    *
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface WindowFocusState {
     /**
@@ -1798,7 +1798,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     isFocused: boolean;
     /**
@@ -1806,7 +1806,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     focusChangeReason: FocusChangeReason;
     /**
@@ -1816,7 +1816,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     nextFocusedWindowId?: int;
     /**
@@ -1826,7 +1826,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     prevFocusedWindowId?: int;
   }
@@ -1837,7 +1837,7 @@ declare namespace window {
    * size.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 15 dynamic
    * @since 23 static
@@ -1848,7 +1848,7 @@ declare namespace window {
      * and varies according to user settings.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -1860,7 +1860,7 @@ declare namespace window {
      * and varies with the screen.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -1874,7 +1874,7 @@ declare namespace window {
      * **systemDensity**).
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -2468,7 +2468,7 @@ declare namespace window {
    * Defines the parameters for creating a child window or system window.
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -2478,7 +2478,7 @@ declare namespace window {
      * Indicates window id.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -2489,7 +2489,7 @@ declare namespace window {
      * Indicates window type
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -2500,7 +2500,7 @@ declare namespace window {
      * Indicates window context.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -2729,7 +2729,7 @@ declare namespace window {
    * Describes the value and reason returned upon a window rectangle (position and size) change.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 12 dynamic
    * @since 23 static
@@ -2739,7 +2739,7 @@ declare namespace window {
      * New value of the window rectangle.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -2750,7 +2750,7 @@ declare namespace window {
      * Reason for the window rectangle change.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -2797,7 +2797,7 @@ declare namespace window {
    * of different types. All types of window avoidance areas are measured in px.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 23 dynamic&static
    */
   interface UIEnvWindowAvoidAreaInfoPX {
@@ -2805,7 +2805,7 @@ declare namespace window {
      * Avoidance area whose [AvoidAreaType]{@link @ohos.window:window.AvoidAreaType} is **TYPE_SYSTEM** type, in px.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     statusBar: AvoidArea;
@@ -2814,7 +2814,7 @@ declare namespace window {
      * Avoidance area whose [AvoidAreaType]{@link @ohos.window:window.AvoidAreaType} is **TYPE_CUTOUT** type, in px.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     cutout: AvoidArea;
@@ -2823,7 +2823,7 @@ declare namespace window {
      * Avoidance area whose [AvoidAreaType]{@link @ohos.window:window.AvoidAreaType} is **TYPE_KEYBOARD** type, in px.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     keyboard: AvoidArea;
@@ -2833,7 +2833,7 @@ declare namespace window {
      * type, in px.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     navigationIndicator: AvoidArea;
@@ -2844,7 +2844,7 @@ declare namespace window {
    * of different types. All types of window avoidance areas are measured in vp.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 23 dynamic&static
    */
   interface UIEnvWindowAvoidAreaInfoVP {
@@ -2852,7 +2852,7 @@ declare namespace window {
      * Avoidance area whose [AvoidAreaType]{@link @ohos.window:window.AvoidAreaType} is **TYPE_SYSTEM** type, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     statusBar: UIEnvAvoidAreaVP;
@@ -2861,7 +2861,7 @@ declare namespace window {
      * Avoidance area whose [AvoidAreaType]{@link @ohos.window:window.AvoidAreaType} is **TYPE_CUTOUT** type, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     cutout: UIEnvAvoidAreaVP;
@@ -2870,7 +2870,7 @@ declare namespace window {
      * Avoidance area whose [AvoidAreaType]{@link @ohos.window:window.AvoidAreaType} is **TYPE_KEYBOARD** type, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     keyboard: UIEnvAvoidAreaVP;
@@ -2880,7 +2880,7 @@ declare namespace window {
      * type, in vp.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     navigationIndicator: UIEnvAvoidAreaVP;
@@ -2890,7 +2890,7 @@ declare namespace window {
    * Enumerates the reasons for window rectangle (position and size) changes.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 12 dynamic
    * @since 23 static
@@ -2900,7 +2900,7 @@ declare namespace window {
      * Default value.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -2911,7 +2911,7 @@ declare namespace window {
      * The window is maximized.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -2922,7 +2922,7 @@ declare namespace window {
      * The window is restored to the previous state.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -2933,7 +2933,7 @@ declare namespace window {
      * The window is moved.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -2944,7 +2944,7 @@ declare namespace window {
      * The window is zoomed in or out by dragging.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -2955,7 +2955,7 @@ declare namespace window {
      * The window starts zooming in or out.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -2966,7 +2966,7 @@ declare namespace window {
      * The window finishes zooming in or out.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -3103,7 +3103,7 @@ declare namespace window {
    * @throws { BusinessError } 1300008 - The display device is abnormal. [since 9 - 16]
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -3139,7 +3139,7 @@ declare namespace window {
    * @throws { BusinessError } 1300008 - The display device is abnormal. [since 9 - 16]
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -4277,7 +4277,7 @@ declare namespace window {
    *
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   enum WindowPosition {
     /**
@@ -4286,7 +4286,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     NOT_TOPMOST = -3,
     /**
@@ -4294,7 +4294,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     TOPMOST = -2,
     /**
@@ -4302,7 +4302,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     BOTTOM = -1,
     /**
@@ -4310,7 +4310,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     TOP = 0
   }
@@ -4320,7 +4320,7 @@ declare namespace window {
    *
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface WindowPositionParams {
     /**
@@ -4329,7 +4329,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     windowId: int;
     /**
@@ -4340,7 +4340,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     insertAfter: int;
   }
@@ -4374,7 +4374,7 @@ declare namespace window {
    *     Only main windows are supported.
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function setWindowPosition(list: Array<WindowPositionParams>): Promise<void>;
 
@@ -4451,7 +4451,7 @@ declare namespace window {
      * landscape. This rotation is not controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @since 23 static
@@ -4463,7 +4463,7 @@ declare namespace window {
      * controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4475,7 +4475,7 @@ declare namespace window {
      * controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4487,7 +4487,7 @@ declare namespace window {
      * landscape. This rotation is controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4499,7 +4499,7 @@ declare namespace window {
      * controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4511,7 +4511,7 @@ declare namespace window {
      * controlled by the rotation switch in Control Panel.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4522,7 +4522,7 @@ declare namespace window {
      * Locked mode, where the window orientation is consistent with the current screen orientation.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -4535,7 +4535,7 @@ declare namespace window {
      * landscape, or reverse landscape, but not reverse portrait, on a certain device.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -4547,7 +4547,7 @@ declare namespace window {
      * the rotation switch in Control Panel. The orientation that can be rotated to is determined by the system.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -4559,7 +4559,7 @@ declare namespace window {
      * the rotation switch in Control Panel. The orientation that can be rotated to is determined by the system.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -4572,7 +4572,7 @@ declare namespace window {
      * system.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -4585,7 +4585,7 @@ declare namespace window {
      * system.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -4597,7 +4597,7 @@ declare namespace window {
      * rotate if the home screen does not.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -5475,7 +5475,7 @@ declare namespace window {
      * @default false
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     minimizeOnStart?: boolean;
 
@@ -5487,7 +5487,7 @@ declare namespace window {
      * @default false
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     excludeFromDock?: boolean;
 
@@ -5499,7 +5499,7 @@ declare namespace window {
      * @default false
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     excludeFromRecent?: boolean;
   }
@@ -6826,7 +6826,7 @@ declare namespace window {
      *     Possible cause: 1. The window is not created or destroyed;
      *     2. Internal task error.
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -7983,7 +7983,7 @@ declare namespace window {
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -8439,7 +8439,7 @@ declare namespace window {
      *     2. Incorrect parameter types;
      *     3. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 7 dynamic
      */
@@ -8470,7 +8470,7 @@ declare namespace window {
      * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Incorrect parameter types;
      *     2. Parameter verification failed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 7 dynamic
      */
@@ -9533,7 +9533,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *      Possible cause: The window is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 20 dynamic
      */
     on(type: 'windowStatusDidChange', callback: Callback<WindowStatusType>): void;
@@ -9548,7 +9548,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *      Possible cause: The window is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 static
      */
     onWindowStatusDidChange(callback: Callback<WindowStatusType>): void;
@@ -9566,7 +9566,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *      Possible cause: The window is not created.
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 20 dynamic
      */
     off(type: 'windowStatusDidChange', callback?: Callback<WindowStatusType>): void;
@@ -9582,7 +9582,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *      Possible cause: The window is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 static
      */
     offWindowStatusDidChange(callback?: Callback<WindowStatusType>): void;
@@ -9868,7 +9868,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     onWindowFocusStateChange(callback: Callback<WindowFocusState>): void;
 
@@ -9885,7 +9885,7 @@ declare namespace window {
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     offWindowFocusStateChange(callback?: Callback<WindowFocusState>): void;
 
@@ -10500,7 +10500,7 @@ declare namespace window {
      *     2. The screen of the window is not allowed to be focused.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -10524,7 +10524,7 @@ declare namespace window {
      *     2. The screen of the window is not allowed to be focused.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -12970,7 +12970,7 @@ declare namespace window {
      *      Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      */
@@ -12987,7 +12987,7 @@ declare namespace window {
      *      Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 static
      */
     onWindowRectChange(callback: Callback<RectChangeOptions>): void;
@@ -13008,7 +13008,7 @@ declare namespace window {
      *      Possible cause: The window is not created.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      */
@@ -13026,7 +13026,7 @@ declare namespace window {
      *      Possible cause: The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 static
      */
     offWindowRectChange(callback?: Callback<RectChangeOptions>): void;
@@ -13251,7 +13251,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -13265,7 +13265,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The window is not created or destroyed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -13975,7 +13975,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 11 dynamic
      * @since 23 static
@@ -13987,7 +13987,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 11 dynamic
      * @since 23 static
@@ -14050,7 +14050,7 @@ declare namespace window {
    * Enumerates the modality types of the child window.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 14 dynamic
    * @since 23 static
@@ -14060,7 +14060,7 @@ declare namespace window {
      * Select this value when only the parent window should not respond to user operations.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -14108,7 +14108,7 @@ declare namespace window {
    * Describes the parameters used for creating a child window.
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 12]
    * @since 11 dynamic
    * @since 23 static
@@ -14119,7 +14119,7 @@ declare namespace window {
      * the system. Any part that goes beyond will show as an ellipsis.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 11 dynamic
      * @since 23 static
@@ -14129,7 +14129,7 @@ declare namespace window {
      * Whether decorations are displayed in the child window. **true** if displayed, **false** otherwise.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 11 dynamic
      * @since 23 static
@@ -14140,7 +14140,7 @@ declare namespace window {
      * value is **false**.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -14161,7 +14161,7 @@ declare namespace window {
      * default value is **WINDOW_MODALITY**.
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -14177,7 +14177,7 @@ declare namespace window {
      * .
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -14345,7 +14345,7 @@ declare namespace window {
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 11 dynamic
      * @since 23 static

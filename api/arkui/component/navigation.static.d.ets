@@ -466,7 +466,7 @@ export declare enum LaunchMode {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @unpublished
  */
 export declare interface NavigationModuleInfo {
@@ -476,7 +476,7 @@ export declare interface NavigationModuleInfo {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    * @unpublished
    */
   moduleName: string;
@@ -486,7 +486,7 @@ export declare interface NavigationModuleInfo {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    * @unpublished
    */
   pagePath: string;
@@ -498,7 +498,7 @@ export declare interface NavigationModuleInfo {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    * @unpublished
    */
   isUserCreateStack?: boolean;
@@ -537,7 +537,7 @@ export declare interface NavigationOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export declare interface PreloadOptions {
   /**
@@ -545,7 +545,7 @@ export declare interface PreloadOptions {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   onDestroy?: VoidCallback;
 }
@@ -1008,7 +1008,7 @@ export declare class NavPathStack {
    * @throws { BusinessError } 100006 - NavDestination not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   preloadPath(info: NavPathInfo, options?: PreloadOptions): Promise<void>;
 }
@@ -1689,7 +1689,7 @@ export declare interface NavigationConfiguration {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   clearContentStackOnPrimaryNavigation?: boolean;
 
@@ -1702,7 +1702,7 @@ export declare interface NavigationConfiguration {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   recyclePagesOnLowMemory?: boolean;
 }
@@ -2071,7 +2071,7 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @returns { NavigationAttribute } Returns instance of NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    * @unpublished
    */
   default setNavigationOptions(pathInfos?: NavPathStack, homeDestination?: HomePathInfo, moduleInfo?: NavigationModuleInfo): this;
@@ -2084,7 +2084,7 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @returns { NavigationAttribute } Returns instance of NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    * @unpublished
    */
   default setNavigationOptions(pathInfos?: NavPathStack,  moduleInfo?: NavigationModuleInfo): this;
@@ -2381,7 +2381,7 @@ export declare function Navigation(
  * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @unpublished
  */
 @Builder

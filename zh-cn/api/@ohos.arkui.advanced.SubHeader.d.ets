@@ -457,7 +457,7 @@ export declare struct SubHeader {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   @Prop
   endIcon?: ResourceStr;
@@ -471,7 +471,7 @@ export declare struct SubHeader {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   endIconSymbolOptions?: SymbolOptions;
 

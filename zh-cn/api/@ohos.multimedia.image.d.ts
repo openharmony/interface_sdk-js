@@ -3689,7 +3689,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     c2paDataSize?: int;
   }
@@ -4110,7 +4110,7 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   enum SVGResourceLimitLevel {
     /**
@@ -4121,7 +4121,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     NONE = 0,
 
@@ -4133,7 +4133,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     LOW = 1,
 
@@ -4145,7 +4145,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     MEDIUM = 2,
 
@@ -4157,7 +4157,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     HIGH = 3
   }
@@ -4223,7 +4223,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     svgResourceLimitLevel?: SVGResourceLimitLevel;
   }
@@ -7419,7 +7419,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7700204  - 参数错误。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     setMainPixelmap(pixelmap: PixelMap): void;
   }
@@ -16091,7 +16091,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *     <li>请确保name参数包含可见ASCII字符。</li></ol>
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     setMemoryName(name: string): void;
   }

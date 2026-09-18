@@ -499,7 +499,7 @@ declare namespace deviceInfo {
      * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
      * @stagemodelonly
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     get sdkMinorApiVersion(): int;
 
@@ -513,7 +513,7 @@ declare namespace deviceInfo {
      * @returns { int }
      * @syscap SystemCapability.Startup.SystemInfo
      * @stagemodelonly
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     get sdkPatchApiVersion(): int;
     
@@ -876,7 +876,7 @@ declare namespace deviceInfo {
      * @returns { boolean } 布尔值。返回true表示当前设备API版本大于等于入参版本号；返回false代表当前设备API版本小于入参版本号，或传入的版本号格式非法、该版本不存在。
      * @syscap SystemCapability.Startup.SystemInfo
      * @stagemodelonly
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     function apiAvailable(version: string | int): boolean;
 }

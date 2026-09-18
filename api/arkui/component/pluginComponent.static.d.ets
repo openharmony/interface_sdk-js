@@ -147,7 +147,7 @@ export declare interface PluginComponentAttribute extends CommonMethod {
      * @systemapi
      * @unpublished
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
      */
     setPluginComponentOptions(options: PluginComponentOptions): this;
 
@@ -214,7 +214,7 @@ export declare function PluginComponent(
  * @systemapi
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  */
 @Builder
 export declare function PluginComponent(

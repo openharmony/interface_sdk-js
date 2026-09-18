@@ -244,7 +244,7 @@ declare namespace access {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function isBluetoothSupported(): boolean;
 

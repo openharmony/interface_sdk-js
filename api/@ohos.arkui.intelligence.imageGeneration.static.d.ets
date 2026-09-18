@@ -1014,7 +1014,7 @@ declare namespace imageGeneration {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function startSmartCanvasService(
     context: common.ServiceExtensionContext | common.UIAbilityContext | common.UIExtensionContext): Promise<void>;

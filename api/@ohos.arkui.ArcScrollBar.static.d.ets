@@ -63,7 +63,7 @@ export declare interface ArcScrollBarAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    */
   default setArcScrollBarOptions(options: ArcScrollBarOptions): this;
 
@@ -103,7 +103,7 @@ export declare function ArcScrollBar(
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  */
 @Builder

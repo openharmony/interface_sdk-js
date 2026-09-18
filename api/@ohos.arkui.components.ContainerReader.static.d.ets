@@ -119,7 +119,7 @@ export declare interface ContainerReaderAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    */
   default setContainerReaderOptions(value: ContainerReaderInfo): this;
 
@@ -161,7 +161,7 @@ export declare function ContainerReader(
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  */
 @Builder
 export declare function ContainerReader(

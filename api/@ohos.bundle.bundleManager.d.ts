@@ -222,7 +222,7 @@ declare namespace bundleManager {
      * Used to obtain the bundle information of the application that has only a home screen icon.
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @systemapi [since 12 - 26.1.0]
+     * @systemapi [since 12 - 26.0.1]
      * @publicapi [since 26.2.0]
      * @since 12 dynamic
      * @since 23 static
@@ -321,7 +321,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     GET_BUNDLE_INFO_OF_ALL_DEVICE_MODE = 0x00200000,
   }
@@ -1573,7 +1573,7 @@ declare namespace bundleManager {
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi [since 23 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @since 23 dynamic&static
    */
   export enum BundleInstallStatus {
@@ -1582,7 +1582,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi [since 23 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @since 23 dynamic&static
      */
     BUNDLE_NOT_EXIST = 1,
@@ -1592,7 +1592,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi [since 23 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @since 23 dynamic&static
      */
     BUNDLE_INSTALLING = 2,
@@ -1602,7 +1602,7 @@ declare namespace bundleManager {
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi [since 23 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @since 23 dynamic&static
      */
     BUNDLE_INSTALLED = 3
@@ -1654,7 +1654,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   export enum ApplicationReservedFlag {  
     /**
@@ -1663,7 +1663,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     ENCRYPTED_APPLICATION = 0x00000001,
     /**
@@ -1672,7 +1672,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     ENCRYPTED_KEY_EXISTED = 0x00000002
   }
@@ -1684,7 +1684,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   export enum DeviceModeDistributionPolicy {
     /**
@@ -1693,7 +1693,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     UNSPECIFIED = 0,
     /**
@@ -1702,7 +1702,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     MAIN_ONLY = 1,
     /**
@@ -1711,7 +1711,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     SUB_ONLY = 2,
     /**
@@ -1720,7 +1720,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     UNIVERSAL_IDENTICAL_PACKAGE = 3,
     /**
@@ -1729,7 +1729,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     UNIVERSAL_DIFFERENT_PACKAGE = 4,
     /**
@@ -1738,7 +1738,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     PARTIAL_COMPATIBLE_IDENTICAL_PACKAGE = 5,
     /**
@@ -1747,7 +1747,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     PARTIAL_COMPATIBLE_DIFFERENT_PACKAGE = 6,
     /**
@@ -1756,7 +1756,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     FULL_COMPATIBLE_IDENTICAL_PACKAGE = 7,
     /**
@@ -1765,7 +1765,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     FULL_COMPATIBLE_DIFFERENT_PACKAGE = 8
   }
@@ -1776,7 +1776,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   export enum AppSandboxPolicy {
     /**
@@ -1785,7 +1785,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     SHARED_SANDBOX = 0,
     /**
@@ -1794,7 +1794,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     ISOLATED_SANDBOX = 1
   }
@@ -2085,7 +2085,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function getAllBundleInfoInstances(bundleName: string, bundleFlags: int): Promise<Array<BundleInfo>>;
 
@@ -3778,7 +3778,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function getAllAppProvisionInfoInDevice(userId: int): Promise<Array<AppProvisionInfo>>;
 
@@ -3801,7 +3801,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function getAppProvisionInfoInDevice(bundleName: string, userId: int): Promise<Array<AppProvisionInfo>>;
 
@@ -4351,7 +4351,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function setAdditionalInfoByIndex(bundleName: string, additionalInfo: string, appIndex: int): void;
 
@@ -4752,7 +4752,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 202 - Permission denied. A non-system application is not allowed to call a system API. [since 23 - 26.0.0]
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi [since 23 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @since 23 dynamic&static
    */
   function getBundleInstallStatus(bundleName: string): BundleInstallStatus;
@@ -4864,7 +4864,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function filterBundleListByDeviceModeDistributionPolicies(
     policies: Array<DeviceModeDistributionPolicy>): Promise<void>;
@@ -4886,7 +4886,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function getBundleExtensionPolicyInfo(bundleName: string, userId: int): BundleExtensionPolicyInfo;
 
@@ -5389,7 +5389,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   export type BundleExtensionPolicyInfo = _BundleInfo.BundleExtensionPolicyInfo;
  
@@ -5399,7 +5399,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   export type BundleExtensionPolicyInfo = _BundleExtensionPolicyInfo;
 }

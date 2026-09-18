@@ -57,7 +57,7 @@ declare namespace deviceControl {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     RESET_FACTORY = 1,
 
@@ -66,7 +66,7 @@ declare namespace deviceControl {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     REBOOT = 2,
 
@@ -75,7 +75,7 @@ declare namespace deviceControl {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     SHUT_DOWN = 3,
 
@@ -84,7 +84,7 @@ declare namespace deviceControl {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     LOCK_SCREEN = 4,
 
@@ -97,7 +97,7 @@ declare namespace deviceControl {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     LOCK_DEVICE = 5,
 
@@ -106,7 +106,7 @@ declare namespace deviceControl {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     UNLOCK_DEVICE = 6
   }

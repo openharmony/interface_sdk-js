@@ -140,7 +140,7 @@ export declare class DrawableDescriptor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   setSVGResourceLimitLevel(limit: image.SVGResourceLimitLevel): void;
 }

@@ -726,7 +726,7 @@ export declare struct SubHeaderV2 {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   @Param
   readonly endIcon?: SubHeaderV2IconType;

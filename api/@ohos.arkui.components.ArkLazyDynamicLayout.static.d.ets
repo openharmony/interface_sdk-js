@@ -63,7 +63,7 @@ export declare interface LazyDynamicLayoutAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    */
   default setLazyDynamicLayoutOptions(algorithm: LazyLayoutAlgorithm): this;
 }
@@ -93,7 +93,7 @@ export declare function LazyDynamicLayout (
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  */
 @Builder

@@ -26,7 +26,7 @@
  * @syscap SystemCapability.Security.Asset
  * @FaAndStageModel
  * @atomicservice
- * @since 26.1.0
+ * @since 26.0.1
  */
 declare namespace privacyComputation {
   /**
@@ -43,7 +43,7 @@ declare namespace privacyComputation {
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
    * @atomicservice
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function genPrivacyTarget(targetElement: TargetElement, privacyProtocol: PrivacyProtocol): Promise<Uint8Array>;
 
@@ -61,7 +61,7 @@ declare namespace privacyComputation {
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
    * @atomicservice
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function privacySearch(privacyTarget: Uint8Array, elements: Element[], privacyProtocol: PrivacyProtocol):
         Promise<PrivacySearchResult>;
@@ -78,7 +78,7 @@ declare namespace privacyComputation {
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
    * @atomicservice
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function getSearchResult(privacySearchResult: PrivacySearchResult, privacyProtocol: PrivacyProtocol):
         Promise<SearchResult>;
@@ -88,7 +88,7 @@ declare namespace privacyComputation {
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
    * @atomicservice
-   * @since 26.1.0
+   * @since 26.0.1
    */
   enum HashAlg {
     /**
@@ -97,7 +97,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     SHA256 = 0,
     /**
@@ -106,7 +106,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     SHA512 = 1
   }
@@ -121,7 +121,7 @@ declare namespace privacyComputation {
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
    * @atomicservice
-   * @since 26.1.0
+   * @since 26.0.1
    */
   enum DataSetSize {
     /**
@@ -130,7 +130,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     SIZE_128 = 0,
     /**
@@ -139,7 +139,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     SIZE_256 = 1,
     /**
@@ -148,7 +148,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     SIZE_512 = 2
   }
@@ -160,7 +160,7 @@ declare namespace privacyComputation {
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
    * @atomicservice
-   * @since 26.1.0
+   * @since 26.0.1
    */
   enum ProtocolType {
     /**
@@ -170,7 +170,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     PSI_PROTOCOL = 0,
     /**
@@ -180,7 +180,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     PIR_PROTOCOL = 1
   }
@@ -192,7 +192,7 @@ declare namespace privacyComputation {
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
    * @atomicservice
-   * @since 26.1.0
+   * @since 26.0.1
    */
   interface PrivacyProtocol {
     /**
@@ -205,7 +205,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     dataSetSize: DataSetSize;
     /**
@@ -215,7 +215,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     protocolType: ProtocolType;
   }
@@ -227,7 +227,7 @@ declare namespace privacyComputation {
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
    * @atomicservice
-   * @since 26.1.0
+   * @since 26.0.1
    */
   interface TargetElement {
     /**
@@ -236,7 +236,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     elemData: Uint8Array;
     /**
@@ -246,7 +246,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     hashAlg?: HashAlg;
   }
@@ -258,7 +258,7 @@ declare namespace privacyComputation {
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
    * @atomicservice
-   * @since 26.1.0
+   * @since 26.0.1
    */
   interface Element {
     /**
@@ -267,7 +267,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     elemKey: Uint8Array;
     /**
@@ -277,7 +277,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     hashAlg?: HashAlg;
     /**
@@ -288,7 +288,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     elemValue?: Uint8Array;
   }
@@ -300,7 +300,7 @@ declare namespace privacyComputation {
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
    * @atomicservice
-   * @since 26.1.0
+   * @since 26.0.1
    */
   interface PrivacySearchResult {
     /**
@@ -310,7 +310,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     resultCipherText: Array<Uint8Array>;
     /**
@@ -320,7 +320,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     valueCipherText?: Uint8Array[];
   }
@@ -332,7 +332,7 @@ declare namespace privacyComputation {
    * @syscap SystemCapability.Security.Asset
    * @FaAndStageModel
    * @atomicservice
-   * @since 26.1.0
+   * @since 26.0.1
    */
   interface SearchResult {
     /**
@@ -342,7 +342,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     matchedResult: boolean;
     /**
@@ -352,7 +352,7 @@ declare namespace privacyComputation {
      * @syscap SystemCapability.Security.Asset
      * @FaAndStageModel
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     attachedValues?: Uint8Array[];
   }

@@ -99,7 +99,7 @@ declare namespace accountManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     supportUKeyAuthentication?: boolean;
   }

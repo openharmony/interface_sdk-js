@@ -2574,7 +2574,7 @@ export declare interface RichEditorAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @unpublished
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
      */
     default setRichEditorOptions(options: RichEditorOptions | RichEditorStyledStringOptions): this;
 
@@ -2747,7 +2747,7 @@ export declare function RichEditor(
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  */
 @Builder

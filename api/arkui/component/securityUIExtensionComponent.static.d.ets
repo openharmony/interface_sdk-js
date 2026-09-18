@@ -204,7 +204,7 @@ export declare interface SecurityUIExtensionComponentAttribute extends CommonMet
      * @systemapi
      * @unpublished
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
      */
     default setSecurityUIExtensionComponentOptions(want: Want, options?: SecurityUIExtensionOptions): this;
     /**
@@ -294,7 +294,7 @@ export declare function SecurityUIExtensionComponent(
  * @systemapi
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  */
 @Builder
 export declare function SecurityUIExtensionComponent(

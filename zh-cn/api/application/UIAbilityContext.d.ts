@@ -2314,7 +2314,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000050 - Window operations encountered failures.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   setAbilityInstanceInfo(label: string, icon: image.PixelMap, groupId: string): Promise<void>;
 

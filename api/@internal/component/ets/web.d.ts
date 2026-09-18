@@ -807,7 +807,7 @@ declare interface WebKeyboardOptions {
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @since 23 dynamic
  */
 declare interface UrlRegexRule {
@@ -818,7 +818,7 @@ declare interface UrlRegexRule {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 23 dynamic
    */
   secondLevelDomain : string;
@@ -828,7 +828,7 @@ declare interface UrlRegexRule {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 23 dynamic
    */
   rule : string;
@@ -1232,7 +1232,7 @@ declare enum CacheMode {
  * Enumerates whether to enable overscroll mode.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice
  * @since 11 dynamic
  */
@@ -1242,7 +1242,7 @@ declare enum OverScrollMode {
    * scenarios where the content height matches the container height.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -1253,7 +1253,7 @@ declare enum OverScrollMode {
    * scenarios that require clear scroll boundary indication.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -1296,7 +1296,7 @@ declare enum BlurOnKeyboardHideMode {
  * visual experience and readability based on user preferences and system themes.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice [since 11]
  * @since 9 dynamic
  */
@@ -1305,7 +1305,7 @@ declare enum WebDarkMode {
    * The web dark mode is disabled.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -1315,7 +1315,7 @@ declare enum WebDarkMode {
    * The web dark mode is enabled.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -1326,7 +1326,7 @@ declare enum WebDarkMode {
    * stay consistent with the system. It is recommended to use this mode to provide a consistent user experience.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -1587,7 +1587,7 @@ type MouseInfoCallback = (event: NativeEmbedMouseInfo) => void;
  * Enumerates the reasons why the rendering process exits.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice [since 11]
  * @since 9 dynamic
  */
@@ -1616,7 +1616,7 @@ declare enum RenderExitReason {
    * The rendering process crashes due to segmentation or other errors.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -1635,7 +1635,7 @@ declare enum RenderExitReason {
    * Other reasons, such as rendering process spawning failure.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -1664,7 +1664,7 @@ declare enum SslError {
    * Minor error.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -1757,7 +1757,7 @@ declare enum FileSelectorMode {
  * adaptability and user experience based on screen size and display requirements.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice
  * @since 11 dynamic
  */
@@ -1767,7 +1767,7 @@ declare enum WebLayoutMode {
    * the default system behavior.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -1778,7 +1778,7 @@ declare enum WebLayoutMode {
    * adjust based on the screen size, and is recommended for mobile web page optimization.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -2522,7 +2522,7 @@ declare class DataResubmissionHandler {
  * URL display and security isolation of the new window.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice [since 11]
  * @since 9 dynamic
  */
@@ -2531,7 +2531,7 @@ declare class ControllerHandler {
    * Constructs a **ControllerHandler** API.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -2544,7 +2544,7 @@ declare class ControllerHandler {
    * @param { WebviewController } controller - **WebviewController** object of the **Web** component. If opening a new
    *     window is not needed, set it to **null**.
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -3813,7 +3813,7 @@ declare class WebResourceResponse {
    *     ArrayBuffer type indicates binary data.
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   setResponseBody(data: string | number | Resource | ArrayBuffer): void;
 }
@@ -3906,7 +3906,7 @@ declare class WebResourceError {
    *
    * @returns { number } Return the custom error code of the Web resource.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   getCustomErrorCode(): number;
 }
@@ -4443,7 +4443,7 @@ declare interface WebOptions {
  *
  * @interface ScriptItem [since 11 - 11]
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice
  * @since 11 dynamic
  */
@@ -4452,7 +4452,7 @@ declare interface ScriptItem {
    * JavaScript script to be registered and executed.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -4472,7 +4472,7 @@ declare interface ScriptItem {
    * the entire set of scriptRules does not take effect.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -4484,7 +4484,7 @@ declare interface ScriptItem {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 23 dynamic
    */
   urlRegexRules? : Array<UrlRegexRule>;
@@ -5524,7 +5524,7 @@ declare interface OnRefreshAccessedHistoryEvent {
  * rendering process exceptions is required, improving rendering stability and troubleshooting efficiency.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice
  * @since 12 dynamic
  */
@@ -5533,7 +5533,7 @@ declare interface OnRenderExitedEvent {
    * Cause for the abnormal exit of the rendering process.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5576,7 +5576,7 @@ declare interface OnShowFileSelectorEvent {
  * performance optimization.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice
  * @since 12 dynamic
  */
@@ -5585,7 +5585,7 @@ declare interface OnResourceLoadEvent {
    * URL of the loaded resource file.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5936,7 +5936,7 @@ declare interface OnClientAuthenticationEvent {
  * you can use [OnWindowNewExtEvent]{@link OnWindowNewExtEvent} to obtain more window information.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice
  * @since 12 dynamic
  */
@@ -5946,7 +5946,7 @@ declare interface OnWindowNewEvent {
    * and **false** means to open the target URL in a new tab.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5957,7 +5957,7 @@ declare interface OnWindowNewEvent {
    * and **false** means the opposite.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5967,7 +5967,7 @@ declare interface OnWindowNewEvent {
    * Target URL.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5977,7 +5977,7 @@ declare interface OnWindowNewEvent {
    * **WebviewController** instance for setting the new window.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -7102,7 +7102,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>When **null** or **undefined** is passed, the value is **WebDarkMode.Off**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -7118,7 +7118,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>If null or undefined is passed, the default value **false** is used.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -7190,7 +7190,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>The default value is **false** when undefined or null is passed in.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
@@ -7205,7 +7205,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>When **undefined** or **null** is passed in, the value is **OverScrollMode.NEVER**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -7281,7 +7281,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>When **undefined** or **null** is passed in, the attribute setting does not take effect.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -7694,7 +7694,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     abnormally. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -7763,7 +7763,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { Callback<OnResourceLoadEvent> } callback - Callback triggered when a URL is loaded. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -8072,7 +8072,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     window. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -8115,7 +8115,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback - Callback invoked when the window is closed.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -8132,7 +8132,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>The value **true** means to enable, and **false** means the opposite.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -8266,7 +8266,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>When **null** or **undefined** is passed in, the value is **16**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -8514,7 +8514,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
@@ -8796,7 +8796,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>When null or undefined is passed, `WebLayoutMode.NONE` is used.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -9323,7 +9323,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>When **undefined** or **null** is passed in, JavaScript scripts are not injected into **Web** components.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 15 dynamic
    */
   runJavaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
@@ -9347,7 +9347,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>When **undefined** or **null** is passed in, JavaScript scripts are not injected into **Web** components.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 15 dynamic
    */
   runJavaScriptOnDocumentEnd(scripts: Array<ScriptItem>): WebAttribute;

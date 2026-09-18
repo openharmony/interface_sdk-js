@@ -25,7 +25,7 @@ import { Callback } from './@ohos.base';
  * @syscap SystemCapability.MultimodalAwareness.CarAwareness
  * @stagemodelonly
  * @atomicservice
- * @since 26.1.0
+ * @since 26.0.1
  */
 declare namespace carAwareness {
   /**
@@ -33,7 +33,7 @@ declare namespace carAwareness {
    *
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   enum Capability {
     /**
@@ -41,7 +41,7 @@ declare namespace carAwareness {
      *
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     SPATIAL_MOTION = 'SpatialMotion',
     /**
@@ -50,7 +50,7 @@ declare namespace carAwareness {
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     SPATIAL_POINT = 'SpatialPoint',
     /**
@@ -59,7 +59,7 @@ declare namespace carAwareness {
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     SPATIAL_GESTURE = 'SpatialGesture',
     /**
@@ -67,7 +67,7 @@ declare namespace carAwareness {
      *
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     REALTIME_WEATHER = 'RealTimeWeather',
     /**
@@ -75,7 +75,7 @@ declare namespace carAwareness {
      *
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     REFUELING = 'Refueling',
     /**
@@ -84,7 +84,7 @@ declare namespace carAwareness {
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     CAR_STATUS = 'CarStatus',
     /**
@@ -93,7 +93,7 @@ declare namespace carAwareness {
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     CAR_CFG = 'CarCfg',
     /**
@@ -102,7 +102,7 @@ declare namespace carAwareness {
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     HABIT_RECOMMENDATION = 'HabitRecommendation'
   }
@@ -112,7 +112,7 @@ declare namespace carAwareness {
    *
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   export interface SpatialMotionInfo {
     /**
@@ -121,7 +121,7 @@ declare namespace carAwareness {
      *
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     timestamp: number;
 
@@ -130,7 +130,7 @@ declare namespace carAwareness {
      *
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     pointX: number;
 
@@ -139,7 +139,7 @@ declare namespace carAwareness {
      *
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     pointY: number;
 
@@ -149,7 +149,7 @@ declare namespace carAwareness {
      *
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     event: number;
   }
@@ -164,7 +164,7 @@ declare namespace carAwareness {
    * @throws { BusinessError } 34000002 - Specific capability not supported.
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function onSpatialMotion(callback: Callback<SpatialMotionInfo>): void;
 
@@ -177,7 +177,7 @@ declare namespace carAwareness {
    * @throws { BusinessError } 34000001 - Service exception.
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function offSpatialMotion(callback?: Callback<SpatialMotionInfo>): void;
 
@@ -186,7 +186,7 @@ declare namespace carAwareness {
    *
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   export interface RealTimeWeatherInfo {
     /**
@@ -195,7 +195,7 @@ declare namespace carAwareness {
      *
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     timestamp: number;
 
@@ -205,7 +205,7 @@ declare namespace carAwareness {
      *
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     weather: number;
   }
@@ -220,7 +220,7 @@ declare namespace carAwareness {
    * @throws { BusinessError } 34000002 - Specific capability not supported.
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function onRealTimeWeather(callback: Callback<RealTimeWeatherInfo>): void;
 
@@ -233,7 +233,7 @@ declare namespace carAwareness {
    * @throws { BusinessError } 34000001 - Service exception.
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function offRealTimeWeather(callback?: Callback<RealTimeWeatherInfo>): void;
 
@@ -243,7 +243,7 @@ declare namespace carAwareness {
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @stagemodelonly
    * @atomicservice
-   * @since 26.1.0
+   * @since 26.0.1
    */
   export interface RefuelingInfo {
     /**
@@ -253,7 +253,7 @@ declare namespace carAwareness {
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @stagemodelonly
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     timestamp: number;
 
@@ -263,7 +263,7 @@ declare namespace carAwareness {
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @stagemodelonly
      * @atomicservice
-     * @since 26.1.0
+     * @since 26.0.1
      */
     status: number;
   }
@@ -279,7 +279,7 @@ declare namespace carAwareness {
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @stagemodelonly
    * @atomicservice
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function onRefueling(callback: Callback<RefuelingInfo>): void;
 
@@ -293,7 +293,7 @@ declare namespace carAwareness {
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @stagemodelonly
    * @atomicservice
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function offRefueling(callback?: Callback<RefuelingInfo>): void;
 
@@ -303,7 +303,7 @@ declare namespace carAwareness {
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   export interface CarAwarenessInfo {
     /**
@@ -313,7 +313,7 @@ declare namespace carAwareness {
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     timestamp: number;
     /**
@@ -322,7 +322,7 @@ declare namespace carAwareness {
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     capability: Capability;
     /**
@@ -331,7 +331,7 @@ declare namespace carAwareness {
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     awarenessEvent?:Record<string, Object>;
   }
@@ -342,7 +342,7 @@ declare namespace carAwareness {
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   export interface CarAwarenessOptions {
     /**
@@ -351,7 +351,7 @@ declare namespace carAwareness {
      * @syscap SystemCapability.MultimodalAwareness.CarAwareness
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     parameters?: Record<string, Object>;
   }
@@ -369,7 +369,7 @@ declare namespace carAwareness {
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function onCarAwareness(capability: Capability, callback: Callback<CarAwarenessInfo[]>, options?:
   CarAwarenessOptions): void;
@@ -385,7 +385,7 @@ declare namespace carAwareness {
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function offCarAwareness(capability: Capability, callback?: Callback<CarAwarenessInfo[]>, options?:
   CarAwarenessOptions): void;
@@ -399,7 +399,7 @@ declare namespace carAwareness {
    * @throws { BusinessError } 34000001 - Service exception.
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function getAllCapabilityList(): Promise<Capability[]>;
 
@@ -417,7 +417,7 @@ declare namespace carAwareness {
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function updateSpatialActionEnableStatus(event: number): void;
 
@@ -435,7 +435,7 @@ declare namespace carAwareness {
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function updateSpatialActionZone(zone: number): void;
 
@@ -454,7 +454,7 @@ declare namespace carAwareness {
    * @syscap SystemCapability.MultimodalAwareness.CarAwareness
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function getCarAwareness(capability: Capability, options?: CarAwarenessOptions): Promise<CarAwarenessInfo[]>;
 }
