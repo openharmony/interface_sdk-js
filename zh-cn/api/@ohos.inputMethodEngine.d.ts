@@ -316,7 +316,7 @@ declare namespace inputMethodEngine {
   const OPTION_NONE: int;
 
   /**
-   * 允许输入字符。
+   * 自动将字符首字母大写。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
@@ -325,7 +325,7 @@ declare namespace inputMethodEngine {
   const OPTION_AUTO_CAP_CHARACTERS: int;
 
   /**
-   * 允许输入句子。
+   * 自动将句子首字母大写。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework
    * @since 8 dynamic
