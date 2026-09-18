@@ -78,7 +78,7 @@ declare namespace photoAccessHelper {
    * @param { int } userId - ID of the user.
    * @returns { PhotoAccessHelper } PhotoAccessHelper instance obtained.
    * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Called by non-system application
+   * @throws { BusinessError } 202 - Permission verification failed.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
