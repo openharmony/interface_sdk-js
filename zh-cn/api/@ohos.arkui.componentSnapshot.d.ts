@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 组件截图
  * @kit ArkUI
  */
 

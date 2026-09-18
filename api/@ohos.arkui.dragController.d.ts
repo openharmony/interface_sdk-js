@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file DragController
  * @kit ArkUI
  */
 
