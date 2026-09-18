@@ -1180,7 +1180,7 @@ declare namespace securityManager {
    * @throws { BusinessError } 9200016 - Service timeout.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function setWeakPinEnable(isEnable: boolean, fd?: number): void;
  
@@ -1196,7 +1196,7 @@ declare namespace securityManager {
    * @throws { BusinessError } 9200016 - Service timeout.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function isWeakPinEnabled(): boolean;
 }
