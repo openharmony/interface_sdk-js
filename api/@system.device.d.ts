@@ -14,11 +14,30 @@
  */
 
 /**
+ * This module provides information about the current device.
+ * It reads system configurations to obtain basic information such as the device brand,
+ * model, manufacturer, and screen parameters,
+ * which can be used for device adaptation and function determination.
+ *
+ * > **NOTE**
+ * >
+ * > - Module maintenance strategy:
+ * >
+ * >    \- For lite wearables, this module is constantly maintained and available.
+ * >
+ * >    \- For other device types, this module is no longer maintained since API version 6, 
+ * >       and you are advised to use [@ohos.deviceInfo](js-apis-device-info.md) (supported since API version 6)
+ * >       to query device information.
+ * >
+ * > - The initial APIs of this module are supported since API version 3.
+ * >   Newly added APIs will be marked with a superscript to indicate their earliest API version.
+ *
  * @file
  * @kit BasicServicesKit
  */
 
 /**
+ * Defines the device profile information.
  *
  * @syscap SystemCapability.Startup.SystemInfo.Lite
  * @FaAndStageModel
@@ -61,7 +80,7 @@ export interface DeviceResponse {
   model: string;
 
   /**
-   * Product number.
+   * Product code.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @FaAndStageModel
@@ -94,7 +113,7 @@ export interface DeviceResponse {
   region: string;
 
   /**
-   * Window width, unit px.
+   * Available window width, in px. The available window size varies on different devices.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @FaAndStageModel
@@ -105,7 +124,7 @@ export interface DeviceResponse {
   windowWidth: number;
 
   /**
-   * Window Height, unit px.
+   * Available window height, in px. The available window size varies on different devices.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @FaAndStageModel
@@ -116,7 +135,8 @@ export interface DeviceResponse {
   windowHeight: number;
 
   /**
-   * Screen density, unit dpi.
+   * Screen pixel density, which indicates the number of pixels per inch on the screen,
+   * in dots per inch (DPI). The screen pixel density varies depending on the device.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @FaAndStageModel
@@ -128,8 +148,8 @@ export interface DeviceResponse {
 
   /**
    * Screen shape. The options are as follows:
-   * rect: Rectangle screen.
-   * circle: Circle screen.
+   * - **rect**: rectangular screen
+   * - **circle**: round screen
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @FaAndStageModel
@@ -151,11 +171,25 @@ export interface DeviceResponse {
   apiVersion: number;
 
   /**
-   * Minor API version of the system software.
-   * From API 26 and later versions, the system API version format is
-   * sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
-   * Example: 26.0.0
-   * Value range: (-∞,+∞).
+   * Device type. The options are as follows: **phone**, **tablet**, **tv**, and **wearable**.
+   *
+   * @syscap SystemCapability.Startup.SystemInfo.Lite
+   * @FaAndStageModel
+   * @since 4 dynamiconly
+   * @deprecated since 6
+   * @reserved ["liteWearable"]
+   */
+  deviceType: string;
+
+  /**
+   * SDK minor API version. Since API version 26.0.0,
+   * the API version is in the format of **apiVersion.sdkMinorApiVersion.sdkPatchApiVersion**.
+   * If the value fails to be obtained,
+   * **-1** is returned, which does not affect the overall return status of the **getInfo** API.
+   *
+   * **Model constraint:** This API can be used only in the FA model.
+   * **Since version**: 26.0.0
+   * Example: 0
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @famodelonly
@@ -166,11 +200,14 @@ export interface DeviceResponse {
   sdkMinorApiVersion?: number;
 
   /**
-   * Minor API version of the system software.
-   * From API 26 and later versions, the system API version format is
-   * sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
-   * Example: 26.0.0
-   * Value range: (-∞,+∞).
+   * SDK patch API version. Since API version 26.0.0, 
+   * the API version is in the format of **apiVersion.sdkMinorApiVersion.sdkPatchApiVersion**.
+   * If the value fails to be obtained, **-1** is returned,
+   * which does not affect the overall return status of the **getInfo** API.
+   *
+   * **Model constraint:** This API can be used only in the FA model.
+   * **Since version**: 26.0.0
+   * Example: 0
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @famodelonly
@@ -179,32 +216,10 @@ export interface DeviceResponse {
    * @reserved ["liteWearable"]
    */
   sdkPatchApiVersion?: number;
-
-  /**
-   * Device type. The options are as follows:
-   * phone: smartphone
-   * tablet: tablet
-   * tv: smart TV
-   * wearable: wearable
-   * liteWearable: lite wearable
-   * ar: AR
-   * vr: virtual reality
-   * earphones: headset
-   * pc: personal computer
-   * speaker: speaker
-   * smartVision: smart visual device
-   * linkIoT: connection module
-   *
-   * @syscap SystemCapability.Startup.SystemInfo.Lite
-   * @FaAndStageModel
-   * @since 4 dynamiconly
-   * @deprecated since 6
-   * @reserved ["liteWearable"]
-   */
-  deviceType: string;
 }
 
 /**
+ * Defines the parameters for obtaining the device information.
  *
  * @syscap SystemCapability.Startup.SystemInfo.Lite
  * @FaAndStageModel
@@ -214,7 +229,9 @@ export interface DeviceResponse {
  */
 export interface GetDeviceOptions {
   /**
-   * Called when the device information is obtained.
+   * Callback invoked when the API call is successful. **data** is the device information returned. 
+   * If this parameter is not passed, the device information cannot be obtained. 
+   * You are advised to set this callback.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @FaAndStageModel
@@ -225,7 +242,9 @@ export interface GetDeviceOptions {
   success?: (data: DeviceResponse) => void;
 
   /**
-   * Called when the device information fails to be obtained.
+   * Callback invoked when the API call fails. **data** is the error object or error description string,
+   *  and **code** is the error code.
+   *  **code:200**: Certain information cannot be obtained. You are advised to set this callback to handle errors.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @FaAndStageModel
@@ -236,7 +255,9 @@ export interface GetDeviceOptions {
   fail?: (data: any, code: number) => void;
 
   /**
-   * Called when the execution is completed.
+   * Callback invoked when the API call is complete (regardless of whether the call is successful or fails). 
+   * This callback can be used in the cleanup or finalization work. If this parameter is not passed, 
+   * the callback will not be executed when the API call is complete.
    *
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @FaAndStageModel
@@ -258,9 +279,15 @@ export interface GetDeviceOptions {
  */
 export default class Device {
   /**
-   * Obtains the device information.
+   * Obtains the device information. 
+   * This API asynchronously reads the system device information and uses a callback to return the device brand, model, screen parameters, and other data.
    *
-   * @param { GetDeviceOptions } options - Options
+   * > **NOTE**
+   * >
+   * > Do not call **Device.getInfo** before the **onShow** event of the home page.
+   *
+   * @param { GetDeviceOptions } options - Parameters for obtaining the device information. If the parameters are not specified, 
+   * the default configuration is used to obtain basic device information.
    * @syscap SystemCapability.Startup.SystemInfo.Lite
    * @FaAndStageModel
    * @since 3 dynamiconly
