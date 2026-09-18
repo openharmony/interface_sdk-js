@@ -125,8 +125,8 @@ import AgentUIExtensionAbility from '@ohos.app.agent.AgentUIExtensionAbility';
 import agentConstant from '@ohos.app.agent.agentConstant';
 import agentManager from '@ohos.app.agent.agentManager';
 import hyperSnapManager from '@ohos.app.ability.hyperSnapManager';
-import cliManager from '@ohos.app.cli.cliManager';
-import functionManager from '@ohos.app.function.functionManager';
+import cliManager, { CliHook, ExecToolParam, ExecCmdParam, ExecResultWrap } from '@ohos.app.cli.cliManager';
+import functionManager, { FunctionHook, InvokeFunctionParam, FunctionResultWrap } from '@ohos.app.function.functionManager';
 import pluginBundleManager from '@ohos.bundle.pluginBundleManager';
 import appMemoryOptimizer from '@ohos.app.ability.appMemoryOptimizer';
 
@@ -151,7 +151,8 @@ export {
   InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager,
   CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, FailureCode, InteropAbilityLifecycleCallback,
   systemConfiguration, AgentExtensionAbility, AgentUIExtensionAbility, agentConstant, agentManager,hyperSnapManager, cliManager, pluginBundleManager,
-  functionManager, appMemoryOptimizer
+  functionManager, appMemoryOptimizer, CliHook, ExecToolParam, ExecCmdParam, ExecResultWrap,
+  FunctionHook, InvokeFunctionParam, FunctionResultWrap
 };
 
 /*** if arkts static */
