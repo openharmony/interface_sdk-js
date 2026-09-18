@@ -565,4 +565,4 @@ declare namespace cliManager {
 
 export default cliManager;
 
-export { CliHook, ExecToolParam, ExecCmdParam, ExecResultWrap };
+export type { CliHook, ExecToolParam, ExecCmdParam, ExecResultWrap };

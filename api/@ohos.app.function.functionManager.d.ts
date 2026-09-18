@@ -197,4 +197,4 @@ declare namespace functionManager {
 
 export default functionManager;
 
-export { FunctionHook, InvokeFunctionParam, FunctionResultWrap };
+export type { FunctionHook, InvokeFunctionParam, FunctionResultWrap };
