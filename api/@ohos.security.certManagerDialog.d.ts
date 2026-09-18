@@ -113,7 +113,25 @@ declare namespace certificateManagerDialog {
      * @since 22 dynamic
      * @since 23 static
      */
-    ERROR_NO_AVAILABLE_CERTIFICATE = 29700007
+    ERROR_NO_AVAILABLE_CERTIFICATE = 29700007,
+
+    /**
+     * The operation in the certificate management dialog box timed out.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    ERROR_OPERATION_TIMEOUT = 29700009,
+
+    /**
+     * The API does not support concurrent calls.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    ERROR_NOT_CONCURRENT_SUPPORT = 29700010
   }
 
   /**
@@ -574,14 +592,17 @@ declare namespace certificateManagerDialog {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
    *     permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 29700006 - Indicates that the input parameters validation failed.
-   *     For example, the parameter format is incorrect or the value range is invalid.
+   * @throws { BusinessError } 801 - Capability not supported because the certificate management application hap
+   *     is not preinstalled in the system.
    * @throws { BusinessError } 29700001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
-   * @throws { BusinessError } 29700002 - The user cancels the authentication operation.
-   * @throws { BusinessError } 29700003 - The authentication operation failed, such as the USB key certificate
-   *     does not exist, the USB key status is abnormal.
+   * @throws { BusinessError } 29700002 - The user cancels the authentication operation or operation timed out.
+   * @throws { BusinessError } 29700003 - The authentication operation failed, such as:
+   *     The USB key certificate does not exist.
+   *     The USB key status is abnormal, Please ask the user to check the status of the Ukey.
+   *     The Ukey authentication dialog box cannot be opened concurrently. Please try again later.
+   * @throws { BusinessError } 29700006 - Indicates that the input parameters validation failed.
+   *     For example, the parameter format is incorrect or the value range is invalid.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 22 dynamic
@@ -609,6 +630,26 @@ declare namespace certificateManagerDialog {
      * @since 23 static
      */
     keyUri: string;
+
+    /**
+     * The customized data transferred to the Ukey authentication dialog box. Generally, this field is required only
+     * when the openAuthDialogForUkeyProvider interface is invoked. The maximum length is 2048 bytes.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    customData?: Uint8Array;
+
+    /**
+     * The timeout duration for operations in the Ukey authentication dialog box.
+     * Unit: Seconds.  Default value: 300. The value must be an integer within [180,600]. Default value: 300.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    timeoutDuration?: int;
   }
 
   /**
@@ -627,6 +668,85 @@ declare namespace certificateManagerDialog {
    * @since 26.0.0 dynamic&static
    */
   function supportsCACertDialog(): boolean;
+
+  /**
+   * Opens the Ukey authentication dialog box of the USB Key credential. This API is invoked only by the Ukey driver
+   * application to implement the custom dialog box function in scenarios such as payment and certificate update.
+   * The Ukey authentication dialog box needs to be implemented by the Ukey driver application.
+   * This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.CRYPTO_EXTENSION_REGISTER
+   * @param { UkeyAuthDialogInfo } dialogInfo - Information about the Ukey authentication dialog box to be opened.
+   * @param { UkeyAuthRequest } ukeyAuthRequest - Authentication request information of the USB Key credential.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
+   *     permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported because the certificate management application hap
+   *     is not preinstalled in the system.
+   * @throws { BusinessError } 29700001 - The certificate manager service processing failed. Possible causes:
+   *     1. IPC communication failed; 2. Memory operation error; 3. File operation error. Please try again.
+   * @throws { BusinessError } 29700002 - The user cancels the authentication operation.
+   * @throws { BusinessError } 29700003 - The authentication operation failed, such as:
+   *     The USB key certificate does not exist.
+   *     The USB key status is abnormal, Please ask the user to check the status of the Ukey.
+   * @throws { BusinessError } 29700005 - The operation does not comply with the device security policy. Only the
+   *     PC/2in1 device can open the dialog box of the UkeyAuthExtensionAbility type.
+   * @throws { BusinessError } 29700006 - Indicates that the input parameters validation failed.
+   *     For example, the parameter format is incorrect or the value range is invalid.
+   * @throws { BusinessError } 29700009 - The operation in the Ukey authentication dialog box timed out.
+   * @throws { BusinessError } 29700010 - The Ukey authentication dialog box cannot be opened concurrently.
+   *     Please try again later.
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  function openAuthDialogForUkeyProvider(dialogInfo: UkeyAuthDialogInfo, ukeyAuthRequest: UkeyAuthRequest): Promise<void>;
+
+  /**
+   * Ability type of the Ukey authentication dialog box.
+   *
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  export enum AbilityType {
+    /**
+     * Ability of type UkeyAuthExtensionAbility.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    UKEY_AUTH_EXTENSION_ABILITY = 1
+  }
+
+  /**
+   * Information about the Ukey authentication dialog box to be opened.
+   *
+   * @syscap SystemCapability.Security.CertificateManagerDialog
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  export interface UkeyAuthDialogInfo {
+
+    /**
+     * Ability type of the Ukey authentication dialog box.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    abilityType: AbilityType;
+
+    /**
+     * Ability name of the Ukey authentication dialog box. The maximum length is 256 bytes and cannot be empty.
+     *
+     * @syscap SystemCapability.Security.CertificateManagerDialog
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    abilityName: string;
+  }
 }
 
 export default certificateManagerDialog;
