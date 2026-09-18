@@ -78,7 +78,8 @@ declare namespace missionManager {
    * @param { 'mission' } type - Name of the target mission. The value is fixed at **'mission'**, indicating the system
    *     mission status listener.
    * @param { long } listenerId - Index of the mission status listener to deregister. It is returned by **on()**.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result and the task ID array. If the mission
+   *     status listener is deregistered successfully, err is undefined; otherwise, err is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -290,7 +291,9 @@ declare namespace missionManager {
   function getLowResolutionMissionSnapShot(deviceId: string, missionId: int): Promise<MissionSnapshot>;
 
   /**
-   * Locks a given mission. This API uses an asynchronous callback to return the result.
+   * Locks a given mission. This API is applicable to scenarios where a mission needs to be kept from being cleaned
+   * up, such as when a system management application needs to keep key missions running in the background. This API
+   * uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { int } missionId - Mission ID.
@@ -308,7 +311,9 @@ declare namespace missionManager {
   function lockMission(missionId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Locks a given mission. This API uses a promise to return the result.
+   * Locks a given mission. This API is applicable to scenarios where a mission needs to be kept from being cleaned
+   * up, such as when a system management application needs to keep key missions running in the background. This API
+   * uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { int } missionId - Mission ID.
@@ -326,7 +331,9 @@ declare namespace missionManager {
   function lockMission(missionId: int): Promise<void>;
 
   /**
-   * Unlocks a given mission. This API uses an asynchronous callback to return the result.
+   * Unlocks a given mission. This API is applicable to scenarios where a locked mission is allowed to be cleaned up
+   * by the system, such as when a system management application no longer needs to keep a mission running in the
+   * background. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { int } missionId - Mission ID.
@@ -344,7 +351,9 @@ declare namespace missionManager {
   function unlockMission(missionId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Unlocks a given mission. This API uses a promise to return the result.
+   * Unlocks a given mission. This API is applicable to scenarios where a locked mission is allowed to be cleaned up
+   * by the system, such as when a system management application no longer needs to keep a mission running in the
+   * background. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { int } missionId - Mission ID.
@@ -511,7 +520,8 @@ declare namespace missionManager {
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { Array<int> } missionIds - Array holding the mission IDs.
-   * @param { int } topMission - ID of the mission to be moved to the top.
+   * @param { int } topMission - ID of the mission to be moved to the top. The value **-1** indicates that no specific
+   *     mission is specified and the system moves the mission to the top based on the default logic.
    * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -532,7 +542,7 @@ declare namespace missionManager {
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { Array<int> } missionIds - Array holding the mission IDs.
    * @param { int } topMission - ID of the mission to be moved to the top. The default value is **-1**, indicating that
-   *     the default mission is moved to the top.
+   *     no specific mission is specified and the system moves the mission to the top based on the default logic.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.

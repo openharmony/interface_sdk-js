@@ -45,8 +45,8 @@ export enum MultiAppMode {
   NOT_SUPPORTED = 0,
 
   /**
-   * 应用支持多实例模式。
-   * 
+   * 应用支持多实例模式。当应用设置为此模式时，用户可以在同一设备上同时打开多个应用实例，各实例独立运行，拥有各自的运行环境和资源。
+   *
    * **说明：** 只支持PC/2in1设备。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -58,7 +58,7 @@ export enum MultiAppMode {
   MULTI_INSTANCE = 1,
 
   /**
-   * 应用支持分身模式。
+   * 应用支持分身模式。分身模式允许为应用创建独立的副本实例，每个实例拥有独立的数据空间，适用于需要隔离用户数据的场景。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi

@@ -39,7 +39,7 @@ export interface KioskStatus {
   isKioskMode: boolean;
 
   /**
-   * Bundle name of the application in kiosk mode.
+   * Bundle name of the application that entered kiosk mode.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -49,7 +49,7 @@ export interface KioskStatus {
   kioskBundleName: string;
 
   /**
-   * UID of the application in kiosk mode.
+   * UID of the application that entered kiosk mode, assigned by the system. It is a positive integer.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

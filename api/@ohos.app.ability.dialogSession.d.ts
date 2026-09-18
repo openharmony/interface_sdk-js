@@ -136,7 +136,8 @@ declare namespace dialogSession {
     visible: boolean;
 
     /**
-     * Index of the application clone.
+     * Indicates the clone index of the application. The value starts from 0. The value 0 indicates the main
+     * application instance, and 1 or above indicates a clone instance.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -186,8 +187,8 @@ declare namespace dialogSession {
   }
 
   /**
-   * Provides session information, including the requester information, target ability information list, and other
-   * parameters.
+   * Provides session information, including the requester component information, target component information list,
+   * and other parameters.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi

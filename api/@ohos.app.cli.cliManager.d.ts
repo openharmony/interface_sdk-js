@@ -22,7 +22,9 @@ import { ToolEventCallback } from './application/ToolEventCallback';
 
 
 /**
- * The module provides the capability to interact with cli tools in the system.
+ * This module provides the capability to interact with system command-line interface (CLI) tools, including querying
+ * tool information, invoking and executing CLI commands, and managing sessions. A session is created when the
+ * execTool API is called, and is used to track the execution status and result of the CLI tool.
  *
  * @namespace cliManager
  * @syscap SystemCapability.Ability.AgentRuntime.Core
@@ -326,7 +328,7 @@ declare namespace cliManager {
    *     "ohos.permission.QUERY_CLI_TOOL".
    * @throws { BusinessError } 202 - Not system application. Interface caller is not a system app.
    * @throws { BusinessError } 35600050 - System Error. 1. Connect to system service failed;
-   *     2.System service failed to communicate with dependency module.
+   *     2. System service failed to communicate with dependency module.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly

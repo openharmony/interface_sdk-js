@@ -463,8 +463,8 @@ declare class UIAbility extends Ability {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void;
 
   /**
-   * Called when a [WindowStage]{@link ./@ohos.window} instance is created. You can load a page through the WindowStage 
-   * instance in this callback.
+   * The system triggers this callback after a [WindowStage]{@link ./@ohos.window} instance is created. Developers can
+   * load pages through the WindowStage instance in this callback.
    *
    * @param { window.WindowStage } windowStage - WindowStage instance.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

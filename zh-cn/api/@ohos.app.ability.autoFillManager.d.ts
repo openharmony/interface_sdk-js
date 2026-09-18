@@ -46,6 +46,7 @@ import { PopupSize as _PopupSize } from './application/AutoFillPopupConfig';
 import { PopupPlacement as _PopupPlacement } from './application/AutoFillPopupConfig';
 import { AutoFillTriggerType as _AutoFillTriggerType } from './application/AutoFillTriggerType';
 /*** endif */
+import { FillFailureResult as _FillFailureResult } from './application/AutoFillRequest';
 
 /**
  * autoFillManager模块为应用提供账号、密码、地址、电话号码等用户信息的自动填充能力。
@@ -78,6 +79,28 @@ declare namespace autoFillManager {
    * @since 23 static
    */
   type OnFailureFn = () => void;
+
+  /**
+   * 自动填充请求成功处理时的回调。
+   *
+   * @param { ViewData } viewData - AutoFill的视图数据信息。
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  type OnFillSuccessFn = (viewData: ViewData) => void;
+
+  /**
+   * 自动填充请求处理失败时的回调。
+   *
+   * @param { FillFailureResult } result - AutoFill失败结果。
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  type OnFillFailureFn = (result: FillFailureResult) => void;
 
   /**
    * 当保存请求完成时所触发的回调接口。

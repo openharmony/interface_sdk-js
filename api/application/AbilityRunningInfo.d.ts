@@ -71,7 +71,7 @@ export interface AbilityRunningInfo {
   processName: string;
 
   /**
-   * Ability start time.
+   * Ability start time, in ms.
    *
    * @default ability start time
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

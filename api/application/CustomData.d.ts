@@ -23,10 +23,11 @@ import { RecordData } from '../@ohos.base';
 /*** endif */
 
 /**
- * When starting a modal page, you can transfer custom data to the autofill service through
- * [reloadInModal]{@link AutoFillExtensionContext:AutoFillExtensionContext.reloadInModal} and obtain the data through
- * [onFillRequest]{@link ./../@ohos.app.ability.AutoFillExtensionAbility:AutoFillExtensionAbility.onFillRequest} of the
- * service.
+ * When starting a modal page, developers can transfer custom data to the auto-fill service through the
+ * [reloadInModal]{@link AutoFillExtensionContext:AutoFillExtensionContext.reloadInModal} API, and obtain the data
+ * through the
+ * [onFillRequest]{@link ./../@ohos.app.ability.AutoFillExtensionAbility:AutoFillExtensionAbility.onFillRequest} of
+ * the auto-fill service.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi

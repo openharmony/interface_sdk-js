@@ -64,7 +64,7 @@ export default interface AutoFillPopupConfig {
  */
 export interface PopupSize {
   /**
-   * Width of the auto-fill pop-up.
+   * Width of the auto-fill pop-up. The unit is px.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -75,7 +75,7 @@ export interface PopupSize {
   width: double;
 
   /**
-   * Height of the auto-fill pop-up.
+   * Height of the auto-fill pop-up. The unit is px.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi

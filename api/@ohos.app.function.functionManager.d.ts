@@ -21,7 +21,12 @@ import Context from './application/Context';
 import { FunctionInfo } from './application/FunctionInfo';
 
 /**
- * The module provides the capability to manage and invoke functions in the system.
+ * A Function is a business logic unit defined in an application package. It can receive structured data provided by a
+ * large model to complete application-defined functions, such as querying real-time weather information or opening a
+ * specified application page.
+ *
+ * This module provides the capability to manage and invoke Functions, including querying available Function
+ * information and invoking a specified Function to execute business logic.
  *
  * @namespace functionManager
  * @syscap SystemCapability.Ability.AgentRuntime.Core
@@ -32,7 +37,8 @@ import { FunctionInfo } from './application/FunctionInfo';
 declare namespace functionManager {
 
   /**
-   * Invoke options for function execution.
+   * Optional parameters for Function invocation. Contains the application context information for the Function
+   * invocation.
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
@@ -115,7 +121,7 @@ declare namespace functionManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 35600050 - System Error. 1. Connect to system service failed;
-   *     2.System service failed to communicate with dependency module.
+   *     2. System service failed to communicate with dependency module.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -135,7 +141,7 @@ declare namespace functionManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 35600050 - System Error. 1. Connect to system service failed;
-   *     2.System service failed to communicate with dependency module.
+   *     2. System service failed to communicate with dependency module.
    * @throws { BusinessError } 35600060 - The function does not exist.
    * @throws { BusinessError } 35600061 - The function execute failed.
    * @throws { BusinessError } 35600062 - The function execute timeout.
