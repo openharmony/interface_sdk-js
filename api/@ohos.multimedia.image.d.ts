@@ -7829,6 +7829,17 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     setAuxiliaryPictureInfo(info: AuxiliaryPictureInfo): void;
 
     /**
+     * Obtains the PixelMap of this auxiliary picture.
+     *
+     * @returns { PixelMap | null } PixelMap object obtained. Returns null when the auxiliary picture does not
+     *     contain PixelMap data.   
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    acquirePixelmap(): PixelMap | null;
+
+    /**
      * Releases this AuxiliaryPicture object. No value is returned.
      * 
      * Images occupy a large amount of memory. When you finish using an AuxiliaryPicture instance, call this API to free
@@ -7933,6 +7944,28 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 26.0.0 dynamic&static
     */
     LHDR_GAINMAP = 10,
+
+    /**
+     * Oxygen saturation map.
+     *
+     * It records the oxygen saturation level for face area pixels, and could be used for skin analysis.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    OXY_MAP = 11,
+
+    /**
+     * Melanin concentration map.
+     *
+     * It records the melanin distribution in face area, and could be used for skin analysis.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    MEL_MAP = 12,
   }
 
   /**
