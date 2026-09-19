@@ -20,12 +20,12 @@
 
 /**
  * Describes the options of the polyline.
- *
+ * 
  * > **NOTE**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer
- * > element's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
+ * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -36,9 +36,14 @@
  */
 declare interface PolylineOptions {
   /**
-   * Width.
-   * Unit: vp, The value must be greater than or equal to 0, The **undefined**, **null**, **NaN**, and **Infinity**
-   * values are invalid and treated as the default value. Default value: **0**.
+   * Width, in the range [0, +∞).
+   * 
+   * Default value: **0**
+   * 
+   * Default unit: vp
+   * 
+   * If the given value is less than 0, the default value is used. The abnormal values **undefined**, **null**, **NaN**,
+   * and **Infinity** are processed as the default value.
    *
    * @type { ?(string | number) } [since 7 - 19]
    * @type { ?Length } [since 20]
@@ -52,9 +57,14 @@ declare interface PolylineOptions {
   width?: Length;
 
   /**
-   * Height.
-   * Unit: vp, The value must be greater than or equal to 0, The **undefined**, **null**, **NaN**, and
-   * **Infinity** values are invalid and treated as the default value. Default value: **0**.
+   * Height, in the range [0, +∞).
+   * 
+   * Default value: **0**
+   * 
+   * Default unit: vp
+   * 
+   * If the given value is less than 0, the default value is used. The abnormal values **undefined**, **null**, **NaN**,
+   * and **Infinity** are processed as the default value.
    *
    * @type { ?(string | number) } [since 7 - 19]
    * @type { ?Length } [since 20]
@@ -69,7 +79,16 @@ declare interface PolylineOptions {
 }
 
 /**
- * Provides an interface for drawing polylines.
+ * The **Polyline** component is used to draw a polyline.
+ * 
+ * > **NOTE**
+ * >
+ * > This component is supported since API version 7. Updates to new APIs in later versions are marked with a 
+ * > superscript to indicate their earliest API version.
+ * >
+ * > This component supports updating constructor parameters through the 
+ * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the 
+ * > [AttributeUpdater]{@link ../../../arkui/AttributeUpdater} class since API version 20.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -81,10 +100,13 @@ declare interface PolylineOptions {
  */
 interface PolylineInterface {
   /**
-   * Uses new to create Polyline.
-   * Anonymous Object Rectification.
+   * Creates a polyline.
    *
-   * @param { PolylineOptions } [options] - Poly line options [since 18]
+   * @param { PolylineOptions } [options] - Drawing area of the polyline, used to set the width and height of the
+   *     **Polyline** component. Pass this parameter when the drawing area size of the polyline needs to be specified.
+   *     If it is not passed, the default width and height (both 0) are used.
+   *     <br>The abnormal values **undefined** and **null** are processed as invalid values, and this setting does not
+   *     take effect. [since 18]
    * @returns { PolylineAttribute } [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -96,11 +118,14 @@ interface PolylineInterface {
   new (options?: PolylineOptions): PolylineAttribute;
 
   /**
-   * Defines the constructor of Polyline component.
+   * Creates a polyline.
    *
    * @param { object } value - [since 7 - 17]
-   * @param { PolylineOptions } [options] - Options of the polyline.<br>The **undefined** and **null** values are
-   *     treated as invalid and will not take effect. [since 18]
+   * @param { PolylineOptions } [options] - Drawing area of the **Polyline**, used to set the width and height of the
+   *     **Polyline** component. Pass this parameter when the drawing area size of the **Polyline** needs to be specified.
+   *     If it is not passed, the default width and height (both 0) are used.
+   *     <br>The abnormal values **undefined** and **null** are processed as invalid values, and this setting does not
+   *     take effect. [since 18]
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -113,7 +138,8 @@ interface PolylineInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
+ * In addition to the [universal attributes]{@link CommonMethod} and [universal drawing attributes]{@link CommonMethod}, the 
+ * following attributes are supported:
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -125,12 +151,14 @@ interface PolylineInterface {
  */
 declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   /**
-   * Sets the list of coordinates through which the polyline passes. This attribute can be dynamically set using 
-   * [attributeModifier]{@link CommonMethod#attributeModifier}.
+   * Sets the list of coordinate points that the polyline passes through. This attribute supports 
+   * [attributeModifier]{@link CommonMethod#attributeModifier} for dynamic setting of the attribute.
    *
-   * @param { Array<any> } value - List of coordinates that the polyline passes through. A two-dimensional array is
-   *     passed, and each subarray indicates the `[x, y]` coordinates of a vertex.<br>Default value: **[]** (empty array)
-   *     <br>Default unit: vp<br>The **undefined** and **null** values are invalid and treated as the default value.
+   * @param { Array<any> } value - List of coordinate points that the polyline passes through. Pass in a two-dimensional
+   *     array, where each sub-array represents the [x, y] coordinates of a vertex.
+   *     <br>Default value: [] (empty array)
+   *     <br>Default unit: vp 
+   *     <br>Abnormal values undefined and null are processed as the default value.
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -144,15 +172,19 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
 
 /**
  * The **Polyline** component is used to draw a polyline.
+ * 
  * > **NOTE**
  * >
- * > This component supports dynamic constructor parameter updates using the
- * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the
- * > [AttributeUpdater](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md) class since API version 20.
+ * > This component is supported since API version 7. Updates to new APIs in later versions are marked with a 
+ * > superscript to indicate their earliest API version.
  * >
- * > **Child Components**
- * >
- * > None
+ * > This component supports updating constructor parameters through the 
+ * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the 
+ * > [AttributeUpdater]{@link ../../../arkui/AttributeUpdater} class since API version 20.
+ * 
+ * ###### Child Components
+ * 
+ * None
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

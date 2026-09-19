@@ -21,7 +21,7 @@
  * > - The APIs of this module are no longer maintained since API version 7. You are advised to use 
  * > [@ohos.mediaquery]{@link @ohos.mediaquery:mediaquery} instead.
  *
- * @file
+ * @file Media Query
  * @kit ArkUI
  */
 

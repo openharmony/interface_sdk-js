@@ -23,8 +23,8 @@ import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
 import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
-* Enum for ChipSize
-*
+ * ChipSize定义Chip组件可指定的尺寸类型，如普通类型和小尺寸型。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

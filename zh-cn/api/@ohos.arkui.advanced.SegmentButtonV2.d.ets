@@ -14,7 +14,7 @@
  */
 
 /**
- * @file api/@ohos.arkui.advanced.SegmentedButton.d.ts
+ * @file
  * @kit ArkUI
  */
 

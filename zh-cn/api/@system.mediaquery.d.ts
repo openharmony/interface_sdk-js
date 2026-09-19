@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 媒体查询
  * @kit ArkUI
  */
 

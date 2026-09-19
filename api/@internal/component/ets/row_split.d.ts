@@ -19,7 +19,10 @@
  */
 
 /**
- * Provides interfaces for layout in the vertical direction.
+ * The **RowSplit** component lays out child components horizontally and inserts a vertical divider between every two 
+ * child components. It is suitable for scenarios that require horizontal multi-area layout and support dynamic 
+ * adjustment of child component widths, such as the left and right panes of a file manager and the two-column layout of
+ * a settings page. Through draggable dividers, users can flexibly adjust the width of each area.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -43,6 +46,11 @@ interface RowSplitInterface {
 /**
  * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
  *
+ * > **NOTE**
+ * >
+ * > The default value of [shape clipping]{@link CommonMethod#clip(value: boolean)} of the **RowSplit** component is
+ * > **true**.
+ *
  * The [universal events]{@link CommonMethod} are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -53,17 +61,28 @@ interface RowSplitInterface {
  */
 declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
   /**
-   * Sets whether the divider can be dragged.
+   * Sets whether the divider is draggable. When set to **true**, the user can drag the divider to change the width of 
+   * the child components; when set to **false**, the divider position is fixed.
    *
-   * > The divider of **RowSplit** can change the width of the left and right child components, but only to the
-   * > extent that the resultant width falls within the maximum and minimum widths of the child components.
+   * > **NOTE**
+   * >
+   * > After initialization, if the child component width is greater than the spacing between adjacent dividers due to
+   * > an exception caused by dynamically modifying the universal attributes **margin**, **border**, and **padding**,
+   * > dragging the divider to change the child component width is not supported.
    *
-   * @param { boolean } value - Whether the divider can be dragged. **true**: The divider can be dragged.
-   *     **false**: The divider cannot be dragged.
-   *     <br>Default value: **false**
-   *     <br>Invalid values are treated as the default value.
-   * @returns { RowSplitAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * > **NOTE**
+   * >
+   * > The divider of **RowSplit** can change the width of the left and right child components, but only to the extent
+   * > that the resultant width falls within the maximum and minimum widths of the child components. When the divider
+   * > is dragged, the child component width is calculated in real time. When the minimum or maximum width set for the
+   * > child component is reached, the divider stops moving.
+    *
+    * @param { boolean } value - Whether the divider can be dragged. When set to **true**, the divider can be dragged;
+    *     when set to **false**, the divider cannot be dragged.
+    *     <br>Default value: **false**
+    *     <br>Invalid value: handled as the default value.
+    * @returns { RowSplitAttribute }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -72,23 +91,30 @@ declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
 }
 
 /**
- * The **RowSplit** component lays out child components horizontally and inserts a vertical divider between every two
- * child components.
- * > **Note**
+ * The **RowSplit** component lays out child components horizontally and inserts a vertical divider between every two 
+ * child components. It is suitable for scenarios that require horizontal multi-area layout and support dynamic 
+ * adjustment of child component widths, such as the left and right panes of a file manager and the two-column layout of
+ * a settings page. Through draggable dividers, users can flexibly adjust the width of each area.
+ *
+ * ###### Child Components
+ * 
+ * Supported
+ * 
+ * The **RowSplit** component limits the width of its child components through dividers. During initialization, the 
+ * divider positions are calculated based on the width of its child components. After initialization, dynamically 
+ * modifying the width of a child component does not change the divider positions, which remain unchanged. You can drag 
+ * a divider to change the width of the child components.
+ * 
+ * > **NOTE**
  * >
- * > This component limits the width of its child components through dividers. During initialization, the divider
- * > positions are calculated based on the width of its child components. After initialization, dynamic width
- * > modifications to child components do not affect divider positions. To adjust child component widths, drag the
- * > adjacent dividers.
- * >
- * > After initialization, dynamic changes to the [margin]{@link CommonMethod#margin},
- * > [border]{@link CommonMethod#border}, or [padding]{@link CommonMethod#padding} attributes may cause the
- * > width of the child components to exceed the allowable distance between adjacent dividers. In such cases, dividers
- * > cannot be dragged to adjust the width of the child components.
- * >
- * > **Child Components**
- * >
- * > Supported
+ * > After initialization, dynamically modifying the [margin]{@link CommonMethod#margin}, 
+ * > [border]{@link CommonMethod#border}, or [padding]{@link CommonMethod#padding} universal attributes may cause the 
+ * > width of a child component to be greater than the spacing between adjacent dividers. In this exceptional case, 
+ * > dragging a divider to change the width of the child components is not supported. This is because the divider 
+ * > positions are determined during initialization, and dynamically modifying attributes such as margin, border, and 
+ * > padding breaks the original layout calculation, preventing the dividers from correctly responding to drag 
+ * > operations. You are advised to set the size and margin attributes of the child components properly during 
+ * > initialization.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
