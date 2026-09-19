@@ -49,6 +49,19 @@ declare namespace scriptManager {
    */
   readonly requestCode: string;
 
+  /**
+   * Tool call ID passed by the caller, used to associate this arkTS script
+   * invocation with a test step. It is undefined when the caller does not
+   * pass a tool call ID or passes an empty string.
+   *
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.1.0 dynamic&static
+   */
+  readonly toolCallId?: string;
+
    /**
     * The context of the bound ability.
     *
