@@ -171,7 +171,7 @@ declare namespace inputDevice {
   }
 
   /**
-   * 注册监听输入设备的热插拔事件，使用时需连接鼠标、键盘、触摸屏等外部设备。使用callback异步回调。
+   * 注册监听输入设备的热插拔事件，使用时需连接鼠标、键盘、触摸屏等外部设备。使用callback异步回调。建议在应用主线程执行此操作，且需要在此线程退出前取消监听。
    *
    * @param { 'change' } type - 输入设备的事件类型，固定值为'change'。
    * @param { Callback<DeviceListener> } listener - 回调函数，返回输入设备热插拔事件。
@@ -194,7 +194,7 @@ declare namespace inputDevice {
   function onChange(listener: Callback<DeviceListener>): void;
 
   /**
-   * 取消监听输入设备的热插拔事件。在应用退出前调用，取消监听。使用callback异步回调。
+   * 取消监听输入设备的热插拔事件。使用callback异步回调。取消监听需要与注册监听在同一线程执行。
    *
    * @param { 'change' } type - 输入设备的事件类型，固定值为'change'。
    * @param { Callback<DeviceListener> } [listener] - 取消监听的回调函数，缺省时取消所有输入设备热插拔事件的监听。
