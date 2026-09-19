@@ -7812,9 +7812,9 @@ declare namespace camera {
    * @extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro [since 11 - 14]
    * @extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro, Aperture, ColorReservation [since 15 - 17]
    * @extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro, Aperture, ColorReservation,
-   *     EffectSuggestion [since 18]
-   * @extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro, Aperture, ColorReservation,
-   *     EffectSuggestion, ImagingMode, ColorControls [since 26.0.1]
+   *     EffectSuggestion [since 18 - 24]
+   * @extends VideoSession, Beauty, ColorEffect, ColorManagement, Macro, Aperture, ColorReservation, EffectSuggestion,
+   *     ImagingMode, ColorControls [since 26.0.1]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @since 11 dynamic
@@ -7879,9 +7879,7 @@ declare namespace camera {
    * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter,
    *     AutoDeviceSwitch, Macro [since 20 - 24]
    * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter,
-   *     AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS, Aperture [since 26.0.0]
-   * @extends Session, Flash, AutoExposure, WhiteBalance, Focus, Zoom, Stabilization, ColorManagement, ControlCenter,
-   *     AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS, Aperture [since 26.0.1]
+   *     AutoDeviceSwitch, Macro, ManualExposure, ManualFocus, ManualIso, OIS, Aperture [since 26.0.0 - 26.0.0]
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @atomicservice [since 19]
    * @since 11 dynamic
