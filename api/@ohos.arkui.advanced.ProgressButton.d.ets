@@ -19,183 +19,132 @@
  */
 
 /**
- * Declare Component ProgressButton
+ * The **ProgressButton** component is a text-based download button with a progress indicator that shows the download 
+ * progress.
+ * 
+ * > **NOTE**
+ * >
+ * > - This component can be used only in the stage model.
+ * >
+ * > - If the **ProgressButton** component has [universal attributes]{@link CommonMethod} and 
+ * > [universal events]{@link CommonMethod} configured, the compiler toolchain automatically 
+ * > generates an additional \_\_Common\_\_ node and mounts the universal attributes and universal events on this node 
+ * > rather than the **ProgressButton** component itself. As a result, the configured universal attributes and universal
+ * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events 
+ * > with the **ProgressButton** component.
+ *
+ * The [universal events]{@link CommonMethod} are not supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declare Component ProgressButton
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * Declare Component ProgressButton
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
+ * @crossplatform [since 22]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 @Component
 export declare struct ProgressButton {
   /**
-   * Sets the ProgressButton progress.
-   * @type { number }.
+   * Current download progress.
+   * 
+   * The value ranges from 0 to 100. Values less than 0 are adjusted to **0**, and values greater than 100 are capped at
+   * **100**.
+   * 
+   * Default value: **0**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the ProgressButton progress.
-   * @type { number }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Sets the ProgressButton progress.
-   * @type { number }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   @Prop progress: number;
 
   /**
-   * Sets the ProgressButton content.
-   * @type { string }.
+   * Button text.
+   * 
+   * The default value is an empty string.
+   * 
+   * Note: The text is truncated with an ellipsis (...) if it exceeds the maximum display width of the component. The 
+   * Resource type is supported since API version 20.
+   *
+   * @type { string }. [since 10 - 19]
+   * @type { ResourceStr }. [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the ProgressButton content.
-   * @type { string }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the ProgressButton content.
-   * @type { ResourceStr }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   @Prop content: ResourceStr;
 
   /**
-   * Sets the ProgressButton progressButtonWidth.
-   * @type { ?Length }.
+   * Button width, in vp.
+   * 
+   * The value must be greater than or equal to 44 vp.
+   * 
+   * The default value is **44vp**. If the provided value is not of the Resource type and is either less than the 
+   * default value or invalid, the system will automatically use the default value. If the provided value is of the 
+   * Resource type but is less than the default value, the system will automatically use the default value. If the 
+   * provided value is invalid, the button width will be 100% of the container width.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the ProgressButton progressButtonWidth.
-   * @type { ?Length }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Sets the ProgressButton progressButtonWidth.
-   * @type { ?Length }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   progressButtonWidth?: Length;
 
   /**
-   * Sets the ProgressButton clickCallback.
-   * @type { () => void }.
+   * Callback invoked when the button is clicked.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the ProgressButton clickCallback.
-   * @type { () => void }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Sets the ProgressButton clickCallback.
-   * @type { () => void }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   clickCallback: () => void;
 
   /**
-   * Sets the ProgressButton enable state.
-   * @type { boolean }.
+   * Whether the button can be clicked.
+   * 
+   * **true**: The button can be clicked.
+   * 
+   * **false**: The button cannot be clicked.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the ProgressButton enable state.
-   * @type { boolean }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Sets the ProgressButton enable state.
-   * @type { boolean }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 22]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   @Prop enable: boolean;
 
   /**
-   * Set Color options of the ProgressButton.
+   * Color options of the button. This parameter is used to customize the color of each part of the button (progress 
+   * indicator, stroke, text, and background). This parameter is passed in when a custom color is required. If it is not
+   * passed, the default color scheme is used.
    *
-   * @type { ?ProgressButtonColorOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 18 dynamic
-   */
-  /**
-   * Set Color options of the ProgressButton.
-   *
-   * @type { ?ProgressButtonColorOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   @Prop colorOptions?: ProgressButtonColorOptions;
   
   /**
-   * Set border rounded corner radius of progress.
+   * Corner radius of the button. It cannot be set in percentage.
+   * 
+   * Value range: [0, height/2]
+   * 
+   * Default value: height/2
+   * 
+   * If the value is less than 0, the value **0** is used. If the value is invalid, the default value is used. If the 
+   * input parameter is **undefined**, the default value is used. When using LengthMetrics.vp, you are advised to 
+   * provide a specific numeric value. Passing **null** or **undefined** will result in an exception.
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -206,107 +155,65 @@ export declare struct ProgressButton {
 }
 
 /**
- * Declare Color options of the ProgressButton.
+ * Defines the color options for the download button.
  *
- * @interface ProgressButtonColorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 22]
  * @atomicservice
  * @since 18 dynamic
- */
-/**
- * Declare Color options of the ProgressButton.
- *
- * @interface ProgressButtonColorOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
  */
 export declare interface ProgressButtonColorOptions {
 
   /**
-   * Set progress color of the ProgressButton.
+   * Color of the progress indicator.
+   * 
+   * Default value: **#330A59F7**
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 18 dynamic
-   */
-  /**
-   * Set progress color of the ProgressButton.
-   *
-   * @type { ?ResourceColor }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   progressColor?: ResourceColor;
 
   /**
-   * Set border color of the ProgressButton.
+   * Border color of the button.
+   * 
+   * Default value: **#330A59F7**
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 18 dynamic
-   */
-  /**
-   * Set border color of the ProgressButton.
-   *
-   * @type { ?ResourceColor }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   borderColor?: ResourceColor;
 
   /**
-   * Set text color of the ProgressButton.
+   * Text color of the button.
+   * 
+   * Default value: system default value **#CE000000**
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 18 dynamic
-   */
-  /**
-   * Set text color of the ProgressButton.
-   *
-   * @type { ?ResourceColor }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   textColor?: ResourceColor;
 
   /**
-   * Set background color of the ProgressButton.
+   * Background color of the button.
+   * 
+   * Default value: **$r('sys.color.ohos_id_color_foreground_contrary')**
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 18 dynamic
-   */
-  /**
-   * Set background color of the ProgressButton.
-   *
-   * @type { ?ResourceColor }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   backgroundColor?: ResourceColor;
 }
