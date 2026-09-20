@@ -298,6 +298,20 @@ declare namespace socket {
   function on(type: 'sppRead', clientSocket: number, callback: Callback<ArrayBuffer>): void;
 
   /**
+   * 客户端和服务端均可使用，订阅从套接字读取到数据时上报的事件。
+   *
+   * @param { int } clientSocket - 客户端套接字的ID。
+   *     该值是调用[sppAccept]{@link socket.sppAccept}或[sppConnect]{@link socket.sppConnect}接口，通过其异步callback获取到的。
+   * @param { Callback<ArrayBuffer> } callback - 指定订阅的回调函数，会返回读取到的数据。
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 2901054 - IO error.
+   * @throws { BusinessError } 2900099 - Operation failed.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 26.0.1 static
+   */
+  function onSppRead(clientSocket: int, callback: Callback<ArrayBuffer>): void;
+
+  /**
    * 取消订阅套接字读请求事件。
    * 
    * 须在调用[socket.on('sppRead')]{@link socket.on(type: 'sppRead', clientSocket: number, callback: Callback<ArrayBuffer>)}成功订阅
@@ -320,6 +334,18 @@ declare namespace socket {
    * @since 10 dynamic
    */
   function off(type: 'sppRead', clientSocket: number, callback?: Callback<ArrayBuffer>): void;
+
+  /**
+   * 客户端和服务端均可使用，取消订阅从套接字读取到数据时上报的事件。
+   *
+   * @param { int } clientSocket - 客户端套接字的ID。
+   *     该值是调用[sppAccept]{@link socket.sppAccept}或[sppConnect]{@link socket.sppConnect}接口，通过其异步callback获取到的。
+   * @param { Callback<ArrayBuffer> } [callback] - 指定取消订阅的回调函数通知。
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @since 26.0.1 static
+   */
+  function offSppRead(clientSocket: int, callback?: Callback<ArrayBuffer>): void;
 
   /**
    * 客户端和服务端均可使用，向对端设备发送数据。使用Promise异步回调。当连接断开时，该接口会抛出错误码并返回。
