@@ -1237,6 +1237,10 @@ declare namespace webview {
          * Instead, the web engine will be initialized either when the web component is created
          * or when initializeWebEngine is called.
          *
+         * > **NOTE**
+         * >
+         * > -Since API version 26.1.0, when set to **true**, CookieManager interfaces can be used in asynchronous threads.
+         *
          * @param { boolean } lazy - Controls whether to delay the initialization of the web engine.
          * @static
          * @syscap SystemCapability.Web.Webview.Core
