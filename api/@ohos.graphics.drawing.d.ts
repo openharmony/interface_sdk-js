@@ -8501,7 +8501,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   enum AtlasInterpolationMode {
     /**
@@ -8510,7 +8510,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     NONE = 0,
     /**
@@ -8519,7 +8519,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     FRAME_BLEND = 1,
   }
@@ -8530,7 +8530,7 @@ declare namespace drawing {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface AtlasImage {
     /**
@@ -8540,7 +8540,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     atlasImage: image.PixelMap;
 
@@ -8555,7 +8555,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     rows: int;
 
@@ -8570,7 +8570,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     cols: int;
 
@@ -8581,7 +8581,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     frameWidth: double;
 
@@ -8592,7 +8592,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     frameHeight: double;
 
@@ -8603,7 +8603,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     padding: double;
 
@@ -8618,7 +8618,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     frameIndex: double;
 
@@ -8633,7 +8633,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     totalFrame: int;
 
@@ -8646,7 +8646,7 @@ declare namespace drawing {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     mode: AtlasInterpolationMode;
   }
