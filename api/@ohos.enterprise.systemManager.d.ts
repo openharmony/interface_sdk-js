@@ -754,7 +754,7 @@ declare namespace systemManager {
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   class ExactTimerConfig {
     /**
@@ -763,7 +763,7 @@ declare namespace systemManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     name: string;
 
@@ -773,7 +773,7 @@ declare namespace systemManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     repeat: boolean;
 
@@ -785,7 +785,7 @@ declare namespace systemManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     interval: number;
 
@@ -794,7 +794,7 @@ declare namespace systemManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     callback(): void;
   }
@@ -1638,7 +1638,7 @@ declare namespace systemManager {
    * @throws { BusinessError } 9201053 - The number of timers has reached the upper limit.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function createExactTimer(config: ExactTimerConfig): Promise<number>;
 
@@ -1663,7 +1663,7 @@ declare namespace systemManager {
    *     administrator.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function startExactTimer(timer: number, triggerTime: number): Promise<void>;
 
@@ -1684,7 +1684,7 @@ declare namespace systemManager {
    *     administrator.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function stopExactTimer(timer: number): Promise<void>;
 
@@ -1705,7 +1705,7 @@ declare namespace systemManager {
    *     administrator.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function destroyExactTimer(timer: number): Promise<void>;
 
