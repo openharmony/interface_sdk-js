@@ -49,8 +49,13 @@ declare class Ability {
    * > language by calling [setLanguage]{@link ./application/ApplicationContext:ApplicationContext.setLanguage}, the
    * > system does not trigger the **onConfigurationUpdate** callback even if the system language changes. For details,
    * > see [When to Use](docroot://application-models/subscribe-system-environment-variable-changes.md#when-to-use).
+   * >
+   * > If you need to monitor the environment variables of the Ability in the page, you can use the
+   * > [ApplicationContext.on('environment')]{@link ./application/ApplicationContext:ApplicationContext.on(type:
+   * > 'environment', callback: EnvironmentCallback)} method.
    *
-   * @param { Configuration } newConfig - New configuration.
+   * @param { Configuration } newConfig - Updated configuration information, including language, color mode, and other
+   *     system configuration items.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @crossplatform [since 26.0.0]
@@ -68,6 +73,10 @@ declare class Ability {
    * >
    * > Releasing UI components in the **onMemoryLevel** callback may block the main thread tasks of the current process.
    * >  Therefore, you are advised not to release UI components in this callback.
+   * >
+   * > If you need to monitor the environment variables of the Ability in the page, you can use the
+   * > [ApplicationContext.on('environment')]{@link ./application/ApplicationContext:ApplicationContext.on(type:
+   * > 'environment', callback: EnvironmentCallback)} method.
    *
    * @param { AbilityConstant.MemoryLevel } level - Level of the available memory.<br>**NOTE**<br>The trigger conditions may
    *     differ across various devices. For example, on a standard device with 12 GB of memory:<br>- When the available
