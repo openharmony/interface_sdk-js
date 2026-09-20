@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 系统参数
  * @kit BasicServicesKit
  */
 

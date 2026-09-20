@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Device Information
  * @kit BasicServicesKit
  */
 
