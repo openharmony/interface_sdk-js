@@ -1689,6 +1689,42 @@ declare namespace securityManager {
      */
     EXTENDED_AUTH_REQUIRED = 2
   }
+
+  /**
+   * Sets the weak PIN enable status.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { boolean } isEnable - isEnable indicates whether to enable weak PIN verification. **true** means enable,
+   *     **false** means disable.
+   * @param { number } [fd] - fd indicate the file descriptor of the weak PIN file. Required when enable the weak PIN
+   *     verification, ignored when disable the weak PIN verification.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.1
+   */
+  function setWeakPinEnable(isEnable: boolean, fd?: number): void;
+
+  /**
+   * Check whether weak PIN verification is enabled.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @returns { boolean } Returns true if weak PIN verification is enabled; returns false otherwise.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.1
+   */
+  function isWeakPinEnabled(): boolean;
 }
 
 /*** if arkts dynamic */
