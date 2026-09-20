@@ -23,7 +23,7 @@
  *
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi [since 26.0.0 - 26.0.0]
- * @publicapi [since 26.1.0]
+ * @publicapi [since 26.0.1]
  * @stagemodelonly
  * @since 26.0.0 dynamiconly
  */
@@ -33,7 +33,7 @@ export interface CliToolEvent {
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi [since 26.0.0 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -44,7 +44,7 @@ export interface CliToolEvent {
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi [since 26.0.0 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -56,7 +56,7 @@ export interface CliToolEvent {
  *
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi [since 26.0.0 - 26.0.0]
- * @publicapi [since 26.1.0]
+ * @publicapi [since 26.0.1]
  * @stagemodelonly
  * @since 26.0.0 dynamiconly
  */
@@ -67,7 +67,7 @@ export enum ToolEventType {
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi [since 26.0.0 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -81,7 +81,7 @@ export enum ToolEventType {
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi [since 26.0.0 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -93,7 +93,7 @@ export enum ToolEventType {
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi [since 26.0.0 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -106,7 +106,7 @@ export enum ToolEventType {
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi [since 26.0.0 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */

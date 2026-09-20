@@ -29,7 +29,7 @@ import { ToolEventCallback } from './application/ToolEventCallback';
  * @namespace cliManager
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi [since 26.0.0 - 26.0.0]
- * @publicapi [since 26.1.0]
+ * @publicapi [since 26.0.1]
  * @stagemodelonly
  * @since 26.0.0 dynamiconly
  */
@@ -86,7 +86,7 @@ declare namespace cliManager {
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi [since 26.0.0 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -96,7 +96,7 @@ declare namespace cliManager {
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -107,7 +107,7 @@ declare namespace cliManager {
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -123,7 +123,7 @@ declare namespace cliManager {
      * @default false
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -135,7 +135,7 @@ declare namespace cliManager {
      * @default 0
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -147,7 +147,7 @@ declare namespace cliManager {
      * @default 1800
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -158,7 +158,7 @@ declare namespace cliManager {
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -193,7 +193,7 @@ declare namespace cliManager {
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -205,7 +205,7 @@ declare namespace cliManager {
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi [since 26.0.0 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -215,7 +215,7 @@ declare namespace cliManager {
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -226,7 +226,7 @@ declare namespace cliManager {
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -237,7 +237,7 @@ declare namespace cliManager {
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -248,7 +248,7 @@ declare namespace cliManager {
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -259,7 +259,7 @@ declare namespace cliManager {
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -270,7 +270,7 @@ declare namespace cliManager {
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -282,7 +282,7 @@ declare namespace cliManager {
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi [since 26.0.0 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -292,7 +292,7 @@ declare namespace cliManager {
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -303,7 +303,7 @@ declare namespace cliManager {
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -314,7 +314,7 @@ declare namespace cliManager {
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -326,7 +326,7 @@ declare namespace cliManager {
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi [since 26.0.0 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -336,7 +336,7 @@ declare namespace cliManager {
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -347,7 +347,7 @@ declare namespace cliManager {
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -358,7 +358,7 @@ declare namespace cliManager {
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -369,7 +369,7 @@ declare namespace cliManager {
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi [since 26.0.0 - 26.0.0]
-     * @publicapi [since 26.1.0]
+     * @publicapi [since 26.0.1]
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
@@ -458,7 +458,7 @@ declare namespace cliManager {
    * 执行Shell命令，返回会话信息。使用Promise异步回调。
    *
    * @permission ohos.permission.EXEC_CLI_TOOL [since 26.0.0 - 26.0.0]
-   * @permission ohos.permission.EXEC_CLI_TOOL or ohos.permission.EXEC_PUBLIC_CLI_TOOL [since 26.1.0]
+   * @permission ohos.permission.EXEC_CLI_TOOL or ohos.permission.EXEC_PUBLIC_CLI_TOOL [since 26.0.1]
    * @param { string } cmd - 要执行的Shell命令。
    * @param { ExecCmdOptions } [execCmdOptions] - 执行命令的可选参数。默认值：详见[ExecCmdOptions]{@link cliManager.ExecCmdOptions}的具体属性
    *     默认值。
@@ -466,13 +466,13 @@ declare namespace cliManager {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application. [since 26.0.0 - 26.0.0]
    * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-   *     capabilities. [since 26.1.0]
+   *     capabilities. [since 26.0.1]
    * @throws { BusinessError } 35600031 - Maximum number of processes has been reached.
    * @throws { BusinessError } 35600050 - System Error. 1. Failed to connect to the system service;
    *     2. The system service failed to communicate with the dependent module.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi [since 26.0.0 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -486,7 +486,7 @@ declare namespace cliManager {
    * > 会话仅限创建进程管理：只有调用`execTool`创建该会话的进程可以调用本接口。其他进程即使获取到`sessionId`，调用本接口也会抛出错误码201（Permission denied）。
    *
    * @permission ohos.permission.EXEC_CLI_TOOL [since 26.0.0 - 26.0.0]
-   * @permission ohos.permission.EXEC_CLI_TOOL or ohos.permission.EXEC_PUBLIC_CLI_TOOL [since 26.1.0]
+   * @permission ohos.permission.EXEC_CLI_TOOL or ohos.permission.EXEC_PUBLIC_CLI_TOOL [since 26.0.1]
    * @param { string } sessionId - 目标CLI工具进程的会话ID。
    * @param { ToolEventCallback } callback - CLI工具会话事件的回调函数。
    * @returns { Promise<void> } Promise对象，无返回结果。
@@ -497,7 +497,7 @@ declare namespace cliManager {
    *     2. The system service failed to communicate with the dependent module.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi [since 26.0.0 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -511,7 +511,7 @@ declare namespace cliManager {
    * > 会话仅限创建进程管理：只有调用`execTool`创建该会话的进程可以调用本接口。其他进程即使获取到`sessionId`，调用本接口也会抛出错误码201（Permission denied）。
    *
    * @permission ohos.permission.EXEC_CLI_TOOL [since 26.0.0 - 26.0.0]
-   * @permission ohos.permission.EXEC_CLI_TOOL or ohos.permission.EXEC_PUBLIC_CLI_TOOL [since 26.1.0]
+   * @permission ohos.permission.EXEC_CLI_TOOL or ohos.permission.EXEC_PUBLIC_CLI_TOOL [since 26.0.1]
    * @param { string } sessionId - 目标CLI工具进程的会话ID。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
@@ -521,7 +521,7 @@ declare namespace cliManager {
    *     2. The system service failed to communicate with the dependent module.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi [since 26.0.0 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -535,7 +535,7 @@ declare namespace cliManager {
    * > 会话仅限创建进程管理：只有调用`execTool`创建该会话的进程可以调用本接口。其他进程即使获取到`sessionId`，调用本接口也会抛出错误码201（Permission denied）。
    *
    * @permission ohos.permission.EXEC_CLI_TOOL [since 26.0.0 - 26.0.0]
-   * @permission ohos.permission.EXEC_CLI_TOOL or ohos.permission.EXEC_PUBLIC_CLI_TOOL [since 26.1.0]
+   * @permission ohos.permission.EXEC_CLI_TOOL or ohos.permission.EXEC_PUBLIC_CLI_TOOL [since 26.0.1]
    * @param { string } sessionId - 目标CLI工具进程的会话ID。
    * @returns { Promise<CliSessionInfo> } The info of target session.
    * @throws { BusinessError } 201 - Permission denied.
@@ -545,7 +545,7 @@ declare namespace cliManager {
    *     2. The system service failed to communicate with the dependent module.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi [since 26.0.0 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -559,7 +559,7 @@ declare namespace cliManager {
    * > 会话仅限创建进程管理：只有调用`execTool`创建该会话的进程可以调用本接口。其他进程即使获取到`sessionId`，调用本接口也会抛出错误码201（Permission denied）。
    *
    * @permission ohos.permission.EXEC_CLI_TOOL [since 26.0.0 - 26.0.0]
-   * @permission ohos.permission.EXEC_CLI_TOOL or ohos.permission.EXEC_PUBLIC_CLI_TOOL [since 26.1.0]
+   * @permission ohos.permission.EXEC_CLI_TOOL or ohos.permission.EXEC_PUBLIC_CLI_TOOL [since 26.0.1]
    * @param { string } sessionId - 目标CLI工具进程的会话ID。
    * @param { string } message - 要发送的消息，最大长度为10240字符。超过最大长度时抛出错误码401。
    * @returns { Promise<void> } Promise对象，无返回结果。
@@ -571,7 +571,7 @@ declare namespace cliManager {
    *     2. The system service failed to communicate with the dependent module.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi [since 26.0.0 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */

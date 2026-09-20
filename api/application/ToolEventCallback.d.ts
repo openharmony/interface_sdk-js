@@ -26,7 +26,7 @@ import { CliToolEvent } from './CliToolEvent';
  * @param { CliToolEvent } event - The event sent by cli tool.
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi [since 26.0.0 - 26.0.0]
- * @publicapi [since 26.1.0]
+ * @publicapi [since 26.0.1]
  * @stagemodelonly
  * @since 26.0.0 dynamiconly
  */
@@ -38,7 +38,7 @@ type OnEventFn = (event: CliToolEvent) => void;
  * @interface ToolEventCallback
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi [since 26.0.0 - 26.0.0]
- * @publicapi [since 26.1.0]
+ * @publicapi [since 26.0.1]
  * @stagemodelonly
  * @since 26.0.0 dynamiconly
  */
@@ -55,7 +55,7 @@ export interface ToolEventCallback {
    * @typedef { OnEventFn }
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi [since 26.0.0 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
