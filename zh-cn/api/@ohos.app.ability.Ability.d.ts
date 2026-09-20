@@ -44,8 +44,12 @@ declare class Ability {
    * > 该回调方法在实际触发时存在一定限制。例如如果开发者通过[setLanguage]{@link ./application/ApplicationContext:ApplicationContext.setLanguage}接口设置
    * > 应用的语言，即便系统语言发生变化，系统也不再触发onConfigurationUpdate回调。详见
    * > [使用场景](docroot://application-models/subscribe-system-environment-variable-changes.md#使用场景)。
+   * >
+   * > 如果需要在页面中监控Ability的环境变量，可以使用
+   * > [ApplicationContext.on('environment')]{@link ./application/ApplicationContext:ApplicationContext.on(type:
+   * > 'environment', callback: EnvironmentCallback)}方法。
    *
-   * @param { Configuration } newConfig - 表示更新后的配置信息。
+   * @param { Configuration } newConfig - 表示更新后的配置信息，包含语言、颜色模式等系统配置项。
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @crossplatform [since 26.0.0]
@@ -61,6 +65,10 @@ declare class Ability {
    * > **说明：**
    * >
    * > onMemoryLevel回调运行在当前进程的主线程中，如果在该回调中做耗时的UI组件释放，会阻塞主线程任务，因此不建议在该回调中释放UI组件。
+   * >
+   * > 如果需要在页面中监控Ability的环境变量，可以使用
+   * > [ApplicationContext.on('environment')]{@link ./application/ApplicationContext:ApplicationContext.on(type:
+   * > 'environment', callback: EnvironmentCallback)}方法。
    *
    * @param { AbilityConstant.MemoryLevel } level - 整机可用内存级别，对应的触发场景详见
    *     [AbilityConstant.MemoryLevel]{@link @ohos.app.ability.AbilityConstant:AbilityConstant.MemoryLevel}。
