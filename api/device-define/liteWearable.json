@@ -17,6 +17,10 @@
     "SystemCapability.Security.CryptoFramework",
     "SystemCapability.Security.CryptoFramework.MessageDigest",
     "SystemCapability.Security.CryptoFramework.Rand",
+    "SystemCapability.Security.CryptoFramework.Mac",
+    "SystemCapability.Security.CryptoFramework.Key",
+    "SystemCapability.Security.CryptoFramework.Key.SymKey",
+    "SystemCapability.Security.CryptoFramework.Cipher",
     "SystemCapability.Applications.Settings.Core.Lite"
   ]
 }
