@@ -14,7 +14,7 @@
 */
 
 /**
- * @file
+ * @file 图像效果
  * @kit ArkGraphics2D
  */
 

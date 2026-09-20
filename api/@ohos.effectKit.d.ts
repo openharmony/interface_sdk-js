@@ -14,7 +14,7 @@
 */
 
 /**
- * @file
+ * @file Image Effects
  * @kit ArkGraphics2D
  */
 
