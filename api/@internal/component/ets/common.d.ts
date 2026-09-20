@@ -1090,8 +1090,67 @@ declare const Builder: MethodDecorator;
 declare const LocalBuilder: MethodDecorator;
 
 /**
- * Defining Styles MethodDecorator
+ * Defines VersionCondition interface
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 26.2.0 dynamic
+ */
+declare interface VersionCondition {
+  /**
+   * Minimum API version for the style or extend to take effect.
+   * Represets the runtime device version, as a number or a string.
+   * Default value: undefined: The version restriction does not take effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  minApiVersion?: number | string;
+
+  /**
+   * Maximum API version for the style or extend to take effect.
+   * Represets the runtime device version, as a number or a string.
+   * Default value: undefined: The version restriction does not take effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  maxApiVersion?: number | string;
+}
+
+/**
+ * Define Styles Decorator type with version control.
+ *
+ * @param { VersionCondition } versionCondition
+ * @returns { MethodDecorator } Styles decorator
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 26.2.0 dynamic
+ */
+declare type StylesVersionDecorator = (versionCondition: VersionCondition) => MethodDecorator;
+
+/**
+ * The @Styles decorator is used to extract multiple style settings into a method, which can be directly called at the 
+ * component declaration site to define and reuse custom styles. It is suitable for scenarios where multiple components 
+ * need to share the same styles, reducing repetitive code and improving the efficiency of maintaining style 
+ * consistency.
+ *
+ * @type { MethodDecorator } [since 8 - 26.0.1]
+ * @type { MethodDecorator & StylesVersionDecorator } [since 26.2.0]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -1100,10 +1159,13 @@ declare const LocalBuilder: MethodDecorator;
  * @since 8 dynamic
  * @noninterop
  */
-declare const Styles: MethodDecorator;
+declare const Styles: MethodDecorator & StylesVersionDecorator;
 
 /**
- * Defining Extend MethodDecorator
+ * The @Extend decorator is used to extend the styles of specified components. It supports defining multiple style 
+ * attributes in a unified manner within the decorated function, and enables flexible style reuse through parameter 
+ * passing. This is suitable for scenarios where the same styles need to be applied to multiple components, reducing 
+ * style code duplication.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
