@@ -3105,6 +3105,19 @@ declare namespace drawing {
     static makeFromString(text: string, font: Font, encoding?: TextEncoding): TextBlob | undefined;
 
     /**
+     * 使用字符串创建一组TextBlob对象，支持字体回退。
+     * 若当前字型的字体不支持某些字符时，会自动从系统中查找回退字体。若未找到回退字体，则仍使用当前字型的字体。每段连续且使用相同字体的字符会创建一个TextBlob对象。
+     *
+     * @param { string } text - 用于绘制TextBlob的文本内容。
+     * @param { Font } font - 字型对象。
+     * @returns { Array<TextBlob> } 创建的TextBlob对象数组。
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    static makeFromStringWithFallback(text: string, font: Font): Array<TextBlob>;
+
+    /**
      * 使用文本创建TextBlob对象，其中每个字形的坐标由points中对应的坐标信息决定。
      *
      * @param { string } text - 绘制字形的文本内容。
@@ -3134,6 +3147,24 @@ declare namespace drawing {
      * @since 23 static
      */
     static makeFromPosText(text: string, len: int, points: common2D.Point[], font: Font): TextBlob | undefined;
+
+    /**
+     * 使用文本创建一组TextBlob对象，支持字体回退。
+     * 若当前字型的字体不支持某些字符时，会自动从系统中查找回退字体。若未找到回退字体，则仍使用当前字型的字体。
+     * 每段连续且使用相同字体的字符会创建一个TextBlob对象。TextBlob对象中每个字符的坐标由points数组中对应的坐标信息决定。
+     *
+     * @param { string } text - 用于绘制TextBlob的文本内容。
+     * @param { number } len - 字形数量，即通过[countText]{@link @ohos.graphics.drawing:drawing.Font.countText}获取的整数值。
+     * @param { common2D.Point[] } points - 用于指定每个字形坐标的二维点数组，数组长度需与len一致。
+     * @param { Font } font - 字型对象。
+     * @returns { Array<TextBlob> } 创建的TextBlob对象数组。
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    static makeFromPosTextWithFallback(
+      text: string, len: number, points: common2D.Point[], font: Font): Array<TextBlob>;
 
     /**
      * 基于RunBuffer信息创建TextBlob对象。
@@ -3540,6 +3571,33 @@ declare namespace drawing {
   }
 
   /**
+   * 定义字体回退信息结构体，表示一组使用相同回退字体的字形片段。
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @stagemodelonly
+   * @since 26.0.1 dynamiconly
+   */
+  interface TypefaceFallbackInfo {  
+    /**
+     * 该字形片段匹配到的字体对象。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    typeface: Typeface;
+
+    /**
+     * 该字形片段的字形ID数组。
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    glyphIds: Array<number>;
+  }
+
+  /**
    * Font类用于描述字型绘制时所使用的属性（如大小、字体、粗细、倾斜、缩放等），并支持文本测量、字形转换、路径轮廓获取、主题字体跟随等能力。
    * 
    * > **说明：**
@@ -3727,6 +3785,20 @@ declare namespace drawing {
      * @since 23 static
      */
     measureText(text: string, encoding: TextEncoding): double;
+
+    /**
+     * 获取文本宽度，支持字体回退。
+     * 若当前字型的字体不支持某些字符时，会自动从系统中查找回退字体。若未找到回退字体，则仍使用当前字型的字体。
+     *
+     * @param { string } text - 待测量的文本内容，将按encoding指定的编码方式进行解析。
+     * @param { TextEncoding } encoding - 指定文本编码类型。
+     * @returns { number } 返回包含回退字体的文本宽度，浮点数。单位为物理像素px。
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    measureTextWithFallback(text: string, encoding: TextEncoding): number;
 
     /**
      * 设置字型在x轴方向上的缩放比例。
@@ -3920,6 +3992,22 @@ declare namespace drawing {
      * @since 12 dynamic
      */
     textToGlyphs(text: string, glyphCount?: number): Array<number>;
+
+    /**
+     * 将文本转换为字形索引，支持字体回退。
+     * 若当前字型的字体不支持某些字符时，会自动从系统中查找回退字体。若未找到回退字体，则仍使用当前字型的字体。
+     * 返回数组中的每个元素包含使用相同回退字体的字形。
+     *
+     * @param { string } text - 待转换为字形索引的文本字符串。
+     * @param { number } [glyphCount] - 文本表示的字形数量，该参数为整数。传入时必须与[countText]{@link drawing.Font#countText}获取的值相等，不传入时默认为
+     *     text表示的字形数量。
+     * @returns { Array<TypefaceFallbackInfo> } 返回字体回退信息数组。
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    textToGlyphsWithFallback(text: string, glyphCount?: number): Array<TypefaceFallbackInfo>;
 
     /**
      * 将文本转换为字形索引。

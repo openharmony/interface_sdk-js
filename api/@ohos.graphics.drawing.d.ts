@@ -3264,6 +3264,21 @@ declare namespace drawing {
     static makeFromString(text: string, font: Font, encoding?: TextEncoding): TextBlob | undefined;
 
     /**
+     * Creates a sequence of TextBlob objects from a string with font fallback support.
+     * When the typeface of the current font does not support certain characters, it automatically finds fallback
+     * typefaces from the system. If no fallback typeface is found, the typeface of the current font is still used.
+     * One text blob is created per run of consecutive codepoints that share the same typeface.
+     *
+     * @param { string } text - Content to be used for drawing the text blob.
+     * @param { Font } font - Font object.
+     * @returns { Array<TextBlob> } An array of TextBlob objects.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    static makeFromStringWithFallback(text: string, font: Font): Array<TextBlob>;
+
+    /**
      * Creates a **TextBlob** object from the text. The coordinates of each font in the **TextBlob** object are
      * determined by the coordinate information in the **points** array.
      *
@@ -3299,6 +3314,28 @@ declare namespace drawing {
      * @since 23 static
      */
     static makeFromPosText(text: string, len: int, points: common2D.Point[], font: Font): TextBlob | undefined;
+
+    /**
+     * Creates a sequence of TextBlob objects from text with font fallback support.
+     * When the typeface of the current font does not support certain characters, it automatically finds fallback
+     * typefaces from the system. If no fallback typeface is found, the typeface of the current font is still used.
+     * One text blob is created per run of consecutive codepoints that share the same typeface. The coordinates of each
+     * font in the TextBlob object are determined by the coordinate information in the points array.
+     *
+     * @param { string } text - Content to be used for drawing the text blob.
+     * @param { number } len - Number of glyphs, which is an integer obtained from
+     *     [countText]{@link @ohos.graphics.drawing:drawing.Font.countText}.
+     * @param { common2D.Point[] } points - Array of points, which are used to specify the coordinates of each font. The
+     *     array length must be the same as the value of len.
+     * @param { Font } font - Font object.
+     * @returns { Array<TextBlob> } An array of TextBlob objects.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    static makeFromPosTextWithFallback(
+      text: string, len: number, points: common2D.Point[], font: Font): Array<TextBlob>;
 
     /**
      * Creates a **TextBlob** object based on the **RunBuffer** information.
@@ -3709,6 +3746,33 @@ declare namespace drawing {
   }
 
   /**
+   * Defines the typeface fallback info structure for a run of glyphs that share the same fallback typeface.
+   *
+   * @syscap SystemCapability.Graphics.Drawing
+   * @stagemodelonly
+   * @since 26.0.1 dynamiconly
+   */
+  interface TypefaceFallbackInfo {
+    /**
+     * The typeface matched for this run of glyphs.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    typeface: Typeface;
+
+    /**
+     * The glyph ID array for this run.
+     *
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    glyphIds: Array<number>;
+  }
+
+  /**
    * Describes the attributes used for text rendering, such as size and typeface.
    *
    * > **NOTE**
@@ -3903,6 +3967,22 @@ declare namespace drawing {
      * @since 23 static
      */
     measureText(text: string, encoding: TextEncoding): double;
+
+    /**
+     * Measures the width of text with font fallback support.
+     * When the typeface of the current font does not support certain characters,
+     * it automatically finds fallback typefaces from the system.
+     * If no fallback typeface is found, the typeface of the current font is still used.
+     *
+     * @param { string } text - Text content to be measured.
+     * @param { TextEncoding } encoding - Text encoding.
+     * @returns { number } Width of the text including fallback fonts. The value is a floating point number.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    measureTextWithFallback(text: string, encoding: TextEncoding): number;
 
     /**
      * Sets a horizontal scale factor for this font.
@@ -4103,6 +4183,25 @@ declare namespace drawing {
      * @since 12 dynamic
      */
     textToGlyphs(text: string, glyphCount?: number): Array<number>;
+
+    /**
+     * Converts text into glyph indices with font fallback support.
+     * When the typeface of the current font does not support certain characters,
+     * it automatically finds fallback typefaces from the system.
+     * If no fallback typeface is found, the typeface of the current font is still used.
+     * Each element in the returned array contains glyphs that share the same fallback typeface.
+     *
+     * @param { string } text - Text content to be converted.
+     * @param { number } [glyphCount] - Number of glyphs represented by the text. The value must be the same as the
+     *     value obtained from [countText]{@link drawing.Font.countText}. The default value is the number of characters
+     *     in the text string. The value is an integer.
+     * @returns { Array<TypefaceFallbackInfo> } Array of typeface fallback info.
+     * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    textToGlyphsWithFallback(text: string, glyphCount?: number): Array<TypefaceFallbackInfo>;
 
     /**
      * Converts text into glyph indexes.
