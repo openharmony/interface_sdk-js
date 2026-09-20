@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 组件工具
  * @kit ArkUI
  */
 

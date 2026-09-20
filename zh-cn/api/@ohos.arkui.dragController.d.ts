@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 拖拽控制
  * @kit ArkUI
  */
 
