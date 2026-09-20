@@ -203,10 +203,10 @@ declare namespace fontManager {
    */
   enum FontScope {  
     /**
-     * Application-level font. Lifecycle management is registered with the application. The font is automatically
-     * cleared when the application exits, the font service exits, the account is logged out, or the device is restarted.
-     * This applies to private fonts of an application. Before installation, you need to call [onFontObserver]{@link onFontObserver} to register a listener.
-     *
+     * Application-level font. The lifecycle of the font follows that of the application. When the application exits or
+     * the font service abnormally terminates, the installed font files will be automatically cleaned up or uninstalled. 
+     * You must first call [onFontObserver]{@link onFontObserver} to register a listener before installing the font.
+     * 
      * @syscap SystemCapability.Global.FontManager
      * @stagemodelonly
      * @since 26.0.1 dynamic&static
@@ -214,9 +214,9 @@ declare namespace fontManager {
     APP = 0,
 
     /**
-     * Session-level font. It is not cleared when the application exits and is only cleared when the account is logged out
-     * or the device is restarted. It is suitable for fonts that do not strongly depend on the installed application and has a lifecycle independent of the installed application.
-     *
+     * Session-level font. The lifecycle of a font is not bound to that of the application. When the device is restarted
+     * or the current user logs out (in multi-user scenarios), the installed font file will be automatically deleted or uninstalled.
+     * 
      * @syscap SystemCapability.Global.FontManager
      * @stagemodelonly
      * @since 26.0.1 dynamic&static
@@ -233,8 +233,8 @@ declare namespace fontManager {
    */
   interface FontClientObserver {  
     /**
-     * Callback function called when the font service exits abnormally. 
-	 * Your app can perform operations such as resource cleanup or re-registration in this callback function.
+     * Callback function called when the font service exits abnormally.
+     * Your app can perform operations such as resource cleanup or re-registration in this callback function.
      *
      * @syscap SystemCapability.Global.FontManager
      * @stagemodelonly
@@ -248,13 +248,14 @@ declare namespace fontManager {
    * the result.
    *
    * > **NOTE**
+   * > - When installing an application-level font, you need to call the [onFontObserver]{@link onFontObserver} API to
+   *     register a listener for font service status changes.
    * > - After the font is installed, the application can use the font by name. The same font path cannot be installed repeatedly.
-   * > - The maximum number of font files that can be installed is 200. Starting from version 26.0.1, the maximum number of font files
-   *     that can be installed on PC/2in1 is 800.
+   * > - The maximum number of font files that can be installed on the PC/2in1 is 800, while other devices support a maximum of 200 font files.
    * 
    * @permission ohos.permission.UPDATE_SCOPE_FONT
    * @param { string } url - Path to the font file to be installed. Only .ttf, .ttc or .otf font files are supported.
-   * @param { FontScope } scope - Font scope. The value must be an enumerated value of {@link FontScope}.
+   * @param { FontScope } scope - Font scope.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -308,7 +309,8 @@ declare namespace fontManager {
    * Registers a listener for monitoring the font service status. 
    *
    * > **NOTE**
-   * > - Each application can register a maximum of one listener. Repeated registration will return an error. A maximum of five different applications can register listeners simultaneously on the same device.
+   * > - Each application can register only one font service status change listener. Repeated registration will result in an error. 
+   *     Additionally, a maximum of five applications per user can be registered simultaneously; otherwise, an error will occur.
    * 
    * @permission ohos.permission.UPDATE_SCOPE_FONT
    * @param { FontClientObserver } observer - Listener for the font service status.
