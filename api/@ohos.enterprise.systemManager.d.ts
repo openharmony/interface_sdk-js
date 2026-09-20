@@ -750,6 +750,56 @@ declare namespace systemManager {
   }
 
   /**
+   * Defines the initialization configuration for an exact timer.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.1
+   */
+  class ExactTimerConfig {
+    /**
+     * Timer name.
+     * The maximum length is 64 and cannot be empty.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.1
+     */
+    name: string;
+
+    /**
+     * Whether the timer is a repeating timer. The value **true** means that the timer is a repeating timer, and
+     * **false** means that the timer is a one-shot timer.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.1
+     */
+    repeat: boolean;
+
+    /**
+     * Interval between two consecutive timer triggers.
+     * For a repeating timer, the minimum value of **interval** is 1000 ms and the maximum value is 86400000 ms.
+     * For a one-shot timer, the value is **0**.
+     * Unit: milliseconds.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.1
+     */
+    interval: number;
+
+    /**
+     * Callback to be executed when the timer expires.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.1
+     */
+    callback(): void;
+  }
+
+  /**
    * Sets the Network Time Protocol (NTP) time server. After successful configuration, the system will use the specified
    * NTP server for time synchronization to calibrate the system time. This API is suitable for scenarios where
    * enterprise devices require unified time synchronization, ensuring that device time remains consistent with standard
@@ -1470,7 +1520,7 @@ declare namespace systemManager {
    * @since 26.0.1
    */
   function addAllowedPrinterIPAddressesForDevice(ipAddresses: Array<string>): void;
- 
+
   /**
    * Removes allowed printer IP addresses for device. The policy takes effect for all accounts.
    *
@@ -1489,7 +1539,7 @@ declare namespace systemManager {
    * @since 26.0.1
    */
   function removeAllowedPrinterIPAddressesForDevice(ipAddresses: Array<string>): void;
- 
+
   /**
    * Gets allowed printer IP addresses for device.
    *
@@ -1506,7 +1556,7 @@ declare namespace systemManager {
    * @since 26.0.1
    */
   function getAllowedPrinterIPAddressesForDevice(queryPolicy?: common.QueryPolicy): Array<string>;
- 
+
   /**
    * Adds allowed printer IP addresses for current account. The policy takes effect only for current account.
    *
@@ -1527,7 +1577,7 @@ declare namespace systemManager {
    * @since 26.0.1
    */
   function addAllowedPrinterIPAddressesForAccount(ipAddresses: Array<string>): void;
- 
+
   /**
    * Removes allowed printer IP addresses for current account. The policy takes effect only for current account.
    *
@@ -1546,7 +1596,7 @@ declare namespace systemManager {
    * @since 26.0.1
    */
   function removeAllowedPrinterIPAddressesForAccount(ipAddresses: Array<string>): void;
- 
+
   /**
    * Gets allowed printer IP addresses for current account.
    *
@@ -1563,7 +1613,102 @@ declare namespace systemManager {
    * @since 26.0.1
    */
   function getAllowedPrinterIPAddressesForAccount(queryPolicy?: common.QueryPolicy): Array<string>;
- 
+
+  /**
+   * Creates an exact timer. This API uses a promise to return the timer ID.
+   *
+   * > **NOTE**
+   * >
+   * > This API must be used together with [systemManager.destroyExactTimer]{@link systemManager.destroyExactTimer}.
+   * > Otherwise, memory leakage occurs. When the admin application is disabled or removed, the EDM service
+   * > automatically destroys all timers created by the admin.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { ExactTimerConfig } config - Timer initialization configuration, including whether the timer is a repeating
+   *     timer, interval, callback, and name.
+   * @returns { Promise<number> } Promise used to return the timer ID.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *     capabilities.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @throws { BusinessError } 9201053 - The number of timers has reached the upper limit.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.1
+   */
+  function createExactTimer(config: ExactTimerConfig): Promise<number>;
+
+  /**
+   * Starts an exact timer. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { number } timer - ID of the timer, which is obtained by calling [systemManager.createExactTimer]{@link systemManager.createExactTimer}.
+   * @param { number } triggerTime - Time when the timer is triggered, in milliseconds. The value is the system startup
+   *     time, which can be obtained by calling
+   *     [systemDateTime.getUptime(STARTUP)]{@link @ohos.systemDateTime:systemDateTime.getUptime}.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *     capabilities.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @throws { BusinessError } 9201054 - The specified timer does not exist or does not belong to the current
+   *     administrator.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.1
+   */
+  function startExactTimer(timer: number, triggerTime: number): Promise<void>;
+
+  /**
+   * Stops an exact timer. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { number } timer - ID of the timer, which is obtained by calling [systemManager.createExactTimer]{@link systemManager.createExactTimer}.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *     capabilities.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @throws { BusinessError } 9201054 - The specified timer does not exist or does not belong to the current
+   *     administrator.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.1
+   */
+  function stopExactTimer(timer: number): Promise<void>;
+
+  /**
+   * Destroys an exact timer. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
+   * @param { number } timer - ID of the timer, which is obtained by calling [systemManager.createExactTimer]{@link systemManager.createExactTimer}.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *     capabilities.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @throws { BusinessError } 9201054 - The specified timer does not exist or does not belong to the current
+   *     administrator.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.1
+   */
+  function destroyExactTimer(timer: number): Promise<void>;
+
   /**
    * Set the local HOTA domain of the device.
    *
