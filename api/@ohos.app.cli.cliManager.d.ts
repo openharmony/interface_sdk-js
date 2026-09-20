@@ -526,7 +526,7 @@ declare namespace cliManager {
    * @permission ohos.permission.REGISTER_AGENT_HOOK
    * @param { CliHook } hook - The hook object implementing the CliHook interface.
    *     The hook object must implement at least one of the optional methods.
-   * @returns { Promise<void> } Promise that returns no result.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
    *     "ohos.permission.REGISTER_AGENT_HOOK".
    * @throws { BusinessError } 202 - Not system application. Interface caller is not a system app.
@@ -548,7 +548,7 @@ declare namespace cliManager {
    *
    * @permission ohos.permission.REGISTER_AGENT_HOOK
    * @param { CliHook } hook - The hook object to unregister.
-   * @returns { Promise<void> } Promise that returns no result.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
    *     "ohos.permission.REGISTER_AGENT_HOOK".
    * @throws { BusinessError } 202 - Not system application. Interface caller is not a system app.
