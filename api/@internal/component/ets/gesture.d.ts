@@ -1894,7 +1894,7 @@ interface PinchGestureInterface extends GestureInterface<PinchGestureInterface> 
    *     <br> - **distance**: minimum recognition distance, in vp. This distance refers to the difference between the
    *     current average distance from the multiple finger positions to their center point and the average distance
    *     when the fingers first made contact. If this difference meets or exceeds the minimum recognition distance,
-   *     the pinch gesture is recognized.<br>Default value: **5**<br>**NOTE**<br>Value range: [0, +∞). If the value is
+   *     the pinch gesture is recognized.<br>Default value: **5**<br>**NOTE**<br>Value range: (0, +∞). If the value is
    *     less than or equal to 0, it will be converted to the default value.
    * @returns { PinchGestureInterface }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
