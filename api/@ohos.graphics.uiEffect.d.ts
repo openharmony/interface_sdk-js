@@ -14,7 +14,7 @@
 */
 
 /**
- * @file
+ * @file Cascading Effect
  * @kit ArkGraphics2D
  */
 

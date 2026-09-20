@@ -14,7 +14,7 @@
 */
 
 /**
- * @file
+ * @file 效果级联
  * @kit ArkGraphics2D
  */
 
