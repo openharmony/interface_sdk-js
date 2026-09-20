@@ -2092,14 +2092,14 @@ declare namespace uiEffect {
      * 创建用于精灵图集序列帧动画的图集帧遮罩。
      * 该遮罩携带用于驱动图集序列帧动画的图集帧参数。
      *
-     * @param { drawing.AtlasImage } atlasImage - 图集帧参数。
+     * @param { drawing.AtlasImage } atlasInfo - 图集帧参数。
      * @returns { Mask } - 返回携带图集帧参数的Mask实例。
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
      * @since 26.0.1 dynamic&static
      */
-    static createAtlasFrameMask(atlasImage: drawing.AtlasImage): Mask;
+    static createAtlasFrameMask(atlasInfo: drawing.AtlasImage): Mask;
   }
 
   /**
