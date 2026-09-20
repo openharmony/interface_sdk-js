@@ -387,11 +387,11 @@ declare namespace deviceInfo {
   const sdkApiVersion: number;
 
   /**
-   * 系统软件Minor API版本。**从** API 26 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。
+   * 从API版本26.0.0起，为配合语义化版本号，新增次版本号的定义，即中间字段的值，值为整型数。完整版本号由sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion共同构成。
    * 
-   * 26.0.0
-   * 
-   * 示例：0
+   * 示例：
+   * 例如系统软件的API版本为26.0.1，则sdkMinorApiVersion为0。
+   * 例如系统软件的API版本为26.1.0，则sdkMinorApiVersion为1。
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @stagemodelonly
@@ -402,11 +402,11 @@ declare namespace deviceInfo {
   const sdkMinorApiVersion: number;
 
   /**
-   * 系统软件Patch API版本。**从** API 26 版本开始，系统API版本格式：sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion。
+   * 从API版本26.0.0起，为配合语义化版本号，新增修订版本号的定义，即第三个字段的值，值为整型数。完整版本号由sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion共同构成。
    * 
-   * 26.0.0
-   * 
-   * 示例：0
+   * 示例：
+   * 例如系统软件的API版本为26.0.1，则sdkPatchApiVersion为1。
+   * 例如系统软件的API版本为26.1.0，则sdkPatchApiVersion为0。
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @stagemodelonly
@@ -667,7 +667,7 @@ declare namespace deviceInfo {
 
    /**
     * 检查指定的API版本在当前设备上是否可用。
-    * 此方法提供跨不同OpenHarmony/分布式操作系统版本的兼容性检查。它会根据输入格式和API版本范围自动选择合适的版本检查方法。
+    * 此方法提供OpenHarmony及其各发行版系统版本的兼容性检查。该方法会根据输入格式和API版本范围自动选择合适的版本检查方法。
     *
     * @param { string | number } version - 需要校验的API版本号，支持整数格式版本号和字符串格式版本号。
     *     - 字符串采用M.S.F格式（如 "26.0.0","5.0.1"）：

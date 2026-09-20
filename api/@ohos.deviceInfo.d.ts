@@ -399,7 +399,13 @@ declare namespace deviceInfo {
   const sdkApiVersion: number;
 
   /**
-   * Obtains the SDK Minor API version.
+   * Starting from API version 26.0.0, the minor version is introduced as part of semantic versioning.
+   * It is the middle field in the semantic version and is an integer.
+   * The complete API version is represented by sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
+   *
+   * Example:
+   * If the API version of the system software is 26.0.1, sdkMinorApiVersion is 0.
+   * If the API version of the system software is 26.1.0, sdkMinorApiVersion is 1.
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @stagemodelonly
@@ -410,7 +416,13 @@ declare namespace deviceInfo {
   const sdkMinorApiVersion: number;
 
   /**
-   * Obtains the SDK Patch API version.
+   * Starting from API version 26.0.0, the patch version is introduced as part of semantic versioning.
+   * It is the third field in the semantic version and is an integer.
+   * The complete API version is represented by sdkApiVersion.sdkMinorApiVersion.sdkPatchApiVersion.
+   *
+   * Example:
+   * If the API version of the system software is 26.0.1, sdkPatchApiVersion is 1.
+   * If the API version of the system software is 26.1.0, sdkPatchApiVersion is 0.
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @stagemodelonly
@@ -672,27 +684,28 @@ declare namespace deviceInfo {
      */
     const bootCount: number;
 
-    /**
-     * Checks whether a specified API version is available on the current device.
-     * This API provides compatibility check across different OpenHarmony/Distribution OS versions.
-     * A suitable version check method is automatically selected based on the input format and supported API versions.
-     *
-     * @param { string | number } version - API version number to be verified. The value can be an integer or in the
-     *     dotted format.
-     *     - String format shall be in M.S.F. (e.g., "26.0.0", "5.0.1"):
-     *     - For API 26.0.0 & 26.0.0+ (version >= 26.0.0): Represents both OpenHarmony and Distribution OS API versions
-     *     - For API 26.0.0- (version < 26.0.0): Represents Distribution OS API version
-     *     - Number format (e.g., 13): Represents OpenHarmony SDK API version (API 26- only)
-     *     M>=26,0<=S<=99,0<=F<=99. A compilation error occurs when an invalid literal is input.
-     * @returns { boolean } Boolean value. The value **true** indicates that the current version number is later than or equal to the 
-     *     input parameter version number; **false** indicates that the current device's API version is lower than the input version number, or the input version number is in an invalid format, or the specified version does not exist.
-     * @syscap SystemCapability.Startup.SystemInfo
-     * @FaAndStageModel
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    function apiAvailable(version: string | number): boolean;
+   /**
+ 	  * Checks whether a specified API version is available on the current device.
+ 	  * This API provides compatibility check for OpenHarmony and its distribution OS API versions.
+ 	  * A suitable version check method is automatically selected based on the input format and supported API versions.
+    *
+    * @param { string | number } version - API version to be verified. Supports both integer and string formats.
+    *     - The string uses the M.S.F format (for example, "26.0.0" and "5.0.1"): for API 26.0.0 and
+    *     later (version >= 26.0.0), it represents the OpenHarmony and distribution OS API version.
+    *     - For API earlier than 26.0.0 (version < 26.0.0), it represents the distribution OS API version.
+    *     - The integer format (for example, 13) represents the OpenHarmony SDK API version. (Only API earlier
+    *     than 26 is supported.) M>=26,0<=S<=99,0<=F<=99. A compilation error occurs when an invalid literal is passed.
+    * @returns { boolean } Boolean value. If **true** is returned, the API version of the device is the version
+    *     specified in the input parameter or a later version. If **false** is returned, the API version is
+    *     earlier than the version specified in the input parameter, the version format is invalid,
+    *     or the version does not exist.
+    * @syscap SystemCapability.Startup.SystemInfo
+    * @FaAndStageModel
+    * @crossplatform
+    * @atomicservice
+    * @since 26.0.0 dynamic
+ 	  */
+ 	  function apiAvailable(version: string | number): boolean;
 
   /**
    * Obtain the device color represented by a string. If it cannot be obtained, return an empty string

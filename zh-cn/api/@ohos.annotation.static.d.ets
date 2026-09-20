@@ -22,7 +22,7 @@
  * >
  * > - 本模块首批接口从 API version 22 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  *
- * @file Annotation
+ * @file 注解
  * @kit BasicServicesKit
  */
 
