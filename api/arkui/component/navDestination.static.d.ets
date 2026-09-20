@@ -487,7 +487,7 @@ export declare interface NavDestinationTransition {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @unpublished
  */
 export declare interface NavDestinationModuleInfo {
@@ -497,7 +497,7 @@ export declare interface NavDestinationModuleInfo {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    * @unpublished
    */
   moduleName: string;
@@ -507,7 +507,7 @@ export declare interface NavDestinationModuleInfo {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    * @unpublished
    */
   pagePath: string;
@@ -970,7 +970,7 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    * @unpublished
    */
   default setNavDestinationOptions(moduleInfo?: NavDestinationModuleInfo): this;
@@ -1012,7 +1012,7 @@ export declare function NavDestination(
  * @returns { NavDestinationAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @unpublished
  */
 @Builder

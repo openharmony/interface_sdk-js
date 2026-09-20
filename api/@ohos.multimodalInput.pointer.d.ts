@@ -1466,7 +1466,7 @@ declare namespace pointer {
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use. [since 10 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @since 10 dynamic
    * @since 23 static
    */
@@ -1483,7 +1483,7 @@ declare namespace pointer {
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.Pointer
    * @systemapi hide for inner use. [since 10 - 26.0.0]
-   * @publicapi [since 26.1.0]
+   * @publicapi [since 26.0.1]
    * @since 10 dynamic
    * @since 23 static
    */

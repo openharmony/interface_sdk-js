@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 线程管理
  * @kit ArkTS
  */
 

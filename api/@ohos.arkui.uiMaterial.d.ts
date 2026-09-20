@@ -512,16 +512,21 @@ declare namespace uiMaterial {
      */
     style?: ImmersiveStyle,
     /**
-     * Coloring of the material layer. This parameter is used to add a pure color effect for the material filter. The 
-     * pure color must have a certain transparency value and cannot be completely opaque. Otherwise, the material filter
-     * effect will be completely blocked.
-     * 
-     * Note: This parameter takes effect only for the display effect of devices with high- and mid-level computing 
-     * power.
-     * 
-     * Default value: **Color.Transparent**
+     * Coloring of the material layer. For high- and mid-level computing power devices that support immersive
+     * materials, if this parameter is not set or is set to undefined, no additional pure color effect is blended.
+     * If this parameter is set to a valid color value, it blends an additional pure color effect into the material
+     * layer filter. If the color is completely opaque, the material layer filter effect will be blocked. For low-level
+     * computing power devices that support immersive materials, if this parameter is not set or is set to undefined,
+     * the built-in background color effect of the material for low-level computing power devices takes effect. If
+     * this parameter is set to a valid color value, it is used as the value of the
+     * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)} attribute.
      *
-     * @default Color.Transparent
+     * Note: This parameter takes effect for the display effect of devices at all computing power levels that support
+     * immersive materials.
+     *
+     * Default value: **undefined**
+     *
+     * @default undefined
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform

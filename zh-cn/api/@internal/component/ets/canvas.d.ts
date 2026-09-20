@@ -470,9 +470,9 @@ declare class CanvasPath {
    *    矩形右下角的圆弧半径，矩形左下角的圆弧半径]<br>如果**radii**中包含负数或数组元素个数不在[1,4]范围内，
    *    则上报错误码103701。<br>默认值：**0**。设置**null**或**undefined**时按默认值处理。<br>如果圆弧半径超过
    *    矩形的宽度和高度，将按比例缩小以匹配对应尺寸。<br>默认单位：vp
-   * @throws { BusinessError } 103701 - 参数错误。可能的原因：
-   * <br> 1. 参数radii数组的元素个数为0或超过4个。
-   * <br> 2. 参数radii中包含负数。
+   * @throws { BusinessError } 103701 - Parameter error. Possible causes:
+   * <br> 1. The param radii is a list that has zero or more than four elements.
+   * <br> 2. The param radii contains negative value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

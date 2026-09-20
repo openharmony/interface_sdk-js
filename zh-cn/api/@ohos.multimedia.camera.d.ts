@@ -4035,7 +4035,7 @@ declare namespace camera {
       * @syscap SystemCapability.Multimedia.Camera.Core
       * @systemapi
       * @stagemodelonly
-      * @since 26.1.0 dynamic&static
+      * @since 26.0.1 dynamic&static
       */
      isWhiteBalanceGainsSupported(): boolean;
   }
@@ -4153,7 +4153,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     getWhiteBalanceGains(): WhiteBalanceGains;
 
@@ -4166,7 +4166,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     setWhiteBalanceGains(gains: WhiteBalanceGains): void;
   }
@@ -8346,7 +8346,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     onApertureInfoChange(callback: Callback<ApertureInfo>): void;
 
@@ -8358,7 +8358,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     offApertureInfoChange(callback?: Callback<ApertureInfo>): void;
   }
@@ -8369,7 +8369,7 @@ declare namespace camera {
    * @syscap SystemCapability.Multimedia.Camera.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface WhiteBalanceGains {  
     /**
@@ -8378,7 +8378,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     redGain: double;
 
@@ -8388,7 +8388,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     greenGain: double;
 
@@ -8398,7 +8398,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     blueGain: double;
   }

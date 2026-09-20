@@ -2586,7 +2586,7 @@ declare namespace uniformTypeDescriptor {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 20400002 - The format of one or more typeDescriptors are invalid.
    * @throws { BusinessError } 20400003 - The content of one or more typeDescriptors violate rules.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
@@ -2606,7 +2606,7 @@ declare namespace uniformTypeDescriptor {
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
-   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 20400004 - One or more typeIds are invalid or do not exist.
    * @syscap SystemCapability.DistributedDataManager.UDMF.Core
    * @systemapi

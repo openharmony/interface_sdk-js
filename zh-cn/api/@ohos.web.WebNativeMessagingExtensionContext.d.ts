@@ -14,7 +14,7 @@
  */
 
 /**
-  * @file
+  * @file Web原生消息扩展上下文
   * @kit ArkWeb
  */
 

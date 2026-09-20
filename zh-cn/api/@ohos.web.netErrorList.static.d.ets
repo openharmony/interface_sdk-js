@@ -40,7 +40,7 @@ export declare enum WebNetErrorList {
    */
   ERR_IO_PENDING = -1,
   /**
-   * 一般性的错误。
+   * 一般性的错误，网页加载失败请参考[定位网页加载问题](docroot://web/web-page-loading.md)。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 static

@@ -1467,7 +1467,7 @@ declare namespace systemManager {
    * @throws { BusinessError } 9200019 - The policy list has exceeded the limit.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function addAllowedPrinterIPAddressesForDevice(ipAddresses: Array<string>): void;
  
@@ -1486,7 +1486,7 @@ declare namespace systemManager {
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function removeAllowedPrinterIPAddressesForDevice(ipAddresses: Array<string>): void;
  
@@ -1503,7 +1503,7 @@ declare namespace systemManager {
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function getAllowedPrinterIPAddressesForDevice(queryPolicy?: common.QueryPolicy): Array<string>;
  
@@ -1524,7 +1524,7 @@ declare namespace systemManager {
    * @throws { BusinessError } 9200019 - The policy list has exceeded the limit.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function addAllowedPrinterIPAddressesForAccount(ipAddresses: Array<string>): void;
  
@@ -1543,7 +1543,7 @@ declare namespace systemManager {
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function removeAllowedPrinterIPAddressesForAccount(ipAddresses: Array<string>): void;
  
@@ -1560,7 +1560,7 @@ declare namespace systemManager {
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function getAllowedPrinterIPAddressesForAccount(queryPolicy?: common.QueryPolicy): Array<string>;
  
@@ -1587,7 +1587,7 @@ declare namespace systemManager {
    * @throws { BusinessError } 9200018 - This device is not an enterprise device.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function setLocalHotaDomain(admin: Want, domain: string): void;
 
@@ -1605,7 +1605,7 @@ declare namespace systemManager {
    * @throws { BusinessError } 9200018 - This device is not an enterprise device.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function getLocalHotaDomain(admin: Want): string;
 }

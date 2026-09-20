@@ -191,7 +191,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   resizable(value: ResizableOptions): ImageSpanAttribute;
 }

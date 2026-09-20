@@ -360,7 +360,7 @@ declare namespace sendableImage {
      * @param { ArrayBuffer } dst A buffer to which the image pixelmap data will be written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 501 - The resource is unavailable as it is occupied by another thread.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -387,7 +387,7 @@ declare namespace sendableImage {
      * @param { PositionArea } area Area from which the image pixelmap data will be read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 501 - The resource is unavailable as it is occupied by another thread.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -415,7 +415,7 @@ declare namespace sendableImage {
      * @param { PositionArea } area Area to which the image pixelmap data will be written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 501 - The resource is unavailable as it is occupied by another thread.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -443,7 +443,7 @@ declare namespace sendableImage {
      * @param { ArrayBuffer } src A buffer from which the image data will be read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 501 - The resource is unavailable as it is occupied by another thread.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -467,7 +467,7 @@ declare namespace sendableImage {
      * Get image information from image source.
      *
      * @returns { ImageInfo } the image information.
-     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 501 - The resource is unavailable as it is occupied by another thread.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @atomicservice
@@ -527,7 +527,7 @@ declare namespace sendableImage {
      * @param { number } rate The value of transparent rate.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 501 - The resource is unavailable as it is occupied by another thread.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -553,7 +553,7 @@ declare namespace sendableImage {
      * @returns { PixelMap } return the new image pixelmap. 
      * If the operation fails, an error message is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Parameter verification failed.
-     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 501 - The resource is unavailable as it is occupied by another thread.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -582,7 +582,7 @@ declare namespace sendableImage {
      * @param { number } y The zoom value of height.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 501 - The resource is unavailable as it is occupied by another thread.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -611,7 +611,7 @@ declare namespace sendableImage {
      * @param { number } y The position value of height, in px.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 501 - The resource is unavailable as it is occupied by another thread.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -638,7 +638,7 @@ declare namespace sendableImage {
      * @param { number } angle The rotation angle, in degrees.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 501 - The resource is unavailable as it is occupied by another thread.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -667,7 +667,7 @@ declare namespace sendableImage {
      * @param { boolean } vertical Is flip in vertical.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 501 - The resource is unavailable as it is occupied by another thread.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice
@@ -694,7 +694,7 @@ declare namespace sendableImage {
      * @param { Region } region The region to crop.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      * 2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @throws { BusinessError } 501 - The resource is unavailable as it is occupied by another thread.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @atomicservice

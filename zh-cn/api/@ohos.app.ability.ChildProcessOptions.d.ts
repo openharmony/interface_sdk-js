@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 子进程启动选项
  * @kit AbilityKit
  */
 

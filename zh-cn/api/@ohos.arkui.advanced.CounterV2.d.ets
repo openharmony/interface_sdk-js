@@ -83,7 +83,6 @@ declare enum CounterV2Type {
 * 定义CounterV2的鼠标悬浮回调类型。
 *
  * @param { boolean } 表示鼠标是否悬浮在组件上。
- *     <br>鼠标进入时为true，离开时为false。 - 表示鼠标是否悬浮在组件上。
  *     <br>鼠标进入时为true，离开时为false。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

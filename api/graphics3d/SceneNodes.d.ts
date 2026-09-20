@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 3D scene node type declarations
  * @kit ArkGraphics3D
  */
 

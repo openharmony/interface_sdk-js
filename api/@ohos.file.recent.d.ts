@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Latest Access List
  * @kit CoreFileKit
  */
 

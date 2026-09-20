@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file ProcessRunningInfo
  * @kit AbilityKit
  */
 

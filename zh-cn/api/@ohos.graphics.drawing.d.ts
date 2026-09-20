@@ -1910,7 +1910,7 @@ declare namespace drawing {
   * 描述一组已录制的绘制指令。
    * @syscap SystemCapability.Graphics.Drawing
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface RecordCmd { }
 
@@ -1918,7 +1918,7 @@ declare namespace drawing {
    * 该类提供了一组录制回放命令的操作。
    * @syscap SystemCapability.Graphics.Drawing
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   class RecordCmdUtils {
     /**
@@ -1936,7 +1936,7 @@ declare namespace drawing {
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     beginRecording(width: number, height: number): Canvas;
 
@@ -1955,7 +1955,7 @@ declare namespace drawing {
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     beginRecording(width: int, height: int): Canvas | undefined;
 
@@ -1964,7 +1964,7 @@ declare namespace drawing {
      * @returns { RecordCmd } 返回已录制的绘制指令对象。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     finishRecording(): RecordCmd;
 
@@ -1974,7 +1974,7 @@ declare namespace drawing {
      * @returns { RecordCmd | undefined } 返回已录制的绘制指令对象。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     finishRecording(): RecordCmd | undefined;
 
@@ -1983,7 +1983,7 @@ declare namespace drawing {
      * @returns { int } 返回录制画布的高度。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     getHeight(): int;
 
@@ -1992,7 +1992,7 @@ declare namespace drawing {
      * @returns { int } 返回录制画布的宽度。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     getWidth(): int;
   }
@@ -2541,7 +2541,7 @@ declare namespace drawing {
      * @param { RecordCmd } recordCmd - 已录制的绘制指令对象。
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     drawRecordCmd(recordCmd: RecordCmd): void;
 

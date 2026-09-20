@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Worker Thread Management
  * @kit ArkTS
  */
 

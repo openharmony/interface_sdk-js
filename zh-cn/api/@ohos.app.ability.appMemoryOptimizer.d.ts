@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 应用内存优化器
  * @kit AbilityKit
  */
 

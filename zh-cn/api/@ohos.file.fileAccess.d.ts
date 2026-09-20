@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 公共文件访问与管理
  * @kit CoreFileKit
  */
 

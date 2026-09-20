@@ -389,6 +389,28 @@ export declare struct SubHeader {
    */
   iconSymbolOptions?: SymbolOptions;
   /**
+   * End icon of the title.
+   * The **endIcon** attribute takes effect only when the **primaryTitle** or **secondaryTitle** attribute is used.
+   * Default value: **undefined**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.1 static
+   */
+  @PropRef
+  endIcon?: ResourceStr;
+  /**
+   * End icon symbol options. This parameter is available when **endIcon** is set to a
+   * [symbol glyph]{@link ./@internal/component/ets/symbolglyph}.
+   *
+   * Default value: **undefined**, indicating that no end icon symbol style is set.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.1 static
+   */
+  endIconSymbolOptions?: SymbolOptions;
+  /**
    * Primary title.
    *
    * Default value: **undefined**, indicating that no primary title is displayed.

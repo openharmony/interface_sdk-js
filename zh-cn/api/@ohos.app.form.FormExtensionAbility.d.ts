@@ -59,11 +59,11 @@ import { Configuration } from './@ohos.app.ability.Configuration';
 type OnAcquireFormStateFn = (want: Want) => formInfo.FormState;
 
 /**
- * Called when the system shares the form.
+ * 卡片提供方接收卡片分享的通知接口。
  *
  * @typedef { function }
- * @param { string } formId - Indicates the ID of the form.
- * @returns { Record<string, Object> } Returns the wantParams object.
+ * @param { string } formId - 卡片标识。
+ * @returns { Record<string, Object> } 卡片要分享的数据，由开发者自行决定传入的键值对。
  * @syscap SystemCapability.Ability.Form
  * @systemapi
  * @stagemodelonly
@@ -72,11 +72,11 @@ type OnAcquireFormStateFn = (want: Want) => formInfo.FormState;
 type OnShareFormFn = (formId: string) => Record<string, Object>;
 
 /**
- * Called when the system acquire the form data.
+ * 卡片提供方接收卡片请求自定义数据的通知接口。
  *
  * @typedef { function }
- * @param { string } formId - Indicates the ID of the form.
- * @returns { Record<string, Object> } Returns the wantParams object.
+ * @param { string } formId - 卡片标识。
+ * @returns { Record<string, Object> } 卡片的自定义数据，由开发者自行决定传入的键值对。
  * @syscap SystemCapability.Ability.Form
  * @systemapi
  * @stagemodelonly
@@ -250,11 +250,11 @@ declare class FormExtensionAbility {
    onAcquireFormState?: OnAcquireFormStateFn;
 
   /**
-   * Called when the system shares the form.
+   * 卡片提供方接收卡片分享的通知接口。
    *
-   * @param { string } formId - Indicates the ID of the form.
-   * @returns { object } Returns the wantParams object. [since 9 - 10]
-   * @returns { Record<string, Object> } Returns the wantParams object. [since 11]
+   * @param { string } formId - 卡片标识。
+   * @returns { object } 卡片要分享的数据，由开发者自行决定传入的键值对。 [since 9 - 10]
+   * @returns { Record<string, Object> } 卡片要分享的数据，由开发者自行决定传入的键值对。 [since 11]
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
@@ -263,7 +263,7 @@ declare class FormExtensionAbility {
   onShareForm?(formId: string): Record<string, Object>;
 
   /**
-   * Called when the system shares the form.
+   * 卡片提供方接收卡片分享的通知接口。
    *
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -273,11 +273,11 @@ declare class FormExtensionAbility {
   onShareForm?: OnShareFormFn;
 
   /**
-   * Called when the system acquire the form data.
+   * 卡片提供方接收卡片请求自定义数据的通知接口。
    *
-   * @param { string } formId - Indicates the ID of the form.
-   * @returns { object } Returns the wantParams object. [since 10 - 10]
-   * @returns { Record<string, Object> } Returns the wantParams object. [since 11]
+   * @param { string } formId - 卡片标识。
+   * @returns { object } 卡片的自定义数据，由开发者自行决定传入的键值对。 [since 10 - 10]
+   * @returns { Record<string, Object> } 卡片的自定义数据，由开发者自行决定传入的键值对。 [since 11]
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly

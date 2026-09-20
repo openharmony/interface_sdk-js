@@ -297,7 +297,7 @@ declare namespace defaultAppManager {
    * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API uses an asynchronous
    * callback to return the result.
    * To set an application as the default browser, the target application must have been granted the
-   * ohos.permission.DEFAULT_WEB_BROWSER permission. Otherwise, error 18000001 is returned. [since 26.1.0]
+   * ohos.permission.DEFAULT_WEB_BROWSER permission. Otherwise, error 18000001 is returned. [since 26.0.1]
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - Type of the target application. It must be set to a value defined by
@@ -319,7 +319,7 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @throws { BusinessError } 17700028 - The specified ability does not match the type.
    * @throws { BusinessError } 18000001 - The specified type is Web Browser and the specified application does not
-   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.1.0]
+   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.0.1]
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
@@ -333,7 +333,7 @@ declare namespace defaultAppManager {
    * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API uses an asynchronous
    * callback to return the result.
    * To set an application as the default browser, the target application must have been granted the
-   * ohos.permission.DEFAULT_WEB_BROWSER permission. Otherwise, error 18000001 is returned. [since 26.1.0]
+   * ohos.permission.DEFAULT_WEB_BROWSER permission. Otherwise, error 18000001 is returned. [since 26.0.1]
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - Type of the target application. It must be set to a value defined by
@@ -351,7 +351,7 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @throws { BusinessError } 17700028 - The specified ability does not match the type.
    * @throws { BusinessError } 18000001 - The specified type is Web Browser and the specified application does not
-   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.1.0]
+   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.0.1]
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
@@ -365,7 +365,7 @@ declare namespace defaultAppManager {
    * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API uses a promise to
    * return the result.
    * To set an application as the default browser, the target application must have been granted the
-   * ohos.permission.DEFAULT_WEB_BROWSER permission. Otherwise, error 18000001 is returned. [since 26.1.0]
+   * ohos.permission.DEFAULT_WEB_BROWSER permission. Otherwise, error 18000001 is returned. [since 26.0.1]
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - Type of the target application. It must be set to a value defined by
@@ -386,7 +386,7 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @throws { BusinessError } 17700028 - The specified ability does not match the type.
    * @throws { BusinessError } 18000001 - The specified type is Web Browser and the specified application does not
-   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.1.0]
+   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.0.1]
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
@@ -400,7 +400,7 @@ declare namespace defaultAppManager {
    * [uniform data type]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor}. This API returns the result
    * synchronously.
    * To set an application as the default browser, the target application must have been granted the
-   * ohos.permission.DEFAULT_WEB_BROWSER permission. Otherwise, error 18000001 is returned. [since 26.1.0]
+   * ohos.permission.DEFAULT_WEB_BROWSER permission. Otherwise, error 18000001 is returned. [since 26.0.1]
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - Type of the target application. It must be set to a value defined by
@@ -420,7 +420,7 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @throws { BusinessError } 17700028 - The specified ability does not match the type.
    * @throws { BusinessError } 18000001 - The specified type is Web Browser and the specified application does not
-   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.1.0]
+   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.0.1]
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 10 dynamic
@@ -432,7 +432,7 @@ declare namespace defaultAppManager {
    * Sets an application clone as the default application of the specified type. This API returns the result
    * synchronously.
    * To set an application as the default browser, the target application must have been granted the
-   * ohos.permission.DEFAULT_WEB_BROWSER permission. Otherwise, error 18000001 is returned. [since 26.1.0]
+   * ohos.permission.DEFAULT_WEB_BROWSER permission. Otherwise, error 18000001 is returned. [since 26.0.1]
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION or
    *     (ohos.permission.SET_DEFAULT_APPLICATION and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
@@ -454,7 +454,7 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700028 - The specified ability and type do not match.
    * @throws { BusinessError } 17700061 - The specified app index is invalid.
    * @throws { BusinessError } 18000001 - The specified type is Web Browser and the specified application does not
-   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.1.0]
+   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.0.1]
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 23 dynamic&static
@@ -605,7 +605,7 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function getDefaultApplicationCandidates(type: ApplicationType, abilityFlags: int, userId?: int): Promise<Array<AbilityInfo>>;
 }

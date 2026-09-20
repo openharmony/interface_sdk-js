@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Application Storage Statistics
  * @kit CoreFileKit
  */
 
@@ -25,7 +25,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * built-in and plug-in memory cards, space occupied by different types of data, and space of application data.
  *
  * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @since 8 dynamic
  * @since 23 static
  */
@@ -119,7 +119,7 @@ declare namespace storageStatistics {
    * Get the bundle statistics.
    *
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -130,7 +130,7 @@ declare namespace storageStatistics {
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -142,7 +142,7 @@ declare namespace storageStatistics {
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -154,7 +154,7 @@ declare namespace storageStatistics {
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -216,7 +216,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -231,7 +231,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -452,7 +452,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 9 - 14]
    * @publicapi [since 15]
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -469,7 +469,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 9 - 14]
    * @publicapi [since 15]
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -487,7 +487,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 10 - 14]
    * @publicapi [since 15]
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 10 dynamic
    * @since 23 static
    */
@@ -509,7 +509,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 9 - 14]
    * @publicapi [since 15]
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -527,7 +527,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 9 - 14]
    * @publicapi [since 15]
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -545,7 +545,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 10 - 14]
    * @publicapi [since 15]
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 10 dynamic
    * @since 23 static
    */
@@ -726,7 +726,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600016 - Failed to query the inode information of the data partition.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 24 dynamic&static
    */
   function getTotalInodes(): Promise<long>;
@@ -738,7 +738,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600016 - Failed to query the inode information of the data partition.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 24 dynamic&static
    */
   function getFreeInodes(): Promise<long>;
@@ -751,7 +751,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600017 - Failed to query the inode information of the application.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 24 dynamic&static
    */
   function getCurrentBundleInodes(): Promise<long>;
@@ -785,7 +785,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function getBundleStats(packageName: string, option?: BundleStatsOptions): Promise<BundleStats>;
 
@@ -795,7 +795,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   export enum GetBundleStatsFlag {
     /**
@@ -804,7 +804,7 @@ declare namespace storageStatistics {
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     GET_BUNDLE_WITH_ALL_SIZE = 0x00000000,
 
@@ -814,7 +814,7 @@ declare namespace storageStatistics {
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     GET_BUNDLE_WITHOUT_INSTALL_SIZE = 0x00000001,
 
@@ -824,7 +824,7 @@ declare namespace storageStatistics {
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     GET_BUNDLE_WITHOUT_DATA_SIZE = 0x00000002,
 
@@ -834,7 +834,7 @@ declare namespace storageStatistics {
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     GET_BUNDLE_WITHOUT_CACHE_SIZE = 0x00000004
 
@@ -846,7 +846,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   export interface BundleStatsOptions {
     /**
@@ -857,7 +857,7 @@ declare namespace storageStatistics {
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     index?: int;
     /**
@@ -866,7 +866,7 @@ declare namespace storageStatistics {
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     statFlag?: GetBundleStatsFlag;
   }

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 应用灰度
  * @kit PerformanceAnalysisKit
  */
 

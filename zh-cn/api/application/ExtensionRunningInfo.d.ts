@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file ExtensionRunningInfo
  * @kit AbilityKit
  */
 

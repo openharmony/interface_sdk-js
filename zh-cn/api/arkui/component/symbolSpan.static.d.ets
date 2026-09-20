@@ -155,7 +155,7 @@ export declare interface SymbolSpanAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    */
   default setSymbolSpanOptions(value: Resource): this;
 
@@ -165,7 +165,7 @@ export declare interface SymbolSpanAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    */
   default applyAttributesFinish(): void;
 }
@@ -193,7 +193,7 @@ export declare function SymbolSpan(
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  */
 @Builder

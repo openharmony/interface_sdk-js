@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file System Sound Player
  * @kit AudioKit
  */
 

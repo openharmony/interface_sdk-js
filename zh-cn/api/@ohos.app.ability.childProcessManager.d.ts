@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 子进程管理
  * @kit AbilityKit
  */
 
@@ -88,7 +88,7 @@ declare namespace childProcessManager {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   export type ChildProcessInformation = _ChildProcessInformation;
 
@@ -251,7 +251,7 @@ declare namespace childProcessManager {
    * @throws { BusinessError } 16000050 - Connect to system service failed.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function getChildProcessInfos(): Promise<Array<ChildProcessInformation>>;
 }

@@ -236,7 +236,7 @@ export declare interface RatingAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @unpublished
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
      */
     default setRatingOptions(options?: RatingOptions): this;
  }
@@ -266,7 +266,7 @@ export declare function Rating(
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  */
 @Builder

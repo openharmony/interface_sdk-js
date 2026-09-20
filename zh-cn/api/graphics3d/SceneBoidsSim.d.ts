@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 3D场景群体模拟类型声明
  * @kit ArkGraphics3D
  */
 

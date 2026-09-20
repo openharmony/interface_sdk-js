@@ -14,7 +14,7 @@
 */
 
 /**
- * @file Defines FoldSplitContainer component.
+ * @file
  * @kit ArkUI
  */
 

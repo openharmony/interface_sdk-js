@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 定义ArkTS的语言特性
  * @kit ArkTS
  */
 

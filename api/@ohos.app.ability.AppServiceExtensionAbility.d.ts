@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file ExtensionAbility for Application Background Services
  * @kit AbilityKit
  */
 

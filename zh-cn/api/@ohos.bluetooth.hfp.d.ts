@@ -61,7 +61,7 @@ declare namespace hfp {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function createHfpHfProfile(): HandsFreeHfProfile;
 
@@ -138,7 +138,7 @@ declare namespace hfp {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface HandsFreeHfProfile extends BaseProfile {
     /**
@@ -161,7 +161,7 @@ declare namespace hfp {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     connect(deviceId: string): void;
 
@@ -185,7 +185,7 @@ declare namespace hfp {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     disconnect(deviceId: string): void;
   }

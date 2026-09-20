@@ -77,7 +77,7 @@ export declare interface IfAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    */
   setIfOptions(condition: boolean): this;
 
@@ -87,7 +87,7 @@ export declare interface IfAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    */
   applyAttributesFinish(): void;
 }
@@ -118,7 +118,7 @@ export declare function If(
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  */
 @Builder
 export declare function If(

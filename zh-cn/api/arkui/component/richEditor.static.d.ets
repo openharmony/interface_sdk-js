@@ -2405,7 +2405,7 @@ export declare class RichEditorController extends RichEditorBaseController {
      * @param { StyledString } value - 转换前的属性字符串。
      * @returns { Array<RichEditorSpan> | undefined } 将属性字符串解析后得到的文本和图片Span信息，可用于查询属性字符串中各Span的内容、样式和位置。
      *     <br/>当controller未绑定组件或绑定controller的组件被释放时，返回undefined。
-     * @throws { BusinessError } 401 - 参数检查失败。
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -2417,7 +2417,7 @@ export declare class RichEditorController extends RichEditorBaseController {
      * @param { RichEditorRange } value - 需要获取的范围。
      * @returns { StyledString | undefined } 组件指定范围内容转换后的属性字符串，可用于跨组件传递富文本内容或进行样式编辑操作。
      *     <br/>当controller未绑定组件或绑定controller的组件被释放时，返回undefined。
-     * @throws { BusinessError } 401 - 参数检查失败。
+     * @throws { BusinessError } 401 - The parameter check failed.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static

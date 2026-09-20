@@ -337,7 +337,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     progressInfo?: ProgressInfo;
 
@@ -353,7 +353,7 @@ declare namespace backgroundTaskManager {
      * @param { ProgressInfo | undefined } value
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     set progressInfo(value: ProgressInfo | undefined);
 
@@ -369,7 +369,7 @@ declare namespace backgroundTaskManager {
      * @returns { ProgressInfo | undefined } 通知进度信息。
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     get progressInfo(): ProgressInfo | undefined;
   }
@@ -379,7 +379,7 @@ declare namespace backgroundTaskManager {
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   export interface ProgressInfo {  
     /**
@@ -387,7 +387,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     title: string;
     /**
@@ -395,7 +395,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     fileName: string;
     /**
@@ -405,7 +405,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     progressValue?: int;
     /**
@@ -415,7 +415,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     isMute?: boolean;
   }
@@ -425,7 +425,7 @@ declare namespace backgroundTaskManager {
    *
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   export interface DataTransferProgress {  
     /**
@@ -433,7 +433,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     continuousTaskId: int;
 
@@ -442,7 +442,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     wantAgent?: WantAgent;
 
@@ -451,7 +451,7 @@ declare namespace backgroundTaskManager {
      *
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     progressInfo: ProgressInfo;
   }
@@ -1094,7 +1094,7 @@ declare namespace backgroundTaskManager {
    * 申请长时任务，支持申请一种类型，使用callback异步回调。长时任务申请成功后，会有通知栏消息，没有提示音。
    * 一个UIAbility（FA模型则为ServiceAbility）同一时刻仅支持通过本接口支持申请一个长时任务，可以通过API version 21新增接口
    * [startBackgroundRunning]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request:ContinuousTaskRequest)}
-   * 申请多个长时任务。<br>从API版本26.1.0开始，通过本接口申请的长时任务，包含数据传输类型时，可以通过
+   * 申请多个长时任务。<br>从API版本26.0.1开始，通过本接口申请的长时任务，包含数据传输类型时，可以通过
    * [updateDataTransferProgress()]{@link backgroundTaskManager.updateDataTransferProgress}接口更新长时任务通知，可选择通知是否有进度环，进度为100时是否响铃。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
@@ -1128,7 +1128,7 @@ declare namespace backgroundTaskManager {
    * 申请长时任务，支持申请一种类型，使用Promise异步回调。长时任务申请成功后，会有通知栏消息，没有提示音。一个UIAbility（FA模型则为ServiceAbility）同一时刻仅支持通过本接口支持申请一个长时任务，可以通过
    * API version 21新增接口
    * [startBackgroundRunning]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request:ContinuousTaskRequest)}
-   * 申请多个长时任务。<br>从API版本26.1.0开始，通过本接口申请的长时任务，包含数据传输类型时，可以通过
+   * 申请多个长时任务。<br>从API版本26.0.1开始，通过本接口申请的长时任务，包含数据传输类型时，可以通过
    * [updateDataTransferProgress()]{@link backgroundTaskManager.updateDataTransferProgress}接口更新长时任务通知，可选择通知是否有进度环，进度为100时是否响铃。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
@@ -1162,7 +1162,7 @@ declare namespace backgroundTaskManager {
    * 申请长时任务，支持申请多种类型，使用Promise异步回调。长时任务申请成功后，会有通知栏消息，没有提示音。一个UIAbility（FA模型则为ServiceAbility）同一时刻仅支持通过本接口支持申请一个长时任务，可以通过
    * API version 21新增接口
    * [startBackgroundRunning]{@link backgroundTaskManager.startBackgroundRunning(context: Context, request:ContinuousTaskRequest)}
-   * 申请多个长时任务。<br>从API版本26.1.0开始，通过本接口申请的长时任务，包含数据传输类型时，可以通过
+   * 申请多个长时任务。<br>从API版本26.0.1开始，通过本接口申请的长时任务，包含数据传输类型时，可以通过
    * [updateDataTransferProgress()]{@link backgroundTaskManager.updateDataTransferProgress}接口更新长时任务通知，可选择通知是否有进度环，进度为100时是否响铃。
    *
    * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
@@ -1198,7 +1198,7 @@ declare namespace backgroundTaskManager {
    * 申请长时任务，一个UIAbility（FA模型则为ServiceAbility）下支持通过本接口申请多个长时任务，使用Promise异步回调。通过本接口申请长时任务时，支持与已存在的长时任务合并通知，具体请参考
    * [ContinuousTaskRequest]{@link backgroundTaskManager.ContinuousTaskRequest}。<br>同一时间最多可存在10个长时任务，长时任务申请成功后，会有通知栏消息，
    * 没有提示音。<br>如果通过本接口申请的一个长时任务中同时包含多种类型，且包含数据传输类型，则在通知栏会发送2个长时任务通知，一个为数据传输类型，另一个为其他类型的合并通知。任意一个通知被移除时，长时任务取消，且另一个通知也会同
-   * 步移除。接口返回的长时任务通知Id为数据传输类型的Id，主要用于数据传输的进度更新。<br>从API版本26.1.0开始，通过本接口申请长时任务时，支持包含数据传输类型的长时任务直接发送进度模版通知，
+   * 步移除。接口返回的长时任务通知Id为数据传输类型的Id，主要用于数据传输的进度更新。<br>从API版本26.0.1开始，通过本接口申请长时任务时，支持包含数据传输类型的长时任务直接发送进度模版通知，
    * 可选择通知是否有进度环，进度为100时是否响铃，具体请参考[ProgressInfo]{@link backgroundTaskManager.ProgressInfo}。
    * 也可以通过[updateDataTransferProgress()]{@link backgroundTaskManager.updateDataTransferProgress}接口更新长时任务通知。
    *
@@ -1304,7 +1304,7 @@ declare namespace backgroundTaskManager {
    * @throws { BusinessError } 9800007 - Continuous task storage failed.
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function updateDataTransferProgress(context: Context, progressInfo: DataTransferProgress): void;
 
@@ -2609,6 +2609,15 @@ declare namespace backgroundTaskManager {
      * @since 26.0.0 dynamic&static
      */
     SYSTEM_CANCEL_USER_UNAUTHORIZED = 14,
+
+    /**
+     * 申请NEARLINK类型长时任务，但是未使用星闪相关业务。
+     *
+     * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    SYSTEM_CANCEL_NOT_USE_NEARLINK = 15,
 
     /**
      * 申请USB类型长时任务，但是未检测到USB设备。

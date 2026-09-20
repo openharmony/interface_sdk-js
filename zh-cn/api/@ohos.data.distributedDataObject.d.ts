@@ -319,7 +319,7 @@ declare namespace distributedDataObject {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param {string} sessionId - 分布式数据对象在可信组网中的标识ID，长度不大于128字节，且只能包含字母、数字或下划线_。当传入""、null时表示退出分布式组网。
      * @param {AsyncCallback<void>} callback - 回调函数。当加入session成功，err为undefined，否则为错误对象。
-     * @throws {BusinessError} 201 - Permission verification failed.
+     * @throws {BusinessError} 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
      *     2. The sessionId allows only letters, digits, and underscores(_), and cannot exceed 128 in length.
      * @throws {BusinessError} 15400001 - Failed to create the in-memory database.
@@ -334,7 +334,7 @@ declare namespace distributedDataObject {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC [since 9 - 19]
      * @param {AsyncCallback<void>} callback - 回调函数。当退出session成功，err为undefined，否则为错误对象。
-     * @throws {BusinessError} 201 - Permission verification failed. [since 9 - 19]
+     * @throws {BusinessError} 201 - Permission verification failed. The application does not have the permission required to call the API. [since 9 - 19]
      * @throws {BusinessError} 401 - Parameter error. Incorrect parameter types.
      * @throws {BusinessError} 15400001 - Failed to create the in-memory database.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
@@ -350,7 +350,7 @@ declare namespace distributedDataObject {
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
      * @param {string} sessionId - 分布式数据对象在可信组网中的标识ID，长度不大于128字节，且只能包含字母、数字或下划线_。当传入""、null或不传入参数时表示退出分布式组网。
      * @returns {Promise<void>} Promise对象，无返回结果。
-     * @throws {BusinessError} 201 - Permission verification failed.
+     * @throws {BusinessError} 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
      *     2. The sessionId allows only letters, digits, and underscores(_), and cannot exceed 128 in length.
      * @throws {BusinessError} 15400001 - Failed to create the in-memory database.
@@ -440,7 +440,8 @@ declare namespace distributedDataObject {
      *     sessionId、version、deviceId等信息）；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9 dynamic
      * @since 23 static
@@ -462,7 +463,8 @@ declare namespace distributedDataObject {
      * @returns { Promise<SaveSuccessResponse> } Promise对象。返回SaveSuccessResponse，包含sessionId、version、deviceId等信息。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9 dynamic
      * @since 23 static
@@ -479,7 +481,8 @@ declare namespace distributedDataObject {
      * @param { AsyncCallback<RevokeSaveSuccessResponse> } callback - 回调函数。当撤回保存成功，err为undefined，data为
      *     RevokeSaveSuccessResponse（包含sessionId信息）；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9 dynamic
      * @since 23 static
@@ -494,7 +497,8 @@ declare namespace distributedDataObject {
      * <br>如果对象保存在其他设备，那么将删除本地设备上的数据。
      *
      * @returns { Promise<RevokeSaveSuccessResponse> } Promise对象。返回RevokeSaveSuccessResponse，包含sessionId。
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 9 dynamic
      * @since 23 static
@@ -512,7 +516,8 @@ declare namespace distributedDataObject {
      * @param { AsyncCallback<void> } callback - 回调函数。当绑定数据库成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 11 dynamic
      * @since 23 static
@@ -530,7 +535,8 @@ declare namespace distributedDataObject {
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
      *     2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support
+     *     the capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.DistributedDataManager.DataObject.DistributedObject
      * @since 11 dynamic
      * @since 23 static

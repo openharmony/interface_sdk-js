@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Application Quick Startup Management
  * @kit AbilityKit
  */
 
@@ -31,7 +31,7 @@ declare namespace hyperSnapManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     export enum HyperSnapErrorType {
         /**
@@ -39,7 +39,7 @@ declare namespace hyperSnapManager {
          *
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
          * @stagemodelonly
-         * @since 26.1.0 dynamic&static
+         * @since 26.0.1 dynamic&static
          */
         CREATE_SNAPSHOT = 0,
 
@@ -48,7 +48,7 @@ declare namespace hyperSnapManager {
          * 
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
          * @stagemodelonly
-         * @since 26.1.0 dynamic&static
+         * @since 26.0.1 dynamic&static
          */
         FORK_FROM_SNAPSHOT = 1
     }
@@ -58,7 +58,7 @@ declare namespace hyperSnapManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     export enum HyperSnapErrorCode {
         /**
@@ -66,7 +66,7 @@ declare namespace hyperSnapManager {
          *
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
          * @stagemodelonly
-         * @since 26.1.0 dynamic&static
+         * @since 26.0.1 dynamic&static
          */
         ERR_OK = 0,
 
@@ -75,7 +75,7 @@ declare namespace hyperSnapManager {
          *
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
          * @stagemodelonly
-         * @since 26.1.0 dynamic&static
+         * @since 26.0.1 dynamic&static
          */
         ERR_SYSTEM_INNER = 1,
 
@@ -84,7 +84,7 @@ declare namespace hyperSnapManager {
          *
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
          * @stagemodelonly
-         * @since 26.1.0 dynamic&static
+         * @since 26.0.1 dynamic&static
          */
         ERR_SNAPSHOT_EXIST = 2,
 
@@ -93,7 +93,7 @@ declare namespace hyperSnapManager {
          *
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
          * @stagemodelonly
-         * @since 26.1.0 dynamic&static
+         * @since 26.0.1 dynamic&static
          */
         ERR_PROCESS_IS_RUNNING = 3,
 
@@ -102,7 +102,7 @@ declare namespace hyperSnapManager {
          *
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
          * @stagemodelonly
-         * @since 26.1.0 dynamic&static
+         * @since 26.0.1 dynamic&static
          */
         ERR_SNAPSHOT_PROCESS_IS_DIED = 4,
 
@@ -111,7 +111,7 @@ declare namespace hyperSnapManager {
          *
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
          * @stagemodelonly
-         * @since 26.1.0 dynamic&static
+         * @since 26.0.1 dynamic&static
          */
         ERR_SNAPSHOT_IS_INTERRUPTED = 5,
 
@@ -120,7 +120,7 @@ declare namespace hyperSnapManager {
          *
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
          * @stagemodelonly
-         * @since 26.1.0 dynamic&static
+         * @since 26.0.1 dynamic&static
          */
         ERR_EXISTS_ILLEGAL_BINDER = 6,
 
@@ -129,7 +129,7 @@ declare namespace hyperSnapManager {
          *
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
          * @stagemodelonly
-         * @since 26.1.0 dynamic&static
+         * @since 26.0.1 dynamic&static
          */
         ERR_LAST_PROCESS_NOT_FULLY_EXITED = 7
     }
@@ -139,7 +139,7 @@ declare namespace hyperSnapManager {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     export interface HyperSnapErrorInfo {
         /**
@@ -147,7 +147,7 @@ declare namespace hyperSnapManager {
          *
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
          * @stagemodelonly
-         * @since 26.1.0 dynamic&static
+         * @since 26.0.1 dynamic&static
          */
         code: HyperSnapErrorCode;
 
@@ -156,7 +156,7 @@ declare namespace hyperSnapManager {
          *
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
          * @stagemodelonly
-         * @since 26.1.0 dynamic&static
+         * @since 26.0.1 dynamic&static
          */
         msg: string;
 
@@ -166,7 +166,7 @@ declare namespace hyperSnapManager {
          *
          * @syscap SystemCapability.Ability.AbilityRuntime.Core
          * @stagemodelonly
-         * @since 26.1.0 dynamic&static
+         * @since 26.0.1 dynamic&static
          */
         occurTimeStamp: long;
     }
@@ -229,7 +229,7 @@ declare namespace hyperSnapManager {
      * @throws { BusinessError } 16000050 - Connect to system service failed.
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     function getLastError(errType: HyperSnapErrorType): Promise<HyperSnapErrorInfo>;
 }

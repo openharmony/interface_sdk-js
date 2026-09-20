@@ -19,7 +19,9 @@
  */
 
 /**
- * Define the WithEnv attribute functions.
+ * Supports the following **WithEnv**-specific attributes.
+ * 
+ * The [universal events]{@link CommonMethod} are not supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29,10 +31,27 @@
  */
 export declare class WithEnvAttribute {
   /**
-   * Defining System Environment Variables
+   * Sets the system environment variable within the scope. The currently officially supported system environment 
+   * variable keys are **WritableEnvKey.FONT_SCALE** and **WritableEnvKey.DIRECTION**.
+   * 
+   * > **NOTE**
+   * >
+   * > - `WithEnv.env(WritableEnvKey.FONT_SCALE, value)` provides a local font scale for components within the scope of 
+   * > the trailing closure. `value` is of the number type, indicating the font scale multiplier. If the set `value` is 
+   * > less than 0, it is treated as 0.
+   * >
+   * > - The effective font scale of components within the scope of the **WithEnv** trailing closure is jointly 
+   * > determined by the value set through the **env** attribute with the key **WritableEnvKey.FONT_SCALE** and the 
+   * > component's own font scale constraints. These constraints can be set through the component's `minFontScale` and 
+   * > `maxFontScale` attributes, or through global configurations such as 
+   * > [fontSizeMaxScale](docroot://quick-start/app-configuration-file.md) in the app configuration. The final effective
+   * > value is the value of **WritableEnvKey.FONT_SCALE** within the range of each constraint.
    *
-   * @param { WritableSystemEnvKey<T> } key - Key for system environment variables.
-   * @param { T } value - Value of system environment variables.
+   * @param { WritableSystemEnvKey<T> } key - System environment variable key. Currently, **WritableEnvKey.FONT_SCALE**
+   *     and **WritableEnvKey.DIRECTION** are officially supported.
+   * @param { T } value - System environment variable value. The type T of **value** corresponds to the type T in
+   *     **WritableSystemEnvKey<T>**. When `key` is `WritableEnvKey.FONT_SCALE`, the type of `value` is number. When
+   *     `key` is `WritableEnvKey.DIRECTION`, the type of `value` is Direction.
    * @returns { WithEnvAttribute } WithEnvAttribute object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -42,10 +61,11 @@ export declare class WithEnvAttribute {
    */
   env<T>(key: WritableSystemEnvKey<T>, value: T): WithEnvAttribute;
   /**
-   * Defining Custom Environment Variables
+   * Sets a custom environment variable that can be read by descendant custom components within the scope.
    *
-   * @param { CustomEnvKey<T> } key - Key for custom environment variables.
-   * @param { T } value - Value of custom environment variables.
+   * @param { CustomEnvKey<T> } key - Key of the custom environment variable.
+   * @param { T } value - Value of the custom environment variable. The type T of value corresponds to the type T of
+   *     CustomEnvKey<T>.
    * @returns { WithEnvAttribute } WithEnvAttribute object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -69,7 +89,16 @@ export declare class WithEnvAttribute {
  */
 export declare type WithEnvInterface = () => WithEnvAttribute;
 /**
- * Define the WithEnv component that allows setting environment properties for child components.
+ * The **WithEnv** component is used to set a local environment variable scope for a child component tree. Developers
+ * can use this component to provide custom environment variables for descendant components, or set system environment
+ * variables.
+ *
+ * > **NOTE**
+ * >
+ * > - Custom environment variables can be set through [customEnv]{@link WithEnvAttribute#customEnv}.
+ * > - System environment variable keys can be set through [env]{@link WithEnvAttribute#env}. They are stored in
+ * > [WritableEnvKey]{@link WritableEnvKey}.
+ * > - When **WithEnv** is nested, the nearest scope takes effect for environment variables with the same name.
  *
  * @type { WithEnvInterface }
  * @syscap SystemCapability.ArkUI.ArkUI.Full

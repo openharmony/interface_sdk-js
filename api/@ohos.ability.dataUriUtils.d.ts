@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file DataUriUtils Module
  * @kit AbilityKit
  */
 

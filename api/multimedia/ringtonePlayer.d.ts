@@ -24,7 +24,7 @@
  * >
  * > - The APIs provided by this module are system APIs.
  *
- * @file
+ * @file Ringtone Player
  * @kit AudioKit
  */
 

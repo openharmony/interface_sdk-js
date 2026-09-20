@@ -19,7 +19,42 @@
  */
 
 /**
- * Provides ports for relative containers.
+ * Defines a relative layout component used for element alignment in complex scenarios. By setting the alignment rules 
+ * of child components, it aligns child components relative to the container or other child components. It is suitable 
+ * for complex UIs that require flexible layout and fewer nesting levels.
+ * 
+ * Child components can define their alignment rules within the container using 
+ * [alignRules]{@link CommonMethod#alignRules(value: AlignRuleOption)}.
+ * 
+ * > **NOTE**
+ * >
+ * > * This component is supported since API version 9. New APIs in later versions are marked with a superscript to 
+ * > indicate their initial version.
+ * >
+ * > * In the **RelativeContainer** component, when [width]{@link CommonMethod#width(value: Length)} and 
+ * > [height]{@link CommonMethod#height(value: Length)} are not set, the layout behavior of the corresponding attributes
+ * > is the same as when they are set to 100%.
+ * >
+ * > * Since API version 11, in the **RelativeContainer** component, setting 
+ * > [width]{@link CommonMethod#width(value: Length)} and [height]{@link CommonMethod#height(value: Length)} to "auto" 
+ * > means adapting to child components. When width is set to "auto", if a child component uses the container as an 
+ * > anchor in the horizontal direction, "auto" does not take effect (that is, it is treated as if width is not set). 
+ * > The same applies to the vertical direction.
+ * >
+ * > * Since API version 20, in the **RelativeContainer** component, setting 
+ * > [width]{@link CommonMethod#width(widthValue: Length | LayoutPolicy)} and 
+ * > [height]{@link CommonMethod#height(heightValue: Length | LayoutPolicy)} to **LayoutPolicy.wrapContent** means 
+ * > adapting to child components while being constrained by the ancestor node size, and setting them to 
+ * > **LayoutPolicy.fixAtIdealSize** means adapting to child components without being constrained by the ancestor node 
+ * > size. When **width** is set to **wrapContent** or **fixAtIdealSize**, if a child component directly or indirectly 
+ * > uses the container as an anchor in the horizontal direction, the container size in that direction does not adapt to
+ * > that component. The same applies to the vertical direction.
+ * >
+ * > * The [margin]{@link CommonMethod#margin} of a child component in **RelativeContainer** differs from the universal 
+ * > margin attribute. It refers to the distance from the child component to the anchor in that direction. For example, 
+ * > when **alignRules** sets a left anchor, **margin.left** indicates the distance from the child component to the left
+ * > anchor. If **alignRules** does not set an anchor in a certain boundary direction (for example, neither **left** nor
+ * > **right** anchor is set), the **margin** in that direction does not take effect.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -30,7 +65,8 @@
  */
 interface RelativeContainerInterface {
   /**
-   * Defines the constructor of RelativeContainer.
+   * The **RelativeContainer** component is a container component used for relative layout of elements in complex 
+   * scenarios.
    *
    * @returns { RelativeContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -53,8 +89,13 @@ interface RelativeContainerInterface {
  */
 declare interface GuideLinePosition {
   /**
-   * Distance between the guideline and the left or top of the container.
-   * Unit: vp.
+   * Distance from the guideline to the left or top edge of the container. Unit: vp.
+   * 
+   * Default value: **0**. Either this parameter or **end** is used. If both are declared, only **start** takes effect. 
+   * If the **width** of the container is declared as "auto", a guideline of the **Axis.Vertical** type can be declared 
+   * only in the **start** mode (percentage is not allowed). If the **height** of the container is declared as 
+   * **"auto"**, a guideline of the **Axis.Horizontal** type can be declared only in the **start** mode (percentage is 
+   * not allowed).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -65,8 +106,11 @@ declare interface GuideLinePosition {
   start? : Dimension;
 
   /**
-   * Distance between the guideline and the right or bottom of the container.
-   * Unit: vp.
+   * Distance from the guideline to the right or bottom edge of the container. Unit: vp. Either this parameter or 
+   * **start** is used. If both are declared, only **start** takes effect. If the **width** of the container is declared
+   * as **"auto"**, a guideline of the **Axis.Vertical** type does not support declaration in the **end** mode. If the 
+   * **height** of the container is declared as **"auto"**, a guideline of the **Axis.Horizontal** type does not support
+   * declaration in the **end** mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -78,7 +122,8 @@ declare interface GuideLinePosition {
 }
 
 /**
- * Defines the ID, direction, and position of a guideline.
+ * Defines the style of a guideline, which used to define the ID, direction, and position of a guideline, helping child 
+ * components to be positioned and aligned in the **RelativeContainer**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -88,7 +133,8 @@ declare interface GuideLinePosition {
  */
 declare interface GuideLineStyle {
   /**
-   * ID of the guideline, which must be unique and cannot be the same as the name of any component in the container.
+   * ID of the guideline, used to identify the guideline. A child component can reference this guideline as an anchor by
+   * using this ID. The ID must be unique and cannot be the same as the name of any component in the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -99,16 +145,13 @@ declare interface GuideLineStyle {
   id : string;
 
   /**
-   * Direction of the guideline.
-   * 
-   * A guideline in the vertical direction can only be used as the anchor of the component in the horizontal direction, 
-   * and the value is **0** when it is used as the anchor in the vertical direction. A guideline in the horizontal 
-   * direction can only be used as the anchor of the component in the vertical direction, and the value is **0** when it
-   * is used as the anchor in the horizontal direction.
+   * Direction of the guideline. **Axis.Vertical** indicates a vertical guideline, which can be used only as a 
+   * horizontal anchor of a component. **Axis.Horizontal** indicates a horizontal guide line, which can be used only as 
+   * a vertical anchor of a component.
    * 
    * Default value: **Axis.Vertical**
    * 
-   * Invalid values are treated as the default value.
+   * Invalid value: The default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -121,19 +164,16 @@ declare interface GuideLineStyle {
   /**
    * Position of the guideline.
    * 
-   * If no value is specified or an invalid value (for example, **undefined**) is provided, the guideline position 
-   * defaults to **start: 0**. Only **start** or **end** can be selected for the guideline position. If both are 
-   * declared, only **start** takes effect. If the container size in a certain direction is set to **"auto"**, the 
-   * guideline position in that direction must be declared in **start** mode, and the value cannot be a percentage.
-   * 
-   * Default value:
-   * ```
-   * {
-   *   start: 0
-   * }
-   * ``` 
-   * 
-   * Invalid values are treated as the default value.
+   * If this parameter is not declared or an invalid value (for example, **undefined**) is declared, the position of the
+   * guideline defaults to **start: 0**. You can declare either **start** or **end**. If both are declared, only 
+   * **start** takes effect. If the width of the container is declared as **"auto"**, the position of an 
+   * **Axis.Vertical** guideline can be declared only by using **start** (percentages are not allowed). If the 
+   * **height** of the container is declared as **"auto"**, the position of an **Axis.Horizontal** guideline can be 
+   * declared only by using **start** (percentages are not allowed).
+   *
+   * Default value: **{ start: 0 }**
+   *
+   * Invalid value: The default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -154,8 +194,7 @@ declare interface GuideLineStyle {
  */
 declare enum BarrierDirection {
   /**
-   * The barrier is on the left side of all the referenced components specified by
-   * [referencedId]{@link BarrierStyle}.
+   * The barrier is at the leftmost position of all its [referencedId]{@link BarrierStyle}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -166,8 +205,7 @@ declare enum BarrierDirection {
   LEFT,
 
   /**
-   * The barrier is on the right side of all the referenced components specified by
-   * [referencedId]{@link BarrierStyle}.
+   * The barrier is at the rightmost position of all its [referencedId]{@link BarrierStyle}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -178,8 +216,7 @@ declare enum BarrierDirection {
   RIGHT,
 
   /**
-   * The barrier is at the top of all the referenced components specified by
-   * [referencedId]{@link BarrierStyle}.
+   * The barrier is at the topmost position of all its [referencedId]{@link BarrierStyle}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -190,8 +227,7 @@ declare enum BarrierDirection {
   TOP,
 
   /**
-   * The barrier is at the bottom of all the referenced components specified by
-   * [referencedId]{@link relative_container:BarrierStyle}.
+   * The barrier is at the bottommost position of all its [referencedId]{@link BarrierStyle}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -204,6 +240,18 @@ declare enum BarrierDirection {
 
 /**
  * Enumerates the directions of barriers with mirror mode support.
+ * 
+ * | Name|  Value | Description                      |
+ * | ------ | -- | ----------------------------- |
+ * | START  | 0  |The barrier is on the start side of all its |
+ * |        |    |[referencedId]{@link LocalizedBarrierStyle}, that is, the |
+ * |        |    |leftmost side in LTR mode and the rightmost side in RTL mode.|
+ * | END    | 1  | The barrier is on the end side of all its [referencedId]{@link LocalizedBarrierStyle}, that is, the |
+ * |        |    |rightmost side in LTR mode and the leftmost side in RTL mode.|
+ * | TOP    | 2  | The barrier is at the top of all the referenced components specified by |
+ * |        |    |[referencedId]{@link LocalizedBarrierStyle}.|
+ * | BOTTOM | 3  | The barrier is at the bottom of all the referenced components specified by |
+ * |        |    |[referencedId]{@link LocalizedBarrierStyle}.|
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -213,8 +261,8 @@ declare enum BarrierDirection {
  */
 declare enum LocalizedBarrierDirection {
   /**
-   * The barrier is on the left (for left-to-right scripts) or right (for right-to-left scripts) side of 
-   * all the referenced components specified by [referencedId]{@link LocalizedBarrierStyle}.
+   * The barrier is on the start side of all its [referencedId]{@link LocalizedBarrierStyle}, that is, the leftmost
+   * side in LTR mode and the rightmost side in RTL mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -225,8 +273,8 @@ declare enum LocalizedBarrierDirection {
   START = 0,
 
   /**
-   * The barrier is on the right (for left-to-right scripts) or left (for right-to-left scripts) side of 
-   * all the referenced components specified by [referencedId]{@link LocalizedBarrierStyle}.
+   * The barrier is on the end side of all its [referencedId]{@link LocalizedBarrierStyle}, that is, the rightmost
+   * side in LTR mode and the leftmost side in RTL mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -262,7 +310,8 @@ declare enum LocalizedBarrierDirection {
 }
 
 /**
- * Defines the ID, direction, and referenced components of a barrier.
+ * Defines the style of a barrier, which is used to define the ID, direction, and dependent components of a barrier. 
+ * Child components can reference the barrier by its ID as an anchor for alignment and positioning.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -272,7 +321,8 @@ declare enum LocalizedBarrierDirection {
  */
 declare interface BarrierStyle {
   /**
-   * ID of the barrier, which must be unique and cannot be the same as the name of any component in the container.
+   * ID of the barrier, used to identify the barrier. A child component can reference this barrier as an anchor by this 
+   * ID. It must be unique and cannot duplicate the name of any component in the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -285,14 +335,14 @@ declare interface BarrierStyle {
   /**
    * Direction of the barrier.
    * 
-   * Vertical-direction barriers (including **TOP** and **BOTTOM**) can only serve as the horizontal anchor of a 
-   * component. If they are used as a vertical anchor, the anchor value will be **0**. Horizontal-direction barriers (
-   * including **LEFT** and **RIGHT**) can only serve as the vertical anchor of a component. If they are used as a 
-   * horizontal anchor, the anchor value will be **0**.
+   * A horizontal barrier line (**TOP**\/**BOTTOM**) can serve only as a vertical directional anchor (**top** or 
+   * **bottom**) of a component. When it is used as a horizontal directional anchor, its position is treated as **0**. A
+   * vertical barrier line (**LEFT**\/**RIGHT**) can serve only as a horizontal directional anchor (**left** or
+   * **right**) of a component. When it is used as a vertical directional anchor, its position is treated as **0**.
    * 
    * Default value: **BarrierDirection.LEFT**
    * 
-   * Invalid values are treated as the default value.
+   * Invalid value: processed as the default value.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -303,7 +353,10 @@ declare interface BarrierStyle {
   direction : BarrierDirection;
 
   /**
-   * Referenced components of the barrier.
+   * Components on which the barrier is generated. Put the IDs of the components that serve as the barrier reference 
+   * into the array. At least one valid component ID is required. IDs that do not exist are ignored. The barrier 
+   * position is calculated based on the component boundaries: **LEFT** takes the leftmost, **RIGHT** takes the 
+   * rightmost, **TOP** takes the topmost, and **BOTTOM** takes the bottommost.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -315,7 +368,9 @@ declare interface BarrierStyle {
 }
 
 /**
- * Defines the ID, direction, and referenced components of a barrier.
+ * Defines the style of a localized barrier, which is used to define the ID, direction, and dependent components of a 
+ * barrier that supports mirror mode. Child components can reference the barrier by its ID as an anchor for alignment 
+ * and positioning.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -325,7 +380,8 @@ declare interface BarrierStyle {
  */
 declare interface LocalizedBarrierStyle {
   /**
-   * ID of the barrier, which must be unique and cannot be the same as the name of any component in the container.
+   * ID of the barrier, used to identify the barrier. A child component can reference this ID to use the barrier as an 
+   * anchor. The ID must be unique and must not duplicate the name of any component in the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -338,10 +394,15 @@ declare interface LocalizedBarrierStyle {
   /**
    * Direction of the barrier.
    * 
-   * Vertical-direction barriers (including **TOP** and **BOTTOM**) can only serve as the horizontal anchor of a 
-   * component. If they are used as a vertical anchor, the anchor value will be **0**. Horizontal-direction barriers (
-   * including **START** and **END**) can only serve as the vertical anchor of a component. If they are used as a 
-   * horizontal anchor, the anchor value will be **0**.
+   * A horizontal barrier line (**TOP**\/**BOTTOM**) can be used only as a vertical directional anchor (**top** or 
+   * **bottom**) of a component. When it is used as a horizontal directional anchor, its position is treated as **0**. A
+   * vertical barrier line (**START**\/**END**, supporting LTR/RTL mirroring) can be used only as a horizontal 
+   * directional anchor (**start** or **end**) of a component. When it is used as a vertical directional anchor, its 
+   * position is treated as **0**.
+   * 
+   * Default value: **LocalizedBarrierDirection.START**
+   * 
+   * Invalid value: the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -352,7 +413,9 @@ declare interface LocalizedBarrierStyle {
   localizedDirection : LocalizedBarrierDirection;
 
   /**
-   * Referenced components of the barrier.
+   * Components on which the barrier is generated. Put the IDs of the components that serve as the barrier reference 
+   * into the array. The array must contain at least one valid component ID. IDs that do not exist are ignored. For a 
+   * barrier that supports mirror mode, the barrier position is calculated based on the actual position in LTR/RTL mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -365,7 +428,12 @@ declare interface LocalizedBarrierStyle {
 
 /**
  * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
- * 
+ *
+ * > **NOTE**
+ * >
+ * > The **margin** attribute of a child component in **RelativeContainer** has special effective conditions. For
+ * > details, see the description above.
+ *
  * The [universal events]{@link CommonMethod} are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -377,11 +445,14 @@ declare interface LocalizedBarrierStyle {
  */
 declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerAttribute> {
   /**
-   * Sets the 
+   * Sets the
    * [guidelines](docroot://ui/arkts-layout-development-relative-layout.md#positioning-child-components-using-guidelines)
-   * in the **RelativeContainer** component. The value is an array, each element of which is a guideline.
+   * in the **RelativeContainer** component. Each element in the array represents a guideline. Typical usage
+   * aligning child components based on virtual reference lines, creating flexibly adjustable reference lines for 
+   * positioning, and laying out multiple child components based on the same baseline.
    *
-   * @param { Array<GuideLineStyle> } value - Guidelines in the **RelativeContainer** component.
+   * @param { Array<GuideLineStyle> } value - Guideline inside the **RelativeContainer**, which defines the ID,
+   *     direction, and position of the **guideLine** and is used to assist in positioning child components.
    * @returns { RelativeContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -394,9 +465,14 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
   /**
    * Sets the 
    * [barriers](docroot://ui/arkts-layout-development-relative-layout.md#setting-barriers-for-multiple-components) in 
-   * the **RelativeContainer** component. The value is an array, each element of which is a barrier.
+   * the **RelativeContainer** component. Child components can use barriers as anchors for alignment and positioning. 
+   * Each element in the array represents a barrier. Typical usage scenarios: preventing child components from 
+   * overlapping, creating virtual boundaries based on component edges, and implementing automatic spacing between 
+   * components.
    *
-   * @param { Array<BarrierStyle> } value - Barriers in the **RelativeContainer** component.
+   * @param { Array<BarrierStyle> } value - Barrier in the **RelativeContainer** container, used to define the ID,
+   *     direction, and dependent components of the barrier. Child components can use the barrier as an anchor for
+   *     alignment and positioning.
    * @returns { RelativeContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -407,10 +483,13 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
   barrier(value: Array<BarrierStyle>): RelativeContainerAttribute;
 
   /**
-   * Sets barriers in the **RelativeContainer** component. Each array element defines a barrier. Barriers can be defined
-   * in mirrored layout mode.
+   * Sets barriers in the **RelativeContainer**. Child components can use a barrier as an anchor for alignment and 
+   * positioning, and barrier lines in mirror mode are supported. Each element in the array represents a barrier. 
+   * Typical usage: RTL language layout adaptation, mirrored UI design, and automatic adjustment of barrier positions 
+   * based on the reading direction.
    *
-   * @param { Array<LocalizedBarrierStyle> } barrierStyle - Barriers in the **RelativeContainer** component.
+   * @param { Array<LocalizedBarrierStyle> } barrierStyle - Barrier in the **RelativeContainer** container, which
+   *     supports defining barrier lines in mirror mode.
    * @returns { RelativeContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -422,38 +501,46 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
 }
 
 /**
- * The **RelativeContainer** component is a container component used for relative layout of elements in complex
- * scenarios.
- * Child components can define their alignment rules within the container using
- * [alignRules]{@link CommonMethod#alignRules}.
+ * Defines a relative layout component used for element alignment in complex scenarios. By setting the alignment rules 
+ * of child components, it aligns child components relative to the container or other child components. It is suitable 
+ * for complex UIs that require flexible layout and fewer nesting levels.
+ * 
+ * Child components can define their alignment rules within the container using 
+ * [alignRules]{@link CommonMethod#alignRules(value: AlignRuleOption)}.
+ * 
  * > **NOTE**
  * >
- * > * When [width]{@link CommonMethod#width} and [height]{@link CommonMethod#height} are not set,
- * > **RelativeContainer** defaults to 100% in both dimensions.
+ * > * This component is supported since API version 9. New APIs in later versions are marked with a superscript to 
+ * > indicate their initial version.
  * >
- * > * Since API version 11, setting [width]{@link CommonMethod#width} or [height]{@link CommonMethod#height} to
- * > **"auto"** enables child-adaptive sizing. However, if the child components use the container as an anchor in the
- * > horizontal direction, the **auto** value of **width** has no effect (equivalent to **width** not being set). The
- * > same rule applies to the vertical direction.
+ * > * In the **RelativeContainer** component, when [width]{@link CommonMethod#width(value: Length)} and 
+ * > [height]{@link CommonMethod#height(value: Length)} are not set, the layout behavior of the corresponding attributes
+ * > is the same as when they are set to 100%.
  * >
- * > * Since API version 20, the size adaptation behavior of child components in the **RelativeContainer** component
- * > follows the following rules, depending on the **LayoutPolicy** setting for
- * > [width]{@link CommonMethod#width} and [height]{@link CommonMethod#height}:
- * > **LayoutPolicy.wrapContent**: The child component adapts to its content size and is constrained by the size of the
- * > ancestor node. **LayoutPolicy.fixAtIdealSize**: The child component adapts to its ideal content size and is not
- * > constrained by the size of the ancestor node. If **width** is set to **wrapContent** or **fixAtIdealSize**, and the
- * > child component (in the horizontal direction) directly or indirectly uses the **RelativeContainer** as its anchor,
- * > the container's horizontal size will not adapt to the child component. The same rule applies to the vertical
- * > direction.
+ * > * Since API version 11, in the **RelativeContainer** component, setting 
+ * > [width]{@link CommonMethod#width(value: Length)} and [height]{@link CommonMethod#height(value: Length)} to "auto" 
+ * > means adapting to child components. When width is set to "auto", if a child component uses the container as an 
+ * > anchor in the horizontal direction, "auto" does not take effect (that is, it is treated as if width is not set). 
+ * > The same applies to the vertical direction.
  * >
- * > * For a child component of the container,
- * > [margin]{@link CommonMethod#margin} has a different meaning from the universal attribute **margin**. It indicates
- * > the distance to the anchor in the respective direction. If there is no anchor in the respective direction,
- * > **margin** in that direction does not take effect.
+ * > * Since API version 20, in the **RelativeContainer** component, setting 
+ * > [width]{@link CommonMethod#width(widthValue: Length | LayoutPolicy)} and 
+ * > [height]{@link CommonMethod#height(heightValue: Length | LayoutPolicy)} to **LayoutPolicy.wrapContent** means 
+ * > adapting to child components while being constrained by the ancestor node size, and setting them to 
+ * > **LayoutPolicy.fixAtIdealSize** means adapting to child components without being constrained by the ancestor node 
+ * > size. When **width** is set to **wrapContent** or **fixAtIdealSize**, if a child component directly or indirectly 
+ * > uses the container as an anchor in the horizontal direction, the container size in that direction does not adapt to
+ * > that component. The same applies to the vertical direction.
  * >
- * > **Child Components**
- * >
- * > Multiple child components are supported.
+ * > * The [margin]{@link CommonMethod#margin} of a child component in **RelativeContainer** differs from the universal 
+ * > margin attribute. It refers to the distance from the child component to the anchor in that direction. For example, 
+ * > when **alignRules** sets a left anchor, **margin.left** indicates the distance from the child component to the left
+ * > anchor. If **alignRules** does not set an anchor in a certain boundary direction (for example, neither **left** nor
+ * > **right** anchor is set), the **margin** in that direction does not take effect.
+ * 
+ * ###### Child Components
+ * 
+ * Multiple child components are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]

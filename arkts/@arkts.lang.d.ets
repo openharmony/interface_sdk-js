@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Defines the language features for ArkTS
  * @kit ArkTS
  */
 

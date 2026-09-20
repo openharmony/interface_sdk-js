@@ -1442,7 +1442,7 @@ export class PromptAction {
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.0.1 dynamic
  */
 export class DialogPresenter {
   /**
@@ -1456,7 +1456,7 @@ export class DialogPresenter {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   present(options?: dialog.DialogStyleOptions): Promise<DialogResult>;
 
@@ -1480,7 +1480,7 @@ export class DialogPresenter {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   present(content: CustomBuilder | CustomBuilderWithId | ComponentContent<Object>, options?: dialog.DialogCustomOptions): Promise<DialogResult>;
 
@@ -1496,7 +1496,7 @@ export class DialogPresenter {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   update(content: ComponentContent<Object>, options?: dialog.DialogBaseOptions): Promise<void>;
 
@@ -1512,7 +1512,7 @@ export class DialogPresenter {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   dismiss(target: int | ComponentContent<Object>): Promise<void>;
 }
@@ -5199,7 +5199,7 @@ export class UIContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   getDialogPresenter(): DialogPresenter;
 
@@ -5491,9 +5491,8 @@ export class UIContext {
    * > For details about the avoidance mode of popup components, see
    * > [CustomDialogControllerOptions](docroot://reference/arkui-ts/ts-methods-custom-dialog-box.md).
    *
-   * @param { KeyboardAvoidMode } value - Avoidance mode of the virtual keyboard.<br>Default value:
-   *     **KeyboardAvoidMode.OFFSET**, which means that the page moves up when the keyboard is displayed.<br>When
-   *     **setKeyboardAvoidMode** is set to an invalid value, this attribute does not take effect.
+   * @param { KeyboardAvoidMode } value - Avoidance mode of the virtual keyboard.
+   *     <br>Default value: **KeyboardAvoidMode.OFFSET**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5504,8 +5503,13 @@ export class UIContext {
 
   /**
    * Obtains the avoidance mode of the virtual keyboard.
+   * 
+   * > **NOTE**
+   * >
+   * > Since API version 18, the **getKeyboardAvoidMode** API returns an enumeration value of **KeyboardAvoidMode**,
+   * > which is an integer. Before API version 18, the **getKeyboardAvoidMode** API returns a string.
    *
-   * @returns { KeyboardAvoidMode } Avoidance mode of the virtual keyboard.
+   * @returns { KeyboardAvoidMode } - Avoidance mode of the virtual keyboard.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5515,11 +5519,10 @@ export class UIContext {
   getKeyboardAvoidMode(): KeyboardAvoidMode;
 
   /**
-   * Sets the pixel rounding mode for this page.
+   * Sets the pixel rounding mode of the current page.
    *
    * @param { PixelRoundMode } mode - Pixel rounding mode.
-   *     Default value:**PixelRoundMode.PIXEL_ROUND_ON_LAYOUT_FINISH**.<br>If this parameter is set to an invalid value,
-   *     the default value will be used.
+   *     <br>Default value:**PixelRoundMode.PIXEL_ROUND_ON_LAYOUT_FINISH**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

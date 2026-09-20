@@ -282,7 +282,7 @@ declare namespace distributedBundleManager {
    * @syscap SystemCapability.BundleManager.DistributedBundleFramework
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function getRemoteMetadata(deviceId: string, bundleName: string): Promise<Array<ModuleMetadata>>;
 

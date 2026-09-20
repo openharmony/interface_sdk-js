@@ -938,7 +938,7 @@ export declare interface TextAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @unpublished
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
      */
     default setTextOptions(content?: string | Resource, value?: TextOptions): this;
 
@@ -1397,7 +1397,7 @@ export declare class TextController {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  */
 @Builder

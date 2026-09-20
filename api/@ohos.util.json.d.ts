@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file JSON Parsing and Generation
  * @kit ArkTS
  */
 

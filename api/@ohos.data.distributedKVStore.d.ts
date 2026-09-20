@@ -1867,7 +1867,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<void> } callback - the callback of putBatch.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
@@ -1885,7 +1885,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
@@ -1901,8 +1901,7 @@ declare namespace distributedKVStore {
      *
      * @param { Array<ValuesBucket> } value - Indicates the ValuesBucket array to be inserted.
      * @param { AsyncCallback<void> } callback - the callback of putBatch.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
@@ -1918,8 +1917,7 @@ declare namespace distributedKVStore {
      *
      * @param { Array<ValuesBucket> } value - Indicates the ValuesBucket array to be inserted.
      * @returns { Promise<void> } the promise returned by the function.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application
-     *     uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit.
@@ -1978,7 +1976,7 @@ declare namespace distributedKVStore {
      * @param { AsyncCallback<void> } callback - the callback of delete.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
@@ -1997,7 +1995,7 @@ declare namespace distributedKVStore {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 14800047 - The WAL file size exceeds the default limit. [since 10]
@@ -2297,7 +2295,7 @@ declare namespace distributedKVStore {
      * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 15100001 - Over max limits. [since 10]
@@ -2317,7 +2315,7 @@ declare namespace distributedKVStore {
      * object matching the specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 15100001 - Over max limits. [since 10]
@@ -3432,7 +3430,7 @@ declare namespace distributedKVStore {
      * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 15100001 - Over max limits. [since 10]
@@ -3452,7 +3450,7 @@ declare namespace distributedKVStore {
      * object matching the local device ID and specified {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 15100001 - Over max limits. [since 10]
@@ -3473,7 +3471,7 @@ declare namespace distributedKVStore {
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 15100001 - Over max limits. [since 10]
@@ -3494,7 +3492,7 @@ declare namespace distributedKVStore {
      * object matching the specified deviceId and {@code dataSharePredicates.DataSharePredicates} object.
      * @throws { BusinessError } 401 - Parameter error.Possible causes:1.Mandatory parameters are left unspecified;
      * <br>2.Incorrect parameters types.
-     * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
      * @throws { BusinessError } 15100001 - Over max limits. [since 10]

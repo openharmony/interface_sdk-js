@@ -655,7 +655,7 @@ interface DataReloadOperation {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   reuseImmediately?: boolean;
 }
@@ -724,7 +724,7 @@ declare interface DataChangeListener {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   onDataReloaded(reuseImmediately: boolean): void;
 

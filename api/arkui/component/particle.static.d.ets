@@ -837,7 +837,7 @@ export declare enum ParticleUpdater {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @unpublished
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
      */
     default setParticleOptions(particles: Particles): this;
     /**
@@ -1231,7 +1231,7 @@ export declare function Particle(
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  */
 @Builder
 export declare function Particle(

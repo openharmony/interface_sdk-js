@@ -1114,9 +1114,9 @@ declare namespace i18n {
      *     <br>**说明：** 
      *     <br>月份从0开始计数，0表示一月。
      * @param { int } date - 设置的日。
-     * @param { int } hour - 设置的小时。默认值：系统时间。
-     * @param { int } minute - 设置的分钟。默认值：系统时间。
-     * @param { int } second - 设置的秒。默认值：系统时间。
+     * @param { int } [hour] - 设置的小时。默认值：系统时间。
+     * @param { int } [minute] - 设置的分钟。默认值：系统时间。
+     * @param { int } [second] - 设置的秒。默认值：系统时间。
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
@@ -2257,7 +2257,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     latitude: double;
  
@@ -2267,7 +2267,7 @@ declare namespace i18n {
      * @syscap SystemCapability.Global.I18n
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     longitude: double;
 

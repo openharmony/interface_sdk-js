@@ -132,7 +132,7 @@ export declare interface UnionEffectContainerAttribute extends CommonMethod {
      * @systemapi
      * @unpublished
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
      */
     default setUnionEffectContainerOptions(options?: UnionEffectContainerOptions): this;
 }
@@ -165,7 +165,7 @@ export declare function UnionEffectContainer(
  * @systemapi
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  */
 @Builder
 export declare function UnionEffectContainer(

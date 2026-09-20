@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 选择器
  * @kit CoreFileKit
  */
 

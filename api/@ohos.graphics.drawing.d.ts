@@ -1979,7 +1979,7 @@ declare namespace drawing {
    * Describes a list of recorded drawing commands.
    * @syscap SystemCapability.Graphics.Drawing
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface RecordCmd { }
 
@@ -1987,7 +1987,7 @@ declare namespace drawing {
    * This class offers a set of operations to generate drawing commands.
    * @syscap SystemCapability.Graphics.Drawing
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   class RecordCmdUtils {
     /**
@@ -2005,7 +2005,7 @@ declare namespace drawing {
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     beginRecording(width: number, height: number): Canvas;
 
@@ -2024,7 +2024,7 @@ declare namespace drawing {
      * @throws { BusinessError } 25900001 - Parameter error. Possible causes: Incorrect parameter range.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     beginRecording(width: int, height: int): Canvas | undefined;
 
@@ -2033,7 +2033,7 @@ declare namespace drawing {
      * @returns { RecordCmd } Returns the recorded drawing commands.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     finishRecording(): RecordCmd;
 
@@ -2043,7 +2043,7 @@ declare namespace drawing {
      * @returns { RecordCmd | undefined } Returns the recorded drawing commands.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     finishRecording(): RecordCmd | undefined;
 
@@ -2052,7 +2052,7 @@ declare namespace drawing {
      * @returns { int } Returns the height of recording canvas.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     getHeight(): int;
 
@@ -2061,7 +2061,7 @@ declare namespace drawing {
      * @returns { int } Returns the width of recording canvas.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     getWidth(): int;
   }
@@ -2653,7 +2653,7 @@ declare namespace drawing {
      * @param { RecordCmd } recordCmd - Recorded drawing command.
      * @syscap SystemCapability.Graphics.Drawing
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     drawRecordCmd(recordCmd: RecordCmd): void;
 

@@ -66,7 +66,7 @@ export declare struct AlbumPickerComponent {
    * @type { ?AlbumPickerController }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   albumPickerController?: AlbumPickerController;
 

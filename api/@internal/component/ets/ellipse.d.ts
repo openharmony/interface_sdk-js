@@ -20,12 +20,12 @@
 
 /**
  * Describes the options of the ellipse.
- *
+ * 
  * > **NOTE**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer
- * > element's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
+ * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -36,10 +36,15 @@
  */
 interface EllipseOptions {
   /**
-   * Width.
-   * Unit: vp, The value must be greater than or equal to 0. The **undefined**, **null**, **NaN**, and
-   * **Infinity** values are invalid and treated as the default value.
-   * The Resource type is supported since API version 20. Default value: **0**.
+   * Width, with the value range ≥ 0.
+   * 
+   * Default value: **0**
+   * 
+   * Default unit: vp
+   * 
+   * Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled as the default value.
+   * 
+   * The Resource type is supported since API version 20.
    *
    * @type { ?(string | number) } [since 7 - 19]
    * @type { ?Length } [since 20]
@@ -53,10 +58,15 @@ interface EllipseOptions {
   width?: Length;
 
   /**
-   * Height.
-   * Unit: vp, The value must be greater than or equal to 0. The **undefined**, **null**, **NaN**, and **Infinity**
-   * values are invalid and treated as the default value.
-   * The Resource type is supported since API version 20. Default value: **0**.
+   * Height, with the value range ≥ 0.
+   * 
+   * Default value: **0**
+   * 
+   * Default unit: vp
+   * 
+   * Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled as the default value.
+   * 
+   * The Resource type is supported since API version 20.
    *
    * @type { ?(string | number) } [since 7 - 19]
    * @type { ?Length } [since 20]
@@ -71,7 +81,8 @@ interface EllipseOptions {
 }
 
 /**
- * Ellipse drawing.
+ * The **Ellipse** component is used to draw an ellipse. It draws an ellipse shape by setting the width and height 
+ * attributes, rendering the ellipse outline and fill area within a given rectangular region.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -83,11 +94,15 @@ interface EllipseOptions {
  */
 interface EllipseInterface {
   /**
-   * use new function to set the value.
-   * Anonymous Object Rectification.
+   * Constructor used to draw an ellipse. After being called, it creates an **Ellipse** object, for which the width
+   * and height attributes can be set.
    *
    * @param { object } value [since 7 - 17]
-   * @param { EllipseOptions } [options] - ellipse options [since 18]
+   * @param { EllipseOptions } [options] - Ellipse drawing configuration options, including the width and height
+   *     settings. If not passed, the default size (both width and height are 0) is used.
+   *     <br>The abnormal values **undefined** and **null** are handled as invalid values, and this setting does not
+   *     take effect.
+   *     <br>**Note:** Since API version 18, the **EllipseOptions** parameter must be used in the stage model. [since 18]
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -99,11 +114,15 @@ interface EllipseInterface {
   new (options?: EllipseOptions): EllipseAttribute;
 
   /**
-   * Set the value.
-   * 
+   * Constructor used to draw an ellipse. After being called, it creates an **Ellipse** object, for which the width and 
+   * height attributes can be set.
+   *
    * @param { object } value [since 7 - 17]
-   * @param { EllipseOptions } [options] - Options of the ellipse.<br>The **undefined** and **null** values are treated
-   *     as invalid and will not take effect. [since 18]
+   * @param { EllipseOptions } [options] - Ellipse drawing configuration options, including the width and height
+   *     settings. If not passed, the default size (both width and height are 0) is used.
+   *     <br>The abnormal values **undefined** and **null** are handled as invalid values, and the setting does not
+   *     take effect.
+   *     <br>**Note:** Since API version 18, the EllipseOptions parameter must be used in the stage model. [since 18]
    * @returns { EllipseAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -116,7 +135,8 @@ interface EllipseInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
+ * The [universal attributes]{@link CommonMethod} and [universal attributes for drawing components]{@link CommonMethod} are 
+ * supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -129,10 +149,12 @@ interface EllipseInterface {
 declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
 
 /**
- * The **Ellipse** component is used to draw an ellipse.
- * > **Child Components**
- * >
- * > None
+ * The **Ellipse** component is used to draw an ellipse. It draws an ellipse shape by setting the width and height 
+ * attributes, rendering the ellipse outline and fill area within a given rectangular region.
+ * 
+ * ###### Child Components
+ * 
+ * None
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

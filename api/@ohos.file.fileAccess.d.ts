@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file User File Access and Management
  * @kit CoreFileKit
  */
 

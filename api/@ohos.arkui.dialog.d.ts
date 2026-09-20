@@ -25,7 +25,7 @@
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.0.1 dynamic
  */
 declare namespace dialog {
   /**
@@ -35,7 +35,7 @@ declare namespace dialog {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   declare interface DialogTextStyleOptions {
     /**
@@ -45,7 +45,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     wordBreak?: WordBreak;
   }
@@ -57,7 +57,7 @@ declare namespace dialog {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   declare interface DialogButton {
     /**
@@ -67,7 +67,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     value: ResourceStr;
 
@@ -78,7 +78,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     fontColor?: ResourceColor;
 
@@ -89,7 +89,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     backgroundColor?: ResourceColor;
 
@@ -101,7 +101,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     enabled?: boolean;
 
@@ -112,7 +112,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     primary?: boolean;
 
@@ -124,7 +124,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     style?: DialogButtonStyle;
 
@@ -135,7 +135,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     action: VoidCallback;
   }
@@ -147,7 +147,7 @@ declare namespace dialog {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   declare interface DialogSheet {
     /**
@@ -157,7 +157,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     title: ResourceStr;
 
@@ -168,7 +168,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     icon?: ResourceStr;
 
@@ -179,7 +179,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     action: VoidCallback;
   }
@@ -191,7 +191,7 @@ declare namespace dialog {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   declare interface DialogBaseOptions {
     /**
@@ -201,7 +201,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     controller?: DialogBaseController;
 
@@ -212,7 +212,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     width?: Dimension;
 
@@ -223,7 +223,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     height?: Dimension;
 
@@ -236,7 +236,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     backgroundColor?: ResourceColor;
 
@@ -249,7 +249,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     backgroundBlurStyle?: BlurStyle;
 
@@ -260,7 +260,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
@@ -271,7 +271,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     backgroundEffect?: BackgroundEffectOptions;
 
@@ -283,7 +283,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     borderRadius?: Dimension | BorderRadiuses | LocalizedBorderRadiuses;
 
@@ -295,7 +295,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
 
@@ -307,7 +307,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
 
@@ -319,7 +319,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     borderStyle?: BorderStyle | EdgeStyles;
 
@@ -330,7 +330,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     shadow?: ShadowOptions | ShadowStyle;
 
@@ -341,7 +341,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     alignment?: DialogBaseAlignment;
 
@@ -352,7 +352,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     offset?: Offset;
 
@@ -364,7 +364,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     maskRect?: Rectangle;
 
@@ -375,7 +375,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     maskColor?: ResourceColor;
 
@@ -387,7 +387,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     isModal?: boolean;
 
@@ -400,7 +400,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     showInSubWindow?: boolean;
 
@@ -412,7 +412,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     displayModeInSubWindow?: DialogDisplayMode;
 
@@ -424,7 +424,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     autoCancel?: boolean;
 
@@ -436,7 +436,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     focusable?: boolean;
 
@@ -447,7 +447,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     dialogTransition?: TransitionEffect;
 
@@ -458,7 +458,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     maskTransition?: TransitionEffect;
 
@@ -470,7 +470,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     keyboardAvoidMode?: KeyboardAvoidMode;
 
@@ -481,7 +481,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     keyboardAvoidDistance?: LengthMetrics;
 
@@ -492,7 +492,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     onWillAppear?: VoidCallback;
 
@@ -503,7 +503,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     onDidAppear?: VoidCallback;
 
@@ -514,7 +514,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     onWillDisappear?: VoidCallback;
 
@@ -525,7 +525,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     onDidDisappear?: VoidCallback;
 
@@ -539,7 +539,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     onWillDismiss?: Callback<DialogDismissal>;
 
@@ -551,7 +551,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     enableHoverMode?: boolean;
 
@@ -563,7 +563,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     hoverModeArea?: HoverModeAreaType;
 
@@ -575,7 +575,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     levelMode?: LevelMode;
 
@@ -588,7 +588,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     levelUniqueId?: int;
 
@@ -600,7 +600,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     immersiveMode?: ImmersiveMode;
 
@@ -612,7 +612,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     levelOrder?: LevelOrder;
 
@@ -624,7 +624,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     systemMaterial?: SystemUiMaterial;
 
@@ -635,7 +635,7 @@ declare namespace dialog {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     distortionMode?: DistortionMode;
 
@@ -646,7 +646,7 @@ declare namespace dialog {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     edgeLightMode?: EdgeLightMode;
   }
@@ -658,7 +658,7 @@ declare namespace dialog {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   declare interface DialogMessage extends DialogTextStyleOptions {
     /**
@@ -668,7 +668,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     content: ResourceStr;
   }
@@ -680,7 +680,7 @@ declare namespace dialog {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   declare interface DialogStyleOptions extends DialogBaseOptions {
     /**
@@ -690,7 +690,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     title?: ResourceStr;
 
@@ -701,7 +701,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     subtitle?: ResourceStr;
 
@@ -712,7 +712,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     message?: DialogMessage;
 
@@ -725,7 +725,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     buttons?: Array<DialogButton>;
 
@@ -737,7 +737,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     buttonDirection?: DialogButtonOrientation;
 
@@ -749,7 +749,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     sheets?: Array<DialogSheet>;
 
@@ -761,7 +761,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     gridCount?: int;
   }
@@ -775,7 +775,7 @@ declare namespace dialog {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   declare interface DialogCustomOptions extends DialogBaseOptions {
     /**
@@ -786,7 +786,7 @@ declare namespace dialog {
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
-     * @since 26.1.0 dynamic
+     * @since 26.0.1 dynamic
      */
     customStyle?: boolean;
   }
@@ -799,7 +799,7 @@ declare namespace dialog {
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.0.1 dynamic
  */
 export class DialogBaseController {
   /**
@@ -809,7 +809,7 @@ export class DialogBaseController {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   constructor();
 
@@ -820,7 +820,7 @@ export class DialogBaseController {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   close(): void;
 
@@ -832,7 +832,7 @@ export class DialogBaseController {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   getState(): DialogState;
 }
@@ -844,7 +844,7 @@ export class DialogBaseController {
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.0.1 dynamic
  */
 export enum DialogBaseAlignment {
   /**
@@ -854,7 +854,7 @@ export enum DialogBaseAlignment {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   TOP = 0,
   /**
@@ -864,7 +864,7 @@ export enum DialogBaseAlignment {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   CENTER = 1,
   /**
@@ -874,7 +874,7 @@ export enum DialogBaseAlignment {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   BOTTOM = 2,
   /**
@@ -884,7 +884,7 @@ export enum DialogBaseAlignment {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   DEFAULT = 3,
   /**
@@ -894,7 +894,7 @@ export enum DialogBaseAlignment {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   TOP_START = 4,
   /**
@@ -904,7 +904,7 @@ export enum DialogBaseAlignment {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   TOP_END = 5,
   /**
@@ -914,7 +914,7 @@ export enum DialogBaseAlignment {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   CENTER_START = 6,
   /**
@@ -924,7 +924,7 @@ export enum DialogBaseAlignment {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   CENTER_END = 7,
   /**
@@ -934,7 +934,7 @@ export enum DialogBaseAlignment {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   BOTTOM_START = 8,
   /**
@@ -944,7 +944,7 @@ export enum DialogBaseAlignment {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   BOTTOM_END = 9
 }
@@ -956,7 +956,7 @@ export enum DialogBaseAlignment {
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.0.1 dynamic
  */
 export enum DialogButtonOrientation {
   /**
@@ -967,7 +967,7 @@ export enum DialogButtonOrientation {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   AUTO = 0,
   /**
@@ -977,7 +977,7 @@ export enum DialogButtonOrientation {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   HORIZONTAL = 1,
   /**
@@ -987,7 +987,7 @@ export enum DialogButtonOrientation {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   VERTICAL = 2
 }
@@ -999,7 +999,7 @@ export enum DialogButtonOrientation {
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.0.1 dynamic
  */
 export enum DialogState {
   /**
@@ -1009,7 +1009,7 @@ export enum DialogState {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   UNINITIALIZED = 0,
   /**
@@ -1019,7 +1019,7 @@ export enum DialogState {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   INITIALIZED = 1,
   /**
@@ -1029,7 +1029,7 @@ export enum DialogState {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   APPEARING = 2,
   /**
@@ -1039,7 +1039,7 @@ export enum DialogState {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   APPEARED = 3,
   /**
@@ -1049,7 +1049,7 @@ export enum DialogState {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   DISAPPEARING = 4,
   /**
@@ -1059,7 +1059,7 @@ export enum DialogState {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   DISAPPEARED = 5
 }
@@ -1071,7 +1071,7 @@ export enum DialogState {
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.0.1 dynamic
  */
 export interface DialogResult {
   /**
@@ -1082,7 +1082,7 @@ export interface DialogResult {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   dialogId: int;
 }
@@ -1094,7 +1094,7 @@ export interface DialogResult {
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.0.1 dynamic
  */
 export interface DialogDismissal {
   /**
@@ -1104,18 +1104,18 @@ export interface DialogDismissal {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   dismiss: VoidCallback;
 
   /**
-   * Reason why the dialog box cannot be dismissed.
+   * Types of reasons triggering the dialog box close action.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   reason: DismissReason;
 }

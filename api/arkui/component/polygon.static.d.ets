@@ -78,7 +78,7 @@ export declare interface PolygonAttribute extends CommonShapeMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @unpublished
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
  	 */
  	default setPolygonOptions(options?: PolygonOptions): this;
     /**
@@ -116,7 +116,7 @@ export declare function Polygon(
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  */
 @Builder

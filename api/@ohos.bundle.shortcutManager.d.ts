@@ -99,7 +99,7 @@ declare namespace shortcutManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function updateDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: int): Promise<void>;
 

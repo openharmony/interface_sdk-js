@@ -19,9 +19,9 @@
  */
 
 /**
- * Defines the size type.
+ * Enumerates device width types, used to distinguish device types of different widths in the grid layout to implement 
+ * responsive layout.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7 dynamiconly
  * @deprecated since 9
@@ -29,7 +29,7 @@
  */
 declare enum SizeType {
   /**
-   * Select a value based on the device type.
+   * Automatically matches the appropriate size type based on the device width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -39,7 +39,7 @@ declare enum SizeType {
   Auto,
 
   /**
-   * Extra Small width type device.
+   * Device with minimum width. Width ≤320 vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -49,7 +49,7 @@ declare enum SizeType {
   XS,
 
   /**
-   * Small width type device.
+   * Device with small width. Width 320 vp–600 vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -59,7 +59,7 @@ declare enum SizeType {
   SM,
 
   /**
-   * Medium width type device.
+   * Device with medium width. Width 600 vp–840 vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -69,7 +69,7 @@ declare enum SizeType {
   MD,
 
   /**
-   * Large width type device.
+   * Device with large width. Width ≥840 vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -80,9 +80,9 @@ declare enum SizeType {
 }
 
 /**
- * Defines the options of GridContainer.
+ * Defines the grid layout container configuration parameter object, used to set the number of columns, device width 
+ * type, gutter, and margin for the **GridContainer** component.
  *
- * @interface GridContainerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7 dynamiconly
  * @deprecated since 9
@@ -90,9 +90,13 @@ declare enum SizeType {
  */
 declare interface GridContainerOptions {
   /**
-   * Sets the total number of columns in the current layout.
+   * Total number of columns in the current layout. If set to a number, it must be a positive integer. When set to a 
+   * number, a fixed-column layout is used. When set to **'auto'**, the system automatically determines the number of 
+   * columns based on the device width type (XS: 2 columns, SM: 4 columns, MD: 8 columns, LG: 12 columns). If **0** or a
+   * negative number is passed, it is treated as not set, and the system automatically determines the number of columns.
+   * 
+   * Default value: **'auto'**
    *
-   * @type { ?(number | "auto") }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -101,9 +105,10 @@ declare interface GridContainerOptions {
   columns?: number | "auto";
 
   /**
-   * Select the device width type.
+   * Device width type for responsive layout.
+   * 
+   * Default value: **SizeType.Auto**
    *
-   * @type { ?SizeType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -112,7 +117,9 @@ declare interface GridContainerOptions {
   sizeType?: SizeType;
 
   /**
-   * Grid layout column spacing.
+   * Gutter of the grid layout. Percentage values are not supported. When the type is number, the default unit is vp, 
+   * with a value range of 
+   * [0, +∞). If not set, it is automatically determined based on the device width type: 12 vp for XS, and 24 vp for SM, MD, and LG.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -123,7 +130,9 @@ declare interface GridContainerOptions {
   gutter?: number | string;
 
   /**
-   * Spacing on both sides of the grid layout.
+   * Margin on both sides of the grid layout. Percentage values are not supported. When the type is number, the default 
+   * unit is vp, with a value range of 
+   * [0, +∞). If not set, it is automatically determined based on the device width type: 12 vp for XS, 24 vp for SM, 32 vp for MD, and 48 vp for LG.
    *
    * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -135,7 +144,18 @@ declare interface GridContainerOptions {
 }
 
 /**
- * Defines the GridContainer component.
+ * A vertical grid layout container, used only in grid layout scenarios. The grid layout implements responsive layout by
+ * dividing the container width into a specified number of columns, allowing child components to occupy different 
+ * numbers of columns and offsets. It is suitable for responsive page layouts, multi-column content display, dashboard 
+ * layouts, and other scenarios.
+ * 
+ * > **NOTE**
+ * >
+ * > This component is deprecated since API version 9. You are advised to use the new components 
+ * > [GridCol]{@link ./grid_col} and [GridRow]{@link ./grid_row} instead.
+ * >
+ * > This component is supported since API version 7. New APIs added in later versions are marked with superscripts to 
+ * > indicate their starting version.
  *
  * @interface GridContainerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -145,9 +165,11 @@ declare interface GridContainerOptions {
  */
 interface GridContainerInterface {
   /**
-   * Defines the constructor of GridContainer.
+   * Creates a vertical grid layout container.
    *
-   * @param { GridContainerOptions } value
+   * @param { GridContainerOptions } value - Configuration parameter of **GridContainer**, used to set the number of
+   *     columns, device width type, gutter, and margin of the grid layout. If not passed, the default configuration is
+   *     used.
    * @returns { GridContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -158,7 +180,10 @@ interface GridContainerInterface {
 }
 
 /**
- * Defines the grid container attribute from inheritance Column
+ * The [universal attributes]{@link CommonMethod} and attributes of the 
+ * [Column](docroot://reference/apis-arkui/arkui-ts/ts-container-column.md#attributes) component are supported.
+ * 
+ * The [universal events]{@link CommonMethod} are supported.
  *
  * @extends ColumnAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -169,7 +194,22 @@ interface GridContainerInterface {
 declare class GridContainerAttribute extends ColumnAttribute {}
 
 /**
- * Defines GridContainer Component.
+ * A vertical grid layout container, used only in grid layout scenarios. The grid layout implements responsive layout by
+ * dividing the container width into a specified number of columns, allowing child components to occupy different 
+ * numbers of columns and offsets. It is suitable for responsive page layouts, multi-column content display, dashboard 
+ * layouts, and other scenarios.
+ * 
+ * > **NOTE**
+ * >
+ * > This component is deprecated since API version 9. You are advised to use the new components 
+ * > [GridCol]{@link ./grid_col} and [GridRow]{@link ./grid_row} instead.
+ * >
+ * > This component is supported since API version 7. New APIs added in later versions are marked with superscripts to 
+ * > indicate their starting version.
+ * 
+ * ###### Child Components
+ * 
+ * Supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 7 dynamiconly

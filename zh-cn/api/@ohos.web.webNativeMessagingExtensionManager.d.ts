@@ -14,7 +14,7 @@
  */
 
 /**
-  * @file
+  * @file Web原生消息扩展管理模块
   * @kit ArkWeb
  */
 

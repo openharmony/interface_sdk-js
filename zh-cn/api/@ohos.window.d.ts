@@ -123,7 +123,7 @@ declare namespace window {
    * 窗口类型枚举。
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 12]
    * @since 7 dynamic
    * @since 23 static
@@ -304,7 +304,7 @@ declare namespace window {
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @systemapi Hide this for inner system use.
      * @StageModelOnly
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1173,7 +1173,7 @@ declare namespace window {
    * 窗口矩形区域，单位为vp。
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 23 dynamic&static
    */
   interface RectInVP {
@@ -1182,7 +1182,7 @@ declare namespace window {
      * 矩形区域的左边界值，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1192,7 +1192,7 @@ declare namespace window {
      * 矩形区域的上边界值，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1202,7 +1202,7 @@ declare namespace window {
      * 矩形区域的宽度，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1212,7 +1212,7 @@ declare namespace window {
      * 矩形区域的高度，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1513,7 +1513,7 @@ declare namespace window {
    * 以vp为单位表示的窗口避让区域信息，在进行[沉浸式布局](docroot://windowmanager/window-terminology.md#immersive-layout沉浸式布局)适配时需关注。
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 23 dynamic&static
    */
   interface UIEnvAvoidAreaVP {
@@ -1529,7 +1529,7 @@ declare namespace window {
      * 中心位于窗口的两条对角线的左侧的矩形区，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     leftRect: RectInVP;
@@ -1538,7 +1538,7 @@ declare namespace window {
      * 中心位于窗口的两条对角线的顶部的矩形区，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     topRect: RectInVP;
@@ -1547,7 +1547,7 @@ declare namespace window {
      * 中心位于窗口的两条对角线的右侧的矩形区，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     rightRect: RectInVP;
@@ -1556,7 +1556,7 @@ declare namespace window {
      * 中心位于窗口的两条对角线的底部的矩形区，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     bottomRect: RectInVP;
@@ -1599,7 +1599,7 @@ declare namespace window {
    * 窗口大小，单位为vp。
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 23 dynamic&static
    */
   interface SizeInVP {
@@ -1607,7 +1607,7 @@ declare namespace window {
      * 窗口宽度，单位为vp，该参数为浮点数。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1617,7 +1617,7 @@ declare namespace window {
      * 窗口高度，单位为vp，该参数为浮点数。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @stagemodelonly
      * @since 23 dynamic&static
      */
@@ -1733,7 +1733,7 @@ declare namespace window {
    * 窗口所在显示设备和窗口自定义的显示密度信息，是与像素单位无关的缩放系数，即显示大小缩放系数。
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 15 dynamic
    * @since 23 static
@@ -1743,7 +1743,7 @@ declare namespace window {
      * 窗口所在屏幕的系统显示大小缩放系数，跟随用户设置变化，该参数变化范围为0.5-4.0。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -1754,7 +1754,7 @@ declare namespace window {
      * 窗口所在屏幕的系统默认显示大小缩放系数，跟随窗口所在屏幕变化，该参数变化范围为0.5-4.0。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -1765,7 +1765,7 @@ declare namespace window {
      * 窗口自定义设置的显示大小缩放系数，该参数取值范围为0.5-4.0。未设置该参数时，将跟随系统显示大小缩放系数变化。该参数仅主窗口生效，在子窗或系统窗口上等于系统显示大小缩放系数(systemDensity)。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -2338,7 +2338,7 @@ declare namespace window {
    * 创建子窗口或系统窗口时的参数。
    *
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -2348,7 +2348,7 @@ declare namespace window {
      * 窗口名称。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -2359,7 +2359,7 @@ declare namespace window {
      * 窗口类型。
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -2370,7 +2370,7 @@ declare namespace window {
      * 当前应用上下文信息。不设置，则默认为空。<br>FA模型下不需要使用该参数，即可创建子窗口，使用该参数时会报错。<br>Stage模型必须使用该参数，用于创建全局悬浮窗、模态窗或系统窗口。 <br>
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -2651,7 +2651,7 @@ declare namespace window {
    * 窗口不同类型避让区域信息组成的[环境变量](docroot://ui/arkts-env-system-property.md)数据类型，每种类型避让区域单位为px。
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 23 dynamic&static
    */
   interface UIEnvWindowAvoidAreaInfoPX {
@@ -2659,7 +2659,7 @@ declare namespace window {
      * 表示[AvoidAreaType]{@link @ohos.window:window.AvoidAreaType}为TYPE_SYSTEM类型的避让区域，单位为px。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     statusBar: AvoidArea;
@@ -2668,7 +2668,7 @@ declare namespace window {
      * 表示[AvoidAreaType]{@link @ohos.window:window.AvoidAreaType}为TYPE_CUTOUT类型的避让区域，单位为px。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     cutout: AvoidArea;
@@ -2677,7 +2677,7 @@ declare namespace window {
      * 表示[AvoidAreaType]{@link @ohos.window:window.AvoidAreaType}为TYPE_KEYBOARD类型的避让区域，单位为px。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     keyboard: AvoidArea;
@@ -2686,7 +2686,7 @@ declare namespace window {
      * 表示[AvoidAreaType]{@link @ohos.window:window.AvoidAreaType}为TYPE_NAVIGATION_INDICATOR类型的避让区域，单位为px。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     navigationIndicator: AvoidArea;
@@ -2696,7 +2696,7 @@ declare namespace window {
    * 窗口不同类型避让区域信息组成的[环境变量](docroot://ui/arkts-env-system-property.md)数据类型，每种类型避让区域单位为vp。
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 23 dynamic&static
    */
   interface UIEnvWindowAvoidAreaInfoVP {
@@ -2704,7 +2704,7 @@ declare namespace window {
      * 表示[AvoidAreaType]{@link @ohos.window:window.AvoidAreaType}为TYPE_SYSTEM类型的避让区域，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     statusBar: UIEnvAvoidAreaVP;
@@ -2713,7 +2713,7 @@ declare namespace window {
      * 表示[AvoidAreaType]{@link @ohos.window:window.AvoidAreaType}为TYPE_CUTOUT类型的避让区域，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     cutout: UIEnvAvoidAreaVP;
@@ -2722,7 +2722,7 @@ declare namespace window {
      * 表示[AvoidAreaType]{@link @ohos.window:window.AvoidAreaType}为TYPE_KEYBOARD类型的避让区域，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     keyboard: UIEnvAvoidAreaVP;
@@ -2731,7 +2731,7 @@ declare namespace window {
      * 表示[AvoidAreaType]{@link @ohos.window:window.AvoidAreaType}为TYPE_NAVIGATION_INDICATOR类型的避让区域，单位为vp。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 23 dynamic&static
      */
     navigationIndicator: UIEnvAvoidAreaVP;
@@ -2942,7 +2942,7 @@ declare namespace window {
    * @throws { BusinessError } 1300008 - The display device is abnormal. [since 9 - 16]
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -2977,7 +2977,7 @@ declare namespace window {
    * @throws { BusinessError } 1300008 - The display device is abnormal. [since 9 - 16]
    * @throws { BusinessError } 1300009 - The parent window is invalid.
    * @syscap SystemCapability.WindowManager.WindowManager.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 12]
    * @since 9 dynamic
    * @since 23 static
@@ -6267,7 +6267,7 @@ declare namespace window {
      *     Possible cause: 1. The window is not created or destroyed;
      *     2. Internal task error.
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 15 dynamic
      * @since 23 static
@@ -7307,7 +7307,7 @@ declare namespace window {
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -9594,7 +9594,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -9614,7 +9614,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 9 dynamic
      * @since 23 static
@@ -12021,7 +12021,7 @@ declare namespace window {
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The window is not created or destroyed.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -12601,7 +12601,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 11 dynamic
      * @since 23 static
@@ -12612,7 +12612,7 @@ declare namespace window {
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 11 dynamic
      * @since 23 static
@@ -12671,7 +12671,7 @@ declare namespace window {
    * 子窗口模态类型枚举。
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 14 dynamic
    * @since 23 static
@@ -12681,7 +12681,7 @@ declare namespace window {
      * 当仅需要其父级窗口不响应用户操作时，可选此参数。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -12727,7 +12727,7 @@ declare namespace window {
    * 子窗口创建参数。
    *
    * @syscap SystemCapability.Window.SessionManager
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 12]
    * @since 11 dynamic
    * @since 23 static
@@ -12737,7 +12737,7 @@ declare namespace window {
      * 子窗口标题。标题显示区域最右端不超过系统三键区域最左端，超过部分以省略号表示。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 11 dynamic
      * @since 23 static
@@ -12747,7 +12747,7 @@ declare namespace window {
      * 子窗口是否显示装饰。true表示子窗口显示装饰，false表示子窗口不显示装饰。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 11 dynamic
      * @since 23 static
@@ -12757,7 +12757,7 @@ declare namespace window {
      * 子窗口是否启用模态属性。true表示子窗口启用模态属性，false表示子窗口禁用模态属性。不设置，则默认为false。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -12776,7 +12776,7 @@ declare namespace window {
      * 子窗口模态类型，仅当子窗口启用模态属性时生效。不设置，则默认为WINDOW_MODALITY。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 14 dynamic
      * @since 23 static
@@ -12789,7 +12789,7 @@ declare namespace window {
      * top: 0, width: 0, height: 0}。具体参考[设置应用子窗口](docroot://windowmanager/application-window-stage.md#设置应用子窗口)开发指南。
      *
      * @syscap SystemCapability.Window.SessionManager
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice
      * @since 18 dynamic
      * @since 23 static
@@ -12963,7 +12963,7 @@ declare namespace window {
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
      * @StageModelOnly
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @atomicservice [since 12]
      * @since 11 dynamic
      * @since 23 static

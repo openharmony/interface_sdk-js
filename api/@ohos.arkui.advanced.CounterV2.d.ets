@@ -19,7 +19,7 @@
  */
 
 /**
- * Enum for the CounterV2 type.
+ * Specifies the **CounterV2** type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29,7 +29,7 @@
  */
 declare enum CounterV2Type {
     /**
-     * List counter.
+     * List **CounterV2**.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -40,7 +40,7 @@ declare enum CounterV2Type {
     LIST = 0,
 
     /**
-     * Compact counter.
+     * Compact **CounterV2**.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -51,7 +51,7 @@ declare enum CounterV2Type {
     COMPACT = 1,
 
     /**
-     * Inline counter.
+     * Inline number **CounterV2**.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -62,7 +62,7 @@ declare enum CounterV2Type {
     INLINE = 2,
 
     /**
-     * Date inline counter.
+     * Inline date **CounterV2**.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -74,9 +74,10 @@ declare enum CounterV2Type {
 }
 
 /**
- * The hover callback of CounterV2.
+ * Defines the mouse hover callback type for the **CounterV2** component.
  *
- * @param { boolean } isHover - isHover
+ * @param { boolean } isHover - Whether the mouse is hovering over the component.
+ *     The value is **true** when the mouse enters and **false** when it leaves.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -86,7 +87,7 @@ declare enum CounterV2Type {
 export type OnCounterV2HoverCallback = (isHover: boolean) => void;
 
 /**
- * Defines the common options.
+ * Defines the common attributes and events of the **CounterV2** component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -96,7 +97,18 @@ export type OnCounterV2HoverCallback = (isHover: boolean) => void;
  */
 declare class CounterV2CommonOptions {
     /**
-     * Set the focusable of the counter component.
+     * Whether **CounterV2** can obtain focus.
+     *
+     * **NOTE**
+     *
+     * This attribute takes effect for the list and compact **CounterV2**, but not for the inline number and inline
+     * date **CounterV2**.
+     *
+     * Default value: **true**
+     *
+     * **true**: **CounterV2** can obtain focus; **false**: **CounterV2** cannot obtain focus.
+     *
+     * When the value is **undefined**, the default value is used.
      *
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -108,7 +120,20 @@ declare class CounterV2CommonOptions {
     focusable?: boolean;
 
     /**
-     * Set the step of the counter component, ranges greater than or equal to 1
+     * Step of **CounterV2**.
+     *
+     * **NOTE**
+     *
+     * This attribute takes effect for the list, compact Type, and inline number **CounterV2**, but not for the
+     * inline date **CounterV2**.
+     *
+     * Value range: an integer greater than or equal to 1.
+     *
+     * Default value: **1**
+     *
+     * If the value is out of the value range, the default value is used.
+     *
+     * When the value is **undefined**, the default value is used.
      *
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -120,7 +145,19 @@ declare class CounterV2CommonOptions {
     step?: int;
 
     /**
-     * Trigger a mouse hover event at the increase button.
+     * Callback triggered when the mouse enters or leaves the increase button of the **CounterV2** component.
+     *
+     * Use scenario: Pass in this callback when you need to perform custom operations (such as changing button
+     * styles and displaying tooltips) when hovering over the increase button.
+     *
+     * **NOTE**
+     *
+     * This attribute takes effect for the list, compact, and inline number **CounterV2**, but not for the inline
+     * date **CounterV2**.
+     *
+     * Default value: **undefined**, indicating that this callback is not triggered.
+     *
+     * When the value is **undefined**, the default value is used.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -131,7 +168,19 @@ declare class CounterV2CommonOptions {
     onHoverIncrease?: OnCounterV2HoverCallback;
 
     /**
-     * Trigger a mouse hover event at the decrease button.
+     * Callback triggered when the mouse enters or leaves the decrease button of the **CounterV2** component.
+     *
+     * Use scenario: Pass in this callback when you need to perform custom operations (such as changing button
+     * styles and displaying tooltips) when hovering over the decrease button.
+     *
+     * **NOTE**
+     *
+     * This attribute takes effect for the list, compact, and inline number **CounterV2**, but not for the inline
+     * date **CounterV2**.
+     *
+     * Default value: **undefined**, indicating that this callback is not triggered.
+     *
+     * When the value is **undefined**, the default value is used.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -143,10 +192,11 @@ declare class CounterV2CommonOptions {
 }
 
 /**
- * The change callback of the inline CounterV2.
+ * Defines the callback for the value change of the inline number **CounterV2**.
  *
- * @param { int } value - value.
- *     <br>The value should be an integer.
+ * @param { int } value - Current value.
+ *     Value range: [min, max], where **min** and **max** correspond to the minimum and maximum values of
+ *     **CounterV2**, respectively.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -156,7 +206,11 @@ declare class CounterV2CommonOptions {
 export type OnInlineCounterV2Change = (value: int) => void;
 
 /**
- * Defines the inline style options.
+ * Defines the attributes and events of the inline number **CounterV2**.
+ *
+ * > **NOTE**
+ * >
+ * > **min** must be less than or equal to **max**. If **min** is greater than **max**, **max** is used.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -166,7 +220,17 @@ export type OnInlineCounterV2Change = (value: int) => void;
  */
 declare class CounterV2InlineStyleOptions extends CounterV2CommonOptions {
     /**
-     * Set initial value of the counter component, ranges from min to max.
+     * Initial value of **CounterV2**.
+     *
+     * Default value: **0**
+     *
+     * Valid value range: [min, max], where **min** and **max** correspond to the minimum and maximum values of
+     * **CounterV2**, respectively.
+     *
+     * If the value is **undefined**, the default value is used.
+     *
+     * Boundary handling: If value is less than **min**, **min** is used. If value is greater than **max**, **max**
+     * is used.
      *
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -178,7 +242,15 @@ declare class CounterV2InlineStyleOptions extends CounterV2CommonOptions {
     value?: int;
 
     /**
-     * Set minimum value of the counter component
+     * Minimum value of **CounterV2**.
+     *
+     * Default value: **0**
+     *
+     * Value range: (-∞, max]
+     *
+     * If the value exceeds the range (that is, the set value is greater than **max**), **max** is used.
+     *
+     * If the value is **undefined**, the default value is used.
      *
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -190,7 +262,15 @@ declare class CounterV2InlineStyleOptions extends CounterV2CommonOptions {
     min?: int;
 
     /**
-     * Set maximum value of the counter component
+     * Maximum value of **CounterV2**.
+     *
+     * Default value: **999**
+     *
+     * Value range: [min, +∞)
+     *
+     * If the value exceeds the range (that is, the set value is less than **min**), **min** is used.
+     *
+     * If the value is **undefined**, the default value is used.
      *
      * @default 999
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -202,8 +282,17 @@ declare class CounterV2InlineStyleOptions extends CounterV2CommonOptions {
     max?: int;
 
     /**
-     * Set text width of the counter component, ranges greater than or equal to 0.
-     * If undefined is passed, the text width will adapt to the text content.
+     * Width of the number text.
+     *
+     * Default value: adaptive text width.
+     *
+     * Value range: [0, +∞)
+     *
+     * Unit: vp
+     *
+     * If the value exceeds the range (that is, the set value is less than 0), **0** is used.
+     *
+     * If the value is **undefined**, the default value is used.
      *
      * @default undefined
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -215,7 +304,15 @@ declare class CounterV2InlineStyleOptions extends CounterV2CommonOptions {
     textWidth?: double;
 
     /**
-     * Trigger an event when the value of the counter has been changed.
+     * Callback triggered when the value changes. The callback parameter **value** indicates the currently displayed
+     * value.
+     *
+     * Use scenario: Pass in this callback when you need to perform custom operations upon value changes (such as
+     * updating associated data, triggering service logic, or logging).
+     *
+     * Default value: **undefined**, indicating that the callback is not triggered when the value changes.
+     *
+     * If the value is **undefined**, the default value is used.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -227,7 +324,7 @@ declare class CounterV2InlineStyleOptions extends CounterV2CommonOptions {
 }
 
 /**
- * Defines the number style options.
+ * Defines the attributes and events of the list and compact **CounterV2**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -237,7 +334,14 @@ declare class CounterV2InlineStyleOptions extends CounterV2CommonOptions {
  */
 declare class CounterV2NumberStyleOptions extends CounterV2InlineStyleOptions {
     /**
-     * Set the label of the counter component.
+     * Description text of **CounterV2**.
+     *
+     * Default value: ''
+     *
+     * Note: Pass this parameter when description text (such as price and quantity) needs to be displayed next to
+     * **CounterV2**.
+     *
+     * When the value is **undefined**, the default value is used.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -248,7 +352,14 @@ declare class CounterV2NumberStyleOptions extends CounterV2InlineStyleOptions {
     label?: ResourceStr;
 
     /**
-     * Trigger an event when the increase button gets focus.
+     * Callback triggered when the increase button of the **CounterV2** component gains focus.
+     *
+     * Use scenario: Pass this callback when custom operations (such as changing styles and logging) need to be
+     * performed when the increase button gains focus.
+     *
+     * Default value: **undefined**, indicating that this callback is not triggered.
+     *
+     * When the value is **undefined**, the default value is used.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -259,7 +370,14 @@ declare class CounterV2NumberStyleOptions extends CounterV2InlineStyleOptions {
     onFocusIncrease?: VoidCallback;
 
     /**
-     * Trigger an event when the decrease button gets focus.
+     * Callback triggered when the decrease button of the **CounterV2** component gains focus.
+     *
+     * Use scenario: Pass this callback when custom operations (such as changing styles and logging) need to be
+     * performed when the decrease button gains focus.
+     *
+     * Default value: **undefined**, indicating that this callback is not triggered.
+     *
+     * When the value is **undefined**, the default value is used.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -270,7 +388,14 @@ declare class CounterV2NumberStyleOptions extends CounterV2InlineStyleOptions {
     onFocusDecrease?: VoidCallback;
 
     /**
-     * Trigger an event when the increase button loses focus.
+     * Callback triggered when the increase button of the **CounterV2** component loses focus.
+     *
+     * Use scenario: Pass this callback when custom operations (such as validating input and saving state) need to
+     * be performed when the increase button loses focus.
+     *
+     * Default value: **undefined**, indicating that this callback is not triggered.
+     *
+     * When the value is **undefined**, the default value is used.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -281,7 +406,14 @@ declare class CounterV2NumberStyleOptions extends CounterV2InlineStyleOptions {
     onBlurIncrease?: VoidCallback;
 
     /**
-     * Trigger an event when the decrease button loses focus.
+     * Callback triggered when the decrease button of the **CounterV2** component loses focus.
+     *
+     * Use scenario: Pass this callback when custom operations (such as validating input and saving state) need to
+     * be performed when the decrease button loses focus.
+     *
+     * Default value: **undefined**, indicating that this callback is not triggered.
+     *
+     * When the value is **undefined**, the default value is used.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -293,7 +425,7 @@ declare class CounterV2NumberStyleOptions extends CounterV2InlineStyleOptions {
 }
 
 /**
- * Defines the date data.
+ * Defines common date attributes and methods, including year, month, and day.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -303,7 +435,7 @@ declare class CounterV2NumberStyleOptions extends CounterV2InlineStyleOptions {
  */
 declare class CounterV2DateData {
     /**
-     * The year of the DateData, ranges from 1 to 5000.
+     * Year of the inline date type.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -314,7 +446,7 @@ declare class CounterV2DateData {
     year: int;
 
     /**
-     * The month of the DateData.
+     * Month of the inline date type.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -325,7 +457,7 @@ declare class CounterV2DateData {
     month: int;
 
     /**
-     * The day of the DateData.
+     * Day of the inline date type.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -336,11 +468,15 @@ declare class CounterV2DateData {
     day: int;
 
     /**
-     * Constructor of the DateData.
+     * Constructor of **CounterV2DateData**, used to initialize a date object.
      *
-     * @param { int } year - set the year of the DateData.
-     * @param { int } month - set the month of the DateData.
-     * @param { int } day - set the day of the DateData.
+     * @param { int } year - Year of the inline date type. Value range: [1, 5000]. If the value is out of the range,
+     *     the default value is used.
+     * @param { int } month - Month of the inline date type. Value range: [1, 12]. If the value is out of the range,
+     *     the default value is used.
+     * @param { int } day - Day of the inline date type. Value range: [1, 31]. It must be a valid date. For example,
+     *     if **month** is **2**, passing **30** for **day** is treated as an invalid value and the default value
+     *     will be used. If the value is out of the range, the default value is used.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -350,9 +486,9 @@ declare class CounterV2DateData {
     constructor(year: int, month: int, day: int);
 
     /**
-     * Convert the date data to string.
+     * Returns the current date value in the string format, which is **YYYY-MM-DD**.
      *
-     * @returns { string } date data in string form.
+     * @returns { string } Date string in the **YYYY-MM-DD** format, for example, **2024-01-15**.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -363,9 +499,9 @@ declare class CounterV2DateData {
 }
 
 /**
- * The change callback of the date style counter.
+ * Defines the callback for date changes of the inline date **CounterV2**.
  *
- * @param { CounterV2DateData } date - date
+ * @param { CounterV2DateData } date - Current date value.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -375,7 +511,7 @@ declare class CounterV2DateData {
 export type OnDateCounterV2ChangeCallback = (date: CounterV2DateData) => void;
 
 /**
- * Defines the date style options.
+ * Defines the attributes and events of the inline date **CounterV2**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -385,7 +521,15 @@ export type OnDateCounterV2ChangeCallback = (date: CounterV2DateData) => void;
  */
 declare class CounterV2DateStyleOptions extends CounterV2CommonOptions {
     /**
-     * Set the year of the counter component, ranges from 1 to 5000.
+     * Initial year of the inline date type.
+     *
+     * Default value: **1**
+     *
+     * Value range: [1, 5000]
+     *
+     * If the value is out of the range, the default value is used.
+     *
+     * If the value is **undefined**, the default value is used.
      *
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -397,7 +541,15 @@ declare class CounterV2DateStyleOptions extends CounterV2CommonOptions {
     year?: int;
 
     /**
-     * Set the month of the counter component.
+     * Initial month of the inline date type.
+     *
+     * Default value: **1**
+     *
+     * Value range: [1, 12]
+     *
+     * If the value is out of the range, the default value is used.
+     *
+     * If the value is **undefined**, the default value is used.
      *
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -409,7 +561,18 @@ declare class CounterV2DateStyleOptions extends CounterV2CommonOptions {
     month?: int;
 
     /**
-     * Set the day of the counter component.
+     * Initial day of the inline date type.
+     *
+     * Default value: **1**
+     *
+     * Value range: [1, 31]
+     *
+     * It must be a valid date. For example, if **month** is **2**, passing **30** for **day** is treated as an invalid
+     * value and the default value will be used.
+     *
+     * If the value is out of the range, the default value is used.
+     *
+     * If the value is **undefined**, the default value is used.
      *
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -421,7 +584,14 @@ declare class CounterV2DateStyleOptions extends CounterV2CommonOptions {
     day?: int;
 
     /**
-     * Trigger an event when the date of the counter has been changed.
+     * Callback invoked when the date changes. The parameter **date** indicates the currently displayed date value.
+     *
+     * Use scenario: Pass in this callback when you need to perform custom operations (such as updating associated
+     * data, triggering business logic, and logging) when the date changes.
+     *
+     * Default value: **undefined**, indicating that this callback is not triggered.
+     *
+     * If the value is **undefined**, the default value is used.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -433,7 +603,17 @@ declare class CounterV2DateStyleOptions extends CounterV2CommonOptions {
 }
 
 /**
- * Defines the counter options.
+ * Defines the type and style of the **CounterV2** component.
+ *
+ * When you select a **CounterV2** type, you must select the corresponding **CounterV2** style. If the style parameter
+ * does not match the type, the default style of that type is used.
+ *
+ * | CounterV2 Type | CounterV2 Style |
+ * | ----------------------- | ------------------ |
+ * | CounterV2Type.LIST | CounterV2NumberStyleOptions |
+ * | CounterV2Type.COMPACT | CounterV2NumberStyleOptions |
+ * | CounterV2Type.INLINE | CounterV2InlineStyleOptions |
+ * | CounterV2Type.INLINE_DATE | CounterV2DateStyleOptions |
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -443,7 +623,8 @@ declare class CounterV2DateStyleOptions extends CounterV2CommonOptions {
  */
 declare class CounterV2Options {
     /**
-     * Set the type of the counter component.
+     * Type of the **CounterV2**. It must be used with the corresponding style parameter. For details about the
+     * mapping, see the table below.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -454,7 +635,15 @@ declare class CounterV2Options {
     type: CounterV2Type;
 
     /**
-     * Set the counter attribute of the LIST or COMPACT counter component.
+     * Style of the list and compact **CounterV2**.
+     *
+     * Default value: **undefined**, which displays a list or compact **CounterV2** with the value **0**.
+     *
+     * Pass this parameter when you need to customize attributes such as the label, initial value, range, and step of
+     * the list or compact **CounterV2**. If the initial value of the counter is **0** and no custom configuration is
+     * required, you can skip this parameter to use the default style.
+     *
+     * If the value is **undefined**, the default value is used.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -465,7 +654,15 @@ declare class CounterV2Options {
     numberOptions?: CounterV2NumberStyleOptions;
 
     /**
-     * Set the counter attribute of the INLINE counter component.
+     * Style of the inline number **CounterV2**.
+     *
+     * Default value: **undefined**, which displays an inline number **CounterV2** with the value **0**.
+     *
+     * Pass this parameter when you need to customize attributes such as the initial value, range, step, text width,
+     * and change callback of the inline number **CounterV2**. If the initial value of the counter is **0** and no
+     * custom configuration is required, you can skip this parameter to use the default style.
+     *
+     * If the value is **undefined**, the default value is used.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -476,7 +673,15 @@ declare class CounterV2Options {
     inlineOptions?: CounterV2InlineStyleOptions;
 
     /**
-     * Set the counter attribute of the INLINE_DATE counter component.
+     * Style of the inline date **CounterV2**.
+     *
+     * Default value: **undefined**, which displays an inline date **CounterV2** with the date **0001/01/01**.
+     *
+     * Pass this parameter when you need to customize attributes such as the initial date and date change callback of
+     * the inline date **CounterV2**. If the default date **0001/01/01** needs to be displayed and no custom
+     * configuration is required, you can skip this parameter to use the default style.
+     *
+     * If the value is **undefined**, the default value is used.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -487,7 +692,11 @@ declare class CounterV2Options {
     dateOptions?: CounterV2DateStyleOptions;
 
     /**
-     * Indicates the attribute of the current counter direction.
+     * Layout direction.
+     *
+     * Default value: **Direction.Auto**
+     *
+     * If the value is **undefined**, the default value is used.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -499,7 +708,32 @@ declare class CounterV2Options {
 }
 
 /**
- * Defines Counter Component.
+ * The **CounterV2** component enables precise numeric value adjustment. It provides four types: list, compact,
+ * inline number, and inline date, which are applicable to scenarios such as shopping cart quantity adjustment and
+ * date selection.
+ *
+ * This component is implemented based on
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v2).
+ * Compared with
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v1), state
+ * management V2 delivers enhanced capabilities for deep observation and management of data objects, and is no longer
+ * limited to the component level. With state management V2, you can more flexibly control the data and state of
+ * **CounterV2** through this component, achieving more efficient UI refresh.
+ *
+ * > **NOTE**
+ * >
+ * > - If [universal attributes]{@link CommonMethod} and
+ * > [universal events]{@link CommonMethod} are set for **CounterV2**, the compilation toolchain
+ * > generates an additional node \_\_Common\_\_ and attaches the universal attributes or universal events to
+ * > \_\_Common\_\_, rather than directly applying them to **CounterV2** itself. This may cause the universal
+ * > attributes or universal events you set to not take effect or behave unexpectedly. Therefore, setting universal
+ * > attributes and universal events for **CounterV2** is not recommended.
+ * >
+ * > - This component API can only be used in the stage model.
+ *
+ * Universal attributes are not supported.
+ *
+ * Universal events are not supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -510,7 +744,7 @@ declare class CounterV2Options {
 @ComponentV2
 declare struct CounterV2Component {
     /**
-     * The options of a counter component.
+     * Defines the type and style of the **CounterV2** component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly

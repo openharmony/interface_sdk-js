@@ -1425,7 +1425,7 @@ export class PromptAction {
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.0.1 dynamic
  */
 export class DialogPresenter {
   /**
@@ -1440,7 +1440,7 @@ export class DialogPresenter {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   present(options?: dialog.DialogStyleOptions): Promise<DialogResult>;
 
@@ -1458,7 +1458,7 @@ export class DialogPresenter {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   present(content: CustomBuilder | CustomBuilderWithId | ComponentContent<Object>, options?: dialog.DialogCustomOptions): Promise<DialogResult>;
 
@@ -1474,7 +1474,7 @@ export class DialogPresenter {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   update(content: ComponentContent<Object>, options?: dialog.DialogBaseOptions): Promise<void>;
 
@@ -1491,7 +1491,7 @@ export class DialogPresenter {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   dismiss(target: int | ComponentContent<Object>): Promise<void>;
 }
@@ -4933,7 +4933,7 @@ export class UIContext {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   getDialogPresenter(): DialogPresenter;
 

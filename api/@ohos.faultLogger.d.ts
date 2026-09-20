@@ -119,7 +119,8 @@ declare namespace FaultLogger {
    *     **value** is the fault information array obtained. If **value** is **undefined**, an exception occurs during
    *     the information retrieval. In this case, an error string will be returned.
    * @throws { BusinessError } 401 - The parameter check failed, Parameter type error
-   * @throws { BusinessError } 801 - The specified SystemCapability name was not found
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Possible causes: The specified SystemCapability name was not found.
    * @throws { BusinessError } 10600001 - The service is not started or is faulty
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 9 dynamiconly
@@ -138,7 +139,8 @@ declare namespace FaultLogger {
    *     <br>**value** is the fault information array obtained. If **value** is **undefined**,
    *     an exception occurs during the information retrieval.
    * @throws { BusinessError } 401 - The parameter check failed, Parameter type error
-   * @throws { BusinessError } 801 - The specified SystemCapability name was not found
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Possible causes: The specified SystemCapability name was not found.
    * @throws { BusinessError } 10600001 - The service is not started or is faulty
    * @syscap SystemCapability.HiviewDFX.Hiview.FaultLogger
    * @since 9 dynamiconly

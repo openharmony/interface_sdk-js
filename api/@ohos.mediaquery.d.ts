@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Media Query
  * @kit ArkUI
  */
 
@@ -47,7 +47,7 @@ import { Callback } from './@ohos.base';
  */
 declare namespace mediaquery {
   /**
-   * Provides the media query result.
+   * Represents the media query result.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -57,9 +57,8 @@ declare namespace mediaquery {
    */
   interface MediaQueryResult {
     /**
-     * Whether the media query condition is met. The value **true** means that the 
-     * query conditions are met, and **false** means the opposite.
-     * This parameter is read-only.
+     * Whether the media query condition is met. The value **true** means that the query conditions are met, and 
+     * **false** means the opposite.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -70,8 +69,7 @@ declare namespace mediaquery {
     readonly matches: boolean;
 
     /**
-     * Matching condition of a media event.
-     * This parameter is read-only.
+     * Media query condition.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -114,7 +112,7 @@ declare namespace mediaquery {
     on(type: 'change', callback: Callback<MediaQueryResult>): void;
 
     /**
-     * Deregisters a media query listener, so that no callback is triggered when the media attributes change.
+     * Unregisters a media query listener, so that no callback is triggered when the media attributes change.
      *
      * @param { 'change' } type - Listener type. The value is fixed at **'change'**.
      * @param { Callback<MediaQueryResult> } callback - Callback to unregister. If this parameter is not specified, all
@@ -129,25 +127,18 @@ declare namespace mediaquery {
   }
 
   /**
-   * Sets the media query condition. This API returns the corresponding media query listener.
+   * Sets the media query criteria and returns the corresponding listening handle.
    * 
    * > **NOTE**
    * >
-   * > - This API is supported since API version 7 and deprecated since API version 18. You are advised to use
-   * > [matchMediaSync](@link @ohos.arkui.UIContext:MediaQuery#matchMediaSync) instead. Before calling this API, you
-   * > need to obtain the [MediaQuery](@link @ohos.arkui.UIContext:MediaQuery) object using the
-   * > [getMediaQuery](@link @ohos.arkui.UIContext:UIContext#getMediaQuery) method in
-   * > [UIContext](@link @ohos.arkui.UIContext).
-   * >
-   * > - Since API version 10, you can use the 
-   * > [getMediaQuery](@link @ohos.arkui.UIContext:UIContext#getMediaQuery) API in 
-   * > [UIContext]{@link @ohos.arkui.UIContext:UIContext} to obtain the 
-   * > [MediaQuery]{@link @ohos.arkui.UIContext:MediaQuery} object associated with the current UI context.
+   * > - Since API version 10, you can use the [getMediaQuery]{@link UIContext#getMediaQuery} API 
+   * > in [UIContext]{@link @ohos.arkui.UIContext} to obtain the [MediaQuery]{@link @ohos.arkui.UIContext} object 
+   * > associated with the current UI context.
    *
    * @param { string } condition - Media query condition. For details, see
    *     [Syntax](docroot://ui/arkts-layout-development-media-query.md#syntax).
-   * @returns { MediaQueryListener } Media query listener, which is used to register or deregister the listening
-   *     callback.
+   * @returns { MediaQueryListener } Listening handle to a media event, which is used to register or unregister the
+   *     listening callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 12]
