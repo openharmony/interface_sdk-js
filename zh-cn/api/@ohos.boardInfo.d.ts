@@ -19,7 +19,7 @@
  */
 
 /**
- * boardInfo模块提供板级硬件信息查询，包括CPU、主板、BIOS等信息，开发者不可配置。
+ * boardInfo模块用于查询硬件设备信息。
  *
  * > **说明：**
  * >
@@ -34,7 +34,7 @@ declare namespace boardInfo {
   /**
    * CPU ID。
    *
-   * 示例：48FD0010（十六进制字符串）
+   * 示例：AA AA AA AA 00 00 00 00（十六进制字符串）
    *
    * @syscap SystemCapability.Startup.BoardInfo
    * @stagemodelonly
@@ -45,7 +45,7 @@ declare namespace boardInfo {
   /**
    * CPU架构。
    *
-   * 示例：arm64-v8a
+   * 示例：aarch64
    *
    * @syscap SystemCapability.Startup.BoardInfo
    * @stagemodelonly
@@ -56,7 +56,7 @@ declare namespace boardInfo {
   /**
    * CPU厂商信息。
    *
-   * 示例：ARM
+   * 示例：HISILICON
    *
    * @syscap SystemCapability.Startup.BoardInfo
    * @stagemodelonly
@@ -67,15 +67,11 @@ declare namespace boardInfo {
   /**
    * 主板序列号。
    *
-   * **说明：**
-   *
-   * 主板序列号可作为设备唯一识别码。
-   *
-   * **需要权限**：ohos.permission.sec.ACCESS_UDID（仅系统应用和企业应用可获取）
+   * **需要权限**：ohos.permission.ACCESS_BOARD_INFO
    *
    * 示例：0123456789ABCDEF
    *
-   * @permission ohos.permission.sec.ACCESS_UDID
+   * @permission ohos.permission.ACCESS_BOARD_INFO
    * @syscap SystemCapability.Startup.BoardInfo
    * @stagemodelonly
    * @since 26.0.1 dynamic
@@ -96,7 +92,7 @@ declare namespace boardInfo {
   /**
    * 主板产品名称。
    *
-   * 示例：MAINBOARD-A1
+   * 示例：HAD-PCB
    *
    * @syscap SystemCapability.Startup.BoardInfo
    * @stagemodelonly
@@ -107,7 +103,7 @@ declare namespace boardInfo {
   /**
    * BIOS厂商。
    *
-   * 示例：AMI
+   * 示例：HUAWEI
    *
    * @syscap SystemCapability.Startup.BoardInfo
    * @stagemodelonly
@@ -118,7 +114,7 @@ declare namespace boardInfo {
   /**
    * BIOS版本。
    *
-   * 示例：1.0.0
+   * 示例：1.00
    *
    * @syscap SystemCapability.Startup.BoardInfo
    * @stagemodelonly

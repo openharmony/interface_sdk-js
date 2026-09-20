@@ -88,12 +88,12 @@ export {
   OnDownloadCompleteResponse, PrintExtensionAbility, Request, RequestData, RequestFile,
   SetBrightnessModeOptions, SetBrightnessOptions, SetKeepScreenOnOptions, UploadRequestOptions,
   UploadResponse, WallpaperExtensionAbility, appAccount, batteryInfo, batteryStats, brightness, charger, configPolicy,
-  customConfig, deviceAttest, deviceInfo, boardInfo, distributedAccount, osAccount, authorization, pasteboard, power, print, scan, request, cacheDownload, runningLock,
+  customConfig, deviceAttest, deviceInfo, distributedAccount, osAccount, authorization, pasteboard, power, print, scan, request, cacheDownload, runningLock,
   screenLock, settings, systemCapability, systemDateTime, systemParameter, systemParameterEnhance, systemTime,
   systemTimer, thermal, update, usb, usbManager, serialManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, systemLoad, intelligentVoice, selectionManager, SelectionExtensionAbility,
   PanelInfo, PanelType, SelectionExtensionContext, Available, SuppressWarnings, SuppressWarningsType, intelligentScene,
-  serial,settingsLite
+  serial, boardInfo, settingsLite
 };
 
 /*** if arkts static */
@@ -120,8 +120,8 @@ import { Available, SuppressWarnings, SuppressWarningsType } from '@ohos.annotat
 
 export {
   zlib, configPolicy, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, customConfig, systemDateTime,
-  deviceInfo, boardInfo, systemTimer, systemLoad, request, commonEventManager, emitter, StaticSubscriberExtensionAbility,
+  deviceInfo, systemTimer, systemLoad, request, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, appAccount, distributedAccount, osAccount, authorization, intelligentScene, Available,
-  SuppressWarnings, SuppressWarningsType
+  SuppressWarnings, SuppressWarningsType, boardInfo
 };
 /*** endif */

@@ -19,7 +19,7 @@
  */
 
 /**
- * The **boardInfo** module provides query of board-level hardware information, including CPU, board, and BIOS information.
+ * The **boardInfo** module is used to query hardware device information.
  *
  * > **NOTE**
  * >
@@ -36,7 +36,7 @@ declare namespace boardInfo {
   /**
    * CPU ID.
    *
-   * Example: 48FD0010 (hexadecimal string)
+   * Example: AA AA AA AA 00 00 00 00(hexadecimal string)
    *
    * @syscap SystemCapability.Startup.BoardInfo
    * @stagemodelonly
@@ -47,7 +47,7 @@ declare namespace boardInfo {
   /**
    * CPU architecture.
    *
-   * Example: arm64-v8a
+   * Example: aarch64
    *
    * @syscap SystemCapability.Startup.BoardInfo
    * @stagemodelonly
@@ -58,7 +58,7 @@ declare namespace boardInfo {
   /**
    * CPU vendor information.
    *
-   * Example: ARM
+   * Example: HISILICON
    *
    * @syscap SystemCapability.Startup.BoardInfo
    * @stagemodelonly
@@ -69,15 +69,11 @@ declare namespace boardInfo {
   /**
    * Board serial number.
    *
-   * **NOTE**
+   * **Required permission**: ohos.permission.ACCESS_BOARD_INFO
    *
-   * The board serial number can be used as the unique identifier of a device.
+   * Example: 0123456789ABCDEF.
    *
-   * **Required permission**: ohos.permission.sec.ACCESS_UDID (for system applications and enterprise applications only)
-   *
-   * Example: 0123456789ABCDEF
-   *
-   * @permission ohos.permission.sec.ACCESS_UDID
+   * @permission ohos.permission.ACCESS_BOARD_INFO
    * @syscap SystemCapability.Startup.BoardInfo
    * @stagemodelonly
    * @since 26.0.1 dynamic
@@ -85,7 +81,7 @@ declare namespace boardInfo {
   const boardSn: string;
 
   /**
-   * Board vendor.
+   * board vendor.
    *
    * Example: HUAWEI
    *
@@ -98,7 +94,7 @@ declare namespace boardInfo {
   /**
    * Board product name.
    *
-   * Example: MAINBOARD-A1
+   * Example: HAD-PCB
    *
    * @syscap SystemCapability.Startup.BoardInfo
    * @stagemodelonly
@@ -109,7 +105,7 @@ declare namespace boardInfo {
   /**
    * BIOS vendor.
    *
-   * Example: AMI
+   * Example: HUAWEI
    *
    * @syscap SystemCapability.Startup.BoardInfo
    * @stagemodelonly
@@ -120,7 +116,7 @@ declare namespace boardInfo {
   /**
    * BIOS version.
    *
-   * Example: 1.0.0
+   * Example: 1.00
    *
    * @syscap SystemCapability.Startup.BoardInfo
    * @stagemodelonly
