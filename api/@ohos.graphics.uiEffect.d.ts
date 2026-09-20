@@ -2303,17 +2303,17 @@ declare namespace uiEffect {
     static createBinocularMask(radiusX: double, radiusY: double, gap: double, softness: double): Mask;
 
     /**
-     * Creates an atlas frame mask for sprite sheet frame animation.
+     * Creates an atlas image mask for sprite sheet frame animation.
      * The mask carries atlas frame parameters used to drive atlas frame animation.
      *
-     * @param { drawing.AtlasImage } atlasImage - the atlas frame parameters.
+     * @param { drawing.AtlasImage } atlasImage - the atlas image parameters.
      * @returns { Mask } - Returns a Mask with the atlas frame parameters.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
      * @since 26.0.1 dynamic&static
      */
-    static createAtlasFrameMask(atlasImage: drawing.AtlasImage): Mask;
+    static createAtlasImageMask(atlasImage: drawing.AtlasImage): Mask;
   }
 
   /**
