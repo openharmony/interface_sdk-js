@@ -14,7 +14,7 @@
  */
 
 /**
- * @file 卡片数据绑定类
+ * @file 卡片数据绑定-FormBindingData
  * @kit FormKit
  */
 
