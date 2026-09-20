@@ -3296,7 +3296,7 @@ export declare enum KeyCode {
   KEYCODE_PTZ_FOCUS_RIGHT = 3237,
 
   /**
-   * PTZ expose left
+   * PTZ exposure left
    *
    * **Since:** 26.1.0
    *
@@ -3306,10 +3306,10 @@ export declare enum KeyCode {
    * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
-  KEYCODE_PTZ_EXPOSE_LEFT = 3238,
+  KEYCODE_PTZ_EXPOSURE_LEFT = 3238,
 
   /**
-   * PTZ expose right
+   * PTZ exposure right
    *
    * **Since:** 26.1.0
    *
@@ -3319,7 +3319,7 @@ export declare enum KeyCode {
    * @stagemodelonly
    * @since 26.1.0 dynamic&static
    */
-  KEYCODE_PTZ_EXPOSE_RIGHT = 3239,
+  KEYCODE_PTZ_EXPOSURE_RIGHT = 3239,
 
   /**
    * PTZ shutter left
