@@ -62,7 +62,7 @@ declare namespace fontManager {
    * 根据字体名称从系统字体库中卸载已安装的字体文件。使用Promise异步回调。
    *
    * @permission ohos.permission.UPDATE_FONT
-   * @param { string } fullName - 需要卸载的字体名称，可通过打开.ttf、.ttc或.otf字体文件获取。
+   * @param { string } fullName - 需要卸载的字体名称，可通过打开.ttf、.ttc和.otf字体文件获取。
    *     <br>字体名称区分大小写，请确保与实际字体名称完全一致。
    * @returns { Promise<int> } Promise对象，返回卸载结果。
    *     <br>- 返回0：卸载成功，字体已从系统字体库中移除。
@@ -183,8 +183,8 @@ declare namespace fontManager {
    */
   enum FontScope {  
     /**
-     * 应用级字体。随应用注册生命周期管理，应用退出、字体服务退出、账号退出或设备重启时自动清理。
-     * 适用于应用私有字体，需先调用[onFontObserver]{@link onFontObserver}注册监听后才能安装。
+     * 应用级字体。字体的生命周期跟随应用的生命周期，应用退出或字体服务异常退出时，安装的字体文件会被自动清理\卸载。
+     * 需先调用[onFontObserver](#onfontobserver)注册监听后才能安装。
      *
      * @syscap SystemCapability.Global.FontManager
      * @stagemodelonly
@@ -193,7 +193,7 @@ declare namespace fontManager {
     APP = 0,
 
     /**
-     * 会话级字体。不随应用退出而清理，仅在账号退出或设备重启时清理。适用于不强依赖安装应用的字体，生命周期独立于安装应用。
+     * 会话级字体。字体的生命周期不跟随应用的生命周期，设备重启或当前用户退出（多用户场景下）时，安装的字体文件会被自动清理\卸载。
      *
      * @syscap SystemCapability.Global.FontManager
      * @stagemodelonly
@@ -224,12 +224,13 @@ declare namespace fontManager {
    * 安装指定路径下的字体文件为应用级或会话级字体。使用Promise异步回调。
    *
    * > **说明：**
+   * > - 当安装应用级字体时，需先调用[onFontObserver](#onFontObserver)接口注册字体服务状态变化监听器。
    * > - 安装成功后，应用可以通过字体名称使用该字体。同一字体路径不可重复安装。
    * > - 支持安装的字体文件个数最大数量为200。从26.0.1版本开始，PC/2in1支持安装的字体文件最大数量为800。
    * 
    * @permission ohos.permission.UPDATE_SCOPE_FONT
    * @param { string } url - 待安装的字体文件路径，仅支持.ttf、.ttc和.otf格式的字体文件。
-   * @param { FontScope } scope - 字体作用范围。该值必须是 {@link FontScope} 的枚举值。
+   * @param { FontScope } scope - 字体作用范围。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -280,13 +281,13 @@ declare namespace fontManager {
   function getFontScope(url: string): Promise<FontScope>;
 
   /**
-   * 注册字体服务状态监听器。
+   * 注册字体服务状态变化监听器。
    *
    * > **说明：**
-   * > 每个应用最多可注册一个监听器，重复注册将返回错误。同一设备上最多支持5个不同应用同时注册监听器。
+   * > 每个应用仅可注册一个字体服务状态变化监听器，重复注册会报错；以及同一用户最多5个应用同时注册，否则会报错。
    * 
    * @permission ohos.permission.UPDATE_SCOPE_FONT
-   * @param { FontClientObserver } observer - 字体服务状态监听器。
+   * @param { FontClientObserver } observer - 字体服务状态变化监听器。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 31100110 - Call failed due to system error.
@@ -299,7 +300,7 @@ declare namespace fontManager {
   function onFontObserver(observer: FontClientObserver): void;
 
   /**
-   * 注销字体服务状态监听器。
+   * 注销字体服务状态状态监听器。
    *
    * @permission ohos.permission.UPDATE_SCOPE_FONT
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
