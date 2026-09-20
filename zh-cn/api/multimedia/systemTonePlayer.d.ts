@@ -14,6 +14,15 @@
  */
 
 /**
+ * 系统提示音播放器提供了短信提示音、通知提示音的播放、配置、获取信息等功能。
+ * systemTonePlayer需要和
+ * [@ohos.multimedia.systemSoundManager]{@link @ohos.multimedia.systemSoundManager:systemSoundManager}配合使用，才能完成管理系统提示音的功
+ * 能。
+ * 
+ * > **说明：**
+ * 
+ * > - 本模块接口为系统接口。
+ *
  * @file 系统提示音播放器
  * @kit AudioKit
  */
@@ -25,7 +34,6 @@ import { ErrorCallback, Callback } from '../@ohos.base';
  * [getSystemTonePlayer]{@link @ohos.multimedia.systemSoundManager:systemSoundManager.SystemSoundManager.getSystemTonePlayer(context: BaseContext, type: SystemToneType)}
  * 创建实例。
  *
- * @typedef SystemTonePlayer
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
  * @since 11 dynamic
@@ -88,10 +96,9 @@ export declare interface SystemTonePlayer {
   getSupportedHapticsFeatures(): Promise<Array<systemSoundManager.ToneHapticsFeature>>;
 
   /**
-   * 设置播放铃音时的振动风格。
-   * 
-   * 调用本接口前，应该先调用[getSupportedHapticsFeatures]{@link SystemTonePlayer.getSupportedHapticsFeatures}查询
-   * 支持的振动风格，如果设置不支持的振动风格，则设置失败。
+   * 设置播放提示音时的振动风格。
+   * 调用本接口前，应该先调用[getSupportedHapticsFeatures]{@link SystemTonePlayer.getSupportedHapticsFeatures}查询支持的振动风格，如果设置不支持的振动风格
+   * ，则设置失败。
    *
    * @param { systemSoundManager.ToneHapticsFeature } hapticsFeature - 振动风格。
    * @throws { BusinessError } 202 - Caller is not a system application.
@@ -108,7 +115,7 @@ export declare interface SystemTonePlayer {
   setHapticsFeature(hapticsFeature: systemSoundManager.ToneHapticsFeature): void;
 
   /**
-   * 获取播放铃音时的振动风格，同步返回振动风格枚举值。
+   * 获取播放提示音时的振动风格，同步返回振动风格枚举值。
    *
    * @returns { systemSoundManager.ToneHapticsFeature } 振动风格。
    * @throws { BusinessError } 202 - Caller is not a system application.
@@ -156,7 +163,7 @@ export declare interface SystemTonePlayer {
   /**
    * 停止播放提示音。使用Promise异步回调。
    *
-   * @param { int } id - Promise对象，返回streamID。
+   * @param { int } id - 播放流ID，通过[start]{@link SystemTonePlayer.start}方法获取。
    * @returns { Promise<void> } Promise回调返回停止播放成功或失败。
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -183,13 +190,12 @@ export declare interface SystemTonePlayer {
   release(): Promise<void>;
 
   /**
-   * 监听铃音播放完成事件（当铃音播放完成时触发）。使用callback异步回调。
-   * 
+   * 监听提示音播放完成事件（当提示音播放完成时触发）。使用callback异步回调。
    * 监听对象为传入的streamId对应音频流。当streamId传入0时，监听本播放器对应的所有音频流。
    *
-   * @param { 'playFinished' } type - 事件回调类型，支持的事件为'playFinished'，当铃音播放完成时，触发该事件。
-   * @param { int } streamId - 监听对象为指定streamId对应的音频流，streamId通过[start]{@link SystemTonePlayer.start}获取。
-   *     当streamId传入0时，可监听当前播放器对应的所有音频流。
+   * @param { 'playFinished' } type - 事件回调类型，支持的事件为'playFinished'，当提示音播放完成时，触发该事件。
+   * @param { int } streamId - 监听对象为指定streamId对应的音频流，streamId通过[start]{@link SystemTonePlayer.start}获取。当streamId传入0时，可监听当前播放器
+   *     对应的所有音频流。
    * @param { Callback<int> } callback - 'playFinished'的回调方法。返回播放完成的音频流的streamId。
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 20700002 -Parameter check error.
@@ -200,13 +206,12 @@ export declare interface SystemTonePlayer {
   on(type: 'playFinished', streamId: int, callback: Callback<int>): void;
 
   /**
-   * 监听铃音播放完成事件（当铃音播放完成时触发）。使用callback异步回调。
-   *
+   * 监听提示音播放完成事件（当提示音播放完成时触发）。使用callback异步回调。
    * 监听对象为传入的streamId对应音频流。当streamId传入0时，监听本播放器对应的所有音频流。
-   *
-   * @param { int } streamId - Stream id, received from start().
-   * @param { Callback<int> } callback - Callback used to obtain the finished event. The callback info is the stream
-   *     id that is finished.
+   * 
+   * @param { int } streamId - 监听对象为指定streamId对应的音频流，streamId通过[start]{@link SystemTonePlayer.start}获取。当streamId传入0时，可监听当前播放器
+   *     对应的所有音频流。
+   * @param { Callback<int> } callback - 'playFinished'的回调方法。返回播放完成的音频流的streamId。
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -216,9 +221,9 @@ export declare interface SystemTonePlayer {
   onPlayFinished(streamId: int, callback: Callback<int>): void;
 
   /**
-   * 取消监听铃音播放完成事件。使用callback异步回调。
+   * 取消监听提示音播放完成事件。使用callback异步回调。
    *
-   * @param { 'playFinished' } type - 事件回调类型，支持的事件为'playFinished'，当取消监听铃音播放完成事件时，触发该事件。
+   * @param { 'playFinished' } type - 事件回调类型，支持的事件为'playFinished'，当取消监听提示音播放完成事件时，触发该事件。
    * @param { Callback<int> } [callback] - 回调函数，返回结束事件的音频流的streamId。不填入此参数时，会取消该事件的所有监听。
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 20700002 -Parameter check error.
@@ -229,8 +234,9 @@ export declare interface SystemTonePlayer {
   off(type: 'playFinished', callback?: Callback<int>): void;
 
   /**
-   * 取消监听铃音播放完成事件。使用callback异步回调。
-   * @param { Callback<int> } [callback] - Callback used to obtain the finished event.
+   * 取消监听提示音播放完成事件。使用callback异步回调。
+   * 
+   * @param { Callback<int> } [callback] - 回调函数，返回结束事件的音频流的streamId。不填入此参数时，会取消该事件的所有监听。
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -240,11 +246,11 @@ export declare interface SystemTonePlayer {
   offPlayFinished(callback?: Callback<int>): void;
 
   /**
-   * 监听铃音播放过程中的错误事件（当铃音播放过程中发生错误时触发）。使用callback异步回调。
+   * 监听提示音播放过程中的错误事件（当提示音播放过程中发生错误时触发）。使用callback异步回调。
    *
-   * @param { 'error'} type - 事件回调类型，支持的事件为'error'，当铃音播放过程中发生错误时，触发该事件。
-   * @param { ErrorCallback } callback - 回调函数，返回错误码和错误信息。错误码请参考AVPlayer的
-   *     [on('error')]{@link @ohos.multimedia.media:media.AVPlayer.on(type: 'error', callback: ErrorCallback)}。
+   * @param { 'error'} type - 事件回调类型，支持的事件为'error'，当提示音播放过程中发生错误时，触发该事件。
+   * @param { ErrorCallback } callback - 回调函数，返回错误码和错误信息。错误码请参考AVPlayer的。
+   *     [on('error')]{@link @ohos.multimedia.media:media.AVPlayer.on_error}。
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -254,8 +260,9 @@ export declare interface SystemTonePlayer {
   on(type: 'error', callback: ErrorCallback): void;
 
   /**
-   * 监听铃音播放过程中的错误事件（当铃音播放过程中发生错误时触发）。使用callback异步回调。
-   * @param { ErrorCallback } callback - Error callback while receiving the error event.
+   * 监听提示音播放过程中的错误事件（当提示音播放过程中发生错误时触发）。使用callback异步回调。
+   * 
+   * @param { ErrorCallback } callback -回调函数，返回错误码和错误信息。错误码请参考AVPlayer的。
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -265,9 +272,9 @@ export declare interface SystemTonePlayer {
   onError(callback: ErrorCallback): void;
 
   /**
-   * 取消监听铃音播放过程中的错误事件。使用callback异步回调。
+   * 取消监听提示音播放过程中的错误事件。使用callback异步回调。
    *
-   * @param { 'error'} type - 事件回调类型，支持的事件为'error'，当取消监听铃音播放过程中的错误事件时，触发该事件。
+   * @param { 'error'} type - 事件回调类型，支持的事件为'error'，当取消监听提示音播放过程中的错误事件时，触发该事件。
    * @param { ErrorCallback } [callback] - 回调函数，返回错误码和错误信息。不填入此参数时，会取消该事件的所有监听。
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 20700002 -Parameter check error.
@@ -278,8 +285,9 @@ export declare interface SystemTonePlayer {
   off(type: 'error', callback?: ErrorCallback): void;
 
   /**
-   * 取消监听铃音播放过程中的错误事件。使用callback异步回调。
-   * @param { ErrorCallback } [callback] - Error callback while receiving the error event.
+   * 取消监听提示音播放过程中的错误事件。使用callback异步回调。
+   * 
+   * @param { ErrorCallback } [callback] - 回调函数，返回错误码和错误信息。不填入此参数时，会取消该事件的所有监听。
    * @throws { BusinessError } 202 - Not system App.
    * @throws { BusinessError } 20700002 -Parameter check error.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -292,7 +300,6 @@ export declare interface SystemTonePlayer {
 /**
  * 提示音参数选项。
  *
- * @typedef SystemToneOptions
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
  * @since 11 dynamic

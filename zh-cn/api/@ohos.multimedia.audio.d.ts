@@ -21,7 +21,7 @@ import { ErrorCallback, AsyncCallback, Callback, BusinessError } from './@ohos.b
 
 /**
  * 音频管理提供基础的音频控制能力，包括音量调节、设备管理、数据采集及渲染。
- * 该模块提供以下音频相关的常用功能：
+ * 本模块提供以下音频相关的常用功能：
  *
  * - [AudioManager]{@link audio.AudioManager}：音频管理器。
  * - [AudioDeviceEnhanceManager]{@link audio.AudioDeviceEnhanceManager}：音频设备增强管理器。
@@ -149,11 +149,13 @@ declare namespace audio {
   function getAudioManager(): AudioManager;
 
   /**
-   * 获取音频采集器。使用callback异步回调。
+   * 创建音频采集器。使用callback异步回调。
+   *
+   * 当设置Mic音频源（即[SourceType]{@link #Sourcetype}为SOURCE_TYPE_MIC、SOURCE_TYPE_VOICE_RECOGNITION、SOURCE_TYPE_VOICE_COMMUNICATION、SOURCE_TYPE_VOICE_MESSAGE、SOURCE_TYPE_CAMCORDER）时需要ohos.permission.MICROPHONE权限。
    *
    * @param { AudioCapturerOptions } options - 配置音频采集器。
-   * @param { AsyncCallback<AudioCapturer> } callback - 回调函数。当获取音频采集器成功，err为undefined，data为获取到的音频采集器对象；否则为错误对象。异常将返回error对象：<
-   *     br>错误码6800301：表示参数校验异常、权限校验异常或系统处理异常（具体错误查看系统日志）。<br>错误码6800101：表示必选参数为空或参数类型错误。
+   * @param { AsyncCallback<AudioCapturer> } callback - 回调函数。当创建音频采集器成功，err为undefined，data为创建的音频采集器对象；否则为错误对象。<br>异常将返回error对
+   *     象：<br>返回错误码6800301：表示参数校验异常、权限校验异常或系统处理异常（具体错误查看系统日志）。<br>返回错误码6800101：表示必选参数为空或参数类型错误。
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @crossplatform [since 12]
    * @since 8 dynamic
@@ -161,9 +163,9 @@ declare namespace audio {
   function createAudioCapturer(options: AudioCapturerOptions, callback: AsyncCallback<AudioCapturer>): void;
 
   /**
-   * 获取一个 {@link AudioCapturer} 实例。此方法通过异步回调返回捕获器实例。
-   * 使用 {@link #AudioCapturer} 录制音频时，需要根据 options 参数中的不同 {@link #Sourcetype} 申请权限，
-   * 例如大多数麦克风录音场景需要申请 {@link #ohos.permission.MICROPHONE} 权限。
+   * 创建音频采集器。使用callback异步回调。
+   *
+   * 当设置Mic音频源（即[SourceType]{@link #Sourcetype}为SOURCE_TYPE_MIC、SOURCE_TYPE_VOICE_RECOGNITION、SOURCE_TYPE_VOICE_COMMUNICATION、SOURCE_TYPE_VOICE_MESSAGE、SOURCE_TYPE_CAMCORDER）时需要ohos.permission.MICROPHONE权限。
    *
    * @param { AudioCapturerOptions } options - 配置音频采集器。
    * @param { AsyncCallback<AudioCapturer | null> } callback - 回调函数，用于返回音频采集器实例，若发生任何错误则返回 null。
@@ -177,14 +179,16 @@ declare namespace audio {
   function createAudioCapturer(options: AudioCapturerOptions, callback: AsyncCallback<AudioCapturer | null>): void;
 
   /**
-   * 获取音频采集器。使用Promise异步回调。
+   * 创建音频采集器。使用Promise异步回调。
+   *
+   * 当设置Mic音频源（即[SourceType]{@link #Sourcetype}为SOURCE_TYPE_MIC、SOURCE_TYPE_VOICE_RECOGNITION、SOURCE_TYPE_VOICE_COMMUNICATION、SOURCE_TYPE_VOICE_MESSAGE、SOURCE_TYPE_CAMCORDER）时需要ohos.permission.MICROPHONE权限。
    *
    * @param { AudioCapturerOptions } options - 配置音频采集器。
-   * @returns { Promise<AudioCapturer> } Promise对象，成功将返回音频采集器对象，异常将返回error对象：
-   *
-   *     错误码6800301：表示参数校验异常、权限校验异常或系统处理异常（具体错误查看系统日志）。
-   *
-   *     错误码6800101：表示必选参数为空或参数类型错误。
+   * @returns { Promise<AudioCapturer> } Promise对象，成功将返回音频采集器对象，异常将返回error对象。
+   *     
+   *     返回错误码6800301：表示参数校验异常、权限校验异常或系统处理异常（具体错误查看系统日志）。
+   *     
+   *     返回错误码6800101：表示必选参数为空或参数类型错误。
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @crossplatform [since 12]
    * @since 8 dynamic
@@ -192,7 +196,9 @@ declare namespace audio {
   function createAudioCapturer(options: AudioCapturerOptions): Promise<AudioCapturer>;
 
   /**
-   * 获取音频采集器。使用Promise异步回调。
+   * 创建音频采集器。使用Promise异步回调。
+   *
+   * 当设置Mic音频源（即[SourceType]{@link #Sourcetype}为SOURCE_TYPE_MIC、SOURCE_TYPE_VOICE_RECOGNITION、SOURCE_TYPE_VOICE_COMMUNICATION、SOURCE_TYPE_VOICE_MESSAGE、SOURCE_TYPE_CAMCORDER）时需要ohos.permission.MICROPHONE权限。
    *
    * @param { AudioCapturerOptions } options - 配置音频采集器。
    * @returns { Promise<AudioCapturer | null> } Promise对象，返回音频捕获器实例，若发生任何错误则返回 null。
@@ -206,7 +212,7 @@ declare namespace audio {
   function createAudioCapturer(options: AudioCapturerOptions): Promise<AudioCapturer | null>;
 
   /**
-   * 获取音频采集器。使用Promise异步回调。
+   * 创建音频采集器。使用Promise异步回调。
    *
    * > **说明：**
    * >
@@ -237,10 +243,10 @@ declare namespace audio {
   function createMicInAudioCapturer(config: AudioCapturerMicInConfig): Promise<AudioCapturer | null>;
 
   /**
-   * 获取音频渲染器。使用callback异步回调。
+   * 创建音频渲染器。使用callback异步回调。
    *
    * @param { AudioRendererOptions } options - 配置渲染器。
-   * @param { AsyncCallback<AudioRenderer> } callback - 回调函数。当获取音频渲染器成功，err为undefined，data为获取到的音频渲染器对象；否则为错误对象。
+   * @param { AsyncCallback<AudioRenderer> } callback - 回调函数。当创建音频渲染器成功，err为undefined，data为创建的音频渲染器对象；否则为错误对象。
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform [since 12]
    * @since 8 dynamic
@@ -248,21 +254,24 @@ declare namespace audio {
   function createAudioRenderer(options: AudioRendererOptions, callback: AsyncCallback<AudioRenderer>): void;
 
   /**
-   * 获取一个 {@link AudioRenderer} 实例。
-   * 此方法使用 Promise 方式返回渲染器实例。
+   * 创建音频渲染器。使用callback异步回调。
    *
    * AudioRenderer 实例用于播放流式音频数据。
-   * 使用 AudioRenderer API 时，为达到更好的性能和更低的功耗，应用需遵循以下指导：
-   * 在音乐或有声书后台播放场景下，可参考最佳实践文档《音乐播放场景低功耗规则》，实现低功耗。
-   * 在导航场景下，可参考《导航定位场景低功耗规则》，实现低功耗。
+   * 在使用 AudioRenderer API 时，应用程序需遵循以下指导原则以实现更佳性能和更低功耗：
+   * 在音乐或有声书后台播放场景中，可参考最佳实践文档《音乐播放场景低功耗规则》以实现低功耗。
+   * 在导航场景中，可参考《导航与定位场景低功耗规则》。
    *
-   * 应用开发者还需注意应用进入后台时的处理，检查音频播放是否仍需继续，参见《音频资源使用规范》。
-   * 避免持续发送静音音频数据造成系统资源浪费，否则系统检测到该行为后会采取管控措施，参见《音频播放规范》。
+   * 应用程序开发者还需注意应用进入后台时的处理，检查音频播放是否仍需继续，
+   * 请参阅最佳实践文档中的《音频资源》部分。
+   * 避免持续发送静音音频数据浪费系统资源，否则系统检测到该行为时会采取控制措施，
+   * 请参阅最佳实践文档中的《音频播放》部分。
    *
-   * 如果您想使用 AudioRenderer API 实现音乐播放应用，还需考虑多种交互场景，参见《音频应用开发实践》。
+   * 如果您希望使用 AudioRenderer API 实现音乐播放应用，还需考虑多种交互场景，
+   * 请参阅最佳实践文档中的《音频应用开发》部分。
    *
-   * @param { AudioRendererOptions } options - 配置渲染器。
-   * @param { AsyncCallback<AudioRenderer | null> } callback - 回调函数用于返回音频渲染器实例，或在发生错误时返回 null。
+   * @param { AudioRendererOptions } options - 渲染器配置。
+   * @param { AsyncCallback<AudioRenderer | null> } callback - 用于返回音频渲染器实例的回调函数，
+   * 或在发生错误时返回 null。
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform
    * @since 23 static
@@ -270,7 +279,7 @@ declare namespace audio {
   function createAudioRenderer(options: AudioRendererOptions, callback: AsyncCallback<AudioRenderer | null>): void;
 
   /**
-   * 获取音频渲染器。使用Promise异步回调。
+   * 创建音频渲染器。使用Promise异步回调。
    *
    * @param { AudioRendererOptions } options - 配置渲染器。
    * @returns { Promise<AudioRenderer> } Promise对象，返回音频渲染器对象。
@@ -281,18 +290,20 @@ declare namespace audio {
   function createAudioRenderer(options: AudioRendererOptions): Promise<AudioRenderer>;
 
   /**
-   * 获取一个 {@link AudioRenderer} 实例。
-   * 此方法使用 Promise 方式返回渲染器实例。
+   * 创建音频渲染器。使用Promise异步回调。
    *
    * AudioRenderer 实例用于播放流式音频数据。
-   * 使用 AudioRenderer API 时，为达到更好的性能和更低的功耗，应用需遵循以下指导：
-   * 在音乐或有声书后台播放场景下，可参考最佳实践文档《音乐播放场景低功耗规则》，实现低功耗。
-   * 在导航场景下，可参考《导航定位场景低功耗规则》，实现低功耗。
+   * 在使用 AudioRenderer API 时，应用程序需遵循以下指导以实现更佳性能和更低功耗：
+   * 在音乐或有声书后台播放场景中，可参考最佳实践文档《音乐播放场景低功耗规则》以实现低功耗。
+   * 在导航场景中，可参考《导航与定位场景低功耗规则》。
    *
-   * 应用开发者还需注意应用进入后台时的处理，检查音频播放是否仍需继续，参见《音频资源使用规范》。
-   * 避免持续发送静音音频数据造成系统资源浪费，否则系统检测到该行为后会采取管控措施，参见《音频播放规范》。
+   * 应用程序开发者还需注意应用进入后台时的处理，检查音频播放是否仍需继续，
+   * 请参阅最佳实践文档中的《音频资源》部分。
+   * 避免持续发送静音音频数据浪费系统资源，否则系统检测到该行为时会采取控制措施，
+   * 请参阅最佳实践文档中的《音频播放》部分。
    *
-   * 如果您想使用 AudioRenderer API 实现音乐播放应用，还需考虑多种交互场景，参见《音频应用开发实践》。
+   * 如需使用 AudioRenderer API 实现音乐播放应用，还需考虑多种交互场景，
+   * 请参阅最佳实践文档中的《音频应用开发》部分。
    *
    * @param { AudioRendererOptions } options - 配置渲染器。
    * @returns { Promise<AudioRenderer | null> } Promise对象，返回音频渲染器对象，或在发生错误时返回 null。
@@ -304,6 +315,8 @@ declare namespace audio {
 
   /**
    * 创建DTMF播放器。使用callback异步回调。
+   *
+   * 使用场景包括系统电话应用拨号界面的按键音，以及电话呼叫的回铃音。
    *
    * @param { AudioRendererInfo } options - 配置音频渲染器信息。
    * @param { AsyncCallback<TonePlayer> } callback - 回调函数。当获取DTMF播放器成功，err为undefined，data为获取到的DTMF播放器对象；否则为错误对象。
@@ -337,10 +350,10 @@ declare namespace audio {
   function createTonePlayer(options: AudioRendererInfo): Promise<TonePlayer>;
 
   /**
-   * 获取一个 {@link TonePlayer} 实例，此方法使用 Promise 返回渲染器实例。
+   * 创建DTMF播放器。使用callback异步回调。
    *
    * @param { AudioRendererInfo } options - 配置音频渲染器信息。
-   * @returns { Promise<TonePlayer | null> } Promise 过去用于返回 tonePlayer 实例，或者在发生错误时返回 null。
+   * @returns { Promise<TonePlayer | null> } Promise对象，返回 tonePlayer 实例，或在发生错误时返回 null。
    * @throws { BusinessError } 202 - Not system App.
    * @syscap SystemCapability.Multimedia.Audio.Tone
    * @systemapi
@@ -350,68 +363,52 @@ declare namespace audio {
 
   /**
    * 创建音频返听器。使用Promise异步回调。
+   *
    * 在使用createAudioLoopback接口之前，需先通过
    * [isAudioLoopbackSupported]{@link @ohos.multimedia.audio:audio.AudioStreamManager.isAudioLoopbackSupported}查询系统返听能力。
    *
    *
-   * @permission ohos.permission.MICROPHONE
-   * @param { AudioLoopbackMode } mode 音频返听模式。
+   * @permission ohos.permission.MICROPHONE [since 20 - 26.0.0]
+   * @param { AudioLoopbackMode } mode - 音频返听模式。
    * @returns { Promise<AudioLoopback> } Promise对象，成功将返回音频返听器对象，异常将返回error对象。
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Unsupported API.
+   * @throws { BusinessError } 201 - Permission denied. [since 20 - 26.0.0]
+   * @throws { BusinessError } 801 - Unsupported API. [since 20 - 26.0.0]
    * @throws { BusinessError } 6800101 - Parameter verification failed.
    * @throws { BusinessError } 6800104 - Loopback mode is unsupported.
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 20 dynamic
    */
-  /**
-   * 创建音频返听器。使用Promise异步回调。
-   * 在使用createAudioLoopback接口之前，需先通过
-   * [isAudioLoopbackSupported]{@link @ohos.multimedia.audio:audio.AudioStreamManager.isAudioLoopbackSupported}查询系统返听能力。
-   *
-   *
-   * @param { AudioLoopbackMode } mode 音频返听模式。
-   * @returns { Promise<AudioLoopback> } Promise对象，成功将返回音频返听器对象，异常将返回error对象。
-   * @throws { BusinessError } 6800101 - Parameter verification failed.
-   * @throws { BusinessError } 6800104 - Loopback mode is unsupported.
-   * @syscap SystemCapability.Multimedia.Audio.Capturer
-   * @since 26.0.0 dynamic
-   */
   function createAudioLoopback(mode: AudioLoopbackMode): Promise<AudioLoopback>;
 
   /**
-   * 创建一个<b>AudioLoopback</b>实例，该实例使用快速采集器和渲染器，实现低延迟的入耳监听。
+   * 创建音频返听器。使用Promise异步回调。
    *
-   * @permission ohos.permission.MICROPHONE
-   * @param { AudioLoopbackMode } mode 音频返听模式。 [since 23]
-   * @returns { Promise<AudioLoopback | null> } Promise 过去用于返回 <b>AudioLoopback</b> 实例，或在发生错误时返回 null。 [since 23]
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Unsupported API.
+   * 在使用createAudioLoopback接口之前，需先通过
+   * [isAudioLoopbackSupported]{@link @ohos.multimedia.audio:audio.AudioStreamManager.isAudioLoopbackSupported}查询系统返听能力。
+   *
+   * @permission ohos.permission.MICROPHONE [since 23 - 26.0.0]
+   * @param { AudioLoopbackMode } mode - 音频回环模式。
+   * @returns { Promise<AudioLoopback | null> } 用于返回 <b>AudioLoopback</b> 实例的 Promise，或在发生错误时返回 null。
+   * @throws { BusinessError } 201 - Permission denied. [since 23 - 26.0.0]
+   * @throws { BusinessError } 801 - Unsupported API. [since 23 - 26.0.0]
    * @throws { BusinessError } 6800101 - Parameter verification failed.
    * @throws { BusinessError } 6800104 - Loopback mode is unsupported.
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 23 static
    */
-  /**
-   * 创建一个<b>AudioLoopback</b>实例，该实例使用快速采集器和渲染器，实现低延迟的入耳监听。
-   *
-   * @param { AudioLoopbackMode } mode - 音频返听模式。 [since 23]
-   * @returns { Promise<AudioLoopback | null> } Promise 过去用于返回 <b>AudioLoopback</b> 实例，或在发生错误时返回 null。 [since 23]
-   * @throws { BusinessError } 6800101 - Parameter verification failed.
-   * @throws { BusinessError } 6800104 - Loopback mode is unsupported.
-   * @syscap SystemCapability.Multimedia.Audio.Capturer
-   * @since 26.0.0 static
-   */
   function createAudioLoopback(mode: AudioLoopbackMode): Promise<AudioLoopback | null>;
 
   /**
-   * 创建一个全局音频返听实例，该实例提供低延迟的入耳监听功能。
-   * 硬件音频返听只能在支持的平台中创建，应用程序应首先使用{@link AudioStreamManager#isAudioLoopbackSupported} 进行检查。
-   * 系统中只能存在一个拥有全局返听功能的主实例，其他实例均为控制器。控制器可以通过向主实例发送命令来管理全局返听，并监听其状态变化。
+   * 创建一个全局音频回环实例，该实例提供低延迟的入耳监听功能。
    *
-   * @param { AudioLoopbackMode } mode - 音频返听模式。
-   * @param { boolean } isController - 创建一个拥有音频返听或仅包含控制器的对象。
-   * @returns { Promise<AudioLoopback | null> } Promise 用于返回音频返听实例，或在发生错误时返回 null。
+   * 硬件音频回环只能在支持的平台中创建，应用程序应首先使用
+   * {@link AudioStreamManager#isAudioLoopbackSupported} 进行检查。
+   * 系统中只能存在一个拥有全局回环功能的主实例，其他实例
+   * 均为控制器。控制器可以通过向主实例发送命令来管理全局回环，并监听其状态变化。
+   *
+   * @param { AudioLoopbackMode } mode - 要创建的音频回环模式。
+   * @param { boolean } isController - 创建一个拥有音频回环的对象，或者仅创建一个控制器。
+   * @returns { Promise<AudioLoopback | null> } 用于返回音频回环实例的 Promise，或者在发生错误时返回 null。
    * @throws { BusinessError } 202 - Caller is not a system application.
    * @throws { BusinessError } 6800101 - Parameter verification failed.
    * @throws { BusinessError } 6800104 - Loopback mode is unsupported.
@@ -517,14 +514,13 @@ declare namespace audio {
   /**
    * 表示返听状态的枚举。
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 20 dynamic
    * @since 23 static
    */
   enum AudioLoopbackStatus {
     /**
-     * 表示返听由于输入\输出设备而不可用（如出声设备变更）。
+     * 表示返听由于输入/输出设备而不可用（如出声设备变更）。
      *
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20 dynamic
@@ -560,7 +556,6 @@ declare namespace audio {
   /**
    * 表示返听混响模式的枚举。
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 21 dynamic
    * @since 24 static
@@ -606,7 +601,6 @@ declare namespace audio {
   /**
    * 表示返听均衡器类型的枚举。
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 21 dynamic
    * @since 24 static
@@ -824,7 +818,6 @@ declare namespace audio {
   /**
    * 表示音频设备类型的枚举（根据用途分类）。
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 12 dynamic
    * @since 23 static
@@ -925,8 +918,6 @@ declare namespace audio {
     /**
      * 无效设备。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -936,8 +927,6 @@ declare namespace audio {
     INVALID = 0,
     /**
      * 听筒。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform [since 12]
@@ -949,8 +938,6 @@ declare namespace audio {
     /**
      * 扬声器。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -960,8 +947,6 @@ declare namespace audio {
     SPEAKER = 2,
     /**
      * 有线耳机，带麦克风。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform [since 12]
@@ -973,8 +958,6 @@ declare namespace audio {
     /**
      * 有线耳机，不带麦克风。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -984,8 +967,6 @@ declare namespace audio {
     WIRED_HEADPHONES = 4,
     /**
      * 蓝牙设备SCO（Synchronous Connection Oriented）连接。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform [since 12]
@@ -997,8 +978,6 @@ declare namespace audio {
     /**
      * 蓝牙设备A2DP（Advanced Audio Distribution Profile）连接。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -1008,8 +987,6 @@ declare namespace audio {
     BLUETOOTH_A2DP = 8,
     /**
      * 麦克风。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform [since 12]
@@ -1021,8 +998,6 @@ declare namespace audio {
     /**
      * USB耳机，带麦克风。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -1033,8 +1008,6 @@ declare namespace audio {
     /**
      * DisplayPort（显示接口，简称DP），用于外接扩展设备。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @atomicservice
      * @since 12 dynamic
@@ -1043,8 +1016,6 @@ declare namespace audio {
     DISPLAY_PORT = 23,
     /**
      * 音频被系统应用投送到其他的远程设备。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @atomicservice
@@ -1090,8 +1061,6 @@ declare namespace audio {
     /**
      * 分布式设备。
      *
-     * 从API version 18开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @atomicservice
      * @since 18 dynamic
@@ -1101,35 +1070,27 @@ declare namespace audio {
 
     /**
      * 助听器设备。
+     * 
+     * 应用调用获取设备的相关接口时，该类型默认返回匿名类型。从API版本26.0.0开始，如需获取具体设备类型，可先调用
+     * [declareDeviceTypesCompatibility](./arkts-apis-audio-AudioRoutingManager.md#declaredevicetypescompatibility)进行设备类
+     * 型兼容声明。
      *
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 20 dynamic
      * @since 23 static
-     */
-    /**
-     * 助听器设备。
-     *
-     * Note: This original device type can be obtained after it is declared via
-     *     {@link AudioRoutingManager#declareDeviceTypesCompatibility}.
-     * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 26.0.0 dynamic&static
      */
     HEARING_AID = 30,
 
     /**
      * 星闪设备。
+     * 
+     * 应用调用获取设备的相关接口时，该类型默认返回匿名类型。从API版本26.0.0开始，如需获取具体设备类型，可先调用
+     * [declareDeviceTypesCompatibility](./arkts-apis-audio-AudioRoutingManager.md#declaredevicetypescompatibility)进行设备类
+     * 型兼容声明。
      *
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 20 dynamic
      * @since 23 static
-     */
-    /**
-     * 星闪设备。
-     *
-     * Note: This original device type can be obtained after it is declared via
-     *     {@link AudioRoutingManager#declareDeviceTypesCompatibility}.
-     * @syscap SystemCapability.Multimedia.Audio.Device
-     * @since 26.0.0 dynamic&static
      */
     NEARLINK = 31,
 
@@ -1173,15 +1134,7 @@ declare namespace audio {
      * @since 9 dynamic
      * @since 23 static
      */
-    DEFAULT = 1000,
-
-    /**
-     * Distributed virtual audio device.
-     * @syscap SystemCapability.Multimedia.Audio.Device
-     * @atomicservice
-     * @since 16 dynamic
-     */
-    REMOTE_DAUDIO = 25
+    DEFAULT = 1000
   }
 
   /**
@@ -1200,7 +1153,6 @@ declare namespace audio {
    * >
    * > 从API version 7开始支持，从API version 9开始废弃，建议使用[CommunicationDeviceType]{@link audio.CommunicationDeviceType}替代。
    *
-   * @enum { number }
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -1230,17 +1182,9 @@ declare namespace audio {
   /**
    * 表示用于通信的可用设备类型的枚举。
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Communication
-   * @since 9
-   */
-  /**
-   * 表示用于通信的可用设备类型的枚举。
-   *
-   * @enum { int }
-   * @syscap SystemCapability.Multimedia.Audio.Communication
-   * @crossplatform
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @since 9 dynamic
    * @since 23 static
    */
   enum CommunicationDeviceType {
@@ -1248,14 +1192,8 @@ declare namespace audio {
      * 扬声器。
      *
      * @syscap SystemCapability.Multimedia.Audio.Communication
-     * @since 9
-     */
-    /**
-     * 扬声器。
-     *
-     * @syscap SystemCapability.Multimedia.Audio.Communication
-     * @crossplatform
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @since 9 dynamic
      * @since 23 static
      */
     SPEAKER = 2
@@ -1309,7 +1247,7 @@ declare namespace audio {
      */
     RINGER_MODE_SILENT = 0,
     /**
-     * 震动模式。
+     * 振动模式。
      *
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @crossplatform [since 12]
@@ -1331,7 +1269,6 @@ declare namespace audio {
   /**
    * 表示静音策略类型的枚举。
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
    * @since 12 dynamic
@@ -1690,11 +1627,7 @@ declare namespace audio {
      */
     SAMPLE_RATE_192000 = 192000,
     /**
-     * 采样率为384000。单位为赫兹（Hz）
-     *
-     * 26.0.0
-     *
-     * 此接口仅可在Stage模型下使用。
+     * 采样率为384000。单位为赫兹（Hz）。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @stagemodelonly
@@ -1816,8 +1749,6 @@ declare namespace audio {
     /**
      * 未知类型。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -1827,9 +1758,6 @@ declare namespace audio {
     STREAM_USAGE_UNKNOWN = 0,
     /**
      * 媒体。
-     *
-     * 从API version 7开始支持，从API version 10开始废弃，建议使用该枚举中的STREAM_USAGE_MUSIC、STREAM_USAGE_MOVIE、STREAM_USAGE_GAME或
-     * STREAM_USAGE_AUDIOBOOK替代。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7 dynamiconly
@@ -1843,8 +1771,6 @@ declare namespace audio {
     /**
      * 音乐。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -1854,8 +1780,6 @@ declare namespace audio {
     STREAM_USAGE_MUSIC = 1,
     /**
      * VoIP语音通话（该流类型起播时，会触发开启3A算法）。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform [since 12]
@@ -1867,8 +1791,6 @@ declare namespace audio {
     /**
      * 语音播报。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -1878,8 +1800,6 @@ declare namespace audio {
     STREAM_USAGE_VOICE_ASSISTANT = 3,
     /**
      * 闹钟。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform [since 12]
@@ -1891,8 +1811,6 @@ declare namespace audio {
     /**
      * 语音消息。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @atomicservice [since 12]
      * @since 10 dynamic
@@ -1902,8 +1820,6 @@ declare namespace audio {
     /**
      * 通知铃声。
      *
-     * 从API version 7开始支持，从API version 10开始废弃，建议使用该枚举中的STREAM_USAGE_RINGTONE替代。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7 dynamiconly
      * @deprecated since 10
@@ -1912,8 +1828,6 @@ declare namespace audio {
     STREAM_USAGE_NOTIFICATION_RINGTONE = 6,
     /**
      * 铃声。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform [since 12]
@@ -1925,8 +1839,6 @@ declare namespace audio {
     /**
      * 通知音。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -1936,8 +1848,6 @@ declare namespace audio {
     STREAM_USAGE_NOTIFICATION = 7,
     /**
      * 无障碍。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform [since 12]
@@ -1958,8 +1868,6 @@ declare namespace audio {
     /**
      * 电影或视频。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -1969,8 +1877,6 @@ declare namespace audio {
     STREAM_USAGE_MOVIE = 10,
     /**
      * 游戏。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform [since 12]
@@ -1982,8 +1888,6 @@ declare namespace audio {
     /**
      * 有声读物（包括听书、相声、评书）、听新闻、播客等。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -1993,8 +1897,6 @@ declare namespace audio {
     STREAM_USAGE_AUDIOBOOK = 12,
     /**
      * 导航。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform [since 12]
@@ -2033,8 +1935,6 @@ declare namespace audio {
     /**
      * VoIP视频通话（该流类型起播时，会触发开启3A算法）。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @atomicservice
      * @since 12 dynamic
@@ -2053,8 +1953,6 @@ declare namespace audio {
     /**
      * 通知音。
      *
-     * 此接口仅可在Stage模型下使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @stagemodelonly
@@ -2064,17 +1962,14 @@ declare namespace audio {
     /**
      * 告警音。
      *
-     * 此接口仅可在Stage模型下使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @stagemodelonly
      * @since 24 dynamic&static
      */
     STREAM_USAGE_EMERGENCY = 23,
-
     /**
-     * Voice assistant broadcast usage for system app.
+     * 系统内置语音播报音。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
@@ -2082,7 +1977,7 @@ declare namespace audio {
      * @atomicservice
      * @since 26.0.0 dynamic&static
      */
-    STREAM_USAGE_VOICE_ASSISTANT_SYSTEM = 24
+    STREAM_USAGE_VOICE_ASSISTANT_SYSTEM = 27
   }
 
   /**
@@ -2182,7 +2077,7 @@ declare namespace audio {
    */
   interface AudioStreamInfo {
     /**
-     * 音频文件的采样率，单位为赫兹（Hz）。支持传入[AudioSamplingRate]{@link @ohos.multimedia.audio:audio.AudioSamplingRate}。
+     * 音频文件的采样率，单位为Hz。支持传入[AudioSamplingRate]{@link @ohos.multimedia.audio:audio.AudioSamplingRate}。
      *
      * 从API版本26.0.0开始：
      *
@@ -2247,12 +2142,6 @@ declare namespace audio {
     /**
      * 音频内容类型。
      *
-     * SystemCapability.Multimedia.Audio.Core
-     *
-     * API version 8、9为必填参数，从API version 10开始为可选参数，默认值为CONTENT_TYPE_UNKNOWN。
-     *
-     * 从API version 8开始支持，从API version 10开始废弃，建议使用usage替代。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 8 dynamic
      * @deprecated since 10
@@ -2261,10 +2150,6 @@ declare namespace audio {
     content?: ContentType;
     /**
      * 音频流使用类型。
-     *
-     * SystemCapability.Multimedia.Audio.Core
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform [since 12]
@@ -2278,10 +2163,6 @@ declare namespace audio {
      *
      * 设置为0即可。
      *
-     * SystemCapability.Multimedia.Audio.Core
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform [since 12]
      * @atomicservice [since 12]
@@ -2291,8 +2172,6 @@ declare namespace audio {
     rendererFlags: int;
     /**
      * 音频的音量模式。默认值为SYSTEM_GLOBAL。
-     *
-     * SystemCapability.Multimedia.Audio.Volume
      *
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 19 dynamic
@@ -2313,8 +2192,6 @@ declare namespace audio {
     /**
      * 表示应用ID。
      *
-     * SystemCapability.Multimedia.Audio.Core
-     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 9 dynamic
@@ -2323,8 +2200,6 @@ declare namespace audio {
     uid?: int;
     /**
      * 表示渲染器信息。
-     *
-     * SystemCapability.Multimedia.Audio.Renderer
      *
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
@@ -2335,8 +2210,6 @@ declare namespace audio {
     /**
      * 音频流唯一id。
      *
-     * SystemCapability.Multimedia.Audio.Renderer
-     *
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
      * @since 9 dynamic
@@ -2346,7 +2219,7 @@ declare namespace audio {
   }
 
   /**
-   * 过滤条件类。在调用selectOutputDeviceByFilter接口前，需要先创建AudioCapturerFilter实例。
+   * 过滤条件类。在调用selectInputDeviceByFilter接口前，需要先创建AudioCapturerFilter实例。
    *
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
@@ -2355,9 +2228,7 @@ declare namespace audio {
    */
   interface AudioCapturerFilter {
     /**
-     * 表示应用ID。
-     *
-     * SystemCapability.Multimedia.Audio.Core
+     * 表示应用ID。不填写时表示不按应用ID过滤。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
@@ -2366,9 +2237,7 @@ declare namespace audio {
      */
     uid?: int;
     /**
-     * 表示采集器信息。
-     *
-     * SystemCapability.Multimedia.Audio.Capturer
+     * 表示采集器信息。不填写时表示不按采集器信息过滤。
      *
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
@@ -2390,8 +2259,6 @@ declare namespace audio {
     /**
      * 音频流信息。
      *
-     * SystemCapability.Multimedia.Audio.Renderer
-     *
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform [since 12]
      * @since 8 dynamic
@@ -2400,8 +2267,6 @@ declare namespace audio {
     streamInfo: AudioStreamInfo;
     /**
      * 音频渲染器信息。
-     *
-     * SystemCapability.Multimedia.Audio.Renderer
      *
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform [since 12]
@@ -2420,9 +2285,7 @@ declare namespace audio {
     privacyType?: AudioPrivacyType;
 
     /**
-     * 表示音频流的原始应用ID信息。
-     *
-     * 26.0.0
+     * 表示音频流的原始应用ID信息，用于系统应用代理其他应用播放音频时设置音频流的归属身份。不传此参数时不设置原始应用ID信息。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
@@ -2578,7 +2441,8 @@ declare namespace audio {
    * 表示中断提示的枚举。
    * 当用户监听到音频中断事件（即收到[InterruptEvent]{@link @ohos.multimedia.audio:audio.InterruptEvent}事件）时，获取此信息。
    * 此类型表示根据焦点策略，对音频流执行的具体操作（如暂停、调整音量等）。
-   * 可以结合InterruptEvent中的[InterruptForceType]{@link audio.InterruptForceType}信息，判断该操作是否已由系统强制执行。详情请参阅音频焦点介绍文档。
+   * 可以结合InterruptEvent中的[InterruptForceType]{@link audio.InterruptForceType}信息，判断该操作是否已由系统强制执行。详情请参阅文档
+   * [音频焦点介绍](docroot://media/audio/audio-playback-concurrency.md)。
    *
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform [since 12]
@@ -2590,8 +2454,6 @@ declare namespace audio {
     /**
      * 无提示。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @atomicservice [since 12]
      * @since 8 dynamic
@@ -2602,8 +2464,6 @@ declare namespace audio {
      * 提示音频恢复，应用可主动触发开始渲染或开始采集的相关操作。
      *
      * 此操作无法由系统强制执行，其对应的[InterruptForceType](#interruptforcetype9)一定为INTERRUPT_SHARE类型。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform [since 12]
@@ -2618,8 +2478,6 @@ declare namespace audio {
      *
      * 待焦点可用时，会收到INTERRUPT_HINT_RESUME事件。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @atomicservice [since 12]
      * @since 7 dynamic
@@ -2629,8 +2487,6 @@ declare namespace audio {
 
     /**
      * 提示音频停止，彻底失去音频焦点。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @atomicservice [since 12]
@@ -2642,8 +2498,6 @@ declare namespace audio {
     /**
      * 提示音频躲避开始，降低音量播放。
      *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @atomicservice [since 12]
      * @since 7 dynamic
@@ -2653,8 +2507,6 @@ declare namespace audio {
 
     /**
      * 提示音频躲避结束，恢复音量播放。
-     *
-     * 从API version 12开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @atomicservice [since 12]
@@ -2685,8 +2537,8 @@ declare namespace audio {
   /**
    * 表示音频打断类型的枚举。
    * 当用户监听到音频中断（即收到[InterruptEvent]{@link @ohos.multimedia.audio:audio.InterruptEvent}事件）时，获取此信息。
-   * 此类型表示音频打断是否已由系统强制执行，具体操作信息（如音频暂停、停止等）可通过[InterruptHint]{@link audio.InterruptHint}获取。
-   * 关于音频打断策略的详细说明可参考音频焦点介绍文档。
+   * 此类型表示音频打断是否已由系统强制执行，具体操作信息（如音频暂停、停止等）可通过[InterruptHint]{@link audio.InterruptHint}获取。关于音频打断策略的详细说明可参考文档
+   * [音频焦点介绍](docroot://media/audio/audio-playback-concurrency.md)。
    *
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform [since 12]
@@ -2913,8 +2765,8 @@ declare namespace audio {
      * 设置指定流的音量等级。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃，建议使用[AVVolumePanel]{@link @ohos.multimedia.avVolumePanel:AVVolumePanel}
-     * > 替代。
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用[AVVolumePanel]{@link @ohos.multimedia.avVolumePanel:AVVolumePanel}替代。
      *
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      * @param { AudioVolumeType } volumeType - 音频音量类型。
@@ -2933,8 +2785,8 @@ declare namespace audio {
      * 设置指定流的音量等级。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃，建议使用[AVVolumePanel]{@link @ohos.multimedia.avVolumePanel:AVVolumePanel}
-     * > 替代。
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用[AVVolumePanel]{@link @ohos.multimedia.avVolumePanel:AVVolumePanel}替代。
      *
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      * @param { AudioVolumeType } volumeType - 音频音量类型。
@@ -2953,7 +2805,8 @@ declare namespace audio {
      * 获取指定流的音量等级。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
      * > [getVolume]{@link @ohos.multimedia.audio:audio.AudioVolumeGroupManager.getVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>)}
      * > 替代；API version 20及以后，建议使用
      * > [getVolumeByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getVolumeByStream}替代。
@@ -2973,7 +2826,8 @@ declare namespace audio {
      * 获取指定流的音量等级。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
      * > [getVolume]{@link @ohos.multimedia.audio:audio.AudioVolumeGroupManager.getVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>)}
      * > 替代；API version 20及以后，建议使用
      * > [getVolumeByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getVolumeByStream}替代。
@@ -2993,7 +2847,8 @@ declare namespace audio {
      * 获取指定流的最小音量等级。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
      * > [getMinVolume]{@link @ohos.multimedia.audio:audio.AudioVolumeGroupManager.getMinVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>)}
      * > 替代；API version 20及以后，建议使用
      * > [getMinVolumeByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getMinVolumeByStream}替代。
@@ -3010,7 +2865,8 @@ declare namespace audio {
      * 获取指定流的最小音量等级。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
      * > [getMinVolume]{@link @ohos.multimedia.audio:audio.AudioVolumeGroupManager.getMinVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>)}
      * > 替代；API version 20及以后，建议使用
      * > [getMinVolumeByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getMinVolumeByStream}替代。
@@ -3027,7 +2883,8 @@ declare namespace audio {
      * 获取指定流的最大音量等级。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
      * > [getMaxVolume]{@link @ohos.multimedia.audio:audio.AudioVolumeGroupManager.getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>)}
      * > 替代；API version 20及以后，建议使用
      * > [getMaxVolumeByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getMaxVolumeByStream}替代。
@@ -3044,7 +2901,8 @@ declare namespace audio {
      * 获取指定流的最大音量等级。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
      * > [getMaxVolume]{@link @ohos.multimedia.audio:audio.AudioVolumeGroupManager.getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>)}
      * > 替代；API version 20及以后，建议使用
      * > [getMaxVolumeByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getMaxVolumeByStream}替代。
@@ -3061,7 +2919,8 @@ declare namespace audio {
      * 获取音频设备列表。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃，建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用
      * > [getDevices]{@link @ohos.multimedia.audio:audio.AudioRoutingManager.getDevices(deviceFlag: DeviceFlag, callback: AsyncCallback<AudioDeviceDescriptors>)}
      * > 替代。
      *
@@ -3077,7 +2936,8 @@ declare namespace audio {
      * 获取音频设备列表。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃，建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用
      * > [getDevices]{@link @ohos.multimedia.audio:audio.AudioRoutingManager.getDevices(deviceFlag: DeviceFlag, callback: AsyncCallback<AudioDeviceDescriptors>)}
      * > 替代。
      *
@@ -3094,8 +2954,8 @@ declare namespace audio {
      * 当该音量流可设置的最小音量不能为0时，不支持静音操作。例如：闹钟和通话。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃，建议使用[AVVolumePanel]{@link @ohos.multimedia.avVolumePanel:AVVolumePanel}
-     * > 替代。
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用[AVVolumePanel]{@link @ohos.multimedia.avVolumePanel:AVVolumePanel}替代。
      *
      * @param { AudioVolumeType } volumeType - 音频音量类型。
      * @param { boolean } mute - 是否设置指定音量流为静音状态。true表示静音，false表示非静音。
@@ -3111,8 +2971,8 @@ declare namespace audio {
      * 当该音量流可设置的最小音量不能为0时，不支持静音操作。例如：闹钟和通话。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃，建议使用[AVVolumePanel]{@link @ohos.multimedia.avVolumePanel:AVVolumePanel}
-     * > 替代。
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用[AVVolumePanel]{@link @ohos.multimedia.avVolumePanel:AVVolumePanel}替代。
      *
      * @param { AudioVolumeType } volumeType - 音频音量类型。
      * @param { boolean } mute -  是否设置指定音量流为静音状态。true表示静音，false表示非静音。
@@ -3127,7 +2987,8 @@ declare namespace audio {
      * 获取指定音量流的静音状态。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
      * > [isMute]{@link @ohos.multimedia.audio:audio.AudioVolumeGroupManager.isMute(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>)}
      * > 替代；API version 20及以后，建议使用
      * > [isSystemMutedForStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.isSystemMutedForStream}替代。
@@ -3144,7 +3005,8 @@ declare namespace audio {
      * 获取指定音量流的静音状态。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
      * > [isMute]{@link @ohos.multimedia.audio:audio.AudioVolumeGroupManager.isMute(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>)}
      * > 替代；API version 20及以后，建议使用
      * > [isSystemMutedForStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.isSystemMutedForStream}替代。
@@ -3161,7 +3023,8 @@ declare namespace audio {
      * 获取指定音量流的活跃状态。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
      * > [isActive]{@link @ohos.multimedia.audio:audio.AudioStreamManager.isActive(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>)}
      * > 替代；API version 20及以后，建议使用[isStreamActive]{@link @ohos.multimedia.audio:audio.AudioStreamManager.isStreamActive}
      * > 替代。
@@ -3178,7 +3041,8 @@ declare namespace audio {
      * 获取指定音量流的活跃状态。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃。在API version 9-19建议使用
      * > [isActive]{@link @ohos.multimedia.audio:audio.AudioStreamManager.isActive(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>)}
      * > 替代；API version 20及以后，建议使用[isStreamActive]{@link @ohos.multimedia.audio:audio.AudioStreamManager.isStreamActive}
      * > 替代。
@@ -3225,7 +3089,8 @@ declare namespace audio {
      * 获取麦克风静音状态。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃，建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用
      * > [isMicrophoneMute]{@link @ohos.multimedia.audio:audio.AudioVolumeGroupManager.isMicrophoneMute(callback: AsyncCallback<boolean>)}
      * > 替代。
      *
@@ -3241,7 +3106,8 @@ declare namespace audio {
      * 获取麦克风静音状态。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃，建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用
      * > [isMicrophoneMute]{@link @ohos.multimedia.audio:audio.AudioVolumeGroupManager.isMicrophoneMute(callback: AsyncCallback<boolean>)}
      * > 替代。
      *
@@ -3287,7 +3153,8 @@ declare namespace audio {
      * 获取铃声模式。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃，建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用
      * > [getRingerMode]{@link @ohos.multimedia.audio:audio.AudioVolumeGroupManager.getRingerMode(callback: AsyncCallback<AudioRingMode>)}
      * > 替代。
      *
@@ -3302,7 +3169,8 @@ declare namespace audio {
      * 获取铃声模式。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃，建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用
      * > [getRingerMode]{@link @ohos.multimedia.audio:audio.AudioVolumeGroupManager.getRingerMode(callback: AsyncCallback<AudioRingMode>)}
      * > 替代。
      *
@@ -3323,7 +3191,7 @@ declare namespace audio {
      *
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      * @param { string } key - 被设置的音频参数的键。
-     * @param { string } value -  被设置的音频参数的值。
+     * @param { string } value - 被设置的音频参数的值。
      * @param { AsyncCallback<void> } callback - 回调函数。当音频参数设置成功，err为undefined，否则为错误对象。
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 7 dynamiconly
@@ -3380,7 +3248,7 @@ declare namespace audio {
     getAudioParameter(key: string): Promise<string>;
 
     /**
-     * 音频扩展参数设置。使用Promise异步回调。
+     * 设置音频扩展参数，适用于需要配置设备特定音频参数的场景，参数通常由调用者与系统底层共同约定。使用Promise异步回调。
      *
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      * @param { string } mainKey - 被设置的音频参数的主键。
@@ -3400,11 +3268,11 @@ declare namespace audio {
     setExtraParameters(mainKey: string, kvpairs: Record<string, string>): Promise<void>;
 
     /**
-     * 获取指定音频参数值。使用Promise异步回调。
+     * 获取指定音频参数值，适用于查询设备特定音频参数的场景，参数通常由调用者与系统底层共同约定。使用Promise异步回调。
      *
      * @param { string } mainKey - Main key of the audio parameters to get.
      * @param { Array<string> } subKeys - Sub keys of the audio parameters to get.
-     * @returns { Promise<Record<string, string>> } Promise对象，返回获取的音频参数的值。
+     * @returns { Promise<Record<string, string>> } Promise对象，返回获取的音频参数的键值对，键为参数名，值为参数值。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -3421,7 +3289,8 @@ declare namespace audio {
      * 设置设备激活状态。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃，建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用
      * > [setCommunicationDevice]{@link @ohos.multimedia.audio:audio.AudioRoutingManager.setCommunicationDevice(deviceType: CommunicationDeviceType, active: boolean, callback: AsyncCallback<void>)}
      * > 替代。
      *
@@ -3438,7 +3307,8 @@ declare namespace audio {
      * 设置设备激活状态。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃，建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用
      * > [setCommunicationDevice]{@link @ohos.multimedia.audio:audio.AudioRoutingManager.setCommunicationDevice(deviceType: CommunicationDeviceType, active: boolean, callback: AsyncCallback<void>)}
      * > 替代。
      *
@@ -3455,7 +3325,8 @@ declare namespace audio {
      * 获取指定设备的激活状态。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃，建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用
      * > [isCommunicationDeviceActive]{@link @ohos.multimedia.audio:audio.AudioRoutingManager.isCommunicationDeviceActive(deviceType: CommunicationDeviceType, callback: AsyncCallback<boolean>)}
      * > 替代。
      *
@@ -3471,7 +3342,8 @@ declare namespace audio {
      * 获取指定设备的激活状态。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃，建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用
      * > [isCommunicationDeviceActive]{@link @ohos.multimedia.audio:audio.AudioRoutingManager.isCommunicationDeviceActive(deviceType: CommunicationDeviceType, callback: AsyncCallback<boolean>)}
      * > 替代。
      *
@@ -3530,7 +3402,7 @@ declare namespace audio {
      * 设置音频场景模式。使用Promise异步回调。
      *
      * @param { AudioScene } scene - 音频场景模式。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @systemapi
      * @since 8 dynamic
@@ -3588,19 +3460,21 @@ declare namespace audio {
     onAudioSceneChange(callback: Callback<AudioScene>): void;
 
     /**
-     * 取消监听音频场景变化事件。使用callback异步回调。
+     * 取消监听音频场景变化事件。
      *
-     * @param { 'audioSceneChange' } type - 事件回调类型，支持的事件为'audioSceneChange'，当取消监听当前音频场景变化事件时，触发该事件。
-     * @param { Callback<AudioScene> } [callback] - 回调函数，返回当前音频场景模式。
+     * @param { 'audioSceneChange' } type - 事件回调类型，支持的事件为'audioSceneChange'。
+     * @param { Callback<AudioScene> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('audioSceneChange')]{@link audio.AudioManager.on_audioSceneChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @since 20 dynamic
      */
     off(type: 'audioSceneChange', callback?: Callback<AudioScene>): void;
 
     /**
-     * 取消监听音频场景变化事件。使用callback异步回调。
+     * 取消监听音频场景变化事件。
      *
-     * @param { Callback<AudioScene> } [callback] - 回调函数，返回当前音频场景模式。
+     * @param { Callback<AudioScene> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('audioSceneChange')]{@link audio.AudioManager.on_audioSceneChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @since 23 static
      */
@@ -3610,7 +3484,8 @@ declare namespace audio {
      * 监听音频设备连接变化事件（当音频设备连接状态发生变化时触发）。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃，建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用
      * > [on('deviceChange')]{@link @ohos.multimedia.audio:audio.AudioRoutingManager.on_deviceChange}替代。
      *
      * @param { 'deviceChange' } type - 事件回调类型，支持的事件为'deviceChange'，当音频设备连接状态发生变化时，触发该事件。
@@ -3623,14 +3498,16 @@ declare namespace audio {
     on(type: 'deviceChange', callback: Callback<DeviceChangeAction>): void;
 
     /**
-     * 取消监听音频设备连接变化事件。使用callback异步回调。
+     * 取消监听音频设备连接变化事件。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 9开始废弃，建议使用
+     * >
+     * > 从API version 7开始支持，从API version 9开始废弃，建议使用
      * > [off('deviceChange')]{@link @ohos.multimedia.audio:audio.AudioRoutingManager.off_deviceChange}替代。
      *
-     * @param { 'deviceChange' } type - 事件回调类型，支持的事件为'deviceChange'，当取消监听音频设备连接变化事件时，触发该事件。
-     * @param { Callback<DeviceChangeAction> } callback - 回调函数，返回设备更新详情。
+     * @param { 'deviceChange' } type - 事件回调类型，支持的事件为'deviceChange'。
+     * @param { Callback<DeviceChangeAction> } callback - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('deviceChange')]{@link audio.AudioManager.on_deviceChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -3644,7 +3521,8 @@ declare namespace audio {
      * 景（未曾创建AudioRenderer对象），比如FM、语音唤醒等提供焦点变化监听功能。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 11开始废弃，建议使用
+     * >
+     * > 从API version 7开始支持，从API version 11开始废弃，建议使用
      * > [on('audioInterrupt')]{@link @ohos.multimedia.audio:audio.AudioCapturer.on_audioInterrupt}替代。
      *
      * @param { 'interrupt' } type - 事件回调类型，支持的事件为'interrupt'，当音频焦点状态发生变化时，触发该事件。
@@ -3658,15 +3536,18 @@ declare namespace audio {
     on(type: 'interrupt', interrupt: AudioInterrupt, callback: Callback<InterruptAction>): void;
 
     /**
-     * 取消监听音频打断事件。使用callback异步回调。
+     * 取消监听音频打断事件。
      *
      * > **说明：**
-     * > > 从API version 7开始支持，从API version 11开始废弃，建议使用
-     * > off('audioInterrupt')替代。
+     * >
+     * > 从API version 7开始支持，从API version 11开始废弃，建议使用
+     * > [off('audioInterrupt')](docroot://reference/apis-audio-kit/arkts-apis-audio-AudioCapturer.md#offaudiointerrupt10)
+     * > 替代。
      *
-     * @param { 'interrupt' } type - 事件回调类型，支持的事件为'interrupt'，当取消监听音频打断事件时，触发该事件。
+     * @param { 'interrupt' } type - 事件回调类型，支持的事件为'interrupt'。
      * @param { AudioInterrupt } interrupt - 音频打断事件类型的参数。
-     * @param { Callback<InterruptAction> } callback - 回调函数，返回打断事件信息。
+     * @param { Callback<InterruptAction> } callback - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('interrupt')]{@link audio.AudioManager.on_interrupt}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 7 dynamiconly
      * @deprecated since 11
@@ -3677,7 +3558,7 @@ declare namespace audio {
     /**
      * 获取音频音量管理器。
      *
-     * @returns { AudioVolumeManager } AudioVolumeManager实例。
+     * @returns { AudioVolumeManager } 返回AudioVolumeManager实例。
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform [since 12]
      * @atomicservice [since 23]
@@ -3689,7 +3570,7 @@ declare namespace audio {
     /**
      * 获取音频流管理器。
      *
-     * @returns { AudioStreamManager } AudioStreamManager实例。
+     * @returns { AudioStreamManager } 返回AudioStreamManager实例。
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform [since 12]
      * @since 9 dynamic
@@ -3700,7 +3581,7 @@ declare namespace audio {
     /**
      * 获取音频路由管理器。
      *
-     * @returns { AudioRoutingManager } AudioRoutingManager实例。
+     * @returns { AudioRoutingManager } 返回AudioRoutingManager实例。
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform [since 12]
      * @since 9 dynamic
@@ -3711,7 +3592,7 @@ declare namespace audio {
     /**
      * 获取音频会话管理器。
      *
-     * @returns { AudioSessionManager } AudioSessionManager实例。
+     * @returns { AudioSessionManager } 返回AudioSessionManager实例。
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice [since 26.0.0]
@@ -3723,7 +3604,7 @@ declare namespace audio {
     /**
      * 获取空间音频管理器。
      *
-     * @returns { AudioSpatializationManager } AudioSpatializationManager实例。
+     * @returns { AudioSpatializationManager } 返回AudioSpatializationManager实例。
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @since 18 dynamic
      * @since 23 static
@@ -3755,9 +3636,9 @@ declare namespace audio {
     getCollaborativeManager(): AudioCollaborativeManager;
 
     /**
-     * 获取音频设备增强管理器实例。
+     * 获取音频设备增强管理器。
      *
-     * @returns { AudioDeviceEnhanceManager } 返回一个AudioDeviceEnhanceManager实例。
+     * @returns { AudioDeviceEnhanceManager } 返回AudioDeviceEnhanceManager实例。
      * @syscap SystemCapability.Multimedia.Audio.DeviceEnhance
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -3777,10 +3658,8 @@ declare namespace audio {
     /**
      * 获取录音策略管理器。
      *
-     * @returns { AudioRecordingManager } AudioRecordingManager实例。
-     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @returns { AudioRecordingManager } 返回AudioRecordingManager实例。
      * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
@@ -3791,7 +3670,7 @@ declare namespace audio {
      * 设置为非激活状态后，当设备长时间高音量播放时，不再自动提醒用户降低到安全音量。
      *
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -3800,26 +3679,6 @@ declare namespace audio {
      * @since 23 static
      */
     disableSafeMediaVolume(): Promise<void>;
-
-    /**
-     * 报告用户允许的结果，以响应来自特定系统应用的播放捕获请求给音频系统。
-     * 系统将根据该结果继续启动播放捕获或返回失败。
-     * 该 API 使用 Promise 来返回结果。
-     *
-     * @permission ohos.permission.MANAGE_AUDIO_CONFIG
-     * @param { long } streamId - Stream id of the capturer.
-     * @param { boolean } allowed - User allowed result, true means user allows to start playback capture,
-     *     otherwise false.
-     * @returns { Promise<void> } - Promise that returns no value.
-     * @throws { BusinessError } 201 - Permisson denied.
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 6800101 - Parameter verification failed, streamId does not exist.
-     * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.1 dynamic&static
-     */
-    reportPlaybackCaptureUserAllowed(streamId: long, allowed: boolean): Promise<void>;
   }
 
   /**
@@ -3935,7 +3794,8 @@ declare namespace audio {
   }
 
   /**
-   * 音频路由管理。在使用AudioRoutingManager的接口前，需要使用
+   * 音频路由管理，支持选择输入输出设备、管理设备过滤、查询首选设备等。适用于需要灵活控制音频流设备路由、实现特定应用或音频流的设备选择、或排除特定设备的场景。
+   * 在使用AudioRoutingManager的接口前，需要使用
    * [getRoutingManager]{@link @ohos.multimedia.audio:audio.AudioManager.getRoutingManager}获取AudioRoutingManager实例。
    *
    * @syscap SystemCapability.Multimedia.Audio.Device
@@ -3959,7 +3819,7 @@ declare namespace audio {
      * 获取音频设备列表。使用Promise异步回调。
      *
      * @param { DeviceFlag } deviceFlag - 音频设备类型。
-     * @returns { Promise<AudioDeviceDescriptors> } Promise对象，返回设备列表。
+     * @returns { Promise<AudioDeviceDescriptors> } Promise对象，返回音频设备列表。
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @crossplatform [since 12]
      * @since 9 dynamic
@@ -3970,7 +3830,7 @@ declare namespace audio {
      * 获取音频设备列表。同步返回结果。
      *
      * @param { DeviceFlag } deviceFlag - 音频设备类型。
-     * @returns { AudioDeviceDescriptors } 返回设备列表。
+     * @returns { AudioDeviceDescriptors } 返回音频设备列表。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -4010,10 +3870,11 @@ declare namespace audio {
     onDeviceChange(deviceFlag: DeviceFlag, callback: Callback<DeviceChangeAction>): void;
 
     /**
-     * 取消监听音频设备连接状态变化事件。使用callback异步回调。
+     * 取消监听音频设备连接状态变化事件。
      *
-     * @param { 'deviceChange' } type - 事件回调类型，支持的事件为'deviceChange'，当取消监听音频设备连接变化事件时，触发该事件。
-     * @param { Callback<DeviceChangeAction> } callback - 回调函数，返回设备更新详情。
+     * @param { 'deviceChange' } type - 事件回调类型，支持的事件为'deviceChange'。
+     * @param { Callback<DeviceChangeAction> } callback - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('deviceChange')]{@link audio.AudioRoutingManager.on_deviceChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -4025,9 +3886,9 @@ declare namespace audio {
     off(type: 'deviceChange', callback?: Callback<DeviceChangeAction>): void;
 
     /**
-     * 取消监听音频设备连接状态变化事件。使用callback异步回调。
+     * 取消监听音频设备连接状态变化事件。
      *
-     * @param { Callback<DeviceChangeAction> } [callback] - 回调函数，返回设备更新详情。
+     * @param { Callback<DeviceChangeAction> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与[ondeviceChange](@link audio.AudioRoutingManager.onDeviceChange)绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 23 static
@@ -4038,7 +3899,7 @@ declare namespace audio {
      * 获取音频可选设备列表。同步返回结果。
      *
      * @param { DeviceUsage } deviceUsage - 音频设备类型（根据用途分类）。
-     * @returns { AudioDeviceDescriptors } 返回设备列表。
+     * @returns { AudioDeviceDescriptors } 返回音频可选设备列表。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -4076,10 +3937,12 @@ declare namespace audio {
     onAvailableDeviceChange(deviceUsage: DeviceUsage, callback: Callback<DeviceChangeAction>): void;
 
     /**
-     * 取消监听音频可选设备连接状态变化事件。使用callback异步回调。
+     * 取消监听音频可选设备连接状态变化事件。
      *
-     * @param { 'availableDeviceChange' } type - 事件回调类型，支持的事件为'availableDeviceChange'，当取消监听音频可选设备连接变化事件时，触发该事件。
-     * @param { Callback<DeviceChangeAction> } callback - 回调函数，返回可选设备更新详情。
+     * @param { 'availableDeviceChange' } type - 事件回调类型，支持的事件为'availableDeviceChange'。
+     * @param { Callback<DeviceChangeAction> } callback - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('availableDeviceChange')]{@link audio.AudioRoutingManager.on_availableDeviceChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的
+     *     监听事件。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -4090,9 +3953,11 @@ declare namespace audio {
     off(type: 'availableDeviceChange', callback?: Callback<DeviceChangeAction>): void;
 
     /**
-     * 取消监听音频可选设备连接状态变化事件。使用callback异步回调。
+     * 取消监听音频可选设备连接状态变化事件。
      *
-     * @param { Callback<DeviceChangeAction> } [callback] - 回调函数，返回可选设备更新详情。
+     * @param { Callback<DeviceChangeAction> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [onAvailableDeviceChange]{@link audio.AudioRoutingManager.onAvailableDeviceChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的
+     *     监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 23 static
@@ -4102,7 +3967,7 @@ declare namespace audio {
     /**
      * 设置通信设备激活状态。使用callback异步回调。
      * 该接口由于功能设计变化，将在后续版本废弃，不建议开发者使用。
-     * 推荐使用AVSession提供的设备切换组件，实现通话设备切换。
+     * 推荐使用AVSession提供的[设备切换组件](docroot://media/avsession/using-switch-call-devices.md)，实现通话设备切换。
      *
      * @param { CommunicationDeviceType } deviceType - 音频设备类型。
      * @param { boolean } active - 是否设置设备为激活状态。true表示激活，false表示未激活。
@@ -4116,11 +3981,11 @@ declare namespace audio {
     /**
      * 设置通信设备激活状态。使用Promise异步回调。
      * 该接口由于功能设计变化，将在后续版本废弃，不建议开发者使用。
-     * 推荐开发者使用AVSession提供的设备切换组件，实现通话设备切换。
+     * 推荐开发者使用AVSession提供的[设备切换组件](docroot://media/avsession/using-switch-call-devices.md)，实现通话设备切换。
      *
      * @param { CommunicationDeviceType } deviceType - 活跃音频设备类型。
      * @param { boolean } active - 是否设置设备为激活状态。true表示激活，false表示未激活。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @crossplatform [since 12]
      * @since 9 dynamic
@@ -4131,7 +3996,7 @@ declare namespace audio {
     /**
      * 获取指定通信设备的激活状态。使用callback异步回调。
      *
-     * @param { CommunicationDeviceType } deviceType - 活跃音频设备类型。
+     * @param { CommunicationDeviceType } deviceType - 通信设备类型。
      * @param { AsyncCallback<boolean> } callback - 回调函数。当获取指定通信设备的激活状态成功，err为undefined，data为true表示激活，false表示未激活；否则为错误对象。
      * @syscap SystemCapability.Multimedia.Audio.Communication
      * @crossplatform [since 12]
@@ -4181,7 +4046,7 @@ declare namespace audio {
      * 选择音频输出设备，当前只能选择一个输出设备。使用Promise异步回调。
      *
      * @param { AudioDeviceDescriptors } outputAudioDevices - 输出设备类。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 9 dynamic
@@ -4206,7 +4071,7 @@ declare namespace audio {
      *
      * @param { AudioRendererFilter } filter - 过滤条件。
      * @param { AudioDeviceDescriptors } outputAudioDevices - 输出设备信息。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 9 dynamic
@@ -4246,7 +4111,7 @@ declare namespace audio {
      * 选择音频输入设备，当前只能选择一个输入设备。使用Promise异步回调。
      *
      * @param { AudioDeviceDescriptors } inputAudioDevices - 输入设备类。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @since 9 dynamic
@@ -4259,7 +4124,7 @@ declare namespace audio {
      *
      * @param { AudioCapturerFilter } filter - 过滤条件类。
      * @param { AudioDeviceDescriptors } inputAudioDevices - 输入设备类。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -4362,11 +4227,12 @@ declare namespace audio {
     onPreferOutputDeviceChangeForRendererInfo(rendererInfo: AudioRendererInfo, callback: Callback<AudioDeviceDescriptors>): void;
 
     /**
-     * 取消监听最高优先级输出音频设备变化事件。使用callback异步回调。
+     * 取消监听最高优先级输出音频设备变化事件。
      *
-     * @param { 'preferOutputDeviceChangeForRendererInfo' } type - 事件回调类型，支持的事件为'preferOutputDeviceChangeForRendererInfo'，当取消监听
-     *     最高优先级输出音频设备变化事件时，触发该事件。
-     * @param { Callback<AudioDeviceDescriptors> } callback - 回调函数，返回优先级最高的输出设备信息。
+     * @param { 'preferOutputDeviceChangeForRendererInfo' } type - 事件回调类型，支持的事件为'preferOutputDeviceChangeForRendererInfo'。
+     * @param { Callback<AudioDeviceDescriptors> } callback - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('preferOutputDeviceChangeForRendererInfo')]{@link audio.AudioRoutingManager.on_preferOutputDeviceChangeForRendererInfo}
+     *     绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -4378,9 +4244,11 @@ declare namespace audio {
     off(type: 'preferOutputDeviceChangeForRendererInfo', callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
-     * 取消监听最高优先级输出音频设备变化事件。使用callback异步回调。
+     * 取消监听最高优先级输出音频设备变化事件
      *
-     * @param { Callback<AudioDeviceDescriptors> } [callback] - 回调函数，返回优先级最高的输出设备信息。
+     * @param { Callback<AudioDeviceDescriptors> } callback - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [onPreferOutputDeviceChangeForRendererInfo]{@link audio.AudioRoutingManager.onPreferOutputDeviceChangeForRendererInfo}
+     *     绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 23 static
@@ -4418,10 +4286,10 @@ declare namespace audio {
     onPreferredOutputDeviceChangeByFilter(filter: AudioRendererFilter, callback: Callback<AudioDeviceDescriptors>): void;
 
     /**
-     * 取消监听指定过滤条件下最高优先级输出设备变化事件。使用callback异步回调。
+     * 取消订阅指定过滤条件下首选输出设备变化事件。
      *
-     * @param { 'preferredOutputDeviceChangeByFilter' } type - 要监听的事件类型。仅支持 preferredOutputDeviceChangeByFilter 事件。
-     * @param { Callback<AudioDeviceDescriptors> } [callback] - 订阅中使用的回调函数。
+     * @param { 'preferredOutputDeviceChangeByFilter' } type - 事件回调类型，支持的事件为'preferredOutputDeviceChangeByFilter'
+     * @param { Callback<AudioDeviceDescriptors> } [callback] - 待取消的首选输出设备变化回调函数，不填写时取消该事件的所有回调。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -4431,9 +4299,9 @@ declare namespace audio {
     off(type: 'preferredOutputDeviceChangeByFilter', callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
-     * 取消订阅首选输出设备更改事件。
+     * 取消监听指定过滤条件下最高优先级输出设备变化事件。
      *
-     * @param { Callback<AudioDeviceDescriptors> } [callback] - 订阅中使用的回调函数。
+     * @param { Callback<AudioDeviceDescriptors> } [callback] - 回调函数，返回优先级最高的输出设备信息。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -4480,7 +4348,7 @@ declare namespace audio {
      * 根据过滤条件，查询音频输入设备，当前只能查询一个输入设备。
      *
      * @param { AudioCapturerFilter } filter - 过滤条件类。
-     * @returns { AudioDeviceDescriptors } The preferred devices.
+     * @returns { AudioDeviceDescriptors } 返回音频输入设备信息。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -4519,11 +4387,12 @@ declare namespace audio {
     onPreferredInputDeviceChangeForCapturerInfo(capturerInfo: AudioCapturerInfo, callback: Callback<AudioDeviceDescriptors>): void;
 
     /**
-     * 取消监听最高优先级输入音频设备变化事件。使用callback异步回调。
+     * 取消监听最高优先级输入音频设备变化事件。
      *
-     * @param { 'preferredInputDeviceChangeForCapturerInfo' } type - 事件回调类型，支持的事件为'preferredInputDeviceChangeForCapturerInfo'，当
-     *     取消监听最高优先级输入音频设备变化事件时，触发该事件。
-     * @param { Callback<AudioDeviceDescriptors> } callback - 回调函数，返回优先级最高的输入设备信息。
+     * @param { 'preferredInputDeviceChangeForCapturerInfo' } type - 事件回调类型，支持的事件为'preferredInputDeviceChangeForCapturerInfo'。
+     * @param { Callback<AudioDeviceDescriptors> } callback - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('preferredInputDeviceChangeForCapturerInfo')]{@link audio.AudioRoutingManager.on_preferredInputDeviceChangeForCapturerInfo}
+     *     绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -4535,9 +4404,9 @@ declare namespace audio {
     off(type: 'preferredInputDeviceChangeForCapturerInfo', callback?: Callback<AudioDeviceDescriptors>): void;
 
     /**
-     * 取消监听最高优先级输入音频设备变化事件。使用callback异步回调。
+     * 取消监听最高优先级输入音频设备变化事件
      *
-     * @param { Callback<AudioDeviceDescriptors> } [callback] - 回调函数，返回优先级最高的输入设备信息。
+     * @param { Callback<AudioDeviceDescriptors> } callback - 回调函数，返回优先级最高的输入设备信息。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 23 static
@@ -4627,10 +4496,12 @@ declare namespace audio {
     onMicBlockStatusChanged(callback: Callback<DeviceBlockStatusInfo>): void;
 
     /**
-     * 取消监听麦克风堵塞状态变化事件。使用callback异步回调。
+     * 取消监听麦克风堵塞状态变化事件。
      *
-     * @param { 'micBlockStatusChanged' } type - 事件回调类型，支持的事件为'micBlockStatusChanged'，当取消监听音频麦克风是否被堵塞变化事件时，触发该事件。
-     * @param { Callback<DeviceBlockStatusInfo> } callback - 回调函数，返回麦克风被堵塞状态和设备信息。
+     * @param { 'micBlockStatusChanged' } type - 事件回调类型，支持的事件为'micBlockStatusChanged'。
+     * @param { Callback<DeviceBlockStatusInfo> } callback - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('micBlockStatusChanged')]{@link audio.AudioRoutingManager.on_micBlockStatusChanged}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的
+     *     监听事件。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -4641,9 +4512,11 @@ declare namespace audio {
     off(type: 'micBlockStatusChanged', callback?: Callback<DeviceBlockStatusInfo>): void;
 
     /**
-     * 取消监听麦克风堵塞状态变化事件。使用callback异步回调。
+     * 取消监听麦克风堵塞状态变化事件。
      *
-     * @param { Callback<DeviceBlockStatusInfo> } [callback] - 回调函数，返回麦克风被堵塞状态和设备信息。
+     * @param { Callback<DeviceBlockStatusInfo> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [onMicBlockStatusChanged]{@link audio.AudioRoutingManager.onMicBlockStatusChanged}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的
+     *     监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 23 static
@@ -4764,7 +4637,8 @@ declare namespace audio {
   }
 
   /**
-   * 音频流管理。
+   * AudioStreamManager是音频系统中的音频流管理模块。本模块提供音频流生命周期管理能力，包括音频渲染器和采集器的信息查询、状态监听、音效模式管理等。当开发者需要实时掌握音频流状态变化以优化音频应用用户体验时，使用本模块
+   * 接口完成相关操作。
    * 在使用AudioStreamManager的接口之前，需先通过[getStreamManager]{@link @ohos.multimedia.audio:audio.AudioManager.getStreamManager}
    * 获取AudioStreamManager实例。
    *
@@ -4873,8 +4747,8 @@ declare namespace audio {
     /**
      * 获取当前音效模式的信息。使用callback异步回调。
      *
-     * @param { StreamUsage } usage - 音频流使用类型。
-     * @param { AsyncCallback<AudioEffectInfoArray> } callback - 回调函数。当获取当前音效模式的信息成功，err为undefined，data为获取到的当前音效模式的信息；否则为错误对象。
+     * @param { StreamUsage } usage - 音频流类型。
+     * @param { AsyncCallback<AudioEffectInfoArray> } callback - 回调函数。当获取当前音效模式的信息成功，err为undefined，data为当前音效模式的信息；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -4888,7 +4762,7 @@ declare namespace audio {
     /**
      * 获取当前音效模式的信息。使用Promise异步回调。
      *
-     * @param { StreamUsage } usage - 音频流使用类型。
+     * @param { StreamUsage } usage - 音频流类型。
      * @returns { Promise<AudioEffectInfoArray> } Promise对象，返回当前音效模式的信息。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
@@ -4903,7 +4777,7 @@ declare namespace audio {
     /**
      * 获取当前音效模式的信息。同步返回结果。
      *
-     * @param { StreamUsage } usage - 音频流使用类型。
+     * @param { StreamUsage } usage - 音频流类型。
      * @returns { AudioEffectInfoArray } 返回当前音效模式的信息。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
@@ -4941,7 +4815,7 @@ declare namespace audio {
      * >
      * > 该接口返回的音频渲染器信息，可能包含系统内部音频播放流，如蜂窝通话、超声波等。
      *
-     * @param { Callback<AudioRendererChangeInfoArray> } callback - 回调函数用于音频渲染器更改事件。
+     * @param { Callback<AudioRendererChangeInfoArray> } callback - 回调函数，返回当前音频渲染器信息。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 23 static
@@ -4949,14 +4823,15 @@ declare namespace audio {
     onAudioRendererChange(callback: Callback<AudioRendererChangeInfoArray>): void;
 
     /**
-     * 取消监听音频渲染器更改事件。使用callback异步回调。
-     *
+     * 取消监听音频渲染器更改事件。
+     * 
      * > **说明：**
      * >
      * > 该接口返回的音频渲染器信息，可能包含系统内部音频播放流，如蜂窝通话、超声波等。
      *
-     * @param { 'audioRendererChange' } type - 事件回调类型，支持的事件为'audioRendererChange'，当取消监听音频渲染器更改事件时，触发该事件。
-     * @param { Callback<AudioRendererChangeInfoArray> } callback - 回调函数，返回当前音频渲染器信息。
+     * @param { 'audioRendererChange' } type - 事件回调类型，支持的事件为'audioRendererChange'。
+     * @param { Callback<AudioRendererChangeInfoArray> } callback - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('audioRendererChange')]{@link audio.AudioStreamManager.on_audioRendererChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform [since 12]
@@ -4965,13 +4840,14 @@ declare namespace audio {
     off(type: 'audioRendererChange', callback?: Callback<AudioRendererChangeInfoArray>): void;
 
     /**
-     * 取消监听音频渲染器更改事件。使用callback异步回调。
+     * 取消监听音频渲染器更改事件。
      *
      * > **说明：**
      * >
      * > 该接口返回的音频渲染器信息，可能包含系统内部音频播放流，如蜂窝通话、超声波等。
      *
-     * @param { Callback<AudioRendererChangeInfoArray> } [callback] - 回调函数用于音频渲染器更改事件。
+     * @param { Callback<AudioRendererChangeInfoArray> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [onAudioRendererChange]{@link audio.AudioStreamManager.onAudioRendererChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 23 static
@@ -5013,14 +4889,15 @@ declare namespace audio {
     onAudioCapturerChange(callback: Callback<AudioCapturerChangeInfoArray>): void;
 
     /**
-     * 取消监听音频采集器更改事件。使用callback异步回调。
-     *
+     * 取消监听音频采集器更改事件。
+     * 
      * > **说明：**
      * >
      * > 该接口返回的音频采集器信息，可能包含系统内部音频录制流，如语音唤醒、蜂窝通话等。
      *
-     * @param { 'audioCapturerChange' } type - 事件回调类型，支持的事件为'audioCapturerChange'，当取消监听音频采集器更改事件时，触发该事件。
-     * @param { Callback<AudioCapturerChangeInfoArray> } callback - 回调函数，返回当前音频采集器信息。
+     * @param { 'audioCapturerChange' } type - 事件回调类型，支持的事件为'audioCapturerChange'。
+     * @param { Callback<AudioCapturerChangeInfoArray> } callback - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('audioCapturerChange')]{@link audio.AudioStreamManager.on_audioCapturerChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform [since 12]
@@ -5029,13 +4906,14 @@ declare namespace audio {
     off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfoArray>): void;
 
     /**
-     * 取消监听音频采集器更改事件。使用callback异步回调。
+     * 取消监听录音流配置变化事件。
      *
      * > **说明：**
      * >
      * > 该接口返回的音频采集器信息，可能包含系统内部音频录制流，如语音唤醒、蜂窝通话等。
      *
-     * @param { Callback<AudioCapturerChangeInfoArray> } [callback] - 回调函数，返回当前音频采集器信息。
+     * @param { Callback<AudioCapturerChangeInfoArray> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [onAudioCapturerChange]{@link audio.AudioStreamManager.onAudioCapturerChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 23 static
@@ -5046,8 +4924,13 @@ declare namespace audio {
      * 获取指定音频流活跃状态。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 9开始支持，从API version 20开始废弃，建议使用
-     * > [isStreamActive]{@link @ohos.multimedia.audio:audio.AudioStreamManager.isStreamActive}替代。
+     * >
+     * > 从API version 9开始支持，从API version 20开始废弃，建议使用[isStreamActive]{@link audio.AudioStreamManager.isStreamActive}替代。注意
+     * > 替代接口与原接口入参存在差异，例如[StreamUsage]{@link @ohos.multimedia.audio:audio.StreamUsage}中提供了`STREAM_USAGE_MUSIC`、`
+     * > STREAM_USAGE_MOVIE`、`STREAM_USAGE_AUDIOBOOK`、`STREAM_USAGE_GAME`等更细分的类型，而
+     * > [AudioVolumeType]{@link @ohos.multimedia.audio:audio.AudioVolumeType}中这些类型统一归入`MEDIA`类型。具体映射关系请参考
+     * > [音量控制](docroot://media/audio/using-right-streamusage-for-playback.md#音量控制)中常见的播放流类型与音量类型的对应关系，迁移时根据实际业务场景选择对应的
+     * > StreamUsage值。
      *
      * @param { AudioVolumeType } volumeType - 音频流类型。
      * @param { AsyncCallback<boolean> } callback - 回调函数。当获取指定音频流活跃状态成功，err为undefined，data为true表示活跃，false表示不活跃；否则为错误对象。
@@ -5063,8 +4946,13 @@ declare namespace audio {
      * 获取指定音频流是否为活跃状态。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 9开始支持，从API version 20开始废弃，建议使用
-     * > [isStreamActive]{@link @ohos.multimedia.audio:audio.AudioStreamManager.isStreamActive}替代。
+     * >
+     * > 从API version 9开始支持，从API version 20开始废弃，建议使用[isStreamActive]{@link audio.AudioStreamManager.isStreamActive}替代。注意
+     * > 替代接口与原接口入参存在差异，例如[StreamUsage]{@link @ohos.multimedia.audio:audio.StreamUsage}中提供了`STREAM_USAGE_MUSIC`、`
+     * > STREAM_USAGE_MOVIE`、`STREAM_USAGE_AUDIOBOOK`、`STREAM_USAGE_GAME`等更细分的类型，而
+     * > [AudioVolumeType]{@link @ohos.multimedia.audio:audio.AudioVolumeType}中这些类型统一归入`MEDIA`类型。具体映射关系请参考
+     * > [音量控制](docroot://media/audio/using-right-streamusage-for-playback.md#音量控制)中常见的播放流类型与音量类型的对应关系，迁移时根据实际业务场景选择对应的
+     * > StreamUsage值。
      *
      * @param { AudioVolumeType } volumeType - 音频流类型。
      * @returns { Promise<boolean> } Promise对象。返回true表示流状态为活跃；返回false表示流状态不活跃。
@@ -5080,8 +4968,13 @@ declare namespace audio {
      * 获取指定音频流是否为活跃状态。同步返回结果。
      *
      * > **说明：**
-     * > > 从API version 10开始支持，从API version 20开始废弃，建议使用
-     * > [isStreamActive]{@link @ohos.multimedia.audio:audio.AudioStreamManager.isStreamActive}替代。
+     * >
+     * > 从API version 10开始支持，从API version 20开始废弃，建议使用[isStreamActive]{@link audio.AudioStreamManager.isStreamActive}替代。注
+     * > 意替代接口与原接口入参存在差异，例如[StreamUsage]{@link @ohos.multimedia.audio:audio.StreamUsage}中提供了`STREAM_USAGE_MUSIC`、`
+     * > STREAM_USAGE_MOVIE`、`STREAM_USAGE_AUDIOBOOK`、`STREAM_USAGE_GAME`等更细分的类型，而
+     * > [AudioVolumeType]{@link @ohos.multimedia.audio:audio.AudioVolumeType}中这些类型统一归入`MEDIA`类型。具体映射关系请参考
+     * > [音量控制](docroot://media/audio/using-right-streamusage-for-playback.md#音量控制)中常见的播放流类型与音量类型的对应关系，迁移时根据实际业务场景选择对应的
+     * > StreamUsage值。
      *
      * @param { AudioVolumeType } volumeType - 音频流类型。
      * @returns { boolean } 流的活跃状态。返回true表示活跃，返回false表示不活跃。
@@ -5101,7 +4994,7 @@ declare namespace audio {
     /**
      * 获取指定音频流是否为活跃状态。同步返回结果。
      *
-     * @param { StreamUsage } streamUsage - 音频流使用类型。
+     * @param { StreamUsage } streamUsage - 音频流类型。
      * @returns { boolean } 流是否处于活跃状态。返回true表示活跃，返回false表示不活跃。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -5341,7 +5234,7 @@ declare namespace audio {
    * 当用户监听到音频会话状态变化事件（即收到
    * [AudioSessionStateChangedEvent]{@link @ohos.multimedia.audio:audio.AudioSessionStateChangedEvent}事件）时，获取相关信息。
    * 此类型表示根据焦点策略对音频会话执行的操作，包括暂停、调整音量等。
-   * 详情请参阅音频会话管理文档。
+   * 详情请参阅文档[音频会话管理](docroot://media/audio/audio-session-management.md)。
    *
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 20 dynamic
@@ -5415,8 +5308,6 @@ declare namespace audio {
      *
      * 当其他应用程序开始播放不可混音的音频时，应用程序可以自行决定是否静音。
      *
-     * 此接口仅可在Stage模型下使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @stagemodelonly
      * @since 23 dynamic&static
@@ -5427,8 +5318,6 @@ declare namespace audio {
      * 取消静音播放建议。
      *
      * 当其他应用程序不可混音的音频已结束，该应用程序可自行决定是否取消静音。
-     *
-     * 此接口仅可在Stage模型下使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @stagemodelonly
@@ -5444,8 +5333,6 @@ declare namespace audio {
      * [AudioSessionBehaviorFlags](#audiosessionbehaviorflags24).MUTE_WHEN_INTERRUPTED，并已调用
      * [setAudioSessionScene](./arkts-apis-audio-AudioSessionManager.md#setaudiosessionscene20)，且音频会话已激活。
      *
-     * 此接口仅可在Stage模型下使用。
-     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -5459,8 +5346,6 @@ declare namespace audio {
      * [setAudioSessionBehavior](./arkts-apis-audio-AudioSessionManager.md#setaudiosessionbehavior24)设置参数
      * [AudioSessionBehaviorFlags](#audiosessionbehaviorflags24).MUTE_WHEN_INTERRUPTED，并已调用
      * [setAudioSessionScene](./arkts-apis-audio-AudioSessionManager.md#setaudiosessionscene20)，且音频会话已激活。
-     *
-     * 此接口仅可在Stage模型下使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @stagemodelonly
@@ -5549,19 +5434,32 @@ declare namespace audio {
      *
      * **注意：** 该标志不能与MUTE_WHEN_INTERRUPTED共存，若同时设置，仅该标志生效。
      *
-     * 26.0.0
-     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    PAUSE_WHEN_INTERRUPTED = 0x00000004
+    PAUSE_WHEN_INTERRUPTED = 0x00000004,
+
+    /**
+     * 允许当前应用的VoIP录制流与其他现有VoIP录制流同时运行。当新的VoIP录制流被启动时，可以中断当前应用的VoIP录制流。
+     * 
+     * 该标志仅在调用
+     * [setIndependentAudioSessionStrategy](./arkts-apis-audio-AudioCapturer.md#setindependentaudiosessionstrategy24)使用时
+     * 生效。
+     * 
+     * 使用该标志时，需校验权限`ohos.permission.VOIP_CAPTURE_CONCURRENCY`。
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    VOIP_CAPTURE_MIX_WITH_OTHERS = 0x20000000
   }
 
   /**
    * 音频会话策略。
    *
-   * @
    * @typedef AudioSessionStrategy [since 12 - 24]
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
@@ -5572,7 +5470,6 @@ declare namespace audio {
   interface AudioSessionStrategy {
     /**
      * 音频并发模式。
-     *
      *
      * @type { AudioConcurrencyMode } [since 12 - 24]
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -5633,7 +5530,6 @@ declare namespace audio {
     /**
      * 设备信息。
      *
-     * @type { AudioDeviceDescriptors }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 20 dynamic
      * @since 23 static
@@ -5642,7 +5538,6 @@ declare namespace audio {
     /**
      * 设备变更原因。
      *
-     * @type { AudioStreamDeviceChangeReason }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 20 dynamic
      * @since 23 static
@@ -5651,7 +5546,6 @@ declare namespace audio {
     /**
      * 设备变更后推荐的操作。
      *
-     * @type { OutputDeviceChangeRecommendedAction }
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 20 dynamic
      * @since 23 static
@@ -5659,10 +5553,6 @@ declare namespace audio {
     recommendedAction: OutputDeviceChangeRecommendedAction;
     /**
      * 应用输出设备变更前的设备信息。
-     *
-     * 26.0.0
-     *
-     * 此接口仅可在Stage模型下使用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @stagemodelonly
@@ -5740,7 +5630,8 @@ declare namespace audio {
   }
 
   /**
-   * 音频会话管理。
+   * AudioSessionManager是音频系统中的会话管理模块。本模块提供音频会话管理能力，包括音频会话的激活和停用、音频焦点控制、音频设备选择和切换、音频场景设置等。当开发者需要协调多个应用的音频播放行为、解决音频焦点冲突问题
+   * 时，使用本模块接口完成相关操作。适用于媒体播放、VoIP通话、游戏等需要精细化音频管理的场景。
    * 在使用AudioSessionManager的接口之前，需先通过
    * [getSessionManager]{@link @ohos.multimedia.audio:audio.AudioManager.getSessionManager}获取AudioSessionManager实例。
    *
@@ -5760,7 +5651,7 @@ declare namespace audio {
      * 激活音频会话。使用Promise异步回调。
      *
      * @param { AudioSessionStrategy } strategy - 音频会话策略。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters unspecified.
      *     2.Incorrect parameter types.
@@ -5779,7 +5670,7 @@ declare namespace audio {
     /**
      * 停用音频会话。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 6800301 - System error. Possible causes:
      *     1.The audio session is not existed or has been released.
      *     2.Audio server process died.
@@ -5822,20 +5713,21 @@ declare namespace audio {
     /**
      * 监听音频会话停用事件（当音频会话停用时触发）。使用callback异步回调。
      *
-     * @param { Callback<AudioSessionDeactivatedEvent> } callback -
-     回调函数，返回音频会话停用原因。 [since 23]
-     * @throws { BusinessError } 6800101 - Parameter verification failed. [since 23]
-     * @syscap SystemCapability.Multimedia.Audio.Core [since 23]
+     * @param { Callback<AudioSessionDeactivatedEvent> } callback - 回调函数，返回音频会话停用原因。
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Core
      * @atomicservice [since 26.0.0]
      * @since 23 static
      */
     onAudioSessionDeactivated(callback: Callback<AudioSessionDeactivatedEvent>): void;
 
     /**
-     * 取消监听音频会话停用事件。使用callback异步回调。
+     * 取消监听音频会话停用事件。
      *
-     * @param { 'audioSessionDeactivated' } type - 事件回调类型，支持的事件为'audioSessionDeactivated'，当取消监听音频会话停用事件时，触发该事件。
-     * @param { Callback<AudioSessionDeactivatedEvent> } callback - 回调函数，返回音频会话停用原因。
+     * @param { 'audioSessionDeactivated' } type - 事件回调类型，支持的事件为'audioSessionDeactivated'。
+     * @param { Callback<AudioSessionDeactivatedEvent> } callback - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('audioSessionDeactivated')]{@link audio.AudioSessionManager.on_audioSessionDeactivated}绑定同一回调函数；不传参数时，取消此事件类型下所有
+     *     已订阅的监听事件。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -5848,11 +5740,13 @@ declare namespace audio {
     off(type: 'audioSessionDeactivated', callback?: Callback<AudioSessionDeactivatedEvent>): void;
 
     /**
-     * 取消监听音频会话停用事件。使用callback异步回调。
+     * 取消监听音频会话停用事件。
      *
-     * @param { Callback<AudioSessionDeactivatedEvent> } [callback] - 回调函数，返回音频会话停用原因。 [since 23]
-     * @throws { BusinessError } 6800101 - Parameter verification failed. [since 23]
-     * @syscap SystemCapability.Multimedia.Audio.Core [since 23]
+     * @param { Callback<AudioSessionDeactivatedEvent> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [onAudioSessionDeactivated]{@link audio.AudioSessionManager.onAudioSessionDeactivated}绑定同一回调函数；不传参数时，取消此事件类型下所有
+     *     已订阅的监听事件。
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Core
      * @atomicservice [since 26.0.0]
      * @since 23 static
      */
@@ -5897,10 +5791,12 @@ declare namespace audio {
     onAudioSessionStateChanged(callback: Callback<AudioSessionStateChangedEvent>): void;
 
     /**
-     * 取消监听音频会话状态变更事件。使用callback异步回调。
+     * 取消监听音频会话状态变更事件。
      *
-     * @param { 'audioSessionStateChanged' } type - 事件回调类型，支持的事件为'audioSessionStateChanged'，当音频会话状态变更时，触发该事件。
-     * @param { Callback<AudioSessionStateChangedEvent> } [callback] - 回调函数，返回音频会话变更提示信息。
+     * @param { 'audioSessionStateChanged' } type - 事件回调类型，支持的事件为'audioSessionStateChanged'。
+     * @param { Callback<AudioSessionStateChangedEvent> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('audioSessionStateChanged')]{@link audio.AudioSessionManager.on_audioSessionStateChanged}绑定同一回调函数；不传参数时，取消此事件类型下
+     *     所有已订阅的监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -5909,9 +5805,11 @@ declare namespace audio {
     off(type: 'audioSessionStateChanged', callback?: Callback<AudioSessionStateChangedEvent>): void;
 
     /**
-     * 取消监听音频会话状态变更事件。使用callback异步回调。
+     * 取消监听音频会话状态变更事件。
      *
-     * @param { Callback<AudioSessionStateChangedEvent> } [callback] - 回调函数，返回音频会话变更提示信息。
+     * @param { Callback<AudioSessionStateChangedEvent> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [onAudioSessionStateChanged]{@link audio.AudioSessionManager.onAudioSessionStateChanged}绑定同一回调函数；不传参数时，取消此事件类型下
+     *     所有已订阅的监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Core
@@ -5922,7 +5820,8 @@ declare namespace audio {
     /**
      * 获取通过[setDefaultOutputDevice]{@link audio.AudioSessionManager.setDefaultOutputDevice}设置的默认发声设备。
      *
-     * @returns { DeviceType } - 设备类型。
+     * @returns { DeviceType } 设备类型。
+     *    
      *     仅支持以下设备：EARPIECE（听筒）、SPEAKER（扬声器）和DEFAULT（系统默认设备）。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800103 - Operation not permit at current state. Return by promise.
@@ -5944,9 +5843,13 @@ declare namespace audio {
      * >
      * > - 本接口允许在AudioSessionManager创建后随时调用，系统会记录应用设置的默认本机内置发声设备。但只有激活AudioSession后才能生效。应用启动播放时，若外接设备如蓝牙耳机或有线耳机已接入，系统优先从
      * > 外接设备发声。否则，系统遵循应用设置的默认本机内置发声设备。
+     * >
+     * > - 由于AudioSessionManager是应用级设置，调用本接口设置默认音频输出设备时，会对当前应用所有适用范围内的音频流生效，且会覆盖AudioRenderer的
+     * > [setDefaultOutputDevice]{@link @ohos.multimedia.audio:audio.AudioRenderer.setDefaultOutputDevice}接口设置的默认音频输出设备信
+     * > 息。
      *
      * @param { DeviceType } deviceType - 设备类型。<br>仅支持以下设备：EARPIECE（听筒）、SPEAKER（扬声器）和DEFAULT（系统默认设备）。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 6800101 - Parameter verification failed. Return by promise.
      * @throws { BusinessError } 6800102 - Allocate memory failed. Return by promise.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
@@ -5963,16 +5866,13 @@ declare namespace audio {
      * >
      * > - 本接口仅适用于媒体播放场景，并且会作用于应用内发起的所有媒体流。
      * >
-     * > - 若存在更高优先级的并发播放流或用户手动选择输出设备，则应用程序实际使用的输出设备将与本接口设置的设备不同。应用程序可通过监听
+     * > - 若存在更高优先级的并发播放流或用户手动选择输出设备，则应用实际使用的输出设备将与本接口设置的设备不同。应用可通过监听
      * > [CurrentOutputDeviceChangedEvent]{@link @ohos.multimedia.audio:audio.CurrentOutputDeviceChangedEvent}事件获取当前活跃的输
      * > 出设备。
      * >
-     * > - 当应用程序需要清除之前通过接口设置的扬声器输出配置时，可通过调用接口将媒体输出设备设置为DEFAULT（系统默认设备）来实现。该设置仅在应用程序运行期间有效，当应用程序退出时，此接口的设置将自动清除。
+     * > - 当应用需要清除之前通过接口设置的扬声器输出配置时，可通过调用接口将媒体输出设备设置为DEFAULT（系统默认设备）来实现。该设置仅在应用运行期间有效，当应用退出时，此接口的设置将自动清除。
      *
-     * @param { DeviceType } deviceType - 可用的设备类型有
-     *     SPEAKER：内置扬声器
-     *     DEFAULT：恢复到系统默认输出设备。
-     *     - - - - 设备类型。<br>仅支持以下设备：SPEAKER（扬声器）和DEFAULT（系统默认设备）。
+     * @param { DeviceType } deviceType - 设备类型。<br>仅支持以下设备：SPEAKER（扬声器）和DEFAULT（系统默认设备）。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device type is not supported.
@@ -6000,7 +5900,7 @@ declare namespace audio {
     on(type: 'currentOutputDeviceChanged', callback: Callback<CurrentOutputDeviceChangedEvent>): void;
 
     /**
-     * 监听当前输出设备变化事件（当前输出设备发生变化时触发）。使用callback异步回调。
+     * 监听当前输出设备变化事件（当前输出设备发生变化时触发）。
      *
      * @param { Callback<CurrentOutputDeviceChangedEvent> } callback - 回调函数，返回当前输出设备信息。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -6012,10 +5912,12 @@ declare namespace audio {
     onCurrentOutputDeviceChanged(callback: Callback<CurrentOutputDeviceChangedEvent>): void;
 
     /**
-     * 取消监听当前输出设备的变化事件，并使用callback进行异步回调。
+     * 取消监听当前输出设备的变化事件。
      *
-     * @param { 'currentOutputDeviceChanged' } type - 事件回调类型，支持的事件为'currentOutputDeviceChanged'，当前输出设备发生变化时，触发该事件。
-     * @param { Callback<CurrentOutputDeviceChangedEvent> } [callback] - 回调函数，用于返回当前输出设备变化的信息。
+     * @param { 'currentOutputDeviceChanged' } type - 事件回调类型，支持的事件为'currentOutputDeviceChanged'。
+     * @param { Callback<CurrentOutputDeviceChangedEvent> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('currentOutputDeviceChanged')]{@link audio.AudioSessionManager.on_currentOutputDeviceChanged}绑定同一回调函数；不传参数时，取消此事
+     *     件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -6024,9 +5926,11 @@ declare namespace audio {
     off(type: 'currentOutputDeviceChanged', callback?: Callback<CurrentOutputDeviceChangedEvent>): void;
 
     /**
-     * Unsubscribes output device change event callback.
+     * 取消监听当前输出设备的变化事件。
      *
-     * @param { Callback<CurrentOutputDeviceChangedEvent> } [callback] - Callback used to listen device change event.
+     * @param { Callback<CurrentOutputDeviceChangedEvent> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [onCurrentOutputDeviceChanged]{@link audio.AudioSessionManager.onCurrentOutputDeviceChanged}绑定同一回调函数；不传参数时，取消此事
+     *     件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
@@ -6075,8 +5979,10 @@ declare namespace audio {
     /**
      * 取消监听音频可选设备连接状态变化事件。
      *
-     * @param { 'availableDeviceChange' } type - 事件回调类型，支持的事件为'availableDeviceChange'，当取消监听音频可选设备连接变化事件时，触发该事件。
-     * @param { Callback<DeviceChangeAction> } [callback] - 回调函数，返回可选设备更新详情。
+     * @param { 'availableDeviceChange' } type - 事件回调类型，支持的事件为'availableDeviceChange'。
+     * @param { Callback<DeviceChangeAction> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('availableDeviceChange')]{@link audio.AudioSessionManager.on_availableDeviceChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的
+     *     监听事件。
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21 dynamic
@@ -6106,8 +6012,7 @@ declare namespace audio {
      * >
      * > - 当系统中存在其他更高优先级的应用录音流时，实际使用的输入设备会跟随其他高优先级应用所选的输入设备。
      * >
-     * > - 应用程序可以监听[currentInputDeviceChanged]{@link audio.AudioSessionManager.on_currentInputDeviceChanged}事件来获得实际的输入设备
-     * > 。
+     * > - 应用可以监听[currentInputDeviceChanged]{@link audio.AudioSessionManager.on_currentInputDeviceChanged}事件来获得实际的输入设备。
      *
      * @param { AudioDeviceDescriptor } inputAudioDevice - 媒体输入设备。
      * @returns { Promise<void> } Promise对象，无返回结果。
@@ -6124,7 +6029,7 @@ declare namespace audio {
      * 获得通过[selectMediaInputDevice]{@link audio.AudioSessionManager.selectMediaInputDevice}设置的媒体输入设备。如果没有设置，返回一个
      * deviceType属性为INVALID的设备。
      *
-     * @returns { AudioDeviceDescriptor } - 媒体输入设备信息。
+     * @returns { AudioDeviceDescriptor } 媒体输入设备信息。
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21 dynamic
@@ -6144,18 +6049,17 @@ declare namespace audio {
     clearSelectedMediaInputDevice(): Promise<void>;
 
     /**
-     * 设置在使用蓝牙或星闪进行录音时，应用程序的设备偏好分类。使用Promise异步回调。
-     *
+     * 设置在使用蓝牙或星闪进行录音时，应用的设备偏好分类。使用Promise异步回调。
+     * 
      * > **说明：**
      * >
-     * > - 应用程序可以在蓝牙或星闪连接之前设置此分类，系统将在设备连接时优先使用蓝牙或星闪进行录音。
+     * > - 应用可以在蓝牙或星闪连接之前设置此分类，系统将在设备连接时优先使用蓝牙或星闪进行录音。
      * >
      * > - 当系统中存在其他更高优先级的应用录音流时，实际使用的输入设备会跟随其他高优先级应用所选的输入设备。
      * >
-     * > - 应用程序可以监听[currentInputDeviceChanged]{@link audio.AudioSessionManager.on_currentInputDeviceChanged}事件来获得实际的输入设备
-     * > 。
+     * > - 应用可以监听[currentInputDeviceChanged]{@link audio.AudioSessionManager.on_currentInputDeviceChanged}事件来获得实际的输入设备。
      *
-     * @param { BluetoothAndNearlinkPreferredRecordCategory } category - 在使用蓝牙或星闪进行录音时，应用程序的设备偏好分类。
+     * @param { BluetoothAndNearlinkPreferredRecordCategory } category - 在使用蓝牙或星闪进行录音时，应用的设备偏好分类。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
@@ -6170,7 +6074,7 @@ declare namespace audio {
      * [setBluetoothAndNearlinkPreferredRecordCategory]{@link audio.AudioSessionManager.setBluetoothAndNearlinkPreferredRecordCategory}
      * 设置的在使用蓝牙或星闪进行录音时的设备偏好分类。
      *
-     * @returns { BluetoothAndNearlinkPreferredRecordCategory } - 在使用蓝牙或星闪进行录音时，应用程序的设备偏好分类。
+     * @returns { BluetoothAndNearlinkPreferredRecordCategory } 返回当前已设置的蓝牙或星闪录音设备偏好分类。
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21 dynamic
@@ -6204,8 +6108,10 @@ declare namespace audio {
     /**
      * 取消监听当前输入设备的变化事件。
      *
-     * @param { 'currentInputDeviceChanged' } type - 事件回调类型，支持的事件为'currentInputDeviceChanged'，当前输入设备发生变化时，触发该事件。
-     * @param { Callback<CurrentInputDeviceChangedEvent> } [callback] - 回调函数，用于返回当前输入设备变化的信息。
+     * @param { 'currentInputDeviceChanged' } type - 事件回调类型，支持的事件为'currentInputDeviceChanged'。
+     * @param { Callback<CurrentInputDeviceChangedEvent> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('currentInputDeviceChanged')]{@link audio.AudioSessionManager.on_currentInputDeviceChanged}绑定同一回调函数；不传参数时，取消此事件类
+     *     型下所有已订阅的监听事件。
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 21 dynamic
@@ -6215,7 +6121,9 @@ declare namespace audio {
     /**
      * 取消监听当前输入设备的变化事件。
      *
-     * @param { Callback<CurrentInputDeviceChangedEvent> } [callback] - 回调函数，用于返回当前输入设备变化的信息。
+     * @param { Callback<CurrentInputDeviceChangedEvent> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [onCurrentInputDeviceChanged]{@link audio.AudioSessionManager.onCurrentInputDeviceChanged}绑定同一回调函数；不传参数时，取消此事件类
+     *     型下所有已订阅的监听事件。
      * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 24 static
@@ -6237,12 +6145,12 @@ declare namespace audio {
      * 通常，当使用混音模式时，如果其他应用同时播放音频，会和其他应用进行混音播放。但在某些场景下（如游戏或广播），应用自身会通过静音自身的音频以给用户提供更好的体验。
      * 如果启用此功能，当订阅音频会话状态更改事件后静音建议和取消静音建议提示将通过
      * [AudioSessionStateChangedEvent]{@link @ohos.multimedia.audio:audio.AudioSessionStateChangedEvent}回调发送。收到静音建议表示其他应
-     * 用程序开始播放音频，且播放的音频和本应用的音频不能混音。
-     * 此功能仅支持已设置[AudioSessionScene]{@link @ohos.multimedia.audio:audio.AudioSessionScene}并激活模式模式为
+     * 用开始播放音频，且播放的音频和本应用的音频不能混音。
+     * 此功能仅支持已设置[AudioSessionScene]{@link @ohos.multimedia.audio:audio.AudioSessionScene}并激活模式为
      * CONCURRENCY_MIX_WITH_OTHERS的音频会话使用。并且仅在激活音频会话期间生效一次，每次激活音频会话前都必须重新启用。
-     * 详细说明请参考启用混音播放下静音建议通知文档。
+     * 详细说明请参考[启用混音播放下静音建议通知](docroot://media/audio/audio-session-management.md#启用混音播放下静音建议通知)。
      *
-     * @param { boolean } enable - 是否启用混音播放下接收静音播放建议通知功能。true表示启用，false表示不启用。
+     * @param { boolean } enable - 是否启用混音播放下静音播放建议通知功能。true表示启用，false表示不启用。
      * @throws { BusinessError } 6800103 - Function is called without setting {@link #AudioSessionScene} or
      *     called after audio session activation.
      * @throws { BusinessError } 6800301 - Audio client call audio service error, system internal error.
@@ -6304,8 +6212,9 @@ declare namespace audio {
   type StreamUsageArray = Array<StreamUsage>;
 
   /**
-   * 音量管理。在使用AudioVolumeManager的接口前，需要使用
-   * [getVolumeManager]{@link @ohos.multimedia.audio:audio.AudioManager.getVolumeManager}获取AudioVolumeManager实例。
+   * 音量管理，提供音量组信息查询、应用级音量控制、系统音量百分比管理等功能。适用于需要对音量进行精细化控制、监听音量变化、管理应用级音量的场景。
+   * 在使用AudioVolumeManager的接口前，需要使用[getVolumeManager]{@link @ohos.multimedia.audio:audio.AudioManager.getVolumeManager}获
+   * 取AudioVolumeManager实例。
    *
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @crossplatform [since 12]
@@ -6355,7 +6264,7 @@ declare namespace audio {
     /**
      * 获取音频组音量管理器实例。使用callback异步回调。
      *
-     * @param { int } groupId - 音量组id，默认使用DEFAULT_VOLUME_GROUP_ID。
+     * @param { int } groupId - 音量组ID，默认使用DEFAULT_VOLUME_GROUP_ID。
      * @param { AsyncCallback<AudioVolumeGroupManager> } callback - 回调函数。当获取音频组音量管理器实例成功，err为undefined，data为获取到的音频组音量管理器实例；否则为错
      *     误对象。
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -6367,7 +6276,7 @@ declare namespace audio {
     /**
      * 获取音频组音量管理器实例。使用Promise异步回调。
      *
-     * @param { int } groupId - 音量组id，默认使用DEFAULT_VOLUME_GROUP_ID。
+     * @param { int } groupId - 音量组ID，默认使用DEFAULT_VOLUME_GROUP_ID。
      * @returns { Promise<AudioVolumeGroupManager> } Promise对象，返回音频组音量管理器实例。
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform [since 12]
@@ -6378,7 +6287,7 @@ declare namespace audio {
     /**
      * 获取音频组音量管理器实例。同步返回结果。
      *
-     * @param { int } groupId - 音量组id，默认使用DEFAULT_VOLUME_GROUP_ID。
+     * @param { int } groupId - 音量组ID，默认使用DEFAULT_VOLUME_GROUP_ID。
      * @returns { AudioVolumeGroupManager } 音频组音量管理器实例。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified.
@@ -6409,12 +6318,12 @@ declare namespace audio {
     getAppVolumePercentageForUid(uid: int): Promise<int>;
 
     /**
-     * 根据应用ID设置指定应用的音量百分比（范围为[0, 100]）。使用Promise异步回调。
+     * 根据应用ID设置指定应用的音量百分比（范围为[0, 100]），适用于系统多应用音量独立控制场景。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
      * @param { int } uid - 表示应用ID。
      * @param { int } volume - 要设置的音量百分比，范围为[0, 100]。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -6457,7 +6366,8 @@ declare namespace audio {
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
      * @param { AudioVolumeType } volumeType - 音量流类型。
      * @param { int } percentage - 音量百分比，可设置范围的最小值是通过
-     *     [getMinSystemVolumePercentage]{@link audio.AudioVolumeManager.getMinSystemVolumePercentage}接口获取到的音量百分比， 最大值是100。
+     *     [getMinSystemVolumePercentage]{@link audio.AudioVolumeManager.getMinSystemVolumePercentage}接口获取到的音量百分比，最大值是100，必须使用整
+     *     数值。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
@@ -6510,7 +6420,7 @@ declare namespace audio {
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
      * @param { int } uid - 表示应用ID。
      * @param { boolean } muted - 设置应用的静音状态。true设置为静音，false解除静音。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -6523,9 +6433,61 @@ declare namespace audio {
     setAppVolumeMutedForUid(uid: int, muted: boolean): Promise<void>;
 
     /**
+     * 根据应用ID和音频流ID设置VoIP播放流静音状态。使用Promise异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > - 若有多个调用方对同一应用ID和音频流ID设置了静音状态，仅当所有调用方取消静音后，VoIP播放流才会取消静音。
+     * >
+     * > - 当应用异常退出、应用释放并重启音频流或音频服务异常退出并重启时，该音频流设置的静音状态将自动失效。此类情况下，需重新调用此接口设置静音状态。
+     *
+     * @permission ohos.permission.MUTE_VOIP_PLAYBACK
+     * @param { int } uid - 应用ID。<br>该值应为整数。
+     * @param { long } streamId - VoIP音频流唯一ID。
+     * @param { boolean } muted - 设置VoIP播放流是否为静音状态。true表示设置为静音，false表示解除静音。
+     * @returns { Promise<void> } Promise对象，无返回结果。
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setVoipRendererMuteForUid(uid: int, streamId: long, muted: boolean): Promise<void>;
+  
+    /**
+     * 根据应用ID和音频流ID设置VoIP录制流静音状态。使用Promise异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > - 若有多个调用方对同一应用ID和音频流ID设置了静音状态，仅当所有调用方取消静音后，VoIP录制流才会取消静音。
+     * >
+     * > - 当应用异常退出、应用释放并重启音频流或音频服务异常退出并重启时，该音频流设置的静音状态将自动失效。此类情况下，需重新调用此接口设置静音状态。
+     *
+     * @permission ohos.permission.MUTE_VOIP_CAPTURE
+     * @param { int } uid - 应用ID。<br>该值应为整数。
+     * @param { long } streamId - VoIP音频流唯一ID。
+     * @param { boolean } muted - 设置VoIP录制流是否为静音状态。true表示设置为静音，false表示解除静音。
+     * @returns { Promise<void> } Promise对象，无返回结果。
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setVoipCapturerMuteForUid(uid: int, streamId: long, muted: boolean): Promise<void>;
+
+    /**
      * 获取应用的音量（范围为[0, 100]）。使用Promise异步回调。
      *
      * @returns { Promise<int> } Promise对象，返回应用的音量。
+     *     
+     *     取值范围为[0, 100]，单位为百分号（%）。
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @atomicservice [since 23]
      * @since 19 dynamic
@@ -6536,8 +6498,8 @@ declare namespace audio {
     /**
      * 设置应用的音量（范围为[0, 100]）。使用Promise异步回调。
      *
-     * @param { int } volume - 要设置的音量值。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @param { int } volume - 要设置的音量值。<br>取值范围为[0, 100]，单位为百分号（%）。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Crash or blocking occurs in system process.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -6554,7 +6516,7 @@ declare namespace audio {
      * @param { AudioVolumeType } volumeType - 音量类型。
      * @param { int } volume - 要设置的音量。可通过调用getMinVolume和getMaxVolume获取取值范围。
      * @param { int } callingUid - 流所有者的UID。
-     * @returns { Promise<void> } 承诺用于返回结果。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -6586,8 +6548,9 @@ declare namespace audio {
      * 监听系统音量变化事件（当系统音量发生变化时触发）。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 9开始支持，从API version 20开始废弃，建议使用
-     * > [on('streamVolumeChange')]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.on_streamVolumeChange}替代。
+     * >
+     * > 从API version 9开始支持，从API version 20开始废弃，建议使用
+     * > [on('streamVolumeChange')]{@link audio.AudioVolumeManager.on_streamVolumeChange}替代。
      *
      * @param { 'volumeChange' } type - 事件回调类型，支持的事件为'volumeChange'，当系统音量发生变化时，触发该事件。
      * @param { Callback<VolumeEvent> } callback - 回调函数，返回变化后的音量信息。
@@ -6604,14 +6567,16 @@ declare namespace audio {
     on(type: 'volumeChange', callback: Callback<VolumeEvent>): void;
 
     /**
-     * 取消监听系统音量变化事件。使用callback异步回调。
-     *
+     * 取消监听系统音量变化事件。
+     * 
      * > **说明：**
-     * > > 从API version 12开始支持，从API version 20开始废弃，建议使用
-     * > [off('streamVolumeChange')]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.off_streamVolumeChange}替代。
+     * >
+     * > 从API version 12开始支持，从API version 20开始废弃，建议使用
+     * > [off('streamVolumeChange')]{@link audio.AudioVolumeManager.off_streamVolumeChange}替代。
      *
-     * @param { 'volumeChange' } type - 事件回调类型，支持的事件为'volumeChange'，当取消监听系统音量变化事件时，触发该事件。
-     * @param { Callback<VolumeEvent> } callback - 回调函数，返回变化后的音量信息。
+     * @param { 'volumeChange' } type - 事件回调类型，支持的事件为'volumeChange'。
+     * @param { Callback<VolumeEvent> } callback - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('volumeChange')]{@link audio.AudioVolumeManager.on_volumeChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters missing;
      *                                 2.Incorrect parameter types.
@@ -6640,10 +6605,10 @@ declare namespace audio {
     on(type: 'appVolumeChangeForUid', uid: int, callback: Callback<VolumeEvent>): void;
 
     /**
-     * L监听指定应用应用级音量变化事件（当应用级音量发生变化时触发）。使用callback异步回调。
+     * 监听指定应用应用级音量变化事件（当应用级音量发生变化时触发）。使用callback异步回调。
      *
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
-     * @param { int } uid - The app's uid.
+     * @param { int } uid - 应用ID。
      *     <br>取值限定为整数。
      * @param { Callback<VolumeEvent> } callback - 回调函数，返回变化后的音量信息。
      * @throws { BusinessError } 201 - Permission denied.
@@ -6656,11 +6621,11 @@ declare namespace audio {
     onAppVolumeChangeForUid(uid: int, callback: Callback<VolumeEvent>): void;
 
     /**
-     * 取消监听指定应用应用级音量变化事件。使用callback异步回调。
+     * 取消订阅指定应用应用级音量变化事件。
      *
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
-     * @param { 'appVolumeChangeForUid' } type - 事件回调类型，支持的事件为'appVolumeChangeForUid'，当取消监听指定应用应用级音量变化事件时，触发该事件。
-     * @param { Callback<VolumeEvent> } callback - 回调函数，返回变化后的音量信息。
+     * @param { 'appVolumeChangeForUid' } type - 事件回调类型，支持的事件为'appVolumeChangeForUid'。
+     * @param { Callback<VolumeEvent> } callback - 待取消的应用应用级音量变化回调函数。不填写时取消该事件的所有回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -6671,10 +6636,10 @@ declare namespace audio {
     off(type: 'appVolumeChangeForUid', callback?: Callback<VolumeEvent>): void;
 
     /**
-     * 取消监听指定应用应用级音量变化事件。使用callback异步回调。
+     * 取消监听指定应用应用级音量变化事件。
      *
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
-     * @param { Callback<VolumeEvent> } [callback] - 回调函数，返回变化后的音量信息。
+     * @param { Callback<VolumeEvent> } [callback] - 待取消的应用应用级音量变化回调函数。不填写时取消该事件的所有回调。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -6706,10 +6671,11 @@ declare namespace audio {
     onAppVolumeChange(callback: Callback<VolumeEvent>): void;
 
     /**
-     * 取消监听当前应用的应用级音量变化事件。使用callback异步回调。
+     * 取消监听当前应用的应用级音量变化事件。
      *
-     * @param { 'appVolumeChange' } type - 事件回调类型，支持的事件为'appVolumeChange'，当取消监听当前应用的应用级音量变化事件时，触发该事件。
-     * @param { Callback<VolumeEvent> } callback - 回调函数，返回变化后的音量信息。
+     * @param { 'appVolumeChange' } type - 事件回调类型，支持的事件为'appVolumeChange'。
+     * @param { Callback<VolumeEvent> } callback - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('appVolumeChange')]{@link audio.AudioVolumeManager.on_appVolumeChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 19 dynamic
@@ -6717,9 +6683,10 @@ declare namespace audio {
     off(type: 'appVolumeChange', callback?: Callback<VolumeEvent>): void;
 
     /**
-     * 取消监听当前应用的应用级音量变化事件。使用callback异步回调。
+     * 取消监听当前应用的应用级音量变化事件。
      *
-     * @param { Callback<VolumeEvent> } [callback] - 回调函数，返回变化后的音量信息。
+     * @param { Callback<VolumeEvent> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [onAppVolumeChange]{@link audio.AudioVolumeManager.onAppVolumeChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 23 static
@@ -6752,10 +6719,10 @@ declare namespace audio {
     onActiveVolumeTypeChange(callback: Callback<AudioVolumeType>): void;
 
     /**
-     * 取消监听当前活跃流变化事件。使用callback异步回调。
+     * 取消监听当前活跃流变化事件。
      *
-     * @param { 'activeVolumeTypeChange' } type 事件回调类型，支持的事件为'activeVolumeTypeChange'，当取消监听当前活跃流变化事件时，触发该事件。
-     * @param { Callback<AudioVolumeType> } [callback] 回调函数，返回变化后的活跃音频音量类型。
+     * @param { 'activeVolumeTypeChange' } type - 事件回调类型，支持的事件为'activeVolumeTypeChange'。
+     * @param { Callback<AudioVolumeType> } [callback] - 待取消的当前活跃流变化回调函数。不填写时取消该事件的所有回调。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -6765,9 +6732,9 @@ declare namespace audio {
     off(type: 'activeVolumeTypeChange', callback?: Callback<AudioVolumeType>): void;
 
     /**
-     * 取消监听当前活跃流变化事件。使用callback异步回调。
+     * 取消监听当前活跃流变化事件。
      *
-     * @param { Callback<AudioVolumeType> } [callback] 回调函数，返回变化后的活跃音频音量类型。
+     * @param { Callback<AudioVolumeType> } [callback] - 待取消的当前活跃流变化回调函数。不填写时取消该事件的所有回调。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -6789,9 +6756,9 @@ declare namespace audio {
     onVolumePercentageChange(callback: Callback<VolumeEvent>): void;
 
     /**
-     * 取消监听系统音量变化事件。使用callback异步回调。
+     * 取消订阅系统音量变化事件。
      *
-     * @param { Callback<VolumeEvent> } [callback] - 回调函数，返回变化后的音量信息。
+     * @param { Callback<VolumeEvent> } [callback] - 待取消的系统音量变化回调函数。不填写时取消该事件的所有回调。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -6801,10 +6768,10 @@ declare namespace audio {
     offVolumePercentageChange(callback?: Callback<VolumeEvent>): void;
 
     /**
-     * 取消监听系统音量变化事件。使用callback异步回调。
+     * 获取系统音量。
      *
-     * @param { AudioVolumeType } volumeType - 音量类型。
-     * @returns { int } 当前系统音量级别。
+     * @param { AudioVolumeType } volumeType - 音频音量类型。
+     * @returns { int } 当前系统音量等级。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -6815,10 +6782,10 @@ declare namespace audio {
     getSystemVolume(volumeType: AudioVolumeType): int;
 
     /**
-     * 获取音量类型允许的最小音量大小。
+     * 获取最小系统音量。
      *
-     * @param { AudioVolumeType } volumeType - 音量类型。
-     * @returns { int } 最小音量.
+     * @param { AudioVolumeType } volumeType - 音频音量类型。
+     * @returns { int } 最小音量等级。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -6829,10 +6796,10 @@ declare namespace audio {
     getMinSystemVolume(volumeType: AudioVolumeType): int;
 
     /**
-     * 获取音量类型允许的最大音量大小。
+     * 获取最大系统音量。
      *
-     * @param { AudioVolumeType } volumeType - 音量类型。
-     * @returns { int } 最大音量。
+     * @param { AudioVolumeType } volumeType - 音频音量类型。
+     * @returns { int } 最大音量等级。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -6843,9 +6810,9 @@ declare namespace audio {
     getMaxSystemVolume(volumeType: AudioVolumeType): int;
 
     /**
-     * 检查音量类型是否被静音。
+     * 检查系统音量是否静音.
      *
-     * @param { AudioVolumeType } volumeType - 音量类型。
+     * @param { AudioVolumeType } volumeType - 音频音量类型。
      * @returns { boolean } 音量类型的静音状态。值为 true 表示该音量类型处于静音状态，false 则表示相反。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -6859,7 +6826,7 @@ declare namespace audio {
     /**
      * 获取系统根据音量类型、音量级别和设备类型计算出的音量分贝值。
      *
-     * @param { AudioVolumeType } volumeType - 音量类型。
+     * @param { AudioVolumeType } volumeType - 音频音量类型。
      * @param { int } volumeLevel - 要设置的音量级别。
      * @param { DeviceType } device - 输出设备类型。
      * @returns { double } 系统音量（以分贝为单位）。
@@ -6898,10 +6865,10 @@ declare namespace audio {
     onSystemVolumeChange(callback: Callback<VolumeEvent>): void;
 
     /**
-     * 取消监听系统音量变化事件。使用callback异步回调。
+     * 取消监听系统音量变化事件。
      *
-     * @param { 'systemVolumeChange' } type - 事件回调类型，支持的事件为'systemVolumeChange'，当取消监听系统音量变化事件时，触发该事件。
-     * @param { Callback<VolumeEvent> } [callback] - 回调函数，返回变化后的音量信息。
+     * @param { 'systemVolumeChange' } type - 事件回调类型，支持的事件为'systemVolumeChange'。
+     * @param { Callback<VolumeEvent> } [callback] - 待取消的系统音量变化回调函数。不填写时取消该事件的所有回调。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -6911,9 +6878,9 @@ declare namespace audio {
     off(type: 'systemVolumeChange', callback?: Callback<VolumeEvent>): void;
 
     /**
-     * 取消监听系统音量变化事件。使用callback异步回调。
+     * 取消监听系统音量变化事件。
      *
-     * @param { Callback<VolumeEvent> } [callback] - 回调函数，返回变化后的音量信息。
+     * @param { Callback<VolumeEvent> } [callback] - 待取消的系统音量变化回调函数。不填写时取消该事件的所有回调。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -6927,7 +6894,8 @@ declare namespace audio {
      * 当目标过滤器的系统音量发生变化时，已注册的客户端将收到回调通知。
      *
      * @param { SystemVolumeFilter } filter - 用于系统音量变化的过滤器。
-     * @param { Callback<VolumeEvent> } callback - 订阅中使用的回调函数。
+     * @param { Callback<VolumeEvent> } callback - 用于接收系统音量信息的回调函数。
+     *
      * @throws { BusinessError } 202 - Not a system app.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -6940,7 +6908,7 @@ declare namespace audio {
     /**
      * 取消订阅系统音量变化事件。
      *
-     * @param { Callback<VolumeEvent> } [callback] - 订阅中使用的回调函数。
+     * @param { Callback<VolumeEvent> } [callback] - 用于订阅的回调函数。
      * @throws { BusinessError } 202 - Not system app.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -7004,7 +6972,7 @@ declare namespace audio {
     /**
      * 获取系统通过音频流、音量等级和设备类型计算出的音量dB值。
      *
-     * @param { StreamUsage } streamUsage - 音频流。
+     * @param { StreamUsage } streamUsage - 音频流类型。
      * @param { int } volumeLevel - 音量等级。
      * @param { DeviceType } device - 设备类型。
      * @returns { double } 音频流的音量dB值。
@@ -7016,7 +6984,7 @@ declare namespace audio {
     getVolumeInUnitOfDbByStream(streamUsage: StreamUsage, volumeLevel: int, device: DeviceType): double;
 
     /**
-     * 获取系统支持的卷类型。
+     * 获取系统支持的音量类型。
      *
      * @returns { Array<Readonly<AudioVolumeType>> } 返回系统音量类型数组。
      * @throws { BusinessError } 202 - Not system App.
@@ -7028,7 +6996,7 @@ declare namespace audio {
     getSupportedAudioVolumeTypes(): Array<Readonly<AudioVolumeType>>;
 
     /**
-     * 按流类型获取卷类型。
+     * 按流类型获取音量类型。
      *
      * @param { StreamUsage } streamUsage - 音频流类型。
      * @returns { AudioVolumeType } 返回音频音量类型。
@@ -7044,8 +7012,8 @@ declare namespace audio {
     /**
      * 按音量类型获取流类型。
      *
-     * @param { AudioVolumeType } volumeType - 音量类型。
-     * @returns { StreamUsageArray } 返回音频流类型。
+     * @param { AudioVolumeType } volumeType - 音频音量类型。
+     * @returns { StreamUsageArray } 返回音频流类型数组。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -7059,7 +7027,7 @@ declare namespace audio {
      * 监听系统音频流音量变化事件（当系统音频流音量发生变化时触发）。使用callback异步回调。
      *
      * @param { 'streamVolumeChange' } type - 事件回调类型，支持的事件为'streamVolumeChange'，当系统音量发生变化时，触发该事件。
-     * @param { StreamUsage } streamUsage - 音频流使用类型。
+     * @param { StreamUsage } streamUsage - 需要监听音量变化的音频流类型。
      * @param { Callback<StreamVolumeEvent> } callback - 回调函数，返回变化后的音量信息。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -7068,7 +7036,7 @@ declare namespace audio {
     on(type: 'streamVolumeChange', streamUsage: StreamUsage, callback: Callback<StreamVolumeEvent>): void;
 
     /**
-     * 监听系统音频流音量变化事件（当系统音频流音量发生变化时触发）。使用callback异步回调。
+     * 监听系统音频流音量变化事件（当系统音频流音量发生变化时触发）。
      *
      * @param { StreamUsage } streamUsage - 音频流使用类型。
      * @param { Callback<StreamVolumeEvent> } callback - 回调函数，返回变化后的音量信息。
@@ -7079,30 +7047,32 @@ declare namespace audio {
     onStreamVolumeChange(streamUsage: StreamUsage, callback: Callback<StreamVolumeEvent>): void;
 
     /**
-     * 取消监听系统音频流音量变化事件（当系统音频流音量发生变化时触发）。使用callback异步回调。
+     * 取消监听系统音频流音量变化事件。
      *
-     * @param { 'streamVolumeChange' } type - 事件回调类型，支持的事件为'streamVolumeChange'，当取消监听系统音量变化事件时，触发该事件。
-     * @param { Callback<StreamVolumeEvent> } [callback] - 回调函数，返回变化后的音量信息。
+     * @param { 'streamVolumeChange' } type - 事件回调类型，支持的事件为'streamVolumeChange'。
+     * @param { Callback<StreamVolumeEvent> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('streamVolumeChange')]{@link audio.AudioVolumeManager.on_streamVolumeChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20 dynamic
      */
     off(type: 'streamVolumeChange', callback?: Callback<StreamVolumeEvent>): void;
 
     /**
-     * 取消监听系统音频流音量变化事件（当系统音频流音量发生变化时触发）。使用callback异步回调。
+     * 取消监听系统音频流音量变化事件（当系统音频流音量发生变化时触发）。
      *
-     * @param { Callback<StreamVolumeEvent> } [callback] - 回调函数，返回变化后的音量信息。
+     * @param { Callback<StreamVolumeEvent> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [onStreamVolumeChange]{@link audio.AudioVolumeManager.onStreamVolumeChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 23 static
      */
     offStreamVolumeChange(callback?: Callback<StreamVolumeEvent>): void;
 
     /**
-     * 设置音量键调节类型。
+     * 强制修改音量键调节的音量类型。
      *
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      * @param { AudioVolumeType } volumeType - 应用程序期望控制的音频音量类型。
-     * @param { int } duration - 无音量键事件时，控制音量类型的持续时间，单位为秒（s）。<br>当计时器到期时，强制音量类型设置将被取消，最大持续时间不得超过10秒。<br>如果持续时间设置为-1，则取消该设置。
+     * @param { int } duration - 无音量键事件时，控制音量类型的持续时间，单位为s。<br>当计时器到期时，强制音量类型设置将被取消，最大持续时间不得超过10s。<br>如果持续时间设置为-1，则取消该设置。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -7126,53 +7096,11 @@ declare namespace audio {
      * @since 24 dynamic&static
      */
     getActiveStreamsVolumeInfo(): ActiveStreamsVolumeInfoArray;
-
-    /**
-     * 监听当前音量超过音量保护阈值的事件。
-     *
-     * @param { Callback<VolumeLimitExceededEvent> } callback - 回调函数，用于获取音量限制事件。
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    onVolumeLimitExceeded(callback: Callback<VolumeLimitExceededEvent>): void;
-
-    /**
-     * 取消订阅当前音量是否超过音量保护阈值的监控。
-     *
-     * @param { Callback<VolumeLimitExceededEvent> } [callback] - 1. 必填参数缺失；。
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    offVolumeLimitExceeded(callback?: Callback<VolumeLimitExceededEvent>): void;
-
-    /**
-     * 确认调整超出音量保护阈值的音量结果。
-     *
-     * @param { AudioVolumeType } volumeType - 音频音量类型，
-     *     不同的音量类型有不同的阈值，
-     *     volumeType 用于识别当前的音量类型阈值。
-     * @param { boolean } result - 确认音量调整已超过音量保护阈值
-     * @throws { BusinessError } 202 - Not system App.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @throws { BusinessError } 6800301 - System error.
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    confirmVolumeLimitExceeded(volumeType: AudioVolumeType, result: boolean): void;
   }
 
   /**
-   * 管理音频组音量。在调用AudioVolumeGroupManager的接口前，需要先通过
+   * 管理音频组音量，支持设置和调节指定音量流、控制静音状态、设置铃声模式等。适用于需要对特定音量组进行独立管理、实现铃声模式切换、调节系统音量的场景。
+   * 在调用AudioVolumeGroupManager的接口前，需要先通过 
    * [getVolumeGroupManager]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getVolumeGroupManager(groupId: int, callback: AsyncCallback<AudioVolumeGroupManager>)}
    *  创建实例。
    *
@@ -7209,7 +7137,7 @@ declare namespace audio {
      *     和
      *     [getMaxVolume]{@link @ohos.multimedia.audio:audio.AudioVolumeGroupManager.getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>)}
      *     获取。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9 dynamic
@@ -7227,12 +7155,8 @@ declare namespace audio {
      *     和
      *     [getMaxVolume]{@link @ohos.multimedia.audio:audio.AudioVolumeGroupManager.getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>)}
      *     获取。
-     * @param { int } flags - 音量等级，可设置范围通过
-     *     [getMinVolume]{@link @ohos.multimedia.audio:audio.AudioVolumeGroupManager.getMinVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>)}
-     *     和
-     *     [getMaxVolume]{@link @ohos.multimedia.audio:audio.AudioVolumeGroupManager.getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>)}
-     *     获取。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @param { int } flags - 是否需要显示系统音量条，0为不需要显示，1为需要显示。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Volume
@@ -7246,7 +7170,7 @@ declare namespace audio {
      * 查询指定应用活跃的音频音量类型；如果将uid传入为0，则查询的是全局范围内活跃的音频音量类型。
      *
      * @param { int } uid - 应用ID。
-     * @returns { AudioVolumeType } 音频音量类型。
+     * @returns { AudioVolumeType } 当前活跃的音频音量类型。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters unspecified.
@@ -7263,7 +7187,8 @@ declare namespace audio {
      * 获取指定流的音量等级。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 9开始支持，从API version 20开始废弃，建议使用
+     * >
+     * > 从API version 9开始支持，从API version 20开始废弃，建议使用
      * > [getVolumeByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getVolumeByStream}替代。
      *
      * @param { AudioVolumeType } volumeType - 音频音量类型。
@@ -7284,11 +7209,12 @@ declare namespace audio {
      * 获取指定流的音量等级。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 9开始支持，从API version 20开始废弃，建议使用
+     * >
+     * > 从API version 9开始支持，从API version 20开始废弃，建议使用
      * > [getVolumeByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getVolumeByStream}替代。
      *
      * @param { AudioVolumeType } volumeType - 音频音量类型。
-     * @returns { Promise<int> } Promise对象，返回指定流的音量等级。指定流的音量等级范围可通过
+     * @returns { Promise<int> } Promise对象，返回指定流的音量等级。音量等级范围可通过
      *     [getMinVolume]{@link audio.AudioVolumeGroupManager.getMinVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>)}
      *     和
      *     [getMaxVolume]{@link audio.AudioVolumeGroupManager.getMaxVolume(volumeType: AudioVolumeType, callback: AsyncCallback<int>)}
@@ -7305,7 +7231,8 @@ declare namespace audio {
      * 获取指定流的音量等级。同步返回结果。
      *
      * > **说明：**
-     * > > 从API version 10开始支持，从API version 20开始废弃，建议使用
+     * >
+     * > 从API version 10开始支持，从API version 20开始废弃，建议使用
      * > [getVolumeByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getVolumeByStream}替代。
      *
      * @param { AudioVolumeType } volumeType - 音频音量类型。
@@ -7331,7 +7258,8 @@ declare namespace audio {
      * 获取指定流的最小音量等级。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 9开始支持，从API version 20开始废弃，建议使用
+     * >
+     * > 从API version 9开始支持，从API version 20开始废弃，建议使用
      * > [getMinVolumeByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getMinVolumeByStream}替代。
      *
      * @param { AudioVolumeType } volumeType - 音频音量类型。
@@ -7348,7 +7276,8 @@ declare namespace audio {
      * 获取指定流的最小音量等级。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 9开始支持，从API version 20开始废弃，建议使用
+     * >
+     * > 从API version 9开始支持，从API version 20开始废弃，建议使用
      * > [getMinVolumeByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getMinVolumeByStream}替代。
      *
      * @param { AudioVolumeType } volumeType - 音频音量类型。
@@ -7365,7 +7294,8 @@ declare namespace audio {
      * 获取指定流的最小音量等级。同步返回结果。
      *
      * > **说明：**
-     * > > 从API version 10开始支持，从API version 20开始废弃，建议使用
+     * >
+     * > 从API version 10开始支持，从API version 20开始废弃，建议使用
      * > [getMinVolumeByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getMinVolumeByStream}替代。
      *
      * @param { AudioVolumeType } volumeType - 音频音量类型。
@@ -7387,7 +7317,8 @@ declare namespace audio {
      * 获取指定流的最大音量等级。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 9开始支持，从API version 20开始废弃，建议使用
+     * >
+     * > 从API version 9开始支持，从API version 20开始废弃，建议使用
      * > [getMaxVolumeByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getMaxVolumeByStream}替代。
      *
      * @param { AudioVolumeType } volumeType - 音频音量类型。
@@ -7404,7 +7335,8 @@ declare namespace audio {
      * 获取指定流的最大音量等级。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 9开始支持，从API version 20开始废弃，建议使用
+     * >
+     * > 从API version 9开始支持，从API version 20开始废弃，建议使用
      * > [getMaxVolumeByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getMaxVolumeByStream}替代。
      *
      * @param { AudioVolumeType } volumeType - 音频音量类型。
@@ -7421,7 +7353,8 @@ declare namespace audio {
      * 获取指定流的最大音量等级。同步返回结果。
      *
      * > **说明：**
-     * > > 从API version 10开始支持，从API version 20开始废弃，建议使用
+     * >
+     * > 从API version 10开始支持，从API version 20开始废弃，建议使用
      * > [getMaxVolumeByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getMaxVolumeByStream}替代。
      *
      * @param { AudioVolumeType } volumeType - 音频音量类型。
@@ -7458,7 +7391,7 @@ declare namespace audio {
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      * @param { AudioVolumeType } volumeType - 音频音量类型。
      * @param { boolean } mute - 静音状态，true为静音，false为非静音。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9 dynamic
@@ -7467,14 +7400,15 @@ declare namespace audio {
     mute(volumeType: AudioVolumeType, mute: boolean): Promise<void>;
 
     /**
-     * 获取指定音量流静音状态。使用callback异步回调。
+     * 获取指定音量类型静音状态。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 9开始支持，从API version 20开始废弃，建议使用
+     * >
+     * > 从API version 9开始支持，从API version 20开始废弃，建议使用
      * > [isSystemMutedForStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.isSystemMutedForStream}替代。
      *
      * @param { AudioVolumeType } volumeType - 音频音量类型。
-     * @param { AsyncCallback<boolean> } callback - 回调函数。当获取指定音量流静音状态成功，err为undefined，data为true表示静音，false表示非静音；否则为错误对象。
+     * @param { AsyncCallback<boolean> } callback - 回调函数。当获取音量静音状态成功，err为undefined，data为true表示静音，false表示非静音；否则为错误对象。
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @crossplatform [since 12]
      * @since 9 dynamic
@@ -7484,10 +7418,11 @@ declare namespace audio {
      */
     isMute(volumeType: AudioVolumeType, callback: AsyncCallback<boolean>): void;
     /**
-     * 获取指定音量流是否被静音。使用Promise异步回调。
+     * 获取指定音量类型静音状态。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 9开始支持，从API version 20开始废弃，建议使用
+     * >
+     * > 从API version 9开始支持，从API version 20开始废弃，建议使用
      * > [isSystemMutedForStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.isSystemMutedForStream}替代。
      *
      * @param { AudioVolumeType } volumeType - 音频音量类型。
@@ -7501,14 +7436,15 @@ declare namespace audio {
      */
     isMute(volumeType: AudioVolumeType): Promise<boolean>;
     /**
-     * 获取指定音量流是否被静音。同步返回结果。
+     * 获取指定音量类型静音状态。同步返回结果。
      *
      * > **说明：**
-     * > > 从API version 10开始支持，从API version 20开始废弃，建议使用
+     * >
+     * > 从API version 10开始支持，从API version 20开始废弃，建议使用
      * > [isSystemMutedForStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.isSystemMutedForStream}替代。
      *
      * @param { AudioVolumeType } volumeType - 音频音量类型。
-     * @returns { boolean } 流静音状态。返回true表示静音，返回false表示非静音。
+     * @returns { boolean } 音量是否为静音状态。返回true表示静音，返回false表示非静音。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -7539,7 +7475,7 @@ declare namespace audio {
      *
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      * @param { AudioRingMode } mode - 音频铃声模式。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9 dynamic
@@ -7603,10 +7539,11 @@ declare namespace audio {
     onRingerModeChange(callback: Callback<AudioRingMode>): void;
 
     /**
-     * 取消监听铃声模式变化事件。使用callback异步回调。
+     * 取消监听铃声模式变化事件。
      *
-     * @param { 'ringerModeChange' } type - 事件回调类型，支持的事件为'ringerModeChange'，当取消监听铃声模式变化事件时，触发该事件。
-     * @param { Callback<AudioRingMode> } callback - 回调函数，返回变化后的铃音模式。
+     * @param { 'ringerModeChange' } type - 事件回调类型，支持的事件为'ringerModeChange'。
+     * @param { Callback<AudioRingMode> } callback - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('ringerModeChange')]{@link audio.AudioVolumeGroupManager.on_ringerModeChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 18 dynamic
@@ -7614,9 +7551,10 @@ declare namespace audio {
     off(type: 'ringerModeChange', callback?: Callback<AudioRingMode>): void;
 
     /**
-     * 取消监听铃声模式变化事件。使用callback异步回调。
+     * 取消监听铃声模式变化事件。
      *
-     * @param { Callback<AudioRingMode> } [callback] - 回调函数，返回变化后的铃音模式。
+     * @param { Callback<AudioRingMode> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [onRingerModeChange]{@link audio.AudioVolumeGroupManager.onRingerModeChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 23 static
@@ -7647,7 +7585,7 @@ declare namespace audio {
      *
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
      * @param { boolean } mute - 是否设置麦克风为静音状态。true表示静音，false表示非静音。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -7655,11 +7593,11 @@ declare namespace audio {
     setMicrophoneMute(mute: boolean): Promise<void>;
 
     /**
-     * 设置麦克风静音状态。使用Promise异步回调。
+     * 设置麦克风静音状态。此设置不会持久化保存，系统重启时会重置。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_AUDIO_CONFIG
      * @param { boolean } mute - 待设置的静音状态，true为静音，false为非静音。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -7674,7 +7612,7 @@ declare namespace audio {
     setMicMute(mute: boolean): Promise<void>;
 
     /**
-     * 设置麦克风持久化静音状态。使用Promise异步回调。
+     * 设置麦克风持久化静音状态。设置后，静音状态将按照指定的策略类型保持，直至显式取消。使用Promise异步回调。
      *
      * @permission ohos.permission.MICROPHONE_CONTROL
      * @param { boolean } mute - 待设置的静音状态，true为静音，false为非静音。
@@ -7765,10 +7703,11 @@ declare namespace audio {
     onMicStateChange(callback: Callback<MicStateChangeEvent>): void;
 
     /**
-     * 取消监听系统麦克风状态更改事件。使用callback异步回调。
+     * 取消监听系统麦克风状态更改事件。
      *
-     * @param { 'micStateChange' } type - 事件回调类型，支持的事件为'micStateChange'，当取消监听系统麦克风状态更改事件时，触发该事件。
-     * @param { Callback<MicStateChangeEvent> } callback - 回调函数，返回变更后的麦克风状态。
+     * @param { 'micStateChange' } type - 事件回调类型，支持的事件为'micStateChange'。
+     * @param { Callback<MicStateChangeEvent> } callback - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('micStateChange')]{@link audio.AudioVolumeGroupManager.on_micStateChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters missing;
      *                                 2.Incorrect parameter types.
@@ -7779,9 +7718,10 @@ declare namespace audio {
     off(type: 'micStateChange', callback?: Callback<MicStateChangeEvent>): void;
 
     /**
-     * 取消监听系统麦克风状态更改事件。使用callback异步回调。
+     * 取消监听系统麦克风状态更改事件。
      *
-     * @param { Callback<MicStateChangeEvent> } [callback] - 回调函数，返回变更后的麦克风状态。
+     * @param { Callback<MicStateChangeEvent> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [onMicStateChange]{@link audio.AudioVolumeGroupManager.onMicStateChange}绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 23 static
@@ -7800,7 +7740,7 @@ declare namespace audio {
     isVolumeUnadjustable(): boolean;
 
     /**
-     * 调节当前最高优先级的流的音量，使音量值按步长加或减。使用callback异步回调。
+     * 调节当前最高优先级的音频播放流对应音量类型的系统音量，使音量等级按步长加或减，适用于音量条滑动调节场景。使用callback异步回调。
      *
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      * @param { VolumeAdjustType } adjustType - 音量调节方向。
@@ -7818,11 +7758,11 @@ declare namespace audio {
      */
     adjustVolumeByStep(adjustType: VolumeAdjustType, callback: AsyncCallback<void>): void;
     /**
-     * 单步设置当前最高优先级的流的音量。使用Promise异步回调。
+     * 调节当前最高优先级的音频播放流对应音量类型的系统音量，使音量等级按步长加或减，适用于音量条滑动调节场景。使用Promise异步回调。
      *
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      * @param { VolumeAdjustType } adjustType - 音量调节方向。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -7837,7 +7777,7 @@ declare namespace audio {
     adjustVolumeByStep(adjustType: VolumeAdjustType): Promise<void>;
 
     /**
-     * 单步设置指定流的音量。使用callback异步回调。
+     * 调节指定音量类型的系统音量，使音量等级按步长加或减，适用于音量条滑动调节场景。使用callback异步回调。
      *
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      * @param { AudioVolumeType } volumeType - 音频音量类型。
@@ -7856,12 +7796,12 @@ declare namespace audio {
      */
     adjustSystemVolumeByStep(volumeType: AudioVolumeType, adjustType: VolumeAdjustType, callback: AsyncCallback<void>): void;
     /**
-     * 单步设置指定流的音量。使用Promise异步回调。
+     * 调节指定音量类型的系统音量，使音量等级按步长加或减，适用于音量条滑动调节场景。使用Promise异步回调。
      *
      * @permission ohos.permission.ACCESS_NOTIFICATION_POLICY
      * @param { AudioVolumeType } volumeType - 音频音量类型。
      * @param { VolumeAdjustType } adjustType - 音量调节方向。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -7879,7 +7819,8 @@ declare namespace audio {
      * 获取音量增益dB值。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 10开始支持，从API version 20开始废弃，建议使用
+     * >
+     * > 从API version 10开始支持，从API version 20开始废弃，建议使用
      * > [getVolumeInUnitOfDbByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getVolumeInUnitOfDbByStream}
      * > 替代。
      *
@@ -7904,7 +7845,8 @@ declare namespace audio {
      * 获取音量增益dB值。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 10开始支持，从API version 20开始废弃，建议使用
+     * >
+     * > 从API version 10开始支持，从API version 20开始废弃，建议使用
      * > [getVolumeInUnitOfDbByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getVolumeInUnitOfDbByStream}
      * > 替代。
      *
@@ -7929,7 +7871,8 @@ declare namespace audio {
      * 获取音量增益dB值。同步返回结果。
      *
      * > **说明：**
-     * > > 从API version 10开始支持，从API version 20开始废弃，建议使用
+     * >
+     * > 从API version 10开始支持，从API version 20开始废弃，建议使用
      * > [getVolumeInUnitOfDbByStream]{@link @ohos.multimedia.audio:audio.AudioVolumeManager.getVolumeInUnitOfDbByStream}
      * > 替代。
      *
@@ -7983,7 +7926,7 @@ declare namespace audio {
   }
 
   /**
-   * 枚举空间音频源类型。
+   * 表示空间音频源类型的枚举。
    *
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
    * @systemapi
@@ -8002,7 +7945,7 @@ declare namespace audio {
     SPATIAL_AUDIO_SOURCE_TYPE_STEREO = 0,
 
     /**
-     * 音频生动源类型。
+     * Audio Vivid源类型。
      *
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
@@ -8012,7 +7955,7 @@ declare namespace audio {
     SPATIAL_AUDIO_SOURCE_TYPE_AUDIO_VIVID = 1,
 
     /**
-     * 多通道源类型。
+     * 多声道源类型。
      *
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
@@ -8025,7 +7968,6 @@ declare namespace audio {
   /**
    * 监听设备空间音频开关状态。
    *
-   * @interface AudioSpatialEnabledStateForDevice
    * @syscap SystemCapability.Multimedia.Audio.Spatialization
    * @systemapi
    * @since 12 dynamic
@@ -8035,7 +7977,6 @@ declare namespace audio {
     /**
      * 音频设备描述。
      *
-     * @type { AudioDeviceDescriptor }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 12 dynamic
@@ -8045,7 +7986,6 @@ declare namespace audio {
     /**
      * 空间化或头部追踪或自适应空间渲染启用状态。
      *
-     * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
      * @since 12 dynamic
@@ -8197,7 +8137,7 @@ declare namespace audio {
     isPersonalizedSpatializationSupported(): boolean;
 
     /**
-     * 根据输入指令，开启/关闭空间音频渲染效果。使用callback异步回调。
+     * 开启或关闭空间音频渲染效果。使用callback异步回调。
      *
      * > **说明：**
      * > > 从 API version 11 开始支持，从 API version 12 开始废弃，建议使用
@@ -8221,10 +8161,10 @@ declare namespace audio {
      */
     setSpatializationEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
-     * 根据输入指令，开启/关闭空间音频渲染效果。使用Promise异步回调。
+     * 开启或关闭空间音频渲染效果。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从 API version 11 开始支持，从 API version 12 开始废弃，建议使用
+     * > 从 API version 11 开始支持，从 API version 12 开始废弃，建议使用
      * > [setSpatializationEnabled(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise\<void>]{@link audio.AudioSpatializationManager.setSpatializationEnabled(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean)}
      * > 替代。
      *
@@ -8244,12 +8184,12 @@ declare namespace audio {
      */
     setSpatializationEnabled(enable: boolean): Promise<void>;
     /**
-     * 根据输入指令，开启/关闭指定设备的空间音频渲染效果。使用Promise异步回调。
+     * 开启或关闭指定设备的空间音频渲染效果。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { AudioDeviceDescriptor } deviceDescriptor - 指定设备的描述。
      * @param { boolean } enabled - 表示开启/关闭空间音频渲染。true为开启，false为关闭。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -8267,7 +8207,7 @@ declare namespace audio {
      * 获取空间音频渲染是否开启，同步返回结果。
      *
      * > **说明：**
-     * > > 从 API version 11 开始支持，从 API version 12 开始废弃，建议使用
+     * > 从 API version 11 开始支持，从 API version 12 开始废弃，建议使用
      * > [isSpatializationEnabled(deviceDescriptor: AudioDeviceDescriptor): boolean]{@link audio.AudioSpatializationManager.isSpatializationEnabled(deviceDescriptor: AudioDeviceDescriptor)}
      * > 替代。
      *
@@ -8301,7 +8241,7 @@ declare namespace audio {
      * 监听空间音频渲染开关状态变化事件（当空间音频渲染开关状态发生变化时触发）。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从 API version 11 开始支持，从 API version 12 开始废弃，建议使用
+     * > 从 API version 11 开始支持，从 API version 12 开始废弃，建议使用
      * > [on(type: 'spatializationEnabledChangeForAnyDevice', callback: Callback<AudioSpatialEnabledStateForDevice\>): void]{@link audio.AudioSpatializationManager.on_spatializationEnabledChangeForAnyDevice}
      * > 替代。
      *
@@ -8349,15 +8289,15 @@ declare namespace audio {
     onSpatializationEnabledChangeForAnyDevice(callback: Callback<AudioSpatialEnabledStateForDevice>): void;
 
     /**
-     * 取消监听空间音频渲染开关状态变化事件。使用callback异步回调。
+     * 取消监听空间音频渲染开关状态变化事件。
      *
      * > **说明：**
-     * > > 从 API version 11 开始支持，从 API version 12 开始废弃，建议使用
+     * > 从 API version 11 开始支持，从 API version 12 开始废弃，建议使用
      * > [off('spatializationEnabledChangeForAnyDevice')]{@link audio.AudioSpatializationManager.off_spatializationEnabledChangeForAnyDevice}
      * > 替代。
      *
-     * @param { 'spatializationEnabledChange' } type - 事件回调类型，支持的事件为'spatializationEnabledChange'，当取消监听空间音频渲染开关状态变化事件时，触发该事件。
-     * @param { Callback<boolean> } callback - 回调函数。返回true表示音频渲染已打开；返回false表示音频渲染已关闭。
+     * @param { 'spatializationEnabledChange' } type - 事件回调类型，支持的事件为'spatializationEnabledChange'。
+     * @param { Callback<boolean> } callback - 待取消的空间音频渲染开关状态变化回调函数。不填写时取消该事件的所有回调。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -8371,11 +8311,10 @@ declare namespace audio {
      */
     off(type: 'spatializationEnabledChange', callback?: Callback<boolean>): void;
     /**
-     * 取消监听空间音频渲染开关状态变化事件。使用callback异步回调。
+     * 取消监听空间音频渲染开关状态变化事件。
      *
-     * @param { 'spatializationEnabledChangeForAnyDevice' } type - 事件回调类型，支持的事件为'spatializationEnabledChangeForAnyDevice'，当取消监听
-     *     空间音频渲染开关状态变化事件时，触发该事件。
-     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - 回调函数，返回设备信息和空间音频渲染开关状态。
+     * @param { 'spatializationEnabledChangeForAnyDevice' } type - 事件回调类型，支持的事件为'spatializationEnabledChangeForAnyDevice'。
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - 待取消的空间音频渲染开关状态变化回调函数。不填写时取消该事件的所有回调。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -8400,10 +8339,10 @@ declare namespace audio {
     offSpatializationEnabledChangeForAnyDevice(callback?: Callback<AudioSpatialEnabledStateForDevice>): void;
 
     /**
-     * 根据输入指令，开启/关闭头动跟踪效果。使用callback异步回调。
+     * 开启或关闭头动跟踪效果。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从 API version 11 开始支持，从 API version 12 开始废弃，建议使用
+     * > 从 API version 11 开始支持，从 API version 12 开始废弃，建议使用
      * > [setHeadTrackingEnabled(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise\<void>]{@link audio.AudioSpatializationManager.setHeadTrackingEnabled(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean)}
      * > 替代。
      *
@@ -8424,16 +8363,16 @@ declare namespace audio {
      */
     setHeadTrackingEnabled(enable: boolean, callback: AsyncCallback<void>): void;
     /**
-     * 根据输入指令，开启/关闭头动跟踪效果。使用Promise异步回调。
+     * 开启或关闭头动跟踪效果。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从 API version 11 开始支持，从 API version 12 开始废弃，建议使用
+     * > 从 API version 11 开始支持，从 API version 12 开始废弃，建议使用
      * > [setHeadTrackingEnabled(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise\<void>]{@link audio.AudioSpatializationManager.setHeadTrackingEnabled(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean)}
      * > 替代。
      *
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enable - 表示开启/关闭头动跟踪。true为开启，false为关闭。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -8447,12 +8386,12 @@ declare namespace audio {
      */
     setHeadTrackingEnabled(enable: boolean): Promise<void>;
     /**
-     * 根据输入指令，开启/关闭指定设备的头动跟踪效果。使用Promise异步回调。
+     * 开启或关闭指定设备的头动跟踪效果。使用Promise异步回调。
      *
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { AudioDeviceDescriptor } deviceDescriptor - 设备描述符。
+     * @param { AudioDeviceDescriptor } deviceDescriptor - 待设置的音频设备描述符。
      * @param { boolean } enabled - 表示开启/关闭头动跟踪。true为开启，false为关闭。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -8504,7 +8443,7 @@ declare namespace audio {
      * 监听头动跟踪开关状态变化事件（当动跟踪开关状态发生变化时触发）。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从 API version 11 开始支持，从 API version 12 开始废弃，建议使用
+     * > 从 API version 11 开始支持，从 API version 12 开始废弃，建议使用
      * > [on(type: 'headTrackingEnabledChangeForAnyDevice', callback: Callback<AudioSpatialEnabledStateForDevice\>): void]{@link audio.AudioSpatializationManager.on_headTrackingEnabledChangeForAnyDevice}
      * > 替代。
      *
@@ -8540,10 +8479,9 @@ declare namespace audio {
     on(type: 'headTrackingEnabledChangeForAnyDevice', callback: Callback<AudioSpatialEnabledStateForDevice>): void;
 
     /**
-     * 订阅指定设备的头部追踪启用状态变更事件。
-     * 当头部追踪启用状态发生变化时，已注册的客户端将收到回调。
+     * 监听头动跟踪开关状态变化事件（当动跟踪开关状态发生变化时触发）。
      *
-     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - 回调函数用于获取指定设备的头部跟踪启用状态。
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - 回调函数。返回true表示头动跟踪已打开；返回false表示头动跟踪已关闭。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -8553,15 +8491,15 @@ declare namespace audio {
     onHeadTrackingEnabledChangeForAnyDevice(callback: Callback<AudioSpatialEnabledStateForDevice>): void;
 
     /**
-     * 取消监听头动跟踪开关状态变化事件。使用callback异步回调。
+     * 取消监听头动跟踪开关状态变化事件。
      *
      * > **说明：**
-     * > > 从 API version 11 开始支持，从 API version 12 开始废弃，建议使用
+     * > 从 API version 11 开始支持，从 API version 12 开始废弃，建议使用
      * > [off('headTrackingEnabledChangeForAnyDevice')]{@link audio.AudioSpatializationManager.off_headTrackingEnabledChangeForAnyDevice}
      * > 替代。
      *
-     * @param { 'headTrackingEnabledChange' } type - 事件回调类型，支持的事件为'headTrackingEnabledChange'，当取消监听头动跟踪开关状态变化事件时，触发该事件。
-     * @param { Callback<boolean> } callback - 回调函数。返回true表示头动跟踪已打开；返回false表示头动跟踪已关闭。
+     * @param { 'headTrackingEnabledChange' } type - 事件回调类型，支持的事件为'headTrackingEnabledChange'。
+     * @param { Callback<boolean> } callback - 待取消的头动跟踪开关状态变化回调函数。不填写时取消该事件的所有回调。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -8575,11 +8513,10 @@ declare namespace audio {
      */
     off(type: 'headTrackingEnabledChange', callback?: Callback<boolean>): void;
     /**
-     * 取消监听头动跟踪开关状态变化事件。使用callback异步回调。
+     * 取消监听头动跟踪开关状态变化事件。
      *
-     * @param { 'headTrackingEnabledChangeForAnyDevice' } type - 事件回调类型，支持的事件为'headTrackingEnabledChangeForAnyDevice'，当取消监听头动跟踪
-     *     开关状态变化事件时，触发该事件。
-     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - 回调函数。返回true表示头动跟踪已打开；返回false表示头动跟踪已关闭。
+     * @param { 'headTrackingEnabledChangeForAnyDevice' } type - 事件回调类型，支持的事件为'headTrackingEnabledChangeForAnyDevice'。
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - 待取消的头动跟踪开关状态变化回调函数。不填写时取消该事件的所有回调。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -8592,9 +8529,9 @@ declare namespace audio {
     off(type: 'headTrackingEnabledChangeForAnyDevice', callback?: Callback<AudioSpatialEnabledStateForDevice>): void;
 
     /**
-     * 取消监听头动跟踪开关状态变化事件。使用callback异步回调。
+     * 取消监听头动跟踪开关状态变化事件。
      *
-     * @param { Callback<AudioSpatialEnabledStateForDevice> } [callback] - 回调函数。返回true表示头动跟踪已打开；返回false表示头动跟踪已关闭。
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } [callback] - 待取消的头动跟踪开关状态变化回调函数。不填写时取消该事件的所有回调。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -8688,7 +8625,9 @@ declare namespace audio {
      *
      * @param { 'spatializationEnabledChangeForCurrentDevice' } type - 事件回调类型，支持的事件为'
      *     spatializationEnabledChangeForCurrentDevice'。
-     * @param { Callback<boolean> } [callback] - 待注销的回调函数。参数为true表示打开空间音频渲染状态；参数为false表示关闭空间音频渲染状态。
+     * @param { Callback<boolean> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [on('spatializationEnabledChangeForCurrentDevice')]{@link audio.AudioSpatializationManager.on_spatializationEnabledChangeForCurrentDevice}
+     *     绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @since 18 dynamic
@@ -8696,9 +8635,11 @@ declare namespace audio {
     off(type: 'spatializationEnabledChangeForCurrentDevice', callback?: Callback<boolean>): void;
 
     /**
-     * 取消订阅当前设备的空间化启用状态更改事件。
+     * 取消监听当前设备空间音频渲染开关状态变化事件。
      *
-     * @param { Callback<boolean> } [callback] - Callback used to get the spatialization enable state.
+     * @param { Callback<boolean> } [callback] - 回调函数。传入回调函数时，仅取消该回调对应的监听事件，需与
+     *     [onSpatializationEnabledChangeForCurrentDevice]{@link audio.AudioSpatializationManager.onSpatializationEnabledChangeForCurrentDevice}
+     *     绑定同一回调函数；不传参数时，取消此事件类型下所有已订阅的监听事件。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @since 23 static
@@ -8706,14 +8647,13 @@ declare namespace audio {
     offSpatializationEnabledChangeForCurrentDevice(callback?: Callback<boolean>): void;
 
     /**
-     * 设置指定设备是否启用自适应空间渲染。
-     * 该方法使用 Promise 返回结果。
-     * 当启用自适应空间渲染时，空间音频渲染将不会对立体声音频生效。
+     * 设置指定设备的自适应空间音频渲染开关。使用Promise异步回调。
+     * 当开启自适应空间音频渲染时，立体声音频将不会进行空间音频渲染。
      *
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { AudioDeviceDescriptor } deviceDescriptor - 目标设备需启用自适应空间渲染功能。
-     * @param { boolean } enabled - 自适应空间渲染启用状态。
-     * @returns { Promise<void> } Promise对象，返回void。
+     * @param { AudioDeviceDescriptor } deviceDescriptor - 待设置的音频设备描述符。
+     * @param { boolean } enabled - 是否开启自适应空间音频渲染。true表示开启；false表示关闭。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied. Return by promise.
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 801 - Capability not supported on the device.
@@ -8725,10 +8665,10 @@ declare namespace audio {
     setAdaptiveSpatialRenderingEnabled(deviceDescriptor: AudioDeviceDescriptor, enabled: boolean): Promise<void>;
 
     /**
-     * 检查指定设备是否启用了自适应空间渲染。
+     * 以同步方式查询指定设备是否开启了自适应空间音频渲染。
      *
-     * @param { AudioDeviceDescriptor } deviceDescriptor - 目标设备，用于检查是否启用了自适应空间渲染。
-     * @returns { boolean } 指定设备是否启用了自适应空间渲染。
+     * @param { AudioDeviceDescriptor } deviceDescriptor - 待查询的设备描述符。
+     * @returns { boolean } 指定设备是否开启了自适应空间音频渲染。true表示自适应空间音频渲染开启；false表示自适应空间音频渲染关闭。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -8738,9 +8678,9 @@ declare namespace audio {
     isAdaptiveSpatialRenderingEnabled(deviceDescriptor: AudioDeviceDescriptor): boolean;
 
     /**
-     * 订阅指定设备的自适应空间渲染启用状态变更事件。当自适应空间渲染启用状态发生变化时，已注册的客户端将收到回调。
+     * 订阅自适应空间音频渲染开关状态变化事件，当自适应空间音频渲染开关状态发生变化时，注册的回调将被调用。
      *
-     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - 回调函数，用于通过指定设备获取自适应空间渲染的启用状态。
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } callback - 回调函数，返回设备信息和自适应空间音频渲染开关状态。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -8750,9 +8690,9 @@ declare namespace audio {
     onAdaptiveSpatialRenderingEnabledChangeForAnyDevice(callback: Callback<AudioSpatialEnabledStateForDevice>): void;
 
     /**
-     * 取消订阅指定设备的自适应空间渲染启用状态变更事件。
+     * 取消订阅自适应空间音频渲染开关状态变化事件。
      *
-     * @param { Callback<AudioSpatialEnabledStateForDevice> } [callback] - 回调函数，用于通过指定设备获取自适应空间渲染的启用状态。
+     * @param { Callback<AudioSpatialEnabledStateForDevice> } [callback] - 待取消的自适应空间音频渲染开关状态变化回调函数。不填写时取消该事件的所有回调。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -8762,10 +8702,10 @@ declare namespace audio {
     offAdaptiveSpatialRenderingEnabledChangeForAnyDevice(callback?: Callback<AudioSpatialEnabledStateForDevice>): void;
 
     /**
-     * 检查指定设备是否启用了个性化空间化功能。
+     * 检查指定的设备是否启用了个性化空间化功能。
      *
      * @param { AudioDeviceDescriptor } selectedAudioDevice - 音频设备描述。
-     * @returns { boolean } 如果个性化空间化成功启用，则返回 true，否则返回 false。
+     * @returns { boolean } 如果成功启用个性化空间化处理，则返回 true，否则返回 false。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -8781,7 +8721,7 @@ declare namespace audio {
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { AudioDeviceDescriptor } selectedAudioDevice - 音频设备描述。
      * @param { boolean } enable - 是否启用个性化空间化。
-     * @returns { Promise<void> } 承诺用于返回结果。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 801 - Capability is not supported in this device.
@@ -8825,8 +8765,8 @@ declare namespace audio {
      * 从匿名文件描述符下载个性化HRTF数据。
      *
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { AudioHRTFAnonymousDescriptor } hrtfDescriptor - 个性化HRTF数据描述符，用于下载。
-     * @returns { Promise<void> } Promise 对象，返回 void。
+     * @param { AudioHRTFAnonymousDescriptor } hrtfDescriptor - 要下载的个性化HRTF数据描述符。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 801 - Capability is not supported in this device.
@@ -8841,9 +8781,9 @@ declare namespace audio {
     downloadPersonalizedHRTF(hrtfDescriptor: AudioHRTFAnonymousDescriptor): Promise<void>;
 
     /**
-     * 获取当前空间音频源类型。
+     * 获取当前空间音频源类型。同步返回结果。
      *
-     * @returns { SpatialAudioSourceType } 当前设备的空间音频源类型。
+     * @returns { SpatialAudioSourceType } 返回当前空间音频源类型。
      * @throws { BusinessError } 202 - Not system App.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
      * @systemapi
@@ -8853,9 +8793,9 @@ declare namespace audio {
     getCurrentSpatialAudioSourceType(): SpatialAudioSourceType;
 
     /**
-     * 订阅空间音频源类型更改事件。当当前空间音频源类型发生变化时，注册的客户端将收到回调通知。
+     * 订阅空间音频源类型变化事件。当前空间音频源类型发生变化时，注册的回调将被调用。
      *
-     * @param { Callback<SpatialAudioSourceType> } callback - 回调函数，用于接收当前空间音频源类型。
+     * @param { Callback<SpatialAudioSourceType> } callback - 回调函数，返回变化后的空间音频源类型。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -8866,9 +8806,9 @@ declare namespace audio {
     onSpatialAudioSourceTypeChange(callback: Callback<SpatialAudioSourceType>): void;
 
     /**
-     * 取消订阅空间音频源类型更改事件。
+     * 取消订阅空间音频源类型变化事件。
      *
-     * @param { Callback<SpatialAudioSourceType> } [callback] - 回调函数，用于接收当前空间音频源类型变更。
+     * @param { Callback<SpatialAudioSourceType> } [callback] - 待取消的空间音频源类型变化回调函数。不填写时取消该事件的所有回调。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Spatialization
@@ -8900,8 +8840,8 @@ declare namespace audio {
   }
 
   /**
-   * 音频效果管理。在使用AudioEffectManager的接口前，需要使用[getEffectManager]{@link audio.AudioManager.getEffectManager}获取
-   * AudioEffectManager实例。
+   * 音频效果管理，支持查询和设置系统音效模式、管理音频分离效果。适用于需要定制音频播放效果、实现人声分离、管理设备音效的场景。
+   * 在使用AudioEffectManager的接口前，需要使用[getEffectManager]{@link audio.AudioManager.getEffectManager}获取AudioEffectManager实例。
    *
    * @typedef AudioEffectManager
    * @syscap SystemCapability.Multimedia.Audio.Core
@@ -8911,7 +8851,7 @@ declare namespace audio {
    */
   interface AudioEffectManager {
     /**
-     * 获取支持的下行音效模式，同步返回结果。
+     * 获取支持的音效模式，同步返回结果。
      *
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @returns { Array<AudioEffectProperty> } 返回当前设备支持的音效模式。
@@ -8926,7 +8866,9 @@ declare namespace audio {
     getSupportedAudioEffectProperty(): Array<AudioEffectProperty>;
 
     /**
-     * 设置当前音效模式，同步返回结果。
+     * 设置系统全局的音效模式，同步返回结果。
+     * 调用此接口前，应先调用[getSupportedAudioEffectProperty]{@link audio.AudioEffectManager.getSupportedAudioEffectProperty}确认当前设
+     * 备支持的音效模式。
      *
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { Array<AudioEffectProperty> } propertyArray - 需要设置的音效模式。
@@ -8945,7 +8887,7 @@ declare namespace audio {
     setAudioEffectProperty(propertyArray: Array<AudioEffectProperty>): void;
 
     /**
-     * 获取当前音效模式，同步返回结果。
+     * 获取系统当前音效模式，同步返回结果。
      *
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @returns { Array<AudioEffectProperty> } 返回当前音效模式。
@@ -8958,103 +8900,6 @@ declare namespace audio {
      * @since 23 static
      */
     getAudioEffectProperty(): Array<AudioEffectProperty>;
-
-    /**
-     * 设置当前设备的降噪模式。
-     *
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { int } clientUid - 当前使用实时录音类型的客户端应用的Uid。该值应为整数。
-     * @param { AudioDeviceDescriptor } device - 通过录制选择的设备描述符。
-     * @param { NoiseReductionMode } noiseReductionMode - 降噪模式需要在当前设备上进行设置。
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @throws { BusinessError } 6800301 - Live audio capture service exception.
-     *     Indicates an internal failure in the audio service during live stream creation,
-     *     start, read, stop, release, or noise reduction handling.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    setNoiseReductionMode(clientUid: int, device: AudioDeviceDescriptor, noiseReductionMode: NoiseReductionMode): void;
-
-    /**
-     * 获取当前设备的降噪模式设置信息。
-     *
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { int } clientUid - 当前使用实时录制类型的客户端应用的UID。
-     * @param { AudioDeviceDescriptor } device - 通过录制选择的设备描述符。
-     * @returns { NoiseReductionMode } 当前设备的降噪模式。
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    getNoiseReductionMode(clientUid: int, device: AudioDeviceDescriptor): NoiseReductionMode;
-
-    /**
-     * 获取当前设备上所有支持的降噪模式。
-     *
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { AudioDeviceDescriptor } device - 已连接输入设备的设备描述符。
-     * @returns { Array<NoiseReductionMode> } 输入设备支持的降噪模式列表。
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    getSupportedNoiseReductionModes(device: AudioDeviceDescriptor): Array<NoiseReductionMode>;
-
-    /**
-     * 在连接外部设备时，将降噪模式能力更新到音频框架。
-     *
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { NoiseReductionCapability } capability - 外部设备的降噪能力，包括设备描述符和设备支持的模式。
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    updateDeviceNoiseReductionCapability(capability: NoiseReductionCapability): void;
-
-    /**
-     * 订阅降噪模式设置事件回调。
-     *
-     * @param { AudioDeviceDescriptor } device - 外部连接设备的描述符，用于设置降噪模式。
-     * @param { Callback<NoiseReductionConfigAction> } callback - 降噪模式需要设备设置。
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    onNoiseReductionSettingChange(device: AudioDeviceDescriptor, callback: Callback<NoiseReductionConfigAction>): void;
-
-    /**
-     * 取消订阅降噪模式设置事件回调。
-     *
-     * @param { AudioDeviceDescriptor } device - 外部连接设备的描述符。
-     * @param { Callback<NoiseReductionConfigAction> } [callback] - 降噪模式回调，设备需要进行设置。
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    offNoiseReductionSettingChange(device: AudioDeviceDescriptor,
-      callback?: Callback<NoiseReductionConfigAction>): void;
 
     /**
      * 查询当前设备是否支持系统的音频分离效果。
@@ -9170,8 +9015,12 @@ declare namespace audio {
   }
 
   /**
-   * 定义系统记录控制器状态变化时所携带的信息。
-   * 它包括启用状态、应用程序UID和预期的音频源类型。
+   * 系统录音控制面板状态变更时携带的信息，包含使能状态、应用UID和期望的音频源类型。
+   * 用于
+   * [onSystemRecordControllerEnabledChange](docroot://reference/apis-audio-kit/js-apis-audio-sys.md#onsystemrecordcontrollerenabledchange)
+   * 和
+   * [offSystemRecordControllerEnabledChange](docroot://reference/apis-audio-kit/js-apis-audio-sys.md#offsystemrecordcontrollerenabledchange)
+   * 的回调参数。
    *
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
@@ -9180,7 +9029,7 @@ declare namespace audio {
    */
   interface SystemRecordControllerChangeInfo {
     /**
-     * 系统记录控制器面板是否启用。
+     * 系统录音控制面板是否启用。true表示启用，false表示禁用。
      *
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
@@ -9190,7 +9039,7 @@ declare namespace audio {
     enabled: boolean;
 
     /**
-     * 触发系统记录控制器状态变化的应用程序UID。
+     * 触发系统录音控制面板状态变更的应用UID。取值范围是所有整数。
      *
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
@@ -9200,8 +9049,7 @@ declare namespace audio {
     uid?: int;
 
     /**
-     * 应用程序在启用录音控制器时配置的预期音频源类型。
-     * 用于匹配相应的录音场景和降噪模式。
+     * 应用启用录音控制面板时配置的期望音频源类型，用于匹配对应的录音场景和降噪模式。
      *
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
@@ -9213,77 +9061,14 @@ declare namespace audio {
 
   /**
    * 录音策略管理，提供协同录音和录音控制能力。
-   * 在使用AudioRecordingManager的接口之前，需先通过
-   * [getRecordingManager]{@link @ohos.multimedia.audio:audio.AudioManager.getRecordingManager}获取AudioRecordingManager实例
-   * 。
-   *
-   * > **说明：**
-   * >
-   * > - 本模块首批接口从API版本26.0.0开始支持。
-   * >
-   * > - 本模块接口仅可在Stage模型下使用。
+   * 通过[getRecordingManager]{@link @ohos.multimedia.audio:audio.AudioManager.getRecordingManager}获取AudioRecordingManager
+   * 实例。
    *
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   interface AudioRecordingManager {
-    /**
-     * 检查该设备是否支持协同录制。
-     *
-     * @returns { boolean } 该设备是否支持协同录制。
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    isCollaborativeRecordingEnabled(): boolean;
-
-    /**
-     * 获取支持协作录音的音频设备。
-     *
-     * @returns { AudioDeviceDescriptors } 支持协同录制的设备。
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    getSupportedCollaborativeRecordingDevices(): AudioDeviceDescriptors;
-
-    /**
-     * 为特定音频设备启用协作录音功能。
-     *
-     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
-     * @param { boolean } enable - 确实可以实现协作录制。
-     * @param { AudioDeviceDescriptors } devices - 目标音频设备用于协同录制，
-     *     应使用 {@link getSupportedCollaborativeRecordingDevices} 来获取。
-     * @returns { Promise<void> } Promise 对象，返回 void。
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 6800101 - Parameter verification failed, the devices are invalid.
-     * @throws { BusinessError } 6800301 - Audio service error occurs, like service died.
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    setCollaborativeRecordingEnabledForDevices(enable: boolean, devices: AudioDeviceDescriptors): Promise<void>;
-
-    /**
-     * 获取当前的协作录制配置。
-     *
-     * @returns { CollaborativeRecordingConfiguration } 协作录音配置，若开启该功能，返回值中将包含音频设备信息。
-     * @throws { BusinessError } 202 - Caller is not a system application.
-     * @throws { BusinessError } 6800301 - Audio service error occurs, like service died.
-     * @syscap SystemCapability.Multimedia.Audio.Capturer
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    getCurrentCollaborativeRecordingConfiguration(): CollaborativeRecordingConfiguration;
-
     /**
      * 启用或禁用系统录音控制面板。使用Promise异步回调。
      *
@@ -9307,9 +9092,15 @@ declare namespace audio {
     enableSystemRecordController(show: boolean, config: SystemRecordControllerConfig): Promise<void>;
 
     /**
-     * 订阅系统录制控制器面板启用状态变更事件。
+     * 订阅系统录音控制面板使能状态变更事件。
+     * 订阅后，有应用调用
+     * [enableSystemRecordController]{@link @ohos.multimedia.audio:audio.AudioRecordingManager.enableSystemRecordController}
+     * 时，会触发回调。
+     * 系统录音控制面板的使能状态可由应用通过
+     * [enableSystemRecordController]{@link @ohos.multimedia.audio:audio.AudioRecordingManager.enableSystemRecordController}
+     * 接口设定，其他应用程序可以使用本接口订阅状态变更事件。
      *
-     * @param { Callback<SystemRecordControllerChangeInfo> } callback - 回调函数，用于监听系统录音控制器面板使能状态变化事件。
+     * @param { Callback<SystemRecordControllerChangeInfo> } callback - 回调函数。当系统录音控制面板使能状态变化时，返回变更信息。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800102 - Memory allocation failed.
@@ -9322,10 +9113,9 @@ declare namespace audio {
     onSystemRecordControllerEnabledChange(callback: Callback<SystemRecordControllerChangeInfo>): void;
 
     /**
-     * 取消订阅系统录制控制器面板启用状态变更事件。
+     * 取消订阅系统录音控制面板使能状态变化事件。
      *
-     * @param { Callback<SystemRecordControllerChangeInfo> } [callback] - 订阅中使用的回调函数
-     * 用于取消订阅的函数。如果不使用此参数，将取消当前进程中之前订阅的所有回调。
+     * @param { Callback<SystemRecordControllerChangeInfo> } [callback] - 待取消的系统录音控制面板使能状态变化回调函数。不填写时取消该事件的所有回调。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - Audio service error occurs like service died.
@@ -9374,107 +9164,7 @@ declare namespace audio {
   }
 
   /**
-   * 支持降噪能力的外部音频设备信息。
-   *
-   * @syscap SystemCapability.Multimedia.Audio.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  interface NoiseReductionCapability {
-    /**
-     * 外部音频设备信息。
-     *
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    device: AudioDeviceDescriptor;
-
-    /**
-     * 外部设备支持的降噪模式。
-     *
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    supportedModes: Array<NoiseReductionMode>;
-  }
-
-  /**
-   * 降噪配置操作。
-   *
-   * @syscap SystemCapability.Multimedia.Audio.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  interface NoiseReductionConfigAction {
-    /**
-     * 配置降噪功能的设备描述符。
-     *
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    device: AudioDeviceDescriptor;
-
-    /**
-     * 用于配置降噪的模式。
-     *
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    noiseReductionMode: NoiseReductionMode;
-
-    /**
-     * 用于配置降噪功能的应用程序名称。
-     *
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    appName: string;
-  }
-
-  /**
-   * 描述协作录制的配置。
-   *
-   * @syscap SystemCapability.Multimedia.Audio.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  interface CollaborativeRecordingConfiguration {
-    /**
-     * 协作录音已启用状态。
-     *
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    enabled: boolean;
-
-    /**
-     * 协作录音音频设备。
-     *
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    devices?: AudioDeviceDescriptors;
-  }
-
-  /**
-   * 移动全景声管理器。
+   * 移动全景声管理器，支持蓝牙设备与本地扬声器协同播放音频。适用于系统应用控制移动全景声功能场景。
    * 在使用AudioCollaborativeManager的接口前，需要先使用[getCollaborativeManager]{@link audio.AudioManager.getCollaborativeManager}获取
    * AudioCollaborativeManager实例。
    *
@@ -9545,8 +9235,11 @@ declare namespace audio {
   }
 
   /**
-   * 音频调试管理器，用于音频运行时调试，包括获取快照信息等功能，用于定位音频播放、录音、耳返、会话等场景中的异常问题。
-   * **起始版本：** 26.0.0
+   * AudioDebuggingManager（音频快照）提供音频运行时调试功能，用于获取音频快照信息，帮助开发者定位音频播放、录音、耳返、会话等场景中的异常问题。
+   * AudioDebuggingManager是对当前进程中音频各模块运行状态的瞬时记录，涵盖音频流参数、通路状态、音量信息、焦点状态、错误记录等关键数据。开发者可通过快照在不影响业务逻辑的前提下，快速了解音频系统的内部运行情况，用于
+   * 排查无声、音量异常、焦点丢失、录音卡顿等问题。
+   * 使用调试接口时，需先通过[getDebuggingManager]{@link @ohos.multimedia.audio:audio.AudioManager.getDebuggingManager}获取
+   * AudioDebuggingManager实例（单例），再通过该实例调用应用快照、播放快照、录音快照、耳返快照、会话快照等接口，将快照信息输出到指定文件描述符或运行日志。
    *
    * > **说明：**
    * >
@@ -9615,7 +9308,6 @@ declare namespace audio {
   /**
    * 枚举，设备连接类型。
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
    * @since 9 dynamic
@@ -9646,7 +9338,6 @@ declare namespace audio {
   /**
    * 音量组信息。
    *
-   * @typedef VolumeGroupInfo
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
    * @since 9 dynamic
@@ -9656,8 +9347,6 @@ declare namespace audio {
     /**
      * 组网络id。
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9 dynamic
@@ -9668,8 +9357,6 @@ declare namespace audio {
     /**
      * 组设备组id。
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9 dynamic
@@ -9680,8 +9367,6 @@ declare namespace audio {
     /**
      * 组映射id。
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9 dynamic
@@ -9692,8 +9377,6 @@ declare namespace audio {
     /**
      * 组名。
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9 dynamic
@@ -9704,8 +9387,6 @@ declare namespace audio {
     /**
      * 连接设备类型。
      *
-     * @type { ConnectType }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9 dynamic
@@ -9715,8 +9396,8 @@ declare namespace audio {
   }
 
   /**
+   * 数组类型，[VolumeGroupInfo]{@link @ohos.multimedia.audio:audio.VolumeGroupInfo}数组，只读。
    *
-   * @typedef { Array<Readonly<VolumeGroupInfo>> } VolumeGroupInfos
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
    * @since 9 dynamic
@@ -9725,7 +9406,7 @@ declare namespace audio {
   type VolumeGroupInfos = Array<Readonly<VolumeGroupInfo>>;
 
   /**
-   * 数组类型，AudioRendererChangeInfo数组，只读。
+   * 数组类型，[AudioRendererChangeInfo]{@link @ohos.multimedia.audio:audio.AudioRendererChangeInfo}数组，只读。
    *
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform [since 12]
@@ -9744,7 +9425,7 @@ declare namespace audio {
    */
   interface AudioRendererChangeInfo {
     /**
-     * 音频流唯一id。
+     * 音频流唯一ID。
      *
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform [since 12]
@@ -9795,7 +9476,7 @@ declare namespace audio {
   }
 
   /**
-   * 数组类型，AudioCapturerChangeInfo数组，只读。
+   * 数组类型，[AudioCapturerChangeInfo]{@link @ohos.multimedia.audio:audio.AudioCapturerChangeInfo}数组，只读。
    *
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @crossplatform [since 12]
@@ -9814,7 +9495,7 @@ declare namespace audio {
    */
   interface AudioCapturerChangeInfo {
     /**
-     * 音频流唯一id。
+     * 音频流唯一ID。
      *
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform [since 12]
@@ -9861,6 +9542,7 @@ declare namespace audio {
      * @since 9 dynamic
      * @since 23 static
      */
+
     readonly deviceDescriptors: AudioDeviceDescriptors;
 
     /**
@@ -9871,6 +9553,7 @@ declare namespace audio {
      * @since 11 dynamic
      * @since 23 static
      */
+
     readonly muted?: boolean;
   }
 
@@ -9883,6 +9566,7 @@ declare namespace audio {
    * @since 7 dynamic
    * @since 23 static
    */
+
   interface AudioDeviceDescriptor {
     /**
      * 设备角色。
@@ -9915,9 +9599,9 @@ declare namespace audio {
     readonly deviceType: DeviceType;
 
     /**
-     * 唯一的设备id。
+     * 唯一的设备ID。  
      *
-     * SystemCapability.Multimedia.Audio.Device
+     * SystemCapability.Multimedia.Audio.Device 
      *
      * 从API version 12开始，该接口支持在原子化服务中使用。
      *
@@ -10143,7 +9827,7 @@ declare namespace audio {
   }
 
   /**
-   * 设备属性数组类型，为[AudioDeviceDescriptor]{@link @ohos.multimedia.audio:audio.AudioDeviceDescriptor}的数组，只读。
+   * 设备属性数组类型，[AudioDeviceDescriptor]{@link @ohos.multimedia.audio:audio.AudioDeviceDescriptor}数组，只读。
    *
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @crossplatform [since 12]
@@ -10156,7 +9840,6 @@ declare namespace audio {
   /**
    * 表示音量模式的枚举。
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @since 19 dynamic
    * @since 23 static
@@ -10192,7 +9875,6 @@ declare namespace audio {
     /**
      * 音频音量类型。
      *
-     * @type { AudioVolumeType }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9 dynamic
      * @since 23 static
@@ -10210,9 +9892,8 @@ declare namespace audio {
     /**
      * 标识是否会显示系统本身的音量条，true表示会显示系统音量条，false表示不会显示系统音量条。
      *
-     * 若应用内含自定义音量条，建议根据此参数动态控制其显示：当updateUi为true时不显示自定义音量条，为false时显示自定义音量条，从而避免出现系统本身音量条与应用自定义音量条同时显示或不显示的问题。
+     * 若应用内含自定义音量条，建议根据此参数动态控制其显示。当updateUi为true时不显示自定义音量条，为false时显示自定义音量条，从而避免系统音量条与自定义音量条同时显示或不显示的问题。
      *
-     * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 9 dynamic
      * @since 23 static
@@ -10221,7 +9902,6 @@ declare namespace audio {
     /**
      * 音量组id，可用于getGroupManager入参。
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9 dynamic
@@ -10231,7 +9911,6 @@ declare namespace audio {
     /**
      * 网络id。
      *
-     * @type { string }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 9 dynamic
@@ -10241,7 +9920,6 @@ declare namespace audio {
     /**
      * 音频的音量模式。默认值为SYSTEM_GLOBAL。
      *
-     * @type { ?AudioVolumeMode }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 19 dynamic
      * @since 23 static
@@ -10249,10 +9927,8 @@ declare namespace audio {
     volumeMode?: AudioVolumeMode;
 
     /**
-     * 音量百分比，取值范围为[0, 100]。
-     * 取值限定为整数。
+     * 音量百分比，为整数值，取值范围为[0, 100]。
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @since 23 dynamic&static
@@ -10263,7 +9939,6 @@ declare namespace audio {
   /**
    * 音频流音量变化时，应用接收到的事件。
    *
-   * @typedef StreamVolumeEvent
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @since 20 dynamic
    * @since 23 static
@@ -10272,7 +9947,6 @@ declare namespace audio {
     /**
      * 音量发生变化的音频流。
      *
-     * @type { StreamUsage }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20 dynamic
      * @since 23 static
@@ -10281,7 +9955,6 @@ declare namespace audio {
     /**
      * 音量值。
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20 dynamic
      * @since 23 static
@@ -10290,9 +9963,8 @@ declare namespace audio {
     /**
      * 标识是否会显示系统本身的音量条，true表示会显示系统音量条，false表示不会显示系统音量条。
      *
-     * 若应用内含自定义音量条，建议根据此参数动态控制其显示：当updateUi为true时不显示自定义音量条，为false时显示自定义音量条，从而避免出现系统本身音量条与应用自定义音量条同时显示或不显示的问题。
+     * 若应用内含自定义音量条，建议根据此参数动态控制其显示。当updateUi为true时不显示自定义音量条，为false时显示自定义音量条，从而避免系统音量条与自定义音量条同时显示或不显示的问题。
      *
-     * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 20 dynamic
      * @since 23 static
@@ -10302,55 +9974,10 @@ declare namespace audio {
      * 变化前的音量值。
      * 取值限定为整数。
      *
-     * @type { ?int }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @since 23 dynamic&static
      */
     previousVolume?: int;
-  }
-
-  /**
-   * 描述表示音量超过阈值的通知事件。
-   * 在收到通知后，应用必须发送确认结果。
-   * 在继续调整音量之前，通过 {@link #confirmVolumeLimitExceeded} 进行确认。
-   *
-   * @syscap SystemCapability.Multimedia.Audio.Volume
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  interface VolumeLimitExceededEvent {
-    /**
-     * 当前音量类型。
-     *
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    volumeType: AudioVolumeType;
-    /**
-     * 当前音量等级。
-     * 该值介于通过 {@link #getMinSystemVolume} 和 {@link #getMaxSystemVolume} 获取的值之间。
-     * 取值限定为整数。
-     *
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    currentVolume: int;
-    /**
-     * 当前卷音量型的音量大小阈值。
-     * 该值介于通过 {@link #getMinSystemVolume} 和 {@link #getMaxSystemVolume} 获取的值之间。
-     * 取值限定为整数。
-     *
-     * @syscap SystemCapability.Multimedia.Audio.Volume
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    volumeThreshold: int;
   }
 
   /**
@@ -10366,7 +9993,6 @@ declare namespace audio {
     /**
      * 当前流的音量类型。
      *
-     * @type { AudioVolumeType }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @stagemodelonly
@@ -10374,10 +10000,8 @@ declare namespace audio {
      */
     volumeType: AudioVolumeType;
     /**
-     * 应用程序的音量。
-     * 取值限定为整数。
+     * 应用程序的音量，该值应为整数。
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @stagemodelonly
@@ -10385,10 +10009,8 @@ declare namespace audio {
      */
     appVolume: int;
     /**
-     * 应用程序的UID。
-     * 取值限定为整数。
+     * 应用程序的UID，该值应为整数。
      *
-     * @type { int }
      * @syscap SystemCapability.Multimedia.Audio.Volume
      * @systemapi
      * @stagemodelonly
@@ -10400,7 +10022,6 @@ declare namespace audio {
   /**
    * ActiveStreamVolumeInfo数组。
    *
-   * @typedef { Array<Readonly<ActiveStreamVolumeInfo>> }
    * @syscap SystemCapability.Multimedia.Audio.Volume
    * @systemapi
    * @stagemodelonly
@@ -10435,7 +10056,6 @@ declare namespace audio {
    * >
    * > 从API version 7开始支持，从API version 9开始废弃，建议使用[InterruptEvent]{@link audio.InterruptEvent}替代。
    *
-   * @typedef InterruptAction
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -10446,7 +10066,6 @@ declare namespace audio {
     /**
      * 事件返回类型。TYPE_ACTIVATED为焦点触发事件，TYPE_INTERRUPT为音频打断事件。
      *
-     * @type { InterruptActionType }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -10457,7 +10076,6 @@ declare namespace audio {
     /**
      * 打断事件类型。
      *
-     * @type { ?InterruptType }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -10468,7 +10086,6 @@ declare namespace audio {
     /**
      * 打断事件提示。
      *
-     * @type { ?InterruptHint }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -10479,7 +10096,6 @@ declare namespace audio {
     /**
      * 焦点获取/释放是否成功。true表示焦点获取/释放成功，false表示焦点获得/释放失败。
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -10495,7 +10111,6 @@ declare namespace audio {
    * >
    * > 从API version 7开始支持，从API version 9开始废弃，无替代接口。
    *
-   * @typedef AudioInterrupt
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -10506,7 +10121,6 @@ declare namespace audio {
     /**
      * 音频流使用类型。
      *
-     * @type { StreamUsage }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -10517,7 +10131,6 @@ declare namespace audio {
     /**
      * 音频打断媒体类型。
      *
-     * @type { ContentType }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -10528,7 +10141,6 @@ declare namespace audio {
     /**
      * 音频打断时是否可以暂停音频播放。true表示音频播放可以在音频打断期间暂停，false表示音频播放不可以在音频打断期间暂停。
      *
-     * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 7 dynamiconly
      * @deprecated since 9
@@ -10540,7 +10152,6 @@ declare namespace audio {
   /**
    * 麦克风状态变化时，应用接收到的事件。
    *
-   * @typedef MicStateChangeEvent
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @since 9 dynamic
    * @since 23 static
@@ -10549,7 +10160,6 @@ declare namespace audio {
     /**
      * 系统麦克风是否为静音状态。true表示静音，false表示非静音。
      *
-     * @type { boolean }
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 9 dynamic
      * @since 23 static
@@ -10763,7 +10373,6 @@ declare namespace audio {
   /**
    * 表示音频数据回调结果的枚举。
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @crossplatform
    * @since 12 dynamic
@@ -10794,7 +10403,6 @@ declare namespace audio {
   /**
    * 枚举，音频渲染器的渲染目标。
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
    * @since 22 dynamic
@@ -10816,15 +10424,56 @@ declare namespace audio {
     /**
      * 注入模式。
      *
-     * 在此模式下，当录音流的source type为[SOURCE_TYPE_VOICE_COMMUNICATION](arkts-apis-audio-e.md#sourcetype8)，audio scene为
-     * [AUDIO_SCENE_VOICE_CHAT](arkts-apis-audio-e.md#audioscene8)时，音频渲染器的输出将被注入到VoIP录音流上。
+     * 在此模式下，当录音流的source type为[SourceType](arkts-apis-audio-e.md#sourcetype8).SOURCE_TYPE_VOICE_COMMUNICATION，audio 
+     * scene为[AudioScene](arkts-apis-audio-e.md#audioscene8).AUDIO_SCENE_VOICE_CHAT时，音频渲染器的输出将被注入到VoIP录音流上。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
      * @since 22 dynamic
      * @since 23 static
      */
-    INJECT_TO_VOICE_COMMUNICATION_CAPTURE = 1
+    INJECT_TO_VOICE_COMMUNICATION_CAPTURE = 1,
+  }
+
+  /**
+   * 设置音频渲染器渲染目标的选项。
+   * 
+   * > **说明：**
+   * >
+   * > - 此参数仅在渲染目标为非[RenderTarget]{@link audio.RenderTarget}.PLAYBACK模式时生效。
+   * >
+   * > - 在其他模式时，无需指定该参数，即使指定也不生效。
+   * >
+   * > - uid和streamId必须同时指定。
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Renderer
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AudioRendererTargetParams {  
+    /**
+     * 应用ID。
+     * 
+     * 该值应为整数。
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    uid: int;
+    /**
+     * 音频流唯一ID。
+     * 
+     * 指定应用ID下[SourceType](./arkts-apis-audio-e.md#sourcetype8)为`SOURCE_TYPE_VOICE_COMMUNICATION`的采集流ID，音频渲染流将注入该采集流。
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    streamId: long;
   }
 
   /**
@@ -10866,7 +10515,6 @@ declare namespace audio {
   /**
    * 回调函数类型，用于音频渲染器的数据写入，回调函数结束后，音频服务会把data指向的数据放入队列里等待播放，因此请勿在回调外再次更改data指向的数据, 且务必保证往data填满待播放数据, 否则会导致音频服务播放杂音。
    *
-   * @typedef { function } AudioRendererWriteDataCallback
    * @param { ArrayBuffer } data - 待写入缓冲区的数据。
    * @returns { AudioDataCallbackResult | void } 如果返回 void 或 AudioDataCallbackResult.VALID：表示数据有效，将播放音频数据；如果返回
    *     AudioDataCallbackResult.INVALID：表示数据无效，且音频数据不播放。
@@ -10879,11 +10527,10 @@ declare namespace audio {
   /**
    * 音频渲染器写入数据的回调函数类型定义。
    *
-   * @typedef { function } AudioRendererWriteDataCallback
    * @param { ArrayBuffer } data - 音频数据数组缓冲区。
    * @returns { AudioDataCallbackResult } 回调结果。如果返回 AudioDataCallbackResult.VALID，
-   *     表示数据有效并将被播放。如果返回 AudioDataCallbackResult.INVALID，
-   *     表示数据将不会被播放。
+   * 表示数据有效并将被播放。如果返回 AudioDataCallbackResult.INVALID，
+   * 表示数据不会被播放。
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @crossplatform
    * @since 23 static
@@ -10893,7 +10540,6 @@ declare namespace audio {
   /**
    * 音频流时间戳和当前数据帧位置信息。
    *
-   * @typedef AudioTimestampInfo
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @since 19 dynamic
    * @since 23 static
@@ -10902,8 +10548,6 @@ declare namespace audio {
     /**
      * 当前播放或者录制的数据帧位置。
      *
-     * @type { long }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 19 dynamic
      * @since 23 static
@@ -10911,10 +10555,8 @@ declare namespace audio {
     readonly framePos: long;
 
     /**
-     * 播放或者录制到当前数据帧位置时对应的时间戳，单位为纳秒。
+     * 播放或者录制到当前数据帧位置时对应的时间戳，单位为纳秒（ns）。
      *
-     * @type { long }
-     * @readonly
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @since 19 dynamic
      * @since 23 static
@@ -11112,7 +10754,8 @@ declare namespace audio {
      * 写入缓冲区。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 8开始支持，从API version 11开始废弃，建议使用[on('writeData')]{@link audio.AudioRenderer.on_writeData}替代。
+     * >
+     * > 从 API version 8开始支持，从API version 11开始废弃。建议使用[on('writeData')]{@link audio.AudioRenderer.on_writeData}替代。
      *
      * @param { ArrayBuffer } buffer - 要写入缓冲区的数据。
      * @param { AsyncCallback<number> } callback - 回调函数。当写入缓冲区成功，err为undefined，data为获取到的写入的字节数；否则为错误对象。
@@ -11126,7 +10769,8 @@ declare namespace audio {
      * 写入缓冲区。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 8开始支持，从API version 11开始废弃，建议使用[on('writeData')]{@link audio.AudioRenderer.on_writeData}替代。
+     * >
+     * > 从 API version 8开始支持，从API version 11开始废弃。建议使用[on('writeData')]{@link audio.AudioRenderer.on_writeData}替代。
      *
      * @param { ArrayBuffer } buffer - 要写入缓冲区的数据。
      * @returns { Promise<number> } Promise对象，返回写入的字节数。
@@ -11170,10 +10814,23 @@ declare namespace audio {
 
     /**
      * 获取输出音频流时间戳和位置信息，适配倍速接口。使用Promise异步回调。
-     * 获取输出音频流时间戳和位置信息，通常用于进行音画同步对齐。
-     * 注意，当实际播放位置（framePosition）为0时，时间戳（timestamp）是固定值，直到流真正开始播放时才会更新。当调用Flush接口时实际播放位置也会被重置。
-     * 当音频流路由（route）变化时，例如设备变化或者输出类型变化时，播放位置也会被重置，但此时时间戳仍会持续增长。推荐当实际播放位置和时间戳的变化稳定后再使用该接口获取的值。该接口适配倍速接口，例如当播放速度设置为2倍时，播放位
-     * 置的增长速度也会返回为正常的2倍。
+     * 获取输出音频流时间戳和位置信息，通常用于进行音画同步对齐，播放位置单位为采样数（samples），时间戳单位为纳秒（ns）。
+     * 当设备切换或暂停恢复时，由于播放通路本身需要一段时间恢复，调用该接口获取的播放位置和时间戳会短暂地保持在切换或暂停前的状态。
+     * 该接口通常用来实现音画同步，调用频率建议高于200ms一次，推荐频率为每分钟一次。在能保证音画同步效果的情况下，不需要频繁地查询时间戳，避免出现功耗问题。
+     * 
+     * > **说明：**
+     * >
+     * > - 当实际播放位置（framePosition）为0时，时间戳（timestamp）是固定值，直到流真正开始播放时才会更新。
+     * >
+     * > - 播放位置（framePosition）单位为采样数，采样数计算方式为采样率乘以时间（例如，当采样率为48000Hz时，20ms音频数据对应的采样数为48000*0.02，即采样点为960）。
+     * >
+     * > - 当调用Flush接口时实际播放位置也会被重置。
+     * >
+     * > - 在调用此函数之前，确保音频流处于运行状态，并且至少已成功播放一帧数据。
+     * >
+     * > - 当音频流路由（route）变化时，例如设备变化或者输出类型变化时，播放位置可能也会被重置，但此时时间戳仍会持续增长。推荐当实际播放位置和时间戳的变化稳定后再使用该接口获取的值。
+     * >
+     * > - 该接口适配倍速接口，例如当播放速度设置为2倍时，播放位置的增长速度也会返回为正常的2倍。
      *
      * @returns { Promise<AudioTimestampInfo> } Promise对象，返回音频流时间戳和当前数据帧位置信息。
      * @throws  { BusinessError } 6800103 - Operation not permit at current state.
@@ -11305,8 +10962,8 @@ declare namespace audio {
      * 获取音频渲染器的最小缓冲区大小。使用Promise异步回调。
      *
      * @returns { Promise<long> } Promise对象，返回缓冲区大小。
-     *
-     *     单位为字节。
+     * 
+     *     单位为字节（Byte）。
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform [since 12]
      * @since 8 dynamic
@@ -11316,7 +10973,7 @@ declare namespace audio {
     /**
      * 获取音频渲染器的最小缓冲区大小。同步返回结果。
      *
-     * @returns { long } 返回缓冲区大小，单位为字节。
+     * @returns { long } 返回缓冲区大小，单位为字节（Byte）。
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @crossplatform [since 12]
      * @since 10 dynamic
@@ -11328,7 +10985,8 @@ declare namespace audio {
      * 设置音频渲染速率。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 8开始支持，从API version 11开始废弃，建议使用[setSpeed]{@link audio.AudioRenderer.setSpeed}替代。
+     * >
+     * > 从 API version 8开始支持，从API version 11开始废弃。建议使用[setSpeed]{@link audio.AudioRenderer.setSpeed}替代。
      *
      * @param { AudioRendererRate } rate - 渲染的速率。
      * @param { AsyncCallback<void> } callback - 回调函数。当设置音频渲染速率成功，err为undefined，否则为错误对象。
@@ -11343,7 +11001,8 @@ declare namespace audio {
      * 设置音频渲染速率。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 8开始支持，从API version 11开始废弃，建议使用[setSpeed]{@link audio.AudioRenderer.setSpeed}替代。
+     * >
+     * > 从 API version 8开始支持，从API version 11开始废弃。建议使用[setSpeed]{@link audio.AudioRenderer.setSpeed}替代。
      *
      * @param { AudioRendererRate } rate - 渲染的速率。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
@@ -11373,7 +11032,8 @@ declare namespace audio {
      * 获取音频渲染速率。使用callback异步回调。
      *
      * > **说明：**
-     * > > 从API version 8开始支持，从API version 11开始废弃，建议使用[getSpeed]{@link audio.AudioRenderer.getSpeed}替代。
+     * >
+     * > 从 API version 8开始支持，从API version 11开始废弃。建议使用[getSpeed]{@link audio.AudioRenderer.getSpeed}替代。
      *
      * @param { AsyncCallback<AudioRendererRate> } callback - 回调函数。当获取当前渲染速率成功，err为undefined，data为获取到的当前渲染速率；否则为错误对象。
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -11387,7 +11047,8 @@ declare namespace audio {
      * 获取音频渲染速率。使用Promise异步回调。
      *
      * > **说明：**
-     * > > 从API version 8开始支持，从API version 11开始废弃，建议使用[getSpeed]{@link audio.AudioRenderer.getSpeed}替代。
+     * >
+     * > 从 API version 8开始支持，从API version 11开始废弃。建议使用[getSpeed]{@link audio.AudioRenderer.getSpeed}替代。
      *
      * @returns { Promise<AudioRendererRate> } Promise对象，返回渲染速率。
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -11401,7 +11062,8 @@ declare namespace audio {
      * 获取音频渲染速率。同步返回结果。
      *
      * > **说明：**
-     * > > 从API version 10开始支持，从API version 11开始废弃，建议使用[getSpeed]{@link audio.AudioRenderer.getSpeed}替代。
+     * >
+     * > 从 API version 10开始支持，从API version 11开始废弃。建议使用[getSpeed]{@link audio.AudioRenderer.getSpeed}替代。
      *
      * @returns { AudioRendererRate } 返回渲染速率。
      * @syscap SystemCapability.Multimedia.Audio.Renderer
@@ -11496,7 +11158,7 @@ declare namespace audio {
      * 在指定时间范围内设置音量渐变模式。同步返回结果。
      *
      * @param { double } volume - 渐变目标音量值，音量范围为[0.0, 1.0]。
-     * @param { int } duration - 渐变持续时间，单位为ms。
+     * @param { int } duration - 渐变持续时间，单位为毫秒（ms）。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -11685,7 +11347,11 @@ declare namespace audio {
      * > 设备。
      * >
      * > - 本接口允许在AudioRenderer创建后随时调用，系统会记录应用设置的默认本机内置发声设备。应用启动播放时，若外接设备如蓝牙耳机或有线耳机已接入，系统优先从外接设备发声；否则，系统遵循应用设置的默认本机内置发声设备
-     * > 。
+     * > 。具体请参阅文档[设置音频默认输出设备](docroot://media/audio/audio-output-device-switcher.md#设置默认输出设备)。
+     * >
+     * > - 本接口优先级低于AudioSessionManager的
+     * > [setDefaultOutputDevice]{@link @ohos.multimedia.audio:audio.AudioSessionManager.setDefaultOutputDevice}。如果使用
+     * > AudioSessionManager的setDefaultOutputDevice设置了默认音频输出设备，本接口的设置将不会生效。
      *
      * @param { DeviceType } deviceType - 设备类型。<br>仅支持以下设备：EARPIECE（听筒）、SPEAKER（扬声器）和DEFAULT（系统默认设备）。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
@@ -11715,7 +11381,7 @@ declare namespace audio {
      * >
      * > - 建议在不同音频开始播放前预先设置响度，以实现最佳均衡效果。
      *
-     * @param { double } loudnessGain - 设置播放的响度值，单位为dB，响度范围为[-90.0, 24.0]。默认值为0.0dB。
+     * @param { double } loudnessGain - 设置播放的响度值，单位为分贝（dB），响度范围为[-90.0, 24.0]。默认值为0.0dB。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800104 - Operation is not supported on this renderer,
@@ -11730,7 +11396,7 @@ declare namespace audio {
     /**
      * 获取播放响度。
      *
-     * @returns { double } 返回播放的响度值，单位为分贝。
+     * @returns { double } 返回播放的响度值，单位为分贝（dB）。
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 20 dynamic
      * @since 23 static
@@ -11738,24 +11404,25 @@ declare namespace audio {
     getLoudnessGain(): double;
 
     /**
-     * 设置音频渲染器的渲染目标。使用Promise异步回调。
+     * 设置音频渲染器的渲染目标，主要用于将音频流注入VoIP通话功能场景。使用Promise异步回调。
      *
      * > **说明：**
      * >
      * > - 此方法仅可在音频渲染器未处于运行或释放状态时调用，否则将返回错误。
      * >
-     * > - 将渲染目标更改为非[PLAYBACK]{@link audio.RenderTarget}的模式后：
+     * > - 将渲染目标更改为非[RenderTarget]{@link audio.RenderTarget}.PLAYBACK模式后：
      * > >   - 该音频渲染器的音频路由与中断策略将无法使用[AudioSessionManager]{@link @ohos.multimedia.audio:audio}相关接口。
-     * > >   - 该音频渲染器的device type为[SYSTEM_PRIVATE]{@link @ohos.multimedia.audio:audio.DeviceType}。
-     * > >   - 调用[Start]{@link @ohos.multimedia.audio:audio.AudioRenderer.start(callback: AsyncCallback<void>)}且audio
-     * > scene不为[AUDIO_SCENE_VOICE_CHAT]{@link @ohos.multimedia.audio:audio.AudioScene}时，将返回错误码6800301。
+     * > >   - 该音频渲染器的device type为[DeviceType]{@link @ohos.multimedia.audio:audio.DeviceType}.SYSTEM_PRIVATE。
+     * > >   - 调用[Start]{@link @ohos.multimedia.audio:audio.AudioRenderer.start(callback: AsyncCallback<void>)}且audio 
+     * > scene不为[AudioScene]{@link @ohos.multimedia.audio:audio.AudioScene}.AUDIO_SCENE_VOICE_CHAT时，将返回错误码
+     * > [6800301 系统处理异常](docroot://reference/apis-audio-kit/errorcode-audio.md#6800301-系统处理异常)。
      * > >   - 调用
-     * > [getAudioTime]{@link @ohos.multimedia.audio:audio.AudioRenderer.getAudioTime(callback: AsyncCallback<long>)}或
-     * > [getAudioTimeSync]{@link @ohos.multimedia.audio:audio.AudioRenderer.getAudioTimeSync}时，将返回错误码6800301。
-     * > >   - 调用[getAudioTimestampInfo]{@link @ohos.multimedia.audio:audio.AudioRenderer.getAudioTimestampInfo}或
-     * > [getAudioTimestampInfoSync]{@link @ohos.multimedia.audio:audio.AudioRenderer.getAudioTimestampInfoSync}时，将返回错误码6800301。
-     * > >   - 调用[setDefaultOutputDevice]{@link @ohos.multimedia.audio:audio.AudioRenderer.setDefaultOutputDevice}时，将返回错
-     * > 误码6800301。
+     * > [getAudioTime]{@link @ohos.multimedia.audio:audio.AudioRenderer.getAudioTime(callback: AsyncCallback<long>)}、
+     * > [getAudioTimeSync]{@link @ohos.multimedia.audio:audio.AudioRenderer.getAudioTimeSync}、
+     * > [getAudioTimestampInfo]{@link @ohos.multimedia.audio:audio.AudioRenderer.getAudioTimestampInfo}、
+     * > [getAudioTimestampInfoSync]{@link @ohos.multimedia.audio:audio.AudioRenderer.getAudioTimestampInfoSync}、
+     * > [setDefaultOutputDevice]{@link @ohos.multimedia.audio:audio.AudioRenderer.setDefaultOutputDevice}时，将返回错误码
+     * > [6800301 系统处理异常](docroot://reference/apis-audio-kit/errorcode-audio.md#6800301-系统处理异常)。
      *
      * @permission ohos.permission.INJECT_PLAYBACK_TO_AUDIO_CAPTURE
      * @param { RenderTarget } target - 设置音频渲染目标。
@@ -11772,6 +11439,45 @@ declare namespace audio {
      * @since 23 static
      */
     setTarget(target: RenderTarget): Promise<void>;
+
+    /**
+     * 设置音频渲染器的渲染目标。使用Promise异步回调。
+     * 
+     * > **说明：**
+     * >
+     * > - 此方法仅可在音频渲染器未处于运行或释放状态时调用，否则将返回错误。
+     * >
+     * > - 将渲染目标更改为非[RenderTarget]{@link audio.RenderTarget}.PLAYBACK模式后：
+     * > >   - 该音频渲染器的音频路由与中断策略将无法使用[AudioSessionManager]{@link @ohos.multimedia.audio:audio}相关接口。
+     * > >   - 该音频渲染器的device type为[DeviceType]{@link @ohos.multimedia.audio:audio.DeviceType}.SYSTEM_PRIVATE。
+     * > >   - 调用[Start]{@link @ohos.multimedia.audio:audio.AudioRenderer.start(callback: AsyncCallback<void>)}且audio 
+     * > scene不为[AudioScene]{@link @ohos.multimedia.audio:audio.AudioScene}.AUDIO_SCENE_VOICE_CHAT时，将返回错误码
+     * > [6800301 系统处理异常](docroot://reference/apis-audio-kit/errorcode-audio.md#6800301-系统处理异常)。
+     * > >   - 调用
+     * > [getAudioTime]{@link @ohos.multimedia.audio:audio.AudioRenderer.getAudioTime(callback: AsyncCallback<long>)}、
+     * > [getAudioTimeSync]{@link @ohos.multimedia.audio:audio.AudioRenderer.getAudioTimeSync}、
+     * > [getAudioTimestampInfo]{@link @ohos.multimedia.audio:audio.AudioRenderer.getAudioTimestampInfo}、
+     * > [getAudioTimestampInfoSync]{@link @ohos.multimedia.audio:audio.AudioRenderer.getAudioTimestampInfoSync}、
+     * > [setDefaultOutputDevice]{@link @ohos.multimedia.audio:audio.AudioRenderer.setDefaultOutputDevice}时，将返回错误码
+     * > [6800301 系统处理异常](docroot://reference/apis-audio-kit/errorcode-audio.md#6800301-系统处理异常)。
+     *
+     * @permission ohos.permission.INJECT_PLAYBACK_TO_AUDIO_CAPTURE
+     * @param { RenderTarget } target - 设置音频渲染目标。
+     * @param { AudioRendererTargetParams } [targetParams] - 设置音频渲染器渲染目标的选项。<br>此参数仅在渲染目标为非
+     *     [RenderTarget]{@link audio.RenderTarget}.PLAYBACK模式时生效，若未指定此参数，渲染流将默认注入所有VoIP采集流。
+     * @returns { Promise<void> } Promise对象，无返回结果。
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800103 - Operation not permit at running and release state.
+     * @throws { BusinessError } 6800104 - Current renderer is not supported to set target.
+     * @throws { BusinessError } 6800301 - Audio server process died.
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setTarget(target: RenderTarget, targetParams?: AudioRendererTargetParams): Promise<void>;
 
     /**
      * 获取当前音频渲染器的渲染目标。
@@ -11796,8 +11502,8 @@ declare namespace audio {
      * 监听音频中断事件（当音频焦点发生变化时触发）。使用callback异步回调。
      * AudioRenderer对象在start事件时获取焦点，在pause、stop等事件时释放焦点，无需开发者主动申请。
      * 调用此方法后，如果AudioRenderer对象获取焦点失败或发生中断事件（如被其他音频打断等），会收到
-     * [InterruptEvent]{@link @ohos.multimedia.audio:audio.InterruptEvent}。建议应用根据
-     * InterruptEvent的信息进行进一步处理。更多信息请参阅音频焦点介绍文档。
+     * [InterruptEvent]{@link @ohos.multimedia.audio:audio.InterruptEvent}。建议应用根据InterruptEvent的信息进行进一步处理。更多信息请参阅文档
+     * [音频焦点介绍](docroot://media/audio/audio-playback-concurrency.md)。
      *
      * @param { 'audioInterrupt' } type - 事件回调类型，支持的事件为'audioInterrupt'，当音频焦点状态发生变化时，触发该事件。
      * @param { Callback<InterruptEvent> } callback - 回调函数，返回中断事件信息。
@@ -11814,7 +11520,7 @@ declare namespace audio {
     /**
      * 监听音频中断事件。此方法通过回调获取中断事件。当音频播放被中断时，会触发中断事件。
      *
-     * @param { Callback<InterruptEvent> } callback - 回调函数，用于监听中断回调。
+     * @param { Callback<InterruptEvent> } callback - 回调函数，返回中断事件信息。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @since 23 static
@@ -11833,9 +11539,9 @@ declare namespace audio {
     off(type: 'audioInterrupt', callback?: Callback<InterruptEvent>): void;
 
     /**
-     * Unsubscribes audio interrupt events.
+     * 取消监听音频中断事件。
      *
-     * @param { Callback<InterruptEvent> } [callback] - 回调函数，用于监听中断回调。
+     * @param { Callback<InterruptEvent> } [callback] - 回调函数，返回中断事件信息。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @since 23 static
@@ -11856,12 +11562,11 @@ declare namespace audio {
     on(type: 'markReach', frame: long, callback: Callback<long>): void;
 
     /**
-     * 订阅达到标记的事件。当渲染的帧数达到 frame 参数的值时，
-     * 会调用回调函数。
+     * 监听标记到达事件（当渲染的帧数到达frame参数的值时触发，仅调用一次）。使用callback异步回调。
+     * 如果将frame设置为100，当渲染帧数到达第100帧时，系统将上报信息。
      *
-     * @param { long } frame - 触发事件帧数，必须大于0。
-     *     <br>取值应>0。
-     * @param { Callback<long> } callback - 事件触发时调用的回调函数。
+     * @param { long } frame - 触发事件的帧数。该值必须大于0。
+     * @param { Callback<long> } callback - 回调函数，返回frame参数的值。
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 23 static
      */
@@ -11905,8 +11610,7 @@ declare namespace audio {
      * 如果将frame设置为10，每渲染10帧数据均会上报信息（例如：第10帧、第20帧、第30帧......）。
      *
      * @param { long } frame - 触发事件的帧数。该值必须大于 0。
-     *     <br>取值应>0。
-     * @param { Callback<long> } callback - 回调函数，返回frame参数的值。
+     * @param { Callback<long> } callback - 事件触发时调用的回调函数。
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @since 23 static
      */
@@ -12083,9 +11787,8 @@ declare namespace audio {
      * > - 为避免音频播放启动和停止时数据不连续可能出现的杂音，系统通常会在启动和停止时对音频数据做20ms以内的淡入淡出处理。
      *
      * @param { 'writeData' } type - 事件回调类型，支持的事件为'writeData'，当需要写入音频数据时，触发该事件。
-     * @param { Callback<ArrayBuffer> } callback - Callback used to write the data to the buffer.<br>API version 11 does
-     *     not support the return of the callback result. API version 12 and later support the return of the callback
-     *     result [AudioDataCallbackResult]{@link @ohos.multimedia.audio:audio.AudioDataCallbackResult}. [since 11 - 11]
+     * @param { Callback<ArrayBuffer> } callback - 回调函数，入参代表应用接收待写入的数据缓冲区。<br>API version 11 不支持返回回调结果，从 API version 12 开始支持返回回
+     *     调结果[AudioDataCallbackResult]{@link @ohos.multimedia.audio:audio.AudioDataCallbackResult}。
      * @param { AudioRendererWriteDataCallback } callback - 回调函数，入参代表应用接收待写入的数据缓冲区。<br>API version 11 不支持返回回调结果，从 API version 1
      *     2 开始支持返回回调结果[AudioDataCallbackResult]{@link @ohos.multimedia.audio:audio.AudioDataCallbackResult}。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -12112,9 +11815,8 @@ declare namespace audio {
      * 取消监听音频数据写入回调事件。使用callback异步回调。
      *
      * @param { 'writeData' } type - 事件回调类型，支持的事件为'writeData'，当取消监听音频数据写入回调事件时，触发该事件。
-     * @param { Callback<ArrayBuffer> } callback - Callback used to write the data to the buffer.<br>API version 11 does
-     *     not support the return of the callback result. API version 12 and later support the return of the callback
-     *     result [AudioDataCallbackResult]{@link @ohos.multimedia.audio:audio.AudioDataCallbackResult}. [since 11 - 11]
+     * @param { Callback<ArrayBuffer> } callback - 回调函数，入参代表应用接收待写入的数据缓冲区。<br>API version 11 不支持返回回调结果，从 API version 12 开始支持返回回
+     *     调结果[AudioDataCallbackResult]{@link @ohos.multimedia.audio:audio.AudioDataCallbackResult}。
      * @param { AudioRendererWriteDataCallback } callback - 回调函数，入参代表应用接收待写入的数据缓冲区。<br>API version 11 不支持返回回调结果，从 API version 1
      *     2 开始支持返回回调结果[AudioDataCallbackResult]{@link @ohos.multimedia.audio:audio.AudioDataCallbackResult}。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -12150,7 +11852,7 @@ declare namespace audio {
      * > [getAudioTimestampInfoSync]{@link audio.AudioRenderer.getAudioTimestampInfoSync}完成。
      *
      * @param { AudioLatencyType } type - 获取的时延类型。
-     * @returns { int } 返回音频时延，单位为毫秒。
+     * @returns { int } 返回音频时延，单位为毫秒（ms）。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800103 - Operation not permitted in release state.
      * @throws { BusinessError } 6800301 - System internal error, like audio service error.
@@ -12178,53 +11880,6 @@ declare namespace audio {
      * @since 24 dynamic&static
      */
     setIndependentAudioSessionStrategy(strategy: AudioSessionStrategy, behavior: int): void;
-
-    /**
-     * Sets noise reduction mode for current audio renderer.
-     * The supported mode should be obtained by {@link #getSupportedNoiseReductionModes}.
-     * The actual effect may vary from different audio devices, and will be invalid when there are multiple direct
-     * streams running simultaneously.
-     * The mode can only be changed in created and stopped state.
-     *
-     * @param { NoiseReductionMode } noiseReductionMode - The noise reduction mode to set.
-     * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @throws { BusinessError } 6800103 - Illegal state, audio renderer is in running or released state.
-     * @throws { BusinessError } 6800104 - The setted mode is not supported.
-     * @throws { BusinessError } 6800301 - Audio server process died.
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    setNoiseReductionMode(noiseReductionMode: NoiseReductionMode): void;
-
-    /**
-     * Gets the noise reduction mode for current audio renderer.
-     * The mode will only consider the default and setted status, audio output device and stream concurrency will
-     * not be considered.
-     *
-     * @returns { NoiseReductionMode } The noise reduction mode for current audio renderer,
-     *     the default value is {@link NoiseReductionMode#FIDELITY}.
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    getNoiseReductionMode(): NoiseReductionMode;
-
-    /**
-     * Gets all the supported noise reduction modes for current device platform.
-     * Currently the noise reduction effect is only supported when using
-     * {@link StreamUsage#STREAM_USAGE_VOICE_MESSAGE}, other supported usage may be extened later.
-     * The supported modes will only consider the audio format and device platform,
-     * audio output device and stream concurrency will not be considered.
-     *
-     * @returns { Array<NoiseReductionMode> } The supported noise reduction mode array, at least
-     *     {@link NoiseReductionMode#FIDELITY} is supported.
-     * @throws { BusinessError } 6800301 - Audio server process died.
-     * @syscap SystemCapability.Multimedia.Audio.Renderer
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    getSupportedNoiseReductionModes(): Array<NoiseReductionMode>;
   }
 
   /**
@@ -12442,6 +12097,22 @@ declare namespace audio {
      */
     MODE_MEDIA = 0x1,
     /**
+     * VoIP模式。录制VoIP音频流。
+     * 
+     * 如果设置了[AudioCapturerOptions](#audiocaptureroptions8).playbackCaptureUid，则仅录制指定应用的VoIP音频流。
+     * 
+     * AudioCapturerOptions.playbackCaptureUid仅在此模式生效。
+     * 
+     * 此模式需要`ohos.permission.CAPTURE_VOICE_DOWNLINK_AUDIO`权限，否则
+     * [createAudioCapturer](./arkts-apis-audio-f.md#audiocreateaudiocapturer8)会创建失败。
+     *
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MODE_ONLY_VOIP = 0x4000,
+    /**
      * 排除自身模式。录制除应用自身播放的音频以外的音频流。
      *
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
@@ -12524,7 +12195,6 @@ declare namespace audio {
      *
      * 从API version 10开始支持，从API version 12开始废弃，建议使用[录屏接口AVScreenCapture](../apis-media-kit/capi-avscreencapture.md)替代。
      *
-     * @type { ?AudioPlaybackCaptureConfig }
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @since 10 dynamiconly
      * @deprecated since 12
@@ -12556,11 +12226,7 @@ declare namespace audio {
 
     /**
      * 内录模式。可设置为AudioPlaybackCaptureMode中的枚举值或其按位或组合，当前仅支持MODE_DEFAULT（0x0）、MODE_MEDIA（0x1）、MODE_EXCLUDING_SELF（0x8000），
-     * 以及MODE_MEDIA和MODE_EXCLUDING_SELF的按位或组合（0x8001）。
-     *
-     * 26.0.0
-     *
-     * 此接口仅可在Stage模型下使用。
+     * 以及MODE_MEDIA和MODE_EXCLUDING_SELF的按位或组合（0x8001）。。
      *
      * SystemCapability.Multimedia.Audio.PlaybackCapture
      *
@@ -12569,6 +12235,21 @@ declare namespace audio {
      * @since 26.0.0 dynamic&static
      */
     playbackCaptureMode?: AudioPlaybackCaptureMode;
+
+    /**
+     * 应用UID，用于音视频通话播放采集。
+     *
+     * 此参数仅在[AudioCapturerOptions](./arkts-apis-audio-i.md#audiocaptureroptions8).playbackCaptureMode设置为
+     * [AudioPlaybackCaptureMode](#audioplaybackcapturemode).MODE_ONLY_VOIP时生效。在其他模式下，此参数将被忽略。
+     *
+     * SystemCapability.Multimedia.Audio.PlaybackCapture
+     *
+     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    playbackCaptureUid?: int;
   }
 
   /**
@@ -12618,15 +12299,36 @@ declare namespace audio {
      * @since 24 dynamic&static
      */
     processedStreamInfo?: AudioStreamInfo;
+
+    /**
+     * 当前音频采集器的偏好输入设备。对于该设备有以下要求：
+     *
+     * - 此设备必须为输入设备，并且**capturerInfo**中的源类型必须为[SOURCE_TYPE_VOICE_RECOGNITION](arkts-apis-audio-e.md#sourcetype8)、
+     * [SOURCE_TYPE_VOICE_TRANSCRIPTION](#sourcetype8)或[SOURCE_TYPE_UNPROCESSED_VOICE_ASSISTANT](#sourcetype8)，否则此参数将被忽略。
+     * - 如果用户未指定设备，系统会按当前音频路由策略自动选择可用输入设备。
+     * - 当用户指定偏好设备时：
+     *
+     * 1. 如果偏好设备在线，当前音频采集器使用该设备录音；如果录音过程中该设备离线，系统会按当前音频路由策略自动选择其他可用输入设备。
+     * 2. 如果偏好设备离线，系统会按当前音频路由策略自动选择其他可用输入设备；如果录音过程中该设备上线，系统会自动切换到偏好设备。
+     *
+     * - 用户可通过[getCurrentAudioCapturerChangeInfo](arkts-apis-audio-AudioCapturer.md#getcurrentaudiocapturerchangeinfo11)
+     * 查询当前实际使用的设备。
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    preferredInputDevice?: AudioDeviceDescriptor;
   }
 
   /**
    * 待录制的播放音频流的筛选信息。
    *
    * > **说明：**
-   * > > 从API version 10开始支持，从API version 12开始废弃，建议使用录屏接口AVScreenCapture替代。
+   * > > 从API version 10开始支持，从API version 12开始废弃，建议使用
+   * > [录屏接口AVScreenCapture](docroot://reference/apis-media-kit/capi-avscreencapture.md)替代。
    *
-   * @typedef CaptureFilterOptions
    * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
    * @since 10 dynamiconly
    * @deprecated since 12
@@ -12642,16 +12344,9 @@ declare namespace audio {
      *
      * 从API version 11开始，CaptureFilterOptions不再支持使用StreamUsage.STREAM_USAGE_VOICE_COMMUNICATION，所以当前接口不再涉及此权限。
      *
-     * @type { Array<StreamUsage> }
-     * @permission ohos.permission.CAPTURE_VOICE_DOWNLINK_AUDIO
+     * @permission ohos.permission.CAPTURE_VOICE_DOWNLINK_AUDIO [since 10 - 10]
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
-     * @since 10
-     */
-    /**
-     * Filter by stream usages. But not allow to capture voice streams.
-     * @type { Array<StreamUsage> }
-     * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
-     * @since 11 dynamiconly
+     * @since 10 dynamiconly
      * @deprecated since 12
      * @useinstead OH_AVScreenCapture in native interface.
      */
@@ -12662,9 +12357,9 @@ declare namespace audio {
    * 音频内录的配置信息。
    *
    * > **说明：**
-   * > > 从API version 10开始支持，从API version 12开始废弃，建议使用录屏接口AVScreenCapture替代。
+   * > > 从API version 10开始支持，从API version 12开始废弃，建议使用
+   * > [录屏接口AVScreenCapture](docroot://reference/apis-media-kit/capi-avscreencapture.md)替代。
    *
-   * @typedef AudioPlaybackCaptureConfig
    * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
    * @since 10 dynamiconly
    * @deprecated since 12
@@ -12674,7 +12369,6 @@ declare namespace audio {
     /**
      * 需要录制的播放音频流的筛选信息。
      *
-     * @type { CaptureFilterOptions }
      * @syscap SystemCapability.Multimedia.Audio.PlaybackCapture
      * @since 10 dynamiconly
      * @deprecated since 12
@@ -12907,7 +12601,7 @@ declare namespace audio {
     read(size: number, isBlockingRead: boolean): Promise<ArrayBuffer>;
 
     /**
-     * 获取当前录制位置的时间戳（从1970年1月1日开始），单位为纳秒。使用callback异步回调。
+     * 获取当前录制位置的时间戳（从1970年1月1日开始），单位为纳秒（ns）。使用callback异步回调。
      *
      * @param { AsyncCallback<long> } callback - 回调函数。当获取时间戳成功，err为undefined，data为获取到的时间戳；否则为错误对象。
      * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -12917,11 +12611,10 @@ declare namespace audio {
      */
     getAudioTime(callback: AsyncCallback<long>): void;
     /**
-     * 获取当前录制位置的时间戳（从1970年1月1日开始），单位为纳秒。使用Promise异步回调。
+     * 获取当前录制位置的时间戳（从1970年1月1日开始），单位为纳秒（ns）。使用Promise异步回调。
      *
-     * @returns { Promise<long> } Promise对象，返回时间戳（从1970年1月1日开始）。
+     * @returns { Promise<long> } Promise对象，返回时间戳（从1970年1月1日开始）。单位为纳秒（ns）。
      *
-     *     单位为纳秒。
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform [since 12]
      * @since 8 dynamic
@@ -12929,9 +12622,9 @@ declare namespace audio {
      */
     getAudioTime(): Promise<long>;
     /**
-     * 获取当前录制位置的时间戳（从1970年1月1日开始），单位为纳秒。同步返回结果。
+     * 获取当前录制位置的时间戳（从1970年1月1日开始），单位为纳秒（ns）。同步返回结果。
      *
-     * @returns { long } 返回时间戳。
+     * @returns { long } 返回时间戳，单位为纳秒（ns）。
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform [since 12]
      * @since 10 dynamic
@@ -12941,7 +12634,7 @@ declare namespace audio {
 
     /**
      * 获取输入音频流时间戳和当前数据帧位置信息。
-     * 该接口可以获取到音频通道实际录制位置（framePos）以及录制到该位置时候的时间戳（timestamp），时间戳单位为纳秒。
+     * 该接口可以获取到音频通道实际录制位置（framePos）以及录制到该位置时候的时间戳（timestamp），时间戳单位为纳秒（ns）。
      *
      * @returns { Promise<AudioTimestampInfo> } Promise对象，返回音频流时间戳和当前数据帧位置信息。
      * @throws { BusinessError } 6800103 - Operation not permit at current state.
@@ -13007,8 +12700,7 @@ declare namespace audio {
     /**
      * 获取采集器合理的最小缓冲区大小。使用callback异步回调。
      *
-     * @param { AsyncCallback<long> } callback - 回调函数。当获取采集器合理的最小缓冲区大小成功，err为undefined，data为获取到的采集器合理的最小缓冲区大小；否则为错误对象。<br>单位为字节
-     *     。
+     * @param { AsyncCallback<long> } callback - 回调函数。当获取采集器合理的最小缓冲区大小成功，err为undefined，data为获取到的采集器合理的最小缓冲区大小；否则为错误对象。<br>单位为字节（Byte）。
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform [since 12]
      * @since 8 dynamic
@@ -13018,9 +12710,8 @@ declare namespace audio {
     /**
      * 获取采集器合理的最小缓冲区大小。使用Promise异步回调。
      *
-     * @returns { Promise<long> } Promise对象，返回缓冲区大小。
+     * @returns { Promise<long> } Promise对象，返回缓冲区大小。单位为字节（Byte）。
      *
-     *     单位为字节。
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform [since 12]
      * @since 8 dynamic
@@ -13030,7 +12721,7 @@ declare namespace audio {
     /**
      * 获取采集器合理的最小缓冲区大小。同步返回结果。
      *
-     * @returns { long } 返回缓冲区大小，单位为字节。
+     * @returns { long } 返回缓冲区大小，单位为字节（Byte）。
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @crossplatform [since 12]
      * @since 10 dynamic
@@ -13063,7 +12754,7 @@ declare namespace audio {
     /**
      * 获取当前录制音频流的过载音频帧数量。使用Promise异步回调。
      *
-     * @returns { Promise<long> } - Promise对象，返回音频流的过载音频帧数量。
+     * @returns { Promise<long> } Promise对象，返回音频流的过载音频帧数量。
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 12 dynamic
      * @since 23 static
@@ -13081,9 +12772,9 @@ declare namespace audio {
     getOverflowCountSync(): long;
 
     /**
-     * 设置当前录制音频流是否启用静音打断模式。使用Promise异步回调。
+     * 设置当前录制音频流是否启用[静音打断模式](docroot://media/audio/using-audiocapturer-for-recording.md#设置静音打断模式)。使用Promise异步回调。
      *
-     * @param { boolean } muteWhenInterrupted - 设置当前录制音频流是否启用静音打断模式, true表示启用，false表示不启用，保持为默认打断模式。
+     * @param { boolean } muteWhenInterrupted - 设置当前录制音频流是否启用静音打断模式，true表示启用，false表示不启用，保持为默认打断模式。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 6800103 - Operation not permitted at current state.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -13132,7 +12823,6 @@ declare namespace audio {
      * 如果将frame设置为100，当采集帧数到达第100帧时，系统将上报信息。
      *
      * @param { long } frame - 触发事件的帧数。该值必须大于0。
-     *     <br>取值应>0。
      * @param { Callback<long> } callback - 回调函数，返回frame参数的值。
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 23 static
@@ -13151,9 +12841,9 @@ declare namespace audio {
     off(type: 'markReach', callback?: Callback<long>): void;
 
     /**
-     * U取消监听标记到达事件。使用callback异步回调。
+     * 取消监听标记到达事件。
      *
-     * @param { Callback<long> } [callback] - 回调函数，返回frame参数的值。
+     * @param { Callback<long> } callback - 回调函数，返回frame参数的值。
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 23 static
      */
@@ -13177,7 +12867,6 @@ declare namespace audio {
      * 如果将frame设置为10，每采集10帧数据均会上报信息（例如：第10帧、第20帧、第30帧......）。
      *
      * @param { long } frame - 触发事件的帧数。该值必须大于0。
-     *     <br>取值应>0。
      * @param { Callback<long> } callback - 回调函数，返回frame参数的值。
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 23 static
@@ -13196,7 +12885,7 @@ declare namespace audio {
     off(type: 'periodReach', callback?: Callback<long>): void;
 
     /**
-     * 取消监听标记到达事件。使用callback异步回调。
+     * 取消监听标记到达事件。
      *
      * @param { Callback<long> } [callback] - 回调函数，返回frame参数的值。
      * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -13236,7 +12925,7 @@ declare namespace audio {
     off(type: 'stateChange', callback?: Callback<AudioState>): void;
 
     /**
-     * 取消监听状态变化事件。使用callback异步回调。
+     * 取消监听状态变化事件。
      *
      * @param { Callback<AudioState> } [callback] - 回调函数，返回当前音频的状态。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -13249,7 +12938,8 @@ declare namespace audio {
      * 监听音频中断事件（当音频焦点发生变化时触发）。使用callback异步回调。
      * AudioCapturer对象在start事件时获取焦点，在pause、stop等事件时释放焦点，无需开发者主动申请。
      * 调用此方法后，如果AudioCapturer对象获取焦点失败或发生中断事件（如被其他音频打断等），会收到
-     * [InterruptEvent]{@link @ohos.multimedia.audio:audio.InterruptEvent}。建议应用根据InterruptEvent的信息进行进一步处理。更多信息请参阅音频焦点介绍文档。
+     * [InterruptEvent]{@link @ohos.multimedia.audio:audio.InterruptEvent}。建议应用根据InterruptEvent的信息进行进一步处理。更多信息请参阅文档
+     * [音频焦点介绍](docroot://media/audio/audio-playback-concurrency.md)。
      *
      * @param { 'audioInterrupt' } type - 事件回调类型，支持的事件为'audioInterrupt'，当音频焦点状态发生变化时，触发该事件。
      * @param { Callback<InterruptEvent> } callback - 回调函数，返回中断事件信息。
@@ -13266,7 +12956,7 @@ declare namespace audio {
     /**
      * 监听音频中断事件。此方法通过回调获取中断事件。当音频录制被中断时，会触发中断事件。
      *
-     * @param { Callback<InterruptEvent> } callback - 回调函数，用于监听中断回调。
+     * @param { Callback<InterruptEvent> } callback - 回调函数，返回中断事件信息。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @since 23 static
@@ -13288,7 +12978,7 @@ declare namespace audio {
     off(type: 'audioInterrupt'): void;
 
     /**
-     * UnSubscribes to audio interrupt events.
+     * 取消监听音频中断事件。
      *
      * @syscap SystemCapability.Multimedia.Audio.Interrupt
      * @since 23 static
@@ -13311,10 +13001,9 @@ declare namespace audio {
     on(type: 'inputDeviceChange', callback: Callback<AudioDeviceDescriptors>): void;
 
     /**
-     * 订阅输入设备变更事件回调。
-     * 当该流的输入设备发生变更时，会触发此事件。
+     * 监听音频输入设备变化事件（当音频输入设备发生变化时触发）。使用callback异步回调。
      *
-     * @param { Callback<AudioDeviceDescriptors> } callback - 回调函数，用于监听设备变更事件。
+     * @param { Callback<AudioDeviceDescriptors> } callback - 回调函数，返回变化后的音频输入设备信息。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @since 23 static
@@ -13362,8 +13051,9 @@ declare namespace audio {
     on(type: 'audioCapturerChange', callback: Callback<AudioCapturerChangeInfo>): void;
 
     /**
-     * 订阅音频捕获器信息变更事件回调。
-     * 当该流的输入设备发生变化时，会触发此事件。
+     * 监听录音流配置变化事件（当音频录制流状态变化、设备变化时触发）。使用callback异步回调。
+     *
+     * 订阅内部是异步实现，是非精确回调，在录音流配置变化的同时注册回调，收到的返回结果存在变化可能性。
      *
      * @param { Callback<AudioCapturerChangeInfo> } callback - 回调函数，录音流配置或状态变化时返回监听的录音流当前配置和状态信息。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -13388,7 +13078,7 @@ declare namespace audio {
     off(type: 'audioCapturerChange', callback?: Callback<AudioCapturerChangeInfo>): void;
 
     /**
-     * 取消监听录音流配置变化事件。使用callback异步回调。
+     * 取消监听录音流配置变化事件。
      *
      * @param { Callback<AudioCapturerChangeInfo> } [callback] - 回调函数，返回取消监听的录音流配置或状态变化。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -13400,7 +13090,7 @@ declare namespace audio {
     /**
      * 监听音频数据读取回调事件（当需要读取音频流数据时触发）。使用callback异步回调。
      * 回调函数仅用来读取音频数据，请勿在回调函数中调用AudioCapturer相关接口。
-     * 为了消除麦克风硬件设计带来的上电杂音，通常会对录音启动后的前100ms数据进行静音。
+     * 为了消除麦克风硬件设计带来的上电杂音，通常会对录音启动后的前100毫秒（ms）数据进行静音。
      *
      * @param { 'readData' } type - 事件回调类型，支持的事件为'readData'，当需要读取音频流数据时，触发该事件。
      * @param { Callback<ArrayBuffer> } callback - 回调函数，返回读到的数据缓冲区。
@@ -13417,7 +13107,7 @@ declare namespace audio {
     /**
      * 监听音频数据读取回调事件（当需要读取音频流数据时触发）。使用callback异步回调。
      * 回调函数仅用来读取音频数据，请勿在回调函数中调用AudioCapturer相关接口。
-     * 为了消除麦克风硬件设计带来的上电杂音，通常会对录音启动后的前100ms数据进行静音
+     * 为了消除麦克风硬件设计带来的上电杂音，通常会对录音启动后的前100毫秒（ms）数据进行静音。
      *
      * @param { Callback<ArrayBuffer> } callback - 回调函数，返回读到的数据缓冲区。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -13442,7 +13132,7 @@ declare namespace audio {
     off(type: 'readData', callback?: Callback<ArrayBuffer>): void;
 
     /**
-     * 取消监听音频数据读取回调事件。使用callback异步回调。
+     * 取消监听音频数据读取回调事件。
      *
      * @param { Callback<ArrayBuffer> } [callback] - 回调函数，返回读到的数据缓冲区。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -13576,7 +13266,6 @@ declare namespace audio {
   /**
    * 枚举，自动语音识别（ASR）的噪音抑制模式。
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
    * @since 12 dynamic
@@ -13624,7 +13313,6 @@ declare namespace audio {
   /**
    * 枚举，自动语音识别（ASR）的声学回声消除（AEC）模式。
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
    * @since 12 dynamic
@@ -13699,7 +13387,7 @@ declare namespace audio {
   }
 
   /**
-   * 枚举，自动语音识别（ASR）的静音模式。
+   * 枚举，自动语音识别（ASR）场景下，音频通路的静音模式。
    *
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
@@ -13784,7 +13472,7 @@ declare namespace audio {
   }
 
   /**
-   * 自动语音识别（ASR）处理控制器。
+   * 自动语音识别（ASR）处理控制器，提供回声消除、噪音抑制、耳语检测、音频通路控制等能力。主要用于语音助手场景，实现自定义控制语音数据处理效果功能。
    *
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
@@ -13887,7 +13575,7 @@ declare namespace audio {
     setAsrVoiceControlMode(mode: AsrVoiceControlMode, enable: boolean): boolean;
 
     /**
-     * 在系统通话中，对自动语音识别（ASR）的音频通路进行静音控制。
+     * 在系统通话中，设置自动语音识别（ASR）场景下，音频通路的静音控制模式。
      *
      * @param { AsrVoiceMuteMode } mode - ASR静音控制模式。
      * @param { boolean } enable - 表示在系统通话中设置ASR音频通路静音状态。true表示静音，false表示非静音。
@@ -13938,7 +13626,9 @@ declare namespace audio {
   }
 
   /**
-   * 获取自动语音识别（ASR）处理控制器。
+   * 获取自动语音识别（ASR）处理控制器。用于系统语音助手应用。
+   * 支持SourceType为[SOURCE_TYPE_VOICE_RECOGNITION]{@link @ohos.multimedia.audio:audio.SourceType}或
+   * [SOURCE_TYPE_WAKEUP]{@link audio.SourceType}的音频采集器。
    *
    * @param { AudioCapturer } audioCapturer - 音频采集器对象。
    * @returns { AsrProcessingController } ASR处理控制器对象。
@@ -13957,18 +13647,21 @@ declare namespace audio {
   function createAsrProcessingController(audioCapturer: AudioCapturer): AsrProcessingController;
 
   /**
-   * 在一个音频捕获器上创建ASR处理控制器。
+   * 获取自动语音识别（ASR）处理控制器。
    *
-   * @param { AudioCapturer } audioCapturer - 将要控制其ASR处理的音频采集器。该采集器的源类型必须为{@link SourceType#SOURCE_TYPE_VOICE_RECOGNITION}。
-   * @returns { AsrProcessingController | null } ASR处理控制器，若发生错误则为空。
+   * @param { AudioCapturer } audioCapturer - 音频采集器对象。
+   * @returns { AsrProcessingController } ASR处理控制器对象。
    * @throws { BusinessError } 202 - Caller is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 6800101 - Parameter verification failed.
    * @throws { BusinessError } 6800104 - Operation not allowed. e.g. the source type of the input audio capturer is not
    *     {@link SourceType#SOURCE_TYPE_VOICE_RECOGNITION} or {@link SourceType#SOURCE_TYPE_WAKEUP}, or this audio capturer
    *     is already released.
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
-   * @since 23 static
+   * @since 12 dynamic
    */
   function createAsrProcessingController(audioCapturer: AudioCapturer): AsrProcessingController | null;
 
@@ -14262,7 +13955,7 @@ declare namespace audio {
      * 加载DTMF音调配置。使用Promise异步回调。
      *
      * @param { ToneType } type - 配置的音调类型。
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
      * @since 9 dynamic
@@ -14283,7 +13976,7 @@ declare namespace audio {
     /**
      * 启动DTMF音调播放。使用Promise异步回调。
      *
-     * @returns { Promise<void> }Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
      * @since 9 dynamic
@@ -14304,7 +13997,7 @@ declare namespace audio {
     /**
      * 停止当前正在播放的音调。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
      * @since 9 dynamic
@@ -14325,7 +14018,7 @@ declare namespace audio {
     /**
      * 释放与此TonePlayer对象关联的资源。使用Promise异步回调。
      *
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @syscap SystemCapability.Multimedia.Audio.Tone
      * @systemapi
      * @since 9 dynamic
@@ -14335,10 +14028,8 @@ declare namespace audio {
   }
 
   /**
-   * 待查询ContentType和StreamUsage组合场景下的音效模式数组类型，[AudioEffectMode]{@link @ohos.multimedia.audio:audio.AudioEffectMode}数组，只读
-   * 。
+   * ContentType和StreamUsage组合场景下的音效模式数组类型，[AudioEffectMode]{@link @ohos.multimedia.audio:audio.AudioEffectMode}数组，只读。
    *
-   * @typedef { Array<Readonly<AudioEffectMode>> } AudioEffectInfoArray
    * @syscap SystemCapability.Multimedia.Audio.Renderer
    * @since 10 dynamic
    * @since 23 static
@@ -14971,7 +14662,6 @@ declare namespace audio {
   /**
    * 枚举，音效分类。
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
    * @since 18 dynamic
@@ -15019,7 +14709,7 @@ declare namespace audio {
     name: string;
 
     /**
-     * 音效分类。
+     * 音效种类。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
@@ -15029,7 +14719,7 @@ declare namespace audio {
     category: string;
 
     /**
-     * 音效分类。
+     * 音效上下行标识。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
@@ -15080,7 +14770,6 @@ declare namespace audio {
    *
    * > - 本Interface首批接口从API version 20开始支持。
    *
-   * @typedef AudioLoopback
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @since 20 dynamic
    * @since 23 static
@@ -15099,7 +14788,7 @@ declare namespace audio {
     /**
      * 设置音频返听的音量。使用Promise异步回调。
      *
-     * @param { double } volume 音量值范围为[0.0, 1.0]。
+     * @param { double } volume - 音量值范围为[0.0, 1.0]。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 6800101 - Parameter verification failed, form 0.0 to 1.0.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -15121,8 +14810,8 @@ declare namespace audio {
     /**
      * 监听返听状态变化事件（当AudioLoopback的状态发生变化时触发）。使用callback异步回调。
      *
-     * @param { 'statusChange' } type 事件回调类型，支持的事件为'statusChange'，当AudioLoopback的状态发生变化时，触发该事件。
-     * @param { Callback<AudioLoopbackStatus> } callback 回调函数，返回当前音频返听的状态。
+     * @param { 'statusChange' } type - 事件回调类型，支持的事件为'statusChange'，当AudioLoopback的状态发生变化时，触发该事件。
+     * @param { Callback<AudioLoopbackStatus> } callback - 回调函数，返回当前音频返听的状态。
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @since 20 dynamic
@@ -15293,7 +14982,7 @@ declare namespace audio {
      */
     busAddress: string;
     /**
-     * 声卡驱动。
+     * 声卡驱动信息。
      *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @systemapi
@@ -15317,9 +15006,9 @@ declare namespace audio {
    */
   interface AudioDeviceEnhanceManager {
     /**
-     * 获取声卡信息。此方法使用 Promise 返回查询结果。
+     * 获取当前音频设备的内置声卡信息，包括声卡名称、声卡厂商，声卡型号等。使用Promise异步回调。
      *
-     * @returns { Promise<SoundCardInfo> } Promise 过去用于返回声卡信息。
+     * @returns { Promise<SoundCardInfo> } Promise对象，返回内置声卡信息。
      * @throws { BusinessError } 202 - Not system App.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
@@ -15353,7 +15042,8 @@ declare namespace audio {
      *
      * > **说明：**
      * >
-     * > - 此设置对应用下创建的所有播放流生效，除非特定流已经通过selectOutputDeviceForAudioRenderer
+     * > - 此设置对应用下创建的所有播放流生效，除非特定流已经通过
+     * > [selectOutputDeviceForAudioRenderer](docroot://reference/apis-audio-kit/arkts-apis-audio-AudioDeviceEnhanceManager.md#selectoutputdeviceforaudiorenderer)
      * > 指定了专属输出设备。
      * >
      * > - 当应用实现输出设备选择功能时，可以通过
@@ -15384,7 +15074,8 @@ declare namespace audio {
      *
      * > **说明：**
      * >
-     * > - 此设置对应用下创建的所有录音流生效，除非特定流已经通过selectInputDeviceForAudioCapturer
+     * > - 此设置对应用下创建的所有录音流生效，除非特定流已经通过
+     * > [selectInputDeviceForAudioCapturer](docroot://reference/apis-audio-kit/arkts-apis-audio-AudioDeviceEnhanceManager.md#selectinputdeviceforaudiocapturer)
      * > 指定了专属输入设备。
      * >
      * > - 当应用实现输入设备选择功能时，可以通过

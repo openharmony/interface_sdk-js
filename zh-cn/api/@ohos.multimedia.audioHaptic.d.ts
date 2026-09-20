@@ -22,11 +22,8 @@ import type { Callback } from './@ohos.base';
 import type audio from './@ohos.multimedia.audio';
 
 /**
- * 音振协同，表示在播放声音时，可同步发起振动。可用于来电通知、消息提醒等场景。
- * 
- * **设备行为差异：** 若设备无振动器件，将不会产生振动效果。
+ * 音振协同，表示在播放声音时，同步发起振动。可用于来电通知、消息提醒等场景。
  *
- * @namespace audioHaptic
  * @syscap SystemCapability.Multimedia.AudioHaptic.Core
  * @since 11 dynamic
  * @since 23 static
@@ -45,7 +42,6 @@ declare namespace audioHaptic {
   /**
    * 枚举，音频时延模式。
    *
-   * @enum {int}
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 11 dynamic
    * @since 23 static
@@ -73,7 +69,6 @@ declare namespace audioHaptic {
   /**
    * 音振播放器选项。
    *
-   * @typedef AudioHapticPlayerOptions
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 11 dynamic
    * @since 23 static
@@ -107,7 +102,6 @@ declare namespace audioHaptic {
    * >
    * > 开发者需要确保fd是可用的文件描述符，且offset和length的值都是正确的。
    *
-   * @typedef AudioHapticFileDescriptor
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 20 dynamic
    * @since 23 static
@@ -147,7 +141,6 @@ declare namespace audioHaptic {
   /**
    * 管理音振协同功能。在调用AudioHapticManager的接口前，需要先通过[getAudioHapticManager]{@link audioHaptic.getAudioHapticManager}创建实例。
    *
-   * @typedef AudioHapticManager
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 11 dynamic
    * @since 23 static
@@ -204,7 +197,7 @@ declare namespace audioHaptic {
      * >
      * > 对于不再需要使用的资源，建议应用及时取消注册，避免出现资源泄漏或资源数量超上限等问题。
      *
-     * @param { int } id 已注册资源的source id。
+     * @param { int } id - 已注册资源的source id。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -266,12 +259,11 @@ declare namespace audioHaptic {
     createPlayer(id: number, options?: AudioHapticPlayerOptions): Promise<AudioHapticPlayer>;
 
     /**
-     * Create an audio haptic player. This method uses a promise to return the result. If haptics is needed, caller
-     * should have the permission of ohos.permission.VIBRATE.
+     * 创建音振播放器。使用Promise异步回调。
      * @permission ohos.permission.VIBRATE
      * @param { int } id - Source id.
-     * @param { AudioHapticPlayerOptions } [options] - Options when creating audio haptic player.
-     * @returns { Promise<AudioHapticPlayer | null> } Promise used to return the result.
+     * @param { AudioHapticPlayerOptions } [options] - 音振播放器选项。
+     * @returns { Promise<AudioHapticPlayer | null> } Promise对象，返回创建的音振播放器。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400103 - I/O error.
@@ -285,7 +277,6 @@ declare namespace audioHaptic {
   /**
    * 枚举，音振类型。
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 11 dynamic
    * @since 23 static
@@ -315,7 +306,6 @@ declare namespace audioHaptic {
    * [createPlayer]{@link audioHaptic.AudioHapticManager.createPlayer(id: number, options?: AudioHapticPlayerOptions)}创建
    * 实例。
    *
-   * @typedef AudioHapticPlayer
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 11 dynamic
    * @since 23 static
@@ -325,7 +315,7 @@ declare namespace audioHaptic {
      * 查询该音振类型是否被静音。
      *
      * @param { AudioHapticType } type - 音振类型。
-     * @returns { boolean } - 表示查询的音振类型是否被静音。true表示静音，false表示非静音。
+     * @returns { boolean } 表示查询的音振类型是否被静音。true表示静音，false表示非静音。
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Parameter verification failed.
@@ -378,7 +368,7 @@ declare namespace audioHaptic {
      * >
      * > 该方法需在音振播放器释放前调用。
      *
-     * @param { double } volume 取值范围为[0.00, 1.00]，其中1.00表示最大音量（100%）。
+     * @param { double } volume - 取值范围为[0.00, 1.00]，其中1.00表示最大音量（100%）。
      * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 5400102 - Operate not permit in current state.
      * @throws { BusinessError } 5400105 - Service died.
@@ -394,7 +384,7 @@ declare namespace audioHaptic {
      * 
      * > **注意：**
      * >
-     * > 该方法需在音振播放器销毁前调用。
+     * > 该方法需在音振播放器释放前调用。
      *
      * @param { boolean } loop - 是否循环播放。true表示循环播放，false表示不循环播放。
      * @returns { Promise<void> } Promise对象，无返回结果。
@@ -406,8 +396,9 @@ declare namespace audioHaptic {
     setLoop(loop: boolean): Promise<void>;
 
     /**
-     * Check whether the device supports haptics intensity adjustment.
-     * @returns { boolean } - {@code true} means supported.
+     * 查询设备是否可以调整振动幅度。
+     *
+     * @returns { boolean } 设备是否可以调整振动幅度。true表示可以调整振动幅度，false表示不可以调整振动幅度。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @systemapi
@@ -417,8 +408,9 @@ declare namespace audioHaptic {
     isHapticsIntensityAdjustmentSupported(): boolean;
 
     /**
-     * Check whether the device supports haptics intensity ramp effect.
-     * @returns { boolean } - {@code true} means supported.
+     * 查询设备是否可以设置振动渐变。
+     *
+     * @returns { boolean } 设备是否可以设置振动渐变。true表示设备可以设置振动渐变，false表示设备不可以设置振动渐变。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @systemapi
@@ -428,11 +420,14 @@ declare namespace audioHaptic {
     isHapticsRampSupported(): boolean;
 
     /**
-     * Set haptics intensity for this player. This method uses a promise to return the result.
-     * 这个方法只能在播放器释放前调用，并且每次播放过程只能设置一次。
-     * @param { double } intensity Target Haptics intensity.
-     *     The value ranges from 0.00 to 1.00, where 1.00 indicates the maximum intensity (100%).
-     * @returns { Promise<void> } Promise that returns no value.
+     * 设置音振播放器的振幅。使用Promise异步回调。
+     * 
+     * > **注意：**
+     * >
+     * > 该方法需在音振播放器释放前调用，且每次播放仅支持调用一次。
+     *
+     * @param { double } intensity - 取值范围为[0.00, 1.00]，其中1.00表示最大振幅（100%）。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 801 - Function is not supported in current device.
      * @throws { BusinessError } 5400102 - Operate not permit in current state.
@@ -445,15 +440,18 @@ declare namespace audioHaptic {
     setHapticsIntensity(intensity: double): Promise<void>;
 
     /**
-     * Set haptics intensity ramp effect for this player. This method uses a promise to return the result.
-     * 这个方法只能在播放器start前，或stop后release前调用
-     * @param { int } duration - ramp duration to set, unit is milliseconds.
-     *     The value should be an integer, and not less than 100.
-     * @param { double } startIntensity - Starting intensity for Haptics ramp to set.
-     *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum intensity (100%).
-     * @param { double } endIntensity - End intensity for haptics ramp to set.
-     *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum intensity (100%).
-     * @returns { Promise<void> } Promise used to return the result.
+     * 设置音振播放器渐变播放。使用Promise异步回调。
+     * 
+     * > **注意：**
+     * >
+     * > - 该方法需在音振协同播放器播放前/后，以及释放前使用。
+     * >
+     * > - 该方法仅能调用一次。
+     *
+     * @param { int } duration - 渐变时间段，单位为毫秒（ms），值必须为整数，且不能小于100ms。
+     * @param { double } startIntensity - 起始振动幅度，取值范围为[0.00, 1.00]，其中1.00表示最大振幅（100%）。
+     * @param { double } endIntensity - 结束振动幅度，取值范围为[0.00, 1.00]，其中1.00表示最大振幅（100%）。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 801 - Function is not supported in current device.
      * @throws { BusinessError } 5400102 - Operate not permit in current state.
@@ -466,9 +464,13 @@ declare namespace audioHaptic {
     setHapticsRamp(duration: int, startIntensity: double, endIntensity: double): Promise<void>;
 
     /**
-     * Enable haptics when the ringer mode is silent mode.
-     * 这个方法只能在播放器start前，或stop后release前调用
-     * @param { boolean } enable use {@code true} if application want to enable this feature.
+     * 设置静音模式下是否开启振动。
+     * 
+     * > **注意：**
+     * >
+     * > 该方法必须在释放音振播放器前使用，不能在播放中调用。
+     *
+     * @param { boolean } enable - 是否在静音模式下开启振动。true表示在静音模式下开启振动，false表示在静音模式下不开启振动。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 5400102 - Operate not permit in current state.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
@@ -489,8 +491,9 @@ declare namespace audioHaptic {
     on(type: 'endOfStream', callback: Callback<void>): void;
 
     /**
-     * Subscribes end of stream event.
-     * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
+     * 监听流结束事件（音频流播放结束时触发）。使用callback异步回调。
+     * 
+     * @param { Callback<void> } callback - 回调函数，无返回结果。
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 23 static
      */
@@ -507,8 +510,9 @@ declare namespace audioHaptic {
     off(type: 'endOfStream', callback?: Callback<void>): void;
 
     /**
-     * Unsubscribes end of stream event.
-     * @param { Callback<void> } [callback] - Callback used to listen for the playback end of stream.
+     * 取消监听流结束事件。使用callback异步回调。
+     * 
+     * @param { Callback<void> } [callback] - 回调函数，无返回结果。
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 23 static
      */
@@ -525,8 +529,9 @@ declare namespace audioHaptic {
     on(type: 'audioInterrupt', callback: Callback<audio.InterruptEvent>): void;
 
     /**
-     * Subscribes audio interrupt event.
-     * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for audio interrupt info.
+     * 监听音频中断事件（当音频焦点发生变化时触发）。使用callback异步回调。
+     * 
+     * @param { Callback<audio.InterruptEvent> } callback - 回调函数，返回中断事件信息。
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 23 static
      */
@@ -543,13 +548,13 @@ declare namespace audioHaptic {
     off(type: 'audioInterrupt', callback?: Callback<audio.InterruptEvent>): void;
 
     /**
-     * Unsubscribes audio interrupt event.
-     * @param { Callback<audio.InterruptEvent> } [callback] - Callback used to listen for audio interrupt info.
+     * 取消监听音频中断事件。使用callback异步回调。
+     * 
+     * @param { Callback<audio.InterruptEvent> } [callback] - 回调函数，返回中断事件信息。
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 23 static
      */
     offAudioInterrupt(callback?: Callback<audio.InterruptEvent>): void;
   }
 }
-
 export default audioHaptic;
