@@ -72,6 +72,7 @@ export interface ProjectConfig extends ApiCheckConfig {
   bundleName: string;
   moduleName: string;
   cachePath: string;
+  compileMode: string;
   projectRootPath: string;
   isCrossplatform: boolean;
   ignoreCrossplatformCheck: boolean;
