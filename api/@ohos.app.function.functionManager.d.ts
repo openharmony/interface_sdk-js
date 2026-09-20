@@ -169,7 +169,7 @@ declare namespace functionManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   function registerFunctionHook(hook: FunctionHook): Promise<void>;
 
@@ -190,7 +190,7 @@ declare namespace functionManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   function unregisterFunctionHook(hook: FunctionHook): Promise<void>;
 }

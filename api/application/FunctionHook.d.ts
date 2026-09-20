@@ -25,7 +25,7 @@ import { InvokeResult, InvokeOptions } from '../@ohos.app.function.functionManag
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.1.0 dynamiconly
+ * @since 26.0.1 dynamiconly
  */
 export interface InvokeFunctionParam {
   /**
@@ -34,7 +34,7 @@ export interface InvokeFunctionParam {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   functionNamespace: string;
 
@@ -44,7 +44,7 @@ export interface InvokeFunctionParam {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   functionName: string;
 
@@ -54,7 +54,7 @@ export interface InvokeFunctionParam {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   args: Record<string, Object>;
 
@@ -64,7 +64,7 @@ export interface InvokeFunctionParam {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   invokeOptions?: InvokeOptions;
 }
@@ -75,7 +75,7 @@ export interface InvokeFunctionParam {
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.1.0 dynamiconly
+ * @since 26.0.1 dynamiconly
  */
 export interface FunctionResultWrap {
   /**
@@ -84,7 +84,7 @@ export interface FunctionResultWrap {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   result: InvokeResult;
 }
@@ -98,7 +98,7 @@ export interface FunctionResultWrap {
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.1.0 dynamiconly
+ * @since 26.0.1 dynamiconly
  */
 export interface FunctionHook {
   /**
@@ -109,7 +109,7 @@ export interface FunctionHook {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   onBeforeInvokeFunction?(param: InvokeFunctionParam): InvokeFunctionParam;
 
@@ -121,7 +121,7 @@ export interface FunctionHook {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   onAfterInvokeFunction?(param: FunctionResultWrap): FunctionResultWrap;
 }

@@ -25,7 +25,7 @@ import { ExecOptions, ExecCmdOptions, ExecResult } from '../@ohos.app.cli.cliMan
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.1.0 dynamiconly
+ * @since 26.0.1 dynamiconly
  */
 export interface ExecToolParam {
   /**
@@ -34,7 +34,7 @@ export interface ExecToolParam {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   toolName: string;
 
@@ -44,7 +44,7 @@ export interface ExecToolParam {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   subCommand: string;
 
@@ -54,7 +54,7 @@ export interface ExecToolParam {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   args: Record<string, Object>;
 
@@ -64,7 +64,7 @@ export interface ExecToolParam {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   challenge: string;
 
@@ -74,7 +74,7 @@ export interface ExecToolParam {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   execOptions?: ExecOptions;
 }
@@ -85,7 +85,7 @@ export interface ExecToolParam {
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.1.0 dynamiconly
+ * @since 26.0.1 dynamiconly
  */
 export interface ExecCmdParam {
   /**
@@ -94,7 +94,7 @@ export interface ExecCmdParam {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   cmd: string;
 
@@ -104,7 +104,7 @@ export interface ExecCmdParam {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   execCmdOptions?: ExecCmdOptions;
 }
@@ -115,7 +115,7 @@ export interface ExecCmdParam {
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.1.0 dynamiconly
+ * @since 26.0.1 dynamiconly
  */
 export interface ExecResultWrap {
   /**
@@ -124,7 +124,7 @@ export interface ExecResultWrap {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   execResult: ExecResult;
 }
@@ -138,7 +138,7 @@ export interface ExecResultWrap {
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.1.0 dynamiconly
+ * @since 26.0.1 dynamiconly
  */
 export interface CliHook {
   /**
@@ -149,7 +149,7 @@ export interface CliHook {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   onBeforeCallTool?(param: ExecToolParam): ExecToolParam;
 
@@ -161,7 +161,7 @@ export interface CliHook {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   onAfterCallTool?(param: ExecResultWrap): ExecResultWrap;
 
@@ -173,7 +173,7 @@ export interface CliHook {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   onBeforeCallCmd?(param: ExecCmdParam): ExecCmdParam;
 
@@ -185,7 +185,7 @@ export interface CliHook {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   onAfterCallCmd?(param: ExecResultWrap): ExecResultWrap;
 }

@@ -537,7 +537,7 @@ declare namespace cliManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   function registerCliHook(hook: CliHook): Promise<void>;
 
@@ -558,7 +558,7 @@ declare namespace cliManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   function unregisterCliHook(hook: CliHook): Promise<void>;
 }
