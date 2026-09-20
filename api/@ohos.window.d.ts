@@ -13077,8 +13077,8 @@ declare namespace window {
      *     2. Internal task error;
      *     3. The subWindow has been created and cannot be created again.
      *     4. It is not allowed to create non-secure window when secure extension exists.
-     *     5. Permission denied for creating a system window or a modal subwindow.
-     *     6. Subwindow calling process verification failed.
+     *     5. Only system applications are allowed to create modal topmost subwindows.
+     *     6. The parent window and the subwindow are not created by the same process.
      *     7. Subwindow level exceeds the maximum limit.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
@@ -14097,8 +14097,8 @@ declare namespace window {
      *     2. Internal task error.
      *     3. The subWindow has been created and cannot be created again.
      *     4. It is not allowed to create non-secure window when secure extension exists.
-     *     5. Permission denied for creating a system window or a modal subwindow.
-     *     6. Subwindow calling process verification failed.
+     *     5. Only system applications are allowed to create modal topmost subwindows.
+     *     6. The parent window and the subwindow are not created by the same process.
      *     7. Subwindow level exceeds the maximum limit.
      * @throws { BusinessError } 1300005 - This window stage is abnormal. [since 9 - 9]
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -14120,8 +14120,8 @@ declare namespace window {
      *     2. Internal task error.
      *     3. The subWindow has been created and cannot be created again.
      *     4. It is not allowed to create non-secure window when secure extension exists.
-     *     5. Permission denied for creating a system window or a modal subwindow.
-     *     6. Subwindow calling process verification failed.
+     *     5. Only system applications are allowed to create modal topmost subwindows.
+     *     6. The parent window and the subwindow are not created by the same process.
      *     7. Subwindow level exceeds the maximum limit.
      * @throws { BusinessError } 1300005 - This window stage is abnormal. [since 9 - 9]
      * @syscap SystemCapability.WindowManager.WindowManager.Core
@@ -14146,8 +14146,8 @@ declare namespace window {
      *     2. The subWindow has been created and cannot be created again.
      *     3. Internal task error.
      *     4. It is not allowed to create non-secure window when secure extension exists.
-     *     5. Permission denied for creating a system window or a modal subwindow.
-     *     6. Subwindow calling process verification failed.
+     *     5. Only system applications are allowed to create modal topmost subwindows.
+     *     6. The parent window and the subwindow are not created by the same process.
      *     7. Subwindow level exceeds the maximum limit.
      * @throws { BusinessError } 1300005 - This window stage is abnormal.
      * @syscap SystemCapability.Window.SessionManager
