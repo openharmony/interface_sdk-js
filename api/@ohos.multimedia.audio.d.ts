@@ -2277,12 +2277,12 @@ declare namespace audio {
     /**
      * Keep the first device selection.
      * Default value: false.
-     * When set to true, only the first device selection is kept and subsequent selections are ignored
+     * When set to true, only the first device selection is kept and subsequent selections are ignored.
      *
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.1 dynamic&static
+     * @since 26.1.0 dynamic&static
      */
     blockFirstOverrode?: boolean;
   }
