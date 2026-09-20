@@ -2282,7 +2282,7 @@ declare namespace audio {
      * @syscap SystemCapability.Multimedia.Audio.Renderer
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     blockFirstOverrode?: boolean;
   }
