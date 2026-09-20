@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Prompt
  * @kit ArkUI
  */
 import { AsyncCallback } from './@ohos.base';

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 弹出框
  * @kit ArkUI
  */
 
