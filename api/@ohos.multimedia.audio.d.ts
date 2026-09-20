@@ -7081,6 +7081,50 @@ declare namespace audio {
      * @since 24 dynamic&static
      */
     getActiveStreamsVolumeInfo(): ActiveStreamsVolumeInfoArray;
+
+    /**
+     * Listens for the event when the current volume exceeds the volume protection threshold.
+     *
+     * @param { Callback<VolumeLimitExceededEvent> } callback - Callback used to get the volume limit event.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    onVolumeLimitExceeded(callback: Callback<VolumeLimitExceededEvent>): void;
+
+    /**
+     * Unsubscribes from monitoring whether the current volume exceeds the volume protection threshold.
+     *
+     * @param { Callback<VolumeLimitExceededEvent> } [callback] - Callback used to get the volume limit event.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    offVolumeLimitExceeded(callback?: Callback<VolumeLimitExceededEvent>): void;
+
+    /**
+     * Confirms the result of adjusting the volume that exceeds the volume protection threshold.
+     *
+     * @param { AudioVolumeType } volumeType - Audio volume type,
+     *     different volume types have different thresholds,
+     *     volumeType is used to identify the current volume type threshold.
+     * @param { boolean } result - Confirm that the volume adjustment exceeds the volume protection threshold,
+     *     and false indicates the opposite.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - System error.
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    confirmVolumeLimitExceeded(volumeType: AudioVolumeType, result: boolean): void;
   }
 
   /**
@@ -9974,6 +10018,59 @@ declare namespace audio {
      * @since 23 dynamic&static
      */
     percentage?: int;
+  }
+
+  /**
+   * Describes the notification event indicating that the volume exceeds the threshold.
+   * after receiving the notification, the app must send the acknowledgment result.
+   * through {@link #confirmVolumeLimitExceeded} before continuing to adjust the volume.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  interface VolumeLimitExceededEvent {
+    /**
+     * Indicates the UID of the process that triggers the volume threshold-crossing.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    uid: int;
+    /**
+     * Current volume type.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    volumeType: AudioVolumeType;
+    /**
+     * Current volume level.
+     *
+     * The value is between the values obtained from {@link #getMinSystemVolume} and {@link #getMaxSystemVolume}.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    currentVolume: int;
+    /**
+     * Volume threshold of current volume type.
+     *
+     * The value is between the values obtained from {@link #getMinSystemVolume} and {@link #getMaxSystemVolume}.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    volumeThreshold: int;
   }
 
   /**
