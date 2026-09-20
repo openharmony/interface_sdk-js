@@ -27,7 +27,7 @@ import { AsyncCallback, Callback } from './@ohos.base';
  * 避免因存储空间或inode资源不足导致应用异常。
  *
  * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @since 8 dynamic
  * @since 23 static
  */
@@ -119,7 +119,7 @@ declare namespace storageStatistics {
    * 获取捆绑包统计信息。
    *
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -129,7 +129,7 @@ declare namespace storageStatistics {
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -140,7 +140,7 @@ declare namespace storageStatistics {
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -151,7 +151,7 @@ declare namespace storageStatistics {
      *
      * @type { long }
      * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -214,7 +214,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -229,7 +229,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600001 - IPC error.
    * @throws { BusinessError } 13900042 - Unknown error.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -440,7 +440,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 9 - 14]
    * @publicapi [since 15]
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -457,7 +457,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 9 - 14]
    * @publicapi [since 15]
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -475,7 +475,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 10 - 14]
    * @publicapi [since 15]
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 10 dynamic
    * @since 23 static
    */
@@ -495,7 +495,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 9 - 14]
    * @publicapi [since 15]
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -513,7 +513,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 9 - 14]
    * @publicapi [since 15]
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -531,7 +531,7 @@ declare namespace storageStatistics {
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @systemapi [since 10 - 14]
    * @publicapi [since 15]
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 10 dynamic
    * @since 23 static
    */
@@ -702,7 +702,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600016 - Failed to query the inode information of the data partition.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 24 dynamic&static
    */
   function getTotalInodes(): Promise<long>;
@@ -714,7 +714,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600016 - Failed to query the inode information of the data partition.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 24 dynamic&static
    */
   function getFreeInodes(): Promise<long>;
@@ -727,7 +727,7 @@ declare namespace storageStatistics {
    * @throws { BusinessError } 13600017 - Failed to query the inode information of the application.
    * @syscap SystemCapability.FileManagement.StorageService.SpatialStatistics
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 24 dynamic&static
    */
   function getCurrentBundleInodes(): Promise<long>;

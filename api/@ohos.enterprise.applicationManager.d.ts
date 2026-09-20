@@ -301,7 +301,7 @@ declare namespace applicationManager {
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   interface FormInfo {
     /**
@@ -309,7 +309,7 @@ declare namespace applicationManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     bundleName: string;
 
@@ -318,7 +318,7 @@ declare namespace applicationManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     moduleName: string;
 
@@ -327,7 +327,7 @@ declare namespace applicationManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     abilityName: string;
 
@@ -336,7 +336,7 @@ declare namespace applicationManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     name: string;
 
@@ -345,7 +345,7 @@ declare namespace applicationManager {
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.1.0
+     * @since 26.0.1
      */
     dimension: formInfo.FormDimension;
   }
@@ -2178,7 +2178,7 @@ declare namespace applicationManager {
    * @throws { BusinessError } 9201051 - Failed to add the form to the desktop.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.1.0
+   * @since 26.0.1
    */
   function publishFormToDesktop(formInfo: FormInfo): string;
 }

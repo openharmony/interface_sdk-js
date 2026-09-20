@@ -52,6 +52,18 @@ declare class InsightIntentContext {
   instanceId: int;
 
   /**
+   * Tool call ID passed by the caller, used to associate this intent execute
+   * with a test step. It is undefined when the caller does not
+   * pass a tool call ID or passes an empty string.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  readonly toolCallId?: string;
+
+  /**
    * Starts a UIAbility. This API can only be used to start UIAbility components within the same application. This API
    * uses an asynchronous callback to return the result.
    *

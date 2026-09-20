@@ -1244,15 +1244,15 @@ declare namespace installer {
      * - **ohos.bms.param.deviceModeDistributionPolicy**: The value is a decimal string of a
      * [DeviceModeDistributionPolicy]{@link @ohos.bundle.bundleManager:bundleManager.DeviceModeDistributionPolicy}
      * enum value (for example, **"4"**). It specifies the device mode distribution policy for the application
-     * being installed (supported since API version 26.1.0). If this key is not present, the policy defaults to
+     * being installed (supported since API version 26.0.1). If this key is not present, the policy defaults to
      * **UNSPECIFIED** (0). If the value is invalid (not a decimal string integer or out of range [0, 8]), this key
      * is ignored and the policy defaults to **UNSPECIFIED**.
      * - **ohos.bms.param.disableInstallEventReport**: If the value is **true**, the installation event
-     * is not sent after the installation is complete (supported since API version 26.1.0). If this key is not present
+     * is not sent after the installation is complete (supported since API version 26.0.1). If this key is not present
      * or the value is not **true**, the installation event is sent as usual.
      * - **ohos.bms.param.bundleEnableState**: If the value is **false**, the application is installed in disabled
      * state (enabled is false). If the value is **true** or this key is not present, the application is installed
-     * in enabled state (enabled is true, default behavior) (supported since API version 26.1.0).
+     * in enabled state (enabled is true, default behavior) (supported since API version 26.0.1).
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
@@ -1335,7 +1335,7 @@ declare namespace installer {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     parameters?: Array<Parameters>;
   }

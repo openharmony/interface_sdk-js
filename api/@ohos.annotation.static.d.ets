@@ -59,7 +59,7 @@ export @interface Available {
  *
  * @syscap SystemCapability.Base
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export enum SuppressWarningsType {
 
@@ -73,7 +73,7 @@ export enum SuppressWarningsType {
    *
    * @syscap SystemCapability.Base
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   COMPATIBILITY = 'compatibility',
 
@@ -84,7 +84,7 @@ export enum SuppressWarningsType {
    *
    * @syscap SystemCapability.Base
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   PERMISSION = 'permission'
 }
@@ -104,7 +104,7 @@ export enum SuppressWarningsType {
  *
  * @syscap SystemCapability.Base
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 @Retention('SOURCE')
 export @interface SuppressWarnings {
@@ -120,7 +120,7 @@ export @interface SuppressWarnings {
    *
    * @syscap SystemCapability.Base
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   rules: Array<SuppressWarningsType>;
 }

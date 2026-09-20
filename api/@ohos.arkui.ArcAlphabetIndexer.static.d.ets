@@ -264,7 +264,7 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
    * @returns { ArcAlphabetIndexerAttribute } Returns instance of  ArcAlphabetIndexerAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    * @unpublished
    */
   default setArcAlphabetIndexerOptions(info: ArcAlphabetIndexerInitInfo): this;
@@ -292,7 +292,7 @@ export declare function ArcAlphabetIndexer(
  * @returns { ArcAlphabetIndexerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @unpublished
  */
 @Builder

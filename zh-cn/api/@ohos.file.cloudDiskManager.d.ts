@@ -123,7 +123,7 @@ declare namespace cloudDiskManager {
      * @syscap SystemCapability.FileManagement.CloudDiskManager
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     isSupportPlaceHolder?: boolean;
   }

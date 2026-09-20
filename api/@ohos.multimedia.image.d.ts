@@ -3744,7 +3744,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.ImagePacker
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     c2paDataSize?: int;
   }
@@ -4176,7 +4176,7 @@ declare namespace image {
    * @syscap SystemCapability.Multimedia.Image.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   enum SVGResourceLimitLevel {  
     /**
@@ -4187,7 +4187,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     NONE = 0,
 
@@ -4200,7 +4200,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     LOW = 1,
 
@@ -4213,7 +4213,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     MEDIUM = 2,
 
@@ -4225,7 +4225,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     HIGH = 3
   }
@@ -4294,7 +4294,7 @@ declare namespace image {
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     svgResourceLimitLevel?: SVGResourceLimitLevel;
   }
@@ -7536,7 +7536,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @throws { BusinessError } 7700204 - Parameter error. The pixelmap object is null or has been released.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     setMainPixelmap(pixelmap: PixelMap): void;
   }
@@ -14906,7 +14906,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform [since 10]
-     * @atomicservice [since 26.1.0]
+     * @atomicservice [since 26.0.1]
      * @since 6 dynamic
      * @since 23 static
      */
@@ -14924,7 +14924,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform [since 10]
-     * @atomicservice [since 26.1.0]
+     * @atomicservice [since 26.0.1]
      * @since 6 dynamic
      * @since 23 static
      */
@@ -16176,7 +16176,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *     <li>Ensure the name parameter contains visible ASCII characters.</li></ol>
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     setMemoryName(name: string): void;
   }

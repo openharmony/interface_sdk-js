@@ -292,7 +292,7 @@ export interface RepeatAttribute<T> extends DynamicNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    */
   setRepeatOptions<T>(arr: RepeatArray<T>): this;
 
@@ -302,7 +302,7 @@ export interface RepeatAttribute<T> extends DynamicNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    */
   applyAttributesFinish(): void;
 }
@@ -357,7 +357,7 @@ export enum RepeatMemOptStrategy {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  */
 @Builder
 export declare function Repeat<T>(

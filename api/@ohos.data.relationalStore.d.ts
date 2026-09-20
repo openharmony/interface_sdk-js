@@ -1427,7 +1427,7 @@ declare namespace relationalStore {
    * Enumerates the subscription types. Use the enum name rather than the enum value.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -1468,7 +1468,7 @@ declare namespace relationalStore {
 
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 12 dynamic
      * @since 23 static
      */
@@ -1479,7 +1479,7 @@ declare namespace relationalStore {
    * Enumerates data change types. Use the enum name rather than the enum value.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 10 dynamic
    * @since 23 static
    */
@@ -1489,7 +1489,7 @@ declare namespace relationalStore {
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC [since 10 - 11]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 10 dynamic
      * @since 23 static
      */
@@ -1510,7 +1510,7 @@ declare namespace relationalStore {
    * Defines a struct for the details about the device-cloud sync process.
    *
    * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 10 dynamic
    * @since 23 static
    */
@@ -1519,7 +1519,7 @@ declare namespace relationalStore {
      * Name of the table with data changes.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 10 dynamic
      * @since 23 static
      */
@@ -1529,7 +1529,7 @@ declare namespace relationalStore {
      * Type of the data changed, which can be data or asset.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 10 dynamic
      * @since 23 static
      */
@@ -1540,7 +1540,7 @@ declare namespace relationalStore {
      * primary key. Otherwise, it is the row number of the inserted data.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 10 dynamic
      * @since 23 static
      */
@@ -1551,7 +1551,7 @@ declare namespace relationalStore {
      * primary key. Otherwise, it is the row number of the updated data.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 10 dynamic
      * @since 23 static
      */
@@ -1562,7 +1562,7 @@ declare namespace relationalStore {
      * primary key. Otherwise, it is the row number of the deleted data.
      *
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 10 dynamic
      * @since 23 static
      */
@@ -7572,7 +7572,7 @@ declare namespace relationalStore {
      *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 10 dynamic
      */
     on(event: 'dataChange', type: SubscribeType, observer: Callback<Array<string>> | Callback<Array<ChangeInfo>>): void;
@@ -7787,7 +7787,7 @@ declare namespace relationalStore {
      *     3. A dependent service feature is not supported.
      * @throws { BusinessError } 14800014 - The target instance is already closed. [since 12]
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
-     * @crossplatform [since 26.1.0]
+     * @crossplatform [since 26.0.1]
      * @since 10 dynamic
      */
     off(
@@ -8342,7 +8342,7 @@ declare namespace relationalStore {
      * @syscap SystemCapability.DistributedDataManager.RelationalStore.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     requestFullDataDonation(tables: Array<string>): Promise<void>;
   }

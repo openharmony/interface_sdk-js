@@ -372,7 +372,7 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    */
   default setSideBarContainerOptions(type?: SideBarContainerType): this;
 }
@@ -403,7 +403,7 @@ export declare function SideBarContainer(
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  */
 @Builder
 export declare function SideBarContainer(

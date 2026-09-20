@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file System Parameter
  * @kit BasicServicesKit
  */
 

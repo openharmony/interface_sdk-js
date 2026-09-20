@@ -129,7 +129,7 @@ export declare interface LazyVWaterFlowLayoutAttribute extends LazyWaterFlowLayo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    */
   default setLazyVWaterFlowLayoutOptions(): this;
   /**
@@ -169,7 +169,7 @@ export declare function LazyVWaterFlowLayout (
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  */
 @Builder

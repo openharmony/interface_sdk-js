@@ -56,7 +56,7 @@ export @interface Available {
  *
  * @syscap SystemCapability.Base
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export enum SuppressWarningsType {
 
@@ -67,7 +67,7 @@ export enum SuppressWarningsType {
    *
    * @syscap SystemCapability.Base
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   COMPATIBILITY = 'compatibility',
 
@@ -76,7 +76,7 @@ export enum SuppressWarningsType {
    *
    * @syscap SystemCapability.Base
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   PERMISSION = 'permission'
 }
@@ -90,7 +90,7 @@ export enum SuppressWarningsType {
  *
  * @syscap SystemCapability.Base
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export @interface SuppressWarnings {
 
@@ -101,7 +101,7 @@ export @interface SuppressWarnings {
    * 建议仅在明确告警不影响应用功能或已做兼容性处理时使用，避免掩盖潜在问题。
    * @syscap SystemCapability.Base
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   rules: Array<SuppressWarningsType>;
 }

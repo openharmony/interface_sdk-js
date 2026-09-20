@@ -94,7 +94,7 @@ declare namespace backgroundProcessManager {
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     export enum ClearType {
         /**
@@ -103,7 +103,7 @@ declare namespace backgroundProcessManager {
          * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
          * @systemapi Hide this for inner system use.
          * @stagemodelonly
-         * @since 26.1.0 dynamic&static
+         * @since 26.0.1 dynamic&static
          */
         CLEAR_RECENT_CARDS = 1
     }
@@ -218,7 +218,7 @@ declare namespace backgroundProcessManager {
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     function clearBackgroundApps(clearType: ClearType): Promise<void>;
 }

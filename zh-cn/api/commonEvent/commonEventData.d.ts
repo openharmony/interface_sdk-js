@@ -50,7 +50,7 @@ export interface CommonEventData {
    * 表示发布公共事件的应用包名，默认为空字符串。
    *
    * @syscap SystemCapability.Notification.CommonEvent
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 7 dynamic
    * @since 23 static
@@ -64,7 +64,7 @@ export interface CommonEventData {
    *
    * @default 0
    * @syscap SystemCapability.Notification.CommonEvent
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 7 dynamic
    * @since 23 static
@@ -90,7 +90,7 @@ export interface CommonEventData {
    * 发布公共事件时，通过[CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData}中的`parameters`字段传递的数据一致。
    *
    * @syscap SystemCapability.Notification.CommonEvent
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 7 dynamic
    */

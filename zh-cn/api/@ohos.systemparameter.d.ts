@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 系统属性
  * @kit BasicServicesKit
  */
 

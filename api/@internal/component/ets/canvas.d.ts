@@ -178,7 +178,9 @@ declare type ImageSmoothingQuality = "high" | "low" | "medium";
 declare type FrameNode = import('../api/arkui/FrameNode').FrameNode;
 
 /**
- * **CanvasGradient** provides a canvas gradient object.
+ * A gradient object that allows multiple color breakpoints to be set through the
+ * **addColorStop** method, achieving smooth color transitions. It is suitable for canvas
+ * filling and stroking scenarios.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -189,20 +191,25 @@ declare type FrameNode = import('../api/arkui/FrameNode').FrameNode;
  */
 declare class CanvasGradient {
   /**
-   * Adds a color stop for the **CanvasGradient** object based on the specified offset
-   * and gradient color.
+   * Sets the gradient breakpoint value, including the offset and color. You can call
+   * **addColorStop** multiple times to set multiple breakpoints. The breakpoints are
+   * sorted by **offset** value in ascending order, and color interpolation is performed
+   * between adjacent breakpoints during rendering.
    *
-   * @param { number } offset - Relative position of the gradient stop along the gradient vector,
-   *    represented by the ratio of the distance between the gradient stop and the start point
-   *    to the total length. The value ranges from 0 to 1.<br>
-   *    If the value of **offset** is less than 0 or greater than 1, there is no gradient effect.<br>
-   *    **undefined** and **null** are treated as invalid values, and the current stop is ignored.
-   *    **NaN** causes a **CanvasGradient** exception, and **Infinity** causes **CanvasGradient**
-   *    to be invalid.
-   * @param { string } color - Gradient color to set. For details about the color notation,
-   *    see the description of the string type in
-   *    [ResourceColor]{@link ResourceColor}.<br>
-   *    Invalid values result in no gradient effect being displayed.
+   * @param { number } offset - Proportion of the distance from the gradient breakpoint to
+   *    the start point to the total length. The value range is [0, 1].<br>
+   *    Setting **offset** < 0 or **offset** > 1 produces no gradient effect.<br>
+   *    Abnormal values **undefined** and **null** are treated as invalid, and the gradient
+   *    breakpoint is not added. NaN causes the **CanvasGradient** object to be abnormal and
+   *    unable to generate gradient effects properly. Infinity causes the entire
+   *    **CanvasGradient** to not take effect.
+   * @param { string } color - Gradient color. The string type supports the following formats:
+   *    **'rgb(255, 255, 255)'**, **'rgba(255, 255, 255, 1.0)'**, **'#RGB'**, **'#ARGB'**,
+   *    **'#RRGGBB'**, and **'#AARRGGBB'**. For details, see the **string** type description
+   *    in [ResourceColor]{@link ResourceColor}.<br>
+   *    If the color is not set in the specified format, no gradient effect is produced. When
+   *    **null** or **undefined** is set, it is treated as invalid and the breakpoint is not
+   *    added.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -213,42 +220,43 @@ declare class CanvasGradient {
   addColorStop(offset: number, color: string): void;
 
   /**
-   * Adds a color stop for the **CanvasGradient** object based on the specified offset
-   * and gradient color. Colors in RGB or ARGB format can be set. You can set P3 color
-   * gamut values by passing in the
-   * [ColorMetrics]{@link ColorMetrics}
-   * type, which can achieve richer color reproduction on devices that support high color gamut.
+   * Sets the gradient breakpoint value, including the offset and color. Colors in RGB or
+   * ARGB format are supported. P3 wide color gamut color values can be set by passing in
+   * the [ColorMetrics]{@link ColorMetrics} type. Since API version 26.0.0, BT2020 wide
+   * color gamut and HDR brightening are also supported.
    *
    * > **NOTE**
    * >
-   * > Only the
-   * > [fillStyle]{@link CanvasRenderingContext2D#fillStyle}
-   * > and
-   * > [strokeStyle]{@link CanvasRenderingContext2D#strokeStyle}
-   * > attributes of the
-   * > [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}
-   * > object support the **CanvasGradient** object with the P3 wide color gamut. In addition,
-   * > the color gamut mode of the window where the **Canvas** component is located must be set
-   * > to wide color gamut mode **WIDE_GAMUT** via the
-   * > [setWindowColorSpace]{@link Window#setWindowColorSpace}
-   * > method.
+   * > Only the [fillStyle]{@link CanvasRenderingContext2D#fillStyle} and
+   * > [strokeStyle]{@link CanvasRenderingContext2D#strokeStyle} attributes of the
+   * > [CanvasRenderingContext2D]{@link CanvasRenderingContext2D} object support setting a
+   * > wide color gamut **CanvasGradient** object. When using HDR colors, you must set the
+   * > color gamut mode of the window where the **Canvas** component is located to the wide
+   * > gamut mode **WIDE_GAMUT** through the
+   * > [setWindowColorSpace]{@link Window#setWindowColorSpace} method. If the preceding
+   * > conditions are not met, the wide color gamut color settings will not take effect.
    *
-   * @param { number } offset - Relative position of the gradient stop along the gradient vector,
-   *     represented by the ratio of the distance between the gradient stop and the start point
-   *     to the total length. The value ranges from 0 to 1.<br>
-   *     If the value of **offset** is less than 0 or greater than 1, there is no gradient effect.<br>
-   *     **undefined** and **null** are treated as invalid values and are not applied.
-   *     **NaN** causes a **CanvasGradient** exception, and **Infinity** causes **CanvasGradient**
-   *     to be invalid.
-   * @param { string | ColorMetrics } color - Color of the gradient fill.<br>
-   *     You can use the
-   *     [colorWithSpace]{@link ColorMetrics#colorWithSpace}
-   *     method to construct a color with the color gamut attribute
-   *     [ColorSpace]{@link ColorSpace}
-   *     set to **SRGB** or **DISPLAY_P3**. The color gamut attributes of each gradient ColorMetrics
-   *     must be the same. If different color gamut attributes are set, an exception is thrown,
-   *     and the error code is 103701.<br>
-   *     **undefined** and **null** are treated as invalid values, and the current stop is ignored.
+   * @param { number } offset - Proportion of the distance from the gradient breakpoint to
+   *     the start point to the total length. The value range is [0, 1].<br>
+   *     Setting **offset** < 0 or **offset** > 1 produces no gradient effect.<br>
+   *     Abnormal values **undefined** and **null** are treated as invalid, and the gradient
+   *     breakpoint is not added. NaN causes the **CanvasGradient** object to be abnormal and
+   *     unable to generate gradient effects properly. Infinity causes the entire
+   *     **CanvasGradient** to not take effect.
+   * @param { string | ColorMetrics } color - Color of the gradient. The string type supports
+   *     the following formats: **'rgb(255, 255, 255)'**, **'rgba(255, 255, 255, 1.0)'**,
+   *     **'#RGB'**, **'#ARGB'**, **'#RRGGBB'**, and **'#AARRGGBB'**.<br>
+   *     You can use the [colorWithSpace]{@link ColorMetrics#colorWithSpace} method to
+   *     construct a color with a specified color space attribute. The **ColorMetrics** type
+   *     can construct a color with the specified color space attribute
+   *     [ColorSpace]{@link ColorSpace} set to **sRGB** or **DISPLAY_P3**. Since API version
+   *     26.0.0, constructing a color in the BT2020 color space is supported, along with HDR
+   *     brightening. All gradient breakpoints in the same **CanvasGradient** object must use
+   *     the same color space attribute. If different color spaces are set, an exception is
+   *     thrown with error code 103701, the breakpoint is not added, and the
+   *     **CanvasGradient** object retains its previous state.<br>
+   *     No gradient effect is produced when the color is not set in the required format.
+   *     **null** and **undefined** are treated as invalid, and the breakpoint is not added.
    * @throws { BusinessError } 103701 - The color's ColorSpace is not the same as the last color's.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -275,31 +283,31 @@ declare class CanvasPath {
   /**
    * Draws an arc on the canvas.
    *
-   * @param { number } x - X-coordinate of the center point of the arc.<br>In versions earlier than API
-   *    version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or
+   * @param { number } x - X coordinate of the center point of the arc.<br>In versions earlier than API
+   *    version 18, **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or
    *    **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
-   *    **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
-   *    APIs with valid arguments continue to render correctly.<br>Default unit: vp
-   * @param { number } y - Y-coordinate of the center point of the arc.<br>In versions earlier than API
-   *    version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or
+   *    **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other path
+   *    APIs with valid parameters continue to render correctly.<br>Default unit: vp
+   * @param { number } y - Y coordinate of the center point of the arc.<br>In versions earlier than API
+   *    version 18, **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or
    *    **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
-   *    **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
-   *    APIs with valid arguments continue to render correctly.<br>Default unit: vp
-   * @param { number } radius - Radius of the arc.<br>In versions earlier than API version 18, **NaN** or
-   *    **Infinity** value prevents the entire path from rendering, and **null** or **undefined** value
-   *    causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**, or
-   *    **undefined** causes the current API to have no effect, and other path APIs with valid arguments
-   *    continue to render correctly.<br>Default unit: vp
+   *    **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other path
+   *    APIs with valid parameters continue to render correctly.<br>Default unit: vp
+   * @param { number } radius - Radius of the arc circle. Value range: [0, +∞).<br>Before API
+   *    version 18, when **NaN** or **Infinity** is set, the entire path is not displayed; when
+   *    **null** or **undefined** is set, the current API does not take effect. Since API version 18,
+   *    when **NaN**, **Infinity**, **null**, or **undefined** is set, the current API does not take
+   *    effect, and other path methods with valid parameters are drawn normally.<br>Default unit: vp
    * @param { number } startAngle - Start radian of the arc.<br>In versions earlier than API version 18,
-   *    **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   *    **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or **undefined**
    *    value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**,
-   *    **null**, or **undefined** causes the current API to have no effect, and other path APIs with valid
-   *    arguments continue to render correctly.<br>Unit: radian
+   *    **null**, or **undefined** values cause the current API to have no effect, and other path APIs with valid
+   *    arguments continue to render correctly.<br>Default unit: radian
    * @param { number } endAngle - End radian of the arc.<br>In versions earlier than API version 18, **NaN**
    *    or **Infinity** value prevents the entire path from rendering, and **null** or **undefined** value
    *    causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**, or
-   *    **undefined** causes the current API to have no effect, and other path APIs with valid arguments
-   *    continue to render correctly.<br>Unit: radian
+   *    **undefined** values cause the current API to have no effect, and other path APIs with valid arguments
+   *    continue to render correctly.<br>Default unit: radian
    * @param { boolean } [counterclockwise] - Whether to draw the arc counterclockwise.<br>**true**: Draw the
    *    arc counterclockwise.<br>**false**: Draw the arc clockwise.<br>The default value is **false**. If
    *    this parameter is set to **null** or **undefined**, the default value is used.
@@ -313,33 +321,34 @@ declare class CanvasPath {
   arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void;
 
   /**
-   * Creates a circular arc using the given control points and radius.
+   * Creates an arc path based on the control points and arc radius. The control
+   * points (x1, y1) and (x2, y2) are used to determine the tangent direction of the arc.
    *
-   * @param { number } x1 - X-coordinate of the first control point.<br>In versions earlier than API version
-   *     18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   * @param { number } x1 - X coordinate of the first point on the arc.<br>In versions earlier than API version
+   *     18, **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or **undefined**
    *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
-   *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     or **undefined** values cause the current API to have no effect, and other path APIs with valid arguments
    *     continue to render correctly.<br>Default unit: vp
-   * @param { number } y1 - Y-coordinate of the first control point.<br>In versions earlier than API version
-   *     18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   * @param { number } y1 - Y coordinate of the first point on the arc.<br>In versions earlier than API version
+   *     18, **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or **undefined**
    *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
-   *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     or **undefined** values cause the current API to have no effect, and other path APIs with valid arguments
    *     continue to render correctly.<br>Default unit: vp
-   * @param { number } x2 - X-coordinate of the second control point.<br>In versions earlier than API version
-   *     18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   * @param { number } x2 - X coordinate of the second point on the arc.<br>In versions earlier than API version
+   *     18, **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or **undefined**
    *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
-   *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     or **undefined** values cause the current API to have no effect, and other path APIs with valid arguments
    *     continue to render correctly.<br>Default unit: vp
-   * @param { number } y2 - Y-coordinate of the second control point.<br>In versions earlier than API version
-   *     18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   * @param { number } y2 - Y coordinate of the second point on the arc.<br>In versions earlier than API version
+   *     18, **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or **undefined**
    *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
-   *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     or **undefined** values cause the current API to have no effect, and other path APIs with valid arguments
    *     continue to render correctly.<br>Default unit: vp
-   * @param { number } radius - Radius of the arc.<br>In versions earlier than API version 18, **NaN** or
-   *     **Infinity** value prevents the entire path from rendering, and **null** or **undefined** value
-   *     causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**, or
-   *     **undefined** causes the current API to have no effect, and other path APIs with valid arguments
-   *     continue to render correctly.<br>Default unit: vp
+   * @param { number } radius - Radius of the arc. Value range: [0, +∞).<br>Before API version
+   *     18, when **NaN** or **Infinity** is set, the entire path is not displayed; when **null** or
+   *     **undefined** is set, the current API does not take effect. Since API version 18, when **NaN**,
+   *     **Infinity**, **null**, or **undefined** is set, the current API does not take effect, and
+   *     other path methods with valid parameters are drawn normally.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -352,36 +361,36 @@ declare class CanvasPath {
   /**
    * Draws a cubic Bezier curve on the canvas.
    *
-   * @param { number } cp1x - X-coordinate of the first parameter of the Bezier curve.<br>In versions
-   *     earlier than API version 18, **NaN** or **Infinity** value prevents the entire path from rendering,
-   *     and **null** or **undefined** value causes the current API to have no effect. Since API version 18,
-   *     **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other
-   *     path APIs with valid arguments continue to render correctly.<br>Default unit: vp
-   * @param { number } cp1y - Y-coordinate of the first parameter of the Bezier curve.<br>In versions
-   *     earlier than API version 18, **NaN** or **Infinity** value prevents the entire path from rendering,
-   *     and **null** or **undefined** value causes the current API to have no effect. Since API version 18,
-   *     **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other
-   *     path APIs with valid arguments continue to render correctly.<br>Default unit: vp
-   * @param { number } cp2x - X-coordinate of the second parameter of the Bezier curve.<br>In versions
-   *     earlier than API version 18, **NaN** or **Infinity** value prevents the entire path from rendering,
-   *     and **null** or **undefined** value causes the current API to have no effect. Since API version 18,
-   *     **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other
-   *     path APIs with valid arguments continue to render correctly.<br>Default unit: vp
-   * @param { number } cp2y - Y-coordinate of the second parameter of the Bezier curve.<br>In versions
-   *     earlier than API version 18, **NaN** or **Infinity** value prevents the entire path from rendering,
-   *     and **null** or **undefined** value causes the current API to have no effect. Since API version 18,
-   *     **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other
-   *     path APIs with valid arguments continue to render correctly.<br>Default unit: vp
-   * @param { number } x - X-coordinate of the end point on the Bezier curve.<br>In versions earlier than
-   *     API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null**
+   * @param { number } cp1x - X-coordinate of the first Bezier control point.<br>In versions
+   *     earlier than API version 18, **NaN** or **Infinity** values prevent the entire path from rendering,
+   *     and **null** or **undefined** values cause the current API to have no effect. Since API version 18,
+   *     **NaN**, **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other
+   *     path APIs with valid parameters continue to render correctly.<br>Default unit: vp
+   * @param { number } cp1y - Y-coordinate of the first Bezier control point.<br>In versions
+   *     earlier than API version 18, **NaN** or **Infinity** values prevent the entire path from rendering,
+   *     and **null** or **undefined** values cause the current API to have no effect. Since API version 18,
+   *     **NaN**, **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other
+   *     path APIs with valid parameters continue to render correctly.<br>Default unit: vp
+   * @param { number } cp2x - X-coordinate of the second Bezier control point.<br>In versions
+   *     earlier than API version 18, **NaN** or **Infinity** values prevent the entire path from rendering,
+   *     and **null** or **undefined** values cause the current API to have no effect. Since API version 18,
+   *     **NaN**, **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other
+   *     path APIs with valid parameters continue to render correctly.<br>Default unit: vp
+   * @param { number } cp2y - Y-coordinate of the second Bezier control point.<br>In versions
+   *     earlier than API version 18, **NaN** or **Infinity** values prevent the entire path from rendering,
+   *     and **null** or **undefined** values cause the current API to have no effect. Since API version 18,
+   *     **NaN**, **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other
+   *     path APIs with valid parameters continue to render correctly.<br>Default unit: vp
+   * @param { number } x - X coordinate of the end point on the Bezier curve.<br>In versions earlier than
+   *     API version 18, **NaN** or **Infinity** values prevent the entire path from rendering, and **null**
    *     or **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
-   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
-   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
-   * @param { number } y - Y-coordinate of the end point on the Bezier curve.<br>In versions earlier than
-   *     API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null**
+   *     **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other path
+   *     APIs with valid parameters continue to render correctly.<br>Default unit: vp
+   * @param { number } y - Y coordinate of the end point on the Bezier curve.<br>In versions earlier than
+   *     API version 18, **NaN** or **Infinity** values prevent the entire path from rendering, and **null**
    *     or **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
-   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
-   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   *     **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other path
+   *     APIs with valid parameters continue to render correctly.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -392,9 +401,9 @@ declare class CanvasPath {
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
 
   /**
-   * Moves the current point of the path back to the start point of the path, and draws a straight line between the
-   * current point and the start point. If the shape has already been closed or has only one point, this method does
-   * nothing.
+   * Moves the current point of the path back to the start point of the path, and draws a
+   * straight line between the current point and the start point. If the shape has already been
+   * closed or has only one point, this method does nothing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -406,43 +415,46 @@ declare class CanvasPath {
   closePath(): void;
 
   /**
-   * Draws an ellipse in the specified rectangular region on the canvas.
+   * Draws an ellipse path at the specified center point with the given x-axis radius,
+   * y-axis radius, and rotation angle.
    *
-   * @param { number } x - X-coordinate of the ellipse center.<br>In versions earlier than API version 18,
-   *     **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   * @param { number } x - X coordinate of the ellipse center.<br>In versions earlier than API version 18,
+   *     **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or **undefined**
    *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**,
-   *     **null**, or **undefined** causes the current API to have no effect, and other path APIs with valid
+   *     **null**, or **undefined** values cause the current API to have no effect, and other path APIs with valid
    *     arguments continue to render correctly.<br>Default unit: vp
-   * @param { number } y - Y-coordinate of the ellipse center.<br>In versions earlier than API version 18,
-   *     **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   * @param { number } y - Y coordinate of the ellipse center.<br>In versions earlier than API version 18,
+   *     **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or **undefined**
    *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**,
-   *     **null**, or **undefined** causes the current API to have no effect, and other path APIs with valid
+   *     **null**, or **undefined** values cause the current API to have no effect, and other path APIs with valid
    *     arguments continue to render correctly.<br>Default unit: vp
-   * @param { number } radiusX - Radius of the ellipse on the x-axis.<br>In versions earlier than API
-   *     version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or
+   * @param { number } radiusX - Radius length of the ellipse on the x-axis. Value
+   *     range: [0, +∞).<br>In versions earlier than API
+   *     version 18, **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or
    *     **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
-   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
-   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
-   * @param { number } radiusY - Radius of the ellipse on the y-axis.<br>In versions earlier than API
-   *     version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or
+   *     **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other path
+   *     APIs with valid parameters continue to render correctly.<br>Default unit: vp
+   * @param { number } radiusY - Radius length of the ellipse on the y-axis. Value
+   *     range: [0, +∞).<br>In versions earlier than API
+   *     version 18, **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or
    *     **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
-   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
-   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   *     **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other path
+   *     APIs with valid parameters continue to render correctly.<br>Default unit: vp
    * @param { number } rotation - Rotation angle of the ellipse.<br>In versions earlier than API version 18,
-   *     **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   *     **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or **undefined**
    *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**,
-   *     **null**, or **undefined** causes the current API to have no effect, and other path APIs with valid
-   *     arguments continue to render correctly.<br>Unit: radian
-   * @param { number } startAngle - Angle of the start point for drawing the ellipse.<br>In versions earlier
-   *     than API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and
-   *     **null** or **undefined** value causes the current API to have no effect. Since API version 18,
-   *     **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other
-   *     path APIs with valid arguments continue to render correctly.<br>Unit: radian
-   * @param { number } endAngle - Angle of the end point for drawing the ellipse.<br>In versions earlier than
-   *     API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or
+   *     **null**, or **undefined** values cause the current API to have no effect, and other path APIs with valid
+   *     arguments continue to render correctly.<br>Default unit: radian
+   * @param { number } startAngle - Starting angle for drawing the ellipse.<br>In versions earlier
+   *     than API version 18, **NaN** or **Infinity** values prevent the entire path from rendering, and
+   *     **null** or **undefined** values cause the current API to have no effect. Since API version 18,
+   *     **NaN**, **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other
+   *     path APIs with valid parameters continue to render correctly.<br>Default unit: radian
+   * @param { number } endAngle - Ending angle for drawing the ellipse.<br>In versions earlier than
+   *     API version 18, **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or
    *     **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
-   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path APIs
-   *     with valid arguments continue to render correctly.<br>Unit: radian
+   *     **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other path APIs
+   *     with valid arguments continue to render correctly.<br>Default unit: radian
    * @param { boolean } [counterclockwise] - Whether to draw the ellipse counterclockwise.<br>**true**: Draw
    *     the ellipse counterclockwise.<br>**false**: Draw the ellipse clockwise.<br>The default value is
    *     **false**. If this parameter is set to **null** or **undefined**, the default value is used.
@@ -465,17 +477,17 @@ declare class CanvasPath {
   ): void;
 
   /**
-   * Connects the current point to a target position using a line.
+   * Draws a straight line from the current point to the target point.
    *
-   * @param { number } x - X-coordinate of the target position.<br>In versions earlier than API version 18,
-   *     **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   * @param { number } x - X-axis coordinate of the target point.<br>In versions earlier than API version 18,
+   *     **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or **undefined**
    *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
-   *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     or **undefined** values cause the current API to have no effect, and other path APIs with valid arguments
    *     continue to render correctly.<br>Default unit: vp
-   * @param { number } y - Y-coordinate of the target position.<br>In versions earlier than API version 18,
-   *     **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   * @param { number } y - Y-axis coordinate of the target point.<br>In versions earlier than API version 18,
+   *     **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or **undefined**
    *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
-   *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     or **undefined** values cause the current API to have no effect, and other path APIs with valid arguments
    *     continue to render correctly.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -487,25 +499,26 @@ declare class CanvasPath {
   lineTo(x: number, y: number): void;
 
   /**
-   * Moves a drawing path from the current position to a target position on the canvas.
+   * Moves the current coordinate point of the path to the target point, without
+   * drawing a line during the movement.
    * > **NOTE**
    * >
-   * > In versions earlier than API version 18, if the **moveTo** API is not called or invalid arguments
-   * > are passed to it, the path starts from (0,0).
+   * > In versions earlier than API version 18, if the **moveTo** API is not executed or the **moveTo**
+   * > API passes invalid parameters, the path starts with (0,0).
    * >
-   * > Starting from API version 18, if the **moveTo** API is not executed or invalid arguments are passed
-   * > to it, the path will begin at the start point of the first valid call to **lineTo**, **arcTo**,
-   * > **bezierCurveTo**, or **quadraticCurveTo**.
+   * > In API version 18 and later, if the **moveTo** API is not executed or the **moveTo** API passes
+   * > invalid parameters, the path starts from the start point of the **lineTo**, **arcTo**,
+   * > **bezierCurveTo**, or **quadraticCurveTo** API that is called for the first time.
    *
    * @param { number } x - X-coordinate of the target position.<br>In versions earlier than API version 18,
-   *     **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   *     **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or **undefined**
    *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
-   *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     or **undefined** values cause the current API to have no effect, and other path APIs with valid arguments
    *     continue to render correctly.<br>Default unit: vp
    * @param { number } y - Y-coordinate of the target position.<br>In versions earlier than API version 18,
-   *     **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
+   *     **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or **undefined**
    *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
-   *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     or **undefined** values cause the current API to have no effect, and other path APIs with valid arguments
    *     continue to render correctly.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -517,28 +530,28 @@ declare class CanvasPath {
   moveTo(x: number, y: number): void;
 
   /**
-   * Creates a path for a quadratic Bezier curve.
+   * Creates a quadratic Bezier curve path.
    *
-   * @param { number } cpx - X-coordinate of the Bezier curve parameter.<br>In versions earlier than
-   *     API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null**
+   * @param { number } cpx - X coordinate of the Bezier control point.<br>In versions earlier than
+   *     API version 18, **NaN** or **Infinity** values prevent the entire path from rendering, and **null**
    *     or **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
-   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
-   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
-   * @param { number } cpy - Y-coordinate of the Bezier curve parameter.<br>In versions earlier than API
-   *     version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or
+   *     **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other path
+   *     APIs with valid parameters continue to render correctly.<br>Default unit: vp
+   * @param { number } cpy - Y coordinate of the Bezier control point.<br>In versions earlier than API
+   *     version 18, **NaN** or **Infinity** values prevent the entire path from rendering, and **null** or
    *     **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
-   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
-   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
-   * @param { number } x - X-coordinate of the end point on the Bezier curve.<br>In versions earlier than
-   *     API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null**
+   *     **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other path
+   *     APIs with valid parameters continue to render correctly.<br>Default unit: vp
+   * @param { number } x - X coordinate of the end point on the Bezier curve.<br>In versions earlier than
+   *     API version 18, **NaN** or **Infinity** values prevent the entire path from rendering, and **null**
    *     or **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
-   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
-   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
-   * @param { number } y - Y-coordinate of the end point on the Bezier curve.<br>In versions earlier than
-   *     API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null**
+   *     **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other path
+   *     APIs with valid parameters continue to render correctly.<br>Default unit: vp
+   * @param { number } y - Y coordinate of the end point on the Bezier curve.<br>In versions earlier than
+   *     API version 18, **NaN** or **Infinity** values prevent the entire path from rendering, and **null**
    *     or **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
-   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
-   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   *     **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other path
+   *     APIs with valid parameters continue to render correctly.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -551,25 +564,29 @@ declare class CanvasPath {
   /**
    * Creates a rectangle on the canvas.
    *
-   * @param { number } x - X-coordinate of the rectangle's top-left corner.<br>In versions earlier than
-   *     API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null**
+   * > **NOTE**
+   * >
+   * > To create a rounded rectangle path, use the [roundRect]{@link roundRect} method.
+   *
+   * @param { number } x - X coordinate of the upper left corner of the rectangle.<br>In versions earlier than
+   *     API version 18, **NaN** or **Infinity** values prevent the entire path from rendering, and **null**
    *     or **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
-   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
-   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
-   * @param { number } y - Y-coordinate of the rectangle's top-left corner.<br>In versions earlier than
-   *     API version 18, **NaN** or **Infinity** value prevents the entire path from rendering, and **null**
+   *     **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other path
+   *     APIs with valid parameters continue to render correctly.<br>Default unit: vp
+   * @param { number } y - Y coordinate of the upper left corner of the rectangle.<br>In versions earlier than
+   *     API version 18, **NaN** or **Infinity** values prevent the entire path from rendering, and **null**
    *     or **undefined** value causes the current API to have no effect. Since API version 18, **NaN**,
-   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other path
-   *     APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   *     **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other path
+   *     APIs with valid parameters continue to render correctly.<br>Default unit: vp
    * @param { number } w - Width of the rectangle.<br>In versions earlier than API version 18, **NaN** or
    *     **Infinity** value prevents the entire path from rendering, and **null** or **undefined** value
    *     causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**, or
-   *     **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     **undefined** values cause the current API to have no effect, and other path APIs with valid arguments
    *     continue to render correctly.<br>Default unit: vp
    * @param { number } h - Height of the rectangle.<br>In versions earlier than API version 18, **NaN** or
    *     **Infinity** value prevents the entire path from rendering, and **null** or **undefined** value
    *     causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**, or
-   *     **undefined** causes the current API to have no effect, and other path APIs with valid arguments
+   *     **undefined** values cause the current API to have no effect, and other path APIs with valid arguments
    *     continue to render correctly.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -581,23 +598,29 @@ declare class CanvasPath {
   rect(x: number, y: number, w: number, h: number): void;
 
   /**
-   * Creates a rounded rectangle path. This API does not directly render content. To draw the rounded
-   * rectangle on the canvas, use **fill** or **stroke**.
+   * Creates a rounded rectangle path. This method does not directly render the
+   * content. To draw a rounded rectangle on the canvas, use the fill or stroke method.
    *
-   * @param { number } x - X-coordinate of the rectangle's top-left corner.<br>The value **null** is
-   *     treated as **0**, and **undefined** is treated as an invalid value, indicating no rendering.<br>
-   *     To draw a complete rectangle, the value range is [0, Canvas width).<br>Default unit: vp
-   * @param { number } y - Y-coordinate of the rectangle's top-left corner.<br>The value **null** is treated
-   *     as **0**, and **undefined** is treated as an invalid value, indicating no rendering.<br>To draw a
-   *     complete rectangle, the value range is [0, Canvas height).<br>Default unit: vp
-   * @param { number } w - Width of the rectangle. A negative value indicates that the rectangle is drawn
-   *     from right to left.<br>The value **null** is treated as **0**, and **undefined** is treated as an
-   *     invalid value, indicating no rendering.<br>To draw a complete rectangle, the value range is
-   *     [-x, Canvas width - x].<br>Default unit: vp
-   * @param { number } h - Height of the rectangle. A negative value indicates upward drawing.<br>The value
-   *     **null** is treated as **0**, and **undefined** is treated as an invalid value, indicating no
-   *     rendering.<br>To draw a complete rectangle, the value range is [-y, Canvas height - y].<br>
-   *     Default unit: vp
+   * @param { number } x - X coordinate of the top-left corner of the rectangle.<br>**null**
+   *     is treated as **0**. **undefined** is treated as an invalid value, and no drawing is
+   *     performed.<br>When **NaN** or **Infinity** is set, the current API does not take effect,
+   *     and other path methods with valid parameters are drawn normally.<br>To draw a complete
+   *     rectangle, the value range is [0, Canvas width).<br>Default unit: vp
+   * @param { number } y - Y coordinate of the top-left corner of the rectangle.<br>**null**
+   *     is treated as **0**. **undefined** is treated as an invalid value, and no drawing is
+   *     performed.<br>When **NaN** or **Infinity** is set, the current API does not take effect,
+   *     and other path methods with valid parameters are drawn normally.<br>To draw a complete
+   *     rectangle, the value range is [0, Canvas height).<br>Default unit: vp
+   * @param { number } w - Width of the rectangle. A negative value draws to the left.<br>**null**
+   *     is treated as **0**. **undefined** is treated as an invalid value, and no drawing is
+   *     performed.<br>When **NaN** or **Infinity** is set, the current API does not take effect,
+   *     and other path methods with valid parameters are drawn normally.<br>To draw a complete
+   *     rectangle, the value range is [-x, Canvas width - x].<br>Default unit: vp
+   * @param { number } h - Height of the rectangle. A negative value draws upward.<br>**null**
+   *     is treated as **0**. **undefined** is treated as an invalid value, and no drawing is
+   *     performed.<br>When **NaN** or **Infinity** is set, the current API does not take effect,
+   *     and other path methods with valid parameters are drawn normally.<br>To draw a complete
+   *     rectangle, the value range is [-y, Canvas height - y].<br>Default unit: vp
    * @param { number | Array<number> } [radii] - Number or list of arc radii used for the rectangle corners.
    *     <br>If the parameter type is number, it applies to the arc radius of all rectangle corners.
    *     <br>If the parameter type is Array<number>, the array contains 1 to 4 numbers, interpreted as
@@ -625,15 +648,19 @@ declare class CanvasPath {
 }
 
 /**
- * **Path2D** allows you to describe a path through an existing path. This path can be drawn
- * through the **stroke** or **fill** API of **Canvas**.
+ * A path object that supports path description and combination through its APIs, and can
+ * be drawn through the **stroke** or **fill** API of **Canvas**. **Path2D** supports
+ * path reuse, combination of multiple paths, and creation of paths based on SVG path
+ * strings. It is suitable for scenarios where the same path needs to be drawn multiple
+ * times, complex graphics need to be dynamically combined, or graphics need to be drawn
+ * based on SVG path data.
  *
  * > **NOTE**
  * >
- * > The Path2D object does not support the resetting of an existing path. If a new path
- * > is required, you can create an empty Path2D object.
+ * > The **Path2D** object does not support resetting an already set path. To create a
+ * > new path, create an empty **Path2D** object.
  * >
- * > The methods of the Path2D object do not take effect for the paths set in the
+ * > The methods of the **Path2D** object cannot take effect on paths set in the
  * > [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}
  * > and
  * > [OffscreenCanvasRenderingContext2D]{@link OffscreenCanvasRenderingContext2D}
@@ -651,11 +678,16 @@ declare class Path2D extends CanvasPath {
   /**
    * Adds a path to this path.
    *
-   * @param { Path2D } path - Path to be added to this path. Unit: px.<br>
-   *     The **undefined** and **null** values are treated as invalid.
-   * @param { Matrix2D } transform - Transformation matrix of the new path.<br>
-   *     The **undefined** and **null** values are treated as invalid.<br>
-   *     Default value: **null**.
+   * @param { Path2D } path - Path object to be added to the current path.<br>
+   *     The abnormal values **undefined** and **null** are treated as invalid values.
+   * @param { Matrix2D } transform - Transformation matrix object for the added path,
+   *     used to perform transformations such as translation, rotation, and scaling on
+   *     the added path. Pass this parameter when graphic transformation is needed for
+   *     the added path; it can be omitted when no transformation is required. If not
+   *     passed, the default value is **null**, indicating that no transformation is
+   *     applied to the path.<br>
+   *     The abnormal values **undefined** and **null** are treated as invalid values.<br>
+   *     Default value: **null**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -680,11 +712,11 @@ declare class Path2D extends CanvasPath {
   /**
    * Constructs an empty Path2D object. The unit mode of the Path2D object can be configured.
    *
-   * @param { LengthMetricsUnit } [unit] - Unit mode of the Path2D object.
-   *     The value cannot be dynamically changed once set. The configuration method is the same
-   *     as that of
+   * @param { LengthMetricsUnit } [unit] - Unit mode of the **Path2D** object. Once
+   *     configured, it cannot be dynamically changed. The configuration method is the
+   *     same as that of
    *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
-   *     Invalid values **NaN** and **Infinity** are treated as the default value.<br>
+   *     Abnormal values **NaN** and **Infinity** are processed as the default value.<br>
    *     Default value: **DEFAULT**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -698,7 +730,9 @@ declare class Path2D extends CanvasPath {
   /**
    * Constructs a Path2D object using a path object.
    *
-   * @param { Path2D } path - **Path** object.
+   * @param { Path2D } path - Path object to be copied. The newly created **Path2D**
+   *     object will contain the same path data as the original path. An empty path
+   *     object is created when the value is **null** or **undefined**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -712,12 +746,15 @@ declare class Path2D extends CanvasPath {
    * When a path object is used to construct a Path2D object, the unit mode of the Path2D
    * object can be configured.
    *
-   * @param { Path2D } path - **Path** object.
-   * @param { LengthMetricsUnit } [unit] - Unit mode of the Path2D object.
-   *     The value cannot be dynamically changed once set. The configuration method is the same
-   *     as that of
+   * @param { Path2D } path - **Path2D** path object to be copied. Used to create a
+   *     new **Path2D** object based on an existing path. The incoming path object is
+   *     not modified, and the newly created object contains a complete copy of the
+   *     path.
+   * @param { LengthMetricsUnit } [unit] - Unit mode for configuring the **Path2D**
+   *     object. It cannot be dynamically changed after configuration. The
+   *     configuration method is the same as that of
    *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
-   *     Invalid values **NaN** and **Infinity** are treated as the default value.<br>
+   *     Abnormal values **NaN** and **Infinity** are treated as the default value.<br>
    *     Default value: **DEFAULT**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -732,9 +769,9 @@ declare class Path2D extends CanvasPath {
    * Constructs a Path2D object using a path string that complies with the SVG path
    * description specifications.
    *
-   * @param { string } d - Path that complies with the
-   *     [SVG path syntax]{@link Path2D}.
-   *     Invalid values are treated as invalid inputs.
+   * @param { string } d - Path string that complies with the SVG path description
+   *     specification. For the format, see [SVG Path Syntax]{@link path}.
+   *     Abnormal values are treated as invalid values.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -748,14 +785,15 @@ declare class Path2D extends CanvasPath {
    * Constructs a Path2D object using a path string that complies with the SVG path
    * specifications. The unit mode of the Path2D object can be configured.
    *
-   * @param { string } description - Path that complies with the
-   *     [SVG path syntax]{@link Path2D}.
-   *     Invalid values are treated as invalid inputs.
-   * @param { LengthMetricsUnit } [unit] - Unit mode of the Path2D object.
-   *     The value cannot be dynamically changed once set. The configuration method is the same
-   *     as that of
+   * @param { string } description - Path string that conforms to the SVG path
+   *     description specification. For details about the format, see
+   *     [SVG Path Syntax]{@link path}.
+   *     Abnormal values are handled as invalid values.
+   * @param { LengthMetricsUnit } [unit] - Unit mode for configuring the **Path2D**
+   *     object. After configuration, it cannot be dynamically changed. The
+   *     configuration method is the same as that of
    *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
-   *     Invalid values **NaN** and **Infinity** are treated as the default value.<br>
+   *     Invalid values **NaN** and **Infinity** are handled as the default value.<br>
    *     Default value: **DEFAULT**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -770,7 +808,9 @@ declare class Path2D extends CanvasPath {
 /**
  * **CanvasPattern** represents an object, created by the
  * [createPattern]{@link CanvasRenderingContext2D#createPattern}
- * API, describing an image filling pattern based on the image and repetition mode.
+ * API, describing an image filling pattern based on the image and repetition mode. It is suitable
+ * for scenarios where pattern filling or background textures are needed on a canvas, simplifying
+ * pattern filling implementation and improving drawing efficiency.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -781,11 +821,15 @@ declare class Path2D extends CanvasPath {
  */
 declare interface CanvasPattern {
   /**
-   * Uses a **Matrix2D** object as a parameter to perform matrix transformation on the current
-   * **CanvasPattern** object.
+   * Applies a matrix transformation to the current **CanvasPattern** using a **Matrix2D**
+   * object as the parameter. This is suitable for scenarios where geometric transformations
+   * such as translation, scaling, and rotation need to be applied to the pattern fill. If no
+   * parameter is passed, no matrix transformation is applied to the **CanvasPattern**.
    *
-   * @param { Matrix2D } transform - Transformation matrix.<br>The **undefined** and **null**
-   *     values are treated as invalid.<br>Default value: **null**.
+   * @param { Matrix2D } transform - Transformation matrix used to perform geometric
+   *     transformations such as translation, scaling, and rotation on the
+   *     **CanvasPattern**.<br>Note: No matrix transformation is performed when the parameter
+   *     is **undefined** or **null**.<br>Default value: **null**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -1003,6 +1047,11 @@ declare interface TextMetrics {
  * to transfer the **ImageBitmap** instance to the worker thread for drawing, and use
  * **onmessage** to receive the drawing results sent by the worker thread for display.
  *
+ * > **NOTE**
+ * >
+ * > The **ImageBitmap** object only supports loading static images. To play animated
+ * > images, use the [Image]{@link Image} component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -1012,9 +1061,7 @@ declare interface TextMetrics {
  */
 declare class ImageBitmap {
   /**
-   * Pixel height of the **ImageBitmap** object.
-   *
-   * Default unit: vp
+   * Height of the **ImageBitmap**.<br>Unit: vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1026,9 +1073,7 @@ declare class ImageBitmap {
   readonly height: number;
 
   /**
-   * Pixel width of the **ImageBitmap** object.
-   *
-   * Default unit: vp
+   * Width of the **ImageBitmap**.<br>Unit: vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1040,8 +1085,19 @@ declare class ImageBitmap {
   readonly width: number;
 
   /**
-   * Releases all graphics resources associated with this **ImageBitmap** object and sets
+   * Releases all image resources associated with the **ImageBitmap** object and sets
    * its width and height to **0**.
+   *
+   * > **NOTE**
+   * >
+   * > - This method must be used together with the [constructor()]{@link ImageBitmap#constructor}
+   * > method. After creating an **ImageBitmap** object, call **close()** to release
+   * > resources when they are no longer needed. Failure to call **close()** may cause
+   * > image resource leaks and affect app performance.
+   * > - It is recommended to call this method after **Canvas** drawing is complete, for
+   * > example, at the end of the
+   * > [onReady]{@link CanvasAttribute#onReady(event: VoidCallback)}
+   * > callback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1053,21 +1109,28 @@ declare class ImageBitmap {
   close(): void;
 
   /**
-   * Creates an **ImageBitmap** object using an **ImageSrc** object.
+   * Creates an **ImageBitmap** object using an image data source.
    *
-   * @param { string } src - Image source. Local images are supported.<br>
+   * > **NOTE**
+   * >
+   * > Call the **close()** method to release resources after use to avoid image
+   * > resource leaks.
+   *
+   * @param { string } src - Image data source. Supports local images.<br>
    *     1. The string format is used to load local images, for example,
-   *     **ImageBitmap("common/images/example.jpg")**. For entry and feature modules,
-   *     the start point of the image path for loading is the **ets** folder of the module.
-   *     For HAR and shared modules, the start point is the **ets** folder of the entry or
-   *     feature module into which they are built.<br>
-   *     For modules whose **type** is **"har"** or **"shared"**, you are advised to use
+   *     **ImageBitmap("common/images/example.jpg")**. For modules of the "entry" and
+   *     "feature" types, the starting point of the image loading path is the **ets**
+   *     folder of the current module. For modules of the "har" and "shared" types, the
+   *     starting point of the image loading path is the **ets** folder of the currently
+   *     built "entry" or "feature" type module.<br>
+   *     For modules of the "har" and "shared" types, it is recommended to use
    *     [ImageSource](docroot://media/image/image-decoding.md) to decode resource images
-   *     into a unified **PixelMap** object for loading and use.<br>
-   *     2. Supported image formats: BMP, JPG, PNG, SVG, and WEBP.<br>
+   *     into a unified **PixelMap** for loading.<br>
+   *     2. Supported local image types: bmp, jpg, png, svg, and webp.<br>
    *     **NOTE**<br>
-   *     - ArkTS widgets do not support the strings with the **http://**, **datashare://**,
-   *     or **file://data/storage**.
+   *     - In ArkTS widgets, strings with network-related path prefixes such as
+   *     **http://**, the **datashare://** path prefix, and the
+   *     **file://data/storage** path prefix are not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -1078,27 +1141,36 @@ declare class ImageBitmap {
   constructor(src: string);
 
   /**
-   * Creates an **ImageBitmap** object using an **ImageSrc** object. The unit mode of the
-   * Path2D object can be configured using **unit**.
+   * Creates an **ImageBitmap** object using an image data source. This API supports
+   * configuring the unit mode of the **ImageBitmap** object with **unit**.
    *
-   * @param { string } src - Image source. Local images are supported.<br>
+   * > **NOTE**
+   * >
+   * > Call the **close()** method to release resources after use to avoid image
+   * > resource leaks.
+   *
+   * @param { string } src - Image data source, which supports local images.<br>
    *     1. The string format is used to load local images, for example,
-   *     **ImageBitmap("common/images/example.jpg")**. For entry and feature modules,
-   *     the start point of the image path for loading is the **ets** folder of the module.
-   *     For HAR and shared modules, the start point is the **ets** folder of the entry or
-   *     feature module into which they are built.<br>
-   *     For modules whose **type** is **"har"** or **"shared"**, you are advised to use
+   *     **ImageBitmap("common/images/example.jpg")**. For modules of the "entry" and
+   *     "feature" types, the image loading path starts from the **ets** folder of the
+   *     current module. For modules of the "har" and "shared" types, the image loading
+   *     path starts from the **ets** folder of the currently built "entry" or "feature"
+   *     type module.<br>
+   *     For modules of the "har" and "shared" types, you are advised to use
    *     [ImageSource](docroot://media/image/image-decoding.md) to decode resource images
-   *     into a unified **PixelMap** object for loading and use.<br>
-   *     2. Supported image formats: BMP, JPG, PNG, SVG, and WEBP.<br>
+   *     into a unified **PixelMap** for loading.<br>
+   *     2. Supported local image types: bmp, jpg, png, svg, and webp.<br>
    *     **NOTE**<br>
-   *     - ArkTS widgets do not support the strings with the **http://**, **datashare://**,
-   *     or **file://data/storage**.
-   * @param { LengthMetricsUnit } [unit] - Unit mode of the **ImageBitmap** object.
-   *     The value cannot be dynamically changed once set. The configuration method is the
-   *     same as that of
+   *     - ArkTS widgets do not support strings with network-related path prefixes such
+   *     as **http://**, the **datashare://** path prefix, or the
+   *     **file://data/storage** path prefix.
+   * @param { LengthMetricsUnit } [unit] - Unit mode for configuring the **ImageBitmap**
+   *     object. The mode cannot be dynamically changed after configuration. The
+   *     configuration method is the same as that of
    *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
-   *     If the value is **undefined**, **NaN**, or **Infinity**, the default value will be used.
+   *     Default value: **LengthMetricsUnit.DEFAULT**.<br>
+   *     Abnormal values such as **undefined**, **NaN**, and **Infinity** are processed
+   *     as the default value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1111,7 +1183,14 @@ declare class ImageBitmap {
   /**
    * Creates an **ImageBitmap** object using a **PixelMap** object.
    *
-   * @param { PixelMap } data - Image data source, which supports **PixelMap** objects.
+   * > **NOTE**
+   * >
+   * > Call the **close()** method to release resources after use to avoid image
+   * > resource leaks.
+   *
+   * @param { PixelMap } data - Image data source, set through a **PixelMap** object.
+   *     Applicable to scenarios where images need to be decoded and processed before
+   *     drawing, which can improve image loading performance.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -1121,14 +1200,24 @@ declare class ImageBitmap {
   constructor(data: PixelMap);
 
   /**
-   * Creates an **ImageBitmap** object using a **PixelMap** object. The unit mode of the
-   * Path2D object can be configured using **unit**.
+   * Creates an **ImageBitmap** object using a **PixelMap** object. This API supports
+   * configuring the unit mode of the **ImageBitmap** object with **unit**.
    *
-   * @param { PixelMap } data - Image data source, which supports **PixelMap** objects.
-   * @param { LengthMetricsUnit } [unit] - Unit mode of the **ImageBitmap** object.
-   *     The value cannot be dynamically changed once set. The configuration method is the
-   *     same as that of
-   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.
+   * > **NOTE**
+   * >
+   * > Call the **close()** method to release resources after use to avoid image
+   * > resource leaks.
+   *
+   * @param { PixelMap } data - Image data source, set through a **PixelMap** object.
+   *     This is suitable for scenarios where images need to be decoded and processed
+   *     before drawing, which can improve image loading performance.
+   * @param { LengthMetricsUnit } [unit] - Unit mode for configuring the **ImageBitmap**
+   *     object. Once configured, it cannot be changed dynamically. The configuration
+   *     method is the same as that of
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
+   *     Default value: **LengthMetricsUnit.DEFAULT**.<br>
+   *     Abnormal values such as **undefined**, **NaN**, and **Infinity** are processed
+   *     as the default value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1138,10 +1227,25 @@ declare class ImageBitmap {
   constructor(data: PixelMap, unit: LengthMetricsUnit);
 
   /**
-   * Transfer a Resource object to construct an ImageBitmap object.
+   * Creates an **ImageBitmap** object using a **Resource** object. This API supports
+   * configuring the unit mode of the **ImageBitmap** object with **unit**.
    *
-   * @param { Resource } data - Resource object
-   * @param { LengthMetricsUnit } [unit] - the unit mode
+   * > **NOTE**
+   * >
+   * > Call the **close()** method to release resources after use to avoid image
+   * > resource leaks.
+   *
+   * @param { Resource } data - Image data source, set by referencing a **Resource**
+   *     object. This is used to reference image resources in the app resource directory,
+   *     for example, **$r('app.media.example')**, which avoids hardcoding paths.<br>
+   *     Supported image types: bmp, jpg, png, svg, and webp.
+   * @param { LengthMetricsUnit } [unit] - Unit mode of the **ImageBitmap** object.
+   *     Once configured, it cannot be changed dynamically. The configuration method is
+   *     the same as that of
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
+   *     Default value: **LengthMetricsUnit.DEFAULT**.<br>
+   *     Abnormal values **undefined**, **NaN**, and **Infinity** are processed as the
+   *     default value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
@@ -1153,14 +1257,19 @@ declare class ImageBitmap {
 }
 
 /**
- * An **ImageData** object stores pixel data rendered on a canvas.
+ * The **ImageData** object stores pixel data rendered on a canvas, supporting reading,
+ * modifying, and manipulating pixels. It is suitable for scenarios such as image
+ * processing, pixel-level editing, and special effect filters. With **ImageData**, you
+ * can precisely control each pixel of an image, implement custom image processing
+ * algorithms, and provide flexible pixel-level data access for canvas drawing.
  *
  * > **NOTE**
  * >
- * > A constructor used to create an **ImageData** object. To ensure successful drawing,
- * > make sure the object's area does not exceed 16000 x 16000, with its width and height
- * > not greater than 16384 px. If the created area exceeds 536870911 px, the returned
- * > width and height are both 0 px, and **data** is **undefined**.
+ * > When creating an **ImageData** object, the width and height must not exceed
+ * > 16384 px, and the area must not exceed 16000 px × 16000 px. If the area exceeds
+ * > this limit, the object cannot be rendered properly. If the created area exceeds
+ * > 536870911 square pixels, the width and height of the return value are both 0 px,
+ * > and **data** is **undefined**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1171,7 +1280,13 @@ declare class ImageBitmap {
  */
 declare class ImageData {
   /**
-   * A one-dimensional array of color values. The values range from 0 to 255.
+   * One-dimensional array that stores pixel data in RGBA format. Each pixel occupies
+   * 4 bytes, in the order of R, G, B, and A, with data values ranging from 0 to 255.
+   *
+   * > **NOTE**
+   * >
+   * > The [px2vp]{@link UIContext#px2vp}
+   * > API can be used for unit conversion.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1183,9 +1298,12 @@ declare class ImageData {
   readonly data: Uint8ClampedArray;
 
   /**
-   * Actual height of the rectangle on the canvas.
+   * Actual height of the rectangle.<br>The unit is px.
    *
-   * The unit is px.
+   * > **NOTE**
+   * >
+   * > The [px2vp]{@link UIContext#px2vp}
+   * > API can be used for unit conversion.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1197,9 +1315,7 @@ declare class ImageData {
   readonly height: number;
 
   /**
-   * Actual width of the rectangle on the canvas.
-   *
-   * The unit is px.
+   * Actual width of the rectangle.<br>The unit is px.
    *
    * > **NOTE**
    * >
@@ -1216,17 +1332,35 @@ declare class ImageData {
   readonly width: number;
 
   /**
-   * Creates an **ImageData** object with the specified width, height, and color.
-   * If data is not defined, it is populated with a one-dimensional array of 0s.
+   * Creates an **ImageData** object with the specified width, height, and pixel data.
+   * If **data** is not defined, a one-dimensional array filled with zeros is used.
+   * When creating the object, the width and height must not exceed 16384 px, and the
+   * maximum area must not exceed 16000 px × 16000 px. If the area exceeds the maximum
+   * limit, the object cannot be rendered properly. If the created area exceeds
+   * 536870911 square pixels, the width and height of the return value are both 0 px,
+   * and **data** is **undefined**.
    *
-   * @param { number } width - Width of the rectangle.<br>Default unit: vp<br>
-   *     Invalid values **NaN** and **Infinity** are treated as **0**.
-   * @param { number } height - Height of the rectangle.<br>Default unit: vp<br>
-   *     Invalid values **NaN** and **Infinity** are treated as **0**.
-   * @param { Uint8ClampedArray } data - A one-dimensional array of color values.
-   *     The values range from 0 to 255.<br>
-   *     If the value specified is **undefined**, **data** is **undefined**.<br>
-   *     Default value: a one-dimensional array of all 0s
+   * @param { number } width - Width of the rectangular area, in vp. The width and
+   *     height must not exceed 16384 px, and the maximum area must not exceed
+   *     16000 px × 16000 px. If the maximum area is exceeded, rendering will be
+   *     abnormal. When the created area exceeds 536870911 square pixels, the width
+   *     and height of the returned object are 0, and **data** is **undefined**.<br>
+   *     Invalid values such as **NaN**, **Infinity**, negative numbers, and **0** are
+   *     treated as **0**.
+   * @param { number } height - Height of the rectangular area, in vp. The width and
+   *     height must not exceed 16384 px, and the maximum area must not exceed
+   *     16000 px × 16000 px. If the maximum area is exceeded, rendering will be
+   *     abnormal. When the created area exceeds 536870911 square pixels, the width
+   *     and height of the returned object are 0, and **data** is **undefined**.<br>
+   *     Invalid values such as **NaN**, **Infinity**, negative numbers, and **0** are
+   *     treated as **0**.
+   * @param { Uint8ClampedArray } data - One-dimensional array that stores pixel data
+   *     in RGBA format. Each pixel occupies 4 bytes, in the order of R, G, B, and A.
+   *     Data values range from 0 to 255. The array length must be width × height × 4.
+   *     Pass this parameter when custom pixel data for **ImageData** is needed, for
+   *     example, when pixel-level processing or modification of an image is required.
+   *     When the invalid value **undefined** is passed, **data** is **undefined**.<br>
+   *     Default value: a one-dimensional array with all values set to 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -1237,23 +1371,49 @@ declare class ImageData {
   constructor(width: number, height: number, data?: Uint8ClampedArray);
 
   /**
-   * Creates an **ImageData** object with the specified width, height, and color.
-   * If data is not defined, it is populated with a one-dimensional array of 0s.
-   * The unit of the **ImageData** object can be configured using **unit**.
+   * Creates an **ImageData** object with the specified width, height, and pixel data.
+   * If **data** is not defined, a one-dimensional array filled with zeros is used. The
+   * unit parameter can be used to configure the unit mode of the **ImageData** object.
+   * When creating the object, the width and height must not exceed 16384 px, and the
+   * maximum area must not exceed 16000 px × 16000 px. If the area exceeds the maximum
+   * limit, the object cannot be rendered properly. If the created area exceeds
+   * 536870911 square pixels, the width and height of the return value are both 0 px,
+   * and **data** is **undefined**. Invalid values such as **NaN**, **Infinity**,
+   * negative numbers, and **0** are treated as 0. When you need to use the vp unit
+   * for responsive layout or to adapt to different screen densities, you can specify
+   * the unit mode through the **unit** parameter.
    *
-   * @param { number } width - Width of the rectangle.<br>Default unit: vp<br>
-   *     Invalid values **NaN** and **Infinity** are treated as **0**.
-   * @param { number } height - Height of the rectangle.<br>Default unit: vp<br>
-   *     Invalid values **NaN** and **Infinity** are treated as **0**.
-   * @param { Uint8ClampedArray } data - A one-dimensional array of color values.
-   *     The values range from 0 to 255.<br>
-   *     If the value specified is **undefined**, **data** is **undefined**.<br>
-   *     Default value: a one-dimensional array of all 0s
+   * @param { number } width - Width of the rectangular area. The unit is determined by
+   *     the unit parameter, and the default unit is vp. The width and height cannot
+   *     exceed 16384 px, and the maximum area cannot exceed 16000 px × 16000 px. If
+   *     the maximum area is exceeded, the content cannot be rendered properly. If
+   *     the created area exceeds 536870911 square pixels, the width and height of
+   *     the returned object are 0, and **data** is **undefined**.<br>
+   *     Invalid values such as **NaN**, **Infinity**, negative numbers, and **0** are
+   *     treated as 0.
+   * @param { number } height - Height of the rectangular area. The unit is determined
+   *     by the **unit** parameter, and the default unit is vp. The width and height
+   *     cannot exceed 16384 px, and the maximum area cannot exceed
+   *     16000 px × 16000 px. If the maximum area is exceeded, the content cannot be
+   *     rendered properly. If the created area exceeds 536870911 square pixels, the
+   *     width and height of the returned object are 0, and **data** is **undefined**.<br>
+   *     Invalid values such as **NaN**, **Infinity**, negative numbers, and **0** are
+   *     treated as **0**.
+   * @param { Uint8ClampedArray } data - One-dimensional array that stores pixel data
+   *     in RGBA format. Each pixel occupies 4 bytes, in the order of R, G, B, and A,
+   *     with data values ranging from 0 to 255. Pass this parameter when custom pixel
+   *     data of **ImageData** is required, for example, when pixel-level processing or
+   *     modification of an image is needed.<br>
+   *     If the invalid value **undefined** is passed, **data** is **undefined**.<br>
+   *     Default value: a one-dimensional array with all values set to 0.
    * @param { LengthMetricsUnit } [unit] - Unit mode of the **ImageData** object.
-   *     The value cannot be dynamically changed once set. The configuration method is
-   *     the same as that of
-   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
-   *     Invalid values **undefined**, **NaN** and **Infinity** are treated as the default value.<br>
+   *     Once configured, it cannot be dynamically changed. The configuration method
+   *     is the same as that of
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.
+   *     Pass this parameter when the vp unit is needed for responsive layout or
+   *     adaptation to different screen densities.<br>
+   *     Invalid values such as **undefined**, **NaN**, and **Infinity** are processed
+   *     as the default value.<br>
    *     Default value: **DEFAULT**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1278,15 +1438,15 @@ declare class ImageData {
  */
 declare class RenderingContextSettings {
   /**
-   * Indicates whether anti-aliasing is enabled for canvas.
-   * <br>A value of **undefined** is treated as the default value.
-   * <br>**false**: Disable anti-aliasing. **true**: Enable anti-aliasing.
+   * Whether to enable anti-aliasing for the canvas.
+   * <br>Abnormal values **undefined** or **null** are processed as the default value.
+   * <br>**true**: anti-aliasing is enabled; **false**: anti-aliasing is disabled.
    * <br>Default value: **false**
    * <br>**NOTE**<br>
    * Anti-aliasing is enabled by default for text drawing. The **antialias** attribute of
-   * **RenderingContextSettings** does not affect the anti-aliasing effect of the drawn text.
-   * To adjust the anti-aliasing effect for text, use the
-   * [antialias](#antialias24) API.
+   * **RenderingContextSettings** does not affect the anti-aliasing effect of text drawing. To
+   * modify the text anti-aliasing effect, use the
+   * [antialias<sup>24+</sup>]{@link RenderingContextSettings#antialias} API.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1298,15 +1458,17 @@ declare class RenderingContextSettings {
   antialias?: boolean;
 
   /**
-   * Constructs a **CanvasRenderingContext2D** object. Anti-aliasing can be enabled.
+   * Creates a **RenderingContextSettings** object, with support for configuring anti-aliasing.
    *
-   * @param { boolean } antialias - Whether to enable anti-aliasing.
-   *     <br>A value of **undefined** is treated as the default value.
-   *     <br>**false**: Disable anti-aliasing. **true**: Enable anti-aliasing.
+   * @param { boolean } [antialias] - Whether to enable anti-aliasing for the canvas.
+   *     <br>Abnormal values **undefined** or **null** are processed as the default value.
+   *     <br>**true**: anti-aliasing is enabled; **false**: anti-aliasing is disabled.
    *     <br>Default value: **false**
    *     <br>**NOTE**<br>
    *     Anti-aliasing is enabled by default for text drawing. The **antialias** attribute of
-   *     **RenderingContextSettings** does not affect the anti-aliasing effect of the drawn text.
+   *     **RenderingContextSettings** does not affect the anti-aliasing effect of text drawing. To
+   *     modify the text anti-aliasing effect, use the
+   *     [antialias<sup>24+</sup>]{@link RenderingContextSettings#antialias} API.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -1328,9 +1490,9 @@ declare class RenderingContextSettings {
  */
 declare interface RenderingContextOptions {
   /**
-   * Indicates whether to enable anti-aliasing for the **RenderingContext**.
-   * <br>A value of **undefined** is treated as the default value.
-   * <br>**true**: Enable anti-aliasing. **false**: Disable anti-aliasing.
+   * Whether to enable anti-aliasing for the **RenderingContext**.
+   * <br>The abnormal value **undefined** or **null** is processed as the default value.
+   * <br>The value **true** indicates anti-aliasing enabled, and **false** indicates the opposite.
    * <br>Default value: **false**
    *
    * @type { ?boolean }
@@ -1372,41 +1534,44 @@ declare interface RenderingContextOptions {
  */
 declare class CanvasRenderer extends CanvasPath {
   /**
-   * Sets the letter spacing. This attribute is write-only. You can set its value through an
-   * assignment statement, but cannot obtain its current value through a read operation. If you
-   * attempt to read its current value, **undefined** will be returned.
+   * Specifies the spacing between letters when drawing text. This is a write-only
+   * property. You can set its value through an assignment statement, but you cannot obtain
+   * its current value through a read operation. If you attempt to read it, **undefined** is
+   * returned.
    *
-   * Spacing between characters.
+   * Spacing between letters when drawing text.
    *
-   * When the LengthMetrics type is used:
+   * When **LengthMetrics** is used:
    *
-   * The spacing is set according to the specified unit.
+   * The letter spacing is set in the specified unit.
    *
-   * The FP, PERCENT, and LPX units are not supported and will be treated as invalid values.
+   * **FP**, **PERCENT**, and **LPX** are not supported (treated as invalid values).
    *
-   * Negative and fractional values are supported. When set to a fraction, the spacing is not
-   * rounded.
+   * Negative numbers and decimals are supported. When set to a decimal, the letter
+   * spacing is not rounded.
    *
-   * When the string type is used:
+   * When string is used:
    *
-   * Percentage values are not supported and will be treated as invalid.
+   * Percentage values are not supported (treated as invalid values).
    *
-   * Negative and decimal values are supported. When set to a decimal value, the spacing is not
-   * rounded.
+   * Negative numbers and decimals are supported. When set to a decimal, the letter
+   * spacing is not rounded.
    *
-   * If no unit is specified (for example, **letterSpacing = '10'**) and **LengthMetricsUnit**
-   * is not set, the default unit is vp.
+   * If the value assigned to **letterSpacing** does not specify a unit (for example,
+   * letterSpacing='10') and **LengthMetricsUnit** is not specified, the default unit is
+   * vp.
    *
-   * If **LengthMetricsUnit** is set to px, the default unit is px.
+   * If **LengthMetricsUnit** is specified as px, the default unit is px.
    *
-   * If the value of **letterSpacing** is specified with a unit (for example,
-   * **letterSpacing='10vp'**), the letter spacing is set based on the specified unit.
+   * When the value assigned to **letterSpacing** specifies a unit (for example,
+   * letterSpacing='10vp'), the letter spacing is set in the specified unit.
    *
-   * Default value: **0** (Invalid values are treated as the default value.)
+   * Default value: **0** (when an invalid value is input, the letter spacing is set to
+   *   the default value)
    *
    * > **NOTE**
    * >
-   * > The LengthMetrics type is recommended for better performance.
+   * > **LengthMetrics** is recommended for better performance.
    *
    * @type { LengthMetrics | string }
    * @default 0vp
@@ -1419,20 +1584,20 @@ declare class CanvasRenderer extends CanvasPath {
   letterSpacing: LengthMetrics | string;
 
   /**
-   * Sets the opacity. This attribute is write-only. You can set its value through an assignment
-   * statement, but cannot obtain its current value through a read operation. If you attempt to read
-   * its current value, **undefined** will be returned.
+   * Sets the transparency. This is a write-only property. You can set its value through an
+   * assignment statement, but you cannot obtain its current value through a read operation.
+   * If you attempt to read it, **undefined** is returned.
    *
-   * The value range is [0.0, 1.0]. **0.0** indicates completely transparent, and **1.0** indicates
-   * completely opaque. If the set value is less than 0.0, **0.0** will be used. If the set value is
-   * greater than 1.0, **1.0** will be used.
+   * The value range is [0.0, 1.0], where 0.0 means fully transparent and 1.0 means fully
+   * opaque. If the given value is less than 0.0, the value 0.0 is used; if the given value
+   * is greater than 1.0, the value 1.0 is used.
    *
-   * In versions earlier than API version 18, if **NaN** or **Infinity** is set, rendering APIs cannot
-   * be called for rendering after this API. In API version 18 and later versions, if **NaN** or
-   * **Infinity** is set, the current API does not take effect, and other rendering APIs with valid
-   * arguments can be called normally.
+   * Before API version 18, when **NaN** or **Infinity** is set, drawing methods executed
+   * after this method cannot draw. Since API version 18, when **NaN** or **Infinity** is
+   * set, the current API does not take effect, and other drawing methods with valid
+   * parameters draw normally.
    *
-   * Default value: **1.0**
+   * Default value: 1.0
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1444,27 +1609,27 @@ declare class CanvasRenderer extends CanvasPath {
   globalAlpha: number;
 
   /**
-   * Sets the composite operation. This attribute is write-only. You can set its value through an
-   * assignment statement, but cannot obtain its current value through a read operation. If you
-   * attempt to read its current value, **undefined** will be returned.
+   * Sets the composite operation mode. This is a write-only property, which can be set
+   * through an assignment statement but cannot be read; attempting to read it returns
+   * **undefined**.
    *
    * Available values are as follows:
    *
    * | Name | Description |
    * | ------ | ------ |
-   * | source-over | Displays the new drawing above the existing drawing. Default value. |
-   * | source-atop | Displays the new drawing on the top of the existing drawing. |
-   * | source-in | Displays the new drawing inside the existing drawing. |
-   * | source-out | Displays part of the new drawing that is outside of the existing drawing. |
-   * | destination-over | Displays the existing drawing above the new drawing. |
-   * | destination-atop | Displays the existing drawing on the top of the new drawing. |
-   * | destination-in | Displays the existing drawing inside the new drawing. |
-   * | destination-out | Displays the existing drawing outside the new drawing. |
-   * | lighter | Displays both the new and existing drawing. |
-   * | copy | Displays the new drawing and neglects the existing drawing. |
-   * | xor | Combines the new drawing and existing drawing using the XOR operation. |
+   * | source-over | Displays the new drawing content over the existing drawing content. This is the default value. |
+   * | source-atop | Displays the new drawing content on top of the existing drawing content. |
+   * | source-in | Displays the new drawing content inside the existing drawing content. |
+   * | source-out | Displays the new drawing content outside the existing drawing content. |
+   * | destination-over | Displays the existing drawing content over the new drawing content. |
+   * | destination-atop | Displays the existing drawing content on top of the new drawing content. |
+   * | destination-in | Displays the existing drawing content inside the new drawing content. |
+   * | destination-out | Displays the existing drawing content outside the new drawing content. |
+   * | lighter | Displays both the new and existing drawing content. |
+   * | copy | Displays the new drawing content and ignores the existing drawing content. |
+   * | xor | Blends the new drawing content with the existing drawing content using an XOR operation. |
    *
-   * Default value: **'source-over'**
+   * Default value: 'source-over'
    *
    * @default source-over
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1477,15 +1642,15 @@ declare class CanvasRenderer extends CanvasPath {
   globalCompositeOperation: string;
 
   /**
-   * Draws an image on the canvas.
+   * Draws an image.
    *
    * @param { ImageBitmap | PixelMap } image - Image resource. For details, see **ImageBitmap** or
    *     **PixelMap**.<br>**undefined** and **null** are treated as invalid values and no rendering will
    *     be performed.
-   * @param { number } dx - X-coordinate of the top-left corner of the drawing area on the canvas.<br>
+   * @param { number } dx - X-coordinate of the upper left corner of the drawing area.<br>
    *     Invalid values **undefined** and **null** are treated as **0**. **NaN** and **Infinity** are
    *     treated as invalid and no rendering will be performed.<br>Default unit: vp
-   * @param { number } dy - Y-coordinate of the top-left corner of the drawing area on the canvas.<br>
+   * @param { number } dy - Y-coordinate of the upper left corner of the drawing area.<br>
    *     Invalid values **undefined** and **null** are treated as **0**. **NaN** and **Infinity** are
    *     treated as invalid and no rendering will be performed.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1498,15 +1663,15 @@ declare class CanvasRenderer extends CanvasPath {
   drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number): void;
 
   /**
-   * Draws an image by stretching or compressing it to the specified dimensions.
+   * Draws the image by stretching or compressing it.
    *
    * @param { ImageBitmap | PixelMap } image - Image resource. For details, see **ImageBitmap** or
    *     **PixelMap**.<br>**undefined** and **null** are treated as invalid values and no rendering will
    *     be performed.
-   * @param { number } dx - X-coordinate of the top-left corner of the drawing area on the canvas.<br>
+   * @param { number } dx - X-axis position of the upper left corner of the drawing area.<br>
    *     Invalid values **undefined** and **null** are treated as **0**. **NaN** and **Infinity** are
    *     treated as invalid and no rendering will be performed.<br>Default unit: vp
-   * @param { number } dy - Y-coordinate of the top-left corner of the drawing area on the canvas.<br>
+   * @param { number } dy - Y-axis position of the upper left corner of the drawing area.<br>
    *     Invalid values **undefined** and **null** are treated as **0**. **NaN** and **Infinity** are
    *     treated as invalid and no rendering will be performed.<br>Default unit: vp
    * @param { number } dw - Width of the drawing area. If the width of the drawing area is different from
@@ -1527,7 +1692,7 @@ declare class CanvasRenderer extends CanvasPath {
   drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number, dw: number, dh: number): void;
 
   /**
-   * Draws a cropped portion of an image by stretching or compressing it to the specified dimensions.
+   * Draws the image after cropping, stretching, or compressing it.
    *
    * @param { ImageBitmap | PixelMap } image - Image resource. For details, see **ImageBitmap** or
    *     **PixelMap**.<br>**undefined** and **null** are treated as invalid values and no rendering will
@@ -1552,10 +1717,10 @@ declare class CanvasRenderer extends CanvasPath {
    *     will be performed.<br>If the type of **image** is **ImageBitmap**, the default unit is vp.<br>If
    *     the type of **image** is **PixelMap**, the default unit is px in versions earlier than API version
    *     18 and vp in API version 18 and later.
-   * @param { number } dx - X-coordinate of the top-left corner of the drawing area on the canvas.<br>
+   * @param { number } dx - X-coordinate of the upper-left corner of the drawing area.<br>
    *     Invalid values **undefined** and **null** are treated as **0**. **NaN** and **Infinity** are
    *     treated as invalid and no rendering will be performed.<br>Default unit: vp
-   * @param { number } dy - Y-coordinate of the top-left corner of the drawing area on the canvas.<br>
+   * @param { number } dy - Y-coordinate of the upper-left corner of the drawing area.<br>
    *     Invalid values **undefined** and **null** are treated as **0**. **NaN** and **Infinity** are
    *     treated as invalid and no rendering will be performed.<br>Default unit: vp
    * @param { number } dw - Width of the drawing area.<br>Negative values, **undefined**, and **null**
@@ -1586,7 +1751,7 @@ declare class CanvasRenderer extends CanvasPath {
   ): void;
 
   /**
-   * Creates a drawing path.
+   * Creates a new drawing path.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1598,7 +1763,7 @@ declare class CanvasRenderer extends CanvasPath {
   beginPath(): void;
 
   /**
-   * Sets the current path to a clipping path.
+   * Sets the current path as the clipping path.
    *
    * @param { CanvasFillRule } fillRule - Rule by which to determine whether a point is inside or outside
    *     the area to clip.<br>The options are **"nonzero"** and **"evenodd"**.<br>Invalid values
@@ -1613,7 +1778,7 @@ declare class CanvasRenderer extends CanvasPath {
   clip(fillRule?: CanvasFillRule): void;
 
   /**
-   * Sets a specified path as the clipping path.
+   * Sets the specified path as the clipping path.
    *
    * @param { Path2D } path - **Path2D** path to clip.<br>**undefined** and **null** are treated as
    *     invalid values.
@@ -1645,7 +1810,7 @@ declare class CanvasRenderer extends CanvasPath {
   fill(fillRule?: CanvasFillRule): void;
 
   /**
-   * Fills a specified path.
+   * Fills the specified path.
    *
    * @param { Path2D } path - **Path2D** path to fill.<br>**undefined** and **null** are treated as
    *     invalid values.
@@ -1662,7 +1827,7 @@ declare class CanvasRenderer extends CanvasPath {
   fill(path: Path2D, fillRule?: CanvasFillRule): void;
 
   /**
-   * Strokes (outlines) this path.
+   * Performs a stroke operation based on the current path.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1674,9 +1839,10 @@ declare class CanvasRenderer extends CanvasPath {
   stroke(): void;
 
   /**
-   * Strokes (outlines) a specified path.
+   * Performs stroke drawing based on the specified path.
    *
-   * @param { Path2D } path - Specified stroke path object
+   * @param { Path2D } path - Path2D to draw.<br>If an invalid value (**undefined** or **null**) is
+   *     passed, no drawing will be performed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -1687,27 +1853,27 @@ declare class CanvasRenderer extends CanvasPath {
   stroke(path: Path2D): void;
 
   /**
-   * Sets the fill color for rendering. This attribute is write-only. You can set its value through an
-   * assignment statement, but cannot obtain its current value through a read operation. If you attempt
-   * to read its current value, **undefined** will be returned.
+   * Specifies the fill color for drawing. This is a write-only property. You can set its value
+   * through an assignment statement, but you cannot obtain its current value through a read
+   * operation. If you attempt to read it, **undefined** is returned.
    *
-   * - When the type is string, this attribute indicates the color of the fill area. For details about
-   *   the color format, see the description for the string type in
+   * - When the type is string, this property sets the color of the fill area. For details about
+   *   the color format, see the string type description in
    *   [ResourceColor]{@link ResourceColor}.
    *
-   * - When the type is number, this attribute indicates the color of the fill area. Fully transparent
-   *   colors are not supported. For details about the color format, see the description for the number
-   *   type in [ResourceColor]{@link ResourceColor}.
+   * - When the type is number, this property sets the color of the fill area. Fully transparent
+   *   colors are not supported. For details about the color format, see the number type
+   *   description in [ResourceColor]{@link ResourceColor}.
    *
-   * - When the type is **CanvasGradient**, this attribute indicates a gradient object, which is created
-   *   via the [createLinearGradient](#createlineargradient) API.
+   * - When the type is CanvasGradient, this property specifies a gradient object created using
+   *   the [createLinearGradient](#createlineargradient) method.
    *
-   * - When the type is **CanvasPattern**, this attribute indicates a pattern, which is created via the
-   *   [createPattern](#createpattern) API.
+   * - When the type is CanvasPattern, this property specifies a pattern object created using
+   *   the [createPattern](#createpattern) method.
    *
-   *   Default value: **'#000000'** (black)
+   *   Default value: '#000000' (black)
    *
-   *   Invalid values do not take effect. The effect before the setting is retained.
+   *   Invalid values are ignored.
    *
    * @type { string | number | CanvasGradient | CanvasPattern }
    * @default #000000 (black)
@@ -1721,28 +1887,27 @@ declare class CanvasRenderer extends CanvasPath {
   fillStyle: string | number | CanvasGradient | CanvasPattern;
 
   /**
-   * Sets the stroke color. This attribute is write-only. You can set its value through an
-   * assignment statement, but cannot obtain its current value through a read operation.
-   * If you attempt to read its current value, **undefined** will be returned.
+   * Sets the color of the stroke. This is a write-only property. Its value can be set through
+   * an assignment statement, but the current value cannot be obtained through a read operation.
+   * If a read is attempted, **undefined** is returned.
    *
-   * - When the type is string, this attribute indicates the stroke color. For details about
-   *   the color format, see the description for the string type in
+   * - When the type is string, it indicates the color used for the stroke. For details about
+   *   the color format, see the string type description in
    *   [ResourceColor]{@link ResourceColor}.
    *
-   * - When the type is number, this attribute indicates the stroke color. Fully transparent
-   *   colors are not supported. For details about the color format, see the description for
-   *   the number type in
-   *   [ResourceColor]{@link ResourceColor}.
+   * - When the type is number, it indicates the color used for the stroke. Fully transparent
+   *   colors are not supported. For details about the color format, see the number type
+   *   description in [ResourceColor]{@link ResourceColor}.
    *
-   * - When the type is **CanvasGradient**, this attribute indicates a gradient object, which is
-   *   created via the [createLinearGradient](#createlineargradient) API.
+   * - When the type is CanvasGradient, it indicates a gradient object created using the
+   *   [createLinearGradient](#createlineargradient) method.
    *
-   * - When the type is **CanvasPattern**, this attribute indicates a pattern, which is created
-   *   via the [createPattern]{@link CanvasRenderingContext2D#createPattern} API.
+   * - When the type is CanvasPattern, it indicates a pattern object created using the
+   *   [createPattern](#createpattern) method.
    *
-   *   Default value: **'#000000'** (black)
+   *   Default value: '#000000' (black)
    *
-   *   Invalid values do not take effect. The effect before the setting is retained.
+   *   Invalid values are ignored.
    *
    * @type { string | number | CanvasGradient | CanvasPattern }
    * @default #000000 (black)
@@ -1770,7 +1935,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } y1 - Y-coordinate of the end point.<br>If the value is **undefined** or **null**,
    *     this API returns **undefined**. **NaN** and **Infinity** are treated as invalid values.<br>
    *     Default unit: vp
-   * @returns { CanvasGradient } New **CanvasGradient** object used to create a gradient on the canvas.
+   * @returns { CanvasGradient } New **CanvasGradient** object used to create a gradient effect on the
+   *     offscreen canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -1781,18 +1947,19 @@ declare class CanvasRenderer extends CanvasPath {
   createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient;
 
   /**
-   * Creates a pattern for image filling based on a specified source image and repetition mode.
+   * Creates a pattern for image filling based on a specified image and repetition mode.
    *
-   * @param { ImageBitmap } image - Source image. For details, see **ImageBitmap**.<br>**undefined** and
-   *     **null** are treated as invalid values.
-   * @param { string | null } repetition - Repetition mode.<br>**'repeat'**: The image is repeated along
-   *     both the x-axis and y-axis.<br>**'repeat-x'**: The image is repeated along the x-axis.<br>
-   *     **'repeat-y'**: The image is repeated along the y-axis.<br>**'no-repeat'**: The image is not
-   *     repeated.<br>**'clamp'**: Coordinates outside the original bounds are clamped to the edge of the
-   *     image.<br>**'mirror'**: The image is mirrored with each repetition along the x-axis and y-axis.<br>
-   *     **undefined** and **null** are treated as invalid values.
-   * @returns { CanvasPattern | null } Pattern for image filling based on a specified source image and
-   *     repetition mode.
+   * @param { ImageBitmap } image - Image source object. For details, see **ImageBitmap**.<br>An
+   *     invalid value, such as **undefined** or **null**, is processed as an invalid value.
+   * @param { string | null } repetition - Image repetition mode:<br>**'repeat'**: repeats the image
+   *     along both the x-axis and y-axis;<br>**'repeat-x'**: repeats the image along the x-axis;<br>
+   *     **'repeat-y'**: repeats the image along the y-axis;<br>**'no-repeat'**: does not repeat the
+   *     image;<br>**'clamp'**: uses the edge color for the part that exceeds the original boundary
+   *     when drawing outside it;<br>**'mirror'**: repeats and flips the image along both the x-axis
+   *     and y-axis.<br>An invalid value, such as **undefined** or **null**, is processed as an invalid
+   *     value.
+   * @returns { CanvasPattern | null } Pattern object created by specifying an image and repetition
+   *     mode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -1803,7 +1970,7 @@ declare class CanvasRenderer extends CanvasPath {
   createPattern(image: ImageBitmap, repetition: string | null): CanvasPattern | null;
 
   /**
-   * Creates a radial gradient.
+   * Creates a radial gradient color.
    *
    * @param { number } x0 - X-coordinate of the center of the start circle.<br>If the value is **undefined**
    *     or **null**, this API returns **undefined**. **NaN** and **Infinity** are treated as invalid values.
@@ -1823,7 +1990,8 @@ declare class CanvasRenderer extends CanvasPath {
    * @param { number } r1 - Radius of the end circle, which must be a non-negative finite number.<br>
    *     If the value is **undefined** or **null**, this API returns **undefined**. **NaN** and **Infinity**
    *     are treated as invalid values.<br>Default unit: vp
-   * @returns { CanvasGradient } New **CanvasGradient** object used to create a gradient on the canvas.
+   * @returns { CanvasGradient } New **CanvasGradient** object used to create a gradient effect on the
+   *     offscreen canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -1836,16 +2004,18 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Creates a conic gradient.
    *
-   * @param { number } startAngle - Angle at which the gradient starts. The angle measurement starts
-   *     horizontally from the right side of the center and moves clockwise.<br>Invalid values **undefined**
-   *     and **null** are treated as **0**. **NaN** and **Infinity** are treated as invalid.<br>Unit: radian
-   * @param { number } x - X-coordinate of the center of the conic gradient.<br>Invalid values **undefined**
-   *     and **null** are treated as **0**. **NaN** and **Infinity** are treated as invalid.<br>
-   *     Default unit: vp
-   * @param { number } y - Y-coordinate of the center of the conic gradient.<br>Invalid values **undefined**
-   *     and **null** are treated as **0**. **NaN** and **Infinity** are treated as invalid.<br>
-   *     Default unit: vp
-   * @returns { CanvasGradient } New **CanvasGradient** object used to create a gradient on the canvas.
+   * @param { number } startAngle - Start angle of the gradient. The angle measurement starts from
+   *     the right side of the center horizontally and moves clockwise.<br>Abnormal values **undefined**
+   *     and **null** are processed as **0**, and **NaN** and **Infinity** are processed as invalid values.
+   *     <br>Unit: radian
+   * @param { number } x - X-coordinate of the center of the conic gradient.<br>Abnormal values
+   *     **undefined** and **null** are processed as **0**, and **NaN** and **Infinity** are processed as
+   *     invalid values.<br>Default unit: vp
+   * @param { number } y - Y-coordinate of the center of the conic gradient.<br>Abnormal values
+   *     **undefined** and **null** are processed as **0**, and **NaN** and **Infinity** are processed as
+   *     invalid values.<br>Default unit: vp
+   * @returns { CanvasGradient } New **CanvasGradient** object used to create a gradient effect on the
+   *     offscreen canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1859,47 +2029,37 @@ declare class CanvasRenderer extends CanvasPath {
   ): CanvasGradient;
 
   /**
-   * Sets the filter for an image. Any number of filters can be combined. This attribute is
-   * write-only. You can set its value through an assignment statement, but cannot obtain its
-   * current value through a read operation. If you attempt to read its current value,
-   * **undefined** will be returned.
-   * 
-   * > **NOTE**
-   * >
-   * > The resources used in this example are not located in the **src** > **main** > **resource** directory. Starting
-   * > from DevEco Studio 6.0.0 Beta2, the resources that are located outside the **resources** directory are not
-   * > packaged by default when a project or module is created. To package these resources, go to **buildOption** in the
-   * > module's **build-profile.json5** file > **resOptions** > **copyCodeResource**, and set **enable** to **true**.
-   * > For details, see the description of copyCodeResource.
+   * Sets image filters. Any number of filters can be combined. This is a write-only
+   * property. You can set its value through an assignment statement, but you cannot obtain
+   * its current value through a read operation. If you attempt to read it, **undefined**
+   * will be returned.
    *
    * Available values are as follows:
    *
-   * - **'none'**: no filter effect.
-   * - **'blur(`<length>`)'**: applies the Gaussian blur to the image. The value must be greater
-   *   than or equal to 0. The unit can be px, vp, or rem. The default value is **blur(0px)**.
-   * - **'brightness([`<number>`\|`<percentage>`])'**: applies a linear multiplier to the image to
-   *   adjust its brightness. The value can be a number or a percentage, and must be greater than
-   *   or equal to 0. The default value is **brightness(1)**.
-   * - **'contrast([`<number>`\|`<percentage>`])'**: adjusts the contrast of the image. The value
-   *   can be a number or a percentage, and must be greater than or equal to 0. The default value
-   *   is **contrast(1)**.
-   * - **'grayscale([`<number>`\|`<percentage>`])'**: converts the image to grayscale. The value can
-   *   be a number or a percentage, and must be within the range of [0, 1]. The default value is
+   * - **'none'**: No filter effect.
+   * - **'blur(`<length>`)'**: Applies Gaussian blur to the image. The value range is
+   *   >= 0. Supported units: px, vp, rem. Default value: **blur(0px)**.
+   * - **'brightness([`<number>`\|`<percentage>`])'**: Applies a linear multiplier to the
+   *   image, making it appear brighter or darker. Supports numeric and percentage
+   *   parameters. The value range is >= 0. Default value: **brightness(1)**.
+   * - **'contrast([`<number>`\|`<percentage>`])'**: Adjusts the contrast of the image. Supports
+   *   numeric and percentage parameters. The value range is >= 0. Default value:
+   *   **contrast(1)**.
+   * - **'grayscale([`<number>`\|`<percentage>`])'**: Converts the image to grayscale. Supports
+   *   numeric and percentage parameters. The value range is [0, 1]. Default value:
    *   **grayscale(0)**.
-   * - **'hue-rotate(`<angle>`)'**: applies hue rotation to the image. The value ranges from
-   *   **0deg** to **360deg**. The default value is **hue-rotate(0deg)**.
-   * - **'invert([`<number>`\|`<percentage>`])'**: inverts the input image. The value can be a number
-   *   or a percentage, and must be within the range of [0, 1]. The default value is
-   *   **invert(0)**.
-   * - **'opacity([`<number>`\|`<percentage>`])'**: adjusts the opacity of the image. The value can be
-   *   a number or a percentage, and must be within the range of [0, 1]. The default value is
+   * - **'hue-rotate(`<angle>`)'**: Applies hue rotation to the image. The value range is
+   *   0deg-360deg. Default value: **hue-rotate(0deg)**.
+   * - **'invert([`<number>`\|`<percentage>`])'**: Inverts the input image. Supports numeric and
+   *   percentage parameters. The value range is [0, 1]. Default value: **invert(0)**.
+   * - **'opacity([`<number>`\|`<percentage>`])'**: Adjusts the transparency of the image. Supports
+   *   numeric and percentage parameters. The value range is [0, 1]. Default value:
    *   **opacity(1)**.
-   * - **'saturate([`<number>`\|`<percentage>`])'**: adjusts the saturation of the image. The value
-   *   can be a number or a percentage, and must be greater than or equal to 0. The default value
-   *   is **saturate(1)**.
-   * - **'sepia([`<number>`\|`<percentage>`])'**: converts the image to sepia. The value can be a
-   *   number or a percentage, and must be within the range of [0, 1]. The default value is
-   *   **sepia(0)**.
+   * - **'saturate([`<number>`\|`<percentage>`])'**: Adjusts the saturation of the image. Supports
+   *   numeric and percentage parameters. The value range is >= 0. Default value:
+   *   **saturate(1)**.
+   * - **'sepia([`<number>`\|`<percentage>`])'**: Converts the image to sepia. Supports numeric and
+   *   percentage parameters. The value range is [0, 1]. Default value: **sepia(0)**.
    *
    * @type { string }
    * @default none
@@ -1913,13 +2073,15 @@ declare class CanvasRenderer extends CanvasPath {
   filter: string;
 
   /**
-   * Creates a blank ImageData object of a specified size. This API involves time-consuming memory copy. Therefore,
-   * avoid frequent calls to it. The createImageData example is identical to the putImageData example.
+   * Creates a new **ImageData** object with the specified width and height based on the current
+   * **ImageData** object. For details, see **ImageData**. This API involves memory copy and is
+   * time-consuming. Avoid frequent use. The example for **createImageData** is the same as that for
+   * **putImageData**.
    *
-   * @param { number } sw - Width of the **ImageData** object.<br>Invalid values **undefined**,
-   *     **null**, **NaN**, and **Infinity** are treated as **0**.<br>Default unit: vp
-   * @param { number } sh - Height of the **ImageData** object.<br>Invalid values **undefined**,
-   *     **null**, **NaN**, and **Infinity** are treated as **0**.<br>Default unit: vp
+   * @param { number } sw - Width of the **ImageData**.<br>The abnormal values **undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as **0**.<br>Default unit: vp
+   * @param { number } sh - Height of the **ImageData**.<br>The abnormal values **undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as **0**.<br>Default unit: vp
    * @returns { ImageData } New **ImageData** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1931,11 +2093,13 @@ declare class CanvasRenderer extends CanvasPath {
   createImageData(sw: number, sh: number): ImageData;
 
   /**
-   * Creates an **ImageData** object with the same width and height of an existing **ImageData**
-   * object. This API involves time-consuming memory copy. Therefore, avoid frequent calls to it.
+   * Creates a new **ImageData** object based on an existing **ImageData** object (without copying
+   * the image data). See **ImageData**. This API involves memory copy and is time-consuming. Avoid
+   * frequent use. For the **createImageData** example, see **putImageData**.
    *
-   * @param { ImageData } imageData - Existing **ImageData** object.<br>Values **undefined** and
-   *     **null** are treated as **ImageData** with its width and height set to **0**.
+   * @param { ImageData } imageData - **ImageData** object to be copied.<br>The abnormal values
+   *     **undefined** and **null** are processed as an **ImageData** object with width and height
+   *     being **0**.
    * @returns { ImageData } New **ImageData** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1947,19 +2111,17 @@ declare class CanvasRenderer extends CanvasPath {
   createImageData(imageData: ImageData): ImageData;
 
   /**
-   * Obtains the **ImageData** object created with the pixels within the specified area on the
-   * canvas. This API involves time-consuming memory copy. Therefore, avoid frequent calls to it.
+   * Creates an **ImageData** object from the pixels in the specified area of the current canvas. This
+   * API involves memory copy and is time-consuming. Avoid frequent use.
    *
-   * @param { number } sx - X-coordinate of the top-left corner of the output area.<br>
-   *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
-   *     Default unit: vp
-   * @param { number } sy - Y-coordinate of the top-left corner of the output area.<br>
-   *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
-   *     Default unit: vp
-   * @param { number } sw - Width of the output area.<br>Invalid values **undefined**, **null**,
-   *     **NaN**, and **Infinity** are treated as **0**.<br>Default unit: vp
-   * @param { number } sh - Height of the output area.<br>Invalid values **undefined**, **null**,
-   *     **NaN**, and **Infinity** are treated as **0**.<br>Default unit: vp
+   * @param { number } sx - X coordinate of the upper left corner of the output area.<br>Abnormal values
+   *     **undefined**, **null**, **NaN**, and **Infinity** are processed as **0**.<br>Default unit: vp
+   * @param { number } sy - Y coordinate of the upper left corner of the output area.<br>Abnormal values
+   *     **undefined**, **null**, **NaN**, and **Infinity** are processed as **0**.<br>Default unit: vp
+   * @param { number } sw - Width of the area to output.<br>Abnormal values **undefined**, **null**, **NaN**,
+   *     and **Infinity** are processed as **0**.<br>Default unit: vp
+   * @param { number } sh - Height of the area to output.<br>Abnormal values **undefined**, **null**, **NaN**,
+   *     and **Infinity** are processed as **0**.<br>Default unit: vp
    * @returns { ImageData } New **ImageData** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1971,20 +2133,20 @@ declare class CanvasRenderer extends CanvasPath {
   getImageData(sx: number, sy: number, sw: number, sh: number): ImageData;
 
   /**
-   * Obtains the **PixelMap** object created with the pixels within the specified area on the
-   * canvas. This API involves time-consuming memory copy. Therefore, avoid frequent calls to it.
+   * Creates a **PixelMap** object from the pixels in the specified area of the current canvas. This
+   * API involves memory copy and is time-consuming. Avoid frequent use.
    *
-   * @param { number } sx - X-coordinate of the top-left corner of the output area.<br>
-   *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
+   * @param { number } sx - X coordinate of the upper left corner of the area to output.<br>
+   *     The abnormal values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
    *     Default unit: vp
-   * @param { number } sy - Y-coordinate of the top-left corner of the output area.<br>
-   *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
+   * @param { number } sy - Y coordinate of the upper left corner of the area to output.<br>
+   *     The abnormal values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
    *     Default unit: vp
-   * @param { number } sw - Width of the output area.<br>Invalid values **undefined**, **null**,
+   * @param { number } sw - Width of the area to output.<br>The abnormal values **undefined**, **null**,
    *     **NaN**, and **Infinity** are treated as **0**.<br>Default unit: vp
-   * @param { number } sh - Height of the output area.<br>Invalid values **undefined**, **null**,
+   * @param { number } sh - Height of the area to output.<br>Invalid values **undefined**, **null**,
    *     **NaN**, and **Infinity** are treated as **0**.<br>Default unit: vp
-   * @returns { PixelMap } **PixelMap** object.
+   * @returns { PixelMap } New **PixelMap** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -1994,14 +2156,14 @@ declare class CanvasRenderer extends CanvasPath {
   getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap;
 
   /**
-   * Puts an **ImageData** object onto a rectangular area on the canvas.
+   * Fills a new rectangular area with **ImageData** data.
    *
-   * @param { ImageData } imageData - **ImageData** object with pixels to put onto the canvas.<br>
-   *     **undefined** and **null** are treated as invalid values and no rendering will be performed.
-   * @param { number | string } dx - X-axis offset of the rectangular area on the canvas.<br>
+   * @param { ImageData } imageData - **ImageData** object that contains pixel values.<br>
+   *     **undefined** and **null** are treated as invalid values and no drawing is performed.
+   * @param { number | string } dx - Offset of the fill area on the x-axis.<br>
    *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
    *     Default unit: vp
-   * @param { number | string } dy - Y-axis offset of the rectangular area on the canvas.<br>
+   * @param { number | string } dy - Offset of the fill area on the y-axis.<br>
    *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
    *     Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2014,26 +2176,28 @@ declare class CanvasRenderer extends CanvasPath {
   putImageData(imageData: ImageData, dx: number | string, dy: number | string): void;
 
   /**
-   * Fills the new rectangular area with the **ImageData** data after cropping.
+   * Uses **ImageData** data to clip and fill a new rectangular area.
    *
-   * @param { ImageData } imageData - **ImageData** object with pixels to put onto the canvas.<br>
-   *     **undefined** and **null** are treated as invalid values and no rendering will be performed.
-   * @param { number | string } dx - X-axis offset of the rectangular area on the canvas.<br>
+   * @param { ImageData } imageData - **ImageData** object that contains pixel values.<br>
+   *     **undefined** and **null** are treated as invalid values and no drawing is performed.
+   * @param { number | string } dx - Offset of the fill area on the x-axis.<br>
    *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
    *     Default unit: vp
-   * @param { number | string } dy - Y-axis offset of the rectangular area on the canvas.<br>
+   * @param { number | string } dy - Offset of the fill area on the y-axis.<br>
    *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
    *     Default unit: vp
-   * @param { number | string } dirtyX - X-axis offset of the upper left corner of the rectangular
-   *     area relative to that of the source image.<br>Invalid values **undefined**, **null**, **NaN**,
-   *     and **Infinity** are treated as **0**.<br>Default unit: vp
-   * @param { number | string } dirtyY - Y-axis offset of the upper left corner of the rectangular
-   *     area relative to that of the source image.<br>Invalid values **undefined**, **null**, **NaN**,
-   *     and **Infinity** are treated as **0**.<br>Default unit: vp
-   * @param { number | string } dirtyWidth - Width of the rectangular area to crop the source image.<br>
+   * @param { number | string } dirtyX - X-axis offset from the upper-left corner of the source
+   *     image to the upper-left corner of the rectangular clipping region of the source image
+   *     data.<br>Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as
+   *     **0**.<br>Default unit: vp
+   * @param { number | string } dirtyY - Y-axis offset from the upper-left corner of the source
+   *     image to the upper-left corner of the rectangular clipping region of the source image
+   *     data.<br>Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as
+   *     **0**.<br>Default unit: vp
+   * @param { number | string } dirtyWidth - Width of the rectangular clipping region of the source image data.<br>
    *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
    *     Default unit: vp
-   * @param { number | string } dirtyHeight - Height of the rectangular area to crop the source image.<br>
+   * @param { number | string } dirtyHeight - Height of the rectangular clipping region of the source image data.<br>
    *     Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated as **0**.<br>
    *     Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2054,18 +2218,14 @@ declare class CanvasRenderer extends CanvasPath {
   ): void;
 
   /**
-   * Indicates whether to apply image smoothing adjustments when drawing images. The value
-   * **true** means to enable smoothing, and **false** means to disable it. This attribute is
-   * write-only. You can set its value through an assignment statement, but cannot obtain its
-   * current value through a read operation. If you attempt to read its current value,
-   * **undefined** will be returned. Default value: **true**.
-   * > **NOTE**
-   * >
-   * > The resources used in this example are not located in the **src** > **main** > **resource** directory. Starting
-   * > from DevEco Studio 6.0.0 Beta2, the resources that are located outside the **resources** directory are not
-   * > packaged by default when a project or module is created. To package these resources, go to **buildOption** in the
-   * > module's **build-profile.json5** file > **resOptions** > **copyCodeResource**, and set **enable** to **true**.
-   * > For details, see the description of copyCodeResource in **resOptions**.
+   * Sets whether to perform image smoothing adjustment when drawing images. The value
+   * **true** enables it, and **false** disables it. This is a write-only property. Its
+   * value can be set through an assignment statement, but cannot be obtained through a
+   * read operation. If a read is attempted, **undefined** is returned.
+   *
+   * Whether to perform image smoothing adjustment when drawing images.
+   *
+   * Default value: **true**
    *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2078,19 +2238,15 @@ declare class CanvasRenderer extends CanvasPath {
   imageSmoothingEnabled: boolean;
 
   /**
-   * Sets the image smoothing quality when **imageSmoothingEnabled** is set to **true**.
-   * This attribute is write-only. You can set its value through an assignment statement, but
-   * cannot obtain its current value through a read operation. If you attempt to read its
-   * current value, **undefined** will be returned. For details, see
-   * {@link ImageSmoothingQuality}. Default value: **"low"**
-   * > **NOTE**
-   * >
-   * > The resources used in this example are not located in the **src** > **main** > **resource** directory. Starting
-   * > from DevEco Studio 6.0.0 Beta2, the resources that are located outside the **resources** directory are not
-   * > packaged by default when a project or module is created. To package these resources, go to **buildOption** in the
-   * > module's **build-profile.json5** file > **resOptions** > **copyCodeResource**, and set **enable** to **true**.
-   * > For details, see the description of copyCodeResource in **resOptions**.
-   * 
+   * When **imageSmoothingEnabled** is set to true, this property is used to set the image
+   * smoothness. This is a write-only property. You can set its value through an assignment
+   * statement, but you cannot obtain its current value through a read operation. If you
+   * attempt to read it, **undefined** will be returned.
+   *
+   * Image smoothness.
+   *
+   * Default value: "low"
+   *
    * @default low
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2102,9 +2258,14 @@ declare class CanvasRenderer extends CanvasPath {
   imageSmoothingQuality: ImageSmoothingQuality;
 
   /**
-   * Sets the line caps. This attribute is write-only. You can set its value through an assignment statement, but cannot
-   * obtain its current value through a read operation. If you attempt to read its current value, undefined will be
-   * returned.
+   * Specifies the style of the line endpoint. This is a write-only property. You can set
+   * its value through an assignment statement, but you cannot obtain its current value
+   * through a read operation. If you attempt to read it, **undefined** is returned.
+   *
+   * Style of the line endpoint.
+   *
+   * Default value: 'butt'
+   *
    * @default butt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2116,16 +2277,16 @@ declare class CanvasRenderer extends CanvasPath {
   lineCap: CanvasLineCap;
 
   /**
-   * Sets the dashed line offset of the canvas. The value is of the float type. This attribute
-   * takes effect only when **setLineDash** is set. This attribute is write-only. You can set
-   * its value through an assignment statement, but cannot obtain its current value through a
-   * read operation. If you attempt to read its current value, **undefined** will be returned.
+   * Sets the dash offset of the canvas, with float precision. This property takes effect
+   * only when **setLineDash** is set. This is a write-only property. You can set its value
+   * through an assignment statement, but you cannot obtain its current value through a read
+   * operation. If you attempt to read it, **undefined** is returned.
    *
-   * Default value: **0.0**
+   * Default value: 0.0
    *
-   * Default unit: vp
+   * Unit: vp
    *
-   * Invalid values **NaN** and **Infinity** are treated as the default value.
+   * Abnormal values **NaN** and **Infinity** are handled as the default value.
    *
    * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2138,9 +2299,10 @@ declare class CanvasRenderer extends CanvasPath {
   lineDashOffset: number;
 
   /**
-   * Sets the line join. This attribute is write-only. You can set its value through an assignment
-   * statement, but cannot obtain its current value through a read operation. If you attempt to read
-   * its current value, **undefined** will be returned. For details, see {@link CanvasLineJoin}.
+   * Specifies the style of the intersection point where line segments meet. This attribute
+   * is a write-only property, which can be set through an assignment statement but cannot be
+   * read. Attempting to read it returns **undefined**. For details, see
+   * {@link CanvasLineJoin}.
    * <br>Available values are as follows:
    * <br>- **'round'**: The shape used to join line segments is a sector, whose radius at the rounded
    * corner is equal to the line width.
@@ -2149,7 +2311,7 @@ declare class CanvasRenderer extends CanvasPath {
    * <br>- **'miter'**: The shape used to join line segments has a mitered corner by extending the
    * outside edges of the lines until they meet. You can view the effect of this attribute in
    * **miterLimit**.
-   * <br>Default value: **'miter'**
+   * <br>Default value: 'miter'
    *
    * @default miter
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2162,17 +2324,17 @@ declare class CanvasRenderer extends CanvasPath {
   lineJoin: CanvasLineJoin;
 
   /**
-   * Sets the line width. This attribute is write-only. You can set its value through an assignment
-   * statement, but cannot obtain its current value through a read operation. If you attempt to read
-   * its current value, **undefined** will be returned.
+   * Sets the width of drawn lines. This is a write-only property. You can set its value
+   * through an assignment statement, but cannot obtain its current value through a read
+   * operation. Attempting to read it will return **undefined**.
    *
-   * Default value: **1** (px)
+   * Default value: 1 (px)
    *
    * Default unit: vp
    *
-   * The value does not support **0** or negative numbers. **0**, negative numbers,
-   * and **NaN** are handled as the default value. The value **Infinity** is invalid and
-   * no drawing is performed.
+   * The value of **lineWidth** does not support 0 or negative numbers. **0**, negative
+   * numbers, and **NaN** are processed as the default value. Infinity causes APIs related
+   * to the **lineWidth** property to be unable to draw.
    *
    * @default 1(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2185,19 +2347,19 @@ declare class CanvasRenderer extends CanvasPath {
   lineWidth: number;
 
   /**
-   * Sets the miter limit, which specifies the distance between the inner and outer angles
-   * at line joins. This attribute takes effect only when **lineJoin** is set to **miter**.
-   * This attribute is write-only. You can set its value through an assignment statement,
-   * but cannot obtain its current value through a read operation. If you attempt to read
-   * its current value, **undefined** will be returned.
+   * Sets the miter limit, which specifies the distance between the inner corner and outer
+   * corner at the intersection of lines. This property takes effect only when **lineJoin**
+   * is set to **miter**. It is a write-only property. You can set its value through an
+   * assignment statement, but you cannot obtain its current value through a read
+   * operation. If you attempt to read it, **undefined** is returned.
    *
-   * Default value: **10px**
+   * Default value: 10px
    *
    * Unit: px
    *
-   * The value of **miterLimit** cannot be **0** or a negative number. Values of **0**,
-   * negative numbers, and **NaN** are handled with the default value. **Infinity** will
-   * cause an exception on the **miterLimit** attribute.
+   * The value of **miterLimit** does not support 0 or negative numbers. **0**, negative
+   * numbers, and **NaN** are processed as the default value. **Infinity** causes APIs
+   * related to the **miterLimit** property to fail to draw.
    *
    * @default 10(px)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2210,10 +2372,10 @@ declare class CanvasRenderer extends CanvasPath {
   miterLimit: number;
 
   /**
-   * Obtains the dash line style.
+   * Obtains the dash line style of the current canvas.
    *
-   * @returns { number[] } Interval of alternate line segments and the length of spacing.<br>Values undefined and null
-   *     are treated as invalid.<br>Default unit: vp
+   * @returns { number[] } Array that describes how line segments alternate and the spacing length.<br>
+   *     The abnormal values **undefined** and **null** are treated as invalid values.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2224,11 +2386,11 @@ declare class CanvasRenderer extends CanvasPath {
   getLineDash(): number[];
 
   /**
-   * Sets the dash line style.
+   * Sets the dash line style of the canvas.
    *
-   * @param { number[] } segments - An array of numbers that specify distances to alternately draw
-   *     a line and a gap.<br>**undefined** and **null** are treated as invalid values.<br>
-   *     Default unit: vp
+   * @param { number[] } segments - Array describing how line segments alternate and the length of
+   *     the spacing between segments.<br>Anomalous values **undefined** or **null** are treated as
+   *     invalid values.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2239,18 +2401,18 @@ declare class CanvasRenderer extends CanvasPath {
   setLineDash(segments: number[]): void;
 
   /**
-   * Clears the content in a rectangle on the canvas.
+   * Clears the drawn content in the specified area.
    *
-   * @param { number } x - X-coordinate of the rectangle's top-left corner.<br>**undefined**, **null**,
-   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   * @param { number } x - X coordinate of the upper left corner of the rectangle.<br>**undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as invalid values and no drawing is performed.<br>
    *     Default unit: vp
-   * @param { number } y - Y-coordinate of the rectangle's top-left corner.<br>**undefined**, **null**,
-   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   * @param { number } y - Y coordinate of the upper left corner of the rectangle.<br>**undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as invalid values and no drawing is performed.<br>
    *     Default unit: vp
    * @param { number } w - Width of the rectangle.<br>**undefined**, **null**, **NaN**, and **Infinity**
-   *     are treated as invalid values and no rendering will be performed.<br>Default unit: vp
+   *     are treated as invalid values and no drawing is performed.<br>Default unit: vp
    * @param { number } h - Height of the rectangle.<br>**undefined**, **null**, **NaN**, and **Infinity**
-   *     are treated as invalid values and no rendering will be performed.<br>Default unit: vp
+   *     are treated as invalid values and no drawing is performed.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2261,18 +2423,18 @@ declare class CanvasRenderer extends CanvasPath {
   clearRect(x: number, y: number, w: number, h: number): void;
 
   /**
-   * Fills a rectangle on the canvas.
+   * Fills a rectangle.
    *
-   * @param { number } x - X-coordinate of the rectangle's top-left corner.<br>**undefined**, **null**,
-   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   * @param { number } x - X coordinate of the upper left corner of the rectangle.<br>**undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as invalid values and no drawing is performed.<br>
    *     Default unit: vp
-   * @param { number } y - Y-coordinate of the rectangle's top-left corner.<br>**undefined**, **null**,
-   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   * @param { number } y - Y coordinate of the upper left corner of the rectangle.<br>**undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as invalid values and no drawing is performed.<br>
    *     Default unit: vp
    * @param { number } w - Width of the rectangle.<br>**undefined**, **null**, **NaN**, and **Infinity**
-   *     are treated as invalid values and no rendering will be performed.<br>Default unit: vp
+   *     are treated as invalid values and no drawing is performed.<br>Default unit: vp
    * @param { number } h - Height of the rectangle.<br>**undefined**, **null**, **NaN**, and **Infinity**
-   *     are treated as invalid values and no rendering will be performed.<br>Default unit: vp
+   *     are treated as invalid values and no drawing is performed.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2283,18 +2445,18 @@ declare class CanvasRenderer extends CanvasPath {
   fillRect(x: number, y: number, w: number, h: number): void;
 
   /**
-   * Draws an outlined rectangle on the canvas without filling its interior.
+   * Draws a rectangle with a border, without filling the interior.
    *
-   * @param { number } x - X-coordinate of the rectangle's top-left corner.<br>**undefined**, **null**,
-   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   * @param { number } x - X coordinate of the upper left corner of the rectangle.<br>**undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as invalid values and no drawing is performed.<br>
    *     Default unit: vp
-   * @param { number } y - Y-coordinate of the rectangle's top-left corner.<br>**undefined**, **null**,
-   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   * @param { number } y - Y coordinate of the upper left corner of the rectangle.<br>**undefined**, **null**,
+   *     **NaN**, and **Infinity** are treated as invalid values and no drawing is performed.<br>
    *     Default unit: vp
    * @param { number } w - Width of the rectangle.<br>**undefined**, **null**, **NaN**, and **Infinity**
-   *     are treated as invalid values and no rendering will be performed.<br>Default unit: vp
+   *     are treated as invalid values and no drawing is performed.<br>Default unit: vp
    * @param { number } h - Height of the rectangle.<br>**undefined**, **null**, **NaN**, and **Infinity**
-   *     are treated as invalid values and no rendering will be performed.<br>Default unit: vp
+   *     are treated as invalid values and no drawing is performed.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2305,18 +2467,18 @@ declare class CanvasRenderer extends CanvasPath {
   strokeRect(x: number, y: number, w: number, h: number): void;
 
   /**
-   * Sets the blur level for drawing shadows. This attribute is write-only. You can set its
-   * value through an assignment statement, but cannot obtain its current value through a read
-   * operation. If you attempt to read its current value, **undefined** will be returned.
+   * Sets the blur level for drawing shadows. This property is a write-only property. Its
+   * value can be set through an assignment statement, but its current value cannot be
+   * obtained through a read operation. If a read is attempted, **undefined** is returned.
    *
-   * Blur level. A larger value produces a greater blur effect. The value is of float type and
-   * must be greater than or equal to 0.
+   * Blur level for drawing shadows. A larger value indicates a higher blur level. The
+   * precision is float, and the value range is >= 0.
    *
-   * Default value: **0.0**
+   * Default value: 0.0
    *
    * Unit: px
    *
-   * The value of **shadowBlur** cannot be a negative number. A negative number, **NaN**, and
+   * Negative values are not supported for **shadowBlur**. Negative values, **NaN**, and
    * **Infinity** are treated as the default value.
    *
    * @type { number }
@@ -2331,14 +2493,14 @@ declare class CanvasRenderer extends CanvasPath {
   shadowBlur: number;
 
   /**
-   * Sets the shadow color. This attribute is write-only. You can set its value through an
-   * assignment statement, but cannot obtain its current value through a read operation. If you
-   * attempt to read its current value, **undefined** will be returned.
+   * Sets the shadow color for drawing shadows. This is a write-only property. You can set
+   * its value through an assignment statement, but you cannot obtain its current value
+   * through a read operation. If you attempt to read it, **undefined** is returned.
    *
-   * For details about the color format, see the description for the string type in
+   * For details about the color format, see the description of the string type in
    * [ResourceColor]{@link ResourceColor}.
    *
-   * Default value: **'#00000000'** (transparent black)
+   * Default value: transparent black
    *
    * @default transparent black
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2351,16 +2513,16 @@ declare class CanvasRenderer extends CanvasPath {
   shadowColor: string;
 
   /**
-   * Sets the horizontal offset between the drawn shadow and the original object. This
-   * attribute is write-only. You can set its value through an assignment statement, but cannot
-   * obtain its current value through a read operation. If you attempt to read its current
-   * value, **undefined** will be returned.
+   * Sets the horizontal offset between the shadow and the original object when drawing a
+   * shadow. This is a write-only property. You can set its value through an assignment
+   * statement, but you cannot obtain its current value through a read operation. If you
+   * attempt to read it, **undefined** is returned.
    *
-   * Default value: **0.0**
+   * Default value: 0.0
    *
    * Default unit: vp
    *
-   * Invalid values **NaN** and **Infinity** are treated as the default value.
+   * Abnormal values **NaN** and **Infinity** are processed as the default value.
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2373,16 +2535,16 @@ declare class CanvasRenderer extends CanvasPath {
   shadowOffsetX: number;
 
   /**
-   * Sets the vertical offset between the drawn shadow and the original object. This attribute
-   * is write-only. You can set its value through an assignment statement, but cannot obtain its
-   * current value through a read operation. If you attempt to read its current value,
-   * **undefined** will be returned.
+   * Sets the vertical offset of the shadow from the original object during shadow drawing.
+   * This is a write-only property. Its value can be set through an assignment statement,
+   * but cannot be obtained through a read operation. If a read is attempted, **undefined**
+   * is returned.
    *
-   * Default value: **0.0**
+   * Default value: 0.0
    *
    * Default unit: vp
    *
-   * Invalid values **NaN** and **Infinity** are treated as the default value.
+   * The abnormal values **NaN** and **Infinity** are handled as the default value.
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2428,15 +2590,15 @@ declare class CanvasRenderer extends CanvasPath {
   save(): void;
 
   /**
-   * Draws filled text on the canvas.
+   * Draws filled text.
    *
    * @param { string } text - Text to draw.<br>**undefined** and **null** are treated as invalid values
    *     and no rendering will be performed.
    * @param { number } x - X-coordinate of the start point for text rendering.<br>**undefined**, **null**,
-   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   *     **NaN**, and **Infinity** are treated as invalid values and no drawing is performed.<br>
    *     Default unit: vp
    * @param { number } y - Y-coordinate of the start point for text rendering.<br>**undefined**, **null**,
-   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   *     **NaN**, and **Infinity** are treated as invalid values and no drawing is performed.<br>
    *     Default unit: vp
    * @param { number } [maxWidth] - Maximum width allowed for the text.<br>**null** is treated as an
    *     invalid value and no rendering will be performed. **undefined**, **NaN**, or **Infinity** is treated
@@ -2451,12 +2613,11 @@ declare class CanvasRenderer extends CanvasPath {
   fillText(text: string, x: number, y: number, maxWidth?: number): void;
 
   /**
-   * Returns a **TextMetrics** object used to obtain the width of specified text. Note that the width
-   * obtained may vary by device.
+   * Returns a text measurement object, through which the width of the specified text can be obtained.
    *
    * @param { string } text - Text to measure.
-   * @returns { TextMetrics } **TextMetrics** object.<br>If the input value is **undefined** or **null**, the
-   *     value is calculated based on "undefined" or "null".
+   * @returns { TextMetrics } Text metrics.<br>If an invalid value (**undefined** or **null**) is
+   *     passed in, the text is processed as "undefined" or "null".
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2467,15 +2628,15 @@ declare class CanvasRenderer extends CanvasPath {
   measureText(text: string): TextMetrics;
 
   /**
-   * Draws stroked text on the canvas.
+   * Draws stroked text.
    *
    * @param { string } text - Text to draw.<br>**undefined** and **null** are treated as invalid values
    *     and no rendering will be performed.
    * @param { number } x - X-coordinate of the start point for text rendering.<br>**undefined**, **null**,
-   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   *     **NaN**, and **Infinity** are treated as invalid values and no drawing is performed.<br>
    *     Default unit: vp
    * @param { number } y - Y-coordinate of the start point for text rendering.<br>**undefined**, **null**,
-   *     **NaN**, and **Infinity** are treated as invalid values and no rendering will be performed.<br>
+   *     **NaN**, and **Infinity** are treated as invalid values and no drawing is performed.<br>
    *     Default unit: vp
    * @param { number } [maxWidth] - Maximum width of the text.<br>**null** is treated as an invalid value
    *     and no rendering will be performed. **undefined**, **NaN**, or **Infinity** is treated as the
@@ -2490,13 +2651,14 @@ declare class CanvasRenderer extends CanvasPath {
   strokeText(text: string, x: number, y: number, maxWidth?: number): void;
 
   /**
-   * Sets the text direction. This attribute is write-only. You can set its value through an
-   * assignment statement, but cannot obtain its current value through a read operation. If you
-   * attempt to read its current value, **undefined** will be returned.
+   * Sets the text direction used for text drawing. This is a write-only property. You
+   * can set its value through an assignment statement, but you cannot obtain its current
+   * value through a read operation. If you attempt to read it, **undefined** is returned.
    *
    * For details, see {@link CanvasDirection}.
    *
-   * Default value: **"inherit"**
+   * Default value: "inherit"
+   *
    * @default inherit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2508,38 +2670,39 @@ declare class CanvasRenderer extends CanvasPath {
   direction: CanvasDirection;
 
   /**
-   * Sets the text font. This attribute is write-only. You can set its value through an
-   * assignment statement, but cannot obtain its current value through a read operation.
-   * If you attempt to read its current value, **undefined** will be returned.
+   * Sets the font style for text drawing. This property is a write-only property. Its
+   * value can be set through an assignment statement, but its current value cannot be
+   * obtained through a read operation. Attempting to read it will return **undefined**.
    *
    * Syntax: ctx.font = 'font-style font-weight font-size font-family'
    *
-   * - (Optional) **font-style**: font style. Available values are **normal** and **italic**.
+   * - (Optional) **font-style**: specifies the font style. The following styles are
+   *   supported: 'normal' and 'italic'.
    *
-   * - (Optional) **font-weight**: font weight. Available values are as follows: **normal**,
-   *   **bold**, **bolder**, **lighter**, **100**, **200**, **300**, **400**, **500**, **600**,
-   *   **700**, **800**, **900**.
+   * - (Optional) **font-weight**: specifies the font weight. The following types are
+   *   supported: 'normal', 'bold', 'bolder', 'lighter', 100, 200, 300, 400, 500, 600, 700,
+   *   800, 900.
    *
-   * - (Optional) **font-size**: font size and line height. The unit can be px or vp and must
-   *   be specified.
+   * - (Optional) **font-size**: specifies the font size and line height. The unit can be
+   *   px or vp. A unit must be appended when used.
    *
-   * - (Optional) **font-family**: font family. Available values are **sans-serif**,
-   *   **serif**, and **monospace**.
+   * - (Optional) **font-family**: specifies the font family. The following types are
+   *   supported: 'sans-serif', 'serif', 'monospace'.
    *
-   * Starting from API version 20, this API is used to set registered custom fonts (the DevEco
-   * Studio Previewer does not support custom fonts). You can register a custom font in either
-   * of the following ways:
+   * Since API version 20, this API can be used to set a registered custom font (only
+   * available in the main thread, not supported in worker threads; the DevEco Studio
+   * previewer does not support displaying custom fonts). There are two ways to register a
+   * custom font. One is through the ArkUI asynchronous API
    *
-   * Register a custom font by calling the asynchronous API
-   * this.uiContext.getFont().[registerFont]{@link Font#registerFont}
-   * of ArkUI. Immediate rendering after calling this API may result in the custom font not
-   * taking effect.
+   * this.uiContext.getFont().[registerFont]{@link Font#registerFont}.
+   * Drawing immediately after calling this API may cause the custom font to not take effect.
    *
-   * Directly call the fontCollection.[loadFontSync](docroot://reference/apis-arkgraphics2d/js-apis-graphics-text.md#loadfontsync)
-   * API of the font engine to register the custom font. In this case, the **fontCollection**
-   * instance must be **text.FontCollection.getGlobalInstance()** because the component loads
-   * fonts from this instance by default. If you use another instance, the custom font may not
-   * take effect.
+   * The other is to directly call the font engine's
+   * fontCollection.[loadFontSync](docroot://reference/apis-arkgraphics2d/js-apis-graphics-text.md#loadfontsync)
+   * API to register the custom font with the font engine. When directly calling the font
+   * engine API to register a custom font, the **fontCollection** instance must be
+   * **text.FontCollection.getGlobalInstance()**, because the component loads fonts from this
+   * instance by default. Using other instances may cause the custom font to not take effect.
    *
    * @default normal normal 14px sans-serif
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2552,14 +2715,14 @@ declare class CanvasRenderer extends CanvasPath {
   font: string;
 
   /**
-   * Sets the text alignment type. This attribute is write-only. You can set its value through
-   * an assignment statement, but cannot obtain its current value through a read operation.
-   * If you attempt to read its current value, **undefined** will be returned.
+   * Sets the text alignment mode in text drawing. This is a write-only property. Its value
+   * can be set through an assignment statement, but cannot be obtained through a read
+   * operation. If a read is attempted, **undefined** is returned.
    *
-   * In the **ltr** layout mode, the value **'start'** equals **'left'**. In the **rtl** layout
-   * mode, the value **'start'** equals **'right'**.
+   * In LTR layout mode, 'start' is the same as 'left'; in RTL layout mode, 'start' is the
+   * same as 'right'.
    *
-   * Default value: **'left'**
+   * Default value: 'left'
    *
    * @default left
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2572,12 +2735,12 @@ declare class CanvasRenderer extends CanvasPath {
   textAlign: CanvasTextAlign;
 
   /**
-   * Sets the horizontal alignment baseline for text rendering. This attribute is write-only.
-   * You can set its value through an assignment statement, but cannot obtain its current value
-   * through a read operation. If you attempt to read its current value, **undefined** will be
+   * Sets the baseline alignment mode in text drawing. This is a write-only property. You
+   * can set its value through an assignment statement, but you cannot obtain its current
+   * value through a read operation. If you attempt to read it, **undefined** will be
    * returned.
    *
-   * Default value: **'alphabetic'**
+   * Default value: 'alphabetic'
    *
    * @default alphabetic
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2590,9 +2753,9 @@ declare class CanvasRenderer extends CanvasPath {
   textBaseline: CanvasTextBaseline;
 
   /**
-   * Obtains the current transformation matrix being applied to the context.
+   * Obtains the transform matrix currently applied to the context.
    *
-   * @returns { Matrix2D } Current transformation matrix applied to the context.
+   * @returns { Matrix2D } The transformation matrix currently applied to the context.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2603,7 +2766,7 @@ declare class CanvasRenderer extends CanvasPath {
   getTransform(): Matrix2D;
 
   /**
-   * Resets the current transform to the identity matrix.
+   * Resets the current matrix to the identity matrix.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2615,14 +2778,14 @@ declare class CanvasRenderer extends CanvasPath {
   resetTransform(): void;
 
   /**
-   * Rotates a canvas clockwise around its coordinate axes.
+   * Rotates the current coordinate axes clockwise.
    *
    * @param { number } angle - Clockwise rotation angle. You can convert degrees to radians using the
    *    following formula: degree * Math.PI/180.<br>In versions earlier than API version 18, values
    *    **NaN** and **Infinity** cause the failure to call the drawing APIs following this API for
    *    rendering. Values **null** and **undefined** cause the current API to have no effect. Since API
    *    version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no
-   *    effect, and other drawing APIs with valid arguments continue to render correctly.<br>Unit: radian
+   *    effect, and other drawing APIs with valid parameters continue to render correctly.<br>Default unit: radian
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2633,20 +2796,21 @@ declare class CanvasRenderer extends CanvasPath {
   rotate(angle: number): void;
 
   /**
-   * Scales the canvas based on the given scale factors.
+   * Sets the scaling transformation property of the canvas. Subsequent drawing operations are scaled
+   * according to the scaling ratio.
    *
    * @param { number } x - Horizontal scale factor.<br>In versions earlier than API version 18,
    *     values **NaN** and **Infinity** cause the failure to call the drawing APIs following this API
    *     for rendering. Values **0**, **null**, **undefined**, and negative numbers cause the current
    *     API to have no effect. Since API version 18, **NaN**, **Infinity**, **0**, **null**,
    *     **undefined**, and negative numbers cause the current API to have no effect, and other drawing
-   *     APIs with valid arguments continue to render correctly.
+   *     APIs with valid parameters continue to render correctly.
    * @param { number } y - Vertical scaling factor. Negative numbers are not supported.<br>
    *     In versions earlier than API version 18, values **NaN** and **Infinity** cause the failure to
    *     call the drawing APIs following this API for rendering. Values **0**, **null**, **undefined**,
    *     and negative numbers cause the current API to have no effect. Since API version 18, **NaN**,
    *     **Infinity**, **0**, **null**, **undefined**, and negative numbers cause the current API to
-   *     have no effect, and other drawing APIs with valid arguments continue to render correctly.
+   *     have no effect, and other drawing APIs with valid parameters continue to render correctly.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2657,8 +2821,8 @@ declare class CanvasRenderer extends CanvasPath {
   scale(x: number, y: number): void;
 
   /**
-   * Resets the existing transformation matrix and creates a new transformation matrix by
-   * using the same parameters as the **transform()** API.
+   * The **setTransform** method uses the same parameters as the **transform()** method, but the
+   * **setTransform()** method resets the existing transformation matrix and creates a new one.
    *
    * > **NOTE**
    * >
@@ -2676,38 +2840,38 @@ declare class CanvasRenderer extends CanvasPath {
    *     In versions earlier than API version 18, values **NaN** and **Infinity** cause the failure
    *     to call the drawing APIs following this API for rendering. Values **null** and **undefined**
    *     cause the current API to have no effect. Since API version 18, **NaN**, **Infinity**,
-   *     **null**, or **undefined** causes the current API to have no effect, and other drawing APIs
+   *     **null**, or **undefined** values cause the current API to have no effect, and other drawing APIs
    *     with valid arguments continue to render correctly.
    * @param { number } b - **skewY**: vertical skewing value. A negative value is supported.<br>
    *     In versions earlier than API version 18, values **NaN** and **Infinity** cause the failure
    *     to call the drawing APIs following this API for rendering. Values **null** and **undefined**
    *     cause the current API to have no effect. Since API version 18, **NaN**, **Infinity**,
-   *     **null**, or **undefined** causes the current API to have no effect, and other drawing APIs
+   *     **null**, or **undefined** values cause the current API to have no effect, and other drawing APIs
    *     with valid arguments continue to render correctly.
    * @param { number } c - **skewX**: horizontal skewing value. A negative value is supported.<br>
    *     In versions earlier than API version 18, values **NaN** and **Infinity** cause the failure
    *     to call the drawing APIs following this API for rendering. Values **null** and **undefined**
    *     cause the current API to have no effect. Since API version 18, **NaN**, **Infinity**,
-   *     **null**, or **undefined** causes the current API to have no effect, and other drawing APIs
+   *     **null**, or **undefined** values cause the current API to have no effect, and other drawing APIs
    *     with valid arguments continue to render correctly.
    * @param { number } d - **scaleY**: vertical scaling value. A negative value is supported.<br>
    *     In versions earlier than API version 18, values **NaN** and **Infinity** cause the failure
    *     to call the drawing APIs following this API for rendering. Values **null** and **undefined**
    *     cause the current API to have no effect. Since API version 18, **NaN**, **Infinity**,
-   *     **null**, or **undefined** causes the current API to have no effect, and other drawing APIs
+   *     **null**, or **undefined** values cause the current API to have no effect, and other drawing APIs
    *     with valid arguments continue to render correctly.
    * @param { number } e - **translateX**: horizontal translation distance. A negative value is
    *     supported.<br>In versions earlier than API version 18, values **NaN** and **Infinity** cause
    *     the failure to call the drawing APIs following this API for rendering. Values **null** and
    *     **undefined** cause the current API to have no effect. Since API version 18, **NaN**,
-   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other
-   *     drawing APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   *     **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other
+   *     drawing APIs with valid parameters continue to render correctly.<br>Default unit: vp
    * @param { number } f - **translateY**: vertical translation distance. A negative value is
    *     supported.<br>In versions earlier than API version 18, values **NaN** and **Infinity** cause
    *     the failure to call the drawing APIs following this API for rendering. Values **null** and
    *     **undefined** cause the current API to have no effect. Since API version 18, **NaN**,
-   *     **Infinity**, **null**, or **undefined** causes the current API to have no effect, and other
-   *     drawing APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   *     **Infinity**, **null**, or **undefined** values cause the current API to have no effect, and other
+   *     drawing APIs with valid parameters continue to render correctly.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2718,11 +2882,11 @@ declare class CanvasRenderer extends CanvasPath {
   setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
   /**
-   * Resets the current transformation to the identity matrix, and then creates a new
-   * transformation matrix based on the specified **Matrix2D** object.
+   * Resets the existing transform matrix and creates a new one with the **Matrix2D** object as a
+   * template.
    *
-   * @param { Matrix2D } [transform] - Transformation matrix.<br>**undefined** and **null**
-   *     are treated as invalid values.<br>Default value: **null**
+   * @param { Matrix2D } [transform] - Transformation matrix.<br>Exception values **undefined** and
+   *     **null** are treated as invalid values.<br>Default value: **null**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2733,10 +2897,10 @@ declare class CanvasRenderer extends CanvasPath {
   setTransform(transform?: Matrix2D): void;
 
   /**
-   * Defines a transformation matrix. To transform a graph, you only need to set parameters of
-   * the matrix. The coordinates of the graph are multiplied by the matrix values to obtain new
-   * coordinates of the transformed graph. You can use the matrix to implement multiple transform
-   * effects.
+   * Corresponds to a transformation matrix. When you want to transform a shape, simply set the
+   * corresponding parameters of this transformation matrix, multiply the coordinates of each vertex of
+   * the shape by this matrix, and you can obtain the new vertex coordinates. Matrix transformation
+   * effects can be superimposed.
    *
    * > **NOTE**
    * >
@@ -2755,38 +2919,38 @@ declare class CanvasRenderer extends CanvasPath {
    *     values **NaN** and **Infinity** cause the failure to call the drawing APIs following this API for
    *     rendering. Values **null** and **undefined** cause the current API to have no effect. Since API
    *     version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no
-   *     effect, and other drawing APIs with valid arguments continue to render correctly.
+   *     effect, and other drawing APIs with valid parameters continue to render correctly.
    * @param { number } b - Cell at row 2, column 1 of the transformation matrix. **skewY**:
    *     vertical skewing value. A negative value is supported.<br>In versions earlier than API version 18,
    *     values **NaN** and **Infinity** cause the failure to call the drawing APIs following this API for
    *     rendering. Values **null** and **undefined** cause the current API to have no effect. Since API
    *     version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no
-   *     effect, and other drawing APIs with valid arguments continue to render correctly.
+   *     effect, and other drawing APIs with valid parameters continue to render correctly.
    * @param { number } c - Cell at row 1, column 2 of the transformation matrix. **skewX**:
    *     horizontal skewing value. A negative value is supported.<br>In versions earlier than API version 18,
    *     values **NaN** and **Infinity** cause the failure to call the drawing APIs following this API for
    *     rendering. Values **null** and **undefined** cause the current API to have no effect. Since API
    *     version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no
-   *     effect, and other drawing APIs with valid arguments continue to render correctly.
+   *     effect, and other drawing APIs with valid parameters continue to render correctly.
    * @param { number } d - Cell at row 2, column 2 of the transformation matrix. **scaleY**:
    *     vertical scaling value. A negative value is supported.<br>In versions earlier than API version 18,
    *     values **NaN** and **Infinity** cause the failure to call the drawing APIs following this API for
    *     rendering. Values **null** and **undefined** cause the current API to have no effect. Since API
    *     version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no
-   *     effect, and other drawing APIs with valid arguments continue to render correctly.
+   *     effect, and other drawing APIs with valid parameters continue to render correctly.
    * @param { number } e - Cell at row 1, column 3 of the transformation matrix. **translateX**:
    *     horizontal translation distance. A negative value is supported.<br>In versions earlier than API
    *     version 18, values **NaN** and **Infinity** cause the failure to call the drawing APIs following
    *     this API for rendering. Values **null** and **undefined** cause the current API to have no effect.
    *     Since API version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to
-   *     have no effect, and other drawing APIs with valid arguments continue to render correctly.<br>
+   *     have no effect, and other drawing APIs with valid parameters continue to render correctly.<br>
    *     Default unit: vp
    * @param { number } f - Cell at row 2, column 3 of the transformation matrix. **translateY**:
    *     vertical translation distance. A negative value is supported.<br>In versions earlier than API
    *     version 18, values **NaN** and **Infinity** cause the failure to call the drawing APIs following
    *     this API for rendering. Values **null** and **undefined** cause the current API to have no effect.
    *     Since API version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to
-   *     have no effect, and other drawing APIs with valid arguments continue to render correctly.<br>
+   *     have no effect, and other drawing APIs with valid parameters continue to render correctly.<br>
    *     Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2798,18 +2962,18 @@ declare class CanvasRenderer extends CanvasPath {
   transform(a: number, b: number, c: number, d: number, e: number, f: number): void;
 
   /**
-   * Moves the origin of the coordinate system.
+   * Moves the origin of the current coordinate system.
    *
    * @param { number } x - Distance to translate on the x-axis.<br>In versions earlier than API version 18,
    *     values **NaN** and **Infinity** cause the failure to call the drawing APIs following this API for
    *     rendering. Values **null** and **undefined** cause the current API to have no effect. Since API
    *     version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no
-   *     effect, and other drawing APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   *     effect, and other drawing APIs with valid parameters continue to render correctly.<br>Default unit: vp
    * @param { number } y - Distance to translate on the y-axis.<br>In versions earlier than API version 18,
    *     values **NaN** and **Infinity** cause the failure to call the drawing APIs following this API for
    *     rendering. Values **null** and **undefined** cause the current API to have no effect. Since API
    *     version 18, **NaN**, **Infinity**, **null**, or **undefined** causes the current API to have no
-   *     effect, and other drawing APIs with valid arguments continue to render correctly.<br>Default unit: vp
+   *     effect, and other drawing APIs with valid parameters continue to render correctly.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2820,12 +2984,12 @@ declare class CanvasRenderer extends CanvasPath {
   translate(x: number, y: number): void;
 
   /**
-   * Draws the input **PixelMap** object on the canvas.
-   * The example is the same as that of **getPixelMap**.
+   * Draws the currently passed-in **PixelMap** object on the canvas. For the **setPixelMap** example,
+   * see **getPixelMap**.
    *
-   * @param { PixelMap } [value] - **PixelMap** object that contains pixel values.<br>
-   *     **undefined** and **null** are treated as invalid values and no rendering will be
-   *     performed.<br>Default value: **null**
+   * @param { PixelMap } [value] - **PixelMap** object that contains pixel values.<br>Abnormal values
+   *     **undefined** and **null** are treated as invalid values and will not be drawn.<br>
+   *     Default value: **null**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2835,9 +2999,9 @@ declare class CanvasRenderer extends CanvasPath {
   setPixelMap(value?: PixelMap): void;
 
   /**
-   * Displays the specified **ImageBitmap** object.
+   * Displays the given **ImageBitmap** object.
    *
-   * @param { ImageBitmap } bitmap - **ImageBitmap** object to display.
+   * @param { ImageBitmap } bitmap - **ImageBitmap** object to be displayed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2848,7 +3012,7 @@ declare class CanvasRenderer extends CanvasPath {
   transferFromImageBitmap(bitmap: ImageBitmap): void;
 
   /**
-   * Saves this layer.
+   * Creates a layer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2859,8 +3023,8 @@ declare class CanvasRenderer extends CanvasPath {
   saveLayer(): void;
 
   /**
-   * Restores the image transformation and cropping state to the state before **saveLayer**,
-   * and then draws the layer onto the canvas. For the sample code, see the code for **saveLayer**.
+   * Restores the image transform and clipping state to the state before **saveLayer**, and draws the
+   * layer on the canvas. The example for **restoreLayer** is the same as that for **saveLayer**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2871,8 +3035,8 @@ declare class CanvasRenderer extends CanvasPath {
   restoreLayer(): void;
 
   /**
-   * Resets this **CanvasRenderingContext2D** object to its default state and clears the background buffer,
-   * drawing state stack, defined paths, and styles.
+   * Resets the **CanvasRenderingContext2D** to its default state, clearing the back buffer, drawing
+   * state stack, drawing path, and styles.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2883,17 +3047,19 @@ declare class CanvasRenderer extends CanvasPath {
   reset(): void;
 
   /**
-   * Sets whether to enable anti-aliasing for drawing graphics and text. Setting this API
-   * overrides the anti-aliasing effect in [RenderingContextSettings](#renderingcontextsettings).
-   * If this API is not specified, the default value is **undefined** and the anti-aliasing effect
-   * in [RenderingContextSettings](#renderingcontextsettings) is used.
+   * Sets whether to enable anti-aliasing when drawing graphics and text. Setting this API
+   * overrides the anti-aliasing effect in
+   * [RenderingContextSettings](#renderingcontextsettings). When not set through this API,
+   * the default value is **undefined**, and the anti-aliasing effect is consistent with
+   * that in [RenderingContextSettings](#renderingcontextsettings).
    *
-   * Whether to enable anti-aliasing for drawing graphics and text.
+   * Whether to enable anti-aliasing when drawing graphics and text.
    *
-   * **true**: Anti-aliasing is enabled. **false**: Anti-aliasing is disabled.
+   * **true** indicates that anti-aliasing is enabled; **false** indicates that
+   * anti-aliasing is not enabled.
    *
-   * When the value is **undefined**, the anti-aliasing effect in
-   * [RenderingContextSettings](#renderingcontextsettings) is used.
+   * When the value is **undefined**, the anti-aliasing effect is consistent with that
+   * in [RenderingContextSettings](#renderingcontextsettings).
    *
    * @default undefined
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2906,8 +3072,12 @@ declare class CanvasRenderer extends CanvasPath {
 }
 
 /**
- * After the **CanvasRenderingContext2D** object is bound to the **Canvas** component, you can draw
- * shapes, texts, and images on the **Canvas** component.
+ * **CanvasRenderingContext2D** is the 2D drawing context object of the **Canvas** component, used
+ * for custom drawing on the **Canvas** component. It supports drawing shapes (rectangles, circles,
+ * ellipses, paths, etc.), text, images, gradients, shadows, and many other drawing types, and is
+ * suitable for scenarios such as data visualization, game development, image editing, and custom UI
+ * drawing. With this object, developers can flexibly control the drawing process to achieve complex
+ * 2D graphic effects.
  *
  * > **NOTE**
  * >
@@ -2930,8 +3100,16 @@ declare class CanvasRenderer extends CanvasPath {
  * > [bezierCurveTo](#beziercurveto), [quadraticCurveTo](#quadraticcurveto), [arc](#arc),
  * > [arcTo](#arcto), [ellipse](#ellipse), [rect](#rect), and [roundRect](#roundrect20).
  * >
- * > * When the width or height of the **Canvas** component exceeds 8000 px, rendering via the CPU
- * > causes significant performance degradation.
+ * > * When the width or height of the **Canvas** component exceeds 8000 px and CPU rendering is
+ * > used, significant performance degradation may occur. In this case, it is recommended to use
+ * > custom render nodes (RenderNode).
+ * >
+ * > * When the graphics transformation APIs (**rotate**, **scale**, **transform**, **setTransform**,
+ * > **translate**) and the **getPixelMap** **toDataURL** APIs are executed in
+ * > different frames, the content created by the latter does not have the graphics transformation
+ * > effect.
+ * >
+ * > * The common canvas drawing methods and common canvas drawing attributes are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -2987,15 +3165,18 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * Creates a data URL that contains a representation of an image. This API involves
    * time-consuming memory copy. Therefore, avoid frequent calls to it.
    *
-   * @param { string } type - Image format.
-   *     <br>The options are **image/png**, **image/jpeg**, and **image/webp**.
-   *     <br>Invalid values **undefined** and **null** are treated as the default value.
+   * @param { string } [type] - Used to specify the image format.
+   *     <br>Available options: **"image/png"** (lossless compression, suitable for scenarios requiring
+   *     precise pixels), **"image/jpeg"** (lossy compression, suitable for photo-like images),
+   *     **"image/webp"** (efficient compression, suitable for network transmission scenarios).
+   *     <br>If abnormal values **undefined** and **null** are passed in, the default value is used.
    *     <br>Default value: **image/png**
-   * @param { any } quality - Image quality, which ranges from 0 to 1, when the image format
-   *     is **image/jpeg** or **image/webp**. If the set value is beyond the value range,
-   *     the default value **0.92** is used.
-   *     <br>Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated
-   *     as the default value.
+   * @param { any } [quality] - When the image format is set to **image/jpeg** or **image/webp**,
+   *     specifies the image quality in the range from 0 to 1. 0-0.5 is suitable for fast transmission or
+   *     low-bandwidth scenarios, 0.6-0.8 is suitable for common scenarios, and 0.9-1.0 is suitable for
+   *     high-quality requirements. If the value is out of range, the default value 0.92 is used.
+   *     <br>If abnormal values **undefined**, **null**, **NaN**, and **Infinity** are passed in, the
+   *     default value is used.
    *     <br>Default value: **0.92**
    * @returns { string } Image URL.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3009,7 +3190,7 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
 
   /**
    * Configures and starts the AI analyzer. This API uses a promise to return the result.
-   * Before use, set [enableAnalyzer]{@link CanvasAttribute#enableAnalyzer}
+   * Before use, set [enableAnalyzer]{@link enableAnalyzer}
    * to **true** to enable the image AI analyzer.<br>Because the image frame used for analysis is
    * the one captured when this API is called, pay attention to the invoking time of this API.<br>
    * Repeated calls to this method before completion trigger an error callback. For the sample code,
@@ -3023,8 +3204,10 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * > This API depends on device capabilities. If it is called on an incompatible device, an
    * > error code is returned.
    *
-   * @param { ImageAnalyzerConfig } config - Settings of the AI analyzer.<br>**undefined** and
-   *     **null** are treated as invalid values.
+   * @param { ImageAnalyzerConfig } config - Input parameter required for performing AI analysis,
+   *     used to configure the type of AI analysis (such as subject recognition, text recognition, etc.).
+   *     For details, see **ImageAnalyzerConfig**.<br>Abnormal values **undefined** or **null** are
+   *     treated as invalid values.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 110001 - Image analysis feature is unsupported.
    * @throws { BusinessError } 110002 - Image analysis is currently being executed.
@@ -3056,9 +3239,11 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * Constructs a canvas object, which supports configuration of parameters for the
    * **CanvasRenderingContext2D** object.
    *
-   * @param { RenderingContextSettings } settings - Settings of the **CanvasRenderingContext2D**
-   *      object. For details, see [RenderingContextSettings](#renderingcontextsettings).
-   *      <br>If the value is **undefined** or **null**, the default value of
+   * @param { RenderingContextSettings } [settings] - Settings of the **CanvasRenderingContext2D**
+   *      object. This parameter is passed when advanced configurations such as anti-aliasing need to be
+   *      enabled. If not passed, the default configuration (anti-aliasing disabled) is used. For details,
+   *      see [RenderingContextSettings](#renderingcontextsettings).
+   *      <br>If abnormal values **undefined** and **null** are passed in, the default value of
    *      [RenderingContextSettings](#renderingcontextsettings) is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3073,14 +3258,18 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * Creates a **CanvasRenderingContext2D** object, allowing for initial configuration of rendering
    * parameters and unit mode.
    *
-   * @param { RenderingContextSettings } settings - Settings of the **CanvasRenderingContext2D**
-   *      object. For details, see [RenderingContextSettings](#renderingcontextsettings).
-   *      <br>If the value is **undefined** or **null**, the default value of
+   * @param { RenderingContextSettings } [settings] - Settings of the **CanvasRenderingContext2D**
+   *      object. Pass this parameter when advanced configurations such as anti-aliasing need to be
+   *      enabled. If not passed, the default configuration (anti-aliasing disabled) is used. For details,
+   *      see [RenderingContextSettings](#renderingcontextsettings).
+   *      <br>If abnormal values **undefined** and **null** are passed in, the default value of
    *      [RenderingContextSettings](#renderingcontextsettings) is used.
    * @param { LengthMetricsUnit } [unit] - Unit mode of the **CanvasRenderingContext2D** object.
-   *      The value cannot be dynamically changed once set.
-   *      <br>Invalid values **undefined**, **NaN** and **Infinity** are treated as the default value.
-   *      <br>Default value: **DEFAULT**.
+   *      The configuration cannot be changed after being set. **DEFAULT**: default vp unit, suitable
+   *      for most scenarios. **PX**: pixel unit, suitable for scenarios requiring precise pixel control.
+   *      <br>If abnormal values **undefined**, **NaN**, and **Infinity** are passed in, the default
+   *      value is used.
+   *      <br>Default value: **DEFAULT**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3104,18 +3293,19 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * > object is accessible.<br>
    * > Avoid performing drawing operations in the **onAttach** callback. Make sure the
    * > **Canvas** component has completed its
-   * > [onReady]{@link CanvasAttribute#onReady}
+   * > [onReady]{@link onReady}
    * > event before performing any drawing.<br>
    * > The **onAttach** callback is triggered when:<br>
    * > 1. A **Canvas** component is created and bound to a **CanvasRenderingContext2D**
    * > object.<br>
    * > 2. A **CanvasRenderingContext2D** object is bound to a new **Canvas** component.
    *
-   * @param { 'onAttach' } type - Event type, which is **'onAttach'** in this case.<br>
-   *     **undefined** and **null** are treated as invalid values.
-   * @param { Callback<void> } callback - Callback triggered when the **CanvasRenderingContext2D**
-   *     object is bound to the **Canvas** component.<br>**undefined** and **null** are treated as
-   *     invalid values.
+   * @param { 'onAttach' } type - Event type for subscribing to the binding event between
+   *     **CanvasRenderingContext2D** and the **Canvas** component. Fixed as **'onAttach'**.<br>
+   *     Abnormal values such as **undefined** or **null** are treated as invalid values.
+   * @param { Callback<void> } callback - Callback invoked when **CanvasRenderingContext2D** is bound
+   *     to the **Canvas** component.<br>Abnormal values such as **undefined** or **null** are treated
+   *     as invalid values.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -3132,13 +3322,13 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * Unsubscribes from the event when a **CanvasRenderingContext2D** object is bound to
    * a **Canvas** component.
    *
-   * @param { 'onAttach' } type - Event type, which is **'onAttach'** in this case.<br>
-   *     **undefined** and **null** are treated as invalid values.
-   * @param { Callback<void> } [callback] - If this parameter is left empty, all callbacks
-   *     triggered after the **CanvasRenderingContext2D** object is bound to the **Canvas**
-   *     component are unsubscribed.<br>If this parameter is not left empty, the callback
-   *     corresponding to the bind event is unsubscribed.<br>**undefined** and **null** are
-   *     treated as invalid values.
+   * @param { 'onAttach' } type - Event type for unsubscribing from the binding event between
+   *     **CanvasRenderingContext2D** and the **Canvas** component. The value is fixed as
+   *     **'onAttach'**.<br>Abnormal values such as **undefined** or **null** are treated as invalid.
+   * @param { Callback<void> } [callback] - If empty, cancels all callbacks subscribed for the
+   *     binding event between **CanvasRenderingContext2D** and the **Canvas** component.<br>If not
+   *     empty, cancels the callback subscribed for the binding event.<br>Abnormal values such as
+   *     **undefined** or **null** are treated as invalid.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -3165,11 +3355,13 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * > 2. A **CanvasRenderingContext2D** object is bound to a different **Canvas** component,
    * > causing the existing binding to be released.
    *
-   * @param { 'onDetach' } type - Event type, which is **'onDetach'** in this case.<br>
-   *     **undefined** and **null** are treated as invalid values.
-   * @param { Callback<void> } callback - Callback triggered when the **CanvasRenderingContext2D**
-   *     object is unbound from the **Canvas** component.<br>**undefined** and **null** are treated
-   *     as invalid values.
+   * @param { 'onDetach' } type - Event type for subscribing to the event of the
+   *     **CanvasRenderingContext2D** being detached from the **Canvas** component. The value is
+   *     fixed as **'onDetach'**.<br>Abnormal values **undefined** and **null** are treated as
+   *     invalid values.
+   * @param { Callback<void> } callback - Callback invoked when the **CanvasRenderingContext2D** is
+   *     detached from the **Canvas** component.<br>Abnormal values **undefined** and **null** are
+   *     treated as invalid values.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -3186,13 +3378,13 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * Unsubscribes from the event when a **CanvasRenderingContext2D** object is unbound from
    * a **Canvas** component.
    *
-   * @param { 'onDetach' } type - Event type, which is **'onDetach'** in this case.<br>
-   *     **undefined** and **null** are treated as invalid values.
-   * @param { Callback<void> } [callback] - If this parameter is left empty, all callbacks
-   *     triggered after the **CanvasRenderingContext2D** object is unbound from the **Canvas**
-   *     component are unsubscribed.<br>If this parameter is not left empty, the callback
-   *     corresponding to the unbind event is unsubscribed.<br>**undefined** and **null** are
-   *     treated as invalid values.
+   * @param { 'onDetach' } type - Event type for unsubscribing from the **CanvasRenderingContext2D**
+   *     detach event. It is fixed as **'onDetach'**.<br>Abnormal values such as **undefined** or
+   *     **null** are treated as invalid values.
+   * @param { Callback<void> } [callback] - If this parameter is empty, all callbacks subscribed for
+   *     the **CanvasRenderingContext2D** detach event are unsubscribed.<br>If this parameter is not
+   *     empty, the specific callback for the detach event is unsubscribed.<br>Abnormal values such
+   *     as **undefined** or **null** are treated as invalid values.
    * @throws { BusinessError } 401 - Input parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types;
@@ -3219,10 +3411,11 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
    * > - If the input **DrawingRenderingContext** object is not bound to a **Canvas** component,
    * > an error code is returned.
    *
-   * @param { DrawingRenderingContext } drawingContext - An object of the **DrawingRenderingContext**
-   *     type.<br>**undefined** and **null** are treated as invalid values.
+   * @param { DrawingRenderingContext } drawingContext - A **DrawingRenderingContext** object.
+   *     <br>The abnormal value **undefined** or **null** is treated as an invalid value.
    * @param { RenderingContextOptions } [options] - Configuration options of the rendering context.
-   *     <br>Default value: **{ antialias: false }**
+   *     <br>The abnormal value **undefined** or **null** is treated as the default value.
+   *     <br>Default value: { antialias: false }
    * @returns { CanvasRenderingContext2D } - Returns a **CanvasRenderingContext2D** object that is
    *     bound to the same **Canvas** component as the input **DrawingRenderingContext**.
    * @throws { BusinessError } 103702 - The drawingContext is not bound to a canvas component.
@@ -3237,25 +3430,30 @@ declare class CanvasRenderingContext2D extends CanvasRenderer {
 
 /**
  * Use **OffscreenCanvasRenderingContext2D** to draw shapes, images, and text offscreen onto
- * a canvas. Rendering offscreen onto a canvas is a process where content to draw onto the canvas
- * is first drawn in the buffer, and then converted into a picture, and finally the picture is drawn
- * on the canvas. Since off-screen rendering utilizes the CPU, its performance is relatively slow.
- * Therefore, it should be avoided in scenarios where drawing speed is a critical requirement.
+ * a canvas. Offscreen drawing is a process where content to draw is first drawn into a buffer,
+ * then converted into an image, and finally drawn onto the canvas at once. Offscreen drawing
+ * uses the CPU for rendering, which is relatively slow. Therefore, avoid using offscreen drawing
+ * in scenarios that require high rendering speed.
  *
  * > **NOTE**
  * >
- * > **OffscreenCanvasRenderingContext2D** cannot be used in **ServiceExtensionAbility**. It is
- * > recommended that you use the
- * > [drawing module](docroot://reference/apis-arkgraphics2d/arkts-apis-graphics-drawing.md)
- * > for offscreen rendering in **ServiceExtensionAbility**.
+ * > **OffscreenCanvasRenderingContext2D** cannot be used in **ServiceExtensionAbility**. In
+ * > **ServiceExtensionAbility**, you are advised to use the
+ * > [drawing module]{@link @ohos.graphics.drawing} for offscreen drawing.
  * >
- * > The following path-related APIs apply only to paths created within
- * > **OffscreenCanvasRenderingContext2D** and do not affect paths defined in
- * > [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}
- * > or [Path2D]{@link Path2D}:
- * > [beginPath](#beginpath), [moveTo](#moveto), [lineTo](#lineto), [closePath](#closepath),
- * > [bezierCurveTo](#beziercurveto), [quadraticCurveTo](#quadraticcurveto), [arc](#arc),
- * > [arcTo](#arcto), [ellipse](#ellipse), [rect](#rect), and [roundRect](#roundrect20).
+ * > The [beginPath]{@link CanvasPath#beginPath()}, [moveTo]{@link CanvasPath#moveTo},
+ * > [lineTo]{@link CanvasPath#lineTo}, [closePath]{@link CanvasPath#closePath},
+ * > [bezierCurveTo]{@link CanvasPath#bezierCurveTo}, [quadraticCurveTo]{@link CanvasPath#quadraticCurveTo},
+ * > [arc]{@link CanvasPath#arc},
+ * > [arcTo]{@link CanvasPath#arcTo},
+ * > [ellipse]{@link CanvasPath#ellipse},
+ * > [rect]{@link CanvasPath#rect}, and
+ * > [roundRect]{@link CanvasPath#roundRect}
+ * > APIs take effect only on the path in **OffscreenCanvasRenderingContext2D**, and cannot take
+ * > effect on the path set in [CanvasRenderingContext2D]{@link CanvasRenderingContext2D} and
+ * > [Path2D]{@link Path2D} objects.
+ * >
+ * > The [common canvas drawing methods]{@link CanvasPath} and [common canvas drawing properties]{@link CanvasRenderer} are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -3269,15 +3467,15 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * Creates a data URL that contains a representation of an image. This API involves
    * time-consuming memory copy. Therefore, avoid frequent calls to it.
    *
-   * @param { string } type - Image format.
-   *     <br>The options are **image/png**, **image/jpeg**, and **image/webp**.
-   *     <br>Invalid values **undefined** and **null** are treated as the default value.
+   * @param { string } type - Used to specify the image format.
+   *     <br>Optional values: **image/png**, **image/jpeg**, and **image/webp**.
+   *     <br>The exception values **undefined** and **null** are handled as the default value.
    *     <br>Default value: **image/png**
-   * @param { any } quality - Image quality, which ranges from 0 to 1, when the image format
-   *     is **image/jpeg** or **image/webp**. If the set value is beyond the value range,
-   *     the default value **0.92** is used.
-   *     <br>Invalid values **undefined**, **null**, **NaN**, and **Infinity** are treated
-   *     as the default value.
+   * @param { any } quality - When the image format is image/jpeg or image/webp, selects the
+   *     image quality in the range [0, 1]. If the value is out of range, the default value
+   *     **0.92** is used.
+   *     <br>The exception values **undefined**, **null**, **NaN**, and **Infinity** are
+   *     handled as the default value.
    *     <br>Default value: **0.92**
    * @returns { string } Image URL.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3306,13 +3504,15 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * Creates an offscreen canvas object. You can configure the canvas width, canvas height, and
    * parameters of the **OffscreenCanvasRenderingContext2D** object.
    *
-   * @param { number } width - Width of the offscreen canvas.<br>Default unit: vp<br>
+   * @param { number } width - Width of the offscreen canvas. The default unit is vp.<br>
    *     Invalid values **NaN** and **Infinity** are treated as invalid.
-   * @param { number } height - Height of the offscreen canvas.<br>Default unit: vp<br>
+   * @param { number } height - Height of the offscreen canvas. The default unit is vp.<br>
    *     Invalid values **NaN** and **Infinity** are treated as invalid.
-   * @param { RenderingContextSettings } settings - Settings of the
-   *     **OffscreenCanvasRenderingContext2D** object.<br>The value **undefined** is treated as
-   *     the default value of [RenderingContextSettings](#renderingcontextsettings).<br>
+   * @param { RenderingContextSettings } settings - Used to configure the parameters of the
+   *     **OffscreenCanvasRenderingContext2D** object. Pass this parameter when advanced
+   *     configurations such as antialiasing need to be enabled. See the description of the
+   *     **RenderingContextSettings** API.<br>The exception value **undefined** is handled as
+   *     the default value of [RenderingContextSettings]{@link RenderingContextSettings}.<br>
    *     Default value: **null**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3327,17 +3527,23 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
    * Creates an offscreen canvas object. You can configure the canvas width, canvas height, and
    * parameters and their unit of the **OffscreenCanvasRenderingContext2D** object.
    *
-   * @param { number } width - Width of the offscreen canvas.<br>Default unit: vp<br>
+   * @param { number } width - Width of the offscreen canvas. The default unit is vp.<br>
    *     Invalid values **NaN** and **Infinity** are treated as invalid.
-   * @param { number } height - Height of the offscreen canvas.<br>Default unit: vp<br>
+   * @param { number } height - Height of the offscreen canvas. The default unit is vp.<br>
    *     Invalid values **NaN** and **Infinity** are treated as invalid.
-   * @param { RenderingContextSettings } settings - Settings of the
-   *     **OffscreenCanvasRenderingContext2D** object.<br>The value **undefined** is treated as
-   *     the default value of [RenderingContextSettings](#renderingcontextsettings).<br>
+   * @param { RenderingContextSettings } settings - Used to configure the parameters of the
+   *     **OffscreenCanvasRenderingContext2D** object. Pass this parameter when advanced
+   *     configurations such as antialiasing need to be enabled. See the description of the
+   *     **RenderingContextSettings** API.<br>The exception value **undefined** is handled as
+   *     the default value of [RenderingContextSettings]{@link RenderingContextSettings}.<br>
    *     Default value: **null**
-   * @param { LengthMetricsUnit } [unit] - Unit of the **OffscreenCanvasRenderingContext2D** object.
-   *     The value cannot be dynamically changed once set.<br>
-   *     Invalid values **undefined**, **NaN** and **Infinity** are treated as the default value.<br>
+   * @param { LengthMetricsUnit } [unit] - Used to configure the unit mode of the
+   *     **OffscreenCanvasRenderingContext2D** object. **DEFAULT** (default vp unit, suitable
+   *     for most scenarios) and PX (px pixel unit, suitable for scenarios that require precise
+   *     pixel control). Once configured, it cannot be changed dynamically. The configuration
+   *     method is the same as that of [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
+   *     The exception values **undefined**, **NaN**, and **Infinity** are handled as default
+   *     values.<br>
    *     Default value: **DEFAULT**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3362,10 +3568,13 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
  *
  * > **NOTE**
  * >
- * > **OffscreenCanvas** cannot be used in ServiceExtensionAbility. It is recommended
- * > that you use the
- * > [drawing module](docroot://reference/apis-arkgraphics2d/arkts-apis-graphics-drawing.md)
- * > for offscreen drawing in ServiceExtensionAbility.
+ * > **OffscreenCanvas** cannot be used in **ServiceExtensionAbility**. For offscreen
+ * > drawing in **ServiceExtensionAbility**, use the
+ * > [drawing module]{@link @ohos.graphics.drawing} instead.
+ *
+ * ## Child Components
+ *
+ * Not supported.
  *
  * @extends CanvasRenderer [since 8 - 10]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3377,9 +3586,10 @@ declare class OffscreenCanvasRenderingContext2D extends CanvasRenderer {
  */
 declare class OffscreenCanvas {
   /**
-   * Height of the offscreen canvas.
-   *
-   * Default unit: vp
+   * Height of the **OffscreenCanvas** component.
+   * <br>Abnormal values **NaN** and **Infinity** are treated as invalid values, and negative
+   * numbers are treated as 0.
+   * <br>Unit: vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3391,9 +3601,10 @@ declare class OffscreenCanvas {
   height: number;
 
   /**
-   * Width of the offscreen canvas.
-   *
-   * Default unit: vp
+   * Width of the **OffscreenCanvas** component.
+   * <br>Abnormal values **NaN** and **Infinity** are treated as invalid values, and negative
+   * numbers are treated as 0.
+   * <br>Unit: vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3405,8 +3616,14 @@ declare class OffscreenCanvas {
   width: number;
 
   /**
-   * Creates an **ImageBitmap** object from the most recently rendered image of the
-   * offscreen canvas.
+   * Creates an **ImageBitmap** object from the current content of the
+   * **OffscreenCanvas** component.
+   *
+   * > **NOTE**
+   * >
+   * > After the **OffscreenCanvas** object has been passed to a Worker thread through
+   * > **postMessage**, the original thread (sender) is not allowed to call the
+   * > **transferToImageBitmap** method of the object. Otherwise, an exception is thrown.
    *
    * @returns { ImageBitmap } **ImageBitmap** object created.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3421,18 +3638,31 @@ declare class OffscreenCanvas {
   /**
    * Obtains the drawing context of the offscreen canvas.
    *
-   * @param { "2d" } contextType - Type of the drawing context of the offscreen canvas.
-   *     The value can only be **"2d"**.<br>
-   *     **"2d"**: creates an **OffscreenCanvasRenderingContext2D** object that represents
-   *     a two-dimensional rendering context.<br>
-   *     The values **undefined** and **null** are considered as invalid values,
-   *     and **undefined** is returned.
-   * @param { RenderingContextSettings } options - Parameters of the
-   *     **OffscreenCanvasRenderingContext2D** object. For details, see
-   *     [RenderingContextSettings](#renderingcontextsettings).<br>
-   *     **undefined** and **null** values are processed based on the default value of
-   *     [RenderingContextSettings](#renderingcontextsettings).<br>
-   *     Default value: **null**.
+   * > **NOTE**
+   * >
+   * > - After the **OffscreenCanvas** object uses **getContext** to obtain the drawing
+   * > context, the object cannot be passed to any other thread through **postMessage**.
+   * > Otherwise, an exception is thrown.
+   * >
+   * > - After the **OffscreenCanvas** object has been passed to a Worker thread through
+   * > **postMessage**, the original thread (sender) is not allowed to call the
+   * > **getContext** method of the object. Otherwise, an exception is thrown.
+   *
+   * @param { "2d" } contextType - Type of the drawing context of the
+   *     **OffscreenCanvas** component. Currently, only the "2d" type is supported.
+   *     <br>"2d": Creates an **OffscreenCanvasRenderingContext2D** object that
+   *     represents a 2D rendering context.
+   *     <br>The abnormal values **undefined** and **null** are treated as invalid
+   *     values, and the API returns **undefined**.
+   * @param { RenderingContextSettings } options - Parameters used to configure the
+   *     **OffscreenCanvasRenderingContext2D** object. See
+   *     [RenderingContextSettings](#renderingcontextsettings). This parameter is passed
+   *     when custom rendering context settings (such as enabling antialiasing) are
+   *     required. If not passed, the default settings are used (**antialias** defaults
+   *     to **false**).
+   *     <br>The abnormal values **undefined** and **null** are treated as the default
+   *     values of [RenderingContextSettings](#renderingcontextsettings).
+   *     <br>Default value: **null**.
    * @returns { OffscreenCanvasRenderingContext2D } Drawing context of the offscreen canvas.
    *     If the input parameter contextType of the **getContext** method is not **"2d"**
    *     (including null or undefined), **undefined** will be returned. Before using the method,
@@ -3446,12 +3676,16 @@ declare class OffscreenCanvas {
   getContext(contextType: "2d", options?: RenderingContextSettings): OffscreenCanvasRenderingContext2D;
 
   /**
-   * Constructs an OffscreenCanvas for creating an offscreen canvas object.
+   * Constructs an **OffscreenCanvas** object.
    *
-   * @param { number } width - Width of the offscreen canvas.<br>
-   *     **NaN** and **Infinity** are treated as invalid values.<br>Default unit: vp
-   * @param { number } height - Height of the offscreen canvas.<br>
-   *     **NaN** and **Infinity** are treated as invalid values.<br>Default unit: vp
+   * @param { number } width - Width of the **OffscreenCanvas** component.
+   *     <br>Abnormal values **NaN** and **Infinity** are treated as invalid values, and
+   *     negative numbers are treated as 0.
+   *     <br>Unit: vp.
+   * @param { number } height - Height of the **OffscreenCanvas** component.
+   *     <br>Abnormal values **NaN** and **Infinity** are treated as invalid values, and
+   *     negative numbers are treated as 0.
+   *     <br>Unit: vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -3462,19 +3696,26 @@ declare class OffscreenCanvas {
   constructor(width: number, height: number);
 
   /**
-   * Constructs an **OffscreenCanvas** object for creating an offscreen canvas object.
-   * The unit mode is configurable for the **OffscreenCanvas** object.
+   * Creates an **OffscreenCanvas** object, with support for configuring the unit mode.
    *
-   * @param { number } width - Width of the offscreen canvas.<br>
-   *     **NaN** and **Infinity** are treated as invalid values.<br>Default unit: vp
-   * @param { number } height - Height of the offscreen canvas.<br>
-   *     **NaN** and **Infinity** are treated as invalid values.<br>Default unit: vp
-   * @param { LengthMetricsUnit } [unit] - Unit mode of the OffscreenCanvas object.
-   *     The value cannot be dynamically changed once set. The configuration method is the same
-   *     as that of
-   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.<br>
-   *     Invalid values **NaN** and **Infinity** are treated as the default value.<br>
-   *     Default value: **DEFAULT**.
+   * @param { number } width - Width of the **OffscreenCanvas** component.
+   *     <br>Abnormal values **NaN** and **Infinity** are treated as invalid values, and
+   *     negative numbers are treated as 0.
+   *     <br>The unit is determined by the unit parameter. Default unit: vp.
+   * @param { number } height - Height of the **OffscreenCanvas** component.
+   *     <br>Abnormal values **NaN** and **Infinity** are treated as invalid values, and
+   *     negative numbers are treated as 0.
+   *     <br>The unit is determined by the unit parameter. Default unit: vp.
+   * @param { LengthMetricsUnit } [unit] - Unit mode of the **OffscreenCanvas** object.
+   *     Once configured, it cannot be changed dynamically. The configuration method is
+   *     the same as that of
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.
+   *     Optional values: **DEFAULT** (default unit mode, which uses vp as the unit and
+   *     automatically adapts based on the screen density) and PX (px pixel unit, which is
+   *     suitable for scenarios requiring precise pixel control, where the width and height
+   *     values are calculated based on physical pixels).
+   *     <br>Abnormal values **NaN** and **Infinity** are treated as the default value.
+   *     <br>Default value: **DEFAULT**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3604,9 +3845,12 @@ declare class DrawingRenderingContext {
  */
 declare interface CanvasParams {
   /**
-   * Indicates the unit mode employed by Canvas during drawing.
-   * <br>It can only be set when creating the **Canvas** component and cannot be modified afterwards.
-   * <br>Default value: **LengthMetricsUnit.DEFAULT**
+   * Unit mode used for **Canvas** drawing. Different unit modes affect the coordinate and
+   * size calculation methods during drawing. For details, see
+   * [LengthMetricsUnit]{@link LengthMetricsUnit}.<br>
+   * This attribute can only be set when creating the **Canvas** and cannot be modified
+   * afterwards.<br>
+   * Default value: **LengthMetricsUnit.DEFAULT**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3617,8 +3861,11 @@ declare interface CanvasParams {
   unit?: LengthMetricsUnit;
 
   /**
-   * AI image analysis options. You can configure the analysis type or bind an analyzer controller
-   * through this parameter.
+   * AI analysis option for the component. Through this option, you can configure the
+   * analysis type or bind an analysis controller.<br>
+   * Abnormal values **null** and **undefined** are treated as not enabling the AI analysis
+   * function.<br>
+   * Default value: AI analysis function not enabled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3644,10 +3891,21 @@ interface CanvasInterface {
    * Creates a **Canvas** component. The maximum allowed size cannot exceed 10000 px × 10000 px.
    * If the size exceeds this limit, the **Canvas** component will fail to be created.
    *
-   * @param { CanvasRenderingContext2D | DrawingRenderingContext } context - 2D rendering context
-   *     for a canvas.
-   *     <br>**CanvasRenderingContext2D**: Canvases cannot share one **CanvasRenderingContext2D** object.
-   *     **DrawingRenderingContext**: Canvases cannot share one **DrawingRenderingContext** object.
+   * The **Canvas** component created using this API does not respond to drawing
+   * instructions when the component is invisible. Invisible scenarios mainly include the
+   * page where the component is located entering the background, the component sliding
+   * out of the window, and setting the
+   * [visibility]{@link CommonMethod#visibility} attribute to hidden. Scenarios where the
+   * component is obscured by other components or other windows are not included.
+   *
+   * @param { CanvasRenderingContext2D | DrawingRenderingContext } context - 2D rendering
+   *     context for a canvas.
+   *     <br>**CanvasRenderingContext2D**: Canvases cannot share one
+   *     **CanvasRenderingContext2D** object. For details, see
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.
+   *     **DrawingRenderingContext**: Canvases cannot share one
+   *     **DrawingRenderingContext** object. For details, see
+   *     [DrawingRenderingContext]{@link DrawingRenderingContext}.
    *     <br>If the value is **null** or **undefined**, **context** is considered unset.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3660,17 +3918,34 @@ interface CanvasInterface {
   (context?: CanvasRenderingContext2D | DrawingRenderingContext): CanvasAttribute;
 
   /**
-   * Creates a **Canvas** component. You can specify a **CanvasRenderingContext2D** or
-   * **DrawingRenderingContext** object, along with AI image analysis options.
+   * When creating a **Canvas** component, the maximum area cannot exceed 10000 px × 10000
+   * px. If the size exceeds this limit, the **Canvas** component will fail to be created.
+   * You can specify a **CanvasRenderingContext2D** or **DrawingRenderingContext** object,
+   * along with AI analysis options.
    *
-   * @param { CanvasRenderingContext2D | DrawingRenderingContext } context - 2D rendering context
-   *     for a canvas.
-   *     <br>**CanvasRenderingContext2D**: Canvases cannot share one **CanvasRenderingContext2D** object.
-   *     **DrawingRenderingContext**: Canvases cannot share one **DrawingRenderingContext** object.
+   * The **Canvas** component created using this API does not respond to drawing
+   * instructions when the component is invisible. Invisible scenarios mainly include the
+   * page where the component is located entering the background, the component sliding
+   * out of the window, and setting the
+   * [visibility]{@link CommonMethod#visibility} attribute to hidden. Scenarios where the
+   * component is obscured by other components or other windows are not included.
+   *
+   * @param { CanvasRenderingContext2D | DrawingRenderingContext } context - 2D rendering
+   *     context for a canvas.
+   *     <br>**CanvasRenderingContext2D**: Canvases cannot share one
+   *     **CanvasRenderingContext2D** object. For details, see
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.
+   *     **DrawingRenderingContext**: Canvases cannot share one
+   *     **DrawingRenderingContext** object. For details, see
+   *     [DrawingRenderingContext]{@link DrawingRenderingContext}.
    *     <br>If the value is **null** or **undefined**, **context** is considered unset.
-   * @param { ImageAIOptions } imageAIOptions - AI image analysis options. You can configure the
-   *     analysis type or bind an analyzer controller through this parameter.
-   *     <br>If the value is **null** or **undefined**, the default value of **ImageAIOptions** is used.
+   * @param { ImageAIOptions } imageAIOptions - AI image analysis options. You can
+   *     configure the analysis type or bind an analyzer controller through this parameter.
+   *     <br>If the value is **null** or **undefined**, the default value of
+   *     **ImageAIOptions** is used. The default value is
+   *     **{ type: [ImageAnalyzerType.SUBJECT, ImageAnalyzerType.TEXT], aiController:
+   *     new ImageAnalyzerController() }**, indicating that subject recognition and text
+   *     recognition are enabled.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3681,25 +3956,30 @@ interface CanvasInterface {
 
   /**
    * Creates a **Canvas** component that does not cache commands using **CanvasParams**.
-   * The maximum allowed size cannot exceed 10000 px × 10000 px. If the size exceeds this limit,
-   * the **Canvas** component will fail to be created.
+   * When creating a **Canvas** component, the maximum area cannot exceed 10000 px × 10000
+   * px. If the area exceeds this limit, the **Canvas** component cannot be created
+   * properly. When the **Canvas** component does not have a fixed size set, it expands to
+   * its maximum available size by default.
    *
    * > **NOTE**
    * >
-   * > * The **Canvas** component created using this API will return a DrawingRenderingContext
-   * > object in the input parameter of the onReady callback, which can be used for drawing on the
-   * > **Canvas** component.
+   * > * The **Canvas** component created using this API returns a
+   * > [DrawingRenderingContext]{@link DrawingRenderingContext} object in the input
+   * > parameter of the [onReady]{@link CanvasAttribute#onReady} callback, which can be
+   * > used for drawing on the **Canvas** component.
    * >
-   * > * The **Canvas** component created using this API will not respond to drawing commands
-   * > when it is not visible.
+   * > * The **Canvas** component created using this API does not respond to drawing
+   * > instructions when the component is invisible.
    * >
-   * > * Scenarios where the component is not visible mainly include: the page containing the
-   * > component moves to the background, the component slides outside the window, or the
-   * > [visibility]{@link CommonMethod#visibility}
-   * > attribute is set to hidden. This does not include scenarios where the component is obscured
-   * > by other components or windows.
+   * > * Invisible scenarios mainly include the page where the component is located
+   * > entering the background, the component sliding out of the window, and setting the
+   * > [visibility]{@link CommonMethod#visibility} attribute to hidden. Scenarios where
+   * > the component is obscured by other components or other windows are not included.
    *
-   * @param { CanvasParams } params - Construction parameters of the **Canvas** component.
+   * @param { CanvasParams } params - Construction parameters of the **Canvas** component,
+   * used to create a **Canvas** component that does not cache drawing instructions. For
+   * details about the configuration parameters, see
+   * [CanvasParams]{@link CanvasParams}.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3727,7 +4007,9 @@ interface CanvasInterface {
  */
 declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   /**
-   * Triggered when the **Canvas** component is initialized or when its size changes.
+   * Triggered when the **Canvas** component is initialized or when its size changes. Dynamic
+   * attribute setting using [attributeModifier]{@link CommonMethod#attributeModifier} is
+   * supported.
    *
    * When this event is triggered, the canvas is cleared. The width and height of the **Canvas**
    * component are then determined and can be obtained, allowing you to use APIs related to the
@@ -3737,8 +4019,8 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * [onAreaChange]{@link CommonMethod#onAreaChange}
    * event is triggered after the **onReady** event.
    *
-   * @param { VoidCallback } event - Triggered when the **Canvas** component is initialized or
-   *     when its size changes.
+   * @param { VoidCallback } event - Callback event triggered when the **Canvas** component
+   *     initialization is complete or when its size changes.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3750,7 +4032,9 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   onReady(event: VoidCallback): CanvasAttribute;
 
   /**
-   * Triggered when the **Canvas** component is initialized or when its size changes.
+   * Triggered when the **Canvas** component is initialized or when its size changes. Dynamic
+   * attribute setting using [attributeModifier]{@link CommonMethod#attributeModifier} is
+   * supported.
    *
    * When this event is triggered, the canvas is cleared. The width and height of the **Canvas**
    * component are then determined and can be obtained, allowing you to use APIs related to the
@@ -3760,13 +4044,14 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * [onAreaChange]{@link CommonMethod#onAreaChange}
    * event is triggered after the **onReady** event.
    *
-   * @param { Callback<DrawingRenderingContext | undefined> | undefined } event - Triggered when
-   *     the **Canvas** component is initialized or when its size changes.
-   *     <br>Constraints on input parameters of the Callback<DrawingRenderingContext | undefined> type:
-   *     <br>1. Only **Canvas** components created using [CanvasParams]{@link CanvasParams} will return
+   * @param { Callback<DrawingRenderingContext | undefined> | undefined } event - Callback
+   *     invoked when the **Canvas** component initialization is complete or when its size
+   *     changes.
+   *     <br>Regarding the input parameter of the **Callback<DrawingRenderingContext | undefined>** type:
+   *     <br>1. Only the **Canvas** component created using [CanvasParams]{@link CanvasParams} returns
    *     a **DrawingRenderingContext** object in this callback; otherwise, **undefined** is returned.
-   *     <br>2. The **DrawingRenderingContext** object returned by this callback must not be used as
-   *     a parameter to create **Canvas** components, as doing so will cause the application to crash.
+   *     <br>2. The **DrawingRenderingContext** object returned by this callback must not be used
+   *     as a parameter to create a **Canvas** component; otherwise, the app will crash.
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3778,17 +4063,21 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
   onReady(event: Callback<DrawingRenderingContext | undefined> | undefined): CanvasAttribute;
 
   /**
-   * Sets whether to enable the AI image analyzer, which supports subject recognition, text recognition,
-   * and object lookup.
+   * Sets whether to enable the AI image analyzer, which supports subject recognition, text
+   * recognition, and object lookup. This attribute can be dynamically set using
+   * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
-   * For the settings to take effect, this attribute must be used together with
+   * This API must be used together with
    * [startImageAnalyzer]{@link startImageAnalyzer} and
-   * [stopImageAnalyzer]{@link stopImageAnalyzer} of CanvasRenderingContext2D.
+   * [stopImageAnalyzer]{@link stopImageAnalyzer} in
+   * [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.
    *
    * This attribute cannot be used together with the
    * [overlay]{@link CommonMethod#overlay} attribute.
-   * If they are set at the same time, the **CustomBuilder** attribute in **overlay** has no effect.
-   * This feature depends on device capabilities.
+   * If they are set at the same time, the **CustomBuilder** attribute in **overlay** will
+   * become invalid. This feature depends on the device capability. You can use the
+   * [ImageAnalyzerController.getImageAnalyzerSupportTypes]{@link ImageAnalyzerController#getImageAnalyzerSupportTypes}
+   * API to query the analysis types supported by the device.
    *
    * > **NOTE**
    * >
@@ -3796,10 +4085,12 @@ declare class CanvasAttribute extends CommonMethod<CanvasAttribute> {
    * > [attributeModifier]{@link CommonMethod#attributeModifier}
    * > since API version 20.
    *
-   * @param { boolean } enable - Whether to enable the AI image analyzer for subject recognition,
-   *     text recognition, and object lookup within the component content.
-   *     <br>**true**: Enable the AI image analyzer. **false**: Disable the AI analyzer.
-   *     <br>The **null** and **undefined** values are handled as the default value.
+   * @param { boolean } enable - Whether to enable the AI analysis function for the
+   *     component. When enabled, the component content must support subject recognition,
+   *     text recognition, or object search.
+   *     <br>When set to **true**, the component can perform AI analysis; when set to **false**,
+   *     the component cannot perform AI analysis.
+   *     <br>Abnormal values **null** and **undefined** are processed as **false**.
    *     <br>Default value: **false**
    * @returns { CanvasAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

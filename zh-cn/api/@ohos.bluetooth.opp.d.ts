@@ -28,7 +28,7 @@ import type { Callback } from './@ohos.base';
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @stagemodelonly
  * @since 16 dynamic
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 declare namespace opp {
   /**
@@ -41,7 +41,7 @@ declare namespace opp {
    * @systemapi
    * @stagemodelonly
    * @since 16 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   function createOppServerProfile(): OppServerProfile;
 
@@ -51,7 +51,7 @@ declare namespace opp {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
    * @since 16 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface OppServerProfile {
     /**
@@ -175,7 +175,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     sendFile(deviceId: string, fileHolds: Array<FileHolder>): Promise<void>;
 
@@ -201,7 +201,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     setIncomingFileConfirmation(accept: boolean, fileFd: int): Promise<void>;
 
@@ -223,7 +223,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     cancelTransfer(): Promise<void>;
 
@@ -248,7 +248,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     getCurrentTransferInformation(): Promise<OppTransferInformation>;
 
@@ -272,7 +272,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     setLastReceivedFileUri(uri: string): Promise<void>;
   }
@@ -283,7 +283,7 @@ declare namespace opp {
    * @systemapi
    * @stagemodelonly
    * @since 16 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   enum DirectionType {
     /**
@@ -293,7 +293,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     OUTBOUND = 0,
 
@@ -304,7 +304,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     INBOUND = 1
   }
@@ -316,7 +316,7 @@ declare namespace opp {
    * @systemapi
    * @stagemodelonly
    * @since 16 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   enum TransferStatus {
     /**
@@ -326,7 +326,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     PENDING = 0,
 
@@ -337,7 +337,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     RUNNING = 1,
 
@@ -348,7 +348,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     FINISH = 2
   }
@@ -360,7 +360,7 @@ declare namespace opp {
    * @systemapi
    * @stagemodelonly
    * @since 16 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   enum TransferResult {
     /**
@@ -370,7 +370,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     SUCCESS = 0,
 
@@ -381,7 +381,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     ERROR_UNSUPPORTED_TYPE = 1,
 
@@ -392,7 +392,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     ERROR_BAD_REQUEST = 2,
 
@@ -403,7 +403,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     ERROR_NOT_ACCEPTABLE = 3,
 
@@ -414,7 +414,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     ERROR_CANCELED = 4,
 
@@ -425,7 +425,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     ERROR_CONNECTION_FAILED = 5,
 
@@ -436,7 +436,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     ERROR_TRANSFER_FAILED = 6,
 
@@ -447,7 +447,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     ERROR_UNKNOWN = 7
   }
@@ -459,7 +459,7 @@ declare namespace opp {
    * @systemapi
    * @stagemodelonly
    * @since 16 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface OppTransferInformation {
     /**
@@ -469,7 +469,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     filePath: string;
 
@@ -480,7 +480,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     remoteDeviceName: string;
 
@@ -491,7 +491,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     remoteDeviceId: string;
 
@@ -502,7 +502,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     direction: DirectionType;
 
@@ -513,7 +513,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     status: TransferStatus;
 
@@ -524,7 +524,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     result: TransferResult;
 
@@ -535,7 +535,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     currentBytes: long;
 
@@ -546,7 +546,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     totalBytes: long;
 
@@ -557,7 +557,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     currentCount: int;
 
@@ -568,7 +568,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     totalCount: int;
   }
@@ -580,7 +580,7 @@ declare namespace opp {
    * @systemapi
    * @stagemodelonly
    * @since 16 dynamic
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   interface FileHolder {
     /**
@@ -590,7 +590,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     filePath: string;
 
@@ -601,7 +601,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     fileSize: long;
 
@@ -612,7 +612,7 @@ declare namespace opp {
      * @systemapi
      * @stagemodelonly
      * @since 16 dynamic
-     * @since 26.1.0 static
+     * @since 26.0.1 static
      */
     fileFd: int;
   }

@@ -776,7 +776,7 @@ export declare struct SubHeaderV2 {
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   @Param
   readonly endIcon?: SubHeaderV2IconType;

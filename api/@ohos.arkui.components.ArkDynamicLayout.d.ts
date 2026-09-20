@@ -20,8 +20,12 @@
 import { LayoutAlgorithm } from './arkui/LayoutAlgorithm';
 
 /**
- * Defines the dynamic layout container.
- *
+ * A dynamic layout container component that supports dynamically switching between different layout algorithms at 
+ * runtime without altering the state of child components. Using **DynamicLayout** improves layout flexibility and 
+ * simplifies the development process for UI adaptation and multi-view switching. It is suitable for scenarios such as 
+ * responsive layouts (adapting to different screen sizes), multi-view mode switching (e.g., switching between list, 
+ * grid, and waterfall layouts), and user-defined layouts.
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -33,9 +37,20 @@ export interface DynamicLayoutInterface {
     /**
      * Defines the dynamic layout container.
      *
-     * @param { LayoutAlgorithm } algorithm - Layout algorithm of the dynamic layout component. If an invalid value is
-     *     used, the child components are stacked and arranged according to
-     *     [StackLayoutAlgorithm](docroot://reference/apis-arkui/js-apis-arkui-layoutAlgorithm.md#stacklayoutalgorithm).
+     * @param { LayoutAlgorithm } algorithm - Layout algorithm for the dynamic layout container. Supported layout
+     *     algorithm instances include [RowLayoutAlgorithm]{@link LayoutAlgorithm:RowLayoutAlgorithm} (
+     *     horizontal linear layout, suitable for horizontal arrangement scenarios),
+     *     [ColumnLayoutAlgorithm]{@link LayoutAlgorithm:ColumnLayoutAlgorithm} (vertical linear layout,
+     *     suitable for vertical arrangement scenarios),
+     *     [StackLayoutAlgorithm]{@link LayoutAlgorithm:StackLayoutAlgorithm} (stack layout, suitable for
+     *     overlapping scenarios), [GridLayoutAlgorithm]{@link LayoutAlgorithm:GridLayoutAlgorithm} (grid
+     *     layout, suitable for regular grid scenarios), and
+     *     [CustomLayoutAlgorithm]{@link LayoutAlgorithm:CustomLayoutAlgorithm} (custom layout, suitable for
+     *     complex and special layout scenarios). For details, see
+     *     [LayoutAlgorithm]{@link LayoutAlgorithm:LayoutAlgorithm}. If an invalid value (such as **null**,
+     *     **undefined**, or an invalid layout algorithm object) is passed, child components are laid out according to
+     *     [StackLayoutAlgorithm]{@link LayoutAlgorithm:StackLayoutAlgorithm}, with child components stacked on
+     *     top of each other.
      * @returns { DynamicLayoutAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -51,24 +66,25 @@ export interface DynamicLayoutInterface {
  *
  * > **NOTE**
  * >
- * > - When the layout algorithm is [RowLayoutAlgorithm]{@link ./arkui/LayoutAlgorithm:RowLayoutAlgorithm} or
- * > [ColumnLayoutAlgorithm]{@link ./arkui/LayoutAlgorithm:ColumnLayoutAlgorithm},
- * > the [Flex layout](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-flex-layout.md) attributes set
- * > for child components take effect.
+ * > - When the layout algorithm is [RowLayoutAlgorithm]{@link LayoutAlgorithm:RowLayoutAlgorithm} or
+ * > [ColumnLayoutAlgorithm]{@link LayoutAlgorithm:ColumnLayoutAlgorithm}, the flex layout attributes set on
+ * > child components take effect, while the [layoutGravity]{@link CommonMethod#layoutGravity} attribute does not.
  * >
- * > - When the layout algorithm is [StackLayoutAlgorithm]{@link ./arkui/LayoutAlgorithm:StackLayoutAlgorithm},
- * > the [layoutGravity]{@link CommonMethod#layoutGravity} attribute set for child components takes effect.
+ * > - When the layout algorithm is [StackLayoutAlgorithm]{@link LayoutAlgorithm:StackLayoutAlgorithm}, the
+ * > [layoutGravity]{@link CommonMethod#layoutGravity} attribute set on child components takes effect, while the
+ * > flex layout attributes do not.
  * >
- * > - When the layout algorithm is
- * > [CustomLayoutAlgorithm]{@link ./arkui/LayoutAlgorithm:CustomLayoutAlgorithm},
- * > the [setMeasuredSize]{@link ./arkui/FrameNode:FrameNode#setMeasuredSize} method of the
- * > [FrameNode]{@link ./arkui/FrameNode:FrameNode} component of **DynamicLayout** has a higher priority than the
- * > [sizing]{@link CommonMethod#size} and [border styling]{@link CommonMethod#border} attributes. The
- * > [measure]{@link ./arkui/FrameNode:FrameNode#measure} and [layout]{@link ./arkui/FrameNode:FrameNode#layout} methods
- * > of the child component [FrameNode]{@link ./arkui/FrameNode:FrameNode} have a higher priority than the
- * > [ignoreLayoutSafeArea]{@link CommonMethod#ignoreLayoutSafeArea} attribute.
+ * > - When the layout algorithm is [CustomLayoutAlgorithm]{@link LayoutAlgorithm:CustomLayoutAlgorithm},
+ * > the setMeasuredSize method of the **DynamicLayout** component's FrameNode takes precedence over the size
+ * > settings and border attributes, and the measure and layout methods of the child component's FrameNode take
+ * > precedence over the ignoreLayoutSafeArea attribute.
+ * >
+ * > - When the layout algorithm is [GridLayoutAlgorithm]{@link LayoutAlgorithm:GridLayoutAlgorithm}, the
+ * > flex layout attributes set on child components do not take effect, the
+ * > [layoutGravity]{@link CommonMethod#layoutGravity} attribute does not take effect, and the positions of child
+ * > components are controlled by the **GridLayoutAlgorithm** parameters.
  *
- * The [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are supported.
+ * The [universal events]{@link CommonMethod} are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -80,11 +96,15 @@ export interface DynamicLayoutInterface {
 export declare class DynamicLayoutAttribute extends CommonMethod<DynamicLayoutAttribute> {}
 
 /**
- * Defines the dynamic layout container component, which supports dynamically switching between different layout
- * algorithms at runtime without changing the status of child components.
- * > **Child Components**
- * >
- * > Child components are supported.
+ * A dynamic layout container component that supports dynamically switching between different layout algorithms at 
+ * runtime without altering the state of child components. Using **DynamicLayout** improves layout flexibility and 
+ * simplifies the development process for UI adaptation and multi-view switching. It is suitable for scenarios such as 
+ * responsive layouts (adapting to different screen sizes), multi-view mode switching (e.g., switching between list, 
+ * grid, and waterfall layouts), and user-defined layouts.
+ * 
+ * ###### Child Components
+ * 
+ * Child components are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

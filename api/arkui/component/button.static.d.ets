@@ -506,7 +506,7 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @unpublished
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
      */
     default setButtonOptions(label: ResourceStr, options?: ButtonOptions): this;
     /**
@@ -517,7 +517,7 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @unpublished
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
      */
     default setButtonOptions(options?: ButtonOptions): this;
  }
@@ -564,7 +564,7 @@ export declare function Button(
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  */
 @Builder

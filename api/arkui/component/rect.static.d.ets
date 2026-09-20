@@ -167,7 +167,7 @@ export declare interface RectAttribute extends CommonShapeMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @unpublished
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
  	 */
  	default setRectOptions(options?: RectOptions | RoundedRectOptions): this;
     /**
@@ -205,7 +205,7 @@ export declare function Rect(
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  */
 @Builder

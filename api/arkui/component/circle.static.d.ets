@@ -67,7 +67,7 @@ export declare interface CircleAttribute extends CommonShapeMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @unpublished
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
      */
     default setCircleOptions(options?: CircleOptions): this;
 
@@ -133,7 +133,7 @@ export declare function Circle(
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  */
 @Builder

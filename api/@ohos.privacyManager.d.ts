@@ -1573,7 +1573,7 @@ declare namespace privacyManager {
    *     "ohos.permission.PERMISSION_USED_STATS".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100004 - This API must be used together with
-   *     [setPermissionUsedRecordToggleStatus]{@link privacyManager.setPermissionUsedRecordToggleStatus(status: boolean)}. [since 26.1.0]
+   *     [setPermissionUsedRecordToggleStatus]{@link privacyManager.setPermissionUsedRecordToggleStatus(status: boolean)}. [since 26.0.1]
    * @throws { BusinessError } 12100007 - Service exception.
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
@@ -1602,7 +1602,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   function getPermissionUsedRecordToggleStatus(subProfileId: int): Promise<boolean>;
   /**
@@ -1670,7 +1670,7 @@ declare namespace privacyManager {
    *     "ohos.permission.PERMISSION_RECORD_TOGGLE".
    * @throws { BusinessError } 202 - Not system app. Interface caller is not a system app.
    * @throws { BusinessError } 12100006 - Operation not allowed. The toggle status of the specified permission has
-   *     already been set by [setPermissionUsedRecordToggleStatus]{@link privacyManager.setPermissionUsedRecordToggleStatus(status: boolean, subProfileId: int)}. [since 26.1.0]
+   *     already been set by [setPermissionUsedRecordToggleStatus]{@link privacyManager.setPermissionUsedRecordToggleStatus(status: boolean, subProfileId: int)}. [since 26.0.1]
    * @throws { BusinessError } 12100007 - Service exception.
    * @throws { BusinessError } 12100009 - Common inner error. Possible causes: 1. Database error. 2. Failed to query
    *     all applications under the user.
@@ -1710,7 +1710,7 @@ declare namespace privacyManager {
    * @syscap SystemCapability.Security.AccessToken
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamiconly
+   * @since 26.0.1 dynamiconly
    */
   function setPermissionUsedRecordToggleStatus(status: boolean, subProfileId: int): Promise<void>;
   /**

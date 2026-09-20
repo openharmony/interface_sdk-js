@@ -150,7 +150,7 @@ export declare struct PhotoPickerComponent {
    * @type { ?MovingPhotoBadgeStateChangedCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   onMovingPhotoBadgeStateChanged?: MovingPhotoBadgeStateChangedCallback;
 
@@ -159,7 +159,7 @@ export declare struct PhotoPickerComponent {
    * @type { ?PhotoBrowserChangeStartCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   onPhotoBrowserChangeStart?: PhotoBrowserChangeStartCallback;
 
@@ -169,7 +169,7 @@ export declare struct PhotoPickerComponent {
    * @type { ?ItemClickedNotifyCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   onItemClickedNotify?: ItemClickedNotifyCallback;
 
@@ -178,7 +178,7 @@ export declare struct PhotoPickerComponent {
    * @type { ?ScrollStopAtStartCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   onScrollStopAtStart?: ScrollStopAtStartCallback;
 
@@ -187,7 +187,7 @@ export declare struct PhotoPickerComponent {
    * @type { ?ScrollStopAtEndCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   onScrollStopAtEnd?: ScrollStopAtEndCallback;
 
@@ -196,7 +196,7 @@ export declare struct PhotoPickerComponent {
    * @type { ?PinchGridSwitchedCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   onPinchGridSwitched?: PinchGridSwitchedCallback;
 
@@ -205,7 +205,7 @@ export declare struct PhotoPickerComponent {
    * @type { ?ErrorCallback }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   onError?: ErrorCallback;
 
@@ -214,7 +214,7 @@ export declare struct PhotoPickerComponent {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   onPhotoBrowserZoom?: PhotoBrowserZoomCallback;
 
@@ -266,7 +266,7 @@ export declare class PickerController {
    * @param { Object } data - data
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public addData(dataType: DataType, data: Object): void;
 
@@ -277,7 +277,7 @@ export declare class PickerController {
    * @param { Object } data - data
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public deleteData(dataType: DataType, data: Object): void;
 
@@ -358,7 +358,7 @@ export declare class PickerController {
    *     which has been authorized
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public saveTrustedPhotoAssetsEx(trustedUris: Array<string>,settings?: Array<photoAccessHelper.CreationSetting>,
       saveMode?: SaveMode): Promise<Array<string>>;
@@ -370,7 +370,7 @@ export declare class PickerController {
    * @returns { Promise<void> } Promise<void>
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public updatePickerOptions(updateConfig: UpdatablePickerConfigs): Promise<void>;
 
@@ -389,7 +389,7 @@ export declare class PickerController {
    *     2. The API is called when isMovingPhotoBadgeShown is already set to true.
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public setMovingPhotoState(movingPhotoState: photoAccessHelper.MovingPhotoBadgeStateType): Promise<void>;
 
@@ -399,7 +399,7 @@ export declare class PickerController {
    * @returns { Promise<CompletedResult> } Promise<CompletedResult>
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public completed(): Promise<CompletedResult>;
 }
@@ -585,7 +585,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public pickerIndex?: int;
 
@@ -596,7 +596,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @type { ?PreselectedInfo[] }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public preselectedInfos?: PreselectedInfo[];
 
@@ -606,7 +606,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @type { ?BadgeConfig }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public badgeConfig?: BadgeConfig;
 
@@ -615,7 +615,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public isSlidingSupported?: boolean;
 
@@ -624,7 +624,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @type { ?EdgeEffect }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public edgeEffect?: EdgeEffect;
 
@@ -634,7 +634,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public appAlbumFilters?: Array<string>;
 
@@ -643,7 +643,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public backgroundOpacity?: double;
 
@@ -651,7 +651,7 @@ export declare class PickerOptions extends photoAccessHelper.BaseSelectOptions {
    * Context recovery information for restoring the last selection session.
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public contextRecoveryInfo?: photoAccessHelper.ContextRecoveryInfo;
 }
@@ -723,7 +723,7 @@ export declare class BaseItemInfo {
    * @type { ?photoAccessHelper.PhotoSubtype }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public photoSubType?: photoAccessHelper.PhotoSubtype;
 
@@ -733,7 +733,7 @@ export declare class BaseItemInfo {
    * @type { ?photoAccessHelper.DynamicRangeType }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public dynamicRangeType?: photoAccessHelper.DynamicRangeType;
 
@@ -742,7 +742,7 @@ export declare class BaseItemInfo {
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public orientation?: int;
 
@@ -751,7 +751,7 @@ export declare class BaseItemInfo {
    * @type { ?photoAccessHelper.MovingPhotoBadgeStateType }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public movingPhotoBadgeState?: photoAccessHelper.MovingPhotoBadgeStateType;
 
@@ -760,7 +760,7 @@ export declare class BaseItemInfo {
    * @type { ?photoAccessHelper.VideoMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public videoMode?: photoAccessHelper.VideoMode;
 }
@@ -888,7 +888,7 @@ export declare class SingleLineConfig {
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export declare class PreselectedInfo {
   /**
@@ -896,7 +896,7 @@ export declare class PreselectedInfo {
    * @type { string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public uri: string;
 
@@ -907,7 +907,7 @@ export declare class PreselectedInfo {
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public preselectablePickerIndex?: int;
 }
@@ -917,7 +917,7 @@ export declare class PreselectedInfo {
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export declare class BadgeConfig {
   /**
@@ -925,7 +925,7 @@ export declare class BadgeConfig {
    * @type { ?BadgeType }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public badgeType?: BadgeType;
 
@@ -935,7 +935,7 @@ export declare class BadgeConfig {
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public uris?: Array<string>;
 }
@@ -945,7 +945,7 @@ export declare class BadgeConfig {
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export declare class UpdatablePickerConfigs {
   /**
@@ -953,7 +953,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?photoAccessHelper.PhotoViewMIMETypes }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public mimeType?: photoAccessHelper.PhotoViewMIMETypes;
 
@@ -962,7 +962,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?photoAccessHelper.MimeTypeFilter }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public mimeTypeFilter?: photoAccessHelper.MimeTypeFilter;
 
@@ -971,7 +971,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public maxSelectNumber?: int;
 
@@ -980,7 +980,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public maxPhotoSelectNumber?: int;
 
@@ -989,7 +989,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public maxVideoSelectNumber?: int;
 
@@ -998,7 +998,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?SelectMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public selectMode?: SelectMode;
 
@@ -1007,7 +1007,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?photoAccessHelper.SingleSelectionMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public singleSelectionMode?: photoAccessHelper.SingleSelectionMode;
 
@@ -1016,7 +1016,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public isRepeatSelectSupported?: boolean;
 
@@ -1025,7 +1025,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public preselectedUris?: Array<string>;
 
@@ -1034,7 +1034,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public checkBoxColor?: string;
 
@@ -1043,7 +1043,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public checkboxTextColor?: string;
 
@@ -1052,7 +1052,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public backgroundColor?: string;
 
@@ -1061,7 +1061,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?PickerColorMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public photoBrowserBackgroundColorMode?: PickerColorMode;
 
@@ -1070,7 +1070,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?PickerColorMode }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public uiComponentColorMode?: PickerColorMode;
 
@@ -1079,7 +1079,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?boolean }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public isSlidingSupported?: boolean;
 
@@ -1088,7 +1088,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?EdgeEffect }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public edgeEffect?: EdgeEffect;
 
@@ -1097,7 +1097,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?Array<photoAccessHelper.AutoPlayScene> }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public autoPlayScenes?: Array<photoAccessHelper.AutoPlayScene>;
 
@@ -1107,7 +1107,7 @@ export declare class UpdatablePickerConfigs {
    * @type { ?Array<string> }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public appAlbumFilters?: Array<string>;
 
@@ -1116,7 +1116,7 @@ export declare class UpdatablePickerConfigs {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public backgroundOpacity?: double;
 
@@ -1125,7 +1125,7 @@ export declare class UpdatablePickerConfigs {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public photoBrowserMargin?: Margin;
 
@@ -1134,7 +1134,7 @@ export declare class UpdatablePickerConfigs {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public gridMargin?: Margin;
 }
@@ -1144,7 +1144,7 @@ export declare class UpdatablePickerConfigs {
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export declare class ClickResult {
   /**
@@ -1152,7 +1152,7 @@ export declare class ClickResult {
    * @type { string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public uri: string;
 
@@ -1161,7 +1161,7 @@ export declare class ClickResult {
    * @type { boolean }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public isSelected: boolean;
 }
@@ -1171,7 +1171,7 @@ export declare class ClickResult {
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export declare class PickerError {
   /**
@@ -1179,7 +1179,7 @@ export declare class PickerError {
    * @type { string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public functionName: string;
 
@@ -1188,7 +1188,7 @@ export declare class PickerError {
    * @type { int }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public errorCode: int;
 
@@ -1197,7 +1197,7 @@ export declare class PickerError {
    * @type { string }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   public message: string;
 }
@@ -1207,7 +1207,7 @@ export declare class PickerError {
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export declare class CompletedResult {
   /**
@@ -1216,7 +1216,7 @@ export declare class CompletedResult {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   photoUris: Array<string>;
 
@@ -1224,7 +1224,7 @@ export declare class CompletedResult {
    * Contextual information about the PhotoPicker's exit state.
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   contextRecoveryInfo: photoAccessHelper.ContextRecoveryInfo;
 
@@ -1235,7 +1235,7 @@ export declare class CompletedResult {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   movingPhotoBadgeStates: Array<photoAccessHelper.MovingPhotoBadgeStateType>;
 }
@@ -1272,7 +1272,7 @@ export declare enum DataType {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   SET_SELECTED_INFO = 3,
 
@@ -1281,7 +1281,7 @@ export declare enum DataType {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   SET_BADGE_CONFIGS = 4,
 
@@ -1290,7 +1290,7 @@ export declare enum DataType {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   SET_ITEM_CLICK_RESULT = 5
 }
@@ -1691,7 +1691,7 @@ export declare enum ItemDisplayRatio {
  * @enum { int } BadgeType
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export declare enum BadgeType {
   /**
@@ -1699,7 +1699,7 @@ export declare enum BadgeType {
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   BADGE_UPLOADED = 0
 }
@@ -1823,7 +1823,7 @@ export type VideoPlayStateChangedCallback = (state: VideoPlayerState) => void;
  * @param { double } scale
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export type PhotoBrowserZoomCallback = (scale: double) => void;
 
@@ -1834,7 +1834,7 @@ export type PhotoBrowserZoomCallback = (scale: double) => void;
  * @param { photoAccessHelper.MovingPhotoBadgeStateType } state
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export type MovingPhotoBadgeStateChangedCallback =
   (uri: string, state: photoAccessHelper.MovingPhotoBadgeStateType) => void;
@@ -1844,7 +1844,7 @@ export type MovingPhotoBadgeStateChangedCallback =
  * @typedef { function }
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export type ScrollStopAtStartCallback = () => void;
 
@@ -1853,7 +1853,7 @@ export type ScrollStopAtStartCallback = () => void;
  * @typedef { function }
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export type ScrollStopAtEndCallback = () => void;
 
@@ -1864,7 +1864,7 @@ export type ScrollStopAtEndCallback = () => void;
  * @param { ClickType } clickType
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export type ItemClickedNotifyCallback = (itemInfo: ItemInfo, clickType: ClickType) => void;
 
@@ -1874,7 +1874,7 @@ export type ItemClickedNotifyCallback = (itemInfo: ItemInfo, clickType: ClickTyp
  * @param { photoAccessHelper.GridLevel } gridLevel
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export type PinchGridSwitchedCallback = (gridLevel: photoAccessHelper.GridLevel) => void;
 
@@ -1884,7 +1884,7 @@ export type PinchGridSwitchedCallback = (gridLevel: photoAccessHelper.GridLevel)
  * @param { BaseItemInfo } targetPhotoInfo
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export type PhotoBrowserChangeStartCallback = (targetPhotoInfo: BaseItemInfo) => void;
 
@@ -1894,6 +1894,6 @@ export type PhotoBrowserChangeStartCallback = (targetPhotoInfo: BaseItemInfo) =>
  * @param { PickerError } pickerError
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 26.1.0 static
+ * @since 26.0.1 static
  */
 export type ErrorCallback = (pickerError: PickerError) => void;

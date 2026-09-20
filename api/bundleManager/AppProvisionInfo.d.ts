@@ -174,7 +174,7 @@ export interface AppProvisionInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   readonly appServiceCapabilities?: string;
 
@@ -184,7 +184,7 @@ export interface AppProvisionInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   readonly appIndex?: int;
 
@@ -194,7 +194,7 @@ export interface AppProvisionInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   readonly specifiedDistributionType?: string;
 
@@ -204,7 +204,7 @@ export interface AppProvisionInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   readonly additionalInfo?: string;
 }

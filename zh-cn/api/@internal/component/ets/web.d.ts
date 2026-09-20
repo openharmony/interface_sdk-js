@@ -745,7 +745,7 @@ declare interface WebKeyboardOptions {
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @since 23 dynamic
  */
 declare interface UrlRegexRule {
@@ -755,7 +755,7 @@ declare interface UrlRegexRule {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 23 dynamic
    */
   secondLevelDomain : string;
@@ -764,7 +764,7 @@ declare interface UrlRegexRule {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 23 dynamic
    */
   rule : string;
@@ -1143,7 +1143,7 @@ declare enum CacheMode {
  * 设置Web的过滚动模式为关闭或开启。
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice
  * @since 11 dynamic
  */
@@ -1152,7 +1152,7 @@ declare enum OverScrollMode {
    * Web过滚动模式关闭。适用于不需要额外滚动效果的页面，如内容高度与容器高度匹配的场景。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -1162,7 +1162,7 @@ declare enum OverScrollMode {
    * Web过滚动模式开启。适用于需要增强滚动反馈的场景，如列表页面或需要明确滚动边界指示的场景。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -1200,7 +1200,7 @@ declare enum BlurOnKeyboardHideMode {
  * Web深色模式的配置，用于控制网页内容的深色主题显示，帮助开发者根据用户偏好和系统主题提升视觉体验和可读性。
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice [since 11]
  * @since 9 dynamic
  */
@@ -1209,7 +1209,7 @@ declare enum WebDarkMode {
    * Web深色模式关闭。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -1219,7 +1219,7 @@ declare enum WebDarkMode {
    * Web深色模式开启。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -1229,7 +1229,7 @@ declare enum WebDarkMode {
    * Web深色模式跟随系统。适用于Web组件主题需要与系统保持一致的场景，推荐使用此模式以提供一致的用户体验。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -1475,7 +1475,7 @@ type MouseInfoCallback = (event: NativeEmbedMouseInfo) => void;
  * onRenderExited接口返回的渲染进程退出的具体原因。
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice [since 11]
  * @since 9 dynamic
  */
@@ -1502,7 +1502,7 @@ declare enum RenderExitReason {
    * 渲染进程崩溃退出，如段错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -1521,7 +1521,7 @@ declare enum RenderExitReason {
    * 其他原因，比如渲染进程孵化失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -1550,7 +1550,7 @@ declare enum SslError {
    * 一般错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -1641,7 +1641,7 @@ declare enum FileSelectorMode {
  * Web布局模式的配置，用于控制Web内容的页面布局方式，帮助开发者根据屏幕尺寸和显示需求优化网页的适配性和用户体验。
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice
  * @since 11 dynamic
  */
@@ -1650,7 +1650,7 @@ declare enum WebLayoutMode {
    * Web布局跟随系统。适用于传统网页布局场景，保持与系统默认行为一致。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -1660,7 +1660,7 @@ declare enum WebLayoutMode {
    * Web基于页面大小的自适应网页布局。适用于需要根据屏幕尺寸自动调整布局的场景，推荐用于移动端网页优化。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -2319,7 +2319,7 @@ declare class DataResubmissionHandler {
  * 口，并需要应用侧显式管理新窗口的URL展示与安全隔离。
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice [since 11]
  * @since 9 dynamic
  */
@@ -2328,7 +2328,7 @@ declare class ControllerHandler {
    * ControllerHandler的构造函数。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -2339,7 +2339,7 @@ declare class ControllerHandler {
    *
    * @param { WebviewController } controller - 新建Web组件的WebviewController对象，如果不需要打开新窗口请设置为null。
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -3572,7 +3572,7 @@ declare class WebResourceError {
    *
    * @returns { number } 返回加载资源的自定义错误码。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   getCustomErrorCode(): number;
 }
@@ -4047,7 +4047,7 @@ declare interface WebOptions {
  *
  * @interface ScriptItem [since 11 - 11]
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice
  * @since 11 dynamic
  */
@@ -4056,7 +4056,7 @@ declare interface ScriptItem {
    * 需要注入、执行的JavaScript脚本。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -4078,7 +4078,7 @@ declare interface ScriptItem {
    * 6.一组scriptRule中，如果其中一条不满足以上规则，则整组scriptRule都不生效。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -4089,7 +4089,7 @@ declare interface ScriptItem {
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 23 dynamic
    */
   urlRegexRules? : Array<UrlRegexRule>;
@@ -5087,7 +5087,7 @@ declare interface OnRefreshAccessedHistoryEvent {
  * 定义渲染过程退出时触发。适用于需要监控渲染进程异常的场景，提升渲染稳定性和故障排查效率。
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice
  * @since 12 dynamic
  */
@@ -5096,7 +5096,7 @@ declare interface OnRenderExitedEvent {
    * 渲染进程异常退出的具体原因。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5137,7 +5137,7 @@ declare interface OnShowFileSelectorEvent {
  * 定义加载URL时触发的回调信息，包括资源URL。适用于需要监控资源加载行为的场景，提升资源管理的可见性和性能优化。
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice
  * @since 12 dynamic
  */
@@ -5146,7 +5146,7 @@ declare interface OnResourceLoadEvent {
    * 所加载的资源文件url信息。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5479,7 +5479,7 @@ declare interface OnClientAuthenticationEvent {
  * 定义网页要求用户创建窗口时触发的回调。从API version 23开始，如需获取更多窗口信息，可使用[OnWindowNewExtEvent]{@link OnWindowNewExtEvent}。
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform [since 26.1.0]
+ * @crossplatform [since 26.0.1]
  * @atomicservice
  * @since 12 dynamic
  */
@@ -5488,7 +5488,7 @@ declare interface OnWindowNewEvent {
    * true代表请求创建对话框，false代表新标签页。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5498,7 +5498,7 @@ declare interface OnWindowNewEvent {
    * true代表用户触发，false代表非用户触发。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5508,7 +5508,7 @@ declare interface OnWindowNewEvent {
    * 目标url。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -5518,7 +5518,7 @@ declare interface OnWindowNewEvent {
    * 用于设置新建窗口的WebviewController实例。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -6563,7 +6563,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>传入null或undefined时为`WebDarkMode.Off`。
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -6577,7 +6577,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>传入null或undefined时为false。
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -6641,7 +6641,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>传入undefined或null时为false。
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
@@ -6654,7 +6654,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>传入undefined或null时为OverScrollMode.NEVER。
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -6723,7 +6723,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>传入undefined或null时属性设置不生效。
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -7064,7 +7064,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { Callback<OnRenderExitedEvent> } callback - 渲染过程退出时触发。 [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -7123,7 +7123,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { Callback<OnResourceLoadEvent> } callback - 加载url时触发。 [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -7385,7 +7385,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param {  Callback<OnWindowNewEvent> } callback - 网页要求用户创建窗口时触发的回调。 [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -7418,7 +7418,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { function } callback - 窗口请求关闭的回调函数。
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -7433,7 +7433,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>true表示开启，false表示不开启。
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -7560,7 +7560,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>传入null或undefined时为16。
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -7773,7 +7773,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>默认值与系统属性关联，当系统属性`persist.web.allowWindowOpenMethod.enabled`为true时，默认值为true，如果未设置系统属性则默认值为false。
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
@@ -8046,7 +8046,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>传入null或undefined时为`WebLayoutMode.NONE`
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @atomicservice
    * @since 11 dynamic
    */
@@ -8499,7 +8499,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>传入undefined或null时不将JavaScript脚本注入到Web组件中。
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 15 dynamic
    */
   runJavaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
@@ -8519,7 +8519,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    *     <br>传入undefined或null时不将JavaScript脚本注入到Web组件中。
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform [since 26.1.0]
+   * @crossplatform [since 26.0.1]
    * @since 15 dynamic
    */
   runJavaScriptOnDocumentEnd(scripts: Array<ScriptItem>): WebAttribute;

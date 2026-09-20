@@ -433,7 +433,7 @@ declare namespace PiPWindow {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     VIDEO_NAVIGATION = 5
   }

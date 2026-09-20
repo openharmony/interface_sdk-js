@@ -263,7 +263,7 @@ export declare interface ArcListAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @unpublished
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
      */
     default setArcListOptions(options?: ArkListOptions): this;
     /**
@@ -309,7 +309,7 @@ export declare interface ArcListItemAttribute extends CommonMethod {
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @unpublished
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
      */
     default setArcListItemOptions(): this;
     /**
@@ -348,7 +348,7 @@ export declare function ArcList(
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  */
 @Builder
@@ -380,7 +380,7 @@ export declare function ArcListItem(
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  */
 @Builder

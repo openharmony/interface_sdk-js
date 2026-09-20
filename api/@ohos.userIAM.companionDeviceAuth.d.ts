@@ -214,7 +214,7 @@ declare namespace companionDeviceAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     deviceSubProfileId?: int;
   }
@@ -305,7 +305,7 @@ declare namespace companionDeviceAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     deviceSubProfileName?: string;
   }
@@ -746,7 +746,7 @@ declare namespace companionDeviceAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   type PasscodeSubmitCallback = (passcode: Uint8Array) => void;
 
@@ -757,7 +757,7 @@ declare namespace companionDeviceAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface PasscodePromptParams {
     /**
@@ -767,7 +767,7 @@ declare namespace companionDeviceAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     challenge: Uint8Array;
   }
@@ -782,7 +782,7 @@ declare namespace companionDeviceAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   type PasscodePromptCallback =
       (submit: PasscodeSubmitCallback, params: PasscodePromptParams) => void;
@@ -800,7 +800,7 @@ declare namespace companionDeviceAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function registerPasscodePromptCallback(callback: PasscodePromptCallback): void;
 
@@ -814,7 +814,7 @@ declare namespace companionDeviceAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.CompanionDeviceAuth
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function unregisterPasscodePromptCallback(): void;
 }

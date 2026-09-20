@@ -200,7 +200,7 @@ declare namespace bundleManager {
      * 用于获取仅包含有桌面图标的应用的bundleInfo。
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
-     * @systemapi [since 12 - 26.1.0]
+     * @systemapi [since 12 - 26.0.1]
      * @publicapi [since 26.2.0]
      * @since 12 dynamic
      * @since 23 static
@@ -1520,7 +1520,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   enum DeviceModeDistributionPolicy {
     /**
@@ -1529,7 +1529,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     UNSPECIFIED = 0,
     /**
@@ -1538,7 +1538,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     MAIN_ONLY = 1,
     /**
@@ -1547,7 +1547,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     SUB_ONLY = 2,
     /**
@@ -1556,7 +1556,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     UNIVERSAL_IDENTICAL_PACKAGE = 3,
     /**
@@ -1565,7 +1565,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     UNIVERSAL_DIFFERENT_PACKAGE = 4,
     /**
@@ -1574,7 +1574,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     PARTIAL_COMPATIBLE_IDENTICAL_PACKAGE = 5,
     /**
@@ -1583,7 +1583,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     PARTIAL_COMPATIBLE_DIFFERENT_PACKAGE = 6,
     /**
@@ -1592,7 +1592,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     FULL_COMPATIBLE_IDENTICAL_PACKAGE = 7,
     /**
@@ -1601,7 +1601,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     FULL_COMPATIBLE_DIFFERENT_PACKAGE = 8,
   }
@@ -4390,7 +4390,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function filterBundleListByDeviceModeDistributionPolicies(
     policies: Array<DeviceModeDistributionPolicy>

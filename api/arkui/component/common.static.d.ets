@@ -13644,7 +13644,7 @@ export declare interface CommonMethod {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 26.1.0 staticonly
+     * @since 26.0.1 staticonly
      * @unpublished
      */
     default applyAttributesFinish(): void;

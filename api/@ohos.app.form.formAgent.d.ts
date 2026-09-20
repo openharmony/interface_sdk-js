@@ -53,10 +53,10 @@ declare namespace formAgent {
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed. [since 26.1.0]
+   * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed. [since 26.0.1]
    * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out. [since 12]
-   * @throws { BusinessError } 16501017 - There is no space to publish the form. [since 26.1.0]
-   * @throws { BusinessError } 16501018 - This form does not support publishing. [since 26.1.0]
+   * @throws { BusinessError } 16501017 - There is no space to publish the form. [since 26.0.1]
+   * @throws { BusinessError } 16501018 - This form does not support publishing. [since 26.0.1]
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11 dynamic
@@ -83,10 +83,10 @@ declare namespace formAgent {
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed. [since 26.1.0]
+   * @throws { BusinessError } 16501002 - The number of forms exceeds the maximum allowed. [since 26.0.1]
    * @throws { BusinessError } 16501008 - Waiting for the form addition to the desktop timed out. [since 12]
-   * @throws { BusinessError } 16501017 - There is no space to publish the form. [since 26.1.0]
-   * @throws { BusinessError } 16501018 - This form does not support publishing. [since 26.1.0]
+   * @throws { BusinessError } 16501017 - There is no space to publish the form. [since 26.0.1]
+   * @throws { BusinessError } 16501018 - This form does not support publishing. [since 26.0.1]
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @since 11 dynamic
@@ -129,7 +129,7 @@ declare namespace formAgent {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function getAvailableFormHostServices(): Promise<Array<formInfo.PeerFormHostServiceInfo>>;
 
@@ -161,7 +161,7 @@ declare namespace formAgent {
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function requestPublishFormCrossDevice(peerServiceInfo: formInfo.PeerFormHostServiceInfo, want: Want,
     formBindingData?: formBindingData.FormBindingData): Promise<formInfo.PublishFormCrossDeviceResult>;

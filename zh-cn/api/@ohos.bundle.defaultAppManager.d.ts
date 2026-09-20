@@ -276,7 +276,7 @@ declare namespace defaultAppManager {
    * 根据系统已定义的应用类型或者符合媒体类型格式（type/subtype）的文件类型或者
    * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}类型设置默认应用。使用callback异
    * 步回调。
-   * 将应用设置为默认浏览器时，目标应用必须已被授予ohos.permission.DEFAULT_WEB_BROWSER权限，否则返回错误码18000001。 [since 26.1.0]
+   * 将应用设置为默认浏览器时，目标应用必须已被授予ohos.permission.DEFAULT_WEB_BROWSER权限，否则返回错误码18000001。 [since 26.0.1]
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - 要设置的应用类型，取
@@ -297,7 +297,7 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @throws { BusinessError } 17700028 - The specified ability does not match the type.
    * @throws { BusinessError } 18000001 - The specified type is Web Browser and the specified application does not
-   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.1.0]
+   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.0.1]
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
@@ -309,7 +309,7 @@ declare namespace defaultAppManager {
    * 根据系统已定义的应用类型或者符合媒体类型格式（type/subtype）的文件类型或者
    * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}类型设置默认应用。使用callback异
    * 步回调。
-   * 将应用设置为默认浏览器时，目标应用必须已被授予ohos.permission.DEFAULT_WEB_BROWSER权限，否则返回错误码18000001。 [since 26.1.0]
+   * 将应用设置为默认浏览器时，目标应用必须已被授予ohos.permission.DEFAULT_WEB_BROWSER权限，否则返回错误码18000001。 [since 26.0.1]
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - 要设置的应用类型，取
@@ -326,7 +326,7 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @throws { BusinessError } 17700028 - The specified ability does not match the type.
    * @throws { BusinessError } 18000001 - The specified type is Web Browser and the specified application does not
-   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.1.0]
+   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.0.1]
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
@@ -338,7 +338,7 @@ declare namespace defaultAppManager {
    * 根据系统已定义的应用类型或者符合媒体类型格式（type/subtype）的文件类型或者
    * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}类型设置默认应用。使用Promise异步
    * 回调。
-   * 将应用设置为默认浏览器时，目标应用必须已被授予ohos.permission.DEFAULT_WEB_BROWSER权限，否则返回错误码18000001。 [since 26.1.0]
+   * 将应用设置为默认浏览器时，目标应用必须已被授予ohos.permission.DEFAULT_WEB_BROWSER权限，否则返回错误码18000001。 [since 26.0.1]
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - 要设置的应用类型，取
@@ -358,7 +358,7 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @throws { BusinessError } 17700028 - The specified ability does not match the type.
    * @throws { BusinessError } 18000001 - The specified type is Web Browser and the specified application does not
-   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.1.0]
+   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.0.1]
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 9 dynamic
@@ -369,7 +369,7 @@ declare namespace defaultAppManager {
   /**
    * 以同步方法根据系统已定义的应用类型或者符合媒体类型格式（type/subtype）的文件类型或者
    * [UniformDataType]{@link @ohos.data.uniformTypeDescriptor:uniformTypeDescriptor.UniformDataType}类型设置默认应用。
-   * 将应用设置为默认浏览器时，目标应用必须已被授予ohos.permission.DEFAULT_WEB_BROWSER权限，否则返回错误码18000001。 [since 26.1.0]
+   * 将应用设置为默认浏览器时，目标应用必须已被授予ohos.permission.DEFAULT_WEB_BROWSER权限，否则返回错误码18000001。 [since 26.0.1]
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION
    * @param { string } type - 要设置的应用类型，取
@@ -388,7 +388,7 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700025 - The specified type is invalid.
    * @throws { BusinessError } 17700028 - The specified ability does not match the type.
    * @throws { BusinessError } 18000001 - The specified type is Web Browser and the specified application does not
-   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.1.0]
+   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.0.1]
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 10 dynamic
@@ -398,7 +398,7 @@ declare namespace defaultAppManager {
 
   /**
    * 以同步方法将分身应用设置为打开相应type类型的默认应用。
-   * 将应用设置为默认浏览器时，目标应用必须已被授予ohos.permission.DEFAULT_WEB_BROWSER权限，否则返回错误码18000001。 [since 26.1.0]
+   * 将应用设置为默认浏览器时，目标应用必须已被授予ohos.permission.DEFAULT_WEB_BROWSER权限，否则返回错误码18000001。 [since 26.0.1]
    *
    * @permission ohos.permission.SET_DEFAULT_APPLICATION or
    *     (ohos.permission.SET_DEFAULT_APPLICATION and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
@@ -419,7 +419,7 @@ declare namespace defaultAppManager {
    * @throws { BusinessError } 17700028 - The specified ability and type do not match.
    * @throws { BusinessError } 17700061 - The specified app index is invalid.
    * @throws { BusinessError } 18000001 - The specified type is Web Browser and the specified application does not
-   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.1.0]
+   *     have the ohos.permission.DEFAULT_WEB_BROWSER permission. [since 26.0.1]
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @since 23 dynamic&static
@@ -558,7 +558,7 @@ declare namespace defaultAppManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.DefaultApp
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function getDefaultApplicationCandidates(type: ApplicationType, abilityFlags: int, userId?: int): Promise<Array<AbilityInfo>>;
 

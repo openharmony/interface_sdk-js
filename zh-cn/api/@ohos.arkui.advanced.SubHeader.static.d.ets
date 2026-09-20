@@ -401,7 +401,7 @@ export declare struct SubHeader {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   @PropRef
   endIcon?: ResourceStr;
@@ -412,7 +412,7 @@ export declare struct SubHeader {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   endIconSymbolOptions?: SymbolOptions;
   /**

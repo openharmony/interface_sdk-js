@@ -2477,7 +2477,7 @@ declare namespace userAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   enum UserRecognitionStatus {
     /**
@@ -2486,7 +2486,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     UNCERTAIN = 0,
 
@@ -2496,7 +2496,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     MISMATCH = 1,
 
@@ -2506,7 +2506,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     MATCH = 2
   }
@@ -2517,7 +2517,7 @@ declare namespace userAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface UserRecognitionResult {
     /**
@@ -2526,7 +2526,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     status: UserRecognitionStatus;
 
@@ -2537,7 +2537,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     userId: int;
 
@@ -2547,7 +2547,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     userInfo: string;
 
@@ -2559,7 +2559,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     authTrustLevel?: AuthTrustLevel;
   }
@@ -2571,7 +2571,7 @@ declare namespace userAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   type UserRecognitionResultCallback = (result: UserRecognitionResult) => void;
 
@@ -2582,7 +2582,7 @@ declare namespace userAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface UserRecognitionMgr {
     /**
@@ -2593,7 +2593,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     getUserRecognitionResult(): Promise<UserRecognitionResult>;
 
@@ -2605,7 +2605,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     onUserRecognitionChange(callback: UserRecognitionResultCallback): void;
 
@@ -2618,7 +2618,7 @@ declare namespace userAuth {
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @stagemodelonly
      * @atomicservice
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     offUserRecognitionChange(callback?: UserRecognitionResultCallback): void;
   }
@@ -2636,7 +2636,7 @@ declare namespace userAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function getUserRecognitionMgr(): UserRecognitionMgr | null;
 }

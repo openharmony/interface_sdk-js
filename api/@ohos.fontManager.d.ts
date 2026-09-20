@@ -28,7 +28,7 @@
  *
  * @syscap SystemCapability.Global.FontManager
  * @systemapi [since 19 - 26.0.0]
- * @publicapi [since 26.1.0]
+ * @publicapi [since 26.0.1]
  * @since 19 dynamic
  * @since 23 static
  */
@@ -197,7 +197,7 @@ declare namespace fontManager {
    *
    * @syscap SystemCapability.Global.FontManager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   enum FontScope {  
     /**
@@ -206,7 +206,7 @@ declare namespace fontManager {
      *
      * @syscap SystemCapability.Global.FontManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     APP = 0,
 
@@ -215,7 +215,7 @@ declare namespace fontManager {
      *
      * @syscap SystemCapability.Global.FontManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     SESSION = 1
   }
@@ -226,7 +226,7 @@ declare namespace fontManager {
    *
    * @syscap SystemCapability.Global.FontManager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   interface FontClientObserver {  
     /**
@@ -234,7 +234,7 @@ declare namespace fontManager {
      *
      * @syscap SystemCapability.Global.FontManager
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     onServiceDied(): void;
   }
@@ -258,7 +258,7 @@ declare namespace fontManager {
    * @throws { BusinessError } 31100115 - The font observer is not registered.
    * @syscap SystemCapability.Global.FontManager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function installScopeFont(url: string, scope: FontScope): Promise<void>;
 
@@ -275,7 +275,7 @@ declare namespace fontManager {
    * @throws { BusinessError } 31100112 - The scope font is not found.
    * @syscap SystemCapability.Global.FontManager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function uninstallScopeFont(url: string): Promise<void>;
 
@@ -292,7 +292,7 @@ declare namespace fontManager {
    * @throws { BusinessError } 31100112 - The scope font is not found.
    * @syscap SystemCapability.Global.FontManager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function getFontScope(url: string): Promise<FontScope>;
 
@@ -309,7 +309,7 @@ declare namespace fontManager {
    * @throws { BusinessError } 31100114 - The maximum number of font observers has been reached.
    * @syscap SystemCapability.Global.FontManager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function onFontObserver(observer: FontClientObserver): void;
 
@@ -323,7 +323,7 @@ declare namespace fontManager {
    * @throws { BusinessError } 31100115 - The font observer is not registered.
    * @syscap SystemCapability.Global.FontManager
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function offFontObserver(): void;
 }

@@ -500,7 +500,7 @@ export declare interface ArcSwiperAttribute extends CommonMethod {
    * @returns { ArcSwiperAttribute } Returns instance of  ArcSwiperAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    * @unpublished
    */
   default setArcSwiperOptions(controller?: ArcSwiperController): this;
@@ -531,7 +531,7 @@ export declare function ArcSwiper(
  * @returns { ArcSwiperAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  * @unpublished
  */

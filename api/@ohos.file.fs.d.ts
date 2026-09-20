@@ -2533,7 +2533,7 @@ declare function moveFile(src: string, dest: string, mode: number, callback: Asy
  * @throws { BusinessError } 13900042 - Unknown error
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @crossplatform [since 10]
- * @atomicservice [since 26.1.0]
+ * @atomicservice [since 26.0.1]
  * @since 9 dynamic
  */
 declare function moveFileSync(src: string, dest: string, mode?: number): void;

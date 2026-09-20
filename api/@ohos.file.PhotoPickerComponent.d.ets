@@ -249,7 +249,7 @@ export declare struct PhotoPickerComponent {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   onPickerRecovery?: PickerRecoveryCallback;
 
@@ -269,7 +269,7 @@ export declare struct PhotoPickerComponent {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   onUnselectableItemClicked?: UnselectableItemClickedCallback;
 
@@ -1490,7 +1490,7 @@ export declare class CompletedResult {
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.0.1 dynamic
  */
 export declare class RecoveryResult {
   /**
@@ -1499,7 +1499,7 @@ export declare class RecoveryResult {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   albumUri: string;
 
@@ -1509,7 +1509,7 @@ export declare class RecoveryResult {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   albumName: string;
 }
@@ -1520,7 +1520,7 @@ export declare class RecoveryResult {
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.0.1 dynamic
  */
 export declare class UnselectableItemInfo {
   /**
@@ -1529,7 +1529,7 @@ export declare class UnselectableItemInfo {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   public mimeType?: string;
 
@@ -1539,7 +1539,7 @@ export declare class UnselectableItemInfo {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @stagemodelonly
    * @atomicservice
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   public photoSubType?: photoAccessHelper.PhotoSubtype;
 }
@@ -2140,7 +2140,7 @@ export type ErrorCallback = (pickerError: PickerError) => void;
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.0.1 dynamic
  */
 export type PickerRecoveryCallback = (recoveryResult: RecoveryResult) => void;
 
@@ -2163,6 +2163,6 @@ export type PhotoBrowserZoomCallback = (scale: double) => void;
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
  * @atomicservice
- * @since 26.1.0 dynamic
+ * @since 26.0.1 dynamic
  */
 export type UnselectableItemClickedCallback = (unselectableItemInfo: UnselectableItemInfo) => void;

@@ -143,7 +143,7 @@ export declare interface LazyVGridLayoutAttribute extends LazyGridLayoutAttribut
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    */
   default setLazyVGridLayoutOptions(): this;
 
@@ -183,7 +183,7 @@ export declare function LazyVGridLayout(
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  * @noninterop
  */
 @Builder

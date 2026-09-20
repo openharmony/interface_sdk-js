@@ -696,7 +696,7 @@ export interface LazyForEachAttribute extends DynamicNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    */
   setLazyForEachOptions<T>(dataSource: IDataSource<T>,
         itemGenerator: ItemGeneratorFunc<T>,
@@ -713,7 +713,7 @@ export interface LazyForEachAttribute extends DynamicNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    */
   setLazyForEachOptions<T>(dataSource: IDataSource<T>,
         itemGenerator: ItemGeneratorFunc<T>,
@@ -726,7 +726,7 @@ export interface LazyForEachAttribute extends DynamicNode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @unpublished
    * @stagemodelonly
-   * @since 26.1.0 staticonly
+   * @since 26.0.1 staticonly
    */
   applyAttributesFinish(): void;
 }
@@ -802,7 +802,7 @@ export declare function LazyForEach<T = Any>(dataSource: IDataSource<T>,
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @unpublished
  * @stagemodelonly
- * @since 26.1.0 staticonly
+ * @since 26.0.1 staticonly
  */
 @Builder
 export declare function LazyForEach<T = Any>(
