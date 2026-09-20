@@ -9929,6 +9929,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 26.0.0 dynamic
    */
   enableMediaNetworkProxy(enabled: boolean): WebAttribute;
+
+  /**
+   * The callback is triggered when the browser zoom factor of the page changes.
+   *
+   * @param { OnZoomChangeCallback } callback - The triggered callback when the browser zoom factor
+   *     of the page changes. The callback is triggered only by browser zoom changes (for example,
+   *     {@link setZoomFactor}); page display scale changes (pinch zoom) are notified by
+   *     {@link onScaleChange} instead.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.2.0 dynamic
+   */
+  onZoomChange(callback: OnZoomChangeCallback): WebAttribute;
 }
 
 /**
@@ -10664,3 +10678,40 @@ declare enum AISessionResultType {
  * @since 26.0.0 dynamic
  */
 type OnAISessionCallback = (state: AISessionResultType, content: string) => void;
+
+/**
+ * Called when the browser zoom factor of the page changes.
+ *
+ * @param { OnZoomChangeEvent } zoomChangeInfo - Details about the browser zoom factor change.
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.2.0 dynamic
+ */
+type OnZoomChangeCallback = (zoomChangeInfo: OnZoomChangeEvent) => void;
+
+/**
+ * Describes the browser zoom factor change information of the web page.
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.2.0 dynamic
+ */
+declare interface OnZoomChangeEvent {
+  /**
+   * Browser zoom factor of the page before the change.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.2.0 dynamic
+   */
+  oldZoomFactor: number;
+
+  /**
+   * Browser zoom factor of the page after the change.
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.2.0 dynamic
+   */
+  newZoomFactor: number;
+}

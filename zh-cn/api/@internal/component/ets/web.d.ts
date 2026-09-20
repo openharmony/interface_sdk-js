@@ -8997,6 +8997,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 26.0.0 dynamic
    */
   enableMediaNetworkProxy(enabled: boolean): WebAttribute;
+
+  /**
+   * 当网页的浏览器级缩放倍率变化时触发。
+   *
+   * @param { OnZoomChangeCallback } callback - 浏览器级缩放倍率变化时触发的回调。该回调仅由浏览器级缩放
+   *     变化（例如{@link setZoomFactor}）触发；页面显示比例变化（捏合缩放）由{@link onScaleChange}通知。
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.2.0 dynamic
+   */
+  onZoomChange(callback: OnZoomChangeCallback): WebAttribute;
 }
 
 /**
@@ -9702,3 +9714,40 @@ declare enum AISessionResultType {
  * @since 26.0.0 dynamic
  */
 type OnAISessionCallback = (state: AISessionResultType, content: string) => void;
+
+/**
+ * 浏览器级缩放倍率变化时触发的回调类型。
+ *
+ * @param { OnZoomChangeEvent } zoomChangeInfo - 浏览器级缩放倍率变化信息。
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.2.0 dynamic
+ */
+type OnZoomChangeCallback = (zoomChangeInfo: OnZoomChangeEvent) => void;
+
+/**
+ * 描述网页浏览器级缩放倍率变化的信息。
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.2.0 dynamic
+ */
+declare interface OnZoomChangeEvent {
+  /**
+   * 变化前的浏览器级缩放倍率。
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.2.0 dynamic
+   */
+  oldZoomFactor: number;
+
+  /**
+   * 变化后的浏览器级缩放倍率。
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.2.0 dynamic
+   */
+  newZoomFactor: number;
+}
