@@ -19,6 +19,7 @@
  */
 import { ToolInfo, ToolSummary } from './application/ToolInfo';
 import { ToolEventCallback } from './application/ToolEventCallback';
+import { CliHook, ExecToolParam, ExecCmdParam, ExecResultWrap } from './application/CliHook';
 
 
 /**
@@ -514,6 +515,54 @@ declare namespace cliManager {
    * @since 26.0.0 dynamiconly
    */
   function sendMessage(sessionId: string, message: string): Promise<void>;
+
+  /**
+   * Register a CLI hook for intercepting tool and command execution.
+   * Only one CLI hook can be registered at a time; registering again while one
+   * is already active will fail. This API is only available in developer mode.
+   * To update a registered hook, call unregisterCliHook first, then register again.
+   * The hook object must implement at least one of the optional methods in CliHook.
+   *
+   * @permission ohos.permission.REGISTER_AGENT_HOOK
+   * @param { CliHook } hook - The hook object implementing the CliHook interface.
+   *     The hook object must implement at least one of the optional methods.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *     "ohos.permission.REGISTER_AGENT_HOOK".
+   * @throws { BusinessError } 202 - Not system application. Interface caller is not a system app.
+   * @throws { BusinessError } 35600034 - The device is not in developer mode.
+   * @throws { BusinessError } 35600035 - A hook is already registered; unregister it first.
+   * @throws { BusinessError } 35600050 - System Error. 1. Connect to system service failed;
+   *     2.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamiconly
+   */
+  function registerCliHook(hook: CliHook): Promise<void>;
+
+  /**
+   * Unregister the previously registered CLI hook.
+   * The hook object must be the same as the one passed to registerCliHook.
+   * If no hook is registered, the call will fail with an error.
+   *
+   * @permission ohos.permission.REGISTER_AGENT_HOOK
+   * @param { CliHook } hook - The hook object to unregister.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
+   *     "ohos.permission.REGISTER_AGENT_HOOK".
+   * @throws { BusinessError } 202 - Not system application. Interface caller is not a system app.
+   * @throws { BusinessError } 35600036 - No hook is registered; nothing to unregister.
+   * @throws { BusinessError } 35600050 - System Error. 1. Connect to system service failed;
+   *     2.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamiconly
+   */
+  function unregisterCliHook(hook: CliHook): Promise<void>;
 }
 
 export default cliManager;
+
+export type { CliHook, ExecToolParam, ExecCmdParam, ExecResultWrap };
