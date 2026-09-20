@@ -22,6 +22,8 @@
 import cert from '@ohos.security.cert';
 import certificateManager from '@ohos.security.certManager';
 import certificateManagerDialog from '@ohos.security.certManagerDialog';
+import UkeyAuthExtensionContext from '@ohos.security.UkeyAuthExtensionContext';
+import UkeyAuthExtensionAbility from '@ohos.security.UkeyAuthExtensionAbility';
 
-export { cert, certificateManager, certificateManagerDialog };
+export { cert, certificateManager, certificateManagerDialog, UkeyAuthExtensionContext, UkeyAuthExtensionAbility };
 /*** endif */
