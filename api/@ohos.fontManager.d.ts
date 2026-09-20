@@ -19,7 +19,8 @@
  */
 
 /**
- * This module provides the application with the capabilities to install, uninstall, query third-party fonts, and monitor the status of font services. Specifically, it includes:
+ * This module provides the application with the capabilities to install, uninstall, query third-party fonts,
+ * and monitor the status of font services. Specifically, it includes:
  * <br>- Installing application-level or session-level font files, supporting formats such as `.ttf`, `.ttc`, and `.otf`.
  * <br>- Uninstalling installed fonts based on the font path.
  * <br>- Querying the scope of application for installed fonts.
