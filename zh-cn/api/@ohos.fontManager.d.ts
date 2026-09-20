@@ -184,7 +184,7 @@ declare namespace fontManager {
   enum FontScope {  
     /**
      * 应用级字体。字体的生命周期跟随应用的生命周期，应用退出或字体服务异常退出时，安装的字体文件会被自动清理\卸载。
-     * 需先调用[onFontObserver](#onfontobserver)注册监听后才能安装。
+     * 需先调用[onFontObserver]{@link onfontobserver}注册监听后才能安装。
      *
      * @syscap SystemCapability.Global.FontManager
      * @stagemodelonly
@@ -224,9 +224,9 @@ declare namespace fontManager {
    * 安装指定路径下的字体文件为应用级或会话级字体。使用Promise异步回调。
    *
    * > **说明：**
-   * > - 当安装应用级字体时，需先调用[onFontObserver](#onFontObserver)接口注册字体服务状态变化监听器。
+   * > - 当安装应用级字体时，需先调用[onFontObserver]{@link onFontObserver}接口注册字体服务状态变化监听器。
    * > - 安装成功后，应用可以通过字体名称使用该字体。同一字体路径不可重复安装。
-   * > - 支持安装的字体文件个数最大数量为200。从26.0.1版本开始，PC/2in1支持安装的字体文件最大数量为800。
+   * > - PC/2in1支持安装的字体文件最大数量为800，其他设备支持安装的字体文件个数最大数量为200。
    * 
    * @permission ohos.permission.UPDATE_SCOPE_FONT
    * @param { string } url - 待安装的字体文件路径，仅支持.ttf、.ttc和.otf格式的字体文件。
