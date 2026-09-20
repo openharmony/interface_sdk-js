@@ -8641,6 +8641,7 @@ declare namespace drawing {
      * Interpolation mode for frame animation.
      * NONE (0): no interpolation; each frame is displayed independently.
      * FRAME_BLEND (1): frame interpolation; smooth transition between adjacent frames.
+     * Out-of-range values will be clamped to FRAME_BLEND.
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi

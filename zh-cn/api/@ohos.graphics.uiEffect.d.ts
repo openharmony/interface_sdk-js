@@ -2099,7 +2099,7 @@ declare namespace uiEffect {
      * @stagemodelonly
      * @since 26.0.1 dynamic&static
      */
-    static createAtlasImageMask(atlasImage: drawing.AtlasImage): Mask;
+    static createAtlasFrameMask(atlasImage: drawing.AtlasImage): Mask;
   }
 
   /**
