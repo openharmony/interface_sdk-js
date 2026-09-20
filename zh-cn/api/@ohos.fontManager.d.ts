@@ -23,7 +23,7 @@
  * <br>- 安装应用级或会话级字体文件，支持`.ttf`、`.ttc`、`.otf` 格式。
  * <br>- 根据字体路径卸载已安装的字体。
  * <br>- 查询已安装字体的作用范围。
- * <br>- 注册字体服务状态监听器，当字体服务异常退出时通知应用。
+ * <br>- 注册字体服务状态变化监听器，当字体服务异常退出时通知应用。
  *
  * @syscap SystemCapability.Global.FontManager
  * @systemapi
@@ -203,7 +203,7 @@ declare namespace fontManager {
   }
 
   /**
-   * 字体服务状态监听器。
+   * 字体服务状态变化监听器。
    *
    * @syscap SystemCapability.Global.FontManager
    * @stagemodelonly
@@ -300,7 +300,7 @@ declare namespace fontManager {
   function onFontObserver(observer: FontClientObserver): void;
 
   /**
-   * 注销字体服务状态状态监听器。
+   * 注销字体服务状态变化监听器。
    *
    * @permission ohos.permission.UPDATE_SCOPE_FONT
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
