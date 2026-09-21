@@ -778,6 +778,25 @@ declare namespace usbManager {
    * @since 26.0.0
    */
   function getDisallowedPermissiveUsbDevices(admin: Want | null): Array<PermissiveUsbDeviceType>;
+
+  /**
+   * Queries the serial number of the usb device.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_USB
+   * @param { number } busNum - busNum indicates the bus address of the usb device.
+   * @param { number } devAddress - devAddress indicates device address of the usb device.
+   * @returns { string } Returns the serial number of usb device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9201055 - Failed to obtain the USB serial number.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.1
+   */
+  function getUsbSerialNumber(busNum: number, devAddress: number): string;
 }
 
 export default usbManager;
