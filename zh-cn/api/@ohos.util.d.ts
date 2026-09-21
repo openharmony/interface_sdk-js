@@ -18,6 +18,10 @@
  * @kit ArkTS
  */
 
+/*** if arkts dynamic */
+import collections from '@arkts.collections';
+/*** endif */
+
 /**
  * 该模块主要提供常用的工具函数，实现字符串编解码（[TextEncoder]{@link util.TextEncoder}，[TextDecoder]{@link util.TextDecoder}）、
  * 有理数运算（[RationalNumber<sup>8+</sup>]{@link util.RationalNumber}）、缓冲区管理（[LRUCache<sup>9+</sup>]{@link util.LRUCache}）、
@@ -1806,24 +1810,25 @@ declare namespace util {
      * 对输入的 Uint8Array 字节数组进行 Base64 编码，并返回字符串。该方法支持多种编码格式，包括标准 Base64 编码、符合
      * MIME 规范的 Base64 编码（带换行）以及 URL 安全的 Base64 编码。
      *
-     * @param { Uint8Array } src - 要编码的 Uint8Array 对象。
+     * @param { Uint8Array } src - 要编码的 Uint8Array 对象。[since 9 - 26.0.1]
+     * @param { Uint8Array | collections.Uint8Array } src - 要编码的 Uint8Array 对象。[since 26.2.0]
      * @param { Type } [options] - 编码格式。<br>可取值如下：<br>- **util.Type.BASIC**（默认）：Base64 编码。返回值不
      *     包含回车符或换行符。<br>- **util.Type.MIME**：Base64 编码。如果返回值超过 76 个字符，则每 76 个字符插入一个换
      *     行，每行以 '\r\n' 结尾。如果返回值少于 76 个字符，则抛出异常。<br>- **util.Type.BASIC_URL_SAFE**：Base64URL
      *     编码。返回值不包含回车符或换行符。<br>- **util.Type.MIME_URL_SAFE**：Base64URL 编码。返回值每行最多 76 个字符
      *     且以 '\r\n' 结尾。[since 10 - 11]
-     * @param { Type } options - 编码格式。<br>可取值如下：<br>- **util.Type.BASIC**（默认）：Base64 编码。返回值不包含
-     *     回车符或换行符。<br>- **util.Type.MIME**：Base64 编码。如果返回值超过 76 个字符，则每 76 个字符插入一个换行，
-     *     每行以 '\r\n' 结尾。如果返回值少于 76 个字符，则抛出异常。<br>- **util.Type.BASIC_URL_SAFE**：Base64URL 编码。
-     *     返回值不包含回车符或换行符。<br>- **util.Type.MIME_URL_SAFE**：Base64URL 编码。返回值每行最多 76 个字符且以
-     *     '\r\n' 结尾。[since 12]
+     * @param { Type } [options] - 编码格式。<br>可取值如下：<br>- **util.Type.BASIC**（默认）：Base64 编码。返回值不
+     *     包含回车符或换行符。<br>- **util.Type.MIME**：Base64 编码。如果返回值超过 76 个字符，则每 76 个字符插入一个换
+     *     行，每行以 '\r\n' 结尾。如果返回值少于 76 个字符，则抛出异常。<br>- **util.Type.BASIC_URL_SAFE**：Base64URL
+     *     编码。返回值不包含回车符或换行符。<br>- **util.Type.MIME_URL_SAFE**：Base64URL 编码。返回值每行最多 76 个字符
+     *     且以 '\r\n' 结尾。[since 12]
      * @returns { string } 获取到的字符串。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
      * @since 9 dynamic
      */
-    encodeToStringSync(src: Uint8Array, options?: Type): string;
+    encodeToStringSync(src: Uint8Array | collections.Uint8Array, options?: Type): string;
 
     /**
      * 将字符串解码为 Uint8Array 对象。该接口同步返回结果。
@@ -1858,7 +1863,8 @@ declare namespace util {
     /**
      * 将输入内容编码为字符串。该接口使用 promise 返回结果。
      *
-     * @param { Uint8Array } src - 要编码的 Uint8Array 对象。
+     * @param { Uint8Array } src - 要编码的 Uint8Array 对象。[since 9 - 26.0.1]
+     * @param { Uint8Array | collections.Uint8Array } src - 要编码的 Uint8Array 对象。[since 26.2.0]
      * @param { Type } [options] - 编码格式。<br>可取值如下：<br>- **util.Type.BASIC**（默认）：Base64 编码。返回值不
      *     包含回车符或换行符。<br>- **util.Type.MIME**：Base64 编码。返回值每行最多 76 个字符且以 '\r\n' 结尾。<br>-
      *     **util.Type.BASIC_URL_SAFE**：Base64URL 编码。返回值不包含回车符或换行符。<br>- **util.Type.MIME_URL_SAFE**：
@@ -1869,7 +1875,7 @@ declare namespace util {
      * @atomicservice [since 12]
      * @since 9 dynamic
      */
-    encodeToString(src: Uint8Array, options?: Type): Promise<string>;
+    encodeToString(src: Uint8Array | collections.Uint8Array, options?: Type): Promise<string>;
 
     /**
      * 将输入内容解码为 Uint8Array 对象。该接口使用 promise 返回结果。
