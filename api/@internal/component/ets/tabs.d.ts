@@ -275,6 +275,41 @@ declare enum TabsCacheMode {
 }
 
 /**
+ * Enumerates the display styles of the tab side bar.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.2.0 dynamic
+ */
+declare enum TabsSidebarDisplayStyle {
+  /**
+   * The embedded style. The tab bar is embedded in the content area of the **Tabs** container,
+   * taking up space within it.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  EMBED = 0,
+
+  /**
+   * The displaced style. The tab bar is displayed as a sidebar,
+   * pushing the content area of the **Tabs** container aside.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  DISPLACE = 1
+}
+
+/**
  * Enumerates the nested scrolling modes of the **Tabs** component and its parent container.
  *
  *
@@ -2157,6 +2192,46 @@ declare class TabsAttribute extends CommonMethod<TabsAttribute> {
    * @since 26.2.0 dynamic
    */
   sidebarSelectedBoardColor(value: Optional<ResourceColor>): TabsAttribute;
+
+  /**
+   * Sets the display style of the sidebar for the **Tab** component.
+   *
+   * @param { TabsSidebarDisplayStyle } value - Display style of the sidebar for the **Tabs** component.
+   *     <br>Default value: **SidebarDisplayStyle.EMBED**
+   * @returns { TabsAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  sidebarDisplayStyle(style: Optional<TabsSidebarDisplayStyle>): TabsAttribute;
+
+  /**
+   * Sets the footer content of the sidebar tab bar.
+   *
+   * @param { ComponentContent } footer - footer content of the sidebar tab bar.
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  sidebarFooter(footer: Optional<ComponentContent>): TabsAttribute;
+
+  /**
+   * Sets the bottom bar content of the sidebar tab bar.
+   *
+   * @param { ComponentContent } bottomBar - bottom bar content of the sidebar tab bar.
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  sidebarBottomBar(bottomBar: Optional<ComponentContent>): TabsAttribute;
 }
 
 /**
