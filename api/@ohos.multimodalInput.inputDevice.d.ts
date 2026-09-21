@@ -424,7 +424,7 @@ declare namespace inputDevice {
      * @readonly
      * @since 26.0.1 dynamic&static
      */
-    displayId?: int;
+    readonly displayId?: int;
   }
 
   /**
