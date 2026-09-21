@@ -1907,7 +1907,7 @@ declare namespace drawing {
     value: double;
   }
 
-  * 描述一组已录制的绘制指令。
+  /* 描述一组已录制的绘制指令。
    * @syscap SystemCapability.Graphics.Drawing
    * @stagemodelonly
    * @since 26.0.1 dynamic&static
