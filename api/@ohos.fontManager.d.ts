@@ -311,7 +311,7 @@ declare namespace fontManager {
    *
    * > **NOTE**
    * > - Each application can register only one font service status change listener. Repeated registration will result in an error. 
-   *     Additionally, a maximum of five applications per user can be registered simultaneously; otherwise, an error will occur.
+   * > - A maximum of five applications per user can be registered simultaneously; otherwise, an error will occur.
    * 
    * @permission ohos.permission.UPDATE_SCOPE_FONT
    * @param { FontClientObserver } observer - Listener for the font service status.
