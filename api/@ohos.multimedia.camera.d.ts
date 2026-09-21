@@ -1999,7 +1999,17 @@ declare namespace camera {
      * @since 10 dynamic
      * @since 23 static
      */
-    TABLET = 0x11
+    TABLET = 0x11,
+
+    /**
+     * Glasses.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.1 dynamic&static
+     */
+    GLASSES = 0xA31
   }
 
   /**
@@ -7802,6 +7812,28 @@ declare namespace camera {
      * @since 24 dynamic&static
      */
     offExposureInfoChange(callback?: Callback<ExposureInfo>): void;
+
+    /**
+     * Subscribes camera switch request event callback.
+     *
+     * @param { Callback<CameraDevice> } callback - Callback used to get the target camera device.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.1 dynamic&static
+     */
+    onCameraSwitchRequest(callback: Callback<CameraDevice>): void;
+
+    /**
+     * Unsubscribes camera switch request event callback.
+     *
+     * @param { Callback<CameraDevice> } [callback] - Callback used to get the target camera device.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.1 dynamic&static
+     */
+    offCameraSwitchRequest(callback?: Callback<CameraDevice>): void;
   }
 
   /**
@@ -8659,6 +8691,28 @@ declare namespace camera {
      * @since 26.0.1 dynamic&static
      */
     disableColorCube(): void;
+
+    /**
+     * Subscribes camera switch request event callback.
+     *
+     * @param { Callback<CameraDevice> } callback - Callback used to get the target camera device.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.1 dynamic&static
+     */
+    onCameraSwitchRequest(callback: Callback<CameraDevice>): void;
+
+    /**
+     * Unsubscribes camera switch request event callback.
+     *
+     * @param { Callback<CameraDevice> } [callback] - Callback used to get the target camera device.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.1 dynamic&static
+     */
+    offCameraSwitchRequest(callback?: Callback<CameraDevice>): void;
   }
 
   /**
