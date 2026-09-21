@@ -18,7 +18,7 @@
  * 
  * 无
  *
- * @file formError
+ * @file 卡片错误码-FormError
  * @kit FormKit
  */
 

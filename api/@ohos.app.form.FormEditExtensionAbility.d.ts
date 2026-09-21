@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file FormEditExtensionAbility
  * @kit FormKit
  */
 import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
