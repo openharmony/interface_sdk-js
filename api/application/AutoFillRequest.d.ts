@@ -302,7 +302,7 @@ export interface SaveRequestCallback {
  */
 export interface FillFailureResult {
   /**
-   * errcode.
+   * Error code of the auto-fill failure.
    * The value should be an integer.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

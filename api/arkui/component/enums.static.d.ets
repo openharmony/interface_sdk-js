@@ -5391,3 +5391,35 @@ export declare enum EdgeLightPosition {
    */
   RIGHT = 7,
 }
+
+/**
+ * Enumerates the immersive strategies for the safe area.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.2.0 static
+ */
+export declare enum ImmersiveStrategy {
+  /**
+   * Avoid the cutout area.
+   *
+   * > **NOTE**
+   * >
+   * > The priority of this strategy is lower than that of the avoid_cutout configuration item in module.json5.
+   * > If avoid_cutout is configured in the metadata of module.json5, the effect of the avoid_cutout
+   * > configuration item prevails.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  AVOID_CUTOUT = 0,
+  /**
+   * Avoid the three-button navigation bar area on the phone.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  AVOID_FLOAT_NAV = 1
+}

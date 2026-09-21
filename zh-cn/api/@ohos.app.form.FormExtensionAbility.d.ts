@@ -31,7 +31,7 @@
  * - 
  * [@ohos.resourceschedule.backgroundTaskManager (后台任务管理)]{@link @ohos.resourceschedule.backgroundTaskManager:backgroundTaskManager}
  *
- * @file FormExtensionAbility
+ * @file 卡片扩展能力-FormExtensionAbility
  * @kit FormKit
  */
 

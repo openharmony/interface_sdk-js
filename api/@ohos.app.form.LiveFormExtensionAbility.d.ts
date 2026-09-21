@@ -23,7 +23,7 @@
  * > Exceptions may occur if some APIs are called. For details about the API list, see 
  * > [Appendix](docroot://reference/apis-form-kit/js-apis-app-form-LiveFormExtensionAbility.md#appendix).
  *
- * @file
+ * @file LiveFormExtensionAbility
  * @kit FormKit
  */
 

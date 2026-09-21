@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file formInfo
  * @kit FormKit
  */
 

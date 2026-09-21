@@ -584,6 +584,11 @@ declare namespace abilityManager {
   /**
    * Enables or disables the resident process of an application.
    *
+   * > **NOTE**
+   * >
+   * > This API does not support setting or removing the resident process status of clone applications (with a specified
+   * > bundle name).
+   *
    * @param { string } bundleName - Bundle name of the resident process.
    * @param { boolean } enable - Whether to enable or disable the resident process. **true** to enable, **false** otherwise.
    * @returns { Promise<void> } Promise that returns no value.
@@ -651,7 +656,8 @@ declare namespace abilityManager {
 
   /**
    * Preloads a [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} instance and returns
-   *  the instance ID. This API uses a promise to return the result.
+   *  the instance ID. This API uses a promise to return the result. Use this API when the application needs to preload
+   *  a UIExtensionAbility to improve startup performance.
    *
    * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
    * @param { Want } want - Want information about the target ability.

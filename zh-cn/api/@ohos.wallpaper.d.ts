@@ -819,6 +819,7 @@ declare namespace wallpaper {
    * @param { WallpaperResourceType } resourceType - 壁纸资源类型。
    * @param { string } [uri] - 壁纸资源地址。
    * @syscap SystemCapability.MiscServices.Wallpaper
+   * @systemapi Hide this for inner system use.
    * @since 23 static
    */
   type WallpaperChangeObserver = (wallpaperType: WallpaperType, resourceType: WallpaperResourceType, uri?: string) => void;

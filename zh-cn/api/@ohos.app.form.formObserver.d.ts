@@ -14,7 +14,7 @@
  */
 
 /**
- * @file formObserver
+ * @file 卡片监听方-FormObserver
  * @kit FormKit
  */
 

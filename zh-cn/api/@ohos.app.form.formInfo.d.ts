@@ -14,7 +14,7 @@
  */
 
 /**
- * @file formInfo
+ * @file 卡片信息-FormInfo
  * @kit FormKit
  */
 

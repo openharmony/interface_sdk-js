@@ -413,7 +413,7 @@ declare namespace uriPermissionManager {
    *     **FLAG_AUTH_READ_URI_PERMISSION**: read permission.<br>- **FLAG_AUTH_WRITE_URI_PERMISSION**: write permission.
    * @param { int } targetTokenId - Identity of the target application, which can be obtained through
    *     [bundleManager.getApplicationInfo]{@link @ohos.bundle.bundleManager:bundleManager.getApplicationInfo(bundleName: string, appFlags: int, userId: int, callback: AsyncCallback<ApplicationInfo>)}
-   *     .
+   *     . The target application must be different from the API caller.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -452,7 +452,7 @@ declare namespace uriPermissionManager {
    *     **ohos.aafwk.param.callerToken** field in [want]{@link @ohos.app.ability.Want:Want}.
    * @param { int } targetTokenId - Identity of the target application, which can be obtained through
    *     [bundleManager.getApplicationInfo]{@link @ohos.bundle.bundleManager:bundleManager.getApplicationInfo(bundleName: string, appFlags: int, userId: int, callback: AsyncCallback<ApplicationInfo>)}
-   *     .
+   *     . The target application must be different from the caller application.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.

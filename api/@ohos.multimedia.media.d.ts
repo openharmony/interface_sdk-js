@@ -10406,11 +10406,22 @@ declare namespace media {
      * Whether to enable video encoding policy to quality stable encoding.
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @systemapi
+     * @systemapi [since 18 - 26.0.1]
+     * @publicapi [since 26.2.0]
      * @since 18 dynamic
      * @since 23 static
      */
-    enableStableQualityMode?: boolean
+    enableStableQualityMode?: boolean;
+
+   /**
+    * Set the quality parameter in StableQualityMode. The value range is [0, 51].
+    * A smaller value indicates a higher output bit rate and better quality.
+    *
+    * @syscap SystemCapability.Multimedia.Media.AVRecorder
+    * @stagemodelonly
+    * @since 26.2.0 dynamic&static
+    */
+    sqrFactor?: int;
  
     /**
      * Indicates whether enable B Frame. Default is disabled.

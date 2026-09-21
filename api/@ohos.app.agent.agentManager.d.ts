@@ -26,7 +26,9 @@ import { ConnectOptions } from './ability/connectOptions';
 import AgentExtensionContext from './application/AgentExtensionContext';
 
 /**
- * The module provides the capability to interact with agents in the system.
+ * The agentManager module provides agent management capabilities, supporting operations such as connecting to and
+ * disconnecting from AgentExtensionAbility, lifecycle management of LOW_CODE agents, connection management between
+ * AgentExtensionAbility and ServiceExtensionAbility, and obtaining AgentCard information on the device.
  *
  * @namespace agentManager
  * @syscap SystemCapability.Ability.AgentRuntime.Core
@@ -116,7 +118,7 @@ declare namespace agentManager {
   function disconnectAgentExtensionAbility(proxy: AgentProxy): Promise<void>;
 
   /**
-   * Gets all AgentCards on the device.
+   * Obtains all AgentCards on the device. This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_AGENT_CARD
    * @returns { Promise<Array<AgentCard>> } Returns the array of AgentCard.
