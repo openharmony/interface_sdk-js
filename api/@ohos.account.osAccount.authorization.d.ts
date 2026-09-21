@@ -116,7 +116,16 @@ declare namespace authorization {
      * @stagemodelonly
      * @since 26.0.1 dynamic&static
      */
-    PRIVILEGE_OPERATE_RAW_NET_PACKETS = 'ohos.privilege.operate_raw_net_packets'
+    PRIVILEGE_OPERATE_RAW_NET_PACKETS = 'ohos.privilege.operate_raw_net_packets',
+
+    /**
+     * Privilege for monitoring the raw USB packets.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    PRIVILEGE_MONITOR_RAW_USB_PACKETS = 'ohos.privilege.monitor_raw_usb_packets'
   }
 
   /**
