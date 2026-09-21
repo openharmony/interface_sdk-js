@@ -14,7 +14,7 @@
  */
 
 /**
- * @file AutoStartupInfo
+ * @file 开机自启应用组件信息
  * @kit AbilityKit
  */
 

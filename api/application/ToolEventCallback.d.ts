@@ -15,7 +15,7 @@
  */
 
 /**
- * @file Tool Event Callback
+ * @file ToolEventCallback
  * @kit AbilityKit
  */
 

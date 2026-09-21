@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Interop Ability Monitor
+ * @file
  * @kit AbilityKit
  */
 

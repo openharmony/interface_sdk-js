@@ -14,7 +14,7 @@
  */
 
 /**
- * @file 自动填充矩形区域
+ * @file AutoFillRect
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Agent Card
+ * @file AgentCard
  * @kit AbilityKit
  */
 import type agentConstant from '../@ohos.app.agent.agentConstant';

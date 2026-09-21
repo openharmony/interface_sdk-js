@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Tool Info
+ * @file ToolInfo
  * @kit AbilityKit
  */
 

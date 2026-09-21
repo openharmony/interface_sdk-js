@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Auto Fill Rect
+ * @file AutoFillRect
  * @kit AbilityKit
  */
 

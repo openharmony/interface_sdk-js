@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Running Multi Instance Info
+ * @file RunningMultiInstanceInfo
  * @kit AbilityKit
  */
 

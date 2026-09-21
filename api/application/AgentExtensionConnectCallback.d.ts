@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Agent Extension Connect Callback
+ * @file
  * @kit AbilityKit
  */
 

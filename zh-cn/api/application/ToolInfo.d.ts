@@ -14,7 +14,7 @@
  */
 
 /**
-  * @file 工具信息
+ * @file ToolInfo
   * @kit AbilityKit
  */
 

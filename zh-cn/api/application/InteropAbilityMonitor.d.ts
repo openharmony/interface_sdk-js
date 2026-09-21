@@ -14,7 +14,7 @@
  */
 
 /**
-  * @file 跨平台Ability监听器
+  * @file
   * @kit AbilityKit
  */
 

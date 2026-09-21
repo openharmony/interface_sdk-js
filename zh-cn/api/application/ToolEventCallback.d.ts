@@ -14,7 +14,7 @@
  */
 
 /**
-  * @file 工具事件回调
+ * @file ToolEventCallback
   * @kit AbilityKit
  */
 
