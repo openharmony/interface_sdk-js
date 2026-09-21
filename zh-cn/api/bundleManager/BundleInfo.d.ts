@@ -262,7 +262,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   readonly deviceModeDistributionPolicy?: bundleManager.DeviceModeDistributionPolicy;
 
@@ -272,7 +272,7 @@ export interface BundleInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   readonly appSandboxPolicy?: bundleManager.AppSandboxPolicy;
 }
@@ -619,7 +619,7 @@ export interface BundleOptions {
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.1.0 dynamic&static
+ * @since 26.0.1 dynamic&static
  */
 export interface BundleExtensionPolicyInfo {
   /**
@@ -628,7 +628,7 @@ export interface BundleExtensionPolicyInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   readonly bundleName: string;
 
@@ -639,7 +639,7 @@ export interface BundleExtensionPolicyInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   readonly appIndex: int;
 
@@ -649,7 +649,7 @@ export interface BundleExtensionPolicyInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   readonly deviceModeDistributionPolicy: bundleManager.DeviceModeDistributionPolicy;
 
@@ -659,7 +659,7 @@ export interface BundleExtensionPolicyInfo {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   readonly appSandboxPolicy: bundleManager.AppSandboxPolicy;
 }
