@@ -284,7 +284,8 @@ declare namespace fontManager {
    * 注册字体服务状态变化监听器。
    *
    * > **说明：**
-   * > 每个应用仅可注册一个字体服务状态变化监听器，重复注册会报错；以及同一用户最多5个应用同时注册，否则会报错。
+   * > - 每个应用仅可注册一个字体服务状态变化监听器，重复注册会报错。
+   * > - 同一用户最多允许5个应用同时注册，否则会报错。
    * 
    * @permission ohos.permission.UPDATE_SCOPE_FONT
    * @param { FontClientObserver } observer - 字体服务状态变化监听器。
