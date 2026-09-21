@@ -197,7 +197,7 @@ declare class PlainArray<T> {
    *
    * @param { int } index - Position index of the target element. The value must be less than or equal to int32_max,
    *     that is, 2147483647.
-   * @returns { int } Key of the element. If no match is found, **-1** is returned.
+   * @returns { int } Key of the element. If no match is found, **undefined** is returned.
    * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]

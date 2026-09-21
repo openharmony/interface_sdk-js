@@ -260,8 +260,7 @@ declare class TreeSet<T> {
    * 通过回调函数来遍历实例对象上的元素。
    *
    * @param { function } callbackFn - 遍历实例对象中每个元素时调用的回调函数，开发者可在回调中对元素及其下标进行自定义处理。
-   * @param { Object } [thisArg] - callbackFn被调用时用作this值。当需要在回调函数中使用特定的this上下文（如访问外部对象属性）时传入此参数。不传入时默认值为当前实例对象，
-   * 回调函数中的this指向TreeSet实例本身。
+   * @param { Object } [thisArg] - callbackFn被调用时用作this值。当需要在回调函数中使用特定的this上下文（如访问外部对象属性）时传入此参数。不传入时默认值为undefined。
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
