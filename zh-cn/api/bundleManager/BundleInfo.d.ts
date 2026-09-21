@@ -255,6 +255,26 @@ export interface BundleInfo {
    * @since 23 dynamic&static
    */
   readonly buildVersion?: string;
+
+  /**
+   * 定义设备模式分发策略枚举，用于指定应用程序如何分发到设备上。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  readonly deviceModeDistributionPolicy?: bundleManager.DeviceModeDistributionPolicy;
+
+  /**
+   * 双模式（2in1/平板）场景下的应用沙箱策略。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  readonly appSandboxPolicy?: bundleManager.AppSandboxPolicy;
 }
 
 /**
@@ -591,4 +611,55 @@ export interface BundleOptions {
    * @since 23 dynamic&static
    */
   abilityName?: string;
+}
+
+/**
+ * 定义包扩展策略信息。
+ *
+ * @syscap SystemCapability.BundleManager.BundleFramework.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.1.0 dynamic&static
+ */
+export interface BundleExtensionPolicyInfo {
+  /**
+   * 应用的包名。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  readonly bundleName: string;
+
+  /**
+   * 应用的索引。
+   * 该值应为整数。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  readonly appIndex: int;
+
+  /**
+   * 应用的设备模式分发策略。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  readonly deviceModeDistributionPolicy: bundleManager.DeviceModeDistributionPolicy;
+
+  /**
+   * 应用沙箱策略。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  readonly appSandboxPolicy: bundleManager.AppSandboxPolicy;
 }

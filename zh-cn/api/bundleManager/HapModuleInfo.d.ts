@@ -275,6 +275,16 @@ export interface HapModuleInfo {
    * @since 23 static
    */
   readonly codePath: string;
+
+   /**
+   * 标识模块的物理安装路径。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  readonly codePhysicalPath?: string;
 }
 
 /**

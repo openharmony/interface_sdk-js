@@ -32,7 +32,8 @@ import { AbilityInfo as _AbilityInfo, WindowSize as _WindowSize } from './bundle
 import { AppProvisionInfo as _AppProvisionInfo, Validity as _Validity } from './bundleManager/AppProvisionInfo';
 import { BundleInfo as _BundleInfo, UsedScene as _UsedScene, ReqPermissionDetail as _ReqPermissionDetail,
   SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity, DynamicIconInfo as _DynamicIconInfo,
-  BundleOptions as _BundleOptions, AlternateIconInfo as _AlternateIconInfo } from './bundleManager/BundleInfo';
+  BundleOptions as _BundleOptions, AlternateIconInfo as _AlternateIconInfo,
+  BundleExtensionPolicyInfo as _BundleExtensionPolicyInfo } from './bundleManager/BundleInfo';
 import { HapModuleInfo as _HapModuleInfo, PreloadItem as _PreloadItem, Dependency as _Dependency,
   RouterItem as _RouterItem, DataItem as _DataItem } from './bundleManager/HapModuleInfo';
 import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundleManager/ExtensionAbilityInfo';
@@ -1515,6 +1516,35 @@ declare namespace bundleManager {
   }
 
   /**
+   * 该ApplicationReservedFlag值的每一位标识相关信息。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export enum ApplicationReservedFlag {
+    /**
+     * 标识应用是加密应用。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    ENCRYPTED_APPLICATION = 0x00000001,
+    /**
+     * 标识应用的加密密钥存在。
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    ENCRYPTED_KEY_EXISTED = 0x00000002
+  }
+
+  /**
    * 定义设备模式分发策略枚举，用于指定应用程序如何分发到设备上。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -1604,6 +1634,35 @@ declare namespace bundleManager {
      * @since 26.0.1 dynamic&static
      */
     FULL_COMPATIBLE_DIFFERENT_PACKAGE = 8,
+  }
+
+  /**
+   * 双模式（2in1/平板）场景下的应用沙箱策略。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export enum AppSandboxPolicy {
+    /**
+     * 共享沙箱（默认）
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SHARED_SANDBOX = 0,
+    /**
+     * 隔离沙箱
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    ISOLATED_SANDBOX = 1
   }
 
   /**
@@ -4397,6 +4456,26 @@ declare namespace bundleManager {
   ): Promise<void>;
 
   /**
+   * 获取指定应用的包扩展策略信息。
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or
+   *     (ohos.permission.GET_BUNDLE_INFO_PRIVILEGED and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { string } bundleName - 表示应用的包名。
+   * @param { int } userId - 用户ID，可通过调用getOsAccountLocalId获取。值大于等于0。
+   *     <br>该值应为整数。
+   * @returns { BundleExtensionPolicyInfo } 返回包扩展策略信息。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Non-system APP calling system API.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function getBundleExtensionPolicyInfo(bundleName: string, userId: int): BundleExtensionPolicyInfo;
+
+  /**
    * 应用程序信息。
    *
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -4865,6 +4944,26 @@ declare namespace bundleManager {
    * @since 26.0.0 static
    */
   export type AlternateIconInfo = _AlternateIconInfo;
+
+  /**
+   * 描述包扩展策略信息。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic
+   */
+  export type BundleExtensionPolicyInfo = _BundleInfo.BundleExtensionPolicyInfo;
+ 
+  /**
+   * 描述包扩展策略信息。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 static
+   */
+  export type BundleExtensionPolicyInfo = _BundleExtensionPolicyInfo;
 }
 import image from './@ohos.multimedia.image';
 
