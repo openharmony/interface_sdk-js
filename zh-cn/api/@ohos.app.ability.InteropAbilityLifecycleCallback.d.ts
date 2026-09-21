@@ -14,7 +14,7 @@
  */
 
 /**
-  * @file
+  * @file 跨平台Ability生命周期监听器
   * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Agent Extension Ability
  * @kit AbilityKit
  */
 

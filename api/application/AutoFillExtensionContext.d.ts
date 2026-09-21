@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Auto Fill Extension Context
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file openAtomicService可选参数
  * @kit AbilityKit
  */
 

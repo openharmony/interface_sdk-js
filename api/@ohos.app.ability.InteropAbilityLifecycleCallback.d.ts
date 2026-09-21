@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Interop Ability Lifecycle Callback
  * @kit AbilityKit
  */
 

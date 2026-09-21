@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ability相关常量
  * @kit AbilityKit
  */
 

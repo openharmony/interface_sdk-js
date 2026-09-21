@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file startAbility的可选参数
  * @kit AbilityKit
  */
 

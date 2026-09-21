@@ -14,7 +14,7 @@
  */
 
 /**
-  * @file
+  * @file 工具信息
   * @kit AbilityKit
  */
 

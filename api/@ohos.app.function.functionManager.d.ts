@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Function Manager
  * @kit AbilityKit
  */
 import Context from './application/Context';

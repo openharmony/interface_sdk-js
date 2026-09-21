@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Agent Manager
  * @kit AbilityKit
  */
 import Want from './@ohos.app.ability.Want';

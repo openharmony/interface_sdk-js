@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 自动填充扩展上下文
  * @kit AbilityKit
  */
 

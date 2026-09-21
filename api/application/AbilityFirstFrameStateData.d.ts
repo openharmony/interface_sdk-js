@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ability First Frame State Data
  * @kit AbilityKit
  */
 

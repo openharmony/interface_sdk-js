@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Agent常量
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
-  * @file
+  * @file 工具事件回调
   * @kit AbilityKit
  */
 

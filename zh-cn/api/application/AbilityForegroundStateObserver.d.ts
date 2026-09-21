@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 前台状态监听器
  * @kit AbilityKit
  */
 

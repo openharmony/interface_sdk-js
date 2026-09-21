@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file AutoFillExtensionAbility
  * @kit AbilityKit
  */
 

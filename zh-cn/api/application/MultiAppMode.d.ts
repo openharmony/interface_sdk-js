@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 多开模式
  * @kit AbilityKit
  */
 /**

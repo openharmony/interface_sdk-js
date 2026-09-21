@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file dialogRequest模块
  * @kit AbilityKit
  */
 

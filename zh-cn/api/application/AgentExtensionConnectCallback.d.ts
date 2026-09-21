@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Agent连接回调
  * @kit AbilityKit
  */
 

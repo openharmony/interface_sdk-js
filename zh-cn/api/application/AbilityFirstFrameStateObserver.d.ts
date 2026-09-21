@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 首帧绘制状态监听器
  * @kit AbilityKit
  */
 

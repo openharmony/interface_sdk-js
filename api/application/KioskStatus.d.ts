@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Kiosk Status
  * @kit AbilityKit
  */
 

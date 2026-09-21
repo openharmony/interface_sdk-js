@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Agent Host Proxy
  * @kit AbilityKit
  */
 

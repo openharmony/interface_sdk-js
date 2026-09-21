@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 运行中的分身应用
  * @kit AbilityKit
  */
 /**

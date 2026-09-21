@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 自动填充类型
  * @kit AbilityKit
  */
 

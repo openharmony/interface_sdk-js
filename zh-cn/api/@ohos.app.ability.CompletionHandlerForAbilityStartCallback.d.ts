@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 拉起应用结果回调的操作类
  * @kit AbilityKit
  */
 

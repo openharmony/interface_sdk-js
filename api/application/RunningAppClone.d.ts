@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Running App Clone
  * @kit AbilityKit
  */
 /**

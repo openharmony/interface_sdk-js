@@ -14,7 +14,7 @@
  */
 
 /**
-  * @file
+  * @file Agent宿主代理
   * @kit AbilityKit
  */
 

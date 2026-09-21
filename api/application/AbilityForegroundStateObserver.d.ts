@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ability Foreground State Observer
  * @kit AbilityKit
  */
 

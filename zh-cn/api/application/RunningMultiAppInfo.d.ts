@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 运行中的多开应用信息
  * @kit AbilityKit
  */
 

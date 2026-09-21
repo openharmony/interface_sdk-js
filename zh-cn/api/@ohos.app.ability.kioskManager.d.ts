@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Kiosk模式管理
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 运行中的多实例应用信息
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ability State Data
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file CLI Tool Event
  * @kit AbilityKit
  */
 

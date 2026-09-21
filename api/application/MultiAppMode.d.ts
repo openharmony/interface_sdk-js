@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Multi App Mode
  * @kit AbilityKit
  */
 /**
