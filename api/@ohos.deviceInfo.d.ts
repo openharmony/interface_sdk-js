@@ -113,7 +113,7 @@ declare namespace deviceInfo {
     TYPE_CAR = 'car'
   }
   /**
-   * Device type. For details, see [deviceTypes tag](docroot://quick-start/module-configuration-file.md#devicetypes).
+   * Device type. For details, see [deviceTypes](docroot://quick-start/module-configuration-file.md#devicetypes).
    * 
    * Example: <!--RP1-->wearable<!--RP1End-->
    *
@@ -228,15 +228,15 @@ declare namespace deviceInfo {
   const hardwareProfile: string;
 
   /**
-   * Serial number of the device. This API will start a temporary process during execution. When the system load is high, blocking may occur. To ensure the response of the main thread of your application, you are advised not to call this API in the main thread. This value varies depending on the device and is fixed. To improve performance, you can store this information on a local device after obtaining it for the first time..
+   * Serial number of the device. This API will start a temporary process during execution. When the system load is high, blocking may occur. To ensure the response of the main thread of your application, you are advised not to call this API in the main thread. This value varies depending on the device and is fixed. To improve performance, you can store this information on a local device after obtaining it for the first time.
    * 
    * **NOTE**
    * 
-   * The device SN can be used as the unique identifier of a device.
+   * The device serial number can be used as the unique identifier of a device.
    * 
-   * **Required permission**: ohos.permission.sec.ACCESS_UDID (for system applications and enterprise applications only)
+   * **Required permissions**: ohos.permission.sec.ACCESS_UDID(for system applications and enterprise applications only)
    * 
-   * Example: The SN varies with the device.
+   * Example: The serial number varies with the device.
    *
    * @permission ohos.permission.sec.ACCESS_UDID
    * @syscap SystemCapability.Startup.SystemInfo
@@ -278,7 +278,7 @@ declare namespace deviceInfo {
   const securityPatchTag: string;
 
   /**
-   * Product version.
+   * Product version.<!--RP14--><!--RP14End-->
    * 
    * Example: <!--RP8-->XXX X.X.X.X<!--RP8End-->
    *
@@ -291,7 +291,7 @@ declare namespace deviceInfo {
   /**
    * Incremental version, which is the Ohos version number generated during compilation.
    * 
-   * Example: default
+   * Example: 6.1.1.120
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform [since 10]
@@ -319,7 +319,7 @@ declare namespace deviceInfo {
   /**
    * System version. The version number is in the format of **<!--RP12-->OpenHarmony-x.x.x.x**, where **x** is a placeholder for digits. <!--RP12End-->To obtain the value of a segment in the version number, you are advised to use **majorVersion**, **seniorVersion**, **featureVersion**, or **buildVersion**, which can improve efficiency. Parsing **osFullName** is not recommended.
    * 
-   * Example: <!--RP10-->Openharmony-5.0.0.1<!--RP10End-->
+   * Example: <!--RP10-->OpenHarmony-5.0.0.1<!--RP10End-->
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @crossplatform [since 10]
@@ -355,7 +355,7 @@ declare namespace deviceInfo {
   const seniorVersion: number;
 
   /**
-   * Feature version number. The value is the third digit in **osFullName**. You are advised to use 
+   * Feature version number, which identifies the planned new feature version. The value is the third digit in **osFullName**. You are advised to use 
    * **deviceInfo.featureVersion** instead of parsing **osFullName** to obtain the value, facilitating efficiency 
    * improvement.
    * 
@@ -368,7 +368,7 @@ declare namespace deviceInfo {
   const featureVersion: number;
 
   /**
-   * Build version number. The value is the fourth digit in **osFullName**. You are advised to use 
+   * Build version number, which identifies the build version. The value is the fourth digit in **osFullName**. You are advised to use 
    * **deviceInfo.buildVersion** instead of parsing **osFullName** to obtain the value, facilitating efficiency 
    * improvement.
    * 
@@ -505,10 +505,10 @@ declare namespace deviceInfo {
    * UDID of the device. This API will start a temporary process during execution. When the system load is high, blocking may occur. To ensure the response of the main thread of your application, you are advised not to call this API in the main thread. This value varies depending on the device and is fixed. To improve performance, you can store this information on a local device after obtaining it for the first time.
    * 
    * **NOTE**
+   *  
+   * The data length is 65 bytes (including the terminator). The UDID can be used as the unique identifier of a device.
    * 
-   * The data length is 65 bytes. The UDID can be used as the unique identifier of a device.
-   * 
-   * **Required permission**: ohos.permission.sec.ACCESS_UDID (for system applications and enterprise applications only)
+   * **Required permissions**: ohos.permission.sec.ACCESS_UDID(for system applications and enterprise applications only)
    * 
    * Example: 9D6AABD147XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXE5536412
    *
@@ -519,7 +519,7 @@ declare namespace deviceInfo {
   const udid: string;
 
   /**
-   * Distribution OS name.<!--Del--> It is defined by the issuer.<!--DelEnd-->
+   * Distribution OS name<!--Del-->, which is defined by the issuer<!--DelEnd-->.
    * 
    * Example: OpenHarmony
    *
@@ -529,7 +529,7 @@ declare namespace deviceInfo {
   const distributionOSName: string;
 
   /**
-   * Distribution OS version.<!--Del--> It is defined by the issuer.<!--DelEnd--><!--RP11--><!--RP11End-->
+   * Distribution OS version<!--Del-->, which is defined by the issuer<!--DelEnd-->.<!--RP11--><!--RP11End-->
    * 
    * Example: 5.0.0
    *
@@ -539,7 +539,7 @@ declare namespace deviceInfo {
   const distributionOSVersion: string;
 
   /**
-   * Distribution OS API version.<!--Del--> It is defined by the issuer.<!--DelEnd-->
+   * Distribution OS API version.<!--Del--> It is defined by the issuer.<!--DelEnd-->.<!--RP15--><!--RP15End-->
    * 
    * Example: 50001
    *
@@ -549,7 +549,12 @@ declare namespace deviceInfo {
   const distributionOSApiVersion: number;
 
   /**
-   * Distribution OS API name.<!--Del--> It is defined by the issuer.<!--DelEnd-->
+   * Distribution OS API name.<!--Del--> It is defined by the issuer.<!--DelEnd-->.<!--RP16-->
+   * **NOTE**
+   * 
+   * It is not recommended that this field be used to determine the version number.
+   * 
+   * Example: 5.0.1<!--RP16End-->
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @since 13 dynamic
@@ -557,7 +562,7 @@ declare namespace deviceInfo {
   const distributionOSApiName: string;
 
   /**
-   * Distribution OS release type.<!--Del--> It is defined by the issuer.<!--DelEnd-->
+   * Distribution OS release type<!--Del-->, which is defined by the issuer<!--DelEnd-->.
    * 
    * Example: Release
    *
@@ -567,13 +572,13 @@ declare namespace deviceInfo {
   const distributionOSReleaseType: string;
 
   /**
-   * Open device identifier.
+   * Open device identifier (ODID).
    * 
    * An ODID will be regenerated in the following scenarios:
    * 
    * Restore a phone to its factory settings.
    * 
-   * Uninstall and reinstall all applications with the same **developerId** on one device.
+   * Uninstall and reinstall all apps with the same **developerId** on one device.
    * 
    * An ODID is generated based on the following rules:
    * 
@@ -604,9 +609,9 @@ declare namespace deviceInfo {
    * 
    * **NOTE**
    * 
-   * This field can be queried only on the 2-in-1 device. For other devices, the query result is empty.
+   * This field can be queried only on some 2-in-1 devices. The query result is empty on other devices.
    * 
-   * ohos.permission.ACCESS_DISK_PHY_INFO
+   * **Required permissions**: ohos.permission.ACCESS_DISK_PHY_INFO(for system applications and enterprise applications only)
    * 
    * Example: 2502EM400567
    *
@@ -653,6 +658,8 @@ declare namespace deviceInfo {
   /**
    * Device capability level, which is evaluated based on factors such as CPU, memory, storage read/write performance, and screen resolution.
    *
+   * **Use scenarios**: This parameter can be used for performance adaptation based on device capabilities, such as adjusting animation complexity, selecting resources of different quality, and dynamically controlling features.
+   *
    * Example: 0
    * 
    * @syscap SystemCapability.Startup.SystemInfo
@@ -662,7 +669,9 @@ declare namespace deviceInfo {
   const performanceClass: PerformanceClassLevel;
 
     /**
-     * Obtains the device CPU chipType by a string.
+     * CPU chip model of the device.
+     *
+     * **Use scenarios**: This parameter can be used for performance adaptation, device feature identification, and compatibility check based on the chip model. Different chip models may have different GPU performance and AI acceleration capabilities.
      *
      * Example: xxxxx
      * 
@@ -683,19 +692,20 @@ declare namespace deviceInfo {
 
    /**
  	  * Checks whether a specified API version is available on the current device.
- 	  * This API provides compatibility check for OpenHarmony and its distribution OS API versions.
+ 	  * This API provides compatibility check across different OpenHarmony/Distribution OS versions.
  	  * A suitable version check method is automatically selected based on the input format and supported API versions.
     *
-    * @param { string | number } version - API version to be verified. Supports both integer and string formats.
-    *     - The string uses the M.S.F format (for example, "26.0.0" and "5.0.1"): for API 26.0.0 and
-    *     later (version >= 26.0.0), it represents the OpenHarmony and distribution OS API version.
-    *     - For API earlier than 26.0.0 (version < 26.0.0), it represents the distribution OS API version.
-    *     - The integer format (for example, 13) represents the OpenHarmony SDK API version. (Only API earlier
-    *     than 26 is supported.) M>=26,0<=S<=99,0<=F<=99. A compilation error occurs when an invalid literal is passed.
-    * @returns { boolean } Boolean value. If **true** is returned, the API version of the device is the version
-    *     specified in the input parameter or a later version. If **false** is returned, the API version is
-    *     earlier than the version specified in the input parameter, the version format is invalid,
-    *     or the version does not exist.
+    * @param { string | number } version - API version number to be verified. The value can be an integer or in the
+    *     dotted format.
+    *     - String format shall be in M.S.F. (e.g., "26.0.0", "5.0.1"):
+    *     - For API 26.0.0 & 26.0.0+ (version >= 26.0.0): Represents both OpenHarmony and Distribution OS API versions
+    *     - For API 26.0.0- (version < 26.0.0): Represents Distribution OS API version
+    *     - Number format (e.g., 13): Represents OpenHarmony SDK API version (API 26- only)
+    *     M>=26,0<=S<=99,0<=F<=99. A compilation error occurs when an invalid literal is input.
+    * @returns { boolean } Boolean value. The value **true** indicates that the current version number is later than
+    *     or equal to the input parameter version number; **false** indicates that the current device's API version
+    *     is lower than the input version number, or the input version number is in an invalid format,
+    *     or the specified version does not exist.
     * @syscap SystemCapability.Startup.SystemInfo
     * @FaAndStageModel
     * @crossplatform
@@ -706,6 +716,8 @@ declare namespace deviceInfo {
 
   /**
    * Device color. If the value cannot be obtained, an empty string is returned.
+   *
+   * Example: gold
    *
    * @syscap SystemCapability.Startup.SystemInfo
    * @stagemodelonly
