@@ -125,7 +125,7 @@ export interface PlayParameters {
    */
   loop?: int;
   /**
-   * 设置音频播放的倍速，具体倍速范围参照[AudioRendererRate]{@link ../@ohos.multimedia.audio:audio.AudioRendererRate}。默认值：0。
+   * 设置音频播放的倍速，具体倍速范围参照[AudioRendererRate]{@link ../@ohos.multimedia.audio:audio.AudioRendererRate}。默认值：RENDER_RATE_NORMAL，对应枚举值0。
    *
    * @syscap SystemCapability.Multimedia.Media.SoundPool
    * @since 10 dynamic
@@ -197,8 +197,7 @@ export interface PlayParameters {
  * > - 在使用SoundPool实例的方法时，建议开发者注册相关回调，主动获取当前状态变化。
  * > >   - [on('loadComplete')]{@link SoundPool.on(type: 'loadComplete', callback: Callback<int>)}：监听资源加载完成。建议开发者监听此回调以确
  * > 保音频在加载完成后进行播放。
- * > >   - 
- * > [on('playFinishedWithStreamId')]{@link SoundPool.on(type: 'playFinishedWithStreamId', callback: Callback<int>)}：监听播
+ * > >   - [on('playFinishedWithStreamId')]{@link SoundPool.on(type: 'playFinishedWithStreamId', callback: Callback<int>)}：监听播
  * > 放完成，同时返回播放结束的音频的streamId。
  * > >   - [on('playFinished')]{@link SoundPool.on(type: 'playFinishedWithStreamId', callback: Callback<int>)}：监听播放完成。
  * > >   - [on('error')]{@link SoundPool.on(type: 'error', callback: ErrorCallback)}：监听错误事件。
