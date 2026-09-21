@@ -1885,7 +1885,7 @@ declare class Decimal {
    * 返回一个新的Decimal对象，其值为大于等于0且小于1的随机值。
    *
    * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 10200061 - Crypto unavailable
+   * @throws { BusinessError } 10200061 - Crypto unavailable.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
    * @atomicservice
@@ -1903,7 +1903,7 @@ declare class Decimal {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Incorrect parameter types;
    *     2. Parameter verification failed.
-   * @throws { BusinessError } 10200061 - Crypto unavailable
+   * @throws { BusinessError } 10200061 - Crypto unavailable.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
    * @atomicservice
@@ -1952,7 +1952,7 @@ declare class Decimal {
   /**
    * 用于设置Decimal的配置属性，通过set设置的属性是全局生效的。
    *
-   * @param { DecimalConfig } 包含以下一个或多个属性的对象，
+   * @param { DecimalConfig } config - 包含以下一个或多个属性的对象，
    *     precision  {double}
    *     rounding   {Rounding}
    *     toExpNeg   {double}
@@ -1967,7 +1967,7 @@ declare class Decimal {
    *     1. Incorrect parameter types;
    *     2. Parameter verification failed.
    * @throws { BusinessError } 10200001 - The value of `DecimalConfig.properties` is out of range.
-   * @throws { BusinessError } 10200061 - Crypto unavailable
+   * @throws { BusinessError } 10200061 - Crypto unavailable.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
    * @atomicservice

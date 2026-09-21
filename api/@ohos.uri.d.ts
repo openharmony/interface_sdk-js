@@ -144,8 +144,8 @@ declare namespace uri {
     /**
      * Adds a query parameter to this URI to create a new URI, while keeping the existing URI unchanged.
      *
-     * @param { string } [key] - Key of the query parameter.
-     * @param { string } [value] - Value of the query parameter.
+     * @param { string } key - Key of the query parameter.
+     * @param { string } value - Value of the query parameter.
      * @returns { URI } Return URI object.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -228,7 +228,7 @@ declare namespace uri {
      * Encodes a given field, appends it to the path component of this URI to create a new URI, and returns the new URI,
      * while keeping the existing URI unchanged.
      *
-     * @param { string } [pathSegment] - path segment to be added.
+     * @param { string } pathSegment - path segment to be added.
      * @returns { URI } After adding, return the URI object.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform

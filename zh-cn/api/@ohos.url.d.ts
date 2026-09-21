@@ -878,7 +878,7 @@ declare namespace url {
          * @syscap SystemCapability.Utils.Lang
          * @since 7 dynamiconly
          * @deprecated since 9
-         * @useinstead ohos.url.URLParams
+         * @useinstead ohos.url.URL.params
          */
         readonly searchParams: URLSearchParams;
 

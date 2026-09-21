@@ -314,7 +314,7 @@ declare namespace taskpool {
      * Register a callback function and call it when a task is enqueued.
      * The registration must be carried out before the task is executed. Otherwise, an exception is thrown.
      *
-     * @param { CallbackFunction } [callback] - Callback function to register.
+     * @param { CallbackFunction } callback - Callback function to register.
      * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -327,7 +327,7 @@ declare namespace taskpool {
      * Register a callback function and call it when the execution of a task starts.
      * The registration must be carried out before the task is executed. Otherwise, an exception is thrown.
      *
-     * @param { CallbackFunction } [callback] - Callback function to register.
+     * @param { CallbackFunction } callback - Callback function to register.
      * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -340,7 +340,7 @@ declare namespace taskpool {
      * Register a callback function and call it when a task fails to be executed(Periodic tasks are not supported).
      * The registration must be carried out before the task is executed. Otherwise, an exception is thrown.
      *
-     * @param { CallbackFunctionWithError } [callback] - Callback function to register.
+     * @param { CallbackFunctionWithError } callback - Callback function to register.
      * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -353,7 +353,7 @@ declare namespace taskpool {
      * Register a callback function and call it when a task is executed successfully.
      * The registration must be carried out before the task is executed. Otherwise, an exception is thrown.
      *
-     * @param { CallbackFunction } [callback] - Callback function to register.
+     * @param { CallbackFunction } callback - Callback function to register.
      * @throws { BusinessError } 10200034 - The executed task does not support the registration of listeners.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -551,7 +551,7 @@ declare namespace taskpool {
     /**
      * A constructor used to create a **SequenceRunner** instance.
      *
-     * @param { Priority } priority - Priority of the task. The default value is **taskpool.Priority.MEDIUM**.
+     * @param { Priority } [priority] - Priority of the task. The default value is **taskpool.Priority.MEDIUM**.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -571,7 +571,7 @@ declare namespace taskpool {
      * > - The priority of a serial queue cannot be modified.
      *
      * @param { string } name - Name of a serial queue.
-     * @param { Priority } priority - Priority of the task. The default value is **taskpool.Priority.MEDIUM**.
+     * @param { Priority } [priority] - Priority of the task. The default value is **taskpool.Priority.MEDIUM**.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice
@@ -858,8 +858,7 @@ declare namespace taskpool {
    * @param { Object[] } args - Arguments of the function. For details about the supported parameter types, see
    *     [Sequenceable Data Types](docroot://reference/apis-arkts/js-apis-taskpool.md#sequenceable-data-types). The
    *     default value is **undefined**.
-   * @returns { Promise<unknown> } [since 9 - 11]
-   * @returns { Promise<Object> } Promise used to return an object that carries the function execution result. [since 11]
+   * @returns { Promise<Object> } Promise used to return an object that carries the function execution result.
    * @throws { BusinessError } 10200003 - Worker initialization failed. [since 9 - 11]
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
@@ -900,8 +899,7 @@ declare namespace taskpool {
    * @param { Task } task - Task to be executed.
    * @param { Priority } [priority] - Priority of the task to be executed. The default value is
    *     **taskpool.Priority.MEDIUM**.
-   * @returns { Promise<unknown> } [since 9 - 17]
-   * @returns { Promise<Object> } Promise used to return an object that carries the function execution result. [since 11]
+   * @returns { Promise<Object> } Promise used to return an object that carries the function execution result.
    * @throws { BusinessError } 10200003 - Worker initialization failed. [since 9 - 17]
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200014 - The function is not marked as concurrent.
@@ -1156,7 +1154,7 @@ declare namespace taskpool {
      * @param { number } runningCapacity - Maximum number of tasks that can run concurrently. The value must be a
      *     positive integer. If a negative number is passed, an error is reported. If a non-integer is passed, the value
      *     is rounded down.
-     * @param { ?number } waitingCapacity - Maximum number of tasks that can be queued. The value must be greater than
+     * @param { number } [waitingCapacity] - Maximum number of tasks that can be queued. The value must be greater than
      *     or equal to 0. If a negative number is passed, an error is reported. If a non-integer is passed, the value is
      *     rounded down. The default value is **0**, indicating that there is no limit to the number of tasks that can
      *     wait. If a value greater than 0 is passed, tasks will be discarded from the front of the queue once the queue
@@ -1183,7 +1181,7 @@ declare namespace taskpool {
      * @param { number } runningCapacity - Maximum number of tasks that can run concurrently. The value must be a
      *     positive integer. If a negative number is passed, an error is reported. If a non-integer is passed, the value
      *     is rounded down.
-     * @param { ?number } waitingCapacity - Maximum number of tasks that can be queued. The value must be greater than
+     * @param { number } [waitingCapacity] - Maximum number of tasks that can be queued. The value must be greater than
      *     or equal to 0. If a negative number is passed, an error is reported. If a non-integer is passed, the value is
      *     rounded down. The default value is **0**, indicating that there is no limit to the number of tasks that can
      *     wait. If a value greater than 0 is passed, tasks will be discarded from the front of the queue once the queue
@@ -1216,7 +1214,7 @@ declare namespace taskpool {
      * > - Tasks that have been executed cannot be added to the asynchronous queue.
      *
      * @param { Task } task - Task to be added to the asynchronous queue.
-     * @param { ?Priority } [priority] - Priority of the task. The default value is **taskpool.Priority.MEDIUM**.
+     * @param { Priority } [priority] - Priority of the task. The default value is **taskpool.Priority.MEDIUM**.
      * @returns { Promise<Object> } Promise used to return the task execution result.
      * @throws { BusinessError } 10200006 - An exception occurred during serialization.
      * @throws { BusinessError } 10200025 - dependent task not allowed.

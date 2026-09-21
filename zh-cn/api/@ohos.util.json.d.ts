@@ -85,7 +85,7 @@ declare namespace json {
    *
    * @param { string } text - 有效的JSON字符串，需符合JSON语法规范。
    * @param { Transformer } [reviver] - 转换函数，用于修改解析生成的原始值；当需要对解析结果进行自定义转换时使用。默认值是undefined。
-   * @param {ParseOptions} options - 解析的配置选项，用于控制解析生成的类型。默认值是undefined。
+   * @param {ParseOptions} [options] - 解析的配置选项，用于控制解析生成的类型。默认值是undefined。
    * @returns { Object | null } 当传入的字符串为'null'时，返回null。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform

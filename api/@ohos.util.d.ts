@@ -122,8 +122,7 @@ declare namespace util {
    * @param { function } original - Function, in which the first parameter **err** indicates the cause of the rejection
    *     (the value is **null** if the promise has been resolved) and the second parameter **value** indicates the
    *     resolved value.
-   * @returns { function } Return a function that returns promises [since 9 - 11]
-   * @returns { Function } Promise function. [since 10]
+   * @returns { Function } Promise function.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -197,7 +196,7 @@ declare namespace util {
    * and returned. If a hash value has been obtained, the hash value saved in the **hash** field is returned (the same
    * value is returned for the same object).
    *
-   * @param { object } [object] - Object whose hash value is to be obtained.
+   * @param { object } object - Object whose hash value is to be obtained.
    * @returns { number } Hash value.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -788,7 +787,7 @@ declare namespace util {
     /**
      * A constructor used to create a **LruBuffer** instance. The default capacity of the cache is 64.
      *
-     * @param { number } capacity - Capacity of the cache to create. The default value is **64**.
+     * @param { number } [capacity] - Capacity of the cache to create. The default value is **64**.
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1394,7 +1393,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead util.LRUCache.toString
+     * @useinstead ohos.util.ScopeHelper.toString
      */
     toString(): string;
 
@@ -1491,7 +1490,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead util.LRUCache.contains
+     * @useinstead ohos.util.ScopeHelper.contains
      */
     contains(value: ScopeType): boolean;
 
@@ -1504,7 +1503,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead util.LRUCache.contains
+     * @useinstead ohos.util.ScopeHelper.contains
      */
     contains(range: Scope): boolean;
 

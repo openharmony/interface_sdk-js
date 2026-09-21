@@ -599,7 +599,7 @@ declare namespace utils {
     /**
      * Default constructor.
      *
-     * @param { number } capacity - The capacity of the SendableLruCache.
+     * @param { number } [capacity] - The capacity of the SendableLruCache.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 22]
      * @atomicservice

@@ -914,7 +914,7 @@ declare namespace collections {
      *     `target + array.length`.
      * @param { number } start - Start index of the range. If a negative number is passed in, it refers to the index of
      *     **start + array.length**.
-     * @param { number } end - End index of the range. If a negative number is passed in, it refers to the index of `end
+     * @param { number } [end] - End index of the range. If a negative number is passed in, it refers to the index of `end
      *     + array.length`. The default value is the length of the ArkTS array.
      * @returns { Array<T> } ArkTS array after being modified. Possible causes:
      *     1. Mandatory parameters are left unspecified.
@@ -944,7 +944,7 @@ declare namespace collections {
      * Obtains the index of the last occurrence of the specified value in this ArkTS array.
      *
      * @param { T } searchElement - Value to search for.
-     * @param { number } fromIndex - Index from which the search starts. The default value is the ArkTS Int8Array
+     * @param { number } [fromIndex] - Index from which the search starts. The default value is the ArkTS array
      *     length minus 1 (i.e., starting from the end). If the index is greater than or equal to the length of the
      *     ArkTS array, **-1** is returned. If a negative number is passed in, it refers to the index of
      *     **fromIndex + array.length**.
@@ -974,7 +974,7 @@ declare namespace collections {
     /**
      * Checks whether this ArkTS array contains an element that meets certain conditions.
      *
-     * @param { ArrayPredicateFn<T, Array<T> } predicate - Assertion function used for the test.
+     * @param { ArrayPredicateFn<T, Array<T>> } predicate - Assertion function used for the test.
      * @returns { boolean } Check result. The value **true** is returned if an element meeting the given condition
      *     exists; otherwise, **false** is returned.
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
@@ -2077,7 +2077,7 @@ declare namespace collections {
      * Obtains the index of the last occurrence of the specified value in this ArkTS Int8Array.
      *
      * @param { number } searchElement - Value to search for.
-     * @param { number } fromIndex - Index from which the search starts. The default value is the ArkTS Int8Array
+     * @param { number } [fromIndex] - Index from which the search starts. The default value is the ArkTS Int8Array
      *     length minus 1 (i.e., starting from the end). If the index is greater than or equal to the length of the
      *     ArkTS Int8Array, **-1** is returned. If a negative number is passed in, the search starts from the end of
      *     the ArkTS Int8Array.
@@ -2687,7 +2687,7 @@ declare namespace collections {
      * Obtains the index of the last occurrence of the specified value in this ArkTS Uint8ClampedArray.
      *
      * @param { number } searchElement - Value to search for.
-     * @param { number } fromIndex - Index from which the search starts. The default value is the ArkTS
+     * @param { number } [fromIndex] - Index from which the search starts. The default value is the ArkTS
      *     Uint8ClampedArray length minus 1 (i.e., starting from the end). If the index is greater than or equal to the
      *     length of the ArkTS Uint8ClampedArray, **-1** is returned. If a negative number is passed in, the search
      *     starts from the end of the ArkTS Uint8ClampedArray.
@@ -5177,7 +5177,7 @@ declare namespace collections {
      * Obtains the index of the last occurrence of the specified value in this ArkTS Int32Array.
      *
      * @param { number } searchElement - Value to search for.
-     * @param { number } fromIndex - Index from which the search starts. The default value is the ArkTS Int32Array
+     * @param { number } [fromIndex] - Index from which the search starts. The default value is the ArkTS Int32Array
      *     length minus 1 (i.e., starting from the end). If the index is greater than or equal to the length of the
      *     ArkTS Int32Array, **-1** is returned. If a negative number is passed in, the search starts from the end
      *     of the ArkTS Int32Array.
@@ -6406,7 +6406,7 @@ declare namespace collections {
      * Obtains the index of the last occurrence of the specified value in this ArkTS Float32Array.
      *
      * @param { number } searchElement - Value to search for.
-     * @param { number } fromIndex - Index from which the search starts. The default value is the ArkTS Float32Array
+     * @param { number } [fromIndex] - Index from which the search starts. The default value is the ArkTS Float32Array
      *     length minus 1 (i.e., starting from the end). If the index is greater than or equal to the length of the
      *     ArkTS Float32Array, **-1** is returned. If a negative number is passed in, the search starts from the end
      *     of the ArkTS Float32Array.

@@ -953,7 +953,7 @@ declare namespace collections {
     /**
      * 测试ArkTS Array是否存在满足指定条件的元素。
      *
-     * @param { ArrayPredicateFn<T, Array<T> } predicate - 用于测试的断言函数。
+     * @param { ArrayPredicateFn<T, Array<T>> } predicate - 用于测试的断言函数。
      * @returns { boolean } 检查结果。如果存在满足指定条件的元素，则返回**true**；
      *     否则返回**false**。
      * @throws { BusinessError } 10200011 - The some method cannot be bound.
