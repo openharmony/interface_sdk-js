@@ -96,7 +96,10 @@ declare enum LayoutDirection {
 }
 
 /**
- * Defines the base class of storage.
+ * A background API for persistent storage, which provides data persistence capabilities based on key-value pairs,
+ * including data reading, writing, clearing, and deletion. PersistentStorage uses this API to implement local
+ * persistence of AppStorage data, making it suitable for scenarios where flexible local persistent storage of
+ * application data is required.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -105,10 +108,12 @@ declare enum LayoutDirection {
  */
 declare class Storage {
   /**
-   * Constructor parameters.
+   * A constructor for creating a **Storage** instance.
    *
-   * @param { boolean } needCrossThread
-   * @param { string } file
+   * @param { boolean } needCrossThread - Whether to access the storage across threads. This is a reserved API
+   *     and does not provide specific functions. Default value: **false**.
+   * @param { string } file - Name of the storage file. This is a reserved API and does not provide specific
+   *     functions. By default, **persistent_storage** in the application file directory is used as the storage file.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @FaAndStageModel
@@ -117,10 +122,11 @@ declare class Storage {
   constructor(needCrossThread?: boolean, file?: string);
 
   /**
-   * Called when data is obtained.
+   * Reads the stored data corresponding to the specified key from the disk.
    *
-   * @param { string } key
-   * @returns { string | undefined }
+   * @param { string } key - Key of the storage to obtain.
+   * @returns { string | undefined } Value corresponding to the key; **undefined** is returned if the key does not
+   *     exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @FaAndStageModel
@@ -129,10 +135,11 @@ declare class Storage {
   get(key: string): string | undefined;
 
   /**
-   * Called when setting.
+   * Stores the data corresponding to the specified key persistently to the disk.
    *
-   * @param { string } key
-   * @param { any } val
+   * @param { string } key - Name of the storage key to set.
+   * @param { any } val - Data to store. It supports basic types such as string, number, and boolean, as well as
+   *     serializable objects and arrays. The data is serialized and then persisted to the storage file.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @FaAndStageModel
@@ -141,7 +148,7 @@ declare class Storage {
   set(key: string, val: any): void;
 
   /**
-   * Called when data is cleared.
+   * Clears all stored data.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -151,9 +158,9 @@ declare class Storage {
   clear(): void;
 
   /**
-   * Called when data is deleted.
+   * Deletes the stored data corresponding to the specified key.
    *
-   * @param { string } key
+   * @param { string } key - Key of the storage to delete.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @FaAndStageModel

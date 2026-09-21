@@ -14,8 +14,10 @@
  */
 
 /**
- * The state management module provides data storage, persistent data management, UIAbility data storage, and 
- * environment state and tools required by applications.
+ * This module provides capabilities for application data storage, data persistence management, and UIAbility
+ * (application component that contains a UI) data storage. It also covers scenarios such as environment state, tool,
+ * and UI state synchronization, helping you simplify state management logic and improve application responsiveness and
+ * data consistency.
  * 
  * T and S in this topic represent the types as described below.
  * 
@@ -58,8 +60,10 @@ export interface TypeConstructorWithArgs<T> {
   /**
    * Creates and returns an instance of the specified type T.
    *
-   * @param { any } args - Function arguments.
-   * @returns { T } Instance of the T type.
+   * @param { any } args - Constructor arguments passed when creating an instance of type **T**, used to initialize the
+   *     instance.
+   * @returns { T } Instance of type **T** created using the **new** API. By default, no constructor arguments are
+   *     passed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -114,7 +118,8 @@ export class ConnectOptions<T extends object> {
    * Encryption level, ranging from EL1 to EL5 (corresponding to the value from 0 to 4). For details, see
    * [Encryption Levels](docroot://application-models/application-context-stage.md#obtaining-and-modifying-encryption-levels).
    * If no value is passed in, EL2 is used by default. Storage paths vary based on the encryption levels. If the input
-   * value of encryption level is not in the range of **0** to **4**, a crash occurs.
+   * value of encryption level is not in the range of **0** to **4**, a crash occurs. When the same key uses different
+   * encryption levels, the encryption level in the first **globalConnect** call is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -125,7 +130,8 @@ export class ConnectOptions<T extends object> {
 }
 
 /**
- * For details about how to use AppStorageV2, see
+ * AppStorageV2 provides the capability of globally sharing state variables within an application. You can bind the same
+ * key through **connect** to share data across abilities. For details about the UI usage, see
  * [AppStorageV2: Storing Application-wide UI State](docroot://ui/state-management/arkts-new-appstoragev2.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -135,17 +141,34 @@ export class ConnectOptions<T extends object> {
  * @since 12 dynamic
  */
 export declare class AppStorageV2 {
-
   /**
    * Stores key-value pair data in the application memory. If the given key already exists in
    * [AppStorageV2](docroot://ui/state-management/arkts-new-appstoragev2.md), the corresponding value is returned.
    * Otherwise, a default value is constructed using the default value constructor and returned.
    *
+   * > **NOTE**
+   * >
+   * > 1. If no key is specified, the second parameter is used as the default constructor. Otherwise, the third
+   * > parameter is used (if the second parameter is invalid, the third parameter is also used as the
+   * > default constructor).
+   * >
+   * > 2. If the data has been stored in AppStorageV2, you can obtain the stored data without using the default
+   * > constructor. If the data has not been stored, you must specify a default constructor; otherwise, an application
+   * > exception will be thrown.
+   * >
+   * > 3. Ensure that the data types match the key. Matching different types of **connect** data to the same key will
+   * > result in an application exception.
+   * >
+   * > 4. You are advised to use meaningful values for keys. The values can contain letters, digits, and
+   * > underscores (_) and a maximum of 255 characters. Using invalid characters or empty characters will result in
+   * > undefined behavior.
+   *
    * @param { TypeConstructorWithArgs<T> } type - Type. If no key is specified, the name of the type is used as the key.
    * @param { string | StorageDefaultCreator<T> } [keyOrDefaultCreator] - Key, or constructor for obtaining the default
    *     value. The default value is **undefined**.
    * @param { StorageDefaultCreator<T> } [defaultCreator] - Constructor for obtaining the default value. The default
-   *     value is **undefined**.
+   *     value is **undefined**. If the data is not stored in AppStorageV2 and no default constructor is passed,
+   *     **undefined** is returned.
    * @returns { T | undefined } Returns data if the creation or data acquisition from AppStorageV2 is successful;
    *     returns **undefined** otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -164,6 +187,10 @@ export declare class AppStorageV2 {
    * Removes the specified key-value pair from [AppStorageV2](docroot://ui/state-management/arkts-new-appstoragev2.md).
    * If the specified key does not exist in AppStorageV2, the removal will fail.
    *
+   * > **NOTE**
+   * >
+   * > If a key that does not exist in AppStorageV2 is removed, a warning is reported.
+   *
    * @param { string | TypeConstructorWithArgs<T> } keyOrType - Key to be removed. If a type is specified, the key to be
    *     removed is the name of that type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -176,6 +203,11 @@ export declare class AppStorageV2 {
 
   /**
    * Obtains all keys in [AppStorageV2](docroot://ui/state-management/arkts-new-appstoragev2.md).
+   *
+   * > **NOTE**
+   * >
+   * > The order of keys in the array is not sequential and unrelated to the order in which keys are inserted
+   * > into AppStorageV2.
    *
    * @returns { Array<string> } All keys stored in AppStorageV2.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -191,9 +223,12 @@ export declare class AppStorageV2 {
  * Defines a callback used to return the cause of the persistence failure.
  *
  * @param { string } key - Key of the error.
- * @param { 'quota' | 'serialization' | 'unknown' } reason - Reason of the error.
+ * @param { 'quota' | 'serialization' | 'unknown' } reason - Reason of the error. The value can be **'quota'**
+ *     (indicating that the storage quota exceeds the limit), **'serialization'** (indicating that serialization or
+ *     deserialization fails), or **'unknown'** (indicating an unknown error).
  * @param { string } message - Extra information about the error.
- * @param { string } [oldValue] - Old serialized data stored on the disk when deserialization fails. [since 26.0.0]
+ * @param { string } [oldValue] - Old serialized data stored on the disk when deserialization fails. In
+ *     non-deserialization failure scenarios, the default value of this parameter is **undefined**.[since 26.0.0]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -239,7 +274,7 @@ export class ConnectOptionsCollections<T extends CollectionType<S>, S extends ob
   /**
    * Persists container data. **defaultSubCreator** should be provided together with **defaultCreator**; otherwise, the
    * container data cannot be persisted. The collection item type **S** must be the same as the return type of
-   * **defaultSubCreator**. If **defaultSubCreator** is provided but **defaultCreator** is not, the persistence fails.
+   * **defaultSubCreator**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -249,9 +284,11 @@ export class ConnectOptionsCollections<T extends CollectionType<S>, S extends ob
   defaultCreator?: StorageDefaultCreator<T>;
 
   /**
-   * Persists container data. If the return value of **defaultSubCreator** is **undefined** or **null**, the persistence
-   * fails. When a user-defined class collection (such as **Array<ClassA>**) is persisted, the generic type **T** in
-   * **defaultCreator** is **Array<ClassA>**, and **S** in **defaultSubCreator** is **ClassA**.
+   * Default constructor function of the collection item, which is used to persist container data. When this parameter
+   * is used, **defaultCreator** must also be provided; otherwise, persistence will fail. When container data is persisted,
+   * if this parameter is not passed in, or if **defaultSubCreator** returns **undefined** or **null**, the persistence
+   * operation will fail. When a collection of user-defined classes (such as **Array<ClassA>**) is persisted, the generic
+   * type **T** in **defaultCreator** is **Array<ClassA>**, and **S** in **defaultSubCreator** is **ClassA**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -262,8 +299,10 @@ export class ConnectOptionsCollections<T extends CollectionType<S>, S extends ob
 }
 
 /**
- * Inherits from [AppStorageV2]{@link AppStorageV2}. For details, see
- * [PersistenceV2: Persisting Application State](docroot://ui/state-management/arkts-new-persistencev2.md).
+ * Provides persistent storage for UI states. This API is inherited from [AppStorageV2]{@link AppStorageV2}. It supports
+ * persisting application state data to disks and restoring data after application restart, making it suitable for
+ * scenarios where UI state data needs to be retained. For details about the UI usage, see
+ * [PersistenceV2: Persisting UI States](docroot://ui/state-management/arkts-new-persistencev2.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -276,13 +315,48 @@ export declare class PersistenceV2 extends AppStorageV2 {
   /**
    * Stores key-value pair data on the application disk. If the given key already exists in
    * [PersistenceV2](docroot://ui/state-management/arkts-new-persistencev2.md), the corresponding value is returned.
-   * Otherwise, a default value is constructed using the default value constructor and returned. If **globalConnect** is
-   * used for an [\@ObservedV2](docroot://ui/state-management/arkts-new-observedV2-and-trace.md) decorated object,
-   * changes to the object's [\@Trace](docroot://ui/state-management/arkts-new-observedV2-and-trace.md) properties will
-   * trigger automatic refresh of the associated object, while changes to non-@Trace properties will not. If necessary,
-   * the [PersistenceV2.save]{@link PersistenceV2#save} API can be called to store the data manually.
+   * Otherwise, a default value is constructed using the default value constructor and returned. If the object connected
+   * through **globalConnect** is an [\@ObservedV2](docroot://ui/state-management/arkts-new-observedV2-and-trace.md)
+   * object, changes to its [\@Trace](docroot://ui/state-management/arkts-new-observedV2-and-trace.md) properties will
+   * trigger automatic refresh of the entire associated object, while changes to non-\@Trace properties will not be
+   * automatically persisted. To persist changes to non-\@Trace properties, call the
+   * [PersistenceV2.save]{@link PersistenceV2#save} API to manually store them.
    *
-   * @param { ConnectOptions<T> } type - Connection settings.
+   * > **NOTE**
+   * >
+   * > 1. If no key is specified, the class name of the data returned by the default constructor **defaultCreator** is
+   * > used as the key and stored in PersistenceV2.
+   * >
+   * > 2. If the data has been stored in PersistenceV2, you can obtain the stored data without using the default
+   * > constructor. Otherwise, you must specify a default constructor to avoid application exceptions.
+   * >
+   * > 3. Ensure that the data types match the key. Matching different types of **globalConnect** data to the same key
+   * > will result in an application exception.
+   * >
+   * > 4. You are advised to use meaningful values for keys. The values can contain letters, digits, and
+   * > underscores (_) and a maximum of 255 characters. Using invalid characters or empty characters will result in
+   * > undefined behavior.
+   * >
+   * > 5. When associating an [\@Observed](docroot://ui/state-management/arkts-observed-and-objectlink.md) object,
+   * > because the name property of this type is undefined, you need to specify a key or customize the name property.
+   * >
+   * > 6. The storage path for data is application-level. If different modules use the same key and the same
+   * > encryption partition for **globalConnect**, only one copy of the data will be stored in the application.
+   * >
+   * > 7. If **globalConnect** is used with the same key but different encryption levels, the data will be stored
+   * > with the encryption level of the first **globalConnect** call, and the data in PersistenceV2 will also be
+   * > stored with the encryption level that uses the key first.
+   * >
+   * > 8. Avoid using **connect** and **globalConnect** together because they have different data copy paths. If they
+   * > must be used together, make sure the keys are unique to avoid application crashes.
+   * >
+   * > 9. To enable EL5 encryption, configure the **ohos.permission.PROTECT_SCREEN_LOCK_DATA** field in the
+   * > **module.json** file. For details, see
+   * > [Declaring Permissions](docroot://security/AccessToken/declare-permissions.md).
+   *
+   * @param { ConnectOptions<T> } type - Configuration options of **globalConnect**, which include the specified type,
+   *     key, default constructor, encryption level, and other configuration items. For details, see
+   *     [ConnectOptions]{@link ConnectOptions}.
    * @returns { T | undefined } Returns the data if creation or acquisition is successful; otherwise, returns
    *     **undefined**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -296,10 +370,24 @@ export declare class PersistenceV2 extends AppStorageV2 {
 
   /**
    * Stores key-value pair data on the application disk. Supports the persistence of the following collection types:
-   * [Array, Map, Set, Date, collections.Array, collections.Map, and collections.Set](docroot://ui/state-management/arkts-new-persistencev2.md#types-supported-by-globalconnect).
+   * [Array, Map, Set, collections.Array, collections.Map, and collections.Set](docroot://ui/state-management/arkts-new-persistencev2.md#types-supported-by-globalconnect).
    * Note that when persisting data of the **Array\<ClassA>** type, you need to call
    * [makeObserved]{@link UIUtils#makeObserved} to make the returned object observed. Multi-level nested sets are not
    * supported. For example, **Array<Array\<ClassA>>** persistence is not supported.
+   *
+   * > **NOTE**
+   * >
+   * > 1. If no key is specified, the class name of the data returned by the default constructor **defaultCreator**
+   * > is used as the key and stored in PersistenceV2.
+   * >
+   * > 2. You are advised to use meaningful values for keys. The values can contain letters, digits, and
+   * > underscores (_) and a maximum of 255 characters. Using invalid characters or empty characters will result
+   * > in undefined behavior.
+   * >
+   * > 3. Avoid using **connect** and **globalConnect** together because they have different data copy paths. If they
+   * > must be used together, make sure the keys are unique to avoid application crashes.
+   * >
+   * > For other general conditions, see the description of **globalConnect<sup>18+</sup>**.
    *
    * @param { ConnectOptionsCollections<T, S> | ConnectOptions<T> } type - Passed **globalConnect** parameters. For
    *     details, see the description of **ConnectOptions** and **ConnectOptionsCollections**.
@@ -320,6 +408,15 @@ export declare class PersistenceV2 extends AppStorageV2 {
   /**
    * Persists the specified key-value pair data once.
    *
+   * > **NOTE**
+   * >
+   * > Since changes to non-[\@Trace](docroot://ui/state-management/arkts-new-observedV2-and-trace.md) data do
+   * > not trigger automatic persistence of [PersistenceV2](docroot://ui/state-management/arkts-new-persistencev2.md),
+   * > when non-\**@Trace** data changes and needs to be persisted, you can call this API to persist the data of the
+   * > corresponding key.
+   * >
+   * > It is useless to manually persist the keys that are not in the **connect** state in the memory.
+   *
    * @param { string | TypeConstructorWithArgs<T> } keyOrType - Key to be persisted. If a type is specified, the key for
    *     persistence is the name of the type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -331,9 +428,12 @@ export declare class PersistenceV2 extends AppStorageV2 {
   static save<T>(keyOrType: string | TypeConstructorWithArgs<T>): void;
 
   /**
-   * Called when persistence fails.
+   * Registers a callback invoked when persistence fails.
    *
-   * @param { PersistenceErrorCallback | undefined } callback - Callback called when persistence fails.
+   * @param { PersistenceErrorCallback | undefined } callback - Callback called when persistence fails. The callback
+   *     parameters include **key** (the key that caused the error), **reason** (the type of error cause, which can be
+   *     **'quota'**, **'serialization'**, or **'unknown'**), **message** (detailed error information), and **oldValue**
+   *     (optional, indicating the old data returned when deserialization fails).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -370,8 +470,10 @@ export interface TypeConstructor<T> {
 /**
  * Defines the attribute decorator, which is used to decorate attributes of the custom class in a nested class.
  *
- * @param { TypeConstructor<T> } type - Type of the class property.
- * @returns { PropertyDecorator } Property decorator.
+ * @param { TypeConstructor<T> } type - Type of the class property. Only custom class types are supported. Passing
+ *     other types will cause persistence failure.
+ * @returns { PropertyDecorator } Property decorator, used to decorate properties that belong to custom classes in
+ *     nested classes.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -381,7 +483,20 @@ export interface TypeConstructor<T> {
 export declare type TypeDecorator = <T>(type: TypeConstructor<T>) => PropertyDecorator;
 
 /**
- * Define Type PropertyDecorator, adds type information to an object.
+ * **\@Type** is used in
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v2) to
+ * ensure that the complex types of properties are not lost during class serialization. When persistence capabilities
+ * such as [PersistenceV2]{@link PersistenceV2} are used to serialize and deserialize complex class objects, the
+ * property type information of the classes may be lost. By using **\@Type** to mark the original type of a property,
+ * you can ensure that the complex type information of the property is correctly retained and restored during
+ * serialization. This is applicable to scenarios where complex objects need to be persisted or serialized, such as
+ * persistent storage of application states and cross-component complex data transfer.
+ *
+ * For details, see
+ * [@Type Decorator: Marking the Types of the Class Property](docroot://ui/state-management/arkts-new-type.md).
+ *
+ * Marks the original type of a property, ensuring that the complex type information of the property is correctly
+ * retained and restored during serialization.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -393,7 +508,10 @@ export declare type TypeDecorator = <T>(type: TypeConstructor<T>) => PropertyDec
 export declare const Type: TypeDecorator;
 
 /**
- * Provides APIs for handling data transformations related to state management.
+ * Provides APIs related to state management, including obtaining the original object from a proxy object, converting
+ * non-observable data into observable data, dynamically adding and removing state variable listeners, synchronously
+ * refreshing state variable modifications, and creating data bindings. It is suitable for scenarios where manual
+ * management of state observation, listening, and synchronous refresh is required.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -407,7 +525,8 @@ export declare class UIUtils {
    * Obtains the original object from a proxy object wrapped by the state management framework. For details, see
    * [getTarget API: Obtaining Original Objects](docroot://ui/state-management/arkts-new-getTarget.md).
    *
-   * @param { T } source - Source object.
+   * @param { T } source - Data source object, that is, the proxy object wrapped by the state management framework. It
+   *     is used to obtain the original object after removing the proxy.
    * @returns { T } Original object of the source after the proxy added by the state management framework is removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -427,7 +546,8 @@ export declare class UIUtils {
    *     <br>collections.Array, collections.Set, and collections.Map are supported.
    *     <br>For details, see
    *     [makeObserved API: Changing Unobservable Data to Observable Data](docroot://ui/state-management/arkts-new-makeObserved.md).
-   * @returns { T } Observable data.
+   * @returns { T } Observable data for supported input parameter types; data source object itself for unsupported input
+   *     parameter types.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -437,17 +557,17 @@ export declare class UIUtils {
   static makeObserved<T extends object>(source: T): T;
 
   /**
-   * Wraps an unobservable object into an object that is observable by V1 state management. This API is equivalent to @
-   * Observed and can be used to initialize @ObjectLink.
+   * Wraps an unobservable object into an object that is observable by V1 state management. This API is equivalent
+   * to @Observed and can be used to initialize @ObjectLink.
    *
    * This API can be used together with [enableV2Compatibility]{@link UIUtils#enableV2Compatibility} in scenarios where
    * state management V1 and V2 are used together. For details, see
    * [Mixed Use of State Management V1 and V2 (API Version 19 and Later)](docroot://ui/state-management/arkts-v1-v2-mixusage.md).
    *
-   * @param { T } source - Data source. Common classes, Array, Map, Set, and Date types are supported.
+   * @param { T } source - Data source. Common classes, **Array**, **Map**, **Set**, and **Date** types are supported.
    *     <br>[@arkts.collections]{@link @arkts.collections:collections} (ArkTS containers) and
    *     classes decorated with [@Sendable](docroot://arkts-utils/arkts-sendable.md) are not supported.
-   *     <br>**undefined** and **null** are not supported. V2 state management data and
+   *     <br>**undefined** and **null** are not supported. State management V2 data and
    *     the return value of [makeObserved]{@link UIUtils#makeObserved} are not supported.
    * @returns { T } For supported input parameter types, returns data observable by V1 state management. For unsupported
    *     input parameter types, returns the data source object itself.
@@ -464,7 +584,9 @@ export declare class UIUtils {
    * 2 state management are mixed. For details, see
    * [Mixed Use of State Management V1 and V2 (API Version 19 and Later)](docroot://ui/state-management/arkts-v1-v2-mixusage.md).
    *
-   * @param { T } source - Data source, which must be V1 state data.
+   * @param { T } source - Data source. Only V1 state data is supported, such as objects decorated by **@Observed** or
+   *     objects converted by the **makeV1Observed** API. When non-V1 state data is passed in, the data source itself is
+   *     returned.
    * @returns { T } If the data source is V1 state data, returns data that can be observed in @ComponentV2; otherwise,
    *     returns the data source itself.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -482,14 +604,14 @@ export declare class UIUtils {
    * @param { object } target - Target object. Only
    *     [@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md#componentv2) and
    *     [@ObservedV2](docroot://ui/state-management/arkts-new-observedV2-and-trace.md) instances are supported.
-   *     <br>If an unsupported type is provided, a runtime error is thrown.
-   * @param { string | string[] } path - Name path of the variable to be listened for. You can specify a path or pass a
-   *     string array to specify multiple variable paths to be listened for at a time.
-   *     <br>Only string and string array are supported. If an unsupported type is provided, a runtime error is thrown.
-   * @param { MonitorCallback } monitorCallback - Listener function registered with the corresponding state variable.
-   *     That is, when the state variable corresponding to the path changes, a specific function is called.
-   *     <br>If an unsupported type is provided, a runtime error is thrown.
-   * @param { MonitorOptions} [options] - Configuration item of the listener. For details, see
+   *     <br>For unsupported types, a runtime error is thrown.
+   * @param { string | string[] } path - Path of the variable name to be listened for. You can specify a path or pass
+   *     a string array to specify multiple variable paths to be listened for at a time.
+   *     <br>Only string and string arrays are supported. For unsupported types, a runtime error is thrown.
+   * @param { MonitorCallback } monitorCallback - Callback registered for the corresponding state variable. When the
+   *     state variable corresponding to the path changes, the callback is invoked.
+   *     <br>For unsupported types, a runtime error is thrown.
+   * @param { MonitorOptions} [options] - Configuration options of the listener. For details, see
    *     [MonitorOptions]{@link MonitorOptions}. By default, the asynchronous callback is used.
    * @throws { BusinessError } 130000 - The target is not a custom component instance or V2 class instance.
    * @throws { BusinessError } 130001 - The path is invalid.
@@ -507,17 +629,17 @@ export declare class UIUtils {
    * [addMonitor]{@link UIUtils#addMonitor} API. For details, see
    * [addMonitor and clearMonitor APIs: Dynamically Adding and Removing Listeners](docroot://ui/state-management/arkts-new-addMonitor-clearMonitor.md).
    *
-   * @param { object } target - Target object. Only
+   * @param { object } target - Target object. Only instances of
    *     [@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md#componentv2) and
-   *     [@ObservedV2](docroot://ui/state-management/arkts-new-observedV2-and-trace.md) instances are supported.
-   *     <br>If an unsupported type is provided, a runtime error is thrown.
-   * @param { string | string[] } path - Name path of the variable to be deleted. You can specify a path or pass a
-   *     string array to delete the listener functions of multiple state variables at a time.
-   *     <br>Only string and string array are supported. If an unsupported type is provided, a runtime error is thrown.
-   * @param { MonitorCallback } [monitorCallback] - Listener function to be deleted.
-   *     <br>If this parameter is not specified, all listener functions registered with the variable corresponding to
-   *     the path will be deleted.
-   *     <br>If an unsupported type is provided, a runtime error is thrown.
+   *     [@ObservedV2](docroot://ui/state-management/arkts-new-observedV2-and-trace.md) are supported.
+   *     <br>For unsupported types, a runtime error is thrown.
+   * @param { string | string[] } path - Path of the variable name for which the listener is to be deleted. You can
+   *     specify a single path or pass a string array to delete listeners of multiple state variables at a time.
+   *     <br>Only strings and arrays are supported. For unsupported types, a runtime error is thrown.
+   * @param { MonitorCallback } [monitorCallback] - Callback to be deleted.
+   *     <br>If this parameter is not passed, all listeners registered for the variable corresponding to the path
+   *     are deleted.
+   *     <br>For unsupported types, a runtime error is thrown.
    * @throws { BusinessError } 130000 - The target is not a custom component instance or V2 class instance.
    * @throws { BusinessError } 130001 - The path is invalid.
    * @throws { BusinessError } 130002 - monitorCallback is not a function or an anonymous function.
@@ -553,8 +675,8 @@ export declare class UIUtils {
    *     to obtain the latest value.
    * @param { SetterCallback<T> } [setter] - Callback used to update the value. Each modification to **.value** triggers
    *     this function.
-   * @returns { MutableBinding<T> } Returns a two-way data binding instance with a **value** attribute, which allows you
-   *     to read and modify data. If the value is set, the system checks whether the value type matches the generic type
+   * @returns { MutableBinding<T> } Two-way data binding instance with a **value** attribute, which allows you to read
+   *     and modify data. If the value is set, the system checks whether the value type matches the generic type
    *     **T**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -618,8 +740,9 @@ export declare class UIUtils {
    * Determines whether a data object can be observed and returns the observation result. For details, see
    * [canBeObserved API: Determining Whether an Object Can Be Observed](docroot://ui/state-management/arkts-new-canBeObserved.md).
    *
-   * @param { T } source - Data object to be determined. Array, Map, Set, and Date types are supported.
-   *     <br>For details, see
+   * @param { T } source - Data object to be determined for observability. **Array**, **Map**, **Set**, and **Date**
+   *     types are supported.
+   *     <br>For details about the usage rules, see
    *     [canBeObserved API: Determining Whether an Object Can Be Observed](docroot://ui/state-management/arkts-new-canBeObserved.md).
    * @returns { ObservedResult } Returns a result about whether the object can be observed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -673,9 +796,11 @@ export declare class UIUtils {
 declare type TaskCallback = () => T;
 
 /**
- * Listener callback function of the [IMonitor]{@link IMonitor} type.
+ * A listener callback function of the [IMonitor]{@link IMonitor} type.
  *
- * @param { IMonitor} monitorValue - Change information passed by the callback.
+ * @param { IMonitor} monitorValue - Change information passed in by the callback, including the path of the state
+ *     variable change (**dirty**), values before and after the change (obtained through the **value** API), and other
+ *     details. For details about specific attributes and APIs, see **IMonitor**.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -697,8 +822,8 @@ export declare type MonitorCallback = (monitorValue: IMonitor) => void;
 export interface MonitorOptions {
 
   /**
-   * Whether the current callback is a synchronous callback. **true**: The current callback is a synchronous callback.
-   * **false** (default value): The current callback is an asynchronous callback.
+   * Whether the current callback is a synchronous callback. The value **true** indicates a synchronous callback.
+   * The default value is **false**, which indicates an asynchronous callback.
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -710,9 +835,9 @@ export interface MonitorOptions {
   isSynchronous?: boolean;
 
   /**
-   * Whether to enable the wildcard capability for this **addMonitor**. **true** to enable the wildcard capability, and
-   * **false** means the opposite. The default value is **false**. If the wildcard capability is disabled but the path
-   * contains wildcards, the path is considered invalid.
+   * Whether to enable the wildcard capability for the current **addMonitor**. The value **true** indicates to enable,
+   * and **false** indicates the opposite. The default value is **false**, which means to disable the capability.
+   * When the wildcard capability is disabled but the path contains a wildcard, the path is considered invalid.
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -727,7 +852,7 @@ export interface MonitorOptions {
 /**
  * Defines a callback used to obtain a value.
  *
- * @returns { T } Value of the T type.
+ * @returns { T } Value obtained by the callback function.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -739,7 +864,7 @@ export declare type GetterCallback<T> = () => T;
 /**
  * Defines a callback used to set a value.
  *
- * @param { T } newValue - Parameter of the T type.
+ * @param { T } newValue - New value to be set. This parameter is passed when the bound value is changed.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -762,8 +887,8 @@ export declare class Binding<T> {
   /**
    * Obtains a bound value.
    *
-   * @returns { T } Returns a value whose type is the generic parameter T, which is the same as the type defined by
-   *     **Binding<T>**.
+   * @returns { T } Currently bound value. The return value type is the generic parameter **T**, which is consistent
+   *     with the type defined by **Binding<T>**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -786,10 +911,10 @@ export declare class Binding<T> {
 export declare class MutableBinding<T> {
 
   /**
-   * Obtains a bound value.
+   * Provides a **get** accessor to obtain the current bound value.
    *
-   * @returns { T } Returns a value whose type is the generic parameter T, which is the same as the type defined by
-   *     **Binding<T>**.
+   * @returns { T } Currently bound value. The return value type is the generic parameter **T**, which is consistent
+   *     with the type defined by **MutableBinding<T>**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -803,8 +928,8 @@ export declare class MutableBinding<T> {
    * when the **MutableBinding** class instance is constructed. Otherwise, a runtime error will be thrown when the
    * **set** accessor is triggered.
    *
-   * @param { T } newValue - New value, whose type is the generic parameter T, which is the same as the type defined in
-   *     **MutableBinding<T>**.
+   * @param { T } newValue - New value to set. This parameter is passed in when the bound value is changed. The type is
+   *     the same as the generic **T** defined by **MutableBinding<T>**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -897,23 +1022,15 @@ export interface ObservedResult {
  * @since 23 dynamic
  */
 export interface DecoratorInfo {
-
   /**
-   * Decorator name.
-   *
-   * For a V1 object, the value is the name of the decorator associated with the object.
-   *
-   * If the V1 object uses [@Track](docroot://ui/state-management/arkts-track.md), the value is **'@Track'**.
-   *
-   * If the V2 object uses [@Trace](docroot://ui/state-management/arkts-new-observedV2-and-trace.md), the value is
-   * **'@Trace'**.
-   *
-   * If the V2 object uses [makeObserved]{@link UIUtils#makeObserved}, the value is **'MakeObserved'**.
-   *
-   * If the V2 object uses [enableV2Compatibility]{@link UIUtils#enableV2Compatibility}, the value is
+   * Decorator name. For a V1 object, the value is the name of the decorator associated with the object.
+   * <br> If the V1 object uses [@Track](docroot://ui/state-management/arkts-track.md), the value is **'@Track'**.
+   * <br> If the V2 object uses [@Trace](docroot://ui/state-management/arkts-new-observedV2-and-trace.md),
+   * the value is **'@Trace'**.
+   * <br> If the V2 object uses [makeObserved]{@link UIUtils#makeObserved}, the value is **'MakeObserved'**.
+   * <br> If the V2 object uses [enableV2Compatibility]{@link UIUtils#enableV2Compatibility}, the value is
    * **'EnableV2Compatible'**.
-   *
-   * If the V2 object uses built-in data, the value is **'ProxyObservedV2'**.
+   * <br> If the V2 object uses built-in data, the value is **'ProxyObservedV2'**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -935,14 +1052,10 @@ export interface DecoratorInfo {
   stateVariableName: string;
 
   /**
-   * Component or object name.
-   *
-   * For a V1 object, the component name is returned.
-   *
-   * For a V1 object whose properties are decorated by the [@Track](docroot://ui/state-management/arkts-track.md)
+   * Component or object name. For a V1 object, the component name is returned.
+   * <br> For a V1 object whose properties are decorated by the [@Track](docroot://ui/state-management/arkts-track.md)
    * decorator, the object name is returned.
-   *
-   * For a V2 object, the object name is returned.
+   * <br> For a V2 object, the object name is returned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -953,12 +1066,10 @@ export interface DecoratorInfo {
   owningComponentOrClassName: string;
 
   /**
-   * Component ID.
-   *
-   * For a V1 object, the component ID is returned.
-   *
-   * For the V1 object whose properties are decorated by the [@Track](docroot://ui/state-management/arkts-track.md)
-   * decorator or for the V2 object, **-1** is returned instead of the component ID.
+   * Component ID. For a V1 object, the component ID is returned.
+   * <br> **If a V1 object has a property that uses [@Track](docroot://ui/state-management/arkts-track.md), no
+   * component ID is available, and -1 is returned. In the same case, no component ID is available for a V2 object,
+   * and -1 is returned.**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1017,7 +1128,8 @@ export interface ElementInfo {
 }
 
 /**
- * **CustomComponentLifecycle** monitors the lifecycle changes of a custom component.
+ * **CustomComponentLifecycle** is used to monitor changes in the lifecycle of a custom component. You can obtain a
+ * **CustomComponentLifecycle** instance through [UIUtils.getLifecycle]{@link UIUtils#getLifecycle}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1028,9 +1140,11 @@ export interface ElementInfo {
 export declare interface CustomComponentLifecycle {
 
   /**
-   * getCurrentState(): CustomComponentLifecycleState
+   * The **getCurrentState** function is used to obtain the current lifecycle state of a custom component. Before calling
+   * this method, you need to obtain a CustomComponentLifecycle instance through
+   * [UIUtils.getLifecycle]{@link UIUtils#getLifecycle}.
    *
-   * @returns { CustomComponentLifecycleState } - Current lifecycle status of a custom component.
+   * @returns { CustomComponentLifecycleState } Current lifecycle status of a custom component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1040,9 +1154,16 @@ export declare interface CustomComponentLifecycle {
   getCurrentState(): CustomComponentLifecycleState;
 
   /**
-   * Registers a listener for the lifecycle of a custom component. Lifecycle changes will trigger the lifecycle callback in the listener.
+   * Registers a custom component lifecycle listener. Before calling this method, you need to obtain a
+   * CustomComponentLifecycle instance through [UIUtils.getLifecycle]{@link UIUtils#getLifecycle}. When the lifecycle of
+   * the custom component changes, the corresponding lifecycle callback function in the listener is triggered.
    *
-   * @param { CustomComponentLifecycleObserver } observer - Listener for a custom component.
+   * After calling **addObserver** to register a listener, you must call [removeObserver]{@link CustomComponentLifecycle#removeObserver}
+   * to remove the listener when the component is destroyed or when the listener is no longer needed. The two must be
+   * used in pairs. If **removeObserver** is not called to remove the listener, the listener may keep triggering
+   * callbacks and cause memory leaks.
+   *
+   * @param { CustomComponentLifecycleObserver } observer - Listener for the custom component lifecycle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1052,10 +1173,12 @@ export declare interface CustomComponentLifecycle {
   addObserver(observer: CustomComponentLifecycleObserver): void;
 
   /**
-   * Removes a listener for the lifecycle of a custom component. After the listener is removed,
-   * the lifecycle callback in the listener is not triggered even if the component status changes.
+   * Removes a custom component lifecycle listener. Before calling this method, you need to obtain a
+   * **CustomComponentLifecycle** instance through [UIUtils.getLifecycle]{@link UIUtils#getLifecycle}. After
+   * unregistration, even if the lifecycle state of the custom component changes, the corresponding lifecycle callback
+   * function in the listener will not be triggered.
    *
-   * @param { CustomComponentLifecycleObserver } observer - Listener for a custom component.
+   * @param { CustomComponentLifecycleObserver } observer - Listener for the custom component lifecycle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1066,8 +1189,12 @@ export declare interface CustomComponentLifecycle {
 }
 
 /**
- * Observes lifecycle status changes of a custom component,
- * and triggers the lifecycle callback in the listener when detecting lifecycle status changes.
+ * After developers register a custom component lifecycle callback, when the lifecycle of the custom component changes,
+ * the corresponding lifecycle callback in the listener is triggered. The difference from the lifecycle decorators is
+ * that the lifecycle decorators respond to lifecycle events by the component itself, while
+ * **CustomComponentLifecycleObserver** observes component lifecycle events from the outside. If only the component
+ * itself needs to respond to lifecycle changes, use the lifecycle decorators. If you need to centrally monitor the
+ * lifecycles of multiple components, use **CustomComponentLifecycleObserver**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1076,12 +1203,13 @@ export declare interface CustomComponentLifecycle {
  * @since 23 dynamic
  */
 export declare interface CustomComponentLifecycleObserver {
-
   /**
-   * Called after a new instance of the custom component is created and before its **build()** function is executed.
-   * You can modify the status variables in this phase.
-   * Its function is similar to that of [aboutToAppear]{@link BaseCustomComponent.aboutToAppear},
-   * but it is triggered under the constraints of the custom component state machine.
+   * Called after a new instance of a custom component is created and before its **build()** function is executed.
+   * Developers can modify state variables in this phase, and the changes will take effect in the subsequent execution
+   * of the **build()** function. Its function is similar to
+   * [aboutToAppear]{@link BaseCustomComponent.aboutToAppear}. It is subject to the custom component state machine and
+   * triggers the callback when the monitored custom component transitions to
+   * **[CustomComponentLifecycleState]{@link CustomComponentLifecycleState}.APPEARED**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1092,8 +1220,10 @@ export declare interface CustomComponentLifecycleObserver {
   aboutToAppear?(): void;
 
   /**
-   * Called after a new instance of the custom component is created and its **build()** function is executed.
-   * You can use this callback for actions that do not affect the UI, such as event data reporting.
+   * Called after the **build()** function of a custom component is executed. It is subject to the custom component
+   * state machine and triggers the callback when the state of the monitored custom component transitions to
+   * **[CustomComponentLifecycleState]{@link CustomComponentLifecycleState}.BUILT**. Developers can implement functions
+   * that do not affect the actual UI in this phase, such as event data reporting.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1104,10 +1234,12 @@ export declare interface CustomComponentLifecycleObserver {
   onDidBuild?(): void;
 
   /**
-   * Called before the custom component is destroyed. You are advised not to change state variables
-   * in the **aboutToDisappear** function. Modifying the **@Link** decorated variable may lead to unstable
-   * application behavior. This function is similar to the earlier **aboutToDisappear** function, which is triggered
-   * under the constraints of the custom component state machine. Therefore, this function is added for compatibility.
+   * Executed before a custom component is destroyed. It is not recommended to modify state variables in the
+   * **aboutToDisappear** function. In particular, modifying **\@Link** variables may cause unstable app behavior. Its
+   * function is similar to [aboutToDisappear]{@link BaseCustomComponent.aboutToDisappear}. The difference is that the
+   * **aboutToDisappear** function in **CustomComponentLifecycleObserver** is subject to the state machine and triggers
+   * the callback only before the state of the monitored custom component transitions to
+   * **[CustomComponentLifecycleState]{@link CustomComponentLifecycleState}.DISAPPEARED**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1118,12 +1250,26 @@ export declare interface CustomComponentLifecycleObserver {
   aboutToDisappear?(): void;
 
   /**
-   * Called when a reusable custom component is re-added to the node tree from the cache to receive the component
-   * constructors. The value of **params** is not **undefined** in the reuse callback of the V1 component. The value
-   * of **params** is **undefined** in the reuse callback of the V2 component.
+   * Called when a reusable custom component is re-added to the node tree from the cache. It is subject to the custom
+   * component state machine, that is, it triggers the callback in the stage from
+   * **[CustomComponentLifecycleState]{@link CustomComponentLifecycleState}.RECYCLED** to
+   * **[CustomComponentLifecycleState]{@link CustomComponentLifecycleState}.BUILT**. Finally, reuse recursively traverses
+   * all child components, and for each child component that completes reuse, the **aboutToReuse** function registered in
+   * the child component is called. In a state management V1 component, this function can have one input parameter or no
+   * parameter. When **params** exists, it indicates the reuse callback of a V1 component. In a state management V2
+   * component, this function has no input parameter.
    *
-   * @param { Record<string, Object | undefined |null> } [params] - The value is not **undefined** in the reuse
-   *     callback of the V1 component and is **undefined** in the reuse callback of the V2 component.
+   * > **NOTE**
+   * >
+   * > - In a state management V1 component, the **aboutToReuse** function can have one input parameter or no
+   * > parameter. The input parameter **params** is recommended to be of the
+   * > Record\<string, Object \| undefined \| null\> type.
+   * >
+   * > - In a state management V2 component, the **aboutToReuse** function has no input parameter.
+   *
+   * @param { Record<string, Object | undefined | null> } [params] - Construction parameters received when the component
+   *     is reused. Only the reuse callback of a V1 component supports this parameter. If this parameter is not passed,
+   *     the reuse callback function has no input parameter.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1133,10 +1279,14 @@ export declare interface CustomComponentLifecycleObserver {
   aboutToReuse?(params?: Record<string, Object | undefined | null>): void;
 
   /**
-   * Called after necessary component recycling operations defined in the application are performed.
-   * Then, the component is frozen to prevent UI updates when the component is in the recycling pool.
-   * At last, the **aboutToRecycle** function recursively traverses all child components,
-   * and the **aboutToRecycle** function in each recycled child component will be called.
+   * After a component is recycled, the recycling operations such as resource release defined in the app are performed
+   * first. After the recycling is complete, the **aboutToRecycle** function is called. It is subject to the custom
+   * component state machine, that is, it triggers the callback in the stage from
+   * **[CustomComponentLifecycleState]{@link CustomComponentLifecycleState}.BUILT** to
+   * **[CustomComponentLifecycleState]{@link CustomComponentLifecycleState}.RECYCLED**. Then the component is frozen to
+   * avoid UI updates while the component is in the reuse pool. Finally, recycling recursively traverses all child
+   * components, and for each child component that completes recycling, the **aboutToRecycle** function registered in the
+   * child component is called.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1170,7 +1320,7 @@ export declare enum CustomComponentLifecycleState {
   INIT = 0,
 
   /**
-   * To build.
+   * Appeared.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1203,7 +1353,7 @@ export declare enum CustomComponentLifecycleState {
   RECYCLED = 3,
 
   /**
-   * Deleted.
+   * Disappeared.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1215,8 +1365,12 @@ export declare enum CustomComponentLifecycleState {
 }
 
 /**
- * Decorates a function that is called when the initialization of a custom component is about to complete.
- * You can register a listener at this time.
+ * The function decorated by **\@ComponentInit** is executed when the initialization of a custom component is about to
+ * complete, and is triggered before **\@ComponentAppear**. You can register lifecycle listeners and modify state
+ * variables at this time. The difference from **\@ComponentAppear** is that **\@ComponentInit** focuses on preparation
+ * operations in the initialization phase (such as listener registration), while **\@ComponentAppear** focuses on state
+ * changes before the component is about to be displayed. The two can be used together to respectively assume the
+ * responsibilities of initialization and pre-display.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1242,10 +1396,11 @@ export declare const ComponentInit: MethodDecorator;
 export declare const ComponentAppear: MethodDecorator;
 
 /**
- * Decorates a function that is called after the **build()** function of the custom component is executed
- * for the first time, that is, when the component status changes from **CustomComponentLifecycleState.APPEARED**
- * to **CustomComponentLifecycleState.BUILT**. You can use this callback for actions that do not affect the UI,
- * such as tracking data reporting.
+ * The function decorated by **\@ComponentBuilt** is called after the **build()** function of a custom component is
+ * executed for the first time, that is, it is triggered in the stage from
+ * **[CustomComponentLifecycleState]{@link CustomComponentLifecycleState}.APPEARED** to
+ * **[CustomComponentLifecycleState]{@link CustomComponentLifecycleState}.BUILT**. You can implement functions that do
+ * not affect the actual UI, such as event data reporting, in this phase.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1256,17 +1411,20 @@ export declare const ComponentAppear: MethodDecorator;
 export declare const ComponentBuilt: MethodDecorator;
 
 /**
- * Decorates a function that is called when a reusable custom component is re-added to the node tree from the cache,
- * that is, when the component status changes from the **CustomComponentLifecycleState.RECYCLED** to
- * **CustomComponentLifecycleState.BUILT** phase, to receive the constructor parameters. At last, the function
- * decorated by **@ComponentReuse** recursively traverses all child components, and the **@ComponentReuse**
- * decorated function in each reused child component will be called.
+ * The function decorated by **\@ComponentReuse** is called when a reusable custom component is re-added to the node
+ * tree from the cache, that is, it is triggered in the stage from
+ * **[CustomComponentLifecycleState]{@link CustomComponentLifecycleState}.RECYCLED** to
+ * **[CustomComponentLifecycleState]{@link CustomComponentLifecycleState}.BUILT**, to receive the construction
+ * parameters of the component. Finally, reuse recursively traverses all child components, and for each child component
+ * that completes reuse, the function decorated by **\@ComponentReuse** in the child component is called.
  *
  * > **NOTE**
  * >
- * > -  The value of **params** is not **undefined** in the callback of the reused state management V1 component.
+ * > -  In a state management V1 component, the function decorated by **\@ComponentReuse** can have one input parameter
+ * >    or no parameter. The input parameter **params** is recommended to be of the
+ * >    **Record\<string, Object \| undefined \| null\>** type.
  * >
- * > -  The value of **params** is **undefined** in the callback of the reused state management V2 component.
+ * > -  In a state management V2 component, the function decorated by **\@ComponentReuse** has no input parameter.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1277,11 +1435,13 @@ export declare const ComponentBuilt: MethodDecorator;
 export declare const ComponentReuse: MethodDecorator;
 
 /**
- * Decorates a function that is called when the necessary recycling operations defined in the application
- * are performed. That is, this function is triggered when the component status changes
- * from **CustomComponentLifecycleState.BUILT** to **CustomComponentLifecycleState.RECYCLED**.
- * At last, the function decorated by **@ComponentRecycle** recursively traverses all child components,
- * and the **@ComponentRecycle** decorated function in each recycled child component will be called.
+ * After a component is recycled, the recycling operations such as resource release defined in the app are performed
+ * first. After the recycling is complete, the function decorated by **\@ComponentRecycle** is called, that is, it is
+ * triggered in the stage from **[CustomComponentLifecycleState]{@link CustomComponentLifecycleState}.BUILT** to
+ * **[CustomComponentLifecycleState]{@link CustomComponentLifecycleState}.RECYCLED**. Then the component is frozen to
+ * avoid UI updates while the component is in the reuse pool. Finally, recycling recursively traverses all child
+ * components, and for each child component that completes recycling, the function decorated by **\@ComponentRecycle**
+ * in the child component is called.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1292,7 +1452,10 @@ export declare const ComponentReuse: MethodDecorator;
 export declare const ComponentRecycle: MethodDecorator;
 
 /**
- * The function decorated is invoked before a custom component becomes active.
+ * After a custom component transitions from the inactive state to the active state, the function decorated by
+ * **\@ComponentActive** is called. In the component reuse and recycling scenario, when a cached component is reused
+ * (that is, re-added to the node tree from the reuse pool), the component transitions from the inactive state to the
+ * active state, triggering this callback.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1303,7 +1466,9 @@ export declare const ComponentRecycle: MethodDecorator;
 export declare const ComponentActive: MethodDecorator;
 
 /**
- * The function decorated is invoked before a custom component becomes inactive.
+ * After a custom component transitions from the active state to the inactive state, the function decorated by
+ * **\@ComponentInactive** is called. In the component reuse and recycling scenario, when a component is recycled to the
+ * reuse pool, the component transitions from the active state to the inactive state, triggering this callback.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1314,9 +1479,11 @@ export declare const ComponentActive: MethodDecorator;
 export declare const ComponentInactive: MethodDecorator;
 
 /**
- * Decorates a function that is called when the custom component is destructed. You are advised not to
- * change state variables in this function. Modifying the **@Link** decorated variable may lead to
- * unstable application behavior.
+ * The function decorated by **\@ComponentDisappear** is executed before a custom component is destroyed, that is, it is
+ * triggered when the component transitions to the
+ * **[CustomComponentLifecycleState]{@link CustomComponentLifecycleState}.DISAPPEARED** state. It is not recommended to
+ * change state variables in this function. In particular, modifying **\@Link** variables may cause unstable app
+ * behavior.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1339,9 +1506,9 @@ export declare const ComponentDisappear: MethodDecorator;
 export declare interface CustomComponentContext {
 
   /**
-   * Obtains the global reuse pool of the custom component. If the component does not configure the reuse pool through
-   * **reusePool** and **poolAccepts**, **undefined** is returned. For details about how to configure the global reuse
-   * pool, see
+   * Obtains the global reuse pool of the custom component. If the component or its upper-level component does not
+   * configure the global reuse pool using **reusePool** and **poolAccepts**, **undefined** is returned. For details
+   * about how to configure the global reuse pool, see
    * [Global Reuse: Centralized Component Recycling and Reuse](docroot://ui/state-management/arkts-global-reuse-pool.md).
    *
    * @returns { IReusePool | undefined } If a global reuse pool is configured for the current component, the reuse pool
@@ -1356,7 +1523,9 @@ export declare interface CustomComponentContext {
 }
 
 /**
- * The **IReusePool** API provides the features related to the global reuse pool of a custom component.
+ * Provides the features related to the global reuse pool of a custom component, including querying the current count
+ * and upper limit of recycled components and pre-rendering reusable components into the reuse pool. It is suitable for
+ * scenarios where you need to manually manage and optimize component reuse efficiency.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1369,7 +1538,7 @@ export declare interface IReusePool {
   /**
    * Obtains the information about the recycling instance of a given reusable component type in this reuse pool.
    *
-   * @param { ReusableComponentConstructor } constructor - Name of the reusable custom component to be queried.
+   * @param { ReusableComponentConstructor } constructor - Constructor of the reusable custom component to be queried.
    * @param { string } [reuseId] - Reuse ID for filtering. If specified, only the information about the reuse pool with
    *     the reuse ID is returned. The default value is **undefined**, indicating that information about all reuse pools
    *     is returned.
@@ -1377,11 +1546,11 @@ export declare interface IReusePool {
    *     component type, **undefined** is returned.
    *     <br>If **reuseId** is specified, a single **IReusableInfo** is returned (even if **count** is set to **0** and
    *     **maxCount** is set to the default value).
-   *     <br>If **reuseId** is not specified and the reusable component does not use **reuseId**, a single **IReusableInfo**
-   *     is returned.
-   *     <br>If **reuseId** is not specified but the reusable component uses **reuseId**, an **Array<IReusableInfo>** is
-   *     returned, providing a separate entry for each **reuseId** that has a positive value of **count** or a non-
-   *     default value of **maxCount** as well as an entry of **reuseId: undefined**.
+   *     <br>If the **reuseId** parameter is not specified and the reusable component is created without a reuse ID,
+   *     a single **IReusableInfo** is returned.
+   *     <br>If the **reuseId** parameter is not specified but the reusable component is created with a reuse ID,
+   *     an **Array<IReusableInfo>** is returned, providing a separate entry for each reuse ID with a positive count
+   *     or a non-default **maxCount**, plus an entry of **reuseId: undefined**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1392,13 +1561,26 @@ export declare interface IReusePool {
     reuseId?: string): IReusableInfo[] | IReusableInfo | undefined;
 
   /**
-   * Pre-creates @Reusable/@ReusableV2 decorated components and places them in this reuse pool.
+   * Invokes an idle task to pre-create a reusable component and put it into the reuse pool before it is used for the
+   * first time.
    *
-   * @param { WrappedBuilder<[]> } builder - **WrappedBuilder** that contains the @Builder decorated function to be
-   *     executed *n* times. Each execution should create one or more @Reusable/@ReusableV2 decorated components.
-   * @param { number } times - Number of times the @Builder decorated function is executed.
-   * @returns { Promise<void> } Promise parsed when the idle task is successfully completed. This promise returns no
-   *     value.
+   * > **NOTE**
+   * >
+   * > 1. **preRender** only places components that are configured to be accepted by the pool into the pool. Components
+   * > that are not accepted by the pre-rendering pool are created and destroyed immediately.
+   * >
+   * > 2. During pre-rendering, components are not reused from the pool. The pool only accepts newly created instances.
+   * >
+   * > 3. The **@Builder** decorated function performs complete deep rendering, including nested child components.
+   *
+   * @param { WrappedBuilder<[]> } builder - **WrappedBuilder** that contains the \@Builder decorated function to be
+   *     executed *times* times. One or more [\@Reusable](docroot://ui/state-management/arkts-create-custom-components.md#reusable)/[\@ReusableV2](docroot://ui/state-management/arkts-create-custom-components.md#reusablev2)
+   *     components should be created for each execution.
+   * @param { number } times - Number of times the \@Builder decorated function is executed. The value is a positive
+   *     integer. If 0 or a negative number is passed, the value does not take effect. If a decimal is passed, it is
+   *     rounded up.
+   * @returns { Promise<void> } Promise that is fulfilled when the idle task completes successfully. This promise returns
+   *     no value. If the pre-rendering task fails to be executed, the promise will be rejected.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1419,11 +1601,9 @@ export declare interface IReusePool {
  * @since 26.0.0 dynamic
  */
 export declare interface IReusableInfo {
-
   /**
-   * Current number of @Reuseable/V2 component instances in pool.
-   * count is usually <= maxCount. It is allowed to be larger for short time
-   * because pool clean happens asynchronously.
+   * Number of components currently recycled in the pool. If **reuseId** is specified, **count** indicates the number of
+   * components with the reuse ID.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1434,10 +1614,12 @@ export declare interface IReusableInfo {
   readonly count: number;
 
   /**
-   * Maximum number of permissible @Reusable/V2 component instances.
-   * The default value is 100, the maximum value is 200.
-   * Setting to a negative number will be treated as setting to 0.
-   * Setting to a number greater than maximum will be treated as setting to 200.
+   * Maximum number of components that can be recycled in the pool. If **reuseId** is specified, **maxCount** indicates
+   * the number of components with the reuse ID. Setting **maxCount** to a value smaller than that of **count** will
+   * cause the framework to asynchronously clear redundant components. During a delay, the value of **count** may
+   * temporarily exceed that of **maxCount**. Default value: **100**; maximum value: **200**; minimum value: **0**. If
+   * the assigned value is out of range, the value close to the maximum or minimum value is used. If the assigned value
+   * is a decimal, it is rounded down.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1448,7 +1630,8 @@ export declare interface IReusableInfo {
   maxCount: number;
 
   /**
-   * reuse id.
+   * Reuse ID specified when a component is recycled. If the component is not recycled using **reuseId**, **undefined**
+   * is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

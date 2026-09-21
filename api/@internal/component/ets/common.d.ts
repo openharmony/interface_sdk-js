@@ -53,7 +53,9 @@ declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').
 declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
 
 /**
- * Defines the options of Component ClassDecorator.
+ * Defines parameters of a custom component, which is used to configure whether to support component freezing and the
+ * global reuse pool. They apply to scenarios where the performance of custom components needs to be optimized and the
+ * component reuse efficiency needs to be improved.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -64,7 +66,15 @@ declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragCon
  */
 declare interface ComponentOptions {
   /**
-   * freeze UI state.
+   * Whether the custom component supports component freezing. The value **true** enables component freezing, and
+   * **false** disables it. If **ComponentOptions** is not specified, **false** is used as the default value of
+   * **freezeWhenInactive**.
+   * <br>Since API version 11, this parameter can be used to configure component freezing for
+   * [\@Component](docroot://ui/state-management/arkts-create-custom-components.md). For details, see
+   * [Freezing a Custom Component (V1)](docroot://ui/state-management/arkts-custom-components-freeze.md).
+   * <br>Since API version 12, this parameter can be used to configure component freezing for
+   * [\@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md). For details, see
+   * [Freezing a Custom Component (V2)](docroot://ui/state-management/arkts-custom-components-freezeV2.md).
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -77,7 +87,11 @@ declare interface ComponentOptions {
   freezeWhenInactive : boolean;
 
   /**
-   * the reuse type of a custom component.
+   * Type of the global reuse pool on a custom component. This is applicable to scenarios where an app has multiple
+   * reusable custom components of the same type and needs to share or isolate reuse resources between component
+   * instances to improve reuse efficiency. If this parameter is not passed, the global reuse pool does not take effect.
+   * **reusePool** must be used together with **poolAccepts**. When **reusePool** is set, **poolAccepts** must be a
+   * non-empty array; otherwise, global reuse does not take effect.
    *
    * @default perInstance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -90,7 +104,11 @@ declare interface ComponentOptions {
   reusePool?: ReusePoolOwnership;
 
   /**
-   * Collection of custom components to be reused.
+   * List of custom component names that the global reuse pool can accept (that is, components allowed to be reused).
+   * When **reusePool** is set, the system caches the matching reusable components into the global reuse pool based on
+   * the component names listed in **poolAccepts** for subsequent reuse. When **reusePool** is set, **poolAccepts** must
+   * be a non-empty array. Setting **poolAccepts** alone does not enable global reuse. When neither **poolAccepts** nor
+   * **reusePool** is assigned, global reuse does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -103,7 +121,14 @@ declare interface ComponentOptions {
 }
 
 /**
- * Defining the reuse type of a custom component.
+ * Defines the ownership type of the global reuse pool.
+ *
+ * 'shared': All instances of the **@Component** / **@ComponentV2** class share the same reuse pool instance. This is
+ * applicable to scenarios where multiple component instances of the same type need to reuse the same resources,
+ * maximizing reuse pool utilization and reducing memory usage.
+ * 'perInstance': Each instance of **@Component** / **@ComponentV2** has an independent reuse pool instance. This is
+ * applicable to scenarios where the reuse resources of each component instance need to be isolated, preventing reuse
+ * resources of different instances from affecting each other.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -114,7 +139,7 @@ declare interface ComponentOptions {
 declare type ReusePoolOwnership = 'shared' | 'perInstance';
 
 /**
- * Defines a type for memory optimization strategy.
+ * Enumerates the memory optimization strategies of reusable custom components.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -124,7 +149,7 @@ declare type ReusePoolOwnership = 'shared' | 'perInstance';
  */
 declare enum ReusableMemOptStrategy {
   /**
-   * No memory optimization.
+   * No memory optimization strategy.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -133,7 +158,25 @@ declare enum ReusableMemOptStrategy {
    */
   DEFAULT = 0,
   /**
-   * CustomComponent handles the memory optimization.
+   * Automatic memory optimization strategy. It is recommended to use this strategy in scenarios where the memory usage
+   * of reusable custom components needs to be reduced.
+   * <br>When any of the following conditions is met, all custom components of this type in the reuse pool are
+   * released:
+   * <br> - The app is switched to the background.
+   * <br> - The component where the reuse pool resides is invisible (the
+   * [visibility]{@link visibility} attribute is set to a value other than [Visible]{@link Visible}, or the component
+   * area is 0, regardless of occlusion).
+   * <br> - The device is low on memory (the [MemoryLevel]{@link MemoryLevel} reaches
+   * **MEMORY_LEVEL_LOW** or **MEMORY_LEVEL_CRITICAL**).
+   * <br>When the number of custom components of this type with the same **ReuseId** in the reuse pool exceeds the reuse
+   * pool capacity limit and does not increase within 5 seconds, the components within the limit are retained and the
+   * rest are released. The reuse pool capacity limit is set as follows:
+   * <br> - When the device memory is greater than 8 GB, the limit is 48.
+   * <br> - When the device memory is greater than 6 GB and less than or equal to 8 GB, the limit is 4.
+   * <br> - When the device memory is less than or equal to 6 GB, the limit is 2.
+   * <br>When nodes are released, the
+   * [custom component lifecycle](docroot://ui/state-management/arkts-page-custom-components-lifecycle.md) is
+   * triggered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -144,7 +187,8 @@ declare enum ReusableMemOptStrategy {
 }
 
 /**
- * Defines the options for Reusable ClassDecorator.
+ * Defines the parameters of a reusable custom component, which are used to configure the memory optimization strategy.
+ * They apply to scenarios where the memory usage of reusable custom components needs to be reduced.
  *
  * @interface ReusableOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -154,7 +198,12 @@ declare enum ReusableMemOptStrategy {
  */
 declare interface ReusableOptions {
   /**
-   * Memory optimization strategy for CustomComponent reuse
+   * Memory optimization strategy for reusable custom components. This parameter is set when a reusable custom
+   * component is created and cannot be dynamically modified. When
+   * [ENABLE_AUTO_CACHE_OPTIMIZATION]{@link ReusableMemOptStrategy} is passed, automatic memory optimization is
+   * enabled, and components in the reuse pool are automatically released in scenarios such as the app being switched
+   * to the background, the component being invisible, or the device being low on memory. If this parameter is not
+   * passed, the default value [DEFAULT]{@link ReusableMemOptStrategy} (no memory optimization strategy) is used.
    *
    * @type { ?ReusableMemOptStrategy }
    * @default ReusableMemOptStrategy.DEFAULT
@@ -301,8 +350,32 @@ declare interface TextDecorationOptions {
 }
 
 /**
- * Defining Component ClassDecorator
- * Component is a ClassDecorator and it supports ComponentOptions as parameters.
+ * The **@Component** decorator can decorate a struct declared with the **struct** keyword. A struct decorated by
+ * **@Component** gains componentization capabilities, enabling UI encapsulation and reuse. It is suitable for
+ * scenarios such as building reusable custom components and splitting complex UIs. The **build** method must be
+ * implemented to describe the UI. A struct can be decorated by only one **@Component**.
+ *
+ * For the development guide, see
+ * [Creating a Custom Component](docroot://ui/state-management/arkts-create-custom-components.md).
+ *
+ * > **NOTE**
+ *
+ * > - Since API version 11, **@Component** can accept an optional parameter of the
+ * > [ComponentOptions]{@link ComponentOptions} type.
+ * >
+ * > - Since API version 26.0.0, **ComponentOptions** can accept the optional parameters **reusePool** and
+ * > **poolAccepts** for configuring the global reuse pool. For the development guide, see
+ * > [Global Reuse: Centralized Component Recycling and Reuse](docroot://ui/state-management/arkts-global-reuse-pool.md).
+ *
+ * options: Options of the **@Component** decorator, used to configure component freezing
+ * and global reuse. You can use **freezeWhenInactive** to control component freezing (applicable to scenarios where
+ * UI refresh is frozen when components such as page routing, **TabContent**, **LazyForEach**, and **Navigation** are
+ * inactive, to reduce unnecessary refreshes and optimize performance), and use **reusePool** and **poolAccepts** to
+ * configure the global reuse pool (applicable to scenarios where multiple parent components share reusable components
+ * of the same type and need to reuse recycled instances across parent components when switching via if or other
+ * means). For details about specific attributes, see **ComponentOptions**. When not specified, component freezing and
+ * global reuse are disabled.
+ * ClassDecorator: Class decorator. Developers do not need to pay attention to this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -315,8 +388,26 @@ declare interface TextDecorationOptions {
 declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
- * Defining ComponentV2 ClassDecorator
- * ComponentV2 is a ClassDecorator and it supports ComponentOptions as parameters.
+ * **@ComponentV2** is primarily used with state management V2. Compared with
+ * [@Component](docroot://ui/state-management/arkts-create-custom-components.md), **@ComponentV2** supports
+ * deep observation and deep listening of objects. The decorator is highly easy to use and extensible, and is suitable
+ * for scenarios requiring deep observation of nested object states. Unless otherwise specified, custom components
+ * decorated with **@ComponentV2** behave the same as those decorated with **@Component**.
+ *
+ * See the development guide:
+ * [@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md).
+ *
+ * > **NOTE**
+ *
+ * > - Since API version 26.0.0, the [ComponentOptions]{@link ComponentOptions}
+ * > parameter of \@ComponentV2 supports the optional attributes `reusePool` and `poolAccepts` for configuring the
+ * > global reuse pool. See the development guide:
+ * > [Global Reuse: Centralized Component Recycling and Reuse](docroot://ui/state-management/arkts-global-reuse-pool.md).
+ *
+ * options: Options of the **@ComponentV2** decorator. Pass this parameter for custom
+ * configuration when the component freezing or global reuse feature needs to be enabled. If not specified, both the
+ * component freezing and global reuse features are disabled.
+ * ClassDecorator: Class decorator. Developers do not need to pay attention to this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -329,7 +420,8 @@ declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassD
 declare const ComponentV2: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
- * Defines the options of Entry ClassDecorator.
+ * Page entry configuration options, used to configure parameters such as the route name, state storage, and shared
+ * storage when decorating a page with @Entry.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -340,7 +432,9 @@ declare const ComponentV2: ClassDecorator & ((options: ComponentOptions) => Clas
  */
 declare interface EntryOptions {
   /**
-   * Named route name.
+   * Name of the page as a named route. When the page needs to be navigated to through a named route, set this
+   * parameter as the route name. If this parameter is not passed, the page is not registered as a named route page
+   * and cannot be accessed through named route navigation; it is loaded only as the default entry page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -352,7 +446,10 @@ declare interface EntryOptions {
   routeName? : string;
 
   /**
-   * LocalStorage to be passed.
+   * Page-level UI state storage. Pass this parameter when you need to create and manage UI state outside the page in
+   * advance, or when you need to bind an existing LocalStorage instance to this page for state sharing. If this
+   * parameter is not passed, the framework creates a new LocalStorage instance as the default value. When
+   * useSharedStorage is set to true and storage is assigned, the value of useSharedStorage takes precedence.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -364,7 +461,11 @@ declare interface EntryOptions {
   storage? : LocalStorage;
 
   /**
-   * Determines whether to use the LocalStorage instance object returned by the LocalStorage.getShared() interface.
+   * Whether to use the LocalStorage instance passed in by [loadContent]{@link loadContent}.
+   * The default value is false. true: uses the shared LocalStorage instance (prerequisite: ensure that the
+   * loadContent API has passed in a LocalStorage instance; if not, a new LocalStorage instance is created). false:
+   * does not use the shared LocalStorage instance. When useSharedStorage is set to true and storage is assigned,
+   * the value of useSharedStorage takes precedence.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -377,9 +478,10 @@ declare interface EntryOptions {
 }
 
 /**
- * Defines Entry ClassDecorator.
+ * A custom component decorated by \@Entry serves as the entry to a UI page and is identified by the framework as the
+ * root component of the page. It is suitable for building standalone UI pages.
  *
- * Entry is a ClassDecorator and it supports LocalStorage or EntryOptions as parameters.
+ * In a single UI page, only one custom component decorated by \@Entry is allowed as the page entry.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -392,7 +494,12 @@ declare interface EntryOptions {
 declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) => ClassDecorator);
 
 /**
- * Defining Observed ClassDecorator.
+ * **\@Observed** is a class decorator used in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to observe property changes of nested class objects.
+ *
+ * For details, see
+ * [@Observed and @ObjectLink Decorators: Observing Property Changes in Nested Class Objects](docroot://ui/state-management/arkts-observed-and-objectlink.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -405,7 +512,18 @@ declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) =
 declare const Observed: ClassDecorator;
 
 /**
- * Defining ObservedV2 ClassDecorator.
+ * **\@ObservedV2** is a class decorator used in
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md).
+ * **\@ObservedV2** is used together with
+ * [@Trace]{@link Trace} to decorate classes and class properties, enhancing the observation capability for decorated
+ * classes and properties. Compared with [@Observed]{@link Observed} in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md),
+ * **\@ObservedV2** provides more fine-grained, property-level in-depth observation capabilities. It is suitable for
+ * scenarios where changes in nested object properties need to be precisely tracked to drive UI updates, effectively
+ * improving the performance and flexibility of state management.
+ *
+ * For details, see
+ * [@ObservedV2 and @Trace Decorators: Observing Class Property Changes](docroot://ui/state-management/arkts-new-observedV2-and-trace.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -435,7 +553,26 @@ declare const ObservedV2: ClassDecorator;
 declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
 
 /**
- * Defining Require PropertyDecorator.
+ * The **\@Require** decorator validates whether [\@Prop](docroot://ui/state-management/arkts-prop.md),
+ * [\@State](docroot://ui/state-management/arkts-state.md),
+ * [\@Provide](docroot://ui/state-management/arkts-provide-and-consume.md),
+ * [\@BuilderParam](docroot://ui/state-management/arkts-builderparam.md),
+ * [\@Param](docroot://ui/state-management/arkts-new-param.md),
+ * and regular variables (variables not decorated by any state decorator) require constructor input parameters. When a
+ * variable is decorated with **\@Require**, the parent component must pass the corresponding parameter when
+ * constructing the child component. Otherwise, a compile-time error is reported, thereby preventing runtime exceptions
+ * caused by missing parameters. This decorator is suitable for scenarios where mandatory parameters of a custom
+ * component must be properly initialized.
+ *
+ * See the development guide:
+ * [\@Require Decorator: Validating Constructor Input Parameters](docroot://ui/state-management/arkts-require.md).
+ *
+ * > **NOTE**
+ * >
+ * > Validation for **\@Prop** and **\@BuilderParam** is supported since API version 11.
+ * >
+ * > Validation for **\@State**, **\@Provide**, **\@Param**, and regular variables (variables not decorated by
+ * > any state decorator) is supported since API version 12.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -448,7 +585,13 @@ declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorato
 declare const Require: PropertyDecorator;
 
 /**
- * Defining BuilderParam PropertyDecorator
+ * **\@BuilderParam** is used to decorate variables that point to [\@Builder]{@link Builder}
+ * functions, enabling a custom component to receive externally passed **\@Builder** functions for custom rendering of
+ * UI content. It is suitable for scenarios where the parent component's UI building logic needs to be passed to a
+ * child component to achieve dynamic customization of component content.
+ *
+ * For details, see the development guide:
+ * [\@BuilderParam Decorator: Referencing the @Builder Function](docroot://ui/state-management/arkts-builderparam.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -461,7 +604,15 @@ declare const Require: PropertyDecorator;
 declare const BuilderParam: PropertyDecorator;
 
 /**
- * Defining Local PropertyDecorator.
+ * **\@Local** is used in
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to represent the internal state of components, enabling the observation of variables within custom components. It is
+ * applicable to scenarios where partial states (such as counters and switch states) need to be maintained and observed
+ * within custom components. Using **\@Local** can simplify the internal state management logic of components. When the
+ * state changes, the UI is automatically refreshed without manual management.
+ *
+ * For details, see
+ * [@Local Decorator: Representing the Internal State of Components](docroot://ui/state-management/arkts-new-local.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -474,7 +625,16 @@ declare const BuilderParam: PropertyDecorator;
 declare const Local: PropertyDecorator;
 
 /**
- * Defining Param PropertyDecorator.
+ * **@Param** is used in
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to receive external input and implement unidirectional data synchronization between parent and child components.
+ * This is applicable to scenarios where a parent component needs to pass state data to its child component in a
+ * unidirectional manner. It simplifies communication between components and ensures a clear data flow direction.
+ * Variables decorated with **@Param** cannot be directly modified in a component. If a child component needs to
+ * synchronize data to its parent component, use **@Param** together with [@Event]{@link Event}.
+ *
+ * For details, see
+ * [@Param Decorator: Inputting External Parameters to Components](docroot://ui/state-management/arkts-new-param.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -487,7 +647,14 @@ declare const Local: PropertyDecorator;
 declare const Param: PropertyDecorator;
 
 /**
- * Defining Once PropertyDecorator.
+ * **\@Once** is an auxiliary decorator used in
+ * [State Management V2](docroot://ui/state-management/arkts-state-management-overview.md).
+ * It must be used together with [@Param]{@link Param}
+ * and is applicable to scenarios where data is initialized from an external source only once without accepting
+ * subsequent synchronization changes. If **\@Once** is not used together with **\@Param**, an error will be reported
+ * during compilation when **\@Once** is used independently.
+ *
+ * For details, see [@Once: Implementing Initialization Once](docroot://ui/state-management/arkts-new-once.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -500,7 +667,15 @@ declare const Param: PropertyDecorator;
 declare const Once: PropertyDecorator;
 
 /**
- * Defining Event PropertyDecorator.
+ * **\@Event** decorates a callback function, which is used as the output of a custom component in
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md).
+ * **\@Event** is usually used together with [@Param]{@link Param}.
+ * **\@Param** transfers data from a parent component to its child component. **\@Event** defines the callback for the
+ * child component to transfer messages to the parent component, which is applicable to scenarios where the parent
+ * component state change or event processing needs to be triggered in the child component.
+ *
+ * For details, see
+ * [@Event Decorator: Standardizing Component Output](docroot://ui/state-management/arkts-new-event.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -513,7 +688,13 @@ declare const Once: PropertyDecorator;
 declare const Event: PropertyDecorator;
 
 /**
- * Defining State PropertyDecorator.
+ * **@State** is used for
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to convert common variables within a custom component into state variables. When the state variables change, the UI
+ * in the component is re-rendered. It is applicable to scenarios where mutable states need to be managed within a
+ * component.
+ *
+ * For details, see [@State Decorator: State Owned by Component](docroot://ui/state-management/arkts-state.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -526,7 +707,15 @@ declare const Event: PropertyDecorator;
 declare const State: PropertyDecorator;
 
 /**
- * Defining Track PropertyDecorator.
+ * **@Track** is used in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to implement property-level precise observation by decorating specified properties of a class object. When a
+ * property decorated with **@Track** changes, the system updates only the UI components that depend on that property,
+ * thereby reducing unnecessary UI re-rendering. It is applicable to scenarios where a class object contains many
+ * properties and redundant UI refreshes need to be reduced to optimize rendering performance.
+ *
+ * For details, see
+ * [@Track Decorator: Implementing Class Object Property-Level Updates](docroot://ui/state-management/arkts-track.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -539,7 +728,19 @@ declare const State: PropertyDecorator;
 declare const Track: PropertyDecorator;
 
 /**
- * Defining Trace PropertyDecorator.
+ * **@Trace** is a property decorator used in
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md).
+ * [@ObservedV2]{@link ObservedV2} and **@Trace** are used
+ * together to decorate classes and class properties, enhancing the observation capability for decorated classes and
+ * properties. That is, they can recursively observe changes in property values of nested objects and trigger automatic
+ * UI refresh. They are applicable to scenarios where precise observation and management of class property changes are
+ * required.
+ *
+ * For details, see
+ * [@ObservedV2 and @Trace Decorators: Observing Class Property Changes](docroot://ui/state-management/arkts-new-observedV2-and-trace.md).
+ *
+ * Declares an observable property. **@Trace** must be used together with **@ObservedV2** and takes effect only in
+ * classes decorated with **@ObservedV2**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -552,7 +753,19 @@ declare const Track: PropertyDecorator;
 declare const Trace: PropertyDecorator;
 
 /**
- * Defining Prop PropertyDecorator.
+ * **@Prop** is used for
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to receive values passed from external sources and establish a one-way synchronization relationship with parent
+ * components. When the state variables decorated with
+ * [@State]{@link State} in the parent component change, the
+ * changes are synchronously updated to the corresponding **@Prop** decorated
+ * variables in the child component, triggering the child component to re-render. **@Prop** uses a unidirectional data
+ * flow mechanism. Changes to **@Prop** decorated variables in child components take effect only within the child
+ * components and are not synchronized back to the parent component. This is applicable when child components need to
+ * respond to state changes of parent components but do not need to modify the parent component's state reversely.
+ *
+ * For details, see
+ * [@Prop Decorator: Implementing One-Way Synchronization from Parent to Child Components](docroot://ui/state-management/arkts-prop.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -565,7 +778,15 @@ declare const Trace: PropertyDecorator;
 declare const Prop: PropertyDecorator;
 
 /**
- * Defining Link PropertyDecorator.
+ * **\@Link** is used for
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to receive the reference of the state variable passed by the parent component and establish two-way data binding
+ * between the parent and child components. It is applicable to scenarios where the parent component's state needs to
+ * be directly changed in the child component and the communication between the parent and child components needs to be
+ * simplified.
+ *
+ * For details, see
+ * [@Link Decorator: Implementing Two-Way Synchronization Between Parent and Child Components](docroot://ui/state-management/arkts-link.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -578,7 +799,15 @@ declare const Prop: PropertyDecorator;
 declare const Link: PropertyDecorator;
 
 /**
- * Defining ObjectLink PropertyDecorator.
+ * **\@ObjectLink** is used in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to receive instances of classes decorated with
+ * [@Observed]{@link Observed} and establish two-way data
+ * binding with the data source in the parent component. It is applicable to scenarios where nested class properties
+ * are independently observed and listened to in child components to trigger UI updates.
+ *
+ * For details, see
+ * [@Observed and @ObjectLink Decorators: Observing Property Changes in Nested Class Objects](docroot://ui/state-management/arkts-observed-and-objectlink.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -591,7 +820,11 @@ declare const Link: PropertyDecorator;
 declare const ObjectLink: PropertyDecorator;
 
 /**
- * Defines the options of Provide PropertyDecorator.
+ * Options of the **@Provide** decorator. You can use **allowOverride** to override the alias of an @Provide decorated
+ * variable with the same name in the same component tree. It is suitable for scenarios where a child component needs
+ * to override the alias of the **@Provide** decorated variable with the same name in the parent component, improving
+ * the flexibility of cross-level state management. For details, see
+ * [Support for the allowOverride Parameter](docroot://ui/state-management/arkts-provide-and-consume.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -602,8 +835,11 @@ declare const ObjectLink: PropertyDecorator;
  */
 declare interface ProvideOptions {
   /**
-   * Override the @Provide of any parent or parent of parent @Component.@Provide({allowOverride: "name"}) is
-   * also allowed to be used even when there is no ancestor @Component whose @Provide would be overridden.
+   * Alias of an **@Provide** decorated variable that can be overridden. In detail, you can use this property to
+   * override the alias of an @Provide decorated variable with the same name in the same component tree.
+   * <br> If the property is not specified, the alias of an **@Provide** decorated variable cannot be overridden. If
+   * you define an **@Provide** decorated variable with the same name without setting **allowOverride**, an error will
+   * be reported at runtime.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -616,7 +852,26 @@ declare interface ProvideOptions {
 }
 
 /**
- * Defining Provide PropertyDecorator.
+ * **@Provide** and [@Consume]{@link Consume} are used
+ * together for [state management V1](docroot://ui/state-management/arkts-state-management-overview.md) to
+ * implement two-way synchronization across component levels. This is applicable to scenarios where state data needs to
+ * be transferred across multiple component levels to avoid layer-by-layer transfer. It can solve the problem of
+ * complex state transfer when there are many component levels. Variables decorated with **@Provide** are used as data
+ * sources. Bidirectional binding relationships are established between the data sources and variables decorated with
+ * **@Consume** through aliases or variable names. When a variable decorated with **@Provide** or **@Consume** changes,
+ * the change is automatically synchronized to the other party.
+ *
+ * For details, see
+ * [@Provide and @Consume Decorators: Two-Way Synchronization with Descendant Components](docroot://ui/state-management/arkts-provide-and-consume.md).
+ *
+ * value: Used to set an alias or used as an alias that can be overridden.
+ * <br> If the type is string, the value is directly used as an alias. Descendant components can access data through
+ * this alias.
+ * <br> When the type is ProvideOptions, if **allowOverride** is set, the value will be used as an alias and the alias
+ * can be overridden; if **allowOverride** is not set, an alias is a variable name and cannot be overridden.
+ * <br> When this parameter is not specified, a variable name is used and cannot be overridden. If an **@Provide**
+ * decorated variable is defined with the same name in this case, an error will be reported at runtime.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -629,8 +884,24 @@ declare interface ProvideOptions {
 declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
 /**
- * Defining Provider PropertyDecorator, aliasName is the only matching key and if
- * aliasName is the default, the default attribute name is regarded as aliasName.
+ * **@Provider** and [@Consumer]{@link Consumer} are used together in
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to implement bidirectional data synchronization across component levels. **@Provider** decorates a data provider to
+ * provide data for child components. It is applicable to scenarios where state data needs to be shared across multiple
+ * layers of components (with deep component layers) to avoid layer-by-layer data transfer. This simplifies the state
+ * management process and reduces the coupling between components.
+ *
+ * For details, see
+ * [@Provider and @Consumer Decorators: Synchronizing Across Component Levels in a Two-Way Manner](docroot://ui/state-management/arkts-new-provider-and-consumer.md)
+ * .
+ *
+ * Decorates a data provider to provide data for child components. It is used together with **@Consumer** in state
+ * management V2 to implement bidirectional data synchronization across component levels.
+ *
+ * aliasName: Alias, which is used as the matching identifier for bidirectional data
+ * synchronization between variables decorated with **@Provider** and **@Consumer**. The alias must be the same as
+ * that of the **@Consumer** decorated variable. By default, the alias is the variable name.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -643,7 +914,7 @@ declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => 
 declare const Provider: (aliasName?: string) => PropertyDecorator;
 
 /**
- * Defines the class of System Env Key.
+ * Defines the type corresponding to the system environment variable key.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -653,7 +924,7 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
  */
 declare class SystemEnvKey<T> {
   /**
-   * The corresponding type of the system env key.
+   * Data type of the value corresponding to the system environment variable key. The default value is **undefined**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -663,7 +934,7 @@ declare class SystemEnvKey<T> {
    */
   private type?: T;
   /**
-   * constructor.
+   * Creates an instance of this class.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -674,7 +945,7 @@ declare class SystemEnvKey<T> {
   protected constructor();
 }
 /**
- * Defines writable system environment variable keys.
+ * Defines a writable system environment variable key, which inherits from [SystemEnvKey<T>]{@link SystemEnvKey}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -684,7 +955,7 @@ declare class SystemEnvKey<T> {
  */
 declare class WritableSystemEnvKey<T> extends SystemEnvKey<T> {}
 /**
- * Define read-only system environment variable keys.
+ * Defines a read-only system environment variable key, which inherits from [SystemEnvKey<T>]{@link SystemEnvKey}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -694,7 +965,7 @@ declare class WritableSystemEnvKey<T> extends SystemEnvKey<T> {}
  */
 declare class ReadonlySystemEnvKey<T> extends SystemEnvKey<T> {}
 /**
- * Defines the custom environment Key.
+ * Defines the type of the key for a custom environment variable.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -704,7 +975,7 @@ declare class ReadonlySystemEnvKey<T> extends SystemEnvKey<T> {}
  */
 declare class CustomEnvKey<S> {
   /**
-   * The corresponding type of the custom env key.
+   * Type of the key for a custom environment variable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -714,9 +985,10 @@ declare class CustomEnvKey<S> {
    */
   private type?: S;
   /**
-   * create CustomEnvKey
+   * Creates a custom environment variable key, which serves as a parameter of the **\@CustomEnv** decorator.
    *
-   * @returns { CustomEnvKey<T> } CustomEnvKey
+   * @returns { CustomEnvKey<T> } Custom environment variable key, used to identify the custom environment variable to
+   *     obtain.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -726,7 +998,7 @@ declare class CustomEnvKey<S> {
   static create<T>(): CustomEnvKey<T>;
 
   /**
-   * constructor.
+   * Creates an instance of this class.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -737,7 +1009,11 @@ declare class CustomEnvKey<S> {
   protected constructor();
 }
 /**
- * Defines the writable system environment key.
+ * Defines the set of writable system environment variable keys, which are used to obtain the corresponding system
+ * environment variables through the **\@Env** decorator. You can use the [env]{@link env}
+ * method in [WithEnv]{@link WithEnv} to set local environment
+ * variable values to affect the rendering of descendant components. For details, see
+ * [Example 2: Setting Local Layout Direction]{@link WithEnv}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -747,7 +1023,12 @@ declare class CustomEnvKey<S> {
  */
 declare class WritableEnvKey {
   /**
-   * Defines the system environment key direction.
+   * Variable parameter of [\@Env]{@link Env}. The value of the [Direction]{@link Direction}
+   * enum can be obtained through **\@Env(WritableEnvKey.DIRECTION)**.
+   * <br>When this decorator is declared in
+   * [\@Component](docroot://ui/state-management/arkts-create-custom-components.md)
+   * or [\@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md), it is used to
+   * obtain the layout direction of the screen where the window is located.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -757,7 +1038,13 @@ declare class WritableEnvKey {
    */
   static readonly DIRECTION: WritableSystemEnvKey<Direction>;
   /**
-   * Defines the system environment key fontScale.
+   * Variable parameter of [\@Env]{@link Env}. The value of the number type can be obtained through
+   * **\@Env(WritableEnvKey.FONT_SCALE)**. There is no upper limit for the value, and values less than or equal to 0
+   * are processed as 0.
+   * <br>When this decorator is declared in
+   * [\@Component](docroot://ui/state-management/arkts-create-custom-components.md)
+   * or [\@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md), it is used to
+   * provide a local font scale factor for descendant components.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -767,9 +1054,9 @@ declare class WritableEnvKey {
    */
   static readonly FONT_SCALE: WritableSystemEnvKey<double>;
 }
-
 /**
- * Defines the readonly system environment key.
+ * Defines the set of read-only system environment variable keys, which are used to obtain the corresponding system
+ * environment variables through the **\@Env** decorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -854,12 +1141,20 @@ declare class ReadonlyEnvKey {
    */
   static readonly WINDOW_IS_HIGHLIGHTED: ReadonlySystemEnvKey<boolean>;
 }
-
 /**
- * Defines the custom environment PropertyDecorator.
+ * This component is used to obtain custom environment variables.
  *
- * @param { CustomEnvKey<T> } key - custom environment key.
- * @returns { PropertyDecorator } CustomEnv decorator
+ * See the developer guide: [\@CustomEnv: Custom Environment Variable](docroot://ui/arkts-custom-env-property.md).
+ *
+ * Obtains custom environment variables. A custom environment variable key is created through
+ * [CustomEnvKey.create()]{@link CustomEnvKey#create} and passed as a parameter to the **\@CustomEnv** decorator.
+ *
+ * A variable decorated by **\@CustomEnv** reads the environment variable value corresponding to the key.
+ * If the environment variable is not set, the locally declared default value is used.
+ *
+ * @param { CustomEnvKey<T> } key - Key of the custom environment variable, used to identify the custom environment
+ *     variable to obtain.
+ * @returns { PropertyDecorator } Property decorator. You do not need to care about this return value.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -869,10 +1164,11 @@ declare class ReadonlyEnvKey {
 declare function CustomEnv<T>(key: CustomEnvKey<T>): PropertyDecorator;
 
 /**
- * Define Env Decorator type
+ * Defines the **EnvDecorator** property decorator type.
  *
- * @param { SystemProperties } value - key value input by the user
- * @returns { PropertyDecorator } Env decorator
+ * @param { SystemProperties } value - Environment variable attribute name, used to specify the system environment
+ *     variable to obtain.
+ * @returns { PropertyDecorator } Property decorator. You do not need to pay attention to this return value.
  * @throws { BusinessError } 140000 - Invalid key for @Env
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -880,13 +1176,20 @@ declare function CustomEnv<T>(key: CustomEnvKey<T>): PropertyDecorator;
  * @since 22 dynamic
  */
 declare type EnvDecorator = (value: SystemProperties) => PropertyDecorator;
+
 /**
- * Defining Env PropertyDecorator.
- * On API 26.0.0 and above, the parameter also supports the SystemEnvKey<T> type.
+ * The **\@Env** decorator is used to obtain system environment variables, helping you sense system environment changes
+ * and dynamically adjust the UI display.
+ *
+ * Obtains system environment variables. Before API version 26.0.0, only the **SystemProperties** enum can be passed in.
+ * Since API version 26.0.0, the [SystemEnvKey<T>]{@link SystemEnvKey} class or the
+ * [SystemProperties]{@link SystemProperties} enum can be passed in as the parameter.
+ *
+ * For details about the developer guide, see [\@Env Developer Guide](docroot://ui/arkts-env-system-property.md).
  *
  * @param { SystemProperties } key - key value input by the user. [since 22 - 24]
- * @param { SystemEnvKey<T> | SystemProperties } key - key value input by the user. [since 26.0.0]
- * @returns { PropertyDecorator } Env decorator
+ * @param { SystemEnvKey<T> | SystemProperties } key - Environment variable key. [since 26.0.0]
+ * @returns { PropertyDecorator } Property decorator. Developers do not need to pay attention to this return value.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 26.0.0]
@@ -986,7 +1289,37 @@ declare enum SystemProperties {
 }
 
 /**
- * Defining Consume PropertyDecorator.
+ * [@Provide]{@link Provide} and **\@Consume** are used together for
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md) to
+ * implement two-way synchronization across component levels. This is applicable to scenarios where states need to be
+ * shared among multiple layers of nested components. It simplifies the communication logic between components by
+ * avoiding the complexity of layer-by-layer data transfer. As a data consumer, the variable decorated with
+ * **\@Consume** establishes a bidirectional binding relationship with the variable decorated with **\@Provide**
+ * through an alias or variable name. When a variable decorated with **\@Provide** or **\@Consume** changes, the change
+ * is automatically synchronized to the other party. An alias is preferred for matching. If no alias is set, a
+ * variable name is used for matching.
+ *
+ * For details, see
+ * [@Provide and @Consume Decorators: Two-Way Synchronization with Descendant Components](docroot://ui/state-management/arkts-provide-and-consume.md).
+ *
+ * > **NOTE**
+ * >
+ * > Since API version 20, **\@Consume** decorated variables support default value assignment. If no matching variable
+ * > decorated with **\@Provide** is found, the **\@Consume** decorated variable initializes with its default value.
+ * > When a matching variable decorated with **\@Provide** is found, the **\@Consume** decorated variable uses the
+ * > value of the \@Provide decorated variable, and the default value is ignored.
+ * >
+ * > Since API version 20, cross-BuilderNode pairing of **\@Provide** / **\@Consume** decorated variables is supported.
+ * > In the BuilderNode scenario, a BuilderNode constructs nodes before being mounted to the tree. Therefore, the
+ * > **\@Consume** decorated variable defined inside the BuilderNode must be assigned a default value. After the
+ * > BuilderNode is mounted to the tree, the framework retrieves the **\@Provide** decorated variable closest to the
+ * > BuilderNode again and establishes a two-way synchronization relationship with the variable.
+ *
+ * value: Used to set an alias. If no alias is specified, a variable name is used by default.
+ * When an alias is set, an **\@Consume** decorated variable matches and binds to an **\@Provide** decorated variable
+ * through the alias. When no alias is set, matching and binding are performed through a variable name, implementing
+ * two-way data synchronization across component levels.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -999,9 +1332,18 @@ declare enum SystemProperties {
 declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
 
 /**
- * Defining Consumer PropertyDecorator, aliasName is the only matching key and
- * if aliasName is the default, the default attribute name is regarded as aliasName.
- * And @Consumer will find the nearest @Provider.
+ * Decorates a data consumer to obtain data from a data source. It is used together with **\@Provider** in state
+ * management V2 to implement bidirectional data synchronization across component levels. If the variable decorated
+ * with **\@Consumer** does not find the variable decorated with **\@Provider** with the matching alias in the
+ * component tree, it uses its own initial value and does not perform data synchronization.
+ *
+ * For details, see
+ * [@Provider and @Consumer Decorators: Synchronizing Across Component Levels in a Two-Way Manner](docroot://ui/state-management/arkts-new-provider-and-consumer.md).
+ *
+ * aliasName: Alias, which is used as the matching identifier for bidirectional data synchronization
+ * between variables decorated with **\@Consumer** and **\@Provider**. The alias must be the same as that of the
+ * **\@Provider** decorated variable. By default, the alias is the variable name.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1014,7 +1356,13 @@ declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator
 declare const Consumer: (aliasName?: string) => PropertyDecorator;
 
 /**
- * Defining Computed MethodDecorator.
+ * **@Computed** is a method decorator used in
+ * [State Management V2](docroot://ui/state-management/arkts-state-management-overview.md) to
+ * decorate a **getter** method, turning it into a computed property. Its return value is cached and recalculated
+ * only when the dependent source data changes, reducing the overhead of repeated computation.
+ *
+ * For details, see
+ * [@Computed Decorator: Declaring Computed Properties](docroot://ui/state-management/arkts-new-computed.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1027,7 +1375,24 @@ declare const Consumer: (aliasName?: string) => PropertyDecorator;
 declare const Computed: MethodDecorator;
 
 /**
- * Defining StorageProp PropertyDecorator.
+ * **@StorageProp** is used in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to establish unidirectional data synchronization with the corresponding property in
+ * [AppStorage]{@link AppStorage}. The changes of the corresponding property in AppStorage are synchronized to the
+ * variable decorated with **@StorageProp**, but the changes of the variable decorated with **@StorageProp** will not
+ * be synchronized back to AppStorage. It is applicable to scenarios where the global state changes of AppStorage need
+ * to be detected across pages and [abilities]{@link ability} and only unidirectional data flow is required. This can
+ * avoid unnecessary data writeback.
+ *
+ * For details, see [AppStorage: Storing Application-wide UI State](docroot://ui/state-management/arkts-appstorage.md).
+ *
+ * value: Property key name in AppStorage, which is used to establish unidirectional data synchronization with the
+ * property corresponding to the key name. If the property corresponding to the key name already exists in AppStorage,
+ * the local initial value of the variable decorated with **@StorageProp** will be overwritten by the value of the
+ * corresponding property in AppStorage. If the property corresponding to the key name does not exist in AppStorage,
+ * the corresponding property will be created in AppStorage based on the local initial value of the variable decorated
+ * with **@StorageProp**.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1039,7 +1404,26 @@ declare const Computed: MethodDecorator;
 declare const StorageProp: (value: string) => PropertyDecorator;
 
 /**
- * Defining StorageLink PropertyDecorator.
+ * **@StorageLink** is used in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to establish bidirectional data synchronization with the property of a specified key in
+ * [AppStorage]{@link AppStorage}. When the variable decorated
+ * with **@StorageLink** changes, the change is synchronized to the property corresponding to the key in AppStorage.
+ * When the property corresponding to the key in AppStorage changes, the change is also synchronized back to the
+ * variable decorated with **@StorageLink**. It is applicable to scenarios where the global state of AppStorage needs
+ * to be shared across pages and [abilities]{@link ability} and
+ * bidirectional data synchronization with AppStorage is required. It can avoid layer-by-layer state data transfer to
+ * ensure data consistency.
+ *
+ * For details, see [AppStorage: Storing Application-wide UI State](docroot://ui/state-management/arkts-appstorage.md).
+ *
+ * value: Property key name in AppStorage, which is used to establish bidirectional data
+ * synchronization with the property corresponding to the key name. If the property corresponding to the key name
+ * already exists in AppStorage, the local initial value of the variable decorated with **@StorageLink** will be
+ * overwritten by the value of the corresponding property in AppStorage. If the property corresponding to the key name
+ * does not exist in AppStorage, the corresponding property will be created in AppStorage based on the local initial
+ * value of the variable decorated with **@StorageLink**.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1051,7 +1435,18 @@ declare const StorageProp: (value: string) => PropertyDecorator;
 declare const StorageLink: (value: string) => PropertyDecorator;
 
 /**
- * Defining Watch PropertyDecorator.
+ * **\@Watch** is used in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to listen for changes to state variables and trigger specified callback functions when the variables change. It
+ * applies to scenarios where linked logic, data synchronization, or derived value calculation needs to be
+ * automatically executed when a state variable changes.
+ *
+ * For details, see
+ * [@Watch Decorator: Getting Notified of State Variable Changes](docroot://ui/state-management/arkts-watch.md).
+ *
+ * value: Name of the callback function for listening to changes in the state variable. The function signature is
+ * **(propertyName: string) => void**, where **propertyName** indicates the name of the changed property.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1192,7 +1587,17 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 declare const AnimatableExtend: MethodDecorator & ((value: Object) => MethodDecorator);
 
 /**
- * Define Monitor MethodDecorator
+ * **\@Monitor** is used in
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to listen for changes to state variables, so that the state variables support deep listening. It is applicable to
+ * scenarios where custom logic (such as data synchronization, UI refresh, and log recording) needs to be executed when
+ * state variables or their nested properties change. Compared with
+ * [@Watch]{@link Watch} in [state management V1](docroot://ui/state-management/arkts-state-management-overview.md),
+ * **\@Monitor** supports deep listening to changes in nested object properties. Since API version 26.0.0, **\@Monitor**
+ * also supports wildcard characters, allowing for more flexible matching of variable paths.
+ *
+ * For details, see
+ * [@Monitor Decorator: Listening for Value Changes of the State Variables](docroot://ui/state-management/arkts-new-monitor.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1205,12 +1610,22 @@ declare const AnimatableExtend: MethodDecorator & ((value: Object) => MethodDeco
 declare const Monitor: MonitorDecorator;
 
 /**
- * Defines Monitor Decorator type
+ * Represents the actual type of the **@Monitor** decorator.
  *
  * @param { string } value - Monitored path input by the user [since 12 - 24]
- * @param { string[] } args - Monitored path(s) input by the user
- * @param { string | MonitorDecoratorOptions } value - Monitored path input by the user or config options. [since 26.0.0]
- * @returns { MethodDecorator } Monitor decorator
+ * @param { string[] } args - Array of paths of the state variables to monitor. The path uses dots (.) to separate
+ *     nested properties (for example, 'a.b.c'), and its content is specified by you. When the developer has used
+ *     MonitorDecoratorOptions or passed multiple strings, the input parameter is of this type. If this parameter is
+ *     not passed, it defaults to empty. When value is of the string type, only the state variable path specified by
+ *     the value parameter is monitored. When value is of the MonitorDecoratorOptions type, the state variable path to
+ *     monitor must be specified through this parameter. If undefined is passed, the corresponding monitoring does not
+ *     take effect.
+ * @param { string | MonitorDecoratorOptions } value - In versions earlier than API 26.0.0, this parameter indicates
+ *     the path of the monitored variable name. The path is separated by dots (.) to indicate nested properties (for
+ *     example, 'a.b.c'). The content is specified by you. The input value is of the string type when only a string is
+ *     passed. Since API version 26.0.0, this parameter can also be an object of the **MonitorDecoratorOptions** type,
+ *     which is used to configure the wildcard capability. [since 26.0.0]
+ * @returns { MethodDecorator } Method decorator. You do not need to concern yourself with this return value.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1222,7 +1637,7 @@ declare const Monitor: MonitorDecorator;
 declare type MonitorDecorator = (value: string | MonitorDecoratorOptions, ...args: string[]) => MethodDecorator;
 
 /**
- * Defines MonitorDecoratorOptions interface
+ * Represents the configuration options of the **@Monitor** decorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1233,9 +1648,9 @@ declare type MonitorDecorator = (value: string | MonitorDecoratorOptions, ...arg
  */
 declare interface MonitorDecoratorOptions {
   /**
-   * Enables wildcard feature.
-   * Set to true to enable wildcard feature, set to false to disable it.
-   * The default value is true.
+   * Whether to support the wildcard capability. The value **true** indicates to enable the wildcard capability,
+   * allowing the use of wildcards (**'*'**) in the path for fuzzy monitoring, and **false** indicates to disable
+   * the wildcard capability. The default value is **true**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1248,7 +1663,8 @@ declare interface MonitorDecoratorOptions {
 }
 
 /**
- * Define IMonitor interface
+ * When the monitored state variable changes, the state management framework will call the registered function and
+ * pass the change information of the **IMonitor** type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1259,7 +1675,11 @@ declare interface MonitorDecoratorOptions {
  */
 declare interface IMonitor {
   /**
-   * Array of changed paths(keys)
+   * Array of paths where properties have changed in the monitored state variable. The path format is the same as
+   * that of the variable name path specified by **\@Monitor**. Nested property paths separated by periods (.) are
+   * supported, for example, **'a.b.c'**. Since API version 26.0.0, when the wildcard capability is enabled, this
+   * array may contain wildcard paths, and querying wildcard paths through [value]{@link IMonitor#value}() will
+   * return **undefined**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1271,12 +1691,22 @@ declare interface IMonitor {
   dirty: Array<string>;
 
   /**
-   * Return the pair of the value before the most recent change and current value for given path.
-   * If path does not exist, return undefined; If path is not specified, return the value pair
-   * corresponding to the first path in dirty.
+   * Obtains the change information for the specified path.
    *
-   * @param { string } [path]
-   * @returns { IMonitorValue<T> | undefined }
+   * @param { string } [path] - Path name of the monitored state variable. If it is not specified, the first path in
+   *     the **dirty** array is used by default. Since API version 26.0.0, the first non-wildcard path in **dirty** is
+   *     used by default. If the specified path is a wildcard path, **undefined** is returned.
+   * @returns { IMonitorValue<T> | undefined } Path and change information for the variable monitored by
+   *     **\@Monitor**.
+   *     <br>**T** is the type of the monitored state variable.
+   *     <br>If the monitored path does not exist, **undefined** is returned.
+   *     <br>Prior to API version 26.0.0, if no path is specified, this parameter returns information corresponding to
+   *     the first path in the **dirty** array of changed paths by default.
+   *     <br>Since API version 26.0.0, if no path is specified, this parameter returns the first non-wildcard path
+   *     in the **dirty** array of changed paths by default.
+   *     <br>If the specified path is a wildcard path, **undefined** is returned.
+   *     <br>If no path is specified and all paths in the **dirty** array are wildcard paths, **undefined** is
+   *     returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1288,7 +1718,8 @@ declare interface IMonitor {
 }
 
 /**
- * Define IMonitorValue interface
+ * Provides the specific information about the state variable changes monitored by **\@Monitor**, obtained through
+ * the **value** API of **IMonitor**. **T** is the state variable type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1299,7 +1730,7 @@ declare interface IMonitor {
  */
 declare interface IMonitorValue<T> {
   /**
-   * Get the previous value.
+   * Value of the state variable before the change.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1311,7 +1742,7 @@ declare interface IMonitorValue<T> {
   before: T;
 
   /**
-   * Get current value.
+   * Current value of the state variable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1323,7 +1754,7 @@ declare interface IMonitorValue<T> {
   now: T;
 
   /**
-   * Monitored path input by the user.
+   * Path of the state variable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1473,7 +1904,25 @@ declare const Sendable: ClassDecorator;
 declare const CustomDialog: ClassDecorator;
 
 /**
- * Defining LocalStorageLink PropertyDecorator.
+ * **\@LocalStorageLink** is used in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to establish bidirectional data synchronization with the property corresponding to the specified key in
+ * [LocalStorage]{@link LocalStorage}. When either the variable decorated by **\@LocalStorageLink** or the
+ * corresponding property in LocalStorage changes, the change will be synchronized to the other party. This is
+ * applicable to scenarios where the UI state needs to be shared among multiple components and data needs to be
+ * synchronized with LocalStorage in real time. It can avoid layer-by-layer data transfer and ensure cross-component
+ * data consistency.
+ *
+ * For details, see
+ * [LocalStorage: Storing Page-Level UI State](docroot://ui/state-management/arkts-localstorage.md).
+ *
+ * value: Property key name in LocalStorage, which is used to establish bidirectional data
+ * synchronization with the property corresponding to the key name. If the property corresponding to the key name
+ * already exists in LocalStorage, the local initial value of the variable decorated with **@LocalStorageLink** will
+ * be overwritten by the value of the corresponding property in LocalStorage. If the property corresponding to the
+ * key name does not exist in LocalStorage, the corresponding property will be created in LocalStorage based on the
+ * local initial value of the variable decorated with **@LocalStorageLink**.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1485,8 +1934,25 @@ declare const CustomDialog: ClassDecorator;
 declare const LocalStorageLink: (value: string) => PropertyDecorator;
 
 /**
- * Defining LocalStorageProp PropertyDecorator
+ * **\@LocalStorageProp** is used in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to establish unidirectional data synchronization with the property corresponding to the specified key in
+ * [LocalStorage]{@link LocalStorage}. After the
+ * establishment, changes to the property value in LocalStorage will be synchronized to the variable decorated with
+ * **\@LocalStorageProp**, but changes to the variable decorated with **\@LocalStorageProp** will not be synchronized
+ * back to LocalStorage. This is applicable to scenarios where LocalStorage needs to be shared among multiple
+ * components and only unidirectional data flow is required, avoiding unnecessary data writeback.
  *
+ * For details, see
+ * [LocalStorage: Storing Page-Level UI State](docroot://ui/state-management/arkts-localstorage.md).
+ *
+ * value: Property key name in LocalStorage, which is used to establish unidirectional data synchronization with the
+ * property corresponding to the key name. If the property corresponding to the key name already exists in
+ * LocalStorage, the local initial value of the variable decorated with **@LocalStorageProp** will be overwritten by
+ * the value of the corresponding property in LocalStorage. If the property corresponding to the key name does not
+ * exist in LocalStorage, the corresponding property will be created in LocalStorage based on the local initial value
+ * of the variable decorated with **@LocalStorageProp**.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -1565,7 +2031,27 @@ declare function getContext(component?: Object): Context;
 declare const Reusable: ClassDecorator & ((options: ReusableOptions) => ClassDecorator);
 
 /**
- * Defining ReusableV2 ClassDecorator that is used to decorate @ComponentV2.
+ * To reduce the performance overhead caused by repeatedly creating and destroying custom components, developers can
+ * use the **@ReusableV2** decorator on custom components decorated by [@ComponentV2]{@link ComponentV2} to
+ * achieve component reuse. This is applicable to scenarios where components need to be repeatedly created and
+ * destroyed, such as list scrolling and frequent toggling of component visibility, and supports configuring memory
+ * optimization strategies through parameters.
+ *
+ * Declares a reusable custom component. This decorator must be used together with **@ComponentV2** to decorate a
+ * custom component for component reuse.
+ *
+ * See the development guide:
+ * [@ReusableV2 Decorator: Reusing V2 Components](docroot://ui/state-management/arkts-new-reusableV2.md).
+ *
+ * For the principles and applicable scenarios of component reuse, see
+ * [Component Reuse](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-component-reuse).
+ *
+ * options: Configuration parameters of the reusable custom component, used to configure
+ * the memory optimization policy. This parameter can be configured for optimization in scenarios where a large number
+ * of reusable components exist (for example, dozens or more reusable component instances on the same page), or when
+ * the device memory is limited and the app memory usage is high. No memory optimization policy is applied by
+ * default.**Since:** 26.0.0
+ * ClassDecorator: Class decorator. You do not need to pay attention to this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -28628,10 +29114,26 @@ declare interface LightSource {
 }
 
 /**
- * Defining wrapBuilder function.
+ * `wrapBuilder` is used to encapsulate a global [\@Builder]{@link Builder} function, so that the global
+ * `@Builder` function can be passed as a parameter to implement pass-by-reference and dynamic invocation,
+ * improving code reusability.
  *
- * @param { function } builder
- * @returns { WrappedBuilder<Args> }
+ * For details about the development guide, see
+ * [wrapBuilder: Encapsulating Global @Builder](docroot://ui/state-management/arkts-wrapBuilder.md).
+ *
+ * `wrapBuilder` is a template function that returns a `WrappedBuilder` object. The template parameter
+ * `Args extends Object[]` is the parameter list of the `@Builder` function to be encapsulated. When a global
+ * `@Builder` function needs to be passed, it is recommended to encapsulate it through `wrapBuilder` first, and
+ * then use the returned `WrappedBuilder` object as a parameter or variable.
+ *
+ * @param { function } builder - Global function decorated by `@Builder`. After being passed in, it
+ *     is wrapped into a `WrappedBuilder` object. This function must return no value (`void`), and the types and
+ *     order of its parameter list `...args` are defined by the generic `Args`. Pass this parameter when a global
+ *     `@Builder` function needs to be passed by reference or reused between components.
+ * @returns { WrappedBuilder<Args> } An instance of `WrappedBuilder<Args>`, used to reuse or pass a global
+ *     `@Builder` function between components. This instance encapsulates the specified global `@Builder` function,
+ *     and the encapsulated builder function can be invoked through its `builder` property, making it convenient to
+ *     pass as a parameter between components or assign to a variable.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28641,9 +29143,13 @@ declare interface LightSource {
 declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => void): WrappedBuilder<Args>;
 
 /**
- * Defines the callback type used in mutableBuilder.
+ * `BuilderCallback` is a type alias of the global `@Builder` function. It serves as the input parameter type of
+ * the `mutableBuilder` function and is used to specify the global `@Builder` function to be wrapped.
  *
- * @param { Args } args - The parameter of MutableBuilder.
+ * @param { Args } args - Input parameters of the global `@Builder` function. `...args` uses the rest parameter
+ *     syntax, allowing any number of parameters to be passed in. `Args` represents the type list of these
+ *     parameters. When no parameter is passed in, the parameter list is empty and the `@Builder` function is
+ *     called without parameters.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28653,10 +29159,26 @@ declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => 
 declare type BuilderCallback<Args extends Object[] = any[]> = (...args: Args) => void;
 
 /**
- * Defining mutableBuilder function.
+ * Use `mutableBuilder` to wrap a global [\@Builder]{@link Builder} function, so as to dynamically switch the
+ * content of the global `@Builder` function at runtime based on different conditions (for example, switching
+ * between different UI building logic based on the state). For details about the development guide, see
+ * [mutableBuilder: Implementing Dynamic Update of Global @Builder](docroot://ui/state-management/arkts-mutableBuilder.md).
  *
- * @param { BuilderCallback } builder
- * @returns { MutableBuilder<Args> }
+ * `mutableBuilder` is a generic function. It returns a `MutableBuilder` object and accepts only a single global
+ * `@Builder` function as its parameter.
+ *
+ * The `builder` attribute method of the `MutableBuilder` object returned by the `mutableBuilder` function
+ * can be called only inside the `build` function of a custom component or a function decorated by `@Builder`.
+ *
+ * @param { BuilderCallback } builder - Global function decorated by `@Builder`, used as the target builder
+ *     function encapsulated by `mutableBuilder`. This function must conform to the `BuilderCallback` type,
+ *     that is, `(...args: Args) => void`, which is a function with no return value. The type of its parameter
+ *     list `...args` is specified by the generic `Args`.
+ * @returns { MutableBuilder<Args> } An instance of `MutableBuilder<Args>`, used to encapsulate a global
+ *     `@Builder` function and support dynamically switching the build logic at runtime. This instance holds a
+ *     reference to the global `@Builder` function. You can call the encapsulated build function through its
+ *     `builder` attribute, or dynamically switch the build logic by reassigning a new instance returned by the
+ *     `mutableBuilder` function. Its `builder` attribute method can only be used inside a custom component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28666,7 +29188,8 @@ declare type BuilderCallback<Args extends Object[] = any[]> = (...args: Args) =>
 declare function mutableBuilder<Args extends Object[]>(builder: BuilderCallback): MutableBuilder<Args>;
 
 /**
- * Defines the WrappedBuilder class.
+ * `WrappedBuilder` is a wrapper class for `@Builder` functions. It is used to encapsulate a global `@Builder`
+ * function and its parameters to implement pass-by-reference and dynamic invocation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -28676,6 +29199,7 @@ declare function mutableBuilder<Args extends Object[]>(builder: BuilderCallback)
  */
 declare class WrappedBuilder<Args extends Object[]> {
   /**
+   * Global function decorated by `@Builder`, used to generate the corresponding custom build content.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28686,8 +29210,11 @@ declare class WrappedBuilder<Args extends Object[]> {
   builder: (...args: Args) => void;
 
   /**
+   * A constructor used to create a `WrappedBuilder` instance.
    *
-   * @param { function } builder
+   * @param { function } builder - A global function decorated by `@Builder`, used as a constructor
+   *     parameter to initialize a `WrappedBuilder` instance. The function parameter `args` is the parameter list
+   *     required by the `@Builder` function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28698,7 +29225,13 @@ declare class WrappedBuilder<Args extends Object[]> {
 }
 
 /**
- * Defines the MutableBuilder class.
+ * `MutableBuilder` inherits from [WrappedBuilder]{@link WrappedBuilder} and is used to wrap a
+ * [global `@Builder`](docroot://ui/state-management/arkts-builder.md) function and to support switching
+ * the build function at runtime. When you need to dynamically replace the content of a global `@Builder`
+ * function based on state or conditions, it is recommended that you use the
+ * [mutableBuilder](docroot://ui/state-management/arkts-mutableBuilder.md) function to create a
+ * `MutableBuilder` object. Its `builder` attribute method can be called only inside the `build` function
+ * of a custom component or a function decorated by `@Builder`.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -28706,8 +29239,7 @@ declare class WrappedBuilder<Args extends Object[]> {
  * @atomicservice
  * @since 22 dynamiconly
  */
-declare class MutableBuilder<Args extends Object[]> extends WrappedBuilder<Args> {
-}
+declare class MutableBuilder<Args extends Object[]> extends WrappedBuilder<Args> {}
 
 /**
  * Provides animation configuration options.
