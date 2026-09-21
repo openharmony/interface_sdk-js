@@ -2783,6 +2783,35 @@ declare namespace util {
      * @since 26.0.0 dynamiconly
      */
     static setTrackGlobalRef(enable: boolean): void;
+
+    /**
+     * Gets the number of global handles currently in use by the ArkTS VM on the calling thread. This can be used
+     * in maintenance scenarios, for example, deciding whether to generate a memory snapshot based on the global
+     * handle count.
+     *
+     * > **NOTE**
+     * >
+     * > The count is queried on the VM of the calling thread. Calling this API in a worker returns the count of that
+     * > worker's own VM, not the count of the main VM.
+     * >
+     * > Only strong references (global handles) are counted. Weak references (WeakRef) and sendable references
+     * > (SendableRef) are not included: weak references are stored in a separate weak reference list, and sendable
+     * > references are stored in a separate sendable global storage, neither of which is within the traversal scope
+     * > of this API.
+     * >
+     * > The return value is affected by the creation and deletion of strong references. For example,
+     * > napi_create_strong_reference and napi_delete_strong_reference increase and decrease the count accordingly,
+     * > while napi_create_strong_sendable_reference and napi_delete_strong_sendable_reference do not affect the
+     * > count.
+     *
+     * @returns { number } Returns the number of global handles currently in use by the VM. The value is greater than
+     *     or equal to 0.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.2.0 dynamiconly
+     */
+    static getGlobalHandleCount(): number;
   }
 
   /**
