@@ -2274,6 +2274,16 @@ declare namespace audio {
      * @since 23 static
      */
     rendererId?: int;
+    /**
+     * Keeps the first device selection not cleared.
+     * Default value: false.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Renderer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    blockFirstOverrode?: boolean;
   }
 
   /**
