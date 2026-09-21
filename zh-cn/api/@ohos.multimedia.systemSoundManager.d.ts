@@ -28,7 +28,7 @@ import type { SystemToneOptions as _SystemToneOptions } from './multimedia/syste
 import type { SystemSoundPlayer as _SystemSoundPlayer } from './multimedia/SystemSoundPlayer';
 
 /**
- * 系统声音管理提供管理系统声音的基础能力，包括对系统音效类型的定义、获取系统音效播放器等。
+ * 系统声音管理提供管理系统声音的基础能力，包括对系统音效类型的定义、创建系统音效播放器等。
  *
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi [since 10 - 22]
@@ -139,8 +139,6 @@ declare namespace systemSoundManager {
   enum RingtoneType {
     /**
      * 默认铃声类型。
-     * 
-     * 从 API version 11 开始废弃。建议使用该枚举中的RINGTONE_TYPE_SIM_CARD_0替代。
      *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -151,7 +149,7 @@ declare namespace systemSoundManager {
     RINGTONE_TYPE_DEFAULT = 0,
 
     /**
-     * sim卡1的铃声。
+     * SIM卡1的铃声。
      *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -162,8 +160,6 @@ declare namespace systemSoundManager {
 
     /**
      * 多SIM卡铃声类型。
-     * 
-     * 从 API version 11 开始废弃。建议使用该枚举中的RINGTONE_TYPE_SIM_CARD_1替代。
      *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -174,20 +170,39 @@ declare namespace systemSoundManager {
     RINGTONE_TYPE_MULTISIM = 1,
 
     /**
-     * sim卡2的铃声。
+     * SIM卡2的铃声。
      *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 11 dynamic
      * @since 23 static
      */
-    RINGTONE_TYPE_SIM_CARD_1 = 1
+    RINGTONE_TYPE_SIM_CARD_1 = 1,
+ 	 
+    /**
+     * ESIM卡1的铃声。
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    RINGTONE_TYPE_ESIM_CARD_0 = 2,
+
+    /**
+     * ESIM卡2的铃声。
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    RINGTONE_TYPE_ESIM_CARD_1 = 3
   }
 
   /**
    * 枚举，系统铃声类型。
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11 dynamic
@@ -195,7 +210,7 @@ declare namespace systemSoundManager {
    */
   enum SystemToneType {
     /**
-     * sim卡1的短信提示音。
+     * SIM卡1的短信提示音。
      *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -205,7 +220,7 @@ declare namespace systemSoundManager {
     SYSTEM_TONE_TYPE_SIM_CARD_0 = 0,
 
     /**
-     * sim卡2的短信提示音。
+     * SIM卡2的短信提示音。
      *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -213,6 +228,26 @@ declare namespace systemSoundManager {
      * @since 23 static
      */
     SYSTEM_TONE_TYPE_SIM_CARD_1 = 1,
+
+    /**
+     * ESIM卡1的短信提示音。
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_TONE_TYPE_ESIM_CARD_0 = 2,
+
+    /**
+     * ESIM卡2的短信提示音。
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SYSTEM_TONE_TYPE_ESIM_CARD_1 = 3,
 
     /**
      * 通知提示音。
@@ -334,8 +369,7 @@ declare namespace systemSoundManager {
   const TONE_CATEGORY_CONTACTS: 16;
 
   /**
-   * Define the contact tone category.
-   * 取值限定为整数。
+   * 定义接触音类别。该值应为整数。
    *
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
@@ -447,7 +481,7 @@ declare namespace systemSoundManager {
     /**
      * 设置铃声类别。
      *
-     * @param { int } category - 铃声类别，取值参考[铃声类别的常量](#常量)。
+     * @param { int } category - 铃声类别，取值参考[铃声类别的常量](docroot://reference/apis-audio-kit/js-apis-systemSoundManager-sys.md#常量)。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
@@ -462,7 +496,7 @@ declare namespace systemSoundManager {
     /**
      * 获取铃声类别。
      *
-     * @returns { int } 铃声类别，取值参考[铃声类别的常量](#常量)。
+     * @returns { int } 铃声类别，取值参考[铃声类别的常量](docroot://reference/apis-audio-kit/js-apis-systemSoundManager-sys.md#常量)。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -486,7 +520,7 @@ declare namespace systemSoundManager {
     /**
      * 获取铃声类型。
      *
-     * @returns { MediaType } 媒体类型，如果应用未调用过setMediaType设置mediatype，则此函数返回的默认值为AUDIO。
+     * @returns { MediaType } 媒体类型，如果应用未调用过setMediaType设置媒体类型，则此函数返回的默认值为AUDIO。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -499,7 +533,6 @@ declare namespace systemSoundManager {
   /**
    * 铃音属性数组。
    *
-   * @typedef {Array<ToneAttrs>} ToneAttrsArray
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 12 dynamic
@@ -521,13 +554,7 @@ declare namespace systemSoundManager {
 
   /**
    * 枚举，系统振动风格定义。
-   * 
-   * | 名称                          | 值 | 说明                 |
-   * | ----------------------------- | -- | -------------------- |
-   * | STANDARD| 0  | 标准振动风格。 |
-   * | GENTLE   | 1  | 轻柔振动风格。 |
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 13 dynamic
@@ -535,7 +562,8 @@ declare namespace systemSoundManager {
    */
   enum ToneHapticsFeature {
     /**
-     * Standard haptics feature.
+     * 标准振动风格。
+     * 
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 13 dynamic
@@ -543,7 +571,8 @@ declare namespace systemSoundManager {
      */
     STANDARD = 0,
     /**
-     * Gentle haptics feature.
+     * 轻柔振动风格。
+     * 
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 13 dynamic
@@ -554,14 +583,7 @@ declare namespace systemSoundManager {
 
   /**
    * 枚举，系统铃音场景的振动模式。
-   * 
-   * | 名称                          | 值 | 说明                 |
-   * | ----------------------------- | -- | -------------------- |
-   * | NONE        | 0  | 无振动模式。 |
-   * | SYNC        | 1  | 与铃音同步模式。 |
-   * | NON_SYNC    | 2  | 非同步模式。 |
    *
-   * @enum {int}
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 14 dynamic
@@ -605,7 +627,8 @@ declare namespace systemSoundManager {
    */
   interface ToneHapticsSettings {
     /**
-     * 铃音振动模式。
+     * 振动模式。
+     *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 14 dynamic
@@ -613,7 +636,9 @@ declare namespace systemSoundManager {
      */
     mode: ToneHapticsMode;
     /**
-     * 振动URI。
+     * 振动 URI。当 {@link ToneHapticsSettings#mode} 为 {@link ToneHapticsMode#NON_SYC} 时，用户可以设置或获取此参数；
+     * 在其他情况下，该 URI 无效，应予以忽略。
+     *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 14 dynamic
@@ -672,8 +697,8 @@ declare namespace systemSoundManager {
     /**
      * 获取柔和振动资源路径。
      *
-     * @returns { string | null } 柔和振动的uri（如：'/data/storage/el2/base/haptics/synchronized/alarms/test.json'）。 如果不存在柔和振动，
-     *     则uri为空。 柔和振动是指马达振动强度较标准较弱。
+     * @returns { string | null } 柔和振动的URI（如：'/data/storage/el2/base/haptics/synchronized/alarms/test.json'）。 如果不存在柔和振动，则URI为空。
+     *     柔和振动是指马达振动强度较标准振动弱。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -697,7 +722,7 @@ declare namespace systemSoundManager {
     /**
      * 获取柔和振动文件名。
      *
-     * @returns { string | null } 柔和振动文件名，振动文件为Json格式。如果不存在柔和振动，则振动文件名为空。
+     * @returns { string | null } 柔和振动文件名，振动文件为JSON格式。如果不存在柔和振动，则振动文件名为空。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -710,7 +735,6 @@ declare namespace systemSoundManager {
   /**
    * 系统铃音的振动属性数组。
    *
-   * @typedef { Array<ToneHapticsAttrs> } ToneHapticsAttrsArray
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 14 dynamic
@@ -730,8 +754,7 @@ declare namespace systemSoundManager {
   function getSystemSoundManager(): SystemSoundManager;
 
   /**
-   * 管理系统声音。在调用SystemSoundManager的接口前，需要先
-   * 通过[getSystemSoundManager]{@link systemSoundManager.getSystemSoundManager}创建实例。
+   * 管理系统声音。在调用SystemSoundManager的接口前，需要先通过[getSystemSoundManager]{@link systemSoundManager.getSystemSoundManager}创建实例。
    *
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
@@ -741,33 +764,39 @@ declare namespace systemSoundManager {
   interface SystemSoundManager {
     /**
      * 设置系统铃声uri。使用callback异步回调。
+     * 
+     * > **说明：**
+     * > > 从 API version 10 开始支持，从 API version 11 开始废弃，建议使用
+     * > [setRingtoneUri]{@link systemSoundManager.SystemSoundManager.setRingtoneUri}替代。
      *
      * @param { Context } context - 当前应用的上下文。
-     * @param { string } uri - 被设置的系统铃声的uri，资源支持
-     *     可参考[media.AVPlayer]{@link @ohos.multimedia.media:media.AVPlayer}。
+     * @param { string } uri - 被设置的系统铃声的uri，资源支持可参考[media.AVPlayer]{@link @ohos.multimedia.media:media}。
      * @param { RingtoneType } type - 被设置的系统铃声的类型。
      * @param { AsyncCallback<void> } callback - 回调函数。当设置系统铃声uri成功，err为undefined，否则为错误对象。
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 11
-     * @useinstead systemSoundManager.SystemSoundManager#setRingtoneUri
+     * @useinstead systemSoundManager.SystemSoundManager.setRingtoneUri
      */
     setSystemRingtoneUri(context: Context, uri: string, type: RingtoneType, callback: AsyncCallback<void>): void;
 
     /**
      * 设置系统铃声uri。使用Promise异步回调。
+     * 
+     * > **说明：**
+     * > > 从 API version 10 开始支持，从 API version 11 开始废弃，建议使用
+     * > [setRingtoneUri]{@link systemSoundManager.SystemSoundManager.setRingtoneUri}替代。
      *
      * @param { Context } context - 当前应用的上下文。
-     * @param { string } uri - 被设置的系统铃声的uri，资源支持
-     *     可参考[media.AVPlayer]{@link @ohos.multimedia.media:media.AVPlayer}。
+     * @param { string } uri - 被设置的系统铃声的uri，资源支持可参考[media.AVPlayer]{@link @ohos.multimedia.media:media}。
      * @param { RingtoneType } type - 被设置的系统铃声的类型。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 11
-     * @useinstead systemSoundManager.SystemSoundManager#setRingtoneUri
+     * @useinstead systemSoundManager.SystemSoundManager.setRingtoneUri
      */
     setSystemRingtoneUri(context: Context, uri: string, type: RingtoneType): Promise<void>;
 
@@ -775,8 +804,7 @@ declare namespace systemSoundManager {
      * 设置系统铃声uri。使用Promise异步回调。
      *
      * @param { BaseContext } context - 当前应用的上下文。
-     * @param { string } uri - 被设置的系统铃声的uri，资源支持
-     *     可参考[media.AVPlayer]{@link @ohos.multimedia.media:media.AVPlayer}。
+     * @param { string } uri - 被设置的系统铃声的uri，资源支持可参考[media.AVPlayer]{@link @ohos.multimedia.media:media}。
      * @param { RingtoneType } type - 被设置的系统铃声的类型。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 202 - Caller is not a system application.
@@ -793,21 +821,28 @@ declare namespace systemSoundManager {
 
     /**
      * 获取系统铃声uri。使用callback异步回调。
+     * 
+     * > **说明：**
+     * > > 从 API version 10 开始支持，从 API version 11 开始废弃，建议使用
+     * > [getRingtoneUri]{@link systemSoundManager.SystemSoundManager.getRingtoneUri}替代。
      *
      * @param { Context } context - 当前应用的上下文。
      * @param { RingtoneType } type - 待获取的系统铃声的类型。
-     * @param { AsyncCallback<string> } callback - 回调函数。当获取系统铃声uri成功，err为undefined，
-     *     data为获取到的系统铃声uri；否则为错误对象。
+     * @param { AsyncCallback<string> } callback - 回调函数。当获取系统铃声uri成功，err为undefined，data为获取到的系统铃声uri；否则为错误对象。
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 11
-     * @useinstead systemSoundManager.SystemSoundManager#getRingtoneUri
+     * @useinstead systemSoundManager.SystemSoundManager.getRingtoneUri
      */
     getSystemRingtoneUri(context: Context, type: RingtoneType, callback: AsyncCallback<string>): void;
 
     /**
      * 获取系统铃声uri。使用Promise异步回调。
+     * 
+     * > **说明：**
+     * > > 从 API version 10 开始支持，从 API version 11 开始废弃，建议使用
+     * > [getRingtoneUri]{@link systemSoundManager.SystemSoundManager.getRingtoneUri}替代。
      *
      * @param { Context } context - 当前应用的上下文。
      * @param { RingtoneType } type - 被设置的系统铃声的类型。
@@ -816,7 +851,7 @@ declare namespace systemSoundManager {
      * @systemapi
      * @since 10 dynamiconly
      * @deprecated since 11
-     * @useinstead systemSoundManager.SystemSoundManager#getRingtoneUri
+     * @useinstead systemSoundManager.SystemSoundManager.getRingtoneUri
      */
     getSystemRingtoneUri(context: Context, type: RingtoneType): Promise<string>;
 
@@ -824,7 +859,7 @@ declare namespace systemSoundManager {
      * 获取系统铃声uri。使用Promise异步回调。
      *
      * @param { BaseContext } context - 当前应用的上下文。
-     * @param { RingtoneType } type - 被设置的系统铃声的类型。
+     * @param { RingtoneType } type - 待获取的系统铃声的类型。
      * @returns { Promise<string> } Promise对象，返回获取的系统铃声uri。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -890,11 +925,15 @@ declare namespace systemSoundManager {
 
     /**
      * 获取系统铃声播放器。使用callback异步回调。
+     * 
+     * > **说明：**
+     * > > 从 API version 10 开始支持，从 API version 11 开始废弃，建议使用
+     * > [getRingtonePlayer]{@link systemSoundManager.SystemSoundManager.getRingtonePlayer(context: BaseContext, type: RingtoneType)}
+     * > 替代。
      *
      * @param { Context } context - 当前应用的上下文。
      * @param { RingtoneType } type - 待获取播放器的系统铃声的类型。
-     * @param { AsyncCallback<RingtonePlayer> } callback - 回调函数。当获取系统铃声播放器成功，err为undefined
-     *     data为获取到的系统铃声播放器；否则为错误对象。
+     * @param { AsyncCallback<RingtonePlayer> } callback - 回调函数。当获取系统铃声播放器成功，err为undefined，data为获取到的系统铃声播放器；否则为错误对象。
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 10 dynamiconly
@@ -905,6 +944,11 @@ declare namespace systemSoundManager {
 
     /**
      * 获取系统铃声播放器。使用Promise异步回调。
+     * 
+     * > **说明：**
+     * > > 从 API version 10 开始支持，从 API version 11 开始废弃，建议使用
+     * > [getRingtonePlayer]{@link systemSoundManager.SystemSoundManager.getRingtonePlayer(context: BaseContext, type: RingtoneType)}
+     * > 替代。
      *
      * @param { Context } context - 当前应用的上下文。
      * @param { RingtoneType } type - 待获取播放器的系统铃声的类型。
@@ -934,11 +978,11 @@ declare namespace systemSoundManager {
     getRingtonePlayer(context: BaseContext, type: RingtoneType): Promise<RingtonePlayer>;
 
     /**
-     * Gets the ringtone player.
-     * @param { BaseContext } context - Current application context.
-     * @param { RingtoneType } type - Ringtone type to get.
-     * @returns { Promise<RingtonePlayer | null> } Promise used to return a ringtone player instance,
-     *     or null when an error happens.
+     * 获取系统铃声播放器。
+     * 
+     * @param { BaseContext } context - 当前应用的上下文。
+     * @param { RingtoneType } type - 待获取播放器的系统铃声的类型。
+     * @returns { Promise<RingtonePlayer | null> } Promise对象，或者在发生错误时返回 null。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -958,8 +1002,7 @@ declare namespace systemSoundManager {
      *
      * @param { BaseContext } context - 当前应用的上下文。
      * @param { RingtoneType } type - 待获取播放器的铃声类型。
-     * @param { string } ringtoneUri - 铃音文件的URI，需确保在系统文件中真实存在。
-     *     <br>如果为自定义铃声需使用
+     * @param { string } ringtoneUri - 铃音文件的URI，需确保在系统文件中真实存在。<br>如果为自定义铃声需使用
      *     [addCustomizedTone]{@link systemSoundManager.SystemSoundManager.addCustomizedTone(context: BaseContext, toneAttr: ToneAttrs, externalUri: string)}
      *     接口返回的ringtoneUri，确保铃音文件URI在铃音库中存在。
      * @returns { Promise<RingtonePlayer | null> } Promise对象，成功返回模拟触觉铃声播放器实例，发生错误时返回null。
@@ -1007,8 +1050,8 @@ declare namespace systemSoundManager {
      * 设置系统提示音uri。使用Promise异步回调。
      *
      * @param { BaseContext } context - 当前应用的上下文。
-     * @param { string } uri - 被设置的系统提示音的uri，资源支持可参考[media.AVPlayer]{@link @ohos.multimedia.media:media.AVPlayer}。
-     * @param { SystemToneType } type - 被设置的系统提示音的类型。
+     * @param { string } uri - 被设置的系统提示音的uri，资源支持可参考[media.AVPlayer]{@link @ohos.multimedia.media:media}。
+     * @param { SystemToneType } type - 待获取的系统提示音的类型。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1093,11 +1136,11 @@ declare namespace systemSoundManager {
     getSystemTonePlayer(context: BaseContext, type: SystemToneType): Promise<SystemTonePlayer>;
 
     /**
-     * Gets the system tone player.
-     * @param { BaseContext } context - Current application context.
-     * @param { SystemToneType } type - System tone type to get.
-     * @returns { Promise<SystemTonePlayer | null> } Promise used to return the SystemTonePlayer, or
-     *     null when an error happens.
+     * 获取系统提示音播放器。使用Promise异步回调。
+     * 
+     * @param { BaseContext } context - 当前应用的上下文。
+     * @param { SystemToneType } type - 待获取播放器的系统提示音的类型。
+     * @returns { Promise<SystemTonePlayer | null> } Promise对象，或者在发生错误时返回 null。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
@@ -1195,11 +1238,11 @@ declare namespace systemSoundManager {
     openAlarmTone(context: BaseContext, uri: string): Promise<int>;
 
     /**
-     * 获取系统铃声的属性列表。使用Promise异步回调。
+     * 批量打开铃声文件。使用Promise异步回调。
      *
      * @param { Array<string> } uriList - 要打开的uri列表，不能超过1024个。
-     * @returns { Promise<Array<[string, long, SystemSoundError]>> } Promise对象，Promise用于返回此操作的结果，返回Array内第一个参数uri，第二个参数
-     *     fd，第三个参数为此uri打开的结果。
+     * @returns { Promise<Array<[string, long, SystemSoundError]>> } Promise对象，Promise用于返回此操作的结果，返回Array内第一个参数uri，第二个参数fd，第三个参数
+     *     为此uri打开的结果。
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 20700007 - Parameter is invalid, e.g. the length of uriList is too long.
      * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -1261,7 +1304,7 @@ declare namespace systemSoundManager {
      * @permission ohos.permission.WRITE_RINGTONE
      * @param { BaseContext } context - 当前应用的上下文。
      * @param { ToneAttrs } toneAttr - 铃音属性。
-     * @param { int } fd - 文件描述符，可通过[fileIo.open]{@link @ohos.file.fs:open}获取。
+     * @param { int } fd - 文件描述符，可通过[fileIo.open](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#fileioopen)获取。
      * @param { long } [offset] - 读取数据的偏移量（以字节为单位）。默认情况下为0。
      * @param { long } [length] - 读取的数据的长度（以字节为单位）。默认情况下，长度为偏移后的剩余全部字节数。
      * @returns { Promise<string> } Promise对象，返回铃音在铃音库中的uri。
@@ -1316,8 +1359,7 @@ declare namespace systemSoundManager {
      *
      * @permission ohos.permission.WRITE_RINGTONE
      * @param { Array<string> } uriList - 要删除的uri列表，不能超过1024个。
-     * @returns { Promise<Array<[string, SystemSoundError]>> } Promise对象，Promise用于返回此操作的结果，返回Array内第一个参数uri，第二个参数为此uri删除
-     *     结果。
+     * @returns { Promise<Array<[string, SystemSoundError]>> } Promise对象，Promise用于返回此操作的结果，返回Array内第一个参数uri，第二个参数为此uri删除结果。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 20700007 - Parameter is invalid, e.g. the length of uriList is too long.
@@ -1444,7 +1486,6 @@ declare namespace systemSoundManager {
   /**
    * 系统铃音播放器对象。
    *
-   * @typedef { _RingtonePlayer } RingtonePlayer
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -1455,7 +1496,6 @@ declare namespace systemSoundManager {
   /**
    * 系统提示音播放器对象。
    *
-   * @typedef { _SystemTonePlayer } SystemTonePlayer
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11 dynamic
@@ -1466,7 +1506,6 @@ declare namespace systemSoundManager {
   /**
    * 系统铃音播放器配置项。
    *
-   * @typedef { _RingtoneOptions } RingtoneOptions
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -1477,18 +1516,16 @@ declare namespace systemSoundManager {
   /**
    * 系统提示音播放器配置项。
    *
-   * @typedef { _SystemToneOptions } SystemToneOptions
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 11 dynamic
    * @since 23 static
    */
   type SystemToneOptions = _SystemToneOptions;
-
+ 
   /**
    * 系统音效播放器对象。
    *
-   * @typedef { _SystemSoundPlayer } SystemSoundPlayer
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @since 23 dynamic&static
    */
@@ -1497,23 +1534,12 @@ declare namespace systemSoundManager {
   /**
    * 枚举，系统铃音的振动类型。
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 14 dynamic
    * @since 23 static
    */
   enum ToneHapticsType {
-
-    /**
-     * sim卡2的短信提示音的振动。
-     *
-     * @syscap SystemCapability.Multimedia.SystemSound.Core
-     * @systemapi
-     * @since 14 dynamic
-     * @since 23 static
-     */
-    TEXT_MESSAGE_SIM_CARD_1 = 21,
 
     /**
      * sim卡1的来电铃声的振动。
@@ -1546,20 +1572,69 @@ declare namespace systemSoundManager {
     CALL_SIM_CARD_1 = 1,
 
     /**
-     * sim卡1的短信提示音的振动。
+     * ESIM卡1的来电铃声的振动。。
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CALL_ESIM_CARD_0 = 2,
+
+    /**
+     * ESIM卡2的来电铃声的振动。
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CALL_ESIM_CARD_1 = 3,
+
+    /**
+     * SIM卡1的短信提示音的振动。
      *
      * @syscap SystemCapability.Multimedia.SystemSound.Core
      * @systemapi
      * @since 14 dynamic
      * @since 23 static
      */
-    TEXT_MESSAGE_SIM_CARD_0 = 20
+    TEXT_MESSAGE_SIM_CARD_0 = 20,
+
+    /**
+     * SIM卡2的短信提示音的振动。
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @since 14 dynamic
+     * @since 23 static
+     */
+    TEXT_MESSAGE_SIM_CARD_1 = 21,
+
+    /**
+     * ESIM卡1的短信提示音的振动。
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TEXT_MESSAGE_ESIM_CARD_0 = 22,
+
+    /**
+     * ESIM卡2的短信提示音的振动。
+     *
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    TEXT_MESSAGE_ESIM_CARD_1 = 23
   }
 
   /**
    * 枚举，表示系统音效类型。
    *
-   * @enum { int }
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @stagemodelonly
    * @since 23 dynamic&static

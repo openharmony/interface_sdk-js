@@ -14,6 +14,14 @@
  */
 
 /**
+ * 铃声播放器提供了系统铃声的播放、配置、获取信息等功能。
+ * ringtonePlayer需要和[@ohos.multimedia.systemSoundManager]{@link @ohos.multimedia.systemSoundManager:systemSoundManager}配
+ * 合使用，才能完成管理系统铃声的功能。
+ * 
+ * > **说明：**
+ * 
+ * > - 本模块接口为系统接口。
+ *
  * @file 铃声播放器
  * @kit AudioKit
  */
@@ -25,7 +33,6 @@ import type media from '../@ohos.multimedia.media';
 /**
  * 铃声参数选项。
  *
- * @typedef RingtoneOptions
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
  * @since 10 dynamic
@@ -59,7 +66,6 @@ export interface RingtoneOptions {
  * [getRingtonePlayer]{@link @ohos.multimedia.systemSoundManager:systemSoundManager.SystemSoundManager.getRingtonePlayer(context: BaseContext, type: RingtoneType)}
  * 创建实例。
  *
- * @typedef RingtonePlayer
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
  * @since 10 dynamic
@@ -80,8 +86,7 @@ export interface RingtonePlayer {
   /**
    * 获取铃声标题。使用callback异步回调。
    *
-   * @param { AsyncCallback<string> } callback - 回调函数。当获取铃声标题成功，err为undefined，data为获取到的铃声标题；
-   *     否则为错误对象。
+   * @param { AsyncCallback<string> } callback - 回调函数。当获取铃声标题成功，err为undefined，data为获取到的铃声标题；否则为错误对象。
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -102,8 +107,7 @@ export interface RingtonePlayer {
   /**
    * 获取铃声使用的AudioRendererInfo。使用callback异步回调。
    *
-   * @param { AsyncCallback<audio.AudioRendererInfo> } callback - 回调函数。当获取音频渲染器信息成功，err为
-   *     undefined data为获取到的音频渲染器信息；否则为错误对象。
+   * @param { AsyncCallback<audio.AudioRendererInfo> } callback - 回调函数。当获取音频渲染器信息成功，err为undefined，data为获取到的音频渲染器信息；否则为错误对象。
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -224,7 +228,8 @@ export interface RingtonePlayer {
 
   /**
    * 监听音频中断事件（当音频焦点发生变化时触发）。使用callback异步回调。
-   * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for interrupt callback.
+   *
+   * @param { Callback<audio.InterruptEvent> } callback - 回调函数，返回中断事件信息。
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 6800101 - Parameter verification failed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
@@ -249,6 +254,7 @@ export interface RingtonePlayer {
 
   /**
    * 取消监听音频中断事件。
+   *
    * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
