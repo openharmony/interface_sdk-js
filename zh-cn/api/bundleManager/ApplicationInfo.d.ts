@@ -427,6 +427,16 @@ export interface ApplicationInfo {
    * @since 23 static
    */
   readonly flags?: int;
+
+  /**
+   * 标识应用的保留标志。
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  readonly applicationReservedFlag?: bundleManager.ApplicationReservedFlag;
 }
 
 /**
