@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,10 +19,11 @@
  */
 
 /**
- * 本模块为系统应用提供第三方字体的安装、卸载以及字体数据迁移能力。具体为：
- * - 安装指定路径的字体文件（支持.ttf、.ttc格式）。
- * - 根据字体名称卸载已安装的字体。
- * - 在设备升级期间启动字体数据迁移任务，并提供迁移进度和结果回调。
+ * 本模块为应用提供第三方字体的安装、卸载、查询以及字体服状态监听能力。具体为：
+ * <br>- 安装应用级或会话级字体文件，支持`.ttf`、`.ttc`、`.otf` 格式。
+ * <br>- 根据字体路径卸载已安装的字体。
+ * <br>- 查询已安装字体的作用范围。
+ * <br>- 注册字体服务状态变化监听器，当字体服务异常退出时通知应用。
  *
  * @syscap SystemCapability.Global.FontManager
  * @systemapi
@@ -32,10 +33,13 @@
 declare namespace fontManager {
   /**
    * 将指定路径下的字体文件安装到系统字体库中。使用Promise异步回调。
-   * 安装成功后，应用可以通过字体名称使用该字体。
+   * 
+   * > **说明：**
+   * > - 安装成功后，应用可以通过字体名称使用该字体。同一字体路径不可重复安装。
+   * > - 支持安装的字体文件个数最大数量为200。从26.0.1版本开始，PC/2in1支持安装的字体文件最大数量为800。
    *
    * @permission ohos.permission.UPDATE_FONT
-   * @param { string } path - 待安装的字体文件路径，仅支持.ttf和.ttc格式的字体文件。
+   * @param { string } path - 待安装的字体文件路径，仅支持.ttf、.ttc和.otf格式的字体文件。
    * @returns { Promise<int> } Promise对象，返回安装结果。
    *     <br>- 返回0：安装成功，字体已添加到系统字体库。
    *     <br>- 返回其他值：安装失败，请根据错误码排查原因。
@@ -58,7 +62,7 @@ declare namespace fontManager {
    * 根据字体名称从系统字体库中卸载已安装的字体文件。使用Promise异步回调。
    *
    * @permission ohos.permission.UPDATE_FONT
-   * @param { string } fullName - 需要卸载的字体名称，可通过打开.ttf或.ttc字体文件获取。
+   * @param { string } fullName - 需要卸载的字体名称，可通过打开.ttf、.ttc和.otf字体文件获取。
    *     <br>字体名称区分大小写，请确保与实际字体名称完全一致。
    * @returns { Promise<int> } Promise对象，返回卸载结果。
    *     <br>- 返回0：卸载成功，字体已从系统字体库中移除。
@@ -169,5 +173,145 @@ declare namespace fontManager {
      */
     onResult(result : int): void;
   }
+
+  /**
+   * 表示字体作用范围的枚举。
+   *
+   * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  enum FontScope {  
+    /**
+     * 应用级字体。字体的生命周期跟随应用的生命周期，应用退出或字体服务异常退出时，安装的字体文件会被自动清理\卸载。
+     * 需先调用[onFontObserver]{@link onfontobserver}注册监听后才能安装。
+     *
+     * @syscap SystemCapability.Global.FontManager
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    APP = 0,
+
+    /**
+     * 会话级字体。字体的生命周期不跟随应用的生命周期，设备重启或当前用户退出（多用户场景下）时，安装的字体文件会被自动清理\卸载。
+     *
+     * @syscap SystemCapability.Global.FontManager
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    SESSION = 1
+  }
+
+  /**
+   * 字体服务状态变化监听器。
+   *
+   * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  interface FontClientObserver {  
+    /**
+     * 字体服务异常退出时的回调函数，应用可在此回调函数中执行资源清理或重新注册等操作。
+     *
+     * @syscap SystemCapability.Global.FontManager
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    onServiceDied(): void;
+  }
+
+  /**
+   * 安装指定路径下的字体文件为应用级或会话级字体。使用Promise异步回调。
+   *
+   * > **说明：**
+   * > - 当安装应用级字体时，需先调用[onFontObserver]{@link onFontObserver}接口注册字体服务状态变化监听器。
+   * > - 安装成功后，应用可以通过字体名称使用该字体。同一字体路径不可重复安装。
+   * > - PC/2in1支持安装的字体文件最大数量为800，其他设备支持安装的字体文件个数最大数量为200。
+   * 
+   * @permission ohos.permission.UPDATE_SCOPE_FONT
+   * @param { string } url - 待安装的字体文件路径，仅支持.ttf、.ttc和.otf格式的字体文件。
+   * @param { FontScope } scope - 字体作用范围。
+   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 31100101 - The font does not exist.
+   * @throws { BusinessError } 31100102 - The font is not supported.
+   * @throws { BusinessError } 31100103 - Failed to copy the font file.
+   * @throws { BusinessError } 31100104 - The font file is installed.
+   * @throws { BusinessError } 31100105 - Exceeded the maximum number of installed files.
+   * @throws { BusinessError } 31100110 - Call failed due to system error.
+   * @throws { BusinessError } 31100115 - The font observer is not registered.
+   * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  function installScopeFont(url: string, scope: FontScope): Promise<void>;
+
+  /**
+   * 根据字体路径卸载已安装的应用级或会话级字体。使用Promise异步回调。
+   *
+   * @permission ohos.permission.UPDATE_SCOPE_FONT
+   * @param { string } url - 需要卸载的字体路径。
+   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 31100108 - Failed to delete the font file.
+   * @throws { BusinessError } 31100110 - Call failed due to system error.
+   * @throws { BusinessError } 31100112 - The scope font is not found.
+   * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  function uninstallScopeFont(url: string): Promise<void>;
+
+  /**
+   * 查询指定路径字体的作用范围。使用Promise异步回调。
+   *
+   * @permission ohos.permission.UPDATE_SCOPE_FONT
+   * @param { string } url - 需要查询的字体路径。
+   * @returns { Promise<FontScope> } Promise对象，返回字体的作用范围。
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 31100110 - Call failed due to system error.
+   * @throws { BusinessError } 31100112 - The scope font is not found.
+   * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  function getFontScope(url: string): Promise<FontScope>;
+
+  /**
+   * 注册字体服务状态变化监听器。
+   *
+   * > **说明：**
+   * > - 每个应用仅可注册一个字体服务状态变化监听器，重复注册会报错。
+   * > - 同一用户最多允许5个应用同时注册，否则会报错。
+   * 
+   * @permission ohos.permission.UPDATE_SCOPE_FONT
+   * @param { FontClientObserver } observer - 字体服务状态变化监听器。
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 31100110 - Call failed due to system error.
+   * @throws { BusinessError } 31100113 - The font observer is already registered.
+   * @throws { BusinessError } 31100114 - The maximum number of font observers has been reached.
+   * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  function onFontObserver(observer: FontClientObserver): void;
+
+  /**
+   * 注销字体服务状态变化监听器。
+   *
+   * @permission ohos.permission.UPDATE_SCOPE_FONT
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 31100110 - Call failed due to system error.
+   * @throws { BusinessError } 31100115 - The font observer is not registered.
+   * @syscap SystemCapability.Global.FontManager
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  function offFontObserver(): void;
 }
 export default fontManager;

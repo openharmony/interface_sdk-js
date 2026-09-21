@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,12 +19,12 @@
  */
 
 /**
- * This module provides system applications with the capabilities to install and uninstall third-party fonts and 
- * migrate font data. Specifically:
- * <br>- Installing font files from a specified path (.ttf and .ttc formats are supported).
- * <br>- Uninstalling installed fonts by font name.
- * <br>- Starting a font data migration task during device upgrades, and providing callbacks for migration progress and 
- * results.
+ * This module provides the application with the capabilities to install, uninstall, query third-party fonts,
+ * and monitor the status of font services. Specifically, it includes:
+ * <br>- Installing application-level or session-level font files, supporting formats such as `.ttf`, `.ttc`, and `.otf`.
+ * <br>- Uninstalling installed fonts based on the font path.
+ * <br>- Querying the scope of application for installed fonts.
+ * <br>- Registering a font service status listener to notify the application when the font service abnormally exits.
  *
  * @syscap SystemCapability.Global.FontManager
  * @systemapi [since 19 - 26.0.0]
@@ -36,10 +36,13 @@ declare namespace fontManager {
   /**
    * Installs a font file from a specified path into the system font library. This API uses a promise to return the 
    * result. 
-   * After successful installation, applications can use the font by its font name.
+   * 
+   * > **NOTE**
+   * > - After successful installation, applications can use the font by its font name. The same font path cannot be installed repeatedly.
+   * > - A maximum of 200 font files can be installed. In version 26.0.1 and later, a maximum of 800 font files can be installed on PCs and 2-in-1 devices.
    *
    * @permission ohos.permission.UPDATE_FONT
-   * @param { string } path - Path to the font file to be installed. Only .ttf and .ttc font files are supported.
+   * @param { string } path - Path to the font file to be installed. Only font files in.ttf,.ttc, or.otf format are supported.
    * @returns { Promise<int> } Promise used to return the installation result.
    *     <br>- The value **0** indicates that the installation is successful and the font has been added to the system 
    *     font library.
@@ -64,7 +67,7 @@ declare namespace fontManager {
    * result.
    *
    * @permission ohos.permission.UPDATE_FONT
-   * @param { string } fullName - Name of the font to be uninstalled. You can open the .ttf or .ttc font file to obtain 
+   * @param { string } fullName - Name of the font to be uninstalled. You can open the .ttf, .ttc or .otf font file to obtain 
    *     the name.
    *     <br>The font name is case-sensitive. Ensure that it exactly matches the actual font name.
    * @returns { Promise<int> } Promise used to return the uninstallation result.
@@ -193,7 +196,7 @@ declare namespace fontManager {
   }
 
   /**
-   * Enumerates the font scopes.
+   * An enumeration representing the scope of font application.
    *
    * @syscap SystemCapability.Global.FontManager
    * @stagemodelonly
@@ -201,9 +204,10 @@ declare namespace fontManager {
    */
   enum FontScope {  
     /**
-     * Application-level font. The font is cleared when the application exits, the font service exits,
-     * the account is stopping, or the device restarts.
-     *
+     * Application-level font. The lifecycle of the font follows that of the application. When the application exits or
+     * the font service abnormally terminates, the installed font files will be automatically cleaned up or uninstalled. 
+     * You must first call [onFontObserver]{@link onFontObserver} to register a listener before installing the font.
+     * 
      * @syscap SystemCapability.Global.FontManager
      * @stagemodelonly
      * @since 26.0.1 dynamic&static
@@ -211,8 +215,9 @@ declare namespace fontManager {
     APP = 0,
 
     /**
-     * Session-level font. The font is cleared when the account is stopping or the device restarts.
-     *
+     * Session-level font. The lifecycle of a font is not bound to that of the application. When the device is restarted
+     * or the current user logs out (in multi-user scenarios), the installed font file will be automatically deleted or uninstalled.
+     * 
      * @syscap SystemCapability.Global.FontManager
      * @stagemodelonly
      * @since 26.0.1 dynamic&static
@@ -221,8 +226,7 @@ declare namespace fontManager {
   }
 
   /**
-   * Observer for font service death events. When the font service dies unexpectedly, the
-   * {@link FontClientObserver.onServiceDied} callback is invoked.
+   * Font service status listener. 
    *
    * @syscap SystemCapability.Global.FontManager
    * @stagemodelonly
@@ -230,7 +234,8 @@ declare namespace fontManager {
    */
   interface FontClientObserver {  
     /**
-     * Called when the font service is died.
+     * Callback function called when the font service exits abnormally.
+     * Your app can perform operations such as resource cleanup or re-registration in this callback function.
      *
      * @syscap SystemCapability.Global.FontManager
      * @stagemodelonly
@@ -240,12 +245,18 @@ declare namespace fontManager {
   }
 
   /**
-   * Installs a scope font file from a specified path into the system font library. This API uses a promise to return
+   * Install the font file in the specified path as an application-level or session-level font. This API uses a promise to return
    * the result.
    *
+   * > **NOTE**
+   * > - When installing an application-level font, you need to call the [onFontObserver]{@link onFontObserver} API to
+   *     register a listener for font service status changes.
+   * > - After the font is installed, the application can use the font by name. The same font path cannot be installed repeatedly.
+   * > - The maximum number of font files that can be installed on the PC/2in1 is 800, while other devices support a maximum of 200 font files.
+   * 
    * @permission ohos.permission.UPDATE_SCOPE_FONT
-   * @param { string } url - Path to the font file to be installed. Only .ttf and .ttc font files are supported.
-   * @param { FontScope } scope - Font scope. The value must be an enumerated value of {@link FontScope}.
+   * @param { string } url - Path to the font file to be installed. Only .ttf, .ttc or .otf font files are supported.
+   * @param { FontScope } scope - Font scope.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -263,7 +274,7 @@ declare namespace fontManager {
   function installScopeFont(url: string, scope: FontScope): Promise<void>;
 
   /**
-   * Uninstalls a scope font file from the system font library by URL. This API uses a promise to return the result.
+   * Uninstall installed application-level or session-level fonts based on the font path. This API uses a promise to return the result.
    *
    * @permission ohos.permission.UPDATE_SCOPE_FONT
    * @param { string } url - URL of the font to be uninstalled.
@@ -285,7 +296,6 @@ declare namespace fontManager {
    * @permission ohos.permission.UPDATE_SCOPE_FONT
    * @param { string } url - URL of the font to query.
    * @returns { Promise<FontScope> } Promise used to return the query result.
-   *     <br>- The {@link FontScope} value is returned.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 31100110 - Call failed due to system error.
@@ -297,11 +307,14 @@ declare namespace fontManager {
   function getFontScope(url: string): Promise<FontScope>;
 
   /**
-   * Registers a font service death observer. When the font service dies unexpectedly,
-   * the {@link FontClientObserver.onServiceDied} callback is invoked.
+   * Registers a listener for monitoring the font service status. 
    *
+   * > **NOTE**
+   * > - Each application can register only one font service status change listener. Repeated registration will result in an error. 
+   * > - A maximum of five applications per user can be registered simultaneously; otherwise, an error will occur.
+   * 
    * @permission ohos.permission.UPDATE_SCOPE_FONT
-   * @param { FontClientObserver } observer - Font service death observer.
+   * @param { FontClientObserver } observer - Listener for the font service status.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 31100110 - Call failed due to system error.
@@ -314,7 +327,7 @@ declare namespace fontManager {
   function onFontObserver(observer: FontClientObserver): void;
 
   /**
-   * Unregisters the font service death observer.
+   * Unregisters the font service status listener.
    *
    * @permission ohos.permission.UPDATE_SCOPE_FONT
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
