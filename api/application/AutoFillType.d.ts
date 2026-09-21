@@ -31,7 +31,7 @@
  */
 export enum AutoFillType {
   /**
-   * Undefined type.
+   * Unspecified type.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi [since 11 - 24]
@@ -44,7 +44,7 @@ export enum AutoFillType {
   UNSPECIFIED = 0,
 
   /**
-   * Password.
+   * Password type.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi [since 11 - 24]
@@ -57,7 +57,7 @@ export enum AutoFillType {
   PASSWORD = 1,
 
   /**
-   * Username.
+   * Username type.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi [since 11 - 24]
@@ -70,7 +70,7 @@ export enum AutoFillType {
   USER_NAME = 2,
 
   /**
-   * New password.
+   * New password type.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi [since 11 - 24]

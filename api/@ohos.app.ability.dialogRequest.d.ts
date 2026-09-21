@@ -39,7 +39,7 @@ import Want from './@ohos.app.ability.Want';
  */
 declare namespace dialogRequest {
   /**
-   * Defines the location attributes of a modal dialog box.
+   * Indicates the attributes of a modal dialog box.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -88,7 +88,8 @@ declare namespace dialogRequest {
     height: int;
   }
   /**
-   * Defines the request information, which is used as an input parameter for binding the modal dialog box.
+   * Indicates the request information of the initiator, which is used as an input parameter for the window to bind a
+   * modal dialog box.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 9 dynamic
@@ -96,7 +97,7 @@ declare namespace dialogRequest {
    */
   export interface RequestInfo {
     /**
-     * Location attributes of a modal dialog box.
+     * Indicates the location attributes of a modal dialog box.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -115,7 +116,7 @@ declare namespace dialogRequest {
    */
   export enum ResultCode {
     /**
-     * The request succeeds.
+     * Indicates success.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9 dynamic
@@ -124,7 +125,7 @@ declare namespace dialogRequest {
     RESULT_OK = 0,
 
     /**
-     * The request fails.
+     * Indicates failure.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @since 9 dynamic

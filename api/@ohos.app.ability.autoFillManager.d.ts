@@ -49,7 +49,8 @@ import { AutoFillTriggerType as _AutoFillTriggerType } from './application/AutoF
 import { FillFailureResult as _FillFailureResult } from './application/AutoFillRequest';
 
 /**
- * The autoFillManager module provides APIs for saving accounts and passwords.
+ * The autoFillManager module provides applications with the auto-fill capability for user information such as
+ * accounts, passwords, addresses, and phone numbers.
  *
  * Unlike the system's auto-save feature that triggers during page transitions, this feature requires manual activation
  * by the user. For example, the user must input their account and password on a website and click the **Save** button
@@ -85,7 +86,7 @@ declare namespace autoFillManager {
   /**
    * Called when auto fill request is successfully handled.
    *
-   * @param { ViewData } viewData - Indicates the ui context where the filling operation will be performed.
+   * @param { ViewData } viewData - View data information for AutoFill.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice
@@ -96,7 +97,7 @@ declare namespace autoFillManager {
   /**
    * Called when auto fill request is failed to be handled.
    *
-   * @param { FillFailureResult } result - Indicates the ui context where the filling operation will be performed.
+   * @param { FillFailureResult } result - AutoFill failure result.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
    * @atomicservice

@@ -33,7 +33,7 @@ import { CliToolEvent } from './CliToolEvent';
 type OnEventFn = (event: CliToolEvent) => void;
 
 /**
- * This interface is used to receive cli event when the cli tool process is running.
+ * ToolEventCallback is used to receive session events generated during the running of the CLI tool process.
  *
  * @interface ToolEventCallback
  * @syscap SystemCapability.Ability.AgentRuntime.Core
@@ -43,7 +43,13 @@ type OnEventFn = (event: CliToolEvent) => void;
  */
 export interface ToolEventCallback {
   /**
-   * Callback when a CLI event is triggered.
+   * Callback invoked when a CLI tool event is triggered.
+   *
+   * The {@link CliToolEvent} parameter contains the event type
+   * ({@link ToolEventType}) and the associated data. The caller can inspect
+   * the event type to determine how to handle the data — for example,
+   * displaying stdout output to the user, logging stderr for diagnostics,
+   * or checking the exit code when an exit event is received.
    *
    * @typedef { OnEventFn }
    * @syscap SystemCapability.Ability.AgentRuntime.Core

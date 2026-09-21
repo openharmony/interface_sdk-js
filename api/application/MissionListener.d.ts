@@ -53,9 +53,9 @@ export interface MissionListener {
   onMissionDestroyed(mission: int): void;
 
   /**
-   * Called when the system updates the snapshot of a mission.
+   * This callback is triggered when the system updates the task thumbnail of a mission.
    *
-   * @param { int } mission - Mission ID.
+   * @param { int } mission - Indicates the mission ID.
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
    * @since 8 dynamic

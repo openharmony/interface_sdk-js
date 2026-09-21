@@ -47,7 +47,7 @@ declare class StartOptions {
   windowMode?: int;
 
   /**
-   * 分屏比首选项的类型。
+   * 启动UIAbility时的窗口分配比例。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -80,12 +80,15 @@ declare class StartOptions {
 
   /**
    * 启动UIAbility时是否具有动画效果。
-   * 
-   * 传入true时，跟随系统默认动画效果。传入false时，表示关闭启动UIAbility动画效果，仅在[自由窗口状态](docroot://windowmanager/window-terminology.md#自由窗口)的情况下
-   * 生效。
-   * 
+   *
+   * 传入true时，跟随系统默认动画效果。传入false时，表示关闭启动UIAbility动画效果。
+   *
+   * **约束：**
+   *
+   * 该功能仅在[自由窗口状态](docroot://windowmanager/window-terminology.md#自由窗口)下生效，且调用方和目标方必须是同一应用。
+   *
    * 此参数不填时，默认为undefined，跟随系统默认动画效果。
-   * 
+   *
    * 从<!--RP2-->OpenHarmony 6.1<!--RP2End-->开始支持。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -159,7 +162,7 @@ declare class StartOptions {
   windowHeight?: int;
 
   /**
-   * 窗口是否获焦。默认是true，表示窗口获焦。
+   * 窗口是否获焦。默认是true，表示窗口获焦；false表示窗口不获焦。
    * 
    * **约束：**
    * 
