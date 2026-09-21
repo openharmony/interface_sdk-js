@@ -1517,7 +1517,6 @@ export declare interface TabsAttribute extends CommonMethod {
    * Sets the selected color of the tab icon in sidebar mode.
    *
    * @param { ResourceColor | undefined } value - Selected color of the tab icon in sidebar mode.
-   *     <br>Default value: **#ff182431**.
    * @returns { TabsAttribute } - the attribute of the tabs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1529,7 +1528,6 @@ export declare interface TabsAttribute extends CommonMethod {
    * Sets the selected color of the tab text in sidebar mode.
    *
    * @param { ResourceColor | undefined } value - Selected color of the tab text in sidebar mode.
-   *     <br>Default value: **#ff182431**.
    * @returns { TabsAttribute } - the attribute of the tabs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1541,7 +1539,6 @@ export declare interface TabsAttribute extends CommonMethod {
    * Sets the unselected color of the tab icon in sidebar mode.
    *
    * @param { ResourceColor | undefined } value - Unselected color of the tab icon in sidebar mode.
-   *     <br>Default value: **#99182431**.
    * @returns { TabsAttribute } - the attribute of the tabs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1553,7 +1550,6 @@ export declare interface TabsAttribute extends CommonMethod {
    * Sets the unselected color of the tab text in sidebar mode.
    *
    * @param { ResourceColor | undefined } value - Unselected color of the tab text in sidebar mode.
-   *     <br>Default value: **#99182431**.
    * @returns { TabsAttribute } - the attribute of the tabs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1565,13 +1561,114 @@ export declare interface TabsAttribute extends CommonMethod {
    * Sets the selected color of the tab board in sidebar mode.
    *
    * @param { ResourceColor | undefined } value - Selected color of the tab board in sidebar mode.
-   *     <br>Default value: **#19007DFF**.
    * @returns { TabsAttribute } - the attribute of the tabs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.2.0 static
    */
   default sidebarSelectedBoardColor(value: ResourceColor | undefined): TabsAttribute;
+
+  /**
+   * Sets the width of the sidebar tab bar.
+   * This attribute takes effect only when the tab bar is displayed as a sidebar.
+   *
+   * @param { Length | undefined } value - Width of the sidebar tab bar.
+   *     <br>Default value: **240vp**.
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  default sidebarWidth(value: Length | undefined): this;
+
+  /**
+   * Sets the minimum width of the sidebar tab bar.
+   * This attribute takes effect only when the tab bar is displayed as a sidebar.
+   *
+   * @param { Length | undefined } value - Minimum width of the sidebar tab bar. The width of the sidebar tab bar does
+   *     not become smaller than this value.
+   *     <br>If this attribute is not set or is set to **undefined**, no minimum width is imposed on the sidebar tab
+   *     bar, which means the sidebar tab bar can be compressed to **0vp**.
+   *     <br>The set value is expected to be less than or equal to that of
+   *     [maxSidebarWidth]{@link TabsAttribute#maxSidebarWidth}.
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  default minSidebarWidth(value: Length | undefined): this;
+
+  /**
+   * Sets the maximum width of the sidebar tab bar.
+   * This attribute takes effect only when the tab bar is displayed as a sidebar.
+   *
+   * @param { Length | undefined } value - Maximum width of the sidebar tab bar. The width of the sidebar tab bar does
+   *     not exceed this value.
+   *     <br>If this attribute is not set or is set to **undefined**, no maximum width is imposed on the sidebar tab
+   *     bar, which means the sidebar tab bar can be as wide as the **Tabs** component.
+   *     <br>The set value is expected to be greater than or equal to that of
+   *     [minSidebarWidth]{@link TabsAttribute#minSidebarWidth}.
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  default maxSidebarWidth(value: Length | undefined): this;
+
+  /**
+   * Sets the minimum width of the content area of the **Tabs** component.
+   * This attribute takes effect only when the tab bar is displayed as a sidebar.
+   *
+   * @param { Length | undefined } value - Minimum width of the content area. The width of the content area does not
+   *     become smaller than this value; if the remaining space is insufficient, the content area is clipped.
+   *     <br>If this attribute is not set or is set to **undefined**, no minimum width is imposed on the content area,
+   *     which means the content area can be compressed to **0vp**.
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  default minContentWidth(value: Length | undefined): this;
+
+  /**
+   * Sets the background color of the sidebar tab bar.
+   * This attribute takes effect only when the tab bar is displayed as a sidebar.
+   *
+   * @param { ResourceColor | undefined } value - Background color of the sidebar tab bar.
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  default sidebarBackgroundColor(value: ResourceColor | undefined): this;
+
+  /**
+   * Sets the background blur style of the sidebar tab bar.
+   * This attribute takes effect only when the tab bar is displayed as a sidebar.
+   *
+   * @param { BlurStyle | undefined } value - Background blur style of the sidebar tab bar.
+   *     <br>Default value: **BlurStyle.NONE**.
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  default sidebarBackgroundBlurStyle(value: BlurStyle | undefined): this;
+
+  /**
+   * Sets the divider between the sidebar tab bar and the content area.
+   * This attribute takes effect only when the tab bar is displayed as a sidebar.
+   *
+   * @param { DividerStyle | undefined } value - Divider style between the sidebar tab bar and the content area.
+   *     The divider is displayed vertically, where **strokeWidth** is its width, and **startMargin** and
+   *     **endMargin** are the distances from the top and bottom of the sidebar, respectively.
+   *     <br>**DividerStyle**: divider style.<br>**undefined**: no divider is displayed (default).
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  default sidebarDivider(value: DividerStyle | undefined): this;
 
   /**
    * Sets the display style of the sidebar for the **Tab** component.
