@@ -492,7 +492,7 @@ export function readSystemModules(projectConfig: ProjectConfig): void {
   monitor.start(PERF.READ_MODULE);
 
   const openharmonyExternalPaths = (projectConfig.externalApiPaths || [])
-    .filter((item: string) => /openharmony[\\\/]ets[\\\/]static/.test(item));
+    .filter((item: string) => path.resolve(item).includes(path.resolve(projectConfig.buildSdkPath)));
   const apiDirPath: string = openharmonyExternalPaths.find((item: string) => path.basename(item) === 'api') || '';
   const arktsDirPath: string = openharmonyExternalPaths.find((item: string) => path.basename(item) === 'arkts') || '';
   const kitsDirPath: string = openharmonyExternalPaths.find((item: string) => path.basename(item) === 'kits') || '';
