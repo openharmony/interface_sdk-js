@@ -19,7 +19,7 @@
  */
 
 /**
- * Defines the AI image analysis type. If it is not set, subject recognition and text recognition are enabled by
+ * Defines the image AI analysis type. If it is not set, subject recognition and text recognition are enabled by
  * default.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -60,8 +60,8 @@ declare enum ImageAnalyzerType {
 }
 
 /**
- * Implements an AI image analysis controller, which provides control for image analysis features when bound to
- * supported components.
+ * Defines the image AI analysis controller. You can bind this object to a supported component and call the methods it
+ * provides through the controller.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -80,9 +80,11 @@ declare class ImageAnalyzerController {
   constructor();
 
   /**
-   * Obtains the analysis types supported by the corresponding component.
+   * Obtains the image AI analysis types supported by the component to which this controller is bound. Before calling
+   * this method, bind the controller to a component through the **aiController** attribute of components such as
+   * **Image** and **ImageAnimator**. Otherwise, an empty array is returned.
    *
-   * @returns { ImageAnalyzerType[] } Analysis type supported by the corresponding component.
+   * @returns { ImageAnalyzerType[] } AI analysis type supported by the corresponding component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -92,7 +94,7 @@ declare class ImageAnalyzerController {
 }
 
 /**
- * Provides AI image analyzer configuration.
+ * Provides image AI analyzer configuration.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -101,7 +103,7 @@ declare class ImageAnalyzerController {
  */
 declare interface ImageAnalyzerConfig {
   /**
-   * AI image analysis types.
+   * Image AI analysis type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -112,7 +114,7 @@ declare interface ImageAnalyzerConfig {
 }
 
 /**
- * Provides the AI image analysis options.
+ * Provides the image AI analysis options.
  *
  * > **NOTE**
  * >
@@ -131,7 +133,7 @@ declare interface ImageAnalyzerConfig {
  */
 declare interface ImageAIOptions {
   /**
-   * AI image analysis types.
+   * Image AI analysis type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -141,7 +143,7 @@ declare interface ImageAIOptions {
   types?: ImageAnalyzerType[];
 
   /**
-   * AI image analysis controller.
+   * Image AI analysis controller.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

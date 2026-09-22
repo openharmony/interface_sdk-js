@@ -30,7 +30,7 @@
 declare interface TimePickerResult {
   /**
    * 选中时间的时。
-   * 
+   *
    * 取值范围：[0-23]，与展示制式无关。
    *
    * @type { ?number } [since 8 - 10]
@@ -45,7 +45,7 @@ declare interface TimePickerResult {
 
   /**
    * 选中时间的分。
-   * 
+   *
    * 取值范围：[0-59]
    *
    * @type { ?number } [since 8 - 10]
@@ -60,7 +60,7 @@ declare interface TimePickerResult {
 
   /**
    * 选中时间的秒。
-   * 
+   *
    * 取值范围：[0-59]
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -107,9 +107,9 @@ declare enum TimePickerFormat {
 
 /**
  * 时间选择器组件的参数说明。
- * 
+ *
  * 在TimePicker组件滑动过程中修改TimePickerOptions中的属性，会导致这些属性无法生效。
- * 
+ *
  * > Date对象用于处理日期和时间，使用方式如下。
  * >
  * > - 方式1：new Date()
@@ -137,9 +137,9 @@ declare enum TimePickerFormat {
 declare interface TimePickerOptions {
   /**
    * 设置选中项的时间。
-   * 
+   *
    * 默认值：当前系统时间
-   * 
+   *
    * 从API version 10开始，该参数支持[$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -152,7 +152,7 @@ declare interface TimePickerOptions {
 
   /**
    * 指定需要显示的TimePicker的格式。
-   * 
+   *
    * 默认值：TimePickerFormat.HOUR_MINUTE
    *
    * @default HOUR_MINUTE
@@ -166,9 +166,9 @@ declare interface TimePickerOptions {
 
   /**
    * 指定时间选择组件的起始时间。
-   * 
+   *
    * 默认值：起始时间为00:00:00（小时=0，分钟=0）
-   * 
+   *
    * > **说明：**
    * >
    * > 1. 仅设置的小时和分钟生效。
@@ -184,9 +184,9 @@ declare interface TimePickerOptions {
 
   /**
    * 指定时间选择组件的结束时间。
-   * 
+   *
    * 默认值：结束时间为23:59:59（小时=23，分钟=59）
-   * 
+   *
    * > **说明：**
    * >
    * > 1. 仅设置的小时和分钟生效。
@@ -204,7 +204,7 @@ declare interface TimePickerOptions {
 /**
  * TimePicker是用于滑动选择时间的组件，支持12/24小时制、多种时间格式（小时/分钟/秒）、循环滚动、样式定制和时间范围限制等功能。适用于日程安排、
  * 时间预约、任务管理等需要用户选择时间的场景，能够提升用户体验，减少输入错误，并可快速集成到应用中。
- * 
+ *
  * > **说明：**
  * >
  * > - 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -228,7 +228,7 @@ interface TimePickerInterface {
    * @param { TimePickerOptions } options - 配置时间选择组件的参数。当需要自定义初始选中时间、时间格式、时间范围等配置时传入此参数，
    * 不传入时使用默认配置（初始选中时间为当前系统时间，时间格式默认为小时和分钟，时间范围默认为00:00-23:59（默认结束时间为23:59:59））。
    * @returns { TimePickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -280,7 +280,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    *     <br>- true：时间以24小时制展示。
    *     <br>- false：时间以12小时制展示。
    * @returns { TimePickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -298,7 +298,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    *     <br>- false：展示时间为12小时制。
    *     <br>当isMilitaryTime的值为undefined时，跟随系统设置。
    * @returns { TimePickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -326,7 +326,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   /**
    * 设置是否启用循环模式。与[loop<sup>11+</sup>]{@link TimePickerAttribute#loop(value: boolean)}相比，
    * isLoop参数新增了对undefined类型的支持。
-   * 
+   *
    * > **说明：**
    * >
    * > 设置了start或end且为非默认值的场景下，loop不生效。
@@ -353,12 +353,12 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    *     <br>{
    *     <br>color: '#ff182431',
    *     <br>font: {
-   *     <br>size: '14fp', 
+   *     <br>size: '14fp',
    *     <br>weight: FontWeight.Regular
    *     <br>}
    *     <br>}
    * @returns { TimePickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
@@ -376,13 +376,13 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    *     <br>{
    *     <br>color: '#ff182431',
    *     <br>font: {
-   *     <br>size: '14fp', 
+   *     <br>size: '14fp',
    *     <br>weight: FontWeight.Regular
    *     <br>}
    *     <br>}
    *     <br>当style的值为undefined时，使用默认值。
    * @returns { TimePickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -398,12 +398,12 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    *     <br>{
    *     <br>color: '#ff182431',
    *     <br>font: {
-   *     <br>size: '16fp', 
+   *     <br>size: '16fp',
    *     <br>weight: FontWeight.Regular
    *     <br>}
    *     <br>}
    * @returns { TimePickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
@@ -421,13 +421,13 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    *     <br>{
    *     <br>color: '#ff182431',
    *     <br>font: {
-   *     <br>size: '16fp', 
+   *     <br>size: '16fp',
    *     <br>weight: FontWeight.Regular
    *     <br>}
    *     <br>}
    *     <br>当style的值为undefined时，使用默认值。
    * @returns { TimePickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -443,12 +443,12 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    *     <br>{
    *     <br>color: '#ff007dff',
    *     <br>font: {
-   *     <br>size: '20fp', 
+   *     <br>size: '20fp',
    *     <br>weight: FontWeight.Medium
    *     <br>}
    *     <br>}
    * @returns { TimePickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
@@ -466,13 +466,13 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    *     <br>{
    *     <br>color: '#ff007dff',
    *     <br>font: {
-   *     <br>size: '20fp', 
+   *     <br>size: '20fp',
    *     <br>weight: FontWeight.Medium
    *     <br>}
    *     <br>}
    *     <br>当style的值为undefined时，使用默认值。
    * @returns { TimePickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -522,7 +522,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   /**
    * 滑动TimePicker后，时间选项归位至选中项位置时，触发该回调。不能通过双向绑定的状态变量触发。适用于需要在用户确认时间选择后执行保存、
    * 更新UI等操作的场景。
-   * 
+   *
    * 回调会在滑动动画结束后触发，如果需要快速获取索引值变化，
    * 建议使用[onEnterSelectedArea]{@link TimePickerAttribute#onEnterSelectedArea}接口。需要注意的是，
    * 当[enableCascade]{@link TimePickerAttribute#enableCascade}设置为true时，由于上午/下午列与小时列存在联动关系，
@@ -530,7 +530,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    *
    * @param { function } callback - Time in 24-hour format.
    * @returns { TimePickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -542,7 +542,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * 滑动TimePicker后，时间选项归位至选中项位置时，触发该回调。不能通过双向绑定的状态变量触发。
    * 与[onChange]{@link TimePickerAttribute#onChange(callback: (value: TimePickerResult) => void)}相比，
    * callback参数新增了对undefined类型的支持。
-   * 
+   *
    * 回调会在滑动动画结束后触发，如果需要快速获取索引值变化，
    * 建议使用[onEnterSelectedArea]{@link TimePickerAttribute#onEnterSelectedArea}接口。需要注意的是，
    * 当[enableCascade]{@link TimePickerAttribute#enableCascade}设置为true时，由于上午/下午列与小时列存在联动关系，
@@ -551,7 +551,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @param { Optional<OnTimePickerChangeCallback> } callback - 选择时间时触发该回调。
    *     <br>当callback的值为undefined时，不使用回调函数。
    * @returns { TimePickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -562,7 +562,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
   /**
    * 滑动TimePicker过程中，选项进入分割线区域内，触发该回调。适用于需要在滑动过程中实时更新UI、实时验证时间范围等需要快速响应的场景。
    * 与onChange相比，该回调触发时机更早，适合需要即时反馈的场景。
-   * 
+   *
    * 与[onChange]{@link TimePickerAttribute#onChange(callback: (value: TimePickerResult) => void)}事件的差别在于，
    * 该事件的触发时机早于[onChange]{@link TimePickerAttribute#onChange(callback: (value: TimePickerResult) => void)}事件，
    * 当滑动列的滑动距离超过选中项高度的一半时，选项已经进入分割线区域内，会触发该事件。
@@ -570,14 +570,14 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * 由于上午/下午列与小时列存在联动关系（即上午/下午标识会根据小时数自动调整），不建议使用该回调。
    * 该回调标识的是滑动过程中选项进入分割线区域内的节点，而联动变化的选项并不涉及滑动，因此，回调的返回值中，仅当前滑动列的值会正常变化，
    * 其余未滑动列的值保持不变。
-   * 
+   *
    * > **说明：**
    * >
    * > 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
    * @param { Callback<TimePickerResult> } callback - 滑动TimePicker过程中，选项进入分割线区域时触发的回调。
    * @returns { TimePickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -587,9 +587,9 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
 
   /**
    * 设置是否开启触控反馈。
-   * 
+   *
    * 开启触控反馈时，需要在工程的src/main/module.json5文件的"module"内配置requestPermissions字段开启振动权限，配置如下：
-   * 
+   *
    * > **说明：**
    * >
    * > 从API version 18开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
@@ -600,7 +600,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    *     <br>默认值：true
    *     <br>设置为true后，若系统硬件不支持振动功能，则不会产生振动反馈。
    * @returns { TimePickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 26.0.0]
    * @atomicservice
@@ -612,7 +612,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * 设置是否开启触控反馈。
    * 与[enableHapticFeedback<sup>12+</sup>]{@link TimePickerAttribute#enableHapticFeedback(enable: boolean)}相比，
    * enable参数新增了对undefined类型的支持。
-   * 
+   *
    * 开启触控反馈时，需要在工程的src/main/module.json5文件的"module"内配置requestPermissions字段开启振动权限，配置如下：
    *
    * @param { Optional<boolean> } enable - 设置是否开启触控反馈。
@@ -622,7 +622,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    *     <br>当enable的值为undefined时，使用默认值。
    *     <br>设置为true后，若系统硬件不支持振动功能，则不会产生振动反馈。
    * @returns { TimePickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 26.0.0]
    * @atomicservice
@@ -636,7 +636,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @param { Optional<CrownSensitivity> } sensitivity - 表冠响应灵敏度。
    *     <br>默认值：CrownSensitivity.MEDIUM，表示响应速度适中。
    * @returns { TimePickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -654,7 +654,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    *     <br>- false：不自动切换。上午/下午标识需手动选择，不会根据小时数自动调整。
    *     <br>默认值：false
    * @returns { TimePickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -677,12 +677,12 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
 declare interface TimePickerDialogOptions extends TimePickerOptions {
   /**
    * 时间是否以24小时制展示。
-   * 
+   *
    * - true：时间以24小时制展示。
    * - false：时间以12小时制展示。
-   * 
+   *
    * 默认值：false
-   * 
+   *
    * > **说明：** 当设置为false时，enableCascade参数才能生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -695,9 +695,9 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 设置边缘项（以选中项为基准向上或向下的第二项）的文本颜色、字号、字体粗细。
-   * 
+   *
    * 默认值：
-   * 
+   *
    * <br>{
    * <br>color: '#ff182431',
    * <br>font: {
@@ -716,7 +716,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 设置待选项（以选中项为基准向上或向下的第一项）的文本颜色、字号、字体粗细。
-   * 
+   *
    * > 默认值：
    * >
    * > <br>{
@@ -737,7 +737,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 设置确认按钮显示样式、重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、按钮是否默认响应Enter键。
-   * 
+   *
    * > 默认值：请参考[PickerDialogButtonStyle]{@link PickerDialogButtonStyle}。
    *
    * > **说明：**
@@ -758,9 +758,9 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 设置取消按钮显示样式、重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、按钮是否默认响应Enter键。
-   * 
+   *
    * > 默认值：请参考[PickerDialogButtonStyle]{@link PickerDialogButtonStyle}。
-   * 
+   *
    * > **说明：**
    * >
    * > 1. acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，如果同时设置为true，则primary字段不生效，
@@ -779,7 +779,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 设置选中项的文本颜色、字号、字体粗细。
-   * 
+   *
    * > 默认值：
    * >
    * > <br>{
@@ -826,7 +826,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 设置弹窗相对alignment所在位置的偏移量。
-   * 
+   *
    * 默认值：{ dx: 0 , dy: 0 }
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -873,7 +873,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
   /**
    * 滑动过程中，当前滑动列滑动距离超过选中项高度的一半，选项进入分割线区域内，触发该回调。与onChange事件的差别在于，该事件在滑动过程中实时触发，
    * 适合需要实时监听滑动场景；onChange在选项归位至选中项位置后触发，适合需要确认最终选中值的场景。
-   * 
+   *
    * > **说明：**
    * >
    * > 当enableCascade设置为true时，由于上午/下午列与小时列存在联动关系，不建议使用该回调。该回调标识的是滑动过程中选项进入分割线区域内的节点，
@@ -889,9 +889,9 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 弹窗背板颜色。
-   * 
+   *
    * 默认值：Color.Transparent
-   * 
+   *
    * > **说明：**
    * >
    * > 1. 当设置了backgroundColor为非透明色时，backgroundBlurStyle需要设置为BlurStyle.NONE，否则显示的颜色将不符合预期效果。
@@ -908,9 +908,9 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 弹窗背板模糊材质。
-   * 
+   *
    * 默认值：BlurStyle.COMPONENT_ULTRA_THICK
-   * 
+   *
    * > **说明：**
    * >
    * > 1. 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，
@@ -928,7 +928,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 背景模糊效果参数，用于自定义弹窗背景模糊的显示样式，支持配置颜色模式、自适应颜色、缩放比例等属性，实现不同的背景模糊视觉效果。
-   * 
+   *
    * > **说明：**
    * >
    * > 未设置时沿用
@@ -945,7 +945,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 背景效果参数，用于自定义弹窗背景的显示效果，支持配置模糊半径、饱和度、亮度、颜色等属性，实现不同的背景视觉效果。
-   * 
+   *
    * > **说明：**
    * >
    * > 未设置时不生效，此时弹窗背景模糊效果由
@@ -963,12 +963,12 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 设置上午和下午的标识是否根据小时数自动切换，仅在useMilitaryTime设置为false时生效。
-   * 
+   *
    * - true：自动切换。
    * - false：不自动切换。
-   * 
+   *
    * 默认值：false
-   * 
+   *
    * 当enableCascade设置为true时，需要loop参数同时为true才能生效。loop用于控制选择器是否循环滚动。
    *
    * @default false
@@ -982,7 +982,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 弹窗弹出后的事件回调。
-   * 
+   *
    * > **说明：**
    * >
    * > 1. 正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。
@@ -1003,7 +1003,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 弹窗消失后的事件回调。
-   * 
+   *
    * > **说明：**
    * >
    * > 1. 正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。
@@ -1018,7 +1018,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 弹窗显示动效前的事件回调。
-   * 
+   *
    * > **说明：**
    * >
    * > 1. 正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。
@@ -1035,7 +1035,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 弹窗退出动效前的事件回调。
-   * 
+   *
    * > **说明：**
    * >
    * > 1. 正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。
@@ -1052,9 +1052,9 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 设置弹窗背板的阴影。
-   * 
+   *
    * 当设备为2in1时，默认场景下获焦阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦为ShadowStyle.OUTER_FLOATING_SM。其他设备默认无阴影。
-   * 
+   *
    * > **说明：**
    * >
    * > 从API版本26.0.0开始，设置systemMaterial后，shadow不生效。
@@ -1069,7 +1069,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 设置时分是否显示前导0，目前只支持设置hour和minute参数，设置其他参数不生效。
-   * 
+   *
    * > 默认值：
    * >
    * > - hour: 24小时制默认为"2-digit"，设置hour是否按照2位数字显示，如果实际数值小于10，则会补充前导0并显示，即为"0X"；
@@ -1087,10 +1087,10 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 是否响应悬停态。悬停态指折叠屏等设备处于悬停折叠状态时的交互模式，而非鼠标悬停。
-   * 
+   *
    * - true：响应悬停态。
    * - false：不响应悬停态。
-   * 
+   *
    * 默认值：false
    *
    * @default false
@@ -1104,7 +1104,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 悬停态下弹窗默认展示区域。仅在enableHoverMode为true时生效。
-   * 
+   *
    * 默认值：HoverModeAreaType.BOTTOM_SCREEN
    *
    * @default HoverModeAreaType.BOTTOM_SCREEN
@@ -1118,12 +1118,12 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * 设置是否开启触控反馈。
-   * 
+   *
    * - true：开启触控反馈。
    * - false：不开启触控反馈。
-   * 
+   *
    * 默认值：true
-   * 
+   *
    * > **说明：**
    * >
    * > 1. 设置为true后，其生效情况取决于系统的硬件是否支持。
@@ -1141,11 +1141,11 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
   enableHapticFeedback?: boolean;
   /**
    * 设置弹窗的系统材质。
-   * 
+   *
    * > **说明：**
    * >
-   * > - 默认值：[ImmersiveOptions]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveOptions}的style为ImmersiveStyle.ULTRA_THICK的
-   * > [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}对象。设置undefined时与默认值保持一致。
+   * > - 默认值：[ImmersiveOptions]{@link ImmersiveOptions}的style为ImmersiveStyle.ULTRA_THICK的
+   * > [ImmersiveMaterial]{@link ImmersiveMaterial}对象。设置undefined时与默认值保持一致。
    * > - 不同的材质具有不同的效果，该接口影响背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、
    * > 背景模糊
    * > [backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions)}
@@ -1161,13 +1161,13 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
   systemMaterial?: SystemUiMaterial;
   /**
    * 设置系统材质下弹窗的非线性动画模式。
-   * 
+   *
    * > **默认值：** DistortionMode.DISTORTION_AUTO
    *
    * > **系统接口：** 此接口为系统接口。
    *
    * > **说明：** 当取值为 DISTORTION_AUTO 时，需设置
-   * > [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}类型材质方可生效，并依据设备算力档位自动生效非线性效果（高中档算力设备生效，
+   * > [ImmersiveMaterial]{@link ImmersiveMaterial} 类型材质方可生效，并依据设备算力档位自动生效非线性效果（高中档算力设备生效，
    * > 低档算力设备不生效）。非线性动画会增加渲染开销，建议在低端设备上谨慎使用。
    * > 各枚举取值含义请参见[DistortionMode]{@link distortionmode}。
    *
@@ -1180,11 +1180,11 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
   distortionMode?: DistortionMode;
   /**
    * 设置系统材质下弹窗的流光动画模式。
-   * 
+   *
    * > **默认值：** EdgeLightMode.EDGELIGHT_AUTO
-   * 
+   *
    * > **系统接口：** 此接口为系统接口。
-   * 
+   *
    * > **说明：** 当取值为 EDGELIGHT_AUTO 时，需设置
    * > [ImmersiveMaterial]{@link ImmersiveMaterial} 类型材质方可生效，并依据设备算力档位自动生效流光效果（高档算力设备生效，
    * > 中低档算力设备不生效）。流光动画会增加渲染开销，建议在低端设备上谨慎使用。各枚举取值含义请参见[EdgeLightMode]{@link EdgeLightMode}。
@@ -1199,7 +1199,9 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 }
 
 /**
- * 以24小时的时间区间创建时间滑动选择器，展示在弹窗上。
+ * 以24小时的时间区间创建时间滑动选择器，展示在弹窗上。适用于需要用户选择时间的场景，如设置闹钟、日程安排、
+ * 预约时间等。该组件提供直观的时间选择交互，支持12小时制和24小时制切换，并可自定义样式和布局，
+ * 帮助应用快速实现时间选择功能，提升用户体验。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1210,7 +1212,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 declare class TimePickerDialog {
   /**
    * 定义时间滑动选择器弹窗并弹出。
-   * 
+   *
    * > **说明：**
    * >
    * > 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
@@ -1231,7 +1233,7 @@ declare class TimePickerDialog {
 /**
  * TimePicker是用于滑动选择时间的组件，支持12/24小时制、多种时间格式（小时/分钟/秒）、循环滚动、样式定制和时间范围限制等功能。
  * 适用于日程安排、时间预约、任务管理等需要用户选择时间的场景，能够提升用户体验，减少输入错误，并可快速集成到应用中。
- * 
+ *
  * > **说明：**
  * >
  * > - 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -1240,7 +1242,7 @@ declare class TimePickerDialog {
  * >
  * > - 最大显示行数在横、竖屏模式下存在差异。竖屏时默认为5行，横屏时依赖系统配置，未配置时默认显示为3行。
  * > 可通过如下参数查看具体配置值$r('sys.float.ohos_id_picker_show_count_landscape')。
- * 
+ *
  * > ###### 子组件
  * >
  * > 该组件为基础组件，不建议包含子组件。

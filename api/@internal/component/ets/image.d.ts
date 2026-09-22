@@ -41,7 +41,7 @@ declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor
 declare type DrawingColorFilter = import('../api/@ohos.graphics.drawing').default.ColorFilter;
 
 /**
- * Enumerates all the levels available for the image resolution quality.
+ * Sets a resolution quality level.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -60,7 +60,6 @@ declare type ResolutionQuality = import('../api/@ohos.multimedia.image').default
  * @since 12 dynamic
  */
 declare type DrawingLattice = import('../api/@ohos.graphics.drawing').default.Lattice;
-
 /**
  * Represents the current matrix object.
  *
@@ -112,7 +111,6 @@ declare type RequestDownloadInfo = import('../api/@ohos.request.cacheDownload').
  * @since 7 dynamic
  */
 declare enum ImageRenderMode {
-
   /**
    * Render image pixels as they are in the original source image.
    *
@@ -149,7 +147,6 @@ declare enum ImageRenderMode {
  * @since 12 dynamic
  */
 declare enum ImageContent {
-
   /**
    * Empty image.
    *
@@ -172,7 +169,6 @@ declare enum ImageContent {
  * @since 12 dynamic
  */
 declare enum DynamicRangeMode {
-
   /**
    * Unrestricted dynamic range, which allows for the maximum brightening of an image.
    *
@@ -215,7 +211,6 @@ declare enum DynamicRangeMode {
  * @since 7 dynamic
  */
 declare enum ImageInterpolation {
-
   /**
    * Nearest neighbor interpolation.
    *
@@ -277,7 +272,6 @@ declare enum ImageInterpolation {
  * @since 14 dynamic
  */
 declare enum ImageRotateOrientation {
-
   /**
    * Use EXIF metadata for display orientation, with support for rotation and mirroring.
    *
@@ -408,41 +402,12 @@ declare enum ImageRotateOrientation {
 }
 
 /**
- * The **Image** component is usually used to display images in applications. It supports data sources of the following
- * types: [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}, [ResourceStr]{@link ResourceStr}, and
- * [DrawableDescriptor]{@link DrawableDescriptor}. Supported image formats include PNG, JPG, JPEG, BMP, SVG, WEBP, GIF,
- * HEIF, and TIFF. Note that the APNG and SVGA formats are not supported.
+ * The **Image** component is usually used to display images in applications.
  *
  * > **NOTE**
- *
- * > - This component supports the TIFF image format since API version 23.
  * >
- * > - When keyboard shortcuts are used to copy an **Image** component, the **Image** component must be in a focused
- * > state. For instructions on how to set focus, see
- * > [Setting Whether a Component Is Focusable]
- * > (docroot://ui/arkts-common-events-focus-event.md#setting-whether-a-component-is-focusable).
- * > By default, the **Image** component is not focusable. To enable it to gain focus, set both the
- * > [focusable]{@link CommonMethod#focusable} and [focusOnTouch]{@link CommonMethod#focusOnTouch} attributes to
- * > **true**.
- * >
- * > - The **Image** component supports SVG image sources. For details about SVG tags, see [SVG Tags]{@link ./common}.
- * >
- * > - For animated images, animation playback is disabled by default and depends on the visibility of the **Image**
- * > component. When the component is visible, the animation is started through the callback. When the component is
- * > invisible, the animation is stopped. The visibility status of the **Image** component can be identified through the
- * >
- * > [onVisibleAreaChange]
- * > {@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}
- * > event. If the value of **ratios** is greater than 0, the component is visible.
- * >
- * > - For details about how to resolve white block issues during image loading, see
- * > [Solution to White Image Blocks]
- * > (https://developer.huawei.com/consumer/en/doc/best-practices/bpta-image-white-lump-solution).
- * > For details about how to address slow image loading, see
- * > [Optimizing Preset Image Loading]
- * > (https://developer.huawei.com/consumer/en/doc/best-practices/
- * >  bpta-texture-compression-improve-performance#section91526132216).
- * >
+ * > This topic describes only system APIs provided by the module. For details about its public APIs, see
+ * > [Image]{@link ./image}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -631,7 +596,6 @@ interface ImageInterface {
  * @since 18 dynamic
  */
 interface ImageSourceSize {
-
   /**
    * Image decode width. The unit of the number type is vp.
    *
@@ -737,7 +701,6 @@ interface ImageSourceSize {
  * @since 15 dynamic
  */
 declare class ColorContent {
-
   /**
    * Resets the [fillColor]{@link ImageAttribute#fillColor(value: ResourceColor)} API, effectively the same as not
    * setting [fillColor]{@link ImageAttribute#fillColor(value: ResourceColor)}.
@@ -796,7 +759,6 @@ declare class ColorContent {
  * @noninterop
  */
 declare class ImageAttribute extends CommonMethod<ImageAttribute> {
-
   /**
    * Sets the placeholder image displayed during image loading.
    *
@@ -1290,7 +1252,31 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   draggable(value: boolean): ImageAttribute;
 
   /**
-   * Sets the point light style.
+   * Sets whether to enable anti-aliasing for the edges of a pixel map image. If the attribute is not set, anti-aliasing
+   * is disabled by default. This attribute is not applicable to SVG images.
+   *
+   * > **NOTE**
+   * >
+   * > If the [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)} attribute is set for an image,
+   * > setting the **antialiased** attribute of the image to **true** does not affect the aliasing effect of the
+   * > background color.
+   * >
+   * > This attribute does not take effect when used together with [resizable]{@link ImageAttribute#resizable}.
+   *
+   * @param { Optional<boolean> } isAntialiased - Sets whether to enable anti-aliasing for the edges of a pixel map
+   *     image.<br> **true**: Enable edge anti-aliasing.<br>**false**: Disable edge anti-aliasing.<br>When this
+   *     parameter is set to **undefined**, edge anti-aliasing is disabled.
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  antialiased(isAntialiased: Optional<boolean>): ImageAttribute;
+  /**
+   * Sets a point light style to add 3D lighting and high gloss effects to an image. This attribute is commonly used in
+   * scenarios such as 3D cards and floating icons.
    *
    * @param { PointLightStyle } value - Point light style.
    * @returns { ImageAttribute } The attribute of the image.
@@ -1302,13 +1288,17 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   pointLight(value: PointLightStyle): ImageAttribute;
 
   /**
-   * Sets antialiasing for the image. This attribute applies only to SVG images. The value range is $(0.333, 1.333]$,
-   * with precision limited to 3 decimal places.
+   * Sets an anti-aliasing effect on the edges of an SVG image. This attribute takes effect only for SVG images. The
+   * value must be greater than 0.333 and less than or equal to 1.333, with precision limited to 3 decimal places. A
+   * larger value indicates a stronger anti-aliasing effect.
    *
    * This attribute can be used to optimize jagged edges in SVG images on devices with PPI lower than 200, but it may
    * compromise the performance. Exercise caution when using this attribute.
    *
-   * @param { number } value - Antialiasing strength of the SVG image.<br>Default value: **0.0**.
+   * @param { number } value - Anti-aliasing effect on the edges of an SVG image. The value must be greater than 0.333
+   *     and less than or equal to 1.333. A larger value indicates a stronger anti-aliasing effect.
+   *     <br>Default value: **0.0**, indicating that the anti-aliasing effect is disabled. (**0.0** is a reserved value
+   *     for the disabled state and is not within the valid value range.)
    * @returns { ImageAttribute } The attribute of the image.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1737,7 +1727,8 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
 
   /**
    * Sets the AI image analysis types, including subject recognition and character recognition. By default, all types
-   * are supported. The types cannot be dynamically modified.
+   * are supported. The types cannot be dynamically modified. Typical applications include album subject recognition,
+   * document/character extraction, and content moderation assistance.
    *
    * @param { ImageAnalyzerConfig } config - AI image analysis types.
    * @returns { ImageAttribute }
@@ -1777,14 +1768,19 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
   resizable(value: ResizableOptions): ImageAttribute;
 
   /**
-   * Sets the image resolution for decoding the image.
+   * Sets an enhanced image decoding resolution option. A higher image quality level indicates longer decoding time and
+   * higher memory usage. Select a level based on display requirements: **Low** indicates fast decoding speed and low
+   * memory usage, suitable for low-memory scenarios such as list thumbnails. **Medium** indicates a balance between
+   * image quality and performance. **High** indicates the best image quality but longer decoding time and higher memory
+   * usage, suitable for full-screen high-definition display.
    *
    * This attribute does not support non-decoded image types such as SVG,
    * [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}, and
-   * [DrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:DrawableDescriptorLoadedResult}.
+   * [DrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:DrawableDescriptor}.
    *
-   * @param { ResolutionQuality } imageQuality - Image resolution used for decoding.<br>Default value:
-   *     **ResolutionQuality.Low**
+   * @param { ResolutionQuality } imageQuality - Image resolution used for decoding.
+   *     <br>Default value: **ResolutionQuality.Low**. That is, low-resolution decoding is used by default to reduce
+   *     memory usage and improve decoding performance.
    * @returns { ImageAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1865,77 +1861,15 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @since 21 dynamic
    */
   contentTransition(transition: ContentTransitionEffect): ImageAttribute;
-
-  /**
-   * Sets whether to enable anti-aliasing for the edges of a pixel map image. If the attribute is not set, anti-aliasing
-   * is disabled by default. This attribute is not applicable to SVG images.
-   *
-   * > **NOTE**
-   * >
-   * > If the [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)} attribute is set for an image,
-   * > setting the **antialiased** attribute of the image to **true** does not affect the aliasing effect of the
-   * > background color.
-   * >
-   * > This attribute does not take effect when used together with [resizable]{@link ImageAttribute#resizable}.
-   *
-   * @param { Optional<boolean> } isAntialiased - Sets whether to enable anti-aliasing for the edges of a pixel map
-   *     image.<br> **true**: Enable edge anti-aliasing.<br>**false**: Disable edge anti-aliasing.<br>When this
-   *     parameter is set to **undefined**, edge anti-aliasing is disabled.
-   * @returns { ImageAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  antialiased(isAntialiased: Optional<boolean>): ImageAttribute;
 }
 
 /**
- * The **Image** component is usually used to display images in applications. It supports data sources of the following
- * types: [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}, [ResourceStr]{@link ResourceStr}, and
- * [DrawableDescriptor]{@link DrawableDescriptor}. Supported image formats include PNG, JPG, JPEG, BMP, SVG, WEBP, GIF,
- * HEIF, and TIFF. Note that the APNG and SVGA formats are not supported.
+ * The **Image** component is usually used to display images in applications.
  *
  * > **NOTE**
- *
- * > - This component supports the TIFF image format since API version 23.
  * >
- * > - When keyboard shortcuts are used to copy an **Image** component, the **Image** component must be in a focused
- * > state. For instructions on how to set focus, see
- * > [Setting Whether a Component Is Focusable]
- * >  (docroot://ui/arkts-common-events-focus-event.md#setting-whether-a-component-is-focusable).
- * > By default, the **Image** component is not focusable. To enable it to gain focus, set both the
- * > [focusable]{@link CommonMethod#focusable} and [focusOnTouch]{@link CommonMethod#focusOnTouch} attributes to
- * > **true**.
- * >
- * > - The **Image** component supports SVG image sources. For details about SVG tags, see [SVG Tags]{@link ./common}.
- * >
- * > - For animated images, animation playback is disabled by default and depends on the visibility of the **Image**
- * > component. When the component is visible, the animation is started through the callback. When the component is
- * > invisible, the animation is stopped. The visibility status of the **Image** component can be identified through the
- * >
- * > [onVisibleAreaChange]
- * >  {@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}
- * > event. If the value of **ratios** is greater than 0, the component is visible.
- * >
- * > - For details about how to resolve white block issues during image loading, see
- * > [Solution to White Image Blocks]
- * >  (https://developer.huawei.com/consumer/en/doc/best-practices/bpta-image-white-lump-solution).
- * > For details about how to address slow image loading, see
- * > [Optimizing Preset Image Loading]
- * >  (https://developer.huawei.com/consumer/en/doc/best-practices/bpta-texture-compression-improve-
- * >   performance#section91526132216).
- * >
- *
- * Required Permissions
- *
- * The **ohos.permission.INTERNET** permission is required for using online images. For details about how to apply for a
- * permission, see [Declaring Permissions](docroot://security/AccessToken/declare-permissions.md).
- *
- * Child Components
- *
- * Not supported
+ * > This topic describes only system APIs provided by the module. For details about its public APIs, see
+ * > [Image]{@link ./image}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1992,7 +1926,6 @@ type ImageErrorCallback = (error: ImageError) => void;
  * @since 9 dynamic
  */
 declare interface ImageError {
-
   /**
    * Width of the component.
    *
@@ -2047,7 +1980,6 @@ declare interface ImageError {
    * @since 20 dynamic
    */
   error?: BusinessError<void>;
-
   /**
    * Detailed information about online image download, including download resources, network, and performance. This
    * field is carried when the image source is an online image and the download fails.
@@ -2077,7 +2009,6 @@ declare interface ImageError {
  * @since 11 dynamic
  */
 declare interface ResizableOptions {
-
   /**
    * Edge widths in different directions of a component.
    *
@@ -2132,7 +2063,6 @@ declare interface ResizableOptions {
    */
   lattice?: DrawingLattice;
 }
-
 /**
  * Sets the placeholder image.
  *
@@ -2144,7 +2074,6 @@ declare interface ResizableOptions {
  * @since 22 dynamic
  */
 declare interface ImageAlt {
-
   /**
    * Placeholder image displayed during loading.
    *

@@ -62,7 +62,7 @@ declare enum CalendarAlign {
 
 /**
  * 日历选择器组件的参数说明。
- * 
+ *
  * ###### start和end设置规则
  *
  * > 日期异常场景说明：
@@ -82,13 +82,13 @@ declare enum CalendarAlign {
 declare interface CalendarOptions {
   /**
    * 设置日期选中态底板样式。
-   * 
+   *
    * > 取值范围：[0.0, 16.0]
-   * 
+   *
    * > 单位：vp
-   * 
+   *
    * > 默认值：16.0，即底板样式为圆形。
-   * 
+   *
    * > **说明：**
    * >
    * > 当hintRadius为0.0时表示底板样式为直角矩形；当hintRadius为(0.0, 16.0)时，底板样式为圆角矩形；当hintRadius为16.0时，
@@ -106,9 +106,9 @@ declare interface CalendarOptions {
   /**
    * 设置选中项的日期。当需要预设选中日期时传入此参数，不需要预设时使用当前系统日期。选中的日期未设置或日期格式不符合规范则为默认值。选中日期与
    * start、end参数的配合关系见[start和end设置规则]{@link CalendarOptions}。
-   * 
+   *
    * > 默认值：当前系统日期。
-   * 
+   *
    * > 取值范围：[Date('0001-01-01'), Date('5000-12-31')]
    *
    * @default current system date
@@ -122,11 +122,11 @@ declare interface CalendarOptions {
 
   /**
    * 设置开始日期。
-   * 
+   *
    * > 默认值：Date('0001-01-01')
-   * 
+   *
    * > 取值范围：[Date('0001-01-01'), Date('5000-12-31')]
-   * 
+   *
    * > **说明：** 若start日期晚于end日期，则start日期、end日期都设置无效，选中日期为默认值。
    * > 详见[start和end设置规则]{@link CalendarOptions}。
    *
@@ -141,11 +141,11 @@ declare interface CalendarOptions {
 
   /**
    * 设置结束日期。
-   * 
+   *
    * > 默认值：Date('5000-12-31')
-   * 
+   *
    * > 取值范围：[Date('0001-01-01'), Date('5000-12-31')]
-   * 
+   *
    * > **说明：** 若start日期晚于end日期，则start日期、end日期都设置无效，选中日期为默认值。
    * > 详见[start和end设置规则]{@link CalendarOptions}。
    *
@@ -160,7 +160,7 @@ declare interface CalendarOptions {
 
   /**
    * 设置禁用日期区间。不传此参数时不禁用任何日期。
-   * 
+   *
    * > **说明：**
    * >
    * > 1. 若日期区间内的开始日期或结束日期未设置或设置为异常值，则该日期区间无效。
@@ -179,7 +179,7 @@ declare interface CalendarOptions {
 /**
  * 日历选择器组件，提供下拉日历弹窗，用户可快速选择日期。适用于需要用户选择具体日期的场景，如预订系统、日程安排、日期筛选等，提供直观的日历视图，
  * 提升用户日期输入体验。
- * 
+ *
  * > **说明：**
  * >
  * > - 该组件从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
@@ -265,7 +265,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    *     <br>{
    *     <br>color: '#ff182431',
    *     <br>font: {
-   *     <br>size: '16fp', 
+   *     <br>size: '16fp',
    *     <br>weight: FontWeight.Regular
    *     <br>}
    *     <br>}
@@ -287,7 +287,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    *     <br>{
    *     <br>color: '#ff182431',
    *     <br>font: {
-   *     <br>size: '16fp', 
+   *     <br>size: '16fp',
    *     <br>weight: FontWeight.Regular
    *     <br>}
    *     <br>}
@@ -304,7 +304,9 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
   /**
    * 选择日期时触发该事件。不能通过双向绑定的状态变量触发。
    *
-   * @param { function } callback - Selected date value. [since 10 - 17]
+   * @param { function } callback - Called when a date is selected. The callback parameter is the selected date of the
+   *     **Date** type. You can obtain the selected date in the callback function and perform corresponding
+   *     processing. [since 10 - 17]
    * @param { Callback<Date> } callback - 日期选择时触发的回调函数。回调参数为Date类型的选中日期值，开发者可在回调函数中获取用户选中的日
    * 期并进行相应处理。 [since 18]
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
@@ -320,7 +322,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
    * 选择日期时触发该事件。不能通过双向绑定的状态变量触发。
    * 与[onChange]{@link CalendarPickerAttribute#onChange(callback: Callback<Date>)}相比，callback参数新增了对undefined类型的
    * 支持。
-   * 
+   *
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
@@ -372,7 +374,7 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
 declare interface CalendarDialogOptions extends CalendarOptions {
   /**
    * 点击弹窗中的“确定”按钮时触发该回调。
-   * 
+   *
    * 回调函数的参数表示选中的日期值。
    *
    * @type { ?function } [since 10 - 17]
@@ -400,7 +402,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
    * 选择弹窗中日期使当前选中项改变时触发该回调。
-   * 
+   *
    * 回调函数的参数表示选中的日期值。
    *
    * @type { ?function } [since 10 - 17]
@@ -415,9 +417,9 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
    * 弹窗背板颜色。
-   * 
+   *
    * > 默认值：Color.Transparent
-   * 
+   *
    * > **说明：**
    * >
    * > 当设置了backgroundColor为非透明色时，backgroundBlurStyle需要设置为BlurStyle.NONE，否则背景颜色显示效果不符合预期。
@@ -433,9 +435,9 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
    * 弹窗背板模糊材质。
-   * 
+   *
    * > 默认值：BlurStyle.COMPONENT_ULTRA_THICK
-   * 
+   *
    * > **说明：**
    * >
    * > 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则背景颜色显示效果
@@ -453,7 +455,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   /**
    * 背景模糊效果参数，用于自定义弹窗背景模糊的显示样式，支持配置颜色模式、自适应颜色、缩放比例等属性，实现不同的背景模糊视觉效果。默认值请参考
    * BackgroundBlurStyleOptions。
-   * 
+   *
    * > **说明：**
    * >
    * > 未设置时沿用backgroundBlurStyle的默认效果（BlurStyle.COMPONENT_ULTRA_THICK）。
@@ -469,7 +471,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   /**
    * 背景效果参数，用于自定义弹窗背景的显示效果，支持配置模糊半径、饱和度、亮度、颜色等属性，实现不同的背景视觉效果。
    * 默认值请参考[BackgroundEffectOptions]{@link BackgroundEffectOptions}。
-   * 
+   *
    * > **说明：**
    * >
    * > 未设置时不生效，此时弹窗背景模糊效果由backgroundBlurStyle决定；设置后将覆盖backgroundBlurStyle的效果。从API版本26.0.0开始，
@@ -485,7 +487,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
    * 设置确认按钮显示样式、重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、按钮是否默认响应Enter键。
-   * 
+   *
    * > **说明：**
    * >
    * > 1. acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，二者primary字段均配置为true时均不生效。
@@ -504,7 +506,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
    * 设置取消按钮显示样式、重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、按钮是否默认响应Enter键。
-   * 
+   *
    * > **说明：**
    * >
    * > 1. acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，二者primary字段均配置为true时均不生效。
@@ -523,7 +525,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
    * 弹窗弹出后的事件回调。
-   * 
+   *
    * > **说明：**
    * >
    * > 1. 正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。
@@ -533,7 +535,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
    * > 3. 快速连续触发弹出与关闭时，存在onWillDisappear在onDidAppear前生效。
    * >
    * > 4. 当弹窗入场动效未完成时关闭弹窗，该回调不会触发。
-   * 
+   *
    * > **选取指导：**
    * >
    * > - onWillAppear：适合在弹窗显示前准备数据、重置状态。
@@ -553,7 +555,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
    * 弹窗消失后的事件回调。
-   * 
+   *
    * > **说明：**
    * >
    * > 1. 正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。
@@ -570,7 +572,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
    * 弹窗显示动效前的事件回调。
-   * 
+   *
    * > **说明：**
    * >
    * > 1. 正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。
@@ -589,7 +591,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
    * 弹窗退出动效前的事件回调。
-   * 
+   *
    * > **说明：**
    * >
    * > 1. 正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。
@@ -608,7 +610,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
    * 设置弹窗背板的阴影。
-   * 
+   *
    * 当设备为2in1时，默认场景下获焦阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦为ShadowStyle.OUTER_FLOATING_SM。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -621,10 +623,10 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
    * 设置弹窗是否响应悬停态，适用于折叠屏等支持悬停模式的设备。
-   * 
+   *
    * - true：弹窗响应悬停态，在折叠屏悬停模式下会自适应调整布局区域，提供更好的多任务体验。
    * - false：弹窗不响应悬停态，在悬停模式下保持默认布局。
-   * 
+   *
    * 默认值：false
    *
    * @default false
@@ -639,7 +641,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   /**
    * 设置悬停态下弹窗的默认展示区域，仅在enableHoverMode为true时生效。不同的区域值对应弹窗在折叠屏悬停模式下的不同布局位置
    * （如BOTTOM_SCREEN表示弹窗展示在下半屏区域，TOP_SCREEN表示弹窗展示在上半屏区域）。
-   * 
+   *
    * > 默认值：HoverModeAreaType.BOTTOM_SCREEN
    *
    * @default HoverModeAreaType.BOTTOM_SCREEN
@@ -653,10 +655,10 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
    * 设置日历选择器弹窗中系统当前日期是否保持高亮显示。
-   * 
+   *
    * - true：系统当前日期在日历选择器弹窗内保持高亮显示。
    * - false：系统当前日期在日历选择器弹窗内不保持高亮显示。
-   * 
+   *
    * > 默认值：false
    *
    * @default false
@@ -669,11 +671,11 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   markToday?: boolean;
   /**
    * 设置弹窗的系统材质。
-   * 
+   *
    * > **说明：**
    * >
-   * > - 默认值：[ImmersiveOptions]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveOptions}的style为ImmersiveStyle.ULTRA_THICK的
-   * > [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}对象。设置undefined时与默认值保持一致。
+   * > - 默认值：[ImmersiveOptions]{@link ImmersiveOptions}的style为ImmersiveStyle.ULTRA_THICK的
+   * > [ImmersiveMaterial]{@link ImmersiveMaterial}对象。设置undefined时与默认值保持一致。
    * > - 不同的材质具有不同的视觉效果，包括背景透明度、模糊程度、阴影样式等方面的差异，该接口影响背景色
    * > [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、背景模糊
    * > [backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions)}
@@ -689,13 +691,13 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   systemMaterial?: SystemUiMaterial;
   /**
    * 设置系统材质下弹窗的非线性动画模式。当需要自定义弹窗的非线性动画效果时传入此参数。
-   * 
+   *
    * > **默认值：** DistortionMode.DISTORTION_AUTO
-   * 
+   *
    * > **系统接口：** 此接口为系统接口。
-   * 
+   *
    * > **说明：** 当取值为 DISTORTION_AUTO 时，需设置
-   * > [ImmersiveMaterial]{@link @ohos.arkui.uiMaterial:uiMaterial.ImmersiveMaterial}类型材质方可生效，并依据设备算力档位自动生效非线性效果（高中档算力设备生效，
+   * > [ImmersiveMaterial]{@link ImmersiveMaterial}类型材质方可生效，并依据设备算力档位自动生效非线性效果（高中档算力设备生效，
    * > 低档算力设备不生效）。非线性动画会增加渲染开销，建议在低端设备上谨慎使用。
    * > 各枚举取值含义请参见[DistortionMode]{@link DistortionMode}。
    *
@@ -708,7 +710,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   distortionMode?: DistortionMode;
   /**
    * 设置系统材质下弹窗的流光动画模式。当需要自定义弹窗的流光动画效果时传入此参数。
-   * 
+   *
    * > **默认值：** EdgeLightMode.EDGELIGHT_AUTO
    * >
    * > **系统接口：** 此接口为系统接口。
@@ -727,7 +729,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 }
 
 /**
- * 点击日期弹出日历选择器弹窗，可在弹窗内选择日期。
+ * 点击日期弹出日历选择器弹窗，可在弹窗内选择日期。适用于需要在应用中进行日期选择的场景，如日程管理、预订系统、表单填写等。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -752,13 +754,13 @@ declare class CalendarPickerDialog {
 /**
  * 日历选择器组件，提供下拉日历弹窗，用户可快速选择日期。适用于需要用户选择具体日期的场景，如预订系统、日程安排、日期筛选等，提供直观的日历视图，
  * 提升用户日期输入体验。
- * 
+ *
  * > **说明：**
  * >
  * > - 该组件从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * >
  * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link ./with_theme}。
- * 
+ *
  * > ###### 子组件
  * >
  * > 无
