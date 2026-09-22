@@ -739,12 +739,12 @@ declare namespace photoAccessHelper {
     GAUSSIAN_SPLAT_3D = 17,
 
     /**
-     * Recommended pet.
+     * Recommended pet
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.2.0 dynamic&static
+	 * @since 26.2.0 dynamic&static
      */
     FEATURED_SINGLE_PET = 18
   }
