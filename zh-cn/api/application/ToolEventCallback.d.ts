@@ -14,7 +14,7 @@
  */
 
 /**
- * @file ToolEventCallback
+ * @file CLI工具事件回调
   * @kit AbilityKit
  */
 
