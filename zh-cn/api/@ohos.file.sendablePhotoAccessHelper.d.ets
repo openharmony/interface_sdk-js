@@ -55,8 +55,9 @@ declare namespace sendablePhotoAccessHelper {
    * @param { Context } context - 传入Ability实例的上下文。
    * @param { number } userId - 传入待访问用户的id。
    * @returns { PhotoAccessHelper } 相册管理模块的实例。
-   * @throws { BusinessError } 201 - Permission denied
-   * @throws { BusinessError } 202 - Called by non-system application
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 13900020 - Invalid argument
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
@@ -353,12 +354,14 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 14000011 - MediaLibrary inner fail. Possible causes:
+     *     <br>1. Server returned an invalid argument error.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamiconly
@@ -370,7 +373,8 @@ declare namespace sendablePhotoAccessHelper {
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { image.Size } [size] - 缩略图尺寸。
      * @returns { Promise<image.PixelMap> } Promise对象，返回缩略图的PixelMap。
-     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -386,8 +390,9 @@ declare namespace sendablePhotoAccessHelper {
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { AnalysisType } analysisType - 需要获取的智慧分析类型。
      * @returns { Promise<string> } Promise对象，返回指定分析数据结果。
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -403,8 +408,9 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @returns { Promise<number> } Promise对象，返回源文件fd。
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -416,8 +422,10 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @returns { photoAccessHelper.PhotoAsset } 返回非Sendable类型的
      *     [PhotoAsset]{@link @ohos.file.photoAccessHelper:photoAccessHelper}。
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 14000011 - MediaLibrary inner fail. Possible causes:
+     *     <br>1. The PhotoAsset is not a valid PhotoAsset object.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
@@ -746,12 +754,18 @@ declare namespace sendablePhotoAccessHelper {
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { FetchOptions } options - 检索选项。
      * @returns { Promise<FetchResult<PhotoAsset>> } Promise对象，返回图片和视频数据结果集。
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 14000011 - MediaLibrary inner fail. Possible causes:
+     *     <br>1. Failed to parse FetchOptions, please check if the parameter is valid;
+     *     <br>2. System internal error, failed to create boolean value, possible causes:
+     *     1. Memory insufficient; 2. IPC timeout. Please retry;
+     *     <br>3. System internal error, possible causes:
+     *     1. Database exception; 2. File system exception; 3. IPC timeout. Please retry and check logs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
@@ -762,8 +776,9 @@ declare namespace sendablePhotoAccessHelper {
      * @permission ohos.permission.ACCESS_MEDIALIB_THUMB_DB
      * @param { FetchOptions } options - Fetch options.
      * @returns { Array<SharedPhotoAsset> } Returns the shared photo assets
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -802,7 +817,8 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
@@ -812,8 +828,11 @@ declare namespace sendablePhotoAccessHelper {
      * 将Sendable类型Album转换为非Sendable类型Album。
      *
      * @returns { photoAccessHelper.Album } 返回非Sendable类型的Album。
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 14000011 - MediaLibrary inner fail. Possible causes:
+     *     <br>1. The current album object is invalid, the Album is not a valid instance obtained from
+     *     photoAccessHelper.getAlbums() or createAlbum().
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
@@ -823,8 +842,9 @@ declare namespace sendablePhotoAccessHelper {
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @returns { Promise<string> } Promise对象，人像相册返回tag_id，合影相册返回group_tag，未找到返回空字符串。
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 14000011 - Internal system error
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
@@ -1145,12 +1165,17 @@ declare namespace sendablePhotoAccessHelper {
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { FetchOptions } options - 图片和视频检索选项。
      * @returns { Promise<FetchResult<PhotoAsset>> } Promise对象，返回图片和视频数据结果集。
-     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 14000011 - MediaLibrary inner fail. Possible causes:
+     *     <br>1. Failed to parse FetchOptions, please check if the parameter is valid;
+     *     <br>2. System internal error, failed to create boolean value, possible causes:
+     *     1. Memory insufficient; 2. IPC timeout. Please retry;
+     *     <br>3. System internal error, query or IPC returned null, please retry.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
@@ -1164,12 +1189,17 @@ declare namespace sendablePhotoAccessHelper {
      *     字符串长度为36字节。
      * @param { photoAccessHelper.FetchOptions } options - 连拍照片检索选项。
      * @returns { Promise<FetchResult<PhotoAsset>> } Promise对象，返回连拍照片数据结果集。
-     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 14000011 - MediaLibrary inner fail. Possible causes:
+     *     <br>1. Failed to parse FetchOptions, please check if the parameter is valid;
+     *     <br>2. System internal error, failed to create boolean value, possible causes:
+     *     1. Memory insufficient; 2. IPC timeout. Please retry;
+     *     <br>3. System internal error, query or IPC returned null, please retry.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
@@ -1190,8 +1220,9 @@ declare namespace sendablePhotoAccessHelper {
      * @permission ohos.permission.WRITE_IMAGEVIDEO
      * @param { string } displayName - 创建的图片或者视频文件名。
      * @returns { Promise<PhotoAsset> } Promise对象，返回创建的图片和视频结果。
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1221,8 +1252,9 @@ declare namespace sendablePhotoAccessHelper {
      * @param { string } displayName - 创建的图片或者视频文件名。
      * @param { PhotoCreateOptions } options - 图片或视频的创建选项。
      * @returns { Promise<PhotoAsset> } Promise used to return the created asset.
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1250,12 +1282,15 @@ declare namespace sendablePhotoAccessHelper {
      *     <br>API18开始，非法字符包括： \ / : * ? " < > |
      *     <br>API10-17，非法字符包括： . .. \ / : * ? " ' ` < > | { } [ ]
      * @returns { Promise<string> } Promise对象，返回创建的图片和视频的uri。
-     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 14000011 - MediaLibrary inner fail. Possible causes:
+     *     <br>1. System internal error, possible causes:
+     *     1. Database exception; 2. File system exception; 3. IPC timeout. Please retry and check logs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @atomicservice
      * @since 12 dynamiconly
@@ -1269,7 +1304,8 @@ declare namespace sendablePhotoAccessHelper {
      * @permission ohos.permission.READ_IMAGEVIDEO
      * @param { FetchOptions } [options] - 检索选项。
      * @returns { Promise<FetchResult<Album>> } Promise对象，返回获取相册的结果集。
-     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1289,20 +1325,23 @@ declare namespace sendablePhotoAccessHelper {
      * @param { AlbumSubtype } subtype - 相册子类型。
      * @param { FetchOptions } [options] - 检索选项，不填时默认根据相册类型检索。
      * @returns { Promise<FetchResult<Album>> } Promise对象，返回获取相册的结果集。
-     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
      *     <br>3. Parameter verification failed.
-     * @throws { BusinessError } 14000011 - Internal system error
+     * @throws { BusinessError } 14000011 - MediaLibrary inner fail. Possible causes:
+     *     <br>1. System internal error, failed to create boolean value, possible causes:
+     *     1. Memory insufficient; 2. IPC timeout. Please retry;
+     *     <br>2. System internal error, album query returned null, possible causes:
+     *     1. Database exception; 2. IPC timeout. Please retry;
+     *     <br>3. System internal error, possible causes:
+     *     1. Database exception; 2. File system exception; 3. IPC timeout. Please retry and check logs.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 12 dynamiconly
      */
-    getAlbums(
-      type: AlbumType,
-      subtype: AlbumSubtype,
-      options?: photoAccessHelper.FetchOptions
-    ): Promise<FetchResult<Album>>;
+    getAlbums(type: AlbumType, subtype: AlbumSubtype, options?: photoAccessHelper.FetchOptions): Promise<FetchResult<Album>>;
     /**
      * 根据隐藏文件显示模式和检索选项获取系统中的隐藏相册。使用Promise异步回调。
      *
@@ -1310,8 +1349,9 @@ declare namespace sendablePhotoAccessHelper {
      * @param { HiddenPhotosDisplayMode } mode - 隐藏文件显示模式。
      * @param { FetchOptions } [options] - 检索选项，不填时默认根据隐藏文件显示模式检索。
      * @returns { Promise<FetchResult<Album>> } Promise对象，返回获取相册的结果集。
-     * @throws { BusinessError } 201 - Permission verification failed, usually the result returned by VerifyAccessToken.
-     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1321,10 +1361,7 @@ declare namespace sendablePhotoAccessHelper {
      * @systemapi
      * @since 12 dynamiconly
      */
-    getHiddenAlbums(
-      mode: photoAccessHelper.HiddenPhotosDisplayMode,
-      options?: photoAccessHelper.FetchOptions
-    ): Promise<FetchResult<Album>>;
+    getHiddenAlbums(mode: photoAccessHelper.HiddenPhotosDisplayMode, options?: photoAccessHelper.FetchOptions): Promise<FetchResult<Album>>;
     /**
      * 释放PhotoAccessHelper实例，当后续不需要使用PhotoAccessHelper实例中的方法时调用。使用Promise异步回调。
      *
@@ -1340,8 +1377,9 @@ declare namespace sendablePhotoAccessHelper {
      * @permission ohos.permission.ACCESS_MEDIALIB_THUMB_DB
      * @param { FetchOptions } options - Fetch options.
      * @returns { Array<SharedPhotoAsset> } Returns the shared photo assets
-     * @throws { BusinessError } 201 - Permission denied
-     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
      *     <br>2. Incorrect parameter types;
@@ -1360,7 +1398,7 @@ declare namespace sendablePhotoAccessHelper {
      *     <br>数组的大小不能超过500个。
      *     <br>数组中的每个元素必须包含以下资产列信息：file_id、data、display_name、media_type、subtype。
      * @returns { Promise<PhotoAsset[]> } Promise对象，返回PhotoAsset对象的数组（数组可能为空）。
-     * @throws { BusinessError } 202 - Called by non-system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
      *     <br>1. Invalid value type in ValuesBucket;
      *     <br>2. Missing required column in ValuesBucket;
@@ -1376,6 +1414,30 @@ declare namespace sendablePhotoAccessHelper {
      * @since 24 dynamiconly
      */
     getPhotoAssets(assetsData: photoAccessHelper.ValuesBucket[]): Promise<PhotoAsset[]>;
+
+    /**
+     * 查询共享相册。
+     *
+     * @permission ohos.permission.MANAGE_SHARE_PHOTO
+     * @param { photoAccessHelper.FetchOptions } [options] - 检索选项。
+     * @returns { Promise<FetchResult<Album>> } Promise用于返回相册的fetch结果。
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. The column field does not support querying.
+     *     <br>2. Filter conditions do not match expectations.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes:
+     *     <br>1. Database corrupted;
+     *     <br>2. The file system is abnormal;
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamiconly
+     */
+    getShareAlbums(options?: photoAccessHelper.FetchOptions): Promise<FetchResult<Album>>;
   }
 }
 
