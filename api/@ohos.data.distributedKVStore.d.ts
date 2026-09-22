@@ -2935,7 +2935,6 @@ declare namespace distributedKVStore {
      * @returns { Promise<void> } the promise returned by the function.
      * @throws { BusinessError } 15100003 - Database corrupted.
      * @throws { BusinessError } 15100005 - Database or result set already closed.
-     * @throws { BusinessError } 15100006 - Failed to update the key.
      * @syscap SystemCapability.DistributedDataManager.KVStore.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
