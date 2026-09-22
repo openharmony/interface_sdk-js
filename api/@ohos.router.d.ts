@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Page Routing(Not Recommended)
  * @kit ArkUI
  */
 

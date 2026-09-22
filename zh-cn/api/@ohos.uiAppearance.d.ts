@@ -14,7 +14,7 @@
  */
 
 /**
- * @file UI Appearance
+ * @file 用户界面外观
  * @kit ArkUI
  */
 
