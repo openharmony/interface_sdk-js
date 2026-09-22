@@ -176,7 +176,7 @@ declare namespace hidebug {
    * 关闭的调用方式，否则会接口调用异常。
    *
    * @param { string } filename - 用户自定义的采样结果输出的文件名，将在应用的`files`目录下生成以该参数命名的json文件。string长度的最大值为128。
-   * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
+   * @throws {BusinessError} 401 - The parameter check failed, Parameter type error.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
    * @since 23 static
@@ -201,7 +201,7 @@ declare namespace hidebug {
    * > 由于虚拟机堆导出极其耗时，且该接口为同步接口，建议不要在上架版本中调用该接口，以避免应用冻屏，影响用户体验。
    *
    * @param { string } filename - 用户自定义的虚拟机堆数据转储输出的文件名，将在应用的`files`目录下生成以该参数命名的heapsnapshot文件。string长度的最大值为128字节。
-   * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
+   * @throws {BusinessError} 401 - The parameter check failed, Parameter type error.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
    * @since 26.0.1 static
@@ -232,9 +232,9 @@ declare namespace hidebug {
    * @param { int } serviceid - 系统服务ID，用于标识要获取信息的系统服务。取值由系统定义，取值范围[0, 255]。传入无效值时返回错误码401。
    * @param { int } fd - 文件描述符，接口会向该fd写入数据。传入无效文件描述符时返回错误码401。
    * @param { Array<string> } args - 系统服务的dump接口参数列表。string长度的最大值为254，超出部分将会被截断。
-   * @throws {BusinessError} 401 - the parameter check failed, Possible causes:
-   *     1.the parameter type error
-   *     2.the args parameter is not string array
+   * @throws {BusinessError} 401 - The parameter check failed, Possible causes:
+   *     1.The parameter type error.
+   *     2.The args parameter is not string array.
    * @throws {BusinessError} 11400101 - ServiceId invalid. The system ability does not exist.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
