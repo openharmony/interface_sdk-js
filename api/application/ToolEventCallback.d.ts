@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,11 +21,12 @@
 import { CliToolEvent } from './CliToolEvent';
 
 /**
- *  Defines cli event callback function.
+ * Defines the callback function type for receiving CLI tool events.
  *
  * @param { CliToolEvent } event - The event sent by cli tool.
  * @syscap SystemCapability.Ability.AgentRuntime.Core
- * @systemapi
+ * @systemapi [since 26.0.0 - 26.0.0]
+ * @publicapi [since 26.0.1]
  * @stagemodelonly
  * @since 26.0.0 dynamiconly
  */
@@ -37,7 +37,8 @@ type OnEventFn = (event: CliToolEvent) => void;
  *
  * @interface ToolEventCallback
  * @syscap SystemCapability.Ability.AgentRuntime.Core
- * @systemapi
+ * @systemapi [since 26.0.0 - 26.0.0]
+ * @publicapi [since 26.0.1]
  * @stagemodelonly
  * @since 26.0.0 dynamiconly
  */
@@ -53,7 +54,8 @@ export interface ToolEventCallback {
    *
    * @typedef { OnEventFn }
    * @syscap SystemCapability.Ability.AgentRuntime.Core
-   * @systemapi
+   * @systemapi [since 26.0.0 - 26.0.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
