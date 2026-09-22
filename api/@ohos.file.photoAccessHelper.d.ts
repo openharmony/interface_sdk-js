@@ -4228,6 +4228,36 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Enumerates the log modes of video files.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  export enum VideoMode {
+    /**
+     * Default type.
+     *
+     * A value of **0** indicates that the video is either not in log mode or its type has not yet been determined. This
+     * value may later be updated to **1** for some videos after type determination, so it is not recommended for use in
+     * queries.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    DEFAULT = 0,
+    /**
+     * Video file in log mode.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @since 22 dynamic
+     * @since 23 static
+     */
+    LOG_VIDEO = 1
+  }
+
+  /**
    * Options for creating an image or video asset.
    *
    * The title must meet the following requirements:
