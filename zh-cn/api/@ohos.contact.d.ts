@@ -3308,7 +3308,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { Array<Contact> } contacts - 联系人信息数组。
    * @returns { Promise<Array<int>> } Promise对象，返回批量添加的联系人id数组。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700002 - Invalid parameter value.
    * @syscap SystemCapability.Applications.ContactsData
