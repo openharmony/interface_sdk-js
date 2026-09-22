@@ -439,6 +439,31 @@ declare namespace uiEffect {
      * @since 26.0.1 dynamic&static
      */
     spinBlur(center: common2D.Point, angle: double, samples: int): Filter;
+
+    /**
+     * 根据图片的明暗程度进行颜色渐变映射。
+     * 根据输入的colors和对应的亮度锚点位置进行颜色映射，图片越暗对应的亮度值越小，
+     * 图片中黑色的部分最暗，亮度值为0.0；白色部分最亮，亮度值为1.0。
+     * 颜色映射为循环方式，如输入5个颜色，按照亮度锚点位置从小到大排序，
+     * 则颜色映射顺序为 1-->2-->3-->4-->5-->1。
+     *
+     * > **说明**
+     * >
+     * > 建议作为前景滤镜使用。
+     *
+     * @param { Array<Color> } colors - 应用的颜色。每个颜色值必须大于等于0.0，推荐使用范围为[0, 1]。
+     *     小于0时无效果。颜色值大于1.0时按1.0处理。
+     *     数量范围为[1, 5]，数量小于1时无效果；数量为1时为纯色效果；
+     *     数量大于5时，效果仅应用前5个颜色。
+     * @param { Array<double> } positions - 每个颜色对应的亮度锚点位置。数量必须与colors的数量一致，
+     *     不一致时无效果。取值范围为[0.0, 1.0]，超出范围时按边界值处理。
+     * @returns { Filter } - 返回挂载了颜色亮度映射效果的Filter。
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    mapColorByBrightness(colors: Array<Color>, positions: Array<double>): Filter;
   }
 
   /**

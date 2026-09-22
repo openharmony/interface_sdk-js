@@ -525,6 +525,37 @@ declare namespace uiEffect {
      * @since 26.0.1 dynamic&static
      */
     spinBlur(center: common2D.Point, angle: double, samples: int): Filter;
+
+    /**
+     * Performs color gradient mapping on the image based on its brightness.
+     * The mapping is based on the input colors and their corresponding brightness
+     * anchor positions. Darker areas of the image correspond to smaller brightness
+     * values; for example, black areas are the darkest with a brightness value of 0.0,
+     * while white areas are the brightest with a brightness value of 1.0.
+     * The color mapping is cyclic; for example, given 5 colors sorted by brightness
+     * anchor position in ascending order, the color mapping sequence is 1-->2-->3-->4-->5-->1.
+     *
+     * > **NOTE**
+     * >
+     * > It is recommended to use as a foreground filter.
+     *
+     * @param { Array<Color> } colors - The colors to apply. Each color value must be
+     *     greater than or equal to 0.0, with a recommended range of [0, 1].
+     *     Values less than 0 have no effect. Color values greater than 1.0 are treated as 1.0.
+     *     The array length range is [1, 5]. When the length is less than 1, the effect
+     *     does not take effect; when the length is 1, a solid color effect is applied;
+     *     when the length is greater than 5, the effect applies the first 5 colors.
+     * @param { Array<double> } positions - The brightness anchor positions corresponding
+     *     to each color. The array length must be equal to the length of colors;
+     *     otherwise, the effect does not take effect. The value range is [0.0, 1.0],
+     *     and values outside the range are clamped to the boundary values.
+     * @returns { Filter } - Returns the Filter with the color brightness mapping effect attached.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.2.0 dynamic&static
+     */
+    mapColorByBrightness(colors: Array<Color>, positions: Array<double>): Filter;
   }
 
   /**
