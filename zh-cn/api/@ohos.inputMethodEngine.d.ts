@@ -262,6 +262,16 @@ declare namespace inputMethodEngine {
   const PATTERN_ONE_TIME_CODE: int;
 
   /**
+   * 数字验证码编辑框。固定为15。
+   * 取值限定为整数。
+   *
+   * @syscap SystemCapability.MiscServices.InputMethodFramework
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  const PATTERN_ONE_TIME_CODE_NUMBER: int;
+  
+  /**
    * 编辑框处于选择状态。
    *
    * @syscap SystemCapability.MiscServices.InputMethodFramework

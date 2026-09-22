@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 自动填充拉起类型
  * @kit AbilityKit
  */
 

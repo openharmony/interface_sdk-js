@@ -1545,6 +1545,15 @@ function compareVersions(version1, version2) {
 
   // 处理开源格式：提取数字或x.y.z格式
   const extractOpenVersion = (str) => {
+    // 先尝试匹配 x.y.z 格式（三段式版本号）
+    const match = str.match(/^(\d+)\.(\d+)\.(\d+)$/);
+    if (match) {
+      const x = parseInt(match[1]);
+      const y = parseInt(match[2]);
+      const z = parseInt(match[3]);
+      return x * 10000 + y * 100 + z;
+    }
+    
     // 先尝试提取数字
     const num = parseFloat(str);
     if (!isNaN(num)) {

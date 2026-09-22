@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2026 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,7 +14,7 @@
  */
 
 /**
-  * @file
+ * @file CLI工具会话事件
   * @kit AbilityKit
  */
 
@@ -22,7 +22,8 @@
  * CliToolEvent用于描述CLI工具进程运行期间产生的会话事件信息。
  *
  * @syscap SystemCapability.Ability.AgentRuntime.Core
- * @systemapi
+ * @systemapi [since 26.0.0 - 26.0.0]
+ * @publicapi [since 26.0.1]
  * @stagemodelonly
  * @since 26.0.0 dynamiconly
  */
@@ -31,7 +32,8 @@ export interface CliToolEvent {
    * CLI工具事件类型。
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
-   * @systemapi
+   * @systemapi [since 26.0.0 - 26.0.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -41,7 +43,8 @@ export interface CliToolEvent {
    * CLI工具事件数据。
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
-   * @systemapi
+   * @systemapi [since 26.0.0 - 26.0.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -52,7 +55,8 @@ export interface CliToolEvent {
  * CLI工具会话事件类型。
  *
  * @syscap SystemCapability.Ability.AgentRuntime.Core
- * @systemapi
+ * @systemapi [since 26.0.0 - 26.0.0]
+ * @publicapi [since 26.0.1]
  * @stagemodelonly
  * @since 26.0.0 dynamiconly
  */
@@ -61,7 +65,8 @@ export enum ToolEventType {
    * 标准输出事件。
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
-   * @systemapi
+   * @systemapi [since 26.0.0 - 26.0.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -71,7 +76,8 @@ export enum ToolEventType {
    * 标准错误事件。
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
-   * @systemapi
+   * @systemapi [since 26.0.0 - 26.0.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -81,7 +87,8 @@ export enum ToolEventType {
    * 进程退出事件。
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
-   * @systemapi
+   * @systemapi [since 26.0.0 - 26.0.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
@@ -91,7 +98,8 @@ export enum ToolEventType {
    * 进程错误事件。
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
-   * @systemapi
+   * @systemapi [since 26.0.0 - 26.0.0]
+   * @publicapi [since 26.0.1]
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */

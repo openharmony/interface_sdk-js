@@ -274,7 +274,7 @@ declare namespace common {
    * @stagemodelonly
    * @since 26.0.1
    */
-  export enum QueryPolicy {  
+  export enum QueryPolicy {
     /**
      * 自己设置的策略。
      *
@@ -293,6 +293,62 @@ declare namespace common {
      */
     ALL = 1
   }
+
+  /**
+   * 管控特性。
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.1
+   */
+  export enum ManagedFeature {
+    /**
+     * 本地Hota域名
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.1
+     */
+    LOCAL_HOTA_DOMAIN = 0,
+
+    /**
+     * 可信持有物认证
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.1
+     */
+    USER_EXTEND_CREDENTIAL = 1,
+
+    /**
+     * 设置设备安全等级
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.1
+     */
+    DEVICE_SECURITY_LEVEL = 2,
+
+    /**
+     * 设置打印机IP策略特性
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.1
+     */
+    PRINTER_IP_ADDRESS_POLICY = 3
+  }
+
+  /**
+   * 查询是否支持某个管控特性
+   *
+   * @param { ManagedFeature } feature - 管控特性。
+   * @returns { boolean } true表示支持该特性，fasle表示不支持该特性。
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.1
+   */
+  function isFeatureSupported(feature: ManagedFeature): boolean;
 
   /**
    * EnterpriseAdminExtensionContext是

@@ -187,7 +187,7 @@ declare namespace hidebug {
    *
    * @param { string } filename - Custom file name of the sampling data. The .json file is generated in the **files**
    *     directory of the application based on the specified file name. The maximum length of a string is 128.
-   * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
+   * @throws {BusinessError} 401 - The parameter check failed, Parameter type error.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
    * @since 23 static
@@ -216,7 +216,7 @@ declare namespace hidebug {
    * @param { string } filename - User-defined name of the VM heap data output file. The .heapsnapshot file is generated
    *     in the **files** directory of the application based on the specified file name. The maximum length of a string
    *     is 128 bytes.
-   * @throws {BusinessError} 401 - the parameter check failed, Parameter type error
+   * @throws {BusinessError} 401 - The parameter check failed, Parameter type error.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic
    * @since 26.0.1 static
@@ -251,9 +251,9 @@ declare namespace hidebug {
    * @param { int } fd - File descriptor to which data is written by the API.
    * @param { Array<string> } args - Parameter list of the **Dump** API of the system service. The maximum length of a
    *     string is 254 characters. The excess part will be truncated.
-   * @throws {BusinessError} 401 - the parameter check failed, Possible causes:
-   *     1.the parameter type error
-   *     2.the args parameter is not string array
+   * @throws {BusinessError} 401 - The parameter check failed, Possible causes:
+   *     1.The parameter type error.
+   *     2.The args parameter is not string array.
    * @throws {BusinessError} 11400101 - ServiceId invalid. The system ability does not exist.
    * @syscap SystemCapability.HiviewDFX.HiProfiler.HiDebug
    * @since 9 dynamic

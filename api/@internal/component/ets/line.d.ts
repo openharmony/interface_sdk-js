@@ -20,12 +20,12 @@
 
 /**
  * Describes the options of the line.
- *
+ * 
  * > **NOTE**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element's
- * > @since version number is higher than inner elements'. This does not affect interface usability.
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
+ * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -37,8 +37,11 @@
 interface LineOptions {
   /**
    * Width.
-   * If the value is invalid or the default value is used, the width required for the content is used.
-   * Unit: vp.
+   * 
+   * If the value is an abnormal value or is not set, the width of the drawing area is automatically calculated based on
+   * **startPoint** and **endPoint**.
+   * 
+   * Default unit: vp
    *
    * @type { ?(string | number) } [since 7 - 19]
    * @type { ?Length } [since 20]
@@ -53,8 +56,11 @@ interface LineOptions {
 
   /**
    * Height.
-   * If the value is invalid or the default value is used, the height required for the content is used.
-   * Unit: vp.
+   * 
+   * If the value is an abnormal value or is not set, the height of the drawing area is automatically calculated based 
+   * on **startPoint** and **endPoint**.
+   * 
+   * Default unit: vp
    *
    * @type { ?(string | number) } [since 7 - 19]
    * @type { ?Length } [since 20]
@@ -69,7 +75,21 @@ interface LineOptions {
 }
 
 /**
- * Line drawing component.
+ * The **Line** component is used to draw a straight line in the app UI. It supports customizing the start point, end 
+ * point, color, width, opacity, dash style, and cap style of the line. It is suitable for drawing separators, 
+ * decorative lines, coordinate axes or connecting lines in charts, and custom graphic borders.
+ * 
+ * > **NOTE**
+ * >
+ * > Since API version 20, this component supports updating constructor parameters through the 
+ * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the 
+ * > [AttributeUpdater]{@link ../../../arkui/AttributeUpdater} class.
+ * >
+ * > - The **Line** component cannot form a closed area, so the **fill** and **fillOpacity** attributes do not take 
+ * > effect.
+ * >
+ * > - The **Line** component does not support corners, so the **strokeLineJoin** and **strokeMiterLimit** attributes do
+ * > not take effect.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -81,11 +101,17 @@ interface LineOptions {
  */
 interface LineInterface {
   /**
-   * Uses new to create the line.
-   * Anonymous Object Rectification.
+   * Draws a straight line. The **Line** component draws the line within the rectangular area defined by **width** and
+   * **height**. The upper left corner of the drawing area is the coordinate origin (0,0), with the x-axis extending to
+   * the right and the y-axis extending downward.
    *
    * @param { object } value [since 7 - 17]
-   * @param { LineOptions } [options] - Line options [since 18]
+   * @param { LineOptions } [options] - Drawing area of the **Line** component, which contains the **width** and
+   *     **height** attributes used to set the width and height of the **Line** component. If this parameter is not
+   *     passed, the **width** and **height** attributes of the **Line** component are processed according to the
+   *     default logic of their respective attributes (see the **LineOptions** object description).
+   *     <br>The abnormal values **undefined** and **null** are processed as invalid values, and this setting does not
+   *     take effect. [since 18]
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -97,11 +123,17 @@ interface LineInterface {
   new (options?: LineOptions): LineAttribute;
 
   /**
-   * Defines the constructor of Line component.
+   * Draws a straight line. The **Line** component draws the line within the rectangular area defined by **width** and 
+   * **height**. The upper left corner of the drawing area is the coordinate origin (0,0), with the x-axis extending to 
+   * the right and the y-axis extending downward.
    *
    * @param { object } value - [since 7 - 17]
-   * @param { LineOptions } [options] - Options of the line.<br>The **undefined** and **null** values are treated as
-   *     invalid and will not take effect. [since 18]
+   * @param { LineOptions } [options] - Drawing area of the **Line** component, which contains the **width** and
+   *     **height** attributes used to set the width and height of the **Line** component. If this parameter is not
+   *     passed, the **width** and **height** attributes of the Line component are processed based on their
+   *     respective default logic (see **LineOptions** object description).
+   *     <br>The abnormal values **undefined** and **null** are processed as invalid values, and this setting does not
+   *     take effect. [since 18]
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -114,7 +146,8 @@ interface LineInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
+ * In addition to the [universal attributes]{@link CommonMethod} and 
+ * [common attributes for drawing components]{@link CommonMethod}, the following attributes are supported:
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -126,11 +159,15 @@ interface LineInterface {
  */
 declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   /**
-   * Sets the coordinates (relative coordinates) of the start point of the line. This attribute can be dynamically set 
-   * using  [attributeModifier]{@link CommonMethod#attributeModifier}. Invalid values are treated as the default value.
+   * Sets the coordinates of the line start point (relative to the origin at the upper left corner of the **Line** 
+   * component drawing area). This attribute supports [attributeModifier]{@link CommonMethod#attributeModifier} for 
+   * dynamic setting of the attribute method. Abnormal values are processed as the default value.
    *
-   * @param { Array<any> } value - Coordinates (relative coordinates) of the start point of the line, in vp.<br>Default
-   *     value: **[0, 0]**<br>The **undefined** and **null** values are treated as the default value.
+   * @param { Array<any> } value - Coordinates of the start point of the line (relative to the upper left corner of the
+   *     Line component's drawing area), in vp. The array format is [x-coordinate, y-coordinate]. The array length must
+   *     be 2, and the elements must be of the Length type.
+   *     <br>Default value: **[0, 0]** 
+   *     <br>The abnormal values **undefined** and **null** are processed as the default value.
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -142,11 +179,15 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   startPoint(value: Array<any>): LineAttribute;
 
   /**
-   * Sets the coordinates (relative coordinates) of the end point of the line. This attribute can be dynamically set
-   * using [attributeModifier]{@link CommonMethod#attributeModifier}. Invalid values are treated as the default value.
+   * Sets the coordinates of the line end point (relative to the origin at the upper left corner of the **Line** 
+   * component drawing area). This attribute supports [attributeModifier]{@link CommonMethod#attributeModifier} for 
+   * dynamic setting of the attribute method. Abnormal values are processed as the default value.
    *
-   * @param { Array<any> } value - Coordinates (relative coordinates) of the end point of the line, in vp.<br>Default
-   *     value: **[0, 0]**<br>The **undefined** and **null** values are treated as the default value.
+   * @param { Array<any> } value - End point coordinate of the line (relative to the upper left corner of the **Line**
+   *     component drawing area), in vp. The array format is [x coordinate, y coordinate]. The array length must be 2,
+   *     and the elements must be of the Length type.
+   *     <br>Default value: **[0, 0]** 
+   *     <br>Abnormal values **undefined** and **null** are processed as the default value.
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -159,16 +200,25 @@ declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
 }
 
 /**
- * The **Line** component is used to draw a straight line.
+ * The **Line** component is used to draw a straight line in the app UI. It supports customizing the start point, end 
+ * point, color, width, opacity, dash style, and cap style of the line. It is suitable for drawing separators, 
+ * decorative lines, coordinate axes or connecting lines in charts, and custom graphic borders.
+ * 
  * > **NOTE**
  * >
- * > This component supports dynamic constructor parameter updates using the
- * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the
- * > [AttributeUpdater](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md) class since API version 20.
+ * > Since API version 20, this component supports updating constructor parameters through the 
+ * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the 
+ * > [AttributeUpdater]{@link ../../../arkui/AttributeUpdater} class.
  * >
- * > **Child Components**
+ * > - The **Line** component cannot form a closed area, so the **fill** and **fillOpacity** attributes do not take 
+ * > effect.
  * >
- * > None
+ * > - The **Line** component does not support corners, so the **strokeLineJoin** and **strokeMiterLimit** attributes do
+ * > not take effect.
+ * 
+ * ###### Child Components
+ * 
+ * None
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

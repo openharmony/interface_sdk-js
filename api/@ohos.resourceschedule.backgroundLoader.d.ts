@@ -26,7 +26,7 @@
  *
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @stagemodelonly
- * @since 26.0.1 dynamic&static
+ * @since 26.2.0 dynamic&static
  */
 declare namespace backgroundLoader {
   /**
@@ -34,7 +34,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.1 dynamic&static
+   * @since 26.2.0 dynamic&static
    */
   export enum StopCode {
     /**
@@ -42,7 +42,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.1 dynamic&static
+     * @since 26.2.0 dynamic&static
      */
     SUCCESS = 0,
     /**
@@ -50,7 +50,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.1 dynamic&static
+     * @since 26.2.0 dynamic&static
      */
     SYSTEM_ERROR = 1,
     /**
@@ -58,7 +58,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.1 dynamic&static
+     * @since 26.2.0 dynamic&static
      */
     PERCEPTIBLE_ERROR = 2,
     /**
@@ -66,7 +66,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.1 dynamic&static
+     * @since 26.2.0 dynamic&static
      */
     TIMEOUT_ERROR = 3,
     /**
@@ -74,7 +74,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.1 dynamic&static
+     * @since 26.2.0 dynamic&static
      */
     EXECUTE_ERROR = 4
   }
@@ -84,7 +84,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.1 dynamic&static
+   * @since 26.2.0 dynamic&static
    */
   export interface TaskInfo {
     /**
@@ -92,7 +92,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.1 dynamic&static
+     * @since 26.2.0 dynamic&static
      */
     abilityName: string;
 
@@ -101,7 +101,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.1 dynamic&static
+     * @since 26.2.0 dynamic&static
      */
     taskId: int;
   }
@@ -111,7 +111,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.1 dynamic&static
+   * @since 26.2.0 dynamic&static
    */
   export interface TaskStopInfo {
     /**
@@ -119,7 +119,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.1 dynamic&static
+     * @since 26.2.0 dynamic&static
      */
     taskId: int;
 
@@ -128,7 +128,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.1 dynamic&static
+     * @since 26.2.0 dynamic&static
      */
     abilityName: string;
 
@@ -137,7 +137,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.1 dynamic&static
+     * @since 26.2.0 dynamic&static
      */
     stopCode: StopCode;
 
@@ -146,7 +146,7 @@ declare namespace backgroundLoader {
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
-     * @since 26.0.1 dynamic&static
+     * @since 26.2.0 dynamic&static
      */
     stopMessage: string;
   }
@@ -161,7 +161,7 @@ declare namespace backgroundLoader {
    * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.1 dynamic&static
+   * @since 26.2.0 dynamic&static
    */
   function registerTask(taskInfo: TaskInfo): void;
 
@@ -175,7 +175,7 @@ declare namespace backgroundLoader {
    * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.1 dynamic&static
+   * @since 26.2.0 dynamic&static
    */
   function unregisterTask(taskInfo: TaskInfo): void;
 
@@ -189,7 +189,7 @@ declare namespace backgroundLoader {
    * @throws { BusinessError } 9700004 - Check on taskInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.1 dynamic&static
+   * @since 26.2.0 dynamic&static
    */
   function finishTask(taskInfo: TaskInfo): void;
 
@@ -205,7 +205,7 @@ declare namespace backgroundLoader {
    * @throws { BusinessError } 9700004 - Check on taskId failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.1 dynamic&static
+   * @since 26.2.0 dynamic&static
    */
   function getTaskInfo(taskId: int): Promise<TaskInfo>;
 
@@ -214,7 +214,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.1 dynamic&static
+   * @since 26.2.0 dynamic&static
    */
   const ON_START: string;
 
@@ -223,7 +223,7 @@ declare namespace backgroundLoader {
    *
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
-   * @since 26.0.1 dynamic&static
+   * @since 26.2.0 dynamic&static
    */
   const ON_STOP: string;
 }

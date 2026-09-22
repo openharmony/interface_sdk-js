@@ -44,18 +44,17 @@ interface SegmentButtonTextItem {
   text: ResourceStr;
 
   /**
-   * Accessibility level, which is used to set whether the current component can be recognized by accessibility 
-   * services.
+   * Accessibility level, which controls whether the current component can be recognized by accessibility services.
    * 
-   * The options are as follows:
+   * Supported values:
    * 
-   * **"auto"**: The component can be recognized by accessibility services.
+   * **"auto"**: The current component can be recognized by accessibility services.
    * 
-   * **"yes"**: The component can be recognized by accessibility services.
+   * **"yes"**: The current component can be recognized by accessibility services.
    * 
-   * **"no"**: The component cannot be recognized by accessibility services.
+   * **"no"**: The current component cannot be recognized by accessibility services.
    * 
-   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility 
+   * **"no-hide-descendants"**: The current component and all its child components cannot be recognized by accessibility
    * services.
    * 
    * Default value: **"auto"**
@@ -72,11 +71,14 @@ interface SegmentButtonTextItem {
   accessibilityLevel?: string;
 
   /**
-   * Accessibility description, which is used to explain component operations to users. You can set detailed description
-   * text to help users understand the operation consequences. If a component has both text and accessibility 
-   * description, the text is read first, and then the accessibility description is read.
+   * Accessibility description, which provides further explanation of the current component for users. Developers can 
+   * set a relatively detailed explanatory text for this attribute to help users understand the operation to be 
+   * performed, such as the possible consequences of the operation, especially when these consequences cannot be learned
+   * from the component's own attributes and accessibility text. If a component has both a text attribute and an 
+   * accessibility description attribute, when the component is selected, the text attribute is announced first, 
+   * followed by the content of the accessibility description attribute.
    * 
-   * The default value is an empty string.
+   * Default value: empty string.
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -106,9 +108,11 @@ interface SegmentButtonTextItem {
  */
 interface SegmentButtonIconItem {
   /**
-   * Icon of the unselected item.
+   * Icon of the button in unselected state.
    * 
-   * If the value is undefined, no icon is displayed.
+   * If the value is **undefined**, no icon is displayed.
+   * 
+   * **Note:** **icon** and **selectedIcon** must be set together. Setting either alone is ineffective.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -119,9 +123,9 @@ interface SegmentButtonIconItem {
   icon: ResourceStr;
 
   /**
-   * Accessibility text of the unselected item.
+   * Accessibility text for the icon of the button in unselected state.
    * 
-   * The default value is an empty string.
+   * Default value: empty string.
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -135,9 +139,11 @@ interface SegmentButtonIconItem {
   iconAccessibilityText?: ResourceStr;
 
   /**
-   * Icon of the selected item.
+   * Icon of the button in selected state.
    * 
-   * If the value is undefined, no icon is displayed.
+   * If the value is **undefined**, no icon is displayed.
+   * 
+   * **Note:** **icon** and **selectedIcon** must be set together. Setting either alone is ineffective.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -148,9 +154,9 @@ interface SegmentButtonIconItem {
   selectedIcon: ResourceStr;
 
   /**
-   * Accessibility text of the selected item.
+   * Accessibility text for the icon of the button in selected state.
    * 
-   * The default value is an empty string.
+   * Default value: empty string.
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -164,18 +170,17 @@ interface SegmentButtonIconItem {
   selectedIconAccessibilityText?: ResourceStr;
 
   /**
-   * Accessibility level, which is used to set whether the current component can be recognized by accessibility 
-   * services.
+   * Accessibility level, which controls whether the current component can be recognized by accessibility services.
    * 
-   * The options are as follows:
+   * Supported values:
    * 
-   * **"auto"**: The component can be recognized by accessibility services.
+   * **"auto"**: The current component can be recognized by accessibility services.
    * 
-   * **"yes"**: The component can be recognized by accessibility services.
+   * **"yes"**: The current component can be recognized by accessibility services.
    * 
-   * **"no"**: The component cannot be recognized by accessibility services.
+   * **"no"**: The current component cannot be recognized by accessibility services.
    * 
-   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility 
+   * **"no-hide-descendants"**: The current component and all its child components cannot be recognized by accessibility
    * services.
    * 
    * Default value: **"auto"**
@@ -192,11 +197,14 @@ interface SegmentButtonIconItem {
   accessibilityLevel?: string;
 
   /**
-   * Accessibility description, which is used to explain component operations to users. You can set detailed description
-   * text to help users understand the operation consequences. If a component has both text and accessibility 
-   * description, the text is read first, and then the accessibility description is read.
+   * Accessibility description, which provides additional explanation about the current component for users. Developers 
+   * can set a relatively detailed explanatory text for this attribute to help users understand the operation to be 
+   * performed, such as the potential consequences of the operation, especially when these consequences cannot be 
+   * learned from the component's own attributes and accessibility text. If a component has both a text attribute and an
+   * accessibility description attribute, the text attribute is announced first when the component is selected, followed
+   * by the content of the accessibility description attribute.
    * 
-   * The default value is an empty string.
+   * Default value: empty string.
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -226,9 +234,11 @@ interface SegmentButtonIconItem {
  */
 interface SegmentButtonIconTextItem {
   /**
-   * Icon of the unselected item.
+   * Icon of the button in unselected state.
    * 
-   * If the value is undefined, no icon is displayed.
+   * When the value is **undefined**, no icon is displayed.
+   * 
+   * **Note:** **icon** and **selectedIcon** must be set together. Setting either alone is ineffective.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -239,11 +249,11 @@ interface SegmentButtonIconTextItem {
   icon: ResourceStr;
 
   /**
-   * Accessibility text of the unselected item.
+   * Accessibility text of the button icon in unselected state.
    * 
-   * The default value is an empty string.
+   * Default value: empty string.
    * 
-   * If the value is **undefined**, the default value is used.
+   * When the value is **undefined**, the default value is used.
    *
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -255,9 +265,11 @@ interface SegmentButtonIconTextItem {
   iconAccessibilityText?: ResourceStr;
 
   /**
-   * Icon of the selected item.
+   * Icon of the button in selected state.
    * 
-   * If the value is undefined, no icon is displayed.
+   * When the value is **undefined**, no icon is displayed.
+   * 
+   * **Note:** **icon** and **selectedIcon** must be set together. Setting either alone is ineffective.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -268,11 +280,11 @@ interface SegmentButtonIconTextItem {
   selectedIcon: ResourceStr;
 
   /**
-   * Accessibility text of the selected item.
+   * Accessibility text of the button icon in selected state.
    * 
-   * The default value is an empty string.
+   * Default value: empty string.
    * 
-   * If the value is **undefined**, the default value is used.
+   * When the value is **undefined**, the default value is used.
    *
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -286,7 +298,7 @@ interface SegmentButtonIconTextItem {
   /**
    * Button text.
    * 
-   * If the value is undefined, no text is displayed.
+   * When the value is **undefined**, no text content is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -297,23 +309,22 @@ interface SegmentButtonIconTextItem {
   text: ResourceStr;
 
   /**
-   * Accessibility level, which is used to set whether the current component can be recognized by accessibility 
-   * services.
+   * Accessibility level, which determines whether the current component can be recognized by accessibility services.
    * 
-   * The options are as follows:
+   * Supported values:
    * 
-   * **"auto"**: The component can be recognized by accessibility services.
+   * **"auto"**: The current component can be recognized by accessibility services.
    * 
-   * **"yes"**: The component can be recognized by accessibility services.
+   * **"yes"**: The current component can be recognized by accessibility services.
    * 
-   * **"no"**: The component cannot be recognized by accessibility services.
+   * **"no"**: The current component cannot be recognized by accessibility services.
    * 
-   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility 
+   * **"no-hide-descendants"**: The current component and all its child components cannot be recognized by accessibility
    * services.
    * 
    * Default value: **"auto"**
    * 
-   * If the value is **undefined**, the default value is used.
+   * When the value is **undefined**, the default value is used.
    *
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -325,13 +336,16 @@ interface SegmentButtonIconTextItem {
   accessibilityLevel?: string;
 
   /**
-   * Accessibility description, which is used to explain component operations to users. You can set detailed description
-   * text to help users understand the operation consequences. If a component has both text and accessibility 
-   * description, the text is read first, and then the accessibility description is read.
+   * Accessibility description, which provides additional explanation about the current component for users. Developers 
+   * can set a relatively detailed explanatory text for this attribute to help users understand the operation to be 
+   * performed, such as the possible consequences of the operation, especially when such consequences cannot be learned 
+   * from the component's own attributes and accessibility text. If a component has both a text attribute and an 
+   * accessibility description attribute, the text attribute is announced first when the component is selected, followed
+   * by the accessibility description.
    * 
-   * The default value is an empty string.
+   * Default value: empty string.
    * 
-   * If the value is **undefined**, the default value is used.
+   * When the value is **undefined**, the default value is used.
    *
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -362,6 +376,11 @@ declare type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
 /**
  * Enumerates the border radius modes for the **SegmentButton** component, which are used to control the border radius 
  * calculation method.
+ * 
+ * | Name   |Value| Description                            |
+ * | ------- | - |-------------------------------- |
+ * | DEFAULT | 0 |Default mode, where the framework automatically calculates the border radius.|
+ * | CUSTOM  | 1 |Custom mode, where the border radius is set by the developer.|
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -405,9 +424,11 @@ declare enum BorderRadiusMode {
  */
 interface CommonSegmentButtonOptions {
   /**
-   * Text color of the unselected button.
+   * Text color of the button in unselected state.
    * 
-   * If the value is **undefined**, the color is $r('sys.color.ohos_id_color_text_secondary').
+   * Default value: **$r('sys.color.ohos_id_color_text_secondary')**
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -418,12 +439,15 @@ interface CommonSegmentButtonOptions {
   fontColor?: ResourceColor;
 
   /**
-   * Text color of the selected button.
+   * Text color of the button in selected state.
    * 
-   * If the value is **undefined**, the color is $r('sys.color.ohos_id_color_text_primary') when type is set to 
-   * **"tab"**.
+   * Default value:
    * 
-   * When type is set to **"capsule"**, the color is $r('sys.color.ohos_id_color_foreground_contrary').
+   * When type is **"tab"**, the default value is `$r('sys.color.ohos_id_color_text_primary')`.
+   * 
+   * When type is **"capsule"**, the default value is `$r('sys.color.ohos_id_color_foreground_contrary')`.
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -434,9 +458,11 @@ interface CommonSegmentButtonOptions {
   selectedFontColor?: ResourceColor;
 
   /**
-   * Font size of the unselected item. It cannot be set in percentage.
+   * Font size of the button in unselected state (percentage setting is not supported).
    * 
    * Default value: **$r('sys.float.ohos_id_text_size_body2')**
+   * 
+   * Unit: fp
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -450,9 +476,11 @@ interface CommonSegmentButtonOptions {
   fontSize?: DimensionNoPercentage;
 
   /**
-   * Font size of the selected item. It cannot be set in percentage.
+   * Font size of the button in selected state (percentage setting is not supported).
    * 
    * Default value: **$r('sys.float.ohos_id_text_size_body2')**
+   * 
+   * Unit: fp
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -466,7 +494,7 @@ interface CommonSegmentButtonOptions {
   selectedFontSize?: DimensionNoPercentage;
 
   /**
-   * Font weight of the unselected item.
+   * Font weight of the button in unselected state.
    * 
    * Default value: **FontWeight.Regular**
    * 
@@ -482,7 +510,7 @@ interface CommonSegmentButtonOptions {
   fontWeight?: FontWeight;
 
   /**
-   * Font weight of the selected item.
+   * Font weight of the button in selected state.
    * 
    * Default value: **FontWeight.Medium**
    * 
@@ -498,7 +526,7 @@ interface CommonSegmentButtonOptions {
   selectedFontWeight?: FontWeight;
 
   /**
-   * Background color.
+   * Color of the background.
    * 
    * Default value: **$r('sys.color.ohos_id_color_button_normal')**
    * 
@@ -514,12 +542,15 @@ interface CommonSegmentButtonOptions {
   backgroundColor?: ResourceColor;
 
   /**
-   * Background color of the selected button.
+   * Color of the background for the button in selected state.
    * 
-   * When the value is **undefined** and **type** is **"tab"**, the background color is 
-   * **$r('sys.color.segment_button_checked_foreground_color')**.
+   * Default value:
    * 
-   * When **type** is **"capsule"**, the background color is **$r('sys.color.ohos_id_color_emphasize')**.
+   * When **type** is **"tab"**, the default value is `$r('sys.color.segment_button_checked_foreground_color')`.
+   * 
+   * When **type** is **"capsule"**, the default value is `$r('sys.color.ohos_id_color_emphasize')`.
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -530,9 +561,9 @@ interface CommonSegmentButtonOptions {
   selectedBackgroundColor?: ResourceColor;
 
   /**
-   * Defines the image size.
+   * Image size.
    * 
-   * Default value: { width: 24, height: 24 }
+   * Default value: **{ width: 24, height: 24 }**
    * 
    * Unit: vp
    * 
@@ -540,7 +571,8 @@ interface CommonSegmentButtonOptions {
    * 
    * **NOTE**
    * 
-   * The **imageSize** property takes effect only for icon-only and icon-with-text buttons.
+   * The `imageSize` attribute takes effect only for icon buttons and icon + text buttons, and does not respond on text-
+   * only buttons.
    *
    * @default SizeOptions { width: 24, height: 24 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -556,9 +588,9 @@ interface CommonSegmentButtonOptions {
    * 
    * Default value:
    * 
-   * For icon buttons and text buttons: { top: 4, right: 8, bottom: 4, left: 8 }
+   * For icon-only buttons and text-only buttons: `{ top: 4, right: 8, bottom: 4, left: 8 }`
    * 
-   * For icon+text buttons: { top: 6, right: 8, bottom: 6, left: 8 }
+   * For icon+text buttons: `{ top: 6, right: 8, bottom: 6, left: 8 }`
    * 
    * Unit: vp
    * 
@@ -575,16 +607,15 @@ interface CommonSegmentButtonOptions {
   buttonPadding?: Padding | Dimension;
 
   /**
-   * Button padding.
+   * Button padding, which supports adaptive adjustment based on the layout direction (LTR/RTL).
    * 
    * Default value:
    * 
-   * Icon button and text button: 
-   * **{ top: LengthMetrics.vp(4), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(4), start: LengthMetrics.vp(8) }**.
+   * For icon-only buttons and text-only buttons: 
+   * `{ top: LengthMetrics.vp(4), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(4), start: LengthMetrics.vp(8) }`
    * 
-   * Icon + text button: 
-   * **{ top: LengthMetrics.vp(6), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(6), start: LengthMetrics.vp(8) **}
-   * .
+   * For icon + text buttons: 
+   * `{ top: LengthMetrics.vp(6), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(6), start: LengthMetrics.vp(8) }`
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -621,9 +652,11 @@ interface CommonSegmentButtonOptions {
   textPadding?: Padding | Dimension;
 
   /**
-   * Text padding.
+   * Text padding, which supports adaptive adjustment based on the layout direction (LTR/RTL).
    * 
    * Default value: **0**
+   * 
+   * Unit: vp
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -636,9 +669,11 @@ interface CommonSegmentButtonOptions {
   localizedTextPadding?: LocalizedPadding;
 
   /**
-   * Background blur style of the component.
+   * Background blur material.
    * 
-   * If the value is **undefined**, it defaults to **BlurStyle.NONE**.
+   * Default value: **BlurStyle.NONE**
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -649,7 +684,7 @@ interface CommonSegmentButtonOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Layout direction of the component.
+   * Layout direction.
    * 
    * Default value: **Direction.Auto**
    * 
@@ -664,7 +699,7 @@ interface CommonSegmentButtonOptions {
   direction?: Direction;
 
   /**
-   * Border radius mode, used to control the border radius calculation method.
+   * Border radius mode, which controls the radius calculation method.
    * 
    * Default value: **BorderRadiusMode.DEFAULT**
    * 
@@ -680,19 +715,20 @@ interface CommonSegmentButtonOptions {
   borderRadiusMode?: BorderRadiusMode;
 
   /**
-   * Container border radius.
+   * Border radius of the overall container of the segment button.
    * 
    * **NOTE**
    * 
    * This attribute takes effect only when **borderRadiusMode** is set to **BorderRadiusMode.CUSTOM**.
    * 
-   * For capsule-style multi-selection segmented buttons (with **type** being **"capsule"** and **multiply** being 
-   * **true**), this attribute does not take effect and **itemBorderRadius** must be used to set the border radius.
+   * For capsule-type multi-select segment buttons (**type** is **"capsule"** and **multiply** is **true**), this 
+   * attribute does not take effect. Use **itemBorderRadius** to configure the radius instead.
    * 
-   * The maximum value for the border radius is half of the component's width or height, and percentage values are not 
-   * supported.
+   * The radius size is limited by the component size. The maximum value is half of the component width or height. 
+   * Percentage setting is not supported. If the value exceeds the maximum, it is automatically corrected to the 
+   * maximum. If a percentage is used, the default value is used.
    * 
-   * Default value: **$r('sys.float.segmentbutton_container_shape')**
+   * Default value: `$r('sys.float.segmentbutton_container_shape')`
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -705,19 +741,20 @@ interface CommonSegmentButtonOptions {
   backgroundBorderRadius?: LengthMetrics;
 
   /**
-   * Individual button border radius.
+   * Border radius of the button items in the segment button.
    * 
    * **NOTE**
    * 
    * This attribute takes effect only when **borderRadiusMode** is set to **BorderRadiusMode.CUSTOM**.
    * 
-   * For capsule-style multi-selection segmented buttons (with **type** being **"capsule"** and **multiply** being 
-   * **true**), this attribute only affects end items.
+   * For capsule-type multi-select segment buttons (**type** is **"capsule"** and **multiply** is **true**), only the 
+   * radius of the options at both ends can be controlled.
    * 
-   * The maximum value for the border radius is half of the component's width or height, and percentage values are not 
-   * supported.
+   * The radius size is limited by the component size. The maximum value is half of the component width or height. 
+   * Percentage setting is not supported. If the value exceeds the maximum, it is automatically corrected to the 
+   * maximum. If a percentage is used, the default value is used.
    * 
-   * Default value: **$r('sys.float.segmentbutton_selected_background_shape')**
+   * Default value: `$r('sys.float.segmentbutton_selected_background_shape')`
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -730,8 +767,19 @@ interface CommonSegmentButtonOptions {
   itemBorderRadius?: LengthMetrics;
 
   /**
-   * Set system-styled materials for the component. Different materials have different effects, which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   * System material of the background of the segment button component. Different system materials have different 
+   * properties and produce different effects. After a material is passed in, the animation effects of the 
+   * **SegmentButton** change.
+   * 
+   * For capsule-type multi-select segment buttons (type is **"capsule"** and **multiply** is **true**), this attribute 
+   * does not take effect.
+   * 
+   * Default value: no material effect.
+   * 
+   * Since API version 26.0.0, except for capsule-type multi-select segment buttons (**type** is **"capsule"** and 
+   * **multiply** is **true**), when **backgroundSystemMaterial** is set to a system material with automatic inverted 
+   * color, **fontColor** and **selectedFontColor** use special system resources that support inverted color, and the 
+   * colors automatically adapt to the inverted color of the material background color.
    *
    * @type { ?uiMaterial.Material } material - System-styled material. [since 23 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -815,7 +863,7 @@ interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions
 }
 
 /**
- * Represents configuration options for creating a **SegmentButton** component consisting of capsule-style segmented 
+ * Represents configuration options for creating a **SegmentButton** component consisting of capsule-style segment 
  * buttons.
  * 
  * Inherits from [CommonSegmentButtonOptions]{@link CommonSegmentButtonOptions}.
@@ -842,7 +890,7 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
   /**
    * Whether multiple items can be selected.
    * 
-   * Default value: **false**
+   * Default value: **false**.
    * 
    * If the value is **undefined**, the default value is used.
    * 
@@ -861,7 +909,7 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
 }
 
 /**
- * Provides configuration options for tab-style segmented buttons. Inherits from 
+ * Provides configuration options for tab-style segment buttons. Inherits from 
  * [TabSegmentButtonConstructionOptions]{@link TabSegmentButtonConstructionOptions}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -873,13 +921,7 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
  */
 interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
   /**
-   * Type of the **SegmentButton** component.
-   * 
-   * **NOTE**
-   * 
-   * **"tab"**: tab-style segmented buttons, designed for page or content section switching.
-   * 
-   * **"capsule"**: capsule-style segmented buttons, suitable for single or multiple selection scenarios.
+   * Type of the segment buttons, which is **"tab"** in this case.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -891,7 +933,7 @@ interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
 }
 
 /**
- * Provides configuration options for capsule-style segmented buttons. Inherits from 
+ * Provides configuration options for capsule-style segment buttons. Inherits from 
  * [CapsuleSegmentButtonConstructionOptions]{@link CapsuleSegmentButtonConstructionOptions}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -903,13 +945,7 @@ interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
  */
 interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOptions {
   /**
-   * Type of the **SegmentButton** component.
-   * 
-   * **NOTE**
-   * 
-   * **"tab"**: tab-style segmented buttons, designed for page or content section switching.
-   * 
-   * **"capsule"**: capsule-style segmented buttons, suitable for single or multiple selection scenarios.
+   * Type of the segment buttons, which is **"capsule"** in this case.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -922,6 +958,11 @@ interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOp
 
 /**
  * Construct parameters for SegmentButtonItemOptions.
+ * 
+ * > **NOTE**
+ * >
+ * > Both the unselected icon `icon` and the selected icon `selectedIcon` must be set. Setting only one of them is 
+ * > invalid.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -932,9 +973,13 @@ interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOp
  */
 interface SegmentButtonItemOptionsConstructorOptions {
   /**
-   * Icon of the unselected item.
+   * Icon for the unselected state.
    * 
-   * If the value is undefined, no icon is displayed.
+   * Default value: the icon for the unselected state is not displayed.
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Note:** **icon** and **selectedIcon** must be set together. Setting either one alone does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -945,9 +990,9 @@ interface SegmentButtonItemOptionsConstructorOptions {
   icon?: ResourceStr;
 
   /**
-   * Accessibility text of the unselected item.
+   * Accessibility text for the icon in the unselected state.
    * 
-   * The default value is an empty string.
+   * Default value: empty string.
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -961,9 +1006,13 @@ interface SegmentButtonItemOptionsConstructorOptions {
   iconAccessibilityText?: ResourceStr;
 
   /**
-   * Icon of the selected item.
+   * Icon for the selected state.
    * 
-   * If the value is undefined, no icon is displayed.
+   * Default value: the icon for the selected state is not displayed.
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Note:** **icon** and **selectedIcon** must be set together. Setting either one alone does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -974,9 +1023,9 @@ interface SegmentButtonItemOptionsConstructorOptions {
   selectedIcon?: ResourceStr;
 
   /**
-   * Accessibility text of the selected item.
+   * Accessibility text for the icon in the selected state.
    * 
-   * The default value is an empty string.
+   * Default value: empty string.
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -992,7 +1041,9 @@ interface SegmentButtonItemOptionsConstructorOptions {
   /**
    * Button text.
    * 
-   * If the value is undefined, no text is displayed.
+   * Default value: empty string.
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1003,21 +1054,20 @@ interface SegmentButtonItemOptionsConstructorOptions {
   text?: ResourceStr;
 
   /**
-   * Accessibility level, which is used to set whether the current component can be recognized by accessibility 
+   * Accessibility level, which controls whether the current component can be recognized by accessibility services.
+   * 
+   * Supported values:
+   * 
+   * "auto": the current component can be recognized by accessibility services.
+   * 
+   * "yes": the current component can be recognized by accessibility services.
+   * 
+   * "no": the current component cannot be recognized by accessibility services.
+   * 
+   * "no-hide-descendants": the current component and all its child components cannot be recognized by accessibility 
    * services.
    * 
-   * The options are as follows:
-   * 
-   * **"auto"**: The component can be recognized by accessibility services.
-   * 
-   * **"yes"**: The component can be recognized by accessibility services.
-   * 
-   * **"no"**: The component cannot be recognized by accessibility services.
-   * 
-   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility 
-   * services.
-   * 
-   * Default value: **"auto"**
+   * Default value: "auto"
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -1031,11 +1081,14 @@ interface SegmentButtonItemOptionsConstructorOptions {
   accessibilityLevel?: string;
 
   /**
-   * Accessibility description, which is used to explain component operations to users. You can set detailed description
-   * text to help users understand the operation consequences. If a component has both text and accessibility 
-   * description, the text is read first, and then the accessibility description is read.
+   * Accessibility description, which provides additional explanation about the current component for users. Developers 
+   * can set a relatively detailed explanatory text for this attribute to help users understand the operation to be 
+   * performed, such as the possible consequences of the operation, especially when these consequences cannot be learned
+   * from the component's own attributes and accessibility text. If a component has both a text attribute and an 
+   * accessibility description attribute, the text attribute is announced first when the component is selected, followed
+   * by the content of the accessibility description attribute.
    * 
-   * The default value is an empty string.
+   * Default value: empty string.
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -1050,7 +1103,7 @@ interface SegmentButtonItemOptionsConstructorOptions {
 }
 
 /**
- * Button options in a segmented button.
+ * Button options in a segment button.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1062,11 +1115,13 @@ interface SegmentButtonItemOptionsConstructorOptions {
 @Observed
 declare class SegmentButtonItemOptions {
   /**
-   * Icon of the unselected item.
+   * Icon of the button in the unselected state.
    * 
-   * Default value: The icon of the button in the unselected state is not displayed.
+   * Default value: no icon is displayed for the button in the unselected state.
    * 
    * If the value is **undefined**, the default value is used.
+   * 
+   * **Note:** **icon** and **selectedIcon** must be set together. Setting only one of them does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1077,9 +1132,9 @@ declare class SegmentButtonItemOptions {
   icon?: ResourceStr;
 
   /**
-   * Accessibility text of the unselected item.
+   * Accessibility text for the icon of the button in the unselected state.
    * 
-   * The default value is an empty string.
+   * Default value: empty string.
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -1093,11 +1148,13 @@ declare class SegmentButtonItemOptions {
   iconAccessibilityText?: ResourceStr;
 
   /**
-   * Icon of the selected item.
+   * Icon of the button in the selected state.
    * 
-   * Default value: no button icon in the selected state
+   * Default value: no icon is displayed for the button in the selected state.
    * 
    * If the value is **undefined**, the default value is used.
+   * 
+   * **Note:** **icon** and **selectedIcon** must be set together. Setting only one of them does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1108,9 +1165,9 @@ declare class SegmentButtonItemOptions {
   selectedIcon?: ResourceStr;
 
   /**
-   * Accessibility text of the selected item.
+   * Accessibility text for the icon of the button in the selected state.
    * 
-   * The default value is an empty string.
+   * Default value: empty string.
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -1126,7 +1183,7 @@ declare class SegmentButtonItemOptions {
   /**
    * Button text.
    * 
-   * The default value is an empty string.
+   * Default value: empty string.
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -1139,18 +1196,17 @@ declare class SegmentButtonItemOptions {
   text?: ResourceStr;
 
   /**
-   * Accessibility level, which is used to set whether the current component can be recognized by accessibility 
-   * services.
+   * Accessibility level, which controls whether the current component can be recognized by accessibility services.
    * 
-   * The options are as follows:
+   * Supported values are as follows:
    * 
-   * **"auto"**: The component can be recognized by accessibility services.
+   * **"auto"**: The current component can be recognized by accessibility services.
    * 
-   * **"yes"**: The component can be recognized by accessibility services.
+   * **"yes"**: The current component can be recognized by accessibility services.
    * 
-   * **"no"**: The component cannot be recognized by accessibility services.
+   * **"no"**: The current component cannot be recognized by accessibility services.
    * 
-   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility 
+   * **"no-hide-descendants"**: The current component and all its child components cannot be recognized by accessibility
    * services.
    * 
    * Default value: **"auto"**
@@ -1167,11 +1223,14 @@ declare class SegmentButtonItemOptions {
   accessibilityLevel?: string;
 
   /**
-   * Accessibility description, which is used to explain component operations to users. You can set detailed description
-   * text to help users understand the operation consequences. If a component has both text and accessibility 
-   * description, the text is read first, and then the accessibility description is read.
+   * Accessibility description, which provides further explanation of the current component for users. Developers can 
+   * set a relatively detailed explanatory text for this attribute to help users understand the operation to be 
+   * performed, such as the possible consequences of the operation, especially when such consequences cannot be learned 
+   * from the component's own attributes and accessibility text. If a component has both a text attribute and an 
+   * accessibility description attribute, the text attribute is announced first when the component is selected, followed
+   * by the content of the accessibility description attribute.
    * 
-   * The default value is an empty string.
+   * Default value: empty string.
    * 
    * If the value is **undefined**, the default value is used.
    *
@@ -1187,8 +1246,8 @@ declare class SegmentButtonItemOptions {
   /**
    * Constructor.
    *
-   * @param { SegmentButtonItemOptionsConstructorOptions } options - Configuration options for a single segmented
-   *     button, including the icon, text, and accessibility attributes.
+   * @param { SegmentButtonItemOptionsConstructorOptions } options - Configuration options for a single segment button,
+   *     including the icon, text, and accessibility attributes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1217,7 +1276,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   /**
    * Constructor.
    *
-   * @param { SegmentButtonItemTuple } elements - Button information.
+   * @param { SegmentButtonItemTuple } elements - Button information tuple used to initialize the array, containing 2 to
+   *     5 button option elements, each defining attributes such as the icon and text of a button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1229,9 +1289,8 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   /**
    * Adds the specified elements to the end of this array and returns the new length of the array.
    *
-   * @param { SegmentButtonItemArray } items - Elements to add to the end of the array.
-   *     <br>Default value: array with 0
-   *     new button information items
+   * @param { SegmentButtonItemArray } items - Array of button information to be added.
+   *     <br>Default value: no button information elements are passed in.
    * @returns { number } Length of the array after the elements are added.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1266,11 +1325,10 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   shift(): SegmentButtonItemOptions | undefined;
 
   /**
-   * Adds an element to the beginning of this array and returns the new length of the array.
+   * Adds new elements to the beginning of the array and returns the length of the array after the addition.
    *
-   * @param { SegmentButtonItemArray } items - Elements to add to the beginning of the array.
-   *     <br>Default value: array
-   *     with 0 new button information items
+   * @param { SegmentButtonItemArray } items - Array of button information to add.
+   *     <br>Default value: no button information elements are passed in.
    * @returns { number } Length of the array after the elements are added.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1284,11 +1342,12 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
    * Changes the contents of this array by removing the specified number of elements from the specified position and 
    * adding new elements in place. This API returns an array containing the removed elements.
    *
-   * @param { number } start - Index of the position starting from which elements are to be removed.
-   * @param { number } deleteCount - Number of elements to remove.
+   * @param { number } start - Start position of the element to delete, counting from 0.
+   * @param { number } deleteCount - Number of elements to delete. The value range is greater than or equal to 0. If
+   *     **deleteCount** exceeds the remaining length of the array, all remaining elements starting from the start
+   *     position are deleted.
    * @param { SegmentButtonItemOptions[] } items - Element to be added to the array from start.
-   *     <br>Default value: If no
-   *     element is specified, the element is deleted from the array.
+   *     <br>Default value: If no element is specified, the element is deleted from the array.
    * @returns { SegmentButtonItemOptions[] } An array containing the removed elements.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1299,10 +1358,13 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   splice(start: number, deleteCount: number, ...items: SegmentButtonItemOptions[]): SegmentButtonItemOptions[];
 
   /**
-   * Creates a **SegmentButtonItemOptionsArray** object.
+   * Creates a **SegmentButtonItemOptionsArray** object. It accepts the same parameters as the constructor and has the 
+   * same functionality. You can choose either as required.
    *
-   * @param { SegmentButtonItemTuple } elements - Button information.
-   * @returns { SegmentButtonItemOptionsArray } Created SegmentButtonItemOptionsArray object.
+   * @param { SegmentButtonItemTuple } elements - Button information tuple used to initialize the array. It contains 2
+   *     to 5 button option elements, each defining attributes such as the icon and text of a button.
+   * @returns { SegmentButtonItemOptionsArray } **SegmentButtonItemOptionsArray** object created, which is an array for
+   *     storing button information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1316,8 +1378,15 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
  * > **NOTE**
  * >
  * > The component does not support custom font type settings.
- * 
+ *
  * Provides initial data and custom properties for the **SegmentButton** component.
+ *
+ * > **NOTE**
+ * >
+ * > Starting from API version 26.0.0, except for capsule-style multi-select buttons (where type is **"capsule"** and
+ * > **multiply** is **true**), when **backgroundSystemMaterial** is set to a system material with automatic color
+ * > inversion, **fontColor** and **selectedFontColor** use special system resources that support color inversion, and
+ * > the colors automatically adapt to the inverted material background color.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1329,13 +1398,13 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
 @Observed
 declare class SegmentButtonOptions {
   /**
-   * Type of the **SegmentButton** component.
+   * Type of the segment button component.
    * 
-   * **NOTE**
+   * **Note:**
    * 
-   * **"tab"**: tab-style segmented buttons, designed for page or content section switching.
+   * **"tab"**: tab-type segment button, suitable for switching between pages or content areas.
    * 
-   * **"capsule"**: capsule-style segmented buttons, suitable for single or multiple selection scenarios.
+   * **"capsule"**: capsule-type segment button, suitable for single-selection or multi-selection scenarios.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1346,14 +1415,16 @@ declare class SegmentButtonOptions {
   type: "tab" | "capsule";
 
   /**
-   * Whether multiple items can be selected.
+   * Whether the segment button component supports multi-selection.
    * 
-   * **true**: Multiple items can be selected.
+   * **true**: multi-selection is supported; **false**: multi-selection is not supported.
    * 
-   * **false**: Multiple items cannot be selected. For the **SegmentButton** component consisting of tab-style buttons, 
-   * only one item can be selected. In this case, setting **multiply** to **true** does not take effect.
+   * For tab-type segment buttons (type is **"tab"**), **multiply** is forcibly set to **false**, and setting it to 
+   * **true** does not take effect.
    * 
-   * If the value is **undefined**, the component does not support selection of multiple items.
+   * Default value: **false**
+   * 
+   * When the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1364,7 +1435,7 @@ declare class SegmentButtonOptions {
   multiply: boolean;
 
   /**
-   * Button information of the component, including the icon and text.
+   * Button information of the segment button component, including icon and text information.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1375,9 +1446,9 @@ declare class SegmentButtonOptions {
   buttons: SegmentButtonItemOptionsArray;
 
   /**
-   * Text color of the unselected button.
+   * Text color of the segment button component in the unselected state.
    * 
-   * If the value is **undefined**, the color is $r('sys.color.ohos_id_color_text_secondary').
+   * When the value is **undefined**, the color is **$r('sys.color.ohos_id_color_text_secondary')**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1388,12 +1459,12 @@ declare class SegmentButtonOptions {
   fontColor: ResourceColor;
 
   /**
-   * Text color of the selected button.
+   * Text color of the segment button component in the selected state.
    * 
-   * If the value is **undefined**, the color is $r('sys.color.ohos_id_color_text_primary') when type is set to 
-   * **"tab"**.
+   * When the value is **undefined** and **type** is **"tab"**, the color is 
+   * `$r('sys.color.ohos_id_color_text_primary')`.
    * 
-   * When type is set to **"capsule"**, the color is $r('sys.color.ohos_id_color_foreground_contrary').
+   * When **type** is **"capsule"**, the color is `$r('sys.color.ohos_id_color_foreground_contrary')`.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1404,9 +1475,11 @@ declare class SegmentButtonOptions {
   selectedFontColor: ResourceColor;
 
   /**
-   * Font size of the unselected button. The value cannot be set in percentage.
+   * Font size of the segment button component in the unselected state. Percentage setting is not supported.
    * 
-   * If the value is **undefined**, the font size is $r('sys.float.ohos_id_text_size_body2').
+   * Unit: fp
+   * 
+   * When the value is **undefined**, the font size is **$r('sys.float.ohos_id_text_size_body2')**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1417,9 +1490,11 @@ declare class SegmentButtonOptions {
   fontSize: DimensionNoPercentage;
 
   /**
-   * Font size of the selected button. The value cannot be set in percentage.
+   * Font size of the segment button component in the selected state. Percentage setting is not supported.
    * 
-   * If the value is **undefined**, the font size is $r('sys.float.ohos_id_text_size_body2').
+   * Unit: fp
+   * 
+   * When the value is **undefined**, the font size is **$r('sys.float.ohos_id_text_size_body2')**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1430,9 +1505,9 @@ declare class SegmentButtonOptions {
   selectedFontSize: DimensionNoPercentage;
 
   /**
-   * Font weight of the unselected button.
+   * Font weight of the segment button component in the unselected state.
    * 
-   * If the value is **undefined**, the font weight is **FontWeight.Regular**.
+   * When the value is **undefined**, the font weight is **FontWeight.Regular**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1443,9 +1518,9 @@ declare class SegmentButtonOptions {
   fontWeight: FontWeight;
 
   /**
-   * Font weight of the selected button.
+   * Font weight of the segment button component in the selected state.
    * 
-   * If the value is **undefined**, the font weight is **FontWeight.Medium**.
+   * When the value is **undefined**, the font weight is **FontWeight.Medium**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1456,9 +1531,9 @@ declare class SegmentButtonOptions {
   selectedFontWeight: FontWeight;
 
   /**
-   * Background color of the component.
+   * Background color of the segment button component.
    * 
-   * If the value is **undefined**, the background color is $r('sys.color.ohos_id_color_button_normal').
+   * When the value is **undefined**, the background color is **$r('sys.color.ohos_id_color_button_normal')**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1469,12 +1544,12 @@ declare class SegmentButtonOptions {
   backgroundColor: ResourceColor;
 
   /**
-   * Background color of the selected button.
+   * Background color of the segment button component in the selected state.
    * 
-   * When the value is **undefined** and **type** is **"tab"**, the background color is 
-   * **$r('sys.color.segment_button_checked_foreground_color')**.
+   * When the value is **undefined** and type is **"tab"**, the background color is 
+   * `$r('sys.color.segment_button_checked_foreground_color')`.
    * 
-   * When **type** is **"capsule"**, the background color is **$r('sys.color.ohos_id_color_emphasize')**.
+   * When type is **"capsule"**, the background color is `$r('sys.color.ohos_id_color_emphasize')`.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1485,15 +1560,16 @@ declare class SegmentButtonOptions {
   selectedBackgroundColor: ResourceColor;
 
   /**
-   * Image size of the component.
+   * Image size of the segment button component.
    * 
-   * When the value is **undefined**, the image size is { width: 24, height: 24 }.
+   * When the value is **undefined**, the image size is **{ width: 24, height: 24 }**.
    * 
-   * Unit: vp
+   * Unit: vp 
    * 
    * **NOTE**
    * 
-   * The **imageSize** property takes effect only for icon-only and icon-with-text buttons.
+   * The `imageSize` attribute takes effect only for icon-only buttons and icon + text buttons, and has no effect on 
+   * text-only buttons.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1504,13 +1580,12 @@ declare class SegmentButtonOptions {
   imageSize: SizeOptions;
 
   /**
-   * Button padding of the component.
+   * Button padding of the segment button component.
    * 
-   * When the value is **undefined**, the button padding settings are as follows:
+   * When the value is **undefined**, the padding for icon-only buttons and text-only buttons is: 
+   * `{ top: 4, right: 8, bottom: 4, left: 8 }`
    * 
-   * Icon button and text button: **{ top: 4, right: 8, bottom: 4, left: 8 }**.
-   * 
-   * Icon + text button: **{ top: 6, right: 8, bottom: 6, left: 8 }**.
+   * The padding for icon + text buttons is: `{ top: 6, right: 8, bottom: 6, left: 8 }` 
    * 
    * Unit: vp
    *
@@ -1523,18 +1598,17 @@ declare class SegmentButtonOptions {
   buttonPadding: Padding | Dimension;
 
   /**
-   * Button padding of the component.
+   * Button padding of the segment button component, which supports adaptation to the layout direction (LTR/RTL).
    * 
    * Default value:
    * 
-   * Icon button and text button: 
-   * **{ top: LengthMetrics.vp(4), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(4), start: LengthMetrics.vp(8) }**.
+   * For icon-only buttons and text-only buttons: 
+   * `{ top: LengthMetrics.vp(4), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(4), start: LengthMetrics.vp(8) }`
    * 
-   * Icon + text button: 
-   * **{ top: LengthMetrics.vp(6), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(6), start: LengthMetrics.vp(8) **}
-   * .
+   * For icon + text buttons: 
+   * `{ top: LengthMetrics.vp(6), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(6), start: LengthMetrics.vp(8) }`
    * 
-   * If the value is **undefined**, the default value is used.
+   * When the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1545,9 +1619,9 @@ declare class SegmentButtonOptions {
   localizedButtonPadding?: LocalizedPadding;
 
   /**
-   * Text padding of the component.
+   * Text padding of the segment button component.
    * 
-   * When the value is **undefined**, the text padding is 0.
+   * When the value is **undefined**, the text padding is **0**.
    * 
    * Unit: vp
    *
@@ -1560,11 +1634,13 @@ declare class SegmentButtonOptions {
   textPadding: Padding | Dimension;
 
   /**
-   * Text padding.
+   * Text padding, which supports adaptation to the layout direction (LTR/RTL).
    * 
    * Default value: **0**
    * 
-   * If the value is **undefined**, the default value is used.
+   * Unit: vp
+   * 
+   * When the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1575,9 +1651,11 @@ declare class SegmentButtonOptions {
   localizedTextPadding?: LocalizedPadding;
 
   /**
-   * Background blur style of the component.
+   * Background blur material of the segment button component.
    * 
-   * If the value is **undefined**, it defaults to **BlurStyle.NONE**.
+   * Default value: **BlurStyle.NONE**
+   * 
+   * When the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1588,8 +1666,14 @@ declare class SegmentButtonOptions {
   backgroundBlurStyle: BlurStyle;
 
   /**
-   * Set system-styled materials for the component. Different materials have different effects, which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   * System material of the background of the segment button component. Different system materials have different 
+   * properties and produce different effects. After a material is passed in, the animation effect of **SegmentButton** 
+   * changes.
+   * 
+   * For capsule-type multi-selection segment buttons (**type** is **"capsule"** and **multiply** is **true**), this 
+   * attribute does not take effect.
+   * 
+   * Default value: no material effect.
    *
    * @type { ?uiMaterial.Material } material - System-styled material. [since 23 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1606,7 +1690,7 @@ declare class SegmentButtonOptions {
    * Constructor.
    *
    * @param { TabSegmentButtonOptions | CapsuleSegmentButtonOptions } options - Configuration options for tab-style or
-   *     capsule-style segmented buttons.
+   *     capsule-style segment buttons.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1618,8 +1702,8 @@ declare class SegmentButtonOptions {
   /**
    * Creates a SegmentButtonOptions class to define tabs.
    *
-   * @param { TabSegmentButtonConstructionOptions } options - Configuration options for tab-style segmented buttons.
-   * @returns { SegmentButtonOptions } Options of the **SegmentButton** component.
+   * @param { TabSegmentButtonConstructionOptions } options - Configuration options for tab-style segment buttons.
+   * @returns { SegmentButtonOptions } Options of the segment button, used to define a tab-type segment button.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1629,11 +1713,11 @@ declare class SegmentButtonOptions {
   static tab(options: TabSegmentButtonConstructionOptions): SegmentButtonOptions;
 
   /**
-   * Creates a **SegmentButtonOptions** object specifically for capsule-style segmented buttons.
+   * Creates a capsule-style **SegmentButtonOptions** instance, which is used to define capsule-style segment buttons.
    *
-   * @param { CapsuleSegmentButtonConstructionOptions } options - Configuration options for capsule-style segmented
+   * @param { CapsuleSegmentButtonConstructionOptions } options - Configuration options for capsule-style segment
    *     buttons.
-   * @returns { SegmentButtonOptions } Options of the **SegmentButton** component.
+   * @returns { SegmentButtonOptions } Segment button options for the capsule type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1643,11 +1727,11 @@ declare class SegmentButtonOptions {
   static capsule(options: CapsuleSegmentButtonConstructionOptions): SegmentButtonOptions;
 
   /**
-   * Layout direction of the component.
+   * Layout direction of the segment button component.
    * 
    * Default value: **Direction.Auto**
    * 
-   * If the value is **undefined**, the default value is used.
+   * When the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1658,11 +1742,11 @@ declare class SegmentButtonOptions {
   direction?: Direction;
 
   /**
-   * Border radius mode, used to control the border radius calculation method.
+   * Border radius mode, which controls how the corner radius is calculated.
    * 
    * Default value: **BorderRadiusMode.DEFAULT**
    * 
-   * If the value is **undefined**, the default value is used.
+   * When the value is **undefined**, the default value is used.
    *
    * @default BorderRadiusMode.Default
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1674,21 +1758,22 @@ declare class SegmentButtonOptions {
   borderRadiusMode?: BorderRadiusMode;
 
   /**
-   * Container border radius.
+   * Border radius of the overall container of the segment button.
    * 
    * **NOTE**
    * 
-   * This attribute takes effect only when **borderRadiusMode** is set to **BorderRadiusMode.CUSTOM**.
+   * This attribute takes effect only when **borderRadiusMode** is **BorderRadiusMode.CUSTOM**.
    * 
-   * For capsule-style multi-selection segmented buttons (with **type** being **"capsule"** and **multiply** being 
-   * **true**), this attribute does not take effect and **itemBorderRadius** must be used to set the border radius.
+   * For capsule-type multi-selection segment buttons (**type** is **"capsule"** and **multiply** is **true**), this 
+   * attribute does not take effect. Use **itemBorderRadius** to configure the corner radius instead.
    * 
-   * The maximum value for the border radius is half of the component's width or height, and percentage values are not 
-   * supported.
+   * The corner radius is limited by the component size. The maximum value is half of the component width or height. 
+   * Percentage setting is not supported. When the value exceeds the maximum, it is automatically corrected to the 
+   * maximum. When a percentage is used, the default value is used.
    * 
-   * Default value: **$r('sys.float.segmentbutton_container_shape')**
+   * Default value: `$r('sys.float.segmentbutton_container_shape')`
    * 
-   * If the value is **undefined**, the default value is used.
+   * When the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1699,21 +1784,22 @@ declare class SegmentButtonOptions {
   backgroundBorderRadius?: LengthMetrics;
 
   /**
-   * Individual button border radius.
+   * Border radius of the button items in the segment button.
    * 
    * **NOTE**
    * 
-   * This attribute takes effect only when **borderRadiusMode** is set to **BorderRadiusMode.CUSTOM**.
+   * This attribute takes effect only when **borderRadiusMode** is **BorderRadiusMode.CUSTOM**.
    * 
-   * For capsule-style multi-selection segmented buttons (with **type** being **"capsule"** and **multiply** being 
-   * **true**), this attribute only affects end items.
+   * For capsule-type multi-selection segment buttons (**type** is **"capsule"** and **multiply** is **true**), only the
+   * corner radius of the items at both ends can be controlled.
    * 
-   * The maximum value for the border radius is half of the component's width or height, and percentage values are not 
-   * supported.
+   * The corner radius is limited by the component size. The maximum value is half of the component width or height. 
+   * Percentage setting is not supported. When the value exceeds the maximum, it is automatically corrected to the 
+   * maximum. When a percentage is used, the default value is used.
    * 
-   * Default value: **$r('sys.float.segmentbutton_selected_background_shape')**
+   * Default value: `$r('sys.float.segmentbutton_selected_background_shape')`
    * 
-   * If the value is **undefined**, the default value is used.
+   * When the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1725,17 +1811,24 @@ declare class SegmentButtonOptions {
 }
 
 /**
- * **SegmentButton** is a versatile component that organizes related options into visually grouped buttons. It supports 
- * three variants: tab-style, capsule-style single-select, and capsule-style multi-select.
+ * The segment button component includes tab-style segment buttons and capsule-style segment buttons. Tab-style segment 
+ * buttons are suitable for switching between pages or content areas. Capsule-style segment buttons are suitable for 
+ * single-select or multi-select scenarios, including capsule-style single-select segment buttons and capsule-style 
+ * multi-select segment buttons. This component supports custom appearance attributes such as text color, font size, 
+ * font weight, background color, image size, padding, and background blur material. It supports three button styles: 
+ * text-only, icon-only, and icon + text. It also provides capabilities such as accessibility reading, layout direction 
+ * mirroring, custom rounded corners, and property animation, making it suitable for scenarios where you need to quickly
+ * build a segmented selection interface that complies with design specifications.
  * 
- * >**NOTE**
+ * > **NOTE**
  * >
- * > - The **SegmentButton** component does not support [universal attributes](ts-component-general-attributes.md).
- * The component occupies the maximum available width within its content area and distributes this width evenly among
- * its items. It adapts its height automatically to the content (text and images), the minimum height being 28 vp.
+ * > - The segment button does not support [universal attributes]{@link CommonMethod}. The segment
+ * > button uses the maximum available width in the current area as the component width, and evenly distributes the
+ * > width among the buttons based on the number of buttons. The segment button height automatically adapts to the
+ * > button content (text and images), with a minimum height of 28 vp.
  * >
- * > - Properties decorated with @Prop are optional. They are required during construction only when used together with
- * the @Require decorator.
+ * > - Attributes decorated by **@Prop** are optional parameters. They must be passed during construction only when
+ * > used together with the **@Require** decorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1746,7 +1839,8 @@ declare class SegmentButtonOptions {
 @Component
 declare struct SegmentButton {
   /**
-   * Options of the **SegmentButton** component.
+   * Configuration options of the segment button, used to set the button type (tab type or capsule type), appearance 
+   * style (color, font, size, etc.), button content, selected state, and other attributes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1758,12 +1852,16 @@ declare struct SegmentButton {
   options: SegmentButtonOptions;
 
   /**
-   * Indexes of selected items of the **SegmentButton**. The index is zero-based and increments by 1.
+   * Index of the selected item in the segment button. The index of the first item is 0, and subsequent items are 
+   * numbered sequentially.
    * 
    * **NOTE**
    * 
-   * **selectedIndexes** is decorated with [@Link](docroot://ui/state-management/arkts-link.md) to implement parent-
-   * child two-way synchronization. If no items are selected, an empty array **[]** can be passed in.
+   * `selectedIndexes` uses the 
+   * [@Link decorator: two-way synchronization between parent and child](docroot://ui/state-management/arkts-link.md). 
+   * Only valid button indexes are supported (the first button index is 0, and subsequent indexes increase sequentially,
+   * with the maximum index being the number of buttons minus 1). If an invalid index is passed in, it does not take 
+   * effect. If no item is selected, an empty array `[]` can be passed in.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1775,11 +1873,16 @@ declare struct SegmentButton {
   selectedIndexes: number[];
 
   /**
-   * Maximum font scale for the text in the **SegmentButton**.
+   * Maximum font scale factor for the segment button option text, used to limit the upper bound of font scaling. Pass 
+   * in this parameter when you need to control the font scale factor to fit a specific UI layout or avoid excessively 
+   * large text.
    * 
    * Value range: [1, 2]
    * 
-   * Values less than 1 are treated as 1, and values greater than 2 are treated as 2.
+   * If the set value is less than 1, the value **1** is used. If the set value is greater than 2, the value **2** is 
+   * used.
+   * 
+   * Default value: **1**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1791,8 +1894,8 @@ declare struct SegmentButton {
   maxFontScale: number | Resource;
 
   /**
-   * Callback function triggered when a segment button option is tapped. The subscript of the tapped option is passed as
-   * a parameter. If this parameter is not passed, no callback is triggered when the option is tapped.
+   * Callback invoked when a segment button option is clicked. It receives the index of the clicked option as a 
+   * parameter. If this parameter is not passed in, no callback is triggered upon clicking.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1803,11 +1906,10 @@ declare struct SegmentButton {
   onItemClicked?: Callback<number>;
 
   /**
-   * Whether to enable property animation for the segment button when the **selectedIndex** value is modified via a 
-   * variable.
+   * Whether to enable the attribute animation of the segment button when the **selectedIndexes** value is modified 
+   * through a variable.
    * 
-   * **true**: Property animation is enabled. **false**: Property animation is disabled and the original animation is 
-   * used.
+   * The value **true** means to enable the attribute animation of the segment button, and **false** means the opposite.
    * 
    * Default value: **false**
    *

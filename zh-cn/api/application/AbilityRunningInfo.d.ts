@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ability运行信息
  * @kit AbilityKit
  */
 

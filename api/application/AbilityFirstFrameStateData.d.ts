@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ability First Frame State Data
  * @kit AbilityKit
  */
 
@@ -74,7 +74,8 @@ export interface AbilityFirstFrameStateData {
   appIndex: int;
 
   /**
-   * The entry ability of application is cold-start return true, others false.
+   * Enabled status of cold start. 
+   * **true** if the entry ability of the application is cold-started, **false** otherwise.
    *
    * @default false
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

@@ -19,7 +19,32 @@
  */
 
 /**
- * **Matrix2D** allows you to perform matrix transformation, such as scaling, rotating, and translating.
+ * A matrix object used for graphic transformation in 
+ * [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}, 
+ * [OffscreenCanvasRenderingContext2D]{@link OffscreenCanvasRenderingContext2D}, 
+ * [CanvasPattern]{@link CanvasPattern}, and [Path2D]{@link Path2D}. 
+ * It can perform scaling, rotation, translation, and other transformations on the matrix.
+ * 
+ * **Matrix2D** is used in the following scenarios:
+ * 
+ * 1. In [CanvasRenderingContext2D]{@link CanvasRenderingContext2D} and 
+ * [OffscreenCanvasRenderingContext2D]{@link OffscreenCanvasRenderingContext2D}, call 
+ * [getTransform]{@link CanvasRenderer#getTransform} to obtain the canvas graphic transformation **Matrix2D** 
+ * object, and call [setTransform]{@link CanvasPattern#setTransform} to apply the graphic transformation 
+ * corresponding to the **Matrix2D** object to subsequent drawing content.
+ * 2. In [CanvasPattern]{@link CanvasPattern}, call 
+ * [setTransform]{@link CanvasPattern#setTransform} 
+ * to apply the graphic transformation corresponding to the **Matrix2D** object to the 
+ * [CanvasPattern]{@link CanvasPattern} object.
+ * 3. In [Path2D]{@link Path2D}, call 
+ * [addPath]{@link Path2D#addPath} 
+ * to apply the graphic transformation corresponding to the **Matrix2D** object to the 
+ * [Path2D]{@link Path2D} object.
+ *
+ * > **NOTE**
+ * >
+ * > You can use the [px2vp]{@link UIContext#px2vp} API for unit
+ * > conversion.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -30,8 +55,13 @@
  */
 declare class Matrix2D {
   /**
-   * Horizontal scaling coefficient. The value range is not limited.<br>If the value is undefined, it is regarded as an
-   * invalid value. If the value is NaN or Infinity, the Matrix2D will be abnormal.
+   * Horizontal scale factor. The value range is unlimited. Values greater than 1 enlarge, less than 1 shrink, and 
+   * negative values flip horizontally.
+   * 
+   * Default: **1**
+   * 
+   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally, 
+   * and drawn content will not be displayed after setting.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -43,8 +73,12 @@ declare class Matrix2D {
   scaleX?: number;
 
   /**
-   * Vertical skew coefficient. The value range is not limited.<br>If the value is undefined, it is regarded as an
-   * invalid value. If the value is NaN or Infinity, the Matrix2D will be abnormal.
+   * Vertical skew factor. The value range is unlimited.
+   * 
+   * Default: **0**
+   * 
+   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally, 
+   * and drawn content will not be displayed after setting.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -56,8 +90,12 @@ declare class Matrix2D {
   rotateY?: number;
 
   /**
-   * Horizontal skew coefficient. The value range is not limited.<br>If the value is undefined, it is regarded as an
-   * invalid value. If the value is NaN or Infinity, the Matrix2D will be abnormal.
+   * Horizontal skew factor. The value range is unlimited.
+   * 
+   * Default: **0**
+   * 
+   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally, 
+   * and drawn content will not be displayed after setting.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -69,8 +107,13 @@ declare class Matrix2D {
   rotateX?: number;
 
   /**
-   * Vertical scaling coefficient. The value range is not limited.<br>If the value is undefined, it is regarded as an
-   * invalid value. If the value is NaN or Infinity, the Matrix2D will be abnormal.
+   * Vertical scale factor. The value range is unlimited. Values greater than 1 enlarge, less than 1 shrink, and 
+   * negative values flip vertically.
+   * 
+   * Default: **1**
+   * 
+   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally, 
+   * and drawn content will not be displayed after setting.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -82,9 +125,14 @@ declare class Matrix2D {
   scaleY?: number;
 
   /**
-   * Horizontal translation distance. The value range is unlimited. <br>The abnormal value undefined is processed as an
-   * invalid value. NaN and Infinity will cause Matrix2D exceptions. After the setting, the drawn content is not
-   * displayed. <br>Default unit: vp.
+   * Horizontal translation distance. The value range is unlimited.
+   * 
+   * Default: **0**
+   * 
+   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally, 
+   * and drawn content will not be displayed after setting.
+   * 
+   * Default unit: vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -96,9 +144,14 @@ declare class Matrix2D {
   translateX?: number;
 
   /**
-   * Vertical translation distance. The value range is unlimited. <br>The abnormal value undefined is processed as an
-   * invalid value. NaN and Infinity will cause Matrix2D exceptions. After the setting, the drawn content is not
-   * displayed. <br>Default unit: vp.
+   * Vertical translation distance. The value range is unlimited.
+   * 
+   * Default: **0**
+   * 
+   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally, 
+   * and drawn content will not be displayed after setting.
+   * 
+   * Default unit: vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -110,10 +163,10 @@ declare class Matrix2D {
   translateY?: number;
 
   /**
-   * Transforms the current 2D matrix back to the identity matrix (i.e., without any rotational
-   * translation scaling effect)
+   * Creates an identity matrix. It is commonly used to reset the transformation matrix, clearing all previous 
+   * transformation operations so that subsequent drawing content is not affected by previous transformations.
    *
-   * @returns { Matrix2D } - Identity matrix.
+   * @returns { Matrix2D } Identity matrix, which can be used to initialize or reset the graphics transformation state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -124,10 +177,11 @@ declare class Matrix2D {
   identity(): Matrix2D;
 
   /**
-   * Transform the current 2D matrix into an inverse matrix (that is, the transformation effect
-   * is the opposite effect of the original)
+   * Obtains the inverse of the current matrix. It is commonly used to undo previous transformation operations or 
+   * calculate reverse transformations, enabling reverse mapping of the coordinate system.
    *
-   * @returns { Matrix2D } - Inverse of the current matrix.
+   * @returns { Matrix2D } Inverse matrix result, which can be used for reverse transformation or to undo previous
+   *     transformation operations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -138,13 +192,14 @@ declare class Matrix2D {
   invert(): Matrix2D;
 
   /**
-   * The matrix is superimposed in right multiplication mode. When the input parameter is empty,
-   * the matrix is superimposed.
+   * Multiplies the current matrix by the target matrix. This API is an empty API and has no actual effect.
+   * 
+   * This API is deprecated since API version 10 and has no actual drawing effect, so no example is provided.
    *
    * @param { Matrix2D } other - Target matrix.
-   *     <br>Invalid values **undefined** and **null** are treated as invalid
-   *     inputs.<br>Default value: **null**.
-   * @returns { Matrix2D } - Matrix of the multiplication result.
+   *     <br>Invalid values **undefined** and **null** are treated as invalid inputs.
+   *     <br>Default value: **null**.
+   * @returns { Matrix2D } This API is an empty implementation, and its return value has no practical meaning.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @form [since 9]
@@ -154,15 +209,20 @@ declare class Matrix2D {
   multiply(other?: Matrix2D): Matrix2D;
 
   /**
-   * Adds the rotation effect of the X and Y axes to the current matrix.
+   * Performs a rotation operation on the current matrix. This API is an empty API and has no actual effect.
    *
-   * @param { number } rx - Horizontal coordinate of the rotation point. The value range is not limited.<br>Invalid
-   *     values **undefined** and **null** are treated as invalid inputs. **NaN** and **Infinity** values will trigger
-   *     **Matrix2D** exceptions.<br>Default unit: vp.
-   * @param { number } ry - Vertical coordinate of the rotation point. The value range is not limited.<br>Invalid values
-   *     **undefined** and **null** are treated as invalid inputs. **NaN** and **Infinity** values will trigger
-   *     **Matrix2D** exceptions.<br>Default unit: vp.
-   * @returns { Matrix2D }
+   * @param { number } rx - Horizontal coordinate of the rotation point. The value range is unlimited.
+   *     <br>Default unit: vp
+   *     <br>The abnormal values **undefined** and **null** are processed as invalid values, and **NaN** and
+   *     **Infinity** cause **Matrix2D** exceptions.
+   *     <br>Default value: **0**
+   * @param { number } ry - Vertical coordinate of the rotation point. The value range is unlimited.
+   *     <br>Default unit: vp
+   *     <br>The abnormal values **undefined** and **null** are processed as invalid values, and **NaN** and
+   *     **Infinity** cause **Matrix2D** exceptions.
+   *     <br>Default value: **0**
+   * @returns { Matrix2D } Result matrix object after rotation, which can be used to perform rotation transformation on
+   *     graphics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @form [since 9]
@@ -173,19 +233,26 @@ declare class Matrix2D {
   rotate(rx?: number, ry?: number): Matrix2D;
 
   /**
-   * Adds the rotation effect of the X and Y axes to the current matrix.
+   * Performs a left-multiply rotation operation on the current matrix, centered at the rotation point. It is commonly 
+   * used in scenarios such as graphic rotation animation or image rotation processing.
    *
-   * @param { number } degree - Rotation angle. The value range is not limited. Positive angles represent clockwise
-   *     rotation. You can convert the angle to radians using the following formula: degree * Math.PI/180.
+   * @param { number } degree - Rotation angle (in radians). The value range is unlimited. A positive value indicates
+   *     clockwise rotation. You can convert an angle to radians using `angle * Math.PI / 180` and pass it to this API.
+   *     <br>Invalid values **undefined** and **null** are treated as invalid values. **NaN** and **Infinity** will
+   *     cause **Matrix2D** exceptions.
+   *     <br>Default unit: radians
+   * @param { number } rx - Horizontal coordinate of the rotation point. The value range is not limited.
+   *     <br>Default unit: vp.
    *     <br>Invalid values **undefined** and **null** are treated as invalid inputs. **NaN** and **Infinity** values
-   *     will trigger **Matrix2D** exceptions.<br>Default unit: radian.
-   * @param { number } rx - Horizontal coordinate of the rotation point. The value range is not limited.<br>Default
-   *     unit: vp.<br>Invalid values **undefined** and **null** are treated as invalid inputs. **NaN** and **Infinity**
-   *     values will trigger **Matrix2D** exceptions.<br>Default value: **0**.
-   * @param { number } ry - Vertical coordinate of the rotation point. The value range is not limited.<br>Default unit:
-   *     vp.<br>Invalid values **undefined** and **null** are treated as invalid inputs. **NaN** and **Infinity** values
-   *     will trigger **Matrix2D** exceptions.<br>Default value: **0**.
-   * @returns { Matrix2D }
+   *     will trigger **Matrix2D** exceptions.
+   *     <br>Default value: **0**.
+   * @param { number } ry - Vertical coordinate of the rotation point. The value range is not limited.
+   *     <br>Default unit: vp.
+   *     <br>Invalid values **undefined** and **null** are treated as invalid inputs. **NaN** and **Infinity** values
+   *     will trigger **Matrix2D** exceptions.
+   *     <br>Default value: **0**.
+   * @returns { Matrix2D } Resulting matrix object after rotation, which can be used to perform rotation transformation
+   *     on graphics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -196,15 +263,21 @@ declare class Matrix2D {
   rotate(degree: number, rx?: number, ry?: number): Matrix2D;
 
   /**
-   * Performs a left multiplication translation operation on this matrix.
+   * Performs a left-multiply translation operation on the current matrix. It is commonly used in scenarios such as 
+   * adjusting graphic positions, implementing displacement animations, or offsetting the canvas coordinate system.
    *
-   * @param { number } tx - Horizontal translation distance. The value range is not limited.<br>Invalid values
-   *     **undefined** and **null** are treated as invalid inputs. **NaN** and **Infinity** values will trigger
-   *     **Matrix2D** exceptions.<br>Default unit: vp.<br>Default value: **0**.
-   * @param { number } ty - Vertical translation distance. The value range is not limited.<br>Invalid values
-   *     **undefined** and **null** are treated as invalid inputs. **NaN** and **Infinity** values will trigger
-   *     **Matrix2D** exceptions.<br>Default unit: vp.<br>Default value: **0**.
-   * @returns { Matrix2D } - Matrix of the translation result.
+   * @param { number } tx - Horizontal translation distance. The value range is not limited.
+   *     <br>Invalid values **undefined** and **null** are treated as invalid inputs. **NaN** and **Infinity** values
+   *     will trigger **Matrix2D** exceptions.
+   *     <br>Default unit: vp.
+   *     <br>Default value: **0**.
+   * @param { number } ty - Vertical translation distance. The value range is not limited.
+   *     <br>Invalid values **undefined** and **null** are treated as invalid inputs. **NaN** and **Infinity** values
+   *     will trigger **Matrix2D** exceptions.
+   *     <br>Default unit: vp.
+   *     <br>Default value: **0**.
+   * @returns { Matrix2D } Result matrix object after translation, which can be used to perform translation
+   *     transformation on graphics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -215,15 +288,20 @@ declare class Matrix2D {
   translate(tx?: number, ty?: number): Matrix2D;
 
   /**
-   * Adds the scaling effect of the X and Y axes to the current matrix.
+   * Performs a left-multiply scaling operation on the current matrix. It is commonly used in scenarios such as graphic 
+   * scaling or flipping.
    *
-   * @param { number } sx - Horizontal scaling ratio coefficient. The value range is not limited.<br>Invalid values
-   *     **undefined** and **null** are treated as invalid inputs. **NaN** and **Infinity** values will trigger
-   *     **Matrix2D** exceptions.<br>Default value: **1.0**.
-   * @param { number } sy - Vertical scaling ratio coefficient. The value range is not limited.<br>Invalid values
-   *     **undefined** and **null** are treated as invalid inputs. **NaN** and **Infinity** values will trigger
-   *     **Matrix2D** exceptions.<br>Default value: **1.0**.
-   * @returns { Matrix2D }
+   * @param { number } sx - Horizontal scaling ratio coefficient. The value range is not limited. A value greater than 1
+   *     indicates magnification, less than 1 indicates reduction, and a negative value indicates horizontal flipping.
+   *     <br>Abnormal values **undefined** and **null** are treated as invalid input. **NaN** and **Infinity** cause
+   *     **Matrix2D** exceptions.
+   *     <br>Default value: **1.0**
+   * @param { number } sy - Vertical scaling ratio coefficient. The value range is not limited. A value greater than 1
+   *     indicates magnification, less than 1 indicates reduction, and a negative value indicates vertical flipping.
+   *     <br>Abnormal values **undefined** and **null** are treated as invalid input. **NaN** and **Infinity** cause
+   *     **Matrix2D** exceptions.
+   *     <br>Default value: **1.0**
+   * @returns { Matrix2D } Scaling result matrix object, which can be used to scale graphics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -234,8 +312,8 @@ declare class Matrix2D {
   scale(sx?: number, sy?: number): Matrix2D;
 
   /**
-   * Constructs a two-dimensional transformation matrix object.
-   * The default value is a matrix whose attributes are all 0.
+   * Constructs a two-dimensional transformation matrix object. The default value is a matrix whose attributes are all 
+   * 0.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -247,12 +325,14 @@ declare class Matrix2D {
   constructor();
 
   /**
-   * Constructs a two-dimensional transformation matrix object.
-   * The default value is a matrix whose attributes are all 0. The unit mode of the Matrix2D object can be configured.
+   * Constructs a two-dimensional transformation matrix object. The default value is a matrix whose attributes are all 
+   * 0. The unit mode of the Matrix2D object can be configured.
    *
-   * @param { LengthMetricsUnit } [unit] - Unit mode of the **Matrix2D** object. The value cannot be dynamically changed
-   *     once set. The configuration method is the same as that of CanvasRenderingContext2D.<br>For abnormal values NaN
-   *     and Infinity, the default values are used.<br>Default value: DEFAULT.
+   * @param { LengthMetricsUnit } [unit] - Unit mode of the **Matrix2D** object. The configuration cannot be dynamically
+   *     changed after being set. The configuration method is the same as that of
+   *     [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}.
+   *     <br>Default value: **DEFAULT**
+   *     <br>If the invalid values **NaN** and **Infinity** are passed in, the default value is used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

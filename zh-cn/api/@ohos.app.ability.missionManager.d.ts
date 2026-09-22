@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file missionManager
  * @kit AbilityKit
  */
 /**
@@ -68,7 +68,7 @@ declare namespace missionManager {
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { 'mission' } type - 取消监听的任务名称。固定值：'mission'，表示系统任务状态监听器。
    * @param { long } listenerId - 系统任务状态监器法的index值，和监听器一一对应，由on方法返回。
-   * @param { AsyncCallback<void> } callback - 执行结果回调函数。
+   * @param { AsyncCallback<void> } callback - 执行结果回调函数，返回任务ID数组。解注册任务状态监听器成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -277,7 +277,7 @@ declare namespace missionManager {
   function getLowResolutionMissionSnapShot(deviceId: string, missionId: int): Promise<MissionSnapshot>;
 
   /**
-   * 锁定指定任务ID的任务。使用callback异步回调。
+   * 锁定指定任务ID的任务。适用于需要保持任务不被清理的场景，如系统管理类应用需要在后台持续运行时锁定关键任务。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { int } missionId - 任务ID。
@@ -295,7 +295,7 @@ declare namespace missionManager {
   function lockMission(missionId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * 锁定指定任务ID的任务。使用Promise异步回调。
+   * 锁定指定任务ID的任务。适用于需要保持任务不被清理的场景，如系统管理类应用需要在后台持续运行时锁定关键任务。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { int } missionId - 任务ID。
@@ -313,7 +313,7 @@ declare namespace missionManager {
   function lockMission(missionId: int): Promise<void>;
 
   /**
-   * 解锁指定任务ID的任务。使用callback异步回调。
+   * 解锁指定任务ID的任务。适用于允许被锁定的任务被系统正常清理的场景，如系统管理类应用在不再需要保持某个任务在后台运行时解锁该任务。使用callback异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { int } missionId - 任务ID。
@@ -331,7 +331,7 @@ declare namespace missionManager {
   function unlockMission(missionId: int, callback: AsyncCallback<void>): void;
 
   /**
-   * 解锁指定任务ID的任务。使用Promise异步回调。
+   * 解锁指定任务ID的任务。适用于允许被锁定的任务被系统正常清理的场景，如系统管理类应用在不再需要保持某个任务在后台运行时解锁该任务。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { int } missionId - 任务ID。
@@ -491,7 +491,8 @@ declare namespace missionManager {
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { Array<int> } missionIds - 任务ID数组。
-   * @param { int } topMission - 待移动到最顶层的任务ID
+   * @param { int } topMission - 待移动到最顶层的任务ID。传入-1表示不指定特定任务，系统按照默认逻辑将任务
+   *     移动到最顶层。
    * @param { AsyncCallback<void> } callback - 执行结果回调函数。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.
@@ -510,7 +511,7 @@ declare namespace missionManager {
    *
    * @permission ohos.permission.MANAGE_MISSIONS
    * @param { Array<int> } missionIds - 任务ID数组。
-   * @param { int } topMission - 待移动到最顶层的任务ID。默认值为-1，表示将默认任务移动到最顶层。
+   * @param { int } topMission - 待移动到最顶层的任务ID。默认值为-1，表示不指定特定任务，系统按照默认逻辑将任务移动到最顶层。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application.

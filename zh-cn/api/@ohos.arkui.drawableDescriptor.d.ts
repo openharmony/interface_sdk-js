@@ -15,7 +15,7 @@
 
 /**
  * 本模块提供分层图标合成（包括前景，背景，蒙版），动图播放与控制，基础图像处理的能力。
- * 
+ *
  * > **说明：**
  * >
  * > - 示例效果请以真机运行为准，当前DevEco Studio预览器不支持。
@@ -39,7 +39,7 @@ import drawing from './@ohos.graphics.drawing';
 export interface DrawableDescriptorLoadedResult {
   /**
    * 图片的宽度。
-   * 
+   *
    * 单位：px
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -51,7 +51,7 @@ export interface DrawableDescriptorLoadedResult {
   imageWidth: number,
   /**
    * 图片的高度。
-   * 
+   *
    * 单位：px
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -103,6 +103,7 @@ export class DrawableDescriptor {
    * @throws { BusinessError } 111002 - The native memory referenced by
    *     the drawableDescriptor has been released. [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -116,6 +117,7 @@ export class DrawableDescriptor {
    * @throws { BusinessError } 111002 - The native memory referenced by
    *     the drawableDescriptor has been released. [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -167,12 +169,22 @@ export class DrawableDescriptor {
    * @since 26.0.0 dynamic
    */
   invalidate(): void;
+  /**
+   * 设置svg资源限制级别。
+   *
+   * @param { image.SVGResourceLimitLevel } limit - svg resource limit level.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.1 dynamic
+   */
+  setSVGResourceLimitLevel(limit: image.SVGResourceLimitLevel): void;
 }
 
 /**
  * 当传入资源id或name为包含前景和背景资源的json文件时，生成LayeredDrawableDescriptor对象。继承自
  * [DrawableDescriptor]{@link DrawableDescriptorLoadedResult}。
- * 
+ *
  * drawable.json位于项目工程entry/src/main/resources/base/media目录下。定义请参考：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -296,8 +308,7 @@ export class PixelMapDrawableDescriptor extends DrawableDescriptor {
   /**
    * PixelMapDrawableDescriptor的构造函数，通过PixelMap类型或者ResourceStr创建。
    *
-   * @param { image.PixelMap | ResourceStr } [src] - 
-   * PixelMap类型参数，存储PixelMap图片数据。支持应用资源、系统资源、沙箱路径（file://<bundleName>/<sandboxPath>）
+   * @param { image.PixelMap | ResourceStr } [src] -    * PixelMap类型参数，存储PixelMap图片数据。支持应用资源、系统资源、沙箱路径（file://<bundleName>/<sandboxPath>）
    * 和Base64字符串用于创建PixelMapDrawableDescriptor。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -352,13 +363,13 @@ export enum AnimationStopMode {
 declare interface AnimationOptions {
   /**
    * 设置图片数组播放总时间。
-   * 
+   *
    * PixelMap数组的默认值是每张图片播放1秒。本地图片或者应用资源的默认值是图片资源中携带的播放时延。
-   * 
+   *
    * 单位：毫秒
-   * 
+   *
    * 取值范围：[0, +∞)
-   * 
+   *
    * 设置负数取默认值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -370,9 +381,9 @@ declare interface AnimationOptions {
   duration?: number;
   /**
    * 设置图片数组播放次数。
-   * 
+   *
    * 值为-1时表示无限播放，值为0时表示不播放，值大于0时表示有限的播放次数。
-   * 
+   *
    * 默认值为1。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -384,11 +395,11 @@ declare interface AnimationOptions {
   iterations?: number;
   /**
    * 设置动图中的单帧播放时间。不设置则按照总时间播放。
-   * 
+   *
    * 设置的优先级高于duration，即同时设置了duration和frameDurations时，duration不生效。
-   * 
+   *
    * 当设置的frameDurations长度与图片的数量不一致时，按照总时间播放。
-   * 
+   *
    * 单位：毫秒
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -400,9 +411,9 @@ declare interface AnimationOptions {
   frameDurations?: Array<number>;
   /**
    * 设置动图是否自动播放。
-   * 
+   *
    * true表示自动播放，false表示不自动播放。
-   * 
+   *
    * 默认值为true。
    *
    * @default true
@@ -415,7 +426,7 @@ declare interface AnimationOptions {
   autoPlay?: boolean;
   /**
    * 设置动图的停止模式。
-   * 
+   *
    * 默认值：AnimationStopMode.FIRST_FRAME，表示动图停止时回到首帧。
    *
    * @default AnimationStopMode.FIRST_FRAME
@@ -438,61 +449,61 @@ declare interface AnimationOptions {
  * @since 21 dynamic
  */
 export interface AnimationController {
-    /**
-     * 从首帧开始播放。
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 21 dynamic
-     */
-    start(): void;
+  /**
+   * 从首帧开始播放。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  start(): void;
 
-    /**
-     * 停止动图的播放并回到首帧。
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 21 dynamic
-     */
-    stop(): void;
+  /**
+   * 停止动图的播放并回到首帧。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  stop(): void;
 
-    /**
-     * 暂停动图的播放，保持在当前帧。
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 21 dynamic
-     */
-    pause(): void;
+  /**
+   * 暂停动图的播放，保持在当前帧。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  pause(): void;
 
-    /**
-     * 在当前帧恢复播放动图。
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 21 dynamic
-     */
-    resume(): void;
+  /**
+   * 在当前帧恢复播放动图。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  resume(): void;
 
-    /**
-     * 获取当前动图播放的状态。
-     *
-     * @returns { AnimationStatus } 动图的播放状态。包含4种状态：初始态、播放态、暂停态、停止态。
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 21 dynamic
-     */
-    getStatus(): AnimationStatus;
+  /**
+   * 获取当前动图播放的状态。
+   *
+   * @returns { AnimationStatus } 动图的播放状态。包含4种状态：初始态、播放态、暂停态、停止态。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  getStatus(): AnimationStatus;
 }
 
 /**

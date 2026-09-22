@@ -48,7 +48,15 @@ import {
   AVAILABLE_DECORATOR_WARNING,
   PermissionValidTokenState,
   ERROR_CODE_INFO,
-  SINCE_TAG_NAME
+  SINCE_TAG_NAME,
+  SYSTEM_API_TAG_CHECK_NAME,
+  STAGE_TAG_CHECK_NAME,
+  STAGE_TAG_HUMP_CHECK_NAME,
+  FA_TAG_CHECK_NAME,
+  FA_TAG_HUMP_CHECK_NAME,
+  TEST_TAG_CHECK_NAME,
+  ATOMICSERVICE_TAG_CHECK_NAME,
+  FORM_TAG_CHECK_NAME
 } from './api_check_plugin_define';
 import {
   CurrentAddress,
@@ -77,8 +85,8 @@ function isVersionRangeIntersect(start1: string, end1: string, start2: number, e
   // Convert version strings to numeric representations
   const range1StartNum = parseVersion(start1);
   const range1EndNum = parseVersion(end1);
-  const range2StartNum = start2;
-  const range2EndNum = end2;
+  const range2StartNum = parseVersion(String(start2));
+  const range2EndNum = parseVersion(String(end2));
 
   // Normalize ranges to ensure start <= end
   const normalizedRange1Start = Math.min(range1StartNum, range1EndNum);
@@ -155,8 +163,27 @@ function getBuildVersionRegex(tag: string, functionType: string) : RegExp | unde
 export function checkSystemApiTag(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem): boolean {
   const monitor = getGlobalMonitor();
   monitor.start(PERF.CHECK_SYSTEM_API_TAG);
-  monitor.end(PERF.CHECK_SYSTEM_API_TAG);
-  return true;
+  // Find the specific JSDoc tag with the system API check name
+  const systemApiTag: JSDocTag | undefined = jsDocTags.find((item: JSDocTag) => {
+    return item.tag === SYSTEM_API_TAG_CHECK_NAME;
+  });
+
+  // If the specific JSDoc tag is not found, return false
+  if (!systemApiTag) {
+    monitor.end(PERF.CHECK_SYSTEM_API_TAG);
+    return false;
+  }
+  // Extract the version range from the JSDoc tag comment
+  const versionRange = extractVersionRange(systemApiTag.comment);
+
+  // If a version range is found, check merging comments; otherwise, return true
+  if (versionRange !== undefined) {
+    monitor.end(PERF.CHECK_SYSTEM_API_TAG);
+    return checkVersionRangeIntersection(versionRange);
+  } else {
+    monitor.end(PERF.CHECK_SYSTEM_API_TAG);
+    return true;
+  }
 }
 
 export function checkSinceValue(
@@ -222,17 +249,6 @@ export function isCardFile(file: string): boolean {
 }
 
 /**
- * 获取JSDoc数组中最新版本的JSDoc注释对象。
- * 
- * @param { JSDoc[] } jsDocs JSDoc注释对象数组，包含多个版本的注释信息
- * @returns { JSDoc } 数组中最后一个JSDoc对象，即最新版本的注释
- */
-function getCurrentJSDoc(jsDocs: readonly JSDocTag[]): JSDocTag {
-  let currentJsDoc: JSDocTag = jsDocs[jsDocs.length - 1];
-  return currentJsDoc;
-}
-
-/**
  * 从JSDoc注释对象中获取指定名称的标签，提取如param、permission等特定标签。
  * 
  * @param { JSDoc } jsDoc
@@ -281,6 +297,7 @@ export function createOrCleanProjectConfig(): ProjectConfig {
     bundleName: '',
     moduleName: '',
     cachePath: '',
+    compileMode: '',
     aceModuleJsonPath: '',
     permissions: {
       requestPermissions: [],
@@ -1097,6 +1114,37 @@ function getSplitsArrayWithDesignatedCharAndArrayStr(
 }
 
 /**
+ * Checks whether the Test value is valid based on JSDoc tags and configuration.
+ * 
+ * @param {readonly ts.JSDocTag[]} jsDocTags - Array of JSDoc tags to be checked.
+ * @param {ts.JsDocNodeCheckConfigItem} config - Configuration item for JSDoc node checking.
+ * @param {ts.Node} [node] - Optional node related to the declaration.
+ * @param {ts.Declaration} [declaration] - Optional declaration containing the JSDoc tags.
+ * @returns {boolean} - Returns true if the Test value is valid; otherwise, returns false.
+ */
+export function checkTestValue(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem, node?: arkts.Node, declaration?: arkts.Declaration): boolean {
+  // Find the JSDoc tag with TEST_TAG_CHECK_NAME
+  const testTag: JSDocTag | undefined = jsDocTags.find((item: JSDocTag) => {
+    return item.tag === TEST_TAG_CHECK_NAME;
+  });
+
+  // If the tag is not found, return true
+  if (!testTag) {
+    return false;
+  }
+
+  // Extract the version range from the tag's comment
+  const versionRange = extractVersionRange(testTag.comment);
+
+  // If a version range exists, check if it intersects with the project's SDK version range and return the negated result
+  if (versionRange !== undefined) {
+    return checkVersionRangeIntersection(versionRange);
+  } else {
+    return true;
+  }
+}
+
+/**
  * 解析最新版本JSDoc中的@permission标签内容，验证表达式是否与项目配置的权限集合匹配，
  * 若不匹配则返回true（表示需要检查提示），并更新错误信息。
  *
@@ -1259,10 +1307,6 @@ function diagnosticFormat(message: string, fileInfo: string): SdkHvigorLogInfo {
       break;
     }
   }
-
-  if (!diagnosticInfo.code) {
-    return diagnosticInfo;
-  }
   
   return diagnosticInfo;
 }
@@ -1348,6 +1392,71 @@ export function checkAvailableDecorator(
 }
 
 /**
+ * Checks whether the Form value is valid based on JSDoc tags and configuration.
+ * 
+ * @param {readonly ts.JSDocTag[]} jsDocTags - Array of JSDoc tags to be checked.
+ * @param {ts.JsDocNodeCheckConfigItem} config - Configuration item for JSDoc node checking. It updates the `tagNameShouldExisted` flag.
+ * @param {ts.Node} [node] - Optional node related to the declaration.
+ * @param {ts.Declaration} [declaration] - Optional declaration containing the JSDoc tags.
+ * @returns {boolean} - Returns true if the Form value is valid; otherwise, returns false.
+ */
+export function checkFormValue(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem, node?: arkts.Node, declaration?: arkts.Declaration): boolean {
+  // Find the JSDoc tag with FORM_TAG_CHECK_NAME
+  const formTag: JSDocTag | undefined = jsDocTags.find((item: JSDocTag) => {
+    return item.tag === FORM_TAG_CHECK_NAME;
+  });
+
+  // Update the configuration flag based on whether the tag exists
+  config.tagNameShouldExisted = !formTag;
+
+  // If the tag is not found, return true
+  if (!formTag) {
+    return true;
+  }
+
+  // Extract the version range from the tag's comment
+  const versionRange = extractVersionRange(formTag.comment);
+
+  // If a version range exists, check if it intersects with the project's SDK version range and return the negated result
+  if (versionRange !== undefined) {
+    return !checkVersionRangeIntersection(versionRange);
+  } else {
+    return false;
+  }
+}
+
+/**
+ * Checks whether the FA (Feature Ability) model value is valid.
+ * 
+ * @param {readonly ts.JSDocTag[]} jsDocTags - Array of JSDoc tags.
+ * @param {ts.JsDocNodeCheckConfigItem} config - Configuration item for JSDoc node checking.
+ * @param {ts.Node} [node] - Optional node related to the declaration.
+ * @param {ts.Declaration} [declaration] - Optional declaration containing the JSDoc tags.
+ * @returns {boolean} - Returns true if the FA model value is valid; otherwise, returns false.
+ */
+export function checkFaModelOnlyValue(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem, node?: arkts.AstNode, declaration?: arkts.Declaration): boolean {
+  // Find the JSDoc tag with FA_TAG_HUMP_CHECK_NAME or FA_TAG_CHECK_NAME
+  const jsDocTag: JSDocTag | undefined = jsDocTags.find((item: JSDocTag) => {
+    return (item.tag === FA_TAG_CHECK_NAME || item.tag === FA_TAG_HUMP_CHECK_NAME);
+  });
+
+  // If the tag is not found, return false
+  if (!jsDocTag) {
+    return false;
+  }
+
+  // Extract the version range from the tag's comment
+  const versionRange = extractVersionRange(jsDocTag.comment);
+
+  // If a version range exists, check if it intersects with the project's SDK version range
+  if (versionRange !== undefined) {
+    return checkVersionRangeIntersection(versionRange);
+  } else {
+    return true;
+  }
+}
+
+/**
  * Checks whether the Stage module value is valid based on JSDoc tags and configuration.
  *
  * @param {readonly ts.JSDocTag[]} jsDocTags - Array of JSDoc tags to be checked.
@@ -1359,8 +1468,58 @@ export function checkAvailableDecorator(
 export function checkStageModuleValue(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem, node?: arkts.AstNode, declaration?: arkts.AstNode): boolean {
   const monitor = getGlobalMonitor();
   monitor.start(PERF.CHECK_STAGE_MODULE_VALUE);
-  monitor.end(PERF.CHECK_STAGE_MODULE_VALUE);
-  return false;
+  // Find the JSDoc tag with STAGE_TAG_CHECK_NAME or STAGE_TAG_HUMP_CHECK_NAME
+  const stageModuleOnlyTag: JSDocTag | undefined = jsDocTags.find((item: JSDocTag) => {
+    return (item.tag === STAGE_TAG_CHECK_NAME || item.tag === STAGE_TAG_HUMP_CHECK_NAME);
+  });
+
+  // If the tag is not found, return false
+  if (!stageModuleOnlyTag) {
+    monitor.end(PERF.CHECK_STAGE_MODULE_VALUE);
+    return false;
+  }
+
+  // Extract the version range from the tag's comment
+  const versionRange = extractVersionRange(stageModuleOnlyTag.comment);
+
+  // If a version range exists, check if it intersects with the project's SDK version range
+  if (versionRange !== undefined) {
+    monitor.end(PERF.CHECK_STAGE_MODULE_VALUE);
+    return checkVersionRangeIntersection(versionRange);
+  } else {
+    monitor.end(PERF.CHECK_STAGE_MODULE_VALUE);
+    return true;
+  }
+}
+
+/**
+ * Checks the AtomicService value based on JSDoc tags and configuration.
+ * 
+ * @param jsDocTags - An array of JSDoc tags to be examined.
+ * @param config - Configuration object for JSDoc node checking. It updates the `tagNameShouldExisted` flag.
+ * @param node - Optional node related to the declaration.
+ * @param declaration - Optional declaration to which the JSDoc tags belong.
+ * @returns A boolean indicating whether the AtomicService value is valid according to the checks.
+ */
+export function checkAtomicserviceValue(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem, node?: arkts.Node, declaration?: arkts.Declaration): boolean {
+  // Find the specific JSDoc tag with the AtomicService check name
+  const atomicserviceTag: JSDocTag | undefined = jsDocTags.find((item: JSDocTag) => {
+    return item.tag === ATOMICSERVICE_TAG_CHECK_NAME;
+  });
+
+  // Update the configuration flag based on whether the tag exists
+  config.tagNameShouldExisted = !atomicserviceTag;
+
+  // If the specific JSDoc tag is not found, return true
+  if (!atomicserviceTag) {
+    return true;
+  }
+  const versionRange = extractVersionRange(atomicserviceTag.comment);
+  if (versionRange !== undefined) {
+    return !checkVersionRangeIntersection(versionRange);
+  } else {
+    return false;
+  }
 }
 
 /**

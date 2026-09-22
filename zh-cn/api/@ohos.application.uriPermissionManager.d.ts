@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file URI权限管理
  * @kit AbilityKit
  */
 

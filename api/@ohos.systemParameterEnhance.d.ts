@@ -14,25 +14,26 @@
  */
 
 /**
- * @file
+ * @file System Parameter
  * @kit BasicServicesKit
  */
 
 import { AsyncCallback, BusinessError } from './@ohos.base';
 
 /**
- * The **SystemParameter** module provides system services with easy access to key-value pairs. You can use the APIs
- * provided by this module to describe the service status and change the service behavior. The basic operation 
- * primitives are **get** and **set**. You can obtain the values of system parameters through getter APIs and modify
- * the values through setter APIs. For details about the system parameter design principles and definitions, see 
- * [Parameter Management](docroot://../device-dev/subsystems/subsys-boot-init-sysparam.md).
- * 
+ * System Parameter is a simple and easy-to-use key-value pair access interface provided for system services. Each
+ * system service can define system parameters to describe its status information, or change the behavior of the
+ * system service through system parameters. Its basic operation primitives are get and set. You can query the value
+ * of a system parameter through get, and modify the value of a system parameter through set. For details about the
+ * design principles and definitions of system parameters, see [System Parameter](docroot://../device-dev/subsystems/subsys-boot-init-sysparam.md).
+ *
  * > **NOTE**
  * >
- * > - The APIs provided by this module are system APIs.
- * >
- * > - Third-party applications cannot use the APIs provided by this module because system parameters each require 
- * > specific discretionary access control (DAC) and mandatory access control (MAC) permissions.
+ * > - The initial APIs of this module are supported since API version 9. Newly added APIs will be marked with a
+ * > superscript to indicate their earliest API version.
+ * > - The APIs of this module are system APIs.
+ * > - Since system parameters are internal information and control parameters of each system service, each system
+ * > parameter has its own DAC and MAC access control permissions. Third-party applications cannot use such APIs.
  *
  * @syscap SystemCapability.Startup.SystemInfo
  * @systemapi Hide this for inner system use.
@@ -41,17 +42,26 @@ import { AsyncCallback, BusinessError } from './@ohos.base';
  */
 declare namespace systemParameterEnhance {
   /**
-   * Obtains a value of the specified key. This API uses a promise to return the result.
+   * Obtains the value of the specified system parameter key.
+   *
+   * > **NOTE**
+   * >
+   * > Both **getSync** and **get** can be used to obtain system parameter values.
+   * > - **getSync**: synchronous method, which directly returns the system parameter value. This method is suitable
+   * > for simple synchronization scenarios.
+   * > - **get**: asynchronous method, which uses a callback or promise to return the result asynchronously. This
+   * > method is suitable for scenarios that require asynchronous processing.
+   * >
+   * > You should select a proper method based on the specific scenario.
    *
    * @param { string } key - Key to be queried. The value can contain a maximum of 128 bytes. Only letters, digits,
    *     periods (.), hyphens (-), at signs (@), colons (:), and underscores (_) are allowed.
-   * @param { string } def - Default value of the system parameter.<br> It works only when the system parameter does
-   *     not exist.<br> The value can be **undefined** or any custom value.
-   * @returns { string } Value of the system parameter.
-   *     <br> If the specified key exists, the set value is returned.
-   *     <br> If the specified key does not exist and **def** is set to a valid value, the set value is returned. If
-   *     the specified key does not exist and **def** is set to an invalid value (such as **undefined**) or is not set,
-   *     an exception is thrown.
+   * @param { string } def - Default value of the system parameter. <br> It works only when the system parameter does
+   *     not exist. <br> Its value can be **undefined** or a random character string.
+   * @returns { string } Value of the system parameter. If the specified key exists, the set value is returned. If
+   *     the specified key does not exist and **def** is specified (not **undefined**), **def** is returned. If the
+   *     specified key does not exist and **def** is not specified or **def** is **undefined**, an exception is
+   *     thrown.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2.incorrect parameter types; 3.parameter verification failed.
    * @throws { BusinessError } 14700101 - System parameter not found.
@@ -69,7 +79,9 @@ declare namespace systemParameterEnhance {
    *
    * @param { string } key - Key to be queried. The value can contain a maximum of 128 bytes. Only letters, digits,
    *     periods (.), hyphens (-), at signs (@), colons (:), and underscores (_) are allowed.
-   * @param { AsyncCallback<string> } callback - Callback used to return the result.
+   * @param { AsyncCallback<string> } callback - Callback used to return the system parameter value
+   *     asynchronously. If the operation is successful, **err** is **undefined** and **data** is the system
+   *     parameter value. If the operation fails, **err** is an error object and **data** is **undefined**.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2.incorrect parameter types; 3.parameter verification failed.
    * @throws { BusinessError } 14700101 - System parameter not found.
@@ -87,8 +99,11 @@ declare namespace systemParameterEnhance {
    *
    * @param { string } key - Key to be queried. The value can contain a maximum of 128 bytes. Only letters, digits,
    *     periods (.), hyphens (-), at signs (@), colons (:), and underscores (_) are allowed.
-   * @param { string } def - Default value.
-   * @param { AsyncCallback<string> } callback - Callback used to return the result.
+   * @param { string } def - Default value of the system parameter. It works only when the system parameter does
+   *     not exist. <br> Its value can be a random character string.
+   * @param { AsyncCallback<string> } callback - Callback used to return the system parameter value
+   *     asynchronously. If the operation is successful, **err** is **undefined** and **data** is the system
+   *     parameter value. If the operation fails, **err** is an error object and **data** is **undefined**.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2.incorrect parameter types; 3.parameter verification failed.
    * @throws { BusinessError } 14700101 - System parameter not found.
@@ -106,9 +121,9 @@ declare namespace systemParameterEnhance {
    *
    * @param { string } key - Key to be queried. The value can contain a maximum of 128 bytes. Only letters, digits,
    *     periods (.), hyphens (-), at signs (@), colons (:), and underscores (_) are allowed.
-   * @param { string } def - Default value of the system parameter.<br> It works only when the system parameter does
-   *     not exist.<br> The value can be **undefined** or any custom value.
-   * @returns { Promise<string> } Promise used to return the execution result.
+   * @param { string } def - Default value of the system parameter. <br> It works only when the system parameter does
+   *     not exist. <br> Its value can be **undefined** or a random character string.
+   * @returns { Promise<string> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2.incorrect parameter types; 3.parameter verification failed.
    * @throws { BusinessError } 14700101 - System parameter not found.
@@ -122,9 +137,19 @@ declare namespace systemParameterEnhance {
   function get(key: string, def?: string): Promise<string>;
 
   /**
-   * Sets a value for the specified key. This API uses a promise to return the result.
+   * Sets a value for the specified key.
    *
-   * @param { string } key - Target key. The value can contain a maximum of 128 bytes. Only letters, digits,
+   * > **NOTE**
+   * >
+   * > Both **setSync** and **set** can be used to set system parameter values.
+   * > - **setSync**: synchronous method, which directly sets the system parameter and returns the result
+   * > immediately. This method is suitable for simple synchronization scenarios.
+   * > - **set**: asynchronous method, which uses a callback or promise to return the result asynchronously. This
+   * > method is suitable for scenarios that require asynchronous processing.
+   * >
+   * > You should select a proper method based on the specific scenario.
+   *
+   * @param { string } key - Key to be set. The value can contain a maximum of 128 bytes. Only letters, digits,
    *     periods (.), hyphens (-), at signs (@), colons (:), and underscores (_) are allowed.
    * @param { string } value - Value to set. The value can contain a maximum of 96 bytes (including the end character).
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -142,10 +167,11 @@ declare namespace systemParameterEnhance {
   /**
    * Sets a value of the specified key. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } key - Target key. The value can contain a maximum of 128 bytes. Only letters, digits,
+   * @param { string } key - Key to be set. The value can contain a maximum of 128 bytes. Only letters, digits,
    *     periods (.), hyphens (-), at signs (@), colons (:), and underscores (_) are allowed.
    * @param { string } value - Value to set. The value can contain a maximum of 96 bytes (including the end character).
-   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @param { AsyncCallback<void> } callback - Callback used to return the system parameter value asynchronously. If
+   *     the operation is successful, **err** is **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2.incorrect parameter types; 3.parameter verification failed.
    * @throws { BusinessError } 14700102 - Invalid system parameter value.
@@ -161,10 +187,10 @@ declare namespace systemParameterEnhance {
   /**
    * Sets a value of the specified key. This API uses a promise to return the result.
    *
-   * @param { string } key - Target key. The value can contain a maximum of 128 bytes. Only letters, digits,
+   * @param { string } key - Key to be set. The value can contain a maximum of 128 bytes. Only letters, digits,
    *     periods (.), hyphens (-), at signs (@), colons (:), and underscores (_) are allowed.
    * @param { string } value - Value to set. The value can contain a maximum of 96 bytes (including the end character).
-   * @returns { Promise<void> } Promise used to return the execution result.
+   * @returns { Promise<void> } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
    *     2.incorrect parameter types; 3.parameter verification failed.
    * @throws { BusinessError } 14700102 - Invalid system parameter value.

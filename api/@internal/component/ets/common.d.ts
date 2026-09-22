@@ -53,7 +53,9 @@ declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').
 declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
 
 /**
- * Defines the options of Component ClassDecorator.
+ * Defines parameters of a custom component, which is used to configure whether to support component freezing and the
+ * global reuse pool. They apply to scenarios where the performance of custom components needs to be optimized and the
+ * component reuse efficiency needs to be improved.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -64,7 +66,15 @@ declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragCon
  */
 declare interface ComponentOptions {
   /**
-   * freeze UI state.
+   * Whether the custom component supports component freezing. The value **true** enables component freezing, and
+   * **false** disables it. If **ComponentOptions** is not specified, **false** is used as the default value of
+   * **freezeWhenInactive**.
+   * <br>Since API version 11, this parameter can be used to configure component freezing for
+   * [\@Component](docroot://ui/state-management/arkts-create-custom-components.md). For details, see
+   * [Freezing a Custom Component (V1)](docroot://ui/state-management/arkts-custom-components-freeze.md).
+   * <br>Since API version 12, this parameter can be used to configure component freezing for
+   * [\@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md). For details, see
+   * [Freezing a Custom Component (V2)](docroot://ui/state-management/arkts-custom-components-freezeV2.md).
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -77,7 +87,11 @@ declare interface ComponentOptions {
   freezeWhenInactive : boolean;
 
   /**
-   * the reuse type of a custom component.
+   * Type of the global reuse pool on a custom component. This is applicable to scenarios where an app has multiple
+   * reusable custom components of the same type and needs to share or isolate reuse resources between component
+   * instances to improve reuse efficiency. If this parameter is not passed, the global reuse pool does not take effect.
+   * **reusePool** must be used together with **poolAccepts**. When **reusePool** is set, **poolAccepts** must be a
+   * non-empty array; otherwise, global reuse does not take effect.
    *
    * @default perInstance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -90,7 +104,11 @@ declare interface ComponentOptions {
   reusePool?: ReusePoolOwnership;
 
   /**
-   * Collection of custom components to be reused.
+   * List of custom component names that the global reuse pool can accept (that is, components allowed to be reused).
+   * When **reusePool** is set, the system caches the matching reusable components into the global reuse pool based on
+   * the component names listed in **poolAccepts** for subsequent reuse. When **reusePool** is set, **poolAccepts** must
+   * be a non-empty array. Setting **poolAccepts** alone does not enable global reuse. When neither **poolAccepts** nor
+   * **reusePool** is assigned, global reuse does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -103,7 +121,14 @@ declare interface ComponentOptions {
 }
 
 /**
- * Defining the reuse type of a custom component.
+ * Defines the ownership type of the global reuse pool.
+ *
+ * 'shared': All instances of the **@Component** / **@ComponentV2** class share the same reuse pool instance. This is
+ * applicable to scenarios where multiple component instances of the same type need to reuse the same resources,
+ * maximizing reuse pool utilization and reducing memory usage.
+ * 'perInstance': Each instance of **@Component** / **@ComponentV2** has an independent reuse pool instance. This is
+ * applicable to scenarios where the reuse resources of each component instance need to be isolated, preventing reuse
+ * resources of different instances from affecting each other.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -114,7 +139,7 @@ declare interface ComponentOptions {
 declare type ReusePoolOwnership = 'shared' | 'perInstance';
 
 /**
- * Defines a type for memory optimization strategy.
+ * Enumerates the memory optimization strategies of reusable custom components.
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -124,7 +149,7 @@ declare type ReusePoolOwnership = 'shared' | 'perInstance';
  */
 declare enum ReusableMemOptStrategy {
   /**
-   * No memory optimization.
+   * No memory optimization strategy.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -133,7 +158,25 @@ declare enum ReusableMemOptStrategy {
    */
   DEFAULT = 0,
   /**
-   * CustomComponent handles the memory optimization.
+   * Automatic memory optimization strategy. It is recommended to use this strategy in scenarios where the memory usage
+   * of reusable custom components needs to be reduced.
+   * <br>When any of the following conditions is met, all custom components of this type in the reuse pool are
+   * released:
+   * <br> - The app is switched to the background.
+   * <br> - The component where the reuse pool resides is invisible (the
+   * [visibility]{@link visibility} attribute is set to a value other than [Visible]{@link Visible}, or the component
+   * area is 0, regardless of occlusion).
+   * <br> - The device is low on memory (the [MemoryLevel]{@link MemoryLevel} reaches
+   * **MEMORY_LEVEL_LOW** or **MEMORY_LEVEL_CRITICAL**).
+   * <br>When the number of custom components of this type with the same **ReuseId** in the reuse pool exceeds the reuse
+   * pool capacity limit and does not increase within 5 seconds, the components within the limit are retained and the
+   * rest are released. The reuse pool capacity limit is set as follows:
+   * <br> - When the device memory is greater than 8 GB, the limit is 48.
+   * <br> - When the device memory is greater than 6 GB and less than or equal to 8 GB, the limit is 4.
+   * <br> - When the device memory is less than or equal to 6 GB, the limit is 2.
+   * <br>When nodes are released, the
+   * [custom component lifecycle](docroot://ui/state-management/arkts-page-custom-components-lifecycle.md) is
+   * triggered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -144,7 +187,8 @@ declare enum ReusableMemOptStrategy {
 }
 
 /**
- * Defines the options for Reusable ClassDecorator.
+ * Defines the parameters of a reusable custom component, which are used to configure the memory optimization strategy.
+ * They apply to scenarios where the memory usage of reusable custom components needs to be reduced.
  *
  * @interface ReusableOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -154,7 +198,12 @@ declare enum ReusableMemOptStrategy {
  */
 declare interface ReusableOptions {
   /**
-   * Memory optimization strategy for CustomComponent reuse
+   * Memory optimization strategy for reusable custom components. This parameter is set when a reusable custom
+   * component is created and cannot be dynamically modified. When
+   * [ENABLE_AUTO_CACHE_OPTIMIZATION]{@link ReusableMemOptStrategy} is passed, automatic memory optimization is
+   * enabled, and components in the reuse pool are automatically released in scenarios such as the app being switched
+   * to the background, the component being invisible, or the device being low on memory. If this parameter is not
+   * passed, the default value [DEFAULT]{@link ReusableMemOptStrategy} (no memory optimization strategy) is used.
    *
    * @type { ?ReusableMemOptStrategy }
    * @default ReusableMemOptStrategy.DEFAULT
@@ -301,8 +350,32 @@ declare interface TextDecorationOptions {
 }
 
 /**
- * Defining Component ClassDecorator
- * Component is a ClassDecorator and it supports ComponentOptions as parameters.
+ * The **@Component** decorator can decorate a struct declared with the **struct** keyword. A struct decorated by
+ * **@Component** gains componentization capabilities, enabling UI encapsulation and reuse. It is suitable for
+ * scenarios such as building reusable custom components and splitting complex UIs. The **build** method must be
+ * implemented to describe the UI. A struct can be decorated by only one **@Component**.
+ *
+ * For the development guide, see
+ * [Creating a Custom Component](docroot://ui/state-management/arkts-create-custom-components.md).
+ *
+ * > **NOTE**
+ *
+ * > - Since API version 11, **@Component** can accept an optional parameter of the
+ * > [ComponentOptions]{@link ComponentOptions} type.
+ * >
+ * > - Since API version 26.0.0, **ComponentOptions** can accept the optional parameters **reusePool** and
+ * > **poolAccepts** for configuring the global reuse pool. For the development guide, see
+ * > [Global Reuse: Centralized Component Recycling and Reuse](docroot://ui/state-management/arkts-global-reuse-pool.md).
+ *
+ * options: Options of the **@Component** decorator, used to configure component freezing
+ * and global reuse. You can use **freezeWhenInactive** to control component freezing (applicable to scenarios where
+ * UI refresh is frozen when components such as page routing, **TabContent**, **LazyForEach**, and **Navigation** are
+ * inactive, to reduce unnecessary refreshes and optimize performance), and use **reusePool** and **poolAccepts** to
+ * configure the global reuse pool (applicable to scenarios where multiple parent components share reusable components
+ * of the same type and need to reuse recycled instances across parent components when switching via if or other
+ * means). For details about specific attributes, see **ComponentOptions**. When not specified, component freezing and
+ * global reuse are disabled.
+ * ClassDecorator: Class decorator. Developers do not need to pay attention to this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -315,8 +388,26 @@ declare interface TextDecorationOptions {
 declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
- * Defining ComponentV2 ClassDecorator
- * ComponentV2 is a ClassDecorator and it supports ComponentOptions as parameters.
+ * **@ComponentV2** is primarily used with state management V2. Compared with
+ * [@Component](docroot://ui/state-management/arkts-create-custom-components.md), **@ComponentV2** supports
+ * deep observation and deep listening of objects. The decorator is highly easy to use and extensible, and is suitable
+ * for scenarios requiring deep observation of nested object states. Unless otherwise specified, custom components
+ * decorated with **@ComponentV2** behave the same as those decorated with **@Component**.
+ *
+ * See the development guide:
+ * [@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md).
+ *
+ * > **NOTE**
+ *
+ * > - Since API version 26.0.0, the [ComponentOptions]{@link ComponentOptions}
+ * > parameter of \@ComponentV2 supports the optional attributes `reusePool` and `poolAccepts` for configuring the
+ * > global reuse pool. See the development guide:
+ * > [Global Reuse: Centralized Component Recycling and Reuse](docroot://ui/state-management/arkts-global-reuse-pool.md).
+ *
+ * options: Options of the **@ComponentV2** decorator. Pass this parameter for custom
+ * configuration when the component freezing or global reuse feature needs to be enabled. If not specified, both the
+ * component freezing and global reuse features are disabled.
+ * ClassDecorator: Class decorator. Developers do not need to pay attention to this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -329,7 +420,8 @@ declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassD
 declare const ComponentV2: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
- * Defines the options of Entry ClassDecorator.
+ * Page entry configuration options, used to configure parameters such as the route name, state storage, and shared
+ * storage when decorating a page with @Entry.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -340,7 +432,9 @@ declare const ComponentV2: ClassDecorator & ((options: ComponentOptions) => Clas
  */
 declare interface EntryOptions {
   /**
-   * Named route name.
+   * Name of the page as a named route. When the page needs to be navigated to through a named route, set this
+   * parameter as the route name. If this parameter is not passed, the page is not registered as a named route page
+   * and cannot be accessed through named route navigation; it is loaded only as the default entry page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -352,7 +446,10 @@ declare interface EntryOptions {
   routeName? : string;
 
   /**
-   * LocalStorage to be passed.
+   * Page-level UI state storage. Pass this parameter when you need to create and manage UI state outside the page in
+   * advance, or when you need to bind an existing LocalStorage instance to this page for state sharing. If this
+   * parameter is not passed, the framework creates a new LocalStorage instance as the default value. When
+   * useSharedStorage is set to true and storage is assigned, the value of useSharedStorage takes precedence.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -364,7 +461,11 @@ declare interface EntryOptions {
   storage? : LocalStorage;
 
   /**
-   * Determines whether to use the LocalStorage instance object returned by the LocalStorage.getShared() interface.
+   * Whether to use the LocalStorage instance passed in by [loadContent]{@link loadContent}.
+   * The default value is false. true: uses the shared LocalStorage instance (prerequisite: ensure that the
+   * loadContent API has passed in a LocalStorage instance; if not, a new LocalStorage instance is created). false:
+   * does not use the shared LocalStorage instance. When useSharedStorage is set to true and storage is assigned,
+   * the value of useSharedStorage takes precedence.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -377,9 +478,10 @@ declare interface EntryOptions {
 }
 
 /**
- * Defines Entry ClassDecorator.
+ * A custom component decorated by \@Entry serves as the entry to a UI page and is identified by the framework as the
+ * root component of the page. It is suitable for building standalone UI pages.
  *
- * Entry is a ClassDecorator and it supports LocalStorage or EntryOptions as parameters.
+ * In a single UI page, only one custom component decorated by \@Entry is allowed as the page entry.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -392,7 +494,12 @@ declare interface EntryOptions {
 declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) => ClassDecorator);
 
 /**
- * Defining Observed ClassDecorator.
+ * **\@Observed** is a class decorator used in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to observe property changes of nested class objects.
+ *
+ * For details, see
+ * [@Observed and @ObjectLink Decorators: Observing Property Changes in Nested Class Objects](docroot://ui/state-management/arkts-observed-and-objectlink.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -405,7 +512,18 @@ declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) =
 declare const Observed: ClassDecorator;
 
 /**
- * Defining ObservedV2 ClassDecorator.
+ * **\@ObservedV2** is a class decorator used in
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md).
+ * **\@ObservedV2** is used together with
+ * [@Trace]{@link Trace} to decorate classes and class properties, enhancing the observation capability for decorated
+ * classes and properties. Compared with [@Observed]{@link Observed} in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md),
+ * **\@ObservedV2** provides more fine-grained, property-level in-depth observation capabilities. It is suitable for
+ * scenarios where changes in nested object properties need to be precisely tracked to drive UI updates, effectively
+ * improving the performance and flexibility of state management.
+ *
+ * For details, see
+ * [@ObservedV2 and @Trace Decorators: Observing Class Property Changes](docroot://ui/state-management/arkts-new-observedV2-and-trace.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -418,7 +536,11 @@ declare const Observed: ClassDecorator;
 declare const ObservedV2: ClassDecorator;
 
 /**
- * Defining Preview ClassDecorator.
+ * The @Preview decorator decorates custom components for preview.
+ *
+ * >  **NOTE**
+ * >
+ * >  This API is supported in ArkTS widgets, though component preview itself is not supported in ArkTS widgets.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -431,7 +553,26 @@ declare const ObservedV2: ClassDecorator;
 declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
 
 /**
- * Defining Require PropertyDecorator.
+ * The **\@Require** decorator validates whether [\@Prop](docroot://ui/state-management/arkts-prop.md),
+ * [\@State](docroot://ui/state-management/arkts-state.md),
+ * [\@Provide](docroot://ui/state-management/arkts-provide-and-consume.md),
+ * [\@BuilderParam](docroot://ui/state-management/arkts-builderparam.md),
+ * [\@Param](docroot://ui/state-management/arkts-new-param.md),
+ * and regular variables (variables not decorated by any state decorator) require constructor input parameters. When a
+ * variable is decorated with **\@Require**, the parent component must pass the corresponding parameter when
+ * constructing the child component. Otherwise, a compile-time error is reported, thereby preventing runtime exceptions
+ * caused by missing parameters. This decorator is suitable for scenarios where mandatory parameters of a custom
+ * component must be properly initialized.
+ *
+ * See the development guide:
+ * [\@Require Decorator: Validating Constructor Input Parameters](docroot://ui/state-management/arkts-require.md).
+ *
+ * > **NOTE**
+ * >
+ * > Validation for **\@Prop** and **\@BuilderParam** is supported since API version 11.
+ * >
+ * > Validation for **\@State**, **\@Provide**, **\@Param**, and regular variables (variables not decorated by
+ * > any state decorator) is supported since API version 12.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -444,7 +585,13 @@ declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorato
 declare const Require: PropertyDecorator;
 
 /**
- * Defining BuilderParam PropertyDecorator
+ * **\@BuilderParam** is used to decorate variables that point to [\@Builder]{@link Builder}
+ * functions, enabling a custom component to receive externally passed **\@Builder** functions for custom rendering of
+ * UI content. It is suitable for scenarios where the parent component's UI building logic needs to be passed to a
+ * child component to achieve dynamic customization of component content.
+ *
+ * For details, see the development guide:
+ * [\@BuilderParam Decorator: Referencing the @Builder Function](docroot://ui/state-management/arkts-builderparam.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -457,7 +604,15 @@ declare const Require: PropertyDecorator;
 declare const BuilderParam: PropertyDecorator;
 
 /**
- * Defining Local PropertyDecorator.
+ * **\@Local** is used in
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to represent the internal state of components, enabling the observation of variables within custom components. It is
+ * applicable to scenarios where partial states (such as counters and switch states) need to be maintained and observed
+ * within custom components. Using **\@Local** can simplify the internal state management logic of components. When the
+ * state changes, the UI is automatically refreshed without manual management.
+ *
+ * For details, see
+ * [@Local Decorator: Representing the Internal State of Components](docroot://ui/state-management/arkts-new-local.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -470,7 +625,16 @@ declare const BuilderParam: PropertyDecorator;
 declare const Local: PropertyDecorator;
 
 /**
- * Defining Param PropertyDecorator.
+ * **@Param** is used in
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to receive external input and implement unidirectional data synchronization between parent and child components.
+ * This is applicable to scenarios where a parent component needs to pass state data to its child component in a
+ * unidirectional manner. It simplifies communication between components and ensures a clear data flow direction.
+ * Variables decorated with **@Param** cannot be directly modified in a component. If a child component needs to
+ * synchronize data to its parent component, use **@Param** together with [@Event]{@link Event}.
+ *
+ * For details, see
+ * [@Param Decorator: Inputting External Parameters to Components](docroot://ui/state-management/arkts-new-param.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -483,7 +647,14 @@ declare const Local: PropertyDecorator;
 declare const Param: PropertyDecorator;
 
 /**
- * Defining Once PropertyDecorator.
+ * **\@Once** is an auxiliary decorator used in
+ * [State Management V2](docroot://ui/state-management/arkts-state-management-overview.md).
+ * It must be used together with [@Param]{@link Param}
+ * and is applicable to scenarios where data is initialized from an external source only once without accepting
+ * subsequent synchronization changes. If **\@Once** is not used together with **\@Param**, an error will be reported
+ * during compilation when **\@Once** is used independently.
+ *
+ * For details, see [@Once: Implementing Initialization Once](docroot://ui/state-management/arkts-new-once.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -496,7 +667,15 @@ declare const Param: PropertyDecorator;
 declare const Once: PropertyDecorator;
 
 /**
- * Defining Event PropertyDecorator.
+ * **\@Event** decorates a callback function, which is used as the output of a custom component in
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md).
+ * **\@Event** is usually used together with [@Param]{@link Param}.
+ * **\@Param** transfers data from a parent component to its child component. **\@Event** defines the callback for the
+ * child component to transfer messages to the parent component, which is applicable to scenarios where the parent
+ * component state change or event processing needs to be triggered in the child component.
+ *
+ * For details, see
+ * [@Event Decorator: Standardizing Component Output](docroot://ui/state-management/arkts-new-event.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -509,7 +688,13 @@ declare const Once: PropertyDecorator;
 declare const Event: PropertyDecorator;
 
 /**
- * Defining State PropertyDecorator.
+ * **@State** is used for
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to convert common variables within a custom component into state variables. When the state variables change, the UI
+ * in the component is re-rendered. It is applicable to scenarios where mutable states need to be managed within a
+ * component.
+ *
+ * For details, see [@State Decorator: State Owned by Component](docroot://ui/state-management/arkts-state.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -522,7 +707,15 @@ declare const Event: PropertyDecorator;
 declare const State: PropertyDecorator;
 
 /**
- * Defining Track PropertyDecorator.
+ * **@Track** is used in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to implement property-level precise observation by decorating specified properties of a class object. When a
+ * property decorated with **@Track** changes, the system updates only the UI components that depend on that property,
+ * thereby reducing unnecessary UI re-rendering. It is applicable to scenarios where a class object contains many
+ * properties and redundant UI refreshes need to be reduced to optimize rendering performance.
+ *
+ * For details, see
+ * [@Track Decorator: Implementing Class Object Property-Level Updates](docroot://ui/state-management/arkts-track.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -535,7 +728,19 @@ declare const State: PropertyDecorator;
 declare const Track: PropertyDecorator;
 
 /**
- * Defining Trace PropertyDecorator.
+ * **@Trace** is a property decorator used in
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md).
+ * [@ObservedV2]{@link ObservedV2} and **@Trace** are used
+ * together to decorate classes and class properties, enhancing the observation capability for decorated classes and
+ * properties. That is, they can recursively observe changes in property values of nested objects and trigger automatic
+ * UI refresh. They are applicable to scenarios where precise observation and management of class property changes are
+ * required.
+ *
+ * For details, see
+ * [@ObservedV2 and @Trace Decorators: Observing Class Property Changes](docroot://ui/state-management/arkts-new-observedV2-and-trace.md).
+ *
+ * Declares an observable property. **@Trace** must be used together with **@ObservedV2** and takes effect only in
+ * classes decorated with **@ObservedV2**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -548,7 +753,19 @@ declare const Track: PropertyDecorator;
 declare const Trace: PropertyDecorator;
 
 /**
- * Defining Prop PropertyDecorator.
+ * **@Prop** is used for
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to receive values passed from external sources and establish a one-way synchronization relationship with parent
+ * components. When the state variables decorated with
+ * [@State]{@link State} in the parent component change, the
+ * changes are synchronously updated to the corresponding **@Prop** decorated
+ * variables in the child component, triggering the child component to re-render. **@Prop** uses a unidirectional data
+ * flow mechanism. Changes to **@Prop** decorated variables in child components take effect only within the child
+ * components and are not synchronized back to the parent component. This is applicable when child components need to
+ * respond to state changes of parent components but do not need to modify the parent component's state reversely.
+ *
+ * For details, see
+ * [@Prop Decorator: Implementing One-Way Synchronization from Parent to Child Components](docroot://ui/state-management/arkts-prop.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -561,7 +778,15 @@ declare const Trace: PropertyDecorator;
 declare const Prop: PropertyDecorator;
 
 /**
- * Defining Link PropertyDecorator.
+ * **\@Link** is used for
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to receive the reference of the state variable passed by the parent component and establish two-way data binding
+ * between the parent and child components. It is applicable to scenarios where the parent component's state needs to
+ * be directly changed in the child component and the communication between the parent and child components needs to be
+ * simplified.
+ *
+ * For details, see
+ * [@Link Decorator: Implementing Two-Way Synchronization Between Parent and Child Components](docroot://ui/state-management/arkts-link.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -574,7 +799,15 @@ declare const Prop: PropertyDecorator;
 declare const Link: PropertyDecorator;
 
 /**
- * Defining ObjectLink PropertyDecorator.
+ * **\@ObjectLink** is used in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to receive instances of classes decorated with
+ * [@Observed]{@link Observed} and establish two-way data
+ * binding with the data source in the parent component. It is applicable to scenarios where nested class properties
+ * are independently observed and listened to in child components to trigger UI updates.
+ *
+ * For details, see
+ * [@Observed and @ObjectLink Decorators: Observing Property Changes in Nested Class Objects](docroot://ui/state-management/arkts-observed-and-objectlink.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -587,7 +820,11 @@ declare const Link: PropertyDecorator;
 declare const ObjectLink: PropertyDecorator;
 
 /**
- * Defines the options of Provide PropertyDecorator.
+ * Options of the **@Provide** decorator. You can use **allowOverride** to override the alias of an @Provide decorated
+ * variable with the same name in the same component tree. It is suitable for scenarios where a child component needs
+ * to override the alias of the **@Provide** decorated variable with the same name in the parent component, improving
+ * the flexibility of cross-level state management. For details, see
+ * [Support for the allowOverride Parameter](docroot://ui/state-management/arkts-provide-and-consume.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -598,8 +835,11 @@ declare const ObjectLink: PropertyDecorator;
  */
 declare interface ProvideOptions {
   /**
-   * Override the @Provide of any parent or parent of parent @Component.@Provide({allowOverride: "name"}) is
-   * also allowed to be used even when there is no ancestor @Component whose @Provide would be overridden.
+   * Alias of an **@Provide** decorated variable that can be overridden. In detail, you can use this property to
+   * override the alias of an @Provide decorated variable with the same name in the same component tree.
+   * <br> If the property is not specified, the alias of an **@Provide** decorated variable cannot be overridden. If
+   * you define an **@Provide** decorated variable with the same name without setting **allowOverride**, an error will
+   * be reported at runtime.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -612,7 +852,26 @@ declare interface ProvideOptions {
 }
 
 /**
- * Defining Provide PropertyDecorator.
+ * **@Provide** and [@Consume]{@link Consume} are used
+ * together for [state management V1](docroot://ui/state-management/arkts-state-management-overview.md) to
+ * implement two-way synchronization across component levels. This is applicable to scenarios where state data needs to
+ * be transferred across multiple component levels to avoid layer-by-layer transfer. It can solve the problem of
+ * complex state transfer when there are many component levels. Variables decorated with **@Provide** are used as data
+ * sources. Bidirectional binding relationships are established between the data sources and variables decorated with
+ * **@Consume** through aliases or variable names. When a variable decorated with **@Provide** or **@Consume** changes,
+ * the change is automatically synchronized to the other party.
+ *
+ * For details, see
+ * [@Provide and @Consume Decorators: Two-Way Synchronization with Descendant Components](docroot://ui/state-management/arkts-provide-and-consume.md).
+ *
+ * value: Used to set an alias or used as an alias that can be overridden.
+ * <br> If the type is string, the value is directly used as an alias. Descendant components can access data through
+ * this alias.
+ * <br> When the type is ProvideOptions, if **allowOverride** is set, the value will be used as an alias and the alias
+ * can be overridden; if **allowOverride** is not set, an alias is a variable name and cannot be overridden.
+ * <br> When this parameter is not specified, a variable name is used and cannot be overridden. If an **@Provide**
+ * decorated variable is defined with the same name in this case, an error will be reported at runtime.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -625,8 +884,24 @@ declare interface ProvideOptions {
 declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
 /**
- * Defining Provider PropertyDecorator, aliasName is the only matching key and if
- * aliasName is the default, the default attribute name is regarded as aliasName.
+ * **@Provider** and [@Consumer]{@link Consumer} are used together in
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to implement bidirectional data synchronization across component levels. **@Provider** decorates a data provider to
+ * provide data for child components. It is applicable to scenarios where state data needs to be shared across multiple
+ * layers of components (with deep component layers) to avoid layer-by-layer data transfer. This simplifies the state
+ * management process and reduces the coupling between components.
+ *
+ * For details, see
+ * [@Provider and @Consumer Decorators: Synchronizing Across Component Levels in a Two-Way Manner](docroot://ui/state-management/arkts-new-provider-and-consumer.md)
+ * .
+ *
+ * Decorates a data provider to provide data for child components. It is used together with **@Consumer** in state
+ * management V2 to implement bidirectional data synchronization across component levels.
+ *
+ * aliasName: Alias, which is used as the matching identifier for bidirectional data
+ * synchronization between variables decorated with **@Provider** and **@Consumer**. The alias must be the same as
+ * that of the **@Consumer** decorated variable. By default, the alias is the variable name.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -639,7 +914,7 @@ declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => 
 declare const Provider: (aliasName?: string) => PropertyDecorator;
 
 /**
- * Defines the class of System Env Key.
+ * Defines the type corresponding to the system environment variable key.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -649,7 +924,7 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
  */
 declare class SystemEnvKey<T> {
   /**
-   * The corresponding type of the system env key.
+   * Data type of the value corresponding to the system environment variable key. The default value is **undefined**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -659,7 +934,7 @@ declare class SystemEnvKey<T> {
    */
   private type?: T;
   /**
-   * constructor.
+   * Creates an instance of this class.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -670,7 +945,7 @@ declare class SystemEnvKey<T> {
   protected constructor();
 }
 /**
- * Defines writable system environment variable keys.
+ * Defines a writable system environment variable key, which inherits from [SystemEnvKey<T>]{@link SystemEnvKey}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -680,7 +955,7 @@ declare class SystemEnvKey<T> {
  */
 declare class WritableSystemEnvKey<T> extends SystemEnvKey<T> {}
 /**
- * Define read-only system environment variable keys.
+ * Defines a read-only system environment variable key, which inherits from [SystemEnvKey<T>]{@link SystemEnvKey}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -690,7 +965,7 @@ declare class WritableSystemEnvKey<T> extends SystemEnvKey<T> {}
  */
 declare class ReadonlySystemEnvKey<T> extends SystemEnvKey<T> {}
 /**
- * Defines the custom environment Key.
+ * Defines the type of the key for a custom environment variable.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -700,7 +975,7 @@ declare class ReadonlySystemEnvKey<T> extends SystemEnvKey<T> {}
  */
 declare class CustomEnvKey<S> {
   /**
-   * The corresponding type of the custom env key.
+   * Type of the key for a custom environment variable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -710,9 +985,10 @@ declare class CustomEnvKey<S> {
    */
   private type?: S;
   /**
-   * create CustomEnvKey
+   * Creates a custom environment variable key, which serves as a parameter of the **\@CustomEnv** decorator.
    *
-   * @returns { CustomEnvKey<T> } CustomEnvKey
+   * @returns { CustomEnvKey<T> } Custom environment variable key, used to identify the custom environment variable to
+   *     obtain.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -722,7 +998,7 @@ declare class CustomEnvKey<S> {
   static create<T>(): CustomEnvKey<T>;
 
   /**
-   * constructor.
+   * Creates an instance of this class.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -733,7 +1009,11 @@ declare class CustomEnvKey<S> {
   protected constructor();
 }
 /**
- * Defines the writable system environment key.
+ * Defines the set of writable system environment variable keys, which are used to obtain the corresponding system
+ * environment variables through the **\@Env** decorator. You can use the [env]{@link env}
+ * method in [WithEnv]{@link WithEnv} to set local environment
+ * variable values to affect the rendering of descendant components. For details, see
+ * [Example 2: Setting Local Layout Direction]{@link WithEnv}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -743,7 +1023,12 @@ declare class CustomEnvKey<S> {
  */
 declare class WritableEnvKey {
   /**
-   * Defines the system environment key direction.
+   * Variable parameter of [\@Env]{@link Env}. The value of the [Direction]{@link Direction}
+   * enum can be obtained through **\@Env(WritableEnvKey.DIRECTION)**.
+   * <br>When this decorator is declared in
+   * [\@Component](docroot://ui/state-management/arkts-create-custom-components.md)
+   * or [\@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md), it is used to
+   * obtain the layout direction of the screen where the window is located.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -753,7 +1038,13 @@ declare class WritableEnvKey {
    */
   static readonly DIRECTION: WritableSystemEnvKey<Direction>;
   /**
-   * Defines the system environment key fontScale.
+   * Variable parameter of [\@Env]{@link Env}. The value of the number type can be obtained through
+   * **\@Env(WritableEnvKey.FONT_SCALE)**. There is no upper limit for the value, and values less than or equal to 0
+   * are processed as 0.
+   * <br>When this decorator is declared in
+   * [\@Component](docroot://ui/state-management/arkts-create-custom-components.md)
+   * or [\@ComponentV2](docroot://ui/state-management/arkts-create-custom-components.md), it is used to
+   * provide a local font scale factor for descendant components.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -763,9 +1054,9 @@ declare class WritableEnvKey {
    */
   static readonly FONT_SCALE: WritableSystemEnvKey<double>;
 }
-
 /**
- * Defines the readonly system environment key.
+ * Defines the set of read-only system environment variable keys, which are used to obtain the corresponding system
+ * environment variables through the **\@Env** decorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -850,12 +1141,20 @@ declare class ReadonlyEnvKey {
    */
   static readonly WINDOW_IS_HIGHLIGHTED: ReadonlySystemEnvKey<boolean>;
 }
-
 /**
- * Defines the custom environment PropertyDecorator.
+ * This component is used to obtain custom environment variables.
  *
- * @param { CustomEnvKey<T> } key - custom environment key.
- * @returns { PropertyDecorator } CustomEnv decorator
+ * See the developer guide: [\@CustomEnv: Custom Environment Variable](docroot://ui/arkts-custom-env-property.md).
+ *
+ * Obtains custom environment variables. A custom environment variable key is created through
+ * [CustomEnvKey.create()]{@link CustomEnvKey#create} and passed as a parameter to the **\@CustomEnv** decorator.
+ *
+ * A variable decorated by **\@CustomEnv** reads the environment variable value corresponding to the key.
+ * If the environment variable is not set, the locally declared default value is used.
+ *
+ * @param { CustomEnvKey<T> } key - Key of the custom environment variable, used to identify the custom environment
+ *     variable to obtain.
+ * @returns { PropertyDecorator } Property decorator. You do not need to care about this return value.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -865,10 +1164,11 @@ declare class ReadonlyEnvKey {
 declare function CustomEnv<T>(key: CustomEnvKey<T>): PropertyDecorator;
 
 /**
- * Define Env Decorator type
+ * Defines the **EnvDecorator** property decorator type.
  *
- * @param { SystemProperties } value - key value input by the user
- * @returns { PropertyDecorator } Env decorator
+ * @param { SystemProperties } value - Environment variable attribute name, used to specify the system environment
+ *     variable to obtain.
+ * @returns { PropertyDecorator } Property decorator. You do not need to pay attention to this return value.
  * @throws { BusinessError } 140000 - Invalid key for @Env
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -876,13 +1176,20 @@ declare function CustomEnv<T>(key: CustomEnvKey<T>): PropertyDecorator;
  * @since 22 dynamic
  */
 declare type EnvDecorator = (value: SystemProperties) => PropertyDecorator;
+
 /**
- * Defining Env PropertyDecorator.
- * On API 26.0.0 and above, the parameter also supports the SystemEnvKey<T> type.
+ * The **\@Env** decorator is used to obtain system environment variables, helping you sense system environment changes
+ * and dynamically adjust the UI display.
+ *
+ * Obtains system environment variables. Before API version 26.0.0, only the **SystemProperties** enum can be passed in.
+ * Since API version 26.0.0, the [SystemEnvKey<T>]{@link SystemEnvKey} class or the
+ * [SystemProperties]{@link SystemProperties} enum can be passed in as the parameter.
+ *
+ * For details about the developer guide, see [\@Env Developer Guide](docroot://ui/arkts-env-system-property.md).
  *
  * @param { SystemProperties } key - key value input by the user. [since 22 - 24]
- * @param { SystemEnvKey<T> | SystemProperties } key - key value input by the user. [since 26.0.0]
- * @returns { PropertyDecorator } Env decorator
+ * @param { SystemEnvKey<T> | SystemProperties } key - Environment variable key. [since 26.0.0]
+ * @returns { PropertyDecorator } Property decorator. Developers do not need to pay attention to this return value.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 26.0.0]
@@ -982,7 +1289,37 @@ declare enum SystemProperties {
 }
 
 /**
- * Defining Consume PropertyDecorator.
+ * [@Provide]{@link Provide} and **\@Consume** are used together for
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md) to
+ * implement two-way synchronization across component levels. This is applicable to scenarios where states need to be
+ * shared among multiple layers of nested components. It simplifies the communication logic between components by
+ * avoiding the complexity of layer-by-layer data transfer. As a data consumer, the variable decorated with
+ * **\@Consume** establishes a bidirectional binding relationship with the variable decorated with **\@Provide**
+ * through an alias or variable name. When a variable decorated with **\@Provide** or **\@Consume** changes, the change
+ * is automatically synchronized to the other party. An alias is preferred for matching. If no alias is set, a
+ * variable name is used for matching.
+ *
+ * For details, see
+ * [@Provide and @Consume Decorators: Two-Way Synchronization with Descendant Components](docroot://ui/state-management/arkts-provide-and-consume.md).
+ *
+ * > **NOTE**
+ * >
+ * > Since API version 20, **\@Consume** decorated variables support default value assignment. If no matching variable
+ * > decorated with **\@Provide** is found, the **\@Consume** decorated variable initializes with its default value.
+ * > When a matching variable decorated with **\@Provide** is found, the **\@Consume** decorated variable uses the
+ * > value of the \@Provide decorated variable, and the default value is ignored.
+ * >
+ * > Since API version 20, cross-BuilderNode pairing of **\@Provide** / **\@Consume** decorated variables is supported.
+ * > In the BuilderNode scenario, a BuilderNode constructs nodes before being mounted to the tree. Therefore, the
+ * > **\@Consume** decorated variable defined inside the BuilderNode must be assigned a default value. After the
+ * > BuilderNode is mounted to the tree, the framework retrieves the **\@Provide** decorated variable closest to the
+ * > BuilderNode again and establishes a two-way synchronization relationship with the variable.
+ *
+ * value: Used to set an alias. If no alias is specified, a variable name is used by default.
+ * When an alias is set, an **\@Consume** decorated variable matches and binds to an **\@Provide** decorated variable
+ * through the alias. When no alias is set, matching and binding are performed through a variable name, implementing
+ * two-way data synchronization across component levels.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -995,9 +1332,18 @@ declare enum SystemProperties {
 declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
 
 /**
- * Defining Consumer PropertyDecorator, aliasName is the only matching key and
- * if aliasName is the default, the default attribute name is regarded as aliasName.
- * And @Consumer will find the nearest @Provider.
+ * Decorates a data consumer to obtain data from a data source. It is used together with **\@Provider** in state
+ * management V2 to implement bidirectional data synchronization across component levels. If the variable decorated
+ * with **\@Consumer** does not find the variable decorated with **\@Provider** with the matching alias in the
+ * component tree, it uses its own initial value and does not perform data synchronization.
+ *
+ * For details, see
+ * [@Provider and @Consumer Decorators: Synchronizing Across Component Levels in a Two-Way Manner](docroot://ui/state-management/arkts-new-provider-and-consumer.md).
+ *
+ * aliasName: Alias, which is used as the matching identifier for bidirectional data synchronization
+ * between variables decorated with **\@Consumer** and **\@Provider**. The alias must be the same as that of the
+ * **\@Provider** decorated variable. By default, the alias is the variable name.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1010,7 +1356,13 @@ declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator
 declare const Consumer: (aliasName?: string) => PropertyDecorator;
 
 /**
- * Defining Computed MethodDecorator.
+ * **@Computed** is a method decorator used in
+ * [State Management V2](docroot://ui/state-management/arkts-state-management-overview.md) to
+ * decorate a **getter** method, turning it into a computed property. Its return value is cached and recalculated
+ * only when the dependent source data changes, reducing the overhead of repeated computation.
+ *
+ * For details, see
+ * [@Computed Decorator: Declaring Computed Properties](docroot://ui/state-management/arkts-new-computed.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1023,7 +1375,24 @@ declare const Consumer: (aliasName?: string) => PropertyDecorator;
 declare const Computed: MethodDecorator;
 
 /**
- * Defining StorageProp PropertyDecorator.
+ * **@StorageProp** is used in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to establish unidirectional data synchronization with the corresponding property in
+ * [AppStorage]{@link AppStorage}. The changes of the corresponding property in AppStorage are synchronized to the
+ * variable decorated with **@StorageProp**, but the changes of the variable decorated with **@StorageProp** will not
+ * be synchronized back to AppStorage. It is applicable to scenarios where the global state changes of AppStorage need
+ * to be detected across pages and [abilities]{@link ability} and only unidirectional data flow is required. This can
+ * avoid unnecessary data writeback.
+ *
+ * For details, see [AppStorage: Storing Application-wide UI State](docroot://ui/state-management/arkts-appstorage.md).
+ *
+ * value: Property key name in AppStorage, which is used to establish unidirectional data synchronization with the
+ * property corresponding to the key name. If the property corresponding to the key name already exists in AppStorage,
+ * the local initial value of the variable decorated with **@StorageProp** will be overwritten by the value of the
+ * corresponding property in AppStorage. If the property corresponding to the key name does not exist in AppStorage,
+ * the corresponding property will be created in AppStorage based on the local initial value of the variable decorated
+ * with **@StorageProp**.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1035,7 +1404,26 @@ declare const Computed: MethodDecorator;
 declare const StorageProp: (value: string) => PropertyDecorator;
 
 /**
- * Defining StorageLink PropertyDecorator.
+ * **@StorageLink** is used in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to establish bidirectional data synchronization with the property of a specified key in
+ * [AppStorage]{@link AppStorage}. When the variable decorated
+ * with **@StorageLink** changes, the change is synchronized to the property corresponding to the key in AppStorage.
+ * When the property corresponding to the key in AppStorage changes, the change is also synchronized back to the
+ * variable decorated with **@StorageLink**. It is applicable to scenarios where the global state of AppStorage needs
+ * to be shared across pages and [abilities]{@link ability} and
+ * bidirectional data synchronization with AppStorage is required. It can avoid layer-by-layer state data transfer to
+ * ensure data consistency.
+ *
+ * For details, see [AppStorage: Storing Application-wide UI State](docroot://ui/state-management/arkts-appstorage.md).
+ *
+ * value: Property key name in AppStorage, which is used to establish bidirectional data
+ * synchronization with the property corresponding to the key name. If the property corresponding to the key name
+ * already exists in AppStorage, the local initial value of the variable decorated with **@StorageLink** will be
+ * overwritten by the value of the corresponding property in AppStorage. If the property corresponding to the key name
+ * does not exist in AppStorage, the corresponding property will be created in AppStorage based on the local initial
+ * value of the variable decorated with **@StorageLink**.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1047,7 +1435,18 @@ declare const StorageProp: (value: string) => PropertyDecorator;
 declare const StorageLink: (value: string) => PropertyDecorator;
 
 /**
- * Defining Watch PropertyDecorator.
+ * **\@Watch** is used in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to listen for changes to state variables and trigger specified callback functions when the variables change. It
+ * applies to scenarios where linked logic, data synchronization, or derived value calculation needs to be
+ * automatically executed when a state variable changes.
+ *
+ * For details, see
+ * [@Watch Decorator: Getting Notified of State Variable Changes](docroot://ui/state-management/arkts-watch.md).
+ *
+ * value: Name of the callback function for listening to changes in the state variable. The function signature is
+ * **(propertyName: string) => void**, where **propertyName** indicates the name of the changed property.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1086,8 +1485,67 @@ declare const Builder: MethodDecorator;
 declare const LocalBuilder: MethodDecorator;
 
 /**
- * Defining Styles MethodDecorator
+ * Defines VersionCondition interface
  *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 26.2.0 dynamic
+ */
+declare interface VersionCondition {
+  /**
+   * Minimum API version for the style or extend to take effect.
+   * Represets the runtime device version, as a number or a string.
+   * Default value: undefined: The version restriction does not take effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  minApiVersion?: number | string;
+
+  /**
+   * Maximum API version for the style or extend to take effect.
+   * Represets the runtime device version, as a number or a string.
+   * Default value: undefined: The version restriction does not take effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  maxApiVersion?: number | string;
+}
+
+/**
+ * Define Styles Decorator type with version control.
+ *
+ * @param { VersionCondition } versionCondition
+ * @returns { MethodDecorator } Styles decorator
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 26.2.0 dynamic
+ */
+declare type StylesVersionDecorator = (versionCondition: VersionCondition) => MethodDecorator;
+
+/**
+ * The @Styles decorator is used to extract multiple style settings into a method, which can be directly called at the 
+ * component declaration site to define and reuse custom styles. It is suitable for scenarios where multiple components 
+ * need to share the same styles, reducing repetitive code and improving the efficiency of maintaining style 
+ * consistency.
+ *
+ * @type { MethodDecorator } [since 8 - 26.0.1]
+ * @type { MethodDecorator & StylesVersionDecorator } [since 26.2.0]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -1096,10 +1554,13 @@ declare const LocalBuilder: MethodDecorator;
  * @since 8 dynamic
  * @noninterop
  */
-declare const Styles: MethodDecorator;
+declare const Styles: MethodDecorator & StylesVersionDecorator;
 
 /**
- * Defining Extend MethodDecorator
+ * The @Extend decorator is used to extend the styles of specified components. It supports defining multiple style 
+ * attributes in a unified manner within the decorated function, and enables flexible style reuse through parameter 
+ * passing. This is suitable for scenarios where the same styles need to be applied to multiple components, reducing 
+ * style code duplication.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1126,7 +1587,17 @@ declare const Extend: MethodDecorator & ((value: any) => MethodDecorator);
 declare const AnimatableExtend: MethodDecorator & ((value: Object) => MethodDecorator);
 
 /**
- * Define Monitor MethodDecorator
+ * **\@Monitor** is used in
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to listen for changes to state variables, so that the state variables support deep listening. It is applicable to
+ * scenarios where custom logic (such as data synchronization, UI refresh, and log recording) needs to be executed when
+ * state variables or their nested properties change. Compared with
+ * [@Watch]{@link Watch} in [state management V1](docroot://ui/state-management/arkts-state-management-overview.md),
+ * **\@Monitor** supports deep listening to changes in nested object properties. Since API version 26.0.0, **\@Monitor**
+ * also supports wildcard characters, allowing for more flexible matching of variable paths.
+ *
+ * For details, see
+ * [@Monitor Decorator: Listening for Value Changes of the State Variables](docroot://ui/state-management/arkts-new-monitor.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1139,12 +1610,22 @@ declare const AnimatableExtend: MethodDecorator & ((value: Object) => MethodDeco
 declare const Monitor: MonitorDecorator;
 
 /**
- * Defines Monitor Decorator type
+ * Represents the actual type of the **@Monitor** decorator.
  *
  * @param { string } value - Monitored path input by the user [since 12 - 24]
- * @param { string[] } args - Monitored path(s) input by the user
- * @param { string | MonitorDecoratorOptions } value - Monitored path input by the user or config options. [since 26.0.0]
- * @returns { MethodDecorator } Monitor decorator
+ * @param { string[] } args - Array of paths of the state variables to monitor. The path uses dots (.) to separate
+ *     nested properties (for example, 'a.b.c'), and its content is specified by you. When the developer has used
+ *     MonitorDecoratorOptions or passed multiple strings, the input parameter is of this type. If this parameter is
+ *     not passed, it defaults to empty. When value is of the string type, only the state variable path specified by
+ *     the value parameter is monitored. When value is of the MonitorDecoratorOptions type, the state variable path to
+ *     monitor must be specified through this parameter. If undefined is passed, the corresponding monitoring does not
+ *     take effect.
+ * @param { string | MonitorDecoratorOptions } value - In versions earlier than API 26.0.0, this parameter indicates
+ *     the path of the monitored variable name. The path is separated by dots (.) to indicate nested properties (for
+ *     example, 'a.b.c'). The content is specified by you. The input value is of the string type when only a string is
+ *     passed. Since API version 26.0.0, this parameter can also be an object of the **MonitorDecoratorOptions** type,
+ *     which is used to configure the wildcard capability. [since 26.0.0]
+ * @returns { MethodDecorator } Method decorator. You do not need to concern yourself with this return value.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1156,7 +1637,7 @@ declare const Monitor: MonitorDecorator;
 declare type MonitorDecorator = (value: string | MonitorDecoratorOptions, ...args: string[]) => MethodDecorator;
 
 /**
- * Defines MonitorDecoratorOptions interface
+ * Represents the configuration options of the **@Monitor** decorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1167,9 +1648,9 @@ declare type MonitorDecorator = (value: string | MonitorDecoratorOptions, ...arg
  */
 declare interface MonitorDecoratorOptions {
   /**
-   * Enables wildcard feature.
-   * Set to true to enable wildcard feature, set to false to disable it.
-   * The default value is true.
+   * Whether to support the wildcard capability. The value **true** indicates to enable the wildcard capability,
+   * allowing the use of wildcards (**'*'**) in the path for fuzzy monitoring, and **false** indicates to disable
+   * the wildcard capability. The default value is **true**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1182,7 +1663,8 @@ declare interface MonitorDecoratorOptions {
 }
 
 /**
- * Define IMonitor interface
+ * When the monitored state variable changes, the state management framework will call the registered function and
+ * pass the change information of the **IMonitor** type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1193,7 +1675,11 @@ declare interface MonitorDecoratorOptions {
  */
 declare interface IMonitor {
   /**
-   * Array of changed paths(keys)
+   * Array of paths where properties have changed in the monitored state variable. The path format is the same as
+   * that of the variable name path specified by **\@Monitor**. Nested property paths separated by periods (.) are
+   * supported, for example, **'a.b.c'**. Since API version 26.0.0, when the wildcard capability is enabled, this
+   * array may contain wildcard paths, and querying wildcard paths through [value]{@link IMonitor#value}() will
+   * return **undefined**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1205,12 +1691,22 @@ declare interface IMonitor {
   dirty: Array<string>;
 
   /**
-   * Return the pair of the value before the most recent change and current value for given path.
-   * If path does not exist, return undefined; If path is not specified, return the value pair
-   * corresponding to the first path in dirty.
+   * Obtains the change information for the specified path.
    *
-   * @param { string } [path]
-   * @returns { IMonitorValue<T> | undefined }
+   * @param { string } [path] - Path name of the monitored state variable. If it is not specified, the first path in
+   *     the **dirty** array is used by default. Since API version 26.0.0, the first non-wildcard path in **dirty** is
+   *     used by default. If the specified path is a wildcard path, **undefined** is returned.
+   * @returns { IMonitorValue<T> | undefined } Path and change information for the variable monitored by
+   *     **\@Monitor**.
+   *     <br>**T** is the type of the monitored state variable.
+   *     <br>If the monitored path does not exist, **undefined** is returned.
+   *     <br>Prior to API version 26.0.0, if no path is specified, this parameter returns information corresponding to
+   *     the first path in the **dirty** array of changed paths by default.
+   *     <br>Since API version 26.0.0, if no path is specified, this parameter returns the first non-wildcard path
+   *     in the **dirty** array of changed paths by default.
+   *     <br>If the specified path is a wildcard path, **undefined** is returned.
+   *     <br>If no path is specified and all paths in the **dirty** array are wildcard paths, **undefined** is
+   *     returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1222,7 +1718,8 @@ declare interface IMonitor {
 }
 
 /**
- * Define IMonitorValue interface
+ * Provides the specific information about the state variable changes monitored by **\@Monitor**, obtained through
+ * the **value** API of **IMonitor**. **T** is the state variable type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1233,7 +1730,7 @@ declare interface IMonitor {
  */
 declare interface IMonitorValue<T> {
   /**
-   * Get the previous value.
+   * Value of the state variable before the change.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1245,7 +1742,7 @@ declare interface IMonitorValue<T> {
   before: T;
 
   /**
-   * Get current value.
+   * Current value of the state variable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1257,7 +1754,7 @@ declare interface IMonitorValue<T> {
   now: T;
 
   /**
-   * Monitored path input by the user.
+   * Path of the state variable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1407,7 +1904,25 @@ declare const Sendable: ClassDecorator;
 declare const CustomDialog: ClassDecorator;
 
 /**
- * Defining LocalStorageLink PropertyDecorator.
+ * **\@LocalStorageLink** is used in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to establish bidirectional data synchronization with the property corresponding to the specified key in
+ * [LocalStorage]{@link LocalStorage}. When either the variable decorated by **\@LocalStorageLink** or the
+ * corresponding property in LocalStorage changes, the change will be synchronized to the other party. This is
+ * applicable to scenarios where the UI state needs to be shared among multiple components and data needs to be
+ * synchronized with LocalStorage in real time. It can avoid layer-by-layer data transfer and ensure cross-component
+ * data consistency.
+ *
+ * For details, see
+ * [LocalStorage: Storing Page-Level UI State](docroot://ui/state-management/arkts-localstorage.md).
+ *
+ * value: Property key name in LocalStorage, which is used to establish bidirectional data
+ * synchronization with the property corresponding to the key name. If the property corresponding to the key name
+ * already exists in LocalStorage, the local initial value of the variable decorated with **@LocalStorageLink** will
+ * be overwritten by the value of the corresponding property in LocalStorage. If the property corresponding to the
+ * key name does not exist in LocalStorage, the corresponding property will be created in LocalStorage based on the
+ * local initial value of the variable decorated with **@LocalStorageLink**.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1419,8 +1934,25 @@ declare const CustomDialog: ClassDecorator;
 declare const LocalStorageLink: (value: string) => PropertyDecorator;
 
 /**
- * Defining LocalStorageProp PropertyDecorator
+ * **\@LocalStorageProp** is used in
+ * [state management V1](docroot://ui/state-management/arkts-state-management-overview.md)
+ * to establish unidirectional data synchronization with the property corresponding to the specified key in
+ * [LocalStorage]{@link LocalStorage}. After the
+ * establishment, changes to the property value in LocalStorage will be synchronized to the variable decorated with
+ * **\@LocalStorageProp**, but changes to the variable decorated with **\@LocalStorageProp** will not be synchronized
+ * back to LocalStorage. This is applicable to scenarios where LocalStorage needs to be shared among multiple
+ * components and only unidirectional data flow is required, avoiding unnecessary data writeback.
  *
+ * For details, see
+ * [LocalStorage: Storing Page-Level UI State](docroot://ui/state-management/arkts-localstorage.md).
+ *
+ * value: Property key name in LocalStorage, which is used to establish unidirectional data synchronization with the
+ * property corresponding to the key name. If the property corresponding to the key name already exists in
+ * LocalStorage, the local initial value of the variable decorated with **@LocalStorageProp** will be overwritten by
+ * the value of the corresponding property in LocalStorage. If the property corresponding to the key name does not
+ * exist in LocalStorage, the corresponding property will be created in LocalStorage based on the local initial value
+ * of the variable decorated with **@LocalStorageProp**.
+ * PropertyDecorator: Property decorator. You do not need to concern yourself with this return value.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -1499,7 +2031,27 @@ declare function getContext(component?: Object): Context;
 declare const Reusable: ClassDecorator & ((options: ReusableOptions) => ClassDecorator);
 
 /**
- * Defining ReusableV2 ClassDecorator that is used to decorate @ComponentV2.
+ * To reduce the performance overhead caused by repeatedly creating and destroying custom components, developers can
+ * use the **@ReusableV2** decorator on custom components decorated by [@ComponentV2]{@link ComponentV2} to
+ * achieve component reuse. This is applicable to scenarios where components need to be repeatedly created and
+ * destroyed, such as list scrolling and frequent toggling of component visibility, and supports configuring memory
+ * optimization strategies through parameters.
+ *
+ * Declares a reusable custom component. This decorator must be used together with **@ComponentV2** to decorate a
+ * custom component for component reuse.
+ *
+ * See the development guide:
+ * [@ReusableV2 Decorator: Reusing V2 Components](docroot://ui/state-management/arkts-new-reusableV2.md).
+ *
+ * For the principles and applicable scenarios of component reuse, see
+ * [Component Reuse](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-component-reuse).
+ *
+ * options: Configuration parameters of the reusable custom component, used to configure
+ * the memory optimization policy. This parameter can be configured for optimization in scenarios where a large number
+ * of reusable components exist (for example, dozens or more reusable component instances on the same page), or when
+ * the device memory is limited and the app memory usage is high. No memory optimization policy is applied by
+ * default.**Since:** 26.0.0
+ * ClassDecorator: Class decorator. You do not need to pay attention to this return value.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -5847,7 +6399,13 @@ declare class TransitionEffect<
 }
 
 /**
- * Define Preview property
+ * Implements a configuration object for @Preview parameters.
+ * Defines preview device attributes such as device type and screen state.
+ *
+ * >  **NOTE**
+ * >
+ * >  In PreviewParams, only input parameters that match the defined parameter types are supported. Otherwise,
+ * >  all @Preview parameters are set to default values.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -5858,7 +6416,8 @@ declare class TransitionEffect<
  */
 interface PreviewParams {
   /**
-   * Define Preview title
+   * Title of the component preview. The default value is the custom component name. Only English letters and
+   * digits are supported. Chinese characters and special characters are not supported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 11]
@@ -5869,7 +6428,7 @@ interface PreviewParams {
   title?: string;
 
   /**
-   * Define Preview width
+   * Width of the preview device, in px. The default value is 1080px. The value is an integer within [20, 3000].
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 11]
@@ -5880,7 +6439,7 @@ interface PreviewParams {
   width?: number;
 
   /**
-   * Define Preview height
+   * Height of the preview device, in px. The default value is 2340px. The value is an integer within [20, 3000].
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 11]
@@ -5891,7 +6450,7 @@ interface PreviewParams {
   height?: number;
 
   /**
-   * Define Preview locale
+   * Language and region of the preview device, for example, zh_CN and en_US. The default value is zh_CN.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 11]
@@ -5902,7 +6461,8 @@ interface PreviewParams {
   locale?: string;
 
   /**
-   * Define Preview colorMode
+   * Light or dark mode to display. The value can be light or dark. The default value is dark for TV devices
+   * and light for other devices. Wearable devices support only dark.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 11]
@@ -5913,7 +6473,9 @@ interface PreviewParams {
   colorMode?: string;
 
   /**
-   * Define Preview deviceType
+   * Device type on which the component preview is rendered. The default value is Phone. For details about
+   * the device type enums, see
+   * [deviceTypes tag](docroot://quick-start/module-configuration-file.md#devicetypes).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -5925,7 +6487,7 @@ interface PreviewParams {
   deviceType?: string;
 
   /**
-   * Define Preview dpi
+   * Screen DPI of the preview device. The default value is 480. The value is an integer within [120, 640].
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -5937,7 +6499,7 @@ interface PreviewParams {
   dpi?: number;
 
   /**
-   * Define Preview orientation
+   * Screen orientation of the preview device. Options: **portrait** (default), **landscape**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 11]
@@ -5948,7 +6510,7 @@ interface PreviewParams {
   orientation?: string;
 
   /**
-   * Define Preview roundScreen
+   * Whether the preview screen is circular. Default value: **false**. **true**: circular. **false**: non-circular.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 11]
@@ -8208,7 +8770,8 @@ declare enum SafeAreaType {
   SYSTEM = 0,
 
   /**
-   * Device-specific non-safe area, such as the notch area or camera cutout area.
+   * The non-safe area of the device, for example, the notch or punch-hole area. The CUTOUT type does not take
+   * effect when no Metadata configuration item is added.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8231,7 +8794,7 @@ declare enum SafeAreaType {
 }
 
 /**
- * Enumerates the edges for expanding the safe area.
+ * Edge of the safe area for expanding the layout.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -8296,10 +8859,9 @@ declare enum SafeAreaEdge {
  */
 declare enum LayoutSafeAreaType {
   /**
-   * Default non-safe area of the system, including the status bar and navigation bar.
    * The component's layout range can be expanded to include both component-level safe areas
-   * ([safeAreaPadding]{@link CommonMethod#safeAreaPadding}) and page-level safe areas (status
-   * bar, navigation bar, and cutout area).
+   * ([safeAreaPadding]{@link CommonMethod#safeAreaPadding}) and page-level safe areas (status bar,
+   * navigation bar, and cutout area).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8366,7 +8928,7 @@ declare enum LayoutSafeAreaEdge {
   END = 3,
 
   /**
-   * Vertical edge of the safe area.
+   * Vertical edges.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8377,7 +8939,7 @@ declare enum LayoutSafeAreaEdge {
   VERTICAL = 4,
 
   /**
-   * Horizontal edge of the safe area.
+   * Horizontal edges.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8388,7 +8950,7 @@ declare enum LayoutSafeAreaEdge {
   HORIZONTAL = 5,
 
   /**
-   * All edges of the safe area.
+   * All edges.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8947,29 +9509,50 @@ declare interface BorderImageOption {
 }
 
 /**
- * Enumerates the layout policies for component width and height.
+ * Layout policy for the width and height of a component. It provides three layout policy options:
+ * **matchParent**, **wrapContent**, and **fixAtIdealSize**, which are respectively used for scenarios where
+ * the component adapts to the parent component layout, adapts to the content but does not exceed the parent
+ * component size, and adapts to the content and may exceed the parent component size.
  *
  * >  **NOTE**
  * >
- * > - **LayoutPolicy** supports three layout policies: **matchParent** (adapts to the parent component's layout),
- * > **wrapContent** (adapts to content but does not exceed the parent component's size), **fixAtIdealSize**
- * > (adapts to content and may exceed the parent component's size).
+ * > - **LayoutPolicy** supports three layout policies: **matchParent** (adapting to the parent component
+ * > layout), **wrapContent** (adapting to the content but not exceeding the parent component size), and
+ * > **fixAtIdealSize** (adapting to the content and possibly exceeding the parent component size). For
+ * > specific sample code, see
+ * > [Setting the Layout Policy]
+ * > (docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md#example-5-setting-the-layout-policy).
  * >
- * > - For **wrapContent** and **fixAtIdealSize**:
- * > If the component's size cannot be determined by its content, it uses the default size (if available);
- * > otherwise, it calculates the size as (0, 0).
+ * > - In the **wrapContent** and **fixAtIdealSize** scenarios, when the component size cannot be determined
+ * > by the content, if the component size has a default value, the size is measured based on the default value
+ * > and the component is finally displayed at the default size; if there is no default value, the size is
+ * > measured based on the width and height (0,0), and the component is finally displayed at zero size.
  * >
- * > - When a container is set to **wrapContent** and contains child components set to **matchParent**
- * > (including cases where only one side is set to **matchParent**): (1) The container is first expanded by
- * > child components with determinate sizes. (2) Child components set to **matchParent** then adapt to the
- * > container's size. (3) If no child components have determinate sizes, both the container and its child
- * > components have a zero size.
+ * > - When a container is set to **wrapContent** and a child component is set to **matchParent** (including
+ * > when **matchParent** is set on only one side), the container is first expanded by child components with
+ * > determined sizes, and then the child component set to **matchParent** matches the container size. If
+ * > there is no child component with a determined size, both the container and the child component have a
+ * > size of 0.
  * >
- * > - **LayoutPolicy** has lower priority than **constraintSize**.
+ * > - The **LayoutPolicy** setting is constrained by **constraintSize**. That is, when **LayoutPolicy** and
+ * > **constraintSize** are set at the same time, the constraint of **constraintSize** takes effect first.
  * >
- * > - Since API version 15, only the width and height attributes of **Row** and **Column** components support
- * > the **LayoutPolicy** type. Setting **LayoutPolicy** on other components produces the same behavior as having
- * > no width or height specified. Since API version 20, all basic components support the **LayoutPolicy** type.
+ * > - Since API version 15, only the width and height attributes of the **Row** and **Column** components
+ * > support the **LayoutPolicy** type parameter. For other components, setting the **LayoutPolicy** type
+ * > parameter has the same effect as not setting the width or height. Since API version 20, all basic
+ * > components support the **LayoutPolicy** type parameter.
+ * >
+ * > - When the main-axis size of the **Row**, **Column**, or **Flex** component adapts to child components,
+ * > and child component A sets **matchParent** only on the cross axis, before API version 26.0.0, child
+ * > component A does not participate in the main-axis size measurement of the **Row**, **Column**, or
+ * > **Flex** component, and the main-axis direction of the **Row**, **Column**, or **Flex** component does
+ * > not adapt to the size of child component A. Since API version 26.0.0, child component A participates in
+ * > the main-axis size measurement of the **Row**, **Column**, or **Flex** component, and the main-axis
+ * > direction of the **Row**, **Column**, or **Flex** component adapts to the size of child component A. The
+ * > same applies to the cross-axis direction. For the specific change effect, see
+ * > [Example 6: Setting matchParent on a Single Direction of a Child Component]
+ * > (docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md
+ * > #example-6-setting-matchparent-on-a-single-direction-of-a-child-component).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -8980,8 +9563,10 @@ declare interface BorderImageOption {
  */
 declare class LayoutPolicy {
   /**
-   * When the component adapts to the parent component's layout, its size equals the parent component's
-   * content area (excluding the areas defined by **padding**, **border**, and **safeAreaPadding**).
+   * When the current component adapts to the parent component layout, its size is equal to the content area
+   * of the parent component, excluding **padding**, **border**, and **safeAreaPadding**. This applies to
+   * scenarios where the component needs to fill the content area of the parent container, such as list items
+   * and card containers.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8992,8 +9577,10 @@ declare class LayoutPolicy {
    */
   static readonly matchParent: LayoutPolicy;
   /**
-   * When the component adapts to its child components (content), its size equals the child components
-   * (content) and is constrained by the parent component's content area size.
+   * When the current component adapts to its child components (content), its size is equal to that of the
+   * child components (content), and its size is constrained by the content area size of the parent component.
+   * This applies to scenarios where the size needs to be automatically adjusted based on the content but
+   * cannot exceed the parent container, such as text containers and dialog box content areas.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9004,8 +9591,10 @@ declare class LayoutPolicy {
    */
   static readonly wrapContent: LayoutPolicy;
   /**
-   * When the component adapts to its child components (content), its size equals the child components
-   * (content) and is not constrained by the parent component's content area size.
+   * When the current component adapts to its child components (content), its size is equal to that of the
+   * child components (content), and its size is not constrained by the content area size of the parent
+   * component. This applies to scenarios where the size needs to be automatically adjusted based on the
+   * content and can exceed the parent container, such as floating prompts and drop-down menus.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11646,7 +12235,7 @@ declare interface DragEvent {
    * Obtains the dragging velocity along the x-axis.
    *
    * @returns { number } Dragging velocity along the x-axis. The origin of the coordinate axis is the upper left corner
-   *     of the screen. The unit is vp. The velocity is positive if the movement is from left to right, and it is
+   *     of the screen. The unit is vp/s. The velocity is positive if the movement is from left to right, and it is
    *     negative if the movement is from right to left.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11660,7 +12249,7 @@ declare interface DragEvent {
    * Obtains the dragging velocity along the y-axis.
    *
    * @returns { number } Dragging velocity along the y-axis. The origin of the coordinate axis is the upper left corner
-   *     of the screen. The unit is vp. The velocity is positive if the movement is from top to bottom, and it is
+   *     of the screen. The unit is vp/s. The velocity is positive if the movement is from top to bottom, and it is
    *     negative if the movement is from bottom to top.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11674,7 +12263,7 @@ declare interface DragEvent {
    * Obtains the dragging velocity along the main axis.
    *
    * @returns { number } Dragging velocity along the main axis. The value is the arithmetic square root of the sum of
-   *     the squares of the velocities along the x-axis and y-axis, in vp.
+   *     the squares of the velocities along the x-axis and y-axis, in vp/s.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -13221,9 +13810,8 @@ declare interface SheetOptions extends BindOptions {
  * Enum of title bar background blur styles.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
  * @since 26.0.1 dynamiconly
  */
 declare enum SheetTitleBarBackgroundBlur {
@@ -13231,9 +13819,8 @@ declare enum SheetTitleBarBackgroundBlur {
    * No blur effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
    * @since 26.0.1 dynamiconly
    */
   NONE = 0,
@@ -13243,9 +13830,8 @@ declare enum SheetTitleBarBackgroundBlur {
    * The gradient range adapts to the title bar height, using system preset values.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
    * @since 26.0.1 dynamiconly
    */
   GRADIENT = 1
@@ -18882,18 +19468,26 @@ declare class CommonMethod<T> {
   constructor();
 
   /**
-   * Sets the width of the component. By default, the width required to fully hold the component content is
-   * used. If a component is wider than its parent, it will overflow.
+   * Sets the width of the component itself. By default, the width required for the content of the child
+   * component is used. If the width of a child component is greater than that of its parent component, the
+   * child component overflows and is displayed outside the parent component.
    * <br>Since API version 10, this API supports the calc calculation feature.
    *
-   * @param { Length } value - Width of the component to set.<br>Unit: vp
-   *     >  **NOTE**
-   *     >
-   *     >  - In the [TextInput](@link TextInput) component, setting **width** to **auto** means that
-   *     >    the width adapts to the width of the text content.
-   *     >
-   *     >  - In the [AlphabetIndexer](@link AlphabetIndexer) component, setting **width** to **auto**
-   *     >    means that the width adapts to the maximum width of index entries.
+   * >  **NOTE**
+   * >
+   * >  - In the [TextInput](./ts-basic-components-textinput.md) component, setting width to **auto** means
+   * >    adapting to the text width.
+   * >
+   * >  - In the [AlphabetIndexer](./ts-container-alphabet-indexer.md) component, setting **width** to
+   * >    **auto** means adapting to the width of the largest index item.
+   * >
+   * >  - In the [Row]{@link Row}, [Column]{@link Column}, and [RelativeContainer]{@link RelativeContainer}
+   * >    components, setting width to auto means adapting to the child components.
+   *
+   * @param { Length } value - Width of the component to set.<br>Unit: vp<br>When a percentage is set, the
+   *     width of the parent container is used as the base value.<br>Exception values: when the parameter is
+   *     **undefined**, the attribute setting does not take effect; for other exception values, the width
+   *     attribute is restored to the default behavior when it is not configured.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -18903,11 +19497,14 @@ declare class CommonMethod<T> {
    */
   width(value: Length): T;
   /**
-   * Sets the width of the component or its horizontal layout policy. By default, the component uses the width required
-   * for its content. If a component is wider than its parent, it will overflow.
+   * Sets the width of the component itself or its horizontal layout policy. By default, the width required
+   * for the content of the child component is used. If the width of a child component is greater than that of
+   * its parent component, the child component overflows and is displayed outside the parent component.
+   * <br>Since API version 15, when the parameter is of the **Length** type, this API supports the **calc**
+   * calculation feature.
    *
-   * @param { Length | LayoutPolicy } widthValue - Width of the component to set
-   *     <br>Unit: vp.
+   * @param { Length | LayoutPolicy } widthValue - Width or horizontal layout policy of the component to set.
+   *     <br>Unit: vp<br>When a percentage is set, the width of the parent container is used as the base value.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18919,16 +19516,21 @@ declare class CommonMethod<T> {
   width(widthValue: Length | LayoutPolicy): T;
 
   /**
-   * Sets the height of the component. By default, the height required to fully hold the component content
-   * is used. If a component is higher than its parent, it will overflow.
+   * Sets the height of the component itself. By default, the height required for the content of the child
+   * component is used. If the height of a child component is greater than that of its parent component, the
+   * child component overflows and is displayed outside the parent component.
    * <br>Since API version 10, this API supports the calc calculation feature.
    *
-   * @param { Length } value - Height of the component to set.<br>Unit: vp
-   *     >  **NOTE**
-   *     >
-   *     >  In the [Row](@link Row), [Column](@link Column), and [RelativeContainer](@link RelativeContainer)
-   *     components, setting **width** and **height** to **auto** means that the size adapts to the size of their
-   *     child components.
+   * >  **NOTE**
+   * >
+   * >  In the [Row]{@link Row}, [Column]{@link Column}, and [RelativeContainer]{@link RelativeContainer}
+   * >  components, setting **width** and **height** to **auto** means that the size adapts to the size of their
+   * >  child components.
+   *
+   * @param { Length } value - Component height to set.<br>Unit: vp<br>When a percentage is set, the height
+   *     of the parent container is used as the base value.<br>Abnormal values: If the parameter is
+   *     **undefined**, the attribute setting does not take effect; for other abnormal values, the height
+   *     attribute is restored to the default behavior when it is not configured.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -18938,12 +19540,14 @@ declare class CommonMethod<T> {
    */
   height(value: Length): T;
   /**
-   * Sets the height of the component or its vertical layout policy. By default, the
-   * component uses the height required for its content. If a component is higher than
-   * its parent, it will overflow.
+   * Sets the height of the component itself or its vertical layout policy. By default, the height required
+   * for the content of the child component is used. If the height of a child component is greater than that
+   * of its parent component, the child component overflows and is displayed outside the parent component.
+   * <br>Since API version 15, when the parameter is of the Length type, this API supports the calc calculation
+   * feature.
    *
-   * @param { Length | LayoutPolicy } heightValue - Height of the component to set.
-   *     <br>Unit: vp.
+   * @param { Length | LayoutPolicy } heightValue - Component height or vertical layout policy to set.
+   *     <br>Unit: vp<br>When a percentage is set, the height of the parent container is used as the base value.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18990,62 +19594,62 @@ declare class CommonMethod<T> {
   customProperty(name: string, value: Optional<Object>): T;
 
   /**
-   * Expands the safe area.
+   * Controls a component to expand its safe area to achieve an immersive effect.
    *
    * > **NOTE**
    * >
-   * > - When using **expandSafeArea** to expand the drawing of a component, avoid setting fixed width and height values
-   * > (except percentages). If fixed width and height values are set (including **'auto'**), the edges for expanding
-   * the
-   * > safe area can only be **[SafeAreaEdge.TOP, SafeAreaEdge.START]**, and the size of the component remains unchanged
-   * > after safe area expansion.
+   * > - When using **expandSafeArea** to expand the drawing of a component, avoid setting fixed width and height
+   * > values (except percentages). If fixed width and height values or 'auto' are set, the safe area can be expanded
+   * > only upward (SafeAreaEdge.TOP) and toward the start direction (SafeAreaEdge.START, which indicates the left side
+   * > in LTR mode and the right side in RTL mode), and the size of the expanded component remains unchanged.
    * >
-   * > - The safe area does not restrict the layout or size of components inside, nor does it clip the components.
+   * > - The safe area does not restrict the layout and size of internal components, nor does it clip internal
+   * > components.
    * >
-   * > - If the parent container is a scrollable container, the component does not extend after the **expandSafeArea**
-   * > attribute is set, but it can still trigger updates to the extension range of its child nodes that have
-   * > **expandSafeArea** set.
+   * > - When the parent container is a scrollable container, after the **expandSafeArea** attribute is set on a
+   * > component, the component itself does not extend, but it can still trigger the update of the extension range of
+   * > its child nodes on which **expandSafeArea** is set.
    * >
-   * > - When **expandSafeArea()** is set without parameters, default values are applied. When **expandSafeArea([],[])**
-   * > is used with empty arrays, the setting has no effect.
+   * > - When **expandSafeArea()** is set without parameters, the default values are used. When
+   * > **expandSafeArea([],[])** is set, the input parameters are empty arrays, and the **expandSafeArea** attribute
+   * > does not take effect.
    * >
-   * > - Prerequisites for the **expandSafeArea** attribute to take effect:
-   * >   1. When **type** is set to **SafeAreaType.KEYBOARD**, the settings take effect by default. This behaves as the
-   * >      component not avoiding the virtual keyboard.
-   * >   2. When **type** is set to any other value, the settings take effect only if its boundaries overlap with the
-   * >      safe area. For example, if the height of the status bar is 100, the absolute position of the component on
-   * the
-   * >      screen must be 0 <= y <= 100 for the settings to take effect.
+   * > - The conditions for the **expandSafeArea** attribute to take effect on a component are as follows:
+   * >   1. When type is SafeAreaType.KEYBOARD, it takes effect by default, meaning that the component does not avoid
+   * > the keyboard.<br>
+   * >   2. When other types are set, the component can extend under the safe area only when the component boundary
+   * > coincides with the safe area. For example, if the height of the status bar at the top of the device is 100, the
+   * > absolute position of the component on the screen must satisfy 0 <= y <= 100.
    * >
-   * > - When a component extends into a non-safe area, events in the non-safe area (such as click events) may be
-   * > intercepted by the system. Built-in components like the status bar will be given priority to respond to these
-   * > events.
+   * > - When a component extends into a non-safe area, events in the non-safe area, such as click events, may be
+   * > intercepted by the system and preferentially responded to by system components such as the status bar.
    * >
-   * > - Avoid setting the **expandSafeArea** attribute for components within scrollable containers. If you do set it,
-   * > you must apply the **expandSafeArea** attribute to all direct nodes from the current node to the scrollable
-   * > ancestor container, following the component nesting relationship. Otherwise, the **expandSafeArea** attribute may
-   * > become ineffective after scrolling.
+   
+ * > - It is not recommended to set the **expandSafeArea** attribute on components in a scrollable
+ * > container. If it is
+   * > set, the **expandSafeArea** attribute must be set on all direct nodes from the current node to the scrollable
+   * > ancestor container according to the component nesting relationship. Otherwise, the **expandSafeArea** attribute
+   * > may become invalid after scrolling.
    * >
-   * > - The **expandSafeArea** attribute only affects the current component and does not propagate to parent or child
-   * > components. Therefore, all relevant components must be configured individually.
+   * > - The **expandSafeArea** attribute takes effect only on the current component and is not passed to parent or
+   * > child components. Therefore, developers must configure this attribute separately for all related components.
    * >
-   * > - When both **expandSafeArea** and **position** attributes are set, the **position** attribute takes effect
-   * first,
-   * > followed by the **expandSafeArea** attribute. For components that do not have **position**, **offset**, or other
-   * > rendering attributes set, such as dialog boxes and sheets, the **expandSafeArea** attribute will not take effect
-   * if
-   * > their boundaries do not overlap with the non-safe area.
+   * > - When both **expandSafeArea** and **position** are set, the **position** attribute takes effect first, and the
+   * > **expandSafeArea** attribute takes effect later. For components on which drawing attributes such as position and
+   * > offset are not set, if their boundaries do not overlap with the non-safe area, setting the **expandSafeArea**
+   * > attribute does not take effect, such as dialog boxes and semi-modal components.
    * >
-   * > - In scenarios where the **expandSafeArea** attribute is ineffective, and you need to place a component in the
-   * > safe area, you will need to manually adjust the component's coordinates.
+   * > - For scenarios where the **expandSafeArea** attribute cannot take effect, to place a component in the non-safe
+   * > area, you need to manually adjust the coordinates of the component.
    *
-   * @param { Array<SafeAreaType> } types - Types of non-safe areas to extend into. For the CUTOUT type to take effect,
-   *     the Metadata item must be added to the configuration file.
-   *     <br>Default value: [SafeAreaType.SYSTEM, SafeAreaType.CUTOUT, SafeAreaType.KEYBOARD].
-   *     <br>Invalid values are treated as the default value.
-   * @param { Array<SafeAreaEdge> } edges - Edges for expanding the safe area.
-   *     <br>Default value: [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM, SafeAreaEdge.START, SafeAreaEdge.END].
-   *     <br>Invalid values are treated as the default value. The default value means to extend to all non-safe areas.
+   * @param { Array<SafeAreaType> } types - Types of the safe areas to expand. By default, SafeAreaType.CUTOUT is
+   *     included. However, if the Metadata configuration item is not added, the page does not avoid the
+ *     cutout, and the
+   *     CUTOUT type does not take effect.<br>Default value: [SafeAreaType.SYSTEM, SafeAreaType.CUTOUT,
+   *     SafeAreaType.KEYBOARD]<br>Invalid value: handled by default.
+   * @param { Array<SafeAreaEdge> } edges - Edges of the safe areas to expand. By default, the component expands to
+   *     all avoidance areas.<br>Default value: [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM, SafeAreaEdge.START,
+   *     SafeAreaEdge.END].<br>Invalid value: handled by default.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19056,7 +19660,8 @@ declare class CommonMethod<T> {
   expandSafeArea(types?: Array<SafeAreaType>, edges?: Array<SafeAreaEdge>): T;
 
   /**
-   * Ignores the safe area for component layout.
+   * Safe area when expanding the component layout. The component layout position and size may change, which differs
+   * from the expandSafeArea mechanism (which only expands the drawing area and keeps the layout unchanged).
    *
    * > **NOTE**
    * >
@@ -19075,13 +19680,13 @@ declare class CommonMethod<T> {
    * > attribute (**.expandSafeArea**) are set: **.ignoreLayoutSafeArea** takes effect first, and **.expandSafeArea**
    * > takes effect on the basis of the former.
    *
-   * @param { Array<LayoutSafeAreaType> } [types] - Types of layout safe areas to expand.<br>Default value:
-   *     [LayoutSafeAreaType.SYSTEM] (expands to all safe areas, including the status bar, navigation bar, and
-   *     component-level safe area (safeAreaPadding)). navigation bar, and component-level safe area<br>Invalid values are
-   *     treated as the default value.
-   * @param { Array<LayoutSafeAreaEdge> } [edges] - Edges of the layout safe area to expand, with mirroring capability
-   *     supported.<br>Default value: [LayoutSafeAreaEdge.ALL] (expands all edges of the component).<br>Invalid values are
-   *     treated as the default value.
+   * @param { Array<LayoutSafeAreaType> } [types] - Type of the expanded layout safe area.<br>Default value:
+   *     [LayoutSafeAreaType.SYSTEM], which extends to the system safe area, for example, the status bar, navigation
+   *     bar, punch-hole area, and component-level safe area ([safeAreaPadding]{@link CommonMethod#safeAreaPadding}).
+   *     <br>Invalid value: handled by default.
+   * @param { Array<LayoutSafeAreaEdge> } [edges] - Edges of the expanded layout safe area, with mirroring
+   *     supported.<br>Default value: [LayoutSafeAreaEdge.ALL], which expands all edges of the
+   *     component.<br>Invalid value: handled by default.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19139,13 +19744,13 @@ declare class CommonMethod<T> {
   responseRegionList(regions: Array<ResponseRegion>): T;
 
   /**
-   * Sets the width and height of the component.
+   * Sets the width and height of the component itself. After the setting, the layout and display size of the
+   * component in the parent container are affected.
    * <br>Since API version 10, this API supports the calc calculation feature.
    *
-   * @param { SizeOptions } value - The [SizeOptions]{@link SizeOptions} type is used to set the width and
-   *     height.<br>Exception handling: If the parameter is **undefined**, the attribute setting does not take
-   *     effect. For other invalid values, the **size** attribute reverts to its default behavior when
-   *     unconfigured.<br>Unit: vp
+   * @param { SizeOptions } value - Width and height.<br>Abnormal value: If the parameter is **undefined**,
+   *     the attribute setting does not take effect. For other abnormal values, the **size** attribute is
+   *     restored to the default behavior when it is not configured.<br>Unit: vp
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -19156,7 +19761,9 @@ declare class CommonMethod<T> {
   size(value: SizeOptions): T;
 
   /**
-   * Sets the constraint size of the component, which is used to limit the size range during component layout.
+   * Sets the constraint size, which limits the size range during component layout. After the setting, the
+   * width and height of the component are limited to the specified minimum and maximum values. The priority
+   * of **constraintSize** is higher than that of the **width** and **height** attributes.
    * <br>Since API version 10, this API supports the calc calculation feature.
    *
    * **Impact of constraintSize(minWidth/maxWidth/minHeight/maxHeight) on width/height**
@@ -19179,14 +19786,15 @@ declare class CommonMethod<T> {
    * | width, minWidth, and maxWidth| The layout restrictions passed by the parent container are used for layout.|
    * | height, minHeight, and maxHeight| The layout restrictions passed by the parent container are used for layout.|
    *
-   * @param { ConstraintSizeOptions } value - Constraint size of the component to set.
-   *     **constraintSize** takes precedence over **width** and **height**.
-   *     <br>
-   *     Default value: {minWidth: 0, maxWidth: Infinity, minHeight: 0, maxHeight: Infinity}
-   *     <br>Exception handling: For strings beginning with numerals, only the numeric part is parsed.
-   *     Strings not beginning with numerals are parsed as 0. For other invalid values, the
-   *     **constraintSize** attribute reverts to its default behavior when unconfigured.
-   *     <br>Unit: vp.
+   * @param { ConstraintSizeOptions } value - Constraint size. The priority of **constraintSize** is higher
+   *     than that of [width]{@link CommonMethod#width(value: Length)} and
+   *     [height]{@link CommonMethod#height(value: Length)}. For the value result, refer to the impact of the
+   *     **constraintSize** value on width and height.
+   *     <br>Default value:<br>**{<br>minWidth:&nbsp;0,<br>maxWidth:&nbsp;Infinity,<br>minHeight:&nbsp;0,
+   *     <br>maxHeight:&nbsp;Infinity<br>}**<br>Abnormal value: For a string starting with a number, only the
+   *     numeric part is parsed; for a string not starting with a number, it is parsed as 0. For other abnormal
+   *     values, the **constraintSize** attribute is restored to the default behavior when it is not configured.
+   *     <br>Unit: vp
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -19248,25 +19856,26 @@ declare class CommonMethod<T> {
   onChildTouchTest(event: (value: Array<TouchTestInfo>) => TouchResult): T;
 
   /**
-   * Sets the weight of the component during layout. A component with this attribute is allocated space
-   * along the main axis of its parent container ([Row]{@link Row}, [Column]{@link Column}, or [Flex]{@link Flex} based
-   * on its specified weight.
+   * Sets the layout weight of a component so that the component is allocated a size in the main-axis
+   * direction of the parent container ([Row]{@link ./row}/[Column]{@link ./column}/[Flex]{@link ./flex})
+   * according to the weight. It applies to scenarios where the parent container size is determined and
+   * multiple child components need to allocate the remaining space proportionally.
    *
-   * @param { number | string } value - Layout weight of the component.
-   *     <br>When the parent container size is determined:
-   *     <br>Elements without **layoutWeight** or with **layoutWeight** set to **0** take precedence in
-   *     occupying space.
-   *     <br>The remaining space on the main axis is then allocated proportionally among elements with a
-   *     **layoutWeight** value greater than 0, ignoring their own size settings.
-   *     <br>Default value: **0**
-   *     <br>**NOTE**
-   *     <br>This parameter is only effective in
-   *     [Row]{@link Row}, [Column]{@link Column}, and [Flex]{@link Flex} container components.
-   *     <br>The value can be a number greater than or equal to 0 or a string that can be converted to a
-   *     number.
-   *     <br>If any child component in a container has the **layoutWeight** attribute set to a value greater
-   *     than 0, then child components will no longer be laid out based on
-   *     [flexShrink]{@link flexShrink} and [flexGrow]{@link flexGrow}.
+   * @param { number | string } value - When the size of the parent container is determined, child components
+   *     that do not have the **layoutWeight** attribute set or whose effective **layoutWeight** value is **0**
+   *     take priority in occupying space. The space left on the main axis after these child components occupy
+   *     space is called the remaining space on the main axis. Child components that have the **layoutWeight**
+   *     attribute set and whose effective **layoutWeight** value is greater than 0 are allocated sizes from the
+   *     remaining space on the main axis according to their respective weight proportions. During allocation,
+   *     the **width**\/**height** settings of the child components are ignored, but the **minWidth**\/
+   *     **minHeight** constraints are retained.<br>Default value: 0<br>Value range: [0, +∞)<br>When the value
+   *     is out of range: if a value less than 0 is passed in, it is processed as 0.<br>**NOTE**<br>This
+   *     attribute takes effect only in the [Row]{@link ./row}/[Column]{@link ./column}/[Flex]{@link ./flex}
+   *     layout.<br>The optional value is a number greater than or equal to 0, or a string that can be converted
+   *     to a number (integer and decimal formats are supported).<br>If a child component in the container has
+   *     the **layoutWeight** attribute set and the set value is greater than 0, all child components are no
+   *     longer laid out based on [flexShrink]{@link CommonMethod#flexShrink} and
+   *     [flexGrow]{@link CommonMethod#flexGrow}.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -19301,17 +19910,15 @@ declare class CommonMethod<T> {
   chainWeight(chainWeight: ChainWeightOptions): T;
 
   /**
-   * Sets the padding of the component.
+   * Sets the padding attribute of the component. After the setting, extra space is created between the
+   * component content and the border, affecting the layout area of the component's internal content.
    * <br>Since API version 10, this API supports the calc calculation feature.
    *
    * @param { Padding | Length } value - [since 7 - 11]
-   * @param { Padding | Length | LocalizedPadding } value - Padding of the component to set
-   *     <br>
-   *     When the parameter is of the **Length** type, the four paddings take effect.
-   *     <br>Default value: **0**
-   *     <br>Unit: vp
-   *     <br>When **padding** is set to a percentage, the width of the parent container is used as the
-   *     basic value. [since 12].
+   * @param { Padding | Length | LocalizedPadding } value - Padding of the component.<br>When the parameter is
+   *     of the **Length** type, the padding takes effect on all four sides simultaneously.<br>Default value:
+   *     **0** <br>Unit: vp <br> When padding is set to a percentage, the padding on all four sides uses the
+   *     **width** of the parent container as the base value. [since 12].
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -19322,27 +19929,36 @@ declare class CommonMethod<T> {
   padding(value: Padding | Length | LocalizedPadding): T;
 
   /**
-   * Sets the safe area padding. This allows the container to add a component-level safe area for its child
-   * components to extend into. This attribute can be dynamically set using
-   * [attributeModifier]{@link CommonMethod#attributeModifier}.
+   * Sets the safe area padding attribute. It allows a container to add a component-level safe area to itself
+   * for child components to extend into, and supports the
+   * [attributeModifier]{@link CommonMethod#attributeModifier} method for dynamically setting attributes.
+   * Unlike padding, **safeAreaPadding** is used to set a component-level safe area for child components to
+   * extend into, while **padding** is used to set the inner padding of the component content area. The two
+   * can be set at the same time and take effect separately.
    *
    * > **NOTE**
-   * > In API version 18, this API can be invoked in attributeModifier.
-   * > When parent and ancestor containers define component-level safe areas, child components can detect and utilize
-   * > these areas, referred to as Accumulated Safe Area Expansion (SAE), which represents the maximum extendable length
-   * > in each direction.
-   * > When ancestor containers have contiguous safeAreaPadding (undivided by margin, border, or padding),
-   * > SAE accumulates recursively outward until no adjacent outer safeAreaPadding exists or the recursion extends
-   * > beyond the page container.
-   * > System-level avoid areas (status bar, navigation bar, notch areas, and more) are treated as the page container's
-   * > inherent safeAreaPadding and participate in SAE calculations.
-   * > For details about the avoid areas, see Safe Area. These component-level safe areas can be leveraged by combining
-   * > with other attributes.
-   * > For example, setting the ignoreLayoutSafeArea attribute on a child component allows it to extend its layout into
-   * > the SAE region.
+   * >
+   * > This API can be called within
+   * > [attributeModifier]{@link CommonMethod#attributeModifier} since API version 18.
+   * >
+   * > When parent and ancestor containers define component-level safe areas, child components can detect and
+   * > utilize these areas, referred to as Accumulated Safe Area Expansion (SAE), which represents the maximum
+   * > extendable length in each direction. When ancestor containers have contiguous **safeAreaPadding**
+   * > (undivided by margin, border, or padding), SAE accumulates recursively outward until no adjacent outer
+   * > **safeAreaPadding** exists or the recursion extends beyond the page container. System-level avoid areas
+   * > (status bar, navigation bar, notch areas, and more) are treated as the page container's inherent
+   * > **safeAreaPadding** and participate in SAE calculations. For details about the avoid areas, see
+   * > [Safe Area](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-expand-safe-area.md).
+   * > These component-level safe areas can be leveraged by combining with other attributes. For example,
+   * > setting the
+   * > [ignoreLayoutSafeArea]
+   * > (docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-expand-safe-area.md#ignorelayoutsafearea20)
+   * > attribute on a child component allows it to extend its layout into the SAE region.
    *
-   * @param { Padding | LengthMetrics | LocalizedPadding } paddingValue - Safe area padding.
-   *     <br>Unit: vp. Default value: **0**.
+   * @param { Padding | LengthMetrics | LocalizedPadding } paddingValue - Safe area padding of the component,
+   *     which is used to create a component-level safe area inside the component for child components to
+   *     extend into.<br>Default value: **0** <br>Unit: vp<br>When **paddingValue** is set to a percentage, the
+   *     top, bottom, left, and right padding all use the width of the parent container as the base value.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19359,17 +19975,18 @@ declare class CommonMethod<T> {
    * <br>Since API version 10, this API supports the calc calculation feature.
    *
    * @param { Margin | Length } value - [since 7 - 11]
-   * @param { Margin | Length | LocalizedMargin } value - Margin of the component to set.
-   *     <br>When the parameter is of the **Length** type, the four margins take effect.
-   *     <br>Default value: **0**
-   *     <br>Unit: vp
-   *     <br>When **margin** is set to a percentage, the width of the parent container is used as the
-   *     basic value. When child components are laid out along the cross axis of the
-   *     [Row]{@link Row}, [Column]{@link Column}, or [Flex]{@link Flex} container, the cross axis
-   *     size of the child components and the margins add up to the total size of the container.
-   *     <br>For example, if the width of the **Column** container is 100, the width of the child component
-   *     is 50, the left margin is 10, and the right margin is 20, then the actual horizontal offset of
-   *     the child component is 10. [since 12]
+   * @param { Margin | Length | LocalizedMargin } value - Margin of the component.<br>When the parameter is
+   *     of the **Length** type, the margins in all four directions take effect at the same time.<br>Default
+   *     value: **0**<br>Unit: vp<br>When **margin** is set as a percentage, the top, bottom, left, and right
+   *     margins all use the width of the parent container as the base value. When laying out in the
+   *     cross-axis direction of [Row]{@link ./row}, [Column]{@link ./column}, and [Flex]{@link ./flex}, the
+   *     space occupied by a child component in the cross-axis direction includes the size of the child
+   *     component itself and the **margin** value.<br>For example, if a **Column** container has a width of
+   *     100, a child component has a width of 50, and the left and right margins are 10 and 20 respectively,
+   *     the sum of the child component width and the left and right margins is 50 + 10 + 20 = 80, which is
+   *     less than the container width of 100. The child component is center-aligned in the cross-axis
+   *     direction, leaving (100 - 80)/2 = 10 of blank space on each of the left and right sides in the
+   *     horizontal direction. [since 12]
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -19490,36 +20107,49 @@ declare class CommonMethod<T> {
   backgroundColor(color: Optional<ResourceColor | ColorMetrics>): T;
 
   /**
-   * Sets the pixel rounding policy for the current component in the specified direction.
-   * If a direction is not set, the pixels are rounded to the nearest whole number in that direction.
+   * Specifies the pixel rounding alignment mode of the current component in the specified direction. After this
+   * attribute is set, the boundary coordinates of the component are rounded according to the specified strategy,
+   * thereby avoiding visual anomalies caused by floating-point rendering (such as 1px gaps, overlapping components,
+   * and disappearing dividers). Since API version 12, if a direction is not set, the pixels are rounded to the nearest
+   * whole number in that direction by default.
    *
    * > **NOTE**
    * >
-   * > - In API version 11, this API uses half-pixel alignment (that is, 0-0.25 rounds to 0, 0.25-0.75 rounds to 0.5,
-   * > 0.75-1.0 rounds to 1). Since API version 12, this API rounds pixels to the nearest integers and allows you to
-   * > disable pixel rounding for individual components.
+   * > - In API version 11, this API uses half-pixel alignment (that is, 0~0.25 rounds to 0, 0.25~0.75 rounds to 0.5,
+   * > 0.75~1.0 rounds to 1). This mode reduces the cumulative error that may result from continuous rounding by
+   * > preserving the 0.5 pixel value. Since API version 12, the direction for which no rounding strategy is set uses
+   * > rounding to the nearest whole number by default, and pixel rounding in a specified direction can be disabled
+   * > through PixelRoundCalcPolicy.NO_FORCE_ROUND.
    * >
-   * > - This API can be called within
-   * > [attributeModifier]{@link CommonMethod#attributeModifier}
-   * > since API version 12.
+   * > - Since API version 12, this API can be called in
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
-   * In normal calculations, the vertical direction (top and bottom) correspond to the component height, and the
-   * horizontal direction (the starting direction of mirroring is considered "left") correspond to the component width.
-   * For ease of description, these two sets of directions are referred to as top-left and bottom-right.
+   * In normal calculations, the vertical direction (top and bottom) corresponds to the component height. In a
+   * left-to-right layout, start corresponds to the left direction and end corresponds to the right direction; in a
+   * mirrored layout (right-to-left), the correspondence is reversed. The horizontal direction (left and right)
+   * corresponds to the component width. For ease of description, the two groups of directions are referred to as
+   * top-left and bottom-right.
    *
-   * - Calculate the top-left coordinates of the current component: offset of the top-left corner relative to the
+   * - Calculate the top-left coordinates of the current component: the offset of the top-left corner relative to the
    * parent container.
    * - Calculate the bottom-right coordinates of the current component: offset of the top-left corner relative to the
    * parent container plus the size of the component itself.
-   * - Recalculate the size of the current component: bottom-right corner rounded value minus the top-left corner
-   * rounded value.
+   * - Recalculate the size of the current component: rounded bottom-right coordinates minus rounded top-left
+   * coordinates (API version 11 uses half-pixel alignment, and API version 12 uses rounding to the nearest whole
+   * number).
    *
-   * @param { PixelRoundPolicy } value - Rounding policy for the bounds of the component.
+   * @param { PixelRoundPolicy } value - Boundary rounding strategy of the current component.
+   *     [PixelRoundPolicy]{@link PixelRoundPolicy} contains four optional attributes: start, top, end, and bottom,
+   *     which correspond to the front, top, end, and bottom boundaries of the component, respectively. Each attribute
+   *     can be set to a [PixelRoundCalcPolicy]{@link PixelRoundCalcPolicy} enum value. Setting
+   *     PixelRoundCalcPolicy.NO_FORCE_ROUND disables pixel rounding in the corresponding direction. Attributes that
+   *     are not set are rounded by default using the round-half-up rule.
    *     <br>**NOTE**<br>
-   *     This attribute is applicable in scenarios where artifacts occur due to floating-point drawing. The rounding
-   *     result is related not only to the component's width and height but also to its position. Even if the
-   *     component's width and height are set to be the same, due to different floating-point positions described,
-   *     the final width and height of the component may also be different after rounding.
+   *     This attribute is used in scenarios where floating-point drawing causes visual anomalies. Since API version
+   *     12, the round-half-up rounding method is used; API version 11 uses half-pixel alignment. The rounding result
+   *     is related not only to the width and height of the component, but also to its position. Even if the width and
+   *     height set for components are the same, the final width and height of the components after rounding may differ
+   *     because the component positions described by floating-point numbers are different.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -20011,11 +20641,17 @@ declare class CommonMethod<T> {
   opacity(opacity: Optional<number | Resource>): T;
 
   /**
-   * Sets the border. When neither color nor radius is specified, set borderColor and borderRadius after border to
-   * ensure they take effect.
+   * Sets the border.
+   * > **NOTE**
+   * >
+   * > When neither **color** nor **radius** is specified, set borderColor and borderRadius after 
+   * > border to ensure they take effect.
    *
-   * @param { BorderOptions } value - - Unified border style.<br>The default value is **0**, indicating that no border is
-   *     displayed.<br>Since API version 9, the parent node's border is displayed above child node content.
+   * @param { BorderOptions } value - Unified border style setting API.<br>The default border width is **0**, that is,
+   *     no border is displayed.<br>The default border corner radius is **0**, that is, no corner radius is
+   *     displayed.<br>The default border color is Color.Black.<br>Since API version 9, the border of the parent node
+   *     is displayed above the content of the child node.<br>When color and radius are not set, to ensure that
+   *     borderColor and borderRadius take effect, set borderColor and borderRadius after border.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -20026,9 +20662,10 @@ declare class CommonMethod<T> {
   border(value: BorderOptions): T;
 
   /**
-   * Border style
+  * Sets the border style.
    *
-   * @param { BorderStyle | EdgeStyles } value - Border style.<br>Default value: **BorderStyle.Solid**.[since 9]
+   * @param { BorderStyle | EdgeStyles } value - Element border style.<br>Default value:
+   *     **BorderStyle.Solid** [since 9]
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -20043,8 +20680,9 @@ declare class CommonMethod<T> {
    *
    * @param { Length } value - [since 7 - 8]
    * @param { Length | EdgeWidths } value - [since 9 - 11]
-   * @param { Length | EdgeWidths | LocalizedEdgeWidths } value - Border width. This parameter cannot be set in
-   *     percentage. [since 12]
+   * @param { Length | EdgeWidths | LocalizedEdgeWidths } value - Sets the border width of the element. Percentage is
+   *     not supported. Default unit: vp.<br>Default value: **0**.<br>**Note:** When the LocalizedEdgeWidths type is
+   *     used, the border width setting differs under different language directions. See Example 2. [since 12]
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -20056,10 +20694,15 @@ declare class CommonMethod<T> {
 
   /**
    * Sets the border color.
+   * > **NOTE**<br>When using border for unified setting of the border and the color parameter is omitted,
+   *     borderColor must be called after border to take effect.
    *
    * @param { ResourceColor } value - [since 7 - 8]
    * @param { ResourceColor | EdgeColors } value - [since 9 - 11]
-   * @param { ResourceColor | EdgeColors | LocalizedEdgeColors } value - Border color.<br>Default value: **Color.Black**
+   * @param { ResourceColor | EdgeColors | LocalizedEdgeColors } value - Sets the border color of the element. After
+   *     setting, the border is displayed in the corresponding color.<br>Default value: **Color.Black**<br>**Note:**
+   *     When using the LocalizedEdgeColors type, the border color settings differ under different language
+   *     directions. See Example 2.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -20071,14 +20714,19 @@ declare class CommonMethod<T> {
 
   /**
    * Sets the border radius.
+   * > **NOTE**<br>When using border for unified setting of the border and the radius parameter is omitted,
+   *     borderRadius must be called after border to take effect.
    *
    * @param { Length } value - [since 7 - 8]
    * @param { Length | BorderRadiuses } value - [since 9 - 11]
-   * @param { Length | BorderRadiuses | LocalizedBorderRadiuses } value - Radius of the border corners. The value can be
-   *     expressed as a percentage of the component's width. When combined with the [clip]{@link CommonMethod#clip}
-   *     attribute, this setting clips child components to prevent them from extending beyond the component's
-   *     boundaries.
-   *     [since 12]
+   * @param { Length | BorderRadiuses | LocalizedBorderRadiuses } value - Element border corner radius. Percentage is
+   *     supported, and the percentage is based on the component width. Default unit: vp.<br>Default value: **0**.
+   *     After the corner radius is set, you can use the [clip]{@link CommonMethod#clip} attribute to clip the
+   *     component so that child components do not exceed the component itself.<br>**NOTE**<br>When the
+   *     LocalizedBorderRadiuses type is used, the border corner radius settings differ under different language
+   *     directions. See Also example 2.<br>Set four different corner radii. If a corner radius exceeds half of the
+   *     smaller value between the height and the width, the irregular corner radius is drawn differently by value
+   *     ratio. See example 4 for the effect. [since 12]
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -20090,16 +20738,26 @@ declare class CommonMethod<T> {
 
   /**
    * Sets the border corner radius and the rendering strategy for rounded corners.
-   * NOTE
-   *    1. **RenderStrategy.FAST**: The current component and its child components will be drawn directly
-   *        onto the canvas with rounded corners applied.
-   *    2. **RenderStrategy.OFFSCREEN**: The current component and its child components will first be rendered onto
-   *        an off-screen canvas, then undergo a rounded corner clipping, and finally be drawn onto the main canvas.
-   * @param { Length | BorderRadiuses | LocalizedBorderRadiuses } value - Radius of the border corners. The value can be
-   *     expressed as a percentage of the component's width. When combined with the clip attribute, this setting clips
-   *     child components to prevent them from extending beyond the component's boundaries.
-   * @param { RenderStrategy } [type] - Rendering strategy for drawing rounded corners.
-   *     <br>Default value: RenderStrategy.FAST.
+   * > **NOTE**<br>When using border for unified setting of the border and the radius parameter is omitted,
+   *     borderRadius must be called after border to take effect.
+   *
+   * @param { Length | BorderRadiuses | LocalizedBorderRadiuses } value - Set the border corner radius of the
+   *     element. Percentage is supported, and the percentage is based on the component width. Default you can use the
+   *     [clip]{@link CommonMethod#clip} attribute to clip the component so that child components do not exceed the
+   *     component itself.<br> **Note:**
+   *     When using the LocalizedBorderRadiuses type, the border corner radius settings differ under different
+   *     language directions. See also example 2.<br>Set four different corner radius values. If a corner radius
+   *     value exceeds half of the smaller value of the height and width, the irregular corner radius is drawn
+   *     differently by value ratio. See example 4 for the effect.
+   *     <br>Unit: vp.<br>After the corner radius is set. Default value: **0**.
+   * @param { RenderStrategy } [type] - Sets the mode for drawing the corner radius of the component.<br><br>Optional
+   *     values:<br>- **RenderStrategy.FAST**: fast rendering mode,
+   *     suitable for common corner radius scenarios with better performance. If the component contains complex
+   *     visual effects such as blur, using this mode may cause abnormal corner radius clipping.<br>-
+   *     **RenderStrategy.OFFSCREEN**: offscreen rendering mode, suitable for corner radius scenarios with complex
+   *     visual effects such as blur. It can render the corner radius correctly but incurs higher performance
+   *     overhead.
+   *     <br>Default value: **RenderStrategy.FAST**.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -21789,65 +22447,50 @@ declare class CommonMethod<T> {
   scale(options: Optional<ScaleOptions>): T;
 
   /**
-   * Default number of occupied columns, indicating the number of occupied grid columns when the number of columns (span) of the corresponding size is not set in the useSizeType attribute.
+   * Default column count, which refers to the grid column count occupied when the useSizeType attribute does not set
+   * the column count (span) for the corresponding size. It must be a non-negative integer. When passing a negative
+   * number or a value exceeding the total column count of GridContainer, use the default value 1.
    *
-   * @param { number } value
+   * > **NOTE**
+   * >
+   * > - When calling this attribute, its parent component or ancestor component must be GridContainer.
+   * > - When the grid span attribute is set, the width of the component is determined by the grid layout.
+   *
+   * @param { number } value - Default column count. Default value: **1**
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Default number of occupied columns, indicating the number of occupied grid columns when the number of columns (span) of the corresponding size is not set in the useSizeType attribute.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Default number of occupied columns, indicating the number of occupied grid columns when the number of columns (span) of the corresponding size is not set in the useSizeType attribute.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    * @deprecated since 14
    * @useinstead grid_col/GridColInterface and grid_row/GridRowInterface
    */
   gridSpan(value: number): T;
 
   /**
-   * The default offset column number indicates the number of offset columns of the current component in the start direction of the parent component when the useSizeType attribute does not set the offset of the corresponding dimension. That is,
-   * the current component is located in the nth column.
+   * Default offset column count, which refers to the number of columns by which the current component is offset along
+   * the Start direction of its parent component when the useSizeType attribute does not set the offset for the
+   * corresponding size. That is, the starting position of the component is offset by n columns relative to the Start
+   * direction of the parent component. It must be a non-negative integer. When passing a negative number, use the
+   * default value 0. When useSizeType sets the offset for the corresponding size, the gridOffset setting does not
+   * take effect.
    *
-   * @param { number } value
+   * > **NOTE**
+   * >
+   * > - When calling this attribute, its parent component or ancestor component must be GridContainer.
+   * > - After this attribute is configured, the layout of the current component in the horizontal direction of the
+   * > parent component no longer follows the original layout mode of the parent component. Instead, the component is
+   * > offset by a certain distance along the Start direction of the parent component.
+   * > - Offset distance = (column width + spacing)* offset column count.
+   * > - Sibling components after the component with the offset (gridOffset) set are laid out relative to this
+   * > component.
+   *
+   * @param { number } value - Default offset column count. Default value: **0**
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The default offset column number indicates the number of offset columns of the current component in the start direction of the parent component when the useSizeType attribute does not set the offset of the corresponding dimension. That is,
-   * the current component is located in the nth column.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The default offset column number indicates the number of offset columns of the current component in the start direction of the parent component when the useSizeType attribute does not set the offset of the corresponding dimension. That is,
-   * the current component is located in the nth column.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    * @deprecated since 14
    * @useinstead grid_col/GridColInterface and grid_row/GridRowInterface
    */
@@ -22103,12 +22746,25 @@ declare class CommonMethod<T> {
   visibility(value: Visibility): T;
 
   /**
-   * Sets the percentage of the parent container's remaining space that is allocated to the component.
+   * Sets the proportion of the component in the remaining space of the parent container. This attribute can be set
+   * only when the component is a child of a Flex, Column, Row, or DynamicLayout container. After it is set, the
+   * component expands according to the ratio to occupy the remaining space of the parent container. When the parent
+   * container is Column or Row, you must set the size along the main axis. When the main axis size
+   * (width/height/size) is not set, Column and Row still follow the default layout behavior and adapt to the child
+   * component size on the main axis, which may affect the remaining space allocation effect of flexGrow. Setting
+   * this attribute triggers a second layout. In scenarios with strict performance requirements, use **layoutWeight**
+   * instead.
    *
-   * @param { number } value - Percentage of the parent container's remaining space that is allocated to the
-   *     component.
-   *     <br>The value must be greater than or equal to 0, <br>. Default value: **0**.
-   *     <br>If this parameter is set to an invalid value, the default value will be used.
+   * @param { number } value - Sets the proportion of the remaining space in the parent container along the main axis
+   *     (horizontal for row layout and vertical for column layout) allocated to the component where this attribute
+   *     resides. The value 0 means the component does not participate in the allocation of remaining space and keeps
+   *     its original size. When the value is greater than 0, the remaining space of the parent container is allocated
+   *     proportionally; the larger the value, the more space is allocated.<br>Value range: [0, +∞)<br>Default value:
+   *     0<br>When the parent container is [Column]{@link Column} or [Row]{@link Row}, you need to set the size along
+   *     the main axis (width/height/size); otherwise, the remaining space allocation effect of flexGrow may be
+   *     affected.<br>[constraintSize]{@link constraintSize} restricts the size range of the component. When the
+   *     component size after flexGrow expansion exceeds the maximum limit of constraintSize, it is constrained by
+   *     constraintSize.<br>When an invalid value is set, this attribute takes the default value.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -22120,23 +22776,31 @@ declare class CommonMethod<T> {
   flexGrow(value: number): T;
 
   /**
-   * Sets the percentage of the parent container's shrink size that is allocated to the component.
-   * When the parent container is [Column]{@link Column} or [Row]{@link Row}, you must set the size along the main axis.
+   * Sets the proportion of the shrink size allocated to the component where this attribute resides when the parent
+   * container runs out of space. This attribute can be set only when the component is a child of a Flex, Column,
+   * Row, or DynamicLayout container. When the parent container is Column or Row, the parent container must set the
+   * size along the main axis (that is, width/height/size) for flexShrink to take effect. When the main axis size
+   * (width/height/size) is not set, Column and Row still follow the default layout behavior and adapt to the child
+   * component size on the main axis, in which case flexShrink does not take effect. Setting this attribute triggers
+   * a second layout. In scenarios with strict performance requirements, use **layoutWeight** instead.
    *
    * When
    * [getInspectorByKey](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-component-id.md#getinspectorbykey9)
-   * is used to obtain the **flexShrink** attribute, if the node does not have **flexShrink** set, the default value of
-   * **1** is returned by default.
+   * is used to obtain the **flexShrink** attribute, if the node does not have **flexShrink** set, the default value
+   * of **1** is returned by default (consistent with the default value of the Flex container, but different from
+   * the default value **0** of the Column and Row containers).
    *
-   * @param { number } value - Percentage of the parent container's shrink size that is allocated to the component
-   *     <br>The value range is all integers, If the parent container is [Column]{@link Column} or [Row]{@link Row}, the
-   *     default value is **0**, and the value range is (0, +∞).
-   *     If the parent container is [Flex]{@link Flex}, the default value is **1**.
-   *     <br>[constraintSize]{@link constraintSize}
-   *     limits the component's size range. For Column and Row components without explicit main axis size
-   *     specified (through width, height, or size), the default layout behavior (adapt-to-fit child components)
-   *     applies, even when constraintSize is configured. In this case, **flexShrink** has no effect.
-   *     <br>If this parameter is set to an invalid value, the default value will be used.
+   * @param { number } value - Sets the proportion of the compressed size allocated to the component to which this
+   *     attribute belongs when the parent container space is insufficient. The value 0 indicates that the component
+   *     does not participate in compression; when the value is greater than 0, compression is performed
+   *     proportionally, and a larger value indicates a larger compression amount.<br>When the parent container is
+   *     [Column]{@link Column} or [Row]{@link Row}, default value: 0, value range: [0, +∞).<br>When the parent
+   *     container is [Flex]{@link Flex}, default value: 1, value range: [0, +∞).<br>[constraintSize]{@link
+   *     constraintSize} restricts the size range of the component. Even if [constraintSize]{@link constraintSize}
+   *     is set for [Column]{@link Column} and [Row]{@link Row}, when the main axis size (width/height/size) is not
+   *     set in the parent container, the default layout behavior is still followed, and the component size is
+   *     adapted to the children on the main axis. In this case, flexShrink does not take effect.<br>When an
+   *     exception value is set, this attribute uses the default value.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -22148,16 +22812,22 @@ declare class CommonMethod<T> {
   flexShrink(value: number): T;
 
   /**
-   * Sets the base size of the component.
+   * Sets the base size of a component. This attribute can be set only when the component is a child of a Flex,
+   * Column, Row, or DynamicLayout container. After it is set, the component uses this base size as its initial size
+   * in layout calculation. When the parent container is Column or Row, you must set the size along the main axis.
+   * When the main axis size (width/height/size) is not set, Column and Row still follow the default layout behavior
+   * and adapt to the child component size on the main axis, which may affect the effect of flexBasis.
    *
-   * @param { number | string } value - Base size of the component in the main axis of the parent container (indicating
-   *     that the base size of the component in the main axis is the
-   *     original size of the component). Default value: **'auto'**.
-   *     <br>For the string type, the value must be a string that can be converted into a number (for example,**'10'**),
-   *     a string that includes a length unit (for example, **'10px'**), or the literal string **'auto'**;
-   *     percentage-based strings are not supported.
-   *     <br>For the number type, the value range is (0, +∞), and the unit is vp.
-   *     <br>Invalid values are treated as the default value **'auto'**
+   * @param { number | string } value - Base size of the component on the main axis of the parent container.
+   *     <br>Default value: 'auto' (indicating that the base size of the component on the main axis is the original
+   *     size of the component).
+   *     <br>string type: percentage strings are not allowed. Optional values: a string that can be converted to a
+   *     number (for example, '10'), a string with a length unit (for example, '10px'), or 'auto'. If a string that
+   *     does not meet the requirements is passed in, the default value 'auto' is used.
+   *     <br>number: value range (0, +∞), in vp (virtual pixel).
+   *     <br>When an invalid value is set, this attribute is processed as the default value 'auto'.
+   *     <br>[constraintSize]{@link constraintSize} restricts the size range of the component. When the base size
+   *     set by flexBasis exceeds the restriction range of constraintSize, it is constrained by constraintSize.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -22168,12 +22838,19 @@ declare class CommonMethod<T> {
   flexBasis(value: number | string): T;
 
   /**
-   * Sets the alignment mode of the child components along the cross axis of the parent container.
+   * The alignment mode of the child component along the cross axis (the direction perpendicular to the main axis) of
+   * the parent container. After it is set, it overrides the alignItems setting of the parent container. This
+   * attribute is supported only by Flex, Column, Row, DynamicLayout, and GridRow containers.
    *
-   * @param { ItemAlign } value - Alignment mode of the child components along the cross axis of the parent container.
-   *     The setting overwrites the **alignItems** setting of the parent container ([Flex]{@link Flex}, [Column]{@link
-   *     Column}, [Row]{@link Row}, or [GridRow]{@link GridRow}). [GridCol]{@link GridCol} can have the **alignSelf**
-   *     attribute bound to change its own layout along the cross axis.<br>Default value: **ItemAlign.Auto**
+   * @param { ItemAlign } value - Alignment format of the child component on the cross axis of the parent container,
+   *     which overrides the alignItems setting in the [Flex]{@link Flex}, [Column]{@link Column}, [Row]{@link Row},
+   *     DynamicLayout, and [GridRow]{@link GridRow} layout containers. Use it when a child
+   *     component needs a different alignment from other child components in the parent container (typical scenarios:
+   *     most child components in the parent container are center-aligned, but a specific child component needs top or
+   *     bottom alignment; or a special alignment needs to be specified for a single child
+   *     component).<br>[GridCol]{@link GridCol} can bind the alignSelf attribute to change its own layout in the
+   *     cross axis direction.<br>Default value: ItemAlign.Auto (indicates inheriting the alignment setting of the
+   *     parent container)
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -22201,22 +22878,31 @@ declare class CommonMethod<T> {
   layoutGravity(alignment: LocalizedAlignment): T;
 
   /**
-   * Sets the display priority for the component in the layout container.
-   * <br>This parameter is only effective in [Row]{@link Row}, [Column]{@link Column}, and
-   * [Flex (single-line)]{@link Flex} container components.
+   * Sets the display priority of the current component in a Row/Column/Flex (single-line) container. The priority is
+   * determined by the integer part of the value, and a larger integer part indicates a higher priority.
+   * <br>Applies to scenarios where child components are dynamically shown or hidden based on the parent container
+   * space in responsive layouts. For example, important content is displayed first and secondary content is hidden
+   * on different screen sizes.
    *
-   * @param { number } value - Display priority of the component in the layout container.
-   *     <br>The value range is all integers. Default value: **1**.
+   * @param { number } value - Sets the display priority of the current component in the layout container. The value
+   *     range is [0, +∞).
+   *     <br>Default value: **1**
    *     <br>**NOTE**<br>
-   *     The digits after the decimal point are not counted in determining the display priority. That is, numbers in
-   *     the [x, x + 1) range are considered to represent the same priority. For example, **1.0** and **1.9**
-   *     represent the same priority.
-   *     <br>If the **displayPriority** value of all child components is not greater than 1, there is no difference in
-   *     priority. When the **displayPriority** value of a child component is greater than 1, a larger value indicates
-   *     higher priority. If the parent container does not have enough space, child components with lower priority are
-   *     hidden. If child components of a certain priority are hidden, those with an even lower priority are also
-   *     hidden.
-   *     <br>The value range is all integers.
+   *     Takes effect only in [Row]{@link Row}/[Column]{@link Column}/[Flex (single-line)]{@link Flex} container
+   *     components.
+   *     <br>Used when the container space is limited and the display order of components needs to be controlled or
+   *     low-priority components need to be hidden (for example, dynamically displaying content based on the available
+   *     space in a Flex container). It is recommended to set the priority based on the importance of the component,
+   *     with a larger value (such as 2-10) for key components and a smaller value (such as 1) for
+   *     secondary components.
+   *     <br>The digits after the decimal point do not affect the priority. All values not greater than 1 have the
+   *     same priority. When the value is greater than 1, the larger the integer part of displayPriority, the higher
+   *     the priority; values within the same integer range have the same priority. For example, **0.5** and **1.0**
+   *     have the same priority (both are not greater than 1); **1.5** and **1.9** have the same priority (both have an
+   *     integer part of 1); **2.0** and **2.9** have the same priority (both have an integer part of 2), and their
+   *     priority is higher than that of 1.x.
+   *     <br>If the parent container has insufficient space, child components with lower priority are hidden. If child
+   *     components at a certain priority level are hidden, all child components with lower priority are also hidden.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -22260,15 +22946,15 @@ declare class CommonMethod<T> {
   sharedTransition(id: string, options?: sharedTransitionOptions): T;
 
   /**
-   * Sets how elements are laid out along the main axis of the container. This attribute supports dynamic configuration
-   * via [attributeModifier]{@link attributeModifier}.
+   * Sets the layout along the main axis within the component's drawing area. This attribute can be dynamically set
+   * using [attributeModifier]{@link attributeModifier}.
    *
-   * @param { Direction } value - How elements are laid out along the main axis of the container.
-   *     If this parameter is set to **auto**, the layout is subject to the system language.
-   *     The setting does not take effect in the **Column** component.
-   *     <br>Default value: **Direction.Auto**.
-   *     If the **direction** attribute receives an **undefined** or **null** input parameter, the system will apply the
-   *     default value
+   * @param { Direction } value - Sets the layout along the main axis within the drawing region of the current
+   *     component.
+   *     <br>When the attribute is set to **auto**, the layout follows the system language direction.
+   *     <br>This attribute does not take effect on the **Column** component.
+   *     <br>Default value: **Direction.Auto**
+   *     <br>When **direction** is **undefined** or **null**, the default value is used.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -22280,11 +22966,12 @@ declare class CommonMethod<T> {
   direction(value: Direction): T;
 
   /**
-   * Sets the alignment mode for child elements within the container's drawing area. This attribute can be dynamically
-   * set using [attributeModifier]{@link attributeModifier}.
+   * Sets the alignment mode for child components within the component's drawing area. This attribute can be
+   * dynamically set using [attributeModifier]{@link attributeModifier}.
    *
-   * @param { Alignment } value - Alignment mode for child elements in container drawing area.
-   *     This setting takes effect only in [Stack]{@link Stack},
+   * @param { Alignment } value - Sets the alignment mode of child components within the drawing region of the
+   *     current component.
+   *     <br>This attribute takes effect only in [Stack]{@link Stack},
    *     [FolderStack]{@link FolderStack},
    *     [Shape]{@link Shape},
    *     [Button]{@link Button},
@@ -22307,20 +22994,18 @@ declare class CommonMethod<T> {
    *     [QRCode]{@link QRCode},
    *     [TextClock]{@link TextClock},
    *     [TextTimer]{@link TextTimer},
-   *     [MenuItem]{@link StMenuItemack},
+   *     [MenuItem]{@link MenuItem},
    *     [Toggle]{@link Toggle},
    *     [Checkbox]{@link Checkbox}, and
    *     [NodeContainer]{@link NodeContainer}.
-   *     For the alignment of the **Marquee**, **Text**, **TextArea**, **TextInput**, **RichEditor**, and **Hyperlink**
-   *     components related to text, see
-   *     [textAlign]{@link TextAttribute#textAlign}.
-   *     If a component does not support the **textAlign** attribute, horizontal text alignment cannot be configured.
+   *     For text-related components **Marquee**, **Text**, **TextArea**, **TextInput**, **RichEditor**, and
+   *     **Hyperlink**, the align result refers to [textAlign]{@link TextAttribute#textAlign}.
+   *     <br>Components that do not support the **textAlign** attribute cannot set horizontal text alignment.
    *     <br>Default value: **Alignment.Center**
    *     <br>**NOTE**<br>
-   *     This attribute supports the mirroring capability only in the [Stack]{@link Stack} component.
-   *     In the **Stack** component, this attribute has the same effect as **alignContent**, which means that it sets
-   *     the
-   *     alignment mode of child components in the container
+   *     This attribute supports mirroring on the [Stack]{@link Stack} component, but not on other components.
+   *     <br>In **Stack**, this attribute has the same effect as **alignContent** and can only set the alignment mode
+   *     of child components within the current component.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -22331,11 +23016,11 @@ declare class CommonMethod<T> {
   align(value: Alignment): T;
 
   /**
-   * Sets the alignment mode for child elements within the container's drawing area. The mirroring capability is
+   * Sets the alignment mode for child components within the component's drawing area. The mirroring capability is
    * supported. This attribute can be dynamically set using [attributeModifier]{@link attributeModifier}.
    *
-   * @param { Alignment | LocalizedAlignment } alignment - Alignment mode for child elements in container drawing area.
-   *     The mirroring capability is supported.
+   * @param { Alignment | LocalizedAlignment } alignment - Sets the alignment mode of child components within
+   *     the drawing region of the current component, and adds the mirroring capability.
    *     The [LocalizedAlignment]{@link LocalizedAlignment} type is effective only in the following
    *     components: [Shape]{@link Shape},
    *     [Button]{@link Button},
@@ -22350,22 +23035,23 @@ declare class CommonMethod<T> {
    *     [TextTimer]{@link TextTimer},
    *     [StepperItem]{@link StepperItem},
    *     [MenuItem]{@link MenuItem},
-   *     [Toggle]{@link MenuItem},
+   *     [Toggle]{@link Toggle},
    *     [Checkbox]{@link Checkbox}, and
    *     [ListItem]{@link ListItem}.
-   *     For the above components, mirror switching is effective for all except the
-   *     [ListItem]{@link ListItem}, component, which behaves
-   *     identically to [Alignment]{@link Alignment}. Components where **LocalizedAlignment** is not applicable
-   *     will be rendered in accordance with their default behavior.
-   *     <br>Default value: **Alignment.Center**, **LocalizedAlignment.CENTER**.
-   *     If an invalid value is passed, the default value will be used, indicating center alignment.
+   *     Among them, except that [ListItem]{@link ListItem} behaves the same as [Alignment]{@link Alignment},
+   *     mirroring switching takes effect for all other components; components for which **LocalizedAlignment** has no
+   *     effect are displayed according to their default behavior.
+   *     <br>Default value: **Alignment.Center**, **LocalizedAlignment.CENTER**
+   *     <br>If an invalid value is set, the default value is used, and the component is displayed centered.
    *     <br>**NOTE**<br>
-   *     The [Alignment]{@link Alignment} type does not support the mirroring capability. The
-   *     [LocalizedAlignment]{@link LocalizedAlignment} type supports mirroring based on the layout direction
-   *     (configurable via [direction]{@link direction}) or system language. The **direction** setting takes
-   *     precedence over the system language direction. When **direction** is explicitly set to any value other than
-   *     **auto**, **LocalizedAlignment** mirroring follows the specified direction. If **direction** is set to **auto**
-   *     or not configured, **LocalizedAlignment** mirroring adapts to the system language direction
+   *     The [Alignment]{@link Alignment} type does not support the mirroring capability; the
+   *     [LocalizedAlignment]{@link LocalizedAlignment} type supports the mirroring capability. Select an enum value
+   *     in [LocalizedAlignment]{@link LocalizedAlignment} to implement mirroring switching based on the change of
+   *     [direction]{@link direction} or the system language direction. The priority of **direction** is higher than
+   *     that of the system language direction. When **direction** is set and is not **auto**, the mirroring of
+   *     [LocalizedAlignment]{@link LocalizedAlignment} performs layout according to **direction**; when
+   *     **direction** is set to **auto** or is not set, the mirroring of
+   *     [LocalizedAlignment]{@link LocalizedAlignment} performs layout according to the system language direction.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -22380,29 +23066,39 @@ declare class CommonMethod<T> {
    * Sets the absolute positioning, which determines the position of a child component relative to the content area of
    * the parent component. Dynamic configuration via [attributeModifier]{@link attributeModifier} is supported.
    *
-   * **NOTE**
-   * - This API takes effect after the component's size measurement is complete.
-   * - When the parent container is [Row]{@link Row},
-   * [Column]{@link Column}, or
-   * [Flex]{@link Flex}, the child component with **position** set
-   * does not occupy any space.
-   * - The [Position]{@link position} type uses the upper left corner of the parent's content area as the
-   * reference point. The [Edges]{@link Edges} type uses all four sides of the parent's content area as
-   * reference, where **top**, **left**, **right**, and **bottom** define the margins between the component and
-   * corresponding sides of the parent's content area. The [LocalizedEdges]{@link LocalizedEdges} type
-   * provides the same functionality as Edges while supporting layout mirroring.
-   * - This attribute is applicable to scenarios where the component's position in the parent container is fixed, for
-   * example, where it is pinned to top or floating on the UI.
-   * - This attribute is unavailable for a layout container whose width and height are zero.
-   * - In [RelativeContainer](docroot://reference/apis-arkui/arkui-ts/ts-container-relativecontainer.md), if the child
-   * component has [alignRules]{@link alignRules} set, the **position** attribute will not take effect
+   * > **NOTE**
+   * >
+   * > - The effect of **position** on the position takes effect after the component's size measurement is complete.
+   * > - When the parent component is [Row]{@link Row}, [Column]{@link Column}, or [Flex]{@link Flex}, a child component
+   * with **position** set does not occupy space. In this scenario, if all child components contained in the parent
+   * component have **position** set, the parent component's size cannot be determined by other child components, and
+   * layout measurement is performed based on the size (0, 0).
+   * > - The [Position]{@link Position} type determines the position based on the upper left corner of the parent
+   * component's content area. The [Edges]{@link Edges} type determines the position based on the four edges of the
+   * parent component's content area, where **top**, **left**, **right**, and **bottom** are the distances from each
+   * edge of the component to the corresponding edge of the parent component's content area, and the component's
+   * position relative to the parent component's content area is determined by these distances. The
+   * [LocalizedEdges]{@link LocalizedEdges} type determines the position based on the four edges of the parent
+   * component's content area and supports mirroring mode.
+   * > - This attribute is applicable to scenarios where components such as top-displayed elements and floating buttons
+   * have fixed positions within the parent component.
+   * > - This attribute is not supported on layout components with zero width and height.
+   * > - When the parent component is [RelativeContainer]{@link RelativeContainer} and the child component has the
+   * [alignRules]{@link alignRules} attribute set, the child component's **position** attribute does not take effect.
+   * > - If the parent component of the component where this attribute is located does not have a fixed width and
+   * height, this component performs absolute positioning with reference to the first ancestor component that has a
+   * fixed width and height.
    *
-   * @param { Position } value - [since 7 - 11]
+   * @param { Position } value - Absolute positioning that determines the child component's position relative to the
+   *     parent's content area. The content area of the parent component is calculated by subtracting the
+   *     [border]{@link border}, [padding]{@link padding}, and [safeAreaPadding]{@link safeAreaPadding} values from
+   *     the parent component's total size. This resulting content area defines the available layout space for child
+   *     components. This attribute does not take effect when it is set to an abnormal value. [since 7 - 11]
    * @param { Position | Edges | LocalizedEdges } value - Absolute positioning that determines the child component's
    *     position relative to the parent's content area. The content area of the parent component is calculated by
    *     subtracting the [border]{@link border}, [padding]{@link padding}, and [safeAreaPadding]{@link safeAreaPadding}
    *     values from the parent component's total size. This resulting content area defines the available layout space
-   *     for child components. This attribute does not take effect when it is set to an abnormal value. [since 12].
+   *     for child components. This attribute does not take effect when it is set to an abnormal value. [since 12]
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -22416,7 +23112,15 @@ declare class CommonMethod<T> {
    * Sets the anchor for element positioning. This attribute supports dynamic configuration via
    * [attributeModifier]{@link attributeModifier}.
    *
-   * @param { Position } value - [since 7 - 11]
+   * @param { Position } value - Positioning anchor that offsets an element from the position specified by
+   *     [position]{@link position} or [offset]{@link offset}.
+   *     <br>**.position({x: value1, y: value2}).markAnchor({x: value3, y: value4})** has the same effect as
+   *     **.position({x: value1 - value3, y: value2 - value4})**. The same applies to **offset**.
+   *     <br>If **.markAnchor({x: value1, y: value2})** is set separately, the effect is the same as that of
+   *     **.offset({x: -value1, y: -value2})**.
+   *     <br>API version 9 and earlier: The default value is **{x: 0, y: 0}**.
+   *     <br>API version 10: no default value.
+   *     <br>This attribute does not take effect when it is set to an abnormal value. [since 7 - 11]
    * @param { Position | LocalizedPosition } value - Positioning anchor that offsets an element from the position
    *     specified by [position]{@link position} or [offset]{@link offset}
    *     **.position({x: value1, y: value2}).markAnchor({x: value3, y: value4})** has the same effect as
@@ -22441,19 +23145,23 @@ declare class CommonMethod<T> {
    * will not be applied. This attribute supports dynamic configuration via
    * [attributeModifier]{@link attributeModifier}.
    *
-   * @param { Position } value - [since 7 - 11]
-   * @param { Position | Edges | LocalizedEdges } value - Offset of the component relative to its original layout
-   *     position. The **offset** attribute does not affect the layout of the parent container. It adjusts the component
-   *     position only during drawing.
-   *     If of the [Position]{@link Position} type, this parameter sets the offset relative to the upper
-   *     left corner of the component. If of the [Edges]{@link Edges} type, this parameter sets the offset
-   *     relative to the four edges of the component. **{x: x, y: y}** has the same effect as **{left: x, top: y}** and
-   *     **{right: -x, bottom: -y}**. The [LocalizedEdges]{@link LocalizedEdges} type supports the mirror mode:
-   *     **start** is equivalent to **x** with left-to-right scripts and **-x** with right-to-left scripts.
+   * @param { Position } value - Relative offset. The component is offset based on its original layout position.
+   *     The offset attribute does not affect the parent component layout; it only adjusts the position during
+   *     drawing. The Position type is offset based on the top-left corner of the component itself. In API version 9
+   *     and earlier, the default value is {x: 0, y: 0}. Default unit: vp. API version 10: no default value. When the
+   *     value is abnormal, this attribute does not take effect. [since 7 - 11]
+   * @param { Position | Edges | LocalizedEdges } value - Relative offset. The component is offset based on its
+   *     original layout position. The **offset** attribute does not affect the parent component layout; it only
+   *     adjusts the position during drawing.
+   *     <br>The [Position]{@link Position} type is offset based on the top-left corner of the component itself, and
+   *     the [Edges]{@link Edges} type is offset based on the four edges of the component itself. Setting
+   *     **{x: x, y: y}** for the **offset** attribute has the same effect as setting **{left: x, top: y}** and
+   *     **{right: -x, bottom: -y}**. The [LocalizedEdges]{@link LocalizedEdges} type supports mirroring mode: in
+   *     LTR mode, **start** is equivalent to **x**; in RTL mode, **start** is equivalent to **-x**.
    *     <br>API version 9 and earlier: The default value is **{x: 0, y: 0}**.
    *     <br>Default unit: vp
    *     <br>API version 10: no default value.
-   *     <br>This attribute does not take effect when it is set to an abnormal value. [since 12]
+   *     <br>When the value is abnormal, this attribute does not take effect. [since 12]
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -22552,21 +23260,29 @@ declare class CommonMethod<T> {
    * width/aspectRatio.
    * <br>- If only **height** and **aspectRatio** are set, the width is calculated using the following formula:
    * height x aspectRatio.
-   * <br>- If **width**, **height**, and **aspectRatio** are all set, the explicitly set height is ignored, and the
-   * effective height is calculated using the following formula: width/aspectRatio.
-   * <br>After the **aspectRatio** attribute is set, the component's width and height will be limited by the size of
-   * the parent component's content area. The priority of [constraintSize]{@link constraintSize} is higher than that
-   * of **aspectRatio**.
+   * <br>- If **width**, **height**, and **aspectRatio** are set at the same time, the height is recalculated as
+   * width/aspectRatio, and the explicitly set height value does not take effect.
+   * <br>Applies to components that need to maintain a fixed aspect ratio, such as image display, video players, and
+   * maintaining proportions in responsive layouts.
+   * <br>After the **aspectRatio** attribute is set, the component's width and height are limited by the size of the
+   * parent component's content area. The maxWidth/maxHeight of [constraintSize]{@link constraintSize} takes precedence
+   * over **aspectRatio**. When the maxWidth/maxHeight constraints set by constraintSize conflict with the aspectRatio
+   * calculation result, the component follows the maxWidth/maxHeight constraints of constraintSize first, in which
+   * case aspectRatio may not take effect.
    *
-   * @param { number } value - Aspect ratio of the component.
-   *     The default value varies by API version.
-   *     <br>API version 9 and earlier: **1.0**
-   *     <br>API version 10: none
+   * @param { number } value - Specifies the aspect ratio of the current component. The value range is (0, +∞).
+   *     <br>In API version 9 and earlier, the default value is **1.0**.
+   *     <br>Since API version 10, there is no default value.
    *     <br>**NOTE**<br>
-   *     This parameter takes effect only when a valid value greater than 0 is specified. For example, if a **Row**
-   *     component has only its width set and does not have any child component, then when **aspectRatio** is not set
-   *     or is set to a negative value, the height of the **Row** component is 0
-   *     <br>The value range is all integers.
+   *     Use it when the aspect ratio of the component needs to be maintained (for example, when displaying images,
+   *     videos, and other content that needs to maintain their ratio).
+   *     <br>This attribute does not take effect when it is set to an invalid value (less than or equal to 0). Since
+   *     API version 10, this attribute does not take effect when no value is set.
+   *     <br>After this attribute is set, the width and height of the component are limited by the size of the parent
+   *     component's content area, and the maxWidth/maxHeight of [constraintSize]{@link constraintSize} take precedence
+   *     over aspectRatio.
+   *     <br>For example, when **Row** has only the width set and no child components, if **aspectRatio** is not set
+   *     or is a negative value, the height is 0.
    * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -25220,642 +25936,251 @@ declare type FractionStop = [ number, number ];
 /**
  * CommonShapeMethod
  *
- * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * CommonShapeMethod
- *
- * @extends CommonMethod<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * CommonShapeMethod
- *
- * @extends CommonMethod<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * CommonShapeMethod
- *
- * @extends CommonMethod<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @systemapi
-   * @since 7
-   */
-  /**
-   * constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @systemapi
-   * @form
-   * @since 9 dynamic
+   * @form [since 9]
+   * @since 7 dynamic
    */
   constructor();
 
   /**
    * Sets the stroke color.
-   * If this attribute is not set, the component does not have any stroke.
-   * If the value is invalid, no stroke will be drawn.
+   * This attribute supports the attributeModifier attribute method for dynamic setting.
+   * If it is not set, the default stroke opacity is 0, that is, no stroke is displayed.
    *
-   * @param { ResourceColor } value - Stroke color.
+   * @param { ResourceColor } value - Stroke color. <br>
+   *     Default value: Color.Transparent. <br>
+   *     Abnormal values undefined and null are processed as the default value, and NaN and Infinity are processed
+   *     as Color.Black.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the stroke color.
-   * If this attribute is not set, the component does not have any stroke.
-   * If the value is invalid, no stroke will be drawn.
-   *
-   * @param { ResourceColor } value - Stroke color.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the stroke color.
-   * If this attribute is not set, the component does not have any stroke.
-   * If the value is invalid, no stroke will be drawn.
-   *
-   * @param { ResourceColor } value - Stroke color.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the stroke color.
-   * If this attribute is not set, the component does not have any stroke.
-   * If the value is invalid, no stroke will be drawn.
-   *
-   * @param { ResourceColor } value - Stroke color.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   stroke(value: ResourceColor): T;
 
   /**
-   * Sets the color of the fill area.
-   * An invalid value is handled as the default value.
-   * If this attribute and the universal attribute foregroundColor are both set, whichever is set later takes effect.
+   * Sets the fill color.
+   * This attribute supports the attributeModifier attribute method for dynamic setting.
+   * Invalid values are treated as the default value.
+   * If this attribute is set together with the universal attribute foregroundColor, the one set later takes effect.
    *
-   * @param { ResourceColor } value - Color of the fill area. Default value: Color.Black.
+   * @param { ResourceColor } value - Fill color. <br>
+   *     Default value: Color.Black. <br>
+   *     Abnormal values undefined, null, NaN, and Infinity are treated as the default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the color of the fill area.
-   * An invalid value is handled as the default value.
-   * If this attribute and the universal attribute foregroundColor are both set, whichever is set later takes effect.
-   *
-   * @param { ResourceColor } value - Color of the fill area. Default value: Color.Black.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the color of the fill area.
-   * An invalid value is handled as the default value.
-   * If this attribute and the universal attribute foregroundColor are both set, whichever is set later takes effect.
-   *
-   * @param { ResourceColor } value - Color of the fill area. Default value: Color.Black.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the color of the fill area.
-   * An invalid value is handled as the default value.
-   * If this attribute and the universal attribute foregroundColor are both set, whichever is set later takes effect.
-   *
-   * @param { ResourceColor } value - Color of the fill area. Default value: Color.Black.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fill(value: ResourceColor): T;
 
-  /**
-   * Sets the offset of the start point for drawing the stroke.
-   * An invalid value is handled as the default value.
+/**
+   * Sets the offset of the stroke drawing start point.
+   * This attribute supports the attributeModifier attribute method for dynamic setting.
+   * Abnormal values are processed as the default value.
    *
-   * @param { number | string } value - Offset of the start point for drawing the stroke.
-   * Default value: 0
-   * Default unit: vp
+   * @param { number | string } value - Offset of the stroke drawing start point. <br>
+   *     Default value: 0 <br>
+   *     Default unit: vp <br>
+   *     The abnormal values undefined and null are processed as the default value. NaN and Infinity cause
+   *     strokeDashArray to become invalid.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the offset of the start point for drawing the stroke.
-   * An invalid value is handled as the default value.
-   *
-   * @param { number | string } value - Offset of the start point for drawing the stroke.
-   * Default value: 0
-   * Default unit: vp
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the offset of the start point for drawing the stroke.
-   * An invalid value is handled as the default value.
-   *
-   * @param { number | string } value - Offset of the start point for drawing the stroke.
-   * Default value: 0
-   * Default unit: vp
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the offset of the start point for drawing the stroke.
-   * An invalid value is handled as the default value.
-   *
-   * @param { number | string } value - Offset of the start point for drawing the stroke.
-   * Default value: 0
-   * Default unit: vp
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeDashOffset(value: number | string): T;
 
   /**
-   * Sets the cap style of the stroke.
+   * Sets the line cap style of the stroke.
+   * This attribute supports the attributeModifier attribute method for dynamic setting.
    *
-   * @param { LineCapStyle } value - Cap style of the stroke. Default value: LineCapStyle.Butt
+   * @param { LineCapStyle } value - Line cap style of the stroke. <br>
+   *     Default value: LineCapStyle.Butt <br>
+   *     The abnormal values undefined, null, NaN, and Infinity are processed as the default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the cap style of the stroke.
-   *
-   * @param { LineCapStyle } value - Cap style of the stroke. Default value: LineCapStyle.Butt
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the cap style of the stroke.
-   *
-   * @param { LineCapStyle } value - Cap style of the stroke. Default value: LineCapStyle.Butt
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the cap style of the stroke.
-   *
-   * @param { LineCapStyle } value - Cap style of the stroke. Default value: LineCapStyle.Butt
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeLineCap(value: LineCapStyle): T;
 
   /**
-   * Sets the join style of the stroke.
-   * This attribute does not work for the Circle component, which does not have corners.
+   * Sets the style for drawing the corners of the stroke.
+   * This attribute method supports the attributeModifier for dynamic setting.
    *
-   * @param { LineJoinStyle } value - Join style of the stroke. Default value: LineJoinStyle.Miter
+   * @param { LineJoinStyle } value - Style for drawing the corners of the stroke. <br>
+   *     Default value: LineJoinStyle.Miter <br>
+   *     Abnormal values undefined, null, NaN, and Infinity are processed as the default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the join style of the stroke.
-   * This attribute does not work for the Circle component, which does not have corners.
-   *
-   * @param { LineJoinStyle } value - Join style of the stroke. Default value: LineJoinStyle.Miter
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the join style of the stroke.
-   * This attribute does not work for the Circle component, which does not have corners.
-   *
-   * @param { LineJoinStyle } value - Join style of the stroke. Default value: LineJoinStyle.Miter
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the join style of the stroke.
-   * This attribute does not work for the Circle component, which does not have corners.
-   *
-   * @param { LineJoinStyle } value - Join style of the stroke. Default value: LineJoinStyle.Miter
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeLineJoin(value: LineJoinStyle): T;
 
   /**
-   * Limits for drawing acute angles as bevels
+   * Sets the limit value of the ratio of the miter length to the stroke width.
+   * This attribute supports the attributeModifier attribute method for dynamic setting.
+   * The miter length is the distance from the intersection of the outer edges to the intersection of the inner
+   * edges, and the stroke width is the value of the strokeWidth attribute.
+   * This attribute takes effect only when the strokeLineJoin attribute is set to LineJoinStyle.Miter.
+   * The valid value range of this attribute must be greater than or equal to 1.0. When the value is in the
+   * range [0, 1), it is processed as 1.0, and other abnormal values are processed as the default value.
    *
-   * @param { number | string } value
+   * @param { number | string } value - Limit value of the ratio of the miter length to the stroke width. <br>
+   *     Default value: 4 <br>
+   *     The abnormal values undefined, null, and NaN are processed as the default value, and Infinity causes
+   *     stroke to become invalid.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Limits for drawing acute angles as bevels
-   *
-   * @param { number | string } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Limits for drawing acute angles as bevels
-   *
-   * @param { number | string } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Limits for drawing acute angles as bevels
-   *
-   * @param { number | string } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeMiterLimit(value: number | string): T;
 
   /**
    * Sets the stroke opacity.
-   * The value range is [0.0, 1.0].
-   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
-   * Any other value evaluates to the value 1.0.
+   * This attribute supports the attributeModifier attribute method for dynamic setting.
+   * The value range of this attribute is [0.0, 1.0]. If the given value is less than 0.0, the value is 0.0; if
+   * the given value is greater than 1.0, the value is 1.0.
    *
-   * @param { number | string | Resource } value - Stroke opacity. Default value: 1
+   * @param { number | string | Resource } value - Stroke opacity. <br>
+   *     Default value: the opacity set by stroke. <br>
+   *     The abnormal value NaN is processed as 0.0, and undefined, null, and Infinity are processed as 1.0.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the stroke opacity.
-   * The value range is [0.0, 1.0].
-   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
-   * Any other value evaluates to the value 1.0.
-   *
-   * @param { number | string | Resource } value - Stroke opacity. Default value: 1
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the stroke opacity.
-   * The value range is [0.0, 1.0].
-   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
-   * Any other value evaluates to the value 1.0.
-   *
-   * @param { number | string | Resource } value - Stroke opacity. Default value: 1
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the stroke opacity.
-   * The value range is [0.0, 1.0].
-   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
-   * Any other value evaluates to the value 1.0.
-   *
-   * @param { number | string | Resource } value - Stroke opacity. Default value: 1
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeOpacity(value: number | string | Resource): T;
 
   /**
    * Sets the opacity of the fill area.
-   * The value range is [0.0, 1.0].
-   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
-   * Any other value evaluates to the value 1.0.
+   * This attribute supports dynamic setting through attributeModifier.
    *
-   * @param { number | string | Resource } value - Opacity of the fill area. Default value: 1
+   * @param { number | string | Resource } value - Opacity of the fill area. <br>
+   *     **NOTE**
+   * 
+   *     The value range of the number format is [0.0, 1.0]. If the given value is less than 0.0, the value is
+   *     0.0; if the given value is greater than 1.0, the value is 1.0. Other abnormal values are processed as 1.0.
+   *     The string format supports the string form of the number format value, and the value range is the same
+   *     as that of the number format.
+   *     
+   *     The Resource format supports strings in system resources or app resources, and the value range is the
+   *     same as that of the number format.
+   *     
+   *     The abnormal value NaN is processed as 0.0, and undefined, null, and Infinity are processed as 1.0.
+   *     Default value: 1.0
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the opacity of the fill area.
-   * The value range is [0.0, 1.0].
-   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
-   * Any other value evaluates to the value 1.0.
-   *
-   * @param { number | string | Resource } value - Opacity of the fill area. Default value: 1
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the opacity of the fill area.
-   * The value range is [0.0, 1.0].
-   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
-   * Any other value evaluates to the value 1.0.
-   *
-   * @param { number | string | Resource } value - Opacity of the fill area. Default value: 1
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the opacity of the fill area.
-   * The value range is [0.0, 1.0].
-   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
-   * Any other value evaluates to the value 1.0.
-   *
-   * @param { number | string | Resource } value - Opacity of the fill area. Default value: 1
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fillOpacity(value: number | string | Resource): T;
 
   /**
    * Sets the stroke width.
-   * If this attribute is of the string type, percentage values are not supported and will be treated as 1 px.
+   * This attribute supports the attributeModifier dynamic setting attribute method.
+   * If this attribute is of the string type, percentages are not supported, and a percentage is processed as 1px.
    *
-   * @param { Length } value - Stroke width.
-   * The value must be greater than or equal to 0.
-   * Default value: 1.
-   * Default unit: vp.
-   * An invalid value is handled as the default value.
+   * @param { Length } value - Stroke width. <br>
+   *     Value range: ≥0. <br>
+   *     Default value: 1 <br>
+   *     Default unit: vp <br>
+   *     The abnormal values undefined, null, and NaN are processed as the default value, and Infinity is
+   *     processed as 0.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the stroke width.
-   * If this attribute is of the string type, percentage values are not supported and will be treated as 1 px.
-   *
-   * @param { Length } value - Stroke width.
-   * The value must be greater than or equal to 0.
-   * Default value: 1.
-   * Default unit: vp.
-   * An invalid value is handled as the default value.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the stroke width.
-   * If this attribute is of the string type, percentage values are not supported and will be treated as 1 px.
-   *
-   * @param { Length } value - Stroke width.
-   * The value must be greater than or equal to 0.
-   * Default value: 1.
-   * Default unit: vp.
-   * An invalid value is handled as the default value.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the stroke width.
-   * If this attribute is of the string type, percentage values are not supported and will be treated as 1 px.
-   *
-   * @param { Length } value - Stroke width.
-   * The value must be greater than or equal to 0.
-   * Default value: 1.
-   * Default unit: vp.
-   * An invalid value is handled as the default value.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeWidth(value: Length): T;
 
   /**
-   * Specifies whether anti-aliasing is enabled.
+   * Sets whether to enable anti-aliasing.
+   * This attribute supports the attributeModifier attribute method for dynamic setting.
    *
-   * @param { boolean } value - Whether anti-aliasing is enabled.
-   * true: Anti-aliasing is enabled.
-   * false: Anti-aliasing is disabled.
-   * Default value: true
+   * @param { boolean } value - Whether to enable anti-aliasing. <br>
+   *     true: enables anti-aliasing; false: disables anti-aliasing. <br>
+   *     Default value: true <br>
+   *     The abnormal values undefined and null are processed as false.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Specifies whether anti-aliasing is enabled.
-   *
-   * @param { boolean } value - Whether anti-aliasing is enabled.
-   * true: Anti-aliasing is enabled.
-   * false: Anti-aliasing is disabled.
-   * Default value: true
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Specifies whether anti-aliasing is enabled.
-   *
-   * @param { boolean } value - Whether anti-aliasing is enabled.
-   * true: Anti-aliasing is enabled.
-   * false: Anti-aliasing is disabled.
-   * Default value: true
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Specifies whether anti-aliasing is enabled.
-   *
-   * @param { boolean } value - Whether anti-aliasing is enabled.
-   * true: Anti-aliasing is enabled.
-   * false: Anti-aliasing is disabled.
-   * Default value: true
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   antiAlias(value: boolean): T;
 
   /**
-   * Sets stroke dashes.
-   * The value must be greater than or equal to 0. Invalid values are treated as the default value.
+   * Sets the dashed line segment length and gap length of the stroke.
+   * This attribute supports the attributeModifier dynamic setting attribute method.
+   * The value range is ≥ 0. Abnormal values are processed as the default value.
    *
-   * @param { Array<any> } value - Stroke dashes.
-   * Default value: []
-   * Default unit: vp
+   * @param { Array<any> } value - Array that defines the dashed pattern of the Rect stroke. The array elements
+   *     alternately represent the segment length and gap length. <br>
+   *     Default value: [] (empty array) <br>
+   *     Default unit: vp <br> 
+   *     The abnormal values undefined and null are processed as the default value. <br>
+   *     **NOTE**
+   *     Empty array: solid line <br>
+   *     Even-numbered multi-element array: the array elements are cycled in order. For example, [a, b, c, d]
+   *     represents segment length a -> gap length b -> segment length c -> gap length d -> segment length a -> ...
+   *     Odd-numbered multi-element array: the array elements are repeated once and then cycled following the
+   *     rule of an even-numbered multi-element array. For example, [a, b, c] is equivalent to [a, b, c, a, b, c],
+   *     which represents segment length a -> gap length b -> segment length c -> gap length a -> segment length b
+   *     -> gap length c -> segment length a -> ...
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets stroke dashes.
-   * The value must be greater than or equal to 0. Invalid values are treated as the default value.
-   *
-   * @param { Array<any> } value - Stroke dashes.
-   * Default value: []
-   * Default unit: vp
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets stroke dashes.
-   * The value must be greater than or equal to 0. Invalid values are treated as the default value.
-   *
-   * @param { Array<any> } value - Stroke dashes.
-   * Default value: []
-   * Default unit: vp
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets stroke dashes.
-   * The value must be greater than or equal to 0. Invalid values are treated as the default value.
-   *
-   * @param { Array<any> } value - Stroke dashes.
-   * Default value: []
-   * Default unit: vp
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeDashArray(value: Array<any>): T;
 }
@@ -26013,7 +26338,7 @@ declare interface LinearGradient {
 }
 
 /**
- * Enumerates the directions of pixel rounding at the component level.
+ * Rounding strategy for the boundary of the current component.
  *
  * @interface PixelRoundPolicy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -26025,8 +26350,9 @@ declare interface LinearGradient {
  */
 declare interface PixelRoundPolicy {
   /**
-   * Rounding alignment for the component's start edge.
-   * <br>Invalid values are rounded using the round-half-up rule.
+   * Boundary rounding strategy for the front edge of the component.
+   * <br>Since API version 12, the default rounding rule is round-to-nearest. The default value is used when
+   * pixelRound is not set or when a value other than the PixelRoundCalcPolicy enum is set.
    *
    * @type { ?PixelRoundCalcPolicy }
    * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
@@ -26040,8 +26366,9 @@ declare interface PixelRoundPolicy {
   start?: PixelRoundCalcPolicy;
 
   /**
-   * Rounding alignment for the component's top edge.
-   * <br>Invalid values are rounded using the round-half-up rule.
+   * Boundary rounding strategy for the top edge of the component.
+   * <br>Since API version 12, the default rounding rule is round-to-nearest. The default value is used when
+   * pixelRound is not set or when a value other than the PixelRoundCalcPolicy enum is set.
    *
    * @type { ?PixelRoundCalcPolicy }
    * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
@@ -26055,8 +26382,9 @@ declare interface PixelRoundPolicy {
   top?: PixelRoundCalcPolicy;
 
   /**
-   * Rounding alignment for the component's end edge.
-   * <br>Invalid values are rounded using the round-half-up rule.
+   * Boundary rounding strategy for the tail edge of the component.
+   * <br>Since API version 12, the default rounding rule is round-to-nearest. The default value is used when
+   * pixelRound is not set or when a value other than the PixelRoundCalcPolicy enum is set.
    *
    * @type { ?PixelRoundCalcPolicy }
    * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
@@ -26070,8 +26398,9 @@ declare interface PixelRoundPolicy {
   end?: PixelRoundCalcPolicy;
 
   /**
-   * Rounding alignment for the component's bottom edge.
-   * <br>Invalid values are rounded using the round-half-up rule.
+   * Boundary rounding strategy for the bottom edge of the component.
+   * <br>Since API version 12, the default rounding rule is round-to-nearest. The default value is used when
+   * pixelRound is not set or when a value other than the PixelRoundCalcPolicy enum is set.
    *
    * @type { ?PixelRoundCalcPolicy }
    * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
@@ -26307,7 +26636,7 @@ declare interface AreaChangeOptions {
 declare type AreaChangeCallback = (oldValue: Area, newValue: Area) => void;
 
 /**
- * Sub component info passed from framework when layout and measure happens.
+ * Provides the child component layout information.
  *
  * @interface LayoutChild
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -26403,8 +26732,12 @@ declare interface LayoutChild {
 }
 
 /**
- * Provides layout geometry information of the parent component (a custom component).
+ * Provides layout information of the parent component (a custom component).
  * Inherits from [SizeResult]{@link SizeResult}.
+ * In the **onMeasureSize** and **onPlaceChildren** methods, the **GeometryInfo** object can be
+ * obtained through the **selfLayoutInfo** parameter. It contains the border width, margin, and padding
+ * information of the parent component, which developers need to consider when calculating the layout of
+ * child components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -26414,7 +26747,7 @@ declare interface LayoutChild {
  */
 declare interface GeometryInfo extends SizeResult {
   /**
-   * Width of the parent component's border.
+   * Border width of the parent component.
    * Unit: vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -26426,7 +26759,7 @@ declare interface GeometryInfo extends SizeResult {
   borderWidth: EdgeWidth;
 
   /**
-   * Margin values of the parent component.
+   * Margin of the parent component.
    * Unit: vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -26438,7 +26771,7 @@ declare interface GeometryInfo extends SizeResult {
   margin: Margin,
 
   /**
-   * Padding values of the parent component.
+   * Padding of the parent component.
    * Unit: vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -26451,7 +26784,11 @@ declare interface GeometryInfo extends SizeResult {
 }
 
 /**
- * Provides the child component layout information.
+ * Provides layout information of a child component. The **Layoutable** object is created and passed in by the
+ * ArkUI framework when **onPlaceChildren** is called. It contains the measurement result and unique identifier of
+ * the child component. Developers set the position of the child component through the **layout** method of
+ * **Layoutable**, and obtain the margin information of the child component through the **getMargin**, **getPadding**,
+ * and **getBorderWidth** methods for precise layout calculation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -26461,7 +26798,7 @@ declare interface GeometryInfo extends SizeResult {
  */
 declare interface Layoutable {
   /**
-   * Measurement result of the child component.
+   * Size information of the child component after measurement.
    * Unit: vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -26473,8 +26810,9 @@ declare interface Layoutable {
   measureResult: MeasureResult,
 
   /**
-   * Unique ID that the system assigns to the child component.
-   * The value must be an integer greater than or equal to 0.
+   * Unique ID assigned by the system to the child component. It is used to uniquely identify the child
+   * component for subsequent operations (for example, obtaining the **FrameNode** through
+   * **getFrameNodeByUniqueId**). The value range is [0, +∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -26485,9 +26823,11 @@ declare interface Layoutable {
   uniqueId?: number;
 
   /**
-   * Applies the specified position constraints to the child component.
+   * Call this method to set the position information of the child component.
    *
-   * @param { Position } position - Absolute position.
+   * @param { Position } position - Absolute position, containing the x and y coordinates
+   *     (with the origin at the upper left corner of the parent component, the x-axis pointing right as positive and
+   *     the y-axis pointing down as positive). Unit: vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26497,9 +26837,10 @@ declare interface Layoutable {
   layout(position: Position): void,
 
   /**
-   * Obtains the margin values of the child component.
+   * Obtains the margin information of the child component.
    *
-   * @returns { DirectionalEdgesT<number> } Margin values of the child component.
+   * @returns { DirectionalEdgesT<number> } Margin object of the child component, containing the margin values in four
+   *     directions. Unit: vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26509,9 +26850,10 @@ declare interface Layoutable {
   getMargin() : DirectionalEdgesT<number>;
 
   /**
-   * Obtains the padding values of the child component.
+   * Obtains the padding information of the child component.
    *
-   * @returns { DirectionalEdgesT<number> } Padding values of the child component.
+   * @returns { DirectionalEdgesT<number> } Padding object of the child component, containing the padding
+   *     values in four directions. Unit: vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26521,9 +26863,10 @@ declare interface Layoutable {
   getPadding() : DirectionalEdgesT<number>,
 
   /**
-   * Obtains the border widths of the child component.
+   * Obtains the **borderWidth** information of the child component.
    *
-   * @returns { DirectionalEdgesT<number> } Border widths of the child component.
+   * @returns { DirectionalEdgesT<number> } Border width object of the child component,
+   *     containing the border width values in four directions. Unit: vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26534,7 +26877,12 @@ declare interface Layoutable {
 }
 
 /**
- * Provides the child component position information.
+ * Provides measurement information of a child component. The **Measurable** object is created and passed in
+ * by the ArkUI framework when **onMeasureSize** is called, and is used in the measurement phase. Unlike
+ * **Layoutable** (used in the layout phase), Measurable is mainly used to measure the size of a child
+ * component. Developers set constraint conditions and obtain measurement results through the **measure**
+ * method. **Measurable** and **Layoutable** are two representations of the same child component in
+ * different layout phases.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -26544,8 +26892,10 @@ declare interface Layoutable {
  */
 declare interface Measurable {
   /**
-   * Unique ID that the system assigns to the child component.
-   * The value range is all integers.
+   * Unique ID assigned by the system to the child component. It uniquely identifies the child
+   * component for subsequent operations (for example, obtaining the **FrameNode** through
+   * **getFrameNodeByUniqueId**). The value range is [0, +∞). The system automatically assigns a UniqueID
+   * to each child component. Developers can read it as needed and do not need to set it proactively.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -26556,10 +26906,14 @@ declare interface Measurable {
   uniqueId?: number;
 
   /**
-   * Imposes size constraints on the child component.
+   * Imposes size constraints on the child component and returns the measured layout information of the
+   * component.
    *
-   * @param { ConstraintSizeOptions } constraint - Size constraint.
-   * @returns { MeasureResult } Provides the measurement result of the component.
+   * @param { ConstraintSizeOptions } constraint - Constraint size, including constraint conditions such as
+   *     **minWidth**, **maxWidth**, **minHeight**, and **maxHeight**, used to limit the size range of the child
+   *     component. Value principle: **minWidth** ≤ **maxWidth**, **minHeight** ≤ **maxHeight**; unit: vp.
+   * @returns { MeasureResult } Layout information of the component after measurement,
+   *     including the measured width and height.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26569,9 +26923,10 @@ declare interface Measurable {
   measure(constraint: ConstraintSizeOptions) : MeasureResult,
 
   /**
-   * Obtains the margin values of the child component.
+   * Obtains the margin information of the child component.
    *
-   * @returns { DirectionalEdgesT<number> } Margin values of the child component.
+   * @returns { DirectionalEdgesT<number> } Margin object of the child component, containing the margin values in four
+   *     directions. Unit: vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26581,9 +26936,10 @@ declare interface Measurable {
   getMargin() : DirectionalEdgesT<number>;
 
   /**
-   * Obtains the padding values of the child component.
+   * Obtains the padding information of the child component.
    *
-   * @returns { DirectionalEdgesT<number> } Padding values of the child component.
+   * @returns { DirectionalEdgesT<number> } Padding object of the child component, containing the padding
+   *     values in four directions. Unit: vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26593,9 +26949,10 @@ declare interface Measurable {
   getPadding() : DirectionalEdgesT<number>;
 
   /**
-   * Obtains the border widths of the child component.
+   * Obtains the **borderWidth** information of the child component.
    *
-   * @returns { DirectionalEdgesT<number> } Border widths of the child component.
+   * @returns { DirectionalEdgesT<number> } Border width object of the child component,
+   *     containing the border width values in four directions. Unit: vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26606,9 +26963,10 @@ declare interface Measurable {
 }
 
 /**
+ * Provides the component size information.
+ *
  * > **NOTE**
  * >
- * > - The custom layout does not support the LazyForEach syntax.
  * > - When a custom layout is created in builder mode, only **this.builder()** is allowed in the **build()** method
  * >   of a custom component, as shown in the recommended usage in the example below.
  * > - The size parameters of the parent component (custom component), except **aspectRatio**, are at a lower
@@ -26616,8 +26974,6 @@ declare interface Measurable {
  * > - The position parameters of the child component, except **offset**, **position**, and **markAnchor**, are at
  * >   a lower priority than those specified by [onPlaceChildren]{@link CustomComponentV2#onPlaceChildren},
  * >   and do not take effect.
- * > - When using the custom layout method, you must call **onMeasureSize** and **onPlaceChildren** at the same
- * >   time for the layout to display properly.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -26627,8 +26983,8 @@ declare interface Measurable {
  */
 declare interface SizeResult {
   /**
-   * Width obtained from the measurement result.
-   * Unit: vp, Value range: (-∞,+∞).
+   * Width after measurement.
+   * Unit: vp, Value range: [0, +∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -26639,8 +26995,8 @@ declare interface SizeResult {
   width: number,
 
   /**
-   * Height obtained from the measurement result.
-   * Unit: vp, Value range: (-∞,+∞).
+   * Height after measurement.
+   * Unit: vp, Value range: [0, +∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -26817,8 +27173,6 @@ declare class CustomComponent extends BaseCustomComponent {
    * Invoked when the custom component lays out its child components. Through this callback the component
    * receives its child component layout information and size constraint from the ArkUI framework.
    * State variables should not be changed in this callback.
-   * This API is supported since API version 9 and deprecated since API version 10. You are advised to use
-   * onPlaceChildren instead.
    *
    * @param { Array<LayoutChild> } children - Child component layout information.
    * @param { ConstraintSizeOptions } constraint - Size constraint of the parent component.
@@ -26834,8 +27188,6 @@ declare class CustomComponent extends BaseCustomComponent {
    * Invoked when the custom component needs to determine its size. Through this callback the component
    * receives its child component layout information and its own size constraints from the ArkUI framework.
    * State variables should not be changed in this callback.
-   * This API is supported since API version 9 and deprecated since API version 10. You are advised to use
-   * onMeasureSize instead.
    *
    * @param { Array<LayoutChild> } children - Child component layout information.
    * @param { ConstraintSizeOptions } constraint - Size constraint of the parent component.
@@ -26980,6 +27332,16 @@ declare class BaseCustomComponent extends CommonAttribute {
    * Invoked when the custom component needs to determine its size. Through this callback the component
    * receives its layout information and size constraints from the ArkUI framework. State variables should
    * not be changed in this callback.
+   *
+   * > **NOTE**
+   * >
+   * > - When a custom layout is created in builder mode, only **this.builder()** is allowed in the **build()** method
+   * >   of a custom component, as shown in the recommended usage in the example below.
+   * > - The size parameters of the parent component (custom component), except **aspectRatio**, are at a lower
+   * >   priority than those specified by [onMeasureSize]{@link CustomComponentV2#onMeasureSize}.
+   * > - The position parameters of the child component, except **offset**, **position**, and **markAnchor**, are at
+   * >   a lower priority than those specified by [onPlaceChildren]{@link CustomComponentV2#onPlaceChildren},
+   * >   and do not take effect.
    *
    * @param { GeometryInfo } selfLayoutInfo - Information about the component's computed layout properties after
    *     measurement.<br>During the first layout, the component will use its own set attributes as the basis for layout.
@@ -28752,10 +29114,26 @@ declare interface LightSource {
 }
 
 /**
- * Defining wrapBuilder function.
+ * `wrapBuilder` is used to encapsulate a global [\@Builder]{@link Builder} function, so that the global
+ * `@Builder` function can be passed as a parameter to implement pass-by-reference and dynamic invocation,
+ * improving code reusability.
  *
- * @param { function } builder
- * @returns { WrappedBuilder<Args> }
+ * For details about the development guide, see
+ * [wrapBuilder: Encapsulating Global @Builder](docroot://ui/state-management/arkts-wrapBuilder.md).
+ *
+ * `wrapBuilder` is a template function that returns a `WrappedBuilder` object. The template parameter
+ * `Args extends Object[]` is the parameter list of the `@Builder` function to be encapsulated. When a global
+ * `@Builder` function needs to be passed, it is recommended to encapsulate it through `wrapBuilder` first, and
+ * then use the returned `WrappedBuilder` object as a parameter or variable.
+ *
+ * @param { function } builder - Global function decorated by `@Builder`. After being passed in, it
+ *     is wrapped into a `WrappedBuilder` object. This function must return no value (`void`), and the types and
+ *     order of its parameter list `...args` are defined by the generic `Args`. Pass this parameter when a global
+ *     `@Builder` function needs to be passed by reference or reused between components.
+ * @returns { WrappedBuilder<Args> } An instance of `WrappedBuilder<Args>`, used to reuse or pass a global
+ *     `@Builder` function between components. This instance encapsulates the specified global `@Builder` function,
+ *     and the encapsulated builder function can be invoked through its `builder` property, making it convenient to
+ *     pass as a parameter between components or assign to a variable.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28765,9 +29143,13 @@ declare interface LightSource {
 declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => void): WrappedBuilder<Args>;
 
 /**
- * Defines the callback type used in mutableBuilder.
+ * `BuilderCallback` is a type alias of the global `@Builder` function. It serves as the input parameter type of
+ * the `mutableBuilder` function and is used to specify the global `@Builder` function to be wrapped.
  *
- * @param { Args } args - The parameter of MutableBuilder.
+ * @param { Args } args - Input parameters of the global `@Builder` function. `...args` uses the rest parameter
+ *     syntax, allowing any number of parameters to be passed in. `Args` represents the type list of these
+ *     parameters. When no parameter is passed in, the parameter list is empty and the `@Builder` function is
+ *     called without parameters.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28777,10 +29159,26 @@ declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => 
 declare type BuilderCallback<Args extends Object[] = any[]> = (...args: Args) => void;
 
 /**
- * Defining mutableBuilder function.
+ * Use `mutableBuilder` to wrap a global [\@Builder]{@link Builder} function, so as to dynamically switch the
+ * content of the global `@Builder` function at runtime based on different conditions (for example, switching
+ * between different UI building logic based on the state). For details about the development guide, see
+ * [mutableBuilder: Implementing Dynamic Update of Global @Builder](docroot://ui/state-management/arkts-mutableBuilder.md).
  *
- * @param { BuilderCallback } builder
- * @returns { MutableBuilder<Args> }
+ * `mutableBuilder` is a generic function. It returns a `MutableBuilder` object and accepts only a single global
+ * `@Builder` function as its parameter.
+ *
+ * The `builder` attribute method of the `MutableBuilder` object returned by the `mutableBuilder` function
+ * can be called only inside the `build` function of a custom component or a function decorated by `@Builder`.
+ *
+ * @param { BuilderCallback } builder - Global function decorated by `@Builder`, used as the target builder
+ *     function encapsulated by `mutableBuilder`. This function must conform to the `BuilderCallback` type,
+ *     that is, `(...args: Args) => void`, which is a function with no return value. The type of its parameter
+ *     list `...args` is specified by the generic `Args`.
+ * @returns { MutableBuilder<Args> } An instance of `MutableBuilder<Args>`, used to encapsulate a global
+ *     `@Builder` function and support dynamically switching the build logic at runtime. This instance holds a
+ *     reference to the global `@Builder` function. You can call the encapsulated build function through its
+ *     `builder` attribute, or dynamically switch the build logic by reassigning a new instance returned by the
+ *     `mutableBuilder` function. Its `builder` attribute method can only be used inside a custom component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28790,7 +29188,8 @@ declare type BuilderCallback<Args extends Object[] = any[]> = (...args: Args) =>
 declare function mutableBuilder<Args extends Object[]>(builder: BuilderCallback): MutableBuilder<Args>;
 
 /**
- * Defines the WrappedBuilder class.
+ * `WrappedBuilder` is a wrapper class for `@Builder` functions. It is used to encapsulate a global `@Builder`
+ * function and its parameters to implement pass-by-reference and dynamic invocation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -28800,6 +29199,7 @@ declare function mutableBuilder<Args extends Object[]>(builder: BuilderCallback)
  */
 declare class WrappedBuilder<Args extends Object[]> {
   /**
+   * Global function decorated by `@Builder`, used to generate the corresponding custom build content.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28810,8 +29210,11 @@ declare class WrappedBuilder<Args extends Object[]> {
   builder: (...args: Args) => void;
 
   /**
+   * A constructor used to create a `WrappedBuilder` instance.
    *
-   * @param { function } builder
+   * @param { function } builder - A global function decorated by `@Builder`, used as a constructor
+   *     parameter to initialize a `WrappedBuilder` instance. The function parameter `args` is the parameter list
+   *     required by the `@Builder` function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28822,7 +29225,13 @@ declare class WrappedBuilder<Args extends Object[]> {
 }
 
 /**
- * Defines the MutableBuilder class.
+ * `MutableBuilder` inherits from [WrappedBuilder]{@link WrappedBuilder} and is used to wrap a
+ * [global `@Builder`](docroot://ui/state-management/arkts-builder.md) function and to support switching
+ * the build function at runtime. When you need to dynamically replace the content of a global `@Builder`
+ * function based on state or conditions, it is recommended that you use the
+ * [mutableBuilder](docroot://ui/state-management/arkts-mutableBuilder.md) function to create a
+ * `MutableBuilder` object. Its `builder` attribute method can be called only inside the `build` function
+ * of a custom component or a function decorated by `@Builder`.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -28830,8 +29239,7 @@ declare class WrappedBuilder<Args extends Object[]> {
  * @atomicservice
  * @since 22 dynamiconly
  */
-declare class MutableBuilder<Args extends Object[]> extends WrappedBuilder<Args> {
-}
+declare class MutableBuilder<Args extends Object[]> extends WrappedBuilder<Args> {}
 
 /**
  * Provides animation configuration options.

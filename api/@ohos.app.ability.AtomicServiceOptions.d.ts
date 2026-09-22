@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file openAtomicService Options
  * @kit AbilityKit
  */
 
@@ -68,7 +68,7 @@ export default class AtomicServiceOptions extends StartOptions {
   parameters?: Record<string, RecordData>;
 
   /**
-   * Operation class for receiving the result of opening an atomic service.
+   * Operation class for the result of opening an atomic service, used to receive the result of opening an atomic service.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

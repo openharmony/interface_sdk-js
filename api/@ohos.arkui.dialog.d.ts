@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Dialog Box
  * @kit ArkUI
  */
 

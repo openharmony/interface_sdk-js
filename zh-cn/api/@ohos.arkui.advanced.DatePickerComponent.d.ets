@@ -220,7 +220,7 @@ export declare enum TimeFormat {
 
 /**
  * CommonOptions定义日期时间选择器的通用选项。
- * 
+ *
  * > **说明：**
  * >
  * > - Date构造函数参数顺序为：年、月索引（0-11）、日、时、分、秒。注意：年份参数需大于99或小于0以避免1900年代映射。
@@ -279,11 +279,11 @@ export declare enum TimeFormat {
 export declare class CommonOptions {
   /**
    * 选择器的起始日期或时间。
-   * 
+   *
    * > 默认值：Date('1970-01-01T00:00:00')
-   * 
+   *
    * > 取值范围：[Date('0001-01-01T00:00:00'), Date('9999-12-31T23:59:59')]
-   * 
+   *
    * > **说明：**
    * >
    * > 设置了start且为有效值的场景下，loop不生效。
@@ -298,11 +298,11 @@ export declare class CommonOptions {
 
   /**
    * 选择器的结束日期或时间。
-   * 
+   *
    * > 默认值：Date('2100-12-31T23:59:59')
-   * 
+   *
    * > 取值范围：[Date('0001-01-01T00:00:00'), Date('9999-12-31T23:59:59')]
-   * 
+   *
    * > **说明：**
    * >
    * > 设置了end且为有效值的场景下，loop不生效。
@@ -317,9 +317,9 @@ export declare class CommonOptions {
 
   /**
    * 选中的日期或时间，设置后作为初始选中值显示。
-   * 
+   *
    * > 默认值为当前系统日期或时间。
-   * 
+   *
    * > **说明：**
    * >
    * > 在DateMode.MONTH_AND_DAY模式下，仅month和day字段参与选择；年份取selected指定值，未指定时取当前系统年份，滚动过程中保持不变。
@@ -335,16 +335,16 @@ export declare class CommonOptions {
 
   /**
    * 设置是否启用循环模式。
-   * 
+   *
    * - true：启用循环模式，支持滚动到边界时继续循环选择。
    * - false：不启用循环模式，滚动到边界时停止。
-   * 
+   *
    * > 默认值：true
-   * 
+   *
    * > **使用场景：**
    * >
    * > 循环模式适用于需要连续滚动选择的场景，如快速浏览年月；非循环模式适用于需要明确边界范围的场景。
-   * 
+   *
    * > **说明：**
    * >
    * > 设置了[start]{@link CommonOptions}或[end]{@link CommonOptions}且为有效值的场景下，本参数不生效。
@@ -382,12 +382,12 @@ export declare class CommonOptions {
 
   /**
    * 设置是否启用触控反馈。
-   * 
+   *
    * 默认值：true
-   * 
+   *
    * - true：启用触控反馈，适用于需要增强用户交互体验的场景，如游戏、乐器类应用等。
    * - false：不启用触控反馈，适用于不需要触觉反馈或需要节省设备资源的场景。
-   * 
+   *
    * > **说明：**
    * >
    * > 1. 设置为true后，其生效情况取决于系统的硬件是否支持。
@@ -434,12 +434,12 @@ export declare class DateOptions extends CommonOptions {
 
   /**
    * 指定是否显示为农历。
-   * 
+   *
    * - true：显示为农历，适用于需要传统农历日期的场景，如传统节日、农历生日、农历纪念日等。
    * - false：不显示为农历，适用于使用公历日期的场景。
-   * 
+   *
    * > 默认值：false
-   * 
+   *
    * > **说明：**
    * >
    * > 仅在简体中文和繁体中文语言环境下生效，其他语言环境下设置该属性无效果。
@@ -456,9 +456,9 @@ export declare class DateOptions extends CommonOptions {
 
 /**
  * TimeOptions定义时间选择器的选项。
- * 
+ *
  * 继承于[CommonOptions]{@link CommonOptions}。
- * 
+ *
  * > **说明：**
  * >
  * > 若设置了start或end参数且为有效值，loop参数将不生效，具体请参考[CommonOptions]{@link CommonOptions}的参数说明。
@@ -486,10 +486,10 @@ export declare class TimeOptions extends CommonOptions {
 
   /**
    * 指定是否使用24小时制显示时间。
-   * 
+   *
    * - true：时间以24小时制展示，适用于国际化应用、需要精确时间表达的专业场景（如医疗、交通、军事等）。
    * - false：时间以12小时制展示，适用于面向普通用户的日常应用场景，更符合用户的日常阅读习惯。
-   * 
+   *
    * 默认值：false
    *
    * @default false
@@ -514,9 +514,9 @@ export declare class TimeOptions extends CommonOptions {
 export declare class DatePickerComponentOptions {
   /**
    * 选择器的显示模式。
-   * 
+   *
    * > 默认值：DisplayMode.DATE
-   * 
+   *
    * > **说明：**
    * >
    * > - DATE：仅显示日期，使用dateOptions，适用于只需要用户选择日期的场景，如生日选择、日程日期设置等。
@@ -560,7 +560,7 @@ export declare class DatePickerComponentOptions {
  * DatePickerComponent组件用于选择日期（年月日）和时间（时分秒）。
  *
  * ###### 子组件
- * 
+ *
  * 无
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

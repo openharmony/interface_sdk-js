@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 页面节点信息
  * @kit AbilityKit
  */
 

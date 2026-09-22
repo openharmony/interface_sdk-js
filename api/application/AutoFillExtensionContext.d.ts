@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Auto Fill Extension Context
  * @kit AbilityKit
  */
 
@@ -38,11 +38,10 @@ import CustomData from './CustomData';
  */
 declare class AutoFillExtensionContext extends ExtensionContext {
   /**
-   * Reload autoFillExtension in modal window.
+   * Reloads the modal page. This API uses a promise to return the result.
    *
-   * @param { CustomData } customData - User defined data. When the modal window of AutoFillExtension
-   *     needs to be raised again, pass this parameter to the application framework.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { CustomData } customData - Custom information for raising the modal page.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - If the input parameter is not valid parameter.
    * @throws { BusinessError } 16000011 - The context does not exist.

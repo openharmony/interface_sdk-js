@@ -203,6 +203,57 @@ declare namespace insightIntent {
   }
 
   /**
+   * Defines the information of the Text to be displayed as the interaction UI after the current
+   * intent execution completes. Does not support distributed scenarios.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  interface InteractionText extends InteractionUI {
+    /**
+     * Type of the interaction UI. The value is fixed to 'TEXT'.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    interactionUIType: 'TEXT';
+
+    /**
+     * Parameters passed to the target TEXT.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic
+     */
+    parameters: Record<string, Object>;
+
+    /**
+     * Parameters passed to the target TEXT.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 static
+     */
+    parameters: Record<string, RecordData>;
+
+    /**
+     * Buttons passed to the target TEXT.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    buttons?: Array<string>;
+  }
+
+  /**
    * Defines the interaction information returned after the current intent execution completes, including
    * the next intent to be triggered and the interaction UI to be displayed.
    *

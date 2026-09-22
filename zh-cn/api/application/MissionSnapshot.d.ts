@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 任务快照
  * @kit AbilityKit
  */
 

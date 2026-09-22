@@ -231,7 +231,7 @@ declare class TreeMap<K, V> {
    */
   clear(): void;
   /**
-   * Returns the greatest element smaller than or equal to the specified key
+   * Returns the greatest element smaller than the specified key
    * if the key does not exist, undefined is returned
    *
    * @param { K } key - The key to compare
@@ -244,7 +244,7 @@ declare class TreeMap<K, V> {
    */
   getLowerKey(key: K): K;
   /**
-   * Returns the least element greater than or equal to the specified key
+   * Returns the least element greater than the specified key
    * if the key does not exist, undefined is returned
    *
    * @param { K } key - The key to compare
@@ -258,7 +258,7 @@ declare class TreeMap<K, V> {
   getHigherKey(key: K): K;
 
   /**
-   * Returns the greatest element smaller than or equal to the specified key
+   * Returns the greatest element smaller than the specified key
    * if the key does not exist, undefined is returned
    *
    * @param { K } key - The key to compare
@@ -273,7 +273,7 @@ declare class TreeMap<K, V> {
   getLowerKey(key: K): K | undefined;
 
   /**
-   * Returns the least element greater than or equal to the specified key
+   * Returns the least element greater than the specified key
    * if the key does not exist, undefined is returned
    *
    * @param { K } key - The key to compare

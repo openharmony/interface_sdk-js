@@ -96,8 +96,8 @@ declare namespace identifySensitiveContent {
      * @param { string } filePath - 识别的文件路径，需使用物理路径，路径指向的文件必须存在且支持访问。
      * @param { Array<Policy> } identifyPolicies - 用于识别敏感内容的策略数组。每个Policy定义识别规则（标签、关键字、正则表达式），系统将根据这些规则扫描文件内容并返回匹配结果。
      * @returns { Promise<Array<MatchResult>> } Promise对象，返回敏感内容识别的结果。成功时返回匹配结果数组，异常返回错误码。
-     * @throws { BusinessError } 201 - permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: The device type does not support the capability.
      * @throws { BusinessError } 19110001 - Parameter error. Possible causes:
      *     1. Incorrect policy format.
      *     2. Invalid parameter range.

@@ -29,7 +29,7 @@
  * >   - @ohos.multimedia.media (Media)
  * >   - @ohos.resourceschedule.backgroundTaskManager (Background Task Management)
  *
- * @file
+ * @file FormExtensionAbility
  * @kit FormKit
  */
 

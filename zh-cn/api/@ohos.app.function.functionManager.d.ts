@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Function管理
  * @kit AbilityKit
  */
 import Context from './application/Context';

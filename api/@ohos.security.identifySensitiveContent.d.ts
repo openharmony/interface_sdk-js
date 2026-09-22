@@ -108,8 +108,8 @@ declare namespace identifySensitiveContent {
      * The system scans file content based on these rules and returns the matching result.
      * @returns { Promise<Array<MatchResult>> } Promise used to return the identification result of sensitive content.
      * If the operation is successful, the matching result array is returned. If the operation fails, an error code is returned.
-     * @throws { BusinessError } 201 - permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: The device type does not support the capability.
      * @throws { BusinessError } 19110001 - Parameter error. Possible causes:
      *     1. Incorrect policy format.
      *     2. Invalid parameter range.

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ability状态数据
  * @kit AbilityKit
  */
 
@@ -118,7 +118,7 @@ declare class AbilityStateData {
   isAtomicService: boolean;
 
   /**
-   * 应用包的[分身](docroot://quick-start/app-clone.md)索引标识。
+   * 应用包的[分身](docroot://quick-start/app-clone.md)索引标识。0表示主实例，1及以上表示分身实例。不返回时默认为主实例。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic

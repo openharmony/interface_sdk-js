@@ -201,6 +201,16 @@ declare namespace insightIntentDriver {
      * @since 26.0.0 dynamic&static
      */
     deviceId?: string;
+
+    /**
+     * Indicates the tool call ID. Used to associate this intent execute with a test step.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    toolCallId?: string;
   }
 
   /**

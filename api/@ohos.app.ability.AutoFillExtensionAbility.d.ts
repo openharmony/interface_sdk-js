@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file AutoFillExtensionAbility
  * @kit AbilityKit
  */
 
@@ -31,8 +31,8 @@ import { FillRequest, SaveRequest, UpdateRequest, FillRequestCallback, SaveReque
 /*** endif */
 
 /**
- * The AutoFillExtensionAbility module provides APIs for automatically filling in and saving accounts and passwords. It
- * inherits from [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}.
+ * The AutoFillExtensionAbility module supports auto-fill and save for multiple data types such as accounts, passwords,
+ * and addresses. It inherits from [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @systemapi
@@ -53,7 +53,8 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
   context: AutoFillExtensionContext;
 
   /**
-   * Called when an AutoFillExtensionAbility is created.
+   * Called when an AutoFillExtensionAbility is created. In this method, you can perform initialization operations,
+   * such as registering listeners and loading necessary resources.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -78,7 +79,7 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
   onFillRequest(session: UIExtensionContentSession, request: FillRequest, callback: FillRequestCallback): void;
 
   /**
-   * Called when automatic or manual saving is initiated.
+   * This callback is triggered when automatic or manual saving is initiated.
    *
    * @param { UIExtensionContentSession } session - UI content information related to the AutoFillExtensionAbility.
    * @param { SaveRequest } request - Data to be saved.
@@ -92,7 +93,8 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
   onSaveRequest(session: UIExtensionContentSession, request: SaveRequest, callback: SaveRequestCallback): void;
 
   /**
-   * Called when an update request is received.
+   * Called when the application UI data changes and the filled content needs to be updated. The system triggers this
+   * callback. The request parameter contains the updated viewData and other information.
    *
    * @param { UpdateRequest } request - Update request.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
@@ -104,7 +106,8 @@ declare class AutoFillExtensionAbility extends ExtensionAbility {
   onUpdateRequest(request: UpdateRequest): void;
 
   /**
-   * Called when a UIExtensionContentSession instance is destroyed for this AutoFillExtensionAbility.
+   * Called when the session of this AutoFillExtensionAbility is destroyed. The session is usually destroyed when the
+   * user cancels the fill operation or the fill task is completed.
    *
    * @param { UIExtensionContentSession } session - UI content information related to the AutoFillExtensionAbility.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

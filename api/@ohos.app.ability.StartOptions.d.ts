@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file startAbility Options
  * @kit AbilityKit
  */
 
@@ -49,7 +49,7 @@ declare class StartOptions {
   windowMode?: int;
 
   /**
-   * The type of split ratio preference.
+   * Window allocation ratio when starting the UIAbility.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -80,12 +80,17 @@ declare class StartOptions {
   displayId?: long;
 
   /**
-   * Whether animation effects are used for the UIAbility upon startup. **true** if used, **false** otherwise.
+   * Whether animation effects are used for the UIAbility upon startup.
+   *
+   * When **true** is passed, the system default animation effect is used. When **false** is passed, the animation
+   * effect for starting the UIAbility is disabled.
    *
    * **Constraints**:
    *
-   * 1. This property takes effect only on 2-in-1 devices and tablets.
-   * 2. The caller and target must be the same application.
+   * This property takes effect only in the free window state, and the caller and target must be the same application.
+   *
+   * If this parameter is not specified, the default value is **undefined**, and the system default animation effect is
+   * used.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -170,7 +175,8 @@ declare class StartOptions {
   windowHeight?: int;
 
   /**
-   * Whether the window has focus. The default value is **true**, indicating that the window has focus.
+   * Whether the window has focus. The default value is **true**, indicating that the window has focus; **false**
+   * indicates that the window does not have focus.
    *
    * **Constraints**:
    *

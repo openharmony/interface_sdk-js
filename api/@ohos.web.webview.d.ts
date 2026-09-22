@@ -2320,6 +2320,8 @@ declare namespace webview {
      * > WebCookieManager. After this API is called and set to **true**, calling applicable APIs skips the
      * > initialization of the ArkWeb kernel when initializing CookieManager. You need to initialize the ArkWeb kernel
      * > separately afterwards.
+     * > 
+     * > -Since API version 26.0.1, when set to **true**, CookieManager interfaces can be used in asynchronous threads.
      *
      * @param { boolean } lazy - Controls whether to delay the initialization of the web engine.
      * @syscap SystemCapability.Web.Webview.Core

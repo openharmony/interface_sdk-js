@@ -18,6 +18,10 @@
  * @kit ArkTS
  */
 
+/*** if arkts dynamic */
+import lang from '@arkts.lang';
+/*** endif */
+
 /**
  * The JSON module provides a series of APIs for converting JSON text into JSON objects or values and converting objects
  * into JSON text.
@@ -47,6 +51,36 @@ declare namespace json {
    * @since 12 dynamiconly
    */
   type Transformer = (this: Object, key: string, value: Object) => Object | undefined | null;
+
+  /**
+   * Redefines ISendable for convenience.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.1 dynamiconly
+   */
+  type ISendable = lang.ISendable;
+
+  /**
+   * Defines the type of the conversion result function for Sendable JSON parsing.
+   *
+   * When used as a parameter of [parseSendable]{@link json.parseSendable}, the function is called by each member of
+   * the parsed Sendable object, allowing for custom data processing or conversion during parsing.
+   *
+   * @param { ISendable } this - The ISendable to which the parsed key-value pair belongs.
+   * @param { string } key - Attribute name.
+   * @param { ISendable | undefined | null } value - The value of the parsed key-value pair.
+   * @returns { ISendable | undefined | null } Return the modified ISendable, undefined, or null.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.1 dynamiconly
+   */
+  type SendableTransformer = (this: ISendable, key: string,
+    value: ISendable | undefined | null) => ISendable | undefined | null;
 
   /**
    * Parses a JSON string into an ArkTS object or null.
@@ -191,6 +225,87 @@ declare namespace json {
      * @since 12 dynamiconly
      */
     bigIntMode: BigIntMode;
+    /**
+     * The return type for parsing. When omitted, defaults to OBJECT.
+     * Only effective for {@link parseSendable}; ignored by {@link parse}.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.1 dynamiconly
+     */
+    parseReturnType?: ParseReturnType;
+  }
+
+  /**
+   * Parses a JSON string into a Sendable object graph that can be transferred across concurrent instances
+   * (Worker or TaskPool) without copy. When parsed JSON data needs to be shared across threads, use this API
+   * instead of [parse]{@link json.parse}: the result is created directly in the shared heap and is accessible
+   * from all concurrent instances after the call returns.
+   *
+   * Usage notes:
+   * <ul>
+   * <li>Numeric string keys in the range "0" to "4294967294" are stored as element indexes. All keys and
+   * values are fully reachable and enumerable regardless of the property count.</li>
+   * <li>For duplicate keys, the last value takes effect, and the enumeration position of the first occurrence
+   * is retained.</li>
+   * <li>When options.parseReturnType is {@link ParseReturnType.MAP}, a sendable Map that supports adding and
+   * deleting entries of any count is returned; when {@link ParseReturnType.OBJECT} (default), a non-extensible
+   * sendable object is returned, whose existing properties can be updated but cannot be added or deleted.</li>
+   * </ul>
+   *
+   * @param { string } text - Valid JSON string.
+   * @param { SendableTransformer } [reviver] - A function that transforms the results. Currently only undefined is
+   *     accepted; providing a function will throw a TypeError (consistent with ASON.parse). The default value is
+   *     undefined.
+   * @param { ParseOptions } [options] - The parsing options. Any existing ParseOptions object (with only bigIntMode)
+   *     is also accepted (parseReturnType defaults to OBJECT). The default value is undefined.
+   * @returns { ISendable | null } Return a Sendable object graph corresponding to the JSON text; return
+   *     null if the JSON text is 'null'; return a sendable Map if options.parseReturnType is
+   *     {@link ParseReturnType.MAP}.
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.1 dynamiconly
+   */
+  function parseSendable(text: string, reviver?: SendableTransformer, options?: ParseOptions): ISendable | null;
+
+  /**
+   * Enumerates the return types for parsing.
+   *
+   * When parseReturnType is MAP, the parsed result is a Sendable Map (JSSharedMap) instead of a Sendable Object
+   * (JSSharedObject). Only effective for {@link parseSendable}; ignored by {@link parse}.
+   *
+   * @syscap SystemCapability.Utils.Lang
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.1 dynamiconly
+   */
+  const enum ParseReturnType {
+    /**
+     * The parsing result is a non-extensible Sendable object, whose existing properties can be updated but
+     * cannot be added or deleted.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.1 dynamiconly
+     */
+    OBJECT = 0,
+    /**
+     * The parsing result is a sendable Map, which supports adding and deleting entries.
+     *
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.1 dynamiconly
+     */
+    MAP = 1
   }
 }
 

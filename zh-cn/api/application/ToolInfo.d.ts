@@ -14,7 +14,7 @@
  */
 
 /**
-  * @file
+ * @file CLI工具信息
   * @kit AbilityKit
  */
 

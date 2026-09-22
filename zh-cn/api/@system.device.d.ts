@@ -25,7 +25,7 @@
  * > >    \- 对于支持该模块的其他设备类型，该模块从API Version 6开始不再维护，推荐使用新接口[@ohos.deviceInfo]{@link @ohos.deviceInfo:deviceInfo}进行设备信息查
  * > 询。
  * > - 本模块首批接口从API version 3开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * @file
+ * @file 设备信息
  * @kit BasicServicesKit
  */
 

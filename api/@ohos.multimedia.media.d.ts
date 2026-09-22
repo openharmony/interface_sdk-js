@@ -14,7 +14,7 @@
 */
  
 /**
- * @file
+ * @file (Media)
  * @kit MediaKit
  */
 
@@ -10406,11 +10406,22 @@ declare namespace media {
      * Whether to enable video encoding policy to quality stable encoding.
      *
      * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @systemapi
+     * @systemapi [since 18 - 26.0.1]
+     * @publicapi [since 26.2.0]
      * @since 18 dynamic
      * @since 23 static
      */
-    enableStableQualityMode?: boolean
+    enableStableQualityMode?: boolean;
+
+   /**
+    * Set the quality parameter in StableQualityMode. The value range is [0, 51].
+    * A smaller value indicates a higher output bit rate and better quality.
+    *
+    * @syscap SystemCapability.Multimedia.Media.AVRecorder
+    * @stagemodelonly
+    * @since 26.2.0 dynamic&static
+    */
+    sqrFactor?: int;
  
     /**
      * Indicates whether enable B Frame. Default is disabled.
@@ -11301,7 +11312,7 @@ declare namespace media {
      * Pause screen capture. This API uses a promise to return the result.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 5400102 - Operation not be permitted. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -11314,7 +11325,7 @@ declare namespace media {
      * Resume screen capture. This API uses a promise to return the result.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 5400102 - Operation not be permitted. Return by promise.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - IO error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture

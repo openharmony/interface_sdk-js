@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Auto Fill Rectangular Area
  * @kit AbilityKit
  */
 

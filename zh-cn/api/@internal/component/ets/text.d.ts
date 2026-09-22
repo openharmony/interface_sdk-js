@@ -932,6 +932,50 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   selectedBackgroundColor(color: ResourceColor): TextAttribute;
 
   /**
+   * 设置文本描边的宽度。
+   *
+   * @param { Optional<LengthMetrics> } width - 文本描边的宽度。LengthMetrics的unit值是px时：<br>
+   *     设置值小于0，显示实心字。<br>设置值大于0，显示空心字。<br>默认值：0，表示无描边效果。
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  strokeWidth(width: Optional<LengthMetrics>): TextAttribute;
+
+  /**
+   * 设置文本描边的颜色。
+   *
+   * @param { Optional<ResourceColor> } color - 描边颜色。默认值为字体颜色，设置异常值时取默认值。
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  strokeColor(color: Optional<ResourceColor>): TextAttribute;
+
+  /**
+   * 设置文本描边拐角样式。
+   *
+   * @param { StrokeJoinStyle | undefined } strokeJoinStyle - 文本描边拐角样式。<br>值为**undefined**时，按
+   *     **StrokeJoinStyle.MITER_JOIN**处理。具体枚举值及其说明请参考
+   *     [StrokeJoinStyle](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#strokejoinstyle)。
+   * @returns { TextAttribute } returns the instance of the TextAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): TextAttribute;
+
+  /**
    * 可以显示为径向渐变[RadialGradientStyle]{@link RadialGradientStyle}或线性渐变[LinearGradientStyle]{@link LinearGradientStyle}或纯色
    * [ColorShaderStyle]{@link ColorShaderStyle}的效果，shaderStyle的优先级高于[fontColor]{@link TextAttribute#fontColor}和AI识别，纯色建议
    * 使用[fontColor]{@link TextAttribute#fontColor}。

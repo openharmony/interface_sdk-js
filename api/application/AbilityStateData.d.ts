@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ability State Data
  * @kit AbilityKit
  */
 
@@ -121,7 +121,8 @@ declare class AbilityStateData {
   isAtomicService: boolean;
 
   /**
-   * Index of an [application clone](docroot://quick-start/app-clone.md).
+   * Index of an [application clone](docroot://quick-start/app-clone.md). The value **0** indicates the main instance,
+   * and **1** or above indicates a clone instance. If not returned, the default value is the main instance.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @since 14 dynamic

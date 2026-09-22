@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 设备信息
  * @kit BasicServicesKit
  */
 

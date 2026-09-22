@@ -14,7 +14,7 @@
  */
 
 /**
- * @file AutoStartupCallback
+ * @file 开机自启回调
  * @kit AbilityKit
  */
 

@@ -35,13 +35,13 @@
  */
 declare interface ViewportRect {
   /**
-   * Horizontal coordinate of the start point of the viewport.
+   * Horizontal coordinate of the start point of the shape viewport.
    * 
    * Default value: **0**
    * 
    * Default unit: vp
    * 
-   * Invalid values are treated as the default value.
+   * The abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled as the default value.
    *
    * @type { ?(number | string) } [since 7 - 19]
    * @type { ?Length } [since 20]
@@ -55,13 +55,13 @@ declare interface ViewportRect {
   x?: Length;
 
   /**
-   * Vertical coordinate of the start point of the viewport.
+   * Vertical coordinate of the start point of the shape viewport.
    * 
    * Default value: **0**
    * 
    * Default unit: vp
    * 
-   * Invalid values are treated as the default value.
+   * The abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled as the default value.
    *
    * @type { ?(number | string) } [since 7 - 19]
    * @type { ?Length } [since 20]
@@ -75,13 +75,13 @@ declare interface ViewportRect {
   y?: Length;
 
   /**
-   * Width of the viewport. The value must be greater than or equal to 0.
+   * Width of the shape viewport. The value range is ≥ 0.
    * 
    * Default value: **0**
    * 
    * Default unit: vp
    * 
-   * Invalid values are treated as the default value.
+   * The abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled as the default value.
    *
    * @type { ?(number | string) } [since 7 - 19]
    * @type { ?Length } [since 20]
@@ -95,13 +95,13 @@ declare interface ViewportRect {
   width?: Length;
 
   /**
-   * Height of the viewport. The value must be greater than or equal to 0.
+   * Height of the shape viewport. The value range is ≥ 0.
    * 
    * Default value: **0**
    * 
    * Default unit: vp
    * 
-   * Invalid values are treated as the default value.
+   * The abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled as the default value.
    *
    * @type { ?(number | string) } [since 7 - 19]
    * @type { ?Length } [since 20]
@@ -127,8 +127,13 @@ declare interface ViewportRect {
  */
 interface ShapeInterface {
   /**
-   * Use the new function to create Shape.
+   * Draws the **Shape** component. After being called, it creates a **Shape** object, on which attributes such as the
+   * viewport, fill, and stroke can be set.
    *
+   * @param { PixelMap } value - Drawing target. You can draw a shape in the specified **PixelMap** object. If this
+   *     parameter is not set, the shape is drawn in the current drawing target by default.
+   *     <br>The abnormal values **undefined** and **null** are treated as invalid values, and this setting does not
+   *     take effect.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -137,11 +142,12 @@ interface ShapeInterface {
    */
   new (value?: PixelMap): ShapeAttribute;
   /**
-   * Since API version 9, this API is supported in ArkTS widgets, except that **PixelMap** objects are not supported.
+   * Draws the **Shape** component. After being called, it creates a **Shape** object, on which attributes such as the
+   * viewport, fill, and stroke can be set.
    *
-   * @param { PixelMap } value - Drawing target. You can draw a shape in a specified **PixelMap** object. If this
-   *     parameter is not set, the shape is drawn in the current drawing target by default.<br>The **undefined** and
-   *     **null** values are treated as invalid and will not take effect.
+   * @param { PixelMap } value - Drawing target. The shape can be drawn into the specified **PixelMap** object.
+   *     <br>Note: This parameter is mandatory. A valid **PixelMap** object must be passed in. The parameter does not
+   *     take effect when **undefined** or **null** is passed in.
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -151,7 +157,8 @@ interface ShapeInterface {
    */
   (value: PixelMap): ShapeAttribute;
   /**
-   * Called when a component is drawn.
+   * Draws the **Shape** component. This function has no parameter. After being called, it creates a **Shape** object
+   * with the default viewport and attributes.
    *
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -165,7 +172,8 @@ interface ShapeInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
+ * In addition to the [universal attributes]{@link CommonMethod} and [universal drawing attributes]{@link CommonMethod}, the
+ * following attributes are supported:
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -179,10 +187,16 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   /**
    * Sets the viewport of the shape.
    *
-   * @param { object } value - Options of the viewport.<br>Default value: **{}**<br>The **undefined** and **null**
-   *     values are invalid and treated as the default value. [since 7 - 17]
-   * @param { ViewportRect } value - Options of the viewport.<br>Default value: **{}**<br>The **undefined** and **null**
-   *     values are invalid and treated as the default value. [since 18]
+   * The viewport defines the coordinate system and display area of the drawing content. The start point coordinates
+   * (x, y) and the width and height (width, height) of the viewport determine the display position and range of the
+   * drawing content in the component. When the viewport range differs from the component size, the drawing content is
+   * automatically scaled to fit. The viewport is commonly used to adjust the display scale and position of the drawing
+   * content.
+   *
+   * @param { object } value - Viewport drawing attribute.<br>Default value: **{x: 0, y: 0, width: 0, height: 0}**
+   *     <br>The abnormal values **undefined** and **null** are processed as the default value. [since 7 - 17]
+   * @param { ViewportRect } value - Viewport drawing attribute.<br>Default value: **{x: 0, y: 0, width: 0, height: 0}**
+   *     <br>The abnormal values **undefined** and **null** are processed as the default value. [since 18]
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -198,9 +212,9 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * [attributeModifier]{@link CommonMethod#attributeModifier}
    * . If this attribute is not set, the default stroke opacity is **0**, meaning no stroke is displayed.
    *
-   * @param { ResourceColor } value - Stroke color.<br>Default value: [Color]{@link enums:Color}.Transparent<br>Invalid
+   * @param { ResourceColor } value - Stroke color.<br>Default value: [Color]{@link Color}.Transparent<br>Invalid
    *     values **undefined** and **null** values are treated as the default value, and invalid values **NaN** and
-   *     **Infinity** are treated as [Color]{@link enums:Color}.Black.
+   *     **Infinity** are treated as [Color]{@link Color}.Black.
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -217,7 +231,7 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
    * . Invalid values are treated as the default value. If this attribute and the universal attribute 
    * **foregroundColor** are both set, whichever is set later takes effect.
    *
-   * @param { ResourceColor } value - Color of the fill area.<br>Default value: [Color]{@link enums:Color}.Black<br>The
+   * @param { ResourceColor } value - Color of the fill area.<br>Default value: [Color]{@link Color}.Black<br>The
    *     **undefined**, **null**, **NaN**, and **Infinity** values are invalid and treated as the default value.
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -412,31 +426,42 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
   antiAlias(value: boolean): ShapeAttribute;
 
   /**
-   * Sets the mesh effect. An image is divided into (row + 1) × (column + 1) meshes. The coordinates of each mesh 
-   * intersection point are stored in the array. (Every two elements indicate the x and y coordinates of an intersection
-   * point.) The mesh vertex position is relocated based on the coordinates in the array value to implement partial 
-   * image distortion. This attribute can be dynamically set using 
-   * [attributeModifier]{@link CommonMethod#attributeModifier}
-   * .
-   * 
+   * Sets the mesh effect. Divides the image into a grid of (row + 1) × (column + 1), with the coordinates of each
+   * grid intersection stored in an array (every two elements represent the x and y coordinates of an intersection).
+   * The coordinates in the **value** array are used to reposition the grid vertices, implementing local distortion of
+   * the image. This attribute can be dynamically set using
+   * [attributeModifier]{@link CommonMethod#attributeModifier}. It is applicable to scenarios that require image
+   * deformation effects, such as image distortion and wave effects.
+   *
+   * The coordinate array is stored in row-major order. After the original image is evenly divided, each grid area is
+   * transformed based on the new coordinates of its vertices, ultimately producing a distortion effect.
+   *
    * > **NOTE**
    * >
-   * > **mesh** takes effect only when a **pixelMap** object is passed to the shape, and the effect applies to the 
-   * > passed **pixelMap** object. It produces the same result as 
-   * > [drawPixelMapMesh<sup>12+</sup>]{@link @ohos.graphics.drawing:drawing.Canvas.drawPixelMapMesh} in the 
-   * > [drawing module]{@link @ohos.graphics.drawing:drawing}. It is recommended that you use 
+   * > **mesh** takes effect only when a **pixelMap** object is passed to the shape, and the effect applies to the
+   * > passed **pixelMap** object. It produces the same result as
+   * > [drawPixelMapMesh<sup>12+</sup>]{@link @ohos.graphics.drawing:drawing.Canvas#drawPixelMapMesh} in the
+   * > [drawing module]{@link @ohos.graphics.drawing:drawing}. It is recommended that you use
    * > **drawPixelMapMesh**.
    *
-   * @param { Array<any> } value - Array with a length of (row + 1) × (column + 1) × 2, which records the position of
-   *     each vertex of the distorted bitmap.<br>Invalid values **undefined** and **null** are treated as an empty
-   *     array. If the value is set to an empty array, the values of **column** and **row** are handled as **0**, and
-   *     the value is handled as an empty array.
-   * @param { number } column - Number of mesh matrix columns.<br>If the value is **undefined**, **null**, **NaN**, or
-   *     **Infinity**, the values of **column** and **row** are treated as **0**, and the value of **value** is treated
-   *     as an empty array.
-   * @param { number } row - Number of mesh matrix rows.<br>If the value is **undefined**, **null**, **NaN**, or
-   *     **Infinity**, the values of **column** and **row** are treated as **0**, and the value of **value** is treated
-   *     as an empty array.
+   * @param { Array<any> } value - Array of length (row + 1) × (column + 1) × 2, which records the position of each
+   *     vertex of the distorted bitmap. The coordinate system is based on the display area of the **Shape**
+   *     component, with the origin (0,0) at the upper left corner, the x-axis extending to the right, and the
+   *     y-axis extending downward.
+   *     <br>Default unit: vp
+   *     <br>When the abnormal values **undefined** and **null** are set, the parameter is processed as an empty
+   *     array.
+   * @param { number } column - Number of columns in the mesh matrix.
+   *     <br>The value range is ≥ 0.
+   *     <br>Default value: **0**
+   *     <br>When the abnormal values **undefined**, **null**, **NaN**, and **Infinity** are set, the column and row
+   *     parameters are processed as the default value **0**, and the value parameter is processed as an empty array.
+   * @param { number } row - Number of rows in the mesh matrix.
+   *     <br>The value range is ≥ 0.
+   *     <br>Default value: **0**
+   *     <br>When the abnormal values **undefined**, **null**, **NaN**, and **Infinity** are set, the column and row
+   *     parameters are processed as the default value **0**, and the **value** parameter is processed as an empty
+   *     array.
    * @returns { ShapeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -461,9 +486,9 @@ declare class ShapeAttribute extends CommonMethod<ShapeAttribute> {
  * >
  * > **Child Components**
  * >
- * > The following child components are supported: [Rect]{@link Rect}, [Path]{@link Path}, [Circle]{@link Circle},
- * [Ellipse]{@link Ellipse}, [Polyline]{@link Polyline}, [Polygon]{@link Polygon}, [Image]{@link Image},
- * [Text]{@link Text}, [Column]{@link Column}, [Row]{@link Row}, and **Shape**.
+ * > The following child components are supported: [Rect]{@link rect}, [Path]{@link path}, [Circle]{@link circle},
+ * [Ellipse]{@link ellipse}, [Polyline]{@link polyline}, [Polygon]{@link polygon}, [Image]{@link image},
+ * [Text]{@link text}, [Column]{@link column}, [Row]{@link row}, and **Shape**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

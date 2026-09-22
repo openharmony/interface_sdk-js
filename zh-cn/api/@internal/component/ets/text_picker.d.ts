@@ -230,7 +230,7 @@ interface TextPickerInterface {
    * @param { TextPickerOptions } options - 配置文本选择器的参数。当需要自定义选择器的数据源、选中项、列宽等配置时传入此参数。参数缺省时
    *     组件无法显示。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -494,7 +494,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>设置该参数后，选中项与非选中项的高度均为所设置的值。
    *     <br>当value的值为负数时，使用默认值。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -516,7 +516,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>1. 设置该参数后，选中项与非选中项的高度均为所设置的值。
    *     <br>2. 当height的值为undefined时，维持上次取值。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -532,7 +532,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>- false：不可循环。
    *     <br>默认值：true
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
    * @atomicservice [since 11]
@@ -550,7 +550,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>默认值：true
    *     <br>当isLoop的值为undefined时，使用默认值。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -566,13 +566,13 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>{
    *     <br>color: '#ff182431',
    *     <br>font: {
-   *     <br>size: '14fp', 
+   *     <br>size: '14fp',
    *     <br>weight: FontWeight.Regular
    *     <br>}
    *     <br>}
    *     <br>**说明**：未调用该方法设置样式时，使用默认值。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
@@ -590,13 +590,13 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>{
    *     <br>color: '#ff182431',
    *     <br>font: {
-   *     <br>size: '14fp', 
+   *     <br>size: '14fp',
    *     <br>weight: FontWeight.Regular
    *     <br>}
    *     <br>}
    *     <br>当style的值为undefined时，使用默认值。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -615,7 +615,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>{
    *     <br>color: '#ff182431',
    *     <br>font: {
-   *     <br>size: '14fp', 
+   *     <br>size: '14fp',
    *     <br>weight: FontWeight.Regular
    *     <br>},
    *     <br>minFontSize: 0,
@@ -624,7 +624,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>}
    *     <br>当style的值为undefined时，使用默认值。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -640,13 +640,13 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>{
    *     <br>color: '#ff182431',
    *     <br>font: {
-   *     <br>size: '16fp', 
+   *     <br>size: '16fp',
    *     <br>weight: FontWeight.Regular
    *     <br>}
    *     <br>}
    *     <br>**说明**：未调用该方法设置样式时，使用默认值。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
@@ -664,13 +664,13 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>{
    *     <br>color: '#ff182431',
    *     <br>font: {
-   *     <br>size: '16fp', 
+   *     <br>size: '16fp',
    *     <br>weight: FontWeight.Regular
    *     <br>}
    *     <br>}
    *     <br>当style的值为undefined时，使用默认值。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -689,7 +689,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>{
    *     <br>color: '#ff182431',
    *     <br>font: {
-   *     <br>size: '16fp', 
+   *     <br>size: '16fp',
    *     <br>weight: FontWeight.Regular
    *     <br>},
    *     <br>minFontSize: 0,
@@ -698,7 +698,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>}
    *     <br>当style的值为undefined时，使用默认值。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -714,13 +714,13 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>{
    *     <br>color: '#ff007dff',
    *     <br>font: {
-   *     <br>size: '20fp', 
+   *     <br>size: '20fp',
    *     <br>weight: FontWeight.Medium
    *     <br>}
    *     <br>}
    *     <br>**说明**：未调用该方法设置样式时，使用默认值。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
@@ -738,13 +738,13 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>{
    *     <br>color: '#ff007dff',
    *     <br>font: {
-   *     <br>size: '20fp', 
+   *     <br>size: '20fp',
    *     <br>weight: FontWeight.Medium
    *     <br>}
    *     <br>}
    *     <br>当style的值为undefined时，使用默认值。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -763,7 +763,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>{
    *     <br>color: '#ff007dff',
    *     <br>font: {
-   *     <br>size: '20fp', 
+   *     <br>size: '20fp',
    *     <br>weight: FontWeight.Medium
    *     <br>},
    *     <br>minFontSize: 0,
@@ -772,7 +772,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>}
    *     <br>当style的值为undefined时，使用默认值。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -793,7 +793,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * {@link TextPickerAttribute#defaultTextStyle}，则显示为[Text]{@link ./text}组件默认样式。设置为false时，使用系统默认的滑动文本
    * 样式变化动效。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -808,7 +808,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { TextPickerTextStyle } style - 设置关闭滑动过程中文本样式变化的动效时，各个选项的文本样式。
    *     <br>默认值：与[Text]{@link ./text}组件默认值相同。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -825,7 +825,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *
    * @param { function } callback
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 8 dynamiconly
    * @deprecated since 10
@@ -839,9 +839,9 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * >
    * > 从API version 8开始支持，从API version 10开始废弃。此接口已完全移除，无替代接口。
    *
-   * @param { function } callback
+   * @param { function } callback - Callback invoked when the cancel button in the dialog box is clicked.
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 8 dynamiconly
    * @deprecated since 10
@@ -857,7 +857,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *
    * @param { function } callback
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -877,7 +877,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { Optional<OnTextPickerChangeCallback> } callback - 滑动选中TextPicker文本内容后，触发的回调。
    *     <br>当callback的值为undefined时，不使用回调函数。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -901,7 +901,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *
    * @param { TextPickerScrollStopCallback } callback - 文本选择器的选项列滑动停止时触发该事件。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -927,7 +927,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { Optional<TextPickerScrollStopCallback> } callback - 文本选择器的选项列滑动停止时触发该事件。
    *     <br>当callback的值为undefined时，不使用回调函数。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -959,7 +959,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *
    * @param { TextPickerEnterSelectedAreaCallback } callback - 滑动TextPicker过程中，选项进入分割线区域时触发的回调。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -972,11 +972,11 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * number类型。多列数据选择器使用number[]类型。
    *
    * @param { number | number[] } value - 选中项在数据选择列表中的索引值，索引从0开始。
-   *     <br>默认值：0 
+   *     <br>默认值：0
    *     <br>当value的值为负数或者超过数据选择列表的最大索引值时，使用默认值。
    *     <br>
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
@@ -990,12 +990,12 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * {@link TextPickerAttribute#selectedIndex(value: number | number[])}相比，index参数新增了对undefined类型的支持。
    *
    * @param { Optional<number | number[]> } index - 选中项在数据选择列表中的索引值，索引从0开始。
-   *     <br>默认值：0 
+   *     <br>默认值：0
    *     <br>当index的值为undefined时，使用[TextPickerOptions]{@link TextPickerOptions}中的selected值。
    *     <br>当index的值为负数或者超过数据选择列表的最大索引值时，使用默认值。
    *     <br>
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1010,7 +1010,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *
    * @param { DividerOptions | null } value
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1027,16 +1027,16 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *
    * @param { Optional<DividerOptions | null> } textDivider - 默认值：
    *     <br>{
-   *     <br>strokeWidth: '2px', 
-   *     <br>startMargin: 0, 
-   *     <br>endMargin: 0, 
+   *     <br>strokeWidth: '2px',
+   *     <br>startMargin: 0,
+   *     <br>endMargin: 0,
    *     <br>color: '#33000000'
    *     <br>}
    *     <br>1. 当textDivider的值为undefined时，使用默认值。
    *     <br>2. 当textDivider设置为有效的[DividerOptions]{@link DividerOptions}时，按设置的样式显示分割线。
    *     <br>3. 当textDivider设置为null时，不显示分割线。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1056,7 +1056,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>3. value设置为数字且超过TextPicker高度的一半时，使用默认值。
    *     <br>4. 当value的值为负数时，使用默认值。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1073,7 +1073,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>默认值：true
    *     <br>设置为true后，其生效情况取决于系统的硬件是否支持。若硬件不支持触控反馈功能，开启该功能不会产生触控反馈效果，也不会抛出异常。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 26.0.0]
    * @atomicservice
@@ -1095,7 +1095,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>3. height设置为数字且超过TextPicker高度的一半时，使用默认值。
    *     <br>4. 当height的值为undefined或负数时，使用默认值。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1110,7 +1110,7 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    *     <br>默认值：CrownSensitivity.MEDIUM，响应速度适中。不同灵敏度值影响表冠滚动速度与选择项切换速度的对应关系，
    *     具体各枚举值的效果请参考[CrownSensitivity]{@link CrownSensitivity}。
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1124,12 +1124,12 @@ declare class TextPickerAttribute extends CommonMethod<TextPickerAttribute> {
    * @param { Optional<PickerBackgroundStyle> } style - 选中项背景的颜色和边框圆角半径，
    *     多列模式时会同时设置所有列的选中项背景的颜色和圆角半径。
    *     <br>默认值：
-   *     <br>{ 
+   *     <br>{
    *     <br>color: $r('sys.color.comp_background_tertiary'),
    *     <br>borderRadius: $r('sys.float.corner_radius_level12')
    *     <br>}
    * @returns { TextPickerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1210,10 +1210,10 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
 
   /**
    * 设置是否可循环滚动。
-   * 
+   *
    * - true：可循环。
    * - false：不可循环。
-   * 
+   *
    * 默认值：true
    *
    * @default true
@@ -1351,7 +1351,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
 
   /**
    * 设置关闭滑动过程中文本样式变化动效时的各个选项的文本样式，仅当disableTextStyleAnimation为true时生效。
-   * 
+   *
    * 默认值：与[Text]{@link ./text}组件默认值相同。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1441,7 +1441,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
 
   /**
    * 弹窗在竖直方向上的对齐方式。
-   * 
+   *
    * 默认值：DialogAlignment.Default
    *
    * @default DialogAlignment.Default [since 11]
@@ -1616,7 +1616,7 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
 
   /**
    * 设置弹窗背板的阴影。
-   * 
+   *
    * 当设备为2in1时，默认场景下获焦阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦为ShadowStyle.OUTER_FLOATING_SM
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1731,10 +1731,10 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
 
   /**
    * 设置是否可循环滚动。
-   * 
+   *
    * - true：可循环。
    * - false：不可循环。
-   * 
+   *
    * 默认值：true
    *
    * @default true
@@ -2137,7 +2137,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
 
   /**
    * 设置弹窗背板的阴影。
-   * 
+   *
    * 当设备为2in1时，默认场景下获焦阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦为ShadowStyle.OUTER_FLOATING_SM
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2150,10 +2150,10 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
 
   /**
    * 是否响应悬停态。
-   * 
+   *
    * - true：响应悬停态。
    * - false：不响应悬停态。
-   * 
+   *
    * 默认值：false
    *
    * @default false
@@ -2282,7 +2282,7 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
 }
 
 /**
- * Defines TextPickerDialog which uses show method to show TextPicker dialog.
+ * 根据指定的选择范围创建文本滑动选择器，展示在弹窗上。该组件适用于设置页面、表单录入、数据筛选等需要用户从预设选项中选择文本的场景。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

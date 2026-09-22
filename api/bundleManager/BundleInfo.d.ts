@@ -25,6 +25,7 @@
 
 import { ApplicationInfo } from './ApplicationInfo';
 import { HapModuleInfo, RouterItem } from './HapModuleInfo';
+import { Validity } from './AppProvisionInfo';
 import bundleManager from './../@ohos.bundle.bundleManager';
 
 /**
@@ -461,6 +462,16 @@ export interface SignatureInfo {
    * @since 23 static
    */
   readonly certificate?: string;
+
+  /**
+   * Validity period in the signing certificate file.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.1 dynamic&static
+   */
+  readonly validity?: Validity;
 }
 
 /**

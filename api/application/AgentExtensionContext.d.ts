@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Agent Extension Context
  * @kit AbilityKit
  */
 
@@ -22,7 +22,18 @@ import { AgentCard } from './AgentCard';
 import ExtensionContext from './ExtensionContext';
 
 /**
- * The context of the agent service extension. It provides resources and methods that developers can access.
+ * AgentExtensionContext is the context environment of
+ * [AgentExtensionAbility]{@link @ohos.app.agent.AgentExtensionAbility}, inheriting from
+ * [ExtensionContext]{@link ./ExtensionContext:ExtensionContext}.
+ *
+ * AgentExtensionContext provides developers with the capability to access the
+ * [AgentCard]{@link ./AgentCard} information configured by the current
+ * [AgentExtensionAbility]{@link @ohos.app.agent.AgentExtensionAbility} agent.
+ *
+ * > **NOTE**
+ * >
+ * > - In the examples in this document, `this.context` is used to obtain the `AgentExtensionContext`, where `this`
+ * > represents an instance inheriting from `AgentExtensionAbility`.
  *
  * @extends ExtensionContext
  * @syscap SystemCapability.Ability.AgentRuntime.Core
@@ -32,7 +43,9 @@ import ExtensionContext from './ExtensionContext';
  */
 declare class AgentExtensionContext extends ExtensionContext {
   /**
-   * Indicates the agent card of the current agent.
+   * The [AgentCard]{@link ./AgentCard:AgentCard} information configured by the current
+   * [AgentExtensionAbility]{@link @ohos.app.agent.AgentExtensionAbility} agent, used to describe the basic
+   * information and capabilities of the agent.
    *
    * @type { AgentCard }
    * @syscap SystemCapability.Ability.AgentRuntime.Core

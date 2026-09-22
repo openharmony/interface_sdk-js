@@ -14,7 +14,7 @@
 */
 
 /**
- * @file
+ * @file (媒体服务)
  * @kit MediaKit
  */
 
@@ -1117,7 +1117,7 @@ declare namespace media {
     fetchAlbumCover(callback: AsyncCallback<image.PixelMap | undefined>): void;
 
     /**
-     * 获取专辑封面。使用Promise异步回调。
+     * 获取音频专辑封面。使用Promise异步回调。
      *
      * @returns { Promise<image.PixelMap> } Promise对象。异步返回专辑封面。
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
@@ -1129,7 +1129,7 @@ declare namespace media {
     fetchAlbumCover(): Promise<image.PixelMap>;
 
     /**
-     * 获取专辑封面。使用Promise异步回调。
+     * 获取音频专辑封面。使用Promise异步回调。
      *
      * @returns { Promise<image.PixelMap | undefined> } Promise对象。异步返回专辑封面。
      * @throws { BusinessError } 5400102 - Operation not allowed. Returned by promise.
@@ -1653,6 +1653,7 @@ declare namespace media {
    * 
    * > **说明：**
    * >
+   * > - 本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
    * > - 本Interface首批接口从API version 12开始支持。
    *
    * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
@@ -1867,7 +1868,7 @@ declare namespace media {
     /**
      * 输出的缩略图颜色格式。
      * 
-     * **System API**: This is a system API.
+     * **系统接口**: 此接口为系统接口。
      *
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi
@@ -1879,7 +1880,7 @@ declare namespace media {
     /**
      * 当视频具有镜像属性（垂直翻转或水平翻转）时，自动翻转缩略图。如果该值为false，则返回的缩略图将不会翻转。
      * 
-     * **System API**: This is a system API.
+     * **系统接口**: 此接口为系统接口。
      *
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi
@@ -1899,7 +1900,7 @@ declare namespace media {
    */
   enum PixelFormat {
     /**
-     * RGB_565.
+     * 表示RGB_565颜色格式。
      *
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi
@@ -1909,7 +1910,7 @@ declare namespace media {
     RGB_565 = 2,
 
     /**
-     * RGBA_8888.
+     * 表示RGBA_8888颜色格式。
      *
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi
@@ -1919,7 +1920,7 @@ declare namespace media {
     RGBA_8888 = 3,
 
     /**
-     * RGB_888.
+     * 表示RGB_888颜色格式。
      *
      * @syscap SystemCapability.Multimedia.Media.AVImageGenerator
      * @systemapi

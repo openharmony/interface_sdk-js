@@ -124,7 +124,7 @@ declare namespace uiAppearance {
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION [since 10 - 19]
    * @returns { DarkMode } current dark-mode.
-   * @throws { BusinessError } 201 - Permission denied. [since 10 - 19]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API. [since 10 - 19]
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use [since 10 - 19]
@@ -170,7 +170,7 @@ declare namespace uiAppearance {
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION [since 12 - 19]
    * @returns { number } current font-scale.
-   * @throws { BusinessError } 201 - Permission denied. [since 12 - 19]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API. [since 12 - 19]
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
    *     API. [since 12 - 19]
    * @throws { BusinessError } 500001 - Internal error.
@@ -214,7 +214,7 @@ declare namespace uiAppearance {
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION [since 12 - 19]
    * @returns { number } current font-weight-scale.
-   * @throws { BusinessError } 201 - Permission denied. [since 12 - 19]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API. [since 12 - 19]
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
    *     API. [since 12 - 19]
    * @throws { BusinessError } 500001 - Internal error.

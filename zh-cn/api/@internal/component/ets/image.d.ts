@@ -481,7 +481,7 @@ interface ImageInterface {
    *     [AnimatedDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:AnimatedDrawableDescriptor}类型可播放PixelMap数组动画。
    *     <br>**说明：**<br/>- ArkTS卡片上支持gif图片格式动效，但仅在显示时播放一次。<br/>- ArkTS卡片上不支持http://等网络相关路径前缀和file://路径前缀的字符串。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 9]
@@ -500,7 +500,7 @@ interface ImageInterface {
    *     <br> 传入[ImageContent]{@link ImageContent}类型，指定图像内容。
    *     <br>**说明：**<br/>- ArkTS卡片上支持gif图片格式动效，但仅在显示时播放一次。<br/>- ArkTS卡片上不支持http://等网络相关路径前缀和file://路径前缀的字符串。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -515,7 +515,7 @@ interface ImageInterface {
    * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent } src
    * @param { string } [reloadKey]
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -534,7 +534,7 @@ interface ImageInterface {
    *     <br>**说明：**<br/>- ArkTS卡片上支持gif图片格式动效，但仅在显示时播放一次。<br/>- ArkTS卡片上不支持http://等网络相关路径前缀和file://路径前缀的字符串。
    * @param { ImageAIOptions } imageAIOptions - 给组件设置一个AI分析选项，通过此项可配置分析类型或绑定一个分析控制器。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
@@ -548,7 +548,7 @@ interface ImageInterface {
    * @param { ImageAIOptions } [imageAIOptions]
    * @param { string } [reloadKey]
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -731,34 +731,34 @@ declare class ColorContent {
 }
 
 /**
- * Image为图片组件，常用于在应用中显示图片。Image支持加载[PixelMap]{@link @ohos.multimedia.image:image.PixelMap}、	 
- * [ResourceStr]{@link ResourceStr}和[DrawableDescriptor]{@link DrawableDescriptor}类型的数据源，	 
- * 支持png、jpg、jpeg、bmp、	 
- * svg、webp、gif、heif和tiff类型的图片格式，不支持apng和svga格式。	 
- * 
- * > **说明：** 
- * 
- * > - 从API version 23开始，图片类型新增支持tiff格式。 
- * > 
- * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link ./with_theme}。 
- * > 
- * > - 使用快捷组合键对Image组件复制时，Image组件必须处于获焦状态，如何获焦请参考[设置组件是否可获焦] 
- * >   (docroot://ui/arkts-common-events-focus-event.md#设置组件是否可获焦)。Image组件默认不获焦， 
- * >   需将[focusable]{@link CommonMethod#focusable}属性设置为true，即可使用Tab键将焦点切换到组件上，再将 
- * >   [focusOnTouch]{@link CommonMethod#focusOnTouch}属性设置为true，即可实现点击获焦。 
- * > 
- * > - 图片格式支持SVG图源，SVG标签文档请参考[SVG标签说明]{@link ./common}。 
- * > 
- * > - 动图的播放依赖于Image节点的可见性变化，其默认行为是不播放的。当节点可见时， 
- * >   通过回调启动动画，当节点不可见时，停止动画。 
- * >   可见性状态的判断是通过[onVisibleAreaChange] 
- * >   {@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)} 
- * >   事件触发的，当可见阈值ratios大于0时，表明Image处于可见状态。 
- * > 
- * > - Image组件播放GIF动图时，帧时长取自GIF文件中各帧的delay time字段。当某帧的时长值小于等于0时， 
- * >   系统会将其修正为100ms； 
- * >   当某帧的时长值大于0时，系统直接使用该原始值，不做最小帧时长限制。 
- * > 
+ * Image为图片组件，常用于在应用中显示图片。Image支持加载[PixelMap]{@link @ohos.multimedia.image:image.PixelMap}、
+ * [ResourceStr]{@link ResourceStr}和[DrawableDescriptor]{@link DrawableDescriptor}类型的数据源，
+ * 支持png、jpg、jpeg、bmp、
+ * svg、webp、gif、heif和tiff类型的图片格式，不支持apng和svga格式。
+ *
+ * > **说明：**
+ *
+ * > - 从API version 23开始，图片类型新增支持tiff格式。
+ * >
+ * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link ./with_theme}。
+ * >
+ * > - 使用快捷组合键对Image组件复制时，Image组件必须处于获焦状态，如何获焦请参考[设置组件是否可获焦]
+ * >   (docroot://ui/arkts-common-events-focus-event.md#设置组件是否可获焦)。Image组件默认不获焦，
+ * >   需将[focusable]{@link CommonMethod#focusable}属性设置为true，即可使用Tab键将焦点切换到组件上，再将
+ * >   [focusOnTouch]{@link CommonMethod#focusOnTouch}属性设置为true，即可实现点击获焦。
+ * >
+ * > - 图片格式支持SVG图源，SVG标签文档请参考[SVG标签说明]{@link ./common}。
+ * >
+ * > - 动图的播放依赖于Image节点的可见性变化，其默认行为是不播放的。当节点可见时，
+ * >   通过回调启动动画，当节点不可见时，停止动画。
+ * >   可见性状态的判断是通过[onVisibleAreaChange]
+ * >   {@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}
+ * >   事件触发的，当可见阈值ratios大于0时，表明Image处于可见状态。
+ * >
+ * > - Image组件播放GIF动图时，帧时长取自GIF文件中各帧的delay time字段。当某帧的时长值小于等于0时，
+ * >   系统会将其修正为100ms；
+ * >   当某帧的时长值大于0时，系统直接使用该原始值，不做最小帧时长限制。
+ * >
  *
  * 除支持[通用事件]{@link ./common}外，还支持以下事件：
  *
@@ -792,7 +792,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *     [fileUri.getUriFromPath(path)]{@link @ohos.file.fileuri:fileUri.getUriFromPath}方法将路径转换为应用沙箱URI，然后传入显示。同时需要保证目录包
    *     路径下的文件有可读权限。<br/>默认值：null<br/>由有效值（可正常解析并加载的图片资源）切换为无效值（无法解析或加载的图片路径）时，组件保持显示此前成功加载的图片内容，不进行清除或重置操作。 [since 12]
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 9]
@@ -819,7 +819,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *     [fileUri.getUriFromPath(path)]{@link @ohos.file.fileuri:fileUri.getUriFromPath}方法将路径转换为应用沙箱URI，然后传入显示。同时需要保证目录包
    *     路径下的文件有可读权限。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -835,7 +835,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *
    * @param { boolean } value - 图片是否跟随系统语言方向。<br/>默认值：false，false表示图片不跟随系统语言方向，true表示图片跟随系统语言方向，在RTL语言环境下显示镜像翻转显示效果。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 9]
@@ -854,7 +854,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value - 图片的显示尺寸是否跟随图源尺寸。<br/>默认值：false <br/>**说明：**<br/>当不设置fitOriginalSize或者设置fitOriginalSize为
    *     false时，组件显示大小不跟随图源大小。<br/> 当设置fitOriginalSize为true时，组件显示大小跟随图源大小。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 9]
@@ -873,7 +873,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *     API version 21开始，当[supportSvg2]{@link ImageAttribute#supportSvg2}设置为true时，fillColor依赖SVG图源中fill属性的参数配置。当SVG图源中
    *     fill属性为'none'时，fillColor不生效。当supportSvg2设置为false时，fillColor生效，替换SVG图片中所有可绘制元素的填充颜色。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 9]
@@ -893,7 +893,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *     色模式下为白色。 <br/>从API version 21开始，当[supportSvg2]{@link ImageAttribute#supportSvg2}设置为true时，fillColor依赖SVG图源中fill属
    *     性的参数配置。当SVG图源中fill属性为'none'时，fillColor不生效。当supportSvg2设置为false时，fillColor生效，替换SVG图片中所有可绘制元素的填充颜色。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -914,7 +914,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *     fillColor依赖SVG图源中fill属性的参数配置。当SVG图源中fill属性为'none'时，fillColor不生效。当supportSvg2设置为false时，fillColor生效，替换SVG图片中所有可绘制
    *     元素的填充颜色。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -927,7 +927,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *
    * @param { ImageFit } value - 图片的填充效果。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 9]
@@ -947,7 +947,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *
    * @param { ImageMatrix } matrix - 图片的变换矩阵。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -964,7 +964,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *
    * @param { ImageRepeat } value - 图片的重复样式。<br/>默认值：ImageRepeat.NoRepeat
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 9]
@@ -989,7 +989,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *     00，则图片会降采样解码到200x300的尺寸（实际计算过程中会依赖缩放和填充类型的配置，从而得到的计算结果会有差异），从而大幅度节省图片占用的内存。<br/>默认值：false，false表示关闭图源自动缩放，true表
    *     示开启图源自动缩放。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 9]
@@ -1007,7 +1007,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *
    * @param { ImageRenderMode } value - 图片的渲染模式为原色或黑白。<br/>默认值：ImageRenderMode.Original
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 9]
@@ -1042,7 +1042,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { number } brightness - 用于调整组件展示HDR图片的亮度，该接口仅对HDR图源生效。<br/>默认值：1.0<br/>取值范围：[0.0, 1.0]，小于0和大于1.0时取1.0。0表示图片按照
    *     SDR亮度显示，1.0表示图片按照当前允许的最高HDR亮度显示。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 19 dynamic
@@ -1057,7 +1057,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageInterpolation } value - 图片的插值效果。<br/>默认值：ImageInterpolation.Low<br/>设置undefined时，取值为
    *     ImageInterpolation.None。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 9]
@@ -1078,7 +1078,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageSourceSize } value - 图片解码尺寸参数，降低图片的分辨率，常用于需要让图片显示尺寸比组件尺寸更小的场景。和
    *     [objectFit]{@link ImageAttribute#objectFit}接口的ImageFit.None配合使用时可在组件内显示小图。 [since 18]
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 9]
@@ -1098,7 +1098,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value - 是否同步加载图片，默认是异步加载。同步加载时阻塞UI线程，不会显示占位图。<br/>默认值：false，false表示异步加载图片，true表示同步加载图片。<br/>阻塞主线
    *     程超过6s将导致AppFreeze，具体参考[AppFreeze（应用冻屏）检测](docroot://dfx/appfreeze-guidelines.md)。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 9]
@@ -1117,15 +1117,23 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * > API version 11及之前，SVG类型图源不支持该属性。从API version 12开始，SVG类型的图源只有设置了stroke属性（无论是否有值）才会生效。
    *
    * @param { ColorFilter } value - 1. 图片的颜色滤镜。输入参数为一个 4 x 5 的 RGBA 变换矩阵。
-   *     2. 从 API 版本 12 开始，可以使用 **@ohos.graphics.drawing** 中的 ColorFilter 类型作为输入参数。**注意**<br>在 API 版本 11 及更早版本中，此参数对 SVG 图片无效。
-   *     从 API 版本 12 起，DrawingColorfilter 类型可在原子化服务中使用。对于 SVG 源，仅当设置了 **stroke** 属性时（无论其值如何），该效果才生效。
-   *     从 API 版本 21 开始，当 [supportSvg2]{@link ImageAttribute#supportSvg2} 设置为 **true** 时，**colorFilter** 将作用于整个 SVG 图片源。[since 9 - 11]
+   *     2. 从 API 版本 12 开始，可以使用 **@ohos.graphics.drawing** can be used as an input parameter since API
+   *     version 12.<br>**NOTE**<br>This parameter is not available for SVG images in API version 11 and earlier
+   *     versions.<br>The DrawingColorfilter type can be used in atomic services since API version 12. For SVG sources,
+   *     the effect only applies when the **stroke** property is set (regardless of the value).<br>Since API version 21,
+   *     when [supportSvg2]{@link ImageAttribute#supportSvg2} is set to **true**, **colorFilter** takes effect on the
+   *     entire SVG image source. [since 9 - 11]
    * @param { ColorFilter | DrawingColorFilter } value - 1. 给图像设置颜色滤镜效果，入参为一个4x5的RGBA转换矩阵。<br/>2. 从API version12开始支持@
    *     ohos.graphics.drawing的ColorFilter类型作为入参。<br/>**说明：** <br/>API version 11及之前，SVG类型图源不支持该属性。<br/>从API version 12开
    *     始，该接口中的DrawingColorFilter类型支持在原子化服务中使用。其中，SVG类型的图源只有设置了stroke属性（无论是否有值）才会生效。<br/>从API version 21开始，当
-   *     [supportSvg2]{@link ImageAttribute#supportSvg2}属性设置为true时，colorFilter属性对整个SVG图源起作用。 [since 12]
+   *     [supportSvg2]{@link ImageAttribute#supportSvg2}属性设置为true时，colorFilter属性对整个SVG图源起作用。 [since 12]*@ohos.graphics.drawing** can be used as an input
+   *     parameter since API version 12.<br>**NOTE**<br>This parameter is not available for SVG images in API version 11
+   *     and earlier versions.<br>The DrawingColorfilter type can be used in atomic services since API version 12. For
+   *     SVG sources, the effect only applies when the **stroke** property is set (regardless of the value).<br>Since
+   *     API version 21, when [supportSvg2]{@link ImageAttribute#supportSvg2} is set to **true**, **colorFilter** takes
+   *     effect on the entire SVG image source. [since 12]
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form
    * @atomicservice [since 11]
@@ -1147,7 +1155,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *     [createBlendModeColorFilter]{@link @ohos.graphics.drawing:drawing.ColorFilter.createBlendModeColorFilter(color: common2D.Color, mode: BlendMode)}
    *     的SRC_ATOP模式进行绘制（该模式表示滤镜颜色与目标图像叠加，滤镜覆盖在目标上方）。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -1163,7 +1171,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *
    * @param { CopyOptions } value - 图片是否可复制。<br/>默认值：CopyOptions.None
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form
@@ -1178,7 +1186,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } value - 组件默认拖拽效果，设置为true时，组件可拖拽，绑定的长按手势不生效。<br />API version 9及之前，默认值为false。API version 10及之后，默认
    *     值为true。<br /> 若用户需要设置自定义手势，则需要将draggable设置为false。设置为false之后，拖拽类事件不再触发。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 18]
    * @atomicservice [since 11]
@@ -1186,6 +1194,26 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    */
   draggable(value: boolean): ImageAttribute;
 
+  /**
+   * 设置位图图片边缘是否开启抗锯齿。未通过该接口设置时，默认不开启抗锯齿。SVG类型图片不支持该属性。
+   *
+   * > **说明：**
+   * >
+   * > 如果图片设置了背景色属性([backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)})，图片的抗锯齿属性设置为true不会影响背景色的
+   * > 锯齿效果。
+   * >
+   * > 和[resizable]{@link ImageAttribute#resizable}一起使用时，该属性不生效。
+   *
+   * @param { Optional<boolean> } isAntialiased - 设置位图图片边缘是否开启抗锯齿。<br/> true表示开启边缘抗锯齿；false表示不开启边缘抗锯齿。<br/>设置为undefined
+   *     时，不开启边缘抗锯齿。
+   * @returns { ImageAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  antialiased(isAntialiased: Optional<boolean>): ImageAttribute;
   /**
    * 设置点光源样式，用于为Image添加立体光照与高光效果，常见于3D风格卡片、图标悬浮态等场景。
    *
@@ -1550,7 +1578,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { ImageErrorCallback } callback - 图片加载异常时触发的回调。
    *     <br>**说明：**<br/>建议开发者使用此回调，可快速确认图片加载失败时的具体原因，参见[ImageError]{@link ImageError}的错误信息详细介绍。 [since 11]
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form
@@ -1567,7 +1595,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *
    * @param { function } event - 当加载的源文件为带动效的SVG格式图片时，SVG动效播放完成时会触发这个回调。如果动效为无限循环动效，则不会触发这个回调。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 9]
@@ -1606,7 +1634,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *
    * @param { boolean} enable - Image组件是否支持AI分析。<br/>设置为true时，Image组件支持AI分析。设置为false时，Image组件不支持AI分析。<br/>默认值：false
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice [since 12]
    * @since 11 dynamic
@@ -1618,7 +1646,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *
    * @param { ImageAnalyzerConfig } config - AI分析类型。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
@@ -1658,7 +1686,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *
    * @param { ResolutionQuality } imageQuality - 图像解码分辨率质量。<br/>默认值：ResolutionQuality.Low，即默认采用低分辨率解码以降低内存占用并提升解码性能。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
@@ -1671,7 +1699,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    * @param { boolean } supported - 是否支持卡片敏感隐私信息。<br/>默认值为false，表示不支持卡片敏感隐私信息，当设置为true时，隐私模式下图片将显示为半透明底板样式。<br/>**说明：**
    *     <br/>设置null则不敏感。<br/>进入隐私模式需要卡片框架支持。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @form
    * @atomicservice
@@ -1690,7 +1718,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *     ImageRotateOrientation.AUTO进行设置。<br/>默认值：ImageRotateOrientation.UP<br/>设置为undefined或null时，取值为
    *     ImageRotateOrientation.AUTO。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form [since 23]
@@ -1708,7 +1736,7 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *     <br>默认值：false
    *     <br>true：支持SVG解析新能力；false：保持原有SVG解析能力。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -1724,34 +1752,13 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
    *     ContentTransitionEffect.IDENTITY表示无动画效果。<br/>默认值：ContentTransitionEffect.IDENTITY <br/>设置为undefined或null时，取默认值
    *     ContentTransitionEffect.IDENTITY。<br/>**说明**：对动态图片资源不生效。
    * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
    */
   contentTransition(transition: ContentTransitionEffect): ImageAttribute;
-
-  /**
-   * 设置位图图片边缘是否开启抗锯齿。未通过该接口设置时，默认不开启抗锯齿。SVG类型图片不支持该属性。
-   *
-   * > **说明：**
-   * >
-   * > 如果图片设置了背景色属性([backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)})，图片的抗锯齿属性设置为true不会影响背景色的
-   * > 锯齿效果。
-   * >
-   * > 和[resizable]{@link ImageAttribute#resizable}一起使用时，该属性不生效。
-   *
-   * @param { Optional<boolean> } isAntialiased - 设置位图图片边缘是否开启抗锯齿。<br/> true表示开启边缘抗锯齿；false表示不开启边缘抗锯齿。<br/>设置为undefined
-   *     时，不开启边缘抗锯齿。
-   * @returns { ImageAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  antialiased(isAntialiased: Optional<boolean>): ImageAttribute;
 }
 
 /**
@@ -1776,14 +1783,6 @@ declare class ImageAttribute extends CommonMethod<ImageAttribute> {
  * > 事件触发的，当可见阈值ratios大于0时，表明Image处于可见状态。
  * >
  * > - Image组件播放GIF动图时，帧时长取自GIF文件中各帧的delay time字段。当某帧的时长值小于等于0时，系统会将其修正为100ms；当某帧的时长值大于0时，系统直接使用该原始值，不做最小帧时长限制。
- *
- * 需要权限
- *
- * 使用网络图片时，需要申请权限ohos.permission.INTERNET。具体申请方式请参考[声明权限](docroot://security/AccessToken/declare-permissions.md)。
- *
- * 子组件
- *
- * 无
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1937,7 +1936,7 @@ declare interface ResizableOptions {
    *
    * 设置了EdgeWidths后的效果如图1（设置EdgeWidths效果图）所示。
    *
-   * 单位：vp 
+   * 单位：vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1952,7 +1951,7 @@ declare interface ResizableOptions {
    *
    * **说明：**
    *
-   * 通过@ohos.graphics.drawing的[createImageLattice]{@link @ohos.graphics.drawing:drawing.Lattice.createImageLattice(xDivs: Array<number>, yDivs: Array<number>, 
+   * 通过@ohos.graphics.drawing的[createImageLattice]{@link @ohos.graphics.drawing:drawing.Lattice.createImageLattice(xDivs: Array<number>, yDivs: Array<number>,
    * fXCount: number, fYCount: number, fBounds?: common2D.Rect | null, fRectTypes?: Array<RectType> | null, fColors?: Array<common2D.Color> | null)}
    * 接口创建Lattice类型作为入参。将图像划分为矩形网格，同时处于偶数列和偶数行上的网格图像是固定的，不会被拉伸。其他位置的网格图像会根据slice进行拉伸。
    *

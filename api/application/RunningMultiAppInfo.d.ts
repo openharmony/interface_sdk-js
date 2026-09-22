@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file RunningMultiAppInfo
  * @kit AbilityKit
  */
 
@@ -24,13 +24,17 @@ import { RunningMultiInstanceInfo } from './RunningMultiInstanceInfo';
 
 /**
  * # How to Use
- * 
- * The RunningMultiAppInfo struct is obtained from 
- * [getRunningMultiAppInfo]{@link ./../@ohos.app.ability.appManager:appManager.getRunningMultiAppInfo} of 
- * **appManager**.
+ *
+ * The RunningMultiAppInfo struct is obtained from
+ * [getRunningMultiAppInfo]{@link ./../@ohos.app.ability.appManager:appManager.getRunningMultiAppInfo} of
+ * **appManager**. This API queries the multi-app running state information based on the application bundle name. The
+ * returned RunningMultiAppInfo structure contains the multi-app mode ([MultiAppMode]{@link MultiAppMode}) and the
+ * corresponding running instance information: When the application is in app-clone mode (APP_CLONE), the
+ * runningAppClones field returns app clone information; when the application is in multi-instance mode
+ * (MULTI_INSTANCE), the runningMultiInstances field returns multi-instance application information.
  */
 /**
- * The RunningMultiAppInfo module defines the information of an application in multi-app mode in the running state.
+ * Defines the structure information of application multi-app in the running state.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @systemapi

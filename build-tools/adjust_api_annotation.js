@@ -104,7 +104,6 @@ function adjustApiAnnotation(utFiles) {
         const newAnnotation = [];
         let isNeedChange = false;
         annotationArray.forEach((item) => {
-          if (isPublicApiAnnotation(item)) return;
           const match = item.match(ANNOTATION_SINCE_REGEX);
           let annotationTemp = item;
           if (match) {
@@ -246,12 +245,16 @@ function compareVersions(version1, version2) {
   };
 
   const extractOpenVersion = (str) => {
+    const match = str.match(/^(\d+)\.(\d+)\.(\d+)$/);
+    if (match) {
+      const x = parseInt(match[1]);
+      const y = parseInt(match[2]);
+      const z = parseInt(match[3]);
+      return x * 10000 + y * 100 + z;
+    }
+    
     const num = parseFloat(str);
     if (!isNaN(num)) return num * 10000;
-    const parts = str.split(".").map(Number);
-    if (parts.length === 3) {
-      return parts[0] * 10000 + parts[1] * 100 + parts[2];
-    }
     return null;
   };
   const v1 = extractClosedVersion(version1) || extractOpenVersion(version1);

@@ -286,6 +286,25 @@ declare namespace applicationManager {
   }
 
   /**
+   * 枚举备用资源类型。这些类型表示可以从设备待机中豁免的资源限制。当设备进入待机模式时，系统会限制
+   * 后台应用程序。通过申请备用资源豁免，指定的应用可以继续使用这些资源即使在设备处于待机模式时也是如此。
+   * 
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.1
+   */
+  enum StandbyResourceType {
+    /**
+     * 网络访问资源。启用后，指定的应用程序可在设备待机期间继续访问网络。
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.1
+     */
+    NETWORK = 1
+  }
+
+  /**
    * 添加应用至应用运行禁止名单，添加至禁止名单的应用不允许在当前用户下运行，不在禁止名单中的应用允许运行。使用callback异步回调。从API version 21开始，如果应用运行允许名单
    * [addAllowedRunningBundles]{@link applicationManager.addAllowedRunningBundles}非空，就不能再通过本接口添加应用运行禁止名单，否则会报9200010冲突错误
    * 码。
@@ -1837,6 +1856,48 @@ declare namespace applicationManager {
    * @since 26.0.0
    */
   function getApplicationWindowStates(admin: Want, bundleName: string, appIndex: number): Array<WindowStateInfo>;
+
+  /**
+   * 为指定的应用申请备用资源豁免。申请成功后，即使设备进入待机模式，指定的应用程序也可以使用豁免的资源（如网络访问）。
+   *
+   * 超过设定的时间后，系统会自动释放该豁免。如果企业管理员需要提前释放豁免，请调用{@link applicationManager.releaseExemptionResource}。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { StandbyResourceType } resourceType - 资源类型。
+   * @param { string } bundleName - 申请资源豁免的应用包名。
+   * @param { number } duration - 豁免时长。
+   *     <br>单位为：秒。取值应＞0。
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @throws { BusinessError } 9201002 - The application is not installed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.1
+   */
+  function requestExemptionResource(resourceType: StandbyResourceType, bundleName: string, duration: number): void;
+
+  /**
+   * 释放指定应用的备用资源豁免。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { StandbyResourceType } resourceType - 资源类型。
+   * @param { string } bundleName - 要为其释放资源豁免的应用包名。
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @throws { BusinessError } 9201002 - The application is not installed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.1
+   */
+  function releaseExemptionResource(resourceType: StandbyResourceType, bundleName: string): void;
 }
 
 export default applicationManager;

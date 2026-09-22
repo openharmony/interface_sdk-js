@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Multi App Mode
  * @kit AbilityKit
  */
 /**
@@ -46,9 +46,13 @@ export enum MultiAppMode {
   NOT_SUPPORTED = 0,
 
   /**
-   * The application supports the multi-instance mode.
+   * The application supports the multi-instance mode. When an application is set to this mode, users can open
+   * multiple application instances simultaneously on the same device. Each instance runs independently with its own
+   * running environment and resources.
    *
-   * Note: This property is valid only for 2-in-1 devices.
+   * > **NOTE**
+   * >
+   * > Only PC and 2-in-1 devices are supported.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi
@@ -59,7 +63,9 @@ export enum MultiAppMode {
   MULTI_INSTANCE = 1,
 
   /**
-   * The application supports the app-clone mode.
+   * The application supports the app-clone mode. The app-clone mode allows creating independent copy instances for
+   * the application, with each instance having its own data space, suitable for scenarios that require isolated user
+   * data.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @systemapi

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Auto Fill Trigger Type
  * @kit AbilityKit
  */
 
@@ -30,8 +30,8 @@
  */
 export enum AutoFillTriggerType {
     /**
-     * Automatically triggers the autofill service when a [TextInput]{@link @internal/component/ets/text_input} 
-     * component gains focus.
+     * Automatically triggers the auto-fill service. It can be automatically triggered after a
+     * [TextInput]{@link @internal/component/ets/text_input} component gains focus.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi [since 23 - 24]
@@ -43,8 +43,8 @@ export enum AutoFillTriggerType {
     AUTO_REQUEST = 0,
 
     /**
-     * Manually triggers the autofill service by long-pressing any input component to bring up a secondary menu and 
-     * selecting autofill.
+     * Manually triggers the auto-fill service. It can be triggered by long-pressing any input component to bring up a
+     * secondary menu, selecting auto-fill, and triggering the auto-fill service.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi [since 23 - 24]
@@ -56,8 +56,9 @@ export enum AutoFillTriggerType {
     MANUAL_REQUEST = 1,
 
     /**
-     * Triggers the autofill service via paste by long-pressing a username or password in the password vault to select 
-     * secure copy, long-pressing any input component to bring up a secondary menu, and selecting paste.
+     * Triggers the auto-fill service via paste. It is only triggered after the user has already long-pressed a
+     * username or password in the password vault to select secure copy, and then long-presses any input component to
+     * bring up a secondary menu and selects paste.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
      * @systemapi [since 23 - 24]

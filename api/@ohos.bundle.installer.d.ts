@@ -101,6 +101,11 @@ declare namespace installer {
      *     ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE) [since 23]
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or
+     *     ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
+     *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE) 
+     *     or ohos.permission.INSTALL_DEVELOPER_ID_BUNDLE [since 26.0.1]
      * @param { Array<string> } hapFilePaths - Paths where the HAP files of the bundle are stored, which are the data
      *     directories. If only one directory is passed, the HAP files in the directory must belong to the same bundle
      *     and have the same signature.
@@ -111,7 +116,8 @@ declare namespace installer {
      *     ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
      *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'
-     *     or ('ohos.permission.INSTALL_BUNDLE' and 'ohos.permission.INSTALL_ALLOW_DOWNGRADE').
+     *     or ('ohos.permission.INSTALL_BUNDLE' and 'ohos.permission.INSTALL_ALLOW_DOWNGRADE')
+     *     or 'ohos.permission.INSTALL_DEVELOPER_ID_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of
@@ -181,6 +187,11 @@ declare namespace installer {
      *     ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE) [since 23]
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or
+     *     ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
+     *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE) 
+     *     or ohos.permission.INSTALL_DEVELOPER_ID_BUNDLE [since 26.0.1]
      * @param { Array<string> } hapFilePaths - Paths where the HAP files of the bundle are stored, which are the data
      *     directories. If only one directory is passed, the HAP files in the directory must belong to the same bundle
      *     and have the same signature.
@@ -190,7 +201,8 @@ declare namespace installer {
      *     ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
      *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'
-     *     or ('ohos.permission.INSTALL_BUNDLE' and 'ohos.permission.INSTALL_ALLOW_DOWNGRADE').
+     *     or ('ohos.permission.INSTALL_BUNDLE' and 'ohos.permission.INSTALL_ALLOW_DOWNGRADE')
+     *     or 'ohos.permission.INSTALL_DEVELOPER_ID_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types.
@@ -258,6 +270,11 @@ declare namespace installer {
      *     ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
      *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
      *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE) [since 23]
+     * @permission ohos.permission.INSTALL_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_BUNDLE or
+     *     ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE or ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE
+     *     or ohos.permission.INSTALL_INTERNALTESTING_BUNDLE
+     *     or (ohos.permission.INSTALL_BUNDLE and ohos.permission.INSTALL_ALLOW_DOWNGRADE) 
+     *     or ohos.permission.INSTALL_DEVELOPER_ID_BUNDLE [since 26.0.1]
      * @param { Array<string> } hapFilePaths - Paths where the HAP files of the bundle are stored, which are the data
      *     directories. If only one directory is passed, the HAP files in the directory must belong to the same bundle
      *     and have the same signature.
@@ -270,7 +287,8 @@ declare namespace installer {
      *     ohos.permission.INSTALL_ENTERPRISE_BUNDLE' or
      *     'ohos.permission.INSTALL_ENTERPRISE_MDM_BUNDLE' or 'ohos.permission.INSTALL_ENTERPRISE_NORMAL_BUNDLE'
      *     or 'ohos.permission.INSTALL_INTERNALTESTING_BUNDLE'
-     *     or ('ohos.permission.INSTALL_BUNDLE' and 'ohos.permission.INSTALL_ALLOW_DOWNGRADE').
+     *     or ('ohos.permission.INSTALL_BUNDLE' and 'ohos.permission.INSTALL_ALLOW_DOWNGRADE')
+     *     or 'ohos.permission.INSTALL_DEVELOPER_ID_BUNDLE'.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2
      *     . Incorrect parameter types; 3. Parameter hapFiles is needed for code signature; 4. The size of

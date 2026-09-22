@@ -398,10 +398,10 @@ declare namespace avMusicTemplate {
   type QueryMemberPurchaseEvent = (memberPurchaseType: MemberPurchaseType) => Promise<MemberPurchaseInfo[]>;
 
   /**
-   * 自定义内容查询事件。使用Promise异步回调。
+   * 自定义内容查询事件。用于查询用户基本信息、界面选项卡配置、合集信息和设置项等自定义内容。使用Promise异步回调。
    *
    * @typedef { function } QueryCustomContentEvent
-   * @param { CustomType[] } queryType - 自定义类型：包含用户基本信息、界面选项卡配置、代码编译选项和系统设置项。
+   * @param { CustomType[] } queryType - 自定义类型：包含用户基本信息、界面选项卡配置、合集信息和设置项。
    * @returns { Promise<CustomElement> } Promise对象，返回我的页面的自定义元素。
    * @syscap SystemCapability.Multimedia.AVSession.AVMusicTemplate
    * @stagemodelonly

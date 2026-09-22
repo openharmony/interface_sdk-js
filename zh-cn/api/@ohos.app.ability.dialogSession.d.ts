@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file dialogSession
  * @kit AbilityKit
  */
 
@@ -136,7 +136,7 @@ declare namespace dialogSession {
     visible: boolean;
 
     /**
-     * 表示应用的分身索引。
+     * 表示应用的分身索引。取值从0开始，0表示主应用实例，1及以上表示分身实例。
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
@@ -185,7 +185,7 @@ declare namespace dialogSession {
   }
 
   /**
-   * 提供会话信息，包括请求方信息、目标组件信息列表、其他参数。
+   * 提供会话信息，包括请求方组件信息、目标组件信息列表、其他参数。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi

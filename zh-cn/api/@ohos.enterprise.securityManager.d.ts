@@ -1163,6 +1163,42 @@ declare namespace securityManager {
    * @since 26.0.0
    */
   function isScreenLockDisabledForAccount(admin: Want): boolean;
+
+  /**
+   * 使能弱密码库。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @param { boolean } isEnable - isEnable表示是否开启弱PIN校验。**true**表示使能。
+   *     **false**表示禁用。
+   * @param { number } [fd] - fd表示弱PIN文件的文件描述符。弱PIN使能时必选
+   *     验证，禁用弱PIN验证时忽略。
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.1
+   */
+  function setWeakPinEnable(isEnable: boolean, fd?: number): void;
+ 
+  /**
+   * 检查是否开启了弱PIN校验。
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
+   * @returns { boolean } 如果启用了弱PIN验证，则返回true；否则返回false。
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200016 - Service timeout.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.1
+   */
+  function isWeakPinEnabled(): boolean;
 }
 
 /*** if arkts dynamic */

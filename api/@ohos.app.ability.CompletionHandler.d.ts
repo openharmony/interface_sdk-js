@@ -18,7 +18,7 @@
  * and [OpenLinkOptions]{@link @ohos.app.ability.OpenLinkOptions:OpenLinkOptions}. It is used to process the result of 
  * an application launch request.
  *
- * @file
+ * @file Completion Handler
  * @kit AbilityKit
  */
 

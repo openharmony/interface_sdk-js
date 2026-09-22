@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 智能体扩展组件
  * @kit AbilityKit
  */
 

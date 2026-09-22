@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Page Node Info
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 原子化服务拉起结果的操作类
  * @kit AbilityKit
  */
 

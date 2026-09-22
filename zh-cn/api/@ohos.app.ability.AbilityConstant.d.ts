@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ability相关常量
  * @kit AbilityKit
  */
 
@@ -746,7 +746,16 @@ declare namespace AbilityConstant {
      * @since 12 dynamic
      * @since 23 static
      */
-    WINDOW_MODE_FLOATING = 102
+    WINDOW_MODE_FLOATING = 102,
+
+    /**
+     * 分屏窗口模式。仅在应用内跳转场景下生效，且仅在折叠屏设备和平板上生效。
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    WINDOW_MODE_SPLIT = 105,
   }
 
   /**
@@ -867,6 +876,8 @@ declare namespace AbilityConstant {
    * 流转状态枚举值。用于表示当前应用任务流转的状态。可配合[UIAbilityContext]{@link ./application/UIAbilityContext:UIAbilityContext}的
    * [setMissionContinueState]{@link ./application/UIAbilityContext:UIAbilityContext.setMissionContinueState(state: AbilityConstant.ContinueState, callback: AsyncCallback<void>)}
    * 方法进行设置。
+   *
+   * > **说明：** 该接口在不支持分布式业务的Wearable设备不生效。
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

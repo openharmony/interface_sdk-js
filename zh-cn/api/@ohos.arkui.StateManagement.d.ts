@@ -117,6 +117,20 @@ export class ConnectOptions<T extends object> {
    * @since 18 dynamic
    */
   areaMode?: contextConstant.AreaMode;
+
+  /**
+   * 是否忽略只读属性。
+   * 当值为false时，反序列化含有只读属性的类（例如被\@Computed装饰的getter函数）时会抛出错误。
+   * 当值为true时，将忽略只读属性，不会抛出错误。
+   * 默认值为false。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  ignoreReadOnlyProperties?: boolean;
+
 }
 
 /**

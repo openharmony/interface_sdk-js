@@ -23,7 +23,7 @@ import { ImageModifier, SymbolGlyphModifier, TextModifier } from './@ohos.arkui.
 import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
- * Enum for ChipV2 Size
+ * Defines the size type that can be specified for the **ChipV2** component, such as a normal **ChipV2**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -33,7 +33,7 @@ import uiMaterial from './@ohos.arkui.uiMaterial';
  */
 export declare enum ChipV2Size {
   /**
-   * Normal type.
+   * Normal **ChipV2**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -44,7 +44,7 @@ export declare enum ChipV2Size {
   NORMAL = 'NORMAL',
 
   /**
-   * Small type.
+   * Small **ChipV2**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -56,7 +56,15 @@ export declare enum ChipV2Size {
 }
 
 /**
- * Enum for ChipV2AccessibilitySelectedType
+ * Defines the selected state types that can be specified for **ChipV2**. This API is used to control how the 
+ * accessibility service conveys the selected state of the component to users. Different selected state types provide 
+ * different semantics and user experiences.
+ * 
+ * | Name | Value | Description |
+ * | ---- | -- | ---- |
+ * | CLICKED | 0 | Click type. The component does not report any selected state to the accessibility service and is used only as a clickable component. This is suitable for scenarios where an action is performed but no state is maintained, such as a regular button. |
+ * | CHECKED | 1 | Check type. The component reports its selected state to the accessibility service through the [accessibilityChecked]{@link CommonMethod#accessibilityChecked} attribute. This is suitable for multi-select scenarios, such as tag filtering and attribute selection.|
+ * | SELECTED | 2 | Select type. The component reports its selected state to the accessibility service through the [accessibilitySelected]{@link CommonMethod#accessibilitySelected} attribute. This is suitable for scenarios indicating the currently selected item, such as navigation bar tabs and single-select list items.|
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -100,7 +108,7 @@ export declare enum ChipV2AccessibilitySelectedType {
 }
 
 /**
- * Defines icon common config.
+ * Defines the common icon attribute configuration.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -110,7 +118,9 @@ export declare enum ChipV2AccessibilitySelectedType {
  */
 export interface ChipV2ImageIconConfig {
   /**
-   * Image resource.
+   * Icon image or image address reference.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -121,7 +131,20 @@ export interface ChipV2ImageIconConfig {
   src: ResourceStr;
 
   /**
-   * Image size option.
+   * Icon size. Percentage values are not supported. If an invalid value is passed, the default value will be used.
+   * 
+   * Default value:
+   * 
+   * - When **ChipV2Options.size** is **ChipV2Size.SMALL**, the default value is 
+   * **{width: $r('sys.float.chip_small_icon_size'), height: $r('sys.float.chip_small_icon_size')}**.
+   * - When **ChipV2Options.size** is **ChipV2Size.NORMAL**, the default value is 
+   * **{width: $r('sys.float.chip_normal_icon_size'), height: $r('sys.float.chip_normal_icon_size')}**.
+   * 
+   * Unit: vp
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -132,7 +155,15 @@ export interface ChipV2ImageIconConfig {
   size?: SizeT<LengthMetrics>;
 
   /**
-   * Image filled color.
+   * Icon fill color.
+   * 
+   * Default value: **$r('sys.color.chip_usually_icon_color')**. The default value is not applied to non-SVG images.
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * This attribute takes effect only when the image format is SVG.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -143,7 +174,15 @@ export interface ChipV2ImageIconConfig {
   fillColor?: ColorMetrics;
 
   /**
-   * Image filled color when chip is activated.
+   * Icon fill color when **ChipV2** is activated.
+   * 
+   * Default value: **$r('sys.color.chip_active_icon_color')**. The default value is not applied to non-SVG images.
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * This attribute takes effect only when the image format is SVG.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -154,7 +193,13 @@ export interface ChipV2ImageIconConfig {
   activatedFillColor?: ColorMetrics;
 
   /**
-   * Modifier for the icon.
+   * Icon modifier, which is used to set common attributes of the icon. Pass this parameter when you need to dynamically
+   * modify icon attributes (such as **opacity** and **objectFit**) through the modifier. If this parameter is not 
+   * passed or is **undefined**, the modifier is not applied, and the icon uses the default attribute settings.
+   * 
+   * Default value: **undefined**, meaning the modifier is not applied.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -166,7 +211,9 @@ export interface ChipV2ImageIconConfig {
 }
 
 /**
- * ChipV2 icon common option
+ * Defines the base class of icon images.
+ * 
+ * This API inherits from [ChipV2Icon]{@link ChipV2Icon}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -177,7 +224,9 @@ export interface ChipV2ImageIconConfig {
 @ObservedV2
 export abstract class ChipV2ImageIcon extends ChipV2Icon {
   /**
-   * Image resource.
+   * Icon image or image address reference.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -189,7 +238,20 @@ export abstract class ChipV2ImageIcon extends ChipV2Icon {
   public src: ResourceStr;
 
   /**
-   * Image size option.
+   * Icon size. Percentage values are not supported. If an invalid value is passed, the default value will be used.
+   * 
+   * Default value:
+   * 
+   * - When **ChipV2Options.size** is **ChipV2Size.SMALL**, the default value is 
+   * **{width: $r('sys.float.chip_small_icon_size'), height: $r('sys.float.chip_small_icon_size')}**.
+   * - When **ChipV2Options.size** is **ChipV2Size.NORMAL**, the default value is 
+   * **{width: $r('sys.float.chip_normal_icon_size'), height: $r('sys.float.chip_normal_icon_size')}**.
+   * 
+   * Unit: vp
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -201,7 +263,15 @@ export abstract class ChipV2ImageIcon extends ChipV2Icon {
   public size?: SizeT<LengthMetrics>;
 
   /**
-   * Image filled color.
+   * Icon fill color.
+   * 
+   * Default value: **$r('sys.color.chip_usually_icon_color')**. The default value is not applied to non-SVG images.
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * This attribute takes effect only when the image format is SVG.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -213,7 +283,15 @@ export abstract class ChipV2ImageIcon extends ChipV2Icon {
   public fillColor?: ColorMetrics;
 
   /**
-   * Image filled color when chip is activated.
+   * Icon fill color when **ChipV2** is activated.
+   * 
+   * Default value: **$r('sys.color.chip_active_icon_color')**. The default value is not applied to non-SVG images.
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * This attribute takes effect only when the image format is SVG.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -225,7 +303,13 @@ export abstract class ChipV2ImageIcon extends ChipV2Icon {
   public activatedFillColor?: ColorMetrics;
 
   /**
-   * Modifier for icon.
+   * Icon modifier, which is used to set common attributes of the icon. Pass this parameter when you need to dynamically
+   * modify icon attributes (such as **opacity** and **objectFit**) through the modifier. If this parameter is not 
+   * passed or is **undefined**, the modifier is not applied, and the icon uses the default attribute settings.
+   * 
+   * Default value: **undefined**, meaning the modifier is not applied.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -237,9 +321,11 @@ export abstract class ChipV2ImageIcon extends ChipV2Icon {
   public modifier?: ImageModifier;
 
   /**
-   * The constructor of ChipV2ImageIcon
+   * A constructor used to create a **ChipV2ImageIcon** object.
    *
-   * @param { ChipV2ImageIconConfig } config - config of icon common Mandatory parameter.
+   * @param { ChipV2ImageIconConfig } config - Common icon attribute configuration, which is used to set the basic
+   *     display attributes of the image icon, including configuration options such as **src**, **size**, **fillColor**,
+   *     **activatedFillColor**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -250,7 +336,10 @@ export abstract class ChipV2ImageIcon extends ChipV2Icon {
 }
 
 /**
- * Defines suffix icon option.
+ * Defines the attribute configuration of the suffix icon.
+ * 
+ * This API inherits from [ChipV2ImageIconConfig]{@link ChipV2ImageIconConfig} and 
+ * [ChipV2AccessibilityConfig]{@link ChipV2AccessibilityConfig}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -260,7 +349,12 @@ export abstract class ChipV2ImageIcon extends ChipV2Icon {
  */
 export interface ChipV2SuffixImageIconConfig extends ChipV2ImageIconConfig, ChipV2AccessibilityConfig {
   /**
-   * Called when suffix icon is clicked.
+   * Callback for the suffix icon tap event. Pass in this callback when you need to bind a tap event to the suffix icon 
+   * and perform a custom operation (such as triggering a specific function or opening a dialog box). This callback is 
+   * invoked when the suffix icon is tapped.
+   * 
+   * Default value: **undefined**, meaning no suffix icon event is set. When **undefined** or no value is passed, 
+   * tapping the suffix icon triggers no custom response.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -272,7 +366,9 @@ export interface ChipV2SuffixImageIconConfig extends ChipV2ImageIconConfig, Chip
 }
 
 /**
- * Defines suffix icon.
+ * Defines the suffix icon class.
+ * 
+ * This API inherits from [ChipV2ImageIcon]{@link ChipV2ImageIcon}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -283,7 +379,24 @@ export interface ChipV2SuffixImageIconConfig extends ChipV2ImageIconConfig, Chip
 @ObservedV2
 export declare class ChipV2SuffixImageIcon extends ChipV2ImageIcon {
   /**
-   * Set accessibility level.
+   * Accessibility level. This attribute controls whether the suffix icon can be recognized by accessibility services.
+   * 
+   * Supported values:
+   * 
+   * **"auto"**: The attribute value of the current component is converted to **"yes"**.
+   * 
+   * **"yes"**: The current component can be recognized by accessibility services.
+   * 
+   * **"no"**: The current component cannot be recognized by accessibility services.
+   * 
+   * **"no-hide-descendants"**: The current component and all its child components cannot be recognized by accessibility
+   * services.
+   * 
+   * Default value: **"auto"**
+   * 
+   * When the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @default auto
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -296,7 +409,16 @@ export declare class ChipV2SuffixImageIcon extends ChipV2ImageIcon {
   public accessibilityLevel?: string;
 
   /**
-   * Set accessibility text.
+   * Accessibility text. When a component has no text attribute, the screen reader does not read it aloud when this 
+   * component is selected, making it difficult for users to identify the currently selected component. You can set 
+   * accessibility text for such components so that the screen reader reads the text aloud, helping users identify the 
+   * selected component.
+   * 
+   * Default value: empty string.
+   * 
+   * When the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -308,7 +430,17 @@ export declare class ChipV2SuffixImageIcon extends ChipV2ImageIcon {
   public accessibilityText?: ResourceStr;
 
   /**
-   * Set accessibility description.
+   * Accessibility description. This description is used to explain the current component to users in detail. You should
+   * provide comprehensive text descriptions to help users understand the actions to be performed and their 
+   * consequences, especially when these consequences cannot be directly inferred from the component's attributes and 
+   * accessibility text. When a component that is selected has both a text attribute and an accessibility description 
+   * attribute, the system first reads the component's text attribute, followed by the accessibility description.
+   * 
+   * Default value: empty string.
+   * 
+   * When the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -320,7 +452,13 @@ export declare class ChipV2SuffixImageIcon extends ChipV2ImageIcon {
   public accessibilityDescription?: ResourceStr;
 
   /**
-   * Called when suffix icon is clicked.
+   * Callback for the suffix icon tap event. This callback is invoked when the suffix icon is tapped.
+   * 
+   * Default value: no suffix icon event is set.
+   * 
+   * When the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -332,9 +470,12 @@ export declare class ChipV2SuffixImageIcon extends ChipV2ImageIcon {
   public action?: VoidCallback;
 
   /**
-   * The constructor of ChipV2SuffixImageIcon
+   * A constructor used to create a **ChipV2SuffixImageIcon** object.
    *
-   * @param { ChipV2SuffixImageIconConfig } config - config of suffix icon
+   * @param { ChipV2SuffixImageIconConfig } config - Attribute configuration of the suffix icon, which is used to set
+   *     the display attributes, accessibility functions, and tap events of the suffix Image icon. This parameter
+   *     inherits from **ChipV2ImageIconConfig** and **ChipV2AccessibilityConfig** and includes configuration options
+   *     such as **src**, **size**, **accessibilityLevel**, and **action**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -345,7 +486,7 @@ export declare class ChipV2SuffixImageIcon extends ChipV2ImageIcon {
 }
 
 /**
- * Defines chipV2 icon.
+ * Defines the base class of icons.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -356,7 +497,7 @@ export declare class ChipV2SuffixImageIcon extends ChipV2ImageIcon {
 @ObservedV2
 export abstract class ChipV2Icon {
   /**
-   * The constructor of ChipV2Icon
+   * A constructor used to create a **ChipV2Icon** object.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -368,7 +509,9 @@ export abstract class ChipV2Icon {
 }
 
 /**
- * Defines prefix icon option.
+ * Defines the attribute configuration of the prefix icon.
+ * 
+ * This API inherits from [ChipV2ImageIconConfig]{@link ChipV2ImageIconConfig}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -379,7 +522,9 @@ export abstract class ChipV2Icon {
 export interface ChipV2PrefixImageIconConfig extends ChipV2ImageIconConfig {}
 
 /**
- * Defines prefix icon.
+ * Defines the prefix icon class.
+ * 
+ * This API inherits from [ChipV2ImageIcon]{@link ChipV2ImageIcon}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -390,9 +535,11 @@ export interface ChipV2PrefixImageIconConfig extends ChipV2ImageIconConfig {}
 @ObservedV2
 export declare class ChipV2PrefixImageIcon extends ChipV2ImageIcon {
   /**
-   * The constructor of ChipV2PrefixImageIcon
+   * A constructor used to create a **ChipV2PrefixImageIcon** object.
    *
-   * @param { ChipV2PrefixImageIconConfig } config - config of prefix icon
+   * @param { ChipV2PrefixImageIconConfig } config - Attribute configuration of the prefix icon, which is used to set
+   *     the display attributes of the prefix Image icon. This parameter inherits from **ChipV2ImageIconConfig** and
+   *     includes configuration options such as **src**, **size**, and **fillColor**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -403,7 +550,7 @@ export declare class ChipV2PrefixImageIcon extends ChipV2ImageIcon {
 }
 
 /**
- * Defines accessibility config.
+ * Defines the accessibility attribute configuration.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -413,7 +560,22 @@ export declare class ChipV2PrefixImageIcon extends ChipV2ImageIcon {
  */
 export interface ChipV2AccessibilityConfig {
   /**
-   * Set accessibility level.
+   * Accessibility level. This attribute controls whether the component can be recognized by accessibility services.
+   * 
+   * Supported values:
+   * 
+   * **"auto"**: The attribute value of the current component is converted to **"yes"**.
+   * 
+   * **"yes"**: The current component can be recognized by accessibility services.
+   * 
+   * **"no"**: The current component cannot be recognized by accessibility services.
+   * 
+   * **"no-hide-descendants"**: The current component and all its child components cannot be recognized by accessibility
+   * services.
+   * 
+   * Default value: **"auto"**
+   * 
+   * When the value is **undefined**, the default value is used.
    *
    * @default auto
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -425,7 +587,14 @@ export interface ChipV2AccessibilityConfig {
   accessibilityLevel?: string;
 
   /**
-   * Set accessibility text.
+   * Accessibility text. When a component has no text attribute, the screen reader does not read it aloud when this 
+   * component is selected, making it difficult for users to identify the currently selected component. You can set 
+   * accessibility text for such components so that the screen reader reads the text aloud, helping users identify the 
+   * selected component.
+   * 
+   * Default value: empty string.
+   * 
+   * When the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -436,7 +605,15 @@ export interface ChipV2AccessibilityConfig {
   accessibilityText?: ResourceStr;
 
   /**
-   * Set accessibility description.
+   * Accessibility description. This description is used to explain the current component to users in detail. You should
+   * provide comprehensive text descriptions to help users understand the actions to be performed and their 
+   * consequences, especially when these consequences cannot be directly inferred from the component's attributes and 
+   * accessibility text. When a component that is selected has both a text attribute and an accessibility description 
+   * attribute, the system first reads the component's text attribute, followed by the accessibility description.
+   * 
+   * Default value: empty string.
+   * 
+   * When the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -448,7 +625,7 @@ export interface ChipV2AccessibilityConfig {
 }
 
 /**
- * Defines accessibility.
+ * Defines the accessibility attribute class of **ChipV2**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -459,7 +636,24 @@ export interface ChipV2AccessibilityConfig {
 @ObservedV2
 export declare class ChipV2Accessibility {
   /**
-   * Set accessibility level.
+   * Accessibility level. This attribute controls whether the component can be recognized by accessibility services.
+   * 
+   * Supported values:
+   * 
+   * **"auto"**: The attribute value of the current component is converted to **"yes"**.
+   * 
+   * **"yes"**: The current component can be recognized by accessibility services.
+   * 
+   * **"no"**: The current component cannot be recognized by accessibility services.
+   * 
+   * **"no-hide-descendants"**: The current component and all its child components cannot be recognized by accessibility
+   * services.
+   * 
+   * Default value: **"auto"**
+   * 
+   * When the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @default auto
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -472,7 +666,16 @@ export declare class ChipV2Accessibility {
   public accessibilityLevel?: string;
 
   /**
-   * Set accessibility text.
+   * Accessibility text. When a component has no text attribute, the screen reader does not read it aloud when this 
+   * component is selected, making it difficult for users to identify the currently selected component. You can set 
+   * accessibility text for such components so that the screen reader reads the text aloud, helping users identify the 
+   * selected component.
+   * 
+   * Default value: empty string.
+   * 
+   * When the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -484,7 +687,17 @@ export declare class ChipV2Accessibility {
   public accessibilityText?: ResourceStr;
 
   /**
-   * Set accessibility description.
+   * Accessibility description. This description is used to explain the current component to users in detail. You should
+   * provide comprehensive text descriptions to help users understand the actions to be performed and their 
+   * consequences, especially when these consequences cannot be directly inferred from the component's attributes and 
+   * accessibility text. When a component that is selected has both a text attribute and an accessibility description 
+   * attribute, the system first reads the component's text attribute, followed by the accessibility description.
+   * 
+   * Default value: empty string.
+   * 
+   * When the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -496,9 +709,10 @@ export declare class ChipV2Accessibility {
   public accessibilityDescription?: ResourceStr;
 
   /**
-   * The constructor of ChipV2Accessibility
+   * A constructor used to create a **ChipV2Accessibility** object.
    *
-   * @param { ChipV2AccessibilityConfig } config - config of accessibility. config is mandatory.
+   * @param { ChipV2AccessibilityConfig } config - Accessibility attribute configuration of the component, including
+   *     configuration options such as **accessibilityText**, **accessibilityDescription**, and **accessibilityLevel**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -509,7 +723,10 @@ export declare class ChipV2Accessibility {
 }
 
 /**
- * Defines config of default close icon.
+ * Defines the functional attribute configuration for the close icon of the **ChipV2** component, including 
+ * accessibility attribute.
+ * 
+ * This API inherits from [ChipV2AccessibilityConfig]{@link ChipV2AccessibilityConfig}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -519,7 +736,18 @@ export declare class ChipV2Accessibility {
  */
 export interface ChipV2CloseConfig extends ChipV2AccessibilityConfig {
   /**
-   * Set font size for the close icon.
+   * Size of the default close icon of the **ChipV2** component. Percentage values are not supported. If a percentage 
+   * value is passed, the default value is used.
+   * 
+   * Default values:
+   * 
+   * When **size** is **ChipV2Size.SMALL**, the default value is `$r('sys.float.chip_small_font_size')`.
+   * 
+   * When **size** is not **ChipV2Size.SMALL**, the default value is `$r('sys.float.chip_normal_font_size')`.
+   * 
+   * Unit: fp
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -531,7 +759,10 @@ export interface ChipV2CloseConfig extends ChipV2AccessibilityConfig {
 }
 
 /**
- * Defines default close icon.
+ * Defines the functional attribute class for the close icon of the **ChipV2** component, including accessibility 
+ * attribute.
+ * 
+ * This API inherits from [ChipV2Accessibility]{@link ChipV2Accessibility}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -542,7 +773,20 @@ export interface ChipV2CloseConfig extends ChipV2AccessibilityConfig {
 @ObservedV2
 export declare class ChipV2CloseIcon extends ChipV2Accessibility {
   /**
-   * Set font size for the close icon.
+   * Size of the default close icon of the **ChipV2** component. Percentage values are not supported. If a percentage 
+   * value is passed, the default value is used.
+   * 
+   * Default values:
+   * 
+   * When **size** is **ChipV2Size.SMALL**, the default value is `$r('sys.float.chip_small_font_size')`.
+   * 
+   * When **size** is not **ChipV2Size.SMALL**, the default value is `$r('sys.float.chip_normal_font_size')`.
+   * 
+   * Unit: fp
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -554,9 +798,11 @@ export declare class ChipV2CloseIcon extends ChipV2Accessibility {
   public fontSize?: LengthMetrics;
 
   /**
-   * The constructor of ChipV2CloseIcon
+   * A constructor used to create a **ChipV2CloseIcon** object.
    *
-   * @param { ChipV2CloseConfig } config - config of close icon
+   * @param { ChipV2CloseConfig } config - Close icon configuration, which is used to customize the size and
+   *     accessibility attribute of the close icon. This parameter inherits from **ChipV2AccessibilityConfig** and
+   *     includes configuration options such as **fontSize**, **accessibilityText**, and **accessibilityDescription**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -567,7 +813,7 @@ export declare class ChipV2CloseIcon extends ChipV2Accessibility {
 }
 
 /**
- * Defines chip symbol icon config.
+ * Defines the attribute configuration of the symbol icon.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -577,7 +823,13 @@ export declare class ChipV2CloseIcon extends ChipV2Accessibility {
  */
 export declare interface ChipV2SymbolIconConfig {
   /**
-   * Symbol normal.
+   * Icon settings in the inactive state.
+   * 
+   * Default value: no prefix icon or suffix icon is displayed. When the value is **undefined**, the default value is 
+   * used.
+   * 
+   * Modifying the animation type using [SymbolEffect]{@link SymbolGlyphAttribute#symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean)} and setting the animation effect using 
+   * [effectStrategy]{@link SymbolGlyphAttribute#effectStrategy} are not supported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -588,7 +840,13 @@ export declare interface ChipV2SymbolIconConfig {
   normal?: SymbolGlyphModifier;
 
   /**
-   * Symbol activated.
+   * Icon settings in the active state.
+   * 
+   * Default value: **undefined**, which means no prefix icon or suffix icon is displayed. When the value is 
+   * **undefined**, the default value is used.
+   * 
+   * Modifying the animation type using [SymbolEffect]{@link SymbolGlyphAttribute#symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean)} and setting the animation effect using 
+   * [effectStrategy]{@link SymbolGlyphAttribute#effectStrategy} are not supported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -600,7 +858,9 @@ export declare interface ChipV2SymbolIconConfig {
 }
 
 /**
- * Defines chip symbol icon.
+ * Defines the symbol icon class.
+ * 
+ * This API inherits from [ChipV2Icon]{@link ChipV2Icon}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -611,7 +871,15 @@ export declare interface ChipV2SymbolIconConfig {
 @ObservedV2
 export abstract class ChipV2SymbolIcon extends ChipV2Icon {
   /**
-   * Symbol normal.
+   * Icon settings in the inactive state.
+   * 
+   * Default value: **undefined**, which means no prefix icon or suffix icon is displayed. When the value is 
+   * **undefined**, the default value is used.
+   * 
+   * Modifying the animation type using [SymbolEffect]{@link SymbolGlyphAttribute#symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean)} and setting the animation effect using 
+   * [effectStrategy]{@link SymbolGlyphAttribute#effectStrategy} are not supported.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -623,7 +891,15 @@ export abstract class ChipV2SymbolIcon extends ChipV2Icon {
   public normal?: SymbolGlyphModifier;
 
   /**
-   * Symbol activated.
+   * Icon settings in the active state.
+   * 
+   * Default value: **undefined**, which means no prefix icon or suffix icon is displayed. When the value is 
+   * **undefined**, the default value is used.
+   * 
+   * Modifying the animation type using [SymbolEffect]{@link SymbolGlyphAttribute#symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean)} and setting the animation effect using 
+   * [effectStrategy]{@link SymbolGlyphAttribute#effectStrategy} are not supported.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -635,9 +911,11 @@ export abstract class ChipV2SymbolIcon extends ChipV2Icon {
   public activated?: SymbolGlyphModifier;
 
   /**
-   * The constructor of ChipV2SymbolIcon
+   * A constructor used to create a **ChipV2SymbolIcon** object.
    *
-   * @param { ChipV2SymbolIconConfig } config - config of chip symbol icon
+   * @param { ChipV2SymbolIconConfig } config - Attribute configuration of the symbol icon, which is used to set the
+   *     display attributes of the symbol icon in different states, including configuration options such as **normal**
+   *     and **activated**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -648,7 +926,9 @@ export abstract class ChipV2SymbolIcon extends ChipV2Icon {
 }
 
 /**
- * Defines chip prefix symbol icon config.
+ * Defines the attribute configuration of the prefix symbol icon.
+ * 
+ * Inherits from [ChipV2SymbolIconConfig]{@link ChipV2SymbolIconConfig}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -659,7 +939,9 @@ export abstract class ChipV2SymbolIcon extends ChipV2Icon {
 export interface ChipV2PrefixSymbolIconConfig extends ChipV2SymbolIconConfig {}
 
 /**
- * Defines chip prefix symbol icon.
+ * Defines the prefix symbol icon class.
+ * 
+ * This API inherits from [ChipV2SymbolIcon]{@link ChipV2SymbolIcon}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -670,9 +952,11 @@ export interface ChipV2PrefixSymbolIconConfig extends ChipV2SymbolIconConfig {}
 @ObservedV2
 export declare class ChipV2PrefixSymbolIcon extends ChipV2SymbolIcon {
   /**
-   * The constructor of ChipV2PrefixSymbolIcon
+   * A constructor used to create a **ChipV2PrefixSymbolIcon** object.
    *
-   * @param { ChipV2PrefixSymbolIconConfig } config - config of chip prefix symbol icon
+   * @param { ChipV2PrefixSymbolIconConfig } config - Attribute configuration of the prefix symbol icon, which is used
+   *     to set the display attributes of the prefix symbol icon. This parameter inherits from
+   *     **ChipV2SymbolIconConfig** and includes configuration options such as **normal** and **activated**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -683,7 +967,9 @@ export declare class ChipV2PrefixSymbolIcon extends ChipV2SymbolIcon {
 }
 
 /**
- * Defines accessibility config of suffix symbol.
+ * Defines the attribute configuration of the suffix symbol icon.
+ * 
+ * This API inherits from [ChipV2SymbolIconConfig]{@link ChipV2SymbolIconConfig}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -693,7 +979,9 @@ export declare class ChipV2PrefixSymbolIcon extends ChipV2SymbolIcon {
  */
 export interface ChipV2SuffixSymbolIconConfig extends ChipV2SymbolIconConfig {
   /**
-   * Set normal accessibility config for suffix symbol.
+   * Accessibility attribute in the inactive state.
+   * 
+   * Default value: **undefined**, meaning no content is read aloud.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -704,7 +992,9 @@ export interface ChipV2SuffixSymbolIconConfig extends ChipV2SymbolIconConfig {
   normalAccessibility?: ChipV2AccessibilityConfig;
 
   /**
-   * Set activated accessibility config for suffix symbol.
+   * Accessibility attribute in the active state.
+   * 
+   * Default value: **undefined**, meaning no content is read aloud.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -715,7 +1005,11 @@ export interface ChipV2SuffixSymbolIconConfig extends ChipV2SymbolIconConfig {
   activatedAccessibility?: ChipV2AccessibilityConfig;
 
   /**
-   * Called when suffix symbol is clicked.
+   * Callback for the suffix icon tap event, which is triggered when the suffix icon is tapped.
+   * 
+   * Default value: no suffix icon event is set.
+   * 
+   * When the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -727,7 +1021,9 @@ export interface ChipV2SuffixSymbolIconConfig extends ChipV2SymbolIconConfig {
 }
 
 /**
- * Defines accessibility of suffix symbol.
+ * Defines the suffix symbol icon class.
+ * 
+ * This API inherits from [ChipV2SymbolIcon]{@link ChipV2SymbolIcon}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -738,7 +1034,11 @@ export interface ChipV2SuffixSymbolIconConfig extends ChipV2SymbolIconConfig {
 @ObservedV2
 export declare class ChipV2SuffixSymbolIcon extends ChipV2SymbolIcon {
   /**
-   * Set normal accessibility config for suffix symbol.
+   * Accessibility attribute in the inactive state.
+   * 
+   * Default value: **undefined**, meaning no content is read aloud.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -750,7 +1050,11 @@ export declare class ChipV2SuffixSymbolIcon extends ChipV2SymbolIcon {
   public normalAccessibility?: ChipV2Accessibility;
 
   /**
-   * Set activated accessibility config for suffix symbol.
+   * Accessibility attribute in the active state.
+   * 
+   * Default value: **undefined**, meaning no content is read aloud.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -762,7 +1066,13 @@ export declare class ChipV2SuffixSymbolIcon extends ChipV2SymbolIcon {
   public activatedAccessibility?: ChipV2Accessibility;
 
   /**
-   * Called when suffix symbol is clicked.
+   * Callback for the suffix icon tap event, which is triggered when the suffix icon is tapped.
+   * 
+   * Default value: no suffix icon event is set.
+   * 
+   * When the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -774,9 +1084,12 @@ export declare class ChipV2SuffixSymbolIcon extends ChipV2SymbolIcon {
   public action?: VoidCallback;
 
   /**
-   * The constructor of ChipV2SuffixSymbolIcon
+   * A constructor used to create a **ChipV2SuffixSymbolIcon** object.
    *
-   * @param { ChipV2SuffixSymbolIconConfig } config - config of suffix symbol
+   * @param { ChipV2SuffixSymbolIconConfig } config - Attribute configuration of the suffix symbol icon, which is used
+   *     to set the display attributes and accessibility features of the suffix symbol icon. This parameter inherits
+   *     from **ChipV2SymbolIconConfig** and includes configuration options such as **normal**, **activated**,
+   *     **normalAccessibility**, **activatedAccessibility**, and **action**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -787,7 +1100,7 @@ export declare class ChipV2SuffixSymbolIcon extends ChipV2SymbolIcon {
 }
 
 /**
- * Defines label margin.
+ * Defines the margin configuration between the text and the left and right icons.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -797,7 +1110,22 @@ export declare class ChipV2SuffixSymbolIcon extends ChipV2SymbolIcon {
  */
 export interface ChipV2LabelMarginConfig {
   /**
-   * Left label margin length.
+   * Margin between the text and the left icon. Percentage values are not supported. If a percentage value is passed in,
+   * the default value is used.
+   * 
+   * Default values:
+   * 
+   * When there is no left icon, the default value of **left** is **0**.
+   * 
+   * When there is a left icon and **size** is **ChipV2Size.SMALL**, the default value of **left** is **4**.
+   * 
+   * When there is a left icon and **size** is **ChipV2Size.NORMAL**, the default value of **left** is **6**.
+   * 
+   * Unit: vp
+   * 
+   * If the value is out of range, the default value is used.
+   * 
+   * Value range: [0, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -808,7 +1136,22 @@ export interface ChipV2LabelMarginConfig {
   left?: LengthMetrics;
 
   /**
-   * Right label margin length.
+   * Margin between the text and the right icon. Percentage values are not supported. If a percentage value is passed 
+   * in, the default value is used.
+   * 
+   * Default values:
+   * 
+   * When there is no right icon, the default value of **right** is **0**.
+   * 
+   * When there is a right icon and **size** is **ChipV2Size.SMALL**, the default value of **right** is **4**.
+   * 
+   * When there is a right icon and **size** is **ChipV2Size.NORMAL**, the default value of **right** is **6**.
+   * 
+   * Unit: vp
+   * 
+   * If the value is out of range, the default value is used.
+   * 
+   * Value range: [0, +∞)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -820,7 +1163,7 @@ export interface ChipV2LabelMarginConfig {
 }
 
 /**
- * Defines localized label margin.
+ * Defines the margin configuration between the localized text and the left and right icons.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -830,7 +1173,26 @@ export interface ChipV2LabelMarginConfig {
  */
 export interface ChipV2LocalizedLabelMarginConfig {
   /**
-   * start localized label margin length.
+   * Margin between the text and the start-side icon. Percentage values are not supported. If a percentage value is 
+   * passed in, the default value is used.
+   * 
+   * Default values:
+   * 
+   * When **size** is **ChipV2Size.SMALL**, the default value of **start** is:
+   * 
+   * `LengthMetrics.resource($r('sys.float.chip_small_text_margin'))`.
+   * 
+   * When **size** is **ChipV2Size.NORMAL**, the default value of **start** is:
+   * 
+   * `LengthMetrics.resource($r('sys.float.chip_normal_text_margin'))`.
+   * 
+   * Unit: vp
+   * 
+   * Value range: [0, +∞)
+   * 
+   * If the value is out of range, the default value is used.
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -841,7 +1203,26 @@ export interface ChipV2LocalizedLabelMarginConfig {
   start?: LengthMetrics;
 
   /**
-   * end localized label margin length.
+   * Margin between the text and the end-side icon. Percentage values are not supported. If a percentage value is passed
+   * in, the default value is used.
+   * 
+   * Default values:
+   * 
+   * When **size** is **ChipV2Size.SMALL**, the default value of **end** is:
+   * 
+   * `LengthMetrics.resource($r('sys.float.chip_small_text_margin'))`.
+   * 
+   * When **size** is **ChipV2Size.NORMAL**, the default value of **end** is:
+   * 
+   * `LengthMetrics.resource($r('sys.float.chip_normal_text_margin'))`.
+   * 
+   * Unit: vp
+   * 
+   * Value range: [0, +∞)
+   * 
+   * If the value is out of range, the default value is used.
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -853,7 +1234,7 @@ export interface ChipV2LocalizedLabelMarginConfig {
 }
 
 /**
- * Defines label config.
+ * Defines the text attribute configuration.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -874,7 +1255,17 @@ export interface ChipV2LabelConfig {
   text: string;
 
   /**
-   * Text font size.
+   * Font size. Percentage values are not supported. When a percentage value is passed, the default value is used.
+   * 
+   * Default values:
+   * 
+   * When **size** is **ChipV2Size.SMALL**, the default value is **$r('sys.float.chip_small_font_size')**.
+   * 
+   * In other cases, the default value is **$r('sys.float.chip_normal_font_size')**
+   * 
+   * Unit: fp
+   * 
+   * When the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -885,7 +1276,13 @@ export interface ChipV2LabelConfig {
   fontSize?: LengthMetrics;
 
   /**
-   * Text font color.
+   * Font color.
+   * 
+   * Default value: **$r('sys.color.chip_font_color')**
+   * 
+   * When the value is **undefined**, the default value is used.
+   * 
+   * When the value is invalid, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -896,7 +1293,13 @@ export interface ChipV2LabelConfig {
   fontColor?: ColorMetrics;
 
   /**
-   * Text font color when chip is activated.
+   * Font color when **ChipV2** is activated.
+   * 
+   * Default value: **$r('sys.color.chip_activated_fontcolor')**
+   * 
+   * When the value is **undefined**, the default value is used.
+   * 
+   * When the value is invalid, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -907,7 +1310,11 @@ export interface ChipV2LabelConfig {
   activatedFontColor?: ColorMetrics;
 
   /**
-   * Text font family.
+   * Font family.
+   * 
+   * Default value: **"HarmonyOS Sans"**
+   * 
+   * When the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -918,7 +1325,15 @@ export interface ChipV2LabelConfig {
   fontFamily?: string;
 
   /**
-   * Label margin.
+   * Spacing between the text and the left/right icons.
+   * 
+   * Default values:
+   * 
+   * When **size** is **ChipV2Size.SMALL**, the default value is **{ left: 4, right: 4 }**.
+   * 
+   * When **size** is **ChipV2Size.NORMAL**, the default value is **{ left: 6, right: 6 }**.
+   * 
+   * When the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -929,7 +1344,19 @@ export interface ChipV2LabelConfig {
   labelMargin?: ChipV2LabelMarginConfig;
 
   /**
-   * Localized label margin.
+   * Spacing between the localized text and the left/right icons.
+   * 
+   * Default values:
+   * 
+   * When **size** is **ChipV2Size.SMALL**, default value:
+   * 
+   * `{  start: LengthMetrics.resource($r('sys.float.chip_small_text_margin')),  end: LengthMetrics.resource($r('sys.float.chip_small_text_margin')) }`.
+   * 
+   * When **size** is **ChipV2Size.NORMAL**, default value:
+   * 
+   * `{  start: LengthMetrics.resource($r('sys.float.chip_normal_text_margin')),  end: LengthMetrics.resource($r('sys.float.chip_normal_text_margin')) }`.
+   * 
+   * When the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -940,7 +1367,11 @@ export interface ChipV2LabelConfig {
   localizedLabelMargin?: ChipV2LocalizedLabelMarginConfig;
 
   /**
-   * Modifier for the label text.
+   * Text modifier, which is used to set common text attributes. Pass this parameter when you need to dynamically modify
+   * text attributes (such as **fontWeight** and **fontStyle**) through the modifier. When no value or **undefined** is 
+   * passed in, the modifier is not applied and the text uses default attribute settings.
+   * 
+   * Default value: **undefined**, meaning that the modifier is not applied.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -952,7 +1383,7 @@ export interface ChipV2LabelConfig {
 }
 
 /**
- * Defines chip label class.
+ * Defines the text attribute class.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -964,6 +1395,8 @@ export interface ChipV2LabelConfig {
 export declare class ChipV2Label {
   /**
    * Text content.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -975,7 +1408,19 @@ export declare class ChipV2Label {
   public text: string;
 
   /**
-   * Text font size.
+   * Font size. Percentage values are not supported. When a percentage value is passed, the default value is used.
+   * 
+   * Default values:
+   * 
+   * When **size** is **ChipV2Size.SMALL**, the default value is **$r('sys.float.chip_small_font_size')**.
+   * 
+   * In other cases, the default value is **$r('sys.float.chip_normal_font_size')**
+   * 
+   * Unit: fp
+   * 
+   * When the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -987,7 +1432,15 @@ export declare class ChipV2Label {
   public fontSize?: LengthMetrics;
 
   /**
-   * Text font color.
+   * Font color.
+   * 
+   * Default value: **$r('sys.color.chip_font_color')**
+   * 
+   * When the value is **undefined**, the default value is used.
+   * 
+   * When the value is invalid, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -999,7 +1452,15 @@ export declare class ChipV2Label {
   public fontColor?: ColorMetrics;
 
   /**
-   * Text font color when chip is activated.
+   * Font color when **ChipV2** is activated.
+   * 
+   * Default value: **$r('sys.color.chip_activated_fontcolor')**
+   * 
+   * When the value is **undefined**, the default value is used.
+   * 
+   * When the value is invalid, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1011,7 +1472,13 @@ export declare class ChipV2Label {
   public activatedFontColor?: ColorMetrics;
 
   /**
-   * Text font family.
+   * Font family.
+   * 
+   * Default value: **"HarmonyOS Sans"**
+   * 
+   * When the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1023,7 +1490,17 @@ export declare class ChipV2Label {
   public fontFamily?: string;
 
   /**
-   * Label margin.
+   * Spacing between the text and the left/right icons.
+   * 
+   * Default values:
+   * 
+   * When **size** is **ChipV2Size.SMALL**, the default value is **{ left: 4, right: 4 }**.
+   * 
+   * When **size** is **ChipV2Size.NORMAL**, the default value is **{ left: 6, right: 6 }**.
+   * 
+   * When the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1035,7 +1512,20 @@ export declare class ChipV2Label {
   public labelMargin?: ChipV2LabelMarginConfig;
 
   /**
-   * Localized label margin.
+   * Spacing between the localized text and the left/right icons.
+   * 
+   * Default values:
+   * 
+   * When **size** is **ChipV2Size.SMALL**, default value: 
+   * `{  start: LengthMetrics.resource($r('sys.float.chip_small_text_margin')),  end: LengthMetrics.resource($r('sys.float.chip_small_text_margin')) }`.
+   * 
+   * When **size** is **ChipV2Size.NORMAL**, default value:
+   * 
+   * `{  start: LengthMetrics.resource($r('sys.float.chip_normal_text_margin')),  end: LengthMetrics.resource($r('sys.float.chip_normal_text_margin')) }`.
+   * 
+   * When the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1047,7 +1537,13 @@ export declare class ChipV2Label {
   public localizedLabelMargin?: ChipV2LocalizedLabelMarginConfig;
 
   /**
-   * Modifier for the label text.
+   * Text modifier, which is used to set common text attributes. Pass this parameter when you need to dynamically modify
+   * text attributes (such as **fontWeight** and **fontStyle**) through the modifier. When no value or **undefined** is 
+   * passed in, the modifier is not applied and the text uses default attribute settings.
+   * 
+   * Default value: **undefined**, meaning that the modifier is not applied.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1059,9 +1555,11 @@ export declare class ChipV2Label {
   public modifier?: TextModifier;
 
   /**
-   * The constructor of ChipLabel
+   * A constructor used to create a **ChipV2Label** object.
    *
-   * @param { ChipV2LabelConfig } config - config of the chip label
+   * @param { ChipV2LabelConfig } config - Text attribute configuration, which is used to set the text display
+   *     attributes of **ChipV2**, including configuration options such as **text**, **fontSize**, **fontColor**,
+   *     **activatedFontColor**, and **fontFamily**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1072,7 +1570,7 @@ export declare class ChipV2Label {
 }
 
 /**
- * Defines ChipV2 options interface.
+ * Defines the configuration API of **ChipV2** options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1082,7 +1580,7 @@ export declare class ChipV2Label {
  */
 export interface IChipV2OptionsConfig {
   /**
-   * Chip label.
+   * Text of **ChipV2**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1093,7 +1591,11 @@ export interface IChipV2OptionsConfig {
   label: ChipV2Label;
 
   /**
-   * Chip prefix icon.
+   * Prefix icon of **ChipV2**.
+   * 
+   * Default value: no prefix icon is displayed.
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1104,7 +1606,13 @@ export interface IChipV2OptionsConfig {
   prefixIcon?: ChipV2Icon;
 
   /**
-   * Chip suffix icon.
+   * Suffix icon of **ChipV2**.
+   * 
+   * Default value: no suffix icon is displayed.
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * Note: When a value is passed in **suffixIcon**, the **allowClose** attribute does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1115,7 +1623,16 @@ export interface IChipV2OptionsConfig {
   suffixIcon?: ChipV2Icon;
 
   /**
-   * Show close icon.
+   * Whether to display the close icon.
+   * 
+   * When a value is passed in **suffixIcon**, **allowClose** does not take effect. When no value is passed in 
+   * **suffixIcon**, **allowClose** determines whether the close icon is displayed.
+   * 
+   * Default value: **true**
+   * 
+   * **true**: Display the close icon. **false**: The close icon is not displayed.
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1126,7 +1643,16 @@ export interface IChipV2OptionsConfig {
   allowClose?: boolean;
 
   /**
-   * Set config for default close icon when 'allowClose' is true.
+   * Configuration of the close icon, including accessibility configuration. Set this attribute when you need to 
+   * customize the size or accessibility of the close icon.
+   * 
+   * Default values:
+   * 
+   * - Default size: When **size** is **ChipV2Size.SMALL**, the default value is `$r('sys.float.chip_small_font_size')`.
+   * In other cases, the default value is `$r('sys.float.chip_normal_font_size')`.
+   * - Default accessibility: No accessibility description.
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1137,7 +1663,13 @@ export interface IChipV2OptionsConfig {
   closeIcon?: ChipV2CloseIcon;
 
   /**
-   * Enable chip.
+   * Whether **ChipV2** is available.
+   * 
+   * Default value: **true**
+   * 
+   * **true**: **ChipV2** is available. **false**: **ChipV2** is unavailable.
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1148,7 +1680,13 @@ export interface IChipV2OptionsConfig {
   enabled?: boolean;
 
   /**
-   * Set whether chip is active or not.
+   * Whether **ChipV2** is activated.
+   * 
+   * Default value: **false**
+   * 
+   * **true**: **ChipV2** is activated. **false**: **ChipV2** is not activated.
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1159,7 +1697,13 @@ export interface IChipV2OptionsConfig {
   activated?: boolean;
 
   /**
-   * Chip background color.
+   * Background color of **ChipV2**.
+   * 
+   * Default value: **$r('sys.color.chip_background_color')**
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * If the value is invalid, the background color is transparent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1170,7 +1714,13 @@ export interface IChipV2OptionsConfig {
   backgroundColor?: ColorMetrics;
 
   /**
-   * Chip background color when chip is activated.
+   * Background color of **ChipV2** when activated.
+   * 
+   * Default value: **$r('sys.color.chip_container_activated_color')**
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * If the value is invalid, the background color is transparent.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1181,7 +1731,20 @@ export interface IChipV2OptionsConfig {
   activatedBackgroundColor?: ColorMetrics;
 
   /**
-   * Chip radius.
+   * Rounded corner radius of the **ChipV2** background. Percentage values are not supported. If a percentage value is 
+   * passed, the default value is used.
+   * 
+   * Default values:
+   * 
+   * When **size** is **ChipV2Size.NORMAL**, the default **borderRadius** is 
+   * **$r('sys.float.chip_border_radius_normal')**.
+   * 
+   * When **size** is **ChipV2Size.SMALL**, the default **borderRadius** is 
+   * **$r('sys.float.chip_border_radius_small')**.
+   * 
+   * Unit: vp
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1192,7 +1755,17 @@ export interface IChipV2OptionsConfig {
   borderRadius?: LengthMetrics;
 
   /**
-   * Chip size.
+   * Size of **ChipV2**.
+   * 
+   * Default value: **ChipV2Size.NORMAL**
+   * 
+   * The **SizeT<LengthMetrics>** type does not support percentage setting. If an invalid value is passed, the default 
+   * value will be used.
+   * 
+   * **NOTE**
+   * 
+   * [Aging-friendly design](docroot://ui/arkui-support-for-aging-adaptation.md) does not take effect when **size** 
+   * specifies a specific width and height, except when **size** is set to **{ height: 0, width: 0 }**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1203,7 +1776,11 @@ export interface IChipV2OptionsConfig {
   size?: ChipV2Size | SizeT<LengthMetrics>;
 
   /**
-   * Indicates the attribute of the current chip direction.
+   * Layout direction.
+   * 
+   * Default value: **Direction.Auto**
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1214,7 +1791,16 @@ export interface IChipV2OptionsConfig {
   direction?: Direction;
 
   /**
-   * Set accessibility description for Chip.
+   * Accessibility description of the **ChipV2** component. This description is used to explain the current component to
+   * users in detail. You should provide a thorough text description for this attribute to help users understand the 
+   * operation to be performed and its possible results, especially when such results cannot be directly inferred from 
+   * the component's attributes and accessibility text. When a component that is selected has both a text attribute and 
+   * an accessibility description attribute, the system first reads the text attribute, followed by the content of the 
+   * accessibility description attribute.
+   * 
+   * Default value: empty string.
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1225,7 +1811,23 @@ export interface IChipV2OptionsConfig {
   accessibilityDescription?: ResourceStr;
 
   /**
-   * Set accessibility level for Chip.
+   * Accessibility level of the **ChipV2** component. This parameter controls whether the component can be recognized by
+   * accessibility services.
+   * 
+   * Supported values:
+   * 
+   * **"auto"**: The attribute value of the component is converted to **"yes"**.
+   * 
+   * **"yes"**: The component can be recognized by accessibility services.
+   * 
+   * **"no"**: The component cannot be recognized by accessibility services.
+   * 
+   * **"no-hide-descendants"**: The component and all its child components cannot be recognized by accessibility 
+   * services.
+   * 
+   * Default value: **"auto"**
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1236,7 +1838,13 @@ export interface IChipV2OptionsConfig {
   accessibilityLevel?: string;
 
   /**
-   * Set accessibility selected type for Chip.
+   * Selected state type of the **ChipV2** component.
+   * 
+   * Default value: When the **activated** attribute is **true** but **accessibilitySelectedType** is not specified, the
+   * **CHECKED** type is used by default. When the **activated** attribute is **false** or not set, the **CLICKED** type
+   * is used by default.
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1247,7 +1855,15 @@ export interface IChipV2OptionsConfig {
   accessibilitySelectedType?: ChipV2AccessibilitySelectedType;
 
   /**
-   * Maximum font scale for Chip.
+   * Maximum font scale factor for the text and icons of the **ChipV2** component.
+   * 
+   * Value range: [1, +∞)
+   * 
+   * If the set value is less than 1, the value **1** is used. Abnormal values do not take effect by default.
+   * 
+   * Default value: **1**
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1258,7 +1874,16 @@ export interface IChipV2OptionsConfig {
   maxFontScale?: number | Resource;
 
   /**
-   * Minimum font scale for Chip.
+   * Minimum font scale factor for the text and icons of the **ChipV2** component.
+   * 
+   * Value range: [0, 1]
+   * 
+   * If the set value is less than 0, the value **0** is used. If the set value is greater than 1, the value **1** is 
+   * used. Abnormal values do not take effect by default.
+   * 
+   * Default value: **1**
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1269,7 +1894,20 @@ export interface IChipV2OptionsConfig {
   minFontScale?: number | Resource;
 
   /**
-   * Chip padding.
+   * Padding of the **ChipV2** component.
+   * 
+   * Default values:
+   * 
+   * - When **size** is **ChipV2Size.SMALL** and **activated** is **true**, the default value is: 
+   * `{ start: LengthMetrics.resource('sys.float.chip_activated_small_text_padding'), end: LengthMetrics.resource('sys.float.chip_activated_small_text_padding'), top: LengthMetrics.vp(4), bottom: LengthMetrics.vp(4)}`.
+   * - When **size** is **ChipV2Size.SMALL** and **activated** is **false**, the default value is: 
+   * `{ start: LengthMetrics.resource('sys.float.chip_small_text_padding'), end: LengthMetrics.resource('sys.float.chip_small_text_padding'), top: LengthMetrics.vp(4), bottom: LengthMetrics.vp(4)}`.
+   * - When **size** is not **ChipV2Size.SMALL** and **activated** is **true**, the default value is: 
+   * `{ start: LengthMetrics.resource('sys.float.chip_activated_normal_text_padding'), end: LengthMetrics.resource('sys.float.chip_activated_normal_text_padding'), top: LengthMetrics.vp(4), bottom: LengthMetrics.vp(4)}`.
+   * - When **size** is not **ChipV2Size.SMALL** and **activated** is **false**, the default value is: 
+   * `{ start: LengthMetrics.resource('sys.float.chip_normal_text_padding'), end: LengthMetrics.resource('sys.float.chip_normal_text_padding'), top: LengthMetrics.vp(4), bottom: LengthMetrics.vp(4)}`.
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1280,7 +1918,22 @@ export interface IChipV2OptionsConfig {
   padding?: LocalizedPadding;
 
   /**
-   * Set font size for the label text and the close icon.
+   * Uniformly sets the font size of the text and icons of the **ChipV2** component. Percentage values are not 
+   * supported. If a percentage value is passed, the default value is used.
+   * 
+   * The priority of this **fontSize** is lower than that of the **fontSize** attributes in **prefixIcon**, **label**, 
+   * **suffixIcon**, and **closeIcon**.
+   * 
+   * Default values:
+   * 
+   * - When **size** is **ChipV2Size.SMALL**, the default text value is `$r('sys.float.chip_small_font_size')`, and the 
+   * default icon value is `$r('sys.float.chip_small_icon_size')`.
+   * - In other cases, the default text value is `$r('sys.float.chip_normal_font_size')`, and the default icon value is 
+   * `$r('sys.float.chip_normal_icon_size')`.
+   * 
+   * Unit: fp
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1291,8 +1944,13 @@ export interface IChipV2OptionsConfig {
   fontSize?: LengthMetrics;
 
   /**
-   * Set system-styled materials for the component. Different materials have different effects, which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   * System material style of the component. Different materials have different effects, which can affect the component'
+   * s [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, 
+   * [borderColor]{@link CommonMethod#borderColor}, [borderWidth]{@link CommonMethod#borderWidth}, 
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)} effect, and 
+   * [materialFilter]{@link CommonMethod#materialFilter} effect.
+   * 
+   * Default value: **undefined**, meaning no material style is applied.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1303,8 +1961,13 @@ export interface IChipV2OptionsConfig {
   backgroundSystemMaterial?: uiMaterial.Material;
 
   /**
-   * Set system-styled materials for the component which is activated. Different materials have different effects,
-   * which can influence the backgroundColor, border, shadow, and other visual attributes of the component.
+   * System material style of the activated component. Different materials have different effects, which can affect the 
+   * component's [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, 
+   * [borderColor]{@link CommonMethod#borderColor}, [borderWidth]{@link CommonMethod#borderWidth}, 
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)} effect, and 
+   * [materialFilter]{@link CommonMethod#materialFilter} effect.
+   * 
+   * Default value: **undefined**, meaning no material style is applied.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1315,7 +1978,14 @@ export interface IChipV2OptionsConfig {
   activatedBackgroundSystemMaterial?: uiMaterial.Material;
 
   /**
-   * On close action.
+   * Callback for the default close icon tap event.
+   * 
+   * When **allowClose** is **true** and no value is passed to **suffixIcon**, this callback is invoked when the close 
+   * icon is tapped.
+   * 
+   * Default value: The callback is not executed.
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1326,7 +1996,14 @@ export interface IChipV2OptionsConfig {
   onClose?: VoidCallback;
 
   /**
-   * On clicked action.
+   * Callback for the **ChipV2** tap event.
+   * 
+   * When **enabled** is **true**, tapping **ChipV2** triggers the tap event. When **enabled** is **false**, the tap 
+   * event is not triggered.
+   * 
+   * Default value: The callback is not executed.
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1338,7 +2015,7 @@ export interface IChipV2OptionsConfig {
 }
 
 /**
- * Defines chip options class.
+ * Defines the style and specific style parameters of the **ChipV2** component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1349,7 +2026,9 @@ export interface IChipV2OptionsConfig {
 @ObservedV2
 export declare class ChipV2Options {
   /**
-   * Chip prefix icon.
+   * Text of **ChipV2**.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1361,7 +2040,23 @@ export declare class ChipV2Options {
   public label: ChipV2Label;
 
   /**
-   * Chip prefix icon.
+   * Prefix icon of **ChipV2**.
+   * 
+   * Default value: no prefix icon is displayed.
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * For the symbol icon, the default **fontColor** values are as follows: **normalFontColor**: 
+   * `[$r('sys.color.chip_usually_icon_color')]`, **activatedFontColor**: `[$r('sys.color.chip_active_icon_color')]`. 
+   * The default **fontSize** is 16.
+   * 
+   * For the image icon, the default **fillColor** is `$r('sys.color.chip_usually_icon_color')`, and the default 
+   * **activatedFillColor** is `$r('sys.color.chip_active_icon_color')`. The color parsing of **fillColor** and 
+   * **activatedFillColor** is consistent with that of the **Image** component. The **fillColor** and 
+   * **activatedFillColor** attributes take effect only when the image format is SVG; for non-SVG images, the default 
+   * values are not applied.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1373,7 +2068,24 @@ export declare class ChipV2Options {
   public prefixIcon?: ChipV2Icon;
 
   /**
-   * Chip suffix icon.
+   * Suffix icon of **ChipV2**.
+   * 
+   * Default value: no suffix icon is displayed.
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * Note: When a value is passed in **suffixIcon**, the **allowClose** attribute does not take effect.
+   * 
+   * For the symbol icon, the default **fontColor** values are as follows: **normalFontColor**: 
+   * `[$r('sys.color.chip_usually_icon_color')]`, **activatedFontColor**: `[$r('sys.color.chip_active_icon_color')]`. 
+   * The default **fontSize** is 16.
+   * 
+   * For the image icon, the default **fillColor** is `$r('sys.color.chip_usually_icon_color')`, and the default 
+   * **activatedFillColor** is `$r('sys.color.chip_active_icon_color')`. The color parsing of **fillColor** and 
+   * **activatedFillColor** is consistent with that of the **Image** component. The **fillColor** and 
+   * **activatedFillColor** attributes take effect only when the image format is SVG.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1385,7 +2097,18 @@ export declare class ChipV2Options {
   public suffixIcon?: ChipV2Icon;
 
   /**
-   * Show close icon.
+   * Whether to display the close icon.
+   * 
+   * When a value is passed in **suffixIcon**, **allowClose** does not take effect. When no value is passed in 
+   * **suffixIcon**, **allowClose** determines whether the close icon is displayed.
+   * 
+   * Default value: **true**
+   * 
+   * **true**: Display the close icon. **false**: The close icon is not displayed.
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1397,7 +2120,20 @@ export declare class ChipV2Options {
   public allowClose?: boolean;
 
   /**
-   * Set config for default close icon when 'allowClose' is true.
+   * Configuration of the close icon, including accessibility configuration. Set this attribute when you need to 
+   * customize the size or accessibility of the close icon.
+   * 
+   * Default values:
+   * 
+   * - Default size: When **size** is **ChipV2Size.SMALL**, the default value is `$r('sys.float.chip_small_font_size')`.
+   * In other cases, the default value is `$r('sys.float.chip_normal_font_size')`.
+   * - Default accessibility: No accessibility description.
+   * 
+   * **fontSize** does not support percentage setting. If an invalid value is passed, the default value will be used.
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1409,7 +2145,15 @@ export declare class ChipV2Options {
   public closeIcon?: ChipV2CloseIcon;
 
   /**
-   * Enable chip.
+   * Whether **ChipV2** is available.
+   * 
+   * Default value: **true**
+   * 
+   * **true**: **ChipV2** is available. **false**: **ChipV2** is unavailable.
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1421,7 +2165,15 @@ export declare class ChipV2Options {
   public enabled?: boolean;
 
   /**
-   * Set whether chip is active or not.
+   * Whether **ChipV2** is activated.
+   * 
+   * Default value: **false**
+   * 
+   * **true**: **ChipV2** is activated. **false**: **ChipV2** is not activated.
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1433,7 +2185,15 @@ export declare class ChipV2Options {
   public activated?: boolean;
 
   /**
-   * Chip background color.
+   * Background color of **ChipV2**.
+   * 
+   * Default value: **$r('sys.color.chip_background_color')**
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * If the value is invalid, the background color is transparent.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1445,7 +2205,15 @@ export declare class ChipV2Options {
   public backgroundColor?: ColorMetrics;
 
   /**
-   * Chip background color when chip is activated.
+   * Background color of **ChipV2** when activated.
+   * 
+   * Default value: **$r('sys.color.chip_container_activated_color')**
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * If the value is invalid, the background color is transparent.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1457,7 +2225,22 @@ export declare class ChipV2Options {
   public activatedBackgroundColor?: ColorMetrics;
 
   /**
-   * Chip radius.
+   * Rounded corner radius of the **ChipV2** background. Percentage values are not supported. If a percentage value is 
+   * passed, the default value is used.
+   * 
+   * Default values:
+   * 
+   * When **size** is **ChipV2Size.NORMAL**, the default **borderRadius** is 
+   * **$r('sys.float.chip_border_radius_normal')**.
+   * 
+   * When **size** is **ChipV2Size.SMALL**, the default **borderRadius** is 
+   * **$r('sys.float.chip_border_radius_small')**.
+   * 
+   * Unit: vp
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1469,7 +2252,19 @@ export declare class ChipV2Options {
   public borderRadius?: LengthMetrics;
 
   /**
-   * Chip size.
+   * Size of **ChipV2**.
+   * 
+   * Default value: **ChipV2Size.NORMAL**
+   * 
+   * The **SizeT<LengthMetrics>** type does not support percentage setting. If an invalid value is passed, the default 
+   * value will be used.
+   * 
+   * **NOTE**
+   * 
+   * [Aging-friendly design](docroot://ui/arkui-support-for-aging-adaptation.md) does not take effect when **size** 
+   * specifies a specific width and height, except when **size** is set to **{ height: 0, width: 0 }**.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1480,7 +2275,13 @@ export declare class ChipV2Options {
   @Trace
   public size?: ChipV2Size | SizeT<LengthMetrics>;
   /**
-   * Indicates the attribute of the current chip direction.
+   * Layout direction.
+   * 
+   * Default value: **Direction.Auto**
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1492,7 +2293,18 @@ export declare class ChipV2Options {
   public direction?: Direction;
 
   /**
-   * Set accessibility description for Chip.
+   * Accessibility description of the **ChipV2** component. This description is used to explain the current component to
+   * users in detail. You should provide a thorough text description for this attribute to help users understand the 
+   * operation to be performed and its possible results, especially when such results cannot be directly inferred from 
+   * the component's attributes and accessibility text. When the component that is selected has both a text attribute 
+   * and an accessibility description attribute, the system first reads the text attribute, followed by the content of 
+   * the accessibility description attribute.
+   * 
+   * Default value: empty string.
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1504,7 +2316,25 @@ export declare class ChipV2Options {
   public accessibilityDescription?: ResourceStr;
 
   /**
-   * Set accessibility level for Chip.
+   * Accessibility level of the **ChipV2** component. This parameter controls whether the component can be recognized by
+   * accessibility services.
+   * 
+   * Supported values:
+   * 
+   * **"auto"**: The attribute value of the component is converted to **"yes"**.
+   * 
+   * **"yes"**: The component can be recognized by accessibility services.
+   * 
+   * **"no"**: The component cannot be recognized by accessibility services.
+   * 
+   * **"no-hide-descendants"**: The component and all its child components cannot be recognized by accessibility 
+   * services.
+   * 
+   * Default value: **"auto"**
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1516,7 +2346,15 @@ export declare class ChipV2Options {
   public accessibilityLevel?: string;
 
   /**
-   * Sets the accessibility selection type for the chip.
+   * Selected state type of the **ChipV2** component.
+   * 
+   * Default value: When the **activated** attribute is **true** but **accessibilitySelectedType** is not specified, the
+   * **CHECKED** type is used by default. When the **activated** attribute is **false** or not set, the **CLICKED** type
+   * is used by default.
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1528,7 +2366,17 @@ export declare class ChipV2Options {
   public accessibilitySelectedType?: ChipV2AccessibilitySelectedType;
 
   /**
-   * Maximum font scale for Chip.
+   * Maximum font scale factor for the text and icons of the **ChipV2** component.
+   * 
+   * Value range: [1, +∞)
+   * 
+   * If the set value is less than 1, the value **1** is used. Abnormal values do not take effect by default.
+   * 
+   * Default value: **1**
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1539,7 +2387,18 @@ export declare class ChipV2Options {
   @Trace
   public maxFontScale?: number | Resource;
   /**
-   * Minimum font scale for Chip.
+   * Minimum font scale factor for the text and icons of the **ChipV2** component.
+   * 
+   * Value range: [0, 1]
+   * 
+   * If the set value is less than 0, the value **0** is used. If the set value is greater than 1, the value **1** is 
+   * used. Abnormal values do not take effect by default.
+   * 
+   * Default value: **1**
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1550,7 +2409,22 @@ export declare class ChipV2Options {
   @Trace
   public minFontScale?: number | Resource;
   /**
-   * Chip padding.
+   * Padding of the **ChipV2** component.
+   * 
+   * Default values:
+   * 
+   * - When **size** is **ChipV2Size.SMALL** and **activated** is **true**, the default value is: 
+   * `{ start: LengthMetrics.resource('sys.float.chip_activated_small_text_padding'), end: LengthMetrics.resource('sys.float.chip_activated_small_text_padding'), top: LengthMetrics.vp(4), bottom: LengthMetrics.vp(4)}`.
+   * - When **size** is **ChipV2Size.SMALL** and **activated** is **false**, the default value is: 
+   * `{ start: LengthMetrics.resource('sys.float.chip_small_text_padding'), end: LengthMetrics.resource('sys.float.chip_small_text_padding'), top: LengthMetrics.vp(4), bottom: LengthMetrics.vp(4)}`.
+   * - When **size** is not **ChipV2Size.SMALL** and **activated** is **true**, the default value is: 
+   * `{ start: LengthMetrics.resource('sys.float.chip_activated_normal_text_padding'), end: LengthMetrics.resource('sys.float.chip_activated_normal_text_padding'), top: LengthMetrics.vp(4), bottom: LengthMetrics.vp(4)}`.
+   * - When **size** is not **ChipV2Size.SMALL** and **activated** is **false**, the default value is: 
+   * `{ start: LengthMetrics.resource('sys.float.chip_normal_text_padding'), end: LengthMetrics.resource('sys.float.chip_normal_text_padding'), top: LengthMetrics.vp(4), bottom: LengthMetrics.vp(4)}`.
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1562,7 +2436,24 @@ export declare class ChipV2Options {
   public padding?: LocalizedPadding;
 
   /**
-   * Set font size for the label text and the close icon.
+   * Uniformly sets the font size of the text and icons of the **ChipV2** component. Percentage values are not 
+   * supported. If a percentage value is passed, the default value is used.
+   * 
+   * The priority of this **fontSize** is lower than that of the **fontSize** attributes in **prefixIcon**, **label**, 
+   * **suffixIcon**, and **closeIcon**.
+   * 
+   * Default values:
+   * 
+   * - When **size** is **ChipV2Size.SMALL**, the default text value is `$r('sys.float.chip_small_font_size')`, and the 
+   * default icon value is `$r('sys.float.chip_small_icon_size')`.
+   * - In other cases, the default text value is `$r('sys.float.chip_normal_font_size')`, and the default icon value is 
+   * `$r('sys.float.chip_normal_icon_size')`.
+   * 
+   * Unit: fp
+   * 
+   * If the value is **undefined**, the default value is used.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1574,8 +2465,15 @@ export declare class ChipV2Options {
   public fontSize?: LengthMetrics;
 
   /**
-   * Set system-styled materials for the component. Different materials have different effects, which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   * System material style of the component. Different materials have different effects, which can affect the component'
+   * s [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, 
+   * [borderColor]{@link CommonMethod#borderColor}, [borderWidth]{@link CommonMethod#borderWidth}, 
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)} effect, and 
+   * [materialFilter]{@link CommonMethod#materialFilter} effect.
+   * 
+   * Default value: **undefined**, meaning no material style is applied.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1587,8 +2485,15 @@ export declare class ChipV2Options {
   public backgroundSystemMaterial?: uiMaterial.Material;
 
   /**
-   * Set system-styled materials for the component which is activated. Different materials have different effects,
-   * which can influence the backgroundColor, border, shadow, and other visual attributes of the component.
+   * System material style of the activated component. Different materials have different effects, which can affect the 
+   * component's [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, 
+   * [borderColor]{@link CommonMethod#borderColor}, [borderWidth]{@link CommonMethod#borderWidth}, 
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)} effect, and 
+   * [materialFilter]{@link CommonMethod#materialFilter} effect.
+   * 
+   * Default value: **undefined**, meaning no material style is applied.
+   * 
+   * **Decorator:** @Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1600,7 +2505,14 @@ export declare class ChipV2Options {
   public activatedBackgroundSystemMaterial?: uiMaterial.Material;
 
   /**
-   * On close action.
+   * Callback for the default close icon tap event.
+   * 
+   * When **allowClose** is **true** and no value is passed to **suffixIcon**, this callback is invoked when the close 
+   * icon is tapped.
+   * 
+   * Default value: The callback is not executed.
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1611,7 +2523,14 @@ export declare class ChipV2Options {
   public onClose?: VoidCallback;
 
   /**
-   * On clicked action.
+   * Callback for the **ChipV2** tap event.
+   * 
+   * When **enabled** is **true**, tapping **ChipV2** triggers the tap event. When **enabled** is **false**, the tap 
+   * event is not triggered.
+   * 
+   * Default value: The callback is not executed.
+   * 
+   * If the value is **undefined**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1622,9 +2541,11 @@ export declare class ChipV2Options {
   public onClicked?: Callback<void>;
 
   /**
-   * The constructor of ChipV2Options
+   * A constructor used to create a **ChipV2Options** object.
    *
-   * @param { IChipV2OptionsConfig } config - config of the ChipV2Options
+   * @param { IChipV2OptionsConfig } config - Style configuration of **ChipV2**, which is used to customize the
+   *     appearance and behavior of the **ChipV2** component, including configuration options such as **label**,
+   *     **prefixIcon**, **suffixIcon**, **allowClose**, **activated**, and **backgroundColor**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1635,7 +2556,21 @@ export declare class ChipV2Options {
 }
 
 /**
- * Defines chip component with V2 state management.
+ * The **ChipV2** component is a chip component that delivers rich styles and interaction capabilities. It provides 
+ * features such as prefix icons, suffix icons, active states, and close buttons, supports the symbol and image icon 
+ * types, and offers comprehensive accessibility capabilities. This component is suitable for scenarios such as search 
+ * history, email recipient lists, tag selection, filters, and contact display.
+ * 
+ * This component is implemented based on 
+ * [state management V2](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v2). Compared
+ * with [state management V1](docroot://ui/state-management/arkts-state-management-overview.md#state-management-v1), 
+ * state management V2 delivers enhanced capabilities for deep observation and management of data objects, and is no 
+ * longer limited to the component level. With state management V2, you can control component data and state more 
+ * flexibly, achieving more efficient UI refresh.
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs of this module can only be used in the stage model.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1646,7 +2581,9 @@ export declare class ChipV2Options {
 @ComponentV2
 export declare struct ChipV2 {
   /**
-   * Chip options.
+   * Parameters of the **ChipV2** component, which are used to customize the appearance and behavior of the **ChipV2** 
+   * component, including configuration options such as **label**, **prefixIcon**, **suffixIcon**, **allowClose**, 
+   * **activated**, **backgroundColor**, and **size**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1659,7 +2596,7 @@ export declare struct ChipV2 {
   readonly chipV2Options: ChipV2Options;
 
   /**
-   * Sets the build function of the ChipV2.
+   * Constructs the UI structure of the advanced **ChipV2** component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

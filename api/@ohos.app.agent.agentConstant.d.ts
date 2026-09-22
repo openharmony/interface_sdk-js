@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Agent Constants
  * @kit AbilityKit
  */
 
@@ -37,7 +37,9 @@ declare namespace agentConstant {
    */
   export enum AgentCardType {
     /**
-    * Application-type agent card.
+     * Application-type agent card, applicable to traditional installable applications. The agent capability is
+     * installed and uninstalled along with the application, and users need to actively install the application before
+     * use.
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @stagemodelonly
@@ -47,7 +49,8 @@ declare namespace agentConstant {
     APP = 0,
 
     /**
-     * Atomic service-type agent card.
+     * Atomic service-type agent card, applicable to installation-free atomic services. The agent capability can be
+     * used on demand without pre-installation, supporting quick experience and sharing.
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @stagemodelonly
@@ -57,7 +60,10 @@ declare namespace agentConstant {
     ATOMIC_SERVICE = 1,
 
     /**
-     * LOW_CODE agent card.
+     * Low-code-type agent card, available only for system applications. It is applicable to the intelligent agent
+     * capability provided by system applications for rapid building and deployment. It supports creating agents
+     * quickly through visual configuration or simple scripts without writing complete code, lowering the barrier for
+     * agent development.
      *
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi

@@ -173,8 +173,9 @@ declare namespace inputDevice {
   }
 
   /**
-   * Enables listening for device hot swap events. When performing this operation, you need to connect to external
-   * devices such as a mouse, keyboard, and touchscreen. This API uses an asynchronous callback to return the result.
+   * Registers a listener for input device hot-swap events. This feature requires connecting external devices such as
+   * a mouse, keyboard, or touchscreen. This API uses an asynchronous callback to return the result. You are advised to execute
+   * this operation on the main application thread and unregister the listener before the thread exits.
    *
    * @param { 'change' } type - Event type. This field has a fixed value of **change**.
    * @param { Callback<DeviceListener> } listener - Callback used to return the input device hot swap events.
@@ -198,7 +199,7 @@ declare namespace inputDevice {
 
   /**
    * Disables listening for device hot swap events. This API is called before the application exits. This API uses an
-   * asynchronous callback to return the result.
+   * asynchronous callback to return the result. Listener unregistration must be performed on the same thread used for registration.
    *
    * @param { 'change' } type - Event type. This field has a fixed value of **change**.
    * @param { Callback<DeviceListener> } [listener] - Callback to unregister. If this parameter is left unspecified,
@@ -423,7 +424,7 @@ declare namespace inputDevice {
      * @readonly
      * @since 26.0.1 dynamic&static
      */
-    displayId?: int;
+    readonly displayId?: int;
   }
 
   /**

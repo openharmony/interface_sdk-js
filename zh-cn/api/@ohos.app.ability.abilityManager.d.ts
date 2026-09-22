@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ability信息管理
  * @kit AbilityKit
  */
 
@@ -565,6 +565,10 @@ declare namespace abilityManager {
   /**
    * 常驻进程支持按需启停。
    *
+   * > **说明：**
+   * >
+   * > 该接口不支持设置或移除分身应用（指定包名）的进程保活状态。
+   *
    * @param { string } bundleName - 常驻进程的包名。
    * @param { boolean } enable - 常驻进程的使能状态。true表示该进程为常驻进程；false表示该进程为普通进程，不会进行保活。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
@@ -629,7 +633,7 @@ declare namespace abilityManager {
 
   /**
    * 预加载指定的[UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}并返回预加载UIExtensionAbility实例
-   * 的ID。使用Promise异步回调。
+   * 的ID。使用Promise异步回调。应用需要提前加载UIExtensionAbility以提升启动性能时使用。
    *
    * @permission ohos.permission.PRELOAD_UI_EXTENSION_ABILITY
    * @param { Want } want - 启动Ability的Want信息。

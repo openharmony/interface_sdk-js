@@ -53,7 +53,7 @@ declare namespace autoStartupManager {
    * @throws { BusinessError } 201 - Permission denied, interface caller does not have permission
    *     "ohos.permission.MANAGE_APP_BOOT".
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
-   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are lef
+   * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
    *     unspecified; 2. Incorrect parameters types.
    * @throws { BusinessError } 16000050 - Failed to connect to the system service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -288,7 +288,7 @@ declare namespace autoStartupManager {
    *     startup at boot time, **false** otherwise.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
-   *     2.System service failed to communicate with dependency module.
+   *     2. System service failed to communicate with dependency module.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
    * @since 21 dynamic

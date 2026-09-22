@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file ErrorCode
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Mission Info
  * @kit AbilityKit
  */
 
@@ -42,7 +42,9 @@ export interface MissionInfo {
   missionId: int;
 
   /**
-   * Indicates running state.
+   * Indicates the running state. The value **0** means enabled, indicating that the task is active and valid, and
+   * the corresponding Ability is running or can be restored to the foreground. The value **-1** means not enabled,
+   * indicating that the task is closed, destroyed, or cannot be restored.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -52,7 +54,7 @@ export interface MissionInfo {
   runningState: int;
 
   /**
-   * Indicates locked state.
+   * Indicates the locked state. The value **true** means the locked state, and **false** means the unlocked state.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -63,6 +65,7 @@ export interface MissionInfo {
 
   /**
    * Indicates the recent created or updated time of the mission.
+   * Unit: ns
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -82,7 +85,7 @@ export interface MissionInfo {
   want: Want;
 
   /**
-   * Indicates label of the mission.
+   * Indicates the label of the mission, used as the task name displayed in the task list.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -102,7 +105,8 @@ export interface MissionInfo {
   iconPath: string;
 
   /**
-   * Indicates whether the mission is continuable.
+   * Indicates whether the mission is continuable. The value **true** means continuable, and **false** means not
+   * continuable.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi
@@ -122,7 +126,8 @@ export interface MissionInfo {
   abilityState: int;
 
   /**
-   * Indicates whether the mission is unclearable.
+   * Indicates whether the mission can be manually deleted by the user. The value **true** means it can be manually
+   * deleted by the user, and **false** means it cannot be manually deleted by the user.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Mission
    * @systemapi

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Agent Extension Ability
  * @kit AbilityKit
  */
 
@@ -45,7 +45,8 @@ declare class AgentExtensionAbility extends ExtensionAbility {
   context: AgentExtensionContext;
 
    /**
-   * Called back when an agent extension is started for initialization.
+   * The system triggers this callback when an AgentExtensionAbility instance is created. Developers can perform
+   * initialization logic (such as defining variables and loading resources) in this callback.
    *
    * @param { Want } want - Want information, including the ability name and bundle name.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
@@ -68,7 +69,10 @@ declare class AgentExtensionAbility extends ExtensionAbility {
   onConnect(want: Want, proxy: AgentHostProxy): void;
 
   /**
-   * Called back when a LOW_CODE agent is invoked.
+   * Triggered when a
+   * [LOW_CODE](docroot://reference/apis-ability-kit/js-apis-app-agent-agentConstant-sys.md#agentconstantagentcardtype)
+   * agent is successfully invoked, used for initialization operations (such as downloading resources from the cloud
+   * and loading configurations).
    *
    * @param { string } agentId - Indicates the LOW_CODE agent ID.
    * @syscap SystemCapability.Ability.AgentRuntime.Core
@@ -79,7 +83,9 @@ declare class AgentExtensionAbility extends ExtensionAbility {
   onAgentInvoked(agentId: string): void;
 
   /**
-   * Called back when data is sent.
+   * The system triggers this callback when the AgentExtensionAbility receives data sent by the client. The server
+   * can use [AgentHostProxy.sendData]{@link ./application/AgentHostProxy:AgentHostProxy.sendData} to send data to the
+   * client in this callback.
    *
    * @param { AgentHostProxy } proxy - Indicates the agent service host proxy.
    * @param { string } data - Indicates the received data.
@@ -91,7 +97,10 @@ declare class AgentExtensionAbility extends ExtensionAbility {
   onData(proxy: AgentHostProxy, data: string): void;
 
   /**
-   * Called back when authentication is sent.
+   * The system triggers this callback when the AgentExtensionAbility receives a security authentication request
+   * sent by the client. The server can process the received security authentication request in this callback, and
+   * use [AgentHostProxy.authorize]{@link ./application/AgentHostProxy:AgentHostProxy.authorize} to send a security
+   * authentication request to the client.
    *
    * @param { AgentHostProxy } proxy - Indicates the agent service host proxy.
    * @param { string } handshakeData - Indicates the received handshake data.

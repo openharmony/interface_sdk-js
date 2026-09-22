@@ -15,7 +15,7 @@
 
 /**
  *
- * @file LiveFormExtensionAbility
+ * @file 互动卡片扩展能力-LiveFormExtensionAbility
  * @kit FormKit
  */
 

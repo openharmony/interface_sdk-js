@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ability Constants
  * @kit AbilityKit
  */
 
@@ -269,7 +269,8 @@ declare namespace AbilityConstant {
     processState?: appManager.ProcessState;
 
     /**
-     * Indecates kill reason message.
+     * Indicates the reason for the last exit of the Ability. For details about the values, see
+     * [Application Termination Event Reason Field Description](docroot://dfx/hiappevent-watcher-app-killed-events.md#reason字段说明).
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -621,8 +622,19 @@ declare namespace AbilityConstant {
    * > with a value of **0** is triggered, indicating that the available memory is moderate.
    * > - When the available memory of the entire device drops to 1600 MB to 1700 MB, the **onMemoryLevel** callback
    * > with a value of **1** is triggered, indicating that the available memory is low.
-   * > - When the available memory of the entire device drops below 1600 MB, the **onMemoryLevel** callback with a
-   * > value of **2** is triggered, indicating that the available memory is critically low.
+    * > - When the available memory of the entire device drops below 1600 MB, the **onMemoryLevel** callback with a
+    * > value of **2** is triggered, indicating that the available memory is critically low.
+    * >
+    * > - LRU: Indicates the list sorted by the recent usage order of applications. Typically, recently used
+    * > applications are placed at the head of the list (closer to the front), and the least recently used
+    * > applications are placed at the tail (closer to the back). When memory is insufficient, applications
+    * > closer to the tail will be cleaned up first.
+    * >
+    * > - When the LRU changes, background applications will trigger the corresponding MemoryLevel
+    * > (MEMORY_LEVEL_BACKGROUND_MODERATE, MEMORY_LEVEL_BACKGROUND_LOW, MEMORY_LEVEL_BACKGROUND_CRITICAL)
+    * > onMemoryLevel callback based on their position in the LRU. If an application is frozen, it will
+    * > receive the corresponding onMemoryLevel callback when it is awakened. Therefore, it is not
+    * > recommended to perform time-consuming operations in this callback.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
@@ -674,7 +686,8 @@ declare namespace AbilityConstant {
     MEMORY_LEVEL_CRITICAL = 2,
 
     /**
-     * All UI elements of the process are hidden.
+     * All UI elements of the application are invisible. At this point, some resources should be released. This enum
+     * only takes effect for applications that switch from the foreground to the background.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -685,7 +698,9 @@ declare namespace AbilityConstant {
     MEMORY_LEVEL_UI_HIDDEN = 3,
 
     /**
-     * The process is in the background and the available memory of the entire device is moderate.
+     * Indicates that the application has just been used, that is, it is at the head of the Least Recently Used (LRU)
+     * list, and will not be cleaned up by the system for the time being. This enum only takes effect for background
+     * applications.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -696,7 +711,9 @@ declare namespace AbilityConstant {
     MEMORY_LEVEL_BACKGROUND_MODERATE = 4,
 
     /**
-     * The process is in the background and the available memory of the entire device is low.
+     * Indicates that the application has not been used for a period of time, that is, it is in the middle of the
+     * Least Recently Used (LRU) list, and is at risk of being cleaned up by the system. This enum only takes effect
+     * for background applications.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -707,7 +724,9 @@ declare namespace AbilityConstant {
     MEMORY_LEVEL_BACKGROUND_LOW = 5,
 
     /**
-     * The process is in the background and the available memory of the entire device is extremely low.
+     * Indicates that the application has not been used for a long time, that is, it is at the tail of the Least
+     * Recently Used (LRU) list, and will be prioritized for cleanup by the system. This enum only takes effect for
+     * background applications.
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
@@ -914,6 +933,8 @@ declare namespace AbilityConstant {
    * Enumerates the mission continuation states of the application. It is used in the
    * [setMissionContinueState]{@link ./application/UIAbilityContext:UIAbilityContext.setMissionContinueState(state: AbilityConstant.ContinueState, callback: AsyncCallback<void>)}
    *  API of [UIAbilityContext]{@link ./application/UIAbilityContext:UIAbilityContext}.
+   *
+   * > **NOTE** This API does not take effect on Wearable devices that do not support distributed services.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly

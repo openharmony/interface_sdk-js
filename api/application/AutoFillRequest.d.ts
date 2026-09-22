@@ -16,7 +16,7 @@
 /**
  * The module provides page data and callbacks when a callback is triggered for the AutoFillExtensionAbility.
  *
- * @file
+ * @file AutoFillRequest
  * @kit AbilityKit
  */
 
@@ -302,7 +302,7 @@ export interface SaveRequestCallback {
  */
 export interface FillFailureResult {
   /**
-   * errcode.
+   * Error code of the auto-fill failure.
    * The value should be an integer.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
