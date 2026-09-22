@@ -14,9 +14,7 @@
  */
 
 /**
- CLI工具管理
- * @file
- CLI工具管理
+ * @file CLI工具管理
  * @kit AbilityKit
  */
 import { ToolInfo, ToolSummary } from './application/ToolInfo';

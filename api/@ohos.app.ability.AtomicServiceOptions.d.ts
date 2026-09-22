@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file openAtomicService Options
  * @kit AbilityKit
  */
 

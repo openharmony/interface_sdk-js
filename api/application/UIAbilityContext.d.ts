@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file UIAbility Context
  * @kit AbilityKit
  */
 
@@ -2818,7 +2818,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Connect to system server error.
-   * @throws { BusinessError } 16000063 - The target to restart does not belong to the caller or is not a UIAbility.
+   * @throws { BusinessError } 16000063 - The target to restart does not belong to the current application or is not a UIAbility.
    * @throws { BusinessError } 16000064 - Restart too frequently.
    * @throws { BusinessError } 16000065 - The API can be called only when the ability is focused.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

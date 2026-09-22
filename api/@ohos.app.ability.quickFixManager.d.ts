@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file quickFixManager
  * @kit AbilityKit
  */
 

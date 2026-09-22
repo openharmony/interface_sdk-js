@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Kiosk状态信息
  * @kit AbilityKit
  */
 

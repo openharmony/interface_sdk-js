@@ -16,7 +16,7 @@
 /**
  * The module provides page data and callbacks when a callback is triggered for the AutoFillExtensionAbility.
  *
- * @file
+ * @file AutoFillRequest
  * @kit AbilityKit
  */
 

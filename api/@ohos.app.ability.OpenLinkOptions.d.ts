@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file openLink Options
  * @kit AbilityKit
  */
 

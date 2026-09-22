@@ -18,7 +18,7 @@
  * [AbilityStartCallback]{@link ./application/AbilityStartCallback}. It provides callback results for launching ability 
  * components of specific types through the vertical panel.
  *
- * @file
+ * @file Completion Handler for Ability Start Callback
  * @kit AbilityKit
  */
 

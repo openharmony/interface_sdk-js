@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file URI Permission Manager
  * @kit AbilityKit
  */
 

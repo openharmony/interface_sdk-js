@@ -14,7 +14,7 @@
  */
 
 /**
-  * @file
+ * @file CLI工具会话事件
   * @kit AbilityKit
  */
 

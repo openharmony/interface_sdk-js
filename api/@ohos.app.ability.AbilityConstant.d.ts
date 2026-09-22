@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ability Constants
  * @kit AbilityKit
  */
 

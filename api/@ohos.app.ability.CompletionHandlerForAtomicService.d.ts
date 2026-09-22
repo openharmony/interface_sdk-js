@@ -18,7 +18,7 @@
  * [AtomicServiceOptions]{@link @ohos.app.ability.AtomicServiceOptions:AtomicServiceOptions} and is used to handle the 
  * result of an atomic service launch request.
  *
- * @file
+ * @file Completion Handler for Atomic Service
  * @kit AbilityKit
  */
 

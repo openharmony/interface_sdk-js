@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Mission Snapshot
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Kiosk Mode Management
  * @kit AbilityKit
  */
 

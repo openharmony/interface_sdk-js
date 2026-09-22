@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file openLink的可选参数
  * @kit AbilityKit
  */
 

@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file RunningMultiAppInfo
  * @kit AbilityKit
  */
 

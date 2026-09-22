@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ability基类
  * @kit AbilityKit
  */
 

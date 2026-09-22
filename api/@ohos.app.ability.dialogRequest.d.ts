@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file dialogRequest Module
  * @kit AbilityKit
  */
 

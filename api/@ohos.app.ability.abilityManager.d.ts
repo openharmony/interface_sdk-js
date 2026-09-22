@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Ability Information Management
  * @kit AbilityKit
  */
 
