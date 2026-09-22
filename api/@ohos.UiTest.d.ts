@@ -3799,7 +3799,7 @@ declare class Driver {
    *     , the default value **600** is used.
    *     <br>Value range:[200, 40000]
    *     <br>Unit: px/s.
-   *     <br>Throws error code 17000007 if negative.
+   *     <br>Throws error code 401 if negative.
    *     <br>Default value: 600
    * @returns { Promise<void> } - Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.
