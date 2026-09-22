@@ -735,7 +735,17 @@ declare namespace photoAccessHelper {
      * @since 24 dynamic
      * @since 26.0.0 static
      */
-    GAUSSIAN_SPLAT_3D = 17
+    GAUSSIAN_SPLAT_3D = 17,
+
+    /**
+     * 推荐宠物。
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+	 * @since 26.2.0 dynamic&static
+     */
+    FEATURED_SINGLE_PET = 18
   }
 
   /**
