@@ -51,7 +51,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { Contact } contact - 联系人信息。
    * @param { AsyncCallback<number> } callback - 回调函数。成功返回添加的联系人id；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
    *     2.Failed to open contact portrait file.
    *     3.Internal error. Invalid contact id. Failed to generate contact profile.
@@ -82,7 +83,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { Contact } contact - 联系人信息。
    * @returns { Promise<number> } Promise对象，返回添加的联系人id。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
    *     2.Failed to open contact portrait file.
    *     3.Internal error. Invalid contact id. Failed to generate contact profile.
@@ -180,7 +182,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { string } key - 联系人的唯一查询键key，一个联系人对应一个key，可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
    * @param { AsyncCallback<void> } callback - 回调函数。成功返回删除的联系人id；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -207,7 +210,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { string } key - 联系人的唯一查询键key，一个联系人对应一个key，可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -234,7 +238,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { string } key - 联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key,可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
    * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回查询的联系人对象；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -263,7 +268,8 @@ declare namespace contact {
    * @param { string } key - 联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key,可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
    * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
    * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回查询的联系人对象；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -292,7 +298,8 @@ declare namespace contact {
    * @param { string } key - 联系人的唯一查询键key，是新建联系人时系统自动生成的唯一标识，一个联系人对应一个key,可以通过[queryKey]{@link contact.queryKey(context: Context, id: number, callback: AsyncCallback<string>): void}获取。
    * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
    * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回查询的联系人对象；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -323,7 +330,8 @@ declare namespace contact {
    * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
    * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
    * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回查询的联系人对象；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -354,7 +362,8 @@ declare namespace contact {
    * @param { Holder } [holder] - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
    * @param { ContactAttributes } [attrs] - 联系人的属性列表，不传该参数，则默认查询所有联系人属性。
    * @returns { Promise<Contact> } Promise对象。返回查询到的联系人对象。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -379,7 +388,8 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - 应用上下文Context。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -406,7 +416,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -433,7 +444,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -462,7 +474,8 @@ declare namespace contact {
    * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
    * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -491,7 +504,8 @@ declare namespace contact {
    * @param { Holder } [holder] - 创建联系人的应用信息类，如果为空，默认使用系统联系人应用查询。
    * @param { ContactAttributes } [attrs] - 联系人的属性列表，不传该参数默认查询所有联系人属性。
    * @returns { Promise<Array<Contact>> } Promise对象。返回查询到的联系人数组对象。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -522,7 +536,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { string } email - 联系人的邮箱地址。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -555,7 +570,8 @@ declare namespace contact {
    * @param { string } email - 联系人的邮箱地址。
    * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则使用系统联系人应用。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -589,7 +605,8 @@ declare namespace contact {
    * @param { string } email - 联系人的邮箱地址。
    * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的id、key、Emails属性。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -625,7 +642,8 @@ declare namespace contact {
    * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
    * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的id、key、Emails属性。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -660,7 +678,8 @@ declare namespace contact {
    * @param { Holder } [holder] - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
    * @param { ContactAttributes } [attrs] - 联系人的属性列表，如果为空，则查询联系人的id、key、Emails属性。
    * @returns { Promise<Array<Contact>> } Promise对象。返回查询到的联系人数组对象。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -691,7 +710,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
    *     2.Internal error. The query resultSet is nullptr.
    *     3.Internal error. The query resultSet is empty.
@@ -726,7 +746,8 @@ declare namespace contact {
    * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
    * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
    *     2.Internal error. The query resultSet is nullptr.
    *     3.Internal error. The query resultSet is empty.
@@ -761,7 +782,8 @@ declare namespace contact {
    * @param { string } phoneNumber - 联系人的电话号码，仅支持全匹配，不支持通配符匹配。
    * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的id、key、phoneNumbers属性。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
    *     2.Internal error. The query resultSet is nullptr.
    *     3.Internal error. The query resultSet is empty.
@@ -798,7 +820,8 @@ declare namespace contact {
    * @param { Holder } holder - 创建联系人的应用信息类，如果该参数为空，则默认使用系统联系人应用查询。
    * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的id、key、phoneNumbers属性。
    * @param { AsyncCallback<Array<Contact>> } callback - 回调函数。成功返回查询到的联系人对象数组；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
    *     2.Internal error. The query resultSet is nullptr.
    *     3.Internal error. The query resultSet is empty.
@@ -836,7 +859,8 @@ declare namespace contact {
    * @param { Holder } [holder] - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
    * @param { ContactAttributes } [attrs] - 联系人的属性列表，如果为空，则查询联系人的id、key、phoneNumbers属性。
    * @returns { Promise<Array<Contact>> } Promise对象。返回查询到的联系人数组对象。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
    *     2.Internal error. The query resultSet is nullptr.
    *     3.Internal error. The query resultSet is empty.
@@ -863,7 +887,8 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - 应用上下文Context。
    * @param { AsyncCallback<Array<Group>> } callback - 回调函数。成功返回查询到的群组对象数组；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -890,7 +915,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
    * @param { AsyncCallback<Array<Group>> } callback - 回调函数。成功返回查询到的群组对象数组；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -917,7 +943,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { Holder } [holder] - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
    * @returns { Promise<Array<Group>> } Promise对象。返回查询到的群组对象数组。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -942,7 +969,8 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - 应用上下文Context。
    * @param { AsyncCallback<Array<Holder>> } callback - 回调函数。成功返回查询到的创建联系人应用信息的对象数组；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -967,7 +995,8 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - 应用上下文Context。
    * @returns { Promise<Array<Holder>> } Promise对象。返回查询到的创建联系人应用信息的对象数组。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -994,7 +1023,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { number } id - 联系人对象的id属性，是联系人对象在数据库中的唯一标识符。
    * @param { AsyncCallback<string> } callback - 回调函数。成功返回查询到的联系人对应的key；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1024,7 +1054,8 @@ declare namespace contact {
    * @param { number } id - 联系人对象的id属性。
    * @param { Holder } holder - 创建联系人的应用信息类，如果传入参数为空则默认使用系统联系人应用查询。
    * @param { AsyncCallback<string> } callback - 回调函数。成功返回查询到的联系人对应的key；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1054,7 +1085,8 @@ declare namespace contact {
    * @param { number } id - 联系人对象的id属性。
    * @param { Holder } [holder] - 创建联系人的应用信息类，不传该参数，则默认使用系统联系人应用查询。
    * @returns { Promise<string> } Promise对象。返回查询到的联系人对应的key。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1080,7 +1112,8 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - 应用上下文Context。
    * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回“我的名片”信息；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -1107,7 +1140,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
    * @param { AsyncCallback<Contact> } callback - 回调函数。成功返回“我的名片”信息；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -1134,7 +1168,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { ContactAttributes } [attrs] - 联系人的属性列表，如果为空，则查询联系人的所有属性字段（包括姓名、电话、邮箱等）。
    * @returns { Promise<Contact> } Promise对象。返回"我的名片"联系人对象。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @syscap SystemCapability.Applications.ContactsData
    * @since 10
@@ -1161,7 +1196,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { Contact } contact - 联系人信息。id必填，可通过[selectContacts]{@link contact.selectContacts()}接口获取。
    * @param { AsyncCallback<void> } callback - 回调函数。成功返回更新的联系人id；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
    *     2.Failed to open contact portrait file.
    *     3.Internal error. Invalid contact id. Failed to generate contact profile.
@@ -1194,7 +1230,8 @@ declare namespace contact {
    * @param { Contact } contact - 联系人信息。id必填，可通过[selectContacts]{@link contact.selectContacts()}接口获取。
    * @param { ContactAttributes } attrs - 联系人的属性列表，如果为空，则更新联系人的所有属性字段（包括姓名、电话、邮箱等）。
    * @param { AsyncCallback<void> } callback - 回调函数。成功返回更新的联系人id；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - 1.Parameter error. Possible causes:Mandatory parameters are left unspecified.
    *     2.Failed to open contact portrait file.
    *     3.Internal error. Invalid contact id. Failed to generate contact profile.
@@ -1227,7 +1264,8 @@ declare namespace contact {
    * @param { Contact } contact - 联系人信息。id必填，可通过[selectContacts]{@link contact.selectContacts()}接口获取。
    * @param { ContactAttributes } [attrs] - 联系人的属性列表，如果为空，则更新联系人的所有属性字段（包括姓名、电话、邮箱等）。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - 1.Parameter error. Possible causes: Mandatory parameters are left unspecified.
    *     2.Failed to open contact portrait file.
    *     3.Internal error. Invalid contact id. Failed to generate contact profile.
@@ -1258,7 +1296,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { number } id - 联系人对象的id属性，一个联系人对应一个id。
    * @param { AsyncCallback<boolean> } callback - 回调函数。成功返回布尔值，true代表联系人id在本地电话簿中，false则代表联系人id不在本地电话簿中；失败返回具体的错误码信息。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1286,7 +1325,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { number } id - 联系人对象的id属性，一个联系人对应一个id。
    * @returns { Promise<boolean> } Promise对象。返回true表示联系人id在本地电话簿中，返回false表示联系人id不在本地电话簿中。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1314,7 +1354,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { number } id - 名片对象的id属性。
    * @param { AsyncCallback<boolean> } callback - 回调函数。成功返回是否为“我的名片”的布尔值。true代表的是“我的名片”，false代表不是；失败时则返回错误码。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
@@ -1342,7 +1383,8 @@ declare namespace contact {
    * @param { Context } context - 应用上下文Context。
    * @param { number } id - 名片对象的id属性。
    * @returns { Promise<boolean> } Promise对象。返回true表示是“我的名片”，返回false代表不是。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified. 2.Parameter verification failed.
    * @syscap SystemCapability.Applications.ContactsData
@@ -3051,7 +3093,8 @@ declare namespace contact {
    * @param { Contact } contact - 联系人信息。
    * @returns { Promise<number> } Promise对象。返回添加的联系人id。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
-   * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700101 - Failed to get value from contacts data.
    * @throws { BusinessError } 16700102 - Failed to set value to contacts data.
@@ -3232,7 +3275,8 @@ declare namespace contact {
    * @param { Contact } contact - 联系人信息。
    * @returns { Promise<number> } Promise对象。返回添加的联系人id，即新建联系人时系统自动生成的唯一标识，一个id唯一对应一个联系人。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
-   * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700102 - Failed to set value to contacts data.
    * @throws { BusinessError } 16700103 - User cancel.
@@ -3248,7 +3292,8 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - 应用上下文Context。
    * @returns { Promise<int> } Promise对象。返回查询到的联系人数量。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 16700001 - General error.
    * @syscap SystemCapability.Applications.ContactsData
    * @atomicservice
@@ -3280,7 +3325,8 @@ declare namespace contact {
    * @param { string } phoneNumber - 联系人的电话号码。
    * @param { int } minDuration - 最短通话时长，单位为秒，取值范围大于0。
    * @returns { Promise<boolean> } Promise对象，返回是否有符合条件的通话记录，true代表有符合条件的，false代表没有。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700002 - Invalid parameter value.
    * @syscap SystemCapability.Applications.ContactsData
@@ -3299,7 +3345,8 @@ declare namespace contact {
    * @param { int } minDuration - 最短通话时长，单位为秒，取值范围大于0。
    * @param { int } withinTime - 表示从当前时间开始计算，通话的起始时间和结束时间应在此时间范围内，单位为秒。最多可设置6小时，超过6小时的默认以6小时查询。
    * @returns { Promise<boolean> } Promise对象，返回是否有符合条件的通话记录，true代表有符合条件的，false代表没有。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700002 - Invalid parameter value.
    * @syscap SystemCapability.Applications.ContactsData
@@ -3322,7 +3369,8 @@ declare namespace contact {
    * @returns { Promise<Array<int>> } 返回联系人创建结果的数组。有效的联系人ID (可为通过 {@link Contact#getId()}) 
    * 获得的值表示创建成功。
    * {@link Contact#INVALID_CONTACT_ID} 表示创建失败。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700002 - Invalid parameter value.
    * @throws { BusinessError } 16700003 - Background usage is prohibited.
@@ -3343,7 +3391,8 @@ declare namespace contact {
    * @permission ohos.permission.READ_CONTACTS
    * @param { Context } context - 应用上下文Context。
    * @returns { Promise<Array<ContactSyncInfo>> } 返回调用应用程序的联系人同步信息数组。如果没有正在同步的联系人，则返回null。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 16700001 - General error.
    * @syscap SystemCapability.Applications.ContactsData
    * @stagemodelonly
@@ -3361,7 +3410,8 @@ declare namespace contact {
    * @param { Array<Contact> } contacts - 表示待导入数据库的联系人信息数组。
    * @returns { Promise<Array<int>> } 返回联系人创建结果的数组。返回的联系人id有效（可通过[getId]{@link Contact#getId()}获取）表示创建成功。
    * 返回值为-1[INVALID_CONTACT_ID]{@link Contact.INVALID_CONTACT_ID} 表示创建失败。-2表示用户未选择该联系人。
-   * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
+   * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the
+   *     capability; 2. The chip does not support the capability; 3. A dependent service feature is not supported.
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700002 - Invalid parameter value.
    * @throws { BusinessError } 16700004 - The number of contacts exceeds the limit.
