@@ -14,12 +14,12 @@
  */
 
 /**
- * @file
+ * @file Enums
  * @kit ArkUI
  */
 
 /**
- * common enum of the checkbox shape
+ * Sets the shape of check boxes.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -42,7 +42,7 @@ declare enum CheckBoxShape {
   CIRCLE = 0,
 
   /**
-   * Rounded Square.
+   * Rounded square.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -51,11 +51,11 @@ declare enum CheckBoxShape {
    * @atomicservice [since 12]
    * @since 11 dynamic
    */
-  ROUNDED_SQUARE = 1,
+  ROUNDED_SQUARE = 1
 }
 
 /**
- * common enum of color
+ * Sets the color type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -66,7 +66,7 @@ declare enum CheckBoxShape {
  */
 declare enum Color {
   /**
-   * White.
+   * ![white](docroot://reference/apis-arkui/arkui-ts/figures/white.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -78,7 +78,7 @@ declare enum Color {
   White,
 
   /**
-   * Black.
+   * ![black](docroot://reference/apis-arkui/arkui-ts/figures/black.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -90,7 +90,7 @@ declare enum Color {
   Black,
 
   /**
-   * Blue.
+   * ![blue](docroot://reference/apis-arkui/arkui-ts/figures/blue.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -102,7 +102,7 @@ declare enum Color {
   Blue,
 
   /**
-   * Brown.
+   * ![brown](docroot://reference/apis-arkui/arkui-ts/figures/brown.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -114,7 +114,7 @@ declare enum Color {
   Brown,
 
   /**
-   * Gray.
+   * ![gray](docroot://reference/apis-arkui/arkui-ts/figures/gray.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -126,7 +126,7 @@ declare enum Color {
   Gray,
 
   /**
-   * Green.
+   * ![green](docroot://reference/apis-arkui/arkui-ts/figures/green.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -138,7 +138,7 @@ declare enum Color {
   Green,
 
   /**
-   * Grey.
+   * ![gray](docroot://reference/apis-arkui/arkui-ts/figures/gray.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -150,7 +150,7 @@ declare enum Color {
   Grey,
 
   /**
-   * Orange.
+   * ![orange](docroot://reference/apis-arkui/arkui-ts/figures/orange.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -162,7 +162,7 @@ declare enum Color {
   Orange,
 
   /**
-   * Pink.
+   * ![pink](docroot://reference/apis-arkui/arkui-ts/figures/pink.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -174,7 +174,7 @@ declare enum Color {
   Pink,
 
   /**
-   * Red.
+   * ![red](docroot://reference/apis-arkui/arkui-ts/figures/red.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -186,7 +186,7 @@ declare enum Color {
   Red,
 
   /**
-   * Yellow.
+   * ![yellow](docroot://reference/apis-arkui/arkui-ts/figures/yellow.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -198,7 +198,7 @@ declare enum Color {
   Yellow,
 
   /**
-   * Transparent.
+   * Transparent
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -207,7 +207,7 @@ declare enum Color {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Transparent,
+  Transparent
 }
 
 /**
@@ -222,7 +222,7 @@ declare enum Color {
 declare enum ColoringStrategy {
   /**
    * The foreground colors are the inverse of the component background colors. This strategy is only applicable when set
-   * within the [foregroundColor]{@link CommonMethod#foregroundColor(value: ResourceColor | ColoringStrategy)} 
+   * within the [foregroundColor]{@link CommonMethod#foregroundColor(value: ResourceColor | ColoringStrategy)}
    * attribute.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -234,9 +234,9 @@ declare enum ColoringStrategy {
   INVERT = 'invert',
 
   /**
-   * The shadow colors of the component are the average color obtained from the component background shadow area. This 
-   * strategy is only applicable when set within the 
-   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)} attribute whose input parameter type is 
+   * The shadow colors of the component are the average color obtained from the component background shadow area. This
+   * strategy is only applicable when set within the
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)} attribute whose input parameter type is
    * ShadowOptions.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -248,9 +248,9 @@ declare enum ColoringStrategy {
   AVERAGE = 'average',
 
   /**
-   * The shadow colors of the component are the primary color obtained from the component background shadow area. This 
-   * strategy is only applicable when set within the 
-   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)} attribute whose input parameter type is 
+   * The shadow colors of the component are the primary color obtained from the component background shadow area. This
+   * strategy is only applicable when set within the
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)} attribute whose input parameter type is
    * ShadowOptions.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -274,7 +274,7 @@ declare enum ColoringStrategy {
 }
 
 /**
- * Image display mode.
+ * Sets the image filling effect.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -285,7 +285,10 @@ declare enum ColoringStrategy {
  */
 declare enum ImageFit {
   /**
-   * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
+   * The image or video is scaled with its aspect ratio retained to fit entirely within the display boundaries, with
+   * horizontal center alignment.
+   *
+   * ![ImageFit-Examples01](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_contain.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -297,8 +300,10 @@ declare enum ImageFit {
   Contain,
 
   /**
-   * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the 
-   * display boundary.
+   * The image or video is scaled while maintaining the aspect ratio so that both sides are greater than or equal to the
+   * display boundaries, aligned horizontally in the center.
+   *
+   * ![ImageFit-Examples02](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_cover.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -310,7 +315,10 @@ declare enum ImageFit {
   Cover,
 
   /**
-   * Adaptive display
+   * The image or video is scaled appropriately based on its own dimensions and the component's size to fill the view
+   * while maintaining the aspect ratio, aligned horizontally in the center.
+   *
+   * ![ImageFit-Examples03](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_auto.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -322,7 +330,10 @@ declare enum ImageFit {
   Auto,
 
   /**
-   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
+   * The image or video is scaled without maintaining the aspect ratio to fill the display boundaries, with horizontal
+   * center alignment.
+   *
+   * ![ImageFit-Examples04](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_fill.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -334,7 +345,10 @@ declare enum ImageFit {
   Fill,
 
   /**
-   * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
+   * The image or video is displayed while maintaining the aspect ratio, only scaling down or keeping the original size,
+   * aligned horizontally in the center.
+   *
+   * ![ImageFit-Examples05](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_scaleDown.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -346,7 +360,9 @@ declare enum ImageFit {
   ScaleDown,
 
   /**
-   * Keep the original size and display it in the center.
+   * The image is displayed at its original size, aligned horizontally in the center.
+   *
+   * ![ImageFit-Examples06](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_none.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -356,9 +372,11 @@ declare enum ImageFit {
    * @since 7 dynamic
    */
   None,
-    
+
   /**
-   * Top Start.
+   * The image or video is displayed at the top start position of the component in the original size.
+   *
+   * ![ImageFit-Examples07](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_top_start.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -370,7 +388,9 @@ declare enum ImageFit {
   TOP_START = 7,
 
   /**
-   * The top is centered horizontally.
+   * The image or video is displayed at the top center position of the component in the original size.
+   *
+   * ![ImageFit-Examples08](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_top.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -382,7 +402,9 @@ declare enum ImageFit {
   TOP = 8,
 
   /**
-   * Top tail end.
+   * The image or video is displayed at the top end position of the component in the original size.
+   *
+   * ![ImageFit-Examples09](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_top_end.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -394,7 +416,9 @@ declare enum ImageFit {
   TOP_END = 9,
 
   /**
-   * The starting end is centered longitudinally.
+   * The image or video is displayed at the start position (vertically centered) of the component in the original size.
+   *
+   * ![ImageFit-Examples10](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_start.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -406,7 +430,9 @@ declare enum ImageFit {
   START = 10,
 
   /**
-   * Center horizontal and vertical.
+   * The image or video is displayed at the center position of the component in the original size.
+   *
+   * ![ImageFit-Examples11](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_center.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -418,7 +444,9 @@ declare enum ImageFit {
   CENTER = 11,
 
   /**
-   * The tail end is centered longitudinally.
+   * The image or video is displayed at the end position (vertically centered) of the component in the original size.
+   *
+   * ![ImageFit-Examples12](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_end.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -430,7 +458,9 @@ declare enum ImageFit {
   END = 12,
 
   /**
-   * Bottom starting end.
+   * The image or video is displayed at the bottom start position of the component in the original size.
+   *
+   * ![ImageFit-Examples13](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_bottom_start.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -442,7 +472,9 @@ declare enum ImageFit {
   BOTTOM_START = 13,
 
   /**
-   * The bottom is centered horizontally.
+   * The image or video is displayed at the bottom center position of the component in the original size.
+   *
+   * ![ImageFit-Examples14](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_bottom.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -454,7 +486,9 @@ declare enum ImageFit {
   BOTTOM = 14,
 
   /**
-   * Bottom end.
+   * The image or video is displayed at the bottom end position of the component in the original size.
+   *
+   * ![ImageFit-Examples15](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_bottom_end.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -466,7 +500,8 @@ declare enum ImageFit {
   BOTTOM_END = 15,
 
   /**
-   * Matrix of Image.
+   * The image, with the use of [imageMatrix]{@link ImageAttribute#imageMatrix}, is displayed in the specified position
+   * of the **Image component**, keeping its original size. SVG images are not supported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -474,11 +509,11 @@ declare enum ImageFit {
    * @atomicservice
    * @since 15 dynamic
    */
-  MATRIX = 16,
+  MATRIX = 16
 }
 
 /**
- * Border Style
+ * Sets the border style of an element.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -488,7 +523,7 @@ declare enum ImageFit {
  */
 declare enum BorderStyle {
   /**
-   * Displays as a series of dots with a radius of half the borderWidth.
+   * Dotted border. The radius of a dot is half of **borderWidth**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -499,7 +534,7 @@ declare enum BorderStyle {
   Dotted,
 
   /**
-   * Shows as a series of short square dashed lines.
+   * Dashed border.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -510,7 +545,7 @@ declare enum BorderStyle {
   Dashed,
 
   /**
-   * Shows as a solid line.
+   * Solid border.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -535,10 +570,10 @@ declare enum RenderStrategy {
   /**
    * Online rendering mode. The content to be rendered is clipped with rounded corners and directly rendered to the main
    * canvas.
-   * 
+   *
    * Note: Online rendering may cause display anomalies in certain scenarios. For example, when blur effects are applied
-   * within rounded corner components, background colors may interact and create gradient overlay effects. For detailed 
-   * behavior, see 
+   * within rounded corner components, background colors may interact and create gradient overlay effects. For detailed
+   * behavior, see
    * [Example 3: Configuring Offscreen Rounded Corners](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#example-3-configuring-offscreen-rounded-corners).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -551,17 +586,17 @@ declare enum RenderStrategy {
   FAST = 0,
 
   /**
-   * Offscreen rendering mode. The content to be rendered is first rendered to the offscreen canvas without rounded 
+   * Offscreen rendering mode. The content to be rendered is first rendered to the offscreen canvas without rounded
    * corners, and then clipped with rounded corners and rendered to the main canvas.
-   * 
+   *
    * **NOTE**
-   * 
+   *
    * 1. Compared with online rendering, offscreen rendering requires additional performance overhead.
    * 2. In offscreen rendering, the content is first rendered on an additional canvas, and then rendered on the main
-   * canvas.
+   *    canvas.
    * 3. Use offscreen rendering primarily for multi-layer components requiring rounded corners. For single components,
-   * it has effect only when the [clip]{@link CommonMethod#clip(value: boolean)} attribute, [background]{@link common},
-   * or [foreground color]{@link common} is configured.
+   *     it has effect only when the [clip]{@link CommonMethod#clip(value: boolean)} attribute,
+   *     [background]{@link ./common}, or [foreground color]{@link ./common} is configured.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -574,7 +609,7 @@ declare enum RenderStrategy {
 }
 
 /**
- * Line Join Style
+ * Sets the line connection style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -584,7 +619,7 @@ declare enum RenderStrategy {
  */
 declare enum LineJoinStyle {
   /**
-   * Connect path segments using bevels.
+   * Miter is used to connect paths.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -595,7 +630,7 @@ declare enum LineJoinStyle {
   Miter,
 
   /**
-   * Connect path segments using sharp corners.
+   * Round is used to connect paths.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -606,7 +641,7 @@ declare enum LineJoinStyle {
   Round,
 
   /**
-   * Connect path segments using fillets.
+   * Bevel is used to connect paths.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -614,7 +649,7 @@ declare enum LineJoinStyle {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Bevel,
+  Bevel
 }
 
 /**
@@ -657,9 +692,9 @@ declare enum TouchType {
   Move,
 
   /**
-   * A touch event is canceled. Examples: 1. touching the home button to return to the home screen while keeping a 
-   * finger on the screen; 2. folding a foldable phone to switch to the external screen while keeping a finger on the 
-   * screen.
+   * A touch event is canceled. For example: 1. When a finger is held on the screen and the Home key is tapped to return
+   * to the home screen, **Cancel** is triggered; 2. <!--RP2--><!--RP2End-->When a stylus operation occurs during a
+   * finger touch, the finger touch operation receives a Cancel event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -680,7 +715,7 @@ declare enum TouchType {
   HOVER_ENTER = 9,
 
   /**
-   * The mouse pointer moves in accessibility mode.
+   * The touch moves in accessibility mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -691,7 +726,7 @@ declare enum TouchType {
   HOVER_MOVE = 10,
 
   /**
-   * The mouse pointer exits the component in accessibility mode.
+   * A finger is lifted in accessibility mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -702,7 +737,7 @@ declare enum TouchType {
   HOVER_EXIT = 11,
 
   /**
-   * The triggered event is canceled in accessibility mode.
+   * The current event is canceled in accessibility mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -710,7 +745,7 @@ declare enum TouchType {
    * @atomicservice
    * @since 20 dynamic
    */
-  HOVER_CANCEL = 12,
+  HOVER_CANCEL = 12
 }
 
 /**
@@ -754,7 +789,7 @@ declare enum InteractionHand {
    * @atomicservice
    * @since 15 dynamic
    */
-  RIGHT = 2,
+  RIGHT = 2
 }
 
 /**
@@ -824,7 +859,7 @@ declare enum MouseButton {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  None,
+  None
 }
 
 /**
@@ -872,7 +907,7 @@ declare enum MouseAction {
 
   /**
    * The mouse pointer is hovered on an element.
-   * 
+   *
    * Note: This value has no effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -907,13 +942,13 @@ declare enum MouseAction {
 
   /**
    * The mouse button action is canceled. It is triggered in the following scenarios:
-   * 
+   *
    * 1. Component focus loss: This action is triggered when a currently focused component loses focus due to a system
-   * event (such as pop-up interruption or app switching).
+   *     event (such as pop-up interruption or app switching).
    * 2. Event interruption: During a mouse operation, if a higher-priority event occurs (such as a system-level gesture
-   * or forced event stream recycling), causing the current mouse operation to be forcibly terminated.
+   *     or forced event stream recycling), causing the current mouse operation to be forcibly terminated.
    * 3. Abnormal state exit: In scenarios such as component destruction or abnormal rendering environment, unfinished
-   * mouse events are marked as canceled.
+   *     mouse events are marked as canceled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -924,7 +959,7 @@ declare enum MouseAction {
 }
 
 /**
- * Animation status.
+ * Sets the animation playback status.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -934,7 +969,7 @@ declare enum MouseAction {
  */
 declare enum AnimationStatus {
   /**
-   * Initial state of the animation.
+   * The animation is in the initial state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -945,7 +980,7 @@ declare enum AnimationStatus {
   Initial = 0,
 
   /**
-   * The animation is playing.
+   * The animation is being played.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -975,7 +1010,7 @@ declare enum AnimationStatus {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Stopped = 3,
+  Stopped = 3
 }
 
 /**
@@ -1001,8 +1036,8 @@ declare enum Curve {
   Linear,
 
   /**
-   * The animation starts slowly, accelerates, and then decelerates before ending. The curve is cubic-bezier(0.25, 0.1,
-   * 0.25, 1.0).
+   * The animation starts slowly, accelerates, and then decelerates before ending. The curve is CubicBezier(0.25, 0.1, 0
+   * .25, 1.0).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -1013,8 +1048,8 @@ declare enum Curve {
   Ease,
 
   /**
-   * The animation starts at a low speed and then picks up speed until the end. The cubic-bezier(0.42, 0.0, 1.0, 1.0)
-   * is used.
+   * The animation starts at a low speed and then picks up speed until the end. The cubic-bezier curve (0.42, 0.0, 1.0,
+   * 1.0) is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -1025,7 +1060,7 @@ declare enum Curve {
   EaseIn,
 
   /**
-   * The animation ends at a low speed. The cubic-bezier(0.0, 0.0, 0.58, 1.0) is used.
+   * The animation ends at a low speed. The cubic-bezier curve (0.0, 0.0, 0.58, 1.0) is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -1132,11 +1167,16 @@ declare enum Curve {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Friction,
+  Friction
 }
 
 /**
- * Sets the status before and after execution of the animation in the current playback direction.
+ * Sets the status before and after execution of the animation in the current playback direction. The status after
+ * execution of the animation is jointly determined by the **fillMode** and **reverse** attributes. For example, if
+ * **fillMode** is set to **Forwards**, the target will retain the state defined by the last keyframe encountered during
+ * execution. In this case, if **reverse** is set to **false**, the target will retain the state defined by the last
+ * keyframe encountered in the forward direction, that is, the last image; if **reverse** is set to **true**, the target
+ * will retain the state defined by the last keyframe encountered in the backward direction, that is, the first image.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1147,7 +1187,7 @@ declare enum Curve {
  */
 declare enum FillMode {
   /**
-   * If the animation is not executed, no style is applied to the target. After the animation is played, the initial 
+   * If the animation is not executed, no style is applied to the target. After the animation is played, the initial
    * default state is restored.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1173,7 +1213,7 @@ declare enum FillMode {
 
   /**
    * The animation applies the values defined in the first relevant keyframe once it is applied to the target component,
-   * and retains the values during the period set by **delay**. The first relevant keyframe depends on the value of 
+   * and retains the values during the period set by **delay**. The first relevant keyframe depends on the value of
    * **playMode**. If **playMode** is **Normal** or **Alternate**, the first relevant keyframe is in the **from** state.
    * If **playMode** is **Reverse** or **AlternateReverse**, the first relevant keyframe is in the **to** state.
    *
@@ -1197,11 +1237,11 @@ declare enum FillMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Both = 3,
+  Both = 3
 }
 
 /**
- * Animation playback mode.
+ * Sets the animation playback mode.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1236,7 +1276,7 @@ declare enum PlayMode {
   Reverse,
 
   /**
-   * The animation is played forwards for an odd number of times (1, 3, 5...) and backwards for an even number of times 
+   * The animation is played forwards for an odd number of times (1, 3, 5...) and backwards for an even number of times
    * (2, 4, 6...).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1249,7 +1289,7 @@ declare enum PlayMode {
   Alternate,
 
   /**
-   * The animation is played backwards for an odd number of times (1, 3, 5...) and forwards for an even number of times 
+   * The animation is played backwards for an odd number of times (1, 3, 5...) and forwards for an even number of times
    * (2, 4, 6...).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1259,7 +1299,7 @@ declare enum PlayMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  AlternateReverse,
+  AlternateReverse
 }
 
 /**
@@ -1295,7 +1335,9 @@ declare enum KeyType {
   Up,
 
   /**
-   * The key event is canceled.
+   * The key event is canceled. In the
+   * [global monitoring of basic input events](docroot://reference/apis-arkui/arkui-ts/ts-inputeventmonitor.md),
+   * blocking the **Up** event propagation automatically dispatches a **CANCEL** event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1347,11 +1389,11 @@ declare enum KeySource {
    * @atomicservice
    * @since 15 dynamic
    */
-  JOYSTICK,
+  JOYSTICK
 }
 
 /**
- * Edge.
+ * Controls the alignment position of the scrollable component in the layout.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -1360,7 +1402,7 @@ declare enum KeySource {
  */
 declare enum Edge {
   /**
-   * The top is centered horizontally.
+   * Top edge in the vertical direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -1370,7 +1412,9 @@ declare enum Edge {
   Top,
 
   /**
-   * Center horizontal and vertical.
+   * Center position in the vertical direction.
+   *
+   * This API is deprecated since API version 9.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -1379,7 +1423,7 @@ declare enum Edge {
   Center,
 
   /**
-   * The bottom is centered horizontally.
+   * Bottom edge in the vertical direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -1389,7 +1433,9 @@ declare enum Edge {
   Bottom,
 
   /**
-   * Cross axis direction text baseline alignment.
+   * Text baseline position in the cross axis direction.
+   *
+   * This API is deprecated since API version 9.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -1398,7 +1444,7 @@ declare enum Edge {
   Baseline,
 
   /**
-   * Align the head of the cross axis direction.
+   * Start position in the horizontal direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -1408,7 +1454,9 @@ declare enum Edge {
   Start,
 
   /**
-   * Middle
+   * Center position in the horizontal direction.
+   *
+   * This API is deprecated since API version 9.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -1417,18 +1465,18 @@ declare enum Edge {
   Middle,
 
   /**
-   * Align the head of the cross axis direction.
+   * End position in the horizontal direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  End,
+  End
 }
 
 /**
- * Week Enum value
+ * Enumerates the days of the week.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1512,11 +1560,11 @@ declare enum Week {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Sun,
+  Sun
 }
 
 /**
- * Sets the horizontal layout of elements.
+ * Defines the horizontal layout direction of elements.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1527,7 +1575,7 @@ declare enum Week {
  */
 declare enum Direction {
   /**
-   * Elements are laid out from left to right.
+   * Components are arranged from left to right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1539,7 +1587,7 @@ declare enum Direction {
   Ltr,
 
   /**
-   * Elements are laid out from right to left.
+   * Components are arranged from right to left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1551,7 +1599,7 @@ declare enum Direction {
   Rtl,
 
   /**
-   * Use the default layout direction.
+   * The default layout direction is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1560,11 +1608,11 @@ declare enum Direction {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Auto,
+  Auto
 }
 
 /**
- * Used to set the status of the scroll bar.
+ * Sets the scroll bar status.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1588,7 +1636,7 @@ declare enum BarState {
   Off,
 
   /**
-   * On-demand display (displayed when you touch it and disappears after 2 seconds).
+   * Displayed when the screen is touched and hidden after 2s.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1600,7 +1648,7 @@ declare enum BarState {
   Auto,
 
   /**
-   * Resident display.
+   * Always displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1609,11 +1657,11 @@ declare enum BarState {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  On,
+  On
 }
 
 /**
- * Sliding effect
+ * Defines the sliding effect of the scrollable container.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -1623,8 +1671,14 @@ declare enum BarState {
  */
 declare enum EdgeEffect {
   /**
-   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or 
-   * touch event, and spring back when released.
+   * Spring effect. When at one of the edges, the component can move beyond the bounds based on initial velocity or
+   * through touches, and produces a bounce effect when the user releases their finger.
+   *
+   * In API version 22 and earlier versions, the spring effect of the scrollable component does not take effect when the
+   * scrollbar is dragged.
+   *
+   * In API version 23 and later versions, the spring effect of the scrollable component takes effect when the scrollbar
+   * is dragged by fingers, but does not take effect when the scrollbar is dragged by a mouse.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -1635,7 +1689,7 @@ declare enum EdgeEffect {
   Spring,
 
   /**
-   * Fade.
+   * Fade effect. When at one of the edges, the component produces a fade effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -1646,7 +1700,7 @@ declare enum EdgeEffect {
   Fade,
 
   /**
-   * Sliding to the edge has no effect.
+   * No effect when the component is at one of the edges.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -1654,11 +1708,11 @@ declare enum EdgeEffect {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None,
+  None
 }
 
 /**
- * Alignment enumeration description.
+ * Defines the alignment mode for child elements in the container drawing area.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1669,7 +1723,7 @@ declare enum EdgeEffect {
  */
 declare enum Alignment {
   /**
-   * Top Start.
+   * Top start.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1681,7 +1735,7 @@ declare enum Alignment {
   TopStart,
 
   /**
-   * The top is centered horizontally.
+   * Horizontally centered on the top.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1693,7 +1747,7 @@ declare enum Alignment {
   Top,
 
   /**
-   * Top tail end.
+   * Top end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1705,7 +1759,7 @@ declare enum Alignment {
   TopEnd,
 
   /**
-   * The starting end is centered longitudinally.
+   * Vertically centered start.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1717,7 +1771,7 @@ declare enum Alignment {
   Start,
 
   /**
-   * Center horizontal and vertical.
+   * Horizontally and vertically centered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1729,7 +1783,7 @@ declare enum Alignment {
   Center,
 
   /**
-   * The tail end is centered longitudinally.
+   * Vertically centered end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1741,7 +1795,7 @@ declare enum Alignment {
   End,
 
   /**
-   * Bottom starting end.
+   * Bottom start.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1753,7 +1807,7 @@ declare enum Alignment {
   BottomStart,
 
   /**
-   * The bottom is centered horizontally.
+   * Horizontally centered on the bottom.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1774,13 +1828,12 @@ declare enum Alignment {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  BottomEnd,
+  BottomEnd
 }
 
 /**
- * LocalizedAlignment enumeration description.
+ * Enumerated type that supports the align and [layoutGravity]{@link CommonMethod#layoutGravity} attributes.
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1790,7 +1843,7 @@ declare enum Alignment {
  */
 declare enum LocalizedAlignment {
   /**
-   * Top Start.
+   * Top start.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1801,7 +1854,7 @@ declare enum LocalizedAlignment {
    */
   TOP_START = "top_start",
   /**
-   * The top is centered horizontally.
+   * Horizontally centered on the top.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1812,7 +1865,7 @@ declare enum LocalizedAlignment {
    */
   TOP = "top",
   /**
-   * Top tail end.
+   * Top end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1823,7 +1876,7 @@ declare enum LocalizedAlignment {
    */
   TOP_END = "top_end",
   /**
-   * The starting end is centered longitudinally.
+   * Vertically centered start.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1834,7 +1887,7 @@ declare enum LocalizedAlignment {
    */
   START = "start",
   /**
-   * Center horizontal and vertical.
+   * Horizontally and vertically centered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1845,7 +1898,7 @@ declare enum LocalizedAlignment {
    */
   CENTER = "center",
   /**
-   * The tail end is centered longitudinally.
+   * Vertically centered end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1856,7 +1909,7 @@ declare enum LocalizedAlignment {
    */
   END = "end",
   /**
-   * Bottom starting end.
+   * Bottom start.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1867,7 +1920,7 @@ declare enum LocalizedAlignment {
    */
   BOTTOM_START = "bottom_start",
   /**
-   * The bottom is centered horizontally.
+   * Horizontally centered on the bottom.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1887,11 +1940,11 @@ declare enum LocalizedAlignment {
    * @atomicservice
    * @since 20 dynamic
    */
-  BOTTOM_END = "bottom_end",
+  BOTTOM_END = "bottom_end"
 }
 
 /**
- * TransitionType enumeration description.
+ * Sets the transition type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -1931,11 +1984,11 @@ declare enum TransitionType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Delete,
+  Delete
 }
 
 /**
- * RelateType enumeration description
+ * Sets the padding mode of a child component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1945,7 +1998,7 @@ declare enum TransitionType {
  */
 declare enum RelateType {
   /**
-   * Scales the current component to fill the parent component.
+   * The current child component is scaled to fill the parent component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1956,7 +2009,7 @@ declare enum RelateType {
   FILL,
 
   /**
-   * Scales the current component to fit the parent component.
+   * The current child component is scaled to adapt to the parent component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1964,7 +2017,7 @@ declare enum RelateType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  FIT,
+  FIT
 }
 
 /**
@@ -2008,11 +2061,11 @@ declare enum Visibility {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None,
+  None
 }
 
 /**
- * LineCapStyle enumeration description
+ * Sets the line endpoint style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -2022,7 +2075,7 @@ declare enum Visibility {
  */
 declare enum LineCapStyle {
   /**
-   * The two ends of the dividing line are parallel lines.
+   * The ends of the line are squared off, and the line does not extend beyond its two endpoints.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2033,7 +2086,7 @@ declare enum LineCapStyle {
   Butt,
 
   /**
-   * The two ends of the dividing line are semicircles.
+   * The line is extended at the endpoints by a half circle whose diameter is equal to the line width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2044,8 +2097,8 @@ declare enum LineCapStyle {
   Round,
 
   /**
-   * Extends half a circle at the end of the path with a width equal to half the line width and a height equal to the 
-   * line width.
+   * The line is extended at the endpoints by a rectangle whose width is equal to half the line width and height equal
+   * to the line width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2053,7 +2106,7 @@ declare enum LineCapStyle {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Square,
+  Square
 }
 
 /**
@@ -2086,11 +2139,11 @@ declare enum Axis {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Horizontal,
+  Horizontal
 }
 
 /**
- * HorizontalAlign enumeration description.
+ * Sets the horizontal alignment mode of child components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -2101,7 +2154,7 @@ declare enum Axis {
  */
 declare enum HorizontalAlign {
   /**
-   * Aligns the start end in the language direction.
+   * Aligned with the start edge in the same direction as the language in use.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2113,7 +2166,7 @@ declare enum HorizontalAlign {
   Start,
 
   /**
-   * Center alignment. The default alignment mode is used.
+   * Aligned with the center. This is the default alignment mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2125,7 +2178,7 @@ declare enum HorizontalAlign {
   Center,
 
   /**
-   * Aligns the ends in the language direction.
+   * Aligned with the end edge in the same direction as the language in use.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2134,11 +2187,11 @@ declare enum HorizontalAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  End,
+  End
 }
 
 /**
- * FlexAlign enumeration description.
+ * Sets the alignment mode of an element on the main axis of the container.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -2148,8 +2201,8 @@ declare enum HorizontalAlign {
  */
 declare enum FlexAlign {
   /**
-   * The element is aligned at the head of the principal axis,
-   * the first element is aligned with the head of the row, and subsequent elements are aligned with the previous one.
+   * The child components are aligned with the start edge of the main axis. The first component is aligned with the main
+   * -start, and subsequent components are aligned with the previous one.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2160,9 +2213,8 @@ declare enum FlexAlign {
   Start,
 
   /**
-   * The elements are centered in the direction of the principal axis,
-   * and the first element is the same distance from the beginning of the row as the last element is from the end of the
-   * row.
+   * The child components are aligned in the center of the main axis. The space between the first component and the main
+   * -start is the same as that between the last component and the main-end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2173,8 +2225,8 @@ declare enum FlexAlign {
   Center,
 
   /**
-   * The element is aligned at the tail of the principal axis,
-   * the last element is aligned at the end of the row, and the other elements are aligned with the next.
+   * The child components are aligned with the end edge of the main axis. The last component is aligned with the main-
+   * end, and other components are aligned with the next one.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2185,9 +2237,9 @@ declare enum FlexAlign {
   End,
 
   /**
-   * Elastic elements are evenly distributed in the direction of the Flex principal axis,
-   * with the same distance between adjacent elements.
-   * The first element aligns with the beginning of the line, and the last element aligns with the end of the line.
+   * The child components are evenly distributed along the main axis. The space between any two adjacent components is
+   * the same. The first component is aligned with the main-start, the last component is aligned with the main-end, and
+   * the remaining components are distributed so that the space between any two adjacent components is the same.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2198,10 +2250,9 @@ declare enum FlexAlign {
   SpaceBetween,
 
   /**
-   * Elastic elements are evenly distributed in the direction of the Flex principal axis,
-   * with the same distance between adjacent elements. Half the distance between adjacent elements as the distance 
-   * between
-   * the first element and the distance between the last element and the end of the row.
+   * The child components are evenly distributed along the main axis. The space between any two adjacent components is
+   * the same. The space between the first component and main-start, and that between the last component and main-end
+   * are both half the size of the space between two adjacent components.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2212,9 +2263,9 @@ declare enum FlexAlign {
   SpaceAround,
 
   /**
-   * Elements in the Flex axis direction are evenly spaced.
-   * The spacing between adjacent elements, the spacing between the first element and the beginning of the row,
-   * and the spacing between the last element and the end of the row are the same.
+   * The child components are evenly distributed along the main axis. The space between the first component and main-
+   * start, the space between the last component and main-end, and the space between any two adjacent components are the
+   * same.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2222,11 +2273,11 @@ declare enum FlexAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  SpaceEvenly,
+  SpaceEvenly
 }
 
 /**
- * ItemAlign enumeration description
+ * Sets the alignment mode of an element on the cross axis of the container.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -2237,7 +2288,7 @@ declare enum FlexAlign {
  */
 declare enum ItemAlign {
   /**
-   * Use the default configuration in the Flex container.
+   * The default configuration of the flex container is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2249,7 +2300,7 @@ declare enum ItemAlign {
   Auto,
 
   /**
-   * The element is in the Flex container with the cross-axis direction head aligned.
+   * The element in the flex container is aligned with the cross-start edge.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2261,7 +2312,7 @@ declare enum ItemAlign {
   Start,
 
   /**
-   * The element is centered in the Flex container with the cross axis direction aligned.
+   * The element in the flex container is centered along the cross axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2273,7 +2324,7 @@ declare enum ItemAlign {
   Center,
 
   /**
-   * The element is bottom aligned in the Flex container with the cross axis direction.
+   * The element in the flex container is aligned with the cross-end edge.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2285,7 +2336,7 @@ declare enum ItemAlign {
   End,
 
   /**
-   * Element In the Flex container, the cross-axis direction text baseline is aligned.
+   * The element aligns with the text baseline along the cross axis direction in a Flex container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2297,8 +2348,10 @@ declare enum ItemAlign {
   Baseline,
 
   /**
-   * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container 
-   * size.
+   * The element stretches to fill along the cross axis direction in a Flex container. When the container is Flex and
+   * **Wrap** is set to **FlexWrap.Wrap** or **FlexWrap.WrapReverse**, the element stretches to the size of the element
+   * with the longest cross axis length in the current row/column. In other cases, the element stretches to the
+   * container size regardless of whether the element size is set.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2307,11 +2360,12 @@ declare enum ItemAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Stretch,
+  Stretch
 }
 
 /**
- * FlexDirection enumeration description
+ * Sets the direction in which child components are arranged in the **Flex** component, that is, the direction of the
+ * main axis.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -2321,7 +2375,7 @@ declare enum ItemAlign {
  */
 declare enum FlexDirection {
   /**
-   * The main axis is consistent with the row direction as the layout mode.
+   * The child components are arranged in the same direction as the main axis runs along the rows.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2332,7 +2386,7 @@ declare enum FlexDirection {
   Row,
 
   /**
-   * The main axis is consistent with the column direction as the layout mode.
+   * The child components are arranged in the same direction as the main axis runs down the columns.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2343,7 +2397,7 @@ declare enum FlexDirection {
   Column,
 
   /**
-   * The layout is in the opposite direction to the Row direction.
+   * The child components are arranged opposite to the **Row** direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2354,7 +2408,7 @@ declare enum FlexDirection {
   RowReverse,
 
   /**
-   * Layout in the opposite direction to the column.
+   * The child components are arranged opposite to the **Column** direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2362,13 +2416,12 @@ declare enum FlexDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  ColumnReverse,
+  ColumnReverse
 }
 
 /**
- * Pixel Round Direction
+ * Enumerates the pixel rounding policies for component boundaries.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2378,7 +2431,7 @@ declare enum FlexDirection {
  */
 declare enum PixelRoundCalcPolicy {
   /**
-   * No Force round the component boundary coordinates to integer pixel.
+   * The value is not rounded off.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2389,7 +2442,7 @@ declare enum PixelRoundCalcPolicy {
    */
   NO_FORCE_ROUND = 0,
   /**
-   * Force ceil the component boundary coordinates to integer pixel.
+   * Rounded-up calculation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2400,7 +2453,7 @@ declare enum PixelRoundCalcPolicy {
    */
   FORCE_CEIL = 1,
   /**
-   * Force floor the component boundary coordinates to integer pixel.
+   * Rounded-down calculation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2409,13 +2462,12 @@ declare enum PixelRoundCalcPolicy {
    * @atomicservice
    * @since 11 dynamic
    */
-  FORCE_FLOOR = 2,
+  FORCE_FLOOR = 2
 }
 
 /**
- * Pixel Round Mode
+ * Enumerates pixel rounding modes.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2425,7 +2477,7 @@ declare enum PixelRoundCalcPolicy {
  */
 declare enum PixelRoundMode {
   /**
-   * Do pixel round on layout finish.
+   * Performs pixel rounding after the component finishes measuring its size and position. Default value.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2436,7 +2488,7 @@ declare enum PixelRoundMode {
    */
   PIXEL_ROUND_ON_LAYOUT_FINISH = 0,
   /**
-   * Do pixel round after measure.
+   * Performs pixel rounding after the component finishes measuring its size.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2445,11 +2497,11 @@ declare enum PixelRoundMode {
    * @atomicservice
    * @since 18 dynamic
    */
-  PIXEL_ROUND_AFTER_MEASURE = 1,
+  PIXEL_ROUND_AFTER_MEASURE = 1
 }
 
 /**
- * FlexWrap enumeration description
+ * Sets whether elements are arranged in a single row/column or multiple rows/columns in the **Flex** container.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -2459,7 +2511,8 @@ declare enum PixelRoundMode {
  */
 declare enum FlexWrap {
   /**
-   * The Flex container has a single row/column layout of elements, and children are allowed to go beyond the container.
+   * The child components in the flex container are arranged in a single line. If any of them have minimum size
+   * constraints applied, the flex container does not forcibly shrink them when overflow occurs.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2470,8 +2523,7 @@ declare enum FlexWrap {
   NoWrap,
 
   /**
-   * The elements of the Flex container are arranged in multiple rows or columns, and the sub-items are allowed to 
-   * exceed the container.
+   * The child components in the flex container are arranged in multiple lines, and they may overflow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2482,8 +2534,7 @@ declare enum FlexWrap {
   Wrap,
 
   /**
-   * The elements of the Flex container are arranged in reverse multiple rows/columns, and children are allowed to 
-   * exceed the container.
+   * The child components in the flex container are reversely arranged in multiple lines, and they may overflow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2491,11 +2542,11 @@ declare enum FlexWrap {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  WrapReverse,
+  WrapReverse
 }
 
 /**
- * VerticalAlign enumeration description
+ * Sets the vertical alignment mode of child components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -2506,7 +2557,7 @@ declare enum FlexWrap {
  */
 declare enum VerticalAlign {
   /**
-   * Top alignment.
+   * Top aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2518,7 +2569,7 @@ declare enum VerticalAlign {
   Top,
 
   /**
-   * Center alignment. The default alignment mode is used.
+   * Center aligned. This is the default alignment mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2530,7 +2581,7 @@ declare enum VerticalAlign {
   Center,
 
   /**
-   * Bottom alignment.
+   * Bottom aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2539,11 +2590,11 @@ declare enum VerticalAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Bottom,
+  Bottom
 }
 
 /**
- * ImageRepeat enumeration description
+ * Sets the image repeat pattern.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -2554,7 +2605,7 @@ declare enum VerticalAlign {
  */
 declare enum ImageRepeat {
   /**
-   * Do not draw the picture again.
+   * The image is not repeatedly drawn.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2566,7 +2617,7 @@ declare enum ImageRepeat {
   NoRepeat,
 
   /**
-   * Repeat the drawing only on the horizontal axis.
+   * The image is repeatedly drawn only along the horizontal axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2578,7 +2629,7 @@ declare enum ImageRepeat {
   X,
 
   /**
-   * Repeat the drawing only on the vertical axis.
+   * Images are repeatedly drawn only on the vertical axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2590,7 +2641,7 @@ declare enum ImageRepeat {
   Y,
 
   /**
-   * Draw the picture repeatedly on both axes.
+   * The image is repeatedly drawn along both axes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2599,11 +2650,11 @@ declare enum ImageRepeat {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  XY,
+  XY
 }
 
 /**
- * ImageSize enumeration description
+ * Sets the width and height effect of an image.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -2613,7 +2664,7 @@ declare enum ImageRepeat {
  */
 declare enum ImageSize {
   /**
-   * Keep the scale of the original image unchanged.
+   * The original image aspect ratio is retained.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2624,7 +2675,8 @@ declare enum ImageSize {
   Auto,
 
   /**
-   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
+   * The image is scaled with its aspect ratio retained for both sides to be greater than or equal to the display
+   * boundaries.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2635,7 +2687,8 @@ declare enum ImageSize {
   Cover,
 
   /**
-   * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
+   * The image is scaled with its aspect ratio retained for the content to be completely displayed within the display
+   * boundaries.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2646,7 +2699,7 @@ declare enum ImageSize {
   Contain,
 
   /**
-   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
+   * The image is scaled to fill the display area, and its aspect ratio is not retained.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2654,11 +2707,11 @@ declare enum ImageSize {
    * @atomicservice
    * @since 12 dynamic
    */
-  FILL = 3,
+  FILL = 3
 }
 
 /**
- * GradientDirection enumeration description
+ * Sets the direction of the linear gradient.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -2717,7 +2770,7 @@ declare enum GradientDirection {
   Bottom = 3,
 
   /**
-   * From upper left to lower right.
+   * From top left to bottom right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2729,7 +2782,7 @@ declare enum GradientDirection {
   LeftTop = 4,
 
   /**
-   * From lower left to upper right.
+   * From bottom left to top right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2741,7 +2794,7 @@ declare enum GradientDirection {
   LeftBottom = 5,
 
   /**
-   * From upper right to lower left.
+   * From top right to bottom left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2753,7 +2806,7 @@ declare enum GradientDirection {
   RightTop = 6,
 
   /**
-   * From lower right to upper left.
+   * From bottom right to top left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2774,11 +2827,11 @@ declare enum GradientDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None = 8,
+  None = 8
 }
 
 /**
- * SharedTransitionEffectType enumeration description
+ * Sets the animation type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -2788,7 +2841,7 @@ declare enum GradientDirection {
 declare enum SharedTransitionEffectType {
   /**
    * The target page element remains in a fixed position, with configurable opacity animation.
-   * 
+   *
    * Currently, this effect only takes effect when configured for redirection to the target page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2806,11 +2859,11 @@ declare enum SharedTransitionEffectType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Exchange,
+  Exchange
 }
 
 /**
- * Font style.
+ * Sets the font style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -2843,7 +2896,7 @@ declare enum FontStyle {
 }
 
 /**
- * The font weight of the text
+ * Sets the font weight.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -2920,7 +2973,7 @@ declare enum FontWeight {
 }
 
 /**
- * The horizontal alignment of the text paragraph.
+ * Sets the horizontal alignment of the text.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -2975,7 +3028,7 @@ declare enum TextAlign {
   JUSTIFY,
 
   /**
-   * The text is aligned in the left direction.
+   * Left aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2987,7 +3040,7 @@ declare enum TextAlign {
   LEFT = 4,
 
   /**
-   * The text is aligned in the right direction.
+   * Right aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3000,7 +3053,7 @@ declare enum TextAlign {
 }
 
 /**
- * Display mode when the text is too long.
+ * Sets the display mode when the text is too long.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -3055,7 +3108,7 @@ declare enum TextOverflow {
 }
 
 /**
- * Text decoration type.
+ * Sets the text decoration type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -3110,7 +3163,7 @@ declare enum TextDecorationType {
 }
 
 /**
- * The style of the text case.
+ * Sets the text case.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -3154,7 +3207,7 @@ declare enum TextCase {
 }
 
 /**
- * The mode of adjusting the text font size to adapt to the layout.
+ * Sets the mode of adjusting the text font size to adapt to the layout.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3164,7 +3217,7 @@ declare enum TextCase {
  */
 declare enum TextHeightAdaptivePolicy {
   /**
-   * the text height adaptation mode to [maxLines]{@link TextAreaAttribute#maxLines(value: number)} first.
+   * Sets the text height adaptation mode to [maxLines]{@link TextAreaAttribute#maxLines(value: number)} first.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3198,7 +3251,7 @@ declare enum TextHeightAdaptivePolicy {
 }
 
 /**
- * How menu display is triggered.
+ * Sets how menu display is triggered.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -3208,7 +3261,7 @@ declare enum TextHeightAdaptivePolicy {
  */
 declare enum ResponseType {
   /**
-   * Shows the shortcut menu by right-clicking the text.
+   * The menu is displayed when the component is right-clicked.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3227,7 +3280,7 @@ declare enum ResponseType {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  LongPress,
+  LongPress
 }
 
 /**
@@ -3277,11 +3330,11 @@ declare enum HoverEffect {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  None,
+  None
 }
 
 /**
- * Placement enumeration description
+ * Sets the position of the bubble.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -3291,7 +3344,7 @@ declare enum HoverEffect {
  */
 declare enum Placement {
   /**
-   * Left placement
+   * The bubble is on the left of the component, aligned with the left center of the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3302,7 +3355,7 @@ declare enum Placement {
   Left,
 
   /**
-   * Right placement
+   * The bubble is on the right of the component, aligned with the right center of the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3313,7 +3366,7 @@ declare enum Placement {
   Right,
 
   /**
-   * Top placement
+   * The bubble is on the top of the component, aligned with the top center of the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3324,7 +3377,7 @@ declare enum Placement {
   Top,
 
   /**
-   * Bottom placement
+   * The bubble is on the bottom of the component, aligned with the bottom center of the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3335,7 +3388,7 @@ declare enum Placement {
   Bottom,
 
   /**
-   * TopLeft placement
+   * The bubble is on the top of the component. Since API version 9, it is aligned with the left edge of the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3346,7 +3399,7 @@ declare enum Placement {
   TopLeft,
 
   /**
-   * TopRight placement
+   * The bubble is on the top of the component. Since API version 9, it is aligned with the right edge of the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3357,7 +3410,8 @@ declare enum Placement {
   TopRight,
 
   /**
-   * BottomLeft placement
+   * The bubble is on the bottom of the component. Since API version 9, it is aligned with the left edge of the
+   * component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3368,7 +3422,8 @@ declare enum Placement {
   BottomLeft,
 
   /**
-   * BottomRight placement
+   * The bubble is on the bottom of the component. Since API version 9, it is aligned with the right edge of the
+   * component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3379,7 +3434,7 @@ declare enum Placement {
   BottomRight,
 
   /**
-   * LeftTop placement
+   * The bubble is on the left of the component, aligned with the top edge of the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3390,7 +3445,7 @@ declare enum Placement {
   LeftTop,
 
   /**
-   * LeftBottom placement
+   * The bubble is on the left of the component, aligned with the bottom edge of the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3401,7 +3456,7 @@ declare enum Placement {
   LeftBottom,
 
   /**
-   * RightTop placement
+   * The bubble is on the right of the component, aligned with the top edge of the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3412,7 +3467,7 @@ declare enum Placement {
   RightTop,
 
   /**
-   * RightBottom placement
+   * The bubble is on the right of the component, aligned with the bottom edge of the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3420,11 +3475,11 @@ declare enum Placement {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  RightBottom,
+  RightBottom
 }
 
 /**
- * ArrowPointPosition enumeration description
+ * Sets the position of the bubble arrow.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3434,7 +3489,8 @@ declare enum Placement {
  */
 declare enum ArrowPointPosition {
   /**
-   * Target start position
+   * On the leftmost side of the parent component in the horizontal layout; on the top of the parent component in the
+   * vertical layout.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3445,7 +3501,7 @@ declare enum ArrowPointPosition {
   START = 'Start',
 
   /**
-   * Target center position
+   * In the center of the parent component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3456,7 +3512,8 @@ declare enum ArrowPointPosition {
   CENTER = 'Center',
 
   /**
-   * Target end position
+   * On the rightmost side of the parent component in the horizontal layout; at the bottom of the parent component in
+   * the vertical layout.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3464,11 +3521,11 @@ declare enum ArrowPointPosition {
    * @atomicservice [since 12]
    * @since 11 dynamic
    */
-  END = 'End',
+  END = 'End'
 }
 
 /**
- * Copy options.
+ * Sets the copy options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -3529,12 +3586,12 @@ declare enum CopyOptions {
 
 /**
  * Sets the response logic and node blocking rules for the hit test.
- * 
+ *
  * > **NOTE**
  * >
- * > When multiple nodes in a **Stack** component have overlapping touch areas, if the touch point hits a child 
- * > component of the topmost node, only the topmost node will undergo hit testing by default. In this case, touch 
- * > testing for lower-layer nodes can only be triggered by setting the 
+ * > When multiple nodes in a **Stack** component have overlapping touch areas, if the touch point hits a child
+ * > component of the topmost node, only the topmost node will undergo hit testing by default. In this case, touch
+ * > testing for lower-layer nodes can only be triggered by setting the
  * > [hitTestBehavior]{@link CommonMethod#hitTestBehavior} of the topmost node to **HitTestMode.Transparent**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3546,7 +3603,7 @@ declare enum CopyOptions {
  */
 declare enum HitTestMode {
   /**
-   * Default hit test mode. The node itself and its child nodes respond to the hit test, but block the hit test of 
+   * Default hit test mode. The node itself and its child nodes respond to the hit test, but block the hit test of
    * sibling nodes. It does not affect the hit test of ancestor nodes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3596,7 +3653,7 @@ declare enum HitTestMode {
    */
   None,
   /**
-   * The node itself and its child nodes respond to the hit test, preventing all sibling nodes and parent nodes with 
+   * The node itself and its child nodes respond to the hit test, preventing all sibling nodes and parent nodes with
    * lower priority from participating in the hit test.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3608,8 +3665,8 @@ declare enum HitTestMode {
    */
   BLOCK_HIERARCHY,
   /**
-   * The node itself does not respond to the hit test, and all its descendants (children, grandchildren, and more) also 
-   * do not respond to the hit test. It does not affect the hit test of ancestor nodes.
+   * The node itself does not respond to the hit test, and all descendants (children, grandchildren, etc.) also do not
+   * respond to the hit test. It does not affect the hit test of ancestor nodes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3618,13 +3675,12 @@ declare enum HitTestMode {
    * @atomicservice
    * @since 20 dynamic
    */
-  BLOCK_DESCENDANTS,
+  BLOCK_DESCENDANTS
 }
 
 /**
- * Title height.
+ * Sets the recommended height of the title bar.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -3632,7 +3688,7 @@ declare enum HitTestMode {
  */
 declare enum TitleHeight {
   /**
-   * Title height when only main title is available.
+   * Recommended height (56 vp) of the title bar when only the main title is available.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -3642,14 +3698,14 @@ declare enum TitleHeight {
   MainOnly,
 
   /**
-   * Title height when main title and subtitle are both available.
+   * Recommended height (82 vp) of the title bar when both the main title and subtitle exist.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  MainWithSub,
+  MainWithSub
 }
 
 /**
@@ -3693,7 +3749,7 @@ declare enum ModifierKey {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  ALT,
+  ALT
 }
 
 /**
@@ -3906,7 +3962,7 @@ declare enum FunctionKey {
 }
 
 /**
- * The alignment mode of the image relative to the line height.
+ * Sets the alignment mode of the image relative to the line height.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3938,7 +3994,7 @@ declare enum ImageSpanAlignment {
   BOTTOM,
 
   /**
-   * The image is centered aligned with the line.
+   * The image is center aligned with the line.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3968,7 +4024,7 @@ declare enum ImageSpanAlignment {
    * @atomicservice
    * @since 20 dynamic
    */
-  FOLLOW_PARAGRAPH,
+  FOLLOW_PARAGRAPH
 }
 
 /**
@@ -3994,7 +4050,7 @@ declare enum ObscuredReasons {
 }
 
 /**
- * The polymorphic style of the text box.
+ * Sets the polymorphic style of the text box.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4004,8 +4060,8 @@ declare enum ObscuredReasons {
  */
 declare enum TextContentStyle {
   /**
-   * Default style. The caret width is fixed at 1.5 vp, and the caret height is subject to the background height and
-   * font size of the selected text.
+   * Default style. The caret width is 1.5 vp, and the caret height is subject to the background height and font size of
+   * the selected text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4016,14 +4072,15 @@ declare enum TextContentStyle {
   DEFAULT,
 
   /**
-   * Inline input style. The background height of the selected text is the same as the height of the text box.
+   * Inline input style, also known as inline mode. The text selection background height is the same as the input box
+   * height.
    *
-   * This style is used in scenarios where editing and non-editing states are obvious, for example, renaming in the file
-   * list view.
+   * Inline input is used in scenarios where there is a clear distinction between editing and non-editing states, for
+   * example, renaming in a file list view.
    *
-   * The **showError** attribute is not supported for this style.
+   * The **showError** attribute is not supported.
    *
-   * This style does not allow for text dragging and dropping.
+   * In inline mode, dragging text is not supported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4035,7 +4092,7 @@ declare enum TextContentStyle {
 }
 
 /**
- * Enum of click effect level.
+ * Sets the click effect level and animation parameters.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4045,7 +4102,7 @@ declare enum TextContentStyle {
  */
 declare enum ClickEffectLevel {
   /**
-   * Small area (light)
+   * Small area (light), spring animation, stiffness: 410, damping: 38, initial velocity: 1, default scale 90%.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4056,7 +4113,7 @@ declare enum ClickEffectLevel {
   LIGHT = 0,
 
   /**
-   * Medium area (stable)
+   * Medium area (stable), spring animation, stiffness: 350, damping: 35, initial velocity: 0.5, default scale 95%.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4067,7 +4124,7 @@ declare enum ClickEffectLevel {
   MIDDLE = 1,
 
   /**
-   * Large area (heavy)
+   * Large area (heavy), spring animation, stiffness: 240, damping: 28, initial velocity: 0, default scale 95%.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4075,117 +4132,72 @@ declare enum ClickEffectLevel {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  HEAVY = 2,
+  HEAVY = 2
 }
 
 /**
  * The type of XComponent
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * The type of XComponent
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * The type of XComponent
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 12]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum XComponentType {
   /**
-   * Surface type. The default type is used.
+   * Used for EGL/OpenGLES and media data writing, displaying developer-customized rendering content on the screen
+   * independently. When the background color is set to black, the display subsystem (DSS) is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Surface type. The default type is used.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Surface type. The default type is used.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   SURFACE,
 
   /**
-   * Component type.
+   * Uses [XComponent]{@link ./xcomponent} as a container component, supporting non-UI logic execution within it to
+   * dynamically load display content.
+   *
+   * **NOTE**
+   *
+   * This API is supported since API version 10 and deprecated since API version 12. You are advised to use other
+   * container components instead.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Component type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 12
    * @useinstead Column
    */
   COMPONENT,
 
   /**
-   * Texture type.
+   * Used for EGL/OpenGLES and media data writing. The developer-customized rendering content is composited with the
+   * XComponent component's content and then displayed on the screen. 1. Frame synchronization is maintained, and the
+   * GPU texture and other ArkUI drawing instructions are sent to the render service (RenderService) in the same frame.
+   * 2. Animations and system components are unified. 3. GPU compositing is used, which may consume more power compared
+   * to the display subsystem (DSS) path used by surface.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Texture type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Texture type.
-   * Supports EGL/OpenGLES and media data rendering.
-   * Custom drawing content is composited with XComponent’s native content before display.
-   * Key features:
-   * 1. Maintains frame synchronization between GPU textures and ArkUI drawing commands.
-   * 2. Supports unified animation with built-in components.
-   * 3. Utilizes GPU composition, which may have higher power consumption than the SURFACE type
-   *    using the display subsystem (DSS).
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   TEXTURE,
 
   /**
-   * Node type.
+   * Placeholder container for Native UI nodes. Page components developed by developers through native APIs can be
+   * displayed within this container area.
+   *
+   * **NOTE**
+   *
+   * This API is supported since API version 12 and deprecated since API version 20. You are advised to use the
+   * [ContentSlot](docroot://ui/rendering-control/arkts-rendering-control-contentslot.md) component instead.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4194,11 +4206,11 @@ declare enum XComponentType {
    * @deprecated since 20
    * @useinstead ContentSlot
    */
-  NODE,
+  NODE
 }
 
 /**
- * Nested scroll nested mode
+ * Sets the nested mode of a nested scrollable component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4209,7 +4221,8 @@ declare enum XComponentType {
 declare enum NestedScrollMode {
 
   /**
-   * Only Self response scrolling.
+   * The scrolling is contained within the component, and no scroll chaining occurs, that is, the parent component does
+   * not scroll when the component scrolling reaches the boundary.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4220,7 +4233,9 @@ declare enum NestedScrollMode {
   SELF_ONLY,
 
   /**
-   * Self priority response scrolling.
+   * The component scrolls first, and when it hits the boundary, the parent component scrolls. When the parent component
+   * hits the boundary, its edge effect is displayed. If no edge effect is specified for the parent component, the edge
+   * effect of the child component is displayed instead.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4231,7 +4246,9 @@ declare enum NestedScrollMode {
   SELF_FIRST,
 
   /**
-   * Parent scrollable component priority response scrolling.
+   * The parent component scrolls first, and when it hits the boundary, the component scrolls. When the component hits
+   * the boundary, its edge effect is displayed. If no edge effect is specified for the component, the edge effect of
+   * the parent component is displayed instead.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4242,7 +4259,9 @@ declare enum NestedScrollMode {
   PARENT_FIRST,
 
   /**
-   * Both self and parent scrollable component response scrolling.
+   * The component and its parent component scroll at the same time. When both the component and its parent component
+   * hit the boundary, the edge effect of the component is displayed. If no edge effect is specified for the component,
+   * the edge effect of the parent component is displayed instead.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4250,12 +4269,12 @@ declare enum NestedScrollMode {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  PARALLEL,
+  PARALLEL
 }
 
 /**
- * The possible source of scroll event
- * @enum { number } ScrollSource
+ * Enumerates the sources of scroll operations.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4264,7 +4283,8 @@ declare enum NestedScrollMode {
  */
 declare enum ScrollSource {
   /**
-   * Drag events.
+   * Drag event.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4274,7 +4294,8 @@ declare enum ScrollSource {
   DRAG = 0,
 
   /**
-   * Fling after the drag has ended with velocity.
+   * Inertia scrolling after the drag ends.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4284,7 +4305,8 @@ declare enum ScrollSource {
   FLING,
 
   /**
-   * Over scroll with EdgeEffect.Spring.
+   * Edge scrolling effect with **EdgeEffect.Spring**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4294,7 +4316,8 @@ declare enum ScrollSource {
   EDGE_EFFECT,
 
   /**
-   * Other user input except drag, such as mouse wheel, key event.
+   * Other user inputs aside from dragging, such as those from the mouse wheel and keyboard events.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4304,7 +4327,8 @@ declare enum ScrollSource {
   OTHER_USER_INPUT,
 
   /**
-   * Drag events of scroll bar.
+   * Drag event from the scrollbar.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4314,7 +4338,8 @@ declare enum ScrollSource {
   SCROLL_BAR,
 
   /**
-   * Fling after the drag on scroll bar has ended with velocity.
+   * Inertia scrolling with velocity after the scrollbar is released.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4324,7 +4349,8 @@ declare enum ScrollSource {
   SCROLL_BAR_FLING,
 
   /**
-   * Member methods of Scroller without animation.
+   * Non-animated methods of the **Scroller** object.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4334,19 +4360,28 @@ declare enum ScrollSource {
   SCROLLER,
 
   /**
-   * Member methods of Scroller with animation.
+   * Animated methods of the **Scroller** object.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  SCROLLER_ANIMATION,
+  SCROLLER_ANIMATION
 }
 
 /**
- * Enumerates the modes in which the final state of the component's content is rendered during its width and height 
+ * Enumerates the modes in which the final state of the component's content is rendered during its width and height
  * animation process.
+ *
+ * > **NOTE**
+ * >
+ * > - In the illustrative diagrams, the blue area indicates the content, and the orange area indicates the component
+ * > content box.
+ * >
+ * > - Different render fit modes create different effects during the width and height animation process. Choose the one
+ * > that best fits your need.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4357,7 +4392,8 @@ declare enum ScrollSource {
  */
 declare enum RenderFit {
   /**
-   * The component's content stays at the final size and always aligned with the center of the component.
+   * The component's content stays at the final size and is always aligned with the center of the component.
+   *   ![renderfit_center](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_center.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4368,7 +4404,8 @@ declare enum RenderFit {
    */
   CENTER = 0,
   /**
-   * The component's content stays at the final size and always aligned with the top center of the component.
+   * The component's content stays at the final size and is always aligned with the top center of the component.
+   *     ![renderfit_top](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_top.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4379,7 +4416,8 @@ declare enum RenderFit {
    */
   TOP = 1,
   /**
-   * The component's content stays at the final size and always aligned with the bottom center of the component.
+   * The component's content stays at the final size and is always aligned with the bottom center of the component.
+   *        ![renderfit_bottom](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_bottom.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4390,7 +4428,8 @@ declare enum RenderFit {
    */
   BOTTOM = 2,
   /**
-   * The component's content stays at the final size and always aligned with the left of the component.
+   * The component's content stays at the final size and is always aligned with the left of the component.
+   * ![renderfit_left](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_left.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4401,7 +4440,8 @@ declare enum RenderFit {
    */
   LEFT = 3,
   /**
-   * The component's content stays at the final size and always aligned with the right of the component.
+   * The component's content stays at the final size and is always aligned with the right of the component.
+   * ![renderfit_right](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_right.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4412,7 +4452,8 @@ declare enum RenderFit {
    */
   RIGHT = 4,
   /**
-   * The component's content stays at the final size and always aligned with the upper left corner of the component.
+   * The component's content stays at the final size and is always aligned with the upper left corner of the component.
+   *             ![renderfit_top_left](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_top_left.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4423,7 +4464,8 @@ declare enum RenderFit {
    */
   TOP_LEFT = 5,
   /**
-   * The component's content stays at the final size and always aligned with the upper right corner of the component.
+   * The component's content stays at the final size and is always aligned with the upper right corner of the component.
+   *             ![renderfit_top_right](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_top_right.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4434,7 +4476,8 @@ declare enum RenderFit {
    */
   TOP_RIGHT = 6,
   /**
-   * The component's content stays at the final size and always aligned with the lower left corner of the component.
+   * The component's content stays at the final size and is always aligned with the lower left corner of the component.
+   *             ![renderfit_bottom_left](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_bottom_left.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4445,7 +4488,8 @@ declare enum RenderFit {
    */
   BOTTOM_LEFT = 7,
   /**
-   * The component's content stays at the final size and always aligned with the lower right corner of the component.
+   * The component's content stays at the final size and is always aligned with the lower right corner of the component.
+   *              ![renderfit_bottom_right](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_bottom_right.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4458,6 +4502,7 @@ declare enum RenderFit {
   /**
    * The component's content is always resized to fill the component's content box, without considering its aspect ratio
    * in the final state.
+   * ![renderfit_resize_fill](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_resize_fill.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4468,8 +4513,9 @@ declare enum RenderFit {
    */
   RESIZE_FILL = 9,
   /**
-   * While maintaining its aspect ratio in the final state, the component's content is scaled to fit within the 
+   * While maintaining its aspect ratio in the final state, the component's content is scaled to fit within the
    * component's content box. It is always aligned with the center of the component.
+   * ![renderfit_resize_contain](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_resize_contain.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4480,10 +4526,11 @@ declare enum RenderFit {
    */
   RESIZE_CONTAIN = 10,
   /**
-   * While maintaining its aspect ratio in the final state, the component's content is scaled to fit within the 
+   * While maintaining its aspect ratio in the final state, the component's content is scaled to fit within the
    * component's content box. When there is remaining space in the width direction of the component, the content is left
    * -aligned with the component. When there is remaining space in the height direction of the component, the content is
    * top-aligned with the component.
+   * ![renderfit_resize_contain_top_left](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_resize_contain_top_left.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4494,10 +4541,11 @@ declare enum RenderFit {
    */
   RESIZE_CONTAIN_TOP_LEFT = 11,
   /**
-   * While maintaining its aspect ratio in the final state, the component's content is scaled to fit within the 
-   * component's content box. When there is remaining space in the width direction of the component, the content is 
-   * right-aligned with the component. When there is remaining space in the height direction of the component, the 
+   * While maintaining its aspect ratio in the final state, the component's content is scaled to fit within the
+   * component's content box. When there is remaining space in the width direction of the component, the content is
+   * right-aligned with the component. When there is remaining space in the height direction of the component, the
    * content is bottom-aligned with the component.
+   * ![renderfit_resize_contain_bottom_right](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_resize_contain_bottom_right.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4508,8 +4556,9 @@ declare enum RenderFit {
    */
   RESIZE_CONTAIN_BOTTOM_RIGHT = 12,
   /**
-   * While maintaining its aspect ratio in the final state, the component's content is scaled to cover the component's 
+   * While maintaining its aspect ratio in the final state, the component's content is scaled to cover the component's
    * entire content box. It is always aligned with the center of the component, so that its middle part is displayed.
+   * ![renderfit_resize_cover](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_resize_cover.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4520,10 +4569,11 @@ declare enum RenderFit {
    */
   RESIZE_COVER = 13,
   /**
-   * While maintaining its aspect ratio in the final state, the component's content is scaled to cover the component's 
-   * entire content box. When there is remaining space in the width direction, the content is left-aligned with the 
-   * component, so that its left part is displayed. When there is remaining space in the height direction, the content 
+   * While maintaining its aspect ratio in the final state, the component's content is scaled to cover the component's
+   * entire content box. When there is remaining space in the width direction, the content is left-aligned with the
+   * component, so that its left part is displayed. When there is remaining space in the height direction, the content
    * is top-aligned with the component, so that its top part is displayed.
+   * ![renderfit_resize_cover_top_left](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_resize_cover_top_left.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4534,10 +4584,11 @@ declare enum RenderFit {
    */
   RESIZE_COVER_TOP_LEFT = 14,
   /**
-   * While maintaining its aspect ratio in the final state, the component's content is scaled to cover the component's 
-   * entire content box. When there is remaining space in the width direction, the content is right-aligned with the 
-   * component, so that its right part is displayed. When there is remaining space in the height direction, the content 
+   * While maintaining its aspect ratio in the final state, the component's content is scaled to cover the component's
+   * entire content box. When there is remaining space in the width direction, the content is right-aligned with the
+   * component, so that its right part is displayed. When there is remaining space in the height direction, the content
    * is bottom-aligned with the component, so that its bottom part is displayed.
+   * ![renderfit_resize_cover_bottom_right](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_resize_cover_bottom_right.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4546,11 +4597,11 @@ declare enum RenderFit {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  RESIZE_COVER_BOTTOM_RIGHT = 15,
+  RESIZE_COVER_BOTTOM_RIGHT = 15
 }
 
 /**
- * The Button Style of dialog,
+ * Sets the button style for dialog boxes.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4560,7 +4611,7 @@ declare enum RenderFit {
  */
 declare enum DialogButtonStyle {
   /**
-   * Default Style.
+   * Blue text on white background (blue text on black background in dark theme).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4571,7 +4622,7 @@ declare enum DialogButtonStyle {
   DEFAULT = 0,
 
   /**
-   * Highlight Style.
+   * White text on blue background.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4583,11 +4634,12 @@ declare enum DialogButtonStyle {
 }
 
 /**
- * The word break rule.
+ * Sets the word break rule.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11 dynamic
  */
@@ -4599,6 +4651,7 @@ declare enum WordBreak {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11 dynamic
    */
@@ -4611,6 +4664,7 @@ declare enum WordBreak {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11 dynamic
    */
@@ -4624,19 +4678,20 @@ declare enum WordBreak {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 11 dynamic
    */
   BREAK_WORD = 2,
 
   /**
-   * This option has the same effect as **BREAK_ALL** for non-CJK text, except that it preferentially wraps lines at
-   * appropriate characters (for example, spaces). If no breakpoints are found, it breaks between any two characters.
-   * For CJK text, the effect is the same as that of **NORMAL**.
+   * Attempts are made to hyphenate words at the end of each line using a hyphen. If a hyphen cannot be added, this
+   * option behaves like **BREAK_WORD**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 18 dynamic
    */
@@ -4644,7 +4699,7 @@ declare enum WordBreak {
 }
 
 /**
- * The line break rule.
+ * Sets the line break rule.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4666,8 +4721,8 @@ declare enum LineBreakStrategy {
   GREEDY = 0,
 
   /**
-   * Fills in lines as much as possible on the basis of **BALANCED**, which may results in a large blank area on the
-   * last line.
+   * Fills in lines as much as possible on the basis of **BALANCED**, which may result in a large blank area on the last
+   * line.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4686,11 +4741,12 @@ declare enum LineBreakStrategy {
    * @atomicservice
    * @since 12 dynamic
    */
-  BALANCED = 2,
+  BALANCED = 2
 }
 
 /**
- * Enum of Illuminated type
+ * Defines the illumination types, which specify whether a component can be illuminated by a light source and the type
+ *     of illumination.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -4751,11 +4807,11 @@ declare enum IlluminatedType {
    * @stagemodelonly
    * @since 11 dynamic
    */
-  BLOOM_BORDER_CONTENT = 5,
+  BLOOM_BORDER_CONTENT = 5
 }
 
 /**
- * The position of ellipsis.
+ * Sets the position of ellipsis.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4821,10 +4877,10 @@ declare enum EllipsisMode {
 }
 
 /**
- * This type allows for an object of a custom type or **undefined**.
+ * The value of this type can be the type specified by the generic parameter **T**, or **undefined**.
  *
- * @unionmember { T } The object can be of any custom type.
- * @unionmember { undefined } The object can be **undefined**.
+ * @unionmember { T } Type specified by the generic parameter T.
+ * @unionmember { undefined } The object is **undefined**.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4835,7 +4891,7 @@ declare type Nullable<T> = T | undefined;
 
 
 /**
- * Decide whether the width of select menu fit the trigger or content 
+ * Sets the width mode of the drop-down menu.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4845,7 +4901,7 @@ declare type Nullable<T> = T | undefined;
  */
 declare enum OptionWidthMode {
   /**
-   * The menu width fit the content.
+   * If this value is set, the width of the drop-down menu is 2 columns by default.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4856,7 +4912,7 @@ declare enum OptionWidthMode {
   FIT_CONTENT = 'fit_content',
 
   /**
-   * The menu width fit the trigger.
+   * Inherits the width of the drop-down list button.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4864,11 +4920,11 @@ declare enum OptionWidthMode {
    * @atomicservice [since 12]
    * @since 11 dynamic
    */
-  FIT_TRIGGER = 'fit_trigger',
+  FIT_TRIGGER = 'fit_trigger'
 }
 
 /**
- * Enumerates the fold status.
+ * Sets the folding status of the device.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4878,7 +4934,7 @@ declare enum OptionWidthMode {
  */
 declare enum FoldStatus {
   /**
-   * Fold Status Unknown.
+   * The folding status of the device is unknown.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4888,7 +4944,7 @@ declare enum FoldStatus {
    */
   FOLD_STATUS_UNKNOWN = 0,
   /**
-   * Fold Status Expanded.
+   * The device is fully open.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4898,7 +4954,7 @@ declare enum FoldStatus {
    */
   FOLD_STATUS_EXPANDED = 1,
   /**
-   * Fold Status Folded.
+   * The device is folded (completely closed).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4908,7 +4964,7 @@ declare enum FoldStatus {
    */
   FOLD_STATUS_FOLDED = 2,
   /**
-   * Fold Status Half Folded.
+   * The device is half-folded, somewhere between fully open and completely folded.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4916,13 +4972,12 @@ declare enum FoldStatus {
    * @atomicservice [since 12]
    * @since 11 dynamic
    */
-  FOLD_STATUS_HALF_FOLDED = 3,
+  FOLD_STATUS_HALF_FOLDED = 3
 }
 
 /**
- * Enumerates the app rotation.
+ * Defines the rotation angle of the application's orientation.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -4931,7 +4986,7 @@ declare enum FoldStatus {
 declare enum AppRotation {
 
   /**
-   * App does not rotate to display vertically.
+   * 0 degrees.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4941,7 +4996,7 @@ declare enum AppRotation {
   ROTATION_0 = 0,
 
   /**
-   * App rotates 90 degrees clockwise to display horizontally.
+   * 90 degrees.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4951,7 +5006,7 @@ declare enum AppRotation {
   ROTATION_90 = 1,
 
   /**
-   * App rotates 180 degrees clockwise to display vertically in reverse.
+   * 180 degrees.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4961,7 +5016,7 @@ declare enum AppRotation {
   ROTATION_180 = 2,
 
   /**
-   * App rotates 270 degrees clockwise to display horizontally in reverse.
+   * 270 degrees.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4972,9 +5027,8 @@ declare enum AppRotation {
 }
 
 /**
- * Enum of EmbeddedType
+ * Enumerates the types of the providers that can be started by the **EmbeddedComponent**.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -4982,18 +5036,18 @@ declare enum AppRotation {
  */
 declare enum EmbeddedType {
   /**
-   * The EmbeddedComponent show the UI in EmbeddedUIExtensionAbility.
+   * EmbeddedUIExtensionAbility.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
-  EMBEDDED_UI_EXTENSION = 0,
+  EMBEDDED_UI_EXTENSION = 0
 }
 
 /**
- * The scrolling strategy for the marquee after its attributes are updated.
+ * Sets the scrolling strategy for the marquee after its attributes are updated.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -5026,7 +5080,7 @@ declare enum MarqueeUpdateStrategy {
 }
 
 /**
- * The style of the text decoration.
+ * Sets the style of the text decoration.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -5134,13 +5188,12 @@ declare enum TextSelectableMode {
    * @atomicservice
    * @since 12 dynamic
    */
-  UNSELECTABLE = 2,
+  UNSELECTABLE = 2
 }
 
 /**
  * Type of accessibility hover event.
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5149,7 +5202,7 @@ declare enum TextSelectableMode {
  */
 declare enum AccessibilityHoverType {
   /**
-   * Hover enter type.
+   * A finger is pressed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5160,7 +5213,7 @@ declare enum AccessibilityHoverType {
   HOVER_ENTER = 0,
 
   /**
-   * Hover move type.
+   * The touch moves.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5171,7 +5224,7 @@ declare enum AccessibilityHoverType {
   HOVER_MOVE = 1,
 
   /**
-   * Hover exit type.
+   * A finger is lifted.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5182,7 +5235,7 @@ declare enum AccessibilityHoverType {
   HOVER_EXIT = 2,
 
   /**
-   * Hover cancel type.
+   * The current event is interrupted and canceled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5190,12 +5243,12 @@ declare enum AccessibilityHoverType {
    * @atomicservice
    * @since 12 dynamic
    */
-  HOVER_CANCEL = 3,
+  HOVER_CANCEL = 3
 }
 
 /**
  * Enumerates the width breakpoint values corresponding to different window width thresholds. The values are returned
- * through [getWindowWidthBreakpoint]{@link @ohos.arkui.UIContext:UIContext#getWindowWidthBreakpoint}.
+ * through [getWindowWidthBreakpoint]{@link @ohos.arkui.UIContext:UIContext.getWindowWidthBreakpoint}.
  *
  * The following table lists default width breakpoint thresholds for typical devices, serving as a reference for
  * responsive layout design based on window width breakpoints. Device manufacturers may customize these thresholds
@@ -5266,7 +5319,7 @@ declare enum WidthBreakpoint {
 
 /**
  * Enumerates the height breakpoint values corresponding to different window aspect ratio thresholds. The values are
- * returned through [getWindowHeightBreakpoint]{@link @ohos.arkui.UIContext:UIContext#getWindowHeightBreakpoint}.
+ * returned through [getWindowHeightBreakpoint]{@link @ohos.arkui.UIContext:UIContext.getWindowHeightBreakpoint}.
  *
  * The following table lists default aspect ratio breakpoint thresholds for typical devices, serving as a reference for
  * responsive layout design based on window aspect ratios. Device manufacturers may customize these thresholds through
@@ -5536,8 +5589,8 @@ declare enum FocusWrapMode {
 
   /**
    * Cross-axis directional navigation wraps focus.
-   * 
-   * In irregular grid layouts, when moving focus along the cross axis, the system prioritizes focusable items within 
+   *
+   * In irregular grid layouts, when moving focus along the cross axis, the system prioritizes focusable items within
    * the same row.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5546,13 +5599,13 @@ declare enum FocusWrapMode {
    * @atomicservice
    * @since 20 dynamic
    */
-  WRAP_WITH_ARROW = 1,
+  WRAP_WITH_ARROW = 1
 }
 
 /**
- * Specify the number of columns for different responsive breakpoints.
+ * Enumerates column count policies for different
+ * [breakpoints](docroot://ui/arkts-layout-development-grid-layout.md#breakpoints).
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5561,9 +5614,13 @@ declare enum FocusWrapMode {
  */
 declare enum PresetFillType {
   /**
-   * For Lists and Swipers: One column is displayed on SM (and smaller),two on MD, and three on LG (and larger)
-   * devices. For Grid and WaterFlow: two column is displayed on SM (and smaller), three on MD, and five on LG
-   * (and larger) devices.
+   * For **List** and **Swiper** components: displays 1 column when the component width falls within the sm and
+   * smaller breakpoint range, 2 columns within the md breakpoint range, and 3 columns within the lg and larger
+   * breakpoint range.
+   *
+   * For **Grid**, **WaterFlow**, and **LazyVWaterFlowLayout** components: displays 2 columns when the component width
+   * falls within the sm and smaller breakpoint range, 3 columns within the md breakpoint range, and 5 columns within
+   * the lg and larger breakpoint range. **LazyVWaterFlowLayout** is supported since API version 26.0.0.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5573,7 +5630,8 @@ declare enum PresetFillType {
    */
   BREAKPOINT_DEFAULT = 0,
   /**
-   *For SM (and smaller),MD, and LG (and larger) devices, one,two,and three columns are displayed respectively.
+   * Displays 1 column when the component width falls within the sm and smaller breakpoint range, 2 columns within the
+   * md breakpoint range, and 3 columns within the lg and larger breakpoint range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5583,7 +5641,8 @@ declare enum PresetFillType {
    */
   BREAKPOINT_SM1MD2LG3 = 1,
   /**
-   *For SM (and smaller),MD, and LG (and larger) devices,two,three,and five columns are displayed respectively.
+   * Displays 2 columns when the component width falls within the sm and smaller breakpoint range, 3 columns within
+   * the md breakpoint range, and 5 columns within the lg and larger breakpoint range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5591,7 +5650,7 @@ declare enum PresetFillType {
    * @atomicservice
    * @since 22 dynamic
    */
-  BREAKPOINT_SM2MD3LG5 = 2,
+  BREAKPOINT_SM2MD3LG5 = 2
 }
 
 /**
@@ -5604,7 +5663,9 @@ declare enum PresetFillType {
  */
 declare enum CrownAction {
   /**
-   * Rotation crown behavior begins.
+   * The crown starts rotating.
+   *
+   * **Note:** Supported from API version 18 and deprecated from API version 24.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5615,7 +5676,7 @@ declare enum CrownAction {
   BEGIN = 0,
 
   /**
-   * Rotation crown behavior update.
+   * The crown is rotating.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5625,7 +5686,7 @@ declare enum CrownAction {
   UPDATE = 1,
 
   /**
-   * The rotation crown behavior ends.
+   * The crown stops rotating.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5676,9 +5737,8 @@ declare enum CrownSensitivity {
 }
 
 /**
- * Page flip mode of Swiper and Tabs on mouse wheel event.
-
- * @enum { number } PageFlipMode
+ * Enumerates the modes for flipping pages using the mouse wheel.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5688,7 +5748,8 @@ declare enum CrownSensitivity {
  */
 declare enum PageFlipMode {
   /**
-   * Turn pages continuously according to the number of mouse wheel events.
+   * Continuous page flipping mode where multiple pages are turned continuously when the user scrolls the mouse wheel
+   * without interruption.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5700,7 +5761,8 @@ declare enum PageFlipMode {
   CONTINUOUS = 0,
 
   /**
-   * The page-turning animation remains unresponsive to other mouse wheel events until it completes.
+   * Single-page flipping mode where the mouse wheel event is ignored until the current page flipping animation is
+   * complete.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5709,7 +5771,7 @@ declare enum PageFlipMode {
    * @atomicservice
    * @since 15 dynamic
    */
-  SINGLE = 1,
+  SINGLE = 1
 }
 
 /**
@@ -5769,13 +5831,12 @@ declare enum AxisAction {
    * @atomicservice
    * @since 17 dynamic
    */
-  CANCEL = 4,
+  CANCEL = 4
 }
 
 /**
- * Type of focus draw level.
+ * Enumerates the drawing levels of the focus box for a node.
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5785,7 +5846,7 @@ declare enum AxisAction {
  */
 declare enum FocusDrawLevel {
   /**
-   * Draw focus on node self level.
+   * The focus box is drawn on the node's own layer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5797,7 +5858,7 @@ declare enum FocusDrawLevel {
   SELF = 0,
 
   /**
-   * Draw focus on top level.
+   * The focus box is drawn on the topmost layer of the current instance's z-order.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5806,13 +5867,12 @@ declare enum FocusDrawLevel {
    * @atomicservice
    * @since 19 dynamic
    */
-  TOP = 1,
+  TOP = 1
 }
 
 /**
- * Menu divider mode.
+ * Enumerates divider modes.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5821,7 +5881,7 @@ declare enum FocusDrawLevel {
  */
 declare enum DividerMode {
   /**
-   * Menu divider mode floating above menu.
+   * The divider floats above the menu without affecting the layout height. This is the default mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5832,7 +5892,7 @@ declare enum DividerMode {
   FLOATING_ABOVE_MENU = 0,
 
   /**
-   * Menu divider mode embedded in menu.
+   * The divider is embedded in the menu and affects the layout height.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5840,7 +5900,7 @@ declare enum DividerMode {
    * @atomicservice
    * @since 19 dynamic
    */
-  EMBEDDED_IN_MENU = 1,
+  EMBEDDED_IN_MENU = 1
 }
 
 /**
@@ -5862,13 +5922,12 @@ declare enum EventQueryType {
    * @atomicservice
    * @since 19 dynamic
    */
-  ON_CLICK = 0,
+  ON_CLICK = 0
 }
 
 /**
- * Follow position type.
+ * Enumerates anchor types of the tooltip.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5877,7 +5936,7 @@ declare enum EventQueryType {
  */
 declare enum TipsAnchorType {
   /**
-   * Follow the component.
+   * The tooltip follows the target component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5888,7 +5947,7 @@ declare enum TipsAnchorType {
   TARGET,
 
   /**
-   * Follow the cursor.
+   * The tooltip follows the cursor position.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5900,9 +5959,8 @@ declare enum TipsAnchorType {
 }
 
 /**
- * Dialog display mode.
+ * Enumerates the display modes of the dialog box in the subwindow.
  *
- * @enum { DialogDisplayMode }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5911,7 +5969,7 @@ declare enum TipsAnchorType {
  */
 declare enum DialogDisplayMode {
   /**
-   * The dialog displayed based on screen.
+   * The dialog box is displayed in the center of the screen.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5921,7 +5979,7 @@ declare enum DialogDisplayMode {
    */
   SCREEN_BASED = 0,
   /**
-   * The dialog displayed based on application window.
+   * The dialog box is displayed in the center of the application window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5965,14 +6023,14 @@ declare enum ColorSpace {
   DISPLAY_P3 = 1,
 
   /**
-   * BT2020 ColorSpace.
+   * BT2020 color space, which has a wider color gamut and is suitable for high-end display devices.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
    */
-  BT2020 = 2,
+  BT2020 = 2
 }
 
 /**
@@ -6027,7 +6085,7 @@ declare enum AnimationPropertyType {
    * @atomicservice
    * @since 20 dynamic
    */
-  OPACITY = 3,
+  OPACITY = 3
 }
 
 /**
@@ -6126,7 +6184,7 @@ declare enum AxisType {
 }
 
 /**
- * Defines the input event subtype mask for monitoring.
+ * Enumerates input event subtype masks, used to identify different input event subtypes.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6136,7 +6194,7 @@ declare enum AxisType {
  */
 declare enum InputEventSubTypeMask {
   /**
-   * Mouse left button down.
+   * Left mouse button pressed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6147,7 +6205,7 @@ declare enum InputEventSubTypeMask {
   LEFT_MOUSE_DOWN = 1 << 0,
 
   /**
-   * Mouse left button up.
+   * Left mouse button released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6158,7 +6216,7 @@ declare enum InputEventSubTypeMask {
   LEFT_MOUSE_UP = 1 << 1,
 
   /**
-   * Mouse right button down.
+   * Right mouse button pressed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6169,7 +6227,7 @@ declare enum InputEventSubTypeMask {
   RIGHT_MOUSE_DOWN = 1 << 2,
 
   /**
-   * Mouse right button up.
+   * Right mouse button released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6180,7 +6238,7 @@ declare enum InputEventSubTypeMask {
   RIGHT_MOUSE_UP = 1 << 3,
 
   /**
-   * Mouse middle button down.
+   * Middle mouse button pressed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6191,7 +6249,7 @@ declare enum InputEventSubTypeMask {
   MIDDLE_MOUSE_DOWN = 1 << 4,
 
   /**
-   * Mouse middle button up.
+   * Middle mouse button released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6202,7 +6260,7 @@ declare enum InputEventSubTypeMask {
   MIDDLE_MOUSE_UP = 1 << 5,
 
   /**
-   * Mouse left button dragging.
+   * Left mouse button pressed and dragged.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6213,7 +6271,7 @@ declare enum InputEventSubTypeMask {
   LEFT_MOUSE_DRAGGING = 1 << 6,
 
   /**
-   * Mouse right button dragging.
+   * Right mouse button pressed and dragged.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6224,7 +6282,7 @@ declare enum InputEventSubTypeMask {
   RIGHT_MOUSE_DRAGGING = 1 << 7,
 
   /**
-   * Mouse middle button dragging.
+   * Middle mouse button pressed and dragged.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6235,7 +6293,7 @@ declare enum InputEventSubTypeMask {
   MIDDLE_MOUSE_DRAGGING = 1 << 8,
 
   /**
-   * Touch down.
+   * Touch press.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6246,7 +6304,7 @@ declare enum InputEventSubTypeMask {
   TOUCH_DOWN = 1 << 9,
 
   /**
-   * Touch up.
+   * Touch release.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6257,7 +6315,7 @@ declare enum InputEventSubTypeMask {
   TOUCH_UP = 1 << 10,
 
   /**
-   * Physical keyboard key down.
+   * Physical key pressed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6268,7 +6326,7 @@ declare enum InputEventSubTypeMask {
   KEY_DOWN = 1 << 11,
 
   /**
-   * Physical keyboard key up.
+   * Physical key released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6280,7 +6338,8 @@ declare enum InputEventSubTypeMask {
 }
 
 /**
- * Defines the input event intercept action.
+ * Enumerates the input event interception actions, used to control whether input events continue to be delivered to the
+ * UI framework, applicable to scenarios where input events need to be allowed or blocked based on business rules.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6290,7 +6349,7 @@ declare enum InputEventSubTypeMask {
  */
 declare enum InputEventInterceptAction {
   /**
-   * Continue to deliver the event to the UI framework.
+   * The event is permitted to propagate to the UI framework.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6301,7 +6360,7 @@ declare enum InputEventInterceptAction {
   CONTINUE = 0,
 
   /**
-   * Block the event from being delivered to the UI framework.
+   * The event is blocked from propagating to the UI framework.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6313,8 +6372,9 @@ declare enum InputEventInterceptAction {
 }
 
 /**
- * Defines whether the dispatched event is a competitive gesture. In the competitive scenario, only one of the original 
- * node and target node of the gesture responds. In the non‑competitive scenario, both nodes can respond simultaneously.
+ * Defines whether the dispatched event is a competitive gesture. In the competitive scenario, only one of the original
+ * node and target node of the gesture responds. In the non-competitive scenario, both the original node and target node
+ * of the gesture can respond.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6347,7 +6407,8 @@ declare enum CompetitionStrategy {
 }
 
 /**
- * Define the gesture and events collection intervention operations.
+ * Enumerates the intervention types for gesture and event collection, applicable to scenarios where gestures need to be
+ * retained or discarded by priority during gesture and event collection.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6357,7 +6418,7 @@ declare enum CompetitionStrategy {
  */
 declare enum GestureCollectIntervention {
   /**
-   * Continue the normal collection process. No intervention will be applied.
+   * Continues the normal gesture and event collection flow. No intervention is performed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6368,9 +6429,9 @@ declare enum GestureCollectIntervention {
   CONTINUE = 0,
 
   /**
-   * Discard all pending lower-priority gestures and events.
-   * This includes gestures from left sibling nodes and ancestor nodes (parent and above).
-   * Only the already collected gestures from the current node and higher-priority nodes will be retained.
+   * Discards all low-priority gestures and events to be collected. The gestures of the left sibling node and ancestor
+   * nodes (parent nodes and above) are discarded. Only the gestures already collected on the current node and higher-
+   * priority nodes are retained.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6381,9 +6442,9 @@ declare enum GestureCollectIntervention {
   DISCARD_LOWER = 1,
 
   /**
-   * Discard already collected higher-priority gestures and events.
-   * This removes gestures from right sibling nodes that have been collected.
-   * The collection will continue with lower-priority gestures (left siblings and ancestors).
+   * Discards all collected high-priority gestures and events. The gestures of the right sibling node and the current
+   * node are discarded. Continues processing the collection flow for lower-priority gestures (left sibling and ancestor
+   * nodes).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6394,9 +6455,8 @@ declare enum GestureCollectIntervention {
   DISCARD_HIGHER = 2,
 
   /**
-   * Discard gestures and events from the current node itself.
-   * The current node's gestures and events will be excluded from the gesture tree.
-   * Gestures from sibling nodes (both left and right) and ancestor nodes will still be collected.
+   * Discards the gestures and events of the current node. The gestures and events of the current node are excluded from
+   * the gesture tree. The gestures of the sibling nodes (left and right) and the ancestor nodes are still collected.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6407,9 +6467,9 @@ declare enum GestureCollectIntervention {
   DISCARD_SELF = 3,
 
   /**
-   * Discard gestures and events from left sibling nodes that are pending collection.
-   * Gestures and events from the current node and already collected right sibling nodes will be retained.
-   * The collection will continue with ancestor nodes.
+   * Discards the gestures and events to be collected from the left sibling node. The gestures and events of the current
+   * node and the collected gestures and events of the right sibling node are retained. Continues processing the
+   * collection flow for the parent and ancestor nodes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6485,7 +6545,7 @@ declare enum UIMaterialAnimationMode {
 }
 
 /**
- * Defines the position of the edge light effect.
+ * Defines the edge light position.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -6568,7 +6628,7 @@ declare enum EdgeLightPosition {
 }
 
 /**
- * Define the smart gesture shortcut priority enumeration.
+ * Enumerates the smart gesture response priorities of the component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6577,7 +6637,8 @@ declare enum EdgeLightPosition {
  */
 declare enum GestureShortcut {
   /**
-   * Primary priority.
+   * Smart gesture response priority. This is the only value supported by the current smart gesture response
+   * configuration.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6588,7 +6649,7 @@ declare enum GestureShortcut {
 }
 
 /**
- * Define the actions for smart gesture shortcut.
+ * Enumerates smart gesture action types.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6607,7 +6668,7 @@ declare enum SmartGestureAction {
   NONE = 0,
 
   /**
-   * Page forward action.
+   * Page forward, including downward and rightward swipes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6617,7 +6678,7 @@ declare enum SmartGestureAction {
   PAGE_FORWARD = 1,
 
   /**
-   * Scroll forward action.
+   * Scroll forward, including downward and rightward swipes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6627,7 +6688,7 @@ declare enum SmartGestureAction {
   SCROLL_FORWARD = 2,
 
   /**
-   * Select action.
+   * Select the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6637,7 +6698,7 @@ declare enum SmartGestureAction {
   SELECT = 3,
 
   /**
-   * Click action.
+   * Click the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6647,7 +6708,7 @@ declare enum SmartGestureAction {
   CLICK = 4,
 
   /**
-   * Back press action.
+   * Go back.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6658,7 +6719,7 @@ declare enum SmartGestureAction {
 }
 
 /**
- * Define the smart gesture's operation intention.
+ * Enumerates the original operation intentions of smart gestures.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6667,7 +6728,7 @@ declare enum SmartGestureAction {
  */
 declare enum OperateIntention {
   /**
-   * Tap intention.
+   * Tap gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6677,7 +6738,7 @@ declare enum OperateIntention {
   TAP = 0,
 
   /**
-   * Slide forward intention.
+   * Slide gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6687,7 +6748,7 @@ declare enum OperateIntention {
   SLIDE_FORWARD = 1,
 
   /**
-   * Back press intention.
+   * Wrist flip gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

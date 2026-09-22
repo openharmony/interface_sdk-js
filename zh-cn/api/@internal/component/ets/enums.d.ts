@@ -14,77 +14,48 @@
  */
 
 /**
- * @file
+ * @file 枚举值
  * @kit ArkUI
  */
 
 /**
- * common enum of the checkbox shape
+ * 复选框Checkbox的形状。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
- * common enum of the checkbox shape
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum CheckBoxShape {
   /**
-   * Circle.
+   * 圆形
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * Circle.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   CIRCLE = 0,
 
   /**
-   * Rounded Square.
+   * 圆角方形
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
-  /**
-   * Rounded Square.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  ROUNDED_SQUARE = 1,
+  ROUNDED_SQUARE = 1
 }
 
 /**
- * common enum of color
+ * 颜色类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -95,7 +66,7 @@ declare enum CheckBoxShape {
  */
 declare enum Color {
   /**
-   * White.
+   * ![white](docroot://reference/apis-arkui/arkui-ts/figures/white.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -107,7 +78,7 @@ declare enum Color {
   White,
 
   /**
-   * Black.
+   * ![black](docroot://reference/apis-arkui/arkui-ts/figures/black.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -119,7 +90,7 @@ declare enum Color {
   Black,
 
   /**
-   * Blue.
+   * ![blue](docroot://reference/apis-arkui/arkui-ts/figures/blue.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -131,7 +102,7 @@ declare enum Color {
   Blue,
 
   /**
-   * Brown.
+   * ![brown](docroot://reference/apis-arkui/arkui-ts/figures/brown.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -143,7 +114,7 @@ declare enum Color {
   Brown,
 
   /**
-   * Gray.
+   * ![gray](docroot://reference/apis-arkui/arkui-ts/figures/gray.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -155,7 +126,7 @@ declare enum Color {
   Gray,
 
   /**
-   * Green.
+   * ![green](docroot://reference/apis-arkui/arkui-ts/figures/green.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -167,7 +138,7 @@ declare enum Color {
   Green,
 
   /**
-   * Grey.
+   * ![gray](docroot://reference/apis-arkui/arkui-ts/figures/gray.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -179,7 +150,7 @@ declare enum Color {
   Grey,
 
   /**
-   * Orange.
+   * ![orange](docroot://reference/apis-arkui/arkui-ts/figures/orange.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -191,7 +162,7 @@ declare enum Color {
   Orange,
 
   /**
-   * Pink.
+   * ![pink](docroot://reference/apis-arkui/arkui-ts/figures/pink.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -203,7 +174,7 @@ declare enum Color {
   Pink,
 
   /**
-   * Red.
+   * ![red](docroot://reference/apis-arkui/arkui-ts/figures/red.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -215,7 +186,7 @@ declare enum Color {
   Red,
 
   /**
-   * Yellow.
+   * ![yellow](docroot://reference/apis-arkui/arkui-ts/figures/yellow.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -227,7 +198,7 @@ declare enum Color {
   Yellow,
 
   /**
-   * Transparent.
+   * 透明色
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -236,7 +207,7 @@ declare enum Color {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Transparent,
+  Transparent
 }
 
 /**
@@ -298,262 +269,101 @@ declare enum ColoringStrategy {
 }
 
 /**
- * Image display mode
+ * 用于设置图片填充效果。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Image display mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Image display mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Image display mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum ImageFit {
   /**
-   * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
+   * 保持宽高比进行缩小或者放大，使得图片或视频完全显示在边界内，对其方式为水平居中。
+   * 
+   * ![ImageFit-Examples01](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_contain.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Contain,
 
   /**
-   * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
+   * 保持宽高比进行缩小或者放大，使得图片或视频两边都大于或等于显示边界，对其方式为水平居中。
    *
+   * ![ImageFit-Examples02](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_cover.png)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Keep the aspect ratio to zoom out or zoom in so that both sides of the image are greater than or equal to the display boundary.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Cover,
 
   /**
-   * Adaptive display
+   * 图片或视频会根据其自身尺寸和组件的尺寸进行适当缩放，以在保持比例的同时填充视图，对其方式为水平居中。
    *
+   * ![ImageFit-Examples03](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_auto.png)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Adaptive display
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Adaptive display
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Adaptive display
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Auto,
 
   /**
-   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
+   * 不保持宽高比进行放大缩小，使得图片或视频充满显示边界，对齐方式为水平居中。
+   * 
+   * ![ImageFit-Examples04](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_fill.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Fill,
 
   /**
-   * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
+   * 保持宽高比进行显示，图片或视频缩小或者保持不变，对齐方式为水平居中。
+   * 
+   * ![ImageFit-Examples05](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_scaleDown.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Keep the aspect ratio displayed, and the image zooms out or remains unchanged.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   ScaleDown,
 
   /**
-   * Keep the original size and display it in the center.
+   * 保持原有尺寸进行显示，对齐方式为水平居中。
    *
+   * ![ImageFit-Examples06](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_none.png)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Keep the original size and display it in the center.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Keep the original size and display it in the center.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Keep the original size and display it in the center.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   None,
-    
+
   /**
-   * Top Start.
+   * 图片或视频显示在组件的顶部起始端，且保持原有尺寸。
+   *
+   * ![ImageFit-Examples07](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_top_start.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -565,7 +375,9 @@ declare enum ImageFit {
   TOP_START = 7,
 
   /**
-   * The top is centered horizontally.
+   * 图片或视频显示在组件的顶部横向居中，且保持原有尺寸。
+   *
+   * ![ImageFit-Examples08](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_top.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -577,7 +389,9 @@ declare enum ImageFit {
   TOP = 8,
 
   /**
-   * Top tail end.
+   * 图片或视频显示在组件的顶部尾端，且保持原有尺寸。
+   *
+   * ![ImageFit-Examples09](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_top_end.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -589,7 +403,9 @@ declare enum ImageFit {
   TOP_END = 9,
 
   /**
-   * The starting end is centered longitudinally.
+   * 图片或视频显示在组件的起始端纵向居中，且保持原有尺寸。
+   *
+   * ![ImageFit-Examples10](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_start.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -601,7 +417,9 @@ declare enum ImageFit {
   START = 10,
 
   /**
-   * Center horizontal and vertical.
+   * 图片或视频显示在组件的横向和纵向居中，且保持原有尺寸。
+   *
+   * ![ImageFit-Examples11](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_center.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -613,7 +431,9 @@ declare enum ImageFit {
   CENTER = 11,
 
   /**
-   * The tail end is centered longitudinally.
+   * 图片或视频显示在组件的尾端纵向居中，且保持原有尺寸。
+   *
+   * ![ImageFit-Examples12](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_end.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -625,7 +445,9 @@ declare enum ImageFit {
   END = 12,
 
   /**
-   * Bottom starting end.
+   * 图片或视频显示在组件的底部起始端，且保持原有尺寸。
+   *
+   * ![ImageFit-Examples13](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_bottom_start.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -637,7 +459,9 @@ declare enum ImageFit {
   BOTTOM_START = 13,
 
   /**
-   * The bottom is centered horizontally.
+   * 图片或视频显示在组件的底部横向居中，且保持原有尺寸。
+   *
+   * ![ImageFit-Examples14](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_bottom.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -649,7 +473,9 @@ declare enum ImageFit {
   BOTTOM = 14,
 
   /**
-   * Bottom end.
+   * 图片或视频显示在组件的底部尾端，且保持原有尺寸。
+   *
+   * ![ImageFit-Examples15](docroot://reference/apis-arkui/arkui-ts/figures/image_fit_bottom_end.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -661,7 +487,7 @@ declare enum ImageFit {
   BOTTOM_END = 15,
 
   /**
-   * Matrix of Image.
+   * 配合[imageMatrix]{@link ImageAttribute#imageMatrix}使用，使图像在Image组件自定义位置显示，且保持原有尺寸。不支持svg图源。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -669,146 +495,56 @@ declare enum ImageFit {
    * @atomicservice
    * @since 15 dynamic
    */
-  MATRIX = 16,
+  MATRIX = 16
 }
 
 /**
- * Border Style
+ * 定义元素的边框线条样式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Border Style
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Border Style
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Border Style
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum BorderStyle {
   /**
-   * Displays as a series of dots with a radius of half the borderWidth.
+   * 显示为一系列圆点，圆点半径为borderWidth的一半。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Displays as a series of dots with a radius of half the borderWidth.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Displays as a series of dots with a radius of half the borderWidth.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Displays as a series of dots with a radius of half the borderWidth.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Dotted,
 
   /**
-   * Shows as a series of short square dashed lines.
+   * 显示为一系列短的方形虚线。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Shows as a series of short square dashed lines.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Shows as a series of short square dashed lines.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Shows as a series of short square dashed lines.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Dashed,
 
   /**
-   * Shows as a solid line.
+   * 显示为一条实线。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * Shows as a solid line.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Shows as a solid line.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Shows as a solid line.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Solid,
+  Solid
 }
 
 /**
- * RenderStrategy 的枚举。
- * 定义图形渲染策略。
+ * 定义组件绘制圆角的模式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -818,7 +554,10 @@ declare enum BorderStyle {
  */
 declare enum RenderStrategy {
   /**
-   * 当前组件及其子组件将直接绘制到画布上，并应用圆角效果。
+   * 在线绘制模式，组件进行圆角内容绘制时，绘制内容被裁剪成圆角，直接绘制到主画布上。
+   *
+   * **说明**：使用在线绘制模式，在部分场景下可能会有显示效果异常，例如：圆角组件内叠加模糊效果后背景色会有相互影响，导致出现渐变叠加的效果，具体表现可参考
+   * [示例3（设置离屏圆角）](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#示例3设置离屏圆角)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -830,8 +569,13 @@ declare enum RenderStrategy {
   FAST = 0,
 
   /**
-   * 当前组件及其子组件会先被画到一个离屏画布上，
-   * 然后进行一些图形渲染操作，最后绘制到主画布上。
+   * 离屏绘制模式，组件进行圆角内容绘制时，绘制内容先不带圆角绘制到离屏画布上，随后对离屏画布上的内容进行一次圆角裁切并绘制到主画布上。
+   *
+   * **说明**：
+   *
+   * 1. 离屏绘制模式相比在线绘制模式会带来额外的性能损失。
+   * 2. 离屏绘制模式是指将内容绘制到主画布之前，先在一个额外的画布上完成绘制工作，然后将绘制结果绘制到主画布上。
+   * 3. 离屏绘制模式仅针对需要多层组件切圆角的场景使用，单组件需设置[clip]{@link CommonMethod#clip(value: boolean)}属性、[背景]{@link ./common}或[前景色]{@link ./common}时才可使能离屏绘制模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -844,135 +588,47 @@ declare enum RenderStrategy {
 }
 
 /**
- * Line Join Style
+ * 线条连接样式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Line Join Style
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Line Join Style
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Line Join Style
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum LineJoinStyle {
   /**
-   * Connect path segments using bevels.
+   * 使用尖角连接路径段。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Connect path segments using bevels.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Connect path segments using bevels.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Connect path segments using bevels.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Miter,
 
   /**
-   * Connect path segments using sharp corners.
+   * 使用圆角连接路径段。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Connect path segments using sharp corners.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Connect path segments using sharp corners.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Connect path segments using sharp corners.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Round,
 
   /**
-   * Connect path segments using fillets.
+   * 使用斜角连接路径段。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * Connect path segments using fillets.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Connect path segments using fillets.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Connect path segments using fillets.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Bevel,
+  Bevel
 }
 
 /**
@@ -1015,7 +671,7 @@ declare enum TouchType {
   Move,
 
   /**
-   * 触摸事件取消时触发。例如：1.手指按住屏幕同时点击Home键返回桌面，此时会触发Cancel；2.手指触摸过程中存在手写笔操作，手指的触摸操作会收到Cancel事件。
+   * 触摸事件取消时触发。例如：1、手指按住屏幕同时点击Home键返回桌面，此时会触发Cancel；2、<!--RP2--><!--RP2End-->手指触摸过程中存在手写笔操作，手指的触摸操作会收到Cancel事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -1066,7 +722,7 @@ declare enum TouchType {
    * @atomicservice
    * @since 20 dynamic
    */
-  HOVER_CANCEL = 12,
+  HOVER_CANCEL = 12
 }
 
 /**
@@ -1110,7 +766,7 @@ declare enum InteractionHand {
    * @atomicservice
    * @since 15 dynamic
    */
-  RIGHT = 2,
+  RIGHT = 2
 }
 
 /**
@@ -1180,7 +836,7 @@ declare enum MouseButton {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  None,
+  None
 }
 
 /**
@@ -1193,7 +849,6 @@ declare enum MouseButton {
  * @since 8 dynamic
  */
 declare enum MouseAction {
-
   /**
    * 鼠标按键按下。
    *
@@ -1229,7 +884,7 @@ declare enum MouseAction {
 
   /**
    * 鼠标悬浮。
-   * 
+   *
    * **说明：** 该枚举值无效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1264,7 +919,7 @@ declare enum MouseAction {
 
   /**
    * 鼠标按键取消。通常在以下场景触发：
-   * 
+   *
    * 1. 组件失去焦点：当前持有焦点的组件因系统事件（如弹窗打断、应用切换）失去焦点时，会触发该动作。
    * 2. 事件中断：鼠标操作过程中发生更高优先级事件（如系统级手势或强制回收事件流），导致当前鼠标操作被强制终止。
    * 3. 异常状态退出：如组件销毁、渲染环境异常等场景下，未完成的鼠标事件会被标记为取消。
@@ -1278,7 +933,7 @@ declare enum MouseAction {
 }
 
 /**
- * Animation status.
+ * 用于动画播放状态。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -1288,7 +943,7 @@ declare enum MouseAction {
  */
 declare enum AnimationStatus {
   /**
-   * Initial state of the animation.
+   * 动画初始状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -1299,7 +954,7 @@ declare enum AnimationStatus {
   Initial = 0,
 
   /**
-   * The animation is playing.
+   * 动画处于播放状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -1310,7 +965,7 @@ declare enum AnimationStatus {
   Running = 1,
 
   /**
-   * The animation is paused.
+   * 动画处于暂停状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -1321,7 +976,7 @@ declare enum AnimationStatus {
   Paused = 2,
 
   /**
-   * The animation is stopped.
+   * 动画处于停止状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -1329,11 +984,11 @@ declare enum AnimationStatus {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Stopped = 3,
+  Stopped = 3
 }
 
 /**
- * 插值曲线，动效请参考<!--RP1-->[贝塞尔曲线]{@link @ohos.curves}<!--RP1End-->。
+ * 插值曲线，动效请参考<!--RP1-->[贝塞尔曲线](docroot://../design/ux-design/animation-attributes.md)<!--RP1End-->。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -1342,7 +997,6 @@ declare enum AnimationStatus {
  * @since 7 dynamic
  */
 declare enum Curve {
-
   /**
    * 表示动画在整个过程中速度保持一致。
    *
@@ -1499,7 +1153,6 @@ declare enum Curve {
  * @since 7 dynamic
  */
 declare enum FillMode {
-
   /**
    * 动画未执行时，不应用任何样式到目标；播放完成后，恢复初始默认状态。
    *
@@ -1547,7 +1200,7 @@ declare enum FillMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Both,
+  Both
 }
 
 /**
@@ -1607,7 +1260,7 @@ declare enum PlayMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  AlternateReverse,
+  AlternateReverse
 }
 
 /**
@@ -1695,59 +1348,32 @@ declare enum KeySource {
    * @atomicservice
    * @since 15 dynamic
    */
-  JOYSTICK,
+  JOYSTICK
 }
 
 /**
- * Edge.
+ * 用于控制滚动组件在布局中的对齐位置。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Edge.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Edge.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum Edge {
   /**
-   * The top is centered horizontally.
+   * 竖直方向上边缘。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The top is centered horizontally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The top is centered horizontally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Top,
 
   /**
-   * Center horizontal and vertical.
+   * 竖直方向居中位置。
+   * 
+   * 从API version 9开放废弃。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -1756,30 +1382,19 @@ declare enum Edge {
   Center,
 
   /**
-   * The bottom is centered horizontally.
+   * 竖直方向下边缘。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The bottom is centered horizontally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The bottom is centered horizontally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Bottom,
 
   /**
-   * Cross axis direction text baseline alignment.
+   * 交叉轴方向文本基线位置。
+   * 
+   * 从API version 9开始废弃。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -1788,30 +1403,17 @@ declare enum Edge {
   Baseline,
 
   /**
-   * Align the head of the cross axis direction.
+   * 水平方向起始位置。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Align the head of the cross axis direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Align the head of the cross axis direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Start,
 
   /**
-   * Middle
+   * 水平方向居中位置。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
@@ -1820,390 +1422,154 @@ declare enum Edge {
   Middle,
 
   /**
-   * Align the head of the cross axis direction.
+   * 水平方向末尾位置。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * Align the head of the cross axis direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Align the head of the cross axis direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  End,
+  End
 }
 
 /**
- * Set Weekend
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @since 7
- */
-/**
- * Set Weekend
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
  * 定义星期枚举值。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum Week {
   /**
-   * Monday.
+   * 星期一。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Monday.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Monday.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Mon,
 
   /**
-   * Tuesday.
+   * 星期二。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Tuesday.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Tuesday.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Tue,
 
   /**
-   * Wednesday.
+   * 星期三。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Wednesday.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Wednesday.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Wed,
 
   /**
-   * Thursday.
+   * 星期四。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Thursday.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Thursday.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Thur,
 
   /**
-   * Friday.
+   * 星期五。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Friday.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Friday.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Fri,
 
   /**
-   * Saturday.
+   * 星期六。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Saturday.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Saturday.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Sat,
 
   /**
-   * Sunday.
+   * 星期日。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * Sunday.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sunday.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Sun,
+  Sun
 }
 
 /**
- * Sets the horizontal layout of elements.
+ * 定义元素水平布局的方向。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Sets the horizontal layout of elements.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Sets the horizontal layout of elements.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Sets the horizontal layout of elements.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum Direction {
   /**
-   * Elements are laid out from left to right.
+   * 元素从左到右布局。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Elements are laid out from left to right.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Elements are laid out from left to right.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Elements are laid out from left to right.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Ltr,
 
   /**
-   * Elements are laid out from right to left.
+   * 元素从右到左布局。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Elements are laid out from right to left.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Elements are laid out from right to left.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Elements are laid out from right to left.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Rtl,
 
   /**
-   * Use the default layout direction.
+   * 使用系统默认布局方向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * Use the default layout direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Use the default layout direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Use the default layout direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Auto,
+  Auto
 }
 
 /**
- * Used to set the status of the scroll bar.
+ * 用于设置滚动条的状态。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -2214,7 +1580,7 @@ declare enum Direction {
  */
 declare enum BarState {
   /**
-   * Not displayed.
+   * 不显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2226,7 +1592,7 @@ declare enum BarState {
   Off,
 
   /**
-   * On-demand display (displayed when you touch it and disappears after 2 seconds).
+   * 按需显示（触摸时显示，2s后消失）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2238,7 +1604,7 @@ declare enum BarState {
   Auto,
 
   /**
-   * Resident display.
+   * 常驻显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2247,11 +1613,11 @@ declare enum BarState {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  On,
+  On
 }
 
 /**
- * Sliding effect
+ * 定义滚动容器的滑动效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -2261,8 +1627,11 @@ declare enum BarState {
  */
 declare enum EdgeEffect {
   /**
-   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or 
-   * touch event, and spring back when released.
+   * 弹性物理动效，滑动到边缘后可以根据初始速度或通过触摸事件继续滑动一段距离，松手后回弹。
+   *
+   * API version 22及之前版本，拖动滚动条，滚动组件的弹性物理动效不生效。
+   *
+   * 从API version 23开始，通过手指拖动滚动条，滚动组件的弹性物理动效可以生效。通过鼠标拖动滚动条，滚动组件的弹性物理动效不能生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2273,7 +1642,7 @@ declare enum EdgeEffect {
   Spring,
 
   /**
-   * Fade.
+   * 阴影效果，滑动到边缘后会有圆弧状的阴影。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2284,7 +1653,7 @@ declare enum EdgeEffect {
   Fade,
 
   /**
-   * Sliding to the edge has no effect.
+   * 滑动到边缘后无效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2292,377 +1661,132 @@ declare enum EdgeEffect {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None,
+  None
 }
 
 /**
- * Alignment enumeration description.
+ * 定义容器元素绘制区域内的子元素的对齐方式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Alignment enumeration description.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Alignment enumeration description.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Alignment enumeration description.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum Alignment {
   /**
-   * Top Start.
+   * 顶部起始端。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Top Start.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Top Start.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Top Start.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   TopStart,
 
   /**
-   * The top is centered horizontally.
+   * 顶部横向居中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * The top is centered horizontally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * The top is centered horizontally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The top is centered horizontally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Top,
 
   /**
-   * Top tail end.
+   * 顶部尾端。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Top tail end.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Top tail end.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Top tail end.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   TopEnd,
 
   /**
-   * The starting end is centered longitudinally.
+   * 起始端纵向居中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * The starting end is centered longitudinally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * The starting end is centered longitudinally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The starting end is centered longitudinally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Start,
 
   /**
-   * Center horizontal and vertical.
+   * 横向和纵向居中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Center horizontal and vertical.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Center horizontal and vertical.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Center horizontal and vertical.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Center,
 
   /**
-   * The tail end is centered longitudinally.
+   * 尾端纵向居中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * The tail end is centered longitudinally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * The tail end is centered longitudinally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The tail end is centered longitudinally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   End,
 
   /**
-   * Bottom starting end.
+   * 底部起始端。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Bottom starting end.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Bottom starting end.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Bottom starting end.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   BottomStart,
 
   /**
-   * The bottom is centered horizontally.
+   * 底部横向居中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * The bottom is centered horizontally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * The bottom is centered horizontally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The bottom is centered horizontally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Bottom,
 
   /**
-   * Bottom end.
+   * 底部尾端。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * Bottom end.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Bottom end.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Bottom end.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  BottomEnd,
+  BottomEnd
 }
 
 /**
- * LocalizedAlignment enumeration description.
+ * 用于支持align、[layoutGravity]{@link CommonMethod#layoutGravity}属性镜像特性的枚举类型。
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2672,7 +1796,7 @@ declare enum Alignment {
  */
 declare enum LocalizedAlignment {
   /**
-   * Top Start.
+   * 顶部起始端。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2683,7 +1807,7 @@ declare enum LocalizedAlignment {
    */
   TOP_START = "top_start",
   /**
-   * The top is centered horizontally.
+   * 顶部横向居中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2694,7 +1818,7 @@ declare enum LocalizedAlignment {
    */
   TOP = "top",
   /**
-   * Top tail end.
+   * 顶部尾端。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2705,7 +1829,7 @@ declare enum LocalizedAlignment {
    */
   TOP_END = "top_end",
   /**
-   * The starting end is centered longitudinally.
+   * 起始端纵向居中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2716,7 +1840,7 @@ declare enum LocalizedAlignment {
    */
   START = "start",
   /**
-   * Center horizontal and vertical.
+   * 横向和纵向居中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2727,7 +1851,7 @@ declare enum LocalizedAlignment {
    */
   CENTER = "center",
   /**
-   * The tail end is centered longitudinally.
+   * 尾端纵向居中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2738,7 +1862,7 @@ declare enum LocalizedAlignment {
    */
   END = "end",
   /**
-   * Bottom starting end.
+   * 底部起始端。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2749,7 +1873,7 @@ declare enum LocalizedAlignment {
    */
   BOTTOM_START = "bottom_start",
   /**
-   * The bottom is centered horizontally.
+   * 底部横向居中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2760,7 +1884,7 @@ declare enum LocalizedAlignment {
    */
   BOTTOM = "bottom",
   /**
-   * Bottom end.
+   * 底部尾端。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2769,7 +1893,7 @@ declare enum LocalizedAlignment {
    * @atomicservice
    * @since 20 dynamic
    */
-  BOTTOM_END = "bottom_end",
+  BOTTOM_END = "bottom_end"
 }
 
 /**
@@ -2813,88 +1937,40 @@ declare enum TransitionType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Delete,
+  Delete
 }
 
 /**
- * RelateType enumeration description
+ * 定义子组件的填充方式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * RelateType enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * RelateType enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum RelateType {
   /**
-   * Scales the current component to fill the parent component.
+   * 缩放当前子组件以填充满父组件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Scales the current component to fill the parent component.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Scales the current component to fill the parent component.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   FILL,
 
   /**
-   * Scales the current component to fit the parent component.
+   * 缩放当前子组件以自适应父组件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * Scales the current component to fit the parent component.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Scales the current component to fit the parent component.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  FIT,
+  FIT
 }
 
 /**
@@ -2938,139 +2014,51 @@ declare enum Visibility {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None,
+  None
 }
 
 /**
- * LineCapStyle enumeration description
+ * 线条端点样式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * LineCapStyle enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * LineCapStyle enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * LineCapStyle enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum LineCapStyle {
   /**
-   * The two ends of the dividing line are parallel lines.
+   * 线条两端为平行线，不额外扩展。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The two ends of the dividing line are parallel lines.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The two ends of the dividing line are parallel lines.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The two ends of the dividing line are parallel lines.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Butt,
 
   /**
-   * The two ends of the dividing line are semicircles.
+   * 在线条两端延伸半个圆，直径等于线宽。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The two ends of the dividing line are semicircles.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The two ends of the dividing line are semicircles.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The two ends of the dividing line are semicircles.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Round,
 
   /**
-   * Extends half a circle at the end of the path with a width equal to half the dividing line width and a height equal to the dividing line width.
+   * 在线条两端延伸一个矩形，宽度等于线宽的一半，高度等于线宽。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * Extends half a circle at the end of the path with a width equal to half the dividing line width and a height equal to the dividing line width.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Extends half a circle at the end of the path with a width equal to half the dividing line width and a height equal to the dividing line width.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Extends half a circle at the end of the path with a width equal to half the dividing line width and a height equal to the dividing line width.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Square,
+  Square
 }
 
 /**
@@ -3103,845 +2091,277 @@ declare enum Axis {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Horizontal,
+  Horizontal
 }
 
 /**
- * HorizontalAlign enumeration description.
+ * 定义子组件在水平方向上的对齐方式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * HorizontalAlign enumeration description.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * HorizontalAlign enumeration description.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * HorizontalAlign enumeration description.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum HorizontalAlign {
   /**
-   * Aligns the start end in the language direction.
+   * 按照语言方向起始端对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Aligns the start end in the language direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Aligns the start end in the language direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Aligns the start end in the language direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Start,
 
   /**
-   * Center alignment. The default alignment mode is used.
+   * 居中对齐，默认对齐方式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Center alignment. The default alignment mode is used.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Center alignment. The default alignment mode is used.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Center alignment. The default alignment mode is used.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Center,
 
   /**
-   * Aligns the ends in the language direction.
+   * 按照语言方向末端对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * Aligns the ends in the language direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Aligns the ends in the language direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Aligns the ends in the language direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  End,
+  End
 }
 
 /**
- * FlexAlign enumeration description.
+ * 定义元素在容器主轴上的对齐格式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * FlexAlign enumeration description.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * FlexAlign enumeration description.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * FlexAlign enumeration description.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum FlexAlign {
   /**
-   * The element is aligned at the head of the principal axis,
-   * the first element is aligned with the head of the row, and subsequent elements are aligned with the previous one.
+   * 元素在主轴方向首端对齐，第一个元素与行首对齐，后续元素与前一个对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The element is aligned at the head of the principal axis,
-   * the first element is aligned with the head of the row, and subsequent elements are aligned with the previous one.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The element is aligned at the head of the principal axis,
-   * the first element is aligned with the head of the row, and subsequent elements are aligned with the previous one.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The element is aligned at the head of the principal axis,
-   * the first element is aligned with the head of the row, and subsequent elements are aligned with the previous one.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Start,
 
   /**
-   * The elements are centered in the direction of the principal axis,
-   * and the first element is the same distance from the beginning of the row as the last element is from the end of the row.
+   * 元素在主轴方向中心对齐，第一个元素与行首的距离和最后一个元素与行尾的距离相同。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The elements are centered in the direction of the principal axis,
-   * and the first element is the same distance from the beginning of the row as the last element is from the end of the row.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The elements are centered in the direction of the principal axis,
-   * and the first element is the same distance from the beginning of the row as the last element is from the end of the row.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The elements are centered in the direction of the principal axis,
-   * and the first element is the same distance from the beginning of the row as the last element is from the end of the row.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Center,
 
   /**
-   * The element is aligned at the tail of the principal axis,
-   * the last element is aligned at the end of the row, and the other elements are aligned with the next.
+   * 元素在主轴方向尾部对齐，最后一个元素与行尾对齐，其余元素与后一个对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The element is aligned at the tail of the principal axis,
-   * the last element is aligned at the end of the row, and the other elements are aligned with the next.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The element is aligned at the tail of the principal axis,
-   * the last element is aligned at the end of the row, and the other elements are aligned with the next.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The element is aligned at the tail of the principal axis,
-   * the last element is aligned at the end of the row, and the other elements are aligned with the next.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   End,
 
   /**
-   * Elastic elements are evenly distributed in the direction of the Flex principal axis,
-   * with the same distance between adjacent elements.
-   * The first element aligns with the beginning of the line, and the last element aligns with the end of the line.
+   * Flex主轴方向均匀分配弹性元素，相邻元素之间距离相同。第一个元素与行首对齐，最后一个元素与行尾对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Elastic elements are evenly distributed in the direction of the Flex principal axis,
-   * with the same distance between adjacent elements.
-   * The first element aligns with the beginning of the line, and the last element aligns with the end of the line.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Elastic elements are evenly distributed in the direction of the Flex principal axis,
-   * with the same distance between adjacent elements.
-   * The first element aligns with the beginning of the line, and the last element aligns with the end of the line.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Elastic elements are evenly distributed in the direction of the Flex principal axis,
-   * with the same distance between adjacent elements.
-   * The first element aligns with the beginning of the line, and the last element aligns with the end of the line.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   SpaceBetween,
 
   /**
-   * Elastic elements are evenly distributed in the direction of the Flex principal axis,
-   *  with the same distance between adjacent elements. Half the distance between adjacent elements as the distance between
-   * the first element and the distance between the last element and the end of the row.
+   * Flex主轴方向均匀分配弹性元素，相邻元素之间距离相同。第一个元素到行首的距离和最后一个元素到行尾的距离是相邻元素之间距离的一半。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Elastic elements are evenly distributed in the direction of the Flex principal axis,
-   *  with the same distance between adjacent elements. Half the distance between adjacent elements as the distance between
-   * the first element and the distance between the last element and the end of the row.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Elastic elements are evenly distributed in the direction of the Flex principal axis,
-   *  with the same distance between adjacent elements. Half the distance between adjacent elements as the distance between
-   * the first element and the distance between the last element and the end of the row.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Elastic elements are evenly distributed in the direction of the Flex principal axis,
-   *  with the same distance between adjacent elements. Half the distance between adjacent elements as the distance between
-   * the first element and the distance between the last element and the end of the row.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   SpaceAround,
 
   /**
-   * Elements in the Flex axis direction are evenly spaced.
-   * The spacing between adjacent elements, the spacing between the first element and the beginning of the row,
-   * and the spacing between the last element and the end of the row are the same.
+   * Flex主轴方向均匀分配弹性元素，相邻元素之间的距离、第一个元素与行首的间距、最后一个元素到行尾的间距均相同。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * Elements in the Flex axis direction are evenly spaced.
-   * The spacing between adjacent elements, the spacing between the first element and the beginning of the row,
-   * and the spacing between the last element and the end of the row are the same.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Elements in the Flex axis direction are evenly spaced.
-   * The spacing between adjacent elements, the spacing between the first element and the beginning of the row,
-   * and the spacing between the last element and the end of the row are the same.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Elements in the Flex axis direction are evenly spaced.
-   * The spacing between adjacent elements, the spacing between the first element and the beginning of the row,
-   * and the spacing between the last element and the end of the row are the same.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  SpaceEvenly,
+  SpaceEvenly
 }
 
 /**
- * ItemAlign enumeration description
+ * 定义元素在容器中交叉轴的对齐方式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * ItemAlign enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * ItemAlign enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * ItemAlign enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum ItemAlign {
   /**
-   * Use the default configuration in the Flex container.
+   * 使用Flex容器中的默认配置。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Use the default configuration in the Flex container.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Use the default configuration in the Flex container.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Use the default configuration in the Flex container.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Auto,
 
   /**
-   * The element is in the Flex container with the cross-axis direction head aligned.
+   * 元素在Flex容器中，沿交叉轴方向首部对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * The element is in the Flex container with the cross-axis direction head aligned.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * The element is in the Flex container with the cross-axis direction head aligned.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The element is in the Flex container with the cross-axis direction head aligned.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Start,
 
   /**
-   * The element is centered in the Flex container with the cross axis direction aligned.
+   * 元素在Flex容器中，沿交叉轴方向居中对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * The element is centered in the Flex container with the cross axis direction aligned.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * The element is centered in the Flex container with the cross axis direction aligned.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The element is centered in the Flex container with the cross axis direction aligned.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Center,
 
   /**
-   * The element is bottom aligned in the Flex container with the cross axis direction.
+   * 元素在Flex容器中，沿交叉轴方向底部对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * The element is bottom aligned in the Flex container with the cross axis direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * The element is bottom aligned in the Flex container with the cross axis direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The element is bottom aligned in the Flex container with the cross axis direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   End,
 
   /**
-   * Element In the Flex container, the cross-axis direction text baseline is aligned.
+   * 元素在Flex容器中，交叉轴方向文本基线对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Element In the Flex container, the cross-axis direction text baseline is aligned.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Element In the Flex container, the cross-axis direction text baseline is aligned.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Element In the Flex container, the cross-axis direction text baseline is aligned.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Baseline,
 
   /**
-   * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container size.
+   * 元素在Flex容器中，沿交叉轴方向拉伸填充。容器为Flex且设置Wrap为FlexWrap.Wrap或FlexWrap.WrapReverse时，元素拉伸到与当前行/列交叉轴长度最长的元素尺寸。其余情况下，无论元素尺寸是否设置，均
+   * 拉伸到容器尺寸。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container size.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container size.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Element In a Flex container, the fill is stretched across the axis and, when no dimension is set, to the container size.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Stretch,
+  Stretch
 }
 
 /**
- * FlexDirection enumeration description
+ * 定义子组件在Flex容器上排列的方向，即主轴的方向。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * FlexDirection enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * FlexDirection enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * FlexDirection enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum FlexDirection {
   /**
-   * The main axis is consistent with the row direction as the layout mode.
+   * 主轴与行方向一致作为布局模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The main axis is consistent with the row direction as the layout mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The main axis is consistent with the row direction as the layout mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The main axis is consistent with the row direction as the layout mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Row,
 
   /**
-   * The main axis is consistent with the column direction as the layout mode.
+   * 主轴与列方向一致作为布局模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The main axis is consistent with the column direction as the layout mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The main axis is consistent with the column direction as the layout mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The main axis is consistent with the column direction as the layout mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Column,
 
   /**
-   * The layout is in the opposite direction to the Row direction.
+   * 与Row方向相反方向进行布局。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The layout is in the opposite direction to the Row direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The layout is in the opposite direction to the Row direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The layout is in the opposite direction to the Row direction.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   RowReverse,
 
   /**
-   * Layout in the opposite direction to the column.
+   * 与Column相反方向进行布局。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * Layout in the opposite direction to the column.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Layout in the opposite direction to the column.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Layout in the opposite direction to the column.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  ColumnReverse,
+  ColumnReverse
 }
 
 /**
- * Pixel Round Direction
+ * 组件边界像素取整计算策略。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3951,7 +2371,7 @@ declare enum FlexDirection {
  */
 declare enum PixelRoundCalcPolicy {
   /**
-   * No Force round the component boundary coordinates to integer pixel.
+   * 非取整计算。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3962,7 +2382,7 @@ declare enum PixelRoundCalcPolicy {
    */
   NO_FORCE_ROUND = 0,
   /**
-   * Force ceil the component boundary coordinates to integer pixel.
+   * 向上取整计算。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3973,7 +2393,7 @@ declare enum PixelRoundCalcPolicy {
    */
   FORCE_CEIL = 1,
   /**
-   * Force floor the component boundary coordinates to integer pixel.
+   * 向下取整计算。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3982,13 +2402,12 @@ declare enum PixelRoundCalcPolicy {
    * @atomicservice
    * @since 11 dynamic
    */
-  FORCE_FLOOR = 2,
+  FORCE_FLOOR = 2
 }
 
 /**
- * 像素取整模式
+ * 指定像素取整模式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3998,7 +2417,7 @@ declare enum PixelRoundCalcPolicy {
  */
 declare enum PixelRoundMode {
   /**
-   * 布局结束后像素取整
+   * 在组件测量大小和位置后进行像素取整，默认值为0。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4009,7 +2428,7 @@ declare enum PixelRoundMode {
    */
   PIXEL_ROUND_ON_LAYOUT_FINISH = 0,
   /**
-   * 计算大小后像素取整。
+   * 在组件测量大小结束后进行像素取整。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4018,475 +2437,163 @@ declare enum PixelRoundMode {
    * @atomicservice
    * @since 18 dynamic
    */
-  PIXEL_ROUND_AFTER_MEASURE = 1,
+  PIXEL_ROUND_AFTER_MEASURE = 1
 }
 
 /**
- * FlexWrap enumeration description
+ * 定义Flex容器是单行/列还是多行/列排列。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * FlexWrap enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * FlexWrap enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * FlexWrap enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum FlexWrap {
   /**
-   * The Flex container has a single row/column layout of elements, and children are not allowed to go beyond the container.
+   * Flex容器的元素以单行/列布局，子元素尽可能约束在容器内。当子元素有最小尺寸约束等设置时，Flex容器不会对其强制弹性压缩。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The Flex container has a single row/column layout of elements, and children are not allowed to go beyond the container.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The Flex container has a single row/column layout of elements, and children are not allowed to go beyond the container.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The Flex container has a single row/column layout of elements, and children are not allowed to go beyond the container.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   NoWrap,
 
   /**
-   * The elements of the Flex container are arranged in multiple rows or columns, and the sub-items are allowed to exceed the container.
+   * Flex容器的元素以多行/列排布，子项允许超出容器。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The elements of the Flex container are arranged in multiple rows or columns, and the sub-items are allowed to exceed the container.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The elements of the Flex container are arranged in multiple rows or columns, and the sub-items are allowed to exceed the container.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The elements of the Flex container are arranged in multiple rows or columns, and the sub-items are allowed to exceed the container.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Wrap,
 
   /**
-   * The elements of the Flex container are arranged in reverse multiple rows/columns, and children are allowed to exceed the container.
+   * Flex容器的元素以反向多行/列排布，子项允许超出容器。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * The elements of the Flex container are arranged in reverse multiple rows/columns, and children are allowed to exceed the container.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The elements of the Flex container are arranged in reverse multiple rows/columns, and children are allowed to exceed the container.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The elements of the Flex container are arranged in reverse multiple rows/columns, and children are allowed to exceed the container.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  WrapReverse,
+  WrapReverse
 }
 
 /**
- * VerticalAlign enumeration description
+ * 定义子组件在垂直方向上的对齐格式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * VerticalAlign enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * VerticalAlign enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * VerticalAlign enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum VerticalAlign {
   /**
-   * Top alignment.
+   * 顶部对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Top alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Top alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Top alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Top,
 
   /**
-   * Center alignment. The default alignment mode is used.
+   * 居中对齐，默认对齐方式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Center alignment. The default alignment mode is used.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Center alignment. The default alignment mode is used.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Center alignment. The default alignment mode is used.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Center,
 
   /**
-   * Bottom alignment.
+   * 底部对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * Bottom alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Bottom alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Bottom alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Bottom,
+  Bottom
 }
 
 /**
- * ImageRepeat enumeration description
+ * 用于设置图片重复样式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * ImageRepeat enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * ImageRepeat enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * ImageRepeat enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum ImageRepeat {
   /**
-   * Do not draw the picture again.
+   * 不重复绘制图片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Do not draw the picture again.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Do not draw the picture again.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Do not draw the picture again.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   NoRepeat,
 
   /**
-   * Repeat the drawing only on the horizontal axis.
+   * 只在水平轴上重复绘制图片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Repeat the drawing only on the horizontal axis.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Repeat the drawing only on the horizontal axis.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Repeat the drawing only on the horizontal axis.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   X,
 
   /**
-   * Repeat the drawing only on the vertical axis.
+   * 只在垂直轴上重复绘制图片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Repeat the drawing only on the vertical axis.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Repeat the drawing only on the vertical axis.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Repeat the drawing only on the vertical axis.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Y,
 
   /**
-   * Draw the picture repeatedly on both axes.
+   * 在两个轴上重复绘制图片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * Draw the picture repeatedly on both axes.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Draw the picture repeatedly on both axes.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Draw the picture repeatedly on both axes.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  XY,
+  XY
 }
 
 /**
- * ImageSize enumeration description
+ * 用于设置图片宽高效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -4496,7 +2603,7 @@ declare enum ImageRepeat {
  */
 declare enum ImageSize {
   /**
-   * Keep the scale of the original image unchanged.
+   * 保持原图的比例不变。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4507,7 +2614,7 @@ declare enum ImageSize {
   Auto,
 
   /**
-   * Keep the aspect ratio to zoom in or out the image so that both sides of the image are greater than or equal to the display boundary.
+   * 保持宽高比进行缩小或者放大，使得图片两边都大于或等于显示边界。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4518,7 +2625,7 @@ declare enum ImageSize {
   Cover,
 
   /**
-   * Keep the aspect ratio to zoom out or zoom in so that the image is completely displayed within the display boundary.
+   * 保持宽高比进行缩小或者放大，使得图片完全显示在显示边界内。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4529,7 +2636,7 @@ declare enum ImageSize {
   Contain,
 
   /**
-   * Zoom in or out without maintaining the aspect ratio so that the image fills the display boundary.
+   * 不保持宽高比进行放大缩小，使得图片充满显示边界。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4537,7 +2644,7 @@ declare enum ImageSize {
    * @atomicservice
    * @since 12 dynamic
    */
-  FILL = 3,
+  FILL = 3
 }
 
 /**
@@ -4657,7 +2764,7 @@ declare enum GradientDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None = 8,
+  None = 8
 }
 
 /**
@@ -4671,7 +2778,7 @@ declare enum GradientDirection {
 declare enum SharedTransitionEffectType {
   /**
    * 目标页面元素的位置保持不变，支持配置透明度动画。
-   * 
+   *
    * 目前，仅在重定向到目标页面时配置的静态效果才会生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4689,12 +2796,12 @@ declare enum SharedTransitionEffectType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Exchange,
+  Exchange
 }
 
 /**
-* Text style
-*
+ * 字体样式。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -4702,9 +2809,8 @@ declare enum SharedTransitionEffectType {
  * @since 7 dynamic
  */
 declare enum FontStyle {
-
   /**
-   * Default style.
+   * 标准的字体样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4715,7 +2821,7 @@ declare enum FontStyle {
   Normal = 0,
 
   /**
-   * Italic style.
+   * 斜体的字体样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4727,8 +2833,8 @@ declare enum FontStyle {
 }
 
 /**
-* The font weight of the text
-*
+ * 字体粗细。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -4736,9 +2842,8 @@ declare enum FontStyle {
  * @since 7 dynamic
  */
 declare enum FontWeight {
-
   /**
-   * Defines a lighter value than [Inherited Value]..
+   * 100字重，字体较细。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4749,7 +2854,7 @@ declare enum FontWeight {
   Lighter = 0,
 
   /**
-   * Normal font. Equivalent to a digital value of 400.
+   * 400字重，字体粗细正常。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4760,7 +2865,7 @@ declare enum FontWeight {
   Normal = 1,
 
   /**
-   * Defines a more general value than [Inherited Value].
+   * 400字重，字体粗细正常，与Normal效果相同。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4771,7 +2876,7 @@ declare enum FontWeight {
   Regular = 2,
 
   /**
-   * Defines a value that is more centered than [Inherited Value].
+   * 500字重，字体粗细适中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4782,7 +2887,7 @@ declare enum FontWeight {
   Medium = 3,
 
   /**
-   * Bold. Equivalent to a numeric value of 700.
+   * 700字重，字体较粗。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4793,7 +2898,7 @@ declare enum FontWeight {
   Bold = 4,
 
   /**
-   * Defines a value that is heavier than [Inherited Value].
+   * 900字重，字体非常粗。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4805,8 +2910,8 @@ declare enum FontWeight {
 }
 
 /**
-* Alignment of text.
-*
+ * 文本段落在水平方向的对齐方式。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -4814,9 +2919,8 @@ declare enum FontWeight {
  * @since 7 dynamic
  */
 declare enum TextAlign {
-
   /**
-   * Center the text.
+   * 水平居中对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4827,7 +2931,7 @@ declare enum TextAlign {
   Center = 0,
 
   /**
-   * The text is aligned in the same direction as the writing
+   * 水平对齐首部。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4838,7 +2942,7 @@ declare enum TextAlign {
   Start = 1,
 
   /**
-   * The text is aligned in the opposite direction of writing
+   * 水平对齐尾部。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4849,7 +2953,7 @@ declare enum TextAlign {
   End = 2,
 
   /**
-   * Justify the text.
+   * 双端对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4861,7 +2965,7 @@ declare enum TextAlign {
   JUSTIFY = 3,
 
   /**
-   * 文本在左侧对齐。
+   * 左对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4873,7 +2977,7 @@ declare enum TextAlign {
   LEFT = 4,
 
   /**
-   * 文本在右侧对齐。
+   * 右对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4886,8 +2990,8 @@ declare enum TextAlign {
 }
 
 /**
-* Declare how text overflows.
-*
+ * 文本超长时的显示方式。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -4895,9 +2999,8 @@ declare enum TextAlign {
  * @since 7 dynamic
  */
 declare enum TextOverflow {
-
   /**
-   * When the text overflows its dimensions, the text will not be cropped.
+   * 文本超长时按最大行截断显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4908,7 +3011,7 @@ declare enum TextOverflow {
   None = 0,
 
   /**
-   * When the text overflows its dimensions, the text will be cropped and displayed.
+   * 文本超长时按最大行截断显示，与None效果相同。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4919,7 +3022,7 @@ declare enum TextOverflow {
   Clip = 1,
 
   /**
-   * If the text overflows its dimensions, the text that cannot be displayed shall be replaced by ellipsis.
+   * 文本超长时显示不下的文本用省略号代替。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4930,7 +3033,7 @@ declare enum TextOverflow {
   Ellipsis = 2,
 
   /**
-   * When the text overflows its dimensions, the text will scroll for displaying.
+   * 文本超长时以跑马灯的方式展示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4942,8 +3045,8 @@ declare enum TextOverflow {
 }
 
 /**
-* Type of text modifier.
-*
+ * 装饰线类型。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -4951,9 +3054,8 @@ declare enum TextOverflow {
  * @since 7 dynamic
  */
 declare enum TextDecorationType {
-
   /**
-   * Do not use text decorative lines.
+   * 不使用文本装饰线。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4964,7 +3066,7 @@ declare enum TextDecorationType {
   None = 0,
 
   /**
-   * Underline the words.
+   * 文字下划线修饰。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4975,7 +3077,7 @@ declare enum TextDecorationType {
   Underline = 1,
 
   /**
-   * Text is in all uppercase.
+   * 文字上划线修饰。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4986,7 +3088,7 @@ declare enum TextDecorationType {
   Overline = 2,
 
   /**
-   * A modifier line that passes through the text.
+   * 穿过文本的修饰线。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -4998,8 +3100,8 @@ declare enum TextDecorationType {
 }
 
 /**
-* Letter type in text
-*
+ * 文本大小写的样式。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -5007,9 +3109,8 @@ declare enum TextDecorationType {
  * @since 7 dynamic
  */
 declare enum TextCase {
-
   /**
-   * The default is normal.
+   * 保持文本原有大小写。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -5020,7 +3121,7 @@ declare enum TextCase {
   Normal = 0,
 
   /**
-   * The text is all lowercase.
+   * 文本采用全小写。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -5031,7 +3132,7 @@ declare enum TextCase {
   LowerCase = 1,
 
   /**
-   * The text is all uppercase.
+   * 文本采用全大写。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -5043,8 +3144,8 @@ declare enum TextCase {
 }
 
 /**
-* Enum of text height adaptation
-*
+ * 文本自适应布局调整字号的方式。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5052,11 +3153,8 @@ declare enum TextCase {
  * @since 10 dynamic
  */
 declare enum TextHeightAdaptivePolicy {
-
   /**
-   * Priority is given to using the maxLines attribute to adapt the text height.
-   * If the layout size using the maxLines attribute exceeds the layout constraint, try reducing the font size to
-   * display more text.
+   * 设置文本高度自适应方式为以[maxLines]{@link TextAreaAttribute#maxLines(value: number)}优先。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5067,9 +3165,7 @@ declare enum TextHeightAdaptivePolicy {
   MAX_LINES_FIRST = 0,
 
   /**
-   * Priority is given to using the minFontSize attribute to adapt the text height.
-   * If the text can be layout in a single line using the minFontSize property, try increasing the font size and using
-   * the maximum possible font size.
+   * 设置文本高度自适应方式为以缩小字体优先。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5080,10 +3176,7 @@ declare enum TextHeightAdaptivePolicy {
   MIN_FONT_SIZE_FIRST = 1,
 
   /**
-   * Priority is given to using the layout constraint to adapt the text height.
-   * If the layout size exceeds the layout constraint, try reducing the font size. If the layout size still exceeds
-   * the layout constraint after reducing the font size to minFontSize, remove the lines that exceed the layout
-   * constraint.
+   * 设置文本高度自适应方式为以布局约束（高度）优先。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5095,82 +3188,34 @@ declare enum TextHeightAdaptivePolicy {
 }
 
 /**
- * ResponseType for contextMenu
+ * 菜单显示的触发方式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * ResponseType for contextMenu
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * ResponseType for contextMenu
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare enum ResponseType {
   /**
-   * Right click.
+   * 通过鼠标右键点击触发菜单弹出。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Right click.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Right click.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   RightClick = 0,
 
   /**
-   * Long press.
+   * 通过长按触发菜单弹出。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Long press.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Long press.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   LongPress = 1
 }
@@ -5222,431 +3267,199 @@ declare enum HoverEffect {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  None,
+  None
 }
 
 /**
- * Placement enumeration description
+ * 气泡显示的位置。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Placement enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * Placement enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare enum Placement {
   /**
-   * Left placement
+   * 气泡提示位于组件左侧，与组件左侧中心对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Left placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Left placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Left,
 
   /**
-   * Right placement
+   * 气泡提示位于组件右侧，与组件右侧中心对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Right placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Right placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Right,
 
   /**
-   * Top placement
+   * 气泡提示位于组件上侧，与组件上侧中心对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Top placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Top placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Top,
 
   /**
-   * Bottom placement
+   * 气泡提示位于组件下侧，与组件下侧中心对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Bottom placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Bottom placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Bottom,
 
   /**
-   * TopLeft placement
+   * 气泡提示位于组件上侧，从API version 9开始，与组件左侧边缘对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * TopLeft placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * TopLeft placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   TopLeft,
 
   /**
-   * TopRight placement
+   * 气泡提示位于组件上侧，从API version 9开始，与组件右侧边缘对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * TopRight placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * TopRight placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   TopRight,
 
   /**
-   * BottomLeft placement
+   * 气泡提示位于组件下侧，从API version 9开始，与组件左侧边缘对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * BottomLeft placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * BottomLeft placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   BottomLeft,
 
   /**
-   * BottomRight placement
+   * 气泡提示位于组件下侧，从API version 9开始，与组件右侧边缘对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * BottomRight placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * BottomRight placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   BottomRight,
 
   /**
-   * LeftTop placement
+   * 气泡提示位于组件左侧，与组件上侧边缘对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 9
-   */
-  /**
-   * LeftTop placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * LeftTop placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   LeftTop,
 
   /**
-   * LeftBottom placement
+   * 气泡提示位于组件左侧，与组件下侧边缘对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 9
-   */
-  /**
-   * LeftBottom placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * LeftBottom placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   LeftBottom,
 
   /**
-   * RightTop placement
+   * 气泡提示位于组件右侧，与组件上侧边缘对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 9
-   */
-  /**
-   * RightTop placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * RightTop placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   RightTop,
 
   /**
-   * RightBottom placement
+   * 气泡提示位于组件右侧，与组件下侧边缘对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 9
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
-  /**
-   * RightBottom placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * RightBottom placement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  RightBottom,
+  RightBottom
 }
 
 /**
- * ArrowPointPosition enumeration description
+ * 气泡箭头的位置。
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * ArrowPointPosition enumeration description
- *
- * @enum { string }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum ArrowPointPosition {
   /**
-   * Target start position
+   * 水平方向：位于父组件最左侧；垂直方向：位于父组件最上侧。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Target start position
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   START = 'Start',
 
   /**
-   * Target center position
+   * 位于父组件居中位置。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Target center position
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   CENTER = 'Center',
 
   /**
-   * Target end position
+   * 水平方向：位于父组件最右侧；垂直方向：位于父组件最下侧。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
-  /**
-   * Target end position
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  END = 'End',
+  END = 'End'
 }
 
 /**
-* Indicates the share option.
-*
+ * 剪贴板复制范围。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -5655,9 +3468,8 @@ declare enum ArrowPointPosition {
  * @since 9 dynamic
  */
 declare enum CopyOptions {
-
   /**
-   * Not allow share.
+   * 不支持复制。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -5669,7 +3481,7 @@ declare enum CopyOptions {
   None = 0,
 
   /**
-   * Share in app.
+   * 支持仅在当前应用内复制粘贴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -5681,7 +3493,7 @@ declare enum CopyOptions {
   InApp = 1,
 
   /**
-   * Share in local device.
+   * 支持复制后在所有应用内粘贴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -5693,7 +3505,7 @@ declare enum CopyOptions {
   LocalDevice = 2,
 
   /**
-   * 跨设备共享。
+   * 支持跨设备复制。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5707,7 +3519,7 @@ declare enum CopyOptions {
 
 /**
  * 定义触摸测试的响应逻辑及节点阻塞规则。
- *
+ * 
  * > **说明：**
  * >
  * > 当Stack组件中有多个节点触摸区域重叠时，如果最上层节点的子组件命中，则默认只会对显示在最上层的节点做触摸测试。此时只有给显示在最上层的节点设置
@@ -5734,7 +3546,7 @@ declare enum HitTestMode {
   Default,
 
   /**
-   * 自身响应触摸测试，阻塞子节点、兄弟节点和祖先节点的触摸测试。
+   * 自身响应触摸测试，阻塞子节点、兄弟节点和祖先节点的触摸测试。 
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -5746,7 +3558,7 @@ declare enum HitTestMode {
   Block,
 
   /**
-   * 自身和子节点均响应触摸测试，不会阻塞兄弟节点和祖先节点的触摸测试。
+   * 自身和子节点均响应触摸测试，不会阻塞兄弟节点和祖先节点的触摸测试。 
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -5758,7 +3570,7 @@ declare enum HitTestMode {
   Transparent,
 
   /**
-   * 自身不响应触摸测试，不会阻塞子节点、兄弟节点和祖先节点的触摸测试。
+   * 自身不响应触摸测试，不会阻塞子节点、兄弟节点和祖先节点的触摸测试。 
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -5769,7 +3581,7 @@ declare enum HitTestMode {
    */
   None,
   /**
-   * 自身和子节点响应触摸测试，阻止所有优先级较低的兄弟节点和父节点参与触摸测试。
+   * 自身和子节点响应触摸测试，阻止所有优先级较低的兄弟节点和父节点参与触摸测试。 
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5780,7 +3592,7 @@ declare enum HitTestMode {
    */
   BLOCK_HIERARCHY,
   /**
-   * 自身不响应触摸测试，并且所有的后代（孩子，孙子等）也不响应触摸测试，不会影响祖先节点的触摸测试。
+   * 自身不响应触摸测试，并且所有的后代（孩子、孙子等）也不响应触摸测试，不会影响祖先节点的触摸测试。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5789,79 +3601,37 @@ declare enum HitTestMode {
    * @atomicservice
    * @since 20 dynamic
    */
-  BLOCK_DESCENDANTS,
+  BLOCK_DESCENDANTS
 }
 
 /**
- * Title height.
+ * 设置标题栏的推荐高度。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Title height.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Title height.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum TitleHeight {
   /**
-   * Title height when only main title is available.
+   * 只有主标题时，标题栏的推荐高度（56vp）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Title height when only main title is available.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Title height when only main title is available.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   MainOnly,
 
   /**
-   * Title height when main title and subtitle are both available.
+   * 同时有主标题和副标题时，标题栏的推荐高度（82vp）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
-  /**
-   * Title height when main title and subtitle are both available.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Title height when main title and subtitle are both available.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  MainWithSub,
+  MainWithSub
 }
 
 /**
@@ -5905,7 +3675,7 @@ declare enum ModifierKey {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  ALT,
+  ALT
 }
 
 /**
@@ -6060,7 +3830,7 @@ declare enum FunctionKey {
    * @since 10 dynamic
    */
   F12,
-    
+
   /**
    * 表示键盘上TAB功能键。
    *
@@ -6118,8 +3888,8 @@ declare enum FunctionKey {
 }
 
 /**
-* The alignment of ImageSpan
-*
+ * 图片基于行高的对齐方式。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -6127,9 +3897,8 @@ declare enum FunctionKey {
  * @since 10 dynamic
  */
 declare enum ImageSpanAlignment {
-
   /**
-   * Indicating that the bottom of the ImageSpan should be aligned with the baseline of the surrounding text.
+   * 图片下边沿与文本BaseLine对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6140,7 +3909,7 @@ declare enum ImageSpanAlignment {
   BASELINE = 0,
 
   /**
-   * Indicating that the bottom of the ImageSpan should be aligned with the bottom of the surrounding text.
+   * 图片下边沿与行下边沿对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6151,7 +3920,7 @@ declare enum ImageSpanAlignment {
   BOTTOM = 1,
 
   /**
-   * Indicating that the center of the ImageSpan should be aligned with the center of the surrounding text.
+   * 图片中间与行中间对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6162,7 +3931,7 @@ declare enum ImageSpanAlignment {
   CENTER = 2,
 
   /**
-   * Indicating that the top of the ImageSpan should be aligned with the top of the surrounding text.
+   * 图片上边沿与行上边沿对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6173,7 +3942,7 @@ declare enum ImageSpanAlignment {
   TOP = 3,
 
   /**
-   * 按照段落TextVerticalAlign的对齐方式来布局
+   * 对齐方式跟随Text父组件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6185,8 +3954,8 @@ declare enum ImageSpanAlignment {
 }
 
 /**
-* ObscuredReasons.
-*
+ * 设置组件内容的遮罩类型。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 11]
@@ -6194,9 +3963,8 @@ declare enum ImageSpanAlignment {
  * @since 10 dynamic
  */
 declare enum ObscuredReasons {
-
   /**
-   * Displayed data should appear as generic placeholders.
+   * 显示的数据为通用占位符。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6208,8 +3976,8 @@ declare enum ObscuredReasons {
 }
 
 /**
-* Text content style.
-*
+ * 文本框多态样式。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 11]
@@ -6217,9 +3985,8 @@ declare enum ObscuredReasons {
  * @since 10 dynamic
  */
 declare enum TextContentStyle {
-
   /**
-   * Text content default style.
+   * 默认风格。光标宽度为1.5vp，光标高度与文本选中高亮高度和字体大小相关。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6230,7 +3997,13 @@ declare enum TextContentStyle {
   DEFAULT = 0,
 
   /**
-   * Text content inline style.
+   * 内联输入风格，也称内联模式。文本选中高亮高度与输入框高度相同。
+   *
+   * 内联输入是在有明显的编辑态/非编辑态的区分场景下使用，例如：文件列表视图中的重命名。
+   *
+   * 不支持showError属性。
+   *
+   * 内联模式下，不支持拖入文本。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6252,7 +4025,7 @@ declare enum TextContentStyle {
  */
 declare enum ClickEffectLevel {
   /**
-   * 小面积（轻盈）
+   * 小面积（轻盈），弹簧动效，刚性：410，阻尼：38，初始速度：1，默认缩放比90%。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6263,7 +4036,7 @@ declare enum ClickEffectLevel {
   LIGHT = 0,
 
   /**
-   * 中面积（稳定）
+   * 中面积（稳定），弹簧动效，刚性：350，阻尼：35，初始速度：0.5，默认缩放比95%。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6274,7 +4047,7 @@ declare enum ClickEffectLevel {
   MIDDLE = 1,
 
   /**
-   * 大面积（厚重）
+   * 大面积（厚重），弹簧动效，刚性：240，阻尼：28，初始速度：0，默认缩放比95%。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6282,60 +4055,27 @@ declare enum ClickEffectLevel {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  HEAVY = 2,
+  HEAVY = 2
 }
 
 /**
- * The type of XComponent
+ * XComponent的类型
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * The type of XComponent
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * The type of XComponent
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 12]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum XComponentType {
   /**
-   * Surface type. The default type is used.
+   * 用于EGL/OpenGLES和媒体数据写入，单独展示开发者定制的绘制内容到屏幕上。背景色设置为黑色时走显示子系统（DSS）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Surface type. The default type is used.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Surface type. The default type is used.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   SURFACE,
 
@@ -6344,55 +4084,32 @@ declare enum XComponentType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Component type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 12
    * @useinstead Column
    */
   COMPONENT,
 
   /**
-   * Texture type.
+   * 用于EGL/OpenGLES和媒体数据写入，开发者定制的绘制内容将与XComponent组件的内容合成后展示到屏幕上。1、保持帧同步，保持在同一帧将图形处理器（GPU）纹理和ArkUI其他的绘制指令统一发给渲染服务(
+   * RenderService)。2、动效和系统组件统一。3、走图形处理器（GPU）合成，相比surface可能走显示子系统（DSS）功耗更高。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Texture type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Texture type.
-   * Supports EGL/OpenGLES and media data rendering.
-   * Custom drawing content is composited with XComponent’s native content before display.
-   * Key features:
-   * 1. Maintains frame synchronization between GPU textures and ArkUI drawing commands.
-   * 2. Supports unified animation with built-in components.
-   * 3. Utilizes GPU composition, which may have higher power consumption than the SURFACE type
-   *    using the display subsystem (DSS).
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   TEXTURE,
 
   /**
-   * Node type.
+   * 用于Native UI节点的占位容器，开发者通过Native接口开发的页面组件可展示在此容器区域内。
+   *
+   * **说明：**
+   *
+   * 从API version 12开始支持，从API version 20开始废弃，推荐使用
+   * [ContentSlot](docroot://ui/rendering-control/arkts-rendering-control-contentslot.md)组件替代。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6401,11 +4118,11 @@ declare enum XComponentType {
    * @deprecated since 20
    * @useinstead ContentSlot
    */
-  NODE,
+  NODE
 }
 
 /**
- * Nested scroll nested mode
+ * 定义嵌套滚动组件中的嵌套模式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6415,7 +4132,7 @@ declare enum XComponentType {
  */
 declare enum NestedScrollMode {
   /**
-   * Only Self response scrolling.
+   * 只自身滚动，不与父组件联动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6426,7 +4143,7 @@ declare enum NestedScrollMode {
   SELF_ONLY,
 
   /**
-   * Self priority response scrolling.
+   * 自身先滚动，自身滚动到边缘以后父组件滚动。父组件滚动到边缘以后，如果父组件有边缘效果，则父组件触发边缘效果，否则子组件触发边缘效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6437,7 +4154,7 @@ declare enum NestedScrollMode {
   SELF_FIRST,
 
   /**
-   * Parent scrollable component priority response scrolling.
+   * 父组件先滚动，父组件滚动到边缘以后自身滚动。自身滚动到边缘后，如果有边缘效果，会触发自身的边缘效果，否则触发父组件的边缘效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6448,7 +4165,7 @@ declare enum NestedScrollMode {
   PARENT_FIRST,
 
   /**
-   * Both self and parent scrollable component response scrolling.
+   * 自身和父组件同时滚动，自身和父组件都到达边缘以后，如果自身有边缘效果，则自身触发边缘效果，否则父组件触发边缘效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6456,12 +4173,12 @@ declare enum NestedScrollMode {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  PARALLEL,
+  PARALLEL
 }
 
 /**
- * The possible source of scroll event
- * @enum { number } ScrollSource
+ * 滑动操作的来源。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -6470,7 +4187,8 @@ declare enum NestedScrollMode {
  */
 declare enum ScrollSource {
   /**
-   * Drag events.
+   * 拖拽事件。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6480,7 +4198,8 @@ declare enum ScrollSource {
   DRAG = 0,
 
   /**
-   * Fling after the drag has ended with velocity.
+   * 拖拽结束之后的惯性滑动。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6490,7 +4209,8 @@ declare enum ScrollSource {
   FLING,
 
   /**
-   * Over scroll with EdgeEffect.Spring.
+   * EdgeEffect.Spring的边缘滚动效果。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6500,7 +4220,8 @@ declare enum ScrollSource {
   EDGE_EFFECT,
 
   /**
-   * Other user input except drag, such as mouse wheel, key event.
+   * 除拖拽外的其他用户输入，如鼠标滚轮、键盘事件等。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6510,7 +4231,8 @@ declare enum ScrollSource {
   OTHER_USER_INPUT,
 
   /**
-   * Drag events of scroll bar.
+   * 滚动条的拖拽事件。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6520,7 +4242,8 @@ declare enum ScrollSource {
   SCROLL_BAR,
 
   /**
-   * Fling after the drag on scroll bar has ended with velocity.
+   * 滚动条拖拽结束后的带速度的惯性滑动。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6530,7 +4253,8 @@ declare enum ScrollSource {
   SCROLL_BAR_FLING,
 
   /**
-   * Member methods of Scroller without animation.
+   * Scroller的不带动效方法。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6540,18 +4264,25 @@ declare enum ScrollSource {
   SCROLLER,
 
   /**
-   * Member methods of Scroller with animation.
+   * Scroller的带动效方法。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  SCROLLER_ANIMATION,
+  SCROLLER_ANIMATION
 }
 
 /**
  * 表示宽高动画过程中组件内容的填充方式。
+ *
+ * > **说明：**
+ * >
+ * > - 示意图中，蓝色区域表示内容，橙黄色区域表示节点大小。
+ * >
+ * > - 不同的内容填充方式在宽高动画过程中效果不一致，开发者需要选择合适的内容填充方式以实现需要的动画效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6562,7 +4293,8 @@ declare enum ScrollSource {
  */
 declare enum RenderFit {
   /**
-   * 保持动画终态的内容大小，并且内容始终与组件保持中心对齐。
+   * 保持动画终态的内容大小，并且内容始终与组件保持中心对齐。               !
+   * [renderfit_center](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_center.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6573,7 +4305,8 @@ declare enum RenderFit {
    */
   CENTER = 0,
   /**
-   * 保持动画终态的内容大小，并且内容始终与组件保持顶部中心对齐。
+   * 保持动画终态的内容大小，并且内容始终与组件保持顶部中心对齐。             !
+   * [renderfit_top](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_top.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6584,7 +4317,8 @@ declare enum RenderFit {
    */
   TOP = 1,
   /**
-   * 保持动画终态的内容大小，并且内容始终与组件保持底部中心对齐。
+   * 保持动画终态的内容大小，并且内容始终与组件保持底部中心对齐。             !
+   * [renderfit_bottom](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_bottom.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6595,7 +4329,8 @@ declare enum RenderFit {
    */
   BOTTOM = 2,
   /**
-   * 保持动画终态的内容大小，并且内容始终与组件保持左侧对齐。
+   * 保持动画终态的内容大小，并且内容始终与组件保持左侧对齐。               !
+   * [renderfit_left](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_left.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6606,7 +4341,8 @@ declare enum RenderFit {
    */
   LEFT = 3,
   /**
-   * 保持动画终态的内容大小，并且内容始终与组件保持右侧对齐。
+   * 保持动画终态的内容大小，并且内容始终与组件保持右侧对齐。              !
+   * [renderfit_right](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_right.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6617,7 +4353,8 @@ declare enum RenderFit {
    */
   RIGHT = 4,
   /**
-   * 保持动画终态的内容大小，并且内容始终与组件保持左上角对齐。
+   * 保持动画终态的内容大小，并且内容始终与组件保持左上角对齐。              !
+   * [renderfit_top_left](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_top_left.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6628,7 +4365,8 @@ declare enum RenderFit {
    */
   TOP_LEFT = 5,
   /**
-   * 保持动画终态的内容大小，并且内容始终与组件保持右上角对齐。
+   * 保持动画终态的内容大小，并且内容始终与组件保持右上角对齐。             !
+   * [renderfit_top_right](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_top_right.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6639,7 +4377,8 @@ declare enum RenderFit {
    */
   TOP_RIGHT = 6,
   /**
-   * 保持动画终态的内容大小，并且内容始终与组件保持左下角对齐。
+   * 保持动画终态的内容大小，并且内容始终与组件保持左下角对齐。              !
+   * [renderfit_bottom_left](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_bottom_left.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6650,7 +4389,8 @@ declare enum RenderFit {
    */
   BOTTOM_LEFT = 7,
   /**
-   * 保持动画终态的内容大小，并且内容始终与组件保持右下角对齐。
+   * 保持动画终态的内容大小，并且内容始终与组件保持右下角对齐。              !
+   * [renderfit_bottom_right](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_bottom_right.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6661,7 +4401,8 @@ declare enum RenderFit {
    */
   BOTTOM_RIGHT = 8,
   /**
-   * 不考虑动画终态内容的宽高比，并且内容始终缩放到组件的大小。
+   * 不考虑动画终态内容的宽高比，并且内容始终缩放到组件的大小。              !
+   * [renderfit_resize_fill](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_resize_fill.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6672,7 +4413,8 @@ declare enum RenderFit {
    */
   RESIZE_FILL = 9,
   /**
-   * 保持动画终态内容的宽高比进行缩小或放大，使内容完整显示在组件内，且与组件保持中心对齐。
+   * 保持动画终态内容的宽高比进行缩小或放大，使内容完整显示在组件内，且与组件保持中心对齐。   !
+   * [renderfit_resize_contain](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_resize_contain.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6683,7 +4425,8 @@ declare enum RenderFit {
    */
   RESIZE_CONTAIN = 10,
   /**
-   * 保持动画终态内容的宽高比进行缩小或放大，使内容完整显示在组件内。当组件宽方向有剩余时，内容与组件保持左侧对齐，当组件高方向有剩余时，内容与组件保持顶部对齐。
+   * 保持动画终态内容的宽高比进行缩小或放大，使内容完整显示在组件内。当组件宽方向有剩余时，内容与组件保持左侧对齐，当组件高方向有剩余时，内容与组件保持顶部对齐。   !
+   * [renderfit_resize_contain_top_left](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_resize_contain_top_left.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6694,7 +4437,8 @@ declare enum RenderFit {
    */
   RESIZE_CONTAIN_TOP_LEFT = 11,
   /**
-   * 保持动画终态内容的宽高比进行缩小或放大，使内容完整显示在组件内。当组件宽方向有剩余时，内容与组件保持右侧对齐，当组件高方向有剩余时，内容与组件保持底部对齐。
+   * 保持动画终态内容的宽高比进行缩小或放大，使内容完整显示在组件内。当组件宽方向有剩余时，内容与组件保持右侧对齐，当组件高方向有剩余时，内容与组件保持底部对齐。   !
+   * [renderfit_resize_contain_bottom_right](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_resize_contain_bottom_right.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6705,7 +4449,8 @@ declare enum RenderFit {
    */
   RESIZE_CONTAIN_BOTTOM_RIGHT = 12,
   /**
-   * 保持动画终态内容的宽高比进行缩小或放大，使内容两边都大于或等于组件两边，且与组件保持中心对齐，显示内容的中间部分。
+   * 保持动画终态内容的宽高比进行缩小或放大，使内容两边都大于或等于组件两边，且与组件保持中心对齐，显示内容的中间部分。   !
+   * [renderfit_resize_cover](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_resize_cover.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6716,7 +4461,8 @@ declare enum RenderFit {
    */
   RESIZE_COVER = 13,
   /**
-   * 保持动画终态内容的宽高比进行缩小或放大，使内容的两边都恰好大于或等于组件两边。当内容宽方向有剩余时，内容与组件保持左侧对齐，显示内容的左侧部分。当内容高方向有剩余时，内容与组件保持顶部对齐，显示内容的顶侧部分。
+   * 保持动画终态内容的宽高比进行缩小或放大，使内容的两边都恰好大于或等于组件两边。当内容宽方向有剩余时，内容与组件保持左侧对齐，显示内容的左侧部分。当内容高方向有剩余时，内容与组件保持顶部对齐，显示内容的顶侧部分。   !
+   * [renderfit_resize_cover_top_left](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_resize_cover_top_left.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6727,7 +4473,8 @@ declare enum RenderFit {
    */
   RESIZE_COVER_TOP_LEFT = 14,
   /**
-   * 保持动画终态内容的宽高比进行缩小或放大，使内容的两边都恰好大于或等于组件两边。当内容宽方向有剩余时，内容与组件保持右侧对齐，显示内容的右侧部分。当内容高方向有剩余时，内容与组件保持底部对齐，显示内容的底侧部分。
+   * 保持动画终态内容的宽高比进行缩小或放大，使内容的两边都恰好大于或等于组件两边。当内容宽方向有剩余时，内容与组件保持右侧对齐，显示内容的右侧部分。当内容高方向有剩余时，内容与组件保持底部对齐，显示内容的底侧部分。   !
+   * [renderfit_resize_cover_bottom_right](docroot://reference/apis-arkui/arkui-ts/figures/renderfit_resize_cover_bottom_right.png)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6736,75 +4483,55 @@ declare enum RenderFit {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  RESIZE_COVER_BOTTOM_RIGHT = 15,
+  RESIZE_COVER_BOTTOM_RIGHT = 15
 }
 
 /**
- * The Button Style of dialog,
- * @enum { number }
+ * 弹窗按钮的样式。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * The Button Style of dialog,
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum DialogButtonStyle {
   /**
-   * Default Style.
+   * 白底蓝字（深色主题下为黑底蓝字）。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Default Style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   DEFAULT = 0,
 
   /**
-   * Highlight Style.
+   * 蓝底白字。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Highlight Style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   HIGHLIGHT = 1
 }
 
 /**
- * Enum of word break
+ * 断行规则。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form
  * @atomicservice
  * @since 11 dynamic
  */
 declare enum WordBreak {
   /**
-   * By default, CJK text can be wrapped between any 2 characters, and non-CJK text can only be wrapped in spaces.
+   * CJK(中文、日文、韩文)文本可以在任意2个字符间断行，而Non-CJK文本（如英文等）只能在空白符处断行。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6815,7 +4542,7 @@ declare enum WordBreak {
   NORMAL = 0,
 
   /**
-   * Non-CJK text be wrapped at any character
+   * 对于Non-CJK的文本，可在任意2个字符间断行。对于CJK文本，效果与NORMAL一致。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6826,8 +4553,8 @@ declare enum WordBreak {
   BREAK_ALL = 1,
 
   /**
-   * Non-CJK text can be wrapped at any character
-   * and if a complete word can be preserved in space breaks, the word must be kept on the line.
+   * 与BREAK_ALL相同，对于Non-CJK的文本可在任意2个字符间断行，一行文本中有断行破发点（如空白符）时，优先按破发点换行，保障单词优先完整显示。若整一行文本均无断行破发点，则在任意2个字符间断行。对于CJK文本，效果与
+   * NORMAL一致。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6838,7 +4565,7 @@ declare enum WordBreak {
   BREAK_WORD = 2,
 
   /**
-   * For supported languages, line breaks can be performed by syllables.
+   * 每行末尾单词尝试通过连字符“-”进行断行，若无法添加连字符“-”，则跟BREAK_WORD保持一致。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6846,13 +4573,12 @@ declare enum WordBreak {
    * @atomicservice
    * @since 18 dynamic
    */
-  HYPHENATION = 3,
+  HYPHENATION = 3
 }
 
 /**
- * Enum of line break strategy
+ * 折行规则。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -6861,8 +4587,7 @@ declare enum WordBreak {
  */
 declare enum LineBreakStrategy {
   /**
-   * By default. Display as many characters as possible on each line until no more characters
-   * can be displayed on that line, and do not automatically add hyphens under this strategy
+   * 使每一行尽可能显示多的字符，直到这一行不能显示更多字符时进行折行。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6873,8 +4598,7 @@ declare enum LineBreakStrategy {
   GREEDY = 0,
 
   /**
-   * High quality folding. Optimize the layout of the entire text's line breaks and automatically
-   * add hyphens if necessary.
+   * 在BALANCED的基础上，尽可能填满行，同时最后一行的权重较低，可能出现最后一行留白较多的情形。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6885,8 +4609,7 @@ declare enum LineBreakStrategy {
   HIGH_QUALITY = 1,
 
   /**
-   * Balanced folding. We will try our best to ensure that the width of each line in a paragraph
-   * is the same, and if necessary, we will add conjunction
+   * 在不拆词的情况下，尽量使一个段落中每一行的宽度相同。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6894,11 +4617,11 @@ declare enum LineBreakStrategy {
    * @atomicservice
    * @since 12 dynamic
    */
-  BALANCED = 2,
+  BALANCED = 2
 }
 
 /**
- * 被照亮的类型枚举。
+ * 定义光照类型，用于指定组件是否可以被光源照亮以及被照亮的类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -6959,12 +4682,12 @@ declare enum IlluminatedType {
    * @stagemodelonly
    * @since 11 dynamic
    */
-  BLOOM_BORDER_CONTENT = 5,
+  BLOOM_BORDER_CONTENT = 5
 }
 
 /**
-* Enum of ellipsisMode
-*
+ * 省略的位置。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -6972,9 +4695,8 @@ declare enum IlluminatedType {
  * @since 11 dynamic
  */
 declare enum EllipsisMode {
-
   /**
-   * The ellipsis is in the head.
+   * 省略行首内容。适用单行文本场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6985,7 +4707,7 @@ declare enum EllipsisMode {
   START = 0,
 
   /**
-   * The ellipsis is in the middle.
+   * 省略行中内容。适用单行文本场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6996,7 +4718,7 @@ declare enum EllipsisMode {
   CENTER = 1,
 
   /**
-   * The ellipsis is at the end.
+   * 省略行末内容。适用单行文本和多行文本场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7007,7 +4729,7 @@ declare enum EllipsisMode {
   END = 2,
 
   /**
-   * 省略号在头部。对多行和单行有效。
+   * 省略行首内容。适用单行文本和多行文本场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7018,7 +4740,7 @@ declare enum EllipsisMode {
   MULTILINE_START = 3,
 
   /**
-   * 省略号在中间。对多行和单行有效。
+   * 省略行中内容。适用单行文本和多行文本场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7030,184 +4752,106 @@ declare enum EllipsisMode {
 }
 
 /**
- * A type which can be undefined
+ * 在使用该类型时，其值可以是泛型参数T所指定的类型，也可以是undefined。
  *
- * @typedef { T | undefined } Nullable<T>
+ * @unionmember { T } 表示泛型参数T所指定的类型。
+ * @unionmember { undefined } 表示该类型声明的对象是undefined。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * 在使用该类型时，其值可以使泛型参数T所指定的类型，也可以是undefined。
- *
- * @typedef { T | undefined } Nullable<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare type Nullable<T> = T | undefined;
 
-
 /**
- * Decide whether the width of select menu fit the trigger or content 
+ * 下拉菜单的宽度模式。
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Decide whether the width of select menu fit the trigger or content 
- *
- * @enum { string }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum OptionWidthMode {
   /**
-   * The menu width fit the content.
+   * 设置该值时，下拉菜单宽度默认为2栅格。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The menu width fit the content.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   FIT_CONTENT = 'fit_content',
 
   /**
-   * The menu width fit the trigger.
+   * 设置下拉菜单继承下拉按钮宽度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
-  /**
-   * The menu width fit the trigger.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  FIT_TRIGGER = 'fit_trigger',
+  FIT_TRIGGER = 'fit_trigger'
 }
 
 /**
- * Enumerates the fold status.
+ * 定义设备的折叠状态。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Enumerates the fold status.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum FoldStatus {
   /**
-   * Fold Status Unknown.
+   * 表示设备当前折叠状态未知。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Fold Status Unknown.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   FOLD_STATUS_UNKNOWN = 0,
   /**
-   * Fold Status Expanded.
+   * 表示设备当前折叠状态为完全展开。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Fold Status Expanded.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   FOLD_STATUS_EXPANDED = 1,
   /**
-   * Fold Status Folded.
+   * 表示设备当前折叠状态为折叠。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Fold Status Folded.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   FOLD_STATUS_FOLDED = 2,
   /**
-   * Fold Status Half Folded.
+   * 表示设备当前折叠状态为半折叠，即介于完全展开和折叠之间的状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
-  /**
-   * Fold Status Half Folded.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  FOLD_STATUS_HALF_FOLDED = 3,
+  FOLD_STATUS_HALF_FOLDED = 3
 }
 
 /**
- * Enumerates the app rotation.
+ * 定义应用方向旋转角度。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -7216,7 +4860,7 @@ declare enum FoldStatus {
 declare enum AppRotation {
 
   /**
-   * App does not rotate to display vertically.
+   * 应用方向为0度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7226,7 +4870,7 @@ declare enum AppRotation {
   ROTATION_0 = 0,
 
   /**
-   * App rotates 90 degrees clockwise to display horizontally.
+   * 应用方向为90度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7236,7 +4880,7 @@ declare enum AppRotation {
   ROTATION_90 = 1,
 
   /**
-   * App rotates 180 degrees clockwise to display vertically in reverse.
+   * 应用方向为180度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7246,7 +4890,7 @@ declare enum AppRotation {
   ROTATION_180 = 2,
 
   /**
-   * App rotates 270 degrees clockwise to display horizontally in reverse.
+   * 应用方向为270度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7257,9 +4901,8 @@ declare enum AppRotation {
 }
 
 /**
- * Enum of EmbeddedType
+ * 枚举类型，用于指定EmbeddedComponent可拉起的提供方类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -7267,20 +4910,19 @@ declare enum AppRotation {
  */
 declare enum EmbeddedType {
   /**
-   * The EmbeddedComponent show the UI in EmbeddedUIExtensionAbility.
+   * 表示当前拉起的提供方类型为EmbeddedUIExtensionAbility。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
-  EMBEDDED_UI_EXTENSION = 0,
+  EMBEDDED_UI_EXTENSION = 0
 }
 
 /**
- * Marquee scrolling strategy after text update
+ * 跑马灯组件属性更新后，跑马灯的滚动策略。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -7289,7 +4931,7 @@ declare enum EmbeddedType {
  */
 declare enum MarqueeUpdateStrategy {
   /**
-   * Reset scroll position and restart scroll.
+   * 跑马灯组件属性更新后，从开始位置，运行跑马灯效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7300,7 +4942,7 @@ declare enum MarqueeUpdateStrategy {
   DEFAULT = 0,
 
   /**
-   * Preserve scroll position, just change to new text
+   * 跑马灯组件属性更新后，保持当前位置，运行跑马灯效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7312,9 +4954,8 @@ declare enum MarqueeUpdateStrategy {
 }
 
 /**
- * Type of text decoration line style.
- * 
- * @enum {number}
+ * 装饰线样式。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -7323,8 +4964,8 @@ declare enum MarqueeUpdateStrategy {
  */
 declare enum TextDecorationStyle {
   /**
-   * Solid line.
-   * 
+   * 单实线（默认值）。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7334,8 +4975,8 @@ declare enum TextDecorationStyle {
   SOLID = 0,
 
   /**
-   * Double lines.
-   * 
+   * 双实线。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7345,8 +4986,8 @@ declare enum TextDecorationStyle {
   DOUBLE = 1,
 
   /**
-   * Dotted line.
-   * 
+   * 点线。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7356,8 +4997,8 @@ declare enum TextDecorationStyle {
   DOTTED = 2,
 
   /**
-   * Dashed line.
-   * 
+   * 虚线。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7367,21 +5008,20 @@ declare enum TextDecorationStyle {
   DASHED = 3,
 
   /**
-   * Wavy line.
-   * 
+   * 波浪线。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  WAVY = 4,
+  WAVY = 4
 }
 
 /**
- * Type of text selectable.
+ * 文本可选择、可获焦状态。
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -7390,7 +5030,7 @@ declare enum TextDecorationStyle {
  */
 declare enum TextSelectableMode {
   /**
-   * set text selectable and unfocusable.
+   * 文本可选择，但不可获焦，设置属性selection、bindSelectionMenu、copyOption不影响当前行为。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7401,7 +5041,7 @@ declare enum TextSelectableMode {
   SELECTABLE_UNFOCUSABLE = 0,
 
   /**
-   * set text selectable and focusable.
+   * 文本可选择，可获焦并Touch后获得焦点。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7412,7 +5052,7 @@ declare enum TextSelectableMode {
   SELECTABLE_FOCUSABLE = 1,
 
   /**
-   * set text unselectable and unfocusable.
+   * 文本不可选择，不可获焦，设置属性selection、bindSelectionMenu、copyOption均不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7420,13 +5060,12 @@ declare enum TextSelectableMode {
    * @atomicservice
    * @since 12 dynamic
    */
-  UNSELECTABLE = 2,
+  UNSELECTABLE = 2
 }
 
 /**
- * Type of accessibility hover event.
+ * 辅助功能悬停事件的类型。
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -7435,7 +5074,7 @@ declare enum TextSelectableMode {
  */
 declare enum AccessibilityHoverType {
   /**
-   * Hover enter type.
+   * 手指按下时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7446,7 +5085,7 @@ declare enum AccessibilityHoverType {
   HOVER_ENTER = 0,
 
   /**
-   * Hover move type.
+   * 触摸移动时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7457,7 +5096,7 @@ declare enum AccessibilityHoverType {
   HOVER_MOVE = 1,
 
   /**
-   * Hover exit type.
+   * 手指抬起时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7468,7 +5107,7 @@ declare enum AccessibilityHoverType {
   HOVER_EXIT = 2,
 
   /**
-   * Hover cancel type.
+   * 打断取消当前触发的事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7476,199 +5115,120 @@ declare enum AccessibilityHoverType {
    * @atomicservice
    * @since 12 dynamic
    */
-  HOVER_CANCEL = 3,
+  HOVER_CANCEL = 3
 }
 
 /**
- * Type of window width breakpoint.
+ * 表示窗口不同宽度阈值下对应的宽度断点枚举值。通过[getWindowWidthBreakpoint]{@link @ohos.arkui.UIContext:UIContext.getWindowWidthBreakpoint}返回。
  *
- * @enum { number }
+ * 下表列出了典型设备默认宽度断点的阈值划分，可在基于窗口宽度断点布局设计时作为参考。个别设备可根据需求通过产品化配置调整断点阈值。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 22]
  * @atomicservice
  * @since 13 dynamic
  */
-/**
- * Type of window width breakpoint.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
- */
 declare enum WidthBreakpoint {
   /**
-   * Window width < 320vp type.
+   * 窗口宽度小于320vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 13 dynamic
-   */
-  /**
-   * Window width < 320vp type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   WIDTH_XS = 0,
 
   /**
-   * Window width >= 320vp and < 600vp type.
+   * 窗口宽度大于等于320vp，且小于600vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 13 dynamic
-   */
-  /**
-   * Window width >= 320vp and < 600vp type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   WIDTH_SM = 1,
 
   /**
-   * Window width >= 600vp and < 840vp type.
+   * 窗口宽度大于等于600vp，且小于840vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 13 dynamic
-   */
-  /**
-   * Window width >= 600vp and < 840vp type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   WIDTH_MD = 2,
 
   /**
-   * Window width >= 840vp and < 1440vp type.
+   * 窗口宽度大于等于840vp，且小于1440vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 13 dynamic
-   */
-  /**
-   * Window width >= 840vp and < 1440vp type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   WIDTH_LG = 3,
 
   /**
-   * Window width >= 1440vp type.
+   * 窗口宽度大于等于1440vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 13 dynamic
    */
-  /**
-   * Window width >= 1440vp type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  WIDTH_XL = 4,
+  WIDTH_XL = 4
 }
 
 /**
- * Type of window height breakpoint.
+ * 表示窗口不同高宽比阈值下对应的高度断点枚举值。通过[getWindowHeightBreakpoint]{@link @ohos.arkui.UIContext:UIContext.getWindowHeightBreakpoint}
+ * 返回。
  *
- * @enum { number }
+ * 下表列出了典型设备默认高宽比断点的阈值划分，可在基于窗口高宽比布局设计时作为参考。个别设备可根据需求通过产品化配置调整断点阈值。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 22]
  * @atomicservice
  * @since 13 dynamic
  */
-/**
- * Type of window height breakpoint.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
- */
 declare enum HeightBreakpoint {
   /**
-   * Window aspectRatio < 0.8 type.
+   * 窗口高宽比小于0.8。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 13 dynamic
-   */
-  /**
-   * Window aspectRatio < 0.8 type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   HEIGHT_SM = 0,
 
   /**
-   * Window aspectRatio >= 0.8 and < 1.2 type.
+   * 窗口高宽比大于等于0.8，且小于1.2。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 13 dynamic
-   */
-  /**
-   * Window aspectRatio >= 0.8 and < 1.2 type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   HEIGHT_MD = 1,
 
   /**
-   * Window aspectRatio >= 1.2 type.
+   * 窗口高宽比大于等于1.2。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 13 dynamic
-   */
-  /**
-   * Window aspectRatio >= 1.2 type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   HEIGHT_LG = 2
 }
@@ -7872,6 +5432,7 @@ declare enum AxisModel {
    */
   ABS_HAT3Y = 18
 }
+
 /**
  * 交叉轴方向键走焦模式枚举。
  *
@@ -7895,7 +5456,7 @@ declare enum FocusWrapMode {
 
   /**
    * 交叉轴方向键允许换行。
-   *
+   * 
    * 不规则单元格场景下，交叉轴方向键走焦时优先走到同一行的可获焦item。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -7904,13 +5465,12 @@ declare enum FocusWrapMode {
    * @atomicservice
    * @since 20 dynamic
    */
-  WRAP_WITH_ARROW = 1,
+  WRAP_WITH_ARROW = 1
 }
 
 /**
- * Specify the number of columns for different responsive breakpoints.
+ * 为不同响应式[栅格容器断点](docroot://ui/arkts-layout-development-grid-layout.md#栅格容器断点)指定列数。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -7919,9 +5479,10 @@ declare enum FocusWrapMode {
  */
 declare enum PresetFillType {
   /**
-   * For Lists and Swipers: One column is displayed on SM (and smaller),two on MD, and three on LG (and larger)
-   * devices. For Grid and WaterFlow: two column is displayed on SM (and smaller), three on MD, and five on LG
-   * (and larger) devices.
+   * 针对List和Swiper组件：在组件宽度属于sm及更小的断点区间时显示1列，属于md断点区间时显示2列，属于lg及更大的断点区间时显示3列。
+   *
+   * 针对Grid、WaterFlow和LazyVWaterFlowLayout组件：在组件宽度属于sm及更小的断点区间时显示2列，属于md断点区间时显示3列，属于lg及更大的断点区间时显示5列。
+   * LazyVWaterFlowLayout组件从API版本26.0.0开始支持。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7931,7 +5492,7 @@ declare enum PresetFillType {
    */
   BREAKPOINT_DEFAULT = 0,
   /**
-   *For SM (and smaller),MD, and LG (and larger) devices, one,two,and three columns are displayed respectively.
+   * 在组件宽度属于sm及更小的断点区间时显示1列，属于md断点区间时显示2列，属于lg及更大的断点区间时显示3列。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7941,7 +5502,7 @@ declare enum PresetFillType {
    */
   BREAKPOINT_SM1MD2LG3 = 1,
   /**
-   *For SM (and smaller),MD, and LG (and larger) devices,two,three,and five columns are displayed respectively.
+   * 在组件宽度属于sm及更小的断点区间时显示2列，属于md断点区间时显示3列，属于lg及更大的断点区间时显示5列。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7949,7 +5510,7 @@ declare enum PresetFillType {
    * @atomicservice
    * @since 22 dynamic
    */
-  BREAKPOINT_SM2MD3LG5 = 2,
+  BREAKPOINT_SM2MD3LG5 = 2
 }
 
 /**
@@ -8034,9 +5595,8 @@ declare enum CrownSensitivity {
 }
 
 /**
- * Page flip mode of Swiper and Tabs on mouse wheel event.
-
- * @enum { number } PageFlipMode
+ * 表示鼠标滚轮翻页模式。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -8046,7 +5606,7 @@ declare enum CrownSensitivity {
  */
 declare enum PageFlipMode {
   /**
-   * Turn pages continuously according to the number of mouse wheel events.
+   * 连续翻页模式，鼠标滚轮连续滚动时翻多页。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8058,7 +5618,7 @@ declare enum PageFlipMode {
   CONTINUOUS = 0,
 
   /**
-   * The page-turning animation remains unresponsive to other mouse wheel events until it completes.
+   * 单次翻页模式，在一次翻页动画结束前不响应滚轮事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8067,7 +5627,7 @@ declare enum PageFlipMode {
    * @atomicservice
    * @since 15 dynamic
    */
-  SINGLE = 1,
+  SINGLE = 1
 }
 
 /**
@@ -8127,13 +5687,12 @@ declare enum AxisAction {
    * @atomicservice
    * @since 17 dynamic
    */
-  CANCEL = 4,
+  CANCEL = 4
 }
 
 /**
- * Type of focus draw level.
+ * 定义节点获焦框的绘制层级。
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -8143,7 +5702,7 @@ declare enum AxisAction {
  */
 declare enum FocusDrawLevel {
   /**
-   * Draw focus on node self level.
+   * 获焦框绘制在节点自身层级。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8155,7 +5714,7 @@ declare enum FocusDrawLevel {
   SELF = 0,
 
   /**
-   * Draw focus on top level.
+   * 获焦框绘制在当前实例Z序的最上层。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8164,13 +5723,12 @@ declare enum FocusDrawLevel {
    * @atomicservice
    * @since 19 dynamic
    */
-  TOP = 1,
+  TOP = 1
 }
 
 /**
- * Menu divider mode.
+ * 分割线模式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -8179,7 +5737,7 @@ declare enum FocusDrawLevel {
  */
 declare enum DividerMode {
   /**
-   * Menu divider mode floating above menu.
+   * 悬浮在Menu之上，默认值，不占用高度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8190,7 +5748,7 @@ declare enum DividerMode {
   FLOATING_ABOVE_MENU = 0,
 
   /**
-   * Menu divider mode embedded in menu.
+   * 在Menu中展开，参与布局计算，占用高度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8198,7 +5756,7 @@ declare enum DividerMode {
    * @atomicservice
    * @since 19 dynamic
    */
-  EMBEDDED_IN_MENU = 1,
+  EMBEDDED_IN_MENU = 1
 }
 
 /**
@@ -8220,13 +5778,12 @@ declare enum EventQueryType {
    * @atomicservice
    * @since 19 dynamic
    */
-  ON_CLICK = 0,
+  ON_CLICK = 0
 }
 
 /**
- * Follow position type.
+ * 指定Tips跟随类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -8235,7 +5792,7 @@ declare enum EventQueryType {
  */
 declare enum TipsAnchorType {
   /**
-   * Follow the component.
+   * Tips跟随目标物。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8246,7 +5803,7 @@ declare enum TipsAnchorType {
   TARGET,
 
   /**
-   * Follow the cursor.
+   * Tips跟随鼠标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8258,9 +5815,8 @@ declare enum TipsAnchorType {
 }
 
 /**
- * Dialog display mode.
+ * 弹窗在子窗口中的显示模式。
  *
- * @enum { DialogDisplayMode }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -8269,7 +5825,7 @@ declare enum TipsAnchorType {
  */
 declare enum DialogDisplayMode {
   /**
-   * The dialog displayed based on screen.
+   * 弹窗在屏幕居中显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8279,7 +5835,7 @@ declare enum DialogDisplayMode {
    */
   SCREEN_BASED = 0,
   /**
-   * The dialog displayed based on application window.
+   * 弹窗在应用窗口居中显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8332,7 +5888,7 @@ declare enum ColorSpace {
    * @stagemodelonly
    * @since 26.0.0 dynamic
    */
-  BT2020 = 2,
+  BT2020 = 2
 }
 
 /**
@@ -8347,6 +5903,7 @@ declare enum ColorSpace {
 declare enum AnimationPropertyType {
   /**
    * x、y、z方向的旋转角属性。该属性对应参数个数为3，属性的单位为度（°）。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8386,7 +5943,7 @@ declare enum AnimationPropertyType {
    * @atomicservice
    * @since 20 dynamic
    */
-  OPACITY = 3,
+  OPACITY = 3
 }
 
 /**
@@ -8481,7 +6038,7 @@ declare enum AxisType {
    * @atomicservice
    * @since 22 dynamic
    */
-  PINCH_AXIS = 2,
+  PINCH_AXIS = 2
 }
 
 /**
@@ -8639,7 +6196,7 @@ declare enum InputEventSubTypeMask {
 }
 
 /**
- * 输入事件拦截动作枚举。
+ * 输入事件拦截动作枚举，用于控制输入事件是否继续传递到UI框架，适用于需要按业务规则允许或阻止输入事件继续传递的场景。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -8670,8 +6227,19 @@ declare enum InputEventInterceptAction {
    */
   BLOCK = 1
 }
+
+/**
+ * 定义分发的事件是否为竞争手势，竞争场景下手势原始节点和目标节点只有一个节点会响应手势，非竞争场景下手势原始节点和目标节点可以同时响应。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 24 dynamic
+ */
+declare enum CompetitionStrategy {
   /**
-   * 定义分发的事件是否为竞争手势，竞争场景手势原始节点和目标节点只有一个节点会响应手势，非竞争场景可以同时响应。
+   * 表示分发的事件为非竞争手势。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8679,32 +6247,22 @@ declare enum InputEventInterceptAction {
    * @atomicservice
    * @since 24 dynamic
    */
-  declare enum CompetitionStrategy {
-    /**
-     * 表示分发的事件为非竞争手势。
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 24 dynamic
-     */
-    DEFAULT = 0,
-  
-    /**
-     * 表示分发的事件为竞争手势。
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 24 dynamic
-     */
-    COMPETITION = 1,
-  }
+  DEFAULT = 0,
+
+  /**
+   * 表示分发的事件为竞争手势。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  COMPETITION = 1
+}
 
 /**
- * 定义手势和事件收集的干预操作类型。
+ * 定义手势和事件收集的干预操作类型，适用于手势和事件收集过程中需要按优先级保留或丢弃部分手势的场景。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -8766,7 +6324,7 @@ declare enum GestureCollectIntervention {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  DISCARD_LOWER_PRIORITY_SIBLINGS = 4,
+  DISCARD_LOWER_PRIORITY_SIBLINGS = 4
 }
 
 /**

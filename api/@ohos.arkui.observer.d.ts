@@ -14,26 +14,26 @@
  */
 
 /**
- * @file
+ * @file Observer
  * @kit ArkUI
  */
 
 import type { Callback } from './@ohos.base';
-
 import type UIAbilityContext from './application/UIAbilityContext';
-
 import type { NavigationOperation, NavBar } from '../component/navigation';
-
 import type { Size } from './@ohos.arkui.node';
 
 /**
- * Provides APIs for listening for UI component behavior changes.
+ * Provides APIs for listening for UI component behavior changes, including listening for page states, scroll events,
+ * page routing, screen pixel density, layout and drawing, page switching, and **TabContent** state changes. It is
+ * suitable for scenarios where UI state changes need to be sensed without intruding into the component service logic.
+ * [UIObserver]{@link @ohos.arkui.UIContext} is recommended for component observation.
  *
  * > **NOTE**
  * >
  * > - UIObserver can only listen for relevant information within the current process and does not support obtaining
- * > information in cross-process scenarios<!--Del--> such as [UIExtensionComponent]{@link ui_extension_component}<!--
- * > DelEnd-->.
+ * > information in cross-process scenarios<!--Del--> such as
+ * > [UIExtensionComponent]{@link ./@internal/component/ets/ui_extension_component}<!--DelEnd-->.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -42,7 +42,6 @@ import type { Size } from './@ohos.arkui.node';
  * @since 11 dynamic
  */
 declare namespace uiObserver {
-
   /**
    * Describes the state of the **NavDestination** component.
    *
@@ -53,7 +52,6 @@ declare namespace uiObserver {
    * @since 11 dynamic
    */
   export enum NavDestinationState {
-
     /**
      * The **NavDestination** component is displayed.
      *
@@ -246,9 +244,8 @@ declare namespace uiObserver {
   }
 
   /**
-   * ScrollEvent type.
+   * Enumerates the scroll event types.
    *
-   * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -257,7 +254,7 @@ declare namespace uiObserver {
    */
   export enum ScrollEventType {
     /**
-       * When the ScrollEvent starts.
+     * The scroll event starts.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -268,7 +265,7 @@ declare namespace uiObserver {
     SCROLL_START = 0,
 
     /**
-       * When the ScrollEvent stops.
+     * The scroll event ends.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -280,7 +277,7 @@ declare namespace uiObserver {
   }
 
   /**
-   * TabContent state.
+   * Enumerates the **TabContent** component states.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -291,7 +288,7 @@ declare namespace uiObserver {
   export enum TabContentState {
 
     /**
-     * When the TabContent is shown.
+     * The **TabContent** component is displayed.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -302,7 +299,7 @@ declare namespace uiObserver {
     ON_SHOW = 0,
 
     /**
-     * When the TabContent is hidden.
+     * The **TabContent** component is hidden.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -314,7 +311,7 @@ declare namespace uiObserver {
   }
 
   /**
-   * Information about the **NavDestination** component, returned by the system to developers.
+   * Provides information about the **NavDestination** component, returned by the system to developers.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -359,7 +356,8 @@ declare namespace uiObserver {
 
     /**
      * Index of the **NavDestination** component in the navigation stack.
-     * The value must be greater than or equal to 0.
+     *
+     * Value range: [0, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -393,7 +391,6 @@ declare namespace uiObserver {
 
     /**
      * Mode of the **NavDestination** component.
-     * Default value: NavDestinationMode.Standard.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -417,7 +414,6 @@ declare namespace uiObserver {
     /**
      * Size of the **NavDestination** component, in vp.
      *
-     * @type { ?Size }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -462,7 +458,7 @@ declare namespace uiObserver {
 
     /**
      * Unique ID of the **Navigation** component, which can be obtained through
-     * [queryNavigationInfo]{@link BaseCustomComponent#queryNavigationInfo}.
+     * [queryNavigationInfo](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-api.md#querynavigationinfo12).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -474,9 +470,8 @@ declare namespace uiObserver {
   }
 
   /**
-   * ScrollEvent info.
+   * Provides the scroll event information.
    *
-   * @interface ScrollEventInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -485,64 +480,59 @@ declare namespace uiObserver {
    */
   export interface ScrollEventInfo {
     /**
-     * Scroll id.
+     * ID of the scrollable component.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
      */
-    id: string,
+    id: string;
 
     /**
-     * The uniqueId of the scrollable component.
+     * Unique ID of the scrollable component.
      *
-     * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
      */
-    uniqueId: number,
+    uniqueId: number;
 
     /**
-     * Changed ScrollEvent type.
+     * Enumerates the scroll event types.
      *
-     * @type { ScrollEventType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
      */
-    scrollEvent: ScrollEventType,
+    scrollEvent: ScrollEventType;
 
     /**
-     * Changed ScrollEvent offset.
+     * Current offset of the scrollable component.
      *
-     * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
      */
-    offset: number,
+    offset: number;
 
     /**
-     * Scroll axis.
+     * Scroll direction of the scrollable component.
      *
-     * @type { ?Axis }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
      */
-    axis?: Axis
+    axis?: Axis;
   }
 
   /**
@@ -579,7 +569,7 @@ declare namespace uiObserver {
     tabContentUniqueId: number;
 
     /**
-     * Enumerates the **TabContent** component states.
+     * State of the **TabContent** component.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -623,11 +613,10 @@ declare namespace uiObserver {
     uniqueId: number;
 
     /**
-     * Index of the previously focused **TabContent** component. The index is zero-based. This parameter is available
-     * only in the callback of [on('tabChange')]{@link @ohos.arkui.UIContext:UIObserver#on(type: 'tabChange', callback:
-     * Callback<observer.TabContentInfo>)}.
+     * Subscript index of the most recently focused **TabContent** component. The index starts from 0. It exists only in
+     * the callback of
+     * [on('tabChange')](docroot://reference/apis-arkui/arkts-apis-uicontext-uiobserver.md#ontabchange22).
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -683,7 +672,8 @@ declare namespace uiObserver {
 
     /**
      * Position of the router page that invokes the lifecycle callback, in the navigation stack.
-     * The value must be greater than or equal to 0.
+     *
+     * Value range: [0, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -729,7 +719,6 @@ declare namespace uiObserver {
     /**
      * Unique ID of the router page that invokes the lifecycle callback.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -741,7 +730,6 @@ declare namespace uiObserver {
     /**
      * Size of the router page, in vp.
      *
-     * @type { ?Size }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -876,9 +864,8 @@ declare namespace uiObserver {
   }
 
   /**
-   * Text change event info
+   * Provides information about text changes in input fields.
    *
-   * @interface TextChangeEventInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -887,9 +874,8 @@ declare namespace uiObserver {
    */
   export interface TextChangeEventInfo {
     /**
-      * The id of text input component.
+     * ID of the text input component.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -897,11 +883,10 @@ declare namespace uiObserver {
      * @since 22 dynamic
      */
     id: string;
-
+ 
     /**
-      * The uniqueId of the text input component.
+     * Unique ID of the text input component.
      *
-     * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -909,10 +894,10 @@ declare namespace uiObserver {
      * @since 22 dynamic
      */
     uniqueId: number;
+
     /**
-      * Current content of text field component .
+     * Text content after the change.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -1014,11 +999,16 @@ declare namespace uiObserver {
   export function off(type: 'navDestinationUpdate', callback?: Callback<NavDestinationInfo>): void;
 
   /**
-   * Registers a callback function to be called when the scroll event start or stop.
+   * Listens for the start and end of scroll events of a specific scrollable component identified by its ID. Supported
+   * components include [List]{@link ./@internal/component/ets/list}, [Grid]{@link ./@internal/component/ets/grid},
+   * [Scroll]{@link ./@internal/component/ets/scroll}, [WaterFlow]{@link ./@internal/component/ets/water_flow}, and
+   * [ArcList]{@link @ohos.arkui.ArcList}.
    *
-   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
-   * @param { ObserverOptions } options - The options object.
-   * @param { Callback<ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
+   * @param { 'scrollEvent' } type - Event type. The value **'scrollEvent'** indicates the start and end of a scroll
+   *     event.
+   * @param { ObserverOptions } options - ID of the target scrollable component.
+   * @param { Callback<ScrollEventInfo> } callback - Callback used to return the result. It returns the information
+   *     about the scroll event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1028,12 +1018,16 @@ declare namespace uiObserver {
   export function on(type: 'scrollEvent', options: ObserverOptions, callback: Callback<ScrollEventInfo>): void;
 
   /**
-   * Removes a callback function that was previously registered with `on()`.
+   * Unregisters the listener for the start and end of scroll events of a specific scrollable component identified by
+   * its ID. Supported components include [List]{@link ./@internal/component/ets/list},
+   * [Grid]{@link ./@internal/component/ets/grid}, [Scroll]{@link ./@internal/component/ets/scroll},
+   * [WaterFlow]{@link ./@internal/component/ets/water_flow}, and [ArcList]{@link @ohos.arkui.ArcList}.
    *
-   * @param { 'scrollEvent' } type - The type of event to remove the listener for. Must be 'scrollEvent'.
-   * @param { ObserverOptions } options - The options object.
-   * @param { Callback<ScrollEventInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
-   *                                                    scroll ID will be removed.
+   * @param { 'scrollEvent' } type - Event type. The value **'scrollEvent'** indicates the start and end of a scroll
+   *     event.
+   * @param { ObserverOptions } options - ID of the target scrollable component.
+   * @param { Callback<ScrollEventInfo> } callback - Callback used to return the result. It returns the information
+   *     about the scroll event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1043,10 +1037,15 @@ declare namespace uiObserver {
   export function off(type: 'scrollEvent', options: ObserverOptions, callback?: Callback<ScrollEventInfo>): void;
 
   /**
-   * Registers a callback function to be called when the scroll event start or stop.
+   * Listens for the start and end of scroll events of all scrollable components. Supported components include
+   * [List]{@link ./@internal/component/ets/list}, [Grid]{@link ./@internal/component/ets/grid},
+   * [Scroll]{@link ./@internal/component/ets/scroll}, [WaterFlow]{@link ./@internal/component/ets/water_flow}, and
+   * [ArcList]{@link @ohos.arkui.ArcList}.
    *
-   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
-   * @param { Callback<ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
+   * @param { 'scrollEvent' } type - Event type. The value **'scrollEvent'** indicates the start and end of a scroll
+   *     event.
+   * @param { Callback<ScrollEventInfo> } callback - Callback used to return the result. It returns the information
+   *     about the scroll event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1056,11 +1055,15 @@ declare namespace uiObserver {
   export function on(type: 'scrollEvent', callback: Callback<ScrollEventInfo>): void;
 
   /**
-   * Removes a callback function that was previously registered with `on()`.
+   * Unregisters the listener for the start and end of scroll events of all scrollable components. Supported components
+   * include [List]{@link ./@internal/component/ets/list}, [Grid]{@link ./@internal/component/ets/grid},
+   * [Scroll]{@link ./@internal/component/ets/scroll}, [WaterFlow]{@link ./@internal/component/ets/water_flow}, and
+   * [ArcList]{@link @ohos.arkui.ArcList}.
    *
-   * @param { 'scrollEvent'} type - The type of event to remove the listener for. Must be 'scrollEvent'.
-   * @param { Callback<ScrollEventInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                      will be removed.
+   * @param { 'scrollEvent'} type - Event type. The value **'scrollEvent'** indicates the start and end of a scroll
+   *     event.
+   * @param { Callback<ScrollEventInfo> } [callback] - Callback used to return the result. It returns the information
+   *     about the scroll event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1192,9 +1195,8 @@ declare namespace uiObserver {
 
   /**
    * Subscribes to **TabContent** page switching events for the specified **Tabs** component identified by its ID.
-   * Unlike
-   * [on('tabChange')]{@link @ohos.arkui.UIContext:UIObserver#on(type: 'tabChange', callback: Callback<observer.TabContentInfo>)},
-   * this API does not support listening for the initial tab display event when the **Tabs** component is initialized.
+   * Unlike [on('tabChange')](docroot://reference/apis-arkui/arkts-apis-uicontext-uiobserver.md#ontabchange22), this API
+   * does not support listening for the initial tab display event when the **Tabs** component is initialized.
    *
    * @param { 'tabContentUpdate' } type - Event type. Set to **'tabContentUpdate'** for **TabContent** page switching
    *     events.
@@ -1226,8 +1228,8 @@ declare namespace uiObserver {
 
   /**
    * Subscribes to **TabContent** switch events. Unlike
-   * [on('tabChange')]{@link @ohos.arkui.UIContext:UIObserver#on(type: 'tabChange', callback: Callback<observer.TabContentInfo>)},
-   * this API does not support listening for the initial tab display event when the **Tabs** component is initialized.
+   * [on('tabChange')](docroot://reference/apis-arkui/arkts-apis-uicontext-uiobserver.md#ontabchange22), this API does
+   * not support listening for the initial tab display event when the **Tabs** component is initialized.
    *
    * @param { 'tabContentUpdate' } type - Event type. Set to **'tabContentUpdate'** for **TabContent** page switching
    *     events.
@@ -1303,8 +1305,8 @@ declare namespace uiObserver {
    *
    * @param { 'navDestinationSwitch' } type - Event type. Set to **'navDestinationSwitch'** for **Navigation** component
    *     page switching events.
-   * @param { UIAbilityContext | UIContext } context - Context information, which is used to specify the target scope
-   *     for page switching events.
+   * @param { UIAbilityContext | UIContext } context - Context information, which is used to specify the target scope for
+   *     page switching events.
    * @param { NavDestinationSwitchObserverOptions } observerOptions - Observer configuration options.
    * @param { Callback<NavDestinationSwitchInfo> } callback - Callback used to return the result. It provides page
    *     switching event information through **NavDestinationSwitchInfo**.

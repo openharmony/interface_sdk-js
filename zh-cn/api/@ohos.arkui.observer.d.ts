@@ -14,30 +14,24 @@
  */
 
 /**
- * @file
+ * @file 无感监听
  * @kit ArkUI
  */
 
 import type { Callback } from './@ohos.base';
-
 import type UIAbilityContext from './application/UIAbilityContext';
-
 import type { NavigationOperation, NavBar } from '../component/navigation';
-
 import type { Size } from './@ohos.arkui.node';
 
 /**
-* UIObserver提供了UI组件行为变化的无感监听能力，支持监听Navigation页面状态变化（NavDestination）、滚动事件、路由页面状态、屏幕像素密度变化、绘制指令下发、布局完成、页面切换等多种UI组件行为。
-* 开发者可以通过该模块实现对UI组件状态的实时感知和追踪，适用于需要监控页面生命周期、处理滚动事件、优化渲染性能等场景，帮助开发者更好地理解和管理UI组件的行为变化。无感监听是指在组件状态变化时，
-* 系统自动触发回调函数通知开发者，无需开发者手动轮询或主动查询组件状态。监听器通过注册回调函数实现，当目标组件状态改变时，系统内部的事件分发机制会调用已注册的回调函数，携带状态变化信息。
-*
-* > **说明：**
-*
-* > - 以下API需先使用UIContext中的{@link getUIObserver()}方法获取到UIObserver对象，再通过该对象调用对应方法。
-*
-* > - UIObserver仅能监听到本进程内的UI组件状态变化信息，
-* > - 不支持获取<!--Del-->[UIExtensionComponent]{@link ui_extension_component}等<!--DelEnd-->跨进程场景的信息。
-*
+ * 本模块提供UI组件行为变化的无感监听能力，包括监听页面状态、滚动事件、页面路由、屏幕像素密度、布局和绘制、页面切换以及TabContent状态变化等。适用于需要在不侵入组件业务逻辑的情况下感知UI状态变化的场景。推荐使用
+ * [UIObserver]{@link @ohos.arkui.UIContext}进行组件监听。
+ * 
+ * > **说明：**
+ * >
+ * > - UIObserver仅能监听到本进程内的相关信息，不支持获取<!--Del-->
+ * > [UIExtensionComponent]{@link ./@internal/component/ets/ui_extension_component}等<!--DelEnd-->跨进程场景的信息。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -181,8 +175,8 @@ declare namespace uiObserver {
 
   /**
    * routerPage生命周期触发时对应的状态。RouterPageState用于[RouterPageInfo]{@link uiObserver.RouterPageInfo}中，作为
-   * [routerPageUpdate]{@link uiObserver.on(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback:
-   * Callback<RouterPageInfo>)}无感监听的返回值。
+   * [routerPageUpdate]{@link uiObserver.on(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback: Callback<RouterPageInfo>)}
+   * 无感监听的返回值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -193,8 +187,8 @@ declare namespace uiObserver {
   export enum RouterPageState {
 
     /**
-     * page即将显示。
-     *
+    * page即将显示。
+    *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -249,9 +243,8 @@ declare namespace uiObserver {
   }
 
   /**
-   * ScrollEvent type.
+   * 滚动事件的类型。
    *
-   * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -259,9 +252,8 @@ declare namespace uiObserver {
    * @since 12 dynamic
    */
   export enum ScrollEventType {
-
     /**
-     * When the ScrollEvent start.
+     * 滚动事件开始。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -272,7 +264,7 @@ declare namespace uiObserver {
     SCROLL_START = 0,
 
     /**
-     * When the ScrollEvent stop.
+     * 滚动事件结束。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -362,8 +354,9 @@ declare namespace uiObserver {
     state: NavDestinationState;
 
     /**
-     * NavDestination在页面栈中的索引。
-     * 取值应≥0。
+     * NavDestination在页面栈中的索引。    
+     * 
+     * 取值范围：[0, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -374,7 +367,7 @@ declare namespace uiObserver {
     index: number;
 
     /**
-     * The detailed parameter of NavDestination.
+     * NavDestination组件的参数。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -385,7 +378,7 @@ declare namespace uiObserver {
     param?: Object;
 
     /**
-     * Auto-generated navDestination id, which is different from common property id of Component.
+     * NavDestination组件的唯一标识ID。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -397,7 +390,6 @@ declare namespace uiObserver {
 
     /**
      * NavDestination类型。
-     * 默认值：NavDestinationMode.Standard。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -419,9 +411,8 @@ declare namespace uiObserver {
     uniqueId?: number;
 
     /**
-     * NavDestination组件的大小,单位是vp。
+     * NavDestination组件的大小，单位是vp。
      *
-     * @type { ?Size }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -465,7 +456,9 @@ declare namespace uiObserver {
     pathStack: NavPathStack;
 
     /**
-     * Navigation组件的uniqueId，可以通过[queryNavigationInfo]{@link BaseCustomComponent#queryNavigationInfo}获取。
+     * Navigation组件的uniqueId，可以通过
+     * [queryNavigationInfo](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-api.md#querynavigationinfo12)获
+     * 取。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -477,9 +470,8 @@ declare namespace uiObserver {
   }
 
   /**
-   * ScrollEvent info.
+   * ScrollEvent滚动信息。
    *
-   * @interface ScrollEventInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -487,11 +479,9 @@ declare namespace uiObserver {
    * @since 12 dynamic
    */
   export interface ScrollEventInfo {
-
     /**
-     * Scroll id.
+     * 滚动组件的id。
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -501,9 +491,8 @@ declare namespace uiObserver {
     id: string;
 
     /**
-     * The uniqueId of the scrollable component.
+     * 滚动组件的uniqueId。
      *
-     * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -513,9 +502,8 @@ declare namespace uiObserver {
     uniqueId: number;
 
     /**
-     * Changed ScrollEvent type.
+     * 滚动事件的类型。
      *
-     * @type { ScrollEventType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -525,9 +513,8 @@ declare namespace uiObserver {
     scrollEvent: ScrollEventType;
 
     /**
-     * Changed ScrollEvent offset.
+     * 滚动组件的当前偏移量。
      *
-     * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -537,9 +524,8 @@ declare namespace uiObserver {
     offset: number;
 
     /**
-     * 滚动方向。
+     * 滚动组件的滚动方向。
      *
-     * @type { ?Axis }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -561,7 +547,7 @@ declare namespace uiObserver {
   export interface TabContentInfo {
 
     /**
-     * TabContent id.
+     * TabContent组件的id。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -572,7 +558,7 @@ declare namespace uiObserver {
     tabContentId: string;
 
     /**
-     * TabContent uniqueId.
+     * TabContent组件的uniqueId。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -627,10 +613,9 @@ declare namespace uiObserver {
     uniqueId: number;
 
     /**
-     * 最近一次聚焦的TabsContent组件的下标索引。索引从0开始。仅在 [on('tabChange')]{@link @ohos.arkui.UIContext:UIObserver#on(type:
-     * 'tabChange', callback: Callback<observer.TabContentInfo>)}的回调函数中存在。
+     * 最近一次聚焦的TabContent组件的下标索引。索引从0开始。仅在
+     * [on('tabChange')](docroot://reference/apis-arkui/arkts-apis-uicontext-uiobserver.md#ontabchange22)的回调函数中存在。
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -686,8 +671,9 @@ declare namespace uiObserver {
     context: UIAbilityContext | UIContext;
 
     /**
-     * 触发生命周期的routerPage页面对应的上下文信息。
-     * 取值应≥0。
+     * 触发生命周期的routerPage在栈中的位置。
+     * 
+     * 取值范围：[0, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -733,7 +719,6 @@ declare namespace uiObserver {
     /**
      * 触发生命周期的routerPage页面的唯一标识。
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -745,7 +730,6 @@ declare namespace uiObserver {
     /**
      * routerPage页面的大小，单位是vp。
      *
-     * @type { ?Size }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -837,7 +821,7 @@ declare namespace uiObserver {
   export interface NavDestinationSwitchInfo {
 
     /**
-     * The context of the navigation operation.
+     * 触发页面切换的Navigation对应的上下文信息。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -848,7 +832,7 @@ declare namespace uiObserver {
     context: UIAbilityContext | UIContext;
 
     /**
-     * From navigation content info.
+     * 页面切换的源页面。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -859,7 +843,7 @@ declare namespace uiObserver {
     from: NavDestinationInfo | NavBar;
 
     /**
-     * To navigation content info.
+     * 页面切换的目的页面。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -870,7 +854,7 @@ declare namespace uiObserver {
     to: NavDestinationInfo | NavBar;
 
     /**
-     * The operation type.
+     * 页面切换操作类型。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -882,9 +866,8 @@ declare namespace uiObserver {
   }
 
   /**
-   * Text change event info
+   * 输入框文本变化的信息。
    *
-   * @interface TextChangeEventInfo
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -892,11 +875,9 @@ declare namespace uiObserver {
    * @since 22 dynamic
    */
   export interface TextChangeEventInfo {
-
     /**
-     * The id of text field component.
+     * 文本输入组件的ID。
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -906,9 +887,8 @@ declare namespace uiObserver {
     id: string;
 
     /**
-     * The uniqueId of the text field component.
+     * 文本输入组件的唯一标识符。
      *
-     * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -918,9 +898,8 @@ declare namespace uiObserver {
     uniqueId: number;
 
     /**
-     * Current content of text field component.
+     * 变化后的文本内容。
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -955,8 +934,8 @@ declare namespace uiObserver {
 
   /**
    * 监听NavDestination组件的状态变化。与
-   * * [uiObserver.on]{@link uiObserver.on(type: 'navDestinationUpdate', callback:
-   * Callback<NavDestinationInfo>)}相比，新增了options参数，即支持指定监听的Navigation的id。
+   * [uiObserver.on]{@link uiObserver.on(type: 'navDestinationUpdate', callback: Callback<NavDestinationInfo>)}相比，新增了
+   * options参数，即支持指定监听的Navigation的id。
    *
    * @param { 'navDestinationUpdate' } type - 监听事件，固定为'navDestinationUpdate'，即NavDestination组件的状态变化。
    * @param { object } options - 指定监听的Navigation的id。
@@ -970,8 +949,9 @@ declare namespace uiObserver {
   export function on(type: 'navDestinationUpdate', options: { navigationId: ResourceStr }, callback: Callback<NavDestinationInfo>): void;
 
   /**
-   * 取消监听NavDestination组件的状态变化。与[uiObserver.off]{@link uiObserver.off(type: 'navDestinationUpdate', callback?:
-   * Callback<NavDestinationInfo>)}相比，新增了options参数，即支持指定监听的Navigation的id。
+   * 取消监听NavDestination组件的状态变化。与
+   * [uiObserver.off]{@link uiObserver.off(type: 'navDestinationUpdate', callback?: Callback<NavDestinationInfo>)}相比，新增了
+   * options参数，即支持指定监听的Navigation的id。
    *
    * @param { 'navDestinationUpdate' } type - 监听事件，固定为'navDestinationUpdate'，即NavDestination组件的状态变化。
    * @param { object } options - 指定监听的Navigation的id。
@@ -1011,11 +991,13 @@ declare namespace uiObserver {
   export function off(type: 'navDestinationUpdate', callback?: Callback<NavDestinationInfo>): void;
 
   /**
-   * Registers a callback function to be called when the scroll event start or stop.
+   * 监听指定id的滚动组件滚动事件的开始和结束。滚动组件包括[List]{@link ./@internal/component/ets/list}、
+   * [Grid]{@link ./@internal/component/ets/grid}、[Scroll]{@link ./@internal/component/ets/scroll}、
+   * [WaterFlow]{@link ./@internal/component/ets/water_flow}、[ArcList]{@link @ohos.arkui.ArcList}。
    *
-   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
-   * @param { ObserverOptions } options - The options object.
-   * @param { Callback<ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
+   * @param { 'scrollEvent' } type - 监听事件，固定为'scrollEvent'，即滚动事件的开始和结束。
+   * @param { ObserverOptions } options - 指定监听的滚动组件的id。
+   * @param { Callback<ScrollEventInfo> } callback - 回调函数。返回滚动事件的信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1025,12 +1007,13 @@ declare namespace uiObserver {
   export function on(type: 'scrollEvent', options: ObserverOptions, callback: Callback<ScrollEventInfo>): void;
 
   /**
-   * Removes a callback function that was previously registered with `on()`.
+   * 取消监听指定id的滚动组件滚动事件的开始和结束。滚动组件包括[List]{@link ./@internal/component/ets/list}、
+   * [Grid]{@link ./@internal/component/ets/grid}、[Scroll]{@link ./@internal/component/ets/scroll}、
+   * [WaterFlow]{@link ./@internal/component/ets/water_flow}、[ArcList]{@link @ohos.arkui.ArcList}。
    *
-   * @param { 'scrollEvent' } type - The type of event to remove the listener for. Must be 'scrollEvent'.
-   * @param { ObserverOptions } options - The options object.
-   * @param { Callback<ScrollEventInfo> } callback - The callback function to remove. If not provided, all callbacks for the given event type and
-   *                                                    scroll ID will be removed.
+   * @param { 'scrollEvent' } type - 监听事件，固定为'scrollEvent'，即滚动事件的开始和结束。
+   * @param { ObserverOptions } options - 指定监听的滚动组件的id。
+   * @param { Callback<ScrollEventInfo> } callback - 回调函数。返回滚动事件的信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1040,10 +1023,12 @@ declare namespace uiObserver {
   export function off(type: 'scrollEvent', options: ObserverOptions, callback?: Callback<ScrollEventInfo>): void;
 
   /**
-   * Registers a callback function to be called when the scroll event start or stop.
+   * 监听所有滚动组件滚动事件的开始和结束。滚动组件包括[List]{@link ./@internal/component/ets/list}、[Grid]{@link ./@internal/component/ets/grid}、
+   * [Scroll]{@link ./@internal/component/ets/scroll}、[WaterFlow]{@link ./@internal/component/ets/water_flow}、
+   * [ArcList]{@link @ohos.arkui.ArcList}。
    *
-   * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
-   * @param { Callback<ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
+   * @param { 'scrollEvent' } type - 监听事件，固定为'scrollEvent'，即滚动事件的开始和结束。
+   * @param { Callback<ScrollEventInfo> } callback - 回调函数。返回滚动事件的信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1053,11 +1038,12 @@ declare namespace uiObserver {
   export function on(type: 'scrollEvent', callback: Callback<ScrollEventInfo>): void;
 
   /**
-   * Removes a callback function that was previously registered with `on()`.
+   * 取消监听所有滚动组件滚动事件的开始和结束。滚动组件包括[List]{@link ./@internal/component/ets/list}、
+   * [Grid]{@link ./@internal/component/ets/grid}、[Scroll]{@link ./@internal/component/ets/scroll}、
+   * [WaterFlow]{@link ./@internal/component/ets/water_flow}、[ArcList]{@link @ohos.arkui.ArcList}。
    *
-   * @param { 'scrollEvent'} type - The type of event to remove the listener for. Must be 'scrollEvent'.
-   * @param { Callback<ScrollEventInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                      will be removed.
+   * @param { 'scrollEvent'} type - 监听事件，固定为'scrollEvent'，即滚动事件的开始和结束。
+   * @param { Callback<ScrollEventInfo> } [callback] - 回调函数。返回滚动事件的信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1179,8 +1165,9 @@ declare namespace uiObserver {
   export function off(type: 'didLayout', context: UIContext, callback?: Callback<void>): void;
 
   /**
-   * 监听指定Tabs组件id的TabContent页面切换事件。相比[on('tabChange')]{@link @ohos.arkui.UIContext:UIObserver#on(type: 'tabChange',
-   * callback: Callback<observer.TabContentInfo>)}，本接口不支持监听Tabs组件初始化时，显示首个页签的事件。
+   * 监听指定Tabs组件id的TabContent页面切换事件。相比
+   * [on('tabChange')](docroot://reference/apis-arkui/arkts-apis-uicontext-uiobserver.md#ontabchange22)，本接口不支持监听Tabs组件初始
+   * 化时，显示首个页签的事件。
    *
    * @param { 'tabContentUpdate' } type - 监听事件，固定为'tabContentUpdate'，即TabContent页面的切换事件。
    * @param { ObserverOptions } options - 指定监听的Tabs组件的id。
@@ -1208,8 +1195,9 @@ declare namespace uiObserver {
   export function off(type: 'tabContentUpdate', options: ObserverOptions, callback?: Callback<TabContentInfo>): void;
 
   /**
-   * 监听TabContent页面的切换事件。相比[on('tabChange')]{@link @ohos.arkui.UIContext:UIObserver#on(type: 'tabChange', callback:
-   * Callback<observer.TabContentInfo>)}，本接口不支持监听Tabs组件初始化时，显示首个页签的事件。
+   * 监听TabContent页面的切换事件。相比
+   * [on('tabChange')](docroot://reference/apis-arkui/arkts-apis-uicontext-uiobserver.md#ontabchange22)，本接口不支持监听Tabs组件初始
+   * 化时，显示首个页签的事件。
    *
    * @param { 'tabContentUpdate' } type - 监听事件，固定为'tabContentUpdate'，即TabContent页面的切换事件。
    * @param { Callback<TabContentInfo> } callback - 回调函数。携带TabContentInfo，返回TabContent页面切换事件的信息。
@@ -1271,9 +1259,10 @@ declare namespace uiObserver {
   ): void;
 
   /**
-   * 监听Navigation的页面切换事件。与[uiObserver.on]{@link uiObserver.on( type: 'navDestinationSwitch', context: UIAbilityContext |
-   *  UIContext, callback: Callback<NavDestinationSwitchInfo> )}相比，新增了observerOptions参数，即支持设置监听选项。
-   *
+  * 监听Navigation的页面切换事件。与
+  * [uiObserver.on]{@link uiObserver.on( type: 'navDestinationSwitch', context: UIAbilityContext | UIContext, callback: Callback<NavDestinationSwitchInfo> )}
+  * 相比，新增了observerOptions参数，即支持设置监听选项。
+  *
    * @param { 'navDestinationSwitch' } type - 监听事件，固定为'navDestinationSwitch'，即Navigation的页面切换事件。
    * @param { UIAbilityContext | UIContext } context - 上下文信息，用以指定监听页面切换事件的范围。
    * @param { NavDestinationSwitchObserverOptions } observerOptions - 监听选项。
@@ -1292,8 +1281,9 @@ declare namespace uiObserver {
   ): void;
 
   /**
-   * 取消监听Navigation的页面切换事件。与[uiObserver.off]{@link uiObserver.off( type: 'navDestinationSwitch', context:
-   * UIAbilityContext | UIContext, callback?: Callback<NavDestinationSwitchInfo> )}相比，新增了observerOptions参数，即支持设置监听选项。
+   * 取消监听Navigation的页面切换事件。与
+   * [uiObserver.off]{@link uiObserver.off( type: 'navDestinationSwitch', context: UIAbilityContext | UIContext, callback?: Callback<NavDestinationSwitchInfo> )}
+   * 相比，新增了observerOptions参数，即支持设置监听选项。
    *
    * @param { 'navDestinationSwitch' } type - 监听事件，固定为'navDestinationSwitch'，即Navigation的页面切换事件。
    * @param { UIAbilityContext | UIContext } context - 上下文信息，用以指定监听页面切换事件的范围。
