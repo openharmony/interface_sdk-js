@@ -4455,7 +4455,7 @@ declare interface NativeEmbedMouseInfo {
  */
 declare interface FirstMeaningfulPaint {
   /**
-   * 导航条加载时间，单位以微秒表示。
+   * 导航开始时间，单位以微秒表示。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -4482,7 +4482,7 @@ declare interface FirstMeaningfulPaint {
  */
 declare interface LargestContentfulPaint {
   /**
-   * 导航条加载时间，单位以微秒表示。
+   * 导航开始时间，单位以微秒表示。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
