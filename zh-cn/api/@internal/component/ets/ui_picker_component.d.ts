@@ -88,7 +88,7 @@ interface UIPickerComponentInterface {
    * @param { UIPickerComponentOptions } [options] - 配置UIPickerComponent容器的参数，用于自定义初始选中项等配置。参数缺省时组件占
    *     位，但内容显示为空。当需要设置初始选中项时传入此参数。
    * @returns { UIPickerComponentAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -324,7 +324,7 @@ declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentA
    * @param { Optional<OnUIPickerComponentCallback> } callback - 当选中项发生变化时触发的回调函数。
    *     <br>当callback的值为undefined时，不使用回调函数。
    * @returns { UIPickerComponentAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -352,7 +352,7 @@ declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentA
    * @param { Optional<OnUIPickerComponentCallback> } callback - 当选择器滑动停止时触发的回调函数。当callback的值为undefined时，
    * 不使用回调函数。
    * @returns { UIPickerComponentAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -372,7 +372,7 @@ declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentA
    *    （由[displayedItemCount]{@link UIPickerComponentAttribute#displayedItemCount}设置，默认为7）时，无论isLoop设置为true
    *     还是false，都不会循环滚动。
    * @returns { UIPickerComponentAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -394,7 +394,7 @@ declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentA
    *     <br>当enable的值为undefined时，使用默认值。
    *     <br>开启后，是否存在触控反馈取决于系统硬件支持情况。
    * @returns { UIPickerComponentAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 26.0.0]
    * @atomicservice
@@ -417,7 +417,7 @@ declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentA
    *     <br>}
    *     <br>当style的值为undefined时，使用默认值。
    * @returns { UIPickerComponentAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -438,7 +438,7 @@ declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentA
    *     <br>当height的值为undefined时，使用默认值40vp。
    *     <br>不支持“百分比”类型。
    * @returns { UIPickerComponentAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -457,7 +457,7 @@ declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentA
    *     <br>设置不在取值范围内时，使用默认值7行。
    *     <br>当count的值为undefined时，使用默认值7行。
    * @returns { UIPickerComponentAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice

@@ -39,7 +39,7 @@ interface ImageAnimatorInterface {
    * 返回ImageAnimator。
    *
    * @returns { ImageAnimatorAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 10]
@@ -190,7 +190,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    *     [ImageFrameInfo]{@link ImageFrameInfo} 。<br/>默认值：[] <br/> **说明：** 传入数组的内容过大时，内存占用会随之升高。此内存由开发者自行控制。因此，开发者在传入数据
    *     前，请充分评估内存消耗情况，以避免内存不足等问题。
    * @returns { ImageAnimatorAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 10]
@@ -204,7 +204,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    *
    * @param { AnimationStatus } value - 用于控制播放状态。<br/>默认值：AnimationStatus.Initial
    * @returns { ImageAnimatorAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 10]
@@ -219,7 +219,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @param { number } value - 播放时长。<br/>value为0时，不播放图片。<br/>value平均分配给单张图片的播放时长小于一帧时间，将导致播放异常。<br/>设置为负数时，取默认值1000毫秒。<
    *     br/>value的改变只会在下一次循环开始时生效。<br/>单位：毫秒<br/>默认值：1000
    * @returns { ImageAnimatorAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 10]
@@ -234,7 +234,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @param { boolean } value - 播放方向。<br/>false表示从第1张图片播放到最后1张图片，true表示从最后1张图片播放到第1张图片。<br/>动画结束后保留哪一帧还与
    *     [fillMode]{@link ImageAnimatorAttribute#fillMode}属性有关，详见fillMode说明。<br/>默认值：false
    * @returns { ImageAnimatorAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 10]
@@ -249,7 +249,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    * @param { boolean } value - 设置图片大小是否固定为组件大小。 true表示图片大小与组件大小一致，此时设置图片的width 、height 、top 和left属性无效。false表示每一张图片的
    *     width 、height 、top和left属性都要单独设置。图片宽高与组件宽高不一致时，图片不会被拉伸。<br/>默认值：true
    * @returns { ImageAnimatorAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 10]
@@ -267,7 +267,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    *
    * @param { number } value - 预解码的图片数量。例如，设置为2时，播放当前帧时会提前加载后面两张图片至缓存，以提升性能。<br/>默认值：0
    * @returns { ImageAnimatorAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -280,7 +280,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    *
    * @param { FillMode } value - 当前播放方向下，动画开始前和结束后的状态。<br/>默认值：FillMode.Forwards
    * @returns { ImageAnimatorAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 10]
@@ -294,7 +294,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    *
    * @param { number } value - 默认播放一次；-1表示无限次播放，小于-1的负数取默认值1；浮点数向下取整。<br/>默认值：1
    * @returns { ImageAnimatorAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -316,7 +316,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    *     的不可见回调暂停，则在属性由true改为false后，组件会从上次暂停的位置重新开始播放。<br/>由该属性导致的不可见暂停和可见播放操作不会改变用户设置的
    *     [state]{@link ImageAnimatorAttribute#state}值。
    * @returns { ImageAnimatorAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -329,7 +329,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    *
    * @param { function } event - 状态回调，动画开始播放时触发。
    * @returns { ImageAnimatorAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 10]
@@ -343,7 +343,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    *
    * @param { function } event - 状态回调，动画暂停播放时触发。
    * @returns { ImageAnimatorAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 10]
@@ -357,7 +357,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    *
    * @param { function } event - 状态回调，动画重复播放时触发。
    * @returns { ImageAnimatorAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -371,7 +371,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    *
    * @param { function } event - 状态回调，动画取消时触发。当state被设置为AnimationStatus.Initial时触发；触发后图片显示回到第一帧（正播）或最后一帧（逆播）。
    * @returns { ImageAnimatorAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 10]
@@ -386,7 +386,7 @@ declare class ImageAnimatorAttribute extends CommonMethod<ImageAnimatorAttribute
    *
    * @param { function } event - 状态回调，动画播放完成时（iterations轮次全部播完且动画自然结束）或者停止播放时（state被切换为AnimationStatus.Stopped）触发。
    * @returns { ImageAnimatorAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @form [since 10]
