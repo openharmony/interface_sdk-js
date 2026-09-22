@@ -1521,7 +1521,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   export enum ApplicationReservedFlag {
     /**
@@ -1530,7 +1530,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     ENCRYPTED_APPLICATION = 0x00000001,
     /**
@@ -1539,7 +1539,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     ENCRYPTED_KEY_EXISTED = 0x00000002
   }
@@ -1642,7 +1642,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   export enum AppSandboxPolicy {
     /**
@@ -1651,7 +1651,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     SHARED_SANDBOX = 0,
     /**
@@ -1660,7 +1660,7 @@ declare namespace bundleManager {
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.1 dynamic&static
      */
     ISOLATED_SANDBOX = 1
   }
@@ -4471,7 +4471,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic&static
+   * @since 26.0.1 dynamic&static
    */
   function getBundleExtensionPolicyInfo(bundleName: string, userId: int): BundleExtensionPolicyInfo;
 
@@ -4951,7 +4951,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 dynamic
+   * @since 26.0.1 dynamic
    */
   export type BundleExtensionPolicyInfo = _BundleInfo.BundleExtensionPolicyInfo;
  
@@ -4961,7 +4961,7 @@ declare namespace bundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.1.0 static
+   * @since 26.0.1 static
    */
   export type BundleExtensionPolicyInfo = _BundleExtensionPolicyInfo;
 }
