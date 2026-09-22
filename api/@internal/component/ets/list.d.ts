@@ -243,7 +243,8 @@ declare enum StickyStyle {
 }
 
 /**
- * Declare edge effect of chain animation.
+ * Sets the edge effect of the chain animation effect, which determines how the spacing between list items changes when
+ * the list continues to be dragged after being scrolled to the edge.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -253,8 +254,11 @@ declare enum StickyStyle {
 declare enum ChainEdgeEffect {
 
   /**
-   * Default edge effect. Compress the space in the drag direction
-   * and stretch the space in the opposite drag direction.
+   * Default effect. When the list continues to be dragged after scrolling to the edge, the spacing between list items
+   * in the drag direction decreases,
+   *
+   * and the spacing between list items in the opposite direction increases. This is suitable for scenarios that require
+   * directional stretching and rebound feedback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -264,7 +268,8 @@ declare enum ChainEdgeEffect {
   DEFAULT,
 
   /**
-   * Stretch all space.
+   * When the list continues to be dragged after scrolling to the edge, the spacing between all list items increases.
+   * This is suitable for scenarios that require synchronous stretching feedback of all list items.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -346,7 +351,10 @@ declare enum ScrollSnapAlign {
 }
 
 /**
- * Defines the chain animation options.
+ * Defines a collection of chain animation effect attributes, used to set the maximum spacing, minimum spacing,
+ * animation intensity, conduction coefficient, edge effect, stiffness, and damping of the list. When the list requires
+ * fine-grained control over the chained linkage elastic effect, different animation feels can be achieved by adjusting
+ * the parameters in this object.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -798,10 +806,9 @@ interface ListOptions {
 
   /**
    * Spacing between list items along the main axis.
-   * <br>Default value: **0**
+   * Default value: **0**.
    * <br>If the parameter type is number, the unit is vp.
    * Anonymous Object Rectification.
-   *
    * <p><strong>NOTE</strong>
    * <br>If this parameter is set to a negative number or a value greater than or equal to the length of the list
    * content area, the default value is used.
@@ -1505,9 +1512,21 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   chainAnimation(value: boolean): ListAttribute;
 
   /**
-   * Called to setting chain linkage dynamic effect options.
+   * Sets the configuration parameters of the chain animation effect. After the chain animation effect is enabled for
+   * the list, the spacing between list items changes in a linked manner following the spring physics animation during
+   * scrolling or dragging.
    *
-   * @param { ChainAnimationOptions } value - options of the chain animation.
+   * > **NOTE**
+   * >
+   * > The chain animation effect takes effect only when the list is in single-column mode and the edge effect is of the
+   * > **EdgeEffect.Spring** type. After the chain animation effect is enabled, the divider of the list is not
+   * > displayed. If the space parameter is not set and the chain animation effect is enabled, the spacing defaults to
+   * > 20 vp. For details, see
+   * > [chainAnimation]{@link ListAttribute#chainAnimation}.
+   *
+   * @param { ChainAnimationOptions } value - Configuration parameters of the chained linkage animation effect,
+   *     including minimum spacing, maximum spacing, conduction coefficient, effect intensity, edge effect, stiffness,
+   *     and damping, used to control the chained linkage animation effect behavior of the list.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
