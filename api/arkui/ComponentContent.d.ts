@@ -24,16 +24,19 @@ import { UIContext } from '../@ohos.arkui.UIContext';
 import { WrappedBuilder } from 'wrappedBuilderObject';
 
 /**
- * You can create an entity encapsulation component in either of the following ways: You can select either of the
- * following methods during development:
+ * You can create an entity encapsulation component in either of the following ways: **ComponentContent** requires
+ * manual content updates through the update API, which is mainly suitable for decoupled encapsulation scenarios such as
+ * dialog boxes. **ReactiveComponentContent** supports automatic updates of responsive data, complete lifecycle
+ * management, and component reuse, making it suitable for high-performance rendering scenarios such as long lists.
  *
  * **ComponentContent** represents an entity encapsulation of component content, which can be created and transmitted
  * outside of UI components. It allows you to encapsulate and decouple dialog box components. Its underlying
  * implementation uses BuilderNode. For details, see [BuilderNode]{@link ./BuilderNode}.
  *
- * **ReactiveComponentContent** represents an entity encapsulation of component content, which can be created and
- * transmitted outside of UI components. It allows you to encapsulate and decouple dialog box components. Its underlying
- * implementation uses **ReactiveBuilderNode**. For details, see
+ * **ReactiveComponentContent** represents an entity encapsulation of component content, and its objects can be created
+ * and transmitted outside of UI components. It supports automatic updates of responsive data, complete lifecycle
+ * management, and component reuse, making it suitable for scenarios requiring high-performance rendering such as long
+ * lists. Its underlying layer uses **ReactiveBuilderNode**. For specific usage specifications, see
  * [ReactiveBuilderNode]{@link ./BuilderNode:ReactiveBuilderNode}.
  *
  * > **NOTE**
@@ -69,7 +72,9 @@ export class ComponentContent<T extends Object> extends Content {
    * @param { UIContext } uiContext - UI context required for creating a node.
    * @param { WrappedBuilder<[T]> } builder - **WrappedBuilder** object that encapsulates a builder function that has
    *     parameters.
-   * @param { T } args - Parameters of the builder function encapsulated in the **WrappedBuilder** object.
+   * @param { T } args - Arguments of the builder function wrapped by the **WrappedBuilder** object. The type **T** must
+   *     be consistent with the parameter type specified in `WrappedBuilder<[T]>`. It is used to pass external data to
+   *     the builder function for building UI content.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -84,9 +89,11 @@ export class ComponentContent<T extends Object> extends Content {
    * @param { UIContext } uiContext - UI context required for creating a node.
    * @param { WrappedBuilder<[T]> } builder - **WrappedBuilder** object that encapsulates a builder function that has
    *     parameters.
-   * @param { T } args - Parameters of the builder function encapsulated in the **WrappedBuilder** object.
-   * @param { BuildOptions } options - Build options, which determine whether to support the behavior of nesting
-   *     **@Builder** within **@Builder**.
+   * @param { T } args - Arguments of the builder function encapsulated by the **WrappedBuilder** object. The type **T**
+   *     must be consistent with the parameter type specified in `WrappedBuilder<[T]>`. It is used to pass external data
+   *     to the builder function for building UI content.
+   * @param { BuildOptions } options - Build options, which are used to configure the build behavior of **@Builder**.
+   *     All attributes in **BuildOptions** are optional.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -96,13 +103,14 @@ export class ComponentContent<T extends Object> extends Content {
   constructor(uiContext: UIContext, builder: WrappedBuilder<[T]>, args: T, options: BuildOptions);
 
   /**
-   * Updates the builder function parameters encapsulated by the
-   * [WrappedBuilder](docroot://ui/state-management/arkts-wrapBuilder.md) object. The parameter type must be the same as
-   * that passed by constructor.
+   * Updates the arguments of the builder function encapsulated by the
+   * [WrappedBuilder](docroot://ui/state-management/arkts-wrapBuilder.md) object, keeping consistent with the parameter
+   * type specified in the constructor. This API is suitable for scenarios where component content needs to change
+   * dynamically, such as updating dialog box content.
    *
-   * @param { T } args - Updates the builder function parameters encapsulated by the
+   * @param { T } args - Arguments used to update the builder function encapsulated by the
    *     [WrappedBuilder](docroot://ui/state-management/arkts-wrapBuilder.md) object. The parameter type must be the
-   *     same as that passed by constructor.
+   *     same as that passed by the constructor.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -112,18 +120,20 @@ export class ComponentContent<T extends Object> extends Content {
   update(args: T): void;
 
   /**
-   * Triggers component reuse for custom components under this **ComponentContent**. For details about component reuse,
-   * see [@Reusable Decorator: Reusing V1 Components](docroot://ui/state-management/arkts-reusable.md). For details
-   * about the scenarios involving **ComponentContent** unbinding, see
+   * Triggers component reuse for custom components in **ComponentContent**. For details about component reuse, see
+   * [@Reusable Decorator: Reusing V1 Components](docroot://ui/state-management/arkts-reusable.md). For the unbinding
+   * scenarios of **ComponentContent**, see
    * [Canceling the Reference to the Entity Node](docroot://ui/arkts-user-defined-arktsNode-builderNode.md#canceling-the-reference-to-the-entity-node).
+   * **ComponentContent** transfers reuse events between its internal and external custom components through the reuse
+   * and [recycle]{@link ComponentContent#recycle} APIs. For specific usage scenarios, see
+   * [Implementing Node Reuse with the BuilderNode reuse and recycle APIs](docroot://ui/arkts-user-defined-arktsNode-builderNode.md#implementing-node-reuse-with-the-buildernode-reuse-and-recycle-apis).
    * Since API version 26.0.0, custom components in **ComponentContent** support V2 component reuse. For details, see
-   * [@ReusableV2 Decorator: Reusing Components](docroot://ui/state-management/arkts-new-reusableV2.md).
+   * [@Reusable V2 Decorator: Reusing V2 Components](docroot://ui/state-management/arkts-new-reusableV2.md).
    *
    * @param { Object } [param] - Parameters for **ComponentContent** reuse. This parameter is passed to all top-level
    *     custom components within the **ComponentContent** during reuse and must include all required constructor
    *     parameters for each component; otherwise, undefined behavior may occur. Calling this method synchronously
-   *     triggers the
-   *     [aboutToReuse](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoreuse10)
+   *     triggers the [aboutToReuse]{@link @ohos.arkui.StateManagement:CustomComponentLifecycleObserver.aboutToReuse}
    *     lifecycle callback of internal custom components, with this parameter as the callback input. The default value
    *     is undefined. In this case, the custom component in ComponentContent directly uses the data source during
    *     construction.
@@ -161,10 +171,13 @@ export class ComponentContent<T extends Object> extends Content {
    *
    * > **NOTE**
    * >
-   * > After calling **dispose()**, the **ComponentContent** object cancels its reference to the backend entity node. If
-   * > the frontend object **ComponentContent** cannot be released, memory leaks may occur. To avoid this, be sure to
-   * > call **dispose()** on the **ComponentContent** object when you no longer need it. This reduces the complexity of
-   * > reference relationships and lowers the risk of memory leaks.
+   * > After the **ComponentContent** object calls **dispose**, the reference relationship with the backend entity node
+   * > is released. Calling other APIs of this object after the call to **dispose** may cause crashes or return default
+   * > values. It is recommended to check the node validity through the [isDisposed]{@link ComponentContent#isDisposed}
+   * > API before operating it. If the frontend object **ComponentContent** cannot be released, memory leaks may easily
+   * > occur. You are advised to proactively call **dispose** to release the backend node when the
+   * > **ComponentContent object** is no longer needed, to reduce the complexity of reference relationships and lower
+   * > the risk of memory leaks.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -175,8 +188,9 @@ export class ComponentContent<T extends Object> extends Content {
   dispose(): void;
 
   /**
-   * Transfers a system environment change event and triggers full update of a node. For details about system
-   * environment changes, see
+   * Transfers a system environment change event and triggers full update of a node. This API is suitable for scenarios
+   * where the node needs to respond to system configuration changes, such as switching between light and dark modes,
+   * language changes, and font size adjustments. For details about system environment changes, see
    * [@ohos.app.ability.Configuration (Environment Variables)]{@link @ohos.app.ability.Configuration:Configuration}.
    *
    * > **NOTE**
@@ -193,19 +207,24 @@ export class ComponentContent<T extends Object> extends Content {
 
   /**
    * Sets whether the current **ComponentContent** object inherits the freeze policy from its parent component's custom
-   * components. When inheritance is disabled (set to **false**), the **ComponentContent** object's freeze policy is set
-   * to **false**, which means its associated node remains unfrozen even in an inactive state.
+   * components. The freeze policy controls whether a component pauses state refresh when inactive. When inheritance is
+   * disabled (set to **false**), the **ComponentContent** object's freeze policy is set to **false**. This API is
+   * suitable for scenarios such as multi-page navigation (**Navigation**) that require freeze management of inactive
+   * components.
    *
    * > **NOTE**
    * >
-   * > When **inheritFreezeOptions** is set to **true** for **ComponentContent** and the parent component is a custom
-   * > component, BuilderNode, ComponentContent, ReactiveBuilderNode, or ReactiveComponentContent, the freeze policy of
-   * > the parent component is inherited. If the child component is a custom component, its freeze policy is not
-   * > transferred to the child component.
+   * > When **inheritFreezeOptions** is set to **true** for ComponentContent and the parent component is a custom
+   * > component, **BuilderNode**, **ComponentContent**, **ReactiveBuilderNode**, or **ReactiveComponentContent**, the
+   * > freeze policy of the parent component is inherited. When the child component is a custom component, the freeze
+   * > policy of ComponentContent is not transferred to the child component.
    *
-   * @param { boolean } enabled - Whether the current **ComponentContent** object inherits the freeze policy from its
-   *     parent component's custom components. The value **true** means to inherit the freeze policy from the parent
-   *     component's custom components, and **false** means the opposite.
+   * @param { boolean } enabled - Whether the **ComponentContent** object inherits the freeze policy from its parent
+   *     component's custom components.
+   *     <br>**true**: Inherits the freeze policy from its parent component's custom components. **false**: Does not
+   *     inherit the freeze policy from its parent component's custom components.
+   *     <br>**Note**: The value **true** takes effect only when the parent component is a custom component,
+   *     **BuilderNode**, **ComponentContent**, **ReactiveBuilderNode**, or **ReactiveComponentContent**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -265,13 +284,14 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
    * Constructor of ReactiveComponentContent.
    *
    * @param { UIContext } uiContext - UI context required for creating a node.
-   * @param { WrappedBuilder<T> } builder - Encapsulates the WrappedBuilder object of the @Builder function with
+   * @param { WrappedBuilder<T> } builder - **WrappedBuilder** object that encapsulates a builder function with
    *     parameters.
-   * @param { BuildOptions } config - Configures the build behavior of the builder. All attributes in BuildOptions are
-   *     optional. The default value is the corresponding default value in BuildOptions.
-   * @param { T } args - Parameters of the builder function encapsulated in the **WrappedBuilder** object. Transfers
-   *     external data to the WrappedBuilder<T&gt and build functions specified in the constructor. Multiple input
-   *     parameters are supported. The default value is **undefined**.
+   * @param { BuildOptions } config - Build options, used to configure the build behavior of **@Builder**. All
+   *     attributes in **BuildOptions** are optional.
+   * @param { T } args - Arguments of the builder function encapsulated by the **WrappedBuilder** object, used to
+   *     transfer external data to the builder function of **WrappedBuilder<T>** specified in the constructor. The type
+   *     **T** must be consistent with the parameter type specified in **WrappedBuilder<T>**. Multiple input parameters
+   *     are supported. The default value is an empty array **[]** when no parameter is passed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -288,18 +308,18 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
    * Since API version 26.0.0, custom components in **ReactiveComponentContent** support V2 component reuse. For
    * details, see [@ReusableV2 Decorator: Reusing Components](docroot://ui/state-management/arkts-new-reusableV2.md).
    *
-   * **ReactiveComponentContent** completes the reuse event transfer between internal and external custom components
-   * through **reuse** and [recycle]{@link ComponentContent#recycle}. For specific usage scenarios, see
+   * **ReactiveComponentContent** transfers reuse events between its internal and external custom components through the
+   * reuse and [recycle]{@link ReactiveComponentContent#recycle} APIs. For specific usage scenarios, see
    * [Implementing Node Reuse with the BuilderNode reuse and recycle APIs](docroot://ui/arkts-user-defined-arktsNode-builderNode.md#implementing-node-reuse-with-the-buildernode-reuse-and-recycle-apis).
    *
    * @param { Object } [param] - Parameter used to reuse [ReactiveComponentContent]{@link ReactiveComponentContent}.
    *     This parameter is directly used for reusing all top-level custom components in **ReactiveComponentContent**. It
    *     should contain the content required by the constructor parameters of each custom component. Otherwise,
    *     undefined behavior may occur. Calling this method synchronously triggers the
-   *     [aboutToReuse](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoreuse10)
-   *     lifecycle callback of internal custom components, with this parameter as the callback input. The default value
-   *     is undefined. In this case, the custom component in ReactiveComponentContent directly uses the data source
-   *     during construction.
+   *     [aboutToReuse]{@link @ohos.arkui.StateManagement:CustomComponentLifecycleObserver.aboutToReuse} lifecycle
+   *     callback of internal custom components, with this parameter as the callback input. The default value is
+   *     undefined. In this case, the custom component in ReactiveComponentContent directly uses the data source during
+   *     construction.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -315,8 +335,8 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
    * .0.0, custom components in **ReactiveComponentContent** support V2 component reuse. For details, see
    * [@ReusableV2 Decorator: Reusing Components](docroot://ui/state-management/arkts-new-reusableV2.md).
    *
-   * **ReactiveComponentContent** completes the reuse event transfer between internal and external custom components
-   * through [reuse]{@link ComponentContent#reuse} and **recycle**. For specific usage scenarios, see
+   * **ReactiveComponentContent** transfers reuse events between its internal and external custom components through the
+   * [reuse]{@link ReactiveComponentContent#reuse} and recycle APIs. For specific usage scenarios, see
    * [Implementing Node Reuse with the BuilderNode reuse and recycle APIs](docroot://ui/arkts-user-defined-arktsNode-builderNode.md#implementing-node-reuse-with-the-buildernode-reuse-and-recycle-apis).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -335,10 +355,13 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
    *
    * > **NOTE**
    * >
-   * > After calling **dispose**, the **ReactiveComponentContent** object cancels its reference to the backend entity
-   * > node. If the frontend object **ReactiveComponentContent** cannot be released, memory leaks may occur. To avoid
-   * > this, be sure to call **dispose** on the **ReactiveComponentContent** object when you no longer need it. This
-   * > reduces the complexity of reference relationships and lowers the risk of memory leaks.
+   * > After the **ReactiveComponentContent** object calls the **dispose** API, the reference relationship with the
+   * > backend entity node is released. Calling other APIs of this object after the call to **dispose** may cause
+   * > crashes or return default values. It is recommended to check the node validity through the
+   * > [isDisposed]{@link ReactiveComponentContent#isDisposed} API before operating it. If the frontend
+   * > **ReactiveComponentContent** object cannot be released, memory leaks may easily occur. You are advised to
+   * > proactively call **dispose** to release the backend node when the **ReactiveComponentContent** object is no
+   * > longer needed, to reduce the complexity of reference relationships and lower the risk of memory leaks.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -349,9 +372,10 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
   dispose(): void;
 
   /**
-   * Transfers a system environment change event and triggers full update of a node. This event can be used to notify
-   * the object of the update. Whether the system environment used by the object is updated depends on the current
-   * system environment change of the application. For details about system environment changes, see
+   * Transfers a system environment change event and triggers full update of a node, which is used to notify the object
+   * to update the system environment configuration in use. This API is suitable for scenarios where the node needs to
+   * respond to system configuration changes, such as switching between light and dark modes, language changes, and font
+   * size adjustments. For details about system environment changes, see
    * [@ohos.app.ability.Configuration (Environment Variables)]{@link @ohos.app.ability.Configuration:Configuration}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -363,11 +387,11 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
   updateConfiguration(): void;
 
   /**
-   * Updates **ReactiveComponentContent**. If the bound parameters used in the **builder** function encapsulated by the
+   * Updates **ReactiveComponentContent**. If the bound parameters used in the builder function encapsulated by the
    * [WrappedBuilder](docroot://ui/state-management/arkts-wrapBuilder.md) object in **ReactiveComponentContent** are
-   * class instances decorated by the V1 decorator (such as @Observed), you need to manually call this API to update
+   * class instances decorated by V1 decorators (such as **@Observed**), you need to manually call this API to update
    * data after the data of this class changes. If the bound parameters are class instances decorated by the V2
-   * decorator (such as @ObservedV2), the data can be automatically updated without manual calling.
+   * decorator (such as **@ObservedV2**), the data can be automatically updated without manual calling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -379,21 +403,25 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
 
   /**
    * Sets whether the current **ReactiveComponentContent** object inherits the freeze policy configured by
-   * [ComponentOptions]{@link ComponentOptions} from its parent component's custom components. When inheritance is
-   * disabled (set to **false**), the **ReactiveComponentContent** object's freeze policy is set to **false**, which
-   * means its associated node remains unfrozen even in an inactive state.
+   * [ComponentOptions]{@link ComponentOptions} from its parent component's custom components. The freeze policy
+   * controls whether a component pauses state refresh when inactive. When inheritance is disabled (set to **false**),
+   * the **ReactiveComponentContent** object's freeze policy is set to **false**. This API is suitable for scenarios
+   * such as multi-page navigation (**Navigation**) that require freeze management of inactive components.
    *
    * > **NOTE**
    * >
-   * > When **inheritFreezeOptions** is set to **true** for a **ReactiveComponentContent** object, and its parent
-   * > component is a custom component, **BuilderNode**, **ComponentContent**, **ReactiveBuilderNode**, or
-   * > **ReactiveComponentContent**, it will inherit the parent component's freeze policy. If the child component is a
-   * > custom component, its freeze policy is not transferred to the child component.
+   * > When **inheritFreezeOptions** is set to **true** for ReactiveComponentContent and the parent component is a
+   * > custom component, **BuilderNode**, **ComponentContent**, **ReactiveBuilderNode**, or
+   * > **ReactiveComponentContent**, the freeze policy of the parent component is inherited. When the child component is
+   * > a custom component, the freeze policy of **ReactiveComponentContent** is not transferred to the child component.
    *
    * @param { boolean } enabled - Whether the **ReactiveComponentContent** object inherits the freeze policy from its
    *     parent component's custom components.
-   *     <br>The value **true** means to inherit the freeze policy from the parent component's custom components, and
-   *     **false** means the opposite.
+   *     <br>**true**: Inherits the freeze policy from its parent component's custom components. **false**: Does not
+   *     inherit the freeze policy from its parent component's custom components.
+   *     <br>**Note:** Only when the parent component is a custom component, **BuilderNode**, **ComponentContent**,
+   *     **ReactiveBuilderNode**, or **ReactiveComponentContent**, setting the parameter to **true** will inherit the
+   *     freeze policy from the parent component's custom components.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -403,14 +431,15 @@ export class ReactiveComponentContent<T extends Object[]> extends Content {
   inheritFreezeOptions(enabled: boolean): void;
 
   /**
-   * Checks whether this **ReactiveComponentContent** object has released its reference to its backend entity node.
-   * Frontend nodes maintain references to corresponding backend entity nodes. After a node calls the **dispose** API to
-   * release this reference, subsequent API calls may cause crashes or return default values. This API facilitates
-   * validation of node validity prior to operations, thereby mitigating risks in scenarios where calls after disposal
-   * are required.
+   * Queries whether the current **ReactiveComponentContent** object has released the reference relationship with the
+   * backend entity node. Frontend nodes are bound to corresponding backend entity nodes. After a node calls the
+   * **dispose** API to release the binding, calling other APIs again may cause crashes or return default values. Due to
+   * service requirements, there may be cases where a node is still called after the call to **dispose**. Therefore,
+   * this API is provided for you to check the validity of the node before operating it, to avoid potential risks.
    *
-   * @returns { boolean } Whether the reference to the backend node is released.
-   *     <br>The value **true** means that the reference to backend node is released, and **false** means the opposite.
+   * @returns { boolean } Whether the reference to the backend entity node has been released.
+   *     <br>**true**: The node has released the reference to the backend entity node; **false**: The node has not
+   *     released the reference to the backend entity node.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

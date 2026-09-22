@@ -19,7 +19,7 @@
  */
 
 /**
- * Defines a type for memory optimization strategy.
+ * Enumerates the memory optimization strategies of **LazyForEach**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29,7 +29,7 @@
  */
 declare enum LazyForEachMemOptStrategy {
   /**
-   * No memory optimization.
+   * No memory optimization strategy.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -39,7 +39,25 @@ declare enum LazyForEachMemOptStrategy {
    */
   DEFAULT = 0,
   /**
-   * LazyForEach handles the memory optimization.
+   * Automatic memory optimization strategy. When the number of list items carried by **LazyForEach** is large (for
+   * example, hundreds or more) or the structure of a single child component is complex (for example, containing multiple
+   * nested layers or dozens of child nodes), resulting in high memory usage (which can be detected through a performance
+   * analysis tool), it is recommended to use this strategy to reduce memory usage.
+   *
+   * When the application moves to the background, when the component where **LazyForEach** resides is invisible (the
+   * [visibility]{@link CommonMethod#visibility} attribute is set to a value other than [Visible]{@link Visibility}, or
+   * the component area is 0, regardless of occlusion), or when the device is low on memory
+   * ([MemoryLevel]{@link @ohos.app.ability.AbilityConstant:AbilityConstant.MemoryLevel} reaches **MEMORY_LEVEL_LOW** or
+   * **MEMORY_LEVEL_CRITICAL**), for devices with memory greater than 6 GB, some nodes in the
+   * [preload area](docroot://ui/rendering-control/arkts-rendering-control-overview.md#basic-concepts) are released until
+   * the number of nodes in both the upper and lower preload areas does not exceed 2; for devices with memory less than
+   * or equal to 6 GB, all nodes in the preload area are released.
+   *
+   * When the application returns to the foreground, when the component where **LazyForEach** resides becomes visible
+   * again, or when **LazyForEach** scrolls, the nodes in the preload area are restored.
+   *
+   * Releasing and restoring nodes triggers the
+   * [custom component lifecycle](docroot://ui/state-management/arkts-page-custom-components-lifecycle.md).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -51,7 +69,28 @@ declare enum LazyForEachMemOptStrategy {
 }
 
 /**
- * Defines the options for LazyForEach.
+ * Configures the resource release strategy and memory optimization strategy of **LazyForEach**, and whether to enable
+ * custom component freezing.
+ *
+ * > **NOTE**
+ * >
+ * > 1. When using **LazyForEachOptions**, ensure that the **keyGenerator** function has been defined; otherwise,
+ * > compilation will fail.
+ * >
+ * > 2. Custom component freezing: When a custom component is directly used under **LazyForEach**, this configuration
+ * > determines whether to enable the freezing feature of the custom component. Once enabled, when the custom component
+ * > is outside the visible area, the framework pauses the processing logic such as state variable updates of the
+ * > component to reduce resource consumption; when the component re-enters the visible area, normal processing resumes.
+ * >
+ * > 3. Resource release strategy: **LazyForEach** manages the nodes in the on-screen area and the preloading area. When
+ * > a node slides out of the preloading area and leaves the management scope of **LazyForEach**, **LazyForEach** no
+ * > longer manages the node, and the node resources are released. The **BATCH** mode is used by default, in which
+ * > **LazyForEach** releases all nodes to be released in the current frame. The **PROGRESSIVE** mode releases resources
+ * > one by one, and when releasing the resources of each node, it checks whether the time of the current frame is
+ * > sufficient; if not, the release is postponed to subsequent frames. Under this strategy, **LazyForEach** may hold
+ * > node resources, and the nodes in the cache pool cannot be replenished in time, which reduces the reuse rate in
+ * > scenarios where nodes are obtained quickly. Developers should select an appropriate resource release strategy based
+ * > on the application scenario.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -61,7 +100,10 @@ declare enum LazyForEachMemOptStrategy {
  */
 declare interface LazyForEachOptions {
   /**
-   * Memory optimization strategy for LazyForEach.
+   * Memory optimization strategy of **LazyForEach**. This parameter is set when **LazyForEach** is created and does not
+   * support dynamic modification.
+   *
+   * Default value: [DEFAULT]{@link LazyForEachMemOptStrategy}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -72,8 +114,9 @@ declare interface LazyForEachOptions {
   memoryOptimizationStrategy?: LazyForEachMemOptStrategy;
 
   /**
-   * Freeze mode for cached custom nodes that have been removed from the
-   * component tree. Default value: LazyForEachCustomComponentFreezeMode.AUTO.
+   * Whether to enable custom component freezing. It takes effect only when a custom component is directly used under
+   * **LazyForEach**, and does not apply to other cases.
+   * Default value: [AUTO]{@link LazyForEachCustomComponentFreezeMode}.
    *
    * @default LazyForEachCustomComponentFreezeMode.AUTO
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -85,8 +128,8 @@ declare interface LazyForEachOptions {
   customComponentFreezeMode?: LazyForEachCustomComponentFreezeMode;
 
   /**
-   * Resource release strategy for LazyForEach discarded nodes.
-   * Default value: LazyForEachReleaseStrategy.BATCH.
+   * Resource release strategy for **LazyForEach**.
+   * Default value: [BATCH]{@link LazyForEachReleaseStrategy}.
    *
    * @default LazyForEachReleaseStrategy.BATCH
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -176,7 +219,7 @@ declare enum DataOperationType {
 }
 
 /**
- * Enumerates the release strategies for LazyForEach discarded nodes.
+ * Selects the resource release strategy of **LazyForEach**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -186,7 +229,11 @@ declare enum DataOperationType {
  */
 declare enum LazyForEachReleaseStrategy {
   /**
-   * Release all discarded nodes during the next idle period.
+   * **BATCH** is the resource release strategy used by default. This strategy releases the resources of all discarded
+   * nodes in the current frame. If node reuse exists, the node reuse rate can be maximized. However, if a node has a
+   * deep component hierarchy or a large number of child components, releasing the resources of a single node takes a
+   * long time. Releasing a large number of nodes in the current frame may cause an oversized frame and affect
+   * performance.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -197,9 +244,12 @@ declare enum LazyForEachReleaseStrategy {
   BATCH = 0,
 
   /**
-   * Release discarded nodes one by one during the next idle period based on the
-   * remaining time of the current frame. Unreleased nodes will continue to be
-   * released in subsequent idle periods based on the available idle time.
+   * **PROGRESSIVE** is a strategy that automatically adjusts node release based on the node release time and the
+   * remaining time of the current frame. If the remaining time of the current frame is insufficient to release the
+   * remaining nodes, the release is postponed to subsequent frames, avoiding oversized frames and optimizing
+   * performance. In this case, **LazyForEach** continues to hold the nodes, which may reduce the reuse rate. When a
+   * large number of nodes are generated and cannot be released in time, memory usage increases accordingly. Developers
+   * need to pay attention to the impact on performance and memory and select a proper resource release strategy.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -211,8 +261,12 @@ declare enum LazyForEachReleaseStrategy {
 }
 
 /**
- * Enumerates the freeze modes for cached custom nodes that have been removed
- * from the component tree in LazyForEach.
+ * Selects whether to enable custom component freezing.
+ *
+ * > **NOTE**
+ * >
+ * > This configuration is added only when a custom component is directly used under **LazyForEach**. It is not
+ * > applicable in other cases.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -222,8 +276,7 @@ declare enum LazyForEachReleaseStrategy {
  */
 declare enum LazyForEachCustomComponentFreezeMode {
   /**
-   * Follow the enableCustomComponentFreeze field in Metadata to determine
-   * whether freezing takes effect.
+   * Follows the **metadata** settings in the **module.json5** configuration file.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -234,7 +287,7 @@ declare enum LazyForEachCustomComponentFreezeMode {
   AUTO = 0,
 
   /**
-   * Freezing is disabled for cached custom nodes removed from the component tree.
+   * Does not enable custom component freezing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -245,8 +298,7 @@ declare enum LazyForEachCustomComponentFreezeMode {
   DISABLED = 1,
 
   /**
-   * Freezing is enabled for cached custom nodes removed from the component tree.
-   * State updates of cached custom components will be frozen.
+   * Enables custom component freezing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -268,7 +320,7 @@ declare enum LazyForEachCustomComponentFreezeMode {
  */
 interface DataAddOperation {
   /**
-   * Type of data addition.
+   * Data addition type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -279,7 +331,8 @@ interface DataAddOperation {
   type: DataOperationType.ADD;
 
   /**
-   * Index at which to insert the data record. The value range is [0, data source length].
+   * Index of the added data. The value range is [0, data source length]. Rendering is abnormal when the value exceeds
+   * the range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -290,9 +343,8 @@ interface DataAddOperation {
   index: number;
 
   /**
-   * Number of data records to insert.
-   *
-   * Default value: **1**
+   * Number of added data items. It must be a positive integer (greater than 0), and the default value is **1**.
+   * Passing 0 or a negative number may cause abnormal rendering.
    *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -304,7 +356,9 @@ interface DataAddOperation {
   count?: number;
 
   /**
-   * Keys to assign to the inserted data records. The original keys are used by default.
+   * Assigns a key to the added data. The original key is used by default. The key supports the string or
+   * Array\<string\> type. If the key is an array whose length is greater than **count**, an invalid parameter error is
+   * reported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -326,7 +380,7 @@ interface DataAddOperation {
  */
 interface DataDeleteOperation {
   /**
-   * Type of data deletion.
+   * Data deletion type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -337,7 +391,8 @@ interface DataDeleteOperation {
   type: DataOperationType.DELETE;
 
   /**
-   * Index at which to start deleting data. The value range is [0, data source length - 1].
+   * Index of the start position for deletion. The value range is [0, data source length - 1]. Rendering is abnormal
+   * when the value exceeds the value range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -348,9 +403,10 @@ interface DataDeleteOperation {
   index: number;
 
   /**
-   * Number of data records to delete.
-   *
-   * Default value: **1**
+   * Number of data items to delete. It must be a positive integer (greater than 0), and the sum of **index** and
+   * **count** must not exceed the data source length. The default value is 1. If a negative number is passed in, this
+   * operation is ignored. If 0 is passed in, the data item at the **index** position is abnormally marked for deletion.
+   * If the sum of **index** and **count** exceeds the data source length, rendering may be abnormal.
    *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -373,7 +429,7 @@ interface DataDeleteOperation {
  */
 interface DataChangeOperation {
   /**
-   * Type of data change.
+   * Data change type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -384,7 +440,8 @@ interface DataChangeOperation {
   type: DataOperationType.CHANGE;
 
   /**
-   * Index of the data to be changed. The value range is [0, data source length - 1].
+   * Index of the changed data. The value range is [0, data source length - 1]. Rendering is abnormal when the value
+   * exceeds the value range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -417,7 +474,8 @@ interface DataChangeOperation {
  */
 interface MoveIndex {
   /**
-   * Start position for the movement. The value range is [0, data source length - 1].
+   * Start position of the move. The value range is [0, data source length - 1]. Rendering is abnormal when the value
+   * exceeds the value range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -427,7 +485,8 @@ interface MoveIndex {
    */
   from: number;
   /**
-   * End position for the movement. The value range is [0, data source length - 1].
+   * Target position of the move. The value range is [0, data source length - 1]. Rendering is abnormal when the value
+   * exceeds the value range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -449,7 +508,8 @@ interface MoveIndex {
  */
 interface ExchangeIndex {
   /**
-   * First position for the exchange. The value range is [0, data source length - 1].
+   * First swap position. The value range is [0, data source length - 1]. Rendering is abnormal when the value exceeds
+   * the value range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -459,7 +519,8 @@ interface ExchangeIndex {
    */
   start: number;
   /**
-   * Second position for the exchange. The value range is [0, data source length - 1].
+   * Second swap position. The value range is [0, data source length - 1]. Rendering is abnormal when the value exceeds
+   * the value range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -513,7 +574,7 @@ interface ExchangeKey {
  */
 interface DataMoveOperation {
   /**
-   * Type of data movement.
+   * Data move type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -524,7 +585,8 @@ interface DataMoveOperation {
   type: DataOperationType.MOVE;
 
   /**
-   * Positions for the movement. The value range is [0, data source length - 1].
+   * Move position. The value range is [0, data source length - 1]. Rendering is abnormal when the value exceeds the
+   * value range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -557,7 +619,7 @@ interface DataMoveOperation {
  */
 interface DataExchangeOperation {
   /**
-   * Type of data exchange.
+   * Data exchange type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -568,7 +630,8 @@ interface DataExchangeOperation {
   type: DataOperationType.EXCHANGE;
 
   /**
-   * Positions for the exchange. The value range is [0, data source length - 1].
+   * Exchange position. The value range is [0, data source length - 1]. Rendering is abnormal when the value exceeds
+   * the value range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -591,9 +654,24 @@ interface DataExchangeOperation {
 }
 
 /**
- * Represents an operation for reloading data. If the **onDatasetChange** event contains a **DataOperationType.RELOAD**
- * operation, all other operations in the event are ineffective. In such cases, the framework will call **keyGenerator**
- * to perform a comparison of keys with their corresponding values.
+ * Reloads all data operations and configures whether to allow reuse of old child components during the update. When
+ * **onDatasetChange** contains a **DataOperationType.RELOAD** operation, all other operations become invalid, and the
+ * framework calls **keyGenerator** to compare keys.
+ *
+ * When reuse of old child components during the update is allowed and used together with
+ * [@Reusable](docroot://ui/state-management/arkts-reusable.md)/[@ReusableV2](docroot://ui/state-management/arkts-new-reusableV2.md),
+ * components in the reuse pool are used first. If no reusable component is available in the reuse pool but a reusable
+ * component exists among the old child components of **LazyForEach**, that component will be recycled and reused as a
+ * new child component. If no reusable component exists among the old child components of **LazyForEach** either, a new
+ * child component will be created.
+ *
+ * When reuse of old child components during the update is allowed but **@Reusable/@ReusableV2** is not used, data items
+ * whose keys do not change will use the original child components, while those whose keys change will have their child
+ * components rebuilt.
+ *
+ * When reuse of old child components during the update is not allowed, data items whose keys do not change will use the
+ * original child components. For data items whose keys change, if **@Reusable/@ReusableV2** is used and a component is
+ * available in the reuse pool, the old component will be reused; otherwise, a new child component will be created.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -603,7 +681,7 @@ interface DataExchangeOperation {
  */
 interface DataReloadOperation {
   /**
-   * Type of data reloading.
+   * Type for reloading all data.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -614,11 +692,10 @@ interface DataReloadOperation {
   type: DataOperationType.RELOAD;
 
   /**
-   * Whether to enable the feature that reuse old child components when \@Reuseable or \@ReuseableV2 is used and
-   * recycle pool is empty.
-   * **true**: Enable the feature.
-   * **false**: Disable the feature.
-   * Default value: **false**.
+   * Whether to reuse the old child components during the update.
+   * **true**: allows reusing the old child components during the update.
+   * **false**: does not allow reusing the old child components during the update.
+   * Default value: **false**. When the value is **undefined** or **null**, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -648,14 +725,16 @@ declare type DataOperation =
   DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation | DataExchangeOperation | DataReloadOperation;
 
 /**
- * Listener for data changes.
+ * Defines the data change listener, used to notify the **LazyForEach** component to perform corresponding rendering
+ * updates when the data source changes. It supports listening for multiple data change types, including data addition,
+ * deletion, change, move, swap, and reload.
  *
  * > **NOTE**
  * >
- * > In APIs of **DataChangeListener** other than **onDatasetChange**, if the value of **index** is negative, the value
- * > is treated as **0** by default. In **onDatasetChange**, if the specified index in a **DataOperation** is outside
- * > the data source index range, the corresponding **DataOperation** does not take effect. (In **DataAddOperation**,
- * > the value of **index** can equal the data source length.)
+ * > In the methods of **DataChangeListener** other than **onDatasetChange**, when a parameter contains index and its
+ * > value is negative, it is replaced with 0 by default. In **onDatasetChange**, when a single **DataOperation**
+ * > parameter contains index and its value is outside the index range of the data source (in **DataAddOperation**,
+ * > **index** can be equal to the data source length), rendering exceptions may occur.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -668,6 +747,10 @@ declare interface DataChangeListener {
    * Invoked when all data is reloaded. For data items whose key remains unchanged, the original child component is
    * used. For data items whose key changes, a new child component is created.
    *
+   * > **NOTE**
+   * >
+   * > This API cannot be used together with the **onDatasetChange** API.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -677,15 +760,27 @@ declare interface DataChangeListener {
   onDataReloaded(): void;
 
   /**
-   * Invoked when all data is reloaded. When \@Reuseable or \@ReuseableV2 is used and recycle pool is empty, old child
-   * components will be recycled and then be reused as new child components. If no old child component can be reused,
-   * new child components will be created.
+   * Notifies components to reload all data and configures whether old child components can be reused during the update.
+   * This API must be used together with **@Reusable/@ReusableV2**. It is invoked after the data reload is complete.
    *
-   * @param { boolean } reuseImmediately - Whether to enable the feature that reuse old child components when
-   *     \@Reuseable or \@ReuseableV2 is used and recycle pool is empty.
-   *     <br>
-   *     **true**: Enable the feature.
-   *     <br>**false**: Disable the feature.
+   * When reuse of old child components during the update is allowed and this API is used together with
+   * [@Reusable](docroot://ui/state-management/arkts-reusable.md)/[@ReusableV2](docroot://ui/state-management/arkts-new-reusableV2.md),
+   * components in the reuse pool are used first. If no component in the reuse pool can be reused but there is a reusable
+   * component among the old child components of **LazyForEach**, that component is recycled and reused as a new child
+   * component. If no reusable component exists among the old child components of **LazyForEach** either, a new child
+   * component is created.
+   *
+   * When reuse of old child components during the update is allowed but **@Reusable/@ReusableV2** is not used, data
+   * items whose keys do not change use the original child components, while those whose keys change have their child
+   * components rebuilt.
+   *
+   * When reuse of old child components during the update is not allowed, data items whose keys do not change use the
+   * original child components. For data items whose keys change, if **@Reusable/@ReusableV2** is used and a component
+   * is available in the reuse pool, the old component is reused; otherwise, a new child component is created.
+   *
+   * @param { boolean } reuseImmediately - Whether old child components can be reused during the update.
+   *     <br>**true**: old child components can be reused during the update.
+   *     <br>**false**: old child components cannot be reused during the update.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -716,6 +811,10 @@ declare interface DataChangeListener {
 
   /**
    * Invoked when data is added to the position indicated by the specified index.
+   *
+   * > **NOTE**
+   * >
+   * > This API cannot be used together with the **onDatasetChange** API.
    *
    * @param { number } index - Index of the position where data is added. The value range is
    *     [0, data source length - 1].
@@ -759,8 +858,9 @@ declare interface DataChangeListener {
    *
    * > **NOTE**
    * >
-   * > The ID must remain unchanged before and after data movement. If the ID changes, APIs for deleting and adding data
-   * > must be called.
+   * > - The key must remain unchanged before and after the data move. If the key changes, use the data deletion and
+   * > data addition APIs instead.
+   * > - This API cannot be used together with the **onDatasetChange** API.
    *
    * @param { number } from - Original position of data. The value range is [0, data source length - 1].
    *     <br>If the value is less than 0, it is treated as **0**. If the value is greater than the data source length
@@ -803,8 +903,9 @@ declare interface DataChangeListener {
    *
    * > **NOTE**
    * >
-   * > Before **onDataDelete** is called, ensure that the corresponding data in **dataSource** has been deleted.
-   * > Otherwise, undefined behavior will occur during page rendering.
+   * > - Ensure that the corresponding data in **dataSource** has been deleted before **onDataDelete** is called.
+   * > Otherwise, undefined behavior may occur during page rendering.
+   * > - This API cannot be used together with the **onDatasetChange** API.
    *
    * @param { number } index - Index of the position where data is deleted. The value range is
    *     [0, data source length - 1].
@@ -838,7 +939,11 @@ declare interface DataChangeListener {
   onDataChanged(index: number): void;
 
   /**
-   * Invoked when data in the position indicated by the specified index is changed.
+   * Notifies components that the data at the **index** position has changed. Called after the data change is complete.
+   *
+   * > **NOTE**
+   * >
+   * > This API cannot be used together with the **onDatasetChange** API.
    *
    * @param { number } index - Index of the position where data is changed. The value range is
    *     [0, data source length - 1].
@@ -875,7 +980,9 @@ declare interface DataChangeListener {
 }
 
 /**
- * Data source of **LazyForEach**.
+ * Defines the data source of **LazyForEach**. The developer needs to implement this API to provide data access and
+ * data change notification capabilities, including obtaining the total number of data items, obtaining data by index,
+ * and registering and unregistering data change listeners.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -899,7 +1006,9 @@ declare interface IDataSource {
   /**
    * Obtains the data item that matches the specified index.
    *
-   * @param { number } index - Index of the data record to obtain. The value range is [0, data source length - 1].
+   * @param { number } index - Index of the data. The value range is [0, data source length - 1]. When the value
+   *     exceeds the range, the behavior is determined by the data source implementation. Developers are advised to
+   *     perform boundary checks.
    * @returns { any } Data item that matches the specified index. The actual type is determined by the data source
    *     implementation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -913,7 +1022,8 @@ declare interface IDataSource {
   /**
    * Registers a listener for data changes.
    *
-   * @param { DataChangeListener } listener - Listener for data changes.
+   * @param { DataChangeListener } listener - Data change listener, used to notify components to refresh when the data
+   *     source changes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -925,7 +1035,8 @@ declare interface IDataSource {
   /**
    * Unregisters the listener for data changes.
    *
-   * @param { DataChangeListener } listener - Listener for data changes.
+   * @param { DataChangeListener } listener - Data change listener, used to notify components to refresh when the data
+   *     source changes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -947,13 +1058,14 @@ declare interface IDataSource {
  */
 declare class LazyForEachAttribute extends DynamicNode<LazyForEachAttribute> {}
 /**
+ * **LazyForEach** is a lazy loading rendering control component that iterates data on demand from the provided data
+ * source and creates corresponding components. In scenarios with a large number of child components, **LazyForEach**,
+ * when used together with methods such as cached list items, dynamic preloading, and component reuse, can further
+ * improve the sliding frame rate and reduce the memory usage of the application. For best practices, see
+ * [Optimizing Frame Loss for Long List Loading](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-best-practices-long-list).
+ *
  * For details about the development, see
  * [LazyForEach: Lazy Data Loading](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md).
- *
- * In scenarios involving a large number of child components, LazyForEach, when combined with techniques such as cached
- * list items, dynamic preloading, and component reuse, can significantly improve scrolling frame rates while reducing
- * memory usage. For best practices, see
- * [Optimizing Frame Loss for Long List Loading](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-best-practices-long-list).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1032,13 +1144,14 @@ interface LazyForEachInterface {
 }
 
 /**
+ * **LazyForEach** is a lazy loading rendering control component that iterates data on demand from the provided data
+ * source and creates corresponding components. In scenarios with a large number of child components, **LazyForEach**,
+ * when used together with methods such as cached list items, dynamic preloading, and component reuse, can further
+ * improve the sliding frame rate and reduce the memory usage of the application. For best practices, see
+ * [Optimizing Frame Loss for Long List Loading](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-best-practices-long-list).
+ *
  * For details about the development, see
  * [LazyForEach: Lazy Data Loading](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md).
- *
- * In scenarios involving a large number of child components, LazyForEach, when combined with techniques such as cached
- * list items, dynamic preloading, and component reuse, can significantly improve scrolling frame rates while reducing
- * memory usage. For best practices, see
- * [Optimizing Frame Loss for Long List Loading](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-best-practices-long-list).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

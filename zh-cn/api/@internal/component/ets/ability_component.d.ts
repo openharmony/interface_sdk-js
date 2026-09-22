@@ -14,12 +14,18 @@
  */
 
 /**
- * @file
- * @kit ArkUI
+  * @file
+  * @kit ArkUI
  */
 
 /**
- * 创建AbilityComponent。
+ * 独立显示Ability的容器。
+ * 
+ * > **说明：**
+ * >
+ * > 从API version 10开始，该组件不再维护，推荐使用[UIExtensionComponent]{@link ./ui_extension_component}。
+ * >
+ * > 本模块为系统接口。
  *
  * @interface AbilityComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -33,7 +39,7 @@ interface AbilityComponentInterface {
   /**
    * 创建AbilityComponent。当AbilityComponent被使用时调用。
    *
-   * @param { object } value
+   * @param { object } value - 默认加载的Ability描述。
    * @returns { AbilityComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -84,6 +90,26 @@ declare class AbilityComponentAttribute extends CommonMethod<AbilityComponentAtt
 
 /**
  * 独立显示Ability的容器。
+ * 
+ * > **说明：**
+ * >
+ * > 从API version 10开始，该组件不再维护，推荐使用[UIExtensionComponent]{@link ./ui_extension_component}。
+ * >
+ * > 本模块为系统接口。
+ * 
+ * ###### 使用约束
+ * 
+ * AbilityComponent为独立层次渲染，不能在之上叠加其他显示内容。
+ * 
+ * AbilityComponent不支持处理输入事件，事件不经过当前Ability，直接分发给内部的Ability处理。
+ * 
+ * AbilityComponent需设置且只能设置width、height，且width、height不支持动态更新。
+ * 
+ * 被拉起的Ability必须继承[WindowExtension]{@link @ohos.application.WindowExtensionAbility}。
+ * 
+ * ###### 子组件
+ * 
+ * 无
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 9 dynamiconly

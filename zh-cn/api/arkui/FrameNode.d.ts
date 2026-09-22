@@ -651,8 +651,8 @@ export class FrameNode {
   /**
    * 根据指定的计数模式获取当前FrameNode的子节点数量。
    *
-   * @param { ChildrenCountMode } [countMode] - The children count mode. Default value is ChildrenCountMode.ALL_EXPAND.
-   * @returns { int } - Returns the number of children of the current FrameNode based on the count mode.
+   * @param { ChildrenCountMode } [countMode] - 子节点计数模式。默认值为ChildrenCountMode.ALL_EXPAND。
+   * @returns { int } - 根据计数模式返回的当前FrameNode的子节点数量。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

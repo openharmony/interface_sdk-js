@@ -5588,8 +5588,16 @@ declare type TransitionEffects = {
 };
 
 /**
- * Defined the draw modifier of node. Provides draw callbacks for the associated Node.
- * Each DrawModifier instance can be set for only one component. Repeated setting is not allowed.
+ * DrawModifier can set the drawing methods of the mask layer (drawOverlay<sup>23+</sup>), foreground
+ * (drawForeground<sup>20+</sup>), content foreground (drawFront), content (drawContent), and content background
+ * (drawBehind), and also provides the [invalidate]{@link DrawModifier#invalidate} method to actively trigger
+ * redrawing. Each DrawModifier instance can be set to only one component, and repeated setting is prohibited.
+ *
+ * > **NOTE**
+ * >
+ * > The drawing order from bottom to top is: content background (drawBehind) → content (drawContent) → content
+ * > foreground (drawFront) → foreground (drawForeground) → mask layer (drawOverlay). Each layer is drawn
+ * > independently, and the methods of each layer are optional to implement.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -5599,9 +5607,15 @@ declare type TransitionEffects = {
  */
 declare class DrawModifier {
   /**
-   * drawBehind Method. Executed before drawing associated Node.
+   * Draws the content background. Override this method to implement custom content background drawing. The background
+   * is located below the component content layer, and is suitable for scenarios where decorative background elements
+   * need to be added at the bottom layer of the component. The Canvas in the
+   * [DrawContext]{@link ./arkui/Graphics:DrawContext} of this API is a temporary canvas used to record
+   * instructions, not the actual canvas of the node. For usage, see
+   * [Adjusting the Transformation Matrix of the Custom Drawing Canvas](docroot://ui/arkts-user-defined-extension-drawModifier.md#adjusting-the-transformation-matrix-of-the-custom-drawing-canvas).
    *
-   * @param { DrawContext } drawContext - The drawContext used to draw.
+   * @param { DrawContext } drawContext - Graphics drawing context that provides properties such as canvas (canvas
+   *     object) and size (drawing area size), used to perform specific drawing operations in custom drawing methods.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5611,10 +5625,15 @@ declare class DrawModifier {
   drawBehind?(drawContext: DrawContext): void;
 
   /**
-   * drawContent Method. Executed when associated Node is drawing, the default drawContent method will be replaced
-   * if this method is set.
+   * Draws the content. Override this method to implement custom content drawing, which will replace the component's
+   * default content drawing function. It is suitable for scenarios where the component content drawing needs to be
+   * fully customized and the component's original content drawing logic is not used. The Canvas in the
+   * [DrawContext]{@link ./arkui/Graphics:DrawContext} of this API is a temporary canvas used to record
+   * instructions, not the actual canvas of the node. For usage, see
+   * [Adjusting the Transformation Matrix of the Custom Drawing Canvas](docroot://ui/arkts-user-defined-extension-drawModifier.md#adjusting-the-transformation-matrix-of-the-custom-drawing-canvas).
    *
-   * @param { DrawContext } drawContext - The drawContext used to draw.
+   * @param { DrawContext } drawContext - Graphics drawing context that provides properties such as canvas (canvas
+   *     object) and size (drawing area size), used to perform specific drawing operations in custom drawing methods.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5624,9 +5643,15 @@ declare class DrawModifier {
   drawContent?(drawContext: DrawContext): void;
 
   /**
-   * drawFront Method. Executed after drawing associated Node.
+   * Draws the content foreground. Override this method to implement custom content foreground drawing. The content
+   * foreground is located between the content and the foreground, and is suitable for scenarios where drawing content
+   * needs to be added above the component content and below the component foreground. The Canvas in the
+   * [DrawContext]{@link ./arkui/Graphics:DrawContext} of this API is a temporary canvas used to record
+   * instructions, not the actual canvas of the node. For usage, see
+   * [Adjusting the Transformation Matrix of the Custom Drawing Canvas](docroot://ui/arkts-user-defined-extension-drawModifier.md#adjusting-the-transformation-matrix-of-the-custom-drawing-canvas).
    *
-   * @param { DrawContext } drawContext - The drawContext used to draw.
+   * @param { DrawContext } drawContext - Graphics drawing context that provides properties such as canvas (canvas
+   *     object) and size (drawing area size), used to perform specific drawing operations in custom drawing methods.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5636,11 +5661,17 @@ declare class DrawModifier {
   drawFront?(drawContext: DrawContext): void;
 
   /**
-   * drawforeground Method. This method is executed after drawing the associated Node and its children.
-   * It allows you to perform additional drawing operations on top of the already rendered content.
-   * This can be useful for adding visual elements that should appear above the main content.
+   * Draws the foreground. Override this method to implement custom foreground drawing. Compared with
+   * [drawFront]{@link DrawModifier#drawFront} (content foreground), drawForeground is at a higher layer and is drawn
+   * above the content foreground and below the mask layer. drawFront is suitable for drawing the foreground effect of
+   * the component content itself, while drawForeground is suitable for scenarios where an additional foreground effect
+   * needs to be added above the content foreground. The Canvas in the
+   * [DrawContext]{@link ./arkui/Graphics:DrawContext} of this API is a temporary canvas used to record
+   * instructions, not the actual canvas of the node. For usage, see
+   * [Adjusting the Transformation Matrix of the Custom Drawing Canvas](docroot://ui/arkts-user-defined-extension-drawModifier.md#adjusting-the-transformation-matrix-of-the-custom-drawing-canvas).
    *
-   * @param { DrawContext } drawContext - The drawContext used to draw.
+   * @param { DrawContext } drawContext - Graphics drawing context that provides properties such as canvas (canvas
+   *     object) and size (drawing area size), used to perform specific drawing operations in custom drawing methods.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5650,14 +5681,15 @@ declare class DrawModifier {
   drawForeground(drawContext: DrawContext): void;
 
   /**
-   * Draws content in the overlay layer after the associated Node and all its children have been drawn.
-   * 
-   * Custom drawing consists of five layers: Behind, Content, Front, Foreground, and Overlay.
-   * 
-   * - The Foreground and Overlay layers are drawn after child nodes.
-   * - The Overlay layer differs from Foreground in that it can draw outside the bounds of the component.
+   * Interface for custom drawing of the mask. If this method is overridden, custom drawing of the mask can be
+   * performed. The mask is the topmost drawing layer, suitable for scenarios where a mask effect (such as highlighting
+   * or masking) needs to be added to the topmost layer of a component. The Canvas in
+   * [DrawContext]{@link ./arkui/Graphics:DrawContext} of this interface is a temporary canvas used to record
+   * instructions, not the actual canvas of the node. For usage, see
+   * [Adjusting the Transformation Matrix of the Custom Drawing Canvas](docroot://ui/arkts-user-defined-extension-drawModifier.md#adjusting-the-transformation-matrix-of-the-custom-drawing-canvas).
    *
-   * @param { DrawContext } drawContext - The drawContext used to draw
+   * @param { DrawContext } drawContext - Graphics drawing context that provides properties such as canvas (canvas
+   *     object) and size (drawing area size), used to perform specific drawing operations in custom drawing methods.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5667,8 +5699,10 @@ declare class DrawModifier {
   drawOverlay(drawContext: DrawContext): void;
 
   /**
-   * Invalidate the component, which will cause a re-render of the component.
-   * No overloading is allowed or needed.
+   * Interface for proactively triggering redrawing. Developers do not need to and cannot override this method. Calling
+   * it triggers redrawing of the bound component. When the attributes that custom drawing depends on (such as size,
+   * color, and position) change, for example, when drawing parameters are dynamically updated during an animation,
+   * call this method to make the latest drawing effect take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17936,135 +17970,265 @@ declare interface MenuElement {
 }
 
 /**
- * Defines the attribute modifier.
+ * You need a custom class to implement the **AttributeModifier** API.
+ * 
+ * > **NOTE**
+ * >
+ * > In the following APIs, setting the same value or object for the same attribute of the **instance** object will not
+ * > trigger an update.
+ * 
+ * ###### Attribute Type Support Scope
+ *
+ * | Name | Description |
+ * | ----------------- | --------------- |
+ * | AlphabetIndexerAttribute | [Attributes]{@link AlphabetIndexerAttribute} of AlphabetIndexer. |
+ * | BadgeAttribute | [Attributes]{@link BadgeAttribute} of Badge. |
+ * | BlankAttribute | [Attributes]{@link BlankAttribute} of Blank. |
+ * | ButtonAttribute | [Attributes]{@link ButtonAttribute} of Button. |
+ * | CalendarPickerAttribute | [Attributes]{@link CalendarPickerAttribute} of CalendarPicker. |
+ * | CanvasAttribute | [Attributes]{@link CanvasAttribute} of Canvas. |
+ * | CheckboxAttribute | [Attributes]{@link CheckboxAttribute} of Checkbox. |
+ * | CheckboxGroupAttribute | [Attributes]{@link CheckboxGroupAttribute} of CheckboxGroup. |
+ * | CircleAttribute | [Attributes]{@link CircleAttribute} of Circle. |
+ * | ColumnAttribute | [Attributes]{@link ColumnAttribute} of Column. |
+ * | ColumnSplitAttribute | [Attributes]{@link ColumnSplitAttribute} of ColumnSplit. |
+ * | CommonAttribute | [Attributes]{@link CommonAttribute} of Common. |
+ * | CounterAttribute | [Attributes]{@link CounterAttribute} of Counter. |
+ * | DataPanelAttribute | [Attributes]{@link DataPanelAttribute} of DataPanel. |
+ * | DatePickerAttribute | [Attributes]{@link DatePickerAttribute} of DatePicker. |
+ * | DividerAttribute | [Attributes]{@link DividerAttribute} of Divider. |
+ * | EllipseAttribute | [Attributes]{@link EllipseAttribute} of Ellipse. |
+ * | FlexAttribute | [Attributes]{@link FlexAttribute} of Flex. |
+ * | FlowItemAttribute | [Attributes]{@link FlowItemAttribute} of FlowItem. |
+ * | FormLinkAttribute | [Attributes]{@link FormLinkAttribute} of FormLink. |
+ * | GaugeAttribute | [Attributes]{@link GaugeAttribute} of Gauge. |
+ * | GridAttribute | [Attributes]{@link GridAttribute} of Grid. |
+ * | GridColAttribute | [Attributes]{@link GridColAttribute} of GridCol. |
+ * | GridItemAttribute | [Attributes]{@link GridItemAttribute} of GridItem. |
+ * | GridRowAttribute | [Attributes]{@link GridRowAttribute} of GridRow. |
+ * | HyperlinkAttribute | [Attributes]{@link HyperlinkAttribute} of Hyperlink. |
+ * | IndicatorComponentAttribute | [Attributes]{@link IndicatorComponentAttribute} of IndicatorComponent. |
+ * | ImageAttribute | [Attributes]{@link ImageAttribute} of Image. |
+ * | ImageAnimatorAttribute | [Attributes]{@link ImageAnimatorAttribute} of ImageAnimator. |
+ * | ImageSpanAttribute | [Attributes]{@link ImageSpanAttribute} of ImageSpan. |
+ * | ContainerSpanAttribute | [Attributes]{@link ContainerSpanAttribute} of ContainerSpan. |
+ * | LineAttribute | [Attributes]{@link LineAttribute} of Line. |
+ * | ListAttribute | [Attributes]{@link ListAttribute} of List. |
+ * | ListItemAttribute | [Attributes]{@link ListItemAttribute} of ListItem. |
+ * | ListItemGroupAttribute | [Attributes]{@link ListItemGroupAttribute} of ListItemGroup. |
+ * | LoadingProgressAttribute | [Attributes]{@link LoadingProgressAttribute} of LoadingProgress. |
+ * | MarqueeAttribute | [Attributes]{@link MarqueeAttribute} of Marquee. |
+ * | MenuAttribute | [Attributes]{@link MenuAttribute} of Menu. |
+ * | MenuItemAttribute | [Attributes]{@link MenuItemAttribute} of MenuItem. |
+ * | MenuItemGroupAttribute | Attributes of [MenuItemGroup]{@link ./menu_item_group}. |
+ * | NavDestinationAttribute | [Attributes]{@link NavDestinationAttribute} of NavDestination. |
+ * | NavigationAttribute | [Attributes]{@link NavigationAttribute} of Navigation. |
+ * | NavigatorAttribute | [Attributes]{@link NavigatorAttribute} of Navigator. |
+ * | NavRouterAttribute | [Attributes]{@link NavRouterAttribute} of NavRouter. |
+ * | PanelAttribute | [Attributes]{@link PanelAttribute} of Panel. |
+ * | PathAttribute | [Attributes]{@link PathAttribute} of Path. |
+ * | PatternLockAttribute | [Attributes]{@link PatternLockAttribute} of PatternLock. |
+ * | PolygonAttribute | [Attributes]{@link PolygonAttribute} of Polygon. |
+ * | PolylineAttribute | [Attributes]{@link PolylineAttribute} of Polyline. |
+ * | ProgressAttribute | [Attributes]{@link ProgressAttribute} of Progress. |
+ * | QRCodeAttribute | [Attributes]{@link QRCodeAttribute} of QRCode. |
+ * | RadioAttribute | [Attributes]{@link RadioAttribute} of Radio. |
+ * | RatingAttribute | [Attributes]{@link RatingAttribute} of Rating. |
+ * | RectAttribute | [Attributes]{@link RectAttribute} of Rect. |
+ * | RefreshAttribute | [Attributes]{@link RefreshAttribute} of Refresh. |
+ * | RelativeContainerAttribute | [Attributes]{@link RelativeContainerAttribute} of RelativeContainer. |
+ * | RichEditorAttribute | [Attributes]{@link RichEditorAttribute} of RichEditor. |
+ * | RichTextAttribute | [Attributes]{@link RichTextAttribute} of RichText. |
+ * | RowAttribute | [Attributes]{@link RowAttribute} of Row. |
+ * | RowSplitAttribute | [Attributes]{@link RowSplitAttribute} of RowSplit. |
+ * | ScrollAttribute | [Attributes]{@link ScrollAttribute} of Scroll. |
+ * | ScrollBarAttribute | [Attributes]{@link ScrollBarAttribute} of ScrollBar. |
+ * | SearchAttribute | [Attributes]{@link SearchAttribute} of Search. |
+ * | SelectAttribute | [Attributes]{@link SelectAttribute} of Select. |
+ * | ShapeAttribute | [Attributes]{@link ShapeAttribute} of Shape. |
+ * | SideBarContainerAttribute | [Attributes]{@link SideBarContainerAttribute} of SideBarContainer. |
+ * | SliderAttribute | [Attributes]{@link SliderAttribute} of Slider. |
+ * | SpanAttribute | [Attributes]{@link SpanAttribute} of Span. |
+ * | SymbolSpanAttribute | [Attributes]{@link SymbolSpanAttribute} of SymbolSpan. |
+ * | StackAttribute | [Attributes]{@link StackAttribute} of Stack. |
+ * | StepperAttribute | [Attributes]{@link StepperAttribute} of Stepper. |
+ * | StepperItemAttribute | [Attributes]{@link StepperItemAttribute} of StepperItem. |
+ * | SwiperAttribute | [Attributes]{@link SwiperAttribute} of Swiper. |
+ * | SymbolGlyphAttribute | [Attributes]{@link SymbolGlyphAttribute} of SymbolGlyph. |
+ * | TabContentAttribute | [Attributes]{@link TabContentAttribute} of TabContent. |
+ * | TabsAttribute | [Attributes]{@link TabsAttribute} of Tabs. |
+ * | TextAttribute | [Attributes]{@link TextAttribute} of Text. |
+ * | TextAreaAttribute | [Attributes]{@link TextAreaAttribute} of TextArea. |
+ * | TextClockAttribute | [Attributes]{@link TextClockAttribute} of TextClock. |
+ * | TextInputAttribute | [Attributes]{@link TextInputAttribute} of TextInput. |
+ * | TextPickerAttribute | [Attributes]{@link TextPickerAttribute} of TextPicker. |
+ * | TextTimerAttribute | [Attributes]{@link TextTimerAttribute} of TextTimer. |
+ * | TimePickerAttribute | [Attributes]{@link TimePickerAttribute} of TimePicker. |
+ * | ToggleAttribute | [Attributes]{@link ToggleAttribute} of Toggle. |
+ * | VideoAttribute | [Attributes]{@link VideoAttribute} of Video. |
+ * | WaterFlowAttribute | [Attributes]{@link WaterFlowAttribute} of WaterFlow. |
+ * | XComponentAttribute | [Attributes]{@link XComponentAttribute} of XComponent. |
+ * | ParticleAttribute | [Attributes]{@link ParticleAttribute} of Particle. |
+ * | UIPickerComponentAttribute<sup>22+</sup> | [Attributes]{@link UIPickerComponentAttribute} of UIPickerComponent. |
+ * | <!--DelRow-->EffectComponentAttribute | [Attributes]{@link EffectComponentAttribute} of EffectComponent. |
+ * | <!--DelRow-->FormComponentAttribute | [Attributes]{@link FormComponentAttribute} of FormComponent. |
+ * | <!--DelRow-->PluginComponentAttribute | [Attributes]{@link PluginComponentAttribute} of PluginComponent. |
+ * | <!--DelRow-->RemoteWindowAttribute | [Attributes]{@link RemoteWindowAttribute} of RemoteWindow. |
+ * | UIExtensionComponentAttribute | [Attributes]{@link UIExtensionComponentAttribute} of UIExtensionComponent. |
+ * | ContainerReaderAttribute | [Attributes]{@link ContainerReaderAttribute} of ContainerReader.<br>**Since:** 26.0.0|
+ * 
+ * > **NOTE**
+ * >
+ * > - **StepperAttribute** is supported since API version 11 and deprecated since API version 22. You are advised to
+ * > use **SwiperAttribute** instead.
+ * >
+ * > - **StepperItemAttribute** is supported since API version 11 and deprecated since API version 22. You are advised
+ * > to use **SwiperAttribute** instead.
+ * >
+ * > - **NavigatorAttribute** is supported since API version 11 and deprecated since API version 20. You are advised to
+ * > use **NavigationAttribute** instead.
+ * >
+ * > - **NavRouterAttribute** is supported since API version 11 and deprecated since API version 20. You are advised to
+ * > use **NavigationAttribute** instead.
+ * >
+ * > - **PanelAttribute** is supported since API version 11 and deprecated since API version 20. You are advised to use
+ * > the universal attribute **bindSheet** instead.
+ *
+ * **Supported attributes**
+ *
+ * 1. Attributes that accept or return a [CustomBuilder]{@link CustomBuilder} are not supported.
+ * 2. Attributes whose input parameter is of the [modifier](docroot://ui/arkts-user-defined-modifier.md) type are not
+ * supported, specifically the following attribute methods: [attributeModifier]{@link CommonMethod#attributeModifier},
+ * [drawModifier]{@link CommonMethod#drawModifier}, and [gestureModifier]{@link CommonMethod#gestureModifier}.
+ * 3. Attribute related to [animation]{@link CommonMethod#animation} are not supported.
+ * 4. Attributes of the [gesture](docroot://ui/arkts-gesture-events-binding.md) type are not supported.
+ * 5. The [stateStyles]{@link CommonMethod#stateStyles} attribute is not supported.
+ * 6. Deprecated attributes are not supported.
+ *    <!--Del-->
+ * 7. Built-in component attributes are not supported.<!--DelEnd-->
+ *
+ * When unsupported or unimplemented attributes are used, exceptions such as "Method not implemented.", "is not callable
+ * ", or "Builder is not supported." are thrown. For details about the supported scope of modifiers, see
+ * [attributeModifier Support for Attributes and Events](docroot://ui/arkts-user-defined-extension-attributeModifier.md#attributemodifier-support-for-attributes-and-events).
  *
  * @interface AttributeModifier<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines the attribute modifier.
- *
- * @interface AttributeModifier<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface AttributeModifier<T> {
-
   /**
-   * Defines the normal update attribute function.
+   * Applies the style of a component in the normal state.
    *
-   * @param { T } instance
+   * @param { T } instance - Attribute class of the component, used to identify the component type for attribute
+   *     setting, for example, the
+   *     [attribute]{@link ButtonAttribute} (
+   *     **ButtonAttribute**) of the [Button]{@link ./button} component and the
+   *     [attribute]{@link TextAttribute} (**TextAttribute**)
+   *     of the [Text]{@link ./text} component. For details about the values, see
+   *     [Attribute Type Support Scope]{@link AttributeModifier}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the normal update attribute function.
-   *
-   * @param { T } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   applyNormalAttribute?(instance: T) : void;
 
   /**
-   * Defines the pressed update attribute function.
+   * Applies the style of a component in the pressed state. For implementation examples, see
+   * [Example 2: Implementing the Pressed State Effect with a Modifier]{@link AttributeModifier#applyPressedAttribute}
+   * and
+   * [Example 8: Implementing the Pressed State Effect for a Custom Component with a Modifier]{@link AttributeModifier#applyPressedAttribute}.
    *
-   * @param { T } instance
+   * @param { T } instance - Attribute class of the component, used to identify the component type for attribute
+   *     setting, for example, the
+   *     [attribute]{@link ButtonAttribute} (
+   *     **ButtonAttribute**) of the [Button]{@link ./button} component and the
+   *     [attribute]{@link TextAttribute} (**TextAttribute**)
+   *     of the [Text]{@link ./text} component. For details about the values, see
+   *     [Attribute Type Support Scope]{@link AttributeModifier}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the pressed update attribute function.
-   *
-   * @param { T } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   applyPressedAttribute?(instance: T) : void;
 
   /**
-   * Defines the focused update attribute function.
+   * Applies the style of a component in the focused state. For the implementation example, see
+   * [Example 5: Setting the Focused State Style with a Modifier]{@link AttributeModifier#applyFocusedAttribute}.
    *
-   * @param { T } instance
+   * @param { T } instance - Attribute class of the component, used to identify the component type for attribute
+   *     setting, for example, the
+   *     [attribute]{@link ButtonAttribute} (
+   *     **ButtonAttribute**) of the [Button]{@link ./button} component and the
+   *     [attribute]{@link TextAttribute} (**TextAttribute**)
+   *     of the [Text]{@link ./text} component. For details about the values, see
+   *     [Attribute Type Support Scope]{@link AttributeModifier}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the focused update attribute function.
-   *
-   * @param { T } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   applyFocusedAttribute?(instance: T) : void;
 
   /**
-   * Defines the disabled update attribute function.
+   * Style of a component in the disabled state. See
+   * [Example 6: Setting the Disabled State Style with a Modifier]{@link AttributeModifier#applyDisabledAttribute}.
    *
-   * @param { T } instance
+   * @param { T } instance - Attribute class of the component, used to identify the component type for attribute
+   *     setting, for example, the
+   *     [attribute]{@link ButtonAttribute} (
+   *     **ButtonAttribute**) of the [Button]{@link ./button} component and the
+   *     [attribute]{@link TextAttribute} (**TextAttribute**)
+   *     of the [Text]{@link ./text} component. For details about the values, see
+   *     [Attribute Type Support Scope]{@link AttributeModifier}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the disabled update attribute function.
-   *
-   * @param { T } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   applyDisabledAttribute?(instance: T) : void;
 
   /**
-   * Defines the selected update attribute function.
+   * Applies the style of a component in the selected state.
    *
-   * @param { T } instance
+   * You can customize the implementation of the preceding callback methods as needed, identify the component type
+   * through the passed-in parameter, set attributes on the instance, and use the **if/else** syntax for dynamic
+   * setting. See
+   * [Example 7: Setting the Selected State Style with a Modifier]{@link AttributeModifier#applySelectedAttribute}.
+   *
+   * @param { T } instance - Attribute class of the component, used to identify the component type for attribute
+   *     setting, for example, the
+   *     [attribute]{@link ButtonAttribute} (
+   *     **ButtonAttribute**) of the [Button]{@link ./button} component and the
+   *     [attribute]{@link TextAttribute} (**TextAttribute**)
+   *     of the [Text]{@link ./text} component. For details about the values, see
+   *     [Attribute Type Support Scope]{@link AttributeModifier}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the selected update attribute function.
-   *
-   * @param { T } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   applySelectedAttribute?(instance: T) : void;
 
   /**
-   * Defines the function that updates the hovered attribute.
+   * Defines the style of a component in the hover state. See
+   * [Example 9: Implementing the Mouse Hover Effect with a Modifier]{@link AttributeModifier#applyHoveredAttribute}.
    *
-   * @param { T } instance
+   * @param { T } instance - Component attribute class, used to identify the component type for attribute setting, for
+   *     example, the [attributes]{@link ButtonAttribute} (
+   *     ButtonAttribute) of the [Button]{@link ./button} component and the
+   *     [attributes]{@link TextAttribute} (TextAttribute) of
+   *     the [Text]{@link ./text} component. For details about the specific values, see
+   *     [Attribute Type Support Scope]{@link AttributeModifier}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -19073,12 +19237,22 @@ declare class CommonMethod<T> {
   height(heightValue: Length | LayoutPolicy): T;
 
   /**
-   * Sets the drawModifier of the current component.
+   * Creates a drawing modifier.
    *
-   * @param { DrawModifier | undefined } modifier - drawModifier used to draw, or undefined if it is not available.
-   *     Default value: undefined
-   *     A custom modifier applies only to the FrameNode of the currently bound component, not to its subnodes.
-   * @returns { T }
+   * > **NOTE**
+   * >
+   * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
+   *
+   * @param { DrawModifier | undefined } modifier - Custom drawing modifier, which defines the logic of custom drawing.
+   *     <br>If no custom drawing modifier is set, the component uses the original default
+   *     drawing behavior and does not perform custom drawing.
+   *     <br>Default value: **undefined**.
+   *     <br>**Note:**
+   *     <br>Each custom drawing modifier takes effect only on the [FrameNode]{@link ./arkui/FrameNode:FrameNode}
+   *     of
+   *     the currently bound component, and does not take effect on its child nodes. Each DrawModifier instance can be
+   *     set to only one component, and repeated setting is prohibited.
+   * @returns { T } Current component, used for chained calls.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24699,25 +24873,26 @@ declare class CommonMethod<T> {
   obscured(reasons: Array<ObscuredReasons>): T;
 
   /**
-   * Reuse id is used for identify the reuse type for each custom node.
+   * Reuse identifier, used to divide custom components into reuse groups. This API can be used only in the stage model.
    *
-   * @param { string } id - The id for reusable custom node.
-   * @returns { T }
+   * > **NOTE**
+   * >
+   * > - Set the corresponding reuseId based on the different layout forms or types of components to improve the
+   * > precision of reuse matching. For best practices, see Component Reuse -
+   * > [Using reuseId to Mark Components with Layout Changes](https://developer.huawei.com/consumer/en/doc/harmonyos-guides/arkts-component_reuse#using-reuseid-to-mark-components-with-layout-changes).
+   * >
+   * > - This API cannot be called in [attributeModifier]{@link CommonMethod#attributeModifier}.
+   *
+   * @param { string } id - Reuse identifier used to divide custom components into reuse groups. It is recommended that
+   *     different reuseId values be set for components with different layouts or types to prevent components from being
+   *     incorrectly reused and improve reuse efficiency. This attribute takes effect only on custom components
+   *     decorated by @Reusable.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Reuse id is used for identify the reuse type for each custom node.
-   *
-   * @param { string } id - The id for reusable custom node.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   reuseId(id: string): T;
 
@@ -24772,27 +24947,18 @@ declare class CommonMethod<T> {
   renderFit(fitMode: Optional<RenderFit>): T;
 
   /**
-   * Sets the attribute modifier.
+   * Creates an attribute modifier.
    *
-   * @param { AttributeModifier<T> } modifier
-   * @returns { T }
+   * @param { AttributeModifier<T> } modifier - Dynamically sets the attribute method on the current component,
+   *     supporting the use of if/else syntax.
+   *     <br>modifier: attribute modifier. Developers need to define a custom class to implement the AttributeModifier
+   *     interface.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Sets the attribute modifier.
-   *
-   * @param { AttributeModifier<T> } modifier
-   * The if/else syntax is supported.
-   * You need a custom class to implement the AttributeModifier API.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   attributeModifier(modifier: AttributeModifier<T>): T;
 

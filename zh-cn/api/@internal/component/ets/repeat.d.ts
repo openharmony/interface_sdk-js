@@ -14,8 +14,8 @@
  */
 
 /**
- * @file Defines Repeat component.
- * @kit ArkUI
+  * @file
+  * @kit ArkUI
  */
 
 /**
@@ -40,14 +40,14 @@ declare enum RepeatMemOptStrategy {
   DEFAULT = 0,
   /**
    * 自动内存优化策略，当需要降低Repeat子节点的内存占用时，建议使用此策略以降低内存使用量。
-   * 
+   *
    * 当应用退后台时、Repeat所在组件不可见时（[visibility]{@link CommonMethod#visibility}属性设置为[Visible]{@link Visibility}以外的值，或组件面积为0，不考虑遮
    * 挡）、整机低内存时（[MemoryLevel]{@link @ohos.app.ability.AbilityConstant:AbilityConstant.MemoryLevel}达到MEMORY_LEVEL_LOW或
    * MEMORY_LEVEL_CRITICAL），释放[缓存池](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md#节点更新复用能力说明)内的所有
    * 节点。
-   * 
+   *
    * 当应用恢复前台时、Repeat所在组件恢复显示时，恢复缓存池内的节点。
-   * 
+   *
    * 在释放和恢复节点时，会触发[自定义组件生命周期](docroot://ui/state-management/arkts-page-custom-components-lifecycle.md)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -106,21 +106,21 @@ interface RepeatItem<T> {
 interface VirtualScrollOptions {
   /**
    * 期望加载的数据项总数，可以不等于数据源长度（实际传入Repeat的数组的长度）。
-   * 
+   *
    * 取值范围：自然数。
-   * 
+   *
    * totalCount与onTotalCount()最多设置一个；如果均未设置，则采用默认值：数据源长度；如果同时设置，则忽略totalCount。
-   * 
+   *
    * totalCount缺省或超出取值范围时，totalCount取值为数据源长度，列表正常滚动。
-   * 
+   *
    * totalCount = 0时，不加载数据。
-   * 
+   *
    * 0 < totalCount <= 数据源长度时，界面中只渲染区间[0, totalCount - 1]范围内的数据。
-   * 
+   *
    * totalCount > 数据源长度时，Repeat将渲染区间[0, totalCount - 1]范围内的数据，容器组件滚动条样式根据totalCount值变化。在容器组件滚动过程中，应用需要保证在列表即将滑动到数据源末尾时请求
    * 后续数据。开发者需要对数据请求的错误场景（如网络延迟）进行保护操作，直到数据源全部加载完成，否则列表滑动过程中会出现滚动效果异常。建议配合使用
    * [onLazyLoading]{@link VirtualScrollOptions.onLazyLoading}实现数据懒加载。
-   * 
+   *
    * 除totalCount属性外，开发者也可以通过[onTotalCount]{@link VirtualScrollOptions.onTotalCount}方法设置自定义方法，计算期望加载的数据项总数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -140,7 +140,7 @@ interface VirtualScrollOptions {
    * false：关闭复用。
    * 
    * 默认值：true
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -151,9 +151,9 @@ interface VirtualScrollOptions {
 
   /**
    * 可选方法，懒加载指定索引的数据。需要开发者给定数据加载方法。
-   * 
+   *
    * onLazyLoading方法需在懒加载场景下使用。开发者可设置自定义方法，用于向指定的数据源index中写入数据。以下为onLazyLoading的处理规则：
-   * 
+   *
    * - Repeat读取数据源中index对应的数据之前，会先检查index处是否存在数据。
    * - 如果不存在数据，但开发者提供了onLazyLoading方法，Repeat将调用此方法。
    * - 在onLazyLoading方法中，开发者需要向Repeat指定的index中写入数据，方式如下：`arr[index] = ...`，其中`arr`表示传入Repeat的数组。不允许使用除`[]`以外的数组操作，且不允许写入
@@ -174,13 +174,13 @@ interface VirtualScrollOptions {
 
   /**
    * 可选方法，计算期望加载的数据项总数。需要开发者给定计算方法，其返回值可以不等于数据源长度（实际传入Repeat的数组的长度）。
-   * 
+   *
    * [totalCount]{@link VirtualScrollOptions.totalCount}和onTotalCount()的返回值都表示期望加载的数据项总数。开发者可直接设置totalCount属性，给出期望加载的数据项
    * 总数，也可以通过onTotalCount()设定自定义方法，计算期望加载的数据项总数。totalCount与onTotalCount()最多设置一个。如果均未设置，则采用默认值：数据源长度；如果同时设置，则忽略
    * totalCount。
-   * 
+   *
    * onTotalCount()不同返回值的数据加载处理规则与totalCount一致，具体如下：
-   * 
+   *
    * - onTotalCount()返回值 = 0时，不加载数据。
    * - 0 < onTotalCount()返回值 <= 数据源长度时，只加载区间[0, onTotalCount()返回值 - 1]索引范围内的数据。
    * - onTotalCount()返回值 > 数据源长度时，代表Repeat期望加载区间[0, onTotalCount()返回值 - 1]索引范围内的数据，容器组件滚动条样式根据onTotalCount()返回值变化。在容器组件滚
@@ -200,7 +200,7 @@ interface VirtualScrollOptions {
 
   /**
    * Repeat的内存优化策略。该参数在创建Repeat时设定，不支持动态修改。
-   * 
+   *
    * 默认值：[DEFAULT]{@link RepeatMemOptStrategy}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -215,7 +215,7 @@ interface VirtualScrollOptions {
 /**
  * 当cachedCount值被设置为当前template在容器组件显示区域的最大节点数量时，Repeat会做到最大程度的复用。当容器组件显示区域内没有当前template的节点时，缓存池不会释放，同时应用内存增大。开发者需要根据应用对内
  * 存占用和组件复用效率的需求自行调整，推荐cachedCount值设置为容器组件显示区域内节点个数。需要注意，不建议设置cachedCount小于2，这会导致在快速滑动场景下频繁创建新的节点，从而造成性能劣化。
- * 
+ *
  * > **说明：**
  * >
  * > 滚动容器组件属性`.cachedCount()`和Repeat组件属性`.template()`的参数`cachedCount`都是为了平衡性能和内存，但是含义是不同的。
@@ -245,6 +245,7 @@ interface TemplateOptions {
 }
 
 /**
+ * 模板类型生成函数。
  *
  * @param { T } item - arr中每一个数据项。T为开发者传入的数据类型。
  *     <br>缺省时默认忽略该参数，请勿在闭包函数的实现中使用该参数，否则会编译报错。
@@ -260,6 +261,7 @@ interface TemplateOptions {
 declare type TemplateTypedFunc<T> = (item: T, index: number) => string;
 
 /**
+ * Repeat子组件构建器。
  *
  * @param { RepeatItem<T> } repeatItem - 将item和index组合到一起的状态变量。
  *     <br>缺省时默认忽略该参数，请勿在闭包函数的实现中使用该参数，否则会编译报错。
@@ -401,7 +403,7 @@ declare class RepeatAttribute<T> extends DynamicNode<RepeatAttribute<T>> {
 declare type RepeatArray<T> = Array<T> | ReadonlyArray<T> | Readonly<Array<T>>;
 
 /**
- * Indicates the type of Repeat.
+ * Repeat接口类型。
  *
  * @param { RepeatArray<T> } arr - 数据源，为`RepeatArray<T>`类型的数组，由开发者决定数据类型。
  * @returns { RepeatAttribute<T> }
@@ -416,7 +418,7 @@ declare type RepeatInterface = <T>(arr: RepeatArray<T>) => RepeatAttribute<T>;
 
 /**
  * Repeat基于数组类型数据来进行循环渲染，一般与滚动容器组件配合使用。
- * 
+ *
  * 本文档仅为API参数说明。组件描述和使用说明见[Repeat开发者指南](../../../ui/rendering-control/arkts-new-rendering-control-repeat.md)。
  *
  * @type { <T>(arr: Array<T>) => RepeatAttribute<T> } [since 12 - 17]

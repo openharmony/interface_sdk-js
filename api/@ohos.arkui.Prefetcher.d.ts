@@ -14,6 +14,20 @@
  */
 
 /**
+ * Used in conjunction with **LazyForEach**, the **Prefetcher** module provides content prefetching capabilities for 
+ * container components such as **List**, **Grid**, **WaterFlow**, and **Swiper** during scrolling, to enhance the user 
+ * browsing experience.
+ * 
+ * > **NOTE**
+ * >
+ * > - The APIs of this module cannot be used in the Previewer.
+ * 
+ * ###### Supplementary Notes
+ * 
+ * You can also use the OpenHarmony third-party library 
+ * [@netteam/prefetcher](https://ohpm.openharmony.cn/#/en/detail/@netteam%2Fprefetcher) to implement the prefetching 
+ * functionality. This library provides additional APIs for more convenient and efficient data prefetching.
+ *
  * @file Prefetching
  * @kit ArkUI
  */
@@ -93,8 +107,10 @@ export interface IPrefetcher {
    * this API, you need to set a data source using **setDataSource**. This API works with the **List**, **Grid**,
    * **WaterFlow**, and **Swiper** components.
    *
-   * @param { number } minVisible - Index of the first data item in the current visible area.
-   * @param { number } maxVisible - Index of the last data item in the current visible area.
+   * @param { number } minVisible - Index of the first data item in the current visible area. The value range is
+   *     [0, totalCount() - 1]. An out-of-range value causes a calculation error.
+   * @param { number } maxVisible - Index of the last data item in the current visible area. The value range is
+   *     [0, totalCount() - 1]. An out-of-range value causes a calculation error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -151,8 +167,10 @@ export class BasicPrefetcher implements IPrefetcher {
    * this API, ensure that the data source has been set using the constructor or the **setDataSource** API. This API
    * works with the **List**, **Grid**, **WaterFlow**, and **Swiper** components.
    *
-   * @param { number } minVisible - Index of the first data item in the current visible area.
-   * @param { number } maxVisible - Index of the last data item in the current visible area.
+   * @param { number } minVisible - Index of the first data item in the current visible area. The value range is
+   *     [0, totalCount() - 1]. An out-of-range value causes a calculation error.
+   * @param { number } maxVisible - Index of the last data item in the current visible area. The value range is
+   *     [0, totalCount() - 1]. An out-of-range value causes a calculation error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -160,4 +178,4 @@ export class BasicPrefetcher implements IPrefetcher {
    * @since 12 dynamic
    */
   visibleAreaChanged(minVisible: number, maxVisible: number): void;
-}
+}
