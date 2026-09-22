@@ -29,7 +29,7 @@
  */
 declare enum DataPanelType {
   /**
-   * 线型数据面板。
+   * 线性数据面板。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -40,7 +40,7 @@ declare enum DataPanelType {
   Line,
 
   /**
-   * Line Rainbow
+   * 环形数据面板。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -74,11 +74,11 @@ declare interface ColorStop {
 
   /**
    * 渐变色断点（0~1之间的比例值，若该值小于0则置为0，若该值大于1则置为1）。
-   * 
-   * **说明：** 
-   * 
+   *
+   * **说明：**
+   *
    * 若传入字符串类型且内容为数字，则转换为对应的数值。
-   * 
+   *
    * 例如'10vp'转换为10，'10%'转换为0.1。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -130,9 +130,9 @@ declare interface DataPanelShadowOptions extends MultiShadowOptions {
    *
    * **说明：**
    *
-   * 若设置的投影颜色的个数少于数据段个数时，则显示的投影颜色的个数和设置的投影颜色个数一致。
+   * 若设置的投影颜色的个数少于数据段个数时，则显示的投影颜色个数等于设置的投影颜色个数。
    *
-   * 若设置的投影颜色的个数多于数据段个数时，则显示的投影颜色的个数和数据段个数一致。
+   * 若设置的投影颜色的个数多于数据段个数时，则显示的投影颜色个数等于数据段个数。
    *
    * @default Consistent with valueColors
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -167,10 +167,10 @@ declare interface DataPanelOptions {
 
   /**
    * - max大于0时，表示数据的最大值。
-   * 
+   *
    * - max小于等于0时，max等于values数据值列表各项的和，按比例显示。
-   * 
-   * 不传入时默认值：100。
+   *
+   * 默认值：100。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -182,9 +182,9 @@ declare interface DataPanelOptions {
 
   /**
    * 数据面板的类型（不支持动态修改）。
-   * 
+   *
    * 可选值：DataPanelType.Line（线性数据面板，适合在有限空间内展示多段数据对比）、DataPanelType.Circle（环形数据面板，适合直观展示数据占比关系）。
-   * 
+   *
    * 不传入时默认值为DataPanelType.Circle。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -198,8 +198,10 @@ declare interface DataPanelOptions {
 
 /**
  * 数据面板组件，用于将多个数据占比情况使用占比图进行展示，支持环形和线性两种展示类型，可自定义颜色、阴影、底板等视觉效果，适用于存储容量、任务进度、资源占比等数据可视化场景，帮助用户直观了解数据分布情况。
- * 
+ *
  * > **说明：**
+ * >
+ * > - 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * >
  * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link ./with_theme}。
  *
@@ -271,9 +273,7 @@ declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelCo
 }
 
 /**
- * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性：
- * 
- * 支持[通用事件]{@link CommonMethod}。
+ * 除支持[通用属性]{@link ./common}外，还支持以下属性：
  *
  * @extends CommonMethod [since 7 - 10]
  * @extends CommonMethod<DataPanelAttribute> [since 11]
@@ -362,7 +362,7 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
    * 设置投影样式。若设置了本属性，则投影效果由本属性控制，closeEffect对投影效果的控制不再生效（closeEffect对旋转动效的控制不受影响）。
    *
    * @param { DataPanelShadowOptions } value - 投影样式。
-   *     <br>**说明：** 
+   *     <br>**说明：**
    *     <br>设置为null时，不开启投影。
    * @returns { DataPanelAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -391,13 +391,15 @@ declare class DataPanelAttribute extends CommonMethod<DataPanelAttribute> {
 
 /**
  * 数据面板组件，用于将多个数据占比情况使用占比图进行展示，支持环形和线性两种展示类型，可自定义颜色、阴影、底板等视觉效果，适用于存储容量、任务进度、资源占比等数据可视化场景，帮助用户直观了解数据分布情况。
- * 
+ *
  * > **说明：**
  * >
+ * > - 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
  * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link ./with_theme}。
- * 
+ *
  * ###### 子组件
- * 
+ *
  * 无
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

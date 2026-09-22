@@ -29,7 +29,7 @@
  */
 declare enum LoadingProgressStyle {
   /**
-   * 默认加载样式。
+   * 默认加载样式。API version 8及以后不支持设置。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -40,7 +40,7 @@ declare enum LoadingProgressStyle {
   Default,
 
   /**
-   * 环形加载样式。
+   * 环形加载样式。API version 8及以后不支持设置。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -51,7 +51,7 @@ declare enum LoadingProgressStyle {
   Circular,
 
   /**
-   * 彗星形加载样式。
+   * 彗星形加载样式。API version 8及以后默认为彗星形样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -64,12 +64,14 @@ declare enum LoadingProgressStyle {
 
 /**
  * LoadingProgress是用于显示加载进度条的组件，在数据加载过程中为用户提供视觉反馈，提升用户体验。该组件支持设置前景色、控制动画显示状态等特性，适用于需要在应用内展示加载进度的场景。
- * 
+ *
  * 加载进度条的动效在组件不可见时停止，组件的可见状态基于
  * [onVisibleAreaChange]{@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}
  * 处理，可见阈值ratios大于0即视为可见状态。
- * 
+ *
  * > **说明：**
+ * >
+ * > - 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * >
  * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link ./with_theme}。
  *
@@ -96,9 +98,11 @@ interface LoadingProgressInterface {
 }
 
 /**
- * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性。
+ * 除支持[通用属性]{@link ./common}外，还支持以下属性：
  *
- * 支持[通用事件]{@link CommonMethod}。
+ * > **说明：**
+ * >
+ * > 组件应设置合理的宽高，当组件宽高设置过大时加载进度条的动效可能不符合预期效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -181,17 +185,19 @@ declare interface LoadingProgressConfiguration extends CommonConfiguration<Loadi
 
 /**
  * LoadingProgress是用于显示加载进度条的组件，在数据加载过程中为用户提供视觉反馈，提升用户体验。该组件支持设置前景色、控制动画显示状态等特性，适用于需要在应用内展示加载进度的场景。
- * 
+ *
  * 加载进度条的动效在组件不可见时停止，组件的可见状态基于
  * [onVisibleAreaChange]{@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}
  * 处理，可见阈值ratios大于0即视为可见状态。
- * 
+ *
  * > **说明：**
  * >
+ * > - 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
  * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link ./with_theme}。
- * 
+ *
  * ###### 子组件
- * 
+ *
  * 无
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

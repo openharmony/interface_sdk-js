@@ -19,10 +19,12 @@
  */
 
 /**
- * The **Counter** component provides an operation to increase or decrease the number.
+ * The **Counter** component provides increment and decrement operations. It is suitable for scenarios that require
+ * frequent value changes, such as product quantity selection and parameter adjustment, helping users adjust values
+ * quickly and intuitively.
  *
  * > **NOTE**
- *
+ * >
  * > - This component supports [WithTheme]{@link ./with_theme} since API version 26.0.0.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -48,12 +50,7 @@ interface CounterInterface {
 }
 
 /**
- * In addition to the 
- * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
- * attributes are supported.
- *
- * In addition to the [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md), the
- * following events are supported.
+ * In addition to the [universal attributes]{@link ./common}, the following attributes are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -63,12 +60,11 @@ interface CounterInterface {
  * @noninterop
  */
 declare class CounterAttribute extends CommonMethod<CounterAttribute> {
-
   /**
    * Invoked when the value increases.
    *
-   * @param { function } event - Callback invoked when the value increases. [since 7 - 17]
-   * @param { VoidCallback } event - Callback invoked when the value increases. [since 18]
+   * @param { function } event - Callback invoked when the counter value increases. [since 7 - 17]
+   * @param { VoidCallback } event - Callback invoked when the counter value increases. [since 18]
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -81,8 +77,8 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
    * Invoked when the value decreases.
    *
-   * @param { function } event - Callback invoked when the value decreases. [since 7 - 17]
-   * @param { VoidCallback } event - Callback invoked when the value decreases. [since 18]
+   * @param { function } event - Callback invoked when the value of the Counter decreases. [since 7 - 17]
+   * @param { VoidCallback } event - Callback invoked when the value of the Counter decreases. [since 18]
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -95,8 +91,9 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
    * Sets whether to enable the decrement button.
    *
-   * @param { boolean } value - Whether to enable the decrement button.<br>Default value: **true**. The value **true**
-   *     means to enable the decrement button, and the value **false** means the opposite.
+   * @param { boolean } value - Whether to enable or disable the decrement button.
+   *     <br>Default value: **true**, which means the decrement button is enabled; **false** means the decrement button
+   *     is disabled.
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -109,8 +106,9 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
    * Sets whether to enable the increment button.
    *
-   * @param { boolean } value - Whether to enable the increment button.<br>Default value: **true**. The value **true**
-   *     means to enable the increment button, and the value **false** means the opposite.
+   * @param { boolean } value - Whether to disable or enable the increment button.
+   *     <br>Default value: **true**, which means the increment button is enabled; **false** means the button is
+   *     disabled.
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -134,7 +132,9 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
 declare const CounterInstance: CounterAttribute;
 
 /**
- * The **Counter** component provides an operation to increase or decrease the number.
+ * The **Counter** component provides increment and decrement operations. It is suitable for scenarios that require
+ * frequent value changes, such as product quantity selection and parameter adjustment, helping users adjust values
+ * quickly and intuitively.
  *
  * > **NOTE**
  * >

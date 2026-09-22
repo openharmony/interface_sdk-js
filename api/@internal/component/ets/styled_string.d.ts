@@ -65,17 +65,22 @@ declare type StyledStringUnmarshallCallback = (buf: ArrayBuffer) => StyledString
  * @since 12 dynamic
  */
 declare class StyledString {
-
   /**
    * A constructor used to create a styled string.
    *
-   * @param { string | ImageAttachment | CustomSpan } value - Text of the styled string.<br>**NOTE**<br>If this
-   *     parameter is of the ImageAttachment or CustomSpan type, the **styles** parameter has no effect.<br>To set
-   *     **styles**, use methods such as [setStyle]{@link MutableStyledString#setStyle}.
-   * @param { Array<StyleOptions> } [styles] - Initialization options of the styled string.<br>**NOTE**<br>If **start**
-   *     is set to an invalid value, it uses the default value **0**.<br>If the **length** value is invalid, **length**
-   *     will default to the actual length of the styled string starting from the start position.<br>If
-   *     **StyledStringKey** does not match **StyledStringValue**, **styles** has no effect.
+   * It is not supported to create it before
+   * [loadContent()]{@link @ohos.window:window.Window.loadContent(path: string, storage: LocalStorage, callback: AsyncCallback<void>)}.
+   *
+   * @param { string | ImageAttachment | CustomSpan } value - Text content of the styled string.
+   *     <br>**NOTE**
+   *     <br>When the type of value is **ImageAttachment** or **CustomSpan**, the **styles** parameter does not take
+   *     effect.
+   *     <br>To set styles, use methods such as [setStyle]{@link MutableStyledString#setStyle}.
+   * @param { Array<StyleOptions> } [styles] - Initialization options of the styled string.
+   *     <br>**NOTE**
+   *     <br>If **start** is an invalid value, the default value **0** is used.
+   *     <br>If **length** is an invalid value, **length** equals the actual length of the styled string after start.
+   *     <br>If **StyledStringKey** does not match **StyledStringValue**, **styles** does not take effect.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -89,7 +94,7 @@ declare class StyledString {
    *
    * **NOTE**
    *
-   * Both **ImageAttachment** and **CustomSpan** in the styled string are counted as length 1.
+   * The length of **ImageAttachment** and **CustomSpan** in the styled string is counted as 1.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -102,10 +107,10 @@ declare class StyledString {
   /**
    * Obtains the text of this styled string.
    *
-   * @returns { string } Text of the styled string.
+   * @returns { string } Text content of the styled string.
    *     <br>**NOTE**
-   *     <br>If the styled string contains an image or [CustomSpan]{@link CustomSpan} elements, they are represented as space
-   *     characters in the returned result.
+   *     <br>When the styled string contains an image or [CustomSpan]{@link CustomSpan}, the returned result is
+   *     represented by a space.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -122,15 +127,19 @@ declare class StyledString {
    *
    * @param { number } start - Subscript that corresponds to the target range in the styled string.
    * @param { number } length - Length of the target range in the styled string.
-   * @param { StyledStringKey } [styledKey] - Style key of the styled string.
-   * @returns { Array<SpanStyle> } Array of styles.
-   *     <br>**NOTE**
-   *     <br>If no style is set for the specified range in the styled string, an empty array is returned.
-   *     <br>If the values of **start** and **length** are out of the acceptable range or if any mandatory parameter is
-   *     passed as **undefined**, an exception is thrown.
-   *     <br>If **styledKey** is set to an invalid value or **undefined**, an exception is thrown.
-   *     <br>If **styledKey** is a **CustomSpan** object, the style returned is the one passed to create the object.
-   *     That is, modifying the style object also affects the actual display effect.
+   * @param { StyledStringKey } [styledKey] - Enumeration value of the string style of the attribute character in the
+   *     specified range.
+   *     <br>**Note:**
+   *     <br>If this parameter is not passed, the styles of all enumeration values of
+   *     [StyledStringKey]{@link StyledStringKey} set by the developer are obtained by default.
+   * @returns { Array<SpanStyle> } Array of style objects.
+   *     <br>**Note:**
+   *     <br>If no style is set for the styled string in the specified range, an empty array is returned.
+   *     <br>An exception is thrown if **start** and **length** are out of bounds or a mandatory parameter is
+   *     **undefined**.
+   *     <br>An exception is thrown if an invalid value or **undefined** is passed to **styledKey**.
+   *     <br>If **styledKey** is **CustomSpan**, the style object passed when creating **CustomSpan** is returned, and
+   *     modifying this style object also affects the actual display effect.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -144,17 +153,17 @@ declare class StyledString {
   getStyles(start: number, length: number, styledKey?: StyledStringKey): Array<SpanStyle>;
 
   /**
-   * Checks whether this styled string the same as another styled string.
+   * Checks whether this styled string is the same as another styled string.
    *
    * @param { StyledString } other - **StyledString** object to compare.
    * @returns { boolean } Whether two styled strings are equal.
-   *     <br>**true** if the two styled strings are equal; **false** otherwise.
+   *     <br>The value **true** indicates that they are equal, and **false** indicates that they are not equal.
    *     <br>**NOTE**
-   *     <br>The two styled strings are the same if they have the same text and style.
-   *     <br>[GestureStyle]{@link GestureStyle} in styled strings is not compared. This means that, if two styled strings are
-   *     the same except for the event configured, they are treated as the same.
-   *     <br>In comparing [CustomSpan]{@link CustomSpan} or [LeadingMarginSpan]{@link LeadingMarginSpan} objects, addresses
-   *     are compared. The objects that have the same address are the same.
+   *     <br>Two styled strings are considered equal when their text and styles are identical.
+   *     <br>[GestureStyle]{@link GestureStyle} is not compared. Two styled strings are also considered equal when they
+   *     have different events configured but the same text and other styles.
+   *     <br>When [CustomSpan]{@link CustomSpan} or [LeadingMarginSpan]{@link LeadingMarginSpan} is compared, the
+   *     addresses are compared. If the addresses are equal, they are considered equal.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -166,14 +175,16 @@ declare class StyledString {
   /**
    * Obtains a substring of this styled string. The specified range must not exceed the string's length.
    *
-   * @param { number } start - Subscript that corresponds to the start position of the styled substring.
-   * @param { number } [length] - Length of the styled substring.
-   * @returns { StyledString } Styled substring.
+   * @param { number } start - Subscript that corresponds to the start position of the sub-styled string.
+   * @param { number } [length] - Length of the sub-styled string.
+   *     <br>If not passed, the default value is the difference between the length of the queried styled string object
+   *     and the value of **start**.
+   * @returns { StyledString } Sub-styled string.
    *     <br>**NOTE**
-   *     <br>If the value of **start** is valid, the difference between the length of the styled string and the value of
-   *     **start** is used as the default value of **length**.
-   *     <br>If the values of **start** and **length** are out of the acceptable range or if any mandatory parameter is
-   *     passed as **undefined**, an exception is thrown.
+   *     <br>When **start** is a valid input parameter, the default value of **length** is the difference between the
+   *     length of the queried styled string object and the value of **start**.
+   *     <br>An exception is thrown when **start** and **length** are out of bounds or when a mandatory parameter is set
+   *     to **undefined**.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -187,36 +198,53 @@ declare class StyledString {
   subStyledString(start: number, length?: number): StyledString;
 
   /**
-   * Converts an HTML string into a styled string. Currently, the following HTML tags are supported for conversion: \<p>
-   * , \<span>, \<img>, \
+   * Converts an HTML-formatted string into a styled string. HTML tags are mapped to the corresponding styled string
+   * styles (for example, bold tags are mapped to **TextStyle**, and decoration tags are mapped to **DecorationStyle**).
+   * The HTML tags currently supported for conversion are: \<p>, \<span>, \<img>, \
    *
-   * , \<strong>, \<b>, \<a>, \<i>, \<em>, \<s>, \<u>, \<del>, \<sup>, \<sub>. The **style** attribute within tags can
-   * be converted to the corresponding style in the styled string.
+   * , \<strong>, \<b>, \<a>, \<i>, \<em>, \<s>, \<u>, \<del>, \<sup>, \<sub>, \<cite>, \<dfn>, \<small>, \<h1>, \<h2>,
+   * \<h3>, \<h4>, \<h5>, \<h6>, \, \, \<li>. The style attribute in tags can be converted into the corresponding styled
+   * string styles.
    *
    * For details about how to use this API, see
-   * [Example 12: Implementing Conversion Using fromHtml and toHtml]
-   * (docroot://reference/apis-arkui/arkui-ts/
-   * ts-universal-styled-string.md#example-12-implementing-conversion-using-fromhtml-and-tohtml).
+   * [Example 12: Implementing Conversion Using fromHtml and toHtml](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#example-12-implementing-conversion-using-fromhtml-and-tohtml)
+   * and
+   * [Example 18: Conversion Using fromHtml](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#example-18-conversion-using-fromhtml).
+   *
    *
    * | Tag Name| Description                  |
    * | ------------- | ---------------------------- |
-   * | \<p\>       | Paragraph tag, which separates text into paragraphs.        |
-   * | \<span\>    | Inline text supporting style configuration.    |
-   * | \<img\>     | Image tag, used to insert an image.                  |
-   * | \<strong\>  | Bold text tag.                  |
-   * | &lt;br&gt;<sup>20+</sup>      | Line break tag.                      |
-   * | \<b\><sup>20+</sup>       | Bold text tag.                  |
-   * | \<a\><sup>20+</sup>       | Hyperlink tag.                    |
-   * | \<i\><sup>20+</sup>       | Italic text tag.                  |
-   * | \<em\><sup>20+</sup>      | Italic text tag.                  |
-   * | \<s\><sup>20+</sup>       | Strikethrough tag, which adds a line through the text.          |
-   * | \<u\><sup>20+</sup>       | Underline tag, which adds a decorative underline to the text.                    |
-   * | \<del\><sup>20+</sup>     | Strikethrough tag, which adds a line through the text.          |
-   * | \<sup\><sup>20+</sup>     | Superscript tag.                  |
-   * | \<sub\><sup>20+</sup>     | Subscript tag.                  |
+   * | \<p\>       | Paragraph, separates text paragraphs.       |
+   * | \<span\>    | Inline text supporting style configuration. In API version 17 and earlier, the **background-color** attribute set 
+   * using **\<span\>** does not take effect.    |
+   * | \<img\>     | Image.                   |
+   * | \<strong\>  | Bolds text.                   |
+   * | &lt;br&gt;<sup>20+</sup>      | Line break.                       |
+   * | \<b\><sup>20+</sup>       | Bolds text.                   |
+   * | \<a\><sup>20+</sup>       | Hyperlink.                     |
+   * | \<i\><sup>20+</sup>       | Italic text.                   |
+   * | \<em\><sup>20+</sup>      | Italic text.                   |
+   * | \<s\><sup>20+</sup>       | Strikethrough.            |
+   * | \<u\><sup>20+</sup>       | Underline.                     |
+   * | \<del\><sup>20+</sup>     | Strikethrough.            |
+   * | \<sup\><sup>20+</sup>     | Superscript text.                   |
+   * | \<sub\><sup>20+</sup>     | Subscript text.                   |
+   * | \<cite\>    | Italic text.        |
+   * | \<dfn\>     | Italic text.        |
+   * | \<small\>   | Font‑size reduction tag. The font size is scaled to 0.8 times the parent container font size, and nesting is supported.        |
+   * | \<h1\>      | Level-1 heading.        |
+   * | \<h2\>      | Level-2 heading.        |
+   * | \<h3\>      | Level-3 heading.        |
+   * | \<h4\>      | Level-4 heading.        |
+   * | \<h5\>      | Level-5 heading.        |
+   * | \<h6\>      | Level-6 heading.        |
+   * | \<ol\>      | Ordered list.        |
+   * | \<ul\>      | Unordered list.        |
+   * | \<li\>      | List item.          |
    *
    * @param { string } html - HTML-formatted string.
-   * @returns { Promise<StyledString> } Styled string.
+   * @returns { Promise<StyledString> } Styled string. **resolve** returns the converted styled string; **reject**
+   *     throws an exception.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -231,15 +259,17 @@ declare class StyledString {
   static fromHtml(html: string): Promise<StyledString>;
 
   /**
-   * Converts a styled string into an HTML-formatted string. The supported styled string keys for conversion, as
-   * detailed in [StyledStringKey]{@link StyledStringKey}, include: **StyledStringKey.FONT**,
-   * **StyledStringKey.DECORATION**, **StyledStringKey.LETTER_SPACING**, **StyledStringKey.TEXT_SHADOW**,
-   * **StyledStringKey.LINE_HEIGHT**, and **StyledStringKey.IMAGE**.
+   * Converts a styled string into an HTML-formatted string. Styled string styles are mapped to the corresponding HTML
+   * tags (for example, **TextStyle** is mapped to a span tag with the style attribute, and **ImageAttachment** is
+   * mapped to an img tag). The supported styled string keys for conversion, as detailed in
+   * [StyledStringKey]{@link StyledStringKey}, include **StyledStringKey.FONT**, **StyledStringKey.DECORATION**,
+   * **StyledStringKey.LETTER_SPACING**, **StyledStringKey.TEXT_SHADOW**, **StyledStringKey.LINE_HEIGHT**, and
+   * **StyledStringKey.IMAGE**.
    *
    * For details about how to use this API, see
    * [Example 12: Implementing Conversion Using fromHtml and toHtml](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#example-12-implementing-conversion-using-fromhtml-and-tohtml).
    *
-   * @param { StyledString } styledString - Styled string.
+   * @param { StyledString } styledString - Styled string object to be converted into an HTML format string.
    * @returns { string } HTML string.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -332,9 +362,9 @@ declare class StyledString {
  */
 declare interface StyleOptions {
   /**
-   * Start position of the styled string style.
+   * Start position for setting the style of the styled string.
    *
-   * If the value is less than 0 or exceeds the string length, it is treated as **0**.
+   * If the value of **start** is less than 0 or exceeds the string length, it is processed as 0.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -345,10 +375,10 @@ declare interface StyleOptions {
   start?: number;
 
   /**
-   * Length of the styled string style.
+   * Length for setting the style of the styled string.
    *
-   * If the value is less than 0 or exceeds the difference between the string length and the value of **start**, it is
-   * treated as the difference between the string length and the value of **start**.
+   * If the value of **length** is less than 0 or exceeds the difference between the string length and **start**, it is
+   * processed as the difference between the string length and **start**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -370,7 +400,7 @@ declare interface StyleOptions {
   styledKey: StyledStringKey;
 
   /**
-   * Style object.
+   * Style object used to set the style of the styled string.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -391,7 +421,6 @@ declare interface StyleOptions {
  * @since 12 dynamic
  */
 declare interface SpanStyle {
-
   /**
    * Start position of the styled string style.
    *
@@ -405,9 +434,6 @@ declare interface SpanStyle {
 
   /**
    * Length of the styled string style.
-   *
-   * If the value is less than 0 or exceeds the difference between the string length and the value of **start**, it is
-   * treated as the difference between the string length and the value of **start**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -429,7 +455,7 @@ declare interface SpanStyle {
   styledKey: StyledStringKey;
 
   /**
-   * Style object.
+   * Style object used to match the style of the styled string.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -454,7 +480,8 @@ declare class TextStyle {
   /**
    * A constructor used to create a text style.
    *
-   * @param { TextStyleInterface } [value] - Font style options.
+   * @param { TextStyleInterface } [value] - Font style setting item.
+   *     <br>Default value: when not passed, inherits the default values of the **TextStyleInterface** properties.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -475,9 +502,9 @@ declare class TextStyle {
   readonly fontColor?: ResourceColor;
 
   /**
-   * Font family of the styled string.
+   * Text font of the styled string.
    *
-   * Returns **undefined** by default.
+   * Default value: **undefined**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -488,9 +515,9 @@ declare class TextStyle {
   readonly fontFamily?: string;
 
   /**
-   * Font size of the styled string.
+   * Text font size of the styled string.
    *
-   * Unit: [vp]{@link common}
+   * Unit: [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -501,7 +528,14 @@ declare class TextStyle {
   readonly fontSize?: number;
 
   /**
-   * Font weight of the styled string.
+   * Text font weight of the styled string.
+   *
+   * Default value: **400**
+   *
+   * **NOTE**
+   *
+   * The return value is of the string type. For details about the relationship between the return value and the set
+   * value, see the table below.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -510,10 +544,9 @@ declare class TextStyle {
    * @since 12 dynamic
    */
   readonly fontWeight?: number;
-  
 
   /**
-   * Font style of the styled string.
+   * Text font style of the styled string.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -524,7 +557,7 @@ declare class TextStyle {
   readonly fontStyle?: FontStyle;
 
   /**
-   * Superscript or subscript for the styled string.
+   * Superscript and subscript of the styled string.
    *
    * Default value: **SuperscriptStyle.NORMAL**.
    *
@@ -539,7 +572,7 @@ declare class TextStyle {
   /**
    * Text stroke width of the styled string.
    *
-   * Default value: **0**, in [vp]{@link common}.
+   * Default value: **0**, in [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -552,7 +585,7 @@ declare class TextStyle {
   /**
    * Text stroke color of the styled string.
    *
-   * Default value: same as the text color.
+   * Default value: the font color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -564,8 +597,8 @@ declare class TextStyle {
 
   /**
    * Font configuration of the styled string.
-   *
-   * Default value: **undefined**, indicating that fontConfigs is not set.
+   * indicating that **fontConfigs** is not set.
+   * Default value: **undefined**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -576,11 +609,9 @@ declare class TextStyle {
   readonly fontConfigs?: FontConfigs;
 
   /**
-   * Array of variable font attributes.
-   *
-   * Default value: **undefined**, indicating that variable font attributes are not set.
-   *
-   * **Since**: 26.0.0
+   * Attribute array of the variable font.
+   * indicating that the variable font attributes are not set.
+   * Default value: **undefined**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -591,11 +622,9 @@ declare class TextStyle {
   readonly fontVariations?: Array<FontVariation>;
 
   /**
-   * Text stroke join style of the styled string.
+   * Text stroke join style of the styled string. For details about the enum values, see **StrokeJoinStyle**.
    *
-   * Default value: **StrokeJoinStyle.MITER_JOIN**.
-   *
-   * **Since**: 26.0.0.
+   * Default value: **StrokeJoinStyle.MITER_JOIN**, indicating a miter join with a sharp corner.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -616,11 +645,10 @@ declare class TextStyle {
  * @since 12 dynamic
  */
 declare interface TextStyleInterface {
-
   /**
    * Font color.
    *
-   * Default value: theme color.
+   * The default value is the theme color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -631,9 +659,9 @@ declare interface TextStyleInterface {
   fontColor?: ResourceColor;
 
   /**
-   * Font family.
+   * Text font.
    *
-   * Default value: theme font.
+   * The default value is the theme font.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -646,11 +674,12 @@ declare interface TextStyleInterface {
   /**
    * Font size.
    *
-   * Default value: 16 fp.
+   * The default font size is 16fp.
    *
-   * If **unit** of **LengthMetrics** is percent, the setting does not take effect, and 16 fp is used instead.
+   * If the unit value of LengthMetrics is PERCENT, the current setting does not take effect and is processed as
+   * **16fp**.
    *
-   * Unit: [fp]{@link common}
+   * Unit: [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -663,10 +692,13 @@ declare interface TextStyleInterface {
   /**
    * Font weight.
    *
-   * For the number type, the value ranges from 100 to 900, at an interval of 100. A larger value indicates a heavier
-   * font weight. The default value is **400**. For the string type, only strings that represent a number, for example,
-   * **400**, and the following enumerated values of **FontWeight** are supported: **bold**, **bolder**, **lighter**,
-   * **regular**, and **medium**.
+   * For the number type, the value ranges from 100 to 900 at an interval of 100. The default value is 400. A larger
+   * value indicates a heavier font. For the string type, only the string form of the number type value is supported,
+   * for example, "400", as well as "bold", "bolder", "lighter", "regular", and "medium", which correspond to the
+   * respective enum values in **FontWeight**. An excessively large value may be truncated in different fonts. If the
+   * value passed in is out of the value range or does not meet the interval requirement, the default value is used.
+   *
+   * Default value: **FontWeight.Normal**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -679,7 +711,7 @@ declare interface TextStyleInterface {
   /**
    * Font style.
    *
-   * Default value: **FontStyle.Normal**.
+   * Default value: **FontStyle.Normal**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -690,9 +722,9 @@ declare interface TextStyleInterface {
   fontStyle?: FontStyle;
 
   /**
-   * Superscript or subscript for the text.
+   * Text superscript and subscript.
    *
-   * Default value: **SuperscriptStyle.NORMAL**.
+   * Default value: **SuperscriptStyle.NORMAL**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -703,12 +735,12 @@ declare interface TextStyleInterface {
   superscript?: SuperscriptStyle;
 
   /**
-   * Text stroke width. If **unit** of **LengthMetrics** is percent, the setting does not take effect, and 0 is used
-   * instead.
+   * Text stroke width. If the unit value of **LengthMetrics** is **PERCENT**, the current setting does not take effect
+   * and is processed as 0.
    *
-   * If the value is less than 0, the text is solid. If the value is greater than 0, the text is hollow.
+   * If the value is less than 0, the text is solid; if the value is greater than 0, the text is hollow.
    *
-   * Default value: **0**.
+   * The default value is **0**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -721,7 +753,7 @@ declare interface TextStyleInterface {
   /**
    * Text stroke color.
    *
-   * Default value: text color. If invalid values are provided, the text color is used.
+   * The default value is the font color. If an abnormal value is set, the font color is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -732,7 +764,7 @@ declare interface TextStyleInterface {
   strokeColor?: ResourceColor;
 
   /**
-   * Font configuration. The default value is inherited from [FontConfigs]{@link FontConfigs}.
+   * Font configuration. The default value inherits [FontConfigs]{@link FontConfigs}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -743,13 +775,10 @@ declare interface TextStyleInterface {
   fontConfigs?: FontConfigs;
 
   /**
-   * Variable font attributes.
-   *
-   * Default value: **undefined**, indicating that variable font attributes are not set.
-   *
-   * The priority of **fontVariations** is higher than that of **fontWeight**.
-   *
-   * **Since**: 26.0.0
+   * Attribute of the variable font.
+   * indicating that the attribute of the variable font is not set.
+   * The **fontVariations** attribute has a higher priority than **fontWeight**.
+   * Default value: **undefined**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -760,11 +789,9 @@ declare interface TextStyleInterface {
   fontVariations?: Array<FontVariation>;
 
   /**
-   * Text stroke join style.
+   * Text stroke join style. For details about the enum values and their descriptions, see **StrokeJoinStyle**.
    *
-   * Default value: **StrokeJoinStyle.MITER_JOIN**.
-   *
-   * **Since**: 26.0.0.
+   * Default value: **StrokeJoinStyle.MITER_JOIN**, indicating a miter join with a sharp corner.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -785,15 +812,14 @@ declare interface TextStyleInterface {
  * @since 20 dynamic
  */
 declare interface DecorationOptions {
-
   /**
    * Whether to enable the display of multiple decoration lines.
    *
-   * Default value: **undefined**. **true**: Enable the display of multiple decoration lines. **false** or
-   * **undefined**: Disable the display of multiple decoration lines.
+   * Default value: **undefined**. The value **true** enables it, and **false** or **undefined** disables it.
    *
-   * To display all decoration lines, this option must be enabled. The overlapping area of multiple decoration lines
-   * will show a combined effect, with the style, color, and thickness consistent with the last decoration line.
+   * All decoration lines to be displayed must have this option enabled. In the intersection area of these decoration
+   * lines, the multi-decoration-line effect is displayed, and the style, color, and thickness of the last set
+   * decoration line are used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -816,10 +842,11 @@ declare interface DecorationOptions {
 declare class DecorationStyle {
 
   /**
-   * A constructor used to create a text decorative line style.
+   * A constructor used to create a text decoration line style. If this API is not used to set the style, the default
+   * decoration line type is **TextDecorationType.None**, the color is **Color.Black**, and the style is
+   * **TextDecorationStyle.SOLID**.
    *
-   * @param { DecorationStyleInterface } value - Text decorative line options.<br>Default value:<br>{<br> type:
-   *     TextDecorationType.None,<br> color: Color.Black,<br> style: TextDecorationStyle.SOLID <br>}
+   * @param { DecorationStyleInterface } value - Text decoration settings.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -829,13 +856,12 @@ declare class DecorationStyle {
   constructor(value: DecorationStyleInterface);
 
   /**
-   * Constructor of a text decoration line style, including additional configuration options.
+   * A constructor used to create a text decoration line style, with additional configuration options. If this API is
+   * not used to set the style, the default decoration line type is **TextDecorationType.None**, the color is
+   * **Color.Black**, the style is **TextDecorationStyle.SOLID**, and the thickness scale is 1.0.
    *
-   * @param { DecorationStyleInterface } value - Text decorative line options.<br>Default value:<br>{<br> type:
-   *     TextDecorationType.None,<br> color: Color.Black,<br> style: TextDecorationStyle.SOLID, <br> thicknessScale: 1.0
-   *     <br>}
-   * @param { DecorationOptions } [options] - Additional configuration options for the text decoration line.<br>Default
-   *     value:<br>{<br> enableMultiType: undefined<br>}
+   * @param { DecorationStyleInterface } value - Text decoration line settings.
+   * @param { DecorationOptions } [options] - Additional configuration options for the text decoration line.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -845,7 +871,7 @@ declare class DecorationStyle {
   constructor(value: DecorationStyleInterface, options?: DecorationOptions);
 
   /**
-   * Type of the text decorative line.
+   * Type of the text decoration line of the styled string.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -856,7 +882,7 @@ declare class DecorationStyle {
   readonly type: TextDecorationType;
 
   /**
-   * Color of the text decorative line.
+   * Color of the text decoration line of the styled string.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -867,7 +893,7 @@ declare class DecorationStyle {
   readonly color?: ResourceColor;
 
   /**
-   * Style of the text decorative line.
+   * Style of the text decoration line of the styled string.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -878,7 +904,7 @@ declare class DecorationStyle {
   readonly style?: TextDecorationStyle;
 
   /**
-   * Scale factor for the thickness of the text decoration line.
+   * Scale value of the text decoration line thickness of the styled string.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -889,7 +915,7 @@ declare class DecorationStyle {
   readonly thicknessScale?: number;
 
   /**
-   * Additional configuration options for the text decoration line style.
+   * Additional configuration options of the text decoration line style of the styled string.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -918,11 +944,10 @@ declare class DecorationStyle {
  * @since 12 dynamic
  */
 declare interface DecorationStyleInterface {
-
   /**
-   * Type of the text decorative line.
+   * Type of the decoration line. For details about the enums and their descriptions, see **TextDecorationType**.
    *
-   * Default value: **TextDecorationType.None**.
+   * Default value: **TextDecorationType.None**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -933,9 +958,9 @@ declare interface DecorationStyleInterface {
   type: TextDecorationType;
 
   /**
-   * Color of the text decorative line.
+   * Color of the decoration line.
    *
-   * Default value: **Color.Black**.
+   * Default value: **Color.Black**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -946,9 +971,9 @@ declare interface DecorationStyleInterface {
   color?: ResourceColor;
 
   /**
-   * Style of the text decorative line.
+   * Style of the decoration line. For details about the enums and their descriptions, see **TextDecorationStyle**.
    *
-   * Default value: **TextDecorationStyle.SOLID**.
+   * Default value: **TextDecorationStyle.SOLID**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -959,13 +984,13 @@ declare interface DecorationStyleInterface {
   style?: TextDecorationStyle;
 
   /**
-   * Scale factor for the decoration line thickness.
+   * Scale ratio of the decoration line thickness.
    *
-   * Default value: **1.0**.
+   * Default value: 1.0
    *
-   * Value range: [0, +∞).
+   * Value range: [0, +∞)
    *
-   * Note: Negative values are treated as the default value.
+   * **Note:** A negative value is processed as the default value.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -977,7 +1002,9 @@ declare interface DecorationStyleInterface {
 }
 
 /**
- * Describes the text baseline offset style.
+ * Describes the text baseline offset object. It is suitable for scenarios that require fine-tuning the vertical
+ * position of text, such as aligning superscript and subscript text with normal text in chemical formulas and
+ * mathematical expressions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -990,8 +1017,8 @@ declare class BaselineOffsetStyle {
   /**
    * A constructor used to create a text baseline offset style.
    *
-   * @param { LengthMetrics } value - Text baseline offset options. This API does not work if **unit** of
-   *     **LengthMetrics** is percent.
+   * @param { LengthMetrics } value - Setting item for the text baseline offset. If the unit value of **LengthMetrics**
+   *     is **PERCENT**, this setting does not take effect.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1001,9 +1028,9 @@ declare class BaselineOffsetStyle {
   constructor(value: LengthMetrics);
 
   /**
-   * Text baseline offset.
+   * Text baseline offset of the styled string.
    *
-   * Unit: [vp]{@link common}
+   * Unit: [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1015,7 +1042,9 @@ declare class BaselineOffsetStyle {
 }
 
 /**
- * Describes the letter spacing style.
+ * Describes the text character spacing object. It is suitable for scenarios that require adjusting character spacing,
+ * such as widening the spacing of title text to enhance the visual effect and narrowing the spacing of dense text to
+ * save space.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1028,8 +1057,8 @@ declare class LetterSpacingStyle {
   /**
    * A constructor used to create a text letter spacing style.
    *
-   * @param { LengthMetrics } value - Letter spacing options. This API does not work if **unit** of **LengthMetrics** is
-   *     percent.
+   * @param { LengthMetrics } value - Text character spacing setting. If the unit value of **LengthMetrics** is
+   *     **PERCENT**, this setting does not take effect.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1039,9 +1068,9 @@ declare class LetterSpacingStyle {
   constructor(value: LengthMetrics);
 
   /**
-   * Letter spacing.
+   * Text character spacing of the styled string.
    *
-   * Unit: [vp]{@link common}
+   * Unit: [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1101,10 +1130,10 @@ declare class TextShadowStyle {
 declare class BackgroundColorStyle {
 
   /**
-   * A constructor used to create a text background style.
+   * A constructor used to create the text background color. If this API is not used to set the value, the default
+   * background color is **Color.Transparent** and the corner radius is **0**.
    *
-   * @param { TextBackgroundStyle } textBackgroundStyle - Options of the text background color.<br>Default value:<br>{<
-   *     br>  color: Color.Transparent,<br>  radius: 0<br>}
+   * @param { TextBackgroundStyle } textBackgroundStyle - Text background color setting item.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1118,13 +1147,13 @@ declare class BackgroundColorStyle {
    *
    * Default value:
    *
-   * {
+   * **{
    *
    * color: Color.Transparent,
    *
    * radius: 0
    *
-   * }
+   * }**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1149,7 +1178,8 @@ declare class GestureStyle {
   /**
    * A constructor used to create a gesture style.
    *
-   * @param { GestureStyleInterface } [value] - Event options.
+   * @param { GestureStyleInterface } [value] - Event gesture settings.
+   *     <br>Default value: no gesture event is bound when this parameter is not passed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1169,9 +1199,8 @@ declare class GestureStyle {
  * @since 12 dynamic
  */
 declare interface GestureStyleInterface {
-
   /**
-   * Callback for click events.
+   * Click event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1182,7 +1211,7 @@ declare interface GestureStyleInterface {
   onClick?: Callback<ClickEvent>;
 
   /**
-   * Callback for long press events.
+   * Long press event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1193,7 +1222,7 @@ declare interface GestureStyleInterface {
   onLongPress?: Callback<GestureEvent>;
 
   /**
-   * Callback for touch events.
+   * Touch event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1211,9 +1240,10 @@ declare interface GestureStyleInterface {
  *
  * The style of a paragraph is the one (if any) set for the first element or the paragraph style of the bound component.
  *
- * Before API version 26.0.0, if the first placeholder in a paragraph of the styled string is a
- * [CustomSpan]{@link CustomSpan} or [ImageAttachment]{@link ImageAttachment}, the paragraph style set for that
- * paragraph does not take effect. From API version 26.0.0, the paragraph style takes effect.
+ *
+ * Before API version 26.0.0, if the first placeholder in a styled string paragraph is [CustomSpan]{@link CustomSpan} or
+ * [ImageAttachment]{@link ImageAttachment}, the paragraph style set on that paragraph does not take effect. Since API
+ * version 26.0.0, the paragraph style takes effect.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1226,7 +1256,9 @@ declare class ParagraphStyle {
   /**
    * A constructor used to create a text paragraph style.
    *
-   * @param { ParagraphStyleInterface } [value] - Paragraph style options.
+   * @param { ParagraphStyleInterface } [value] - Paragraph style setting item.
+   *     <br>Default value: If not passed, the default values of the properties of **ParagraphStyleInterface** are
+   *     inherited.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1236,7 +1268,10 @@ declare class ParagraphStyle {
   constructor(value?: ParagraphStyleInterface);
 
   /**
-   * Horizontal alignment mode of the text paragraph.
+   * Horizontal alignment of the styled string text paragraph.
+   *
+   * **Note:** **textAlign** can only adjust the overall layout of the text and does not affect the display order of
+   * characters.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1247,13 +1282,15 @@ declare class ParagraphStyle {
   readonly textAlign?: TextAlign;
 
   /**
-   * Vertical alignment mode of the text paragraph.
+   * Vertical alignment of the styled string text paragraph.
    *
-   * The effect of this attribute is noticeable only when the same font size is used in a paragraph and
-   * [lineHeight]{@link TextAttribute#lineHeight} is set, or when different font sizes are used in a paragraph and the
-   * font sizes are mixed. The **SuperscriptStyle** in [TextStyle]{@link TextStyle} takes effect only when the value of
-   * [TextVerticalAlign]{@link TextVerticalAlign} is set to **TextVerticalAlign.BASELINE**. In other vertical alignment
-   * modes, the superscript and subscript texts are displayed in the same way as the normal text.
+   * The effect differs only when the same font size is used in a paragraph and the line height
+   * [lineHeight]{@link TextAttribute#lineHeight} is set at the same time, or when text of different font sizes is mixed
+   * in the same paragraph. Otherwise, setting any enum value of this attribute produces the same layout effect as not
+   * setting it. The **SuperscriptStyle** superscript and subscript style in [TextStyle]{@link TextStyle} of the styled
+   * string takes effect only when the value of [TextVerticalAlign]{@link TextVerticalAlign} is
+   * **TextVerticalAlign.BASELINE**. With other vertical alignment modes, superscript and subscript text behaves the
+   * same as normal text, with no superscript or subscript effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1264,9 +1301,8 @@ declare class ParagraphStyle {
   readonly textVerticalAlign?: TextVerticalAlign;
 
   /**
-   * First line indent of the text paragraph.
-   *
-   * Unit: VP.
+   * First-line text indent of the styled string text paragraph. Unit:
+   * [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1277,7 +1313,9 @@ declare class ParagraphStyle {
   readonly textIndent?: number;
 
   /**
-   * Maximum number of lines in the text paragraph.
+   * Maximum number of lines of the styled string text paragraph.
+   *
+   * Value range: [0, INT32_MAX]. A negative value means no limit.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1288,7 +1326,12 @@ declare class ParagraphStyle {
   readonly maxLines?: number;
 
   /**
-   * Display mode when the text is too long in the text paragraph.
+   * Display mode of the styled string text paragraph when it is too long.
+   *
+   * Default value: **TextOverflow.None**.
+   *
+   * It must be used together with **maxLines**; setting it alone does not take effect. **TextOverflow.MARQUEE** is not
+   * supported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1299,7 +1342,7 @@ declare class ParagraphStyle {
   readonly overflow?: TextOverflow;
 
   /**
-   * Word break rule of the text paragraph.
+   * Line break rule of the styled string text paragraph.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1310,9 +1353,9 @@ declare class ParagraphStyle {
   readonly wordBreak?: WordBreak;
 
   /**
-   * Indent of the text paragraph.
+   * Indent of the styled string text paragraph.
    *
-   * If the return value is of the number type, the unit is vp.
+   * When the return value is of the number type, the unit is vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1323,9 +1366,9 @@ declare class ParagraphStyle {
   readonly leadingMargin?: number | LeadingMarginPlaceholder;
 
   /**
-   * Paragraph spacing of the styled string text.
+   * Paragraph spacing of the styled string text paragraph.
    *
-   * Unit: vp
+   * Unit: [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1336,7 +1379,7 @@ declare class ParagraphStyle {
   readonly paragraphSpacing?: number;
 
   /**
-   * Custom indentation information for text paragraphs in the styled string.
+   * Custom indent information of the styled string text paragraph.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1360,7 +1403,9 @@ declare class ParagraphStyle {
   /**
    * Text shader effect.
    *
-   * **Since**: 26.0.0.
+   * **Note:** When this API is set together with **strokeWidth** of [TextStyleInterface]{@link TextStyleInterface},
+   * this API does not take effect. **shaderStyle** has a higher priority than **fontColor** in
+   * [TextStyleInterface]{@link TextStyleInterface}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1371,8 +1416,13 @@ declare class ParagraphStyle {
   readonly shaderStyle?: ShaderStyle;
 
   /**
-   * Get the tail indentation of the StyledString.
-   * The unit is vp.
+   * Tail indent distance of the styled string text paragraph.
+   * INT32_MAX]
+   * The value **0** means no tail indent.
+   * **Note:** In the same paragraph, the **tailIndents** array takes values by array index in sequence for each line to
+   * perform indentation. For the first line of a new paragraph, the value is taken again from index 0 of the
+   * **tailIndents** array.
+   * Unit: [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1393,11 +1443,10 @@ declare class ParagraphStyle {
  * @since 12 dynamic
  */
 declare interface ParagraphStyleInterface {
-
   /**
    * Horizontal alignment of the text paragraph.
    *
-   * Default value: **TextAlign.Start**.
+   * Default value: **TextAlign.Start**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1408,9 +1457,9 @@ declare interface ParagraphStyleInterface {
   textAlign?: TextAlign;
 
   /**
-   * Vertical alignment mode of text paragraphs.
+   * Vertical alignment of the text paragraph.
    *
-   * Default value: **TextVerticalAlign.BASELINE**.
+   * Default value: **TextVerticalAlign.BASELINE**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1421,9 +1470,9 @@ declare interface ParagraphStyleInterface {
   textVerticalAlign?: TextVerticalAlign;
 
   /**
-   * First line indent of the text paragraph. The value cannot be in percentage.
+   * First-line text indentation of the text paragraph. Percentage is not supported.
    *
-   * Default value: **0**.
+   * Default value: **0**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1434,7 +1483,13 @@ declare interface ParagraphStyleInterface {
   textIndent?: LengthMetrics;
 
   /**
-   * Maximum number of lines in the text paragraph. By default, the number of lines is not limited.
+   * Maximum number of lines of the text paragraph.
+   *
+   * **Note:** This takes effect only in **Text**. It is recommended to set it on the component side.
+   *
+   * No limit by default.
+   *
+   * Value range: [0, INT32_MAX]. When a negative number is passed in, no limit is applied.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1445,11 +1500,13 @@ declare interface ParagraphStyleInterface {
   maxLines?: number;
 
   /**
-   * Display mode when the text is too long in the text paragraph.
+   * Display mode when the text paragraph is too long.
    *
-   * Default value: **TextOverflow.None**.
+   * **Note:** This takes effect only in **Text**. It is recommended to set it on the component side.
    *
-   * This parameter must be used with **maxLines** for the settings to take effect. **TextOverflow.MARQUEE** is not
+   * Default value: **TextOverflow.None**
+   *
+   * It must be used together with **maxLines**; setting it alone does not take effect. **TextOverflow.MARQUEE** is not
    * supported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1461,9 +1518,9 @@ declare interface ParagraphStyleInterface {
   overflow?: TextOverflow;
 
   /**
-   * Word break rule of the text paragraph.
+   * Line breaking rule of the text paragraph.
    *
-   * Default value: **WordBreak.NORMAL**.
+   * Default value: **WordBreak.NORMAL**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1474,9 +1531,9 @@ declare interface ParagraphStyleInterface {
   wordBreak?: WordBreak;
 
   /**
-   * Indent of the text paragraph. The value cannot be in percentage.
+   * Indentation of the text paragraph. Percentage is not supported.
    *
-   * Default value: **0**.
+   * Default value: **0**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1487,9 +1544,9 @@ declare interface ParagraphStyleInterface {
   leadingMargin?: LengthMetrics | LeadingMarginPlaceholder;
 
   /**
-   * Paragraph spacing of the styled string text.
+   * Paragraph spacing of the text paragraph.
    *
-   * Default value: **0**. The value cannot be in percentage.
+   * The default paragraph spacing is 0. Percentage is not supported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1500,9 +1557,9 @@ declare interface ParagraphStyleInterface {
   paragraphSpacing?: LengthMetrics;
 
   /**
-   * Custom indentation information for text paragraphs. The value cannot be in percentage.
+   * Custom indentation of the text paragraph. Percentage is not supported.
    *
-   * Default value: **0**.
+   * Default value: **0**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1528,11 +1585,11 @@ declare interface ParagraphStyleInterface {
   /**
    * Text shader effect.
    *
-   * This API does not take effect when used together with [TextStyleInterface]{@link TextStyleInterface}
-   * **strokeWidth**. **shaderStyle** has a higher priority than [TextStyleInterface]{@link TextStyleInterface}
-   * **fontColor**.
+   * **Default effect:** When not passed in, no shader effect is applied, and the color set by **fontColor** is used.
    *
-   * **Since**: 26.0.0.
+   * When this API is set together with **strokeWidth** of [TextStyleInterface]{@link TextStyleInterface}, this API does
+   * not take effect, and **shaderStyle** has a higher priority than **fontColor** in
+   * [TextStyleInterface]{@link TextStyleInterface}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1543,15 +1600,11 @@ declare interface ParagraphStyleInterface {
   shaderStyle?: ShaderStyle;
 
   /**
-   * Specify the tail indentation for each line in a paragraph.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>When a single LengthMetrics value is provided, all lines share the same tail indent.
-   * <br>When an array is provided, the i-th element specifies the tail indent for the i-th line.
-   * If the number of text lines exceeds the array length, the last element in the array is used
-   * for the remaining lines.
-   * <br>Negative values are treated as 0.
-   * </p>
+   * Tail indentation of the text paragraph. Percentage is not supported. When a single **LengthMetrics** value is
+   * provided, all lines share the same tail indentation; when an array is provided, the i-th element specifies the tail
+   * indentation of the i-th line; if the number of text lines exceeds the array length, the last element in the array
+   * is used for the remaining lines.
+   * Default value: **0**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1576,8 +1629,9 @@ declare class LineHeightStyle {
   /**
    * A constructor used to create a text line height style.
    *
-   * @param { LengthMetrics } lineHeight - Text line height options. If **value** of **LengthMetrics** is less than or
-   *     equal to 0, the text line height is unlimited and automatically adapts to the font size.
+   * @param { LengthMetrics } lineHeight - Text line height setting. If the unit value of **LengthMetrics** is
+   *     **PERCENT**, the current setting does not take effect. When the **value** of **LengthMetrics** is greater than
+   *     0, the text line height setting takes effect; otherwise, the text line height adapts to the font size.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1587,25 +1641,30 @@ declare class LineHeightStyle {
   constructor(lineHeight: LengthMetrics);
 
   /**
-   * A constructor used to create a text line height and multiple.
+   * A constructor used to create the text line height and multiple.
    *
    * > **NOTE**
    * >
    * > - When **lineHeightMultiple** is set together with **lineHeight** or [LineSpacingStyle]{@link LineSpacingStyle},
-   * > only **lineHeightMultiple** takes effect. The line height is the product of the highest font height in the line
-   * > and the multiplier.
+   * > only **lineHeightMultiple** takes effect, and the line height is the product of the maximum font height of the
+   * > line and the multiple.
    * >
-   * > - When **lineHeightMultiple** is less than 0 or **undefined**, it does not take effect. Use **lineHeight** and
-   * > [LineSpacingStyle]{@link LineSpacingStyle} to set the line height and line spacing.
+   * > - When **lineHeightMultiple** is less than 0 or **undefined**, it does not take effect, and **lineHeight** and
+   * > [LineSpacingStyle]{@link LineSpacingStyle} are used to set the line height and line spacing.
    * >
-   * > - When **lineHeightMultiple** is set to 0, it is equivalent to setting it to 1.
+   * > - When **lineHeightMultiple** is equal to 0, it is equivalent to setting it to 1.
    *
-   * **Since**: 26.0.0
-   *
-   * @param { LengthMetrics } lineHeight - Text line height options. If **value** of **LengthMetrics** is less than or
-   *     equal to 0, the text line height is unlimited and automatically adapts to the font size.
-   * @param { number } [lineHeightMultiple] - Multiplier for the text line height.<br>Value range:
-   *     [0, +∞). Decimals are supported.
+   * @param { LengthMetrics } lineHeight - Text line height setting. When the value of **LengthMetrics** is greater than
+   *     0, the text line height setting takes effect; otherwise, the text line height adapts to the font size.
+   * @param { number } [lineHeightMultiple] - Multiple of the text line height.
+   *     <br> decimals supported.
+   *     <br>The value must be greater than or equal to 0.
+   *     <br>**NOTE**
+   *     <br>When set together with **lineHeight** or [LineSpacingStyle]{@link LineSpacingStyle}, only
+   *     **lineHeightMultiple** takes effect, and the line height is the product of the maximum font height of the line
+   *     and the multiple.
+   *     <br>It does not take effect when the value is less than 0 or **undefined**.
+   *     <br>When the value is 0, it is equivalent to setting it to 1.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1617,7 +1676,7 @@ declare class LineHeightStyle {
   /**
    * Text line height of the styled string.
    *
-   * Unit: [vp]{@link common}
+   * Unit: [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1628,10 +1687,13 @@ declare class LineHeightStyle {
   readonly lineHeight: number;
 
   /**
-   * Multiplier for the text line height. The effective line height is the product of the highest font height in the
-   * line and the multiplier.
+   * Multiple of the text line height. The actual line height is the product of the maximum font height of the line and
+   * the multiple.
    *
-   * **Since**: 26.0.0
+   * **Note:** When **lineHeightMultiple** is set together with **lineHeight** or
+   * [LineSpacingStyle]{@link LineSpacingStyle}, only **lineHeightMultiple** takes effect. **lineHeightMultiple** does
+   * not take effect when it is less than 0 or **undefined**. When **lineHeightMultiple** is 0, it is equivalent to
+   * setting it to 1.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1643,7 +1705,8 @@ declare class LineHeightStyle {
 }
 
 /**
- * Describes the text line spacing style.
+ * Describes the text line spacing object. It is suitable for scenarios that require adjusting the spacing between lines
+ * within a paragraph, such as improving text reading comfort and adjusting document layout density.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1654,13 +1717,14 @@ declare class LineHeightStyle {
 declare class LineSpacingStyle {
 
   /**
-   * A constructor used to create a text line spacing style.
+   * A constructor used to create the text line spacing. If this API is not used to set the value, the default line
+   * spacing is **0.0**. When the value of **LengthMetrics** is less than 0, the default value **0.0** is used. When it
+   * is set together with **lineHeightMultiple** of [LineHeightStyle]{@link LineHeightStyle} and **lineHeightMultiple**
+   * takes effect, this parameter does not take effect.
    *
-   * **Since**: 26.0.0
-   *
-   * @param { LengthMetrics } lineSpacing - Text line spacing.<br>Default value: **0.0**<br>Value range:
-   *     [0, +∞) <br>**NOTE** If **value** of **LengthMetrics** is less than 0, the default value **0.0** is used.
-   * @param { LineSpacingOptions } [options] - Line spacing options.<br>Default value: **{ onlyBetweenLines: false }**
+   * @param { LengthMetrics } lineSpacing - Text line spacing.
+   *     <br>Value range: [0, +∞).
+   * @param { LineSpacingOptions } [options] - Line spacing configuration options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1674,7 +1738,7 @@ declare class LineSpacingStyle {
    *
    * Value range: [0, +∞)
    *
-   * Unit: [vp]{@link common}
+   * Unit: [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1685,7 +1749,7 @@ declare class LineSpacingStyle {
   readonly lineSpacing: number;
 
   /**
-   * Line spacing options.
+   * Line spacing configuration options.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1713,7 +1777,7 @@ declare class UrlStyle {
   /**
    * A constructor used to create a URL object.
    *
-   * @param { string } url - Options of the hyperlink.
+   * @param { string } url - Hyperlink URL setting. Must be a valid URL address.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1750,7 +1814,7 @@ declare class UrlStyle {
  * @unionmember { CustomSpan } Custom span style.
  * @unionmember { UserDataSpan } User data span style.
  * @unionmember { BackgroundColorStyle } Text background color style. [since 14]
- * @unionmember { LineSpacingStyle } Text line spacing style. **Since**: 26.0.0 [since 26.0.0]
+ * @unionmember { LineSpacingStyle } Text line spacing style.  [since 26.0.0]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1778,14 +1842,14 @@ UserDataSpan | BackgroundColorStyle | LineSpacingStyle;
  * @since 12 dynamic
  */
 declare class MutableStyledString extends StyledString {
-
   /**
    * Replaces the string in the specified range of this styled string.
    *
    * @param { number } start - Subscript of the target range.
    * @param { number } length - Length of the target range.
-   * @param { string } other - String to replace the content in the target range.<br>**NOTE**<br>The string specified
-   *     here uses the style of the character at the **start** position.
+   * @param { string } other - New text content to replace.
+   *     <br>**NOTE**
+   *     <br>The replacement string uses the style of the character at the **start** position.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -1802,9 +1866,10 @@ declare class MutableStyledString extends StyledString {
    * Inserts a string.
    *
    * @param { number } start - Subscript of the position where the string will be inserted.
-   * @param { string } other - String to insert.<br>**NOTE**<br>The string specified here uses the style of the
-   *     character at the **start** - 1 position or, if that character does not have style set, the style of the
-   *     character at the **start** position.
+   * @param { string } other - New text content to insert.
+   *     <br>**Note:**
+   *     <br>The inserted string uses the style of the character at position **start-1**. If no style is set for the
+   *     character at position **start-1**, the style of the character at position **start** is used.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -1839,9 +1904,12 @@ declare class MutableStyledString extends StyledString {
   /**
    * Replaces the style in the specified range of this styled string.
    *
-   * @param { SpanStyle } spanStyle - Style object.<br>**NOTE**<br>By default, the original style is removed and
-   *     replaced with the new style.<br>If **styledKey** of **SpanStyle** is **IMAGE** or **CUSTOM_SPAN**, this API
-   *     takes effect only when an image or custom span with the length of 1 is at the **start** position.
+   * @param { SpanStyle } spanStyle - Style object.
+   *     <br>**NOTE**
+   *     <br>By default, the original style is cleared and replaced with the new style.
+   *     <br>When the **styledKey** of **SpanStyle** is **IMAGE** or **CUSTOM_SPAN**, the style takes effect only when
+   *     the content at the start position is currently an image or **CustomSpan** with a length of 1; otherwise, it has
+   *     no effect.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -1857,10 +1925,11 @@ declare class MutableStyledString extends StyledString {
   /**
    * Sets a new style for the specified range of this styled string.
    *
-   * @param { SpanStyle } spanStyle - Style object.<br>By default, the new style is applied without removing the
-   *     original style. If the **StyledStringValue** types are the same, the new style overwrites the old one.<br>If
-   *     **styledKey** of **SpanStyle** is **IMAGE** or **CUSTOM_SPAN**, this API takes effect only when an image or
-   *     custom span with the length of 1 is at the **start** position.
+   * @param { SpanStyle } spanStyle - Style object.
+   *     <br>By default, the original style is not cleared, and the new style is overlaid.
+   *     <br>If the **StyledStringValue** types are the same, the new style overrides the old style.
+   *     <br>When the **styledKey** of **SpanStyle** is **IMAGE** or **CUSTOM_SPAN**, the style takes effect only when
+   *     the position of start is currently an image or **CustomSpan** and the length is 1; otherwise, it has no effect.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1873,7 +1942,7 @@ declare class MutableStyledString extends StyledString {
   /**
    * Removes the style for the specified range of this styled string.
    *
-   * After a style is removed, the value set for the corresponding style attribute in the [Text]{@link text} component
+   * After a style is removed, the value set for the corresponding style attribute in the [Text]{@link ./text} component
    * is used. If the value is not set, the default value is used.
    *
    * This API equally works when the styled string contains an image.
@@ -1896,7 +1965,7 @@ declare class MutableStyledString extends StyledString {
   /**
    * Removes all styles for the specified range of this styled string.
    *
-   * After a style is removed, the value set for the corresponding style attribute in the [Text]{@link text} component
+   * After a style is removed, the value set for the corresponding style attribute in the [Text]{@link ./text} component
    * is used. If the value is not set, the default value is used.
    *
    * This API equally works when the styled string contains an image.
@@ -1918,7 +1987,7 @@ declare class MutableStyledString extends StyledString {
   /**
    * Removes all styles of this styled string.
    *
-   * After a style is removed, the value set for the corresponding style attribute in the [Text]{@link text} component
+   * After a style is removed, the value set for the corresponding style attribute in the [Text]{@link ./text} component
    * is used. If the value is not set, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1987,9 +2056,8 @@ declare class MutableStyledString extends StyledString {
  * @since 12 dynamic
  */
 declare enum StyledStringKey {
-
   /**
-   * Font style key, applicable to [TextStyle]{@link TextStyle}.
+   * Font style key. Key of [TextStyle]{@link TextStyle}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2000,7 +2068,7 @@ declare enum StyledStringKey {
   FONT = 0,
 
   /**
-   * Text decorative line style key, applicable to [DecorationStyle]{@link DecorationStyle}.
+   * Text decoration line style key. Key of [DecorationStyle]{@link DecorationStyle}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2011,7 +2079,7 @@ declare enum StyledStringKey {
   DECORATION = 1,
 
   /**
-   * Text baseline offset style key, applicable to [BaselineOffsetStyle]{@link BaselineOffsetStyle}.
+   * Text baseline offset style key. Key of [BaselineOffsetStyle]{@link BaselineOffsetStyle}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2022,7 +2090,7 @@ declare enum StyledStringKey {
   BASELINE_OFFSET = 2,
 
   /**
-   * Text letter spacing style key, applicable to [LetterSpacingStyle]{@link LetterSpacingStyle}.
+   * Text letter spacing style key. Key of [LetterSpacingStyle]{@link LetterSpacingStyle}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2033,7 +2101,7 @@ declare enum StyledStringKey {
   LETTER_SPACING = 3,
 
   /**
-   * Text shadow style key, applicable to [TextShadowStyle]{@link TextShadowStyle}.
+   * Text shadow style key. Key of [TextShadowStyle]{@link TextShadowStyle}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2044,7 +2112,7 @@ declare enum StyledStringKey {
   TEXT_SHADOW = 4,
 
   /**
-   * Text line height style key, applicable to [LineHeightStyle]{@link LineHeightStyle}.
+   * Text line height style key. Key of [LineHeightStyle]{@link LineHeightStyle}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2055,7 +2123,7 @@ declare enum StyledStringKey {
   LINE_HEIGHT = 5,
 
   /**
-   * Text background color style key, applicable to [BackgroundColorStyle]{@link BackgroundColorStyle}.
+   * Text background color style key. Key of [BackgroundColorStyle]{@link BackgroundColorStyle}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2066,7 +2134,7 @@ declare enum StyledStringKey {
   BACKGROUND_COLOR = 6,
 
   /**
-   * Hyperlink style key, applicable to [UrlStyle]{@link UrlStyle}.
+   * Hyperlink style key. Key of [UrlStyle]{@link UrlStyle}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2077,9 +2145,7 @@ declare enum StyledStringKey {
   URL = 7,
 
   /**
-   * Text line spacing style key, applicable to [LineSpacingStyle]{@link LineSpacingStyle}.
-   *
-   * **Since**: 26.0.0
+   * Text line spacing style key. Key of [LineSpacingStyle]{@link LineSpacingStyle}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2090,7 +2156,7 @@ declare enum StyledStringKey {
   LINE_SPACING = 8,
 
   /**
-   * Gesture key, applicable to [GestureStyle]{@link GestureStyle}.
+   * Event gesture key. Key of [GestureStyle]{@link GestureStyle}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2101,7 +2167,7 @@ declare enum StyledStringKey {
   GESTURE = 100,
 
   /**
-   * Paragraph style key, applicable to [ParagraphStyle]{@link ParagraphStyle}.
+   * Paragraph style key. Key of [ParagraphStyle]{@link ParagraphStyle}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2112,7 +2178,7 @@ declare enum StyledStringKey {
   PARAGRAPH_STYLE = 200,
 
   /**
-   * Image key, applicable to [ImageAttachment]{@link ImageAttachment}.
+   * Image key. Key of [ImageAttachment]{@link ImageAttachment}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2123,7 +2189,7 @@ declare enum StyledStringKey {
   IMAGE = 300,
 
   /**
-   * Custom span key, applicable to [CustomSpan]{@link CustomSpan}.
+   * Custom drawing span key. Key of [CustomSpan]{@link CustomSpan}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2134,7 +2200,7 @@ declare enum StyledStringKey {
   CUSTOM_SPAN = 400,
 
   /**
-   * User data span key, applicable to [UserDataSpan]{@link UserDataSpan}.
+   * UserDataSpan key. Key of [UserDataSpan]{@link UserDataSpan}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2197,7 +2263,7 @@ declare class ImageAttachment {
   /**
    * Image size of the styled string.
    *
-   * Number-type values use px as the unit.
+   * The unit of the returned number value is `px`.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2209,10 +2275,8 @@ declare class ImageAttachment {
 
   /**
    * Image size of the styled string.
-   *
-   * Number-type values use vp as the unit.
-   *
-   * If **ImageAttachment** is set to a negative value or **undefined**, **undefined** is returned.
+   * The unit of the returned number value is `vp`.
+   * If the ImageAttachment size is set to a negative value or undefined, undefined is returned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2304,7 +2368,6 @@ declare class ImageAttachment {
  * @since 15 dynamic
  */
 declare interface ResourceImageAttachmentOptions {
-
   /**
    * Image data source.
    *
@@ -2317,7 +2380,10 @@ declare interface ResourceImageAttachmentOptions {
   resourceValue: Optional<ResourceStr>;
 
   /**
-   * Image size.
+   * Image size. Percentage values are not supported.
+   *
+   * The default value of **size** depends on the value of **objectFit**. Different **objectFit** values correspond to
+   * different default size values.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2328,9 +2394,10 @@ declare interface ResourceImageAttachmentOptions {
   size?: SizeOptions;
 
   /**
-   * Alignment mode of the image with the text.
+   * Alignment of the image relative to the text. For details about the enums and their descriptions, see
+   * **ImageSpanAlignment**.
    *
-   * Default value: **ImageSpanAlignment.BOTTOM**
+   * Default value: **ImageSpanAlignment.BOTTOM**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2341,9 +2408,10 @@ declare interface ResourceImageAttachmentOptions {
   verticalAlign?: ImageSpanAlignment;
 
   /**
-   * Image scaling type. The **ImageFit.MATRIX** enum value is not supported.
+   * Scaling type of the image. The current enum type does not support **ImageFit.MATRIX**. For details about the enums
+   * and their descriptions, see **ImageFit**.
    *
-   * Default value: **ImageFit.Cover**
+   * Default value: **ImageFit.Cover**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2365,7 +2433,8 @@ declare interface ResourceImageAttachmentOptions {
   layoutStyle?: ImageAttachmentLayoutStyle;
 
   /**
-   * Image color filter of the styled string.
+   * Color filter effect of the image in the styled string. If this parameter is not passed, no color filter is applied
+   * and the image is displayed in its original color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2377,7 +2446,7 @@ declare interface ResourceImageAttachmentOptions {
 
   /**
    * Whether to load the image synchronously. By default, the image is loaded asynchronously. During synchronous
-   * loading, the UI thread is blocked and the placeholder image is not displayed.
+   * loading, the UI thread is blocked and no placeholder image is displayed.
    *
    * **true**: synchronous loading; **false**: asynchronous loading.
    *
@@ -2429,7 +2498,6 @@ declare interface ResourceImageAttachmentOptions {
  * @since 12 dynamic
  */
 declare interface ImageAttachmentInterface {
-
   /**
    * Image data source.
    *
@@ -2442,11 +2510,12 @@ declare interface ImageAttachmentInterface {
   value: PixelMap;
 
   /**
-   * Image size, which does not support percentage values.
+   * Image size. Percentage values are not supported.
    *
-   * The default value of **size** depends on the value of **objectFit**. For example, if the value of **objectFit** is
-   * **Cover**, the image height is the component height minus the top and bottom paddings, and the image width is the
-   * component width minus the left and right paddings.
+   * The default value of size is related to the value of **objectFit**. Different **objectFit** values correspond to
+   * different default values of size. For example, when **objectFit** is **Cover**, the image height is the component
+   * height minus the top and bottom padding of the component, and the image width is the component width minus the left
+   * and right padding of the component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2457,7 +2526,7 @@ declare interface ImageAttachmentInterface {
   size?: SizeOptions;
 
   /**
-   * Alignment mode of the image with the text.
+   * Alignment of the image relative to the text.
    *
    * Default value: **ImageSpanAlignment.BOTTOM**
    *
@@ -2470,7 +2539,8 @@ declare interface ImageAttachmentInterface {
   verticalAlign?: ImageSpanAlignment;
 
   /**
-   * Image scaling type. The **ImageFit.MATRIX** enum value is not supported.
+   * Sets the scaling type of the image. The current enum type does not support **ImageFit.MATRIX**. For details about
+   * the enums, see **ImageFit**.
    *
    * Default value: **ImageFit.Cover**
    *
@@ -2483,7 +2553,8 @@ declare interface ImageAttachmentInterface {
   objectFit?: ImageFit;
 
   /**
-   * Image layout.
+   * Image layout. If this parameter is not passed, the default layout is used (the margin, padding, and corner radius
+   * are all 0).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2494,7 +2565,8 @@ declare interface ImageAttachmentInterface {
   layoutStyle?: ImageAttachmentLayoutStyle;
 
   /**
-   * Image color filter of the styled string.
+   * Color filter effect of the image in the styled string. If this parameter is not passed, no color filter is applied
+   * and the image is displayed in its original color.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2553,13 +2625,12 @@ declare type ColorFilterType = ColorFilter | DrawingColorFilter;
  * @since 12 dynamic
  */
 declare interface ImageAttachmentLayoutStyle {
-
   /**
    * Image margin.
    *
-   * Default value: **0**.
+   * Default value: **0**
    *
-   * Unit: [vp]{@link common}
+   * Unit: [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2572,9 +2643,9 @@ declare interface ImageAttachmentLayoutStyle {
   /**
    * Image padding.
    *
-   * Default value: **0**.
+   * Default value: **0**
    *
-   * Unit: [vp]{@link common}
+   * Unit: [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2585,11 +2656,11 @@ declare interface ImageAttachmentLayoutStyle {
   padding?: LengthMetrics | Padding;
 
   /**
-   * Radius of the image border corners.
+   * Rounded corner.
    *
-   * Default value: **0**.
+   * Default value: **0**
    *
-   * Unit: [vp]{@link common}
+   * Unit: [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2610,11 +2681,10 @@ declare interface ImageAttachmentLayoutStyle {
  * @since 12 dynamic
  */
 declare interface CustomSpanMetrics {
-
   /**
-   * Width of the custom span.
+   * Width of the custom drawing span.
    *
-   * Unit: [vp]{@link common}
+   * Unit: [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2626,9 +2696,12 @@ declare interface CustomSpanMetrics {
   width: number;
 
   /**
-   * Height of the custom span.
+   * Height of the custom drawing span.
    *
-   * Unit: [vp]{@link common}
+   * Default value: if not passed, the **fontSize** value of the **Text** component is used as the height of
+   * **CustomSpan**.
+   *
+   * Unit: [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2649,11 +2722,10 @@ declare interface CustomSpanMetrics {
  * @since 12 dynamic
  */
 declare interface CustomSpanDrawInfo {
-
   /**
-   * Offset of the custom span relative to the mounted component.
+   * Offset of the custom drawing span relative to the mounted component.
    *
-   * Unit: [px]{@link common}
+   * Unit: [px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2664,9 +2736,9 @@ declare interface CustomSpanDrawInfo {
   x: number;
 
   /**
-   * Top margin of the custom span relative to the **Text** component.
+   * Top margin of the custom drawing span relative to the **Text** component.
    *
-   * Unit: [px]{@link common}
+   * Unit: [px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2677,9 +2749,9 @@ declare interface CustomSpanDrawInfo {
   lineTop: number;
 
   /**
-   * Bottom margin of the custom span relative to the **Text** component.
+   * Bottom margin of the custom drawing span relative to the **Text** component.
    *
-   * Unit: [px]{@link common}
+   * Unit: [px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2690,9 +2762,9 @@ declare interface CustomSpanDrawInfo {
   lineBottom: number;
 
   /**
-   * Baseline offset of the line where the custom span is located.
+   * Baseline offset of the line where the custom drawing span is located.
    *
-   * Unit: [px]{@link common}
+   * Unit: [px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2713,11 +2785,10 @@ declare interface CustomSpanDrawInfo {
  * @since 12 dynamic
  */
 declare interface CustomSpanMeasureInfo {
-
   /**
-   * Text font size.
+   * Font size of the text.
    *
-   * Unit: [fp]{@link common}
+   * Unit: [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2726,11 +2797,12 @@ declare interface CustomSpanMeasureInfo {
    * @since 12 dynamic
    */
   fontSize: number;
-
   /**
-   * Maximum width constraint of the custom span within the parent component's content area.
+   * Maximum width constraint of the content area of the parent component where the custom drawing span is located.
    *
-   * Unit: [px]{@link common}
+   * Default value: uses its own width.
+   *
+   * Unit: [px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2741,11 +2813,11 @@ declare interface CustomSpanMeasureInfo {
   maxWidth?: number;
 
   /**
-   * Width layout policy of the parent component of the custom span.
+   * Width layout policy of the parent component where the custom drawing span is located.
    *
    * **NOTE**
    *
-   * When the value is **null** or **undefined**, the parent component does not have a width layout policy set.
+   * When the value is **null** or **undefined**, it indicates that the parent component has no width layout policy set.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2766,15 +2838,11 @@ declare interface CustomSpanMeasureInfo {
  * @since 22 dynamic
  */
 declare interface LeadingMarginSpanDrawInfo {
-
   /**
-   * Horizontal offset of the current line relative to the component. For right-to-left (RTL) scripts (direction set to
-   * **RTL**), this value represents the distance between the right side of the current line and the component's right
-   * edge.
-   *
-   * Unit: [px]{@link common}
-   *
-   * The value must be greater than or equal to 0.
+   * Horizontal offset of the current line relative to the component. When **direction** is RTL, the distance between
+   * the right side of the current line and the right edge of the component is returned.
+   * Unit: [px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
+   * Value range: greater than or equal to 0.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2785,11 +2853,9 @@ declare interface LeadingMarginSpanDrawInfo {
   x: number;
 
   /**
-   * Distance from the top of the current line to the component's upper edge.
-   *
-   * Unit: [px]{@link common}
-   *
-   * The value must be greater than or equal to 0.
+   * Distance between the top of the line and the top edge of the component.
+   * Unit: [px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
+   * Value range: greater than or equal to 0.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2800,11 +2866,9 @@ declare interface LeadingMarginSpanDrawInfo {
   top: number;
 
   /**
-   * Distance from the bottom of the current line to the component's upper edge.
-   *
-   * Unit: [px]{@link common}
-   *
-   * The value must be greater than or equal to 0.
+   * Distance between the bottom of the line and the top edge of the component.
+   * Unit: [px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
+   * Value range: greater than or equal to 0.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2815,11 +2879,9 @@ declare interface LeadingMarginSpanDrawInfo {
   bottom: number;
 
   /**
-   * Distance from the baseline of the current line to the component's upper edge.
-   *
-   * Unit: [px]{@link common}
-   *
-   * The value must be greater than or equal to 0.
+   * Distance between the baseline of the current line and the top edge of the component.
+   * Unit: [px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
+   * Value range: greater than or equal to 0.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2842,8 +2904,7 @@ declare interface LeadingMarginSpanDrawInfo {
 
   /**
    * Start index of the current line.
-   *
-   * The value must be greater than or equal to 0.
+   * Value range: greater than or equal to 0.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2855,8 +2916,7 @@ declare interface LeadingMarginSpanDrawInfo {
 
   /**
    * End index of the current line.
-   *
-   * The value must be greater than or equal to 0.
+   * Value range: greater than or equal to 0.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2869,7 +2929,7 @@ declare interface LeadingMarginSpanDrawInfo {
   /**
    * Whether the current line is the first line of the paragraph.
    *
-   * **true**: first line; **false**: non-first line.
+   * **true**: first line; **false**: not the first line.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2881,7 +2941,9 @@ declare interface LeadingMarginSpanDrawInfo {
 }
 
 /**
- * Describes the custom span. Only the base class is provided. You need to define the specific implementation.
+ * Defines a custom drawing span that provides only a base class, with the specific implementation defined by
+ * developers. It is suitable for scenarios that require embedding custom drawing content in the text flow, such as
+ * drawing custom icons, progress bars, and special decoration effects in text.
  *
  * The drag preview of a custom span is blank.
  *
@@ -2892,17 +2954,16 @@ declare interface LeadingMarginSpanDrawInfo {
  * @since 12 dynamic
  */
 declare abstract class CustomSpan {
-
   /**
    * Called to obtain the size of a custom span.
    *
-   * @param { CustomSpanMeasureInfo } measureInfo - Font size of the text.
-   * @returns { CustomSpanMetrics } Size of the custom span.
-   *     <br>**NOTE**
-   *     <br>The final height of the custom span is subject to the line height of the **Text** component. If no value is
-   *     specified for **height**, the custom span takes the **fontSize** value of the **Text** component as its height.
-   *     If the value specified is greater than the height of other child components on the same line, the custom span
-   *     takes the line height of the **Text** component as its height.
+   * @param { CustomSpanMeasureInfo } measureInfo - Measurement information of the custom-drawn span.
+   * @returns { CustomSpanMetrics } Size information of the custom drawing span.
+   *     <br>**Note:**
+   *     <br>The final height of **CustomSpan** is determined by the line height of the current **Text** component. If
+   *     **height** is not set, the **fontSize** value of the **Text** component is used as the height of **CustomSpan**
+   *     by default. If **height** is greater than the height of other child components in the current line, **height**
+   *     is used as the line height of the **Text** component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2914,9 +2975,10 @@ declare abstract class CustomSpan {
   /**
    * Called to draw a custom span.
    *
-   * @param { DrawContext } context - Drawing context.<br>**NOTE**<br>The **canvas** method of **DrawContext** obtains
-   *     the canvas of the **Text** component. As such, the custom span does not extend beyond the area of the **Text**
-   *     component.
+   * @param { DrawContext } context - Graphics drawing context.
+   *     <br>**NOTE**
+   *     <br>The canvas obtained through the canvas method of **DrawContext** is the canvas of the **Text** component,
+   *     and the drawing will not exceed the range of the **Text** component.
    * @param { CustomSpanDrawInfo } drawInfo - Drawing information of the custom span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2950,11 +3012,14 @@ declare abstract class CustomSpan {
  * @atomicservice
  * @since 12 dynamic
  */
-declare abstract class UserDataSpan {}
+declare abstract class UserDataSpan {
+}
 
 /**
- * Defines custom indentation for text paragraphs. Only a base class is provided; the specific implementation is left to
- * developers.
+ * Defines the custom indentation of a text paragraph, which provides only a base class, with the specific
+ * implementation defined by developers. It is suitable for scenarios that require drawing custom markers, icons, and
+ * other content at the beginning of the first line or each line of a paragraph, such as custom symbols before list
+ * items and decoration patterns at the beginning of a paragraph.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2963,12 +3028,12 @@ declare abstract class UserDataSpan {}
  * @since 22 dynamic
  */
 declare abstract class LeadingMarginSpan {
-
   /**
    * Draws a custom pattern. This API is triggered once for each line of text in a paragraph.
    *
-   * @param { DrawContext } context - Drawing context.<br>The **canvas** method of **DrawContext** obtains the canvas
-   *     of the component. As such, the custom span does not extend beyond the area of the component.
+   * @param { DrawContext } context - Graphics drawing context.
+   *     <br>The canvas method of **DrawContext** obtains the canvas of the component, and drawing does not exceed the
+   *     component bounds.
    * @param { LeadingMarginSpanDrawInfo } drawInfo - Custom drawing information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2981,8 +3046,8 @@ declare abstract class LeadingMarginSpan {
   /**
    * Returns the indentation distance for a text paragraph.
    *
-   * @returns { LengthMetrics } Paragraph indentation distance. The value cannot be in percentage.
-   *     <br>Default value: **0**.
+   * @returns { LengthMetrics } Indentation of the text paragraph. Percentage is not supported.
+   *     <br>Default value: **0**
    *     <br>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

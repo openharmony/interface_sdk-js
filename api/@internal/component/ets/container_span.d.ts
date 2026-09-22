@@ -19,7 +19,15 @@
  */
 
 /**
- * Span container interface.
+ * As a child component of the [Text]{@link ./text} component, the **ContainerSpan** component is used to manage the
+ * background colors and rounded corners of multiple [Span]{@link ./span} and [ImageSpan]{@link ./image_span} components
+ * in a unified manner. It applies to scenarios where a unified background style needs to be set for a combination of
+ * text segments and images.
+ *
+ * > **NOTE**
+ * >
+ * > - This component is supported since API version 11. Newly added APIs will be marked with a superscript to indicate
+ * > their.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29,7 +37,6 @@
  * @noninterop
  */
 interface ContainerSpanInterface {
-
   /**
    * Defines the constructor of ContainerSpan.
    *
@@ -46,8 +53,6 @@ interface ContainerSpanInterface {
 /**
  * Only the following attributes are supported.
  *
- * The [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are not supported.
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -56,11 +61,17 @@ interface ContainerSpanInterface {
  * @noninterop
  */
 declare class ContainerSpanAttribute {
-
   /**
-   * Span background style.
+   * Sets the text background style. Child components inherit this attribute value when they do not set it. When this
+   * API is not used, the default background color is **Color.Transparent** and the default corner radius is 0.
    *
-   * @param { TextBackgroundStyle } style - The background style of span.
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   *
+   * @param { TextBackgroundStyle } style - Text background style, used to set the text background color and corner
+   *     radius of **Span** and **ImageSpan** in the **ContainerSpan** component. Child components inherit this
+   *     parameter value when they do not set it.
    * @returns { ContainerSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -74,7 +85,9 @@ declare class ContainerSpanAttribute {
    * Creates an attribute modifier.
    *
    * @param { AttributeModifier<ContainerSpanAttribute> } modifier - Modifier for dynamically setting attributes on the
-   *     current component.
+   *     current component. You need to customize a class that inherits from the **AttributeModifier** API to receive a
+   *     **ContainerSpanAttribute** instance in the **applyNormalAttribute** API and dynamically modify the value of the
+   *     **ContainerSpan** attribute.
    * @returns { ContainerSpanAttribute } the attribute of the ContainerSpanAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -86,9 +99,19 @@ declare class ContainerSpanAttribute {
 }
 
 /**
- * As a child of the [Text]{@link ./text} component, the **ContainerSpan** component is used to manage the background
- * colors and rounded corners of multiple [Span]{@link ./span} and [ImageSpan]{@link ./image_span} components in a
- * unified manner.
+ * As a child component of the [Text]{@link ./text} component, the **ContainerSpan** component is used to manage the
+ * background colors and rounded corners of multiple [Span]{@link ./span} and [ImageSpan]{@link ./image_span} components
+ * in a unified manner. It applies to scenarios where a unified background style needs to be set for a combination of
+ * text segments and images.
+ *
+ * > **NOTE**
+ * >
+ * > - This component is supported since API version 11. Newly added APIs will be marked with a superscript to indicate
+ * > their
+ *
+ * ###### Child Components
+ *
+ * This component can contain the [Span]{@link ./span} and [ImageSpan]{@link ./image_span} child components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

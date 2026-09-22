@@ -220,7 +220,22 @@ export declare class SelectionContainerController {
 }
 
 /**
- * 创建一个SelectionContainer组件。
+ * SelectionContainer组件用于为多个文本节点提供跨节点文本选中、复制及菜单扩展能力，支持统一配置选中文本的手柄颜色和高亮颜色，支持灵活的文本拼接策略，支持自定义选择菜单和扩展菜单选项。适用于需要跨多个Text组件实现文本
+ * 连续选中、统一复制、样式自定义及菜单扩展的场景，解决了多Text组件场景下文本选择体验割裂的问题，提升了用户在复杂文本布局中的交互体验。
+ *
+ * > **说明：**
+ * >
+ * > - 本组件中选中文本相关回调返回的文本内容，按照[Text]{@link ./@internal/component/ets/text}组件的从上到下显示顺序进行拼接。
+ * >
+ * > - 本组件默认布局走[Stack]{@link ./@internal/component/ets/stack}，如有其他容器布局需求请在SelectionContainer内放置一个容器组件。
+ * >
+ * > - SelectionContainer内选中文本时不显示放大镜，也不支持[getMagnifier]{@link @ohos.arkui.UIContext:UIContext.getMagnifier}主动设置放大镜。
+ * >
+ * > - SelectionContainer内选中文本时不支持拖拽。
+ * >
+ * > - SelectionContainer内[Repeat]{@link ./@internal/component/ets/repeat}组件下的文本不支持跨节点选中。
+ * >
+ * > - 仅Text组件中的文本内容参与跨节点选中与文本拼接。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -230,9 +245,9 @@ export declare class SelectionContainerController {
  */
 export interface SelectionContainerInterface {
   /**
-   * 定义SelectionContainer的构造函数。
+   * 创建一个SelectionContainer组件。
    *
-   * @param { SelectionContainerOptions } [value] - 组件的初始化选项。
+   * @param { SelectionContainerOptions } [value] - 组件初始化配置项。
    * @returns { SelectionContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -244,17 +259,13 @@ export interface SelectionContainerInterface {
 }
 
 /**
- * 支持[通用属性]{@link CommonMethod}。
- * 
- * 支持[通用事件]{@link CommonMethod}。
- * 
+ * 支持[通用属性]{@link ./@internal/component/ets/common}。
+ *
  * > **说明：**
  * >
- * > - 不支持[隐私遮罩]{@link ./common}。
+ * > - 不支持[隐私遮罩]{@link ./@internal/component/ets/common}。
  * >
- * > - 不支持[图形变换]{@link ./common}，跨节点场景中Text子组件不支持图形变换。
- * >
- * > - 不支持[拖拽事件]{@link ./common}。
+ * > - 不支持[图形变换]{@link ./@internal/component/ets/common}，在SelectionContainer容器中子组件Text不支持图形变换。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -265,7 +276,7 @@ export interface SelectionContainerInterface {
 export declare class SelectionContainerAttribute extends CommonMethod<SelectionContainerAttribute> {
   /**
    * 设置组件的复制粘贴配置项。未通过该接口设置时，默认为CopyOptions.InApp。
-   * 
+   *
    * > **说明：**
    * >
    * > Text子组件已显式设置[copyOption]{@link TextAttribute#copyOption}时，优先使用Text子组件的配置；未设置时，使用SelectionContainer的配置。
@@ -282,12 +293,12 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
 
   /**
    * 设置选中文本手柄颜色。未通过该接口设置时，默认手柄颜色为'#007DFF'（蓝色）。
-   * 
+   *
    * > **说明：**
    * >
-   * > - 该属性在跨节点场景中用于各Text子组件选中文本手柄颜色。
+   * > - 该属性在SelectionContainer容器上用于控制各子组件Text选中文本手柄颜色。
    * >
-   * > - 在跨节点场景中Text子组件[caretColor]{@link TextAttribute#caretColor}设置无效，始终使用SelectionContainer的配置。
+   * > - 在SelectionContainer容器中子组件Text的[caretColor]{@link TextAttribute#caretColor}设置无效，始终使用SelectionContainer的配置。
    *
    * @param { Optional<ResourceColor> } color - 手柄颜色。
    * @returns { SelectionContainerAttribute } returns the instance of the SelectionContainerAttribute.
@@ -300,16 +311,16 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
   caretColor(color: Optional<ResourceColor>): SelectionContainerAttribute;
 
   /**
-   * 设置选中文本底板颜色。未通过该接口设置时，默认选中文本底板颜色为'#007DFF'（蓝色），如果未设置不透明度，默认为20%不透明度。
-   * 
+   * 设置文本选中高亮颜色。未通过该接口设置时，默认文本选中高亮颜色为'#007DFF'（蓝色），如果未设置不透明度或设置为完全不透明，默认使用20%不透明度。
+   *
    * > **说明：**
    * >
-   * > - 该属性在跨节点场景中用于各Text子组件选中区域的高亮颜色。
+   * > - 该属性在SelectionContainer容器上用于控制各子组件Text选中区域的高亮颜色。
    * >
    * > - Text子组件已显式设置[selectedBackgroundColor]{@link TextAttribute#selectedBackgroundColor}时，优先使用Text子组件的配置；未设置时，使用
    * > SelectionContainer的配置。
    *
-   * @param { Optional<ResourceColor> } color - 选中文本底板颜色。
+   * @param { Optional<ResourceColor> } color - 文本选中高亮颜色。
    * @returns { SelectionContainerAttribute } returns the instance of the SelectionContainerAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -321,7 +332,7 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
 
   /**
    * 设置是否开启触控反馈。未通过该接口设置时，默认开启。
-   * 
+   *
    * 开启触控反馈时，需要在工程的[module.json5配置文件](docroot://quick-start/module-configuration-file.md)中配置requestPermissions字段开启振动权限，配
    * 置如下：
    *
@@ -338,7 +349,7 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
 
   /**
    * 设置SelectionContainer内聚合文本的拼接方式。未通过该接口设置时，默认为SelectionContainerTextJoinStyle.NEWLINE，表示不同文本节点之间使用换行符\n拼接。
-   * 
+   *
    * > **说明：**
    * >
    * > - 该配置会影响[onWillCopy]{@link SelectionContainerAttribute#onWillCopy}、
@@ -359,23 +370,28 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
   textJoinStyle(style: Optional<SelectionContainerTextJoinStyle>): SelectionContainerAttribute;
 
   /**
-   * 绑定到选择菜单。
+   * 设置自定义选择菜单。未通过该接口设置时，默认spanType为TextSpanType.TEXT，responseType为TextResponseType.LONG_PRESS。
    *
-   * <p><strong>注意</strong>：
-   * <br>长按手势需要的时间，bindSelectionMenu为600ms,bindContextMenu为800 ms。
-   * <br>当bindSelectionMenu和bindContextMenu都设置了，并且都设置为长按触发
-   * 手势，
-   * bindSelectionMenu首先被触发。
-   * <br>如果自定义菜单过长，可以嵌入一个Scroll组件，防止键盘被遮挡。
-   * </p>
+   * > **说明：**
+   * >
+   * > - bindSelectionMenu的长按响应时长为600ms，
+   * > [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)}
+   * > 的长按响应时长为800ms，当两者同时绑定且触发方式均为长按时，优先响应bindSelectionMenu。
+   * >
+   * > - 自定义菜单过长时，建议内部嵌套使用[Scroll]{@link ./@internal/component/ets/scroll}组件，避免键盘被遮挡。
+   * >
+   * > - 选区跨越不可复制Text时，菜单仅基于实际选中的可复制文本进行显示和处理。
+   * >
+   * > - 在SelectionContainer容器中子组件Text的[bindSelectionMenu]{@link TextAttribute#bindSelectionMenu}设置无效，始终使用
+   * > SelectionContainer的配置。
    *
-   * @param { Optional<TextSpanType> } spanType - 选择菜单的类型。默认值为
-   *     TextSpanType.TEXT
-   * @param { Optional<CustomBuilder> } content - 指示选择菜单的内容
-   * @param { Optional<TextResponseType> } responseType - 选择菜单响应类型。默认值为
-   *     TextResponseType.LONG_press
-   * @param { Optional<SelectionContainerMenuOptions> } [options] - 指示选择菜单的选项
-   * @returns { SelectionContainerAttribute } 返回SelectionContainerAttribute的实例。
+   * @param { Optional<TextSpanType> } spanType - 选择菜单类型。用于指定选择菜单作用的文本类型范围，不同类型对应不同的菜单行为。各枚举值的含义及适用场景详见
+   *     [TextSpanType]{@link TextSpanType}。
+   * @param { Optional<CustomBuilder> } content - 选择菜单内容。
+   * @param { Optional<TextResponseType> } responseType - 选择菜单响应类型。
+   * @param { Optional<SelectionContainerMenuOptions> } [options] - 选择菜单选项，用于配置菜单出现、消失、显示、隐藏等事件的回调。当需要监听这些菜单事件时传入此参数，不传入
+   *     时默认不监听菜单事件。
+   * @returns { SelectionContainerAttribute } returns the instance of the SelectionContainerAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -387,12 +403,15 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
 
   /**
    * 设置选中文本后的编辑菜单选项，包括菜单文本、图标和回调等。
-   * 
+   *
    * > **说明：**
    * >
-   * > 当同时为当前场景设置了[bindSelectionMenu]{@link SelectionContainerAttribute#bindSelectionMenu}和editMenuOptions时，优先使用
+   * > - 当同时为当前场景设置了[bindSelectionMenu]{@link SelectionContainerAttribute#bindSelectionMenu}和editMenuOptions时，优先使用
    * > bindSelectionMenu，editMenuOptions不生效。bindSelectionMenu用于完全自定义菜单风格和触发条件，由开发者定义所有菜单项；editMenuOptions用于在系统默认菜单基础上添加扩
    * > 展项，触发条件不变。建议根据自定义程度需求选择。
+   * >
+   * > - 在SelectionContainer容器中子组件Text的[editMenuOptions]{@link TextAttribute#editMenuOptions}设置无效，始终使用SelectionContainer
+   * > 的配置。
    *
    * @param { Optional<SelectionContainerEditMenuOptions> } editMenu - 自定义编辑菜单配置。
    * @returns { SelectionContainerAttribute } returns the instance of the SelectionContainerAttribute.
@@ -406,7 +425,7 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
 
   /**
    * SelectionContainer中选中文本发生变化时触发该回调。使用callback异步回调。
-   * 
+   *
    * > **说明：**
    * >
    * > - 回调参数数组中各项顺序与Text组件视觉顺序一致。
@@ -427,7 +446,7 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
 
   /**
    * 在进行复制操作前，触发该回调。使用callback异步回调。
-   * 
+   *
    * > **说明：**
    * >
    * > - 回调参数为按Text组件视觉顺序拼接后的选中文本，拼接方式由[textJoinStyle]{@link SelectionContainerAttribute#textJoinStyle}配置决定。
@@ -446,7 +465,7 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
 
   /**
    * 长按文本内部区域弹出选择菜单后，点击选择菜单的复制按钮，触发该回调。仅支持复制文本。使用callback异步回调。
-   * 
+   *
    * > **说明：**
    * >
    * > - 回调参数为按Text组件视觉顺序拼接后的选中文本，拼接方式由[textJoinStyle]{@link SelectionContainerAttribute#textJoinStyle}配置决定。
@@ -465,21 +484,25 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
 }
 
 /**
- * SelectionContainer组件用于为多个文本节点提供跨节点文本选中、复制及菜单扩展能力，支持统一配置选中文本的手柄颜色和底板颜色，支持灵活的文本拼接策略，支持自定义选择菜单和扩展菜单选项。适用于需要跨多个Text组件实现文本
+ * SelectionContainer组件用于为多个文本节点提供跨节点文本选中、复制及菜单扩展能力，支持统一配置选中文本的手柄颜色和高亮颜色，支持灵活的文本拼接策略，支持自定义选择菜单和扩展菜单选项。适用于需要跨多个Text组件实现文本
  * 连续选中、统一复制、样式自定义及菜单扩展的场景，解决了多Text组件场景下文本选择体验割裂的问题，提升了用户在复杂文本布局中的交互体验。
- * 
+ *
  * > **说明：**
  * >
  * > - 本组件中选中文本相关回调返回的文本内容，按照[Text]{@link ./@internal/component/ets/text}组件的从上到下显示顺序进行拼接。
  * >
  * > - 本组件默认布局走[Stack]{@link ./@internal/component/ets/stack}，如有其他容器布局需求请在SelectionContainer内放置一个容器组件。
  * >
- * > - SelectionContainer内跨节点选中文本时不显示放大镜，也不支持[getMagnifier]{@link @ohos.arkui.UIContext:UIContext.getMagnifier}主动设置放大镜。
+ * > - SelectionContainer内选中文本时不显示放大镜，也不支持[getMagnifier]{@link @ohos.arkui.UIContext:UIContext.getMagnifier}主动设置放大镜。
+ * >
+ * > - SelectionContainer内选中文本时不支持拖拽。
+ * >
+ * > - SelectionContainer内[Repeat]{@link ./@internal/component/ets/repeat}组件下的文本不支持跨节点选中。
  * >
  * > - 仅Text组件中的文本内容参与跨节点选中与文本拼接。
- * 
+ *
  * ###### 子组件
- * 
+ *
  * 可以包含子组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -21,10 +21,10 @@
 /**
  * TextTimer组件的控制器，用于控制文本计时器。一个TextTimer组件仅支持绑定一个控制器，组件创建完成后相关指令才能被调用。一个TextTimerController只能控制最后一个绑定此
  * TextTimerController的TextTimer组件。
- * 
+ *
  * ###### 导入对象
- * 
- * ```ts
+ *
+ * ``` ts
  * textTimerController: TextTimerController = new TextTimerController();
  * ```
  *
@@ -94,9 +94,9 @@ declare class TextTimerController {
 declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerConfiguration> {
   /**
    * 计时器初始时间，单位为毫秒，isCountDown为true时生效。
-   * 
+   *
    * 默认值：60000
-   * 
+   *
    * 取值范围为(0, 86400000)，即不超过24小时。超出取值范围时置为默认值。
    *
    * @default 60000
@@ -111,7 +111,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
   /**
    * 是否倒计时。
    *
-   * true：计时器开启倒计时，例如从30秒 ~ 0秒；false：计时器开始计时，例如从0秒 ~ 30秒。
+   * true：计时器开启倒计时，例如从30秒~0秒；false：计时器开始计时，例如从0秒~30秒。
    *
    * 默认值：false
    *
@@ -152,13 +152,13 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
 
   /**
    * 计时器正向计时模式下的初始时间，仅当isCountDown为false时该参数设置生效。
-   * 
-   * 取值范围：无上限，支持负数。
-   * 
-   * 默认值：0 
-   * 
-   * 单位：毫秒 
-   * 
+   *
+   * 取值范围：[-2147483648, 2147483647]，支持负数。
+   *
+   * 默认值：0
+   *
+   * 单位：毫秒
+   *
    * 当值为负数时，计时器将从负值开始计时，经过0后继续向正数计时。
    *
    * @default 0
@@ -200,9 +200,9 @@ interface TextTimerOptions {
 
   /**
    * 计时器初始时间，单位为毫秒，isCountDown为true时生效。
-   * 
+   *
    * 默认值：60000
-   * 
+   *
    * 取值范围为(0, 86400000)，即不超过24小时。超出取值范围时置为默认值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -226,13 +226,13 @@ interface TextTimerOptions {
 
   /**
    * 计时器正向计时模式下的初始时间，仅当isCountDown为false时该参数设置生效。
-   * 
+   *
    * 取值范围：[−2147483648, 2147483647]。
-   * 
-   * 默认值：0 
-   * 
-   * 单位：毫秒 
-   * 
+   *
+   * 默认值：0
+   *
+   * 单位：毫秒
+   *
    * 当值为负数时，计时器将从负值开始计时，经过0后继续向正数计时。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -247,8 +247,12 @@ interface TextTimerOptions {
 
 /**
  * TextTimer是通过文本显示计时信息并控制其计时器状态的组件，支持正向计时与倒计时两种模式，可自定义显示格式，适用于秒表、活动倒计时等需要展示时间流逝的场景。常用于倒计时场景，如考试倒计时、限时活动、运动计时等。
- * 
+ *
  * 组件不可见（非锁屏状态和应用后台状态）时，UI时间变动将停止（即该组件此时不会绘制），[onTimer]{@link TextTimerAttribute#onTimer}仍然会正常触发。
+ *
+ * > **说明：**
+ * >
+ * > 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -275,9 +279,7 @@ interface TextTimerInterface {
 }
 
 /**
- * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性。
- *
- * 除支持[通用事件]{@link CommonMethod}外，还支持以下事件。
+ * 除支持[通用属性]{@link ./common}外，还支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -289,7 +291,7 @@ interface TextTimerInterface {
 declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   /**
    * 设置自定义时间格式，需至少包含一个HH、mm、ss、SS中的关键字。使用yy、MM、dd等日期格式时，不支持该格式，将使用默认格式'HH:mm:ss.SS'。
-   * 
+   *
    * 计时器更新频率按format最小单位处理，例如：format设置为'HH:mm'时，更新频率为一分钟。设置高精度的format（如包含SS）时，可能会导致onTimer回调间隔不均匀。
    *
    * @param { string } value - 自定义计时器显示的时间格式，需至少包含一个HH、mm、ss、SS中的关键字。
@@ -352,16 +354,15 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   /**
    * 设置文本的字体粗细，设置过大可能会导致不同字体下的文字出现截断。
    *
-   * @param { number | FontWeight | string } value - Font weight of the text. The value range of the number type is
-   *     [100, 900]. The value interval is 100. A larger value indicates a wider font. If the value of the number type
-   *     is not within the value range, the default value is **400**. The [ResourceStr]{@link ResourceStr} type supports
-   *     only strings of the number type, such as **"400"**, **"bold"**, **"bolder"**, **"lighter"**, **"regular"**, and
-   *     **"medium"**, corresponding to the enums in **FontWeight**.<br>Default value: **FontWeight.Normal**<br>The
-   *     Resource type is supported since API version 20. [since 8 - 19]
+   * @param { number | FontWeight | string } value - 文本的字体粗细，number类型取值范围为[100, 900]，取值间隔为100，取值越大，字体越粗。number类型取值范围外的默认
+   *     值为400。[ResourceStr]{@link ResourceStr}类型仅支持number类型取值的字符串形式，例如"400"，以及"bold"、"bolder"、"lighter"、"regular"、"
+   *     medium"，分别对应FontWeight中相应的枚举值。
+   *     <br>默认值：FontWeight.Normal
+   *     <br>从API version 20开始，支持Resource类型。 [since 8 - 19]
    * @param { number | FontWeight | ResourceStr } value - 文本的字体粗细，number类型取值范围为[100, 900]，取值间隔为100，取值越大，字体越粗。number类型取值范
    *     围外的默认值为400。[ResourceStr]{@link ResourceStr}类型仅支持number类型取值的字符串形式，例如"400"，以及"bold"、"bolder"、"lighter"、"regular"、
    *     "medium"，分别对应FontWeight中相应的枚举值。
-   *     <br>默认值：FontWeight.Normal 
+   *     <br>默认值：FontWeight.Normal
    *     <br>从API version 20开始，支持Resource类型。 [since 20]
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -406,14 +407,14 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
 
   /**
    * 设置文字阴影效果。该接口支持以数组形式入参，实现多重文字阴影。不支持fill字段和智能取色模式。
-   * 
+   *
    * > **说明：**
    * >
    * > 从API version 12开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
    * @param { ShadowOptions | Array<ShadowOptions> } value - 文字阴影效果的参数，包括颜色、模糊半径、偏移量。
    * @returns { TextTimerAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 12]
@@ -438,11 +439,15 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
 
 /**
  * TextTimer是通过文本显示计时信息并控制其计时器状态的组件，支持正向计时与倒计时两种模式，可自定义显示格式，适用于秒表、活动倒计时等需要展示时间流逝的场景。常用于倒计时场景，如考试倒计时、限时活动、运动计时等。
- * 
+ *
  * 组件不可见（非锁屏状态和应用后台状态）时，UI时间变动将停止（即该组件此时不会绘制），[onTimer]{@link TextTimerAttribute#onTimer}仍然会正常触发。
  *
+ * > **说明：**
+ * >
+ * > 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ *
  * ###### 子组件
- * 
+ *
  * 无
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

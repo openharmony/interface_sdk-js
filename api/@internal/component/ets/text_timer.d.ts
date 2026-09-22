@@ -25,8 +25,8 @@
  *
  * ###### Objects to Import
  *
- * ```ts
- * textTimerController: TextTimerController = new TextTimerController()
+ * ``` ts
+ * textTimerController: TextTimerController = new TextTimerController();
  * ```
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -36,7 +36,6 @@
  * @since 8 dynamic
  */
 declare class TextTimerController {
-
   /**
    * A constructor used to create a **TextTimerController** object.
    *
@@ -49,7 +48,7 @@ declare class TextTimerController {
   constructor();
 
   /**
-   * Starts the timer.
+   * Starts the timer. This API must be called after the **TextTimer** component is created and the controller is bound.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -60,7 +59,7 @@ declare class TextTimerController {
   start();
 
   /**
-   * Pauses the timer.
+   * Pauses the timer. This API must be called after the component is created.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -71,7 +70,7 @@ declare class TextTimerController {
   pause();
 
   /**
-   * Resets the timer.
+   * Resets the timer. This API must be called after the component is created.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -94,13 +93,13 @@ declare class TextTimerController {
  * @since 12 dynamic
  */
 declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerConfiguration> {
-
   /**
-   * Timer duration, in milliseconds. It is effective only when **isCountDown** is **true**. The maximum value is 864000
-   * 00 ms (24 hours). If the value is between 0 and 86,400,000, it is used as the initial countdown time. Otherwise,
-   * the default value is used as the initial countdown time.
+   * Initial time of the timer, in milliseconds. This parameter takes effect when isCountDown is set to true.
    *
-   * Default value: **60000**
+   * Default Value: 60000
+   *
+   * Value Range: (0, 86400000), that is, no more than 24 hours. If the value is out of the range, the default value is
+   * used.
    *
    * @default 60000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -112,11 +111,12 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
   count: number;
 
   /**
-   * Whether the timer is a countdown.
+   * Whether to count down.
    *
-   * **true**: The timer counts down, e.g., from 30s to 0s. **false**: The timer counts up, e.g., from 0s to 30s.
+   * true: The timer counts down, for example, from 30 seconds~0 seconds; false: The timer counts up, for example, from
+   * 0 seconds~30 seconds.
    *
-   * Default value: **false**
+   * Default Value: false
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -128,11 +128,11 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
   isCountDown: boolean;
 
   /**
-   * Whether the timer has already started.
+   * Whether the timer has started.
    *
-   * **true**: The timer has started. **false**: The timer has not started.
+   * true: The timer has started; false: The timer has not started.
    *
-   * Default value: **false**
+   * Default Value: false
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -143,7 +143,7 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
   started: boolean;
 
   /**
-   * Elapsed time of the timer, in the minimum unit of the format.
+   * Elapsed time of the timer, in the minimum unit of the configured format.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -154,13 +154,16 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
   elapsedTime: number;
 
   /**
-   * The start time of the timer.It is effective when isCountDown is false.
+   * Initial time of the timer in the count-up mode. This parameter takes effect only when isCountDown is set to false.
    *
-   * Default value: **0**
+   * Value Range: [-2147483648, 2147483647]. Negative values are supported.
    *
-   * Unit: ms.
+   * Default Value: 0
    *
-   * When the value is negative, the timer starts with a negative value and continues with a positive value after 0.
+   * Unit: ms
+   *
+   * When the value is negative, the timer starts counting from the negative value, passes 0, and then continues
+   * counting toward positive values.
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -182,13 +185,12 @@ declare interface TextTimerConfiguration extends CommonConfiguration<TextTimerCo
  * @since 8 dynamic
  */
 interface TextTimerOptions {
-
   /**
    * Countdown switch.
    *
-   * **true**: The timer counts down (for example, from 30 seconds to 0 seconds).
+   * true: The timer counts down, for example, from 30 seconds to 0 seconds.
    *
-   * **false**: The timer counts up (for example, from 0 seconds to 30 seconds).
+   * false: The timer counts up, for example, from 0 seconds to 30 seconds.
    *
    * Default value: **false**
    *
@@ -201,11 +203,12 @@ interface TextTimerOptions {
   isCountDown?: boolean;
 
   /**
-   * Timer duration, in milliseconds. It is effective only when **isCountDown** is **true**. The maximum value is 864000
-   * 00 ms (24 hours). If 0 < **count** < 86400000, **count** is the initial value of the timer. Otherwise, the default
-   * value is used as the initial value.
+   * Initial time of the timer, in milliseconds. This parameter takes effect when isCountDown is true.
    *
-   * Default value: **60000**
+   * Default value: 60000
+   *
+   * Value range: (0, 86400000), that is, no more than 24 hours. If the value is out of the range, the default value is
+   * used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -216,7 +219,8 @@ interface TextTimerOptions {
   count?: number;
 
   /**
-   * **TextTimer** controller.
+   * Controller of the TextTimer, used to start, pause, and reset the timer programmatically. If this parameter is not
+   * passed, the timer can still be displayed normally but its state cannot be controlled through code.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -227,13 +231,16 @@ interface TextTimerOptions {
   controller?: TextTimerController;
 
   /**
-   * The start time of the timer.It is effective when isCountDown is false.
+   * Initial time of the timer in count-up mode. This parameter takes effect only when isCountDown is false.
    *
-   * Default value: **0**
+   * Value range: [−2147483648, 2147483647].
    *
-   * Unit: ms.
+   * Default value: 0
    *
-   * When the value is negative, the timer starts with a negative value and continues with a positive value after 0.
+   * Unit: ms
+   *
+   * When the value is negative, the timer starts counting from the negative value and continues counting toward
+   * positive values after passing 0.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -246,7 +253,19 @@ interface TextTimerOptions {
 }
 
 /**
- * The **TextTimer** component displays timing information and is controlled in text format.
+ * **TextTimer** is a component that displays timing information in text format and controls the timer state. It
+ * supports both count-up and countdown modes and allows custom display formats. It is suitable for scenarios that need
+ * to show the passage of time, such as stopwatches and event countdowns. It is commonly used in countdown scenarios,
+ * such as exam countdowns, limited-time activities, and sports timing.
+ *
+ * When the component is invisible (not in the locked-screen state or the application background state), the UI time
+ * change stops (that is, the component is not drawn at this time), but [onTimer]{@link TextTimerAttribute#onTimer} is
+ * still triggered normally.
+ *
+ * > **NOTE**
+ * >
+ * > This component is supported since API version 8. Newly added APIs will be marked with a superscript to indicate
+ * > their
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -256,12 +275,14 @@ interface TextTimerOptions {
  * @noninterop
  */
 interface TextTimerInterface {
-
   /**
    * Create TextTimer component.
    *
-   * @param { TextTimerOptions } options - Parameters of the **TextTimer** component. The default value is inherited
-   *     from [TextTimerOptions]{@link TextTimerOptions}.
+   * @param { TextTimerOptions } options - Component parameter that displays timing information through text and
+   *     controls the timer state. Pass this parameter when you need to customize the timer configuration (for example,
+   *     set the countdown switch, timing duration, initial time, controller, and so on); if it is not passed, the
+   *     default configuration of TextTimerOptions is used.
+   *     <br>The default value inherits from [TextTimerOptions]{@link TextTimerOptions}.
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -273,12 +294,7 @@ interface TextTimerInterface {
 }
 
 /**
- * In addition to the
- * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
- * attributes are supported.
- *
- * In addition to the [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md), the
- * following events are supported.
+ * In addition to the [universal attributes]{@link ./common}, the following attributes are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -288,15 +304,18 @@ interface TextTimerInterface {
  * @noninterop
  */
 declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
-
   /**
-   * Sets the custom format. The value must contain at least one of the following keywords: **HH**, **mm**, **ss**, and
-   * **SS**. If the date format is yy, MM, or dd, the default value is used.
+   * Sets the custom time format, which must contain at least one of the following keywords: **HH**, **mm**, **ss**, and
+   * **SS**. When date formats such as **yy**, **MM**, and **dd** are used, they are not supported, and the default
+   * format **'HH:mm:ss.SS'** is used instead.
    *
-   * The timer update frequency is in the minimum unit of **format**. For example, if **format** is set to **'HH:mm'**,
-   * the update frequency is one minute.
+   * The timer update frequency is processed based on the minimum unit of **format**. For example, when **format** is
+   * set to **'HH:mm'**, the update frequency is one minute. When a high-precision **format** (for example, one
+   * containing **SS**) is set, the intervals of the **onTimer** callback may be uneven.
    *
-   * @param { string } value - Custom date display format.<br>Default value: **'HH:mm:ss.SS'**
+   * @param { string } value - Custom time format displayed by the timer. It must contain at least one of the keywords
+   *     HH, mm, ss, or SS.
+   *     <br>Default value: 'HH:mm:ss.SS'
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -309,9 +328,9 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   /**
    * Sets the font color.
    *
-   * @param { ResourceColor } value - Font color.<br>Default value on wearable devices: **'#c5ffffff'**, indicating that
-   *     the text is displayed in white.<br>Default value on other devices: **'#e6182431'**, indicating that the text is
-   *     displayed in black.
+   * @param { ResourceColor } value - Font color.
+   *     <br>Default value on Wearable devices: '#c5ffffff', displayed in white.
+   *     <br>Default value on other devices: '#e6182431', displayed in black.
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -324,13 +343,14 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   /**
    * Sets the font size.
    *
-   * @param { Length } value - Font size. When the value is of the number type in Length, the unit is fp. The default
-   *     font size is 16 fp. When the value is of the string type in Length:<br>- If the string does not start with a
-   *     digit, it is treated as 0 fp.<br>- If the string starts with a digit and contains characters other than
-   *     [pixel units](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md) (such as letters or special
-   *     characters), the leading numeric part is extracted as the value and the unit is fp. For example, the value
-   *     **"abc"** is treated as **0fp**, **"10vp"** is treated as **10vp**, and **"10vp11abc"** is treated as **10fp**.
-   *     The value cannot be a percentage.
+   * @param { Length } value - Font size.
+   *     <br>Default value: 16fp
+   *     <br>When value is of the number type in Length, the unit is fp. When value is of the string type in Length, if
+   *     the set value does not start with a digit, it is processed as 0fp; if the set value starts with a digit, and
+   *     the content after the digit contains characters other than [pixel units]{@link ./common} (such as letters and
+   *     special symbols), the numeric part at the beginning of the string is used, with the unit being fp.
+   *     <br>For example, when the set value is "abc", the value is 0fp; when the set value is "10vp", the value is 10
+   *     vp; when the set value is "10vp11abc", the value is 10fp. Percentage strings are not supported.
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -343,7 +363,8 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   /**
    * Sets the font style.
    *
-   * @param { FontStyle } value - Font style, for example, italic.<br>Default value: **FontStyle.Normal**
+   * @param { FontStyle } value - Font style, for example, the italic font style.
+   *     <br>Default value: FontStyle.Normal
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -356,18 +377,20 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   /**
    * Sets the font weight of the text. If the value is too large, the text in different fonts may be truncated.
    *
-   * @param { number | FontWeight | string } value - Font weight of the text. The value range of the number type is
-   *     [100, 900]. The value interval is 100. A larger value indicates a wider font. If the value of the number type
-   *     is not within the value range, the default value is **400**. The [ResourceStr]{@link ResourceStr} type supports
-   *     only strings of the number type, such as **"400"**, **"bold"**, **"bolder"**, **"lighter"**, **"regular"**, and
-   *     **"medium"**, corresponding to the enums in **FontWeight**.<br>Default value: **FontWeight.Normal**<br>The
-   *     Resource type is supported since API version 20. [since 8 - 19]
-   * @param { number | FontWeight | ResourceStr } value - Font weight of the text. The value range of the number type is
-   *     [100, 900]. The value interval is 100. A larger value indicates a wider font. If the value of the number type
-   *     is not within the value range, the default value is **400**. The [ResourceStr]{@link ResourceStr} type supports
-   *     only strings of the number type, such as **"400"**, **"bold"**, **"bolder"**, **"lighter"**, **"regular"**, and
-   *     **"medium"**, corresponding to the enums in **FontWeight**.<br>Default value: **FontWeight.Normal**<br>The
-   *     Resource type is supported since API version 20. [since 20]
+   * @param { number | FontWeight | string } value - Font weight of the text. For the number type, the value range is
+   *     [100, 900], with an interval of 100. A larger value indicates a heavier font weight. The default value for a
+   *     number outside the value range is 400. For the [ResourceStr]{@link ResourceStr} type, only the string form of
+   *     the number value is supported, for example, "400", as well as "bold", "bolder", "lighter", "regular", and "
+   *     medium", which correspond to the respective enum values in FontWeight.
+   *     <br>Default value: FontWeight.Normal
+   *     <br>Since API version 20, the Resource type is supported. [since 8 - 19]
+   * @param { number | FontWeight | ResourceStr } value - Font weight of the text. For the number type, the value range
+   *     is [100, 900], with an interval of 100. A larger value indicates a heavier font weight. The default value for a
+   *     number outside the value range is 400. For the [ResourceStr]{@link ResourceStr} type, only the string form of
+   *     the number value is supported, for example, "400", as well as "bold", "bolder", "lighter", "regular", and "
+   *     medium", which correspond to the respective enum values in FontWeight.
+   *     <br>Default value: FontWeight.Normal
+   *     <br>Since API version 20, the Resource type is supported. [since 20]
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -380,9 +403,10 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   /**
    * Sets the font family.
    *
-   * @param { ResourceStr } value - Font family. The default font is **'HarmonyOS Sans'**.<br>The 'HarmonyOS Sans' font
-   *     and [registered custom fonts]{@link @ohos.font:font} are supported for applications.<br>Only the 'HarmonyOS
-   *     Sans' font is supported for widgets.
+   * @param { ResourceStr } value - Font family. The default font is **'HarmonyOS Sans'**.
+   *     <br>The 'HarmonyOS Sans' font and [registered custom fonts]{@link @ohos.font:font} are supported for
+   *     applications.
+   *     <br>Only the 'HarmonyOS Sans' font is supported for widgets.
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -393,12 +417,15 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   fontFamily(value: ResourceStr): TextTimerAttribute;
 
   /**
-   * Event triggered when the time text changes. This event is not triggered when the screen is locked or the
-   * application is running in the background. When high-precision [format]{@link TextTimerAttribute#format}s (such as
-   * **SS**) are used, the callback interval may vary.
+   * Triggered when the time text changes. This event is not triggered in the locked-screen state or the application
+   * background state. When the component is invisible (not in the locked-screen state or the application background
+   * state), the UI time change stops, but this event is still triggered normally. When a high-precision
+   * [format]{@link TextTimerAttribute#format} (**SS**) is set, the callback intervals may be uneven, and the time
+   * intervals between two adjacent callbacks may differ.
    *
    * @param { function } event - utc: Linux timestamp, which is the amount of time that has elapsed since January 1, 197
-   *     0, in the minimum unit of the format.<br>elapsedTime: Elapsed time of the timer, in the minimum unit of the
+   *     0, in the minimum unit of the format.
+   *     <br>elapsedTime: Elapsed time of the timer, in the minimum unit of the
    *     format.
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -410,8 +437,8 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   onTimer(event: (utc: number, elapsedTime: number) => void): TextTimerAttribute;
 
   /**
-   * Sets the text shadow. It supports input parameters in an array to implement multiple text shadows. This API does
-   * not work with the **fill** attribute or coloring strategy.
+   * Sets the text shadow effect. This API supports input parameters in an array to implement multiple text shadows. The
+   * **fill** field and the smart color picking mode are not supported.
    *
    * > **NOTE**
    * >
@@ -429,10 +456,13 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
   textShadow(value: ShadowOptions | Array<ShadowOptions>): TextTimerAttribute;
 
   /**
-   * Creates a content modifier.
+   * Customizes the content area of **TextTimer**. When the default text display style cannot meet the requirements,
+   * this API can be used to implement a custom timer UI effect.
    *
-   * @param { ContentModifier<TextTimerConfiguration> } modifier - Content modifier to apply to the **TextTimer**
-   *     component.<br>**modifier**: content modifier. You need a custom class to implement the **ContentModifier** API.
+   * @param { ContentModifier<TextTimerConfiguration> } modifier - Method for customizing the content area on the
+   *     TextTimer component.
+   *     <br>modifier: content modifier. The developer needs to define a custom class to implement the ContentModifier
+   *     interface.
    * @returns { TextTimerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -444,7 +474,19 @@ declare class TextTimerAttribute extends CommonMethod<TextTimerAttribute> {
 }
 
 /**
- * The **TextTimer** component displays timing information and is controlled in text format.
+ * **TextTimer** is a component that displays timing information in text format and controls the timer state. It
+ * supports both count-up and countdown modes and allows custom display formats. It is suitable for scenarios that need
+ * to show the passage of time, such as stopwatches and event countdowns. It is commonly used in countdown scenarios,
+ * such as exam countdowns, limited-time activities, and sports timing.
+ *
+ * When the component is invisible (not in the locked-screen state or the application background state), the UI time
+ * change stops (that is, the component is not drawn at this time), but [onTimer]{@link TextTimerAttribute#onTimer} is
+ * still triggered normally.
+ *
+ * > **NOTE**
+ * >
+ * > This component is supported since API version 8. Newly added APIs will be marked with a superscript to indicate
+ * > their
  *
  * ###### Child Components
  *

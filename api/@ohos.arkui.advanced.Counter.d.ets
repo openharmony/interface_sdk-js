@@ -93,7 +93,7 @@ declare class CommonOptions {
    * **Note:** This attribute takes effect for the list and compact types of Counter, but not for the inline number and
    * inline date types.
    *
-   * Default value: **true**.
+   * Default value: **true**
    *
    * **true**: The Counter can obtain focus (selected when the Counter needs to be operated via keyboard or focus
    * navigation); **false**: The Counter cannot obtain focus (selected when focus interaction is not required).
@@ -110,12 +110,12 @@ declare class CommonOptions {
   focusable?: boolean;
 
   /**
-   * Step of the Counter. This is used when you need to quickly adjust the value (for example, by setting a step
-   * greater than the default value 1) or precisely control the amount of each change.
+   * Step of the Counter. This is used when you need to quickly adjust the value (for example, by setting a step greater
+   * than the default value 1) or precisely control the amount of each change.
    *
    * Value range: an integer greater than or equal to 1.
    *
-   * Default value: **1**.
+   * Default value: **1**
    *
    * If the value is out of range, the default value is used.
    *
@@ -194,7 +194,7 @@ declare class InlineStyleOptions extends CommonOptions {
   /**
    * Initial value of **Counter**.
    *
-   * Default value: **0**.
+   * Default value: **0**
    *
    * Value range: [min, max], where **min** and **max** correspond to the minimum and maximum values of **Counter**
    * respectively (the default value of **min** is **0** and **max** is **999**).
@@ -214,9 +214,9 @@ declare class InlineStyleOptions extends CommonOptions {
   /**
    * Minimum value of **Counter**.
    *
-   * Default value: **0**.
+   * Default value: **0**
    *
-   * Value range: (-∞, max].
+   * Value range: (-∞, max]
    *
    * If the value exceeds the range (that is, the set value is greater than **max**), **max** is used.
    *
@@ -234,9 +234,9 @@ declare class InlineStyleOptions extends CommonOptions {
   /**
    * Maximum value of **Counter**.
    *
-   * Default value: **999**.
+   * Default value: **999**
    *
-   * Value range: [min, +∞).
+   * Value range: [min, +∞)
    *
    * If the value exceeds the range (that is, the set value is less than **min**), **min** is used.
    *
@@ -256,15 +256,14 @@ declare class InlineStyleOptions extends CommonOptions {
    *
    * Default value: adaptive text width.
    *
-   * Value range: [0, +∞).
+   * Value range: [0, +∞)
    *
-   * Unit: vp.
+   * Unit: vp
    *
    * If the value exceeds the range (that is, the set value is less than 0), **0** is used.
    *
    * If the value is **undefined**, the default value is used.
    *
-   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -274,9 +273,8 @@ declare class InlineStyleOptions extends CommonOptions {
   textWidth?: number;
 
   /**
-   * Callback invoked when the value changes, returning the current value. Use case: pass in this callback when you
-   * need to perform custom operations upon value changes (such as updating associated UI, logging, saving state,
-   * etc.).
+   * Callback invoked when the value changes, returning the current value. Use case: pass in this callback when you need
+   * to perform custom operations upon value changes (such as updating associated UI, logging, saving state, etc.).
    *
    * **value**: current displayed value.
    *
@@ -311,10 +309,10 @@ declare class NumberStyleOptions extends InlineStyleOptions {
   /**
    * Label text of the Counter.
    *
-   * Usage scenario: pass this parameter when you need to display descriptive text (such as 'Price', 'Quantity',
-   * etc.) next to the Counter.
+   * Usage scenario: pass this parameter when you need to display descriptive text (such as 'Price', 'Quantity', etc.)
+   * next to the Counter.
    *
-   * Default value: ''.
+   * Default value: ''
    *
    * If the value is **undefined**, the default value is used.
    *
@@ -434,8 +432,8 @@ declare class DateData {
   month: number;
 
   /**
-   * Day of the inline date type. Value range: [1, 31]. The specific value is determined by the actual number of days
-   * in the month.
+   * Day of the inline date type. Value range: [1, 31]. The specific value is determined by the actual number of days in
+   * the month.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -450,8 +448,8 @@ declare class DateData {
    *
    * @param { number } year - Year of the inline date type. Value range: [1, 5000].
    * @param { number } month - Month of the inline date type. Value range: [1, 12].
-   * @param { number } day - Day of the inline date type. Value range: [1, 31]. The specific value is determined by
-   * the actual number of days in the month.
+   * @param { number } day - Day of the inline date type. Value range: [1, 31]. The specific value is determined by the
+   *     actual number of days in the month.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -490,9 +488,9 @@ declare class DateStyleOptions extends CommonOptions {
   /**
    * Initial year of the inline date type.
    *
-   * Default value: **1**.
+   * Default value: **1**
    *
-   * Value range: [1, 5000].
+   * Value range: [1, 5000]
    *
    * If the value is out of the range, the default value is used.
    *
@@ -510,9 +508,9 @@ declare class DateStyleOptions extends CommonOptions {
   /**
    * Initial month of the inline date type.
    *
-   * Default value: **1**.
+   * Default value: **1**
    *
-   * Value range: [1, 12].
+   * Value range: [1, 12]
    *
    * If the value is out of the range, the default value is used.
    *
@@ -530,9 +528,9 @@ declare class DateStyleOptions extends CommonOptions {
   /**
    * Initial day of the inline date type.
    *
-   * Default value: **1**.
+   * Default value: **1**
    *
-   * Value range: [1, 31].
+   * Value range: [1, 31]
    *
    * **Note:** The specific value range of days in each month is determined by the actual number of days in that month.
    *
@@ -550,8 +548,8 @@ declare class DateStyleOptions extends CommonOptions {
   day?: number;
 
   /**
-   * Callback invoked when the date changes to return the current date. Use case: Pass in this callback when you need
-   * to perform custom operations (such as updating associated UI, logging, saving state, etc.) upon date changes.
+   * Callback invoked when the date changes to return the current date. Use case: Pass in this callback when you need to
+   * perform custom operations (such as updating associated UI, logging, saving state, etc.) upon date changes.
    *
    * **date**: currently displayed date value.
    *
@@ -571,6 +569,9 @@ declare class DateStyleOptions extends CommonOptions {
 /**
  * Defines the type and style of the **Counter** component.
  *
+ * When you select a **Counter** type, you must select the corresponding **Counter** style. If the style parameter does
+ * not match the type, the default style of that type is used.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -582,17 +583,7 @@ declare class CounterOptions {
 
   /**
    * Type of the current Counter. It must be used with the corresponding style parameters. For details about the
-   * mapping, see the Counter Type and Style Mapping table below.
-   *
-   * When you select a **Counter** type, you must select the corresponding **Counter** style. If the style parameter
-   * does not match the type, the default style of that type is used.
-   *
-   * | Counter Type | Counter Style |
-   * | ----------------------- | ------------------ |
-   * | CounterType.LIST | NumberStyleOptions |
-   * | CounterType.COMPACT | NumberStyleOptions |
-   * | CounterType.INLINE | InlineStyleOptions |
-   * | CounterType.INLINE_DATE | DateStyleOptions |
+   * mapping, see the Counter Type and Style Mapping table.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -654,7 +645,7 @@ declare class CounterOptions {
    * **Direction.Ltr**: left-to-right layout, applicable to most languages. **Direction.Rtl**: right-to-left layout,
    * applicable to RTL languages such as Arabic.
    *
-   * Default value: **Direction.Auto**.
+   * Default value: **Direction.Auto**
    *
    * If this parameter is set to **undefined**, the default value is used.
    *
@@ -674,16 +665,12 @@ declare class CounterOptions {
  *
  * > **NOTE**
  * >
- * > - This component is supported since API version 11. Updates will be marked with a superscript to indicate their
- * > earliest API version.
- * >
- * > - The APIs of this module can be used only in the stage model.
- * >
- * > - If the **Counter** component has [universal attributes]{@link CommonMethod} and
- * > [universal events]{@link CommonMethod} set, the compilation toolchain generates an additional
- * > node \_\_Common\_\_ and attaches the universal attributes or events to \_\_Common\_\_ instead of directly applying
- * > them to the **Counter** component. This may cause the universal attributes or events to not take effect or behave
- * > unexpectedly. Therefore, setting universal attributes and events for the **Counter** component is not recommended.
+ * > - If the **Counter** component has [universal attributes]{@link ./@internal/component/ets/common} and
+ * > [universal events]{@link ./@internal/component/ets/common} set, the compilation toolchain generates an additional
+ * > node named \_\_Common\_\_ and attaches the universal attributes or events to \_\_Common\_\_ instead of directly
+ * > applying them to the **Counter** component. This may cause the universal attributes or events to not take effect or
+ * > behave unexpectedly. Therefore, setting universal attributes and events for the **Counter** component is not
+ * > recommended.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

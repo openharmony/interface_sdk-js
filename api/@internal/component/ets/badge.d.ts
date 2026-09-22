@@ -19,7 +19,7 @@
  */
 
 /**
- * Enumerates the display positions of a badge.
+ * Enumerates the badge display positions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -28,9 +28,8 @@
  * @since 7 dynamic
  */
 declare enum BadgePosition {
-
   /**
-   * The badge is displayed in the upper right corner of the parent component.
+   * The badge is displayed in the upper right corner.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -41,7 +40,7 @@ declare enum BadgePosition {
   RightTop,
 
   /**
-   * The badge is vertically centered on the right of the parent component.
+   * The badge is displayed vertically centered on the right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -52,7 +51,7 @@ declare enum BadgePosition {
   Right,
 
   /**
-   * The badge is vertically centered on the left of the parent component.
+   * The badge is displayed vertically centered on the left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -64,15 +63,15 @@ declare enum BadgePosition {
 }
 
 /**
- * Describes the badge style. It includes the font color, font size, badge color, badge size, etc.
+ * Defines the style of a badge, including the text color, size, font weight, badge color, and badge size.
  *
  * > **NOTE**
  * >
- * > - When **borderWidth** is set to a value greater than 0 and **borderColor** is different from **badgeColor**, the
- * > badge is drawn before the border. Edge pixels are anti-aliased, which produces semi-transparent pixels. This causes
- * > the border in **badgeColor** to become visible at the four corners. To implement related scenarios, it is
- * > recommended that you use the [Text]{@link ./text} component with its
- * > [outline]{@link CommonMethod#outline(value: OutlineOptions)} attribute instead of the **Badge** component.
+ * > When `borderWidth` is greater than 0 and the colors of `borderColor` and `badgeColor` are different, the badge is
+ * > drawn first and then the border. Because edge pixels are anti-aliased, semi-transparent pixels are generated, and
+ * > border lines in the `badgeColor` color appear at the four corners. To implement such a scenario, you are advised to
+ * > use the [Text]{@link ./text} component and set [outline]{@link CommonMethod#outline(value: OutlineOptions)} instead
+ * > of the Badge component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -81,9 +80,8 @@ declare enum BadgePosition {
  * @since 7 dynamic
  */
 declare interface BadgeStyle {
-
   /**
-   * Font color.
+   * Text color.
    *
    * Default value: **Color.White**
    *
@@ -97,19 +95,21 @@ declare interface BadgeStyle {
   color?: ResourceColor;
 
   /**
-   * Font size. The value of this parameter is a string of the number type. The unit can be px, vp, fp, or lpx, for
-   * example, 10 or 10fp. If no unit is specified, fp is used by default.
+   * Text size. The string type supports only the string form of a number value, which can carry a unit. The supported
+   * units are "px", "vp", "fp", and "lpx", for example, "10" and "10fp". If no unit is carried, the default unit is "fp
+   * ".
    *
    * Default value: **10vp**
    *
-   * Default unit: fp
+   * Default unit: **fp**
    *
-   * The value must be greater than 0. If the value is **0**, the text is not displayed. If the value is less than 0,
-   * the default value is used.
+   * Value range: greater than 0. When the value is 0, the text is not displayed. When the value is less than 0, the
+   * default value is used.
    *
    * **NOTE**
    *
-   * 1. Percentage values are not supported. If a percentage value is set, the default value is used.
+   * 1. Percentage is not supported. When a percentage is set, the default value is used.
+   * 2. The ResourceStr type is supported since API version 20.
    *
    * @type { ?(number | string) } [since 7 - 19]
    * @type { ?(number | ResourceStr) } [since 20]
@@ -123,17 +123,22 @@ declare interface BadgeStyle {
   fontSize?: number | ResourceStr;
 
   /**
-   * Badge size. The value of this parameter is a string of the number type. The unit can be px, vp, fp, or lpx, for
-   * example, 10 or 16fp. If no unit is specified, fp is used by default. If the value is **0**, the badge is not
-   * displayed.
+   * Size of the badge. The string type supports only the string form of a number value, which can carry a unit. The
+   * supported units are "px", "vp", "fp", and "lpx", for example, "16" and "16fp". If no unit is carried, the default
+   * unit is "fp".
    *
-   * Unit: fp. Default value: **16vp**.
+   * Default value: **16vp**
+   *
+   * Default unit: **fp**
+   *
+   * Value range: greater than 0. When the value is 0, the badge is not displayed. When the value is less than 0, the
+   * default value is used.
    *
    * **NOTE**
    *
-   * 1. Percentage values are not supported. If a percentage value is set, the default value is used.
-   * 2. If **fontSize** is set and **badgeSize** is smaller than fontSize, **badgeSize** will take effect based on the
-   * value of **fontSize**.
+   * 1. Percentage is not supported. When a percentage is set, the default value is used.
+   * 2. The ResourceStr type is supported since API version 20.
+   * 3. When **fontSize** is set and **badgeSize** is smaller than **fontSize**, **badgeSize** takes effect as **fontSize**.
    *
    * @type { ?(number | string) } [since 7 - 19]
    * @type { ?(number | ResourceStr) } [since 20]
@@ -161,7 +166,7 @@ declare interface BadgeStyle {
   badgeColor?: ResourceColor;
 
   /**
-   * Color of the background border.
+   * Base border color.
    *
    * Default value: **Color.Red**
    *
@@ -175,15 +180,15 @@ declare interface BadgeStyle {
   borderColor?: ResourceColor;
 
   /**
-   * Width of the background border.
+   * Base border width.
    *
    * Default value: **1**
    *
-   * Unit: vp
+   * Unit: **vp**
    *
    * **NOTE**
    *
-   * Percentage values are not supported. If a percentage value is set, the default value is used.
+   * Percentage is not supported. When a percentage is set, the default value is used.
    *
    * @default 1vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -195,17 +200,17 @@ declare interface BadgeStyle {
   borderWidth?: Length;
 
   /**
-   * Font weight of the text. For the number type, the value ranges from 100 to 900, at an interval of 100. A larger
-   * value indicates a bolder font. For the number type, if the value is not within the range, the default value **400**
-   * is used. For the string type, only strings that represent a number, for example, **400**, and the following
-   * enumerated values of **FontWeight** are supported: **bold**, **bolder**, **lighter**, **regular**, and **medium**.
+   * Font weight of the text. For the number type, the value range is [100, 900] at an interval of 100. A larger value
+   * indicates a heavier font weight. When a number value outside the range is set, the default value 400 is used. The
+   * string type supports only the string form of a number value, for example, "400", as well as "bold", "bolder", "
+   * lighter", "regular", and "medium", which correspond to the respective enum values in FontWeight.
    *
    * Default value: **FontWeight.Normal**
    *
    * **NOTE**
    *
-   * Percentage values are not supported. If a percentage value is set, the default value is used. The ResourceStr type
-   * is supported since API version 20.
+   * Percentage is not supported. When a percentage is set, the default value is used. The ResourceStr type is supported
+   * since API version 20.
    *
    * @type { ?(number | FontWeight | string) } [since 10 - 19]
    * @type { ?(number | FontWeight | ResourceStr) } [since 20]
@@ -218,7 +223,7 @@ declare interface BadgeStyle {
   fontWeight?: number | FontWeight | ResourceStr;
 
   /**
-   * Color of the background outer border.
+   * Base outer border color.
    *
    * Default value: **Color.White**
    *
@@ -232,13 +237,13 @@ declare interface BadgeStyle {
   outerBorderColor?: ResourceColor;
 
   /**
-   * Width of the background outer border.
+   * Base outer border width.
    *
-   * Default value: **0**.
+   * Default value: **0**
    *
-   * Unit: vp
+   * Unit: **vp**
    *
-   * Percentage values are not supported. If a percentage value is set, the default value is used.
+   * Percentage is not supported. When a percentage is set, the default value is used.
    *
    * @default 0vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -250,18 +255,17 @@ declare interface BadgeStyle {
   outerBorderWidth?: LengthMetrics;
 
   /**
-   * Whether to enable avoidance when the badge text is extended.
+   * Whether to avoid the badge text when it extends beyond the component.
    *
-   * The value **true** means to enable avoidance, and **false** means the opposite.
+   * The value **true** means to avoid, and **false** means not to avoid.
    *
-   * Default value: **false**.
+   * Default value: **false**
    *
    * **NOTE**
    *
-   * 1. The avoidance effect is that the badge text is extended to the inside of the component.
-   * 2. When the width of the outer border is greater than 0, the extension start point of the badge is the inner side
-   * of the outer border.
-   * 3. When position is set to a specific coordinate value, the badge does not perform avoidance.
+   * 1. The avoidance effect means that the badge text extends toward the inside of the component.
+   * 2. When the outer border width is greater than 0, the badge starts to extend from the inner side of the outer border.
+   * 3. When **position** is set to specific coordinate values, the badge does not perform avoidance.
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -274,7 +278,7 @@ declare interface BadgeStyle {
 }
 
 /**
- * Provides basic parameters for creating a badge.
+ * Contains the basic parameters for creating a Badge component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -283,18 +287,18 @@ declare interface BadgeStyle {
  * @since 7 dynamic
  */
 declare interface BadgeParam {
-
   /**
-   * Position to display the badge relative to the parent component.
+   * Badge display position.
    *
    * Default value: **BadgePosition.RightTop**
    *
    * **NOTE**
    *
-   * With the **Position** type, percentage values are not supported. If an invalid value is set, the default value
-   * **(0,0)**, which indicates the upper left corner of the component, will be used.
+   * When **Position** is used as an input parameter, percentage is not supported. If an invalid value is set, it is
+   * processed as (0,0), which is the upper left corner of the component.
    *
-   * With the **BadgePosition** type, the position is mirrored based on the [Direction]{@link Direction} property.
+   * When **BadgePosition** is used as an input parameter, the mirrored display is controlled by the
+   * [Direction]{@link Direction} attribute.
    *
    * @type { ?(BadgePosition) } [since 7 - 9]
    * @type { ?(BadgePosition | Position) } [since 10]
@@ -308,7 +312,7 @@ declare interface BadgeParam {
   position?: BadgePosition | Position;
 
   /**
-   * Style of the badge, including the font color, font size, badge color, and badge size.
+   * Style of the **Badge** component, including the text color, size, badge color, and badge size.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -320,7 +324,7 @@ declare interface BadgeParam {
 }
 
 /**
- * Inherits from [BadgeParam]{@link BadgeParam} and has all attributes of **BadgeParam**.
+ * BadgeParamWithNumber inherits from [BadgeParam]{@link BadgeParam} and has all the attributes of BadgeParam.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -329,17 +333,16 @@ declare interface BadgeParam {
  * @since 7 dynamic
  */
 declare interface BadgeParamWithNumber extends BadgeParam {
-
   /**
-   * Number of notifications.
+   * Number of reminder messages.
    *
    * **NOTE**
    *
-   * If the value is less than or equal to 0 and less than the value of **maxCount**, no badge is displayed.
+   * When the value is less than or equal to 0 and less than **maxCount**, the badge is not displayed.
    *
-   * Value range: [-2147483648, 2147483647]. If the value is out of the range, 4294967296 is added or subtracted so that
-   * the value is within the range. If the value is not an integer, it is rounded off to the nearest integer. For
-   * example, 5.5 is rounded off to 5.
+   * Value range: [-2147483648, 2147483647]. If the value is out of range, 4294967296 is added to or subtracted from it
+   * to keep it within the range. If the value is not an integer, the decimal part is discarded, for example, 5.5
+   * becomes 5.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -350,14 +353,14 @@ declare interface BadgeParamWithNumber extends BadgeParam {
   count: number;
 
   /**
-   * Maximum number of messages. If the number of messages exceeds the maximum, only **maxCount+** is displayed. For
-   * example, if **maxCount** is 99, **99+** is displayed.
+   * Maximum number of messages. When the number exceeds the maximum, only **maxCount+** is displayed. For example, when
+   * **maxCount** is 99, `99+` is displayed.
    *
    * Default value: **99**
    *
-   * Value range: [-2147483648, 2147483647]. If the value is out of the range, 4294967296 is added or subtracted so that
-   * the value is within the range. If the value is not an integer, it is rounded off to the nearest integer. For
-   * example, 5.5 is rounded off to 5.
+   * Value range: [-2147483648, 2147483647]. If the value is out of range, 4294967296 is added to or subtracted from it
+   * to keep it within the range. If the value is not an integer, the decimal part is discarded, for example, 5.5
+   * becomes 5.
    *
    * @default 99
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -370,7 +373,7 @@ declare interface BadgeParamWithNumber extends BadgeParam {
 }
 
 /**
- * Inherits from [BadgeParam]{@link BadgeParam} and has all attributes of **BadgeParam**.
+ * BadgeParamWithString inherits from [BadgeParam]{@link BadgeParam} and has all the properties of BadgeParam.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -379,13 +382,14 @@ declare interface BadgeParamWithNumber extends BadgeParam {
  * @since 7 dynamic
  */
 declare interface BadgeParamWithString extends BadgeParam {
-
   /**
-   * Text string of the badge content.
+   * Text string of the prompt content.
    *
    * **NOTE**
    *
-   * The ResourceStr type is supported since API version 20.
+   * When **value** is an empty string, no text is displayed and only a dot badge is displayed.
+   *
+   * Since API version 20, the ResourceStr type is supported.
    *
    * @type { string } [since 7 - 19]
    * @type { ResourceStr } [since 20]
@@ -399,8 +403,11 @@ declare interface BadgeParamWithString extends BadgeParam {
 }
 
 /**
- * The **Badge** component is a container that can be attached to another component for notification and reminder
- * purposes.
+ * A badge container component that can be attached to a single component for information reminders. It supports three
+ * badge formats: number, string, and dot. You can customize the badge style (text color, size, badge color, and size)
+ * and display position. It is suitable for scenarios where users need to be reminded of new or unread messages, such as
+ * unread message counts and new feature prompts, helping users quickly identify and focus on important information and
+ * improving user experience.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -410,11 +417,11 @@ declare interface BadgeParamWithString extends BadgeParam {
  * @noninterop
  */
 interface BadgeInterface {
-
   /**
-   * Creates a badge with the given numerical value.
+   * Creates a badge component based on a number.
    *
-   * @param { BadgeParamWithNumber } value - Options of the numeric badge.
+   * @param { BadgeParamWithNumber } value -Parameters of the number badge component, used to configure the **Badge**
+   *     component created based on a number, including the message count, display position, and style.
    * @returns { BadgeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -425,9 +432,9 @@ interface BadgeInterface {
   (value: BadgeParamWithNumber): BadgeAttribute;
 
   /**
-   * Creates a badge with the given string.
+   * Creates a badge component based on a string.
    *
-   * @param { BadgeParamWithString } value - Options of the string-type badge.
+   * @param { BadgeParamWithString } value - Parameters of the string badge component.
    * @returns { BadgeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -439,9 +446,7 @@ interface BadgeInterface {
 }
 
 /**
- * The [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md) are supported.
- *
- * The [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are supported.
+ * The [universal attributes]{@link ./common} are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -453,8 +458,11 @@ interface BadgeInterface {
 declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
 
 /**
- * The **Badge** component is a container that can be attached to another component for notification and reminder
- * purposes.
+ * A badge container component that can be attached to a single component for information reminders. It supports three
+ * badge formats: number, string, and dot. You can customize the badge style (text color, size, badge color, and size)
+ * and display position. It is suitable for scenarios where users need to be reminded of new or unread messages, such as
+ * unread message counts and new feature prompts, helping users quickly identify and focus on important information and
+ * improving user experience.
  *
  * ###### Child Components
  *
@@ -462,17 +470,20 @@ declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
  *
  * > **NOTE**
  * >
- * > - Allowed child component types: built-in and custom components, including rendering control types (
- * > [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md), [ForEach]{@link ./for_each}, and
- * > [LazyForEach]{@link ./lazy_for_each}).
+ * > - Child component types: system components and custom components, supporting rendering control types (
+ * > [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md),
+ * > [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md), and
+ * > [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)).
  * >
- * > - A custom component defaults to a width and height of 0. You must explicitly set its width and height; otherwise,
- * > the **Badge** component will not be displayed.
+ * > - The width and height of a custom component are 0 by default. You need to set its width and height; otherwise, the
+ * > badge component will not be displayed.
  * >
- * > - When there are multiple child components, only the last child component is displayed on the UI. However, the
- * > status update of other child components will still cause the badge and its child components to be re-rendered.
+ * > - When there are multiple child components, only the last child component is displayed on the UI, but the state
+ * > updates of the remaining child components still trigger the re-layout and re-rendering of **Badge** and all its
+ * > child components.
  * >
- * > - Child component layout is independent and does not automatically adjust to avoid overlapping with the badge.
+ * > - It does not affect the layout of child components, that is, it does not actively avoid the content of child
+ * > components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]

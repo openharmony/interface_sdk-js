@@ -20,9 +20,9 @@
 
 /**
  * TextClock容器组件的控制器，可以将该控制器绑定到TextClock组件，通过它控制文本时钟的启动与停止。一个TextClock组件仅支持绑定一个控制器。
- * 
+ *
  * ###### 导入对象
- * 
+ *
  * ```ts
  * controller: TextClockController = new TextClockController();
  * ```
@@ -78,8 +78,9 @@ declare class TextClockController {
 declare interface TextClockConfiguration extends CommonConfiguration<TextClockConfiguration> {
   /**
    * 当前文本时钟时区偏移量。
-   * 
-   * 取值范围为[-14, 12]，表示东十二区到西十二区，其中负值表示东时区，正值表示西时区，比如东八区为-8。设置值为该取值范围内的浮点数时会进行取整，舍弃小数部分。当设置的值不在取值范围内时，将使用当前系统的时区偏移量。
+   *
+   * 取值范围为[-14, 12]，表示东十二区到西十二区，其中负值表示东时区，正值表示西时区，比如东八区为-8。设置值为该取值范围内的浮点数时会进行取整，舍弃小数部分；但设置值为{ 9.5, 3.5, -3.5, -4.5, -5.
+   * 5, -5.75, -6.5, -9.5, -10.5, -12.75 }集合中的浮点数时不进行取整。当设置的值不在取值范围内时，将使用当前系统的时区偏移量。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -91,11 +92,11 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
 
   /**
    * 指示文本时钟是否启动。
-   * 
+   *
    * true：表示启动文本时钟。
-   * 
+   *
    * false：表示停止文本时钟。
-   * 
+   *
    * 默认值：true
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -135,13 +136,13 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
 declare interface TextClockOptions {
   /**
    * 设置时区偏移量，单位：小时。
-   * 
+   *
    * 取值范围为[-14, 12]，表示东十二区到西十二区，其中负值表示东时区，正值表示西时区，比如东八区为-8。设置值为该取值范围内的浮点数时会进行取整，舍弃小数部分。
-   * 
+   *
    * 对横跨国际日界线的国家或地区，用-13（UTC+13）和-14（UTC+14）来保证整个国家或者区域处在相同的时间，当设置的值不在取值范围内时，将使用当前系统的时区偏移量。
-   * 
-   * 默认值：当前系统的时区偏移量 
-   * 
+   *
+   * 默认值：当前系统的时区偏移量
+   *
    * 设置值为{ 9.5, 3.5, -3.5, -4.5, -5.5, -5.75, -6.5, -9.5, -10.5, -12.75 }集合中的浮点数时不进行取整。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -167,10 +168,14 @@ declare interface TextClockOptions {
 /**
  * TextClock组件通过文本将当前系统时间显示在设备上，支持不同时区的时间显示和时间格式自定义，最高精度到秒级。适用于需要在应用界面上实时展示系统时间、支持多时区显示的场景，可帮助开发者快速实现时间文本展示功能，无需手动计算和更新时
  * 间。
- * 
+ *
  * 组件不可见时，时间变动将停止。组件的可见状态基于
  * [onVisibleAreaChange]{@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}
  * 处理，可见阈值ratios大于0即视为可见状态。
+ *
+ * > **说明：**
+ * >
+ * > 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -196,9 +201,7 @@ interface TextClockInterface {
 }
 
 /**
- * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性。
- *
- * 除支持[通用事件]{@link CommonMethod}外，还支持以下事件。
+ * 除支持[通用属性]{@link ./common}外，还支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -210,42 +213,42 @@ interface TextClockInterface {
 declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
    * 设置显示时间格式，如“yyyy/MM/dd”、“yyyy-MM-dd”。
-   * 
+   *
    * y：年（yyyy表示完整年份，yy表示年份后两位）
-   * 
+   *
    * M：月（若想使用01月则使用MM）
-   * 
+   *
    * d：日（若想使用01日则使用dd）
-   * 
+   *
    * E：星期（若想使用星期六则使用EEEE，若想使用周六则使用E、EE、EEE）
-   * 
+   *
    * H：小时（24小时制）
-   * 
+   *
    * h：小时（12小时制）
-   * 
+   *
    * m：分钟
-   * 
+   *
    * s：秒
-   * 
+   *
    * SS：厘秒（format中S个数<3，全部按厘秒处理）
-   * 
+   *
    * SSS：毫秒（format中S个数>=3，全部按毫秒处理）
-   * 
+   *
    * a：上午/下午（当设置小时制式为H时，该参数不生效）
-   * 
+   *
    * 日期间隔符："年月日"、“/”、"-"、"."（可以自定义间隔符样式，字母不可以作为间隔符，汉字可以作为间隔符处理）
-   * 
+   *
    * 允许自行拼接组合显示格式，即：年、月、日、星期、时、分、秒、毫秒可拆分为子元素，可自行排布组合。时间更新频率最高为一秒一次，不建议单独设置厘秒和毫秒格式。
-   * 
+   *
    * 当设置无效字母时（非上述字母被认为是无效字母），该字母会被忽略。如果format全是无效字母时，显示格式跟随系统语言和系统小时制。例如系统语言为中文时，12小时制显示格式为yyyy/MM/dd aa hh:mm:ss.SSS，24
    * 小时制显示格式为yyyy/MM/dd HH:mm:ss.SSS。
-   * 
+   *
    * 若format为空字符串（""）或者undefined，则使用默认值。
-   * 
+   *
    * 非卡片中默认值：12小时制：aa hh:mm:ss，24小时制：HH:mm:ss。
-   * 
+   *
    * 卡片中默认值：12小时制：hh:mm，24小时制：HH:mm 。
-   * 
+   *
    * 卡片中使用时，最小时间单位为分钟。如果设置格式中有秒或厘秒，则按默认值处理。
    *
    * 以下是format输入的格式样式及对应的显示效果：
@@ -390,7 +393,8 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    *
    * @param { ShadowOptions | Array<ShadowOptions> } value - 文字阴影效果。支持单个阴影对象或阴影数组实现多重阴影效果。ShadowOptions对象包含radius（模糊半径）、
    *     color（阴影颜色）、offsetX（X轴偏移）、offsetY（Y轴偏移）等属性。
-   *     <br>不支持fill字段，不支持智能取色模式。具体属性说明请参考[ShadowOptions对象说明]{@link ShadowOptions}。
+   *     <br>不支持fill字段，不支持智能取色模式。具体属性说明请参考
+   *     [ShadowOptions](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-image-effect.md#shadowoptions)。
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -403,13 +407,13 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
 
   /**
    * 设置文字特性效果，比如数字等宽的特性。
-   * 
+   *
    * 格式为：normal \| \<feature-tag-value\>
-   * 
+   *
    * \<feature-tag-value\>的格式为：\<string\> \[ \<integer\> \| on \| off ]
-   * 
+   *
    * \<feature-tag-value\>的个数可以有多个，中间用','隔开。
-   * 
+   *
    * 例如，使用等宽时钟数字的输入格式为："ss01" on。
    *
    * @param { string } value - 文字特性效果，用于设置文字的OpenType特性。格式为：normal | <feature-tag-value>，其中<feature-tag-value>格式为：<
@@ -458,13 +462,17 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
 /**
  * TextClock组件通过文本将当前系统时间显示在设备上，支持不同时区的时间显示和时间格式自定义，最高精度到秒级。适用于需要在应用界面上实时展示系统时间、支持多时区显示的场景，可帮助开发者快速实现时间文本展示功能，无需手动计算和更新时
  * 间。
- * 
+ *
  * 组件不可见时，时间变动将停止。组件的可见状态基于
  * [onVisibleAreaChange]{@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}
  * 处理，可见阈值ratios大于0即视为可见状态。
- * 
+ *
+ * > **说明：**
+ * >
+ * > 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ *
  * ###### 子组件
- * 
+ *
  * 无
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

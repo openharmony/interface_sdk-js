@@ -6608,8 +6608,12 @@ export const enum GestureListenerType {
 }
 
 /**
-* 自定义键盘接续特性的枚举。
-*
+ * 指定自定义键盘切换时是否接续。
+ *
+ * 设置为接续，切换输入框时，自定义键盘不会收起和重新拉起。
+ *
+ * 设置为不接续，切换输入框时，自定义键盘会收起并重新拉起。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -6619,7 +6623,7 @@ export const enum GestureListenerType {
 export const enum CustomKeyboardContinueFeature {
 
   /**
-   * 使能自定义键盘接续。
+   * 接续。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6630,7 +6634,7 @@ export const enum CustomKeyboardContinueFeature {
   ENABLED = 0,
 
   /**
-   * 关闭自定义键盘接续。
+   * 不接续。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

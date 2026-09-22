@@ -19,12 +19,18 @@
  */
 
 /**
- * The **QRCode** component is used to display a QR code.
+ * The **QRCode** component is used to display a single QR code. It supports customizing the QR code color, background
+ * color, and content opacity, and is suitable for scenarios where a QR code needs to be displayed for scanning to
+ * obtain string information.
  *
  * > **NOTE**
  * >
- * > - The pixel count of the **QRCode** component is subject to the content. If the component size is not large enough,
- * > the content may fail to be displayed. In this case, you need to resize the component.
+ * > - This component is supported since API version 7. Newly added APIs in later versions are marked with a superscript
+ * > to indicate their
+ * >
+ * > - The pixel count of the **QRCode** component is related to its content. If the component size is too small, the
+ * > content may not be displayed. In this case, adjust the component size appropriately.
+ * >
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -34,20 +40,23 @@
  * @noninterop
  */
 interface QRCodeInterface {
-
   /**
    * Creates a **QRCode** component. The displayed QR code can be scanned to obtain the encoded string information.
    *
-   * @param { string } value - Content of the QR code. A maximum of 512 characters are supported. If this limit is
-   *     exceeded, the first 512 characters are used.<br>The Resource type is supported since API version 20.<br>
-   *     **NOTE**<br>If this parameter is set to **null**, it is equivalent to passing the string **"null"**. If it is
-   *     set to **undefined**, it is equivalent to passing the string **"undefined"**. Passing an empty string will
-   *     result in an invalid QR code. [since 7 - 19]
-   * @param { ResourceStr } value - Content of the QR code. A maximum of 512 characters are supported. If this limit is
-   *     exceeded, the first 512 characters are used.<br>The Resource type is supported since API version 20.<br>
-   *     **NOTE**<br>If this parameter is set to **null**, it is equivalent to passing the string **"null"**. If it is
-   *     set to **undefined**, it is equivalent to passing the string **"undefined"**. Passing an empty string will
-   *     result in an invalid QR code. [since 20]
+   * @param { string } value - QR code content string. It supports a maximum of 512 characters. If the limit is
+   *     exceeded, only the first 512 characters are used.
+   *     <br>Since API version 20, the Resource type is supported.
+   *     <br>**Note:**
+   *     <br>Setting it to null has the same effect as setting it to the string "null"; setting it to undefined has the
+   *     same effect as setting it to the string "undefined"; passing an empty string generates an invalid QR
+   *     code. [since 7 - 19]
+   * @param { ResourceStr } value - QR code content string. It supports a maximum of 512 characters. If the limit is
+   *     exceeded, only the first 512 characters are used.
+   *     <br>Since API version 20, the Resource type is supported.
+   *     <br>**Note:**
+   *     <br>Setting it to null has the same effect as setting it to the string "null"; setting it to undefined has the
+   *     same effect as setting it to the string "undefined"; passing an empty string generates an invalid QR
+   *     code. [since 20]
    * @returns { QRCodeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -59,12 +68,7 @@ interface QRCodeInterface {
 }
 
 /**
- * In addition to the
- * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
- * attributes are supported.
- *
- * The [universal events][universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are
- * supported.
+ * In addition to the [universal attributes]{@link ./common}, the following attributes are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -74,12 +78,11 @@ interface QRCodeInterface {
  * @noninterop
  */
 declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
-
   /**
    * Sets the color of the QR code.
    *
-   * @param { ResourceColor } value - QR code color. The default value is **'#ff000000'** and does not change with the
-   *     system color mode.<br>
+   * @param { ResourceColor } value - QR code color. Default value: '#ff000000', and it does not change with the system
+   *     dark/light mode switch.
    * @returns { QRCodeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -92,8 +95,10 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
   /**
    * Sets the background color of the QR code.
    *
-   * @param { ResourceColor } value - Background color of the QR code.<br>Default value: **Color.White**<br>Since API
-   *     version 11, the default value is **'#ffffffff'** and does not change with the system color mode.
+   * @param { ResourceColor } value - Background color of the QR code.
+   *     <br>Default value: Color.White
+   *     <br>Since API version 11, the default value is changed to '#ffffffff', and it is not modified when the system
+   *     switches between light and dark modes.
    * @returns { QRCodeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -106,8 +111,9 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
   /**
    * Sets the opacity of the QR code content. The minimum value is 0, and the maximum value is 1.
    *
-   * @param { number | Resource } value - Opacity of the QR code content.<br>Default value: **1**<br>Value range:
-   *     [0, 1]. If the value is out of the range, the default value is used.
+   * @param { number | Resource } value - Opacity of the QR code content color.
+   *     <br>Default value: 1
+   *     <br>Value range: [0, 1]. If the value is out of range, the default value is used.
    * @returns { QRCodeAttribute } the attribute of the QR code
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -119,12 +125,18 @@ declare class QRCodeAttribute extends CommonMethod<QRCodeAttribute> {
 }
 
 /**
- * The **QRCode** component is used to display a QR code.
+ * The **QRCode** component is used to display a single QR code. It supports customizing the QR code color, background
+ * color, and content opacity, and is suitable for scenarios where a QR code needs to be displayed for scanning to
+ * obtain string information.
  *
  * > **NOTE**
  * >
- * > - The pixel count of the **QRCode** component is subject to the content. If the component size is not large enough,
- * > the content may fail to be displayed. In this case, you need to resize the component.
+ * > - This component is supported since API version 7. Newly added APIs in later versions are marked with a superscript
+ * > to indicate their
+ * >
+ * > - The pixel count of the **QRCode** component is related to its content. If the component size is too small, the
+ * > content may not be displayed. In this case, adjust the component size appropriately.
+ * >
  *
  * ###### Child Components
  *

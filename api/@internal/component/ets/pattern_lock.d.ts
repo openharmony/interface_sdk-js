@@ -28,7 +28,6 @@
  * @since 11 dynamic
  */
 declare enum PatternLockChallengeResult {
-
   /**
    * The pattern password is correct.
    *
@@ -62,11 +61,10 @@ declare enum PatternLockChallengeResult {
  * @since 12 dynamic
  */
 declare interface CircleStyleOptions {
-
   /**
-   * Color of the background circle.
+   * Background ring color.
    *
-   * Default value: **'#33182431'**
+   * Default value: '#33182431' (dark gray, 20% opacity).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -77,9 +75,12 @@ declare interface CircleStyleOptions {
   color?: ResourceColor;
 
   /**
-   * Radius of the background circle.
+   * Radius of the background ring.
    *
-   * Default value: 1.833 times (that is, 11/6) of the value of [circleRadius]{@link PatternLockAttribute#circleRadius}
+   * Default value: approximately 1.833 times (that is, 11/6) of
+   * [circleRadius]{@link PatternLockAttribute#circleRadius}.
+   *
+   * Value range: greater than 0.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -90,11 +91,11 @@ declare interface CircleStyleOptions {
   radius?: LengthMetrics;
 
   /**
-   * Whether to enable the wave effect after a grid dot is selected.
+   * Switch for the wave effect after a grid dot is selected.
    *
-   * **true** to enable; **false** otherwise.
+   * true: displays the wave effect; false: does not display the wave effect.
    *
-   * Default value: **true**
+   * Default value: true.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -105,12 +106,12 @@ declare interface CircleStyleOptions {
   enableWaveEffect?: boolean;
 
   /**
-   * Whether the background circle is displayed above the grid dot.
+   * Whether the background ring is displayed above the grid dots.
    *
-   * **true**: The background ring is displayed above the grid dot to cover the grid dot. **false**: The background ring
-   * is displayed below the grid dot and does not cover the grid dot.
+   * true: the background ring is displayed above the grid dots and covers them; false: the background ring is displayed
+   * below the grid dots and does not cover them.
    *
-   * Default value: **false**
+   * Default value: false.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -122,13 +123,12 @@ declare interface CircleStyleOptions {
 }
 
 /**
- * Controller of the **PatternLock** component, which is used to reset the component status and challenge result of the
- * pattern password.
+ * Controller of the **PatternLock** component, used to reset the component state and set the pattern password state.
  *
  * ###### Objects to Import
  *
- * ```ts
- * patternLockController: PatternLockController = new PatternLockController()
+ * ```typescript
+ * let patternLockController: PatternLockController = new PatternLockController();
  * ```
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -137,7 +137,6 @@ declare interface CircleStyleOptions {
  * @since 9 dynamic
  */
 declare class PatternLockController {
-
   /**
    * A constructor used to create a **PatternLockController** instance.
    *
@@ -149,7 +148,8 @@ declare class PatternLockController {
   constructor();
 
   /**
-   * Resets the component status.
+   * Resets the component state. This API takes effect only when the corresponding controller parameter is passed in
+   * when the **PatternLock** component is constructed. If it is not passed in, the call does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -159,7 +159,9 @@ declare class PatternLockController {
   reset();
 
   /**
-   * Challenge result of the pattern password.
+   * Sets the correct or incorrect state of the pattern password. This API takes effect only when the corresponding
+   * controller parameter is passed in when the **PatternLock** component is constructed. If it is not passed in, the
+   * call does not take effect.
    *
    * @param { PatternLockChallengeResult } result - Authentication challenge result of the pattern password. The status
    *     can be correct or incorrect.
@@ -173,9 +175,12 @@ declare class PatternLockController {
 }
 
 /**
- * The **PatternLock** component allows users to use a pattern password for authentication. It enters the input state
- * once a finger is pressed against it, and exits the input state and completes the input once the finger leaves the
- * screen.
+ * **PatternLock** is a pattern‑password lock component that allows password input via a nine-cell grid pattern for
+ * password verification scenarios. The component supports customizing appearance attributes such as the size of the
+ * nine‑cell grid, styles of dots and connecting lines, and colors for selected/active states. It provides real‑time
+ * feedback during password entry and allows setting status for password verification results (success/failure). Input
+ * mode is triggered when a finger presses down within the **PatternLock** component area; password input completes and
+ * input mode ends when the finger lifts off the screen.
  *
  * > **NOTE**
  * >
@@ -183,8 +188,8 @@ declare class PatternLockController {
  * > [custom components](docroot://ui/state-management/arkts-create-custom-components.md). For example, the custom
  * > component<!--RP1-->
  * > [CustomPatternLock](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/UI/CustomPatternLock)
- * > <!--RP1End--> implements the pattern lock function using the [Canvas]{@link ./canvas} component. You can extend its
- * > functionality as required.
+ * > <!--RP1End--> implements the pattern password lock feature through the [Canvas]{@link ./canvas} component, based on
+ * > which you can extend the features as needed.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -193,11 +198,14 @@ declare class PatternLockController {
  * @noninterop
  */
 interface PatternLockInterface {
-
   /**
    * Creates a pattern lock component.
    *
-   * @param { PatternLockController } [controller] - Controller of a component to reset the component status.
+   * @param { PatternLockController } [controller] - Sets the controller of the PatternLock component, which is used to
+   *     reset the component state and set the pattern password state. Pass this parameter when the component state
+   *     needs to be controlled programmatically (for example, resetting the password lock or setting the password
+   *     verification result). If this parameter is not passed, the component state cannot be manually operated through
+   *     the controller (that is, methods such as reset() and setChallengeResult() cannot be called).
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -208,12 +216,7 @@ interface PatternLockInterface {
 }
 
 /**
- * In addition to the 
- * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
- * attributes are supported.
- *
- * In addition to the [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md), the
- * following events are supported.
+ * In addition to the [universal attributes]{@link ./common}, the following attributes are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -222,10 +225,10 @@ interface PatternLockInterface {
  * @noninterop
  */
 declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
-
   /**
-   * Sets the width and height (same value) of the component. If this attribute is set to **0** or a negative number,
-   * the component is not displayed.
+   * Sets the width and height of the component (the width and height are equal). If the value is set to **0** or a
+   * negative number, the component is not displayed. If this attribute is not set, the default width and height are
+   * **288vp**.
    *
    * > **NOTE**
    * >
@@ -233,7 +236,9 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
    * > and the ratio is not equal to 1 (the component is constrained to a rectangle), the nine‑grid pattern is still
    * > drawn as a square, which exceeds the component's bounds.
    *
-   * @param { Length } value - Width and height of the component. Default value: **288vp**
+   * @param { Length } value - Width and height of the component.
+   *     <br>Value range: greater than 0.
+   *     <br>If the value is set to 0 or a negative number, the component is not displayed.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -243,12 +248,11 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   sideLength(value: Length): PatternLockAttribute;
 
   /**
-   * Sets the radius of the dots in a grid. If this attribute is set to **0** or a negative value, the default value is
-   * used.
+   * Sets the radius of the grid dots. If this attribute is not set, the default radius is **6vp**.
    *
-   * @param { Length } value - Radius of the dots in a grid.<br>Default value: **6vp**<br>Value range: (0, sideLength/11
-   *     ]. If the value is less than or equal to **0**, the default value is used. If the value exceeds the maximum
-   *     value, the maximum value is used.
+   * @param { Length } value - Radius of the grid dot.
+   *     <br>Value range: (0, sideLength/11]. If the value is less than or equal to 0, the default value is used. If the
+   *     value exceeds the maximum, the maximum value is used.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -258,7 +262,8 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   circleRadius(value: Length): PatternLockAttribute;
 
   /**
-   * Sets the background color.
+   * Sets the background color. If this attribute is not set, the background is transparent by default, that is, no
+   * background color is applied.
    *
    * > **NOTE**
    * >
@@ -274,10 +279,10 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   backgroundColor(value: ResourceColor): PatternLockAttribute;
 
   /**
-   * Sets the fill color of the grid dot in the unselected state.
+   * Sets the fill color of the grid dots in the unselected state. If this attribute is not set, the default fill color
+   * is **'#ff182431'** (dark gray).
    *
-   * @param { ResourceColor } value - Fill color of the grid dot in the unselected state.<br>Default value:
-   *     **'#ff182431'**
+   * @param { ResourceColor } value - Fill color of the grid dot in the unselected state.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -287,10 +292,10 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   regularColor(value: ResourceColor): PatternLockAttribute;
 
   /**
-   * Fill color of the grid dot in the selected state.
+   * Sets the fill color of the grid dots in the selected state. If this attribute is not set, the default fill color is
+   * **'#ff182431'** (dark gray).
    *
-   * @param { ResourceColor } value - Fill color of the grid dot in the selected state.<br>Default value:
-   *     **'#ff182431'**
+   * @param { ResourceColor } value - Fill color of the grid dot in the selected state.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -300,10 +305,10 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   selectedColor(value: ResourceColor): PatternLockAttribute;
 
   /**
-   * Sets the fill color of the grid dot in the activated state, which is when the dot is highlighted but not selected.
+   * Sets the fill color of the grid dots in the active state, which is the state where a finger passes over a dot but
+   * the dot is not yet selected. If this attribute is not set, the default fill color is **'#ff182431'** (dark gray).
    *
-   * @param { ResourceColor } value - Fill color of the grid dot in the activated state.<br>Default value:
-   *     **'#ff182431'**
+   * @param { ResourceColor } value - Fill color of the grid dot in the active state.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -313,9 +318,10 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   activeColor(value: ResourceColor): PatternLockAttribute;
 
   /**
-   * Sets the path color.
+   * Sets the color of the connecting lines. If this attribute is not set, the default line color is **'#33182431'** (
+   * dark gray with 20% opacity).
    *
-   * @param { ResourceColor } value - Path color.<br>Default value: **'#33182431'**
+   * @param { ResourceColor } value - Color of the line.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -325,12 +331,12 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   pathColor(value: ResourceColor): PatternLockAttribute;
 
   /**
-   * Sets the width of the path stroke. If this attribute is set to **0** or a negative value, the path stroke is not
-   * displayed.
+   * Sets the width of the connecting lines. If this attribute is not set, the default line width is **12vp**.
    *
-   * @param { number | string } value - Width of the path stroke.
-   *     <br>Value constraint: (0, sideLength/3]. Default value: 12.
-   *     <br>Unit: vp.
+   * @param { number | string } value - Width of the line.
+   *     <br>Unit: vp
+   *     <br>Value range: (0, sideLength/3]. If the value is set to 0 or a negative number, the line is not displayed.
+   *     If the value exceeds the maximum, the maximum value is used.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -341,6 +347,13 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 
   /**
    * Invoked when the pattern password input is complete.
+   *
+   * > **NOTE**
+   * >
+   * > This callback is triggered when password input ends and returns the complete password array. Relationship with
+   * > [onDotConnect]{@link PatternLockAttribute#onDotConnect}: onDotConnect is triggered in real time when each dot is
+   * > selected, while onPatternComplete is triggered when input ends. The two can be used together to implement real-
+   * > time feedback and final verification.
    *
    * @param { function } callback - Array of digits representing the indices of the selected grid dots, in the order
    *     they were connected. Grid dots are indexed row-wise from top to bottom, left to right: The first row contains
@@ -354,12 +367,13 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   onPatternComplete(callback: (input: Array<number>) => void): PatternLockAttribute;
 
   /**
-   * Sets whether to allow the user to reset the component status (that is, clear the input) by touching the component
-   * again after the input is complete.
+   * Sets whether to reset the component state when the component area is pressed again after password input is
+   * complete. If this API is not used to set it, the component state is reset by default.
    *
-   * @param { boolean } value - Whether to allow the user to reset the component status (that is, clear the input) by
-   *     touching the component again after the input is complete.<br>**true**: yes; **false**: no<br>Default value:
-   *     **true**
+   * @param { boolean } value - Whether to reset the component state when the component area is pressed again after
+   *     password input is complete.
+   *     <br>true: reset the component state (that is, clear the previously entered password); false: do not reset the
+   *     component state.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -371,16 +385,14 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   /**
    * Invoked when a grid dot is connected during pattern password input.
    *
-   * The callback parameter is an array of digits, where each digit represents the index of a selected grid dot, listed
-   * in the order they were connected. Grid dots are indexed row-wise from top to bottom, left to right: The first row
-   * contains indices 0, 1, 2; the second row 3, 4, 5; and the third row 6, 7, 8.
-   *
    * > **NOTE**
    * >
    * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
    *
-   * @param { import('../api/@ohos.base').Callback<number> } callback - Invoked when a grid dot is connected during
-   *     pattern password input.
+   * @param { import('../api/@ohos.base').Callback<number> } callback - Triggered when a grid dot is selected during
+   *     password input. The callback parameter is the index of the selected grid dot (the dots in the first row are
+   *     numbered 0, 1, and 2 from left to right; the dots in the second row are numbered 3, 4, and 5 from left to
+   *     right; the dots in the third row are numbered 6, 7, and 8 from left to right).
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -404,11 +416,12 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   activateCircleStyle(options: Optional<CircleStyleOptions>): PatternLockAttribute;
 
   /**
-   * Sets whether unselected dots in the grid are automatically skipped when the password path passes over them.
+   * Sets whether unselected grid dots are skipped when the password path passes over them. If this API is not used to
+   * set it, unselected grid dots are selected by default when the password path passes over them.
    *
-   * @param { boolean } skipped - Whether unselected dots in the grid are automatically skipped when the password path
-   *     passes over them.<br>**true** to skip the unselected dots when the password path passes over them; **false**
-   *     otherwise. Default value: **false**
+   * @param { boolean } skipped - Whether to skip the selection of unselected grid dots when the password path passes
+   *     through them.
+   *     <br>true: skip the selection; false: select automatically.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -420,9 +433,12 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 }
 
 /**
- * The **PatternLock** component allows users to use a pattern password for authentication. It enters the input state
- * once a finger is pressed against it, and exits the input state and completes the input once the finger leaves the
- * screen.
+ * **PatternLock** is a pattern‑password lock component that allows password input via a nine-cell grid pattern for
+ * password verification scenarios. The component supports customizing appearance attributes such as the size of the
+ * nine‑cell grid, styles of dots and connecting lines, and colors for selected/active states. It provides real‑time
+ * feedback during password entry and allows setting status for password verification results (success/failure). Input
+ * mode is triggered when a finger presses down within the **PatternLock** component area; password input completes and
+ * input mode ends when the finger lifts off the screen.
  *
  * > **NOTE**
  * >
@@ -430,8 +446,8 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
  * > [custom components](docroot://ui/state-management/arkts-create-custom-components.md). For example, the custom
  * > component<!--RP1-->
  * > [CustomPatternLock](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/UI/CustomPatternLock)
- * > <!--RP1End--> implements the pattern lock function using the [Canvas]{@link ./canvas} component. You can extend its
- * > functionality as required.
+ * > <!--RP1End--> implements the pattern password lock feature through the [Canvas]{@link ./canvas} component, based on
+ * > which you can extend the features as needed.
  *
  * ###### Child Components
  *

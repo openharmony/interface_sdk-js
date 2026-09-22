@@ -177,14 +177,12 @@ declare interface ReusableOptions {
  */
 declare interface InputCounterOptions {
   /**
-   * Threshold percentage for displaying the character counter. The character counter is displayed when the number of
-   * characters that have been entered is greater than the maximum number of characters multiplied by the threshold
-   * percentage value. When displayed, the character counter is in the following format: Number of characters that have
-   * been entered/Maximum number of characters allowed. It is visible when the number of characters entered is greater
-   * than the character limit multiplied by the threshold percentage value. Value range: [1, 100]. If the value is not
-   * an integer, it is rounded down to the nearest integer. If the value exceeds the valid value range, the character
-   * counter is not displayed. If the value is **undefined**, the character counter is displayed, but this parameter has
-   * no effect.
+   * Percentage of the maximum number of characters that can be entered. The character counter displays the current
+   * number of entered characters/the maximum number of characters. When the number of entered characters is greater
+   * than the maximum number of characters multiplied by the percentage value, the character counter is displayed. The
+   * valid value range is [1,100]. When the value is a decimal, it is rounded down. If the set number is outside the
+   * valid value range, the character counter is not displayed. When set to undefined, the character counter is
+   * displayed, but this parameter is not effective.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -195,11 +193,13 @@ declare interface InputCounterOptions {
   thresholdPercentage?: number;
 
   /**
-   * Whether to highlight the text box border and character counter subscript in red. If **InputCounterOptions** is not
-   * set, the text box border and character counter subscript turn red when the number of characters entered reaches the
-   *  limit. If the character counter is displayed and **thresholdPercentage** is set to a valid value, the text box
-   * border and character counter subscript turn red when the number of entered characters exceeds the limit. If this
-   * parameter is **true**, the red border is displayed; if **false**, it is not displayed.
+   * If InputCounterOptions is not set when the user sets the counter, the border and the counter subscript turn red
+   * when the current number of entered characters reaches the maximum number of characters. If the user sets the
+   * character counter to be displayed and the thresholdPercentage parameter value is within the valid value range, the
+   * border and the counter subscript turn red when the number of entered characters exceeds the maximum number of
+   * characters. If this parameter is true, a red border is displayed; if it is false, no red border is displayed.
+   *
+   * Default value: true
    *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -211,9 +211,10 @@ declare interface InputCounterOptions {
   highlightBorder?: boolean;
 
   /**
-   * Text color of the character counter. When the input character count exceeds the maximum limit multiplied by the
-   * specified percentage, the counter displays the current count text using this color. If **counterTextColor** is not
-   * set, the default gray color is used.
+   * Sets the text color of the character counter in the component. When the number of characters entered by the user is
+   * greater than the maximum number of characters multiplied by the percentage value, the counter displays the current
+   * number of entered characters, and the text color of the counter is the color specified by counterTextColor. If
+   * counterTextColor is not set, the text color of the counter is the default color, which is gray.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -224,14 +225,16 @@ declare interface InputCounterOptions {
   counterTextColor?: ColorMetrics;
 
   /**
-   * Text color of the character counter when the maximum limit is exceeded. When the user input exceeds the maximum
-   * character count, both the counter text and border switch to this color to indicate overflow. If
-   * **counterTextOverflowColor** is not set, the default red color is used.
+   * Sets the text color of the character counter in the component when it overflows. When the number of characters
+   * entered by the user exceeds the maximum number of characters, the text color of the counter and the color of the
+   * border switch to the color specified by counterTextOverflowColor to remind the user that the input has exceeded the
+   * limit. If counterTextOverflowColor is not set, the text color of the counter and the border when overflowing is the
+   * default color, which is red.
    *
    * **NOTE**
    *
-   * The border color is changed only when the **highlightBorder** attribute of
-   * [InputCounterOptions]{@link InputCounterOptions} is set.
+   * When the highlightBorder attribute of [InputCounterOptions]{@link InputCounterOptions} is set, the border color is
+   * changed synchronously.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -243,7 +246,7 @@ declare interface InputCounterOptions {
 }
 
 /**
- * Provides text decoration options.
+ * Provides the text decoration options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -253,7 +256,7 @@ declare interface InputCounterOptions {
  */
 declare interface TextDecorationOptions {
   /**
-   * Type of the text decoration.
+   * Sets the text decoration line type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -264,7 +267,8 @@ declare interface TextDecorationOptions {
   type: TextDecorationType;
 
   /**
-   * Color of the text decoration.
+   * Sets the color of the text decoration line.
+   *
    * Default value: Color.Black.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -276,7 +280,8 @@ declare interface TextDecorationOptions {
   color?: ResourceColor;
 
   /**
-   * Style of the text decoration.
+   * Sets the style of the text decoration line.
+   *
    * Default value: TextDecorationStyle.SOLID.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -288,8 +293,13 @@ declare interface TextDecorationOptions {
   style?: TextDecorationStyle;
 
   /**
-   * The scale value of decoration thickness.
-   * Value constraint: Negative values are handled as default values. Default value: 1.
+   * Sets the thickness scaling ratio of the text decoration line.
+   *
+   * Default value: 1.0
+   *
+   * Value range: [0, +∞)
+   *
+   * **Note:** Negative values are processed as the default value.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -27217,7 +27227,13 @@ declare interface CaretOffset {
  */
 declare interface TextContentControllerOptions {
   /**
-   * Insertion position for the text.
+   * Position to insert text. Value range: [0, text length]. If the value is out of range, it is automatically corrected
+   * to a valid boundary position.
+   *
+   * **Note:**
+   *
+   * Pass this parameter when text needs to be inserted at a specified position (rather than at the end). If not passed,
+   * text is inserted at the end by default.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -27243,23 +27259,23 @@ declare abstract class TextContentControllerBase {
    *
    * > **NOTE**
    * >
-   * > - If this API is called when the caret position is updated in the current frame, it will not take effect.
+   * > - If this API is called while the caret position is being updated in the current frame, this API does not take
+   * > effect.
    * >
-   * > - For the **Search** component, the returned position information is the offset of the first character relative
-   * > to the search icon in the component.
+   * > - In the Search component, the returned position information is the offset relative to the search icon in the
+   * > Search component.
    * >
-   * > - If no text is entered in the **Search** component, the return value contains the position information relative
-   * > to the component.
+   * > - In the Search component, when no text is entered, the return value contains the position information relative
+   * > to the Search component.
    * >
-   * > - The location information in the return value is the location of the caret relative to the editable component.
+   * > - The position information in the return value is the position of the caret relative to the editable component.
    * >
-   * > - If the caret position cannot be obtained (for example, when the
-   * > [TextInputController]{@link TextInputController} is not bound to the [TextInput]{@link ./text_input} component),
-   * > **null** is returned.
+   * > - When the caret position cannot be obtained (for example, when [TextInputController]{@link TextInputController}
+   * > is not bound to the [TextInput]{@link ./text_input} component), this API returns undefined.
    *
    * @returns { CaretOffset } Position of the caret relative to the text box.
-   *     <br>If no component is bound to the controller or the component bound to the controller is released, **undefined**
-   *     is returned.
+   *     <br>If no component is bound to the controller or the component bound to the controller is released,
+   *     **undefined** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27273,8 +27289,8 @@ declare abstract class TextContentControllerBase {
    * is pixel.
    *
    * @returns { RectResult } Position of the edited text area relative to the component and its size.
-   *     <br>If no component is bound to the controller or the component bound to the controller is released, **undefined**
-   *     is returned.
+   *     <br>If no component is bound to the controller or the component bound to the controller is released,
+   *     **undefined** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27287,8 +27303,8 @@ declare abstract class TextContentControllerBase {
    * Obtains the number of lines of the edited text.
    *
    * @returns { number } Number of lines of the edited text.
-   *     <br>If no component is bound to the controller or the component bound to the controller is released, **undefined**
-   *     is returned.
+   *     <br>If no component is bound to the controller or the component bound to the controller is released,
+   *     **undefined** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27303,12 +27319,20 @@ declare abstract class TextContentControllerBase {
    *
    * This API does not work when the text is being dragged.
    *
-   * **addText** only affects the UI performance within the application and has no effect on the internal logic of the
-   * input method application. Therefore, avoid calling this API for the preview text.
+   * `addText` only affects the UI performance within the application and does not affect the internal logic of the
+   * input method application. The preview text state is managed by the input method. Calling `addText`/`deleteText` at
+   * the application layer disrupts the state management of the input method. Therefore, avoid calling `addText` in the
+   * preview text state.
+   *
+   * > **NOTE**
+   * >
+   * > When the controller is not bound to a component or the component bound to the controller is released, this API
+   * > does not take effect.
    *
    * @param { string } text - Text to insert.
-   * @param { TextContentControllerOptions } [textOperationOptions] - Configuration option for inserting text. If this
-   *     parameter is not provided, the text is appended to the end.
+   * @param { TextContentControllerOptions } [textOperationOptions] - Configuration options for inserting text, used to
+   *     set parameters such as the insertion position. Pass this parameter when text needs to be inserted at a
+   *     specified position. If not set, text is inserted at the end by default.
    * @returns { number } New cursor position after insertion.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -27321,16 +27345,37 @@ declare abstract class TextContentControllerBase {
   /**
    * Deletes text within a specified range in the editable content.
    *
+   * This API does not work when the text is being dragged.
+   *
+   * `deleteText` only affects the UI performance within the application and does not affect the internal logic of the
+   * input method application. The preview text state is managed by the input method. Calling `addText`/`deleteText` at
+   * the application layer disrupts the state management of the input method. Therefore, avoid calling `deleteText` in
+   * the preview text state.
+   *
    * > **NOTE**
    * >
-   * > - This API does not work when the text is being dragged.
+   * > When the controller is not bound to a component or the component bound to the controller is released, this API
+   * > does not take effect.
    * >
-   * > - **deleteText** only affects the UI performance within the application and has no effect on the internal logic
-   * > of the input method application. Therefore, avoid calling this API for the preview text.
+   * > **Differences from [deleteBackward]{@link TextContentControllerBase#deleteBackward}**:
+   * >
+   * > - deleteText supports range deletion and can delete text in any specified area; deleteBackward simulates the user
+   * > deletion operation and deletes the character before the caret or the selected text.
+   * >
+   * > - Avoid calling deleteText in the preview text state. deleteBackward is not supported in the preview text
+   * > scenario.
+   * >
+   * > - Select the API based on the deletion requirement: use deleteText to delete text in a specified range, and use
+   * > deleteBackward to delete the character before the caret.
    *
-   * @param { TextRange } [range] - Range of the text to be deleted, including the start and end positions.<br>If the
-   *     range is not specified, the entire text is deleted. If the start position is not specified, deletion starts from
-   *     index 0. If the end position is not specified, deletion ends at the end of the text.
+   * @param { TextRange } [range] - Range of the text to delete, including the start position and end position of the
+   *     text to delete.
+   *     <br>The start position must be less than or equal to the end position; otherwise, the API call is invalid. A
+   *     start position less than 0 is treated as 0, and an end position greater than the text length is treated as the
+   *     text length.
+   *     <br>If the deletion range is not specified, all text is deleted by default. If the start position of the text
+   *     to delete is not specified, deletion starts from subscript 0 by default; if the end position of the text to
+   *     delete is not specified, the end of the text is used as the deletion end point by default.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27343,8 +27388,8 @@ declare abstract class TextContentControllerBase {
    * Obtains the current text selection range.
    *
    * @returns { TextRange } Current text selection range, or cursor position if no text is selected.
-   *     <br>If no component is bound to the controller or the component bound to the controller is released, **undefined**
-   *     is returned.
+   *     <br>If no component is bound to the controller or the component bound to the controller is released,
+   *     **undefined** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27373,8 +27418,8 @@ declare abstract class TextContentControllerBase {
    *
    * > **NOTE**
    * >
-   * > When the controller is not bound to any component or the component bound to the controller is released, this
-   * interface does not take effect.
+   * > When the controller is not bound to a component or the component bound to the controller is released, this API is
+   * > not effective.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -27385,16 +27430,16 @@ declare abstract class TextContentControllerBase {
   clearPreviewText(): void;
 
   /**
-   * Binds or updates the styled placeholder string.
+   * Sets the placeholder text with the styled string, triggering binding or update.
    *
    * > **NOTE**
    * >
-   * > When the controller is not bound to any component or the component bound to the controller is released, this
-   * interface does not take effect.
+   * > When the controller is not bound to a component or the component bound to the controller is released, this API
+   * > does not take effect.
    *
-   * @param { StyledString } styledString - Styled string for the placeholder. This takes precedence over the plain text.
-   *     **placeholder** attribute.<br>The placeholder does not support gesture events or hyperlink navigation within
-   *     styled strings.
+   * @param { StyledString } styledString - Sets the placeholder of the styled string. Its priority is higher than that
+   *     of the plain text placeholder attribute.
+   *     <br>The placeholder does not support styled string events, gestures, or hyperlink jumps.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27408,15 +27453,18 @@ declare abstract class TextContentControllerBase {
    * and scrolls the text within the range to the visible area.
    *
    * > **NOTE**
-   * > When the controller is not bound to any component or the component bound to the controller is released, this
-   * interface does not take effect.
+   * >
+   * > When the controller is not bound to a component or the component bound to the controller is released, this API is
+   * > not effective.
    *
-   * @param { TextRange } [range] - Text range to be scrolled to the visible area, including the start and end positions.
-   *     of the text.<br>The start position must be less than or equal to the end position. Otherwise, the API call is
-   *     invalid. If the start position is less than 0, it is treated as the value **0**. If the end position is greater
-   *     than the length of the entire text, it is treated as the length of the entire text.<br>If no range is specified,
-   *     the entire text is used by default. If the start position is not specified, the default start position is 0. If the
-   *     end position is not specified, the default end position is the length of the entire text.
+   * @param { TextRange } [range] - Text range to be scrolled to the visible area, including the start and end positions
+   *     of the text.
+   *     <br>The start position must be less than or equal to the end position. Otherwise, the API call is invalid. If
+   *     the start position is less than 0, it is treated as the value **0**. If the end position is greater than the
+   *     length of the entire text, it is treated as the length of the entire text.
+   *     <br>If no range is specified, the entire text is used by default. If the start position is not specified, the
+   *     default start position is 0. If the end position is not specified, the default end position is the length of
+   *     the entire text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27426,15 +27474,15 @@ declare abstract class TextContentControllerBase {
   scrollToVisible(range?: TextRange): void;
 
   /**
-   * Deletes the character before the text cursor in the text box bound to the basic controller. If some text has been
-   * selected using the mouse or keyboard before this function is called, the selected text will be deleted.
+   * Deletes the character before the caret in the text input box bound to the base controller `controller`. If some
+   * text has been selected with the mouse or keyboard before this API is called, the selected text is deleted.
    *
-   * This API is not supported in preview display scenarios.
+   * This API is not effective in the state of dragged text.
    *
    * > **NOTE**
    * >
-   * > When the controller is not bound to any component or the component bound to the controller is released, this
-   * interface does not take effect.
+   * > When the controller is not bound to a component or the component bound to the controller is released, this API is
+   * > not effective.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -29332,7 +29380,7 @@ declare interface GestureModifier {
 }
 
 /**
- * Defines the selection options.
+ * Provides the configuration options for text selection.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29342,8 +29390,7 @@ declare interface GestureModifier {
  */
 declare interface SelectionOptions {
   /**
-   * Menu display policy.
-   * Default value: MenuPolicy.DEFAULT.
+   * Policy for menu popup. Default value: MenuPolicy.DEFAULT.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

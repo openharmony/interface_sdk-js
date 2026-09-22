@@ -35,11 +35,11 @@
 interface MarqueeOptions {
   /**
    * 控制跑马灯是否进入播放状态。
-   * 
+   *
    * true：播放；false：不播放。
-   * 
+   *
    * **说明：**
-   * 
+   *
    * 当loop参数设置为大于0的有限次数且播放完毕后，不可以通过改变start参数重置滚动次数重新开始播放。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -52,12 +52,12 @@ interface MarqueeOptions {
 
   /**
    * 滚动动画的文本步长。
-   * 
+   *
    * 取值范围：[0, 文本宽度]，当step大于Marquee的文本宽度时，取默认值。
-   * 
-   * 默认值：6 
-   * 
-   * 单位：[vp]{@link VP}
+   *
+   * 默认值：6
+   *
+   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @default 6 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -70,11 +70,11 @@ interface MarqueeOptions {
 
   /**
    * 设置重复滚动的次数，小于等于零时无限循环。
-   * 
+   *
    * 默认值：-1
-   * 
+   *
    * **说明：**
-   * 
+   *
    * ArkTS卡片上该参数设置任意值都仅在可见时滚动一次。当设置为大于0的有限次数且播放完毕后，不可以通过改变start参数重置滚动次数重新开始播放。
    *
    * @default -1 [since 18]
@@ -88,9 +88,9 @@ interface MarqueeOptions {
 
   /**
    * 设置文本的滚动方向。
-   * 
+   *
    * true：表示文本从头部位置开始正向滚动；false：表示文本反向滚动。
-   * 
+   *
    * 默认值：true
    *
    * @default true [since 18]
@@ -114,8 +114,8 @@ interface MarqueeOptions {
   src: string;
 
   /**
-   * 两轮跑马灯之间的间距。如果LengthMetrics的unit值是PERCENT，当前设置不生效，按默认值处理。
-   * 
+   * 两轮跑马灯之间的间距。当LengthMetrics对象的unit属性为LengthUnit.PERCENT时，当前设置不生效，按默认值处理。
+   *
    * 默认值：跑马灯组件宽度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -129,12 +129,9 @@ interface MarqueeOptions {
 
   /**
    * 设置两轮滚动之间的延迟时间。
-   * 
-   * 默认值：0 
-   * 
-   * 取值范围：[0, +∞)，设置的值小于0时等价于设置0。
-   * 
-   * 单位：毫秒
+   * 单位：毫秒。
+   * 单位为：毫秒。取值范围：[0, +∞)，。默认值：0
+   * 设置的值小于0时等价于设置0。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -149,8 +146,10 @@ interface MarqueeOptions {
 /**
  * 跑马灯组件，用于滚动展示一段单行文本，支持自定义滚动速度、方向、循环次数等。仅当文本内容宽度大于等于跑马灯组件宽度时滚动，否则不滚动。适用于需要在有限空间内展示较长文本的场景，如新闻标题滚动、通知公告、广告轮播等，可以有效节省界面空间
  * 并吸引用户注意。
- * 
+ *
  * > **说明：**
+ * >
+ * > 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * >
  * > 为了不影响滚动帧率，建议在滚动类组件中Marquee的个数不超过4个，或者使用
  * >
@@ -183,9 +182,7 @@ interface MarqueeInterface {
 }
 
 /**
- * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性。 
- * 
- * 除支持[通用事件]{@link CommonMethod}外，还支持以下事件。
+ * 除支持[通用属性]{@link ./common}外，还支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -273,9 +270,9 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
 
   /**
    * 跑马灯组件属性更新后，跑马灯的滚动策略。(当跑马灯为播放状态，且文本内容宽度大于等于跑马灯组件宽度时，该属性生效。)未通过该接口设置时，默认使用MarqueeUpdateStrategy.DEFAULT。
-   * 
+   *
    * 使用场景：
-   * 
+   *
    * - MarqueeUpdateStrategy.DEFAULT：适用于内容更新后希望以默认策略重新开始滚动展示的场景。
    * - MarqueeUpdateStrategy.PRESERVE_POSITION：适用于内容动态更新时希望保持当前滚动位置继续滚动的场景，如实时时钟、股价等动态内容展示。
    *
@@ -330,10 +327,11 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
 
   /**
    * 跑马灯滚动结束或停止时触发回调。
-   * 
+   *
    * 跑马灯停止表示跑马灯将从开始位置，重新开始循环，不包含暂停场景，暂停不会触发该回调。
    *
-   * @param { Callback<void> | undefined } event
+   * @param { Callback<void> | undefined } event - 跑马灯滚动结束或停止时触发回调。
+   *     <br>设置为undefined时不会执行回调。
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -348,17 +346,19 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
 /**
  * 跑马灯组件，用于滚动展示一段单行文本，支持自定义滚动速度、方向、循环次数等。仅当文本内容宽度大于等于跑马灯组件宽度时滚动，否则不滚动。适用于需要在有限空间内展示较长文本的场景，如新闻标题滚动、通知公告、广告轮播等，可以有效节省界面空间
  * 并吸引用户注意。
- * 
+ *
  * > **说明：**
+ * >
+ * > 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * >
  * > 为了不影响滚动帧率，建议在滚动类组件中Marquee的个数不超过4个，或者使用
  * >
  * > 对于Marquee组件动态帧率的场景，可以使用[MarqueeDynamicSyncScene]{@link @ohos.arkui.UIContext}接口实现。
  * >
  * > 在文本宽度小于跑马灯组件宽度时，使用[属性动画]{@link ./common}实现滚动。
- * 
+ *
  * ###### 子组件
- * 
+ *
  * 无
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
