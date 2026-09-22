@@ -122,6 +122,20 @@ export class ConnectOptions<T extends object> {
    * @since 18 dynamic
    */
   areaMode?: contextConstant.AreaMode;
+
+  /**
+   * Ignore read-only properties.
+   * When valuie is false, error will be throen when deserializing class with readonly properties
+   * like @Computed decrorated getter functions.
+   * When value is true, readonly properties will be ignored and no error will be thrown.
+   * Default value: false.
+   * 
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.2.0 dynamic
+   */
+  ignoreReadOnlyProperties?: boolean;
 }
 
 /**
