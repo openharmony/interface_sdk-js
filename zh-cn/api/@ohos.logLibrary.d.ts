@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 系统维测日志获取
  * @kit PerformanceAnalysisKit
  */
 
