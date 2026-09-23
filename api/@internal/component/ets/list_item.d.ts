@@ -30,7 +30,7 @@
 declare enum Sticky {
 
   /**
-   * No sticky.
+   * No sticky effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -40,7 +40,7 @@ declare enum Sticky {
   None,
 
   /**
-   * The list item is sticky with no special effects.
+   * The current item sticks to the top.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -50,7 +50,7 @@ declare enum Sticky {
   Normal,
 
   /**
-   * The list item is sticky with opacity changes.
+   * The current item sticks to the top with an opacity change effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -63,6 +63,10 @@ declare enum Sticky {
 /**
  * Enumerates the edit modes of list items.
  *
+ * > **NOTE**
+ * >
+ * > This API is supported since API version 7 and deprecated since API version 9. There is no substitute API.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @since 7 dynamiconly
@@ -71,7 +75,7 @@ declare enum Sticky {
 declare enum EditMode {
 
   /**
-   * Unrestricted operations.
+   * No restriction on the edit operation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -81,7 +85,7 @@ declare enum EditMode {
   None,
 
   /**
-   * The list item can be deleted.
+   * Deletable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -91,7 +95,7 @@ declare enum EditMode {
   Deletable,
 
   /**
-   * The list item can be moved.
+   * Movable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -113,8 +117,12 @@ declare enum EditMode {
 declare enum SwipeEdgeEffect {
 
   /**
-   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or
-   * touch event, and spring back when released.
+   * The **ListItem** can continue to be swiped after the swipe distance exceeds the size of the swipe-out component.
+   *
+   * If a delete area is set, the **ListItem** can continue to be swiped after the swipe distance exceeds the delete
+   * threshold,
+   *
+   * and it rebounds along the spring damping curve after being released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -125,7 +133,12 @@ declare enum SwipeEdgeEffect {
   Spring,
 
   /**
-   * Sliding to the edge has no effect.
+   * The swipe distance of the **ListItem** cannot exceed the size of the swipe-out component.
+   *
+   * If a delete area is set, the swipe distance of the **ListItem** cannot exceed the delete threshold,
+   *
+   * and when a delete callback is set, releasing the **ListItem** after the delete threshold is reached triggers the
+   * delete callback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -148,7 +161,7 @@ declare enum SwipeEdgeEffect {
 declare enum SwipeActionState {
 
   /**
-   * Collapsed state.
+   * Collapsed state, in which the action items are hidden.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -159,7 +172,11 @@ declare enum SwipeActionState {
   COLLAPSED,
 
   /**
-   * Expanded state.
+   * Expanded state, in which the action items are displayed.
+   *
+   * **NOTE**
+   *
+   * The swipe action items must be set for the list item.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -170,7 +187,13 @@ declare enum SwipeActionState {
   EXPANDED,
 
   /**
-   * Acting state.
+   * Long-distance state, in which the list item is deleted after it enters the long-distance deletion area.
+   *
+   * **NOTE**
+   *
+   * This state can be entered only when the final value of **actionAreaDistance** is greater than 0 and less than the
+   * size of the list item in the swipe direction minus the size of the swipe-out component in the swipe direction, and
+   * the position where the finger is released after swiping is greater than or equal to this value.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -182,7 +205,7 @@ declare enum SwipeActionState {
 }
 
 /**
- * Enumerates the swipe action menu display directions for ListItem components.
+ * Enumerates the swipe action menu display directions for **ListItem** components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -193,8 +216,7 @@ declare enum SwipeActionState {
 declare enum ListItemSwipeActionDirection {
 
   /**
-   * When the List direction is vertical, it indicates the left in LTR mode and right in RTL mode.
-   * When the List direction is horizontal, it indicates the top.
+   * For vertical lists: left side in LTR mode, right side in RTL mode. For horizontal lists: top side.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -205,8 +227,7 @@ declare enum ListItemSwipeActionDirection {
   START = 0,
 
   /**
-   * When the List direction is vertical, it indicates the right in LTR mode and left in RTL mode.
-   * When the List direction is horizontal, it indicates the bottom.
+   * For vertical lists: right side in LTR mode, left side in RTL mode. For horizontal lists: bottom side.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -231,8 +252,15 @@ declare class ListItemSwipeActionManager {
   /**
    * Expands the swipe action menu for the specified list item.
    *
-   * @param { FrameNode } node - The ListItem FrameNode.
-   * @param { ListItemSwipeActionDirection } direction - The direction to expand.
+   * > **NOTE**
+   * >
+   * > - If the **show** parameter of the **cachedCount** attribute of the **List** component is set to **true**,
+   * > **ListItems** that have been preloaded outside the display area of the **List** support expansion. Otherwise,
+   * > nodes outside the display area of the **List** do not support expansion.
+   *
+   * @param { FrameNode } node - **ListItem** node object.
+   * @param { ListItemSwipeActionDirection } direction - Swipe action menu display direction for the **ListItem**
+   *     component.
    * @throws { BusinessError } 100023 - The component type of the node is incorrect.
    * @throws { BusinessError } 106203 - The node not mounted to component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -246,7 +274,7 @@ declare class ListItemSwipeActionManager {
   /**
    * Collapses the swipe action menu for the specified list item.
    *
-   * @param { FrameNode } node - The ListItem FrameNode.
+   * @param { FrameNode } node - **ListItem** node object.
    * @throws { BusinessError } 100023 - The component type of the node is incorrect.
    * @throws { BusinessError } 106203 - The node not mounted to component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -259,12 +287,15 @@ declare class ListItemSwipeActionManager {
 }
 
 /**
- * Describes the swipe action item.
- * For a list in vertical layout, it refers to the delete option displayed on the left (or right) of the list item
- * when the list item is swiped right (or left).
+ * Used to configure the **start** or **end** swipe-out item in [SwipeActionOptions]{@link SwipeActionOptions},
+ * including the action item displayed when swiping out, the distance threshold of the long-distance action area, and
+ * the callbacks for entering and exiting the long-distance action area, triggering the action when the finger is
+ * lifted, and state changes.
  *
- * For a list in horizontal layout, it refers to the delete option displayed below (or above) the list item
- * when the list item is swiped up (or down).
+ * When used as a **start** swipe-out item, it is displayed on the left of the **ListItem** when the **List** is in
+ * vertical layout, and above the **ListItem** when the **List** is in horizontal layout. When used as an end swipe-out
+ * item, it is displayed on the right of the **ListItem** when the **List** is in vertical layout, and below the
+ * **ListItem** when the **List** is in horizontal layout.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -357,12 +388,13 @@ declare interface SwipeActionItem {
 }
 
 /**
- * The top layer of the @builder function corresponding to start and end must be a single component.
- * Otherwise, undefined behavior occurs. If the top layer of the @builder function is a statement such as
- * if/else or ForEach, ensure that these statements can generate a single component.
+ * In the **@builder** functions corresponding to **start** and **end**, the top-level component must be a single
+ * component. If the top level is a rendering control statement such as **if**\/**else** or **ForEach**, ensure that it
+ * can generate only a single component. Otherwise, undefined behavior may occur.
  *
- * The swipe gesture works only in the list item area. If a swipe causes a child component to extend beyond
- * the list item area, the portion outside the area does not respond to the swipe.
+ * The swipe gesture works only in the list item area. If a child component is swiped out of the list item area, the
+ * portion outside the list item does not respond to the swipe gesture. Therefore, in multi-column mode, you are advised
+ * not to set the swipe-out component too wide.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -421,7 +453,7 @@ declare interface SwipeActionOptions {
 }
 
 /**
- * Enumerates the card styles of the List component.
+ * Enumerates the card styles of the **ListItem** component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -443,7 +475,7 @@ declare enum ListItemStyle {
   NONE = 0,
 
   /**
-   * Show default style.
+   * Default card style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -455,7 +487,7 @@ declare enum ListItemStyle {
 }
 
 /**
- * Defines ListItem component configuration options.
+ * Defines **ListItem** component configuration options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -478,18 +510,22 @@ declare interface ListItemOptions {
 }
 
 /**
- * The ListItem component displays specific items in the list. It must be used together with List.
+ * **ListItem** is used to display a specific list item in a list. It supports capabilities such as swipe-out menus,
+ * selected states, mouse frame selection, and card styles. It must be used with the **List** component. It is
+ * applicable to scenarios where content needs to be displayed in a list and interactive operations (such as swipe-to-
+ * delete and selection marking) need to be performed on individual list items.
  *
  * > **NOTE**
  * >
- * > - This component is supported since API version 7. Updates will be marked with a superscript to indicate
- * > their earliest API version.
+ * > - The parent of this component can only be [List]{@link ./list} or
+ * > [ListItemGroup]{@link ./list_item_group}.
  * >
- * > - The parent of this component can only be List or ListItemGroup.
- * >
- * > - When this component is used with LazyForEach, its child components are created when it is created.
- * > When this component is used with if/else or ForEach, or when the parent component is List or ListItemGroup,
- * > its child components are created when it is laid out.
+ * > - When this component is used with
+ * > [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), its child components are
+ * > created when it is created. When this component is used with
+ * > [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md) or
+ * > [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md), or when the parent component is
+ * > **List** or **ListItemGroup**, its child components are created when it is laid out.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -502,9 +538,12 @@ declare interface ListItemOptions {
 interface ListItemInterface {
 
   /**
-   * Creates a ListItem component.
+   * Creates a **ListItem** component.
    *
-   * @param { ListItemOptions } value
+   * @param { ListItemOptions } value - Provides optional parameters for the **ListItem**. This object contains the
+   *     **style** parameter of the [ListItemStyle]{@link ListItemStyle} enum type. Pass this parameter when the card
+   *     style (**ListItemStyle.CARD**) needs to be set. If it is not passed, the default configuration (no style) is
+   *     used.<br/>Default value: **{ style: ListItemStyle.NONE }**
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -516,9 +555,11 @@ interface ListItemInterface {
   (value?: ListItemOptions): ListItemAttribute;
 
   /**
-   * Creates a ListItem component.
+   * Creates a **ListItem** component.
    *
-   * @param { string } value
+   * @param { string } value - This parameter is deprecated and does not take effect in the current version. You are
+   *     advised to use
+   *     [ListItem<sup>10+</sup>]{@link ListItem} instead.
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -531,7 +572,9 @@ interface ListItemInterface {
 }
 
 /**
- * In addition to the universal attributes, the following attributes are supported.
+ * In addition to the
+ * [universal attributes]{@link common}, the following
+ * attributes are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -546,7 +589,8 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Sets the sticky effect of the list item.
    *
-   * @param { Sticky } value
+   * @param { Sticky } value - Sticky effect of the list item.
+   *     <br>Default value: **Sticky.None**
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -559,7 +603,15 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Sets whether to enable edit mode, where the list item can be deleted or moved.
    *
-   * @param { boolean | EditMode } value
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 7 and deprecated since API version 9. No substitute is provided.
+   *
+   * @param { boolean | EditMode } value - Whether the **ListItem** element is editable. When set to **true**, the list
+   *     item enters the edit mode and can be deleted or moved. When set to **false**, the list item is not editable.
+   *     When set to an **EditMode** enum value, **None** indicates that the edit operation is not restricted,
+   *     **Deletable** indicates that the list item can be deleted, and **Movable** indicates that the list item can be
+   *     moved.<br/>Default value: **false**
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -569,10 +621,17 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   editable(value: boolean | EditMode): ListItemAttribute;
 
   /**
-   * Sets whether the list item is selectable for multiselect.
-   * This attribute takes effect only when mouse frame selection is enabled for the parent List container.
+   * Sets whether the current **ListItem** element can be selected by mouse frame selection. This takes effect only when
+   * the parent [List]{@link ./list} component has
+   * [multiSelectable]{@link ./list:ListAttribute#multiSelectable} set to **true** to
+   * enable mouse frame selection.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether the **ListItem** element can be selected by mouse frame selection. When set to
+   *     **true**, it can be selected by mouse frame selection; when set to **false**, it cannot.<br/>Default value:
+   *     **true**<br/>**Note:** This takes effect only when the outer
+   *     [List]{@link ./list} component sets
+   *     [multiSelectable]{@link ./list:ListAttribute#multiSelectable} to **true** to
+   *     enable mouse frame selection.
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -584,11 +643,14 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   selectable(value: boolean): ListItemAttribute;
 
   /**
-   * Sets whether the list item is selected. This attribute supports two-way binding through $$.
-   * This attribute must be used before the polymorphic style is set.
+   * Sets whether the list item is selected. This attribute supports two-way binding through
+   * [$$](docroot://ui/state-management/arkts-two-way-sync.md). This attribute must be used before the
+   * [polymorphic style]{@link common} is set.
    * Otherwise, the style settings will not take effect.
    *
-   * @param { boolean } value - Whether the list item is selected.
+   * @param { boolean } value - Whether the **ListItem** is selected. The value **true** means the selected state, and
+   *     **false** means the default state.<br/>Default value: **false**<br/>**Note:** This attribute must be set before
+   *     the polymorphic style is set for the selected state style to take effect.
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -602,8 +664,8 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   /**
    * Sets the swipe action item displayed when the list item is swiped out from the screen edge.
    *
-   * @param { SwipeActionOptions } value - Swipe action item displayed when the list item is swiped out from
-   *     the screen edge.
+   * @param { SwipeActionOptions } value - Configuration of the swipe-out component of the **ListItem**, used to set the
+   *     component displayed when swiped out, the swipe effect, and the swipe state callback.
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -615,6 +677,11 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
 
   /**
    * Triggered when the selected state of the list item for multiselect changes.
+   *
+   * This callback is triggered when the outer [List]{@link ./list}
+   * component has [multiSelectable]{@link ./list:ListAttribute#multiSelectable} set
+   * to **true** to enable mouse box selection, and the [selectable]{@link ListItemAttribute#selectable} attribute of
+   * the current ListItem is set to **true**.
    *
    * @param { function } event
    * @returns { ListItemAttribute }
@@ -642,18 +709,22 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
 declare const ListItemInstance: ListItemAttribute;
 
 /**
- * The ListItem component displays specific items in the list. It must be used together with List.
+ * **ListItem** is used to display a specific list item in a list. It supports capabilities such as swipe-out menus,
+ * selected states, mouse frame selection, and card styles. It must be used with the **List** component. It is
+ * applicable to scenarios where content needs to be displayed in a list and interactive operations (such as swipe-to-
+ * delete and selection marking) need to be performed on individual list items.
  *
  * > **NOTE**
  * >
- * > - This component is supported since API version 7. Updates will be marked with a superscript to indicate
- * > their earliest API version.
+ * > - The parent of this component can only be [List]{@link ./list} or
+ * > [ListItemGroup]{@link ./list_item_group}.
  * >
- * > - The parent of this component can only be List or ListItemGroup.
- * >
- * > - When this component is used with LazyForEach, its child components are created when it is created.
- * > When this component is used with if/else or ForEach, or when the parent component is List or ListItemGroup,
- * > its child components are created when it is laid out.
+ * > - When this component is used with
+ * > [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), its child components are
+ * > created when it is created. When this component is used with
+ * > [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md) or
+ * > [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md), or when the parent component is
+ * > **List** or **ListItemGroup**, its child components are created when it is laid out.
  *
  * ###### Child Components
  *
