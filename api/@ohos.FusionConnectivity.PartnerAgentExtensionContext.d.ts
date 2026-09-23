@@ -27,5 +27,6 @@ import type ExtensionContext from './application/ExtensionContext';
  * @syscap SystemCapability.Communication.FusionConnectivity.Core
  * @stagemodelonly
  * @since 23 dynamic
+ * @since 26.0.1 static
  */
 export default class PartnerAgentExtensionContext extends ExtensionContext {}

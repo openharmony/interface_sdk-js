@@ -26,6 +26,7 @@ import type constant from './@ohos.bluetooth.constant';
  *
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @since 11 dynamic
+ * @since 26.0.1 static
  */
 declare namespace map {
   /**
@@ -33,6 +34,7 @@ declare namespace map {
    *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 11 dynamic
+   * @since 26.0.1 static
    */
   type BaseProfile = baseProfile.BaseProfile;
 
@@ -42,6 +44,7 @@ declare namespace map {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 26.0.1 static
    */
   type AccessAuthorization = constant.AccessAuthorization;
 
@@ -54,6 +57,7 @@ declare namespace map {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 11 dynamic
+   * @since 26.0.1 static
    */
   function createMapMseProfile(): MapMseProfile;
 
@@ -62,6 +66,7 @@ declare namespace map {
    *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 11 dynamic
+   * @since 26.0.1 static
    */
   interface MapMseProfile extends BaseProfile {
     /**
@@ -81,6 +86,7 @@ declare namespace map {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
+     * @since 26.0.1 static
      */
     disconnect(deviceId: string): void;
 
@@ -103,6 +109,7 @@ declare namespace map {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
+     * @since 26.0.1 static
      */
     setMessageAccessAuthorization(deviceId: string, authorization: AccessAuthorization): Promise<void>;
 
@@ -124,6 +131,7 @@ declare namespace map {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
+     * @since 26.0.1 static
      */
     getMessageAccessAuthorization(deviceId: string): Promise<AccessAuthorization>;
   }

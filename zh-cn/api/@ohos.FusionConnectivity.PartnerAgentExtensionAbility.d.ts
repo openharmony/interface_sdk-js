@@ -50,7 +50,7 @@ type PartnerAgentExtensionAbilityDestroyReason = partnerAgent.PartnerAgentExtens
  * @since 23 dynamic
  * @since 26.0.1 static
  */
-export default class PartnerAgentExtensionAbility extends ExtensionAbility {
+export default declare class PartnerAgentExtensionAbility extends ExtensionAbility {
 
   /**
    * PartnerAgentExtensionAbility的上下文。

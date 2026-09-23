@@ -81,6 +81,28 @@ declare namespace opp {
     on(type: 'transferStateChange', callback: Callback<OppTransferInformation>): void;
 
     /**
+     * 订阅文件传输状态变化上报的事件。
+     * 若应用程序拥有ohos.permission.GET_BLUETOOTH_PEERS_MAC权限，则对端设备地址类型为真实地址，否则为虚拟地址。
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     *     or (ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     *     and ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+     * @param { Callback<OppTransferInformation> } callback - 表示文件传输进度和状态变化事件的回调函数。
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900004 - Profile not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 static
+     */
+    onTransferStateChange(callback: Callback<OppTransferInformation>): void;
+
+    /**
      * 取消订阅蓝牙文件传输的进度和状态变化事件。
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
@@ -102,6 +124,25 @@ declare namespace opp {
      * @since 16 dynamic
      */
     off(type: 'transferStateChange', callback?: Callback<OppTransferInformation>): void;
+
+    /**
+     * 取消订阅文件传输状态变化上报的事件。
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     * @param { Callback<OppTransferInformation> } [callback] - 表示文件传输进度和状态变化事件的回调函数。
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900004 - Profile not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 static
+     */
+    offTransferStateChange(callback?: Callback<OppTransferInformation>): void;
 
     /**
      * 订阅蓝牙文件传输事件以接收文件。
@@ -130,6 +171,28 @@ declare namespace opp {
     on(type: 'receiveIncomingFile', callback: Callback<OppTransferInformation>): void;
 
     /**
+     * 订阅接收到文件传输请求的事件。
+     * 若应用程序拥有ohos.permission.GET_BLUETOOTH_PEERS_MAC权限，则对端设备地址类型为真实地址，否则为虚拟地址。
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     *     or (ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     *     and ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+     * @param { Callback<OppTransferInformation> } callback - 表示是否有文件传输通知事件的回调函数。
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900004 - Profile not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 static
+     */
+    onReceiveIncomingFile(callback: Callback<OppTransferInformation>): void;
+
+    /**
      * 取消订阅蓝牙文件传输完成的事件。
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
@@ -151,6 +214,25 @@ declare namespace opp {
      * @since 16 dynamic
      */
     off(type: 'receiveIncomingFile', callback?: Callback<OppTransferInformation>): void;
+
+    /**
+     * 取消订阅接收到文件传输请求的事件。
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     * @param { Callback<OppTransferInformation> } [callback] - 表示是否有文件传输通知事件的回调函数。
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900004 - Profile not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.1 static
+     */
+    offReceiveIncomingFile(callback?: Callback<OppTransferInformation>): void;
 
     /**
      * 使用蓝牙发送文件。使用Promise异步回调。

@@ -26,6 +26,7 @@ import type baseProfile from './@ohos.bluetooth.baseProfile';
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @stagemodelonly
  * @since 10 dynamic
+ * @since 26.0.1 static
  */
 declare namespace pan {
   /**
@@ -34,6 +35,7 @@ declare namespace pan {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 26.0.1 static
    */
   type BaseProfile = baseProfile.BaseProfile;
 
@@ -47,6 +49,7 @@ declare namespace pan {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 26.0.1 static
    */
   function createPanProfile(): PanProfile;
 
@@ -56,6 +59,7 @@ declare namespace pan {
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @stagemodelonly
    * @since 10 dynamic
+   * @since 26.0.1 static
    */
   interface PanProfile extends BaseProfile {
     /**
@@ -75,6 +79,7 @@ declare namespace pan {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     connect(deviceId: string): void;
 
@@ -96,6 +101,7 @@ declare namespace pan {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
+     * @since 26.0.1 static
      */
     disconnect(deviceId: string): void;
 
@@ -117,6 +123,7 @@ declare namespace pan {
      * @systemapi
      * @stagemodelonly
      * @since 10 dynamic
+     * @since 26.0.1 static
      */
     setTethering(enable: boolean): void;
 
@@ -135,6 +142,7 @@ declare namespace pan {
      * @publicapi [since 26.0.0]
      * @stagemodelonly
      * @since 10 dynamic
+     * @since 26.0.1 static
      */
     isTetheringOn(): boolean;
 
@@ -146,6 +154,7 @@ declare namespace pan {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     isPanSupported(): boolean;
   }

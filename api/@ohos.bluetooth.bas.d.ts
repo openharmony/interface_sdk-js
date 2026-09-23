@@ -19,9 +19,7 @@
  */
 
 import type { AsyncCallback, Callback } from './@ohos.base';
-/*** if arkts dynamic */
 import type common from './@ohos.bluetooth.common';
-/*** endif */
 
 /**
  * Provide methods to access BAS(Battery Service)-related capabilities.
@@ -30,6 +28,7 @@ import type common from './@ohos.bluetooth.common';
  * @systemapi
  * @stagemodelonly
  * @since 26.0.0 dynamic
+ * @since 26.0.1 static
  */
 
 declare namespace bas {
@@ -40,6 +39,7 @@ declare namespace bas {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.0.1 static
    */
   type BluetoothAddress = common.BluetoothAddress;
 
@@ -53,6 +53,7 @@ declare namespace bas {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.0.1 static
    */
   function isBasSupported(): boolean;
 
@@ -76,6 +77,7 @@ declare namespace bas {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.0.1 static
    */
   function getRemoteDeviceBatteryInfo(deviceId: BluetoothAddress): Promise<BatteryInfo>;
 
@@ -94,6 +96,7 @@ declare namespace bas {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.0.1 static
    */
   function onBatteryChange(callback: Callback<BatteryInfo>): void;
 
@@ -112,6 +115,7 @@ declare namespace bas {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.0.1 static
    */
   function offBatteryChange(callback?: Callback<BatteryInfo>): void;
 
@@ -122,6 +126,7 @@ declare namespace bas {
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamic
+   * @since 26.0.1 static
    */
   interface BatteryInfo {
     /**
@@ -131,6 +136,7 @@ declare namespace bas {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     deviceId: BluetoothAddress;
     /**
@@ -140,6 +146,7 @@ declare namespace bas {
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     batteryLevel: int;
   }

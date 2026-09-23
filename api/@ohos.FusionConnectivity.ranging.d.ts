@@ -26,6 +26,7 @@ import type { BusinessError, Callback } from './@ohos.base';
  * @syscap SystemCapability.Communication.FusionConnectivity.Core
  * @stagemodelonly
  * @since 26.0.0 dynamic
+ * @since 26.0.1 static
  */
 declare namespace ranging {
     /**
@@ -36,6 +37,7 @@ declare namespace ranging {
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     function isRangingSupported(): boolean;
 
@@ -50,6 +52,7 @@ declare namespace ranging {
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     function getRangingCapability(): Promise<RangingCapabilitySupported>;
 
@@ -74,6 +77,7 @@ declare namespace ranging {
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     function startRanging(params: RangingParams, callback: Callback<RangingResult>): void;
 
@@ -97,6 +101,7 @@ declare namespace ranging {
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     function stopRanging(callback: Callback<RangingResult>, params?: RangingParams): void;
 
@@ -119,6 +124,7 @@ declare namespace ranging {
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     function startPassiveRanging(capabilityType: RangingTypes): Promise<int>;
 
@@ -139,6 +145,7 @@ declare namespace ranging {
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     function stopPassiveRanging(handle: int, capabilityType: RangingTypes): void;
 
@@ -155,6 +162,7 @@ declare namespace ranging {
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     function onRangingStateChange(callback: Callback<RangingStateChangeInfo>): void;
 
@@ -169,6 +177,7 @@ declare namespace ranging {
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     function offRangingStateChange(callback?: Callback<RangingStateChangeInfo>): void;
 
@@ -178,6 +187,7 @@ declare namespace ranging {
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     interface RangingParams {    
         /**
@@ -186,6 +196,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         deviceId: string;
         /**
@@ -194,6 +205,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         capabilityType: RangingTypes;
     }
@@ -204,6 +216,7 @@ declare namespace ranging {
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     interface RangingStateChangeInfo {    
         /**
@@ -212,6 +225,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         state: RangingState;
         /**
@@ -220,6 +234,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         cause: RangingStoppedCause;
         /**
@@ -228,6 +243,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         deviceId?: string;
         /**
@@ -237,6 +253,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         handle?: int;
     }
@@ -247,6 +264,7 @@ declare namespace ranging {
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     interface RangingResult {    
         /**
@@ -255,6 +273,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         deviceId: string;
         /**
@@ -263,6 +282,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         distance: RangingMeasurement;
         /**
@@ -271,6 +291,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         angle: RangingMeasurement;
         /**
@@ -279,6 +300,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         rssi: int;
     }
@@ -289,6 +311,7 @@ declare namespace ranging {
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     interface RangingCapabilitySupported {    
         /**
@@ -297,6 +320,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         nearlinkHadm: boolean;
     }
@@ -307,6 +331,7 @@ declare namespace ranging {
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     interface RangingMeasurement {    
         /**
@@ -315,6 +340,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         value: int;
         /**
@@ -323,6 +349,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         confidence: RangingConfidence;
     }
@@ -333,6 +360,7 @@ declare namespace ranging {
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     enum RangingTypes {    
         /**
@@ -341,6 +369,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         NEARLINK_HADM = 1
     }
@@ -351,6 +380,7 @@ declare namespace ranging {
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     enum RangingState {    
         /**
@@ -359,6 +389,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         RANGING_STOPPED = 0,
         /**
@@ -367,6 +398,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         RANGING_STARTED = 1
     }
@@ -377,6 +409,7 @@ declare namespace ranging {
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     enum RangingStoppedCause {    
         /**
@@ -385,6 +418,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         NO_ERROR = 0,
         /**
@@ -393,6 +427,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         INTERNAL_ERROR = 1,
         /**
@@ -401,6 +436,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         BUSINESS_CONFLICT = 2,
         /**
@@ -409,6 +445,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         BACKGROUND_PAUSED = 3
     }
@@ -419,6 +456,7 @@ declare namespace ranging {
      * @syscap SystemCapability.Communication.FusionConnectivity.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic
+     * @since 26.0.1 static
      */
     enum RangingConfidence {    
         /**
@@ -427,6 +465,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         HIGH = 0,
         /**
@@ -435,6 +474,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         MEDIUM = 1,
         /**
@@ -443,6 +483,7 @@ declare namespace ranging {
          * @syscap SystemCapability.Communication.FusionConnectivity.Core
          * @stagemodelonly
          * @since 26.0.0 dynamic
+         * @since 26.0.1 static
          */
         LOW = 2
     }
