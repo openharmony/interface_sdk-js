@@ -3259,8 +3259,6 @@ export declare enum KeyCode {
   /**
    * PTZ click
    *
-   * **Since:** 26.0.1
-   *
    * **Model restriction:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -3271,8 +3269,6 @@ export declare enum KeyCode {
 
   /**
    * PTZ focus left
-   *
-   * **Since:** 26.0.1
    *
    * **Model restriction:** This API can only be used in the stage model.
    *
@@ -3285,8 +3281,6 @@ export declare enum KeyCode {
   /**
    * PTZ focus right
    *
-   * **Since:** 26.0.1
-   *
    * **Model restriction:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -3297,8 +3291,6 @@ export declare enum KeyCode {
 
   /**
    * PTZ exposure left
-   *
-   * **Since:** 26.0.1
    *
    * **Model restriction:** This API can only be used in the stage model.
    *
@@ -3311,8 +3303,6 @@ export declare enum KeyCode {
   /**
    * PTZ exposure right
    *
-   * **Since:** 26.0.1
-   *
    * **Model restriction:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -3323,8 +3313,6 @@ export declare enum KeyCode {
 
   /**
    * PTZ shutter left
-   *
-   * **Since:** 26.0.1
    *
    * **Model restriction:** This API can only be used in the stage model.
    *
@@ -3337,8 +3325,6 @@ export declare enum KeyCode {
   /**
    * PTZ shutter right
    *
-   * **Since:** 26.0.1
-   *
    * **Model restriction:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -3350,8 +3336,6 @@ export declare enum KeyCode {
   /**
    * PTZ aperture left
    *
-   * **Since:** 26.0.1
-   *
    * **Model restriction:** This API can only be used in the stage model.
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -3362,8 +3346,6 @@ export declare enum KeyCode {
 
   /**
    * PTZ aperture right
-   *
-   * **Since:** 26.0.1
    *
    * **Model restriction:** This API can only be used in the stage model.
    *
