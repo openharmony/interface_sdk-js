@@ -47,7 +47,7 @@ declare namespace deviceManager {
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { int } [busType] - 由[BusType]{@link deviceManager.BusType}约定的设备总线类型，不填则查找所有类型设备。
    * @returns { Array<Readonly<Device>> } 设备信息列表。
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception or busType parameter error.
    * @syscap SystemCapability.Driver.ExternalDevice
    * @since 10 dynamic
@@ -65,7 +65,7 @@ declare namespace deviceManager {
    * @param { AsyncCallback<number> } onDisconnect - 回调函数。当绑定设备断开时，err为undefined，data为解绑的设备ID；否则为错误对象。
    * @param { AsyncCallback<{deviceId: number; remote: rpc.IRemoteObject;}> } callback - 回调函数。当绑定设备成功时，err为undefined，
    *     data包含设备ID和绑定设备驱动通信对象；否则为错误对象。
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified. 2
    *     .Incorrect parameter types.
    *     3.Parameter verification failed.
@@ -88,7 +88,7 @@ declare namespace deviceManager {
    * @param { AsyncCallback<number> } onDisconnect - 回调函数。当绑定设备断开时，err为undefined，data为解绑的设备ID；否则为错误对象。
    * @param { AsyncCallback<RemoteDeviceDriver> } callback - 回调函数。当绑定设备驱动成功时，err为undefined，data为包括设备ID和远程对象的
    *     [RemoteDeviceDriver]{@link deviceManager.RemoteDeviceDriver}对象；否则为错误对象。
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    *     3.Parameter verification failed.
@@ -110,7 +110,7 @@ declare namespace deviceManager {
    * @param { number } deviceId - 设备ID，通过[queryDevices]{@link deviceManager.queryDevices}获得。
    * @param { AsyncCallback<number> } onDisconnect - 回调函数。当绑定设备断开时，err为undefined，data为解绑的设备ID；否则为错误对象。
    * @returns { Promise<{deviceId: number; remote: rpc.IRemoteObject;}> } Promise对象，返回一个包含设备ID和IRemoteObject的对象。
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    *     3.Parameter verification failed.
@@ -132,7 +132,7 @@ declare namespace deviceManager {
    * @param { number } deviceId - 设备ID，通过[queryDevices]{@link deviceManager.queryDevices}获得。
    * @param { AsyncCallback<number> } onDisconnect - 回调函数。当绑定设备断开时，err为undefined，data为解绑的设备ID；否则为错误对象。
    * @returns { Promise<RemoteDeviceDriver> } Promise对象，返回RemoteDeviceDriver对象。
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    *     3.Parameter verification failed.
@@ -150,7 +150,7 @@ declare namespace deviceManager {
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - 设备ID，通过[queryDevices]{@link deviceManager.queryDevices}获得。
    * @param { AsyncCallback<number> } callback - 回调函数。当解绑设备成功时，err为undefined，data为设备ID；否则为错误对象。
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    * @throws { BusinessError } 22900001 - ExternalDeviceManager service exception.
@@ -167,7 +167,7 @@ declare namespace deviceManager {
    * @permission ohos.permission.ACCESS_EXTENSIONAL_DEVICE_DRIVER
    * @param { number } deviceId - 设备ID，通过[queryDevices]{@link deviceManager.queryDevices}获得。
    * @returns { Promise<number> } Promise对象，返回解除绑定的设备ID。
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    *     3.Parameter verification failed.
@@ -186,7 +186,7 @@ declare namespace deviceManager {
    * @param { long } [deviceId] - 设备ID，通过[queryDevices]{@link deviceManager.queryDevices}获得。如果不传入设备ID，则默认获取所有设备信息。如果没有设备接
    *     入，返回空列表。
    * @returns { Array<Readonly<DeviceInfo>> } 扩展外设详细信息列表。
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission denied. A non-system application cannot call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
@@ -204,7 +204,7 @@ declare namespace deviceManager {
    * @param { string } [driverUid] - 驱动UID，通过[queryDeviceInfo]{@link deviceManager.queryDeviceInfo}返回的设备信息获得。如果不传入驱动UID，则默
    *     认获取所有的驱动信息；如果传入了UID但不存在对应的驱动，则会返回空列表。
    * @returns { Array<Readonly<DriverInfo>> } 扩展外设驱动详细信息列表。
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission denied. A non-system application cannot call a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
@@ -224,7 +224,7 @@ declare namespace deviceManager {
    * @param { long } deviceId - 设备ID，通过[queryDevices]{@link deviceManager.queryDevices}获得。
    * @param { AsyncCallback<long> } onDisconnect - 回调函数。当绑定设备断开时，err为undefined，data为解绑的设备ID；否则为错误对象。
    * @returns { Promise<RemoteDeviceDriver> } Promise对象，返回RemoteDeviceDriver对象。
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
    * @throws { BusinessError } 26300002 - The driver service does not allow any client to bind.
    * @syscap SystemCapability.Driver.ExternalDevice
@@ -239,7 +239,7 @@ declare namespace deviceManager {
    * @permission ohos.permission.ACCESS_DDK_DRIVERS
    * @param { long } deviceId - 设备ID，通过[queryDevices]{@link deviceManager.queryDevices}获得。
    * @returns { Promise<int> } Promise对象，返回解除绑定的设备ID。
-   * @throws { BusinessError } 201 - The permission check failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
    * @throws { BusinessError } 26300001 - ExternalDeviceManager service exception.
    * @throws { BusinessError } 26300003 - There is no binding relationship.
    * @syscap SystemCapability.Driver.ExternalDevice
