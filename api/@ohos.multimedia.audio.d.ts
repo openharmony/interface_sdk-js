@@ -5173,7 +5173,15 @@ declare namespace audio {
      * @since 20 dynamic
      * @since 23 static
      */
-    AUDIO_SESSION_SCENE_VOICE_COMMUNICATION = 2
+    AUDIO_SESSION_SCENE_VOICE_COMMUNICATION = 2,
+    /**
+     * Scene for voice message.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    AUDIO_SESSION_SCENE_VOICE_MESSAGE = 3
   }
 
   /**
@@ -5811,8 +5819,8 @@ declare namespace audio {
      * > **NOTE**
      * >
      * > - This API applies to the following scenario: When
-     * > [AudioSessionScene]{@link @ohos.multimedia.audio:audio.AudioSessionScene} is set to **VoIP**, the setting takes
-     * > effect immediately after the AudioSession is activated. For non-VoIP scenarios, the setting does not take
+     * > [AudioSessionScene]{@link @ohos.multimedia.audio:audio.AudioSessionScene} is set to **VoIP** or **voice message**, the setting takes
+     * > effect immediately after the AudioSession is activated. For other scenarios, the setting does not take
      * > effect upon AudioSession activation. Instead, the setting applies when
      * > [StreamUsage]{@link @ohos.multimedia.audio:audio.StreamUsage} for playback is voice message, VoIP voice call,
      * > or VoIP video call. Supported devices include the earpiece, speaker, and system default device.

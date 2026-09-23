@@ -5226,7 +5226,15 @@ declare namespace audio {
      * @since 20 dynamic
      * @since 23 static
      */
-    AUDIO_SESSION_SCENE_VOICE_COMMUNICATION = 2
+    AUDIO_SESSION_SCENE_VOICE_COMMUNICATION = 2,
+    /**
+     * 语音消息音频会话场景。
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    AUDIO_SESSION_SCENE_VOICE_MESSAGE = 3
   }
 
   /**
@@ -5836,8 +5844,8 @@ declare namespace audio {
      *
      * > **说明：**
      * >
-     * > - 本接口适用于以下情况：当设置的[AudioSessionScene]{@link @ohos.multimedia.audio:audio.AudioSessionScene}为VoIP场景时，激活
-     * > AudioSession后立即生效。若[AudioSessionScene]{@link @ohos.multimedia.audio:audio.AudioSessionScene}为非VoIP场景，激活
+     * > - 本接口适用于以下情况：当设置的[AudioSessionScene]{@link @ohos.multimedia.audio:audio.AudioSessionScene}为VoIP场景或语音消息场景时，激活
+     * > AudioSession后立即生效。若[AudioSessionScene]{@link @ohos.multimedia.audio:audio.AudioSessionScene}为其他场景，激活
      * > AudioSession时不会生效，仅在启动播放的[StreamUsage]{@link @ohos.multimedia.audio:audio.StreamUsage}为语音消息、VoIP语音通话或VoIP视频通话时才
      * > 生效。支持听筒、扬声器和系统默认设备。
      * >
