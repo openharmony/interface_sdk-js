@@ -317,7 +317,7 @@ declare namespace onScreen {
    * @param { ContentOptions } [options] - Options for obtaining the onscreen screen content. By default, the window ID
    *     is not specified, and other options are **False**.
    * @returns { Promise<PageContent> } Indicates the promise which carries retrieved page content
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to get page content forbidden by
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
@@ -342,7 +342,7 @@ declare namespace onScreen {
    * @permission ohos.permission.SIMULATE_USER_INPUT
    * @param { ControlEvent } event - Onscreen control event.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to get page content forbidden by
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.SIMULATE_USER_INPUT.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
@@ -716,7 +716,7 @@ declare namespace onScreen {
    *     <br> awareness result. The returned onscreen awareness information list **OnscreenAwarenessInfo[]**
    *     <br> contains a maximum of two awareness information items.
    * @param { OnscreenAwarenessOptions } [options] - Onscreen awareness parameter list.
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to get page content forbidden by
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
@@ -741,7 +741,7 @@ declare namespace onScreen {
    * @param { Callback<OnscreenAwarenessInfo[]> } [callback] - Callback to unregister. The returned onscreen
    *     <br> awareness information list **OnscreenAwarenessInfo[]** contains a maximum of two awareness
    *     <br> information items.
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to get page content forbidden by
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
@@ -762,7 +762,7 @@ declare namespace onScreen {
    * @param { OnscreenAwarenessCap } capability - Onscreen awareness capability list.
    * @param { OnscreenAwarenessOptions } [options] - Onscreen awareness parameter list.
    * @returns { Promise<OnscreenAwarenessInfo> } Promise used to return the onscreen awareness result.
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to get page content forbidden by
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
@@ -788,7 +788,7 @@ declare namespace onScreen {
    * @returns { Promise<OnscreenAwarenessInfo[]> } Promise used to return the onscreen awareness result.
    *     <br>The returned onscreen awareness information list **OnscreenAwarenessInfo[]** contains a
    *     <br> maximum of two awareness information items.
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to get page content forbidden by
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
@@ -816,7 +816,7 @@ declare namespace onScreen {
    * @returns { Promise<OnscreenAwarenessInfo[]> } Promise used to return the onscreen awareness result. The returned
    *     <br> onscreen awareness information list **OnscreenAwarenessInfo[]** contains a maximum of two awareness
    *     <br> information items.
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to get page content forbidden by
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
@@ -842,7 +842,7 @@ declare namespace onScreen {
     * @returns { Promise<OnscreenAwarenessInfo[]> } Promise used to return the onscreen awareness result. The returned
     *     <br> onscreen awareness information list **OnscreenAwarenessInfo[]** contains a maximum of two awareness
     *     <br> information items.
-    * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to get page content forbidden by
+    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
     *     <br> permission: ohos.permission.GET_SCREEN_CONTENT or ohos.permission.ONSCREEN_AWARENESS.
     * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
     * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
@@ -890,7 +890,7 @@ declare namespace onScreen {
    * @permission ohos.permission.GET_SCREEN_CONTENT
    * @param { Callback<ReadingScreenPermissionStatus> } callback - Callback used to return the status of the permission
    *     <br> for reading screen information.
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to get page content forbidden by
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
    * @throws { BusinessError } 202 - Permission check failed. A non-system application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
@@ -909,7 +909,7 @@ declare namespace onScreen {
    * @permission ohos.permission.GET_SCREEN_CONTENT
    * @param { Callback<ReadingScreenPermissionStatus> } [callback] - Callback to unregister. If this parameter
    *     <br> is not passed, all callbacks of the event are unregistered.
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to get page content forbidden by
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get page content forbidden by
    *     <br> permission: ohos.permission.GET_SCREEN_CONTENT.
    * @throws { BusinessError } 202 - Permission check failed. A nonsystem application uses the system API.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
