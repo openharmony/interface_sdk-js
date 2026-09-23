@@ -6920,6 +6920,38 @@ declare namespace webview {
      * @since 26.0.0 dynamic
      */
     executeAIPageCommand(command: string): Promise<string>;
+
+    /**
+     * Sets the browser zoom factor of this web page. Both text and images are scaled simultaneously, and the page
+     * is re-laid out (reflow) to fit the width of the **Web** component.
+     * This API works independently of {@link zoom}, {@link zoomIn}, and {@link zoomOut} (visual scaling without
+     * re-layout) and {@link textZoomRatio} (text-only scaling). The zoom factor takes effect on the current web
+     * component instance only and is retained after in-page cross-document navigation.
+     *
+     * @param { number } zoomFactor - Browser zoom factor to set. The value **1** indicates that the page is not
+     *     zoomed. A value smaller than **1** indicates zoom-out, and a value greater than **1** indicates zoom-in.
+     *     <br>Value range: [0.25, 5].
+     *     <br>Values beyond this range are clamped to the boundary.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.2.0 dynamic
+     */
+    setZoomFactor(zoomFactor: number): void;
+
+    /**
+     * Gets the current browser zoom factor of this web page.
+     *
+     * @returns { number } Current browser zoom factor. The value **1** indicates that the page is not zoomed.
+     *     <br>Value range: [0.25, 5.0]. The default value is **1**.
+     * @throws { BusinessError } 17100001 - Init error.
+     *     The WebviewController must be associated with a Web component.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.2.0 dynamic
+     */
+    getZoomFactor(): number;
   }
 
   /**

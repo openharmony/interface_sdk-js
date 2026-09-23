@@ -6608,6 +6608,18 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default onInputmethodAttached(callback: OnInputmethodAttachedCallback | undefined): this;
+
+    /**
+     * 当网页的浏览器级缩放倍率变化时触发。
+     *
+     * @param { OnZoomChangeCallback | undefined } callback - 浏览器级缩放倍率变化时触发的回调。该回调仅由浏览器级
+     *     缩放变化（例如{@link setZoomFactor}）触发；页面显示比例变化（捏合缩放）由{@link onScaleChange}通知。
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.2.0 static
+     */
+    default onZoomChange(callback: OnZoomChangeCallback | undefined): this;
 }
 
 /**
@@ -7259,3 +7271,40 @@ export declare enum AISessionResultType {
  * @since 26.0.0 static
  */
 export type OnAISessionCallback = (state: AISessionResultType, content: string) => void;
+
+/**
+ * 浏览器级缩放倍率变化时触发的回调类型。
+ *
+ * @param { OnZoomChangeEvent } zoomChangeInfo - 浏览器级缩放倍率变化信息。
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.2.0 static
+ */
+export type OnZoomChangeCallback = (zoomChangeInfo: OnZoomChangeEvent) => void;
+
+/**
+ * 描述网页浏览器级缩放倍率变化的信息。
+ *
+ * @syscap SystemCapability.Web.Webview.Core
+ * @stagemodelonly
+ * @since 26.2.0 static
+ */
+export declare interface OnZoomChangeEvent {
+  /**
+   * 变化前的浏览器级缩放倍率。
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  oldZoomFactor: double;
+
+  /**
+   * 变化后的浏览器级缩放倍率。
+   *
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.2.0 static
+   */
+  newZoomFactor: double;
+}
