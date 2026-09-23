@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 键鼠穿越
  * @kit DistributedServiceKit
  */
 
@@ -263,7 +263,7 @@ declare namespace cooperate {
    */
   interface MouseLocation {
     /**
-     * 鼠标指针位于屏幕的X坐标上的位置。
+     * 鼠标指针位于屏幕的X坐标上的位置，单位：px。
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
@@ -273,7 +273,7 @@ declare namespace cooperate {
     displayX: int;
 
     /**
-     * 鼠标指针位于屏幕的Y坐标上的位置。
+     * 鼠标指针位于屏幕的Y坐标上的位置，单位：px。
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
@@ -359,7 +359,7 @@ declare namespace cooperate {
    * 准备键鼠穿越，使用Promise异步方式返回结果。
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -465,7 +465,7 @@ declare namespace cooperate {
    * 启动键鼠穿越，使用Promise异步回调。
    *
    * @param { string } targetNetworkId - 键鼠穿越目标设备描述符。
-   * @param { number }inputDeviceId - Identifier of the input device for screen hopping.
+   * @param { number } inputDeviceId - 待穿越输入设备标识符。
    * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -511,7 +511,7 @@ declare namespace cooperate {
    *
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { string } targetNetworkId - 键鼠穿越目标设备描述符。
-   * @param { int }inputDeviceId - Identifier of the input device for screen hopping.
+   * @param { int } inputDeviceId - 待穿越输入设备标识符。
    * @returns { Promise<void> } 无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -674,8 +674,8 @@ declare namespace cooperate {
   /**
    * 注册监听键鼠穿越状态。
    *
-   * @param { 'cooperate' } type - 监听类型，取值为'cooperate'
-   * @param { Callback<{ networkId: string, msg: CooperateMsg }> } callback - Callback used to return the result.
+   * @param { 'cooperate' } type - 监听类型，取值为'cooperate'。
+   * @param { Callback<{ networkId: string, msg: CooperateMsg }> } callback - 回调函数，异步返回键鼠穿越状态消息。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified.
@@ -693,7 +693,7 @@ declare namespace cooperate {
    * 取消监听键鼠穿越状态。
    *
    * @param { 'cooperate' } type - 监听类型，取值为'cooperate'。
-   * @param { Callback<void> } callback - 需要取消注册的回调函数，若无此参数，则取消当前应用注册的所有回调函数。
+   * @param { Callback<void> } [callback] - 需要取消注册的回调函数，若无此参数，则取消当前应用注册的所有回调函数。
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br>1. Mandatory parameters are left unspecified.
@@ -711,7 +711,7 @@ declare namespace cooperate {
    * 注册监听键鼠穿越状态。
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { 'cooperateMessage' } type - 监听类型，取值为'cooperateMessage'
+   * @param { 'cooperateMessage' } type - 监听类型，取值为'cooperateMessage'。
    * @param { Callback<CooperateMessage> } callback - 回调函数，异步返回键鼠穿越状态消息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -729,7 +729,7 @@ declare namespace cooperate {
    * 取消监听键鼠穿越状态。
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { 'cooperateMessage' } type - 监听类型，取值为'cooperate'。
+   * @param { 'cooperateMessage' } type - 监听类型，取值为'cooperateMessage'。
    * @param { Callback<CooperateMessage> } [callback] - 需要取消注册的回调函数，若无此参数，
    *     则取消当前应用注册的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
@@ -748,8 +748,8 @@ declare namespace cooperate {
    * 注册监听指定设备鼠标光标位置。
    *
    * @permission ohos.permission.COOPERATE_MANAGER
-   * @param { 'cooperateMouse' } type - 监听类型，取值为'cooperateMouse'
-   * @param { string } networkId - 目标设备描述符
+   * @param { 'cooperateMouse' } type - 监听类型，取值为'cooperateMouse'。
+   * @param { string } networkId - 目标设备描述符。
    * @param { Callback<MouseLocation> } callback - 回调函数，异步返回指定监听设备鼠标光标位置信息。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -768,7 +768,7 @@ declare namespace cooperate {
    *
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { 'cooperateMouse' } type - 监听类型，取值为'cooperateMouse'。
-   * @param { string } networkId - 目标设备描述符
+   * @param { string } networkId - 目标设备描述符。
    * @param { Callback<MouseLocation> } [callback] - 需要取消注册的回调函数，若无此参数，
    *     则取消当前应用注册的所有回调函数。
    * @throws { BusinessError } 201 - Permission denied.
@@ -856,7 +856,7 @@ declare namespace cooperate {
    * @permission ohos.permission.COOPERATE_MANAGER
    * @param { string } targetNetworkId - 键鼠穿越目标设备描述符。
    * @param { int } inputDeviceId - 发起穿越操作的输入设备ID。
-   * @param { CooperateOptions } cooperateOptions - 穿越可选控制参数，用于控制穿出点具体位置等。不设置此参数时，本接口能力
+   * @param { CooperateOptions } [cooperateOptions] - 穿越可选控制参数，用于控制穿出点具体位置等。不设置此参数时，本接口能力
    *     与[cooperate.activateCooperate]{@link cooperate.activateCooperate(targetNetworkId: string, inputDeviceId: int)}
    *     相同。
    * @returns { Promise<void> } 无返回结果的Promise对象。
@@ -885,7 +885,7 @@ declare namespace cooperate {
   interface CooperateOptions {
 
     /**
-     * 鼠标X坐标位置。
+     * 鼠标X坐标位置，单位：px。
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.
@@ -905,7 +905,7 @@ declare namespace cooperate {
     displayId: long;
 
     /**
-     * 鼠标Y坐标位置。
+     * 鼠标Y坐标位置，单位：px。
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Cooperate
      * @systemapi Hide this for inner system use.

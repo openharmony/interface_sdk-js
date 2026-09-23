@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Drag Interaction
  * @kit ArkUI
  */
 
@@ -108,8 +108,8 @@ declare namespace dragInteraction {
    *
    * @param { 'drag' } type - Event type. This field has a fixed value of **drag**.
    * @param { Callback<DragState> } callback - Callback used to return the dragging status.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    *     [since 12]
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
@@ -133,10 +133,10 @@ declare namespace dragInteraction {
    * Disables listening for dragging status changes.
    *
    * @param { 'drag' } type - Event type. This field has a fixed value of **drag**.
-   * @param { Callback<DragState> }callback - Callback to be unregistered. If this parameter is not specified, all
-   *     callbacks registered by the current application will be unregistered.
-   * @throws {BusinessError} 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-   *     <br>2.Incorrect parameter types.3.Parameter verification failed.
+   * @param { Callback<DragState> } [callback] - Callback to be unregistered. If this parameter is not specified,
+   *     all callbacks registered by the current application will be unregistered.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws {BusinessError} 202 - Permission verification failed. A non-system application calls a system API.
    *     [since 12]
    * @syscap SystemCapability.Msdp.DeviceStatus.Drag
