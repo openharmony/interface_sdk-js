@@ -903,17 +903,6 @@ declare namespace imageGeneration {
      * @since 26.0.0 dynamic
      */
     minimizeDuringGeneration?: boolean;
-    /**
-     * Whether to recover from cache for AI image generation.
-     * The persistent cache file is used to store configuration parameters for AI image generation.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 26.0.1 dynamic
-     */
-    recoverFromCache?: boolean;
   }
 
   /**
@@ -1126,19 +1115,6 @@ declare namespace imageGeneration {
    * @since 26.0.0 dynamic
    */
   function restoreGeneratorNodeGraph(uiContext: UIContext): Promise<void>;
-
-  /**
-   * Check whether cache files that can be restored exist in GeneratorDialog.
-   * The persistent cache file is used to store configuration parameters for AI image generation.
-   *
-   * @param { UIContext } uiContext - the context of dialog for ui display.
-   * @returns { boolean } Returns true if cache can be recovered in GeneratorDialog, false otherwise.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.1 dynamic
-   */
-  function hasRecoverCacheInGeneratorDialog(uiContext: UIContext): boolean;
 }
 
 export default imageGeneration;
