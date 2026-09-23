@@ -93,8 +93,9 @@ export declare class AdvancedDialogV2Button {
   /**
    * Describes the Button style.
    *
+   * Default value: **ButtonStyleMode.NORMAL** for 2-in-1 devices and **ButtonStyleMode.TEXTUAL** for other devices
+   * 
    * @type { ?ButtonStyleMode }
-   * @default ButtonStyleMode.TEXTUAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -325,6 +326,8 @@ export declare struct TipsDialogV2 {
   imageRes: ResourceStr | PixelMap;
   /**
    * Sets the TipsDialogV2 image size.
+   * 
+   * Default value: **64*64vp**
    *
    * @type { ?SizeOptions }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -337,6 +340,8 @@ export declare struct TipsDialogV2 {
   imageSize?: SizeOptions;
   /**
    * Sets the borderColor of TipsDialogV2 image.
+   * 
+   * Default value: **Color.Black**
    *
    * @type { ?ColorMetrics }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
