@@ -181,7 +181,7 @@ declare namespace inputMethod {
    *     <br>- 如果调用者不是用户0的应用，该值默认为调用者的用户ID。
    *     <br>- 如果调用者是用户0的应用，该值默认为主屏幕的前台用户ID。
    * @returns { InputMethodProperty } 返回默认输入法属性对象。
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
    * @throws { BusinessError } 12800023 - the specified user does not exist.
@@ -214,7 +214,7 @@ declare namespace inputMethod {
    *     <br>- 如果调用者不是用户0的应用，该值默认为调用者的用户ID。
    *     <br>- 如果调用者是用户0的应用，该值默认为主屏幕的前台用户ID。
    * @returns { ElementName } 系统输入法设置界面Ability的ElementName。
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
    * @throws { BusinessError } 12800023 - the specified user does not exist.
@@ -241,7 +241,7 @@ declare namespace inputMethod {
    * @param { InputMethodProperty } target - 目标输入法。<br/>使用场景：指定要切换到的目标输入法，通过name和id唯一确定。<br/>说明：只需填写name和id字段即可唯一指定一个输入
    *     法，无需填写label、icon等可选字段。
    * @param { AsyncCallback<boolean> } callback - 回调函数。当输入法切换成功，err为undefined，data为true；否则为错误对象。
-   * @throws { BusinessError } 201 - permissions check fails. [since 9 - 10]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API. [since 9 - 10]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
@@ -266,7 +266,7 @@ declare namespace inputMethod {
    * @param { InputMethodProperty } target - 目标输入法。<br/>使用场景：指定要切换到的目标输入法，通过name和id唯一确定。<br/>说明：只需填写name和id字段即可唯一指定一个输入
    *     法。
    * @returns { Promise<boolean> } Promise对象。resolve时返回true表示切换输入法成功，返回false表示切换输入法失败；reject时返回错误对象，表示切换输入法时发生错误。
-   * @throws { BusinessError } 201 - permissions check fails. [since 9 - 10]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API. [since 9 - 10]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
@@ -301,7 +301,7 @@ declare namespace inputMethod {
    *     <br>- 如果调用者不是用户0的应用，该值默认为调用者的用户ID。
    *     <br>- 如果调用者是用户0的应用，该值默认为主屏幕的前台用户ID。
    * @returns { InputMethodProperty } 返回当前输入法属性对象。
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
    * @throws { BusinessError } 12800023 - the specified user does not exist.
@@ -321,7 +321,7 @@ declare namespace inputMethod {
    * @permission ohos.permission.CONNECT_IME_ABILITY [since 9 - 10]
    * @param { InputMethodSubtype } target - 目标输入法子类型。
    * @param { AsyncCallback<boolean> } callback - 回调函数。当输入法子类型切换成功，err为undefined，data为true；否则为错误对象。
-   * @throws { BusinessError } 201 - permissions check fails. [since 9 - 10]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API. [since 9 - 10]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
@@ -340,7 +340,7 @@ declare namespace inputMethod {
    * @param { InputMethodSubtype } target - 目标输入法子类型。
    * @returns { Promise<boolean> } Promise对象。resolve时返回true表示当前输入法切换子类型成功，返回false表示当前输入法切换子类型失败；reject时返回错误对象，表示切换输入法子类型
    *     时发生错误。
-   * @throws { BusinessError } 201 - permissions check fails. [since 9 - 10]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API. [since 9 - 10]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
@@ -369,7 +369,7 @@ declare namespace inputMethod {
    *     <br>- 如果调用者不是用户0的应用，该值默认为调用者的用户ID。
    *     <br>- 如果调用者是用户0的应用，该值默认为主屏幕的前台用户ID。
    * @returns { InputMethodSubtype } 返回当前输入法子类型对象。
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
    * @throws { BusinessError } 12800023 - the specified user does not exist.
@@ -390,7 +390,7 @@ declare namespace inputMethod {
    * @param { InputMethodProperty } inputMethodProperty - 目标输入法。
    * @param { InputMethodSubtype } inputMethodSubtype - 目标输入法子类型。
    * @param { AsyncCallback<boolean> } callback - 回调函数。当输入法和子类型切换成功，err为undefined，data为获取到的切换子类型结果true；否则为错误对象。
-   * @throws { BusinessError } 201 - permissions check fails. [since 9 - 10]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API. [since 9 - 10]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
@@ -414,7 +414,7 @@ declare namespace inputMethod {
    * @param { InputMethodSubtype } inputMethodSubtype - 目标输入法子类型。
    * @returns { Promise<boolean> } Promise对象。resolve时返回true表示切换至指定输入法的指定子类型成功，返回false表示切换至指定输入法的指定子类型失败；reject时返回错误对象，表示
    *     切换至指定输入法的指定子类型时发生错误。
-   * @throws { BusinessError } 201 - permissions check fails. [since 9 - 10]
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API. [since 9 - 10]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
@@ -436,8 +436,8 @@ declare namespace inputMethod {
    * @param { string } bundleName - 目标输入法包名。
    * @param { string } [subtypeId] - 输入法子类型。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 201 - permissions check fails.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 12800005 - configuration persistence error.
@@ -460,8 +460,8 @@ declare namespace inputMethod {
    *     <br>- 如果调用者不是用户0的应用，该值默认为调用者的用户ID。
    *     <br>- 如果调用者是用户0的应用，该值默认为主屏幕的前台用户ID。
    * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 201 - permissions check fails.
-   * @throws { BusinessError } 202 - not system application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 12800005 - configuration persistence error.
    * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
    *     a system error, such as null pointer, IPC exception.
@@ -613,7 +613,7 @@ declare namespace inputMethod {
      *
      * @param { 'imeShow' } type - 设置监听类型，固定取值为'imeShow'。
      * @param { function } callback - 回调函数，返回输入法固定态软键盘信息。
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10 dynamic
@@ -643,7 +643,7 @@ declare namespace inputMethod {
      *
      * @param { 'imeHide' } type - 设置监听类型，固定取值为'imeHide'。
      * @param { function } callback - 回调函数，返回输入法固定态软键盘信息。
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 10 dynamic
@@ -667,7 +667,7 @@ declare namespace inputMethod {
      *
      * @param { PanelInfo } panelInfo - 输入法面板的属性。
      * @returns { boolean } 面板显隐状态查询结果。<br/>- true表示被查询的输入法面板处于显示状态。<br/>- false表示被查询的输入法面板处于隐藏状态。
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
@@ -685,7 +685,7 @@ declare namespace inputMethod {
      * @param { PanelInfo } panelInfo - 输入法面板的属性。
      * @param { long } displayId - 屏幕ID。
      * @returns { boolean } 面板显隐状态查询结果。<br/>- true表示被查询的输入法面板处于显示状态。<br/>- false表示被查询的输入法面板处于隐藏状态。
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -764,7 +764,7 @@ declare namespace inputMethod {
      * @param { int } [userId] - 用户ID。取值范围为有效用户的ID。如果不提供：
      *     <br>- 如果调用者不是用户0的应用，该值默认为调用者的用户ID。<br>- 如果调用者是用户0的应用，该值默认为主屏幕的前台用户ID。
      * @returns { Array<InputMethodSubtype> } 返回指定输入法的子类型列表。
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
@@ -860,7 +860,7 @@ declare namespace inputMethod {
      * @param { boolean } enable - 是否激活输入法列表：<br>- true表示返回已激活输入法列表。<br>- false表示返回未激活输入法列表。
      * @param { int } [userId] - 用户ID。取值范围为有效用户的ID。如果不提供：<br>- 如果调用者不是用户0的应用，该值默认为调用者的用户ID。<br>- 如果调用者是用户0的应用，该值默认为主屏幕的前台用户ID。
      * @returns { Array<InputMethodProperty> } 返回已激活/未激活输入法列表。
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
@@ -925,7 +925,7 @@ declare namespace inputMethod {
      * @param { int } [userId] - 用户ID。取值范围为有效用户的ID。如果不提供：
      *     <br>- 如果调用者不是用户0的应用，该值默认为调用者的用户ID。<br>- 如果调用者是用户0的应用，该值默认为主屏幕的前台用户ID。
      * @returns { Array<InputMethodProperty> } 返回所有输入法列表。
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800001 - bundle manager error.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
@@ -1033,8 +1033,8 @@ declare namespace inputMethod {
      * @param { string } extensionName - 输入法扩展名。
      * @param { EnabledState } enabledState - 输入法启用状态。设置为BASIC_MODE表示启用基础模式，设置为FULL_EXPERIENCE_MODE表示启用完整体验模式。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - permissions check fails.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800018 - input method is not found.
@@ -1057,8 +1057,8 @@ declare namespace inputMethod {
      * @param { int } [userId] - 用户ID。取值范围为有效用户的ID。如果不提供：
      *     <br>- 如果调用者不是用户0的应用，该值默认为调用者的用户ID。<br>- 如果调用者是用户0的应用，该值默认为主屏幕的前台用户ID。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - permissions check fails.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @throws { BusinessError } 12800018 - input method is not found.
@@ -1103,7 +1103,7 @@ declare namespace inputMethod {
      * <br>- 不取消订阅可能导致回调事件持续触发和内存泄漏。
      *
      * @param { ImeChangeWithUserIdCallback } callback - 回调函数，返回输入法属性对象、子类型对象及用户ID。
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @stagemodelonly
@@ -1115,7 +1115,7 @@ declare namespace inputMethod {
      * 取消订阅输入法及子类型变化监听事件，携带发生输入法变更的用户ID。使用callback异步回调。
      *
      * @param { ImeChangeWithUserIdCallback } [callback] - 回调函数，返回取消订阅的输入法属性对象、子类型对象及用户ID。<br>参数不填写时，取消订阅所有的回调事件
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @stagemodelonly
@@ -1127,7 +1127,7 @@ declare namespace inputMethod {
      * 订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘显示事件。使用callback异步回调。
      *
      * @param { Callback<Array<InputWindowInfo>> } callback - 回调函数，返回输入法固定态软键盘信息。
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @stagemodelonly
@@ -1151,7 +1151,7 @@ declare namespace inputMethod {
      * 订阅输入法[Panel]{@link @ohos.inputMethodEngine:inputMethodEngine.Panel}固定态软键盘隐藏事件。使用callback异步回调。
      *
      * @param { Callback<Array<InputWindowInfo>>} callback - 回调函数，返回输入法固定态软键盘信息。
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @systemapi
      * @since 23 static
@@ -1173,7 +1173,7 @@ declare namespace inputMethod {
      * 获取默认输入法能力。为优化性能，返回的InputMethodProperty对象仅保证能够唯一标识输入法能力的`name`和`id`属性正确，其他属性可能为空。
      *
      * @returns { InputMethodProperty } 默认输入法属性，仅保证`name`和`id`属性正确，其他属性可能为空。
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible cause:
      *     a system error, such as null pointer, IPC exception.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -1190,7 +1190,7 @@ declare namespace inputMethod {
      *     <br>如果调用者不是用户0应用，该值默认为调用者的用户ID。
      *     <br> 如果调用者是用户0应用，则该值默认为主屏幕的前台用户ID。
      * @returns { CursorInfo } 指定用户下的光标信息。
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1. No edit box is bound to the current input method application under the specified user.
      * @throws { BusinessError } 12800008 - input method manager service error. Possible causes:
@@ -1860,7 +1860,7 @@ declare namespace inputMethod {
      *
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @param { AsyncCallback<void> } callback - 回调函数。当软键盘显示成功。err为undefined，否则为错误对象。
-     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1881,7 +1881,7 @@ declare namespace inputMethod {
      *
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1909,8 +1909,8 @@ declare namespace inputMethod {
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @param { long } displayId - 屏幕ID。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - permissions check fails.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1946,7 +1946,7 @@ declare namespace inputMethod {
      *
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @param { AsyncCallback<void> } callback - 回调函数。当软键盘隐藏成功。err为undefined，否则为错误对象。
-     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1967,7 +1967,7 @@ declare namespace inputMethod {
      *
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.
@@ -1989,8 +1989,8 @@ declare namespace inputMethod {
      * @permission ohos.permission.CONNECT_IME_ABILITY
      * @param { long } displayId - 屏幕ID。
      * @returns { Promise<void> } Promise对象，无返回结果。
-     * @throws { BusinessError } 201 - permissions check fails.
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800003 - input method client error. Possible causes:
      *     1.the edit box is not focused. 2.no edit box is bound to current input method application.
      *     3.ipc failed due to the large amount of data transferred or other reasons.

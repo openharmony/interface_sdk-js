@@ -976,7 +976,8 @@ declare namespace inputMethodEngine {
      *
      * @param { 'callingDisplayDidChange' } type - 设置监听类型，固定取值为'callingDisplayDidChange'。
      * @param { Callback<number> } callback - 回调函数，返回编辑框设置对应窗口屏幕ID。
-     * @throws { BusinessError } 801 - capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the capability;
+     * 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 18 dynamic
      */
@@ -1287,7 +1288,8 @@ declare namespace inputMethodEngine {
      * 订阅编辑框对应窗口所在屏幕ID变化。使用callback异步回调。
      *
      * @param { Callback<int> } callback - 回调函数，返回编辑框设置对应窗口屏幕ID。
-     * @throws { BusinessError } 801 - capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the capability;
+     * 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 23 static
      */
@@ -2537,7 +2539,8 @@ declare namespace inputMethodEngine {
      * 获取绑定输入法时的附加选项。
      *
      * @returns { AttachOptions } 返回绑定输入法时的附加选项内容。
-     * @throws { BusinessError } 801 - Capability not supported. [since 19 - 19]
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the capability;
+     * 2. The chip does not support the capability; 3. A dependent service feature is not supported. [since 19 - 19]
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19 dynamic
      */
@@ -2557,7 +2560,8 @@ declare namespace inputMethodEngine {
      *
      * @param { 'attachOptionsDidChange' } type - 绑定输入法时的附加选项变更事件，固定取值为'attachOptionsDidChange'。
      * @param { Callback<AttachOptions> } callback - 回调函数，返回绑定输入法时的附加选项。
-     * @throws { BusinessError } 801 - Capability not supported. [since 19 - 19]
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the capability;
+     * 2. The chip does not support the capability; 3. A dependent service feature is not supported. [since 19 - 19]
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 19 dynamic
      */
@@ -3283,7 +3287,8 @@ declare namespace inputMethodEngine {
      *     1.input method panel not created. 2.the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
-     * @throws { BusinessError } 801 - capability not supported. [since 18]
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the capability;
+     * 2. The chip does not support the capability; 3. A dependent service feature is not supported. [since 18]
      * @syscap SystemCapability.MiscServices.InputMethodFramework
      * @since 15 dynamic
      * @since 23 static
@@ -3405,7 +3410,7 @@ declare namespace inputMethodEngine {
      *
      * @permission ohos.permission.PRIVACY_WINDOW
      * @param { boolean } isPrivacyMode - 是否设置隐私模式。<br/>- 值为true，表示将设置为隐私模式。<br/>- 值为false，表示将设置为非隐私模式。
-     * @throws { BusinessError } 201 - permissions check fails.
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
      * @syscap SystemCapability.MiscServices.InputMethodFramework
@@ -3712,7 +3717,8 @@ declare namespace inputMethodEngine {
      * version 10)
      *
      * @param { ImmersiveEffect } effect - 沉浸效果。
-     * @throws { BusinessError } 801 - capability not supported.
+     * @throws { BusinessError } 801 - Capability not supported. Possible causes: 1. The hardware does not support the capability;
+     * 2. The chip does not support the capability; 3. A dependent service feature is not supported.
      * @throws { BusinessError } 12800002 - input method engine error. Possible causes:
      *     1. input method panel not created. 2. the input method application does not subscribe to related events.
      * @throws { BusinessError } 12800013 - window manager service error.
@@ -3784,7 +3790,7 @@ declare namespace inputMethodEngine {
      * @param { string } color - 窗口边缘阴影的颜色，十六进制RGB或ARGB格式，不区分大小写，例如`#000000`或`#FF000000`。
      * @param { double } offsetX - 窗口边缘阴影X轴的偏移量，单位px。正值向右偏移，负值向左偏移。
      * @param { double } offsetY - 窗口边缘阴影Y轴的偏移量，单位px。正值向下偏移，负值向上偏移。
-     * @throws { BusinessError } 202 - not system application.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 12800013 - window manager service error.
      * @throws { BusinessError } 12800017 - invalid panel type or panel flag.
      *     Possible causes: Panel's flag is FLG_FIXED.
