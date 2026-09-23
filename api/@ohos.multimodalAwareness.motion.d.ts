@@ -440,7 +440,7 @@ declare namespace motion {
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE [since 20]
    * @param { 'operatingHandChanged' } type - Event type. This parameter has a fixed value of **operatingHandChanged**.
    * @param { Callback<OperatingHandStatus> } callback - Callback used to return the result.
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to subscribe operatingHandChanged
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe operatingHandChanged
    *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
@@ -463,7 +463,7 @@ declare namespace motion {
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE [since 20]
    * @param { 'operatingHandChanged' } type - Event type. This parameter has a fixed value of **operatingHandChanged**.
    * @param { Callback<OperatingHandStatus> } [callback] - Callback used to return the result.
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to unsubscribe operatingHandChanged
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe operatingHandChanged
    *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
@@ -484,7 +484,7 @@ declare namespace motion {
    * @permission ohos.permission.ACTIVITY_MOTION [since 15 - 19]
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE [since 20]
    * @returns { OperatingHandStatus } Status of the operating hand.
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to get the recent operating hand
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to get the recent operating hand
    *     <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
@@ -509,7 +509,7 @@ declare namespace motion {
    * @param { 'holdingHandChanged' } type - Event type. The value **holdingHandChanged** indicates the holding hand
    *     status change event.
    * @param { Callback<HoldingHandStatus> } callback - Callback used to return the holding hand status.
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to subscribe holdingHandChanged
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe holdingHandChanged
    *     <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
@@ -532,7 +532,7 @@ declare namespace motion {
    *     status change event.
    * @param { Callback<HoldingHandStatus> } [callback] - Callback to unregister. If this parameter is not passed, all
    *     callbacks for the holding hand status change event will be unregistered.
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to unsubscribe holdingHandChanged
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe holdingHandChanged
    *     <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
@@ -551,7 +551,7 @@ declare namespace motion {
    *
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
    * @param { Callback<OperatingHandStatus> } callback - Indicates the callback for getting the event data.
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to subscribe operatingHandChanged
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe operatingHandChanged
    *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
@@ -570,7 +570,7 @@ declare namespace motion {
    *
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
    * @param { Callback<OperatingHandStatus> } [callback] - Indicates the callback for getting the event data.
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to unsubscribe operatingHandChanged
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe operatingHandChanged
    *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
@@ -588,7 +588,7 @@ declare namespace motion {
    *
    * @permission ohos.permission.DETECT_GESTURE
    * @param { Callback<HoldingHandStatus> } callback - Indicates the callback for getting the event data.
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to subscribe holdingHandChanged
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe holdingHandChanged
    *     <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
@@ -603,7 +603,7 @@ declare namespace motion {
    *
    * @permission ohos.permission.DETECT_GESTURE
    * @param { Callback<HoldingHandStatus> } [callback] - Indicates the callback for getting the event data.
-   * @throws { BusinessError } 201 - Permission verification failed. An attempt was made to unsubscribe holdingHandChanged
+   * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe holdingHandChanged
    *     <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to limited
    *     <br> device capabilities.
