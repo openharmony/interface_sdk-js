@@ -696,13 +696,7 @@ declare class CounterV2Options {
  * > 额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到CounterV2本身。这可能导致开发者设置的通用属性或通用事件不生效或不符合预期，因此，不建议CounterV2设置通用属性和
  * > 通用事件。
  *
- * ## 导入模块
- *
- * ```ts
- * import { CounterV2Type, CounterV2Component, CounterV2Options, CounterV2DateData } from '@kit.ArkUI';
- * ```
- *
- * ## 子组件
+ * ###### 子组件
  *
  * 无
  *
