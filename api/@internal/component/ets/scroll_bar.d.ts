@@ -28,6 +28,7 @@
  * @since 8 dynamic
  */
 declare enum ScrollBarDirection {
+
   /**
    * Vertical scrollbar.
    *
@@ -37,7 +38,7 @@ declare enum ScrollBarDirection {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Vertical = 0,
+  Vertical,
 
   /**
    * Horizontal scrollbar.
@@ -48,7 +49,7 @@ declare enum ScrollBarDirection {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Horizontal = 1
+  Horizontal,
 }
 
 /**
@@ -79,6 +80,7 @@ declare enum ScrollBarDirection {
  * @since 8 dynamic
  */
 declare interface ScrollBarOptions {
+
   /**
    * Scroller, which can be bound to scrollable components for scrolling control.
    *
@@ -136,6 +138,7 @@ declare interface ScrollBarOptions {
  * @noninterop
  */
 interface ScrollBarInterface {
+
   /**
    * Creates a scroll bar.
    *
@@ -161,6 +164,7 @@ interface ScrollBarInterface {
  * @noninterop
  */
 declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
+
   /**
    * Sets whether the scrollbar supports nested scrolling. It is used in scenarios such as multi-layer scroll containers
    * and nested lists where the inner scrollable component needs to be dragged through the scrollbar and linked with the

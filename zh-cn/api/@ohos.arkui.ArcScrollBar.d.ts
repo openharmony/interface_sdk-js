@@ -1,5 +1,6 @@
-/*  * Copyright (c) 2024 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License"),
+/*
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -13,8 +14,8 @@
  */
 
 /**
-  * @file
-  * @kit ArkUI
+ * @file
+ * @kit ArkUI
  */
 
 /**
@@ -30,6 +31,7 @@
  * @since 18 dynamic
  */
 declare interface ArcScrollBarOptions {
+
   /**
    * 可滚动组件的控制器，用于与可滚动组件进行绑定。
    *
@@ -55,7 +57,7 @@ declare interface ArcScrollBarOptions {
  * 弧形滚动条组件ArcScrollBar，适用于圆形屏幕等需要弧形滚动条的场景，用于配合可滚动组件使用，如[ArcList]{@link @ohos.arkui.ArcList}、
  * [List]{@link ./@internal/component/ets/list}、[Grid]{@link ./@internal/component/ets/grid}、
  * [Scroll]{@link ./@internal/component/ets/scroll}、[WaterFlow]{@link ./@internal/component/ets/water_flow}。
- * 
+ *
  * > **说明：**
  * >
  * > - 未设置宽高时，ArcScrollBar采用父组件[LayoutConstraint]{@link ./arkui/FrameNode:LayoutConstraint}中的maxSize作为尺寸。若父组件存在可滚动组件，如
@@ -72,22 +74,11 @@ declare interface ArcScrollBarOptions {
  * @noninterop
  */
 export interface ArcScrollBarInterface {
-  /**
-   * ArcScrollBar的构造函数。
-   *
-   * @param { ArcScrollBarOptions } options - ArcScrollBar的配置参数，用于指定绑定的可滚动组件控制器和滚动条状态。
-   * @returns { ArcScrollBarAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Circle
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  (options: ArcScrollBarOptions): ArcScrollBarAttribute;
 
   /**
    * ArcScrollBar的构造函数。
    *
-   * @param { ArcScrollBarOptions } options
+   * @param { ArcScrollBarOptions } options - ArcScrollBar的配置参数，用于指定绑定的可滚动组件控制器和滚动条状态。
    * @returns { ArcScrollBarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -122,7 +113,7 @@ export declare const ArcScrollBarInstance: ArcScrollBarAttribute;
  * 弧形滚动条组件ArcScrollBar，适用于圆形屏幕等需要弧形滚动条的场景，用于配合可滚动组件使用，如[ArcList]{@link @ohos.arkui.ArcList}、
  * [List]{@link ./@internal/component/ets/list}、[Grid]{@link ./@internal/component/ets/grid}、
  * [Scroll]{@link ./@internal/component/ets/scroll}、[WaterFlow]{@link ./@internal/component/ets/water_flow}。
- * 
+ *
  * > **说明：**
  * >
  * > - 未设置宽高时，ArcScrollBar采用父组件[LayoutConstraint]{@link ./arkui/FrameNode:LayoutConstraint}中的maxSize作为尺寸。若父组件存在可滚动组件，如
@@ -131,9 +122,9 @@ export declare const ArcScrollBarInstance: ArcScrollBarAttribute;
  * > [WaterFlow]{@link ./@internal/component/ets/water_flow}，建议设置ArcScrollBar宽高，否则尺寸可能为无穷大。
  * >
  * > - 该组件支持在Phone、PC/2in1、Tablet、TV、Wearable设备上使用。API version 22及以前版本，在Phone、PC/2in1、Tablet、TV上使用会编译告警，但可以正常运行。
- * 
+ *
  * ###### 子组件
- * 
+ *
  * 不包含子组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle

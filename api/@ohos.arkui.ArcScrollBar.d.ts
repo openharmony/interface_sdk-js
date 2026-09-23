@@ -1,5 +1,6 @@
-/*  * Copyright (c) 2024 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License"),
+/*
+ * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -31,6 +32,7 @@
  * @since 18 dynamic
  */
 declare interface ArcScrollBarOptions {
+
   /**
    * Scroller, which can be bound to scrollable components for scrolling control.
    *
@@ -80,23 +82,11 @@ declare interface ArcScrollBarOptions {
  * @noninterop
  */
 export interface ArcScrollBarInterface {
+
   /**
    * A constructor used to create an **ArcScrollBar** instance.
    *
-   * @param { ArcScrollBarOptions } options - Parameters of the **ArcScrollBar** component, used to specify the bound
-   *     scrollable component controller and scroll bar state.
-   * @returns { ArcScrollBarAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Circle
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  (options: ArcScrollBarOptions): ArcScrollBarAttribute;
-
-  /**
-   * Creates the arc list component.
-   *
-   * @param { ArcScrollBarOptions } options
+   * @param { ArcScrollBarOptions } options - Parameters of the **ArcScrollBar** component.
    * @returns { ArcScrollBarAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform

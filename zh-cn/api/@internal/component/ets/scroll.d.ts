@@ -14,15 +14,15 @@
  */
 
 /**
-  * @file
-  * @kit ArkUI
+ * @file
+ * @kit ArkUI
  */
 
 /**
  * 滚动方向枚举。
- * 
+ *
  * FREE（自由滚动）模式下支持的能力：
- * 
+ *
  * > **说明：**
  * >
  * > - `edgeEffect`属性仅支持`Spring`和`None`边缘滑动效果。
@@ -40,6 +40,7 @@
  * @since 7 dynamic
  */
 declare enum ScrollDirection {
+
   /**
    * 仅支持竖直方向滚动。
    *
@@ -49,7 +50,7 @@ declare enum ScrollDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Vertical = 0,
+  Vertical,
 
   /**
    * 仅支持水平方向滚动。
@@ -60,7 +61,7 @@ declare enum ScrollDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Horizontal = 1,
+  Horizontal,
 
   /**
    * 支持水平和垂直方向滚动
@@ -71,7 +72,7 @@ declare enum ScrollDirection {
    * @deprecated since 9
    * @useinstead ScrollDirection#FREE
    */
-  Free = 2,
+  Free,
 
   /**
    * 不可滚动。
@@ -82,7 +83,7 @@ declare enum ScrollDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None = 3,
+  None,
 
   /**
    * 自由滚动。
@@ -93,7 +94,7 @@ declare enum ScrollDirection {
    * @atomicservice
    * @since 20 dynamic
    */
-  FREE = 4
+  FREE = 4,
 }
 
 /**
@@ -106,6 +107,7 @@ declare enum ScrollDirection {
  * @since 10 dynamic
  */
 declare enum ScrollAlign {
+
   /**
    * 首部对齐。指定item首部与滚动容器组件首部对齐。
    *
@@ -115,7 +117,7 @@ declare enum ScrollAlign {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  START = 0,
+  START,
 
   /**
    * 居中对齐。指定item主轴方向居中对齐于滚动容器组件。
@@ -126,7 +128,7 @@ declare enum ScrollAlign {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  CENTER = 1,
+  CENTER,
 
   /**
    * 尾部对齐。指定item尾部与滚动容器组件尾部对齐。
@@ -137,11 +139,11 @@ declare enum ScrollAlign {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  END = 2,
+  END,
 
   /**
    * 自动对齐。
-   * 
+   *
    * 若指定item完全处于显示区，不做调整。否则依照滑动距离最短的原则，将指定item首部对齐或尾部对齐于滚动容器组件，使指定item完全处于显示区。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -150,7 +152,7 @@ declare enum ScrollAlign {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  AUTO = 3
+  AUTO,
 }
 
 /**
@@ -163,9 +165,10 @@ declare enum ScrollAlign {
  * @since 11 dynamic
  */
 declare interface OffsetResult {
+
   /**
    * 水平滑动偏移。
-   * 
+   *
    * 单位：vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -178,7 +181,7 @@ declare interface OffsetResult {
 
   /**
    * 竖直滑动偏移。
-   * 
+   *
    * 单位：vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -200,6 +203,7 @@ declare interface OffsetResult {
  * @since 12 dynamic
  */
 declare interface ScrollEdgeOptions {
+
   /**
    * 滚动到边缘位置的固定速度。设置为小于等于0的值时该参数不生效。
    *
@@ -223,6 +227,7 @@ declare interface ScrollEdgeOptions {
  * @since 12 dynamic
  */
 declare interface ScrollToIndexOptions {
+
   /**
    * 滚动到指定索引的额外偏移量。
    *
@@ -233,19 +238,6 @@ declare interface ScrollToIndexOptions {
    * @since 12 dynamic
    */
   extraOffset?: LengthMetrics;
-
-  /**
-   * 是否启用快速滚动优化。
-   * 设为true时，滚动动画基于子组件主轴长度估算目标位置并直接启动，动画过程中跳过部分中间子组件。
-   * 默认值：false。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.2.0 dynamic
-   */
-  enableFastScroll?: boolean;
 }
 
 /**
@@ -258,6 +250,7 @@ declare interface ScrollToIndexOptions {
  * @since 12 dynamic
  */
 declare interface ScrollAnimationOptions {
+
   /**
    * 滚动时长。
    *
@@ -313,6 +306,7 @@ declare interface ScrollAnimationOptions {
  * @since 12 dynamic
  */
 declare interface OffsetOptions {
+
   /**
    * 水平滚动偏移量。
    *
@@ -341,7 +335,7 @@ declare interface OffsetOptions {
 /**
  * frameNode中[getEvent('Scroll')]{@link ../../../arkui/FrameNode:typeNode.getEvent(node: FrameNode, nodeType: 'Scroll')}
  * 方法的返回值，可用于给Scroll节点设置滚动事件。
- * 
+ *
  * UIScrollEvent继承于[UIScrollableCommonEvent]{@link UIScrollableCommonEvent}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -351,9 +345,10 @@ declare interface OffsetOptions {
  * @since 19 dynamic
  */
 declare interface UIScrollEvent extends UIScrollableCommonEvent {
+
   /**
    * [onWillScroll]{@link ScrollAttribute#onWillScroll}事件的回调。
-   * 
+   *
    * 方法入参为undefined时，会重置事件回调。
    *
    * @param { ScrollOnWillScrollCallback | undefined } callback - onWillScroll事件的回调函数。
@@ -367,7 +362,7 @@ declare interface UIScrollEvent extends UIScrollableCommonEvent {
 
   /**
    * [onDidScroll]{@link ScrollAttribute#onDidScroll}事件的回调。
-   * 
+   *
    * 方法入参为undefined时，会重置事件回调。
    *
    * @param { ScrollOnScrollCallback | undefined } callback - onDidScroll事件的回调函数。
@@ -383,22 +378,22 @@ declare interface UIScrollEvent extends UIScrollableCommonEvent {
 /**
  * 可滚动容器组件的控制器，可以将此组件绑定至容器组件，然后通过它控制容器组件的滚动。同一个控制器不可以控制多个容器组件，目前支持绑定到ArcList、ArcScrollBar、List、Scroll、ScrollBar、Grid、
  * WaterFlow上。
- * 
+ *
  * > **说明：**
  * >
  * > 1. Scroller控制器与滚动容器组件的绑定发生在组件创建阶段。
- * 
+ *
  * > 2. Scroller控制器与滚动容器组件绑定后才可以正常调用Scroller方法，否则根据调用接口不同会不生效或者抛异常。
- * 
- * > 3. 以[aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear)为例，
+ *
+ * > 3. 以[aboutToAppear]{@link aboutToAppear}为例，
  * > aboutToAppear在创建自定义组件的新实例后，在执行其build()方法之前执行。因此如果滚动组件在自定义组件build内，在该自定义组件aboutToAppear执行时，内部滚动组件还没有创建，是不能正常调用上述
  * > Scroller方法的。
- * 
+ *
  * > 4. 以[onAppear]{@link CommonMethod#onAppear}为例，组件挂载显示后触发此回调。因此在滚动组件的onAppear回调执行时，滚动组件已经创建并已经和Scroller绑定成功，是可以正常调用
  * > Scroller方法的。
- * 
+ *
  * ###### 导入对象
- * 
+ *
  * ```ts
  * scroller: Scroller = new Scroller();
  * ```
@@ -410,6 +405,7 @@ declare interface UIScrollEvent extends UIScrollableCommonEvent {
  * @since 7 dynamic
  */
 declare class Scroller {
+
   /**
    * Scroller的构造函数。
    *
@@ -423,7 +419,7 @@ declare class Scroller {
 
   /**
    * 滑动到指定位置，可用于目录跳转、返回顶部、搜索结果定位等场景。
-   * 
+   *
    * > **说明：**
    * >
    * > - scrollTo动画速度大于200vp/s时，滚动组件区域内的组件不响应点击事件。
@@ -451,12 +447,12 @@ declare class Scroller {
 
   /**
    * 滚动到容器边缘，不区分滚动轴方向，Edge.Top和Edge.Start表现相同，Edge.Bottom和Edge.End表现相同。可用于返回顶部、跳转到内容末尾等场景。
-   * 
+   *
    * Scroll组件默认有动画，Grid、List、WaterFlow组件默认无动画。
    *
    * @param { Edge } value - 滚动到的边缘位置。
    * @param { ScrollEdgeOptions } [options] - 设置滚动到边缘位置的模式。
-   * <br><em>原子化服务API</em>：该API可在原子化服务中使用，从API version 12开始。 [since 12]
+   *     <br><em>原子化服务API</em>：该API可在原子化服务中使用，从API version 12开始。 [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -486,7 +482,7 @@ declare class Scroller {
   /**
    * 滚动到下一页或者上一页。
    *
-   * @param { object } value - 设置翻页模式。包含next（是否向下翻页）和animation（是否开启翻页动画）字段，用于指定翻页行为。 [since 9 - 13]
+   * @param { object } value [since 9 - 13]
    * @param { ScrollPageOptions } value - 设置翻页模式。包含next（是否向下翻页）和animation（是否开启翻页动画）字段，用于指定翻页行为。 [since 14]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -511,7 +507,7 @@ declare class Scroller {
 
   /**
    * 获取当前的滚动总偏移量。
-   * 
+   *
    * > **说明：**
    * >
    * > 1. 当Scroller没有和组件绑定时，该接口会返回undefined，但是接口中没有声明。推荐使用[offset]{@link Scroller#offset}函数，其返回类型显式包含undefined。
@@ -542,40 +538,11 @@ declare class Scroller {
   offset() : OffsetResult | undefined;
 
   /**
-   * 获取滚动组件内容总大小。
-   * 
-   * > **说明：**
-   * >
-   * > - Grid、List、WaterFlow和Scroll组件主轴方向内容大小为所有子组件布局后的总大小，交叉轴方向内容大小为组件自身交叉轴方向大小减去padding和border后的大小。
-   * >
-   * > - Grid、List、WaterFlow组件有懒加载机制，该接口依赖已布局的子节点进行估算。如果组件内容没有布局完成且子组件高度不一致，估算结果可能会有误差，开发者需要适配。例如，List组件可以通过
-   * > childrenMainSize属性解决估算不准问题。
-   * >
-   * > - 如果应用动态增删子节点，则需要应用动态获取内容总大小，来保证接口获取结果的即时性。
-   * >
-   * > - 当Scroll组件设置scrollable为ScrollDirection.FREE自由滚动模式时，获取到的内容总大小为子组件缩放后的总大小。
-   * >
-   * > - 当Scroll组件设置scrollable为ScrollDirection.None不可滚动时，获取到的内容总大小为0。
-   * >
-   * > - 当Grid组件同时设置columnsTemplate和rowsTemplate，或columnsTemplate和rowsTemplate都不设置时即为不可滚动场景，此时获取到的内容总大小高度为0，宽度为Grid组件内容区
-   * > 宽度。
-   *
-   * @returns { SizeResult } 滚动组件内容总大小。主轴方向内容大小为所有子组件布局后的总大小，交叉轴方向内容大小为组件自身交叉轴方向大小减去padding和border后的大小。<br/>单位：vp
-   * @throws { BusinessError } 100004 - Controller not bound to a component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  contentSize(): SizeResult;
-
-  /**
    * 滑动到指定Index，支持设置滑动额外偏移量。
-   * 
+   *
    * 开启smooth动画时，会对经过的所有item进行加载和布局计算。当大量加载item时会导致性能问题，开发者应先调用scrollToIndex不带动画跳转到目标附近位置，再调用scrollToIndex带动画滚动到目标位置，以优化
    * 性能。
-   * 
+   *
    * > **说明：**
    * >
    * > 1. 仅支持ArcList、Grid、List、WaterFlow组件。
@@ -585,9 +552,9 @@ declare class Scroller {
    * >
    * > 3. 从API version 11开始，在List中支持[contentStartOffset]{@link ListAttribute#contentStartOffset(value: number)}和
    * > [contentEndOffset]{@link ListAttribute#contentEndOffset(value: number)}。从API version 22开始，在Grid和WaterFlow组件中支持设置
-   * > [contentStartOffset](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#contentstartoffset22)
+   * > [contentStartOffset]{@link CommonMethod#contentStartOffset}
    * > 和
-   * > [contentEndOffset](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#contentendoffset22)。
+   * > [contentEndOffset]{@link CommonMethod#contentEndOffset}。
    * >
    * > - 当滚动容器组件设置contentStartOffset时，如果ScrollAlign设置为START，滚动结束时，指定item首部会与滚动容器组件contentStartOffset处对齐。
    * >
@@ -615,7 +582,7 @@ declare class Scroller {
 
   /**
    * 滑动指定距离。
-   * 
+   *
    * > **说明：**
    * >
    * > - 支持ArcList、Scroll、List、Grid、WaterFlow组件。
@@ -641,7 +608,7 @@ declare class Scroller {
 
   /**
    * 查询组件是否滚动到底部。
-   * 
+   *
    * > **说明：**
    * >
    * > 支持ArcList、Scroll、List、Grid、WaterFlow组件。
@@ -657,7 +624,7 @@ declare class Scroller {
 
   /**
    * 获取子组件的大小及相对容器组件的位置。
-   * 
+   *
    * > **说明：**
    * >
    * > 支持ArcList、Scroll、List、Grid、WaterFlow组件。
@@ -679,7 +646,7 @@ declare class Scroller {
 
   /**
    * 通过坐标获取子组件的索引。
-   * 
+   *
    * > **说明：**
    * >
    * > 支持List、Grid、WaterFlow组件。
@@ -701,6 +668,35 @@ declare class Scroller {
   getItemIndex(x: number, y: number): number;
 
   /**
+   * 获取滚动组件内容总大小。
+   *
+   * > **说明：**
+   * >
+   * > - Grid、List、WaterFlow和Scroll组件主轴方向内容大小为所有子组件布局后的总大小，交叉轴方向内容大小为组件自身交叉轴方向大小减去padding和border后的大小。
+   * >
+   * > - Grid、List、WaterFlow组件有懒加载机制，该接口依赖已布局的子节点进行估算。如果组件内容没有布局完成且子组件高度不一致，估算结果可能会有误差，开发者需要适配。例如，List组件可以通过
+   * > childrenMainSize属性解决估算不准问题。
+   * >
+   * > - 如果应用动态增删子节点，则需要应用动态获取内容总大小，来保证接口获取结果的即时性。
+   * >
+   * > - 当Scroll组件设置scrollable为ScrollDirection.FREE自由滚动模式时，获取到的内容总大小为子组件缩放后的总大小。
+   * >
+   * > - 当Scroll组件设置scrollable为ScrollDirection.None不可滚动时，获取到的内容总大小为0。
+   * >
+   * > - 当Grid组件同时设置columnsTemplate和rowsTemplate，或columnsTemplate和rowsTemplate都不设置时即为不可滚动场景，此时获取到的内容总大小高度为0，宽度为Grid组件内容区
+   * > 宽度。
+   *
+   * @returns { SizeResult } 滚动组件内容总大小。主轴方向内容大小为所有子组件布局后的总大小，交叉轴方向内容大小为组件自身交叉轴方向大小减去padding和border后的大小。<br/>单位：vp
+   * @throws { BusinessError } 100004 - Controller not bound to a component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  contentSize(): SizeResult;
+
+  /**
    * 获取与当前Scroller绑定的FrameNode。
    *
    * @returns { FrameNode | undefined } 当Scroller已绑定到Scroll、List、Grid、WaterFlow等滚动类组件时，返回对应组件的FrameNode；如果Scroller未绑定组件，
@@ -712,24 +708,11 @@ declare class Scroller {
    * @since 26.0.0 dynamic
    */
   getFrameNode(): FrameNode | undefined;
-
-  /**
-   * 获取绑定到此Scroller的可滚动组件的当前滚动状态。
-   *
-   * @returns { ScrollState } 当前滚动状态。
-   * @throws { BusinessError } 100004 - Controller not bound to a component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.2.0 dynamic
-   */
-  getScrollState(): ScrollState;
 }
 
 /**
  * 滚动到指定位置的参数选项。
- * 
+ *
  * > **说明：**
  * >
  * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
@@ -741,6 +724,7 @@ declare class Scroller {
  * @since 18 dynamic
  */
 declare interface ScrollOptions {
+
   /**
    * 水平滚动偏移量。
    *
@@ -815,6 +799,7 @@ declare interface ScrollOptions {
  * @since 14 dynamic
  */
 declare interface ScrollPageOptions {
+
   /**
    * 是否翻到下一页。设置为true表示翻到下一页，设置为false表示翻到上一页。
    *
@@ -849,6 +834,7 @@ declare interface ScrollPageOptions {
  * @since 10 dynamic
  */
 declare interface ScrollSnapOptions {
+
   /**
    * 限位滚动时的对齐方式。
    *
@@ -917,11 +903,10 @@ declare interface ScrollSnapOptions {
 
 /**
  * 可滚动的容器组件，当子组件的布局尺寸超过父组件的尺寸时，内容可以滚动。支持设置滚动方向、滚动条、边缘效果、嵌套滚动以及自由滚动缩放等能力，适用于内容超出显示区域或需要复杂滚动交互的场景。
- * 
+ *
  * > **说明：**
  * >
- * > - 该组件嵌套List子组件滚动时，若List不设置宽高，则默认全部加载。在对性能有要求的场景下，开发者应指定List的宽高，以避免默认全部加载影响性能。最佳实践请参考
- * > [懒加载优化性能——Scroll嵌套List导致按需加载失效](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-lazyforeach-optimization#section6296154115367)。
+ * > - 该组件嵌套List子组件滚动时，若List不设置宽高，则默认全部加载。在对性能有要求的场景下，开发者应指定List的宽高，以避免默认全部加载影响性能。
  * >
  * > - 该组件滚动的前提是主轴方向大小小于内容大小。
  * >
@@ -942,12 +927,11 @@ declare interface ScrollSnapOptions {
  * @noninterop
  */
 interface ScrollInterface {
+
   /**
    * 创建Scroll滚动容器。
    *
-   * @param { Scroller } scroller - 可滚动组件的控制器。用于与可滚动组件进行绑定，并通过控制器接口控制滚动；不传入时，无法通过控制器接口控制该Scroll组件。<br/>**说明：** <br/>不允许和
-   *     其他滚动类组件，如：[ArcList]{@link @ohos.arkui.ArcList}、[List]{@link ./list}、[Grid]{@link ./grid}、
-   *     [Scroll]{@link ./scroll}和[WaterFlow]{@link ./water_flow}绑定同一个滚动控制对象。
+   * @param { Scroller } scroller
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -973,7 +957,7 @@ declare type OnScrollEdgeCallback = (side: Edge) => void;
 
 /**
  * [OnScrollFrameBeginCallback]{@link OnScrollFrameBeginCallback}返回的实际相对上一帧滚动偏移量。
- * 
+ *
  * > **说明：**
  * >
  * > 为规范匿名对象的定义，API version 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
@@ -985,6 +969,7 @@ declare type OnScrollEdgeCallback = (side: Edge) => void;
  * @since 18 dynamic
  */
 interface OnScrollFrameBeginHandlerResult {
+
   /**
    * 实际滚动偏移量。
    *
@@ -1002,7 +987,7 @@ interface OnScrollFrameBeginHandlerResult {
  *
  * @param { number } offset - 即将发生的滑动量，单位vp。
  * @param { ScrollState } state - 当前滑动状态。Idle表示空闲状态，Scroll表示滚动状态，Fling表示惯性滚动状态。
- * @returns { OnScrollFrameBeginHandlerResult } 返回实际滑动量，Scroll将按照返回值中的offsetRemain进行滚动。
+ * @returns { OnScrollFrameBeginHandlerResult } data 返回实际滑动量，Scroll将按照返回值中的offsetRemain进行滚动。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1012,9 +997,9 @@ interface OnScrollFrameBeginHandlerResult {
 declare type OnScrollFrameBeginCallback = (offset: number, state: ScrollState) => OnScrollFrameBeginHandlerResult;
 
 /**
- * 除支持[通用属性]{@link ./common}和[滚动组件通用属性](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#属性)外，还
+ * 除支持[通用属性]{@link ./common}和[滚动组件通用属性]{@link ScrollableCommonMethod}外，还
  * 支持以下属性：
- * 
+ *
  * 除支持[通用事件]{@link ./common}和[滚动组件通用事件](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#事件)外，还
  * 支持以下事件：
  *
@@ -1026,6 +1011,7 @@ declare type OnScrollFrameBeginCallback = (offset: number, state: ScrollState) =
  * @noninterop
  */
 declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
+
   /**
    * 设置滚动方向。该值被修改后会重置滚动偏移量。可根据布局选择竖直滚动、水平滚动或自由滚动。
    *
@@ -1100,19 +1086,16 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
 
   /**
    * 滚动事件回调，返回滚动时水平、竖直方向偏移量，单位vp。
-   * 
+   *
    * 触发该事件的条件：
-   * 
+   *
    * 1. 滚动组件触发滚动时触发，支持键鼠操作等其他触发滚动的输入设置。
    * 2. 通过滚动控制器API接口调用。
    * 3. 越界回弹。
    *
    * @param { function } event - callback when scroll,
-   *     xOffset: Actual scroll offset relative to the previous frame.
-   *     <br>Unit: vp
-   *     yOffset: Vertical offset relative to the previous frame.
-   *     A positive offset indicates scrolling upward, and a negative offset indicates scrolling downward.
-   *     <br>Unit: vp
+   *     xOffset: 相对于上一帧水平方向的偏移量，Scroll中的内容向左滚动时偏移量为正，向右滚动时偏移量为负。<br/>单位vp。
+   *     yOffset: 相对于上一帧竖直方向的偏移量，Scroll中的内容向上滚动时偏移量为正，向下滚动时偏移量为负。<br/>单位vp。
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1126,19 +1109,18 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
 
   /**
    * 滚动事件回调，Scroll滚动前触发。
-   * 
+   *
    * 回调当前帧将要滚动的偏移量和当前滚动状态和滚动操作来源，其中回调的偏移量为计算得到的将要滚动的偏移量值，并非最终实际滚动偏移。可以通过该回调返回值指定Scroll将要滚动的偏移。
-   * 
+   *
    * 触发该事件的条件：
-   * 
+   *
    * 1. 滚动组件触发滚动时触发，支持键鼠操作等其他触发滚动的输入设置。
    * 2. 通过滚动控制器API接口调用。
    * 3. 越界回弹。
-   * 
+   *
    * > **说明：**
    * >
-   * > 滚动事件的回调函数在滚动过程中会被频繁触发，因此应避免在该回调函数中执行耗时操作，以防止应用出现卡顿和丢帧的问题。最佳实践请参考
-   * > [主线程耗时操作优化指导-高频回调场景](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-time-optimization-of-the-main-thread#section10112623611)。
+   * > 滚动事件的回调函数在滚动过程中会被频繁触发，因此应避免在该回调函数中执行耗时操作，以防止应用出现卡顿和丢帧的问题。
    *
    * @param { ScrollOnWillScrollCallback } handler - Scroll滚动前触发的回调。
    * @returns { ScrollAttribute }
@@ -1152,11 +1134,11 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
 
   /**
    * 滚动事件回调，Scroll滚动时触发。
-   * 
+   *
    * 返回当前帧滚动的偏移量和当前滚动状态。
-   * 
+   *
    * 触发该事件的条件：
-   * 
+   *
    * 1. 滚动组件触发滚动时触发，支持键鼠操作等其他触发滚动的输入设置。
    * 2. 通过滚动控制器API接口调用。
    * 3. 越界回弹。
@@ -1173,22 +1155,18 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
 
   /**
    * 滚动到边缘事件回调。
-   * 
+   *
    * 触发该事件的条件：
-   * 
+   *
    * 1. 滚动组件滚动到边缘时触发，支持键鼠操作等其他触发滚动的输入设置。
    * 2. 通过滚动控制器API接口调用。
    * 3. 越界回弹。
    *
-   * @param { function } event - 滚动到的边缘位置。<br/>当Scroll设置为水平方向滚动时，上报[Edge.Center]{@link Edge}表示水平方向起始位置，上报
-   *     [Edge.Baseline]{@link Edge}表示水平方向末尾位置。由于[Edge.Center]{@link Edge}和[Edge.Baseline]{@link Edge}枚举值已经废弃，推荐使用
-   *     [onReachStart](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onreachstart11)、
-   *     [onReachEnd](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onreachend11)事件监听是否滚动到边
-   *     界。 [since 7 - 17]
+   * @param { function } event [since 7 - 17]
    * @param { OnScrollEdgeCallback } event - 滚动到的边缘位置。<br/>当Scroll设置为水平方向滚动时，上报[Edge.Center]{@link Edge}表示水平方向起始位置，上报
    *     [Edge.Baseline]{@link Edge}表示水平方向末尾位置。由于[Edge.Center]{@link Edge}和[Edge.Baseline]{@link Edge}枚举值已经废弃，推荐使用
-   *     [onReachStart](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onreachstart11)、
-   *     [onReachEnd](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onreachend11)事件监听是否滚动到边
+   *     [onReachStart]{@link UIScrollableCommonEvent#onReachStart}、
+   *     [onReachEnd]{@link UIScrollableCommonEvent#onReachEnd}事件监听是否滚动到边
    *     界。 [since 18]
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1201,13 +1179,13 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
 
   /**
    * 滚动开始时触发。手指拖动Scroll或拖动Scroll的滚动条触发的滚动开始时，会触发该事件。使用[Scroller]{@link Scroller}滚动控制器触发的带动画的滚动，动画开始时会触发该事件。
-   * 
+   *
    * 触发该事件的条件：
-   * 
+   *
    * 1. 滚动组件开始滚动时触发，支持键鼠操作等其他触发滚动的输入设置。
    * 2. 通过滚动控制器API接口调用后开始，带过渡动效。
    *
-   * @param { function } event - 滚动开始回调。 [since 9 - 17]
+   * @param { function } event [since 9 - 17]
    * @param { VoidCallback } event - 滚动开始回调。 [since 18]
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1220,13 +1198,13 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
 
   /**
    * 滚动停止事件回调。
-   * 
+   *
    * 触发该事件的条件：
-   * 
+   *
    * 1. 滚动组件触发滚动后停止，支持键鼠操作等其他触发滚动的输入设置。
    * 2. 通过滚动控制器API接口调用后停止，带过渡动效。
    *
-   * @param { function } event - 滚动停止事件回调。
+   * @param { function } event
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1238,13 +1216,13 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
 
   /**
    * 滚动停止时触发。手拖动Scroll或拖动Scroll的滚动条触发的滚动，手离开屏幕后滚动停止时会触发该事件。使用[Scroller]{@link Scroller}滚动控制器触发的带动画的滚动，动画停止时会触发该事件。
-   * 
+   *
    * 触发该事件的条件：
-   * 
+   *
    * 1. 滚动组件触发滚动后停止，支持键鼠操作等其他触发滚动的输入设置。
    * 2. 通过滚动控制器API接口调用后开始，带过渡动效。
    *
-   * @param { function } event - 滚动停止回调。 [since 9 - 17]
+   * @param { function } event [since 9 - 17]
    * @param { VoidCallback } event - 滚动停止回调。 [since 18]
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1296,7 +1274,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
 
   /**
    * 设置滚动条状态。如果容器组件无法滚动，则滚动条不显示。如果容器组件的子组件大小为无穷大，则滚动条不支持拖动和伴随滚动。可用于控制滚动条是否常驻显示、自动显示或隐藏。
-   * 
+   *
    * 从API version 10开始，当滚动组件存在圆角时，为避免滚动条被圆角截断，滚动条会自动计算距顶部和底部的避让距离。
    *
    * @param { BarState } barState - 滚动条状态。<br/>默认值：BarState.Auto
@@ -1353,10 +1331,10 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
 
   /**
    * 设置滚动条的宽度，不支持百分比设置。宽度设置后，滚动条正常状态和按压状态宽度均为滚动条的宽度值。如果滚动条的宽度超过Scroll组件主轴方向的可视尺寸，则滚动条的宽度会变为默认值4vp，支持Resource资源类型。
-   * 
+   *
    * 未通过该接口设置时，设置滚动条的宽度为4vp。
    *
-   * @param { number | string | Resource } value - 滚动条的宽度。<br/>默认值：4<br/>单位：vp <br/>取值范围：
+   * @param { number | string | Resource } value  - 滚动条的宽度。<br/>默认值：4<br/>单位：vp <br/>取值范围：
    *     [0, +∞)。设置为小于0的值时，按4vp处理。设置为0时，不显示滚动条。
    * @returns { ScrollAttribute  }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1384,26 +1362,26 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
 
   /**
    * 该接口回调时，事件参数传入即将发生的滚动量，事件处理函数中可根据应用场景计算实际需要的滚动量并作为事件处理函数的返回值返回，Scroll将按照返回值的实际滚动量进行滚动。
-   * 
+   *
    * 支持[offsetRemain]{@link OnScrollFrameBeginHandlerResult}为负值。
-   * 
+   *
    * 若通过onScrollFrameBegin事件和[scrollBy]{@link Scroller#scrollBy}方法实现容器嵌套滚动，需设置子滚动节点的
    * [EdgeEffect]{@link ScrollAttribute#edgeEffect}为None。如Scroll嵌套List滚动时，List组件的
    * [edgeEffect]{@link ListAttribute#edgeEffect}属性需设置为EdgeEffect.None，否则抛滑List，会触发List的边缘回弹动画，导致嵌套滚动失效。
-   * 
+   *
    * 满足以下任一条件时触发该事件：
-   * 
+   *
    * 1. 用户交互（如手指滑动、键鼠操作等）触发滚动。
    * 2. Scroll惯性滚动。
    * 3. 调用[fling]{@link Scroller#fling}接口触发滚动。
-   * 
+   *
    * 不触发该事件的条件：
-   * 
+   *
    * 1. 调用除[fling]{@link Scroller#fling}接口外的其他滚动控制接口。
    * 2. 越界回弹。
    * 3. 拖动滚动条。
    *
-   * @param { function } event - 每帧滚动开始回调函数。 [since 9 - 17]
+   * @param { function } event [since 9 - 17]
    * @param { OnScrollFrameBeginCallback } event - 每帧滚动开始回调函数。 [since 18]
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1461,7 +1439,7 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
 
   /**
    * 设置Scroll组件的限位滚动模式，用于实现分页滚动、卡片对齐等需要滚动结束后定位到指定位置的场景。
-   * 
+   *
    * 限位动画期间[onWillScroll]{@link ScrollAttribute#onWillScroll}事件上报的滚动操作来源类型为ScrollSource.FLING。
    *
    * @param { ScrollSnapOptions } value - Scroll组件的限位滚动模式。该对象包含snapAlign（对齐方式）、snapPagination（分页点）、enableSnapToStart（是否在
@@ -1550,11 +1528,10 @@ declare type ScrollOnDidZoomCallback = (scale: number) => void;
 
 /**
  * 可滚动的容器组件，当子组件的布局尺寸超过父组件的尺寸时，内容可以滚动。支持设置滚动方向、滚动条、边缘效果、嵌套滚动以及自由滚动缩放等能力，适用于内容超出显示区域或需要复杂滚动交互的场景。
- * 
+ *
  * > **说明：**
  * >
- * > - 该组件嵌套List子组件滚动时，若List不设置宽高，则默认全部加载。在对性能有要求的场景下，开发者应指定List的宽高，以避免默认全部加载影响性能。最佳实践请参考
- * > [懒加载优化性能——Scroll嵌套List导致按需加载失效](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-lazyforeach-optimization#section6296154115367)。
+ * > - 该组件嵌套List子组件滚动时，若List不设置宽高，则默认全部加载。在对性能有要求的场景下，开发者应指定List的宽高，以避免默认全部加载影响性能。
  * >
  * > - 该组件滚动的前提是主轴方向大小小于内容大小。
  * >
@@ -1566,6 +1543,12 @@ declare type ScrollOnDidZoomCallback = (scale: number) => void;
  * > 触发的滚动动画除外），包括边缘回弹动画。
  * >
  * > - 组件内部已绑定手势实现跟手滚动等功能，需要增加自定义手势操作时请参考[手势拦截增强]{@link ./common}进行处理。
+ *
+ * ###### 子组件
+ *
+ * 支持单个子组件。
+ *
+ * > 从API version 21开始，Scroll单个子组件的宽高最大为16777216px；API version 20及之前，Scroll单个子组件的宽高最大为1000000px。子组件超出该大小可能导致滚动或显示异常。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

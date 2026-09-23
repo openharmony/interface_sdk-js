@@ -28,6 +28,7 @@
  * @since 7 dynamic
  */
 declare enum ScrollDirection {
+
   /**
    * Only vertical scrolling is supported.
    *
@@ -37,7 +38,7 @@ declare enum ScrollDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Vertical = 0,
+  Vertical,
 
   /**
    * Only horizontal scrolling is supported.
@@ -48,7 +49,7 @@ declare enum ScrollDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Horizontal = 1,
+  Horizontal,
 
   /**
    * Vertical or horizontal scrolling is supported.
@@ -59,7 +60,7 @@ declare enum ScrollDirection {
    * @deprecated since 9
    * @useinstead ScrollDirection#FREE
    */
-  Free = 2,
+  Free,
 
   /**
    * Scrolling is disabled.
@@ -70,7 +71,7 @@ declare enum ScrollDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None = 3,
+  None,
 
   /**
    * Free scrolling is supported.
@@ -81,7 +82,7 @@ declare enum ScrollDirection {
    * @atomicservice
    * @since 20 dynamic
    */
-  FREE = 4
+  FREE = 4,
 }
 
 /**
@@ -94,6 +95,7 @@ declare enum ScrollDirection {
  * @since 10 dynamic
  */
 declare enum ScrollAlign {
+
   /**
    * Start alignment. Aligns the start of the specified item with the start of the scrollable container.
    *
@@ -103,7 +105,7 @@ declare enum ScrollAlign {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  START = 0,
+  START,
 
   /**
    * Center alignment. Centers the specified item along the main axis within the scrollable container.
@@ -114,7 +116,7 @@ declare enum ScrollAlign {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  CENTER = 1,
+  CENTER,
 
   /**
    * End alignment. Aligns the end of the specified item with the end of the scrollable container.
@@ -125,7 +127,7 @@ declare enum ScrollAlign {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  END = 2,
+  END,
 
   /**
    * Automatic alignment.
@@ -140,7 +142,7 @@ declare enum ScrollAlign {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  AUTO = 3
+  AUTO,
 }
 
 /**
@@ -153,6 +155,7 @@ declare enum ScrollAlign {
  * @since 11 dynamic
  */
 declare interface OffsetResult {
+
   /**
    * Horizontal scroll offset.
    *
@@ -190,6 +193,7 @@ declare interface OffsetResult {
  * @since 12 dynamic
  */
 declare interface ScrollEdgeOptions {
+
   /**
    * Fixed velocity for scrolling to the edge of the container.
    * If the value specified is less than or equal to 0, the parameter will not take effect.
@@ -214,6 +218,7 @@ declare interface ScrollEdgeOptions {
  * @since 12 dynamic
  */
 declare interface ScrollToIndexOptions {
+
   /**
    * Extra offset for scrolling to a specified index.
    *
@@ -224,20 +229,6 @@ declare interface ScrollToIndexOptions {
    * @since 12 dynamic
    */
   extraOffset?: LengthMetrics;
-
-  /**
-   * Whether to enable fast scroll optimization for scrolling to a specified index.
-   * When set to true, the scroll animation estimates the target position based on child main axis
-   * size and starts directly, skipping some intermediate items during the animation.
-   * Default value: false.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.2.0 dynamic
-   */
-  enableFastScroll?: boolean;
 }
 
 /**
@@ -250,6 +241,7 @@ declare interface ScrollToIndexOptions {
  * @since 12 dynamic
  */
 declare interface ScrollAnimationOptions {
+
   /**
    * Scrolling duration.
    *
@@ -307,6 +299,7 @@ declare interface ScrollAnimationOptions {
  * @since 12 dynamic
  */
 declare interface OffsetOptions {
+
   /**
    * Horizontal scrolling offset.
    *
@@ -346,6 +339,7 @@ declare interface OffsetOptions {
  * @since 19 dynamic
  */
 declare interface UIScrollEvent extends UIScrollableCommonEvent {
+
   /**
    * Triggered for the [onWillScroll]{@link ScrollAttribute#onWillScroll} event.
    *
@@ -409,6 +403,7 @@ declare interface UIScrollEvent extends UIScrollableCommonEvent {
  * @since 7 dynamic
  */
 declare class Scroller {
+
   /**
    * A constructor used to create a **Scroller** object.
    *
@@ -563,45 +558,6 @@ declare class Scroller {
    * @since 23 dynamic
    */
   offset() : OffsetResult | undefined;
-
-  /**
-   * Obtains the total size of the scrollable component's content.
-   *
-   * > **NOTE**
-   * >
-   * > - For the **Grid**, **List**, **WaterFlow**, and **Scroll** components, the content size along the main axis is
-   * > the total size of all child components after layout, and the content size along the cross axis is the component's
-   * > own cross-axis size minus the **padding** and **border**.
-   * >
-   * > - The **Grid**, **List**, and **WaterFlow** components have a lazy loading mechanism. This API relies on the laid
-   * > -out child nodes for estimation. If the component content is not fully laid out and the child component heights
-   * > are inconsistent, the estimation result may be inaccurate, and developers need to adapt accordingly. For example,
-   * > the **List** component can use the **childrenMainSize** attribute to resolve the estimation inaccuracy.
-   * >
-   * > - If the app dynamically adds or removes child nodes, the app needs to dynamically obtain the total content size
-   * > to ensure the timeliness of the result returned by this API.
-   * >
-   * > - When **scrollable** of the **Scroll** component is set to **ScrollDirection.FREE** (free scroll mode), the
-   * > total content size obtained is the total size of the child components after scaling.
-   * >
-   * > - When **scrollable** of the **Scroll** component is set to **ScrollDirection.None** (non-scrollable), the total
-   * > content size obtained is **0**.
-   * >
-   * > - When the **Grid** component has both **columnsTemplate** and **rowsTemplate** set, or neither of them set, it
-   * > is in a non-scrollable scenario. In this case, the total content size obtained has a height of 0 and a width
-   * > equal to the width of the Grid component's content area.
-   *
-   * @returns { SizeResult } Total size of the scroll component content. The content size in the main axis direction is
-   *     the total size of all child components after layout, and the content size in the cross axis direction is the
-   *     size of the component itself in the cross axis direction minus the **padding** and **border**.<br/>Unit: vp
-   * @throws { BusinessError } 100004 - Controller not bound to a component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  contentSize(): SizeResult;
 
   /**
    * Scrolls to a specified index, with support for setting an extra offset for the scroll.
@@ -769,11 +725,24 @@ declare class Scroller {
   getItemIndex(x: number, y: number): number;
 
   /**
-   * Obtains the **FrameNode** bound to the current **Scroller**.
+   * Obtains the content size.
    *
-   * @returns { FrameNode | undefined } If the scroller has been bound to a scrolling component such as **Scroll**,
-   *     **List**, **Grid**, or **WaterFlow**, the **FrameNode** of the corresponding component is returned. Otherwise,
-   *     **undefined** is returned.
+   * @returns { SizeResult } Total size of the scrollable component's content, including the content width and height.
+   *     <br>Unit: vp
+   * @throws { BusinessError } 100004 - Controller not bound to a component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  contentSize(): SizeResult;
+
+  /**
+   * Obtains the FrameNode corresponding to this scroller.
+   *
+   * @returns { FrameNode | undefined } Returns the FrameNode bound to this scroller.
+   *     If the scroller is not bound to a component, the return value is undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -781,19 +750,6 @@ declare class Scroller {
    * @since 26.0.0 dynamic
    */
   getFrameNode(): FrameNode | undefined;
-
-  /**
-   * Obtains the current scroll state of the scrollable component bound to this scroller.
-   *
-   * @returns { ScrollState } Current scroll state.
-   * @throws { BusinessError } 100004 - Controller not bound to a component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.2.0 dynamic
-   */
-  getScrollState(): ScrollState;
 }
 
 /**
@@ -812,6 +768,7 @@ declare class Scroller {
  * @since 18 dynamic
  */
 declare interface ScrollOptions {
+
   /**
    * Horizontal scrolling offset.
    * Anonymous Object Rectification.
@@ -898,6 +855,7 @@ declare interface ScrollOptions {
  * @since 14 dynamic
  */
 declare interface ScrollPageOptions {
+
   /**
    * Whether to turn to the next page.The value true means to scroll to the next page,
    * and false means to scroll to the previous page.
@@ -934,6 +892,7 @@ declare interface ScrollPageOptions {
  * @since 10 dynamic
  */
 declare interface ScrollSnapOptions {
+
   /**
    * Alignment mode for the scroll snap position.
    *
@@ -1027,6 +986,7 @@ declare interface ScrollSnapOptions {
  * @noninterop
  */
 interface ScrollInterface {
+
   /**
    * Creates a **Scroll** component.
    *
@@ -1077,6 +1037,7 @@ declare type OnScrollEdgeCallback = (side: Edge) => void;
  * @since 18 dynamic
  */
 interface OnScrollFrameBeginHandlerResult {
+
   /**
    * Actual scroll offset relative to the previous frame.<br>Unit: vp
    * Anonymous Object Rectification.
@@ -1123,6 +1084,7 @@ declare type OnScrollFrameBeginCallback = (offset: number, state: ScrollState) =
  * @noninterop
  */
 declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
+
   /**
    * Sets the scroll direction. After this value is modified, the scroll offset is reset. You can select vertical
    * scroll, horizontal scroll, or free scroll based on the layout.
