@@ -960,7 +960,8 @@ export default class Sensor {
    * > **NOTE**
    * >
    * > For devices other than lite wearables, you are advised to use 
-   * > [ACCELEROMETER]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: Callback<AccelerometerResponse>, options?: Options)}
+   * > [ACCELEROMETER]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_ACCELEROMETER, callback: Callback<AccelerometerResponse>,
+   *  options?: Options)}
    * > instead since API version 8.
    *
    * @permission ohos.permission.ACCELEROMETER
@@ -1342,7 +1343,8 @@ export default class Sensor {
    * > **NOTE**
    * >
    * > For devices other than lite wearables, you are advised to use
-   * > [WEAR_DETECTION]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback<WearDetectionResponse>, options?: Options)}
+   * > [WEAR_DETECTION]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback<WearDetectionResponse>,
+   *  options?: Options)}
    * > instead since API version 8.
    *
    * @param { SubscribeOnBodyStateOptions } options - Called when the wear status changes.
@@ -1394,7 +1396,8 @@ export default class Sensor {
    * > **NOTE**
    * >
    * > For devices other than lite wearables, you are advised to use
-   * > [WEAR_DETECTION]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback<WearDetectionResponse>, options?: Options)}
+   * > [WEAR_DETECTION]{@link @ohos.sensor:sensor.on(type: SensorType.SENSOR_TYPE_ID_WEAR_DETECTION, callback: Callback<WearDetectionResponse>,
+   *  options?: Options)}
    * > instead since API version 8.
    *
    * @param { GetOnBodyStateOptions } options - Callback invoked when obtaining the wearing state of the device that

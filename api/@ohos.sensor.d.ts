@@ -3272,7 +3272,8 @@ declare namespace sensor {
    * > **NOTE**
    * >
    * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [sensor.on.ACCELEROMETER]{@link sensor.on(type: SensorId.ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>, options?: Options)}
+   * > [sensor.on.ACCELEROMETER]{@link sensor.on(type: SensorId.ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>,
+   *  options?: Options)}
    * > instead.
    *
    * @permission ohos.permission.ACCELEROMETER
@@ -3424,7 +3425,8 @@ declare namespace sensor {
    * > **NOTE**
    * >
    * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [sensor.on.GYROSCOPE_UNCALIBRATED]{@link sensor.on(type: SensorId.GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>, options?: Options)}
+   * > [sensor.on.GYROSCOPE_UNCALIBRATED]{@link sensor.on(type: SensorId.GYROSCOPE_UNCALIBRATED, callback: Callback<GyroscopeUncalibratedResponse>,
+   *  options?: Options)}
    * > instead.
    *
    * @permission ohos.permission.GYROSCOPE
@@ -3526,7 +3528,8 @@ declare namespace sensor {
    * > **NOTE**
    * >
    * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [sensor.on.LINEAR_ACCELEROMETER]{@link sensor.on(type: SensorId.LINEAR_ACCELEROMETER, callback: Callback<LinearAccelerometerResponse>, options?: Options)}
+   * > [sensor.on.LINEAR_ACCELEROMETER]{@link sensor.on(type: SensorId.LINEAR_ACCELEROMETER, callback: Callback<LinearAccelerometerResponse>,
+   *  options?: Options)}
    * > instead.
    *
    * @permission ohos.permission.ACCELEROMETER
@@ -3579,7 +3582,8 @@ declare namespace sensor {
    * > **NOTE**
    * >
    * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [sensor.on.MAGNETIC_FIELD_UNCALIBRATED]{@link sensor.on(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>, options?: Options)}
+   * > [sensor.on.MAGNETIC_FIELD_UNCALIBRATED]{@link sensor.on(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED,
+   *  callback: Callback<MagneticFieldUncalibratedResponse>, options?: Options)}
    * > instead.
    *
    * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED } type - Type of the sensor to subscribe to, which
@@ -3802,7 +3806,8 @@ declare namespace sensor {
    * > **NOTE**
    * >
    * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [sensor.once.ACCELEROMETER_UNCALIBRATED]{@link sensor.once(type: SensorId.ACCELEROMETER_UNCALIBRATED, callback: Callback<AccelerometerUncalibratedResponse>)}
+   * > [sensor.once.ACCELEROMETER_UNCALIBRATED]{@link sensor.once(type: SensorId.ACCELEROMETER_UNCALIBRATED,
+   *  callback: Callback<AccelerometerUncalibratedResponse>)}
    * > instead.
    *
    * @permission ohos.permission.ACCELEROMETER
@@ -4059,7 +4064,8 @@ declare namespace sensor {
    * > **NOTE**
    * >
    * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [sensor.once.MAGNETIC_FIELD_UNCALIBRATED]{@link sensor.once(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED, callback: Callback<MagneticFieldUncalibratedResponse>)}
+   * > [sensor.once.MAGNETIC_FIELD_UNCALIBRATED]{@link sensor.once(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED,
+   *  callback: Callback<MagneticFieldUncalibratedResponse>)}
    * > instead.
    *
    * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED } type - Type of the sensor to subscribe to, which
@@ -4251,7 +4257,8 @@ declare namespace sensor {
    * > **NOTE**
    * >
    * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [sensor.off.ACCELEROMETER_UNCALIBRATED]{@link sensor.off(type: SensorId.ACCELEROMETER_UNCALIBRATED, callback?: Callback<AccelerometerUncalibratedResponse>)}
+   * > [sensor.off.ACCELEROMETER_UNCALIBRATED]{@link sensor.off(type: SensorId.ACCELEROMETER_UNCALIBRATED,
+   *  callback?: Callback<AccelerometerUncalibratedResponse>)}
    * > instead.
    *
    * @permission ohos.permission.ACCELEROMETER
@@ -4509,7 +4516,8 @@ declare namespace sensor {
    * > **NOTE**
    * >
    * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
-   * > [sensor.off.MAGNETIC_FIELD_UNCALIBRATED]{@link sensor.off(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED, callback?: Callback<MagneticFieldUncalibratedResponse>)}
+   * > [sensor.off.MAGNETIC_FIELD_UNCALIBRATED]{@link sensor.off(type: SensorId.MAGNETIC_FIELD_UNCALIBRATED,
+   *  callback?: Callback<MagneticFieldUncalibratedResponse>)}
    * > instead.
    *
    * @param { SensorType.SENSOR_TYPE_ID_MAGNETIC_FIELD_UNCALIBRATED } type - Type of the sensor to unsubscribe from,
@@ -5060,7 +5068,8 @@ declare namespace sensor {
    * > **NOTE**
    * >
    * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use 
-   * > [sensor.getGeomagneticInfo]{@link sensor.getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: long, callback: AsyncCallback<GeomagneticResponse>)}
+   * > [sensor.getGeomagneticInfo]{@link sensor.getGeomagneticInfo(locationOptions: LocationOptions, timeMillis: long,
+   *  callback: AsyncCallback<GeomagneticResponse>)}
    * >  instead.
    *
    * @param { LocationOptions } locationOptions - Geographic location.
@@ -5436,7 +5445,8 @@ declare namespace sensor {
    * > **NOTE**
    * >
    * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use 
-   * > [sensor.transformRotationMatrix]{@link sensor.transformRotationMatrix(inRotationVector: Array<double>, coordinates: CoordinatesOptions, callback: AsyncCallback<Array<double>>)}
+   * > [sensor.transformRotationMatrix]{@link sensor.transformRotationMatrix(inRotationVector: Array<double>, coordinates: CoordinatesOptions,
+   *  callback: AsyncCallback<Array<double>>)}
    * >  instead.
    *
    * @param { Array<number> } inRotationVector - Rotation vector.
@@ -5677,7 +5687,8 @@ declare namespace sensor {
    * > **NOTE**
    * >
    * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use 
-   * > [sensor.getRotationMatrix]{@link sensor.getRotationMatrix(gravity: Array<double>, geomagnetic: Array<double>, callback: AsyncCallback<RotationMatrixResponse>)}
+   * > [sensor.getRotationMatrix]{@link sensor.getRotationMatrix(gravity: Array<double>, geomagnetic: Array<double>,
+   *  callback: AsyncCallback<RotationMatrixResponse>)}
    * >  instead.
    *
    * @param { Array<number> } gravity - Gravity vector.

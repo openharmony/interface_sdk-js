@@ -163,7 +163,8 @@ export default class Vibrator {
    * > **NOTE**
    * >
    * > For devices other than lite wearables, you are advised to use
-   * > [vibrator.startVibration()]{@link @ohos.vibrator:vibrator.startVibration(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>)}
+   * > [vibrator.startVibration()]{@link @ohos.vibrator:vibrator.startVibration(effect: VibrateEffect, attribute: VibrateAttribute,
+   *  callback: AsyncCallback<void>)}
    * > since API version 8.
    *
    * @permission ohos.permission.VIBRATE
