@@ -3372,7 +3372,7 @@ declare namespace commonEventManager {
     /**
      * This common event indicates that the skill information of an application has been changed.
      *
-     * To receive this common event, your application must have the ohos.permission.MANAGE_SKILL_PRIVILEGE permission.
+     * To receive this common event, your application must have the ohos.permission.MANAGE_SKILL permission.
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @stagemodelonly
