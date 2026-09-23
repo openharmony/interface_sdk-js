@@ -1068,33 +1068,33 @@ declare namespace usageStatistics {
    */
   function queryBundleEvents(begin: long, end: long): Promise<Array<BundleEvents>>;
 
-    /**
-     * 通过指定起始时间、结束时间及最大返回条数，查询指定时间段内所有应用的事件集合。若条数大于maxNum，则按事件发生时间降序排列，返回前maxNum条，否则返回所有数据。使用Promise异步回调。
-     *
-     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-     * @param { long } begin - 起始时间。<br/>单位：ms
-     * @param { long } end - 结束时间。<br/>单位：ms
-     * @param { int } maxNum - 返回的事件的条数。<br/>取值范围：[1, 1000]。
-     * @returns { Promise<Array<BundleEvents>> } Promise对象，返回起始和结束时间段内，所有应用的事件集合。
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+  /**
+   * 通过指定起始时间、结束时间及最大返回条数，查询指定时间段内所有应用的事件集合。若条数大于maxNum，则按事件发生时间降序排列，返回前maxNum条，否则返回所有数据。使用Promise异步回调。
+   *
+   * @permission ohos.permission.BUNDLE_ACTIVE_INFO
+   * @param { long } begin - 起始时间。<br/>单位：ms
+   * @param { long } end - 结束时间。<br/>单位：ms
+   * @param { int } maxNum - 返回的事件的条数。<br/>取值范围：[1, 1000]。
+   * @returns { Promise<Array<BundleEvents>> } Promise对象，返回起始和结束时间段内，所有应用的事件集合。
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-     * @throws { BusinessError } 10000001 - Memory operation failed.
-     * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-     *     <br> 2. Failed to apply for memory.
-     * @throws { BusinessError } 10000003 - Failed to get system ability manager.
-     * @throws { BusinessError } 10000004 - Failed to access the device usage service.
-     * @throws { BusinessError } 10000006 - Failed to get the application information.
-     * @throws { BusinessError } 10000007 - Failed to get the system time.
-     * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left
-     *     unspecified;
-     *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
-     * @systemapi Hide this for inner system use.
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    function queryBundleEvents(begin: long, end: long, maxNum: int): Promise<Array<BundleEvents>>;
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 10000001 - Memory operation failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   *     <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
+   * @throws { BusinessError } 10000006 - Failed to get the application information.
+   * @throws { BusinessError } 10000007 - Failed to get the system time.
+   * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left
+   *     unspecified;
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function queryBundleEvents(begin: long, end: long, maxNum: int): Promise<Array<BundleEvents>>;
 
   /**
    * 通过指定起始和结束时间，查询当前应用的事件集合，使用Callback异步回调。
@@ -1145,29 +1145,29 @@ declare namespace usageStatistics {
    */
   function queryCurrentBundleEvents(begin: long, end: long): Promise<Array<BundleEvents>>;
 
-   /**
-    * 通过指定起始时间、结束时间及最大返回条数，查询指定时间段内当前应用的事件集合。若条数大于maxNum，则按事件发生时间降序排列，返回前maxNum条，否则返回所有数据。使用Promise异步回调。
-    *
-    * @param { long } begin - 起始时间。<br/>单位：ms
-    * @param { long } end - 结束时间。<br/>单位：ms
-    * @param { int } maxNum - 返回的事件的条数。<br/>取值范围：[1, 1000]
-    * @returns { Promise<Array<BundleEvents>> } Promise对象，返回指定起始和结束时间段内，当前应用的事件集合。
-    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-    * @throws { BusinessError } 10000001 - Memory operation failed.
-    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-    *     <br> 2. Failed to apply for memory.
-    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
-    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
-    * @throws { BusinessError } 10000006 - Failed to get the application information.
-    * @throws { BusinessError } 10000007 - Failed to get the system time.
-    * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-    *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
-    * @systemapi Hide this for inner system use.
-    * @stagemodelonly
-    * @since 26.0.0 dynamic&static
-    */
-   function queryCurrentBundleEvents(begin: long, end: long, maxNum: int): Promise<Array<BundleEvents>>;
+  /**
+   * 通过指定起始时间、结束时间及最大返回条数，查询指定时间段内当前应用的事件集合。若条数大于maxNum，则按事件发生时间降序排列，返回前maxNum条，否则返回所有数据。使用Promise异步回调。
+   *
+   * @param { long } begin - 起始时间。<br/>单位：ms
+   * @param { long } end - 结束时间。<br/>单位：ms
+   * @param { int } maxNum - 返回的事件的条数。<br/>取值范围：[1, 1000]
+   * @returns { Promise<Array<BundleEvents>> } Promise对象，返回指定起始和结束时间段内，当前应用的事件集合。
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 10000001 - Memory operation failed.
+   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+   *     <br> 2. Failed to apply for memory.
+   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
+   * @throws { BusinessError } 10000006 - Failed to get the application information.
+   * @throws { BusinessError } 10000007 - Failed to get the system time.
+   * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function queryCurrentBundleEvents(begin: long, end: long, maxNum: int): Promise<Array<BundleEvents>>;
 
   /**
    * 根据设置的maxNum，查询FA模型下各应用不用Hap包的使用记录。若Hap包中存在FA卡片，使用信息中也包含卡片信息。使用Callback异步回调。

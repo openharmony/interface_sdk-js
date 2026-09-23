@@ -83,6 +83,26 @@ declare namespace backgroundProcessManager {
     }
 
     /**
+     * 资源清理类型。
+     *
+     * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    export enum ClearType {
+        /**
+         * 清理多任务卡片。
+         *
+         * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
+         * @systemapi Hide this for inner system use.
+         * @stagemodelonly
+         * @since 26.0.1 dynamic&static
+         */
+        CLEAR_RECENT_CARDS = 1
+    }
+
+    /**
      * 设置子进程的压制档位，子进程被压制后可获得的CPU资源将会受到限制。如果主进程调度策略发生变化，如从后台切至前台等，子进程会跟随主进程一同变化，子进程如需继续压制，需要重新调用本接口。使用Promise异步回调。
      *
      * @param { int } pid - 需要被压制子进程的进程号，
@@ -91,7 +111,7 @@ declare namespace backgroundProcessManager {
      * @param { ProcessPriority } priority - 压制档位。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter verification failed.
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 17 dynamic
      * @since 23 static
@@ -125,7 +145,7 @@ declare namespace backgroundProcessManager {
      * @param { PowerSaveMode } powerSaveMode - 能效模式。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   *     required to call the API.
+     *     required to call the API.
      * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
      *     <br>  1. Mandatory parameters are left unspecified;
      *     <br>  2. Incorrect parameter types; 3. PowerSaveMode status is out of range.
@@ -145,9 +165,9 @@ declare namespace backgroundProcessManager {
      * @param { int } pid - 进程号。
      * @returns { Promise<boolean> } Promise对象。返回进程PID是否处于能效模式，返回true表示进程处于能效模式，返回false表示进程未处于能效模式。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   *     required to call the API.
+     *     required to call the API.
      * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
-     *     <br> 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+     *     <br> 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 20 dynamic
@@ -162,14 +182,31 @@ declare namespace backgroundProcessManager {
      * @param { int } pid - 进程号。<br>取值范围：大于0的整数。
      * @returns { Promise<PowerSaveMode> } Promise对象。返回进程能效模式状态。
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   *     required to call the API.
+     *     required to call the API.
      * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
-     *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types;
+     *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 23 dynamic&static
      */
     function getPowerSaveMode(pid: int): Promise<PowerSaveMode>;
+
+    /**
+     * 主动清理后台资源。
+     *
+     * @permission ohos.permission.CLEAR_BACKGROUND_APPS
+     * @param { ClearType } clearType - 资源清理类型。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+     *     required to call the API.
+     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 31800002 - Parameter error.
+     * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.1 dynamic&static
+     */
+    function clearBackgroundApps(clearType: ClearType): Promise<void>;
 }
 
 export default backgroundProcessManager;
