@@ -248,7 +248,7 @@ export declare class ContainerReaderAttribute extends CommonMethod<ContainerRead
  * > - For more development guidance and complete examples on container breakpoints, see 
  * > [Container Breakpoint (ContainerReader)](docroot://ui/arkts-layout-development-container-reader.md).
  * 
- * ###### Child Components
+ * ## Child Components
  * 
  * Supported
  *

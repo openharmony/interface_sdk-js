@@ -32,9 +32,9 @@ declare interface CircleOptions {
   /**
    * Width. The value must be greater than or equal to 0. Set this attribute when you need to customize the circle size.
    * If it is not set, the default value **0** is used.
-   * 
+   *
    * Default unit: vp
-   * 
+   *
    * Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are treated as the default value.
    *
    * @type { ?(string | number) } [since 7 - 19]
@@ -49,11 +49,11 @@ declare interface CircleOptions {
   width?: Length;
 
   /**
-   * Height. The value must be greater than or equal to 0. Set this attribute when you need to customize the circle 
+   * Height. The value must be greater than or equal to 0. Set this attribute when you need to customize the circle
    * size. If it is not set, the default value **0** is used.
-   * 
+   *
    * Default unit: vp
-   * 
+   *
    * Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are treated as the default value.
    *
    * @type { ?(string | number) } [since 7 - 19]
@@ -70,7 +70,7 @@ declare interface CircleOptions {
 
 /**
  * The **Circle** component is used to draw a circle.
- * 
+ *
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -117,7 +117,7 @@ interface CircleInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link CommonMethod} and [universal drawing attributes]{@link CommonMethod}, the 
+ * In addition to the [universal attributes]{@link CommonMethod} and [universal drawing attributes]{@link CommonMethod}, the
  * following attributes are supported:
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -131,8 +131,8 @@ interface CircleInterface {
 declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {
   /**
    * Sets the stroke color. [ColorMetrics]{@link ../../../arkui/Graphics:ColorMetrics} can be used to describe the color
-   * for HDR brightening. This attribute can be dynamically set using 
-   * [attributeModifier]{@link CommonMethod#attributeModifier}. If this attribute is not set, the default stroke color 
+   * for HDR brightening. This attribute can be dynamically set using
+   * [attributeModifier]{@link CommonMethod#attributeModifier}. If this attribute is not set, the default stroke color
    * is [Color]{@link Color}.Transparent, that is, no stroke is drawn. Abnormal values undefined and null are treated as
    * the default value, and NaN and Infinity are treated as [Color]{@link Color}.Black.
    *
@@ -152,14 +152,14 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {
   
   /**
    * Sets the color of the fill area. [ColorMetrics]{@link ../../../arkui/Graphics:ColorMetrics} can be used to describe
-   * the color for HDR brightening. This attribute can be dynamically set using 
-   * [attributeModifier]{@link CommonMethod#attributeModifier}. If this attribute is not set, the default fill color is 
-   * [Color]{@link Color}.Black. Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are treated as the 
-   * default value. When this attribute is set together with the universal attribute **foregroundColor**, the one set 
+   * the color for HDR brightening. This attribute can be dynamically set using
+   * [attributeModifier]{@link CommonMethod#attributeModifier}. If this attribute is not set, the default fill color is
+   * [Color]{@link Color}.Black. Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are treated as the
+   * default value. When this attribute is set together with the universal attribute **foregroundColor**, the one set
    * later takes effect.
    *
    * @param { ResourceColor | ColorMetrics } value - Color of the area to fill.
-   *     <br>Default value: [Color]{@link Color}.Black 
+   *     <br>Default value: [Color]{@link Color}.Black
    *     <br>Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled as the default value.
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -174,9 +174,9 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {
 
 /**
  * The **Circle** component is used to draw a circle.
- * 
- * ###### Child Components
- * 
+ *
+ * ## Child Components
+ *
  * None
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

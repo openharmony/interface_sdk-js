@@ -20,10 +20,10 @@
 
 /**
  * Describes the options of the polygon.
- * 
+ *
  * > **NOTE**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
  * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
  * > 's @since version number is higher than inner element's. This does not affect interface usability.
  *
@@ -37,11 +37,11 @@
 declare interface PolygonOptions {
   /**
    * Width, with the value range ≥ 0.
-   * 
+   *
    * Default value: **0**
-   * 
+   *
    * Default unit: vp
-   * 
+   *
    * If the given value is less than 0, the default value is used. The abnormal values **undefined**, **null**, **NaN**,
    * and **Infinity** are handled as the default value.
    *
@@ -58,11 +58,11 @@ declare interface PolygonOptions {
 
   /**
    * Height, with the value range ≥ 0.
-   * 
+   *
    * Default value: **0**
-   * 
+   *
    * Default unit: vp
-   * 
+   *
    * If the given value is less than 0, the default value is used. The abnormal values **undefined**, **null**, **NaN**,
    * and **Infinity** are handled as the default value.
    *
@@ -79,16 +79,16 @@ declare interface PolygonOptions {
 }
 
 /**
- * The **Polygon** component is used to draw a polygon. This component defines the shape of a polygon by setting a list 
+ * The **Polygon** component is used to draw a polygon. This component defines the shape of a polygon by setting a list
  * of vertex coordinates, and supports attribute configuration such as fill color and border style. The component uses a
  * two-dimensional coordinate system and connects the vertices in sequence to form a closed polygon area. It is suitable
- * for drawing custom polygon shapes such as triangles, quadrilaterals, and pentagons, as well as for implementing 
+ * for drawing custom polygon shapes such as triangles, quadrilaterals, and pentagons, as well as for implementing
  * visualization scenarios such as charts and icons that require polygon elements.
- * 
+ *
  * > **NOTE**
  * >
- * > Since API version 20, this component supports updating constructor parameters through the 
- * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the 
+ * > Since API version 20, this component supports updating constructor parameters through the
+ * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the
  * > [AttributeUpdater]{@link ../../../arkui/AttributeUpdater} class.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -137,7 +137,7 @@ interface PolygonInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link CommonMethod} and 
+ * In addition to the [universal attributes]{@link CommonMethod} and
  * [common attributes of drawing components]{@link CommonMethod}, the following attributes are supported:
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -156,7 +156,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
    * @param { Array<any> } value - List of vertex coordinates of the polygon. A two-dimensional array is passed in,
    *     where each sub-array represents the [x, y] coordinates of a vertex.
    *     <br>Default value: [] (empty array)
-   *     <br>Default unit: vp 
+   *     <br>Default unit: vp
    *     <br>The abnormal values **undefined** and **null** are handled as the default value.
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -170,20 +170,20 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
 }
 
 /**
- * The **Polygon** component is used to draw a polygon. This component defines the shape of a polygon by setting a list 
+ * The **Polygon** component is used to draw a polygon. This component defines the shape of a polygon by setting a list
  * of vertex coordinates, and supports attribute configuration such as fill color and border style. The component uses a
  * two-dimensional coordinate system and connects the vertices in sequence to form a closed polygon area. It is suitable
- * for drawing custom polygon shapes such as triangles, quadrilaterals, and pentagons, as well as for implementing 
+ * for drawing custom polygon shapes such as triangles, quadrilaterals, and pentagons, as well as for implementing
  * visualization scenarios such as charts and icons that require polygon elements.
- * 
+ *
  * > **NOTE**
  * >
- * > Since API version 20, this component supports updating constructor parameters through the 
- * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the 
+ * > Since API version 20, this component supports updating constructor parameters through the
+ * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the
  * > [AttributeUpdater]{@link ../../../arkui/AttributeUpdater} class.
- * 
- * ###### Child Components
- * 
+ *
+ * ## Child Components
+ *
  * None
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

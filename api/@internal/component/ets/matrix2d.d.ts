@@ -19,26 +19,26 @@
  */
 
 /**
- * A matrix object used for graphic transformation in 
- * [CanvasRenderingContext2D]{@link CanvasRenderingContext2D}, 
- * [OffscreenCanvasRenderingContext2D]{@link OffscreenCanvasRenderingContext2D}, 
- * [CanvasPattern]{@link CanvasPattern}, and [Path2D]{@link Path2D}. 
+ * A matrix object used for graphic transformation in
+ * [CanvasRenderingContext2D]{@link CanvasRenderingContext2D},
+ * [OffscreenCanvasRenderingContext2D]{@link OffscreenCanvasRenderingContext2D},
+ * [CanvasPattern]{@link CanvasPattern}, and [Path2D]{@link Path2D}.
  * It can perform scaling, rotation, translation, and other transformations on the matrix.
- * 
+ *
  * **Matrix2D** is used in the following scenarios:
- * 
- * 1. In [CanvasRenderingContext2D]{@link CanvasRenderingContext2D} and 
- * [OffscreenCanvasRenderingContext2D]{@link OffscreenCanvasRenderingContext2D}, call 
- * [getTransform]{@link CanvasRenderer#getTransform} to obtain the canvas graphic transformation **Matrix2D** 
- * object, and call [setTransform]{@link CanvasPattern#setTransform} to apply the graphic transformation 
+ *
+ * 1. In [CanvasRenderingContext2D]{@link CanvasRenderingContext2D} and
+ * [OffscreenCanvasRenderingContext2D]{@link OffscreenCanvasRenderingContext2D}, call
+ * [getTransform]{@link CanvasRenderer#getTransform} to obtain the canvas graphic transformation **Matrix2D**
+ * object, and call [setTransform]{@link CanvasPattern#setTransform} to apply the graphic transformation
  * corresponding to the **Matrix2D** object to subsequent drawing content.
- * 2. In [CanvasPattern]{@link CanvasPattern}, call 
- * [setTransform]{@link CanvasPattern#setTransform} 
- * to apply the graphic transformation corresponding to the **Matrix2D** object to the 
+ * 2. In [CanvasPattern]{@link CanvasPattern}, call
+ * [setTransform]{@link CanvasPattern#setTransform}
+ * to apply the graphic transformation corresponding to the **Matrix2D** object to the
  * [CanvasPattern]{@link CanvasPattern} object.
- * 3. In [Path2D]{@link Path2D}, call 
- * [addPath]{@link Path2D#addPath} 
- * to apply the graphic transformation corresponding to the **Matrix2D** object to the 
+ * 3. In [Path2D]{@link Path2D}, call
+ * [addPath]{@link Path2D#addPath}
+ * to apply the graphic transformation corresponding to the **Matrix2D** object to the
  * [Path2D]{@link Path2D} object.
  *
  * > **NOTE**
@@ -55,12 +55,12 @@
  */
 declare class Matrix2D {
   /**
-   * Horizontal scale factor. The value range is unlimited. Values greater than 1 enlarge, less than 1 shrink, and 
+   * Horizontal scale factor. The value range is unlimited. Values greater than 1 enlarge, less than 1 shrink, and
    * negative values flip horizontally.
-   * 
+   *
    * Default: **1**
-   * 
-   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally, 
+   *
+   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally,
    * and drawn content will not be displayed after setting.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -74,10 +74,10 @@ declare class Matrix2D {
 
   /**
    * Vertical skew factor. The value range is unlimited.
-   * 
+   *
    * Default: **0**
-   * 
-   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally, 
+   *
+   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally,
    * and drawn content will not be displayed after setting.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -91,10 +91,10 @@ declare class Matrix2D {
 
   /**
    * Horizontal skew factor. The value range is unlimited.
-   * 
+   *
    * Default: **0**
-   * 
-   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally, 
+   *
+   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally,
    * and drawn content will not be displayed after setting.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -107,12 +107,12 @@ declare class Matrix2D {
   rotateX?: number;
 
   /**
-   * Vertical scale factor. The value range is unlimited. Values greater than 1 enlarge, less than 1 shrink, and 
+   * Vertical scale factor. The value range is unlimited. Values greater than 1 enlarge, less than 1 shrink, and
    * negative values flip vertically.
-   * 
+   *
    * Default: **1**
-   * 
-   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally, 
+   *
+   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally,
    * and drawn content will not be displayed after setting.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -126,12 +126,12 @@ declare class Matrix2D {
 
   /**
    * Horizontal translation distance. The value range is unlimited.
-   * 
+   *
    * Default: **0**
-   * 
-   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally, 
+   *
+   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally,
    * and drawn content will not be displayed after setting.
-   * 
+   *
    * Default unit: vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -145,12 +145,12 @@ declare class Matrix2D {
 
   /**
    * Vertical translation distance. The value range is unlimited.
-   * 
+   *
    * Default: **0**
-   * 
-   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally, 
+   *
+   * The value **undefined** is treated as invalid. **NaN** and **Infinity** cause **Matrix2D** to behave abnormally,
    * and drawn content will not be displayed after setting.
-   * 
+   *
    * Default unit: vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -163,7 +163,7 @@ declare class Matrix2D {
   translateY?: number;
 
   /**
-   * Creates an identity matrix. It is commonly used to reset the transformation matrix, clearing all previous 
+   * Creates an identity matrix. It is commonly used to reset the transformation matrix, clearing all previous
    * transformation operations so that subsequent drawing content is not affected by previous transformations.
    *
    * @returns { Matrix2D } Identity matrix, which can be used to initialize or reset the graphics transformation state.
@@ -177,7 +177,7 @@ declare class Matrix2D {
   identity(): Matrix2D;
 
   /**
-   * Obtains the inverse of the current matrix. It is commonly used to undo previous transformation operations or 
+   * Obtains the inverse of the current matrix. It is commonly used to undo previous transformation operations or
    * calculate reverse transformations, enabling reverse mapping of the coordinate system.
    *
    * @returns { Matrix2D } Inverse matrix result, which can be used for reverse transformation or to undo previous
@@ -193,7 +193,7 @@ declare class Matrix2D {
 
   /**
    * Multiplies the current matrix by the target matrix. This API is an empty API and has no actual effect.
-   * 
+   *
    * This API is deprecated since API version 10 and has no actual drawing effect, so no example is provided.
    *
    * @param { Matrix2D } other - Target matrix.
@@ -233,7 +233,7 @@ declare class Matrix2D {
   rotate(rx?: number, ry?: number): Matrix2D;
 
   /**
-   * Performs a left-multiply rotation operation on the current matrix, centered at the rotation point. It is commonly 
+   * Performs a left-multiply rotation operation on the current matrix, centered at the rotation point. It is commonly
    * used in scenarios such as graphic rotation animation or image rotation processing.
    *
    * @param { number } degree - Rotation angle (in radians). The value range is unlimited. A positive value indicates
@@ -263,7 +263,7 @@ declare class Matrix2D {
   rotate(degree: number, rx?: number, ry?: number): Matrix2D;
 
   /**
-   * Performs a left-multiply translation operation on the current matrix. It is commonly used in scenarios such as 
+   * Performs a left-multiply translation operation on the current matrix. It is commonly used in scenarios such as
    * adjusting graphic positions, implementing displacement animations, or offsetting the canvas coordinate system.
    *
    * @param { number } tx - Horizontal translation distance. The value range is not limited.
@@ -288,7 +288,7 @@ declare class Matrix2D {
   translate(tx?: number, ty?: number): Matrix2D;
 
   /**
-   * Performs a left-multiply scaling operation on the current matrix. It is commonly used in scenarios such as graphic 
+   * Performs a left-multiply scaling operation on the current matrix. It is commonly used in scenarios such as graphic
    * scaling or flipping.
    *
    * @param { number } sx - Horizontal scaling ratio coefficient. The value range is not limited. A value greater than 1
@@ -312,7 +312,7 @@ declare class Matrix2D {
   scale(sx?: number, sy?: number): Matrix2D;
 
   /**
-   * Constructs a two-dimensional transformation matrix object. The default value is a matrix whose attributes are all 
+   * Constructs a two-dimensional transformation matrix object. The default value is a matrix whose attributes are all
    * 0.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -325,7 +325,7 @@ declare class Matrix2D {
   constructor();
 
   /**
-   * Constructs a two-dimensional transformation matrix object. The default value is a matrix whose attributes are all 
+   * Constructs a two-dimensional transformation matrix object. The default value is a matrix whose attributes are all
    * 0. The unit mode of the Matrix2D object can be configured.
    *
    * @param { LengthMetricsUnit } [unit] - Unit mode of the **Matrix2D** object. The configuration cannot be dynamically

@@ -20,10 +20,10 @@
 
 /**
  * Describes the options of the ellipse.
- * 
+ *
  * > **NOTE**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
  * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
  * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
@@ -37,13 +37,13 @@
 interface EllipseOptions {
   /**
    * Width, with the value range ≥ 0.
-   * 
+   *
    * Default value: **0**
-   * 
+   *
    * Default unit: vp
-   * 
+   *
    * Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled as the default value.
-   * 
+   *
    * The Resource type is supported since API version 20.
    *
    * @type { ?(string | number) } [since 7 - 19]
@@ -59,13 +59,13 @@ interface EllipseOptions {
 
   /**
    * Height, with the value range ≥ 0.
-   * 
+   *
    * Default value: **0**
-   * 
+   *
    * Default unit: vp
-   * 
+   *
    * Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled as the default value.
-   * 
+   *
    * The Resource type is supported since API version 20.
    *
    * @type { ?(string | number) } [since 7 - 19]
@@ -81,7 +81,7 @@ interface EllipseOptions {
 }
 
 /**
- * The **Ellipse** component is used to draw an ellipse. It draws an ellipse shape by setting the width and height 
+ * The **Ellipse** component is used to draw an ellipse. It draws an ellipse shape by setting the width and height
  * attributes, rendering the ellipse outline and fill area within a given rectangular region.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -114,7 +114,7 @@ interface EllipseInterface {
   new (options?: EllipseOptions): EllipseAttribute;
 
   /**
-   * Constructor used to draw an ellipse. After being called, it creates an **Ellipse** object, for which the width and 
+   * Constructor used to draw an ellipse. After being called, it creates an **Ellipse** object, for which the width and
    * height attributes can be set.
    *
    * @param { object } value [since 7 - 17]
@@ -135,7 +135,7 @@ interface EllipseInterface {
 }
 
 /**
- * The [universal attributes]{@link CommonMethod} and [universal attributes for drawing components]{@link CommonMethod} are 
+ * The [universal attributes]{@link CommonMethod} and [universal attributes for drawing components]{@link CommonMethod} are
  * supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -149,11 +149,11 @@ interface EllipseInterface {
 declare class EllipseAttribute extends CommonShapeMethod<EllipseAttribute> {}
 
 /**
- * The **Ellipse** component is used to draw an ellipse. It draws an ellipse shape by setting the width and height 
+ * The **Ellipse** component is used to draw an ellipse. It draws an ellipse shape by setting the width and height
  * attributes, rendering the ellipse outline and fill area within a given rectangular region.
- * 
- * ###### Child Components
- * 
+ *
+ * ## Child Components
+ *
  * None
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

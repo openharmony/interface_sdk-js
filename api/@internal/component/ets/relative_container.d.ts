@@ -19,39 +19,39 @@
  */
 
 /**
- * Defines a relative layout component used for element alignment in complex scenarios. By setting the alignment rules 
- * of child components, it aligns child components relative to the container or other child components. It is suitable 
+ * Defines a relative layout component used for element alignment in complex scenarios. By setting the alignment rules
+ * of child components, it aligns child components relative to the container or other child components. It is suitable
  * for complex UIs that require flexible layout and fewer nesting levels.
- * 
- * Child components can define their alignment rules within the container using 
+ *
+ * Child components can define their alignment rules within the container using
  * [alignRules]{@link CommonMethod#alignRules(value: AlignRuleOption)}.
- * 
+ *
  * > **NOTE**
  * >
- * > * This component is supported since API version 9. New APIs in later versions are marked with a superscript to 
+ * > * This component is supported since API version 9. New APIs in later versions are marked with a superscript to
  * > indicate their initial version.
  * >
- * > * In the **RelativeContainer** component, when [width]{@link CommonMethod#width(value: Length)} and 
+ * > * In the **RelativeContainer** component, when [width]{@link CommonMethod#width(value: Length)} and
  * > [height]{@link CommonMethod#height(value: Length)} are not set, the layout behavior of the corresponding attributes
  * > is the same as when they are set to 100%.
  * >
- * > * Since API version 11, in the **RelativeContainer** component, setting 
- * > [width]{@link CommonMethod#width(value: Length)} and [height]{@link CommonMethod#height(value: Length)} to "auto" 
- * > means adapting to child components. When width is set to "auto", if a child component uses the container as an 
- * > anchor in the horizontal direction, "auto" does not take effect (that is, it is treated as if width is not set). 
+ * > * Since API version 11, in the **RelativeContainer** component, setting
+ * > [width]{@link CommonMethod#width(value: Length)} and [height]{@link CommonMethod#height(value: Length)} to "auto"
+ * > means adapting to child components. When width is set to "auto", if a child component uses the container as an
+ * > anchor in the horizontal direction, "auto" does not take effect (that is, it is treated as if width is not set).
  * > The same applies to the vertical direction.
  * >
- * > * Since API version 20, in the **RelativeContainer** component, setting 
- * > [width]{@link CommonMethod#width(widthValue: Length | LayoutPolicy)} and 
- * > [height]{@link CommonMethod#height(heightValue: Length | LayoutPolicy)} to **LayoutPolicy.wrapContent** means 
- * > adapting to child components while being constrained by the ancestor node size, and setting them to 
- * > **LayoutPolicy.fixAtIdealSize** means adapting to child components without being constrained by the ancestor node 
- * > size. When **width** is set to **wrapContent** or **fixAtIdealSize**, if a child component directly or indirectly 
+ * > * Since API version 20, in the **RelativeContainer** component, setting
+ * > [width]{@link CommonMethod#width(widthValue: Length | LayoutPolicy)} and
+ * > [height]{@link CommonMethod#height(heightValue: Length | LayoutPolicy)} to **LayoutPolicy.wrapContent** means
+ * > adapting to child components while being constrained by the ancestor node size, and setting them to
+ * > **LayoutPolicy.fixAtIdealSize** means adapting to child components without being constrained by the ancestor node
+ * > size. When **width** is set to **wrapContent** or **fixAtIdealSize**, if a child component directly or indirectly
  * > uses the container as an anchor in the horizontal direction, the container size in that direction does not adapt to
  * > that component. The same applies to the vertical direction.
  * >
- * > * The [margin]{@link CommonMethod#margin} of a child component in **RelativeContainer** differs from the universal 
- * > margin attribute. It refers to the distance from the child component to the anchor in that direction. For example, 
+ * > * The [margin]{@link CommonMethod#margin} of a child component in **RelativeContainer** differs from the universal
+ * > margin attribute. It refers to the distance from the child component to the anchor in that direction. For example,
  * > when **alignRules** sets a left anchor, **margin.left** indicates the distance from the child component to the left
  * > anchor. If **alignRules** does not set an anchor in a certain boundary direction (for example, neither **left** nor
  * > **right** anchor is set), the **margin** in that direction does not take effect.
@@ -65,7 +65,7 @@
  */
 interface RelativeContainerInterface {
   /**
-   * The **RelativeContainer** component is a container component used for relative layout of elements in complex 
+   * The **RelativeContainer** component is a container component used for relative layout of elements in complex
    * scenarios.
    *
    * @returns { RelativeContainerAttribute }
@@ -90,11 +90,11 @@ interface RelativeContainerInterface {
 declare interface GuideLinePosition {
   /**
    * Distance from the guideline to the left or top edge of the container. Unit: vp.
-   * 
-   * Default value: **0**. Either this parameter or **end** is used. If both are declared, only **start** takes effect. 
-   * If the **width** of the container is declared as "auto", a guideline of the **Axis.Vertical** type can be declared 
-   * only in the **start** mode (percentage is not allowed). If the **height** of the container is declared as 
-   * **"auto"**, a guideline of the **Axis.Horizontal** type can be declared only in the **start** mode (percentage is 
+   *
+   * Default value: **0**. Either this parameter or **end** is used. If both are declared, only **start** takes effect.
+   * If the **width** of the container is declared as "auto", a guideline of the **Axis.Vertical** type can be declared
+   * only in the **start** mode (percentage is not allowed). If the **height** of the container is declared as
+   * **"auto"**, a guideline of the **Axis.Horizontal** type can be declared only in the **start** mode (percentage is
    * not allowed).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -106,9 +106,9 @@ declare interface GuideLinePosition {
   start? : Dimension;
 
   /**
-   * Distance from the guideline to the right or bottom edge of the container. Unit: vp. Either this parameter or 
+   * Distance from the guideline to the right or bottom edge of the container. Unit: vp. Either this parameter or
    * **start** is used. If both are declared, only **start** takes effect. If the **width** of the container is declared
-   * as **"auto"**, a guideline of the **Axis.Vertical** type does not support declaration in the **end** mode. If the 
+   * as **"auto"**, a guideline of the **Axis.Vertical** type does not support declaration in the **end** mode. If the
    * **height** of the container is declared as **"auto"**, a guideline of the **Axis.Horizontal** type does not support
    * declaration in the **end** mode.
    *
@@ -122,7 +122,7 @@ declare interface GuideLinePosition {
 }
 
 /**
- * Defines the style of a guideline, which used to define the ID, direction, and position of a guideline, helping child 
+ * Defines the style of a guideline, which used to define the ID, direction, and position of a guideline, helping child
  * components to be positioned and aligned in the **RelativeContainer**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -145,8 +145,8 @@ declare interface GuideLineStyle {
   id : string;
 
   /**
-   * Direction of the guideline. **Axis.Vertical** indicates a vertical guideline, which can be used only as a 
-   * horizontal anchor of a component. **Axis.Horizontal** indicates a horizontal guide line, which can be used only as 
+   * Direction of the guideline. **Axis.Vertical** indicates a vertical guideline, which can be used only as a
+   * horizontal anchor of a component. **Axis.Horizontal** indicates a horizontal guide line, which can be used only as
    * a vertical anchor of a component.
    * 
    * Default value: **Axis.Vertical**
@@ -165,10 +165,10 @@ declare interface GuideLineStyle {
    * Position of the guideline.
    * 
    * If this parameter is not declared or an invalid value (for example, **undefined**) is declared, the position of the
-   * guideline defaults to **start: 0**. You can declare either **start** or **end**. If both are declared, only 
-   * **start** takes effect. If the width of the container is declared as **"auto"**, the position of an 
-   * **Axis.Vertical** guideline can be declared only by using **start** (percentages are not allowed). If the 
-   * **height** of the container is declared as **"auto"**, the position of an **Axis.Horizontal** guideline can be 
+   * guideline defaults to **start: 0**. You can declare either **start** or **end**. If both are declared, only
+   * **start** takes effect. If the width of the container is declared as **"auto"**, the position of an
+   * **Axis.Vertical** guideline can be declared only by using **start** (percentages are not allowed). If the
+   * **height** of the container is declared as **"auto"**, the position of an **Axis.Horizontal** guideline can be
    * declared only by using **start** (percentages are not allowed).
    *
    * Default value: **{ start: 0 }**
@@ -240,7 +240,7 @@ declare enum BarrierDirection {
 
 /**
  * Enumerates the directions of barriers with mirror mode support.
- * 
+ *
  * | Name|  Value | Description                      |
  * | ------ | -- | ----------------------------- |
  * | START  | 0  |The barrier is on the start side of all its |
@@ -310,7 +310,7 @@ declare enum LocalizedBarrierDirection {
 }
 
 /**
- * Defines the style of a barrier, which is used to define the ID, direction, and dependent components of a barrier. 
+ * Defines the style of a barrier, which is used to define the ID, direction, and dependent components of a barrier.
  * Child components can reference the barrier by its ID as an anchor for alignment and positioning.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -321,7 +321,7 @@ declare enum LocalizedBarrierDirection {
  */
 declare interface BarrierStyle {
   /**
-   * ID of the barrier, used to identify the barrier. A child component can reference this barrier as an anchor by this 
+   * ID of the barrier, used to identify the barrier. A child component can reference this barrier as an anchor by this
    * ID. It must be unique and cannot duplicate the name of any component in the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -335,7 +335,7 @@ declare interface BarrierStyle {
   /**
    * Direction of the barrier.
    * 
-   * A horizontal barrier line (**TOP**\/**BOTTOM**) can serve only as a vertical directional anchor (**top** or 
+   * A horizontal barrier line (**TOP**\/**BOTTOM**) can serve only as a vertical directional anchor (**top** or
    * **bottom**) of a component. When it is used as a horizontal directional anchor, its position is treated as **0**. A
    * vertical barrier line (**LEFT**\/**RIGHT**) can serve only as a horizontal directional anchor (**left** or
    * **right**) of a component. When it is used as a vertical directional anchor, its position is treated as **0**.
@@ -353,9 +353,9 @@ declare interface BarrierStyle {
   direction : BarrierDirection;
 
   /**
-   * Components on which the barrier is generated. Put the IDs of the components that serve as the barrier reference 
-   * into the array. At least one valid component ID is required. IDs that do not exist are ignored. The barrier 
-   * position is calculated based on the component boundaries: **LEFT** takes the leftmost, **RIGHT** takes the 
+   * Components on which the barrier is generated. Put the IDs of the components that serve as the barrier reference
+   * into the array. At least one valid component ID is required. IDs that do not exist are ignored. The barrier
+   * position is calculated based on the component boundaries: **LEFT** takes the leftmost, **RIGHT** takes the
    * rightmost, **TOP** takes the topmost, and **BOTTOM** takes the bottommost.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -368,8 +368,8 @@ declare interface BarrierStyle {
 }
 
 /**
- * Defines the style of a localized barrier, which is used to define the ID, direction, and dependent components of a 
- * barrier that supports mirror mode. Child components can reference the barrier by its ID as an anchor for alignment 
+ * Defines the style of a localized barrier, which is used to define the ID, direction, and dependent components of a
+ * barrier that supports mirror mode. Child components can reference the barrier by its ID as an anchor for alignment
  * and positioning.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -380,7 +380,7 @@ declare interface BarrierStyle {
  */
 declare interface LocalizedBarrierStyle {
   /**
-   * ID of the barrier, used to identify the barrier. A child component can reference this ID to use the barrier as an 
+   * ID of the barrier, used to identify the barrier. A child component can reference this ID to use the barrier as an
    * anchor. The ID must be unique and must not duplicate the name of any component in the container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -394,14 +394,14 @@ declare interface LocalizedBarrierStyle {
   /**
    * Direction of the barrier.
    * 
-   * A horizontal barrier line (**TOP**\/**BOTTOM**) can be used only as a vertical directional anchor (**top** or 
+   * A horizontal barrier line (**TOP**\/**BOTTOM**) can be used only as a vertical directional anchor (**top** or
    * **bottom**) of a component. When it is used as a horizontal directional anchor, its position is treated as **0**. A
-   * vertical barrier line (**START**\/**END**, supporting LTR/RTL mirroring) can be used only as a horizontal 
-   * directional anchor (**start** or **end**) of a component. When it is used as a vertical directional anchor, its 
+   * vertical barrier line (**START**\/**END**, supporting LTR/RTL mirroring) can be used only as a horizontal
+   * directional anchor (**start** or **end**) of a component. When it is used as a vertical directional anchor, its
    * position is treated as **0**.
-   * 
+   *
    * Default value: **LocalizedBarrierDirection.START**
-   * 
+   *
    * Invalid value: the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -413,8 +413,8 @@ declare interface LocalizedBarrierStyle {
   localizedDirection : LocalizedBarrierDirection;
 
   /**
-   * Components on which the barrier is generated. Put the IDs of the components that serve as the barrier reference 
-   * into the array. The array must contain at least one valid component ID. IDs that do not exist are ignored. For a 
+   * Components on which the barrier is generated. Put the IDs of the components that serve as the barrier reference
+   * into the array. The array must contain at least one valid component ID. IDs that do not exist are ignored. For a
    * barrier that supports mirror mode, the barrier position is calculated based on the actual position in LTR/RTL mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -448,7 +448,7 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
    * Sets the
    * [guidelines](docroot://ui/arkts-layout-development-relative-layout.md#positioning-child-components-using-guidelines)
    * in the **RelativeContainer** component. Each element in the array represents a guideline. Typical usage
-   * aligning child components based on virtual reference lines, creating flexibly adjustable reference lines for 
+   * aligning child components based on virtual reference lines, creating flexibly adjustable reference lines for
    * positioning, and laying out multiple child components based on the same baseline.
    *
    * @param { Array<GuideLineStyle> } value - Guideline inside the **RelativeContainer**, which defines the ID,
@@ -465,9 +465,9 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
   /**
    * Sets the 
    * [barriers](docroot://ui/arkts-layout-development-relative-layout.md#setting-barriers-for-multiple-components) in 
-   * the **RelativeContainer** component. Child components can use barriers as anchors for alignment and positioning. 
-   * Each element in the array represents a barrier. Typical usage scenarios: preventing child components from 
-   * overlapping, creating virtual boundaries based on component edges, and implementing automatic spacing between 
+   * the **RelativeContainer** component. Child components can use barriers as anchors for alignment and positioning.
+   * Each element in the array represents a barrier. Typical usage scenarios: preventing child components from
+   * overlapping, creating virtual boundaries based on component edges, and implementing automatic spacing between
    * components.
    *
    * @param { Array<BarrierStyle> } value - Barrier in the **RelativeContainer** container, used to define the ID,
@@ -483,9 +483,9 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
   barrier(value: Array<BarrierStyle>): RelativeContainerAttribute;
 
   /**
-   * Sets barriers in the **RelativeContainer**. Child components can use a barrier as an anchor for alignment and 
-   * positioning, and barrier lines in mirror mode are supported. Each element in the array represents a barrier. 
-   * Typical usage: RTL language layout adaptation, mirrored UI design, and automatic adjustment of barrier positions 
+   * Sets barriers in the **RelativeContainer**. Child components can use a barrier as an anchor for alignment and
+   * positioning, and barrier lines in mirror mode are supported. Each element in the array represents a barrier.
+   * Typical usage: RTL language layout adaptation, mirrored UI design, and automatic adjustment of barrier positions
    * based on the reading direction.
    *
    * @param { Array<LocalizedBarrierStyle> } barrierStyle - Barrier in the **RelativeContainer** container, which
@@ -501,45 +501,45 @@ declare class RelativeContainerAttribute extends CommonMethod<RelativeContainerA
 }
 
 /**
- * Defines a relative layout component used for element alignment in complex scenarios. By setting the alignment rules 
- * of child components, it aligns child components relative to the container or other child components. It is suitable 
+ * Defines a relative layout component used for element alignment in complex scenarios. By setting the alignment rules
+ * of child components, it aligns child components relative to the container or other child components. It is suitable
  * for complex UIs that require flexible layout and fewer nesting levels.
- * 
- * Child components can define their alignment rules within the container using 
+ *
+ * Child components can define their alignment rules within the container using
  * [alignRules]{@link CommonMethod#alignRules(value: AlignRuleOption)}.
- * 
+ *
  * > **NOTE**
  * >
- * > * This component is supported since API version 9. New APIs in later versions are marked with a superscript to 
+ * > * This component is supported since API version 9. New APIs in later versions are marked with a superscript to
  * > indicate their initial version.
  * >
- * > * In the **RelativeContainer** component, when [width]{@link CommonMethod#width(value: Length)} and 
+ * > * In the **RelativeContainer** component, when [width]{@link CommonMethod#width(value: Length)} and
  * > [height]{@link CommonMethod#height(value: Length)} are not set, the layout behavior of the corresponding attributes
  * > is the same as when they are set to 100%.
  * >
- * > * Since API version 11, in the **RelativeContainer** component, setting 
- * > [width]{@link CommonMethod#width(value: Length)} and [height]{@link CommonMethod#height(value: Length)} to "auto" 
- * > means adapting to child components. When width is set to "auto", if a child component uses the container as an 
- * > anchor in the horizontal direction, "auto" does not take effect (that is, it is treated as if width is not set). 
+ * > * Since API version 11, in the **RelativeContainer** component, setting
+ * > [width]{@link CommonMethod#width(value: Length)} and [height]{@link CommonMethod#height(value: Length)} to "auto"
+ * > means adapting to child components. When width is set to "auto", if a child component uses the container as an
+ * > anchor in the horizontal direction, "auto" does not take effect (that is, it is treated as if width is not set).
  * > The same applies to the vertical direction.
  * >
- * > * Since API version 20, in the **RelativeContainer** component, setting 
- * > [width]{@link CommonMethod#width(widthValue: Length | LayoutPolicy)} and 
- * > [height]{@link CommonMethod#height(heightValue: Length | LayoutPolicy)} to **LayoutPolicy.wrapContent** means 
- * > adapting to child components while being constrained by the ancestor node size, and setting them to 
- * > **LayoutPolicy.fixAtIdealSize** means adapting to child components without being constrained by the ancestor node 
- * > size. When **width** is set to **wrapContent** or **fixAtIdealSize**, if a child component directly or indirectly 
+ * > * Since API version 20, in the **RelativeContainer** component, setting
+ * > [width]{@link CommonMethod#width(widthValue: Length | LayoutPolicy)} and
+ * > [height]{@link CommonMethod#height(heightValue: Length | LayoutPolicy)} to **LayoutPolicy.wrapContent** means
+ * > adapting to child components while being constrained by the ancestor node size, and setting them to
+ * > **LayoutPolicy.fixAtIdealSize** means adapting to child components without being constrained by the ancestor node
+ * > size. When **width** is set to **wrapContent** or **fixAtIdealSize**, if a child component directly or indirectly
  * > uses the container as an anchor in the horizontal direction, the container size in that direction does not adapt to
  * > that component. The same applies to the vertical direction.
  * >
- * > * The [margin]{@link CommonMethod#margin} of a child component in **RelativeContainer** differs from the universal 
- * > margin attribute. It refers to the distance from the child component to the anchor in that direction. For example, 
+ * > * The [margin]{@link CommonMethod#margin} of a child component in **RelativeContainer** differs from the universal
+ * > margin attribute. It refers to the distance from the child component to the anchor in that direction. For example,
  * > when **alignRules** sets a left anchor, **margin.left** indicates the distance from the child component to the left
  * > anchor. If **alignRules** does not set an anchor in a certain boundary direction (for example, neither **left** nor
  * > **right** anchor is set), the **margin** in that direction does not take effect.
- * 
- * ###### Child Components
- * 
+ *
+ * ## Child Components
+ *
  * Multiple child components are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

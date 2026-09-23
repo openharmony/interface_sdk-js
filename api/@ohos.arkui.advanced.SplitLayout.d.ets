@@ -19,19 +19,19 @@
  */
 
 /**
- * The **SplitLayout** component provides common page layout styles, mainly used to display combined layouts of images, 
- * titles, and content containers. It is suitable for split display scenarios that require adaptation to different 
- * screen sizes (such as detail pages, settings pages, etc.). It supports adaptation to different screen widths (three 
- * layouts: ≤ 600 vp, > 600 vp and ≤ 840 vp, > 840 vp), addressing the need to display different layout styles on 
+ * The **SplitLayout** component provides common page layout styles, mainly used to display combined layouts of images,
+ * titles, and content containers. It is suitable for split display scenarios that require adaptation to different
+ * screen sizes (such as detail pages, settings pages, etc.). It supports adaptation to different screen widths (three
+ * layouts: ≤ 600 vp, > 600 vp and ≤ 840 vp, > 840 vp), addressing the need to display different layout styles on
  * devices of different sizes, improving page adaptability and user experience.
- * 
+ *
  * > **NOTE**
  * >
  * > - This component can only be used in the stage model.
  * >
- * > - **SplitLayout** does not support setting [universal attributes]{@link CommonMethod} and 
+ * > - **SplitLayout** does not support setting [universal attributes]{@link CommonMethod} and
  * > [universal events]{@link CommonMethod}. If set, the build toolchain will generate an additional
- * > \_\_Common\_\_ node and attach the universal attributes or universal events to \_\_Common\_\_ instead of directly 
+ * > \_\_Common\_\_ node and attach the universal attributes or universal events to \_\_Common\_\_ instead of directly
  * > applying them to **SplitLayout** itself, causing the configured attributes or events to not take effect.
  *
  * The [universal events]{@link CommonMethod} are not supported.
@@ -59,7 +59,7 @@ export declare struct SplitLayout {
   @BuilderParam container: () => void;
 
   /**
-   * Main image resource displayed in the upper area of the layout. Supports common image formats such as PNG, JPG, and 
+   * Main image resource displayed in the upper area of the layout. Supports common image formats such as PNG, JPG, and
    * SVG.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -82,7 +82,7 @@ export declare struct SplitLayout {
   @Prop primaryText: ResourceStr;
 
   /**
-   * Secondary title content, with no length limit. Pass this parameter when a subtitle needs to be displayed below the 
+   * Secondary title content, with no length limit. Pass this parameter when a subtitle needs to be displayed below the
    * title. If not passed, no subtitle is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -94,7 +94,7 @@ export declare struct SplitLayout {
   @Prop secondaryText?: ResourceStr;
 
   /**
-   * Auxiliary text, with no length limit. Displayed below the subtitle area. Pass this parameter when auxiliary text 
+   * Auxiliary text, with no length limit. Displayed below the subtitle area. Pass this parameter when auxiliary text
    * needs to be displayed. If not passed, no auxiliary text is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -19,8 +19,8 @@
  */
 
 /**
- * The **RowSplit** component lays out child components horizontally and inserts a vertical divider between every two 
- * child components. It is suitable for scenarios that require horizontal multi-area layout and support dynamic 
+ * The **RowSplit** component lays out child components horizontally and inserts a vertical divider between every two
+ * child components. It is suitable for scenarios that require horizontal multi-area layout and support dynamic
  * adjustment of child component widths, such as the left and right panes of a file manager and the two-column layout of
  * a settings page. Through draggable dividers, users can flexibly adjust the width of each area.
  *
@@ -61,7 +61,7 @@ interface RowSplitInterface {
  */
 declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
   /**
-   * Sets whether the divider is draggable. When set to **true**, the user can drag the divider to change the width of 
+   * Sets whether the divider is draggable. When set to **true**, the user can drag the divider to change the width of
    * the child components; when set to **false**, the divider position is fixed.
    *
    * > **NOTE**
@@ -91,29 +91,29 @@ declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
 }
 
 /**
- * The **RowSplit** component lays out child components horizontally and inserts a vertical divider between every two 
- * child components. It is suitable for scenarios that require horizontal multi-area layout and support dynamic 
+ * The **RowSplit** component lays out child components horizontally and inserts a vertical divider between every two
+ * child components. It is suitable for scenarios that require horizontal multi-area layout and support dynamic
  * adjustment of child component widths, such as the left and right panes of a file manager and the two-column layout of
  * a settings page. Through draggable dividers, users can flexibly adjust the width of each area.
  *
- * ###### Child Components
- * 
+ * ## Child Components
+ *
  * Supported
- * 
- * The **RowSplit** component limits the width of its child components through dividers. During initialization, the 
- * divider positions are calculated based on the width of its child components. After initialization, dynamically 
- * modifying the width of a child component does not change the divider positions, which remain unchanged. You can drag 
+ *
+ * The **RowSplit** component limits the width of its child components through dividers. During initialization, the
+ * divider positions are calculated based on the width of its child components. After initialization, dynamically
+ * modifying the width of a child component does not change the divider positions, which remain unchanged. You can drag
  * a divider to change the width of the child components.
- * 
+ *
  * > **NOTE**
  * >
- * > After initialization, dynamically modifying the [margin]{@link CommonMethod#margin}, 
- * > [border]{@link CommonMethod#border}, or [padding]{@link CommonMethod#padding} universal attributes may cause the 
- * > width of a child component to be greater than the spacing between adjacent dividers. In this exceptional case, 
- * > dragging a divider to change the width of the child components is not supported. This is because the divider 
- * > positions are determined during initialization, and dynamically modifying attributes such as margin, border, and 
- * > padding breaks the original layout calculation, preventing the dividers from correctly responding to drag 
- * > operations. You are advised to set the size and margin attributes of the child components properly during 
+ * > After initialization, dynamically modifying the [margin]{@link CommonMethod#margin},
+ * > [border]{@link CommonMethod#border}, or [padding]{@link CommonMethod#padding} universal attributes may cause the
+ * > width of a child component to be greater than the spacing between adjacent dividers. In this exceptional case,
+ * > dragging a divider to change the width of the child components is not supported. This is because the divider
+ * > positions are determined during initialization, and dynamically modifying attributes such as margin, border, and
+ * > padding breaks the original layout calculation, preventing the dividers from correctly responding to drag
+ * > operations. You are advised to set the size and margin attributes of the child components properly during
  * > initialization.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

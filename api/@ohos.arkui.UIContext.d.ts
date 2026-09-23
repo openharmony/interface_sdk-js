@@ -5503,7 +5503,7 @@ export class UIContext {
 
   /**
    * Obtains the avoidance mode of the virtual keyboard.
-   * 
+   *
    * > **NOTE**
    * >
    * > Since API version 18, the **getKeyboardAvoidMode** API returns an enumeration value of **KeyboardAvoidMode**,

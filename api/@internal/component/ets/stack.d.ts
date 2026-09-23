@@ -20,12 +20,12 @@
 
 /**
  * Sets the alignment method of the child component in the stack container.
- * 
+ *
  * > **NOTE**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. The 
- * > initial version information of the historical anonymous objects has been retained, which may result in the outer 
- * > element's @since version number being later than the inner element's version number. However, this does not affect 
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. The
+ * > initial version information of the historical anonymous objects has been retained, which may result in the outer
+ * > element's @since version number being later than the inner element's version number. However, this does not affect
  * > the use of the API.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -37,13 +37,13 @@
  */
 declare interface StackOptions {
   /**
-   * Alignment of child components in the container. When this attribute and the constructor input parameter are set at 
+   * Alignment of child components in the container. When this attribute and the constructor input parameter are set at
    * the same time, the value set by this attribute takes effect.
-   * 
+   *
    * Default value: **Alignment.Center**
-   * 
+   *
    * Invalid value: The default value is used.
-   * 
+   *
    * **Note:** When this parameter and [align]{@link CommonMethod#align(value: Alignment)} are set at the same time, the
    * attribute value set later overrides the one set earlier.
    *
@@ -57,16 +57,16 @@ declare interface StackOptions {
 }
 
 /**
- * Defines a stack container where child components are successively stacked and the latter one overwrites the previous 
- * one. The stacking order is based on the declaration order of child components in the parent container. A child 
- * component declared later has a higher rendering level and visually covers the preceding child components. It is 
- * suitable for scenarios that require layered layout, such as floating buttons or prompt messages on a page, text 
- * labels overlaid on images or videos, and multi-layer pop-up windows or dialog boxes. Compared with nesting multiple 
+ * Defines a stack container where child components are successively stacked and the latter one overwrites the previous
+ * one. The stacking order is based on the declaration order of child components in the parent container. A child
+ * component declared later has a higher rendering level and visually covers the preceding child components. It is
+ * suitable for scenarios that require layered layout, such as floating buttons or prompt messages on a page, text
+ * labels overlaid on images or videos, and multi-layer pop-up windows or dialog boxes. Compared with nesting multiple
  * containers to achieve the layered effect, **Stack** provides a simpler and more efficient solution.
- * 
+ *
  * > **NOTE**
  * >
- * > - The general attribute [align]{@link CommonMethod#align(value: Alignment)} supports the mirroring capability on 
+ * > - The general attribute [align]{@link CommonMethod#align(value: Alignment)} supports the mirroring capability on
  * > this component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -78,19 +78,19 @@ declare interface StackOptions {
  */
 interface StackInterface {
   /**
-   * Defines a stack container where child components are successively stacked and the latter one overwrites the 
-   * previous one. The stacking order is based on the declaration order of child components in the parent container. A 
+   * Defines a stack container where child components are successively stacked and the latter one overwrites the
+   * previous one. The stacking order is based on the declaration order of child components in the parent container. A
    * child component declared later has a higher rendering level and visually covers the preceding child components.
-   * 
+   *
    * > **NOTE**
    * >
    * > Excessive component nesting can lead to performance degradation. In scenarios where the same layout effect can be
-   * > achieved through component attributes or system APIs, using these alternatives can reduce the nesting depth and 
-   * > thereby optimize performance. For best practices, see 
+   * > achieved through component attributes or system APIs, using these alternatives can reduce the nesting depth and
+   * > thereby optimize performance. For best practices, see
    * > [Optimizing Component Nesting - Preferentially Using Component Properties Instead of Nested Components](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-component-nesting-optimization#section78181114123811).
    * >
-   * > When both the **alignContent** parameter of this API and [align]{@link CommonMethod#align(value: Alignment)} are 
-   * > set, whichever is set last takes effect. When both the **alignContent** parameter of this API and the 
+   * > When both the **alignContent** parameter of this API and [align]{@link CommonMethod#align(value: Alignment)} are
+   * > set, whichever is set last takes effect. When both the **alignContent** parameter of this API and the
    * > **alignContent** attribute are set, the value set by the attribute takes effect.
    *
    * @param { object } value [since 7 - 17]
@@ -110,7 +110,7 @@ interface StackInterface {
 
 /**
  * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
- * 
+ *
  * The [universal events]{@link CommonMethod} are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -122,9 +122,9 @@ interface StackInterface {
  */
 declare class StackAttribute extends CommonMethod<StackAttribute> {
   /**
-   * Sets the alignment of child components in the container. When both this attribute and 
-   * [align]{@link CommonMethod#align(value: Alignment)} are set, whichever is set last takes effect. When both this 
-   * attribute and the constructor input parameter are set, the value set by the attribute takes effect, regardless of 
+   * Sets the alignment of child components in the container. When both this attribute and
+   * [align]{@link CommonMethod#align(value: Alignment)} are set, whichever is set last takes effect. When both this
+   * attribute and the constructor input parameter are set, the value set by the attribute takes effect, regardless of
    * the setting order.
    *
    * @param { Alignment } value - Alignment of all child components in the container.
@@ -160,9 +160,9 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
   pointLight(value: PointLightStyle): StackAttribute;
 
   /**
-   * Sets whether to synchronously load all child components in the stack container. During synchronous loading, all 
-   * child components complete layout calculation and rendering within the current frame. During asynchronous loading, 
-   * the system dynamically adjusts the layout timing of child components based on the layout duration of the current 
+   * Sets whether to synchronously load all child components in the stack container. During synchronous loading, all
+   * child components complete layout calculation and rendering within the current frame. During asynchronous loading,
+   * the system dynamically adjusts the layout timing of child components based on the layout duration of the current
    * frame to avoid blocking the main thread.
    *
     * > **NOTE**
@@ -185,20 +185,20 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
 }
 
 /**
- * Defines a stack container where child components are successively stacked and the latter one overwrites the previous 
- * one. The stacking order is based on the declaration order of child components in the parent container. A child 
- * component declared later has a higher rendering level and visually covers the preceding child components. It is 
- * suitable for scenarios that require layered layout, such as floating buttons or prompt messages on a page, text 
- * labels overlaid on images or videos, and multi-layer pop-up windows or dialog boxes. Compared with nesting multiple 
+ * Defines a stack container where child components are successively stacked and the latter one overwrites the previous
+ * one. The stacking order is based on the declaration order of child components in the parent container. A child
+ * component declared later has a higher rendering level and visually covers the preceding child components. It is
+ * suitable for scenarios that require layered layout, such as floating buttons or prompt messages on a page, text
+ * labels overlaid on images or videos, and multi-layer pop-up windows or dialog boxes. Compared with nesting multiple
  * containers to achieve the layered effect, **Stack** provides a simpler and more efficient solution.
- * 
+ *
  * > **NOTE**
  * >
- * > - The general attribute [align]{@link CommonMethod#align(value: Alignment)} supports the mirroring capability on 
+ * > - The general attribute [align]{@link CommonMethod#align(value: Alignment)} supports the mirroring capability on
  * > this component.
- * 
- * ###### Child Components
- * 
+ *
+ * ## Child Components
+ *
  * Supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

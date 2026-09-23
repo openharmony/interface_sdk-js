@@ -57,7 +57,7 @@ declare namespace mediaquery {
    */
   interface MediaQueryResult {
     /**
-     * Whether the media query condition is met. The value **true** means that the query conditions are met, and 
+     * Whether the media query condition is met. The value **true** means that the query conditions are met, and
      * **false** means the opposite.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -131,8 +131,8 @@ declare namespace mediaquery {
    * 
    * > **NOTE**
    * >
-   * > - Since API version 10, you can use the [getMediaQuery]{@link UIContext#getMediaQuery} API 
-   * > in [UIContext]{@link @ohos.arkui.UIContext} to obtain the [MediaQuery]{@link @ohos.arkui.UIContext} object 
+   * > - Since API version 10, you can use the [getMediaQuery]{@link UIContext#getMediaQuery} API
+   * > in [UIContext]{@link @ohos.arkui.UIContext} to obtain the [MediaQuery]{@link @ohos.arkui.UIContext} object
    * > associated with the current UI context.
    *
    * @param { string } condition - Media query condition. For details, see

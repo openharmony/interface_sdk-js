@@ -19,18 +19,18 @@
  */
 
 /**
- * The **ProgressButton** component is a text-based download button with a progress indicator that shows the download 
+ * The **ProgressButton** component is a text-based download button with a progress indicator that shows the download
  * progress.
- * 
+ *
  * > **NOTE**
  * >
  * > - This component can be used only in the stage model.
  * >
- * > - If the **ProgressButton** component has [universal attributes]{@link CommonMethod} and 
- * > [universal events]{@link CommonMethod} configured, the compiler toolchain automatically 
- * > generates an additional \_\_Common\_\_ node and mounts the universal attributes and universal events on this node 
+ * > - If the **ProgressButton** component has [universal attributes]{@link CommonMethod} and
+ * > [universal events]{@link CommonMethod} configured, the compiler toolchain automatically
+ * > generates an additional \_\_Common\_\_ node and mounts the universal attributes and universal events on this node
  * > rather than the **ProgressButton** component itself. As a result, the configured universal attributes and universal
- * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events 
+ * > events may fail to take effect or behave as intended. For this reason, avoid using universal attributes and events
  * > with the **ProgressButton** component.
  *
  * The [universal events]{@link CommonMethod} are not supported.
@@ -45,10 +45,10 @@
 export declare struct ProgressButton {
   /**
    * Current download progress.
-   * 
+   *
    * The value ranges from 0 to 100. Values less than 0 are adjusted to **0**, and values greater than 100 are capped at
    * **100**.
-   * 
+   *
    * Default value: **0**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -61,10 +61,10 @@ export declare struct ProgressButton {
 
   /**
    * Button text.
-   * 
+   *
    * The default value is an empty string.
-   * 
-   * Note: The text is truncated with an ellipsis (...) if it exceeds the maximum display width of the component. The 
+   *
+   * Note: The text is truncated with an ellipsis (...) if it exceeds the maximum display width of the component. The
    * Resource type is supported since API version 20.
    *
    * @type { string }. [since 10 - 19]
@@ -79,12 +79,12 @@ export declare struct ProgressButton {
 
   /**
    * Button width, in vp.
-   * 
+   *
    * The value must be greater than or equal to 44 vp.
-   * 
-   * The default value is **44vp**. If the provided value is not of the Resource type and is either less than the 
-   * default value or invalid, the system will automatically use the default value. If the provided value is of the 
-   * Resource type but is less than the default value, the system will automatically use the default value. If the 
+   *
+   * The default value is **44vp**. If the provided value is not of the Resource type and is either less than the
+   * default value or invalid, the system will automatically use the default value. If the provided value is of the
+   * Resource type but is less than the default value, the system will automatically use the default value. If the
    * provided value is invalid, the button width will be 100% of the container width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -108,9 +108,9 @@ export declare struct ProgressButton {
 
   /**
    * Whether the button can be clicked.
-   * 
+   *
    * **true**: The button can be clicked.
-   * 
+   *
    * **false**: The button cannot be clicked.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -122,7 +122,7 @@ export declare struct ProgressButton {
   @Prop enable: boolean;
 
   /**
-   * Color options of the button. This parameter is used to customize the color of each part of the button (progress 
+   * Color options of the button. This parameter is used to customize the color of each part of the button (progress
    * indicator, stroke, text, and background). This parameter is passed in when a custom color is required. If it is not
    * passed, the default color scheme is used.
    *
@@ -136,13 +136,13 @@ export declare struct ProgressButton {
   
   /**
    * Corner radius of the button. It cannot be set in percentage.
-   * 
+   *
    * Value range: [0, height/2]
-   * 
+   *
    * Default value: height/2
-   * 
-   * If the value is less than 0, the value **0** is used. If the value is invalid, the default value is used. If the 
-   * input parameter is **undefined**, the default value is used. When using LengthMetrics.vp, you are advised to 
+   *
+   * If the value is less than 0, the value **0** is used. If the value is invalid, the default value is used. If the
+   * input parameter is **undefined**, the default value is used. When using LengthMetrics.vp, you are advised to
    * provide a specific numeric value. Passing **null** or **undefined** will result in an exception.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -167,7 +167,7 @@ export declare interface ProgressButtonColorOptions {
 
   /**
    * Color of the progress indicator.
-   * 
+   *
    * Default value: **#330A59F7**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -180,7 +180,7 @@ export declare interface ProgressButtonColorOptions {
 
   /**
    * Border color of the button.
-   * 
+   *
    * Default value: **#330A59F7**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -193,7 +193,7 @@ export declare interface ProgressButtonColorOptions {
 
   /**
    * Text color of the button.
-   * 
+   *
    * Default value: system default value **#CE000000**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -206,7 +206,7 @@ export declare interface ProgressButtonColorOptions {
 
   /**
    * Background color of the button.
-   * 
+   *
    * Default value: **$r('sys.color.ohos_id_color_foreground_contrary')**
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -20,10 +20,10 @@
 
 /**
  * Describes the drawing attributes of the **Rect** component.
- * 
+ *
  * > **NOTE**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
  * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
  * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
@@ -37,11 +37,11 @@
 declare interface RectOptions {
   /**
    * Width, with the value range greater than or equal to 0.
-   * 
+   *
    * Default value: **0**
-   * 
+   *
    * Default unit: vp.
-   * 
+   *
    * Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled as the default value.
    *
    * @type { ?(number | string) } [since 7 - 19]
@@ -57,11 +57,11 @@ declare interface RectOptions {
 
   /**
    * Height, with the value range greater than or equal to 0.
-   * 
+   *
    * Default value: **0**
-   * 
+   *
    * Default unit: vp.
-   * 
+   *
    * Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled as the default value.
    *
    * @type { ?(number | string) } [since 7 - 19]
@@ -76,16 +76,16 @@ declare interface RectOptions {
   height?: Length;
 
   /**
-   * Rounded corner radius. The radius of each of the four corners can be set separately, with the value range greater 
+   * Rounded corner radius. The radius of each of the four corners can be set separately, with the value range greater
    * than or equal to 0.
-   * 
-   * This attribute has an effect similar to that of **radiusWidth**\/**radiusHeight**. When used together, it takes 
+   *
+   * This attribute has an effect similar to that of **radiusWidth**\/**radiusHeight**. When used together, it takes
    * precedence over **radiusWidth**\/**radiusHeight**.
-   * 
+   *
    * Default value: **0**
-   * 
+   *
    * Default unit: vp.
-   * 
+   *
    * Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled as the default value.
    *
    * @type { ?(number | string | Array<any>) } [since 7 - 19]
@@ -105,7 +105,7 @@ declare interface RectOptions {
  * 
  * > **NOTE**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
  * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
  * > 's @since version number is higher than inner element's. This does not affect interface usability.
  *
@@ -119,11 +119,11 @@ declare interface RectOptions {
 declare interface RoundedRectOptions {
   /**
    * Width, value range: ≥ 0.
-   * 
+   *
    * Default value: **0**
-   * 
+   *
    * Default unit: vp.
-   * 
+   *
    * Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled as the default value.
    *
    * @type { ?(number | string) } [since 7 - 19]
@@ -139,11 +139,11 @@ declare interface RoundedRectOptions {
 
   /**
    * Height, value range: ≥ 0.
-   * 
+   *
    * Default value: **0**
-   * 
+   *
    * Default unit: vp.
-   * 
+   *
    * Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled as the default value.
    *
    * @type { ?(number | string) } [since 7 - 19]
@@ -159,11 +159,11 @@ declare interface RoundedRectOptions {
 
   /**
    * Width of the rounded corner, value range: ≥ 0.
-   * 
+   *
    * Default value: **0**
-   * 
+   *
    * Default unit: vp.
-   * 
+   *
    * Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled as the default value.
    *
    * @type { ?(number | string) } [since 7 - 19]
@@ -179,11 +179,11 @@ declare interface RoundedRectOptions {
 
   /**
    * Height of the rounded corner, value range: ≥ 0.
-   * 
+   *
    * Default value: **0**
-   * 
+   *
    * Default unit: vp.
-   * 
+   *
    * Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled as the default value.
    *
    * @type { ?(number | string) } [since 7 - 19]
@@ -199,13 +199,13 @@ declare interface RoundedRectOptions {
 }
 
 /**
- * The **Rect** component is used to draw a rectangle. It supports setting attributes such as fill color, stroke style, 
+ * The **Rect** component is used to draw a rectangle. It supports setting attributes such as fill color, stroke style,
  * and rounded corners.
- * 
+ *
  * > **NOTE**
  * >
- * > Since API version 20, this component supports using the 
- * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the 
+ * > Since API version 20, this component supports using the
+ * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the
  * > [AttributeUpdater]{@link ../../../arkui/AttributeUpdater} class to update constructor parameters.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -240,7 +240,7 @@ interface RectInterface {
   ): RectAttribute;
 
   /**
-   * Draws a rectangle. After being called, it creates a **Rect** object, for which attributes such as width, height, 
+   * Draws a rectangle. After being called, it creates a **Rect** object, for which attributes such as width, height,
    * and rounded corners can be set.
    *
    * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
@@ -265,7 +265,7 @@ interface RectInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link CommonMethod} and [universal drawing attributes]{@link CommonMethod}, the 
+ * In addition to the [universal attributes]{@link CommonMethod} and [universal drawing attributes]{@link CommonMethod}, the
  * following attributes are supported:
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -278,10 +278,10 @@ interface RectInterface {
  */
 declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   /**
-   * Sets the width of the rounded corner. When only **radiusWidth** is set, the width and height of the rounded corner 
-   * are the same. This attribute has an effect similar to that of [radius]{@link RectAttribute#radius}. When used 
-   * together with **radius**, **radius** takes precedence over this attribute. This attribute supports dynamic setting 
-   * of the attribute method through [attributeModifier]{@link CommonMethod#attributeModifier}. The abnormal values 
+   * Sets the width of the rounded corner. When only **radiusWidth** is set, the width and height of the rounded corner
+   * are the same. This attribute has an effect similar to that of [radius]{@link RectAttribute#radius}. When used
+   * together with **radius**, **radius** takes precedence over this attribute. This attribute supports dynamic setting
+   * of the attribute method through [attributeModifier]{@link CommonMethod#attributeModifier}. The abnormal values
    * **undefined**, **null**, **NaN**, and **Infinity** are handled based on the default value.
    *
    * @param { number | string } value - Width of the rounded corner. Value range: ≥ 0.
@@ -305,10 +305,10 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   radiusWidth(value: Length): RectAttribute;
 
   /**
-   * Sets the height of the rounded corner. When only **radiusHeight** is set, the height and width of the rounded 
-   * corner are the same. This attribute has an effect similar to that of [radius]{@link RectAttribute#radius}. When 
-   * used together with **radius**, **radius** takes precedence over this attribute. This attribute supports dynamic 
-   * setting of the attribute method through [attributeModifier]{@link CommonMethod#attributeModifier}. The abnormal 
+   * Sets the height of the rounded corner. When only **radiusHeight** is set, the height and width of the rounded
+   * corner are the same. This attribute has an effect similar to that of [radius]{@link RectAttribute#radius}. When
+   * used together with **radius**, **radius** takes precedence over this attribute. This attribute supports dynamic
+   * setting of the attribute method through [attributeModifier]{@link CommonMethod#attributeModifier}. The abnormal
    * values **undefined**, **null**, **NaN**, and **Infinity** are handled based on the default value.
    *
    * @param { number | string } value - Height of the rounded corner. Value range: ≥ 0.
@@ -332,21 +332,21 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
   radiusHeight(value: Length): RectAttribute;
 
   /**
-   * Sets the radius of the rounded corner. The value range is greater than or equal to 0. This attribute supports 
-   * dynamic setting of the attribute method through [attributeModifier]{@link CommonMethod#attributeModifier}. This 
-   * attribute has an effect similar to that of [radiusWidth]{@link RectAttribute#radiusWidth} and 
-   * [radiusHeight]{@link RectAttribute#radiusHeight}. When used together, it takes precedence over **radiusWidth** and 
-   * **radiusHeight**. The abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled based on the 
+   * Sets the radius of the rounded corner. The value range is greater than or equal to 0. This attribute supports
+   * dynamic setting of the attribute method through [attributeModifier]{@link CommonMethod#attributeModifier}. This
+   * attribute has an effect similar to that of [radiusWidth]{@link RectAttribute#radiusWidth} and
+   * [radiusHeight]{@link RectAttribute#radiusHeight}. When used together, it takes precedence over **radiusWidth** and
+   * **radiusHeight**. The abnormal values **undefined**, **null**, **NaN**, and **Infinity** are handled based on the
    * default value.
    *
    * @param { number | string | Array<any> } value - Rounded corner radius.
    *     <br>Default value: **0**
-   *     <br>Default unit: vp 
+   *     <br>Default unit: vp
    *     <br>Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are processed as
    *     [[0, 0], [0, 0], [0, 0], [0, 0]]. [since 7 - 19]
    * @param { Length | Array<any> } value - Rounded corner radius.
    *     <br>Default value: **0**
-   *     <br>Default unit: vp 
+   *     <br>Default unit: vp
    *     <br>Abnormal values **undefined**, **null**, **NaN**, and **Infinity** are processed as
    *     [[0, 0], [0, 0], [0, 0], [0, 0]]. [since 20]
    * @returns { RectAttribute }
@@ -361,17 +361,17 @@ declare class RectAttribute extends CommonShapeMethod<RectAttribute> {
 }
 
 /**
- * The **Rect** component is used to draw a rectangle. It supports setting attributes such as fill color, stroke style, 
+ * The **Rect** component is used to draw a rectangle. It supports setting attributes such as fill color, stroke style,
  * and rounded corners.
- * 
+ *
  * > **NOTE**
  * >
- * > Since API version 20, this component supports using the 
- * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the 
+ * > Since API version 20, this component supports using the
+ * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the
  * > [AttributeUpdater]{@link ../../../arkui/AttributeUpdater} class to update constructor parameters.
- * 
- * ###### Child Components
- * 
+ *
+ * ## Child Components
+ *
  * None
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

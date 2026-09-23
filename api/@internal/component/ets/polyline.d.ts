@@ -20,10 +20,10 @@
 
 /**
  * Describes the options of the polyline.
- * 
+ *
  * > **NOTE**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
  * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
  * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
@@ -37,11 +37,11 @@
 declare interface PolylineOptions {
   /**
    * Width, in the range [0, +∞).
-   * 
+   *
    * Default value: **0**
-   * 
+   *
    * Default unit: vp
-   * 
+   *
    * If the given value is less than 0, the default value is used. The abnormal values **undefined**, **null**, **NaN**,
    * and **Infinity** are processed as the default value.
    *
@@ -58,11 +58,11 @@ declare interface PolylineOptions {
 
   /**
    * Height, in the range [0, +∞).
-   * 
+   *
    * Default value: **0**
-   * 
+   *
    * Default unit: vp
-   * 
+   *
    * If the given value is less than 0, the default value is used. The abnormal values **undefined**, **null**, **NaN**,
    * and **Infinity** are processed as the default value.
    *
@@ -80,14 +80,14 @@ declare interface PolylineOptions {
 
 /**
  * The **Polyline** component is used to draw a polyline.
- * 
+ *
  * > **NOTE**
  * >
- * > This component is supported since API version 7. Updates to new APIs in later versions are marked with a 
+ * > This component is supported since API version 7. Updates to new APIs in later versions are marked with a
  * > superscript to indicate their earliest API version.
  * >
- * > This component supports updating constructor parameters through the 
- * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the 
+ * > This component supports updating constructor parameters through the
+ * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the
  * > [AttributeUpdater]{@link ../../../arkui/AttributeUpdater} class since API version 20.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -138,7 +138,7 @@ interface PolylineInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link CommonMethod} and [universal drawing attributes]{@link CommonMethod}, the 
+ * In addition to the [universal attributes]{@link CommonMethod} and [universal drawing attributes]{@link CommonMethod}, the
  * following attributes are supported:
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -151,13 +151,13 @@ interface PolylineInterface {
  */
 declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
   /**
-   * Sets the list of coordinate points that the polyline passes through. This attribute supports 
+   * Sets the list of coordinate points that the polyline passes through. This attribute supports
    * [attributeModifier]{@link CommonMethod#attributeModifier} for dynamic setting of the attribute.
    *
    * @param { Array<any> } value - List of coordinate points that the polyline passes through. Pass in a two-dimensional
    *     array, where each sub-array represents the [x, y] coordinates of a vertex.
    *     <br>Default value: [] (empty array)
-   *     <br>Default unit: vp 
+   *     <br>Default unit: vp
    *     <br>Abnormal values undefined and null are processed as the default value.
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -172,18 +172,18 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
 
 /**
  * The **Polyline** component is used to draw a polyline.
- * 
+ *
  * > **NOTE**
  * >
- * > This component is supported since API version 7. Updates to new APIs in later versions are marked with a 
+ * > This component is supported since API version 7. Updates to new APIs in later versions are marked with a
  * > superscript to indicate their earliest API version.
  * >
- * > This component supports updating constructor parameters through the 
- * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the 
+ * > This component supports updating constructor parameters through the
+ * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the
  * > [AttributeUpdater]{@link ../../../arkui/AttributeUpdater} class since API version 20.
- * 
- * ###### Child Components
- * 
+ *
+ * ## Child Components
+ *
  * None
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

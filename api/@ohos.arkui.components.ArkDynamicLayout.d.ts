@@ -20,12 +20,12 @@
 import { LayoutAlgorithm } from './arkui/LayoutAlgorithm';
 
 /**
- * A dynamic layout container component that supports dynamically switching between different layout algorithms at 
- * runtime without altering the state of child components. Using **DynamicLayout** improves layout flexibility and 
- * simplifies the development process for UI adaptation and multi-view switching. It is suitable for scenarios such as 
- * responsive layouts (adapting to different screen sizes), multi-view mode switching (e.g., switching between list, 
+ * A dynamic layout container component that supports dynamically switching between different layout algorithms at
+ * runtime without altering the state of child components. Using **DynamicLayout** improves layout flexibility and
+ * simplifies the development process for UI adaptation and multi-view switching. It is suitable for scenarios such as
+ * responsive layouts (adapting to different screen sizes), multi-view mode switching (e.g., switching between list,
  * grid, and waterfall layouts), and user-defined layouts.
- * 
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -96,14 +96,14 @@ export interface DynamicLayoutInterface {
 export declare class DynamicLayoutAttribute extends CommonMethod<DynamicLayoutAttribute> {}
 
 /**
- * A dynamic layout container component that supports dynamically switching between different layout algorithms at 
- * runtime without altering the state of child components. Using **DynamicLayout** improves layout flexibility and 
- * simplifies the development process for UI adaptation and multi-view switching. It is suitable for scenarios such as 
- * responsive layouts (adapting to different screen sizes), multi-view mode switching (e.g., switching between list, 
+ * A dynamic layout container component that supports dynamically switching between different layout algorithms at
+ * runtime without altering the state of child components. Using **DynamicLayout** improves layout flexibility and
+ * simplifies the development process for UI adaptation and multi-view switching. It is suitable for scenarios such as
+ * responsive layouts (adapting to different screen sizes), multi-view mode switching (e.g., switching between list,
  * grid, and waterfall layouts), and user-defined layouts.
- * 
- * ###### Child Components
- * 
+ *
+ * ## Child Components
+ *
  * Child components are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
