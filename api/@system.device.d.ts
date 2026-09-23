@@ -26,13 +26,13 @@
  * >    \- For lite wearables, this module is constantly maintained and available.
  * >
  * >    \- For other device types, this module is no longer maintained since API version 6, 
- * >       and you are advised to use [@ohos.deviceInfo](js-apis-device-info.md) (supported since API version 6)
+ * >       and you are advised to use [@ohos.deviceInfo]{@link @ohos.deviceInfo:deviceInfo} (supported since API version 6)
  * >       to query device information.
  * >
  * > - The initial APIs of this module are supported since API version 3.
  * >   Newly added APIs will be marked with a superscript to indicate their earliest API version.
  *
- * @file
+ * @file Device Information
  * @kit BasicServicesKit
  */
 
