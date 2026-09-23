@@ -120,7 +120,7 @@ declare namespace backgroundProcessManager {
      * @param { ProcessPriority } priority - Suppression priority.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *     2. Incorrect parameter types; 3. Parameter verification failed.
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
      * @since 17 dynamic
      * @since 23 static
@@ -158,7 +158,7 @@ declare namespace backgroundProcessManager {
      * @param { PowerSaveMode } powerSaveMode - Power saving mode.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   *     required to call the API.
+     *     required to call the API.
      * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
      *     <br>  1. Mandatory parameters are left unspecified;
      *     <br>  2. Incorrect parameter types; 3. PowerSaveMode status is out of range.
@@ -179,7 +179,7 @@ declare namespace backgroundProcessManager {
      * @returns { Promise<boolean> } Promise used to return the query result. The value **true** means that the process
      *     is in power saving mode; the value **false** means the opposite.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   *     required to call the API.
+     *     required to call the API.
      * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
      *     <br> 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -196,7 +196,7 @@ declare namespace backgroundProcessManager {
      * @param { int } pid - Process ID.<br>Value range: any integer greater than 0.
      * @returns { Promise<PowerSaveMode> } Promise that returns the power saving mode of a process.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   *     required to call the API.
+     *     required to call the API.
      * @throws { BusinessError } 31800002 - Parameter error. Possible causes:
      *     1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
@@ -212,7 +212,7 @@ declare namespace backgroundProcessManager {
      * @param { ClearType } clearType - the type of clearing background apps.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-   *     required to call the API.
+     *     required to call the API.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 31800002 - Parameter error.
      * @syscap SystemCapability.Resourceschedule.BackgroundProcessManager
