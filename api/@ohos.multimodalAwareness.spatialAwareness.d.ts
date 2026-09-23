@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Spatial awareness
  * @kit MultimodalAwarenessKit
  */
 import type { Callback } from './@ohos.base';
@@ -317,7 +317,7 @@ declare namespace spatialAwareness {
    * @permission ohos.permission.ACCESS_SENSING_WITH_ULTRASOUND
    * @param { DistanceMeasurementConfigParams } configParams - Configuration parameters of the distance measurement.
    * @param { Callback<DistanceMeasurementResponse> } callback - Callback of the ranging result
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to
    *     <br> limited device capabilities.
@@ -338,7 +338,7 @@ declare namespace spatialAwareness {
    * @permission ohos.permission.ACCESS_SENSING_WITH_ULTRASOUND
    * @param { DistanceMeasurementConfigParams } configParams - Configuration parameters of the distance measurement.
    * @param { Callback<DistanceMeasurementResponse> } [callback] - Callback of the ranging result
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to
    *     <br> limited device capabilities.
@@ -360,7 +360,7 @@ declare namespace spatialAwareness {
    * @param { DistanceMeasurementConfigParams } configParams - Configuration parameters for identification inside and
    *     <br> outside the door.
    * @param { Callback<DoorPositionResponse> } callback - Callback for identification inside and outside the door.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to
    *     <br> limited device capabilities.
@@ -382,7 +382,7 @@ declare namespace spatialAwareness {
    * @param { DistanceMeasurementConfigParams } configParams - Configuration parameters for identification inside and
    *     <br> outside the door
    * @param { Callback<DoorPositionResponse> } [callback] - Callback for identification inside and outside the door
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 801 - Capability not supported. Function can not work correctly due to
    *     <br> limited device capabilities.

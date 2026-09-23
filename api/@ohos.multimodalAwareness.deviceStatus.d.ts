@@ -14,14 +14,15 @@
  */
 
 /**
- * @file
+ * @file Device status awareness
  * @kit MultimodalAwarenessKit
  */
 
 import type { Callback } from "./@ohos.base";
 
 /**
- * The **deviceStatus** module provides the device status awareness functionality.
+ * This module provides the capability of sensing the device status. It senses the physical status of the device in
+ * real time through sensors, helping you adjust application behavior based on the physical status of the device.
  *
  * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
  * @since 18 dynamic
@@ -32,8 +33,10 @@ declare namespace deviceStatus {
   /**
    * Defines the steady standing state (that is, stand mode).
    * 
-   * A device enters stand mode when it is stationary, and its screen is at an angle between 45 and 135 degrees relative
-   * to the horizontal plane. For foldable smartphones, the device must be in a folded state or fully unfolded state.
+   * The device enters the stand mode when it is stationary and the angle between the screen and the horizontal plane
+   * is between 45 and 135 degrees. A foldable phone must be in the folded state or the fully unfolded state. The
+   * system detects the motion state and angle changes of the device through sensors to determine whether the device
+   * meets the stand mode conditions.
    *
    * @syscap SystemCapability.MultimodalAwareness.DeviceStatus
    * @since 18 dynamic
@@ -97,7 +100,8 @@ declare namespace deviceStatus {
   }
 
   /**
-   * Subscribes to steady standing state events.
+   * Subscribes to the device steady standing state (stand mode) event. It is recommended to call off() to unsubscribe
+   * when it is no longer needed to release resources.
    *
    * @param { 'steadyStandingDetect' } type - Event type. This field has a fixed value of **steadyStandingDetect**.
    * @param { Callback<SteadyStandingStatus> } callback - Callback used to return the steady standing state of the

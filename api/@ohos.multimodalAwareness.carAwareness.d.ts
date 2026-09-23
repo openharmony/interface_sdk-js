@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Car awareness
  * @kit MultimodalAwarenessKit
  */
 import { Callback } from './@ohos.base';
