@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Calendar Manager
  * @kit CalendarKit
  */
 
