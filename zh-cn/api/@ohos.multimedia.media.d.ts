@@ -740,9 +740,13 @@ declare namespace media {
   /**
    * 从服务器获取用户可更改的系统隐私保护和应用隐私保护配置。使用Promise异步回调。
    *
+   * >**注意：**
+   * >
+   * > 此接口仅提供给创建弹窗的系统应用调用。
+   * 
    * @param { int } sessionId AVScreenCapture服务会话Id，由AVScreenCapture拉起隐私弹窗时传给应用。
    * @returns { Promise<string> } Promise对象，返回系统隐私保护和应用隐私保护状态，失败时返回空字符串。
-   * @throws { BusinessError } 202  Called from Non-System applications. Return by promise.
+   * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
    * @throws { BusinessError } 5400109 - Sessions not exist. Return by promise.
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
@@ -10840,7 +10844,8 @@ declare namespace media {
    */
   interface AVScreenCaptureStrategy {
     /**
-     * Defines whether to enable device-level content recording
+     * 用于指定折叠屏PC在折叠状态下录制半块屏幕还是整块屏幕。
+     * true表示折叠屏PC在折叠状态下录制整块屏幕，false表示折叠屏PC在折叠状态下录制半块屏幕。
      *
      * @default false
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
@@ -11792,7 +11797,7 @@ declare namespace media {
   }
 
   /**
-   * Enumerates the states available for the system screen recorder.
+   * 系统录屏应用录屏状态的枚举值。
    *
    * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
    * @systemapi
@@ -11801,7 +11806,7 @@ declare namespace media {
    */
   enum ScreenCaptureEvent {
     /**
-     * The system screen recorder starts screen capture.
+     * 表示系统录屏应用开始录屏。
      *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
@@ -11810,7 +11815,7 @@ declare namespace media {
      */
     SCREENCAPTURE_STARTED = 0,
     /**
-     * The system screen recorder stops screen capture.
+     * 表示系统录屏应用停止录屏。
      *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
@@ -11819,7 +11824,7 @@ declare namespace media {
      */
     SCREENCAPTURE_STOPPED = 1,
     /**
-     * The system screen recorder died.
+     * 表示系统录屏服务死亡。
      *
      * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
      * @systemapi
