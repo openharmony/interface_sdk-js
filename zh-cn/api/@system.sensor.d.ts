@@ -31,7 +31,7 @@
  * 
  * > - 建议在页面销毁时（即onDestroy回调中），取消数据订阅，避免不必要的性能开销。
  *
- * @file
+ * @file 传感器模块
  * @kit SensorServiceKit
  */
 

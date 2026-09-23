@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 振动控制模块
  * @kit SensorServiceKit
  */
 
@@ -152,6 +152,8 @@ declare namespace vibrator {
    * 适用于为用户交互提供触觉反馈、为通知/闹钟等事件提供振动提醒，或在游戏、多媒体等场景中提供沉浸式振动体验。调用成功后，设备马达将按指定效果和属性开始振动；若同一马达已有正在进行的振动，新请求将按系统优先级规则处理。同功能还提供
    * Promise版本vibrator.startVibration (#vibratorstartvibration9-1)，开发者可根据回调风格偏好选择。
    *
+   * **原子化服务API**：从API version 11开始，该接口支持在原子化服务中使用。
+   *
    * @permission ohos.permission.VIBRATE
    * @param { VibrateEffect } effect - 马达振动效果，支持四种：<br>1、[VibratePreset]{@link vibrator.VibratePreset}：按照预置振动效果触发马达振动，适用于交互反馈
    *     类的短振场景（如点击长按，滑动，拖拽等），为确保与系统整体振感反馈体验风格一致，推荐使用此接口；<br>2、[VibrateFromFile]{@link vibrator.VibrateFromFile}：按照文件形式定制自定义振
@@ -163,11 +165,13 @@ declare namespace vibrator {
    *     根据实际业务场景选择合适的usage值。
    * @param { AsyncCallback<void> } callback - 回调函数。当马达振动成功，err为undefined；否则为错误对象，包含错误码和错误信息。回调结果可用于确认振动是否成功启动，若启动失败可根据错误码进行相
    *     应处理。
-   * @throws { BusinessError } 201 - Permission denied
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     <br> required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported
-   * @throws { BusinessError } 14600101 - Device operation failed
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *     <br> capabilities.
+   * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform [since 22]
    * @atomicservice [since 11]
@@ -181,6 +185,8 @@ declare namespace vibrator {
    * 适用于交互触觉反馈、事件振动提醒或游戏、多媒体等沉浸式振动场景。调用成功时Promise resolve无返回值；调用失败时Promise reject返回错误对象。若同一马达已有振动正在进行，新请求按系统优先级规则处理。同功能还
    * 提供callback版本vibrator.startVibration (#vibratorstartvibration9)，开发者可根据回调风格偏好选择。
    *
+   * **原子化服务API**：从API version 11开始，该接口支持在原子化服务中使用。
+   *
    * @permission ohos.permission.VIBRATE
    * @param { VibrateEffect } effect - 马达振动效果，支持四种：<br/>1、[VibratePreset]{@link vibrator.VibratePreset}：按照预置振动效果触发马达振动，适用于交互反
    *     馈类的短振场景（如点击长按，滑动，拖拽等），为确保与系统整体振感反馈体验风格一致，推荐使用此接口；<br/>2、[VibrateFromFile]{@link vibrator.VibrateFromFile}：按照文件形式定制自定
@@ -192,10 +198,12 @@ declare namespace vibrator {
    *     根据实际业务场景选择合适的usage值。
    * @returns { Promise<void> } 无返回结果的Promise对象。调用成功时Promise resolve，表示振动成功启动；调用失败时Promise reject，返回错误对象包含错误码和错误信息，可用于排查振动启动失
    *     败的原因。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     <br> required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *     <br> capabilities.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform [since 22]
@@ -218,7 +226,8 @@ declare namespace vibrator {
    *     [VibrateFromFile]{@link vibrator.VibrateFromFile}和[VibrateFromPattern]{@link vibrator.VibrateFromPattern}），请使用
    *     [vibrator.stopVibration<sup>10+</sup>]{@link vibrator.stopVibration()}。stopMode需与启动振动时的VibrateEffect类型对应，否则停止操作可能无效。
    * @returns { Promise<void> } Promise对象。调用成功时Promise resolve，表示振动成功停止；调用失败时Promise reject，返回错误对象包含错误码和错误信息，可用于排查停止失败的原因。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     <br> required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
@@ -242,7 +251,8 @@ declare namespace vibrator {
    *     [vibrator.stopVibration<sup>10+</sup>]{@link vibrator.stopVibration(callback: AsyncCallback<void>)}。stopMode需与启动振动时的
    *     VibrateEffect类型对应，否则停止操作可能无效。
    * @param { AsyncCallback<void> } callback - 回调函数，当马达停止振动成功，err为undefined，否则为错误对象。回调结果可用于确认振动是否成功停止。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     <br> required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
@@ -257,9 +267,12 @@ declare namespace vibrator {
    * 用于停止设备上所有类型的振动（包括VibrateTime、VibratePreset、VibrateFromFile、VibrateFromPattern），适用于应用退出、页面切换等需立即终止所有振动的场景。与
    * vibrator.stopVibration (#vibratorstopvibration9)（需传入stopMode）不同，本接口无需指定停止模式，可停止包括自定义振动在内的所有振动。
    *
+   * **原子化服务API**：从API version 11开始，该接口支持在原子化服务中使用。
+   *
    * @permission ohos.permission.VIBRATE
    * @param { AsyncCallback<void> } callback - 回调函数，当马达停止振动成功，err为undefined，否则为错误对象，包含错误码和错误信息。回调结果可用于确认所有振动是否成功停止。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     <br> required to call the API.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform [since 22]
    * @atomicservice [since 11]
@@ -274,9 +287,12 @@ declare namespace vibrator {
    * Promise resolve，失败返回错误对象。与vibrator.stopVibration (#vibratorstopvibration9-1)（需传入stopMode）不同，本接口无需指定停止模式，可停止包括自定义振动在
    * 内的所有振动。
    *
+   * **原子化服务API**：从API version 11开始，该接口支持在原子化服务中使用。
+   *
    * @permission ohos.permission.VIBRATE
    * @returns { Promise<void> } Promise对象。调用成功时Promise resolve，表示所有振动成功停止；调用失败时Promise reject，返回错误对象包含错误码和错误信息，可用于排查停止失败的原因。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     <br> required to call the API.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform [since 22]
    * @atomicservice [since 11]
@@ -291,8 +307,11 @@ declare namespace vibrator {
    * [vibrator.stopVibration]{@link vibrator.stopVibration()}相比，本接口为同步接口，直接返回结果无需回调，但会阻塞主线程。建议在非UI线程中使用，或在UI线程中优先使用异步版本以
    * 避免影响交互响应。
    *
+   * **原子化服务API**：从API version 12开始，该接口支持在原子化服务中使用。
+   *
    * @permission ohos.permission.VIBRATE
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     <br> required to call the API.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform [since 22]
@@ -314,7 +333,8 @@ declare namespace vibrator {
    *     [vibrator.on]{@link vibrator.on_vibratorStateChange}查询获取。
    * @returns { Promise<void> } Promise对象。调用成功时Promise resolve，表示指定设备马达振动成功停止；调用失败时Promise reject，返回错误对象包含错误码和错误信息，可用于排查停止失败的
    *     原因。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     <br> required to call the API.
    * @throws { BusinessError } 14600101 - Device operation failed.
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform [since 22]
@@ -335,7 +355,8 @@ declare namespace vibrator {
    * @param { AsyncCallback<boolean> } callback - 回调函数。返回true表示设备支持该effectId，可用于
    *     [startVibration]{@link vibrator.startVibration(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>)}
    *     ；返回false表示不支持，使用该effectId触发振动可能效果不佳。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     <br> required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
@@ -355,7 +376,8 @@ declare namespace vibrator {
    * @returns { Promise<boolean> } Promise对象。返回true表示设备支持该effectId，可用于
    *     [startVibration]{@link vibrator.startVibration(effect: VibrateEffect, attribute: VibrateAttribute)}；返回false表示不支持，使用该
    *     effectId触发振动可能效果不佳。
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     <br> required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br> 2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Sensors.MiscDevice
@@ -631,6 +653,8 @@ declare namespace vibrator {
   /**
    * 振动使用场景。不同usage值对应不同的系统振动开关管控规则，开发者需根据实际业务场景选择合适的usage值。
    *
+   * **原子化服务API**：从API version 11开始，该接口支持在原子化服务中使用。
+   *
    * <!--RP1End-->
    *
    * @syscap SystemCapability.Sensors.MiscDevice
@@ -656,6 +680,8 @@ declare namespace vibrator {
    * [startVibration]{@link vibrator.startVibration(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>)}
    * 接口的attribute参数，指定马达ID、设备ID和振动使用场景。
    *
+   * **原子化服务API**：从API version 11开始，该接口支持在原子化服务中使用。
+   *
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform [since 22]
    * @atomicservice [since 11]
@@ -678,8 +704,7 @@ declare namespace vibrator {
     /**
      * 设备ID。默认值：-1，表示本地设备。使用场景：在多设备场景下需指定远程设备时设置此参数；不填写时默认控制本地设备。从API version 19开始，设备ID可以使用
      * [getVibratorInfoSync]{@link vibrator.getVibratorInfoSync}或[on]{@link vibrator.on_vibratorStateChange}查询。
-     *
-     * 从API version 19开始，该接口支持在原子化服务中使用。
+     * <br/>**原子化服务API**：从API version 19开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform [since 22]
@@ -692,8 +717,7 @@ declare namespace vibrator {
     /**
      * 马达振动的使用场景。默认值：'unknown'。取值范围只允许在[Usage]{@link vibrator.Usage}提供的类型中选取。不同usage值对应不同的系统振动开关管控规则，开发者需根据实际业务场景选择合适的
      * usage值。
-     *
-     * 从API version 11开始，该接口支持在原子化服务中使用。
+     * <br/>**原子化服务API**：从API version 11开始，该接口支持在原子化服务中使用。
      *
      * @syscap SystemCapability.Sensors.MiscDevice
      * @crossplatform [since 22]
@@ -722,9 +746,7 @@ declare namespace vibrator {
    * 接口时，此参数的四种类型表示以四种不同的形式触发振动。
    *
    * @unionmember { VibrateTime } 按照指定时长触发马达振动。适用于仅需控制振动时长的基础场景。
-   *
-   *
-   *      从API version 11开始，该接口支持在原子化服务中使用。
+   *    <br/>**原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。
    * @unionmember { VibratePreset } 按照预置振动类型触发马达振动。适用于交互反馈类的短振场景，推荐使用以确保与系统整体振感反馈体验风格一致。
    * @unionmember { VibrateFromFile } 按照自定义振动配置文件触发马达振动。适用于需要精细振动控制的复杂场景。
    * @unionmember { VibrateFromPattern } 按照自定义振动效果触发马达振动。适用于需要灵活组合振动事件的场景。
@@ -738,6 +760,8 @@ declare namespace vibrator {
 
   /**
    * 指定时长振动类型。仅对振动时长进行启动或停止控制，满足基础功能，无法对振动强度、频率等维度进行个性化设置。
+   *
+   * **原子化服务API**：从API version 11开始，该接口支持在原子化服务中使用。
    *
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform [since 22]
@@ -872,7 +896,7 @@ declare namespace vibrator {
    * [振动效果说明](docroot://device/sensor/vibrator-guidelines.md#振动效果说明)。
    * 使用时需注意以下问题：
    *
-   * - 振动结束后建议及时关闭文件描述符，避免资源泄露。使用getRawFd获取的文件描述符需通过closeRawFd关闭，使用fileIo.open获取的需通过fileIo.close关闭。
+   * - 振动结束后建议及时关闭文件描述符，避免资源泄漏。使用getRawFd获取的文件描述符需通过closeRawFd关闭，使用fileIo.open获取的需通过fileIo.close关闭。
    *
    * @syscap SystemCapability.Sensors.MiscDevice
    * @crossplatform [since 22]
