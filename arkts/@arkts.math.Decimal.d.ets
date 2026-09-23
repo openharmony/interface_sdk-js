@@ -1086,7 +1086,7 @@ declare class Decimal {
    * @param { double } decimalPlaces Decimal places. Integer, 0 to MAX_DIGITS inclusive.
    * @returns { string } the string type
    * @throws { BusinessError } 10200001 - The value of `decimalPlaces` is out of range.
-   * @syscap SystemCapability.Utils.Lang [since 18]
+   * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
    * @atomicservice
    * @since 12 dynamic
@@ -1957,7 +1957,7 @@ declare class Decimal {
    * Returns a new Decimal with a random value equal to or greater than 0 and less than 1.
    *
    * @returns { Decimal } the Decimal type
-   * @throws { BusinessError } 10200061 - Crypto unavailable
+   * @throws { BusinessError } 10200061 - Crypto unavailable.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
    * @atomicservice
@@ -1976,7 +1976,7 @@ declare class Decimal {
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Incorrect parameter types;
    *     2. Parameter verification failed.
-   * @throws { BusinessError } 10200061 - Crypto unavailable
+   * @throws { BusinessError } 10200061 - Crypto unavailable.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
    * @atomicservice
@@ -2026,7 +2026,7 @@ declare class Decimal {
   /**
    * Configures the 'global' settings for this particular Decimal constructor.
    *
-   * @param { DecimalConfig } An object with one or more of the following properties,
+   * @param { DecimalConfig } config - An object with one or more of the following properties,
    *     precision  {double}
    *     rounding   {Rounding}
    *     toExpNeg   {double}
@@ -2041,7 +2041,7 @@ declare class Decimal {
    *     1. Incorrect parameter types;
    *     2. Parameter verification failed.
    * @throws { BusinessError } 10200001 - The value of `DecimalConfig.properties` is out of range.
-   * @throws { BusinessError } 10200061 - Crypto unavailable
+   * @throws { BusinessError } 10200061 - Crypto unavailable.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 18]
    * @atomicservice

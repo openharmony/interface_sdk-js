@@ -88,7 +88,7 @@ declare namespace json {
    * @param { string } text - Valid JSON string.
    * @param { Transformer } [reviver] - Conversion function. This parameter can be used to modify the value generated
    *     after parsing. The default value is undefined.
-   * @param {ParseOptions} options - Parsing options. This parameter is used to control the type of the parsing result.
+   * @param {ParseOptions} [options] - Parsing options. This parameter is used to control the type of the parsing result.
    *     The default value is undefined.
    * @returns { Object | null } Return an Object, array, string, number, boolean, or null value corresponding to JSON
    *     text.

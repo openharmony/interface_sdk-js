@@ -182,7 +182,7 @@ declare namespace util {
    * 如果尚未获取过哈希值，则生成一个随机哈希值，保存到对象的 **hash** 字段中并返回。如果已经获取过哈希值，则返回保存在
    * **hash** 字段中的哈希值（同一对象返回相同的值）。
    *
-   * @param { object } [object] - 要获取哈希值的对象。
+   * @param { object } object - 要获取哈希值的对象。
    * @returns { number } 哈希值。
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -756,7 +756,7 @@ declare namespace util {
     /**
      * 用于创建 **LruBuffer** 实例的构造函数。缓存的默认容量为 64。
      *
-     * @param { number } capacity - 要创建的缓存的容量。默认值为 **64**。
+     * @param { number } [capacity] - 要创建的缓存的容量。默认值为 **64**。
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -1339,7 +1339,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead util.LRUCache.toString
+     * @useinstead ohos.util.ScopeHelper.toString
      */
     toString(): string;
 
@@ -1435,7 +1435,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead util.LRUCache.contains
+     * @useinstead ohos.util.ScopeHelper.contains
      */
     contains(value: ScopeType): boolean;
 
@@ -1447,7 +1447,7 @@ declare namespace util {
      * @syscap SystemCapability.Utils.Lang
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead util.LRUCache.contains
+     * @useinstead ohos.util.ScopeHelper.contains
      */
     contains(range: Scope): boolean;
 

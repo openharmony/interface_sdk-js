@@ -157,8 +157,8 @@ declare namespace uri {
     /**
      * 在当前URI对象上添加查询参数后返回新的URI对象，保持原有URI对象不变。
      *
-     * @param { string } [key] - 需要添加查询参数的名称。
-     * @param { string } [value] - 需要添加查询参数的值。
+     * @param { string } key - 需要添加查询参数的名称。
+     * @param { string } value - 需要添加查询参数的值。
      * @returns { URI } 返回添加查询部分后的URI对象。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
@@ -241,7 +241,7 @@ declare namespace uri {
     /**
      * 对指定字段进行编码，并将其追加到当前URI对象的path中，创建并返回新的URI对象，保持原有URI对象不变。
      *
-     * @param { string } [pathSegment] - 需要追加到路径部分的字段。
+     * @param { string } pathSegment - 需要追加到路径部分的字段。
      * @returns { URI } 返回已追加字段的URI对象。
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
