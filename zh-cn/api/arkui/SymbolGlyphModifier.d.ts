@@ -19,7 +19,7 @@
  */
 
 /**
- * Defines SymbolGlyph Modifier
+ * 定义SymbolGlyphModifier。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -32,7 +32,7 @@ export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements
   /**
    * SymbolGlyphModifier的构造函数。
    *
-   * @param { Resource } src
+   * @param { Resource } src - 设置SymbolGlyph组件要展示的符号图标资源。不传入时不加载任何资源。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -44,7 +44,7 @@ export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements
   /**
    * 组件在普通状态（即未被按下、未获得焦点等默认交互状态）下的样式设置。该方法为回调方法，在组件处于普通状态时由框架自动调用，开发者可在方法体内通过修改instance对象的属性来动态设置SymbolGlyph组件的样式。
    *
-   * @param { SymbolGlyphAttribute } instance
+   * @param { SymbolGlyphAttribute } instance - SymbolGlyphAttribute对象实例，用于动态设置SymbolGlyph组件的属性和样式。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]

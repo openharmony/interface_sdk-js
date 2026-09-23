@@ -87,8 +87,10 @@ declare class SearchController extends TextContentControllerBase {
    *
    * @param { number } selectionStart - 文本选择区域起始位置，文本框中文字的起始位置为0。
    *     <br>当selectionStart小于0时，按照0处理；当selectionStart大于文字最大长度时，按照文字最大长度处理。
+   *     <br>
    * @param { number } selectionEnd - 文本选择区域结束位置。
    *     <br>当selectionEnd小于0时、按照0处理；当selectionEnd大于文字最大长度时、按照文字最大长度处理。
+   *     <br>
    * @param { SelectionOptions } [options] - 选中文字时的配置。
    *     <br>默认值：MenuPolicy.DEFAULT。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -178,7 +180,7 @@ declare enum SearchType {
 
   /**
    * 电话号码输入模式。
-   * 
+   *
    * 支持输入数字、空格、+ 、-、*、#、(、)，长度不限。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -227,7 +229,7 @@ declare enum SearchType {
   URL = 13,
 
   /**
-   * 验证码输入模式，无特殊限制。
+   * 验证码输入模式，无特殊限制。该模式下组件获焦后会默认拉起系统输入法。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -239,7 +241,7 @@ declare enum SearchType {
 
 /**
  * Search初始化参数。
- * 
+ *
  * > **说明：**
  * >
  * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
@@ -286,7 +288,7 @@ declare interface SearchOptions {
    *
    * **说明：**
    *
-   * icon的数据源支持[使用相对路径显示图片]{@link ./image}和网络图片。
+   * icon的数据源支持[使用相对路径显示图片](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-image.md#示例25使用相对路径显示图片)和网络图片。
    *
    * - 支持的图片格式包括png、jpg、bmp、svg、gif、pixelmap和heif。
    *
@@ -312,16 +314,6 @@ declare interface SearchOptions {
    * @since 8 dynamic
    */
   controller?: SearchController;
-
-  /**
-   * Text input in the search text box.
-   *
-   * @type { ?(string | Bindable<string>)}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  value?: string | Bindable<string>;
 }
 
 /**
@@ -329,7 +321,12 @@ declare interface SearchOptions {
  *
  * > **说明：**
  * >
- * > 该组件仅支持单文本样式，若需实现富文本样式，建议使用[RichEditor]{@link ./rich_editor}组件。
+ * > - 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
+ * > - 该组件仅支持单文本样式，若需实现富文本样式，建议使用[RichEditor]{@link ./rich_editor}组件。
+ * >
+ * > - 如需设置触摸文本组件外部时是否清除文本选中和手柄，可使用
+ * > [setTextSelectionClearPolicy]{@link @ohos.arkui.UIContext:UIContext.setTextSelectionClearPolicy}接口。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -433,9 +430,9 @@ interface SearchButtonOptions {
 
   /**
    * Search无文本内容时按钮置灰且不可点击。
-   * 
-   * 默认值：false 
-   * 
+   *
+   * 默认值：false
+   *
    * true表示开启按钮置灰功能，false表示不开启。
    *
    * @default false
@@ -529,9 +526,7 @@ interface CancelButtonSymbolOptions {
 declare type SearchSubmitCallback = (searchContent: string, event?: SubmitEvent) => void;
 
 /**
- * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性。
- *
- * 除支持[通用事件]{@link CommonMethod}外，还支持以下事件。
+ * 除支持[通用属性]{@link ./common}外，还支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -547,12 +542,16 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *
    * Wearable设备上默认字体大小为18fp。
    *
-   * @param { string } value - Text on the search button located next to the search text box.<br>The Resource type is
-   *     supported since API version 20. [since 8 - 19]
+   * @param { string } value - 搜索框末尾搜索按钮文本内容。
+   *     <br>从API version 20开始，支持Resource类型。 [since 8 - 19]
    * @param { ResourceStr } value - 搜索框末尾搜索按钮文本内容。
    *     <br>从API version 20开始，支持Resource类型。 [since 20]
-   * @param { SearchButtonOption } option - Text style of the search button located next to the search text box.<br>
-   *     Default value:<br>{<br>fontSize: '16fp',<br>fontColor: '#ff3f97e9'<br>} [since 8 - 9]
+   * @param { SearchButtonOption } option - 配置搜索框末尾搜索按钮样式。
+   *     <br>默认值：
+   *     <br>{
+   *     <br>fontSize: '16fp',
+   *     <br>fontColor: '#ff3f97e9'
+   *     <br>} [since 8 - 9]
    * @param { SearchButtonOptions } option - 配置搜索框末尾搜索按钮样式。
    *     <br>默认值：
    *     <br>{
@@ -568,7 +567,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   searchButton(value: ResourceStr, option?: SearchButtonOptions): SearchAttribute;
 
   /**
-   * 设置输入文本的字体颜色。未通过该接口设置时，默认输入文本的字体颜色为'#FF182431'（深灰色），Wearable设备上默认为'#dbffffff'（白色，不透明度约为86%）。fontSize、fontStyle、
+   * 设置输入文本的字体颜色。未通过该接口设置时，默认输入文本的字体颜色为'#FF182431'（深灰色），Wearable设备上默认为'#dbffffff'（白色，不透明度为86%）。fontSize、fontStyle、
    * fontWeight和fontFamily在[textFont]{@link SearchAttribute#textFont}属性中设置。
    *
    * > **说明：**
@@ -592,9 +591,19 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *
    * Wearable设备上默认图标大小为16vp。
    *
-   * @param { IconOptions } value - Style of the search icon on the left.<!--RP1--><br>Default value in light mode:<br>{
-   *     <br>size: '16vp',<br>color: '#99182431',<br>src: ' '<br>}<br>Default value in dark mode:<br>{<br>size: '16vp',<
-   *     br>color: '#99ffffff',<br>src: ' '<br>} <!--RP1End--> [since 10 - 11]
+   * @param { IconOptions } value - 左侧搜索图标样式。如果与参数icon同时设置，本属性优先生效。<!--RP1-->
+   *     <br>浅色模式默认值：
+   *     <br>{
+   *     <br>size: '16vp',
+   *     <br>color: '#99182431',
+   *     <br>src: ' '
+   *     <br>}
+   *     <br>深色模式默认值：
+   *     <br>{
+   *     <br>size: '16vp',
+   *     <br>color: '#99ffffff',
+   *     <br>src: ' '
+   *     <br>} <!--RP1End--> [since 10 - 11]
    * @param { IconOptions | SymbolGlyphModifier } value - 左侧搜索图标样式。如果与参数icon同时设置，本属性优先生效。<!--RP1-->
    *     <br>浅色模式默认值：
    *     <br>{
@@ -607,7 +616,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *     <br>size: '16vp',
    *     <br>color: '#99ffffff',
    *     <br>src: ' '
-   *     <br>} <!--RP1End--> [since 12]
+   *     <br>} <!--RP1End--> [since 10 - 11]
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -621,11 +630,9 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * 设置右侧清除按钮样式。示例请参考
    * [示例2（设置搜索和删除图标）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-search.md#示例2设置搜索和删除图标)和
    * [示例11（设置symbol类型清除按钮）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-search.md#示例11设置symbol类型清除按钮)。未通
-   * 过该接口设置时，默认清除按钮样式为CancelButtonStyle.INPUT（输入样式），图标大小为16vp（Wearable设备上默认图标大小为18fp），颜色为'#99ffffff'（白色，不透明度约为60%）。
+   * 过该接口设置时，默认清除按钮样式为CancelButtonStyle.INPUT（输入样式），图标大小为16vp（Wearable设备上默认图标大小为18fp），颜色为'#99ffffff'（白色，不透明度为60%）。
    *
-   * @param { object } value - Style of the cancel button on the right.<br>Default value:<br>{<br>style:
-   *     CancelButtonStyle.INPUT,<br>icon: {<br>size: '16vp',<br>color: '#99ffffff',<br>src: ' '<br>}<br>}<br>When style
-   *     is set to **CancelButtonStyle.CONSTANT**, the cancel button is displayed in a default style. [since 10 - 11]
+   * @param { object } value - 右侧清除按钮样式。当style为CancelButtonStyle.CONSTANT时，默认显示清除样式。 [since 10 - 11]
    * @param { CancelButtonOptions | CancelButtonSymbolOptions } value - 右侧清除按钮样式。当style为CancelButtonStyle.CONSTANT时，默认显示
    *     清除样式。 [since 12]
    * @returns { SearchAttribute }
@@ -649,7 +656,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *
    * 需要[CopyOptions]{@link CopyOptions}为CopyOptions.LocalDevice或CopyOptions.CROSS_DEVICE时，本功能生效。
    *
-   * @param { boolean | undefined } enable - 开启选中文本实体识别。
+   * @param { boolean | undefined } enable - 是否开启选中文本实体识别。
    *     <br>true：开启识别，false：关闭识别。
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -663,7 +670,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * 设置首行文本缩进。未通过该接口设置时，默认首行文本缩进为0。
    *
    * @param { Dimension } value - 首行文本缩进。
-   *     <br>单位：[vp]{@link Length}
+   *     <br>单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *     <br>取值范围：大于等于0。设置负数时，按默认值处理。
    * @returns { SearchAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -706,9 +713,9 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   onEditChange(callback: Callback<boolean>): SearchAttribute;
 
   /**
-   * 设置文本选中底板颜色。如果未设置不透明度，默认为20%不透明度。
+   * 设置文本选中高亮颜色。未通过该接口设置时，默认颜色为'#007DFF'（蓝色）。
    *
-   * @param { ResourceColor } value - 文本选中底板颜色。如果未设置不透明度，默认为20%不透明度。
+   * @param { ResourceColor } value - 文本选中高亮颜色。如果未设置不透明度或设置为完全不透明，默认使用20%不透明度。
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -736,7 +743,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   caretStyle(value: CaretStyle): SearchAttribute;
 
   /**
-   * 设置placeholder文本颜色。未通过该接口设置时，默认placeholder文本颜色为'#99182431'（深灰色，不透明度约为60%），Wearable设备上默认为'#99ffffff'（白色，不透明度约为60%）。
+   * 设置placeholder文本颜色。未通过该接口设置时，默认placeholder文本颜色为'#99182431'（深灰色，不透明度为60%），Wearable设备上默认为'#99ffffff'（白色，不透明度为60%）。
    *
    * @param { ResourceColor } value - placeholder文本颜色。
    * @returns { SearchAttribute }
@@ -799,8 +806,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * 点击搜索图标、搜索按钮或者按下软键盘搜索按钮时触发该回调。
    *
-   * @param { function } callback - Search submission callback, which returns the text content currently in the search
-   *     box. [since 8 - 17]
+   * @param { function } callback - 搜索提交回调，其返回值为当前搜索框中输入的文本内容。 [since 8 - 17]
    * @param { Callback<string> } callback - 搜索提交回调，其返回值为当前搜索框中输入的文本内容。 [since 18]
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -825,10 +831,20 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
 
   /**
    * 输入内容发生变化时，触发该回调。
-   * 
+   *
    * 在本回调中，若执行了光标操作，需要开发者在预上屏场景下依据previewText参数调整光标逻辑，以适应预上屏场景。
    *
-   * @param { function } callback - Callback invoked when the input in the text box changes. [since 8 - 11]
+   * > **说明：**
+   * >
+   * > onWillChange和onChange形成will/did时序模式：
+   * >
+   * > - onWillChange在文本变更前触发，可通过返回false拦截变更；返回true则允许变更，随后触发onChange。
+   * >
+   * > - onChange在变更完成后触发，无法拦截。
+   * >
+   * > - 两者可以同时使用，onWillChange用于拦截控制，onChange用于获取变更结果。
+   *
+   * @param { function } callback - 当前输入文本内容变化时的回调。 [since 8 - 11]
    * @param { EditableTextOnChangeCallback } callback - 当前输入文本内容变化时的回调。 [since 12]
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -841,9 +857,9 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * 文本选择的位置或编辑状态下光标位置发生变化时，触发该回调。
    *
-   * @param { function } callback - Callback for text selection changes or caret position changes. [since 10 - 17]
+   * @param { function } callback - 文本选择变化回调或光标位置变化回调。 [since 10 - 17]
    * @param { OnTextSelectionChangeCallback } callback - 文本选择变化回调或光标位置变化回调。 [since 18]
-   * @returns { SearchAttribute }    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -855,9 +871,9 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * 文本内容滚动时，触发该回调。
    *
-   * @param { function } callback - Callback for text content scrolling. [since 10 - 17]
+   * @param { function } callback - 文本内容滚动回调，回调参数包括totalOffsetX（水平滚动偏移量）和totalOffsetY（垂直滚动偏移量）。 [since 10 - 17]
    * @param { OnContentScrollCallback } callback - 文本内容滚动回调，回调参数包括totalOffsetX（水平滚动偏移量）和totalOffsetY（垂直滚动偏移量）。 [since 18]
-   * @returns { SearchAttribute }    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -871,9 +887,15 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *
    * > **说明：**
    * >
-   * > onWillCopy先于onCopy触发。onWillCopy回调返回true时允许复制操作继续执行，返回false时拦截复制操作且不触发onCopy。两者可同时使用。
+   * > onWillCopy和onCopy形成will/did时序模式：
+   * >
+   * > - onWillCopy在复制操作前触发，可通过返回false拦截复制操作；返回true则允许复制，随后触发onCopy。
+   * >
+   * > - onCopy在复制操作完成后触发，无法拦截。
+   * >
+   * > - 两者可以同时使用，onWillCopy用于拦截控制，onCopy用于获取复制结果。
    *
-   * @param { function } callback - Callback used to return the copied text content. [since 8 - 17]
+   * @param { function } callback - 复制回调，其返回值为复制的文本内容。 [since 8 - 17]
    * @param { Callback<string> } callback - 复制回调，其返回值为复制的文本内容。 [since 18]
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -888,10 +910,16 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *
    * > **说明：**
    * >
-   * > onWillCopy先于onCopy触发。onWillCopy回调返回true时允许复制操作继续执行，返回false时拦截复制操作且不触发onCopy。两者可同时使用。
+   * > onWillCopy和onCopy形成will/did时序模式：
+   * >
+   * > - onWillCopy在复制操作前触发，可通过返回false拦截复制操作；返回true则允许复制，随后触发onCopy。
+   * >
+   * > - onCopy在复制操作完成后触发，无法拦截。
+   * >
+   * > - 两者可以同时使用，onWillCopy用于拦截控制，onCopy用于获取复制结果。
    *
-   * @param { Callback<string, boolean> } callback - 复制操作前的回调。回调参数类型为string时，表示将要被复制的文本内容。回调参数类型为boolean时，表示当前选中文本是否允许被复
-   *     制，true：允许文本被复制；false：不允许文本被复制。
+   * @param { Callback<string, boolean> } callback - 复制操作前的回调。回调返回值为string时，表示将要被复制的文本内容。回调返回值为boolean时，表示当前选中文本是否允许被复制，
+   *     返回true：允许文本被复制；返回false：不允许文本被复制。
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -906,9 +934,15 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *
    * > **说明：**
    * >
-   * > onWillCut先于onCut触发。onWillCut回调返回true时允许剪切操作继续执行，返回false时拦截剪切操作且不触发onCut。两者可同时使用。
+   * > onWillCut和onCut形成will/did时序模式：
+   * >
+   * > - onWillCut在剪切操作前触发，可通过返回false拦截剪切操作；返回true则允许剪切，随后触发onCut。
+   * >
+   * > - onCut在剪切操作完成后触发，无法拦截。
+   * >
+   * > - 两者可以同时使用，onWillCut用于拦截控制，onCut用于获取剪切结果。
    *
-   * @param { function } callback - Callback used to return the cut text content. [since 8 - 17]
+   * @param { function } callback - 剪切回调，其返回值为剪切的文本内容。 [since 8 - 17]
    * @param { Callback<string> } callback - 剪切回调，其返回值为剪切的文本内容。 [since 18]
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -923,9 +957,15 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *
    * > **说明：**
    * >
-   * > onWillCut先于onCut触发。onWillCut回调返回true时允许剪切操作继续执行，返回false时拦截剪切操作且不触发onCut。两者可同时使用。
+   * > onWillCut和onCut形成will/did时序模式：
+   * >
+   * > - onWillCut在剪切操作前触发，可通过返回false拦截剪切操作；返回true则允许剪切，随后触发onCut。
+   * >
+   * > - onCut在剪切操作完成后触发，无法拦截。
+   * >
+   * > - 两者可以同时使用，onWillCut用于拦截控制，onCut用于获取剪切结果。
    *
-   * @param { Callback<string, boolean> } callback - 剪切操作前的回调。回调参数类型为string时，表示将要被剪切的文本内容。回调参数类型为boolean时，表示当前选中文本是否允许被剪
+   * @param { Callback<string, boolean> } callback - 剪切操作前的回调。回调参数类型为string时，表示将要被剪切的文本内容。回调返回值为boolean时，表示当前选中文本是否允许被剪
    *     切，true：允许文本被剪切；false：不允许文本被剪切。
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -945,7 +985,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *     { PasteEvent } event - The user-defined paste event. [since 8 - 17]
    * @param { OnPasteCallback } callback - Executed when a paste operation is performed.Callback used to return the
    *     pasted text content. [since 18]
-   * @returns { SearchAttribute }    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -1009,7 +1049,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *
    * @param { boolean } value - Search获焦时，是否主动拉起软键盘。
    *     <br>true表示主动拉起，false表示不主动拉起。
-   * @returns { SearchAttribute }    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1019,12 +1059,12 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   enableKeyboardOnFocus(value: boolean): SearchAttribute;
 
   /**
-   * 设置是否不弹出系统文本选择菜单。未通过该接口设置时，默认弹出系统文本选择菜单。
+   * 设置是否隐藏系统文本选择菜单。未通过该接口设置时，默认显示系统文本选择菜单。
    *
-   * @param { boolean } value - 是否不弹出系统文本选择菜单。
-   *     <br>设置为true时，单击输入框光标、长按输入框、双击输入框、三击输入框或者右键输入框，不弹出系统文本选择菜单。
-   *     <br>设置为false时，弹出系统文本选择菜单。
-   * @returns { SearchAttribute }    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { boolean } value - 是否隐藏系统文本选择菜单。
+   *     <br>设置为true时，单击输入框光标、长按输入框、双击输入框、三击输入框或者右键输入框，隐藏系统文本选择菜单。
+   *     <br>设置为false时，显示系统文本选择菜单。
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1043,7 +1083,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * minFontSize小于或等于0时，自适应字号不生效，此时按照[textFont]{@link SearchAttribute#textFont}属性里面size的取值生效，未设置时按照其默认值生效。
    *
    * @param { number | string | Resource } value - 文本最小显示字号。
-   *     <br>单位：[fp]{@link Length}
+   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1064,7 +1104,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * 置时按照其默认值生效。
    *
    * @param { number | string | Resource } value - 文本最大显示字号。
-   *     <br>单位：[fp]{@link Length}
+   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1136,11 +1176,10 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * >
    * > 该接口不支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { CustomBuilder } value - Custom keyboard. If the value is **undefined**, the custom keyboard is
-   *     closed. [since 10 - 21]
-   * @param { CustomBuilder | ComponentContent | undefined } value - 自定义键盘。设定值为undefined时，关闭自定义键盘。 [since 22]
+   * @param { CustomBuilder } value - 自定义键盘。设定值为undefined时，关闭自定义键盘。 [since 10 - 21]
+   * @param { CustomBuilder | ComponentContent | undefined } value - 自定义键盘。设定值为undefined时，关闭自定义键盘。 [since 10 - 21]
    * @param { KeyboardOptions } [options] - 设置自定义键盘是否支持避让功能。不传入时使用默认配置。 [since 12]
-   * @returns { SearchAttribute }    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
@@ -1177,7 +1216,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * 对每个字符生效，包括行尾字符。
    *
    * @param { number | string | Resource } value - 文本字符间距。
-   *     <br>单位：[fp]{@link Length}
+   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1188,13 +1227,13 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   letterSpacing(value: number | string | Resource): SearchAttribute;
 
   /**
-   * 设置文本的文本行高，设置值不大于0时，不限制文本行高，自适应字体大小，number类型时单位为fp。
+   * 设置文本的行高，设置值不大于0时，不限制文本行高，自适应字体大小，number类型时单位为fp。
    *
    * > **说明：**
    * >
    * > 特殊字符字体高度远超出同行的其他字符高度时，文本框出现截断、遮挡、内容相对位置发生变化等不符合预期的显示异常，需要开发者调整组件高度、行高等属性，修改对应的页面布局。
    *
-   * @param { number | string | Resource } value - 文本的文本行高。
+   * @param { number | string | Resource } value - 文本的行高。
    *     <br>number类型时单位为fp，string类型支持number类型取值的字符串形式，可以附带单位，例如"10"、"10fp"。
    * @returns { SearchAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1250,6 +1289,16 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * 在将要输入时，触发该回调。
    *
+   * > **说明：**
+   * >
+   * > onWillInsert和onDidInsert形成will/did时序模式：
+   * >
+   * > - onWillInsert在插入操作前触发，可通过返回false拦截插入操作；返回true则允许插入，随后触发onDidInsert。
+   * >
+   * > - onDidInsert在插入完成后触发，无法拦截。
+   * >
+   * > - 两者可以同时使用，onWillInsert用于拦截控制，onDidInsert用于获取插入结果。
+   *
    * @param { Callback<InsertValue, boolean> } callback - 在将要输入时调用的回调。
    *     <br>在返回true时，表示正常插入，返回false时，表示不插入。
    *     <br>在预上屏和候选词操作时，该回调不触发。
@@ -1266,6 +1315,16 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * 在输入完成时，触发该回调。
    *
+   * > **说明：**
+   * >
+   * > onWillInsert和onDidInsert形成will/did时序模式：
+   * >
+   * > - onWillInsert在插入操作前触发，可通过返回false拦截插入操作；返回true则允许插入，随后触发onDidInsert。
+   * >
+   * > - onDidInsert在插入完成后触发，无法拦截。
+   * >
+   * > - 两者可以同时使用，onWillInsert用于拦截控制，onDidInsert用于获取插入结果。
+   *
    * @param { Callback<InsertValue> } callback - 在输入完成时调用的回调。
    *     <br>仅支持系统输入法输入的场景。
    * @returns { SearchAttribute }
@@ -1279,6 +1338,18 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
 
   /**
    * 在将要删除时，触发该回调。
+   *
+   * > **说明：**
+   * >
+   * > - 点击清除按钮不触发onWillDelete回调。
+   * >
+   * > - onWillDelete和onDidDelete形成will/did时序模式：
+   * >
+   * > - onWillDelete在删除操作前触发，可通过返回false拦截删除操作；返回true则允许删除，随后触发onDidDelete。
+   * >
+   * > - onDidDelete在删除完成后触发，无法拦截。
+   * >
+   * > - 两者可以同时使用，onWillDelete用于拦截控制，onDidDelete用于获取删除结果。
    *
    * @param { Callback<DeleteValue, boolean> } callback - 在将要删除时调用的回调。
    *     <br>在返回true时，表示正常删除，返回false时，表示不删除。
@@ -1298,7 +1369,15 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *
    * > **说明：**
    * >
-   * > 点击清除按钮不触发onDidDelete回调。
+   * > - 点击清除按钮不触发onDidDelete回调。
+   * >
+   * > - onWillDelete和onDidDelete形成will/did时序模式：
+   * >
+   * > - onWillDelete在删除操作前触发，可通过返回false拦截删除操作；返回true则允许删除，随后触发onDidDelete。
+   * >
+   * > - onDidDelete在删除完成后触发，无法拦截。
+   * >
+   * > - 两者可以同时使用，onWillDelete用于拦截控制，onDidDelete用于获取删除结果。
    *
    * @param { Callback<DeleteValue> } callback - 在删除完成时调用的回调。
    *     <br>仅支持系统输入法输入的场景。
@@ -1384,7 +1463,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *
    * @param { boolean } isEnabled - 是否开启触控反馈。
    *     <br>true表示开启触控反馈，false表示不开启触控反馈。
-   * @returns { SearchAttribute }    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1396,7 +1475,17 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
   /**
    * 在文本内容将要发生变化时，触发该回调。
    *
-   * onWillChange的回调时序晚于onWillInsert、onWillDelete，早于onDidInsert、onDidDelete。
+   * > **说明：**
+   * >
+   * > - onWillChange的回调时序晚于onWillInsert、onWillDelete，早于onDidInsert、onDidDelete。
+   * >
+   * > - onWillChange和onChange形成will/did时序模式：
+   * >
+   * > - onWillChange在文本变更前触发，可通过返回false拦截变更；返回true则允许变更，随后触发onChange。
+   * >
+   * > - onChange在变更完成后触发，无法拦截。
+   * >
+   * > - 两者可以同时使用，onWillChange用于拦截控制，onChange用于获取变更结果。
    *
    * @param { Callback<EditableTextChangeValue, boolean> } callback - 在文本内容将要发生变化时的回调。
    *     <br>返回true时，表示正常修改。返回false时，表示拦截此次触发。
@@ -1414,7 +1503,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *
    * @param { AutoCapitalizationMode } mode - 自动大小写模式，用于设置输入法的大小写转换规则，具体实现以输入法应用为主。
    * @returns { SearchAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1472,12 +1561,12 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * >
    * > 当同时设置strokeWidth和[shaderStyle]{@link SearchAttribute#shaderStyle}时，shaderStyle不生效。
    *
-   * @param { Optional<LengthMetrics> } width - 文本描边的宽度。如果LengthMetrics的unit值是PERCENT，当前设置不生效，按默认值处理。
+   * @param { Optional<LengthMetrics> } width - 文本描边的宽度。当LengthMetrics对象的unit属性为LengthUnit.PERCENT时，当前设置不生效，按默认值处理。
    *     <br>若设置值小于0，显示实心字；若大于0，显示空心字。
    *     <br>**说明：**
    *     <br>当同时设置strokeWidth和[shaderStyle]{@link SearchAttribute#shaderStyle}时，shaderStyle不生效。
    *     <br>[strokeJoinStyle]{@link SearchAttribute#strokeJoinStyle}仅在使用strokeWidth设置文本描边时生效。
-   * @returns { SearchAttribute }    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1491,7 +1580,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *
    * @param { Optional<ResourceColor> } color - 描边颜色。未通过该接口设置时，默认描边颜色为字体颜色，设置异常值时取默认值。需配合
    *     [strokeWidth]{@link SearchAttribute#strokeWidth}设置描边宽度后生效。
-   * @returns { SearchAttribute }    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1533,7 +1622,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *
    * @param { Optional<boolean> } include - 是否在首行和尾行增加间距以避免文字截断。
    *     <br>true表示在首行和尾行增加间距；false表示在首行和尾行不增加间距。
-   * @returns { SearchAttribute } -    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { SearchAttribute } - returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1548,7 +1637,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    * @param { Optional<boolean> } enabled - 行高是否基于文字实际高度自适应。
    *     <br>此接口仅当行高小于文字实际高度时生效。
    *     <br>true表示行高基于文字实际高度自适应；false表示行高不基于文字实际高度自适应。
-   * @returns { SearchAttribute }    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1568,7 +1657,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *
    * @param { Optional<boolean> } enabled - 是否开启行首标点符号压缩。
    *     <br>true表示开启行首标点符号压缩；false表示不开启行首标点符号压缩。
-   * @returns { SearchAttribute } -    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { SearchAttribute } - returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1610,7 +1699,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *
    * @param { StrokeJoinStyle | undefined } strokeJoinStyle - 文本描边拐角样式。
    *     <br>值为undefined时，按照StrokeJoinStyle.MITER_JOIN处理，请参考[StrokeJoinStyle]{@link StrokeJoinStyle}，文本拐角处表现为锐角。
-   * @returns { SearchAttribute }    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1633,7 +1722,7 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    *     <br>当同时设置shaderStyle和[strokeWidth]{@link SearchAttribute#strokeWidth}时，shaderStyle不生效。
    *     <br>当同时设置shaderStyle和[fontColor]{@link SearchAttribute#fontColor}时，fontColor不生效。
    *     <br>值为undefined时，无渐变效果。
-   * @returns { SearchAttribute }    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { SearchAttribute } returns the instance of the SearchAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1648,7 +1737,12 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
  *
  * > **说明：**
  * >
- * > 该组件仅支持单文本样式，若需实现富文本样式，建议使用[RichEditor]{@link ./rich_editor}组件。
+ * > - 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
+ * > - 该组件仅支持单文本样式，若需实现富文本样式，建议使用[RichEditor]{@link ./rich_editor}组件。
+ * >
+ * > - 如需设置触摸文本组件外部时是否清除文本选中和手柄，可使用
+ * > [setTextSelectionClearPolicy]{@link @ohos.arkui.UIContext:UIContext.setTextSelectionClearPolicy}接口。
  *
  * ###### 子组件
  *

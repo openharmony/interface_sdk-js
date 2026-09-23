@@ -24,8 +24,8 @@
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer
+ * > element's @since version number is higher than inner elements'. This does not affect API usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -35,7 +35,6 @@
  * @since 18 dynamic
  */
 declare interface TextOverflowOptions {
-
   /**
    * Display mode of overflowing text.
    *
@@ -52,7 +51,19 @@ declare interface TextOverflowOptions {
 }
 
 /**
- * The **Text** component is used to display a piece of textual information.
+ * The **Text** component is used to display text content. It supports the configuration of font styles, text alignment,
+ * line height, and decorative lines. It also supports mixed arrangement of images and text, text selection, and text
+ * recognition. This component is applicable to various application scenarios where text information needs to be
+ * displayed.
+ *
+ * > **NOTE**
+ * >
+ * > - This component is supported since API version 7. Newly added APIs will be marked with a superscript to indicate
+ * > their
+ * >
+ * > - To set whether to clear the text selection and handle when the user touches outside the text component, use the
+ * > [setTextSelectionClearPolicy]{@link @ohos.arkui.UIContext:UIContext.setTextSelectionClearPolicy} API.
+ * >
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -61,15 +72,21 @@ declare interface TextOverflowOptions {
  * @since 7 dynamic
  */
 interface TextInterface {
-
   /**
-   *
    * Defines the constructor of Text.
-   * @param { string | Resource } content - Plain text. This parameter takes effect when the child component
-   *     [Span]{@link ./span} is not included and [styled string]{@link ./styled_string} is not set.<br>Default value:
-   *     **' '**<br>**NOTE**<br>Priority of displayed content: Styled string > Content of the **Span** component > Text
-   *     content of the **Text** component.
-   * @param { TextOptions } value - Initialization options of the component. [since 11]
+   *
+   * @param { string | Resource } content - Plain text. This parameter is required when the text content needs to be
+   *     directly displayed. This parameter does not take effect when the subcomponent [Span]{@link ./span} is contained
+   *     or the [styled string]{@link ./styled_string} is set.
+   *     <br>Default value: **' '**
+   *     <br>**NOTE**
+   *     <br>Priority of displayed content: Styled string > Content of the **Span** component > Text content of the
+   *     **Text** component.
+   * @param { TextOptions } value - Text component initialization option, which is used to configure the text
+   *     controller. This parameter is required when the **TextController** feature needs to be used to control the text
+   *     content and selection.
+   *     <br>Default value: If this parameter is not set, the text controller is not used.
+   *     <br> [since 11]
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -81,12 +98,7 @@ interface TextInterface {
 }
 
 /**
- * In addition to the
- * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
- * attributes are supported.
- *
- * In addition to the [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md), the
- * following events are supported.
+ * In addition to the [universal attributes]{@link ./common}, the following attributes are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -95,9 +107,12 @@ interface TextInterface {
  * @since 7 dynamic
  */
 declare class TextAttribute extends CommonMethod<TextAttribute> {
-
   /**
-   * Sets the text style, covering the font size, font width, font family, and font style.
+   * Sets the text style, If this API is not called, the default font style is used.
+   *
+   * covering the font size, font width, font family, and font style.
+   *
+   * It is only effective for the **Text** component, not for its child components.
    *
    * @param { Font } value - Text style.
    * @returns { TextAttribute } The attribute of the text.
@@ -116,6 +131,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * @param { Font } fontValue - Sets the text style.
    * @param { FontSettingOptions } options - Font settings.
+   *     <br>Default value: If this parameter is not set, the default font configuration is used. For details, see
+   *     **FontSettingOptions**.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -127,10 +144,10 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   font(fontValue: Font, options?: FontSettingOptions): TextAttribute;
 
   /**
-   * Sets the font color.
+   * Sets the font color. If this API is not called, the default text color is **'#e6182431'** (dark gray, with 90%
+   * opacity). On wearables, the default text color is **'#c5ffffff'** (white, with 77% opacity).
    *
-   * @param { ResourceColor } value - Font color.<br>Default value: **'#e6182431'**<br>Default value for wearables:
-   *     **'#c5ffffff'**
+   * @param { ResourceColor } value - Font color.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -141,11 +158,16 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   fontColor(value: ResourceColor): TextAttribute;
 
   /**
-   * Sets the text size.
+   * Sets the text size. If this API is not called, the default font size is 16 fp. The default font size on wearables
+   * is 15 fp.
+   *
+   * > **NOTE**
+   * >
+   * > When the adaptive font size is used, the **fontSize** settings do not take effect.
    *
    * @param { number | string | Resource } value - Font size. If **fontSize** is of the number type, the unit fp is
-   *     used. This parameter cannot be set in percentage.<br>Default value: **16fp**<br>Default value on wearable
-   *     devices: **15fp**
+   *     used. For the string type, numeric string values with optional units, for example, **"10"** or **"10fp"**, are
+   *     supported. This parameter cannot be set in percentage.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -173,7 +195,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * Since API version 18, adaptive font sizing is supported on child components and styled strings, and text segments
    * without an explicitly defined font size will automatically adjust based on the available space.
    *
-   * @param { number | string | Resource } value - Minimum font size.<br>Unit: [fp]{@link common}
+   * @param { number | string | Resource } value - Minimum font size.
+   *     <br>The value must be greater than **0**.
+   *     <br>Unit: [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
+   *     <br>**NOTE**
+   *     <br>If the value is less than or equal to 0, the adaptive font size does not take effect. In this case, the
+   *     value of **fontSize** takes effect.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -201,7 +228,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * Since API version 18, adaptive font sizing is supported on child components and styled strings, and text segments
    * without an explicitly defined font size will automatically adjust based on the available space.
    *
-   * @param { number | string | Resource } value - Maximum font size.<br>Unit: [fp]{@link common}
+   * @param { number | string | Resource } value - Maximum font size.
+   *     <br>The value must be greater than 0 and greater than or equal to the value of **minFontSize**.
+   *     <br>Unit: [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
+   *     <br>**NOTE**
+   *     <br>If the value is less than or equal to 0 or less than the value of **minFontSize**, the adaptive font size
+   *     does not take effect. In this case, the value of **fontSize** takes effect.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -214,9 +246,11 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Sets the minimum font scale factor for text.
    *
-   * @param { number | Resource } scale - Minimum font scale factor for text.<br>Value range: [0, 1]<br>**NOTE**<br>
-   *     Values less than 0 are treated as 0, and values greater than 1 are treated as 1. Other invalid values do not
-   *     take effect by default.
+   * @param { number | Resource } scale - Minimum font scale factor for text.
+   *     <br>Value range: [0, 1]
+   *     <br>**NOTE**
+   *     <br>Values less than 0 are treated as 0, and values greater than 1 are treated as 1. Other invalid values do
+   *     not take effect by default.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -229,8 +263,10 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Sets the maximum font scale factor for text.
    *
-   * @param { number | Resource  } scale - Maximum font scale factor for text.<br>Value range:
-   *     [1, +∞)<br>**NOTE**<br>Values less than 1 are treated as **1**. Other invalid values are ineffective by default.
+   * @param { number | Resource  } scale - Maximum font scale factor for text.
+   *     <br>Value range: [1, +∞)
+   *     <br>**NOTE**
+   *     <br>Values less than 1 are treated as **1**. Other invalid values are ineffective by default.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -241,9 +277,10 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   maxFontScale(scale: number | Resource): TextAttribute;
 
   /**
-   * Sets the font style.
+   * Sets the font style. If this API is not called, the default font style is **FontStyle.Normal**. The default font
+   * style on wearables is also **FontStyle.Normal**.
    *
-   * @param { FontStyle } value - Font style.<br>Default value: **FontStyle.Normal**
+   * @param { FontStyle } value - Font style.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -254,20 +291,28 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   fontStyle(value: FontStyle): TextAttribute;
 
   /**
-   * Sets the font weight. If the value is too large, the text may be clipped depending on the font.
+   * Sets the font weight. If the value is too large, the text may be clipped depending on the font. If this API is not
+   * called, the default font weight is **FontWeight.Normal**. The default font weight on wearables is
+   * **FontWeight.Regular**.
    *
-   * @param { number | FontWeight | string } value - Font weight. For the number type, the value range is [100, 900], at
-   *     an interval of 100. The default value is **400**. A larger value indicates a heavier font weight. For the
-   *     string type, only strings that represent a number, for example, **400**, and the following enumerated values of
-   *     **FontWeight** are supported: **bold**, **bolder**, **lighter**, **regular**, and **medium**.<br>Default value:
-   *     **FontWeight.Normal**<br>Default value on wearable devices: **FontWeight.Regular**<br>The
-   *     [Resource]{@link Resource} type is supported since API version 20. [since 7 - 19]
-   * @param { number | FontWeight | ResourceStr } value - Font weight. For the number type, the value range is
-   *     [100, 900], at an interval of 100. The default value is **400**. A larger value indicates a heavier font
-   *     weight. For the string type, only strings that represent a number, for example, **400**, and the following
-   *     enumerated values of **FontWeight** are supported: **bold**, **bolder**, **lighter**, **regular**, and
-   *     **medium**.<br>Default value: **FontWeight.Normal**<br>Default value on wearable devices:
-   *     **FontWeight.Regular**<br>The [Resource]{@link Resource} type is supported since API version 20. [since 20]
+   * It is only effective for the **Text** component, not for its child components.
+   *
+   * @param { number | FontWeight | string } value - Font weight of the text.
+   *     <br>For the number type, the value ranges from 100 to 900, at an interval of 100. A larger value indicates a
+   *     heavier font weight. The default value is **400**. For the string type, only strings of the number type are
+   *     supported, for example, **"400"**, **"bold"**, **"bolder"**, **"lighter"**, **"regular"**, and **"medium"**,
+   *     which correspond to the enumerated values in **FontWeight**. If the value is too large, truncation may occur in
+   *     different fonts. If the input value exceeds the value range or does not meet the interval requirements, the
+   *     default value is used.
+   *     <br>The [Resource]{@link Resource} type is supported since API version 20. [since 7 - 19]
+   * @param { number | FontWeight | ResourceStr } value - Font weight of the text.
+   *     <br>For the number type, the value ranges from 100 to 900, at an interval of 100. A larger value indicates a
+   *     heavier font weight. The default value is **400**. For the string type, only strings of the number type are
+   *     supported, for example, **"400"**, **"bold"**, **"bolder"**, **"lighter"**, **"regular"**, and **"medium"**,
+   *     which correspond to the enumerated values in **FontWeight**. If the value is too large, truncation may occur in
+   *     different fonts. If the input value exceeds the value range or does not meet the interval requirements, the
+   *     default value is used.
+   *     <br>The [Resource]{@link Resource} type is supported since API version 20. [since 20]
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -278,26 +323,43 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   fontWeight(value: number | FontWeight | ResourceStr): TextAttribute;
 
   /**
-   * Sets the text font weight, with support for font settings.
+   * Sets the text font weight, with support for font settings. If the value is too large, truncation may occur in
+   * different fonts. The [fontVariations]{@link TextAttribute#fontVariations} attribute has a higher priority than this
+   * attribute. If both are set, the value of **fontVariations** takes effect. If this API is not called, the default
+   * text font weight is **FontWeight.Normal**. The default text font weight on wearables is **FontWeight.Regular**.
    *
    * It is only effective for the **Text** component, not for its child components.<!--RP4--><!--RP4End-->
    *
-   * @param { number | FontWeight | string } weight - Font weight. For the number type, the value ranges from 100 to 90
-   *     0, at an interval of 100. A larger value indicates a heavier font weight. The default value is **400**. For the
-   *     string type, only strings that represent a number, for example, **400**, and the following enumerated values of
-   *     **FontWeight** are supported: **bold**, **bolder**, **lighter**, **regular**, and **medium**.<br>The
-   *     [Resource]{@link Resource} type is supported since API version 20. [since 12 - 19]
-   * @param { number | FontWeight | ResourceStr } weight - Font weight. For the number type, the value ranges from 100
-   *     to 900, at an interval of 100. A larger value indicates a heavier font weight. The default value is **400**.
-   *     For the string type, only strings that represent a number, for example, **400**, and the following enumerated
-   *     values of **FontWeight** are supported: **bold**, **bolder**, **lighter**, **regular**, and **medium**.<br>The
-   *     [Resource]{@link Resource} type is supported since API version 20. [since 20]
-   * @param { FontSettingOptions } options - Font setting options.<br>When **enableVariableFontWeight** in **options**
-   *     is set to **false**, variable font weight adjustment is disabled. If **weight** is set to a value at intervals
-   *     of 100 within [100, 900], the font weight uses the specified value. If **weight** is set to a value that is not
-   *     a multiple of 100, the default value **400** is used.<br>When **enableVariableFontWeight** in **options** is
-   *     set to **true**, variable font weight adjustment is enabled. If **weight** is set to any integer within
-   *     [100, 900], the font weight uses the specified value.
+   * @param { number | FontWeight | string } weight - Font weight.
+   *     <br>For the number type, the value ranges from 100 to 900, at an interval of 100. A larger value indicates a
+   *     heavier font weight. The default value is **400**. For the string type, only strings of the number type are
+   *     supported, for example, **"400"**, **"bold"**, **"bolder"**, **"lighter"**, **"regular"**, and **"medium"**,
+   *     which correspond to the enumerated values in **FontWeight**. If the value is too large, truncation may occur in
+   *     different fonts.
+   *     <br>If the input value exceeds the value range, the default value is used. If the input value does not meet the
+   *     interval requirements, and **enableVariableFontWeight** of **fontWeightConfigs** is set to **true**, the input
+   *     value is used. If **enableVariableFontWeight** is set to **false**, the default value is used.
+   *     <br>The [Resource]{@link Resource} type is supported since API version 20. [since 12 - 19]
+   * @param { number | FontWeight | ResourceStr } weight - Font weight.
+   *     <br>For the number type, the value ranges from 100 to 900, at an interval of 100. A larger value indicates a
+   *     heavier font weight. The default value is **400**. For the string type, only strings of the number type are
+   *     supported, for example, **"400"**, **"bold"**, **"bolder"**, **"lighter"**, **"regular"**, and **"medium"**,
+   *     which correspond to the enumerated values in **FontWeight**. If the value is too large, truncation may occur in
+   *     different fonts.
+   *     <br>If the input value exceeds the value range, the default value is used. If the input value does not meet the
+   *     interval requirements, and **enableVariableFontWeight** of **fontWeightConfigs** is set to **true**, the input
+   *     value is used. If **enableVariableFontWeight** is set to **false**, the default value is used.
+   *     <br>The [Resource]{@link Resource} type is supported since API version 20. [since 20]
+   * @param { FontSettingOptions } options - Font configuration options, which are used to enable the variable font
+   *     weight adjustment feature. This parameter is required (set **enableVariableFontWeight** to **true**) when the
+   *     font weight attribute of a variable font needs to be fine-tuned. If this parameter is not passed, the default
+   *     font configuration is used (variable font weight adjustment is disabled, and only font weights that are
+   *     multiples of 100 are supported).
+   *     <br>If **enableVariableFontWeight** is set to **false**, variable font weight adjustment is disabled: If the
+   *     value of **weight** is a multiple of 100, the font weight is the value of **weight**. If the value of
+   *     **weight** is not a multiple of 100, the font weight is 400. If **enableVariableFontWeight** is set to
+   *     **true**, variable font weight adjustment is enabled: The font weight is the value of **weight** when
+   *     **weight** is set to any integer.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -309,10 +371,15 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   fontWeight(weight: number | FontWeight | ResourceStr, options?: FontSettingOptions): TextAttribute;
 
   /**
-   * Sets the line spacing of the text. If the value specified is less than or equal to 0, the default value **0** is
-   * used.
+   * Sets the line spacing for the text. If the value specified is less than 0, the default value **0** is used. If this
+   * API is not called, the default line spacing is 0.
    *
-   * @param { LengthMetrics } value - Line spacing. Default value: **0**
+   * If this parameter and [lineHeightMultiple]{@link TextAttribute#lineHeightMultiple} are set at the same time and
+   * **lineHeightMultiple** is set to a valid value, the setting of **lineSpacing** does not take effect and
+   * **lineHeightMultiple** is used.
+   *
+   * @param { LengthMetrics } value - Line spacing.
+   *     <br>The value range is [0, +∞). If the value is less than 0, the default value **0** is used.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -323,13 +390,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   lineSpacing(value: LengthMetrics): TextAttribute;
 
   /**
-   * Sets the line spacing for text. When **LineSpacingOptions** is not specified, line spacing is applied above the
+   * Sets the line spacing for the text. When **LineSpacingOptions** is not specified, line spacing is applied above the
    * first line and below the last line by default.
+   *
+   * If this parameter and [lineHeightMultiple]{@link TextAttribute#lineHeightMultiple} are set at the same time and
+   * **lineHeightMultiple** is set to a valid value, the setting of **lineSpacing** does not take effect and
+   * **lineHeightMultiple** is used.
    *
    * @param { LengthMetrics } value - Line spacing. Values less than or equal to 0 are treated as the default value
    *     **0**.
-   * @param { LineSpacingOptions } options - Line spacing configuration options.<br>Default value:
-   *     **{ onlyBetweenLines: false }**
+   * @param { LineSpacingOptions } options - Line spacing configuration options.
+   *     <br>Default value: **{ onlyBetweenLines: false }**
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -340,7 +411,11 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   lineSpacing(value: LengthMetrics, options?: LineSpacingOptions): TextAttribute;
 
   /**
-   * Sets the horizontal alignment of the text.
+   * Sets the horizontal alignment of the text. If this API is not called, the default horizontal alignment mode of text
+   * paragraphs is **TextAlign.Start**. The default value is **TextAlign.Center** on wearables.
+   *
+   * When [textOverflow]{@link TextAttribute#textOverflow} is set to **TextOverflow.MARQUEE** and the text is
+   * scrollable, the **textAlign** attribute does not take effect.
    *
    * The text takes up the full width of the **Text** component.
    *
@@ -362,8 +437,11 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * > display order adjustment, see
    * > [Bidirectional Text Layout and Alignment](docroot://ui/arkts-internationalization.md#bidirectional-text-layout-and-alignment).
    *
-   * @param { TextAlign } value - Horizontal alignment of the text.<br>Default value: **TextAlign.Start**<br>Default
-   *     value on wearable devices: **TextAlign.Center**
+   * @param { TextAlign } value - Horizontal alignment of the text.
+   *     <br>**NOTE**
+   *     <br>When **TextAlign** is set to **TextAlign.JUSTIFY**, the [wordBreak]{@link TextAttribute#wordBreak}
+   *     attribute must be configured according to the text content. The last line of text aligns to the start
+   *     horizontally and does not participate in justification.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -374,7 +452,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   textAlign(value: TextAlign): TextAttribute;
 
   /**
-   * Sets the vertical alignment of the text.
+   * Sets the vertical alignment of the text. If this API is not called, the default vertical alignment of the text is
+   * **TextVerticalAlign.BASELINE**.
    *
    * > **NOTE**
    * >
@@ -388,8 +467,10 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * > [TextVerticalAlign]{@link TextVerticalAlign} is set to **TextVerticalAlign.BASELINE**. In other vertical
    * > alignment modes, the superscript and subscript texts are displayed in the same way as the normal text.
    *
-   * @param { Optional<TextVerticalAlign> } textVerticalAlign - Vertical alignment of the text.<br>Default value:
-   *     **TextVerticalAlign.BASELINE**
+   * @param { Optional<TextVerticalAlign> } textVerticalAlign - Vertical alignment of the text.
+   *     <br>Default value: **TextVerticalAlign.BASELINE**
+   *     <br>If this parameter is set to **undefined**, the text is aligned with the baseline, which is equivalent to
+   *     **TextVerticalAlign.BASELINE**.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -404,8 +485,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * This API takes effect only when the height of the text content exceeds the component's height.
    *
-   * @param { Optional<TextContentAlign> } textContentAlign - Vertical alignment of the text.<br>If the value is
-   *     **undefined** or invalid, alignment defaults to **Center**.
+   * @param { Optional<TextContentAlign> } textContentAlign - Vertical alignment of the text content area within the
+   *     component.
+   *     <br>If the value is **undefined** or invalid, alignment defaults to **Center**.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -416,7 +498,11 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   textContentAlign(textContentAlign: Optional<TextContentAlign>): TextAttribute;
 
   /**
-   * Sets the text line height.
+   * Set the line height.
+   *
+   * If this parameter and [lineHeightMultiple]{@link TextAttribute#lineHeightMultiple} are set at the same time and
+   * **lineHeightMultiple** is set to a valid value, the setting of **lineHeight** does not take effect and
+   * **lineHeightMultiple** is used.
    *
    * If the value is less than or equal to **0**, the line height is unrestricted and adapts to the font size. When the
    * value is a number, the unit is fp. For the string type, numeric string values with optional units, for example,
@@ -428,7 +514,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * > clipping, overlapping, or misalignment may occur. In this case, adjust component attributes such as height and
    * > line height to ensure proper layout rendering.
    *
-   * @param { number | string | Resource } value - Text line height.
+   * @param { number | string | Resource } value - Line height of the text. If the value is of the number type, the unit
+   *     is fp.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -439,10 +526,13 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   lineHeight(value: number | string | Resource): TextAttribute;
 
   /**
-   * Sets the minimum line height of text. If the value is less than or equal to 0, the default value **0** is used.
+   * Sets the minimum line height of text. If the value is less than or equal to 0, the default value **0** is used. If
+   * the value of [maxLineHeight]{@link TextAttribute#maxLineHeight} is less than that of **minLineHeight**, the value
+   * of **minLineHeight** takes effect.
    *
-   * @param { LengthMetrics | undefined } value - Minimum line height of text. Percentage values are not supported.<br>
-   *     Values less than or equal to 0 are treated as **0**.
+   * @param { LengthMetrics | undefined } value - Minimum line height of text. Percentage values are not supported.
+   *     <br>Values less than or equal to 0 are treated as **0**.
+   *     <br>If the value is **undefined**, this parameter does not take effect.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -455,14 +545,15 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
 
   /**
    * Sets the maximum line height of text. If the value is less than or equal to 0, the maximum line height is
-   * unrestricted.
+   * unrestricted. If this API is not called, the maximum line height is unrestricted (the value is **undefined**).
    *
    * If **maxLineHeight** is less than **minLineHeight**, **maxLineHeight** takes effect using the value of
    * **minLineHeight**.
    *
-   * @param { LengthMetrics | undefined } value - Maximum line height of text. Percentage values are not supported.<br>
-   *     Values less than or equal to 0 are treated as **0**. When the value is set to **0**, the maximum line height is
-   *     unrestricted.
+   * @param { LengthMetrics | undefined } value - Maximum line height of text. Percentage values are not supported.
+   *     <br>Values less than or equal to 0 are treated as **0**. When the value is set to **0**, the maximum line
+   *     height is unrestricted.
+   *     <br>If the value is **undefined**, this parameter does not take effect.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -480,11 +571,19 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * > **NOTE**
    * >
-   * > When both this API and [lineHeight]{@link TextAttribute#lineHeight} are set, only **lineHeightMultiple** takes
-   * > effect.
+   * > When **lineHeightMultiple** is set to a valid value and [lineHeight]{@link TextAttribute#lineHeight} or
+   * > [lineSpacing]{@link TextAttribute#lineSpacing(value: LengthMetrics)} is set at the same time, only
+   * > **lineHeightMultiple** takes effect. If the value of **lineHeightMultiple** is less than 0, it does not take
+   * > effect. In this case, use [lineHeight]{@link TextAttribute#lineHeight} and
+   * > [lineSpacing]{@link TextAttribute#lineSpacing(value: LengthMetrics)} to set the line height and line spacing.
    *
-   * @param { number | undefined } value - Multiplier for the line height.<br>Value range: ≥ 0<br>Values ≤ 0 are treated
-   *     as **0**. When the value is set to **0**, the default line height is used. Decimal values are supported.
+   * @param { number | undefined } value - Line height multiple.
+   *     <br>Value range: [0, +∞)
+   *     <br>**NOTE**
+   *     <br>- Values less than 0 does not take effect.
+   *     <br>- Value **0** functions the same as **1**, leaving line height unchanged.
+   *     <br>- Decimal values are supported.
+   *     <br>- If the value is **undefined**, the default line height is used.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -502,7 +601,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * **TextOverflow.Ellipsis**:
    *
    * - **TextOverflow.None** or **TextOverflow.Clip**: Text is truncated when it exceeds the maximum number of lines.
-   * - **TextOverflow.Ellipsis**: Overflowing text is replaced with an ellipsis (...).
+   * - **TextOverflow.Ellipsis**: An ellipsis (...) is used to represent text overflow.
    * - This must be used with [maxLines]{@link TextAttribute#maxLines} for the settings to take effect.
    * - Line breaking behavior is controlled by [wordBreak]{@link TextAttribute#wordBreak}. By default, it uses
    * **WordBreak.BREAK_WORD**, which breaks text by word (for example, English text is broken at word boundaries). To
@@ -512,13 +611,16 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * supported.
    * - Since API version 11, it is recommended that you configure both [textOverflow]{@link TextAttribute#textOverflow}
    * and [wordBreak]{@link TextAttribute#wordBreak} to control truncation behavior. For details, see
-   * [Example 4](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#example-4-setting-text-wrapping-and-line-breaking)
+   * [Example 4: Setting Text Wrapping and Line Breaking](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#example-4-setting-text-wrapping-and-line-breaking)
    * <!--RP1--><!--RP1End-->.
    *
    * When **TextOverflowOptions** is set to **TextOverflow.MARQUEE**:
    *
    * - Text scrolls horizontally within a single line.
-   * - [maxLines]{@link TextAttribute#maxLines} and[copyOption]{@link TextAttribute#copyOption} are ignored.
+   * - The [maxLines]{@link TextAttribute#maxLines}, [copyOption]{@link TextAttribute#copyOption}, and
+   * [selection]{@link TextAttribute#selection} attributes do not take effect, and special text entities cannot be
+   * recognized (that is, the attributes do not take effect when **enable** in
+   * [enableDataDetector]{@link TextAttribute#enableDataDetector} is set to **true**).
    * - The [clip]{@link CommonMethod#clip(value: boolean)} attribute of the **Text** component defaults to **true**.
    * - [CustomSpan]{@link CustomSpan} is not supported in marquee mode.
    * - Behavior of [textAlign]{@link TextAttribute#textAlign}: If the text does not scroll, **textAlign** applies; if
@@ -527,7 +629,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * images are allowed to scroll within a single line.
    *
    * @param { object } value [since 7 - 17]
-   * @param { TextOverflowOptions } options - Display mode when the text is too long. [since 18]
+   * @param { TextOverflowOptions } options - Configuration object for the display mode of extra-long text. It contains
+   *     the overflow attribute, which specifies the display behavior such as truncation, ellipsis, or
+   *     marquee. [since 18]
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -538,14 +642,15 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   textOverflow(options: TextOverflowOptions): TextAttribute;
 
   /**
-   * Sets the font family.
+   * Sets the font family. If this API is not called, the default font is **'HarmonyOS Sans'**. The default font on
+   * wearables is also **'HarmonyOS Sans'**.
    *
    * > **NOTE**
    * >
    * > You can use [loadFontSync]{@link @ohos.graphics.text:text.FontCollection#loadFontSync} to register custom fonts.
    *
-   * @param { string | Resource } value - Font family. Default font: **'HarmonyOS Sans'**<br>To specify multiple fonts,
-   *     separate them with commas (,), and fonts are applied in priority order. Example: **'Arial, HarmonyOS Sans'**.
+   * @param { string | Resource } value - Font family. To specify multiple fonts, separate them with commas (,), and
+   *     fonts are applied in priority order. Example: **'Arial, HarmonyOS Sans'**.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -556,14 +661,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   fontFamily(value: string | Resource): TextAttribute;
 
   /**
-   * Sets the maximum number of lines for text.
+   * Sets the maximum number of lines for text. If this parameter and [minLines]{@link TextAttribute#minLines} are set
+   * at the same time, the display range of the minimum number of lines does not exceed the value of **maxLines**.
    *
    * By default, text is automatically folded. If this attribute is specified, the text will not exceed the specified
    * number of lines. If there is extra text, you can use [textOverflow]{@link TextAttribute#textOverflow} to specify
    * how it is displayed.
    *
-   * @param { number } value - Maximum number of lines of the text.<br>**NOTE**<br>Value range: [0, *INT32_MAX*]<br>If
-   *     this parameter is set to **0**, no text content is displayed.
+   * @param { number } value - Maximum number of lines of the text.
+   *     <br>**NOTE**
+   *     <br>Value range: [0, *INT32_MAX*]
+   *     <br>If this parameter is set to **0**, no text content is displayed.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -579,14 +687,21 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * If the actual text height is less than the height for the minimum number of lines, the component uses the height
    * corresponding to the minimum number of lines.
    *
-   * When this API and [maxLines]{@link TextAttribute#maxLines} are both set, the minimum line height cannot exceed the
-   * maximum line height.
+   * If this parameter and [maxLines]{@link TextAttribute#maxLines} are set at the same time, the display height
+   * corresponding to the minimum number of lines does not exceed the height limit corresponding to the maximum number
+   * of lines.
    *
    * If [constraintSize]{@link CommonMethod#constraintSize} is set for the text, the component height is confined within
    * the [constraintSize]{@link CommonMethod#constraintSize} bounds.
    *
-   * @param { Optional<number> } minLines - Minimum number of lines of the text.<br>Value range: [0, *INT32_MAX*]<br>
-   *     Values less than 0 are clamped to **0**.
+   * @param { Optional<number> } minLines - Minimum number of lines of the text.
+   *     <br>Value range: [0, *INT32_MAX*].
+   *     <br>Values less than 0 are clamped to **0**.
+   *     <br>If the value is **undefined**, the minimum number of lines is not limited.
+   *     <br>**NOTE**
+   *     <br>If this parameter and [maxLines]{@link TextAttribute#maxLines} are set at the same time, the display height
+   *     corresponding to the minimum number of lines does not exceed the height limit corresponding to the maximum
+   *     number of lines.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -598,22 +713,34 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   minLines(minLines: Optional<number>): TextAttribute;
 
   /**
-   * Style and color of the text decorative line.
+   * Style and color of the text decorative line. If this API is not used, the default text decorative line style is as
+   * follows:
+   *
+   * {
+   *
+   * &nbsp;type:&nbsp;TextDecorationType.None,
+   *
+   * &nbsp;color:&nbsp;Color.Black,
+   *
+   * &nbsp;style:&nbsp;TextDecorationStyle.SOLID&nbsp;
+   *
+   * }
    *
    * > **NOTE**
    * >
    * > When the bottom contour of a character intersects with the decoration, underline avoidance is triggered, commonly
    * > affecting characters like "g", "j", "y", "q", and "p."
    * >
-   * > If the decoration color is set to **Color.Transparent**, it inherits the text color of the first character in
-   * > each line. If the decoration color is set to **"#00FFFFFF"**, the line becomes fully transparent.
+   * > When the decorative line color is set to **Color.Transparent**, the decorative line is displayed as the text
+   * > color of the first character in each line. When the color is set to the transparent hexadecimal value
+   * > **"#00FFFFFF"**, the decorative line is displayed in transparent color.
    *
-   * @param { object } value - Style of the text decorative line.<br>Default value:<br>{<br> type:
-   *     TextDecorationType.None,<br> color: Color.Black,<br> style: TextDecorationStyle.SOLID <br>}<br>**NOTE**<br>The
-   *     **style** parameter cannot be used in widgets. [since 7 - 11]
-   * @param { DecorationStyleInterface } value - Style of the text decorative line.<br>Default value:<br>{<br> type:
-   *     TextDecorationType.None,<br> color: Color.Black,<br> style: TextDecorationStyle.SOLID <br>}<br>**NOTE**<br>The
-   *     **style** parameter cannot be used in widgets. [since 12]
+   * @param { object } value - Style of the text decorative line.
+   *     <br>**NOTE**
+   *     <br>The **style** parameter cannot be used in widgets. [since 7 - 11]
+   * @param { DecorationStyleInterface } value - Style of the text decorative line.
+   *     <br>**NOTE**
+   *     <br>The **style** parameter cannot be used in widgets. [since 12]
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -624,7 +751,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   decoration(value: DecorationStyleInterface): TextAttribute;
 
   /**
-   * Sets the letter spacing for a text style.
+   * Sets the letter spacing for a text style. If this API is not called, the default letter spacing is 0.
    *
    * If the value specified is a percentage or **0**, the default value is used. For the string type, numeric string
    * values with optional units, for example, **"10"** or **"10fp"**, are supported.
@@ -633,10 +760,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * This setting applies to every character, including those at line endings.
    *
-   * @param { number | string } value - Letter spacing.<br>Default value: **0**<br>Unit: [fp]{@link common}<br>The
-   *     [Resource]{@link Resource} type is supported since API version 20. [since 7 - 19]
-   * @param { number | ResourceStr } value - Letter spacing.<br>Default value: **0**<br>Unit: [fp]{@link common}<br>The
-   *     [Resource]{@link Resource} type is supported since API version 20. [since 20]
+   * @param { number | string } value - Letter spacing.
+   *     <br>Unit: [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
+   *     <br>The [Resource]{@link Resource} type is supported since API version 20. [since 7 - 19]
+   * @param { number | ResourceStr } value - Letter spacing.
+   *     <br>Unit: [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
+   *     <br>The [Resource]{@link Resource} type is supported since API version 20. [since 20]
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -647,9 +776,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   letterSpacing(value: number | ResourceStr): TextAttribute;
 
   /**
-   * Sets the text case.
+   * Sets the text case. If this API is not called, the default text case is **TextCase.Normal**.
    *
-   * @param { TextCase } value - Text case.<br>Default value: **TextCase.Normal**
+   * @param { TextCase } value - Text case.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -660,14 +789,21 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   textCase(value: TextCase): TextAttribute;
 
   /**
-   * Sets the offset of the text baseline.
-   *
-   * Percentage values follow default display behavior.
+   * Sets the offset of the text baseline. It can be used to adjust the baseline alignment between the text and other
+   * elements (such as images and icons), or used in special typesetting scenarios that require precise vertical
+   * alignment, such as mixed text and images, mathematical formulas, and chemical formulas. If this API is not used,
+   * the default offset is 0.
    *
    * A positive value moves the content upwards, while a negative value moves it downwards.
    *
-   * @param { number | string } value - Offset of the text baseline.<br>Unit: fp. Default value: 0. [since 7 - 19]
-   * @param { number | ResourceStr } value - Offset of the text baseline.<br>Unit: fp. Default value: 0. [since 20]
+   * @param { number | string } value - Offset of the text baseline. If the value is set to a percentage, the value is
+   *     displayed as 0.
+   *     <br>Unit: fp.
+   *     <br>The [Resource]{@link Resource} type is supported since API version 20. [since 7 - 19]
+   * @param { number | ResourceStr } value - Offset of the text baseline. If the value is set to a percentage, the value
+   *     is displayed as 0.
+   *     <br>Unit: fp.
+   *     <br>The [Resource]{@link Resource} type is supported since API version 20. [since 20]
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -678,7 +814,15 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   baselineOffset(value: number | ResourceStr): TextAttribute;
 
   /**
-   * Sets whether copy and paste operations are allowed.
+   * Sets whether copy and paste operations are allowed. If this API is not used, the default value is
+   * **CopyOptions.None**, indicating that the text cannot be copied or pasted.
+   *
+   * The features of multiple attributes depend on the settings of **copyOption**, including
+   * [selection]{@link TextAttribute#selection}, [setTextSelection]{@link TextController#setTextSelection},
+   * [draggable]{@link TextAttribute#draggable},
+   * [enableSelectedDataDetector]{@link TextAttribute#enableSelectedDataDetector}, and
+   * [textSelectable]{@link TextAttribute#textSelectable}. For details about the dependency conditions, see the
+   * description of each attribute.
    *
    * Since API version 20, copied text from the **Text** component includes HTML-formatted content in the pasteboard.
    *
@@ -700,8 +844,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * Because widgets do not have the long press event, the menu will not be displayed when users long press text.
    *
-   * @param { CopyOptions } value - Whether copy and paste operations are allowed.<br>Default value:
-   *     **CopyOptions.None**
+   * @param { CopyOptions } value - Whether copy and paste operations are allowed.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -712,7 +855,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   copyOption(value: CopyOptions): TextAttribute;
 
   /**
-   * Sets the drag effect of the selected text.
+   * Sets the drag effect of the selected text. If this API is not used, the selected text cannot be dragged by default.
+   *
    *
    * This attribute cannot be used together with the [onDragStart]{@link CommonMethod#onDragStart} event.
    *
@@ -720,8 +864,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * **copyOptions** is set to **CopyOptions.InApp** or **CopyOptions.LocalDevice**, the selected text becomes draggable
    * and can be copied into a text box.
    *
-   * @param { boolean } value - Drag effect of the selected text.<br>**true**: The selected text is draggable.
-   *     **false**: The selected text is not draggable.<br>Default value: **false**
+   * @param { boolean } value - Drag effect of the selected text.
+   *     <br>**true**: The selected text is draggable. **false**: The selected text is not draggable.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 18]
@@ -738,8 +882,16 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * Since API version 11, this API supports input parameters in an array to implement multiple text shadows.
    *
-   * @param { ShadowOptions } value - Text shadow. [since 10 - 10]
-   * @param { ShadowOptions | Array<ShadowOptions> } value - Text shadow. [since 11]
+   * @param { ShadowOptions } value - Text shadow effect, which is used to configure the visual effect of the text
+   *     shadow. **ShadowOptions** contains configuration items such as **radius** (shadow radius), **color** (shadow
+   *     color), **offsetX** (horizontal offset), and **offsetY** (vertical offset). Intelligent color extraction is not
+   *     supported for the **type**, **fill**, and **color** fields. Since API version 11, input parameters can be
+   *     passed in an array to implement multiple text shadows. [since 10 - 10]
+   * @param { ShadowOptions | Array<ShadowOptions> } value - Text shadow effect, which is used to configure the visual
+   *     effect of the text shadow. **ShadowOptions** contains configuration items such as **radius** (shadow radius),
+   *     **color** (shadow color), **offsetX** (horizontal offset), and **offsetY** (vertical offset). Intelligent color
+   *     extraction is not supported for the **type**, **fill**, and **color** fields. Since API version 11, input
+   *     parameters can be passed in an array to implement multiple text shadows. [since 11]
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -751,7 +903,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   textShadow(value: ShadowOptions | Array<ShadowOptions>): TextAttribute;
 
   /**
-   * Sets the font size adjustment strategy for adaptive text layout.
+   * Sets the font size adjustment strategy for adaptive text layout. If this API is not called, the default text height
+   * adaptation mode is **TextHeightAdaptivePolicy.MAX_LINES_FIRST**.
    *
    * The available modes are as follows:
    *
@@ -768,8 +921,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * to respect the layout constraints. If the text still extends beyond the layout constraints after shrinking to
    * **minFontSize**, the lines that exceed the constraints are deleted.
    *
-   * @param { TextHeightAdaptivePolicy } value - How the adaptive height is determined for the text.<br>Default value:
-   *     **TextHeightAdaptivePolicy.MAX_LINES_FIRST**
+   * @param { TextHeightAdaptivePolicy } value - How the adaptive height is determined for the text.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -780,9 +932,11 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextAttribute;
 
   /**
-   * Sets the indent of the first line text.
+   * Sets the indent of the first line text. If this API is not called, the default indent of the first line text is 0.
    *
-   * @param { Length } value - Indent of the first line text.<br>Default value: **0**<br>Unit: [fp]{@link common}
+   * @param { Length } value - Indent of the first line text.
+   *     <br>Unit: [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
+   *     <br>The value must be greater than or equal to 0. If the value is a negative number, the default value is used.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -793,18 +947,13 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   textIndent(value: Length): TextAttribute;
 
   /**
-   * Specify the tail indentation for each line in a text block.
+   * Sets the indent of the text tail. If this API is not called, the default indent of the text tail is 0 fp.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>When a single LengthMetrics value is provided, all lines share the same tail indent.
-   * <br>When an array is provided, the i-th element specifies the tail indent for the i-th line.
-   * If the number of text lines exceeds the array length, the last element in the array is used
-   * for the remaining lines.
-   * <br>Negative values are treated as 0.
-   * <br>If the value is set to undefined, the default value 0 is used.
-   * </p>
-   *
-   * @param { Optional<LengthMetrics | Array<LengthMetrics>> } value - The tail indent value(s).Default value is 0.
+   * @param { Optional<LengthMetrics | Array<LengthMetrics>> } value - Tail indentation of each line of text. If a
+   *     single **LengthMetrics** value is provided, all lines share the same tail indentation. If an array is provided,
+   *     the *i*th element specifies the tail indentation for the *i*th line. If the number of text lines exceeds the
+   *     array length, the last element in the array is used for the remaining lines. The value cannot be in percentage.
+   *     <br>The value must be greater than or equal to 0. If the value is a negative number, the default value is used.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -815,15 +964,15 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   tailIndents(value: Optional<LengthMetrics | Array<LengthMetrics>>): TextAttribute;
 
   /**
-   * Sets the word break rule.
-   *
-   * By default, when **wordBreak** is not called or is set to **WordBreak.BREAK_WORD**, text is broken by word. (for
+   * Sets the word break rule. If this API is not called, the default word break rule is **WordBreak.BREAK_WORD**.
+   * 
+   * By default, when **wordBreak** is not called or is set to **WordBreak.BREAK_WORD**, text is broken by word. (for 
    * example, English text is broken at word boundaries).
-   *
-   * To break text by character, with the excess part displayed as an ellipsis (...), use **WordBreak.BREAK_ALL** in
+   * 
+   * To break text by character, with the excess part displayed as an ellipsis (...), use **WordBreak.BREAK_ALL** in 
    * combination with **{overflow: TextOverflow.Ellipsis}** and **maxLines**.
    *
-   * @param { WordBreak } value - Word break rule.<br>Default value: **WordBreak.BREAK_WORD**
+   * @param { WordBreak } value - Word break rule.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -835,9 +984,10 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
 
   /**
    * Sets the line break rule. This attribute takes effect only when [wordBreak]{@link TextAttribute#wordBreak} is not
-   * **WordBreak.BREAK_ALL**. Hyphens are not supported.
+   * **WordBreak.BREAK_ALL**. Hyphens are not supported. If this API is not called, the default line break rule is
+   * **LineBreakStrategy.GREEDY**.
    *
-   * @param { LineBreakStrategy } strategy - Line break rule.<br>Default value: **LineBreakStrategy.GREEDY**
+   * @param { LineBreakStrategy } strategy - Line break rule. For details, see **LineBreakStrategy**.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -864,10 +1014,21 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Called before the copy operation is performed.
    *
-   * **Since**: 26.0.0
+   * > **NOTE**
+   * >
+   * > **onWillCopy** and **onCopy** form the **will/did** time sequence mode:
+   * >
+   * > - **onWillCopy** is triggered before the copy operation is performed. You can return **false** to intercept the
+   * > copy operation. If **true** is returned, the copy operation is allowed and **onCopy** is triggered.
+   * >
+   * > - **onCopy** is triggered after the copy operation is complete and cannot be intercepted.
+   * >
+   * > - The two APIs can be used together. **onWillCopy** is used for interception and control, and **onCopy** is used
+   * > to obtain the copy result.
    *
-   * @param { Callback<string, boolean> } callback - The string type indicates the text to be copied.<br>The boolean
-   *     type indicates whether the text can be copied. The value **true** means yes and **false** means no.
+   * @param { Callback<string, boolean> } callback - The string type indicates the text to be copied.
+   *     <br>The boolean type indicates whether the text can be copied. The value **true** means yes and **false** means
+   *     no.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -878,7 +1039,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   onWillCopy(callback: Callback<string, boolean>): TextAttribute;
 
   /**
-   * Sets text selection.
+   * Sets text selection. If this API is not called, no text selection is set by default (both **selectionStart** and
+   * **selectionEnd** are set to **-1**).
    *
    * The selected text is highlighted, with selection handles and the text selection menu displayed.
    *
@@ -900,8 +1062,14 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * You can obtain the selection range change result through the
    * [onTextSelectionChange]{@link TextAttribute#onTextSelectionChange} API.
    *
-   * @param { number } selectionStart - Start position of the selected text.<br>Default value: **-1**
-   * @param { number } selectionEnd - End position of the selected text.<br>Default value: **-1**
+   * @param { number } selectionStart - Start position of the selected text.
+   *     <br>Value range: [0, textSize], where **textSize** indicates the maximum number of characters in the text
+   *     content. If the value of the input parameter is less than 0, the value **0** is used. If the value of the input
+   *     parameter is greater than that of **textSize**, the value of **textSize** is used.
+   * @param { number } selectionEnd - End position of the selected text.
+   *     <br>Value range: [0, textSize], where **textSize** indicates the maximum number of characters in the text
+   *     content. If the value of the input parameter is less than 0, the value **0** is used. If the value of the input
+   *     parameter is greater than that of **textSize**, the value of **textSize** is used.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -912,9 +1080,10 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   selection(selectionStart: number, selectionEnd: number): TextAttribute;
 
   /**
-   * Sets the color of the text selection handle, also known as the caret, in the text box.
+   * Sets the color of the handle for the selected area in the text component. If this API is not used, the default
+   * color of the handle for the selected area is **'#007DFF'** (blue).
    *
-   * @param { ResourceColor } color - Color of the text selection handle.<br>Default value: **'#007DFF'**
+   * @param { ResourceColor } color - Color of the text selection handle.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -925,9 +1094,10 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   caretColor(color: ResourceColor): TextAttribute;
 
   /**
-   * Sets the background color of the selected text. If the opacity is not set, a 20% opacity will be used.
+   * Sets the highlight color of the selected text. If opacity is not set or is set to fully opaque, the default opacity
+   * is 20%. If this API is not called, the default highlight color of the selected text is '#007DFF' (blue).
    *
-   * @param { ResourceColor } color - Background color of the selected text.<br>Default value: **'#007DFF'**
+   * @param { ResourceColor } color - Highlight color of the selected text.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -985,15 +1155,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): TextAttribute;
 
   /**
-   * Applies gradient or solid color effects to text. Supports [RadialGradientStyle]{@link RadialGradientStyle},
-   * [LinearGradientStyle]{@link LinearGradientStyle}, and [ColorShaderStyle]{@link ColorShaderStyle}. **shaderStyle**
-   * takes precedence over [fontColor]{@link SymbolSpanAttribute#fontColor} and AI-based styling. For solid colors,
-   * prefer using [fontColor]{@link SymbolSpanAttribute#fontColor}.
+   * The text can be displayed in the [RadialGradientStyle]{@link RadialGradientStyle},
+   * [LinearGradientStyle]{@link LinearGradientStyle}, or [ColorShaderStyle]{@link ColorShaderStyle} effect. The
+   * priority of **shaderStyle** is higher than that of [fontColor]{@link TextAttribute#fontColor} and AI recognition.
+   * You are advised to use [fontColor]{@link TextAttribute#fontColor} for solid colors.
    *
-   * @param { ShaderStyle } shader - Shader effect.<br>Based on the input, the system applies a radial gradient (
-   *     [RadialGradientStyle]{@link RadialGradientStyle}), linear gradient (
-   *     [LinearGradientStyle]{@link LinearGradientStyle}), or solid color ([ColorShaderStyle]{@link ColorShaderStyle}).
-   *     <br>**NOTE**<br>If [RadialGradientStyle]{@link RadialGradientStyle} is used and the **center** parameter (from
+   * @param { ShaderStyle } shader - Shader effect.
+   *     <br>[RadialGradientStyle]{@link RadialGradientStyle}, [LinearGradientStyle]{@link LinearGradientStyle}, or
+   *     [ColorShaderStyle]{@link ColorShaderStyle} is processed based on the input parameters, and the gradient color
+   *     effect is displayed on the text.
+   *     <br>**NOTE**
+   *     <br>If [RadialGradientStyle]{@link RadialGradientStyle} is used and the **center** parameter (from
    *     [RadialGradientOptions]{@link RadialGradientOptions}) is outside the component bounds, setting **repeating** to
    *     **true** enhances the gradient effect.
    * @returns { TextAttribute }
@@ -1006,14 +1178,16 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   shaderStyle(shader: ShaderStyle): TextAttribute;
 
   /**
-   * Sets the ellipsis position.
+   * Sets the ellipsis position. If this API is not used, the default ellipsis position is at the end of the line (
+   * **EllipsisMode.END**).
    *
-   * For the settings to work, **overflow** must be set to **TextOverflow.Ellipsis** and **maxLines** must be specified.
-   * Setting **ellipsisMode** alone does not take effect.
+   * The **ellipsisMode** attribute must be used together with the **TextOverflow.Ellipsis** value of **overflow** and
+   * the **maxLines** attribute. Setting the **ellipsisMode** attribute alone does not take effect.
    *
-   * **EllipsisMode.START** and **EllipsisMode.CENTER** take effect only when text overflows in a single line.
+   * The **EllipsisMode.START** and **EllipsisMode.CENTER** attributes take effect only when the text in a single line
+   * is too long.
    *
-   * @param { EllipsisMode } value - Ellipsis position.<br>Default value: **EllipsisMode.END**
+   * @param { EllipsisMode } value - Ellipsis position.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1024,8 +1198,10 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   ellipsisMode(value: EllipsisMode): TextAttribute;
 
   /**
-   * Sets whether to enable special entity detection within the text. Special entities are detected when
-   * **enableDataDetector** is set to **true**.
+   * Sets whether to recognize special text entities, such as phone numbers, websites, email addresses, addresses, and
+   * dates. This API is applicable to scenarios that require intelligent recognition and interaction, such as chat
+   * messages, comments, and articles. If this API is not called, special text entities are not recognized by default.
+   * Special entities are detected when **enableDataDetector** is set to **true**.
    *
    * The style of detected entities is as follows: the font color is changed to blue, and a blue underline is added.
    *
@@ -1038,8 +1214,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * <!--RP2--><!--RP2End-->
    *
-   * @param { boolean } enable - Whether to enable text recognition.<br>**true**: Enable text recognition. **false**:
-   *     Disable text recognition.<br>Default value: **false**
+   * @param { boolean } enable - Whether special text entities can be recognized.
+   *     <br>The value **true** indicates yes, and **false** indicates no.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1055,7 +1231,11 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * This API must be used together with [enableDataDetector]{@link TextAttribute#enableDataDetector}. It takes effect
    * only when **enableDataDetector** is set to **true**.
    *
-   * @param { TextDataDetectorConfig } config - Text recognition configuration.
+   * @param { TextDataDetectorConfig } config - Text recognition configuration object, which is used to configure the
+   *     specific behavior of text recognition. You can configure the types of entities to recognize (such as phone
+   *     numbers, websites, email addresses, addresses, and dates), display styles for the entities, and whether to
+   *     enable long-press for preview. This parameter must be used together with
+   *     [enableDataDetector]{@link TextAttribute#enableDataDetector}.
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1066,15 +1246,31 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
 
   /**
    * Sets whether to enable entity recognition for selected text. This API only works on devices that provide text
-   * recognition.
+   * recognition. If this API is not called, entity recognition is enabled for selected text by default.
    *
-   * When **enableSelectedDataDetector** is set to **true**, all entity types are recognized by default.
+   * After this feature is enabled, the entities such as email address, phone number, website URL, date, and address in
+   * the selection area can be recognized, and the corresponding AI menu items can be displayed in the text selection
+   * menu. By default, the AI menu feature is enabled.
+   *
+   * When the AI menu feature is enabled, selecting text in the component allows the text selection menu to display
+   * corresponding AI menu items, including **url** (opening a link), **email** (creating an email), **phoneNumber** (
+   * making a call), **address** (navigating), and **dateTime** (creating a new event) in
+   * [TextMenuItemId]{@link TextMenuItemId}.
+   *
+   * When the AI menu is active, the corresponding menu item is displayed only if the selected range contains exactly
+   * one complete AI entity. This menu item does not appear at the same time as the **askAI** menu item in
+   * [TextMenuItemId]{@link TextMenuItemId}.
    *
    * This feature is only effective when [CopyOptions]{@link CopyOptions} is set to **CopyOptions.LocalDevice** or
    * **CopyOptions.CrossDevice**.
    *
-   * @param { boolean | undefined } enable - Whether to enable entity recognition for selected text.<br>**true**: Entity
-   *     recognition is enabled. **false**: Entity recognition is disabled. Default value: **true**
+   * This attribute is invalid in the cross-node selection scenario of
+   * [SelectionContainer]{@link @ohos.arkui.components.SelectionContainer}. The corresponding AI menu item is not
+   * displayed in the text selection menu.
+   *
+   * @param { boolean | undefined } enable - Whether to enable entity recognition for selected text.
+   *     <br>**true**: Entity recognition is enabled. **false**: Entity recognition is disabled. Default value: **true**
+   *     <br>A value of **undefined** is treated as the default value.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1084,15 +1280,25 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   enableSelectedDataDetector(enable: boolean | undefined): TextAttribute;
 
   /**
-   * Sets the custom selection menu.
+   * Sets the custom selection menu. If this API is not used, the default menu type is **TextSpanType.TEXT** and the
+   * response type is **TextResponseType.LONG_PRESS**.
    *
    * The long-press response duration of **bindSelectionMenu** is 600 ms while that of
    * [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)}
    * is 800 ms. When both are bound and their triggering methods are set to long press, **bindSelectionMenu** takes
    * precedence.
    *
-   * When the custom menu is too long, it is recommended that nest a [Scroll]{@link ./scroll} component inside to prevent
-   * the keyboard from being obscured.
+   * When the custom menu is too long, it is recommended that nest a [Scroll]{@link ./scroll} component inside to
+   * prevent the keyboard from being obscured.
+   *
+   * Since API version 26.0.0, when the text component calls this API, the image preview menu takes effect if the
+   * **menuType** attribute in **options** is set to **MenuType.PREVIEW_MENU**.
+   *
+   * To use the image preview menu, set **spanType** to **TextSpanType.IMAGE**, **responseType** to
+   * **TextResponseType.LONG_PRESS**, and **menuType** in **options** to **MenuType.PREVIEW_MENU**.
+   *
+   * When [copyOption]{@link TextAttribute#copyOption} is set to **CopyOptions.None**, the setting of the image preview
+   * menu does not take effect.
    *
    * > **NOTE**
    * >
@@ -1104,11 +1310,13 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * > In contrast, when [bindSelectionMenu]{@link TextAttribute#bindSelectionMenu} is used, both the menu style and the
    * > trigger conditions are fully customizable.
    *
-   * @param { TextSpanType } spanType - Span type of the menu.<br>Default value: **TextSpanType.TEXT**
+   * @param { TextSpanType } spanType - Span type of the menu.
    * @param { CustomBuilder } content - Content of the menu.
-   * @param { TextResponseType } responseType - Response type of the menu.<br>Default value:
-   *     **TextResponseType.LONG_PRESS**
-   * @param { SelectionMenuOptions } [options] - Options of the menu.
+   * @param { TextResponseType } responseType - Response type of the menu.
+   * @param { SelectionMenuOptions } [options] - Options of the selection menu, which are used to customize the menu
+   *     behavior. The options include callback configuration items such as menu appearance, disappearance, display, and
+   *     hiding.
+   *     <br>Default value: If this parameter is not set, the default selection menu configuration is used.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1161,11 +1369,14 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * > fl, rf, rt, rv, rx, ry. These ligatures may cause unexpected effects of spans and styled strings. Disabling the
    * > ligature feature can avoid this issue.
    * >
-   * > Text rendering behavior is closely tied to the font file in use. For instance, the system's default font supports
-   * > 8-punctuation compression only for left-side punctuation marks. Right-side punctuation, including exclamation
-   * > marks, enumeration commas, and question marks, is not affected by this feature.
+   * > Text rendering behavior is closely tied to the font file in use. For example, the 8-punctuation compression
+   * > feature requires that the characters in the font file support the ss08 feature. Otherwise, the characters cannot
+   * > be compressed. In the current default system font, the punctuation marks on the right, exclamation marks, commas,
+   * > and question marks do not take effect.
    *
-   * @param { string } value - Font feature.
+   * @param { string } value - Text feature effect. The format is normal | <feature-tag-value>. The format of <feature-
+   *     tag-value> is <string> [<integer> | on | off]. Multiple values are separated by commas (,). For example, "ss01"
+   *     on.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1183,6 +1394,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * @param { Optional<TextMarqueeOptions> } options - Marquee animation properties such as enable/disable, step size,
    *     loop count, and direction.
+   *     <br>If the value is **undefined**, the default value in [TextMarqueeOptions]{@link TextMarqueeOptions} is used.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1195,8 +1407,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Called when the marquee animation reaches the specified state.
    *
-   * @param { Callback<MarqueeState> } callback - Callback that receives a **MarqueeState** enum value, which indicates
-   *     the current state of the marquee animation.
+   * @param { Callback<MarqueeState> } callback - The callback parameter specifies the state that triggers the callback.
+   *     The state is defined by the **MarqueeState** enumeration, for example, starting scrolling, completing a
+   *     scrolling, completing scrolling, or stopping scrolling.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1207,13 +1420,17 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   onMarqueeStateChange(callback: Callback<MarqueeState>): TextAttribute;
 
   /**
-   * Sets whether to enable privacy mode on widgets.
+   * Sets whether to enable privacy mode on widgets. If this API is not called, privacy mode is not enabled on widgets
+   * by default.
    *
-   * @param { boolean } supported - Whether to enable privacy mode on widgets.<br>Default value: **false**. The value
-   *     **true** means to enable privacy mode, in which case text is obscured with hyphens (-).<br>**NOTE**<br>The
-   *     value **null** means not to enable privacy mode on widgets.<br>Enabling privacy mode requires support from the
-   *     widget framework. You can use [obscured]{@link CommonMethod#obscured} to set how the component content is
-   *     obscured.
+   * @param { boolean } supported - Whether to enable privacy mode on widgets.
+   *     <br>The value **true** indicates to enable privacy mode on widgets. In privacy mode, the text will be masked
+   *     with hyphens (-). The value **false** indicates to disable privacy mode on widgets. In privacy mode, the text
+   *     is displayed properly.
+   *     <br>**NOTE**
+   *     <br>The value **null** means not to enable privacy mode on widgets.
+   *     <br>Enabling privacy mode requires support from the widget framework. You can use
+   *     [obscured]{@link CommonMethod#obscured} to set how the component content is obscured.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1224,12 +1441,13 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   privacySensitive(supported: boolean): TextAttribute;
 
   /**
-   * Sets whether the text is selectable and focusable.
+   * Sets whether the text is selectable and focusable. If this API is not called, the default text can be selected but
+   * cannot be focused (**TextSelectableMode.SELECTABLE_UNFOCUSABLE**).
    *
-   * This attribute must be used in conjunction with [copyOption]{@link TextAttribute#copyOption}.
+   * This attribute must be used in conjunction with [copyOption]{@link TextAttribute#copyOption}. If **copyOption** is
+   * set to **CopyOptions.None**, the **textSelectable** attribute does not take effect.
    *
-   * @param { TextSelectableMode } mode - Whether the text is selectable and focusable.<br>Default value:
-   *     **TextSelectableMode.SELECTABLE_UNFOCUSABLE**
+   * @param { TextSelectableMode } mode - Whether the text is selectable and focusable.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1242,11 +1460,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * Sets the extended options for the custom menu, including the text content, icon, and callback.
    *
-   * When
-   * [disableMenuItems](docroot://reference/apis-arkui/arkts-apis-uicontext-textmenucontroller.md#disablemenuitems20) or
-   *
-   * [disableSystemServiceMenuItems](docroot://reference/apis-arkui/arkts-apis-uicontext-textmenucontroller.md#disablesystemservicemenuitems20)
-   * is used to disable system service menu items in the text selection menu, the disabled menu options will be excluded
+   * When [disableMenuItems]{@link @ohos.arkui.UIContext:TextMenuController.disableMenuItems} or
+   * [disableSystemServiceMenuItems]{@link @ohos.arkui.UIContext:TextMenuController.disableSystemServiceMenuItems} is
+   * used to disable system service menu items in the text selection menu, the disabled menu options will be excluded
    * from the parameter list in the [onCreateMenu]{@link EditMenuOptions.onCreateMenu} callback of **editMenuOptions**.
    *
    * > **NOTE**
@@ -1257,7 +1473,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * > In contrast, when [bindSelectionMenu]{@link TextAttribute#bindSelectionMenu} is used, both the menu style and the
    * > trigger conditions are fully customizable.
    *
-   * @param { EditMenuOptions } editMenu - Extended options of the custom menu.
+   * @param { EditMenuOptions } editMenu - Extended menu options, which are used to customize the extended items of the
+   *     text selection menu. You can set the text content, icon, and callback method of the extended items, and add
+   *     custom menu items.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1268,12 +1486,19 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   editMenuOptions(editMenu: EditMenuOptions): TextAttribute;
 
   /**
-   * Whether half leading is enabled. Half leading refers to splitting the leading in half and applying it equally to
-   * the top and bottom of the line.
+   * Sets whether half leading is enabled. Half leading refers to splitting the leading in half and applying it equally
+   * to the top and bottom of the line. If this API is not called, half leading is disabled by default.
+   *
+   * > **NOTE**
+   * >
+   * > If this parameter and [textVerticalAlign]{@link TextAttribute#textVerticalAlign} are set at the same time,
+   * > **halfLeading** does not take effect.
    *
    * @param { boolean } halfLeading - Whether half leading is enabled. Half leading refers to splitting the leading in
-   *     half and applying it equally to the top and bottom of the line.<br>**true**: Half leading is enabled.
-   *     **false**: Half leading is not enabled.<br>Default value: **false**
+   *     half and applying it equally to the top and bottom of the line. If this parameter and
+   *     [textVerticalAlign]{@link TextAttribute#textVerticalAlign} are set at the same time, **halfLeading** does not
+   *     take effect.
+   *     <br>**true**: Half leading is enabled. **false**: Half leading is not enabled.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1284,7 +1509,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   halfLeading(halfLeading: boolean): TextAttribute;
 
   /**
-   * Sets whether to enable haptic feedback.
+   * Sets whether to enable haptic feedback. If this API is not called, haptic feedback is enabled by default.
    *
    * To enable haptic feedback, you must declare the **ohos.permission.VIBRATE** permission under **requestPermissions**
    * in the [module.json5](docroot://quick-start/module-configuration-file.md) file of the project.
@@ -1293,8 +1518,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * >
    * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 18.
    *
-   * @param { boolean } isEnabled - Whether to enable haptic feedback.<br>**true** to enable, **false** otherwise.<br>
-   *     Default value: **true**
+   * @param { boolean } isEnabled - Whether to enable haptic feedback.
+   *     <br>**true** to enable, **false** otherwise.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1305,10 +1530,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   enableHapticFeedback(isEnabled: boolean): TextAttribute;
 
   /**
-   * Sets whether to enable automatic spacing between Chinese and Western characters.
+   * Sets whether to enable automatic spacing between Chinese and Western characters. If this API is not called,
+   * automatic spacing between Chinese and Western characters is disabled by default.
    *
-   * @param { Optional<boolean> } enabled - Whether to enable automatic spacing between Chinese and Western characters.<
-   *     br>**true** to enable, **false** otherwise.<br>Default value: **false**
+   * @param { Optional<boolean> } enabled - Whether to enable automatic spacing between Chinese and Western characters.
+   *     <br>**true** to enable, **false** otherwise.
+   *     <br>If the value is **undefined**, automatic spacing between Chinese and Western characters is disabled.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1320,7 +1547,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
 
   /**
    * Sets whether to optimize trailing spaces at line endings during text layout, resolving alignment display issues
-   * caused by trailing spaces.
+   * caused by trailing spaces. If this API is not called, trailing spaces at the end of each line are not optimized by
+   * default.
    *
    * When **Text.optimizeTrailingSpace** is set to **true**:
    *
@@ -1335,8 +1563,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)},
    * [decoration]{@link TextAttribute#decoration}, and [textAlign]{@link TextAttribute#textAlign} attributes.
    *
-   * @param { Optional<boolean> } optimize - Whether to optimize trailing spaces.<br>**true** to optimize, **false**
-   *     otherwise.<br>Default value: **false**
+   * @param { Optional<boolean> } optimize - Whether to optimize trailing spaces.
+   *     <br>**true** to optimize, **false** otherwise.
+   *     <br>If the value is **undefined**, trailing spaces are not optimized.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1347,10 +1576,14 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   optimizeTrailingSpace(optimize: Optional<boolean>): TextAttribute;
 
   /**
-   * Applies a transition animation to text content. Supports numeric flip animation via
+   * Applies a transition animation to text content. The numeric flip animation is supported via
    * [NumericTextTransition]{@link NumericTextTransition}.
    *
-   * @param { Optional<ContentTransition> } transition - Text animation effect.
+   * @param { Optional<ContentTransition> } transition - Text animation, which is used to set the transition animation
+   *     effect when the text content changes. You can set this parameter to
+   *     [NumericTextTransition]{@link NumericTextTransition} to implement the flip animation effect when the number
+   *     changes.
+   *     <br>If the value is **undefined**, there is no flipping effect.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1361,11 +1594,11 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   contentTransition(transition: Optional<ContentTransition>): TextAttribute;
 
   /**
-   * Applies a transition animation to text content. Supports numeric flip animation via
-   * [NumericTextTransition]{@link NumericTextTransition}.
+   * Sets the drag preview style for selected text.
    *
-   * @param { SelectedDragPreviewStyle | undefined } value - Drag preview style for selected text.<br>If this parameter
-   *     is set to **undefined**, the drag preview follows the theme: white in light mode and black in dark mode.
+   * @param { SelectedDragPreviewStyle | undefined } value - Drag preview style for selected text.
+   *     <br>If this parameter is set to **undefined**, the drag preview follows the theme: white in light mode and
+   *     black in dark mode.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1379,9 +1612,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * Specifies the text layout direction. If this attribute is not set, the default text layout direction follows the
    * component layout direction.
    *
-   * @param { TextDirection | undefined } direction - Text layout direction.<br>If this parameter is set to
-   *     **undefined**, the text layout direction follows the component layout direction as defined by
-   *     **TextDirection.DEFAULT**.
+   * @param { TextDirection | undefined } direction - Text layout direction.
+   *     <br>If this parameter is set to **undefined**, the text layout direction follows the component layout direction
+   *     as defined by **TextDirection.DEFAULT**.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1398,6 +1631,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * @param { Optional<boolean> } include - Whether to add spacing to the first and last lines to avoid text truncation.
    *     <br>**true**: Spacing is added to the first and last lines. **false**: Spacing is not added to the first and
    *     last lines.
+   *     <br>**undefined**: Spacing is not added to the first and last lines.
    * @returns { TextAttribute } - returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1412,8 +1646,10 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * the line height is less than the actual text height. If this API is not set, the line height does not adapt to the
    * actual text height by default.
    *
-   * @param { Optional<boolean> } enabled - Whether the line height adapts to the actual text height.<br>**true**: Line
-   *     height adapts to the actual text height. **false**: Line height does not adapt to the actual text height.
+   * @param { Optional<boolean> } enabled - Whether the line height adapts to the actual text height.
+   *     <br>**true**: Line height adapts to the actual text height. **false**: Line height does not adapt to the actual
+   *     text height.
+   *     <br>**undefined**: Line height does not adapt to the actual text height.
    * @returns { TextAttribute } - returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1433,8 +1669,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * > - For the range of punctuation marks that support leading compression, see
    * > [ParagraphStyle]{@link @ohos.graphics.text:text.ParagraphStyle}.
    *
-   * @param { Optional<boolean> } enabled - Whether to enable leading punctuation compression.<br>**true**: Leading
-   *     punctuation compression is enabled. **false**: Leading punctuation compression is disabled.
+   * @param { Optional<boolean> } enabled - Whether to enable leading punctuation compression.
+   *     <br>The value **true** indicates to enable leading punctuation compression, and **false** indicates the
+   *     opposite. The value **undefined** indicates that leading punctuation compression is disabled.
    * @returns { TextAttribute } - returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1454,11 +1691,10 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * [TextStyle]{@link @ohos.graphics.text:text.TextStyle} of the text to be typeset is either **"zh-Hans"** or
    * **"zh-Hant"**.
    *
-   * **Since**: 26.0.0
-   *
    * @param { Optional<boolean> } enabled - Whether to enable orphan character optimization for the last line of the
-   *     paragraph.<br>**true**: Orphan character optimization is enabled. **false**: Orphan character optimization is
-   *     disabled.<br>When the value is **undefined** or **null**, orphan character optimization is disabled.
+   *     paragraph.
+   *     <br>**true**: Orphan character optimization is enabled. **false**: Orphan character optimization is disabled.
+   *     <br>When the value is **undefined** or **null**, orphan character optimization is disabled.
    * @returns { TextAttribute } - returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -1468,9 +1704,11 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   orphanCharOptimization(enabled: Optional<boolean>): TextAttribute;
 
   /**
-   * Set the font variation.
+   * Sets font variations.
    *
-   * @param { Array<FontVariation> } fontVariations - Indicates the text font variation.
+   * @param { Array<FontVariation> } fontVariations - Array of font variations, where each member represents a distinct
+   *     font variation. The **fontVariations** attribute takes precedence over
+   *     [fontWeight]{@link TextAttribute#fontWeight(weight: number | FontWeight | ResourceStr, options?: FontSettingOptions)}.
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1482,13 +1720,13 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   fontVariations(fontVariations: Array<FontVariation>): TextAttribute;
 
   /**
-   * Sets the incremental update policy for text rendering.
+   * Sets the incremental update policy for text rendering. If this API is not called, the default value is
+   * **IncrementalUpdatePolicy.NONE**.
    *
-   * This API takes effect only when Text content contains a StyledString.
-   * Default value is IncrementalUpdatePolicy.NONE.
+   * This API takes effect only when the text content contains a styled string (**StyledString**).
    *
-   * @param { IncrementalUpdatePolicy | undefined } policy - Indicates the incremental update policy.
-   *     Passing `undefined` resets it to the default value.
+   * @param { IncrementalUpdatePolicy | undefined } policy - Incremental update policy for text rendering.
+   *     <br>If this parameter is set to **undefined**, the value **IncrementalUpdatePolicy.NONE** is used.
    * @returns { TextAttribute } - returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1499,9 +1737,12 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   incrementalUpdatePolicy(policy: IncrementalUpdatePolicy | undefined): TextAttribute;
 
   /**
-   * Whether to enable punctuation overflow at line ends.
+   * Sets whether to enable hanging punctuation at line ends. Hanging punctuation is disabled by default if this API is
+   * not specified.
    *
-   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @param { Optional<boolean> } enabled - Whether to enable punctuation hanging at the end of a line.
+   *     <br>**true**: enable punctuation hanging. **false**: disable punctuation hanging. When the value is
+   *     **undefined** or **null**, hanging punctuation is disabled.
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1524,7 +1765,19 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
 declare const TextInstance: TextAttribute;
 
 /**
- * The **Text** component is used to display a piece of textual information.
+ * The **Text** component is used to display text content. It supports the configuration of font styles, text alignment,
+ * line height, and decorative lines. It also supports mixed arrangement of images and text, text selection, and text
+ * recognition. This component is applicable to various application scenarios where text information needs to be
+ * displayed.
+ *
+ * > **NOTE**
+ * >
+ * > - This component is supported since API version 7. Newly added APIs will be marked with a superscript to indicate
+ * > their
+ * >
+ * > - To set whether to clear the text selection and handle when the user touches outside the text component, use the
+ * > [setTextSelectionClearPolicy]{@link @ohos.arkui.UIContext:UIContext.setTextSelectionClearPolicy} API.
+ * >
  *
  * ###### Child Components
  *
@@ -1551,6 +1804,13 @@ declare const Text: TextInterface;
  * >
  * > The system follows the priority order below when determining the menu type to display during text interactions:
  * >
+ * > 1. Check whether a menu is registered for **TextSpanType.TEXT** and **TextResponseType.LONG_PRESS**.
+ * >
+ * > 2. Check whether a menu is registered for **TextSpanType.TEXT** and **TextResponseType.DEFAULT**.
+ * >
+ * > 3. Check whether a menu is registered for **TextSpanType.DEFAULT** and **TextResponseType.LONG_PRESS**.
+ * >
+ * > 4. Check whether a menu is registered for **TextSpanType.DEFAULT** and **TextResponseType.DEFAULT**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1559,7 +1819,6 @@ declare const Text: TextInterface;
  * @since 11 dynamic
  */
 declare enum TextSpanType {
-
   /**
    * Text span.
    *
@@ -1613,6 +1872,13 @@ declare enum TextSpanType {
  * >
  * > The system follows the priority order below when determining the menu type to display during text interactions:
  * >
+ * > 1. Check whether a menu is registered for **TextSpanType.TEXT** and **TextResponseType.LONG_PRESS**.
+ * >
+ * > 2. Check whether a menu is registered for **TextSpanType.TEXT** and **TextResponseType.DEFAULT**.
+ * >
+ * > 3. Check whether a menu is registered for **TextSpanType.DEFAULT** and **TextResponseType.LONG_PRESS**.
+ * >
+ * > 4. Check whether a menu is registered for **TextSpanType.DEFAULT** and **TextResponseType.DEFAULT**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1621,7 +1887,6 @@ declare enum TextSpanType {
  * @since 11 dynamic
  */
 declare enum TextResponseType {
-
   /**
    * The menu is displayed when the component is right-clicked.
    *
@@ -1679,7 +1944,6 @@ declare enum TextResponseType {
  * @since 18 dynamic
  */
 declare enum MarqueeState {
-
   /**
    * The marquee starts scrolling.
    *
@@ -1704,7 +1968,8 @@ declare enum MarqueeState {
   BOUNCE = 1,
 
   /**
-   * All loops of the marquee are completed.
+   * The marquee completes all specified loops or stops scrolling (for example, when **start** in
+   * [TextMarqueeOptions]{@link TextMarqueeOptions} is set to **false**).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1712,7 +1977,7 @@ declare enum MarqueeState {
    * @atomicservice
    * @since 18 dynamic
    */
-  FINISH = 2,
+  FINISH = 2
 }
 
 /**
@@ -1725,7 +1990,6 @@ declare enum MarqueeState {
  * @since 18 dynamic
  */
 declare enum MarqueeStartPolicy {
-
   /**
    * The marquee scrolls continuously. Default value.
    *
@@ -1759,7 +2023,6 @@ declare enum MarqueeStartPolicy {
  * @since 23 dynamic
  */
 declare enum MarqueeUpdatePolicy {
-
   /**
    * Restarts the marquee from the start position after the attributes of the marquee component are updated.
    *
@@ -1793,7 +2056,6 @@ declare enum MarqueeUpdatePolicy {
  * @since 11 dynamic
  */
 declare interface TextOptions {
-
   /**
    * Text controller.
    *
@@ -1816,7 +2078,6 @@ declare interface TextOptions {
  * @since 18 dynamic
  */
 declare interface TextMarqueeOptions {
-
   /**
    * Whether to start the marquee.
    *
@@ -1833,6 +2094,11 @@ declare interface TextMarqueeOptions {
   /**
    * Step length of the scrolling animation text.
    *
+   * Unit: vp
+   *
+   * Value range: (0, Text width]. If this parameter is set to a value less than or equal to 0, the default value is
+   * used.
+   *
    * Default value: **4.0** (in vp)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1844,10 +2110,12 @@ declare interface TextMarqueeOptions {
   step?: number;
 
   /**
-   * Spacing between two marquee rounds. If the unit of **LengthMetrics** is **PERCENT**, the current setting does not
-   * take effect and the default value is used.
+   * Spacing between two rounds of the marquee. Unit: vp. When the unit attribute of the LengthMetrics object is
+   * LengthUnit.PERCENT, the current setting does not take effect and the default value is used.
    *
-   * Default value: **48.0vp**
+   * Default value: 48.0vp
+   *
+   * **Atomic service API:** Since API version 23, this API can be used in atomic services.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1889,6 +2157,8 @@ declare interface TextMarqueeOptions {
   /**
    * Time interval between scroll movements.
    *
+   * The value range is [0, +∞). If the value is a negative number, the default value is used.
+   *
    * Default value: **0**
    *
    * Unit: millisecond
@@ -1923,7 +2193,7 @@ declare interface TextMarqueeOptions {
   /**
    * Policy for starting the marquee. This attribute takes effect only when **start** is set to **true**.
    *
-   * Default value: **MarqueeStartPolicy.DEFAULT**
+   * Default value: **MarqueeStartPolicy.ON_FOCUS** for TVs and **MarqueeStartPolicy.DEFAULT** for other devices
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1966,7 +2236,6 @@ declare interface TextMarqueeOptions {
  * @since 11 dynamic
  */
 declare class TextController {
-
   /**
    * Closes the custom or default text selection menu.
    *
@@ -1981,8 +2250,10 @@ declare class TextController {
   /**
    * Binds to or updates the specified styled string.
    *
-   * @param { StyledString } value - Styled string.<br>**NOTE**<br>The child class
-   *     [MutableStyledString]{@link MutableStyledString} of **StyledString** can also serve as the argument.
+   * @param { StyledString } value - Styled string.
+   *     <br>**NOTE**
+   *     <br>The child class [MutableStyledString]{@link MutableStyledString} of **StyledString** can also serve as the
+   *     argument.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1994,7 +2265,11 @@ declare class TextController {
   /**
    * Obtains the **LayoutManager** object.
    *
-   * @returns { LayoutManager } **LayoutManager** object.
+   * @returns { LayoutManager } Layout manager object, which is used to obtain text layout information, including the
+   *     number of lines, glyph position, line information, and character viewport rectangle.
+   *     <br>**NOTE**
+   *     <br>If the **TextController** component has not been bound to the **Text** component or the bound **Text**
+   *     component has been destroyed or uninstalled, **undefined** will be returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2019,8 +2294,8 @@ declare class TextController {
    * > text content. If the value is less than 0, the value **0** will be used. If the value is greater than
    * > **textSize**, **textSize** will be used.
    * >
-   * > If the selection range falls within a truncated or invisible area, selection is ignored. When truncation is
-   * > disabled, selection can extend beyond the parent component's bounds.
+   * > If the selection range falls within a truncated or invisible area, selection is ignored. When **clip** is set to
+   * > **false**, the text selection area beyond the parent component takes effect.
    * >
    * > On PC or 2-in-1 devices, calling **setTextSelection** does not show the menu even if **options** is set to
    * > **MenuPolicy.SHOW**.
@@ -2028,12 +2303,12 @@ declare class TextController {
    * > When an emoji is truncated by the selection range, the emoji is selected if its start position is within the
    * > specified text selection range.
    *
-   * @param { number | undefined } selectionStart - Start position of the text selection range.<br>Value range:
-   *     [0, +∞). Negative values and **undefined** are treated as **0**.
-   * @param { number | undefined } selectionEnd - End position of the text selection range.<br>Value range:
-   *     [0, +∞). Negative values and **undefined** are treated as **0**.
-   * @param { SelectionOptions } [options] - Configuration options for text selection.<br>Default value:
-   *     **MenuPolicy.DEFAULT** in **SelectionOptions**
+   * @param { number | undefined } selectionStart - Start position of the text selection range.
+   *     <br>Value range: [0, +∞). Negative values and **undefined** are treated as **0**.
+   * @param { number | undefined } selectionEnd - End position of the text selection range.
+   *     <br>Value range: [0, +∞). Negative values and **undefined** are treated as **0**.
+   * @param { SelectionOptions } [options] - Configuration options for text selection.
+   *     <br>Default value: **MenuPolicy.DEFAULT** in **SelectionOptions**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

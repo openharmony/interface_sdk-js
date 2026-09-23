@@ -19,8 +19,15 @@
  */
 
 /**
- * As a child of the [Text]{@link ./text} and [ContainerSpan]{@link ./container_span} components, the **ImageSpan**
- * component is used to display inline images.
+ * **ImageSpan** is a child component of [Text]{@link ./text} and [ContainerSpan]{@link ./container_span}, used to
+ * display inline images in text. It supports setting the image alignment, scale type, loading placeholder image, and
+ * color filter, and is suitable for scenarios where images need to be embedded in text paragraphs to implement image-
+ * text layout.
+ *
+ * > **NOTE**
+ * >
+ * > - This component is supported since API version 10. Newly added APIs will be marked with a superscript to indicate
+ * > their
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -30,19 +37,22 @@
  * @noninterop
  */
 interface ImageSpanInterface {
-
   /**
    *
    * Defines the constructor of ImageSpan.
    *
-   * @param { ResourceStr | PixelMap } value - Image source. Both local and network images are supported.<br>When using
-   *     an image referenced using a relative path, for example, **ImageSpan("common/test.jpg")**, the **ImageSpan**
-   *     component cannot be called across bundles or modules. Therefore, you are advised to use **$r** to reference
-   *     image resources that need to be used globally.<br>- The supported formats include PNG, JPG, BMP, SVG, GIF, and
-   *     HEIF.<br>- Base64 strings are supported. The value format is data:image/[png|jpeg|bmp|webp|heif];base64,
-   *     [base64 data], where *[base64 data]* is a Base64 string.<br>- Character string prefixed with file://data/
-   *     storage, which is used to read image resources in the file folder in the application installation directory.
-   *     Ensure that the application has the read permission to the files in the specified path.
+   * @param { ResourceStr | PixelMap } value - Image data source, which supports local and network images.
+   *     <br>When a network image is used, the ohos.permission.INTERNET permission is required. For details about how to
+   *     request the permission, see [Declaring Permissions](docroot://security/AccessToken/declare-permissions.md).
+   *     <br>When a relative path is used to reference an image resource, for example, `ImageSpan("common/test.jpg")`,
+   *     cross-package or cross-module invocation of the ImageSpan component is not supported. You are advised to use
+   *     `$r` to manage image resources that need to be used globally.
+   *     <br>- The supported image formats include png, jpg, bmp, svg, gif, webp, and heif.
+   *     <br>- `Base64` strings are supported. The format is `data:image/[png|jpeg|bmp|webp|heif];base64,[base64 data]`,
+   *     where `[base64 data]` is the `Base64` string data.
+   *     <br>- Strings with the file://data/storage path prefix are supported, which are used to read image resources in
+   *     the file folder under the installation directory of the application. Ensure that the files under the
+   *     application installation directory have read permission.
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -57,9 +67,6 @@ interface ImageSpanInterface {
  * The attributes inherit from [BaseSpan]{@link BaseSpan}. Among the universal attributes, [size]{@link ./common},
  * [background]{@link ./common}, and [border]{@link ./common} are supported.
  *
- * Among all the universal events, only the [click event]{@link ./common} is supported. The following events are also
- * supported.
- *
  * @extends CommonMethod<ImageSpanAttribute> [since 10 - 10]
  * @extends BaseSpan<ImageSpanAttribute> [since 11]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -70,12 +77,12 @@ interface ImageSpanInterface {
  * @noninterop
  */
 declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
-
   /**
-   * Sets the alignment mode of the image relative to the line height.
+   * Sets the alignment of the image based on the line height. It is suitable for adjusting the vertical alignment
+   * between the image and text in image-text layout scenarios. If this API is not used, the default alignment is
+   * **ImageSpanAlignment.BOTTOM**.
    *
-   * @param { ImageSpanAlignment } value - Alignment mode of the image relative to the line height.<br>Default value:
-   *     **ImageSpanAlignment.BOTTOM**
+   * @param { ImageSpanAlignment } value - Alignment mode of the image based on the line height.
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -88,17 +95,23 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   /**
    * Sets the color filter for the image.
    *
-   * @param { ColorFilter | DrawingColorFilter } filter - 1. Color filter of the image. The input parameter is a 4 x 5
-   *     RGBA transformation matrix.<br>The first row of the matrix represents a vector value of R (red), the second row
-   *     represents a vector value of G (green), the third row represents a vector value of B (blue), and the fourth row
-   *     represents a vector value of A (alpha). The four rows represent different RGBA vector values.<br>If the matrix
-   *     contains entries of 1 on the diagonal and entries of 0 in other places, the original color of the image is
-   *     retained.<br> **Calculation rule:**<br>If the input filter matrix is as follows:<br>!
-   *     [image-matrix-1](docroot://reference/apis-arkui/arkui-ts/figures/image_matrix_1.png)<br>And the pixel point is
-   *     [R, G, B, A] with color values in the [0, 255] range,<br>Then the color after filtering is [R', G', B', A'].<br
-   *     >![image-matrix-2](docroot://reference/apis-arkui/arkui-ts/figures/image_matrix_2.png)<br>2. The ColorFilter
-   *     type of **@ohos.graphics.drawing** can be used as the input parameter.<br>**NOTE**<br>The DrawingColorfilter
-   *     type can be used in atomic services. The SVG image source takes effect only for the stroke attribute.
+   * @param { ColorFilter | DrawingColorFilter } filter - 1. Sets a color filter effect for the image. The input
+   *     parameter is a 4x5 RGBA conversion matrix.
+   *     <br>The first row of the matrix is used to calculate R' (the new red component), the second row to calculate G'
+   *     (the new green component), the third row to calculate B' (the new blue component), and the fourth row to
+   *     calculate A' (the new alpha component). The four rows represent different RGBA components.
+   *     <br>When the diagonal values of the matrix are 1 and the other values are 0, the original colors of the image
+   *     are retained.
+   *     <br> **Calculation rule:**
+   *     <br>If the input filter matrix is:
+   *     <br>![image-matrix-1](docroot://reference/apis-arkui/arkui-ts/figures/image_matrix_1.png)
+   *     <br>and the pixel is [R, G, B, A] with color values in the range [0, 255],
+   *     <br>then the filtered color is [R', G', B', A']
+   *     <br>![image-matrix-2](docroot://reference/apis-arkui/arkui-ts/figures/image_matrix_2.png)
+   *     <br>2. Supports the ColorFilter type of @ohos.graphics.drawing as the input parameter.
+   *     <br>**NOTE**
+   *     <br>The DrawingColorFilter type in this API can be used in atomic services. For SVG image sources, the filter
+   *     takes effect only on the stroke attribute.
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -109,9 +122,10 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   colorFilter(filter: ColorFilter | DrawingColorFilter): ImageSpanAttribute;
 
   /**
-   * Sets the image scale type.
+   * Sets the scale type of the image. It is suitable for controlling how the image is displayed in the container. If
+   * this API is not used, the default scale type is **ImageFit.Cover**.
    *
-   * @param { ImageFit } value - Image scale type.<br>Default value: **ImageFit.Cover**
+   * @param { ImageFit } value - Scale type of the image.
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -135,15 +149,18 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   onComplete(callback: ImageCompleteCallback): ImageSpanAttribute;
 
   /**
-   * Sets whether to enable
-   * [enhanced SVG tag parsing](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md). When this
-   * feature is enabled, SVG image rendering behavior changes accordingly.
+   * Enables or disables the
+   * [Enhanced SVG Tag Parsing](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md). When enabled,
+   * new SVG parsing capabilities are supported, which is suitable for scenarios that require new SVG features. When
+   * disabled, the original SVG parsing capability is retained, which is suitable for scenarios that require
+   * compatibility with the display of SVG images in earlier versions. If this API is not used, the original SVG parsing
+   * capability is retained by default.
    *
    * After the **ImageSpan** component is created, the value of this attribute cannot be dynamically changed.
    *
-   * @param { Optional<boolean> } enable - Whether to enable
-   *     [enhanced SVG tag parsing capabilities](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md).
-   *     <br>**true**: Enable enhanced SVG parsing. **false**: Use original SVG parsing.<br>Default value: **false**.
+   * @param { Optional<boolean> } enable - Whether to enable the
+   *     [Enhanced SVG Tag Parsing](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md).
+   *     <br>true: supports the new SVG parsing capability; false: retains the original SVG parsing capability.
    * @returns { ImageSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -167,10 +184,11 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   onError(callback: ImageErrorCallback): ImageSpanAttribute;
 
   /**
-   * Sets the placeholder image displayed during image loading.
+   * Sets the placeholder image displayed during image loading. If this API is not used, the default value is **null**,
+   * and no placeholder image is displayed.
    *
-   * @param { PixelMap } value - Placeholder image displayed during image loading. The
-   *     [PixelMap]{@link @ohos.multimedia.image:image.PixelMap} type is supported.<br>Default value: **null**
+   * @param { PixelMap } value - Placeholder image displayed during image loading, which supports the
+   *     [PixelMap]{@link @ohos.multimedia.image:image.PixelMap} type.
    * @returns { ImageSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -181,20 +199,17 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   alt(value: PixelMap): ImageSpanAttribute;
 
   /**
-   * Sets the resizable image options. Resizing is effective for drag previews and placeholder images.
+   * Sets the resizing options when the image is stretched. Stretching takes effect on the drag thumbnail and
+   * placeholder image.
    *
-   * When a valid [ResizableOptions]{@link ResizableOptions} is set, the **objectRepeat**, **antialiased**, and
-   * **orientation** attributes do not take effect.
+   * When `top + bottom` is greater than the height of the original image or `left + right` is greater than the width of
+   * the original image, the [ResizableOptions]{@link ResizableOptions} attribute does not take effect.
    *
-   * When the sum of the values of **top** and **bottom** is greater than the source image height, or the sum of the
-   * values of **left** and **right** is greater than the source image width, the
-   * [ResizableOptions]{@link ResizableOptions} attribute does not take effect.
+   * When the parameter type of the component is an animated image,
+   * [AnimatedDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:AnimatedDrawableDescriptor}, or SVG, this
+   * attribute does not take effect.
    *
-   * This attribute does not take effect when the parameter type of the component is
-   * [AnimatedDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:AnimatedDrawableDescriptor} or the image format
-   * is SVG.
-   *
-   * @param { ResizableOptions } value - Resizable image options.
+   * @param { ResizableOptions } value - Resizable image options when the image is stretched.
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -206,8 +221,15 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
 }
 
 /**
- * As a child of the [Text]{@link ./text} and [ContainerSpan]{@link ./container_span} components, the **ImageSpan**
- * component is used to display inline images.
+ * **ImageSpan** is a child component of [Text]{@link ./text} and [ContainerSpan]{@link ./container_span}, used to
+ * display inline images in text. It supports setting the image alignment, scale type, loading placeholder image, and
+ * color filter, and is suitable for scenarios where images need to be embedded in text paragraphs to implement image-
+ * text layout.
+ *
+ * > **NOTE**
+ * >
+ * > - This component is supported since API version 10. Newly added APIs will be marked with a superscript to indicate
+ * > their
  *
  * ###### Child Components
  *
@@ -235,7 +257,7 @@ declare const ImageSpan: ImageSpanInterface;
 declare const ImageSpanInstance: ImageSpanAttribute;
 
 /**
- * Defines the callback triggered when the image is successfully loaded or decoded.
+ * Triggered when the image is successfully loaded and decoded.
  *
  * @param { ImageLoadResult } result - Object returned after the callback is triggered when an image is successfully
  *     loaded or decoded.
@@ -257,11 +279,10 @@ type ImageCompleteCallback = (result: ImageLoadResult) => void;
  * @since 12 dynamic
  */
 declare interface ImageLoadResult {
-
   /**
    * Width of the image.
    *
-   * Unit: [px]{@link common}
+   * Unit: [px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -270,11 +291,10 @@ declare interface ImageLoadResult {
    * @since 12 dynamic
    */
   width: number;
-
   /**
    * Height of the image.
    *
-   * Unit: [px]{@link common}
+   * Unit: [px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -283,11 +303,10 @@ declare interface ImageLoadResult {
    * @since 12 dynamic
    */
   height: number;
-
   /**
    * Width of the component.
    *
-   * Unit: [px]{@link common}
+   * Unit: [px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -296,11 +315,10 @@ declare interface ImageLoadResult {
    * @since 12 dynamic
    */
   componentWidth: number;
-
   /**
    * Height of the component.
    *
-   * Unit: [px]{@link common}
+   * Unit: [px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -309,14 +327,13 @@ declare interface ImageLoadResult {
    * @since 12 dynamic
    */
   componentHeight: number;
-
   /**
-   * Loading status of the image.
+   * Status value of image loading success.
    *
    * **NOTE**
    *
-   * If the return value is **0**, the image is successfully loaded. If the return value is **1**, the image is
-   * successfully decoded.
+   * When the returned status value is 0, it indicates image data load success. When the returned status value is 1, it
+   * indicates image decoding success.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -325,15 +342,14 @@ declare interface ImageLoadResult {
    * @since 12 dynamic
    */
   loadingStatus: number;
-
   /**
-   * Actual rendered width of the image.
+   * Width of the image actually drawn.
    *
-   * Unit: [px]{@link common}
+   * Unit: [px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * **NOTE**
    *
-   * This parameter is valid only when the return value of **loadingStatus** is **1**.
+   * Valid only when loadingStatus returns 1.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -342,15 +358,14 @@ declare interface ImageLoadResult {
    * @since 12 dynamic
    */
   contentWidth: number;
-
   /**
-   * Actual rendered height of the image.
+   * Height of the image actually drawn.
    *
-   * Unit: [px]{@link common}
+   * Unit: [px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * **NOTE**
    *
-   * This parameter is valid only when the return value of **loadingStatus** is **1**.
+   * Valid only when loadingStatus returns 1.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -359,15 +374,14 @@ declare interface ImageLoadResult {
    * @since 12 dynamic
    */
   contentHeight: number;
-
   /**
-   * Offset of the rendered content relative to the component on the x-axis.
+   * X-axis offset of the actually drawn content relative to the component itself.
    *
-   * Unit: [px]{@link common}
+   * Unit: [px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * **NOTE**
    *
-   * This parameter is valid only when the return value of **loadingStatus** is **1**.
+   * Valid only when loadingStatus returns 1.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -376,15 +390,14 @@ declare interface ImageLoadResult {
    * @since 12 dynamic
    */
   contentOffsetX: number;
-
   /**
-   * Offset of the rendered content relative to the component on the y-axis
+   * Y-axis offset of the actually drawn content relative to the component itself.
    *
-   * Unit: [px]{@link common}
+   * Unit: [px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * **NOTE**
    *
-   * This parameter is valid only when the return value of **loadingStatus** is **1**.
+   * Valid only when loadingStatus returns 1.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

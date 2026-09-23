@@ -19,7 +19,10 @@
  */
 
 /**
- * The **font** module provides APIs for registering custom fonts.
+ * This module provides capabilities such as registering custom fonts and obtaining the system font list, font details,
+ * and system font configuration. It is applicable to scenarios where applications need to use custom font styles (such
+ * as brand and icon fonts) or obtain system font information. By using this module, you can unify brand fonts, improve
+ * the aesthetics and consistency of the user interface, and meet diverse design requirements.
  *
  * > **NOTE**
  * >
@@ -36,7 +39,6 @@
  * @since 9 dynamic
  */
 declare namespace font {
-
   /**
    * Information about the custom font to register.
    *
@@ -45,8 +47,7 @@ declare namespace font {
    * > Directly using **font** can lead to the issue of
    * > [ambiguous UI context](docroot://ui/arkts-global-interface.md#ambiguous-ui-context). To avoid this, obtain the
    * > [Font]{@link @ohos.arkui.UIContext} object associated with the current UI context by using the
-   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont) API in
-   * > [UIContext]{@link @ohos.arkui.UIContext}.
+   * > [getFont]{@link @ohos.arkui.UIContext:UIContext.getFont} API in [UIContext]{@link @ohos.arkui.UIContext}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 12]
@@ -56,7 +57,7 @@ declare namespace font {
   interface FontOptions {
 
     /**
-     * Name of the custom font to register.
+     * Name of the font to register. It is recommended to use letters, digits, and underscores.
      *
      * @type { string } [since 9 - 9]
      * @type { string | Resource } [since 10]
@@ -68,13 +69,13 @@ declare namespace font {
     familyName: string | Resource;
 
     /**
-     * Path of the custom font file to register.
+     * File path of the font to register. This parameter supports **Resource** references, **$rawfile** paths, relative
+     * paths, and absolute paths.
      *
-     * **NOTE**
+     * **Note:**
      *
-     * If the font file to specify is a resource located within the system sandbox directory, you are advised to use a
-     * string with the **file://** path prefix. Ensure the target file exists in the sandbox path and has read
-     * permissions granted.
+     * When reading resources in the system sandbox path, you are advised to use a string with the **file://** path
+     * prefix. Ensure that the file exists in the sandbox directory and has read permission.
      *
      * @type { string } [since 9 - 9]
      * @type { string | Resource } [since 10]
@@ -155,10 +156,8 @@ declare namespace font {
     /**
      * Weight of the system font.
      *
-     * Value range: [100, 900], with intervals of 100, corresponding to the values in the
-     * [FontWeight]{@link @ohos.graphics.text:text.FontWeight} enum
-     *
-     * Default value: **100**
+     * Value range: [100, 900], with an interval of 100, corresponding to the values in
+     * [FontWeight]{@link @ohos.graphics.text:text.FontWeight}.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -171,8 +170,8 @@ declare namespace font {
     /**
      * Width of the system font.
      *
-     * Value range: [1, 9], with intervals of 1, corresponding to the values in the
-     * [FontWidth]{@link @ohos.graphics.text:text.FontWidth} enum
+     * Value range: [1, 9], with an interval of 1, corresponding to the values in
+     * [FontWidth]{@link @ohos.graphics.text:text.FontWidth}.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -187,7 +186,7 @@ declare namespace font {
      *
      * Default value: **false**
      *
-     * **true**: The system font is italic. **false**: The system font is not italic.
+     * The value **true** indicates an italic font, and **false** indicates a non-italic font.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -202,7 +201,7 @@ declare namespace font {
      *
      * Default value: **false**
      *
-     * **true**: The system font is monospaced. **false**: The system font is not monospaced.
+     * The value **true** indicates a monospaced font, and **false** indicates a non-monospaced font.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -213,11 +212,12 @@ declare namespace font {
     monoSpace: boolean;
 
     /**
-     * Whether the system font supports symbols.
+     * Whether the system font supports symbolic fonts.
      *
      * Default value: **false**
      *
-     * **true**: The system font supports symbols. **false**: The system font does not support symbols.
+     * The value **true** indicates that symbolic fonts are supported, and **false** indicates that symbolic fonts are
+     * not supported.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -238,9 +238,8 @@ declare namespace font {
    * @since 11 dynamic
    */
   interface UIFontConfig {
-
     /**
-     * Path to the system font file.
+     * List of paths where the system font files are located. Each array element is an absolute system path.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -251,7 +250,7 @@ declare namespace font {
     fontDir: Array<string>;
 
     /**
-     * List of supported generic font families.
+     * List of generic font families supported by the system.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -262,7 +261,8 @@ declare namespace font {
     generic: Array<UIFontGenericInfo>;
 
     /**
-     * List of fallback generic font families.
+     * List of system fallback font groups, used to specify the fallback fonts to use when the primary font does not
+     * support certain characters.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -274,7 +274,7 @@ declare namespace font {
   }
 
   /**
-   * UI font configuration of the system.
+   * Defines a list of supported generic font families.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -283,7 +283,6 @@ declare namespace font {
    * @since 11 dynamic
    */
   interface UIFontGenericInfo {
-
     /**
      * Font family name, which is the value of **family** specified in the font file.
      *
@@ -296,7 +295,7 @@ declare namespace font {
     family: string;
 
     /**
-     * Font alias configuration information.
+     * Alias list of the font family, used to provide alternative names for the fonts.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -307,7 +306,8 @@ declare namespace font {
     alias: Array<UIFontAliasInfo>;
 
     /**
-     * Weight of the font when displayed, which corresponds to the original weight.
+     * Font weight value mapping list, which maps the original weight values of the fonts to the actually displayed
+     * weight values.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -319,7 +319,7 @@ declare namespace font {
   }
 
   /**
-   * UI font configuration of the system.
+   * Defines font alias configuration information.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -328,7 +328,6 @@ declare namespace font {
    * @since 11 dynamic
    */
   interface UIFontAliasInfo {
-
     /**
      * Alias name.
      *
@@ -341,10 +340,10 @@ declare namespace font {
     name: string;
 
     /**
-     * Weight of the fonts included in the font family. If the value is greater than 0, the font family contains only
-     * the fonts with the specified weight. If the value is 0, the font family contains all fonts.
+     * When the value of **weight** is greater than 0, this font family contains only fonts of the specified weight.
+     * When the value of **weight** is 0, this font family contains all fonts.
      *
-     * Valid values are **0**, **100**, **400**, **700**, and **900**.
+     * The value options can be **0**, **100**, **400**, **700**, and **900**.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -356,7 +355,7 @@ declare namespace font {
   }
 
   /**
-   * UI font configuration of the system.
+   * Provides a mapping list between the original weight value of a font and the actual displayed weight value.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -365,11 +364,10 @@ declare namespace font {
    * @since 11 dynamic
    */
   interface UIFontAdjustInfo {
-
     /**
-     * Original weight of the font.
+     * Original weight value of the font.
      *
-     * Valid values are **50**, **80**, **100**, and **200**.
+     * The value options can be **50**, **80**, **100**, and **200**.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -380,9 +378,9 @@ declare namespace font {
     weight: number;
 
     /**
-     * Weight of the font displayed in the application.
+     * Weight value of the font displayed in the application.
      *
-     * Valid values are **100**, **400**, **700**, and **900**.
+     * The value options can be **100**, **400**, **700**, and **900**.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -394,7 +392,7 @@ declare namespace font {
   }
 
   /**
-   * UI font configuration of the system.
+   * Defines a list of fallback generic font families.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -403,9 +401,9 @@ declare namespace font {
    * @since 11 dynamic
    */
   interface UIFontFallbackGroupInfo {
-
     /**
-     * Name of the font family corresponding to the fallback fonts.
+     * Name of the font family corresponding to the fallback font group. If **fontSetName** is set to **""**, the
+     * fallback font group can be used for all font families.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -416,8 +414,8 @@ declare namespace font {
     fontSetName: string;
 
     /**
-     * Fallback fonts for the font family. If **fontSetName** is **""**, it indicates that the fonts can be used as
-     * fallback fonts for all font families.
+     * Fallback fonts for the font family. If **fontSetName** is set to **""**, it indicates that the fonts can be used
+     * as fallback fonts for all font families.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -429,7 +427,7 @@ declare namespace font {
   }
 
   /**
-   * UI font configuration of the system.
+   * Provides the fallback font of the font set.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -438,9 +436,9 @@ declare namespace font {
    * @since 11 dynamic
    */
   interface UIFontFallbackInfo {
-
     /**
-     * Language supported by the font family. The language format is BCP 47.
+     * Language type supported by the font family. The language format is a BCP47 tag (for example, **"zh-Hans"**
+     * indicates Simplified Chinese, and **"en"** indicates English).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -469,8 +467,7 @@ declare namespace font {
    *
    * > **NOTE**
    * >
-   * > - Since API version 10, you can use the
-   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont) API in
+   * > - Since API version 10, you can use the [getFont]{@link @ohos.arkui.UIContext:UIContext.getFont} API in
    * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Font]{@link @ohos.arkui.UIContext} object associated with
    * > the current UI context.
    *
@@ -495,8 +492,7 @@ declare namespace font {
    *
    * > **NOTE**
    * >
-   * > - Since API version 10, you can use the
-   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont) API in
+   * > - Since API version 10, you can use the [getFont]{@link @ohos.arkui.UIContext:UIContext.getFont} API in
    * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Font]{@link @ohos.arkui.UIContext} object associated with
    * > the current UI context.
    *
@@ -516,13 +512,13 @@ declare namespace font {
    *
    * > **NOTE**
    * >
-   * > - Since API version 10, you can use the
-   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont) API in
+   * > - Since API version 10, you can use the [getFont]{@link @ohos.arkui.UIContext:UIContext.getFont} API in
    * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Font]{@link @ohos.arkui.UIContext} object associated with
    * > the current UI context.
    *
    * @param { string } fontName - System font name.
-   * @returns { FontInfo } Information about the system font.
+   * @returns { FontInfo } Font details, including attributes such as the path, name, font weight, width, and whether it
+   *     is italic.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 12]
@@ -534,13 +530,24 @@ declare namespace font {
   function getFontByName(fontName: string): FontInfo;
 
   /**
-   * Obtains the UI font configuration information in the system font configuration file.
+   * Obtains the UI font configuration in the system font configuration file. This API is commonly used in scenarios
+   * where the system font configuration needs to be analyzed or viewed, such as font management tools, font debugging
+   * and diagnosis, and font configuration information display.
    *
-   * This API can only obtain the information in the configuration file. If the UI context is not clear, **undefined**
-   * may be returned. If you want to obtain the full font configuration information, you are advised to use the
-   * [getSystemFontFullNamesByType]{@link @ohos.graphics.text:text.getSystemFontFullNamesByType} API of the font engine.
+   * This API only supports obtaining the information in the configuration file, and **undefined** may be returned when
+   * the UI context is not clear. To obtain the full font configuration information, it is recommended to use the
+   * [getSystemFontFullNamesByType]{@link @ohos.graphics.text:text.getSystemFontFullNamesByType} API of the font engine
+   * to obtain the latest font list data supported by the system.
    *
-   * @returns { UIFontConfig } Returns the ui font config
+   * > **NOTE**
+   * >
+   * > You need to first obtain the [Font]{@link @ohos.arkui.UIContext} object through the
+   * > [getFont]{@link @ohos.arkui.UIContext:UIContext.getFont} API in [UIContext]{@link @ohos.arkui.UIContext}, and
+   * > then call the related API through the object. Directly using **getUIFontConfig** may cause the issue of
+   * > [ambiguous UI context](docroot://ui/arkts-global-interface.md#ambiguous-ui-context).
+   *
+   * @returns { UIFontConfig } UI font configuration of the system, including the font directory, generic font group,
+   *     and fallback font group.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 12]

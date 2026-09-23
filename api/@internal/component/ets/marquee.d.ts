@@ -35,15 +35,15 @@
  * @since 18 dynamic
  */
 interface MarqueeOptions {
-
   /**
-   * Whether to start scrolling.
+   * Controls whether the marquee enters the playing state.
    *
-   * **true**: yes; **false**: no
+   * true: play; false: do not play.
    *
-   * **NOTE**
+   * **Note:**
    *
-   * This parameter cannot be used to restart scrolling that has been completed.
+   * When the loop parameter is set to a finite number greater than 0 and playback is complete, you cannot reset the
+   * scroll count and restart playback by changing the start parameter.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -54,12 +54,13 @@ interface MarqueeOptions {
   start: boolean;
 
   /**
-   * Step length of the scrolling animation text. If the value is greater than the text width of the marquee, the
-   * default value is used.
+   * Text step of the scrolling animation.
    *
-   * Default value: **6**
+   * Value Range: [0, text width]. When step is greater than the text width of the Marquee, the default value is used.
    *
-   * Unit: [vp]{@link common}
+   * Default Value: 6
+   *
+   * Unit: [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
    *
    * @default 6 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -71,14 +72,16 @@ interface MarqueeOptions {
   step?: number;
 
   /**
-   * Number of times the marquee will scroll. If the value is less than or equal to **0**, the marquee will scroll
-   * continuously.
+   * Sets the loop count of repeated scrolling. When the value is less than or equal to 0, the scrolling loops
+   * infinitely.
    *
-   * Default value: **-1**
+   * Default Value: -1
    *
-   * **NOTE**
+   * **Note:**
    *
-   * Regardless of the value, the marquee scrolls only once on an ArkTS widget.
+   * On ArkTS widgets, this parameter scrolls only once when visible regardless of the value set. When it is set to a
+   * finite number greater than 0 and playback is complete, you cannot reset the scroll count and restart playback by
+   * changing the start parameter.
    *
    * @default -1 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -90,13 +93,11 @@ interface MarqueeOptions {
   loop?: number;
 
   /**
-   * Whether the text scrolls from the start.
+   * Sets the scrolling direction of the text.
    *
-   * **true**: Scroll from the start.
+   * true: the text scrolls forward from the beginning; false: the text scrolls in reverse.
    *
-   * **false**: Scroll from the end.
-   *
-   * Default value: **true**.
+   * Default Value: true
    *
    * @default true [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -108,7 +109,7 @@ interface MarqueeOptions {
   fromStart?: boolean;
 
   /**
-   * Text to scroll.
+   * Text to be scrolled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -119,9 +120,10 @@ interface MarqueeOptions {
   src: string;
 
   /**
-   * The spacing between two rounds of marquee.
+   * Spacing between two rounds of marquee scrolling. When the unit attribute of the LengthMetrics object is
+   * LengthUnit.PERCENT, this setting does not take effect and the default value is used.
    *
-   * Default value is marquee width.
+   * Default Value: width of the Marquee component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -133,11 +135,11 @@ interface MarqueeOptions {
   spacing?: LengthMetrics;
 
   /**
-   * The waiting time between each round of the marquee.
-   *
-   * Default value: 0.
-   *
-   * Unit: ms.
+   * Sets the delay between two rounds of scrolling.
+   * +∞). A value less than 0 is equivalent to 0.
+   * Unit: millisecond
+   * . Default value: 0
+   * Value Range: [0.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -150,20 +152,23 @@ interface MarqueeOptions {
 }
 
 /**
- * The **Marquee** component is used to display a scrolling piece of text. Text scrolling is activated only when the
- * content width is greater than or equal to the component's width.
+ * The **Marquee** component is used to scroll and display a single line of text. It supports custom scrolling speed,
+ * direction, and loop count. Text scrolling is activated only when the content width is greater than or equal to the
+ * component's width; otherwise, no scrolling occurs. It is suitable for scenarios where long text needs to be displayed
+ * in limited space, such as scrolling news headlines, notifications and announcements, and advertisement carousels. It
+ * effectively saves interface space and attracts user attention.
  *
  * > **NOTE**
  * >
  * > To ensure that scrolling frame rates are not affected, it is recommended that the number of **Marquee** components
- * > in a scroll container does not exceed four, or alternatively, use the [Text]{@link text} component's
- * > [TextOverflow.MARQUEE]{@link TextOverflow} as a substitute.
+ * > in a scrolling component does not exceed 4, or use [TextOverflow.MARQUEE]{@link TextOverflow} of the
+ * > [Text]{@link ./text} component instead.
  * >
- * > For the scenario where the frame rate of the **Marquee** component is dynamic, you can use the
+ * > For scenarios where the **Marquee** component requires dynamic frame rates, use the
  * > [MarqueeDynamicSyncScene]{@link @ohos.arkui.UIContext} API.
  * >
- * > If the text width is less than the **Marquee** component width, use the [property animation]{@link ./common} to
- * > implement scrolling.
+ * > When the text width is smaller than the **Marquee** component's width, use the [property animation]{@link ./common}
+ * > to implement scrolling.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -190,12 +195,7 @@ interface MarqueeInterface {
 }
 
 /**
- * In addition to the
- * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
- * attributes are supported.
- *
- * In addition to the [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md), the
- * following events are supported.
+ * In addition to the [universal attributes]{@link ./common}, the following attributes are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -205,12 +205,12 @@ interface MarqueeInterface {
  * @noninterop
  */
 declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
-
   /**
-   * Sets the font color.
+   * Sets the font color. If this API is not called, the default font color is '#e6182431', which indicates dark gray (
+   * with an opacity of about 90%). On Wearable devices, the default font color is '#c5ffffff', which indicates white (
+   * with an opacity of about 77%).
    *
-   * @param { ResourceColor } value - Font color.<br>Default value: **'#c5ffffff'** (light blue) on wearables;
-   *     **'e6182431'** (black) on other devices
+   * @param { ResourceColor } value - Font color.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -223,8 +223,12 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Sets the text size.
    *
-   * @param { Length } value - Font size. If **fontSize** is of the number type, the unit fp is used. The default font
-   *     size is 16 fp. This parameter cannot be set in percentage.
+   * @param { Length } value - Font size. When fontSize is of the number type, the fp unit is used. The default font
+   *     size is 16fp. Percentage strings are not supported.
+   *     <br>Default value on Wearable devices: 15fp
+   *     <br>**Note:**
+   *     <br>When used with the [allowScale]{@link MarqueeAttribute#allowScale} attribute, the value must be set in fp
+   *     units.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -235,11 +239,12 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   fontSize(value: Length): MarqueeAttribute;
 
   /**
-   * Sets whether to allow text to scale.
+   * Sets whether to allow text scaling. If this API is not called, text scaling is not allowed by default.
    *
-   * @param { boolean } value - Whether to allow text to scale.<br>**true**: yes; **false**: no<br>Default value:
-   *     **false**<br>**NOTE**<br>This parameter is effective only when [fontSize]{@link MarqueeAttribute#fontSize} is
-   *     in fp units.
+   * @param { boolean } value - Whether to allow text scaling.
+   *     <br>true: text scaling is allowed; false: text scaling is not allowed.
+   *     <br>**Note:**
+   *     <br>This takes effect only when [fontSize]{@link MarqueeAttribute#fontSize} is in fp units.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -250,13 +255,19 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   allowScale(value: boolean): MarqueeAttribute;
 
   /**
-   * Sets the font weight. If the value is too large, the text may be clipped depending on the font.
+   * Sets the font weight of the text. If the value is set too large, the text may be truncated under different fonts.
+   * If this API is not called, the default font weight is FontWeight.Normal (normal weight, corresponding to the value
+   * 400).
    *
-   * @param { number | FontWeight | string } value - Font weight. For the number type, the value range is [100, 900], at
-   *     an interval of 100. The default value is **400**. A larger value indicates a heavier font weight. For the
-   *     string type, only strings that represent a number, for example, **400**, and the following enumerated values of
-   *     **FontWeight** are supported: **bold**, **bolder**, **lighter**, **regular**, and **medium**.<br>Default value:
-   *     **FontWeight.Normal**
+   * @param { number | FontWeight | string } value - Font weight of the text.
+   *     <br>For the number type, the value ranges from 100 to 900, at an interval of 100. The default value is 400. A
+   *     larger value indicates a bolder font. For the string type, only the string form of the number type value is
+   *     supported, for example, "400", as well as "bold", "bolder", "lighter", "regular", and "medium", which
+   *     correspond to the respective enum values in FontWeight. If the value is set too large, the font may be
+   *     truncated in different fonts.
+   *     <br>If a value beyond the value range is passed, the default value is used. If a value that does not meet the
+   *     interval requirement is passed, the passed value is used when enableVariableFontWeight of fontWeightConfigs is
+   *     set to true; otherwise, the default value is used.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -269,10 +280,10 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   /**
    * Sets the font family.
    *
-   * @param { string | Resource } value - Font family. Default font: **'HarmonyOS Sans'**<br>Supported fonts include
-   *     **'HarmonyOS Sans'** and custom fonts registered using
-   *     [loadFontSync]{@link @ohos.graphics.text:text.FontCollection#loadFontSync}.<br>Only the 'HarmonyOS Sans' font
-   *     is supported for widgets.
+   * @param { string | Resource } value - Font family. Default font: **'HarmonyOS Sans'**
+   *     <br>Supported fonts include **'HarmonyOS Sans'** and custom fonts registered using
+   *     [loadFontSync]{@link @ohos.graphics.text:text.FontCollection#loadFontSync}.
+   *     <br>Only the 'HarmonyOS Sans' font is supported for widgets.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -283,11 +294,20 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   fontFamily(value: string | Resource): MarqueeAttribute;
 
   /**
-   * Sets the scrolling strategy for the marquee after its attributes are updated. (This attribute takes effect when the
-   * marquee is in the playing state and the text content width exceeds the width of the marquee component.)
+   * Scrolling strategy of the **Marquee** component after its attributes are updated. (This attribute takes effect when
+   * the **Marquee** component is in the playing state and the text content width is greater than or equal to the
+   * component's width.) If this API is not called, MarqueeUpdateStrategy.DEFAULT is used by default.
    *
-   * @param { MarqueeUpdateStrategy } value - Scrolling strategy for the marquee after its attributes are updated.<br>
-   *     Default value: **MarqueeUpdateStrategy.DEFAULT**
+   * Usage scenarios:
+   *
+   * - MarqueeUpdateStrategy.DEFAULT: suitable for scenarios where you want to restart scrolling with the default
+   * strategy after the content is updated.
+   * - MarqueeUpdateStrategy.PRESERVE_POSITION: suitable for scenarios where you want to keep the current scrolling
+   * position and continue scrolling when the content is dynamically updated, such as real-time clocks, stock prices,
+   * and other dynamic content display.
+   *
+   * @param { MarqueeUpdateStrategy } value - Scrolling strategy of the marquee after the marquee component properties
+   *     are updated.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -311,10 +331,10 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   onStart(event: () => void): MarqueeAttribute;
 
   /**
-   * Triggered when the marquee has reached the end. This event will be triggered for multiple times if the **loop**
-   * attribute is not set to **1**.
+   * Triggered when a complete scrolling cycle is completed. If the loop count is not 1, this event is triggered
+   * multiple times.
    *
-   * @param { function } event - Callback invoked when the marquee has finished scrolling once.
+   * @param { function } event - Callback invoked when a complete scrolling is finished.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -339,13 +359,13 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   onFinish(event: () => void): MarqueeAttribute;
 
   /**
-   * Called when scrolling is stopped.
+   * Triggered when the marquee finishes scrolling or stops.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>If event is set to undefined, the current event will be unbound.
-   * </p>
+   * When the marquee stops, it restarts the loop from the beginning. This does not include the pause scenario, and
+   * pausing does not trigger this callback.
    *
-   * @param { Callback<void> | undefined } event
+   * @param { Callback<void> | undefined } event - Triggered when the marquee finishes scrolling or stops.
+   *     <br>When set to undefined, the callback is not executed.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -358,20 +378,23 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
 }
 
 /**
- * The **Marquee** component is used to display a scrolling piece of text. Text scrolling is activated only when the
- * content width is greater than or equal to the component's width.
+ * The **Marquee** component is used to scroll and display a single line of text. It supports custom scrolling speed,
+ * direction, and loop count. Text scrolling is activated only when the content width is greater than or equal to the
+ * component's width; otherwise, no scrolling occurs. It is suitable for scenarios where long text needs to be displayed
+ * in limited space, such as scrolling news headlines, notifications and announcements, and advertisement carousels. It
+ * effectively saves interface space and attracts user attention.
  *
  * > **NOTE**
  * >
  * > To ensure that scrolling frame rates are not affected, it is recommended that the number of **Marquee** components
- * > in a scroll container does not exceed four, or alternatively, use the [Text]{@link text} component's
- * > [TextOverflow.MARQUEE]{@link TextOverflow} as a substitute.
+ * > in a scrolling component does not exceed 4, or use [TextOverflow.MARQUEE]{@link TextOverflow} of the
+ * > [Text]{@link ./text} component instead.
  * >
- * > For the scenario where the frame rate of the **Marquee** component is dynamic, you can use the
+ * > For scenarios where the **Marquee** component requires dynamic frame rates, use the
  * > [MarqueeDynamicSyncScene]{@link @ohos.arkui.UIContext} API.
  * >
- * > If the text width is less than the **Marquee** component width, use the [property animation]{@link ./common} to
- * > implement scrolling.
+ * > When the text width is smaller than the **Marquee** component's width, use the [property animation]{@link ./common}
+ * > to implement scrolling.
  *
  * ###### Child Components
  *

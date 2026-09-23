@@ -22,6 +22,10 @@
  * [Text]{@link ./text}组件的子组件，用于统一管理多个[Span]{@link ./span}、[ImageSpan]{@link ./image_span}的背景色及圆角弧度，适用于需要为文本片段和图片组合设置统一背
  * 景样式的场景。
  *
+ * > **说明：**
+ * >
+ * > - 该组件从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -45,8 +49,6 @@ interface ContainerSpanInterface {
 
 /**
  * 仅支持以下属性：
- * 
- * 不支持[通用事件]{@link CommonMethod}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -58,7 +60,7 @@ interface ContainerSpanInterface {
 declare class ContainerSpanAttribute {
   /**
    * 设置文本背景样式。子组件在不设置该属性时，将继承此属性值。未通过该接口设置时，默认背景颜色为Color.Transparent，圆角弧度为0。
-   * 
+   *
    * > **说明：**
    * >
    * > 从API version 12开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
@@ -91,9 +93,13 @@ declare class ContainerSpanAttribute {
 /**
  * [Text]{@link ./text}组件的子组件，用于统一管理多个[Span]{@link ./span}、[ImageSpan]{@link ./image_span}的背景色及圆角弧度，适用于需要为文本片段和图片组合设置统一背
  * 景样式的场景。
- * 
+ *
+ * > **说明：**
+ * >
+ * > - 该组件从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ *
  * ###### 子组件
- * 
+ *
  * 可以包含[Span]{@link ./span}、[ImageSpan]{@link ./image_span} 子组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

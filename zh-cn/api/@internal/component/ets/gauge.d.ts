@@ -36,7 +36,7 @@ interface GaugeOptions {
    *
    * **说明：**
    *
-   * value不在min和max范围内时使用min作为默认值。
+   * value不在min和max范围内时，取min作为实际值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -48,15 +48,15 @@ interface GaugeOptions {
 
   /**
    * 当前数据段最小值。
-   * 
+   *
    * 默认值：0
-   * 
-   * **说明：** 
-   * 
-   * 不传入时默认最小值为0。
-   * 
-   * min大于max时使用默认值0和100。
-   * 
+   *
+   * **说明：**
+   *
+   * 不传入时默认值为0。
+   *
+   * min大于max时，min取0，max取100。
+   *
    * max和min支持负数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -69,15 +69,15 @@ interface GaugeOptions {
 
   /**
    * 当前数据段最大值。
-   * 
+   *
    * 默认值：100
-   * 
-   * **说明：** 
-   * 
-   * 不传入时默认最大值为100。
-   * 
-   * min大于max时使用默认值0和100。
-   * 
+   *
+   * **说明：**
+   *
+   * 不传入时默认值为100。
+   *
+   * min大于max时，min取0，max取100。
+   *
    * max和min支持负数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -91,10 +91,15 @@ interface GaugeOptions {
 
 /**
  * 数据量规图表组件，用于将数据展示为环形图表。适用于展示任务完成进度、性能指标、数据占比等场景，支持自定义颜色、起止角度、指针样式、阴影效果等多种视觉配置，能够直观地呈现数据状态，提升用户对数据的理解和交互体验。
- * 
+ *
  * > **说明：**
  * >
+ * > - 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
  * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link ./with_theme}。
+ * >
+ * > - [startAngle]{@link GaugeAttribute#startAngle}和[endAngle]{@link GaugeAttribute#endAngle}仅决定圆弧路径范围，不影响组件大小。角度差值越小，圆
+ * > 弧在组件内占比越小，`min`/`max`标记与圆弧间留白越大。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -108,7 +113,7 @@ interface GaugeInterface {
   /**
    * 创建数据量规图表组件。
    *
-   * @param { object } options - Settings of the gauge. [since 8 - 17]
+   * @param { object } options - 数据量规图表组件参数。 [since 8 - 17]
    * @param { GaugeOptions } options - 数据量规图表组件参数。 [since 18]
    * @returns { GaugeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -164,19 +169,19 @@ declare interface GaugeIndicatorOptions {
 
   /**
    * 指针距离圆环外边的间距。
-   * 
+   *
    * 默认值：8
-   * 
-   * 单位：vp 
-   * 
-   * **说明：** 
-   * 
+   *
+   * 单位：vp
+   *
+   * **说明：**
+   *
    * 不支持百分比。
-   * 
+   *
    * 对于默认的三角形样式指针，为黑色三角形到圆环外边的间距。
-   * 
+   *
    * 若设置值小于0，则使用默认值。
-   * 
+   *
    * 若设置值大于圆环半径，则使用默认值。
    *
    * @default 8vp
@@ -235,9 +240,7 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
 }
 
 /**
- * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性。
- *
- * 支持[通用事件]{@link CommonMethod}。
+ * 除支持[通用属性]{@link ./common}外，还支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -251,8 +254,8 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * 设置量规图的数据值。
    *
    * @param { number } value - 量规图的数据值，可用于动态修改量规图的数据值。
-   *     <br>**说明：** 
-   *     <br>value不在min和max范围内时使用min作为默认值。
+   *     <br>**说明：**
+   *     <br>value不在min和max范围内时，取min作为实际值。
    *     <br>默认值：0
    * @returns { GaugeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -299,29 +302,34 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
 
   /**
    * 设置量规图的颜色。
-   * 
+   *
    * 从API version 11开始，该接口使用以下规则：
-   * 
+   *
    * 参数类型为[ResourceColor]{@link ResourceColor}，则圆环类型为单色环。
-   * 
+   *
    * 参数类型为[LinearGradient]{@link LinearGradient}，则圆环类型为渐变环。
-   * 
+   *
    * 参数类型为数组，则圆环类型为分段渐变环，第一个参数为颜色值或渐变对象（LinearGradient），若设置为非颜色类型，则该颜色值置为"0xFFE84026"。第二个参数为颜色所占比重，若设置为负数或是非数值类型，则将比重置为
    * 0。
-   * 
+   *
    * 分段渐变环最大显示段数为9段，若多于9段，则多于部分不显示。
    *
-   * @param { Array<any> } colors - Colors of the gauge. You can set colors for individual segments.<br>Default value in
-   *     API version 9: **Color.Black**<br>Default value in API version 11:<br>If no color is provided or the array is
-   *     empty, the ring color will be a gradient consisting of the following colors: 0xFF64BB5C, 0xFFF7CE00, and 0xFFE8
-   *     4026.<br>If a color value is provided but invalid, the ring will be in the color of 0xFFE84026.<br>Colors with
-   *     a weight of 0 are not displayed in the ring. If all weights are 0, the ring is not displayed. [since 8 - 9]
-   * @param { Array<[ResourceColor, number]> } colors - Colors of the gauge. You can set colors for individual segments.
-   *     <br>Default value in API version 9: **Color.Black**<br>Default value in API version 11:<br>If no color is
-   *     provided or the array is empty, the ring color will be a gradient consisting of the following colors: 0xFF64BB5
-   *     C, 0xFFF7CE00, and 0xFFE84026.<br>If a color value is provided but invalid, the ring will be in the color of 0
-   *     xFFE84026.<br>Colors with a weight of 0 are not displayed in the ring. If all weights are 0, the ring is not
-   *     displayed. [since 10 - 10]
+   * @param { Array<any> } colors - 量规图的颜色，支持分段颜色设置。
+   *     <br>API version 9 默认值：Color.Black
+   *     <br>API version 11默认值：
+   *     <br>若不传颜色，或者数组为空，无法确定圆环类型及颜色，则圆环颜色为"0xFF64BB5C"、"0xFFF7CE00"、"0xFFE84026"的渐变环。
+   *     <br>若传入颜色，但颜色值有误，则该颜色为"0xFFE84026"。
+   *     <br>若对应颜色的比重为0，则该颜色在圆环中不显示。若所有颜色比重均为0，圆环不显示。
+   *     <br>从API version 10开始，支持Array<ResourceColor, number>类型。
+   *     <br>从API version 11开始，新增支持LinearGradient和Array<LinearGradient, number>类型。 [since 8 - 9]
+   * @param { Array<[ResourceColor, number]> } colors - 量规图的颜色，支持分段颜色设置。
+   *     <br>API version 9 默认值：Color.Black
+   *     <br>API version 11默认值：
+   *     <br>若不传颜色，或者数组为空，无法确定圆环类型及颜色，则圆环颜色为"0xFF64BB5C"、"0xFFF7CE00"、"0xFFE84026"的渐变环。
+   *     <br>若传入颜色，但颜色值有误，则该颜色为"0xFFE84026"。
+   *     <br>若对应颜色的比重为0，则该颜色在圆环中不显示。若所有颜色比重均为0，圆环不显示。
+   *     <br>从API version 10开始，支持Array<ResourceColor, number>类型。
+   *     <br>从API version 11开始，新增支持LinearGradient和Array<LinearGradient, number>类型。 [since 10 - 10]
    * @param { ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, number]> } colors - 量规图的颜色，支持分段颜色设
    *     置。
    *     <br>API version 9 默认值：Color.Black
@@ -346,7 +354,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * @param { Length } length - 环形量规图的环形厚度。
    *     <br>默认值：4
    *     <br>单位：vp
-   *     <br>**说明：** 
+   *     <br>**说明：**
    *     <br>设置小于等于0的值时，按默认值显示。
    *     <br>环形厚度的最大值为圆环的半径，超过最大值按最大值处理。
    *     <br>不支持百分比。
@@ -363,7 +371,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * 设置说明内容。
    *
    * @param { CustomBuilder } value - 说明内容。
-   *     <br>**说明：** 
+   *     <br>**说明：**
    *     <br>@Builder中的内容由开发者自定义，建议使用文本或者图片。
    *     <br>若自定义部分的宽高为百分比形式，则基准范围为圆环直径的44.4%*25.4%的矩形（图片为28.6%*28.6%），距离圆环底部0vp，左右居中。
    *     <br>设置null则不显示内容。
@@ -385,7 +393,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * 设置阴影样式。
    *
    * @param { GaugeShadowOptions } value - 添加阴影效果，可以指定模糊半径、X轴和Y轴的偏移量。
-   *     <br>**说明：** 
+   *     <br>**说明：**
    *     <br>阴影颜色与圆环颜色一致。
    *     <br>设置null为不开启投影。
    * @returns { GaugeAttribute }
@@ -402,7 +410,7 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    * 设置指针样式。
    *
    * @param { GaugeIndicatorOptions } value - 指针样式。
-   *     <br>**说明：** 
+   *     <br>**说明：**
    *     <br>设置null则不显示指针。
    * @returns { GaugeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -416,17 +424,17 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
 
   /**
    * 设置隐私敏感。
-   * 
+   *
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
    * @param { Optional<boolean> } isPrivacySensitiveMode - 设置隐私敏感。在隐私模式下，Gauge指针指向0位置，最大值最小值文本将被遮罩，量程显示灰色或底色。true表示打开隐私敏
    *     感，false表示关闭隐私敏感。
-   *     <br>**说明：** 
+   *     <br>**说明：**
    *     <br>设置null则不敏感。<!--Del-->
-   *     <br>需要在卡片中使用Progress，并用[FormComponent]{@link ./form_component}组件设置[隐私遮罩]{@link CommonMethod#obscured}属性，显示卡片时才有
-   *     隐私遮罩效果。<!--DelEnd-->
+   *     <br>需要在卡片中使用Gauge，并用[FormComponent]{@link ./form_component}组件设置[隐私遮罩]{@link ./common}属性，显示卡片时才有隐私遮罩效果。<!--
+   *     DelEnd-->
    * @returns { GaugeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -454,19 +462,25 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
 
 /**
  * 数据量规图表组件，用于将数据展示为环形图表。适用于展示任务完成进度、性能指标、数据占比等场景，支持自定义颜色、起止角度、指针样式、阴影效果等多种视觉配置，能够直观地呈现数据状态，提升用户对数据的理解和交互体验。
- * 
+ *
  * > **说明：**
  * >
+ * > - 该组件从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
  * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link ./with_theme}。
- * 
+ * >
+ * > - [startAngle]{@link GaugeAttribute#startAngle}和[endAngle]{@link GaugeAttribute#endAngle}仅决定圆弧路径范围，不影响组件大小。角度差值越小，圆
+ * > 弧在组件内占比越小，`min`/`max`标记与圆弧间留白越大。
+ *
  * ###### 子组件
- * 
+ *
  * 可以包含单个子组件。
- * 
+ *
  * > **说明：**
  * >
  * > - 支持的子组件类型：系统组件和自定义组件，支持条件渲染控制[if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md)，不支持循环渲染控制
- * > [ForEach]{@link ./for_each}和[LazyForEach]{@link ./lazy_for_each}。
+ * > [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md)和
+ * > [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)。
  * >
  * > - 建议使用文本组件构建当前数值文本和辅助文本。
  * >

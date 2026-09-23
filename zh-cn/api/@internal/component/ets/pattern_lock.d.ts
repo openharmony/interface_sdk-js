@@ -61,8 +61,8 @@ declare enum PatternLockChallengeResult {
  */
 declare interface CircleStyleOptions {
   /**
-   * 背景圆环颜色。 
-   * 
+   * 背景圆环颜色。
+   *
    * 默认值：'#33182431'（深灰色，20%不透明度）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -75,9 +75,9 @@ declare interface CircleStyleOptions {
 
   /**
    * 背景圆环的半径。
-   * 
+   *
    * 默认值：[circleRadius]{@link PatternLockAttribute#circleRadius}的约1.833倍（即11/6）。
-   * 
+   *
    * 取值范围：大于0。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -121,11 +121,11 @@ declare interface CircleStyleOptions {
 
 /**
  * PatternLock组件的控制器，用于重置组件状态和设置图案密码状态。
- * 
+ *
  * ###### 导入对象
- * 
- * ```ts
- * patternLockController: PatternLockController = new PatternLockController();
+ *
+ * ```typescript
+ * let patternLockController: PatternLockController = new PatternLockController();
  * ```
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -170,8 +170,10 @@ declare class PatternLockController {
 /**
  * 图案密码锁组件，以九宫格图案的方式输入密码，用于密码验证场景。组件支持自定义九宫格尺寸、圆点及连线样式、选中/激活状态颜色等外观属性，支持密码输入过程中的实时反馈以及密码验证结果（正确/错误）的状态设置。手指在PatternLock组
  * 件区域按下时开始进入输入状态，手指离开屏幕时结束输入状态完成密码输入。
- * 
+ *
  * > **说明：**
+ * >
+ * > - 该组件从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * >
  * > - 如果开发者有其他功能需求，可以使用[自定义组件](docroot://ui/state-management/arkts-create-custom-components.md)。例如自定义组件<!--RP1-->
  * > [CustomPatternLock](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/UI/CustomPatternLock)
@@ -199,9 +201,7 @@ interface PatternLockInterface {
 }
 
 /**
- * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性。
- *
- * 除支持[通用事件]{@link CommonMethod}外，还支持以下事件。
+ * 除支持[通用属性]{@link ./common}外，还支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -212,7 +212,7 @@ interface PatternLockInterface {
 declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   /**
    * 设置组件的宽度和高度（宽高相同）。当设置为0或负数时，组件不显示。未通过该接口设置时，默认宽高为288vp。
-   * 
+   *
    * > **说明：**
    * >
    * > PatternLock组件设置了通用属性宽高比[aspectRatio]{@link CommonMethod#aspectRatio}，且不等于1时（组件尺寸被设定为长方形），九宫格依然绘制为正方形（超出组件范围）。
@@ -243,7 +243,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 
   /**
    * 设置背景颜色。未通过该接口设置时，默认为透明，无背景色。
-   * 
+   *
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
@@ -321,7 +321,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 
   /**
    * 密码输入结束时触发该回调。
-   * 
+   *
    * > **说明：**
    * >
    * > 该回调在密码输入结束时触发，返回完整密码数组。与[onDotConnect]{@link PatternLockAttribute#onDotConnect}的关系：onDotConnect在选中每个圆点时实时触发，
@@ -353,7 +353,7 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 
   /**
    * 密码输入选中宫格圆点时触发该回调。
-   * 
+   *
    * > **说明：**
    * >
    * > 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
@@ -400,15 +400,17 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 /**
  * 图案密码锁组件，以九宫格图案的方式输入密码，用于密码验证场景。组件支持自定义九宫格尺寸、圆点及连线样式、选中/激活状态颜色等外观属性，支持密码输入过程中的实时反馈以及密码验证结果（正确/错误）的状态设置。手指在PatternLock组
  * 件区域按下时开始进入输入状态，手指离开屏幕时结束输入状态完成密码输入。
- * 
+ *
  * > **说明：**
+ * >
+ * > - 该组件从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * >
  * > - 如果开发者有其他功能需求，可以使用[自定义组件](docroot://ui/state-management/arkts-create-custom-components.md)。例如自定义组件<!--RP1-->
  * > [CustomPatternLock](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/UI/CustomPatternLock)
  * > <!--RP1End-->，通过[Canvas]{@link ./canvas}组件实现了图案密码锁功能，开发者可在此基础上自行进行功能扩展。
- * 
+ *
  * ###### 子组件
- * 
+ *
  * 无
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

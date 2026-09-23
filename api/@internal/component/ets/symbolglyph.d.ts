@@ -19,7 +19,16 @@
  */
 
 /**
- * The **SymbolGlyph** component represents a symbol glyph.<!--RP1--><!--RP1End-->
+ * The **SymbolGlyph** component is used to display system preset symbol glyphs. It supports setting style attributes
+ * such as color, size, font weight, rendering strategy, and effect strategy, and is applicable to scenarios where
+ * system icons need to be displayed in an application, such as navigation bar icons, button icons, and status indicator
+ * icons. Compared with using image resources, **SymbolGlyph** offers advantages such as a smaller size, dynamic
+ * coloring, and animation support.<!--RP1--><!--RP1End-->
+ *
+ * > **NOTE**
+ * >
+ * > - This component is supported since API version 11. Newly added APIs will be marked with a superscript to indicate
+ * > their
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -33,8 +42,8 @@ interface SymbolGlyphInterface {
   /**
    *
    * Defines the constructor of SymbolGlyph.
-   *
-   * @param { Resource } value - Resource of the **SymbolGlyph** component, for example, **$r('sys.symbol.ohos_wifi')**.
+   * @param { Resource } value - Resource name of the SymbolGlyph component, for example, $r('sys.symbol.ohos_wifi'). If
+   *     it is not passed in, no icon is displayed.
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -47,7 +56,7 @@ interface SymbolGlyphInterface {
 }
 
 /**
- * The symbol rendering strategy.
+ * Enumerates the rendering modes.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -57,13 +66,12 @@ interface SymbolGlyphInterface {
  * @since 11 dynamic
  */
 declare enum SymbolRenderingStrategy {
-
   /**
-   * Single-color mode (default value).
+   * Monochrome mode (default value).
    *
-   * The default color is black.
+   * One or more colors can be set, and the default is black.
    *
-   * You can set one or multiple colors, but only the first color will be applied.
+   * When multiple colors are set, only the first color takes effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -75,15 +83,13 @@ declare enum SymbolRenderingStrategy {
   SINGLE = 0,
 
   /**
-   * Multi-color mode.
+   * Multicolor mode.
    *
-   * A maximum of three colors can be set. If only one color is set, it updates the color of the first layer, leaving
-   * other colors at their default values.
+   * Up to three colors can be set. When only one color is set, the first-layer color of the symbol icon is modified,
+   * and the other colors remain the default colors.
    *
-   * The sequence of color settings matches the layering order of the symbol; any colors beyond the number of symbol
-   * layers will not take effect.
-   *
-   * Only color values are accepted. Opacity settings do not take effect.
+   * The color setting order matches the icon layer order. When the number of colors is greater than the number of icon
+   * layers, the extra colors do not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -97,10 +103,12 @@ declare enum SymbolRenderingStrategy {
   /**
    * Layered mode.
    *
-   * The default color is black. You can set one or multiple colors, but only the first color will be applied.
+   * The default is black, and one or more colors can be set. When multiple colors are set, only the first color takes
+   * effect.
    *
-   * Opacity is predefined for the layers: 100% for the first layer, 50% for the second layer, and 20% for the third
-   * layer.
+   * The opacity is related to the layers. For a common symbol icon, the default opacity of the first layer is 100%,
+   * that of the second layer is 50%, and that of the third layer is 20%. When the set color contains opacity, the set
+   * opacity is superimposed with the default opacity of each layer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -124,7 +132,6 @@ declare enum SymbolRenderingStrategy {
  * @since 11 dynamic
  */
 declare enum SymbolEffectStrategy {
-
   /**
    * No effect (default value).
    *
@@ -159,7 +166,7 @@ declare enum SymbolEffectStrategy {
    * @atomicservice [since 12]
    * @since 11 dynamic
    */
-  HIERARCHICAL = 2,
+  HIERARCHICAL = 2
 }
 
 /**
@@ -173,7 +180,6 @@ declare enum SymbolEffectStrategy {
  * @since 12 dynamic
  */
 declare enum EffectDirection {
-
   /**
    * The symbol scales down and then returns to its original size.
    *
@@ -210,7 +216,6 @@ declare enum EffectDirection {
  * @since 12 dynamic
  */
 declare enum EffectScope {
-
   /**
    * Layered mode.
    *
@@ -247,7 +252,6 @@ declare enum EffectScope {
  * @since 12 dynamic
  */
 declare enum EffectFillStyle {
-
   /**
    * Cumulative style.
    *
@@ -274,7 +278,7 @@ declare enum EffectFillStyle {
 }
 
 /**
- * The replace effect type of symbol.
+ * Enumerates symbol replacement effect types.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -284,7 +288,6 @@ declare enum EffectFillStyle {
  * @since 20 dynamic
  */
 declare enum ReplaceEffectType {
-
   /**
    * Sequential replacement: The current symbol disappears before a new symbol appears. This is the default symbol
    * replacement effect type.
@@ -337,7 +340,7 @@ declare enum ReplaceEffectType {
 declare class SymbolEffect {}
 
 /**
- * Defines ScaleSymbolEffect class, which inherits from **SymbolEffect**.
+ * Inherits from **SymbolEffect**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -347,12 +350,15 @@ declare class SymbolEffect {}
  * @since 12 dynamic
  */
 declare class ScaleSymbolEffect extends SymbolEffect {
-
   /**
    * A constructor used to create a **ScaleSymbolEffect** instance, which comes with a scaling animation effect.
    *
-   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
-   * @param { EffectDirection } [direction] - Effect direction.<br>Default value: **EffectDirection.DOWN**
+   * @param { EffectScope } [scope] - Animation scope. For details about the specific enumeration values and
+   *     descriptions, see EffectScope Enumeration Description.
+   *     <br>Default value: EffectScope.LAYER
+   * @param { EffectDirection } [direction] - Animation direction. For details about the specific enumeration values and
+   *     descriptions, see EffectDirection Enumeration Description.
+   *     <br>Default value: EffectDirection.DOWN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -363,9 +369,9 @@ declare class ScaleSymbolEffect extends SymbolEffect {
   constructor(scope?: EffectScope, direction?: EffectDirection);
 
   /**
-   * Effect scope.
+   * Animation scope. For the specific enumeration values and descriptions, see EffectScope Enumeration Description.
    *
-   * Default value: **EffectScope.LAYER**
+   * Default value: EffectScope.LAYER
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -377,9 +383,10 @@ declare class ScaleSymbolEffect extends SymbolEffect {
   scope?: EffectScope;
 
   /**
-   * Effect direction.
+   * Animation direction. For the specific enumeration values and descriptions, see EffectDirection Enumeration
+   * Description.
    *
-   * Default value: **EffectDirection.DOWN**
+   * Default value: EffectDirection.DOWN
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -392,7 +399,7 @@ declare class ScaleSymbolEffect extends SymbolEffect {
 }
 
 /**
- * Defines HierarchicalSymbolEffect class, which inherits from **SymbolEffect**.
+ * Inherits from **SymbolEffect**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -402,12 +409,13 @@ declare class ScaleSymbolEffect extends SymbolEffect {
  * @since 12 dynamic
  */
 declare class HierarchicalSymbolEffect extends SymbolEffect {
-
   /**
    * A constructor used to create a **HierarchicalSymbolEffect** instance, which comes with a hierarchical animation
    * effect.
    *
-   * @param { EffectFillStyle } [fillStyle] - Effect fill style.<br>Default value: **EffectFillStyle.CUMULATIVE**
+   * @param { EffectFillStyle } [fillStyle] - Animation mode. For the specific enumeration values and descriptions, see
+   *     EffectFillStyle Enumeration Description.
+   *     <br>Default value: EffectFillStyle.CUMULATIVE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -418,9 +426,9 @@ declare class HierarchicalSymbolEffect extends SymbolEffect {
   constructor(fillStyle?: EffectFillStyle);
 
   /**
-   * Effect fill style.
+   * Animation mode.
    *
-   * Default value: **EffectFillStyle.CUMULATIVE**
+   * Default value: EffectFillStyle.CUMULATIVE
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -433,7 +441,7 @@ declare class HierarchicalSymbolEffect extends SymbolEffect {
 }
 
 /**
- * Defines AppearSymbolEffect class, which inherits from **SymbolEffect**.
+ * Inherits from **SymbolEffect**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -443,11 +451,12 @@ declare class HierarchicalSymbolEffect extends SymbolEffect {
  * @since 12 dynamic
  */
 declare class AppearSymbolEffect extends SymbolEffect {
-
   /**
    * A constructor used to create an **AppearSymbolEffect** instance, which comes with an appear animation effect.
    *
-   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
+   * @param { EffectScope } [scope] - Animation scope. For details about the specific enumeration values and
+   *     descriptions, see EffectScope Enumeration Description.
+   *     <br>Default value: EffectScope.LAYER
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -458,9 +467,10 @@ declare class AppearSymbolEffect extends SymbolEffect {
   constructor(scope?: EffectScope);
 
   /**
-   * Effect scope.
+   * Animation scope. For details about the specific enumeration values and descriptions, see EffectScope Enumeration
+   * Description.
    *
-   * Default value: **EffectScope.LAYER**
+   * Default value: EffectScope.LAYER
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -473,7 +483,7 @@ declare class AppearSymbolEffect extends SymbolEffect {
 }
 
 /**
- * Defines DisappearSymbolEffect class, which inherits from **SymbolEffect**.
+ * Inherits from **SymbolEffect**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -483,11 +493,12 @@ declare class AppearSymbolEffect extends SymbolEffect {
  * @since 12 dynamic
  */
 declare class DisappearSymbolEffect extends SymbolEffect {
-
   /**
-   * A constructor used to create an **AppearSymbolEffect** instance, which comes with an appear animation effect.
+   * A constructor used to create a **DisappearSymbolEffect** instance, which comes with a disappear animation effect.
    *
-   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
+   * @param { EffectScope } [scope] - Animation scope. For specific enumeration values and descriptions, see EffectScope
+   *     Enumeration Description.
+   *     <br>Default value: EffectScope.LAYER
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -498,9 +509,10 @@ declare class DisappearSymbolEffect extends SymbolEffect {
   constructor(scope?: EffectScope);
 
   /**
-   * Effect scope.
+   * Animation scope. For details about the specific enumeration values and descriptions, see EffectScope Enumeration
+   * Description.
    *
-   * Default value: **EffectScope.LAYER**
+   * Default value: EffectScope.LAYER
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -513,7 +525,7 @@ declare class DisappearSymbolEffect extends SymbolEffect {
 }
 
 /**
- * Defines BounceSymbolEffect class, which inherits from **SymbolEffect**.
+ * Inherits from **SymbolEffect**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -523,12 +535,15 @@ declare class DisappearSymbolEffect extends SymbolEffect {
  * @since 12 dynamic
  */
 declare class BounceSymbolEffect extends SymbolEffect {
-
   /**
-   * A constructor used to create a **ScaleSymbolEffect** instance, which comes with a scaling animation effect.
+   * A constructor used to create a **BounceSymbolEffect** instance, which comes with a bounce animation effect.
    *
-   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
-   * @param { EffectDirection } [direction] - Effect direction.<br>Default value: **EffectDirection.DOWN**
+   * @param { EffectScope } [scope] - Animation scope. For details about the specific enumeration values and
+   *     descriptions, see EffectScope Enumeration Description.
+   *     <br>Default value: EffectScope.LAYER
+   * @param { EffectDirection } [direction] - Animation direction. For details about the specific enumeration values and
+   *     descriptions, see EffectDirection Enumeration Description.
+   *     <br>Default value: EffectDirection.DOWN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -539,9 +554,10 @@ declare class BounceSymbolEffect extends SymbolEffect {
   constructor(scope?: EffectScope, direction?: EffectDirection);
 
   /**
-   * Effect scope.
+   * Animation scope. For details about the specific enumeration values and descriptions, see EffectScope Enumeration
+   * Description.
    *
-   * Default value: **EffectScope.LAYER**
+   * Default value: EffectScope.LAYER
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -553,9 +569,10 @@ declare class BounceSymbolEffect extends SymbolEffect {
   scope?: EffectScope;
 
   /**
-   * Effect direction.
+   * Animation direction. For details about the specific enumeration values and descriptions, see EffectDirection
+   * Enumeration Description.
    *
-   * Default value: **EffectDirection.DOWN**
+   * Default value: EffectDirection.DOWN
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -568,7 +585,7 @@ declare class BounceSymbolEffect extends SymbolEffect {
 }
 
 /**
- * Defines ReplaceSymbolEffect class, which inherits from **SymbolEffect**.
+ * Inherits from **SymbolEffect**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -578,11 +595,12 @@ declare class BounceSymbolEffect extends SymbolEffect {
  * @since 12 dynamic
  */
 declare class ReplaceSymbolEffect extends SymbolEffect {
-
   /**
-   * A constructor used to create an **AppearSymbolEffect** instance, which comes with an appear animation effect.
+   * A constructor used to create a **ReplaceSymbolEffect** instance, which comes with a replace animation effect.
    *
-   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
+   * @param { EffectScope } [scope] - Animation scope. For details about the specific enumeration values and
+   *     descriptions, see EffectScope Enumeration Description.
+   *     <br>Default value: EffectScope.LAYER
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -596,9 +614,10 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
    * A constructor used to create a **ReplaceSymbolEffect** instance, which comes with a replace animation effect. The
    * replace effect type can be specified.
    *
-   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
-   * @param { ReplaceEffectType } [replaceType] - Replacement effect type.<br>Default value:
-   *     **ReplaceEffectType.SEQUENTIAL**
+   * @param { EffectScope } [scope] - Animation scope.
+   *     <br>Default value: EffectScope.LAYER
+   * @param { ReplaceEffectType } [replaceType] - Replacement animation type.
+   *     <br>Default value: ReplaceEffectType.SEQUENTIAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -609,9 +628,10 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
   constructor(scope?: EffectScope, replaceType?: ReplaceEffectType);
 
   /**
-   * Effect scope.
+   * Animation Scope. For details about the specific enumeration values and descriptions, see EffectScope Enumeration
+   * Description.
    *
-   * Default value: **EffectScope.LAYER**
+   * Default value: EffectScope.LAYER
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -623,9 +643,10 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
   scope?: EffectScope;
 
   /**
-   * Replacement effect type.
+   * Replacement Animation Type. For details about the specific enumeration values and descriptions, see
+   * ReplaceEffectType Enumeration Description.
    *
-   * Default value: **ReplaceEffectType.SEQUENTIAL**.
+   * Default value: ReplaceEffectType.SEQUENTIAL
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -638,7 +659,7 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
 }
 
 /**
- * Defines PulseSymbolEffect class, which inherits from **SymbolEffect**.
+ * Inherits from **SymbolEffect**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -650,10 +671,8 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
 declare class PulseSymbolEffect extends SymbolEffect {}
 
 /**
- * The [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md) are supported.
- * For text attributes, only the following attributes are supported.
- *
- * The [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are supported.
+ * The [universal attributes]{@link ./common} are supported. For text attributes, only the following attributes are
+ * supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -664,21 +683,22 @@ declare class PulseSymbolEffect extends SymbolEffect {}
  * @noninterop
  */
 declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
-
   /**
-   * Sets the size of the **SymbolGlyph** component. When using the string type, numeric string values with optional
-   * units, for example, **"10"** or **"10fp"**, are supported.
+   * Sets the font size of the **SymbolGlyph** component. When the string type is used, numeric string values with
+   * optional units, for example, **"10"** or **"10fp"**, are supported.
    *
-   * The display size of the symbol glyph is controlled by the **fontSize** setting. Once **width** or **height** is
-   * specified, other universal attributes will only affect the size of the component's placeholder, not the symbol
-   * glyph itself.
+   * The display size of the icon is controlled by **fontSize**. After **width** or **height** is set, other universal
+   * attributes only take effect on the placeholder size of the component. If this API is not used, the default font
+   * size is 16fp.
    *
    * > **NOTE**
    * >
    * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
    *
-   * @param { number | string | Resource } value - Size of the **SymbolGlyph** component.<br>Default value: **16fp**<br>
-   *     Unit: [fp]{@link common}<br>Percentage strings are not supported.
+   * @param { number | string | Resource } value - Font size of the SymbolGlyph component.
+   *     <br>Value range: [0, +∞)
+   *     <br>Unit: [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
+   *     <br>Percentage strings are not supported.
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -690,14 +710,16 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   fontSize(value: number | string | Resource): SymbolGlyphAttribute;
 
   /**
-   * Sets the color of the **SymbolGlyph** component.
+   * Sets the font color of the **SymbolGlyph** component.
    *
    * > **NOTE**
    * >
    * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
    *
-   * @param { Array<ResourceColor> } value - Color of the **SymbolGlyph** component.<br> Default value: depending on the
-   *     rendering strategy
+   * @param { Array<ResourceColor> } value - Font color of the SymbolGlyph component.
+   *     <br> When value is undefined, the default color of the icon is used, and the default color follows the theme.
+   *     <br>The color setting effect varies with the rendering strategy. For details, see
+   *     [SymbolRenderingStrategy]{@link SymbolRenderingStrategy}.
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -709,9 +731,18 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   fontColor(value: Array<ResourceColor>): SymbolGlyphAttribute;
 
   /**
-   * Called when the SymbolGlyph color is set.
+   * Sets the font color of the **SymbolGlyph** component. Compared with the
+   * [fontColor]{@link SymbolGlyphAttribute#fontColor(value: Array<ResourceColor>)} API, this API supports passing in a
+   * parameter of the [ColorMetrics]{@link ../../../arkui/Graphics:ColorMetrics} type.
    *
-   * @param { Array<ResourceColor | ColorMetrics> | undefined } value
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
+   *
+   * @param { Array<ResourceColor | ColorMetrics> | undefined } value - Color of the **SymbolGlyph** component. An array
+   *     of the `ResourceColor` or `ColorMetrics` type is supported.
+   *     <br> When **value** is **undefined**, the default color of the icon is used, and the default color follows the
+   *     theme.
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -723,10 +754,8 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   fontColor(value: Array<ResourceColor | ColorMetrics> | undefined): SymbolGlyphAttribute;
 
   /**
-   * Sets the font weight of the **SymbolGlyph** component. For the number type, the value ranges from 100 to 900, at an
-   * interval of 100. A larger value indicates a heavier font weight. The default value is **400**. For the string type,
-   * only strings of the number type are supported, for example, **"400"**, **"bold"**, **"bolder"**, **"lighter"**,
-   * **"regular"**, and **"medium"**, which correspond to the enumerated values in **FontWeight**.
+   * Sets the font weight of the **SymbolGlyph** component. If this API is not used, the default font weight is
+   * **FontWeight.Normal** (normal weight, corresponding to the value 400).
    *
    * The **sys.symbol.ohos_lungs** icon does not support font weight setting.
    *
@@ -734,8 +763,16 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * >
    * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
    *
-   * @param { number | FontWeight | string } value - Font weight of the **SymbolGlyph** component.<br>Default value:
-   *     **FontWeight.Normal**
+   * @param { number | FontWeight | string } value - Font weight of the SymbolGlyph component.
+   *     <br>The value of the number type ranges from 100 to 900, with an interval of 100. The default value is 400. A
+   *     larger value indicates a heavier font. The string type supports the string form of the number type value, for
+   *     example, "400", as well as "bold", "bolder", "lighter", "regular", and "medium", which correspond to the
+   *     respective enum values in FontWeight. If the value is set too large, the font may be truncated in different
+   *     fonts.
+   *     <br>**Note:**
+   *     <br>If a value outside the value range is passed, the default value is used. If a value that does not meet the
+   *     interval requirement is passed, the default value is also used (only values that are integer multiples of 100
+   *     are supported).
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -747,16 +784,27 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   fontWeight(value: number | FontWeight | string): SymbolGlyphAttribute;
 
   /**
-   * Used to set the font weight of symbolGlyph.
+   * Sets the font weight of the symbol glyph in the **SymbolGlyph** component. It supports configuring, through
+   * **FontWeightConfigs**, whether to enable variable font weight adjustment (after which fine-grained font weight
+   * values that are not integer multiples of 100, such as 220 and 660, can be set) and whether to automatically update
+   * the font weight based on the device font weight level (after which the component font weight is automatically
+   * adjusted with the system font weight setting). If this API is not used, the default font weight is
+   * **FontWeight.Normal** (normal weight, corresponding to the value 400).
    *
-   * @param { number | FontWeight | ResourceStr } value - the symbolGlyph font weight.
-   *     For the number type, the value range is [100, 900]. When enableVariableFontWeight in
-   *     fontWeightConfigs is **false**, the value must be a multiple of 100; when **true**,
-   *     any integer within [100, 900] is supported.
-   *     The default value is **FontWeight.Normal**.
-   * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
-   *     If not specified, the default values of FontWeightConfigs are used:
-   *     enableVariableFontWeight defaults to **false**, and enableDeviceFontWeightCategory defaults to **true**.
+   * @param { number | FontWeight | ResourceStr } value - Font weight of the symbol glyph in the **SymbolGlyph**
+   *     component.
+   *     <br>For the number type, the value range is [100, 900], with an interval of 100. The default value is 400. A
+   *     larger value indicates a heavier font. For the string type, only the string form of the number type value is
+   *     supported, for example, "400", as well as "bold", "bolder", "lighter", "regular", and "medium", which
+   *     correspond to the respective enum values in **FontWeight**. If the value is set too large, the font may be
+   *     truncated in different fonts.
+   *     <br>If the value passed in is out of the value range, the default value is used. If the value passed in does
+   *     not meet the interval requirement, the passed-in value is used when **enableVariableFontWeight** of
+   *     **fontWeightConfigs** is set to **true**; otherwise, the default value is used.
+   * @param { FontWeightConfigs } [fontWeightConfigs] - Font weight configuration. Pass this parameter when variable
+   *     font weight adjustment (setting fine-grained font weight values that are not integer multiples of 100, such as
+   *     220 and 660) or automatic font weight update based on the device font weight level is required. The default
+   *     value is inherited from [FontWeightConfigs]{@link FontWeightConfigs}.
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -768,14 +816,24 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   fontWeight(value: number | FontWeight | ResourceStr, fontWeightConfigs?: FontWeightConfigs): SymbolGlyphAttribute;
 
   /**
-   * Sets the effect strategy of the **SymbolGlyph** component.
+   * Sets the effect strategy of the **SymbolGlyph** component. If this API is not used, the default effect strategy is
+   * **SymbolEffectStrategy.NONE**.
    *
    * > **NOTE**
    * >
-   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   * > - Since API version 12, this API is supported in [attributeModifier]{@link CommonMethod#attributeModifier}.
+   * >
+   * > - For animation attributes, only the **effectStrategy** attribute or a single **symbolEffect** attribute is
+   * > supported. Mixing multiple animation attributes is not supported.
+   * >
+   * > - This API supports only the three preset animation types: NONE, SCALE, and HIERARCHICAL. After being set, the
+   * > animation plays automatically. To use richer animation types (such as appear, disappear, bounce, replacement, and
+   * > pulse animations) or to control the playback state and trigger timing of the animation, use the
+   * > [symbolEffect]{@link SymbolGlyphAttribute#symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean)} API. The
+   * > two cannot be used at the same time. For details, see the description of the
+   * > [symbolEffect]{@link SymbolGlyphAttribute#symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean)} API.
    *
-   * @param { SymbolEffectStrategy } value - Effect strategy of the **SymbolGlyph** component.<br>Default value:
-   *     **SymbolEffectStrategy.NONE**
+   * @param { SymbolEffectStrategy } value - Animation strategy of the SymbolGlyph component.
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -787,14 +845,14 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   effectStrategy(value: SymbolEffectStrategy): SymbolGlyphAttribute;
 
   /**
-   * Sets the rendering strategy of the **SymbolGlyph** component.
+   * Sets the rendering strategy of the **SymbolGlyph** component. If this API is not used, the default rendering
+   * strategy is **SymbolRenderingStrategy.SINGLE**.
    *
    * > **NOTE**
    * >
    * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
    *
-   * @param { SymbolRenderingStrategy } value - Rendering strategy of the **SymbolGlyph** component.<br>Default value:
-   *     **SymbolRenderingStrategy.SINGLE**
+   * @param { SymbolRenderingStrategy } value - Rendering strategy of the SymbolGlyph component.
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -806,12 +864,17 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   renderingStrategy(value: SymbolRenderingStrategy): SymbolGlyphAttribute;
 
   /**
-   * Sets the symbol effect and effect state for the **SymbolGlyph** component.
+   * Sets the effect strategy and playback state of the **SymbolGlyph** component. If this API is not used, the default
+   * animation is a **SymbolEffect** object, and the default playback state is **false**.
    *
-   * @param { SymbolEffect } [symbolEffect] - Symbol effect of the **SymbolGlyph** component.<br>Default value:
-   *     [SymbolEffect]{@link SymbolGlyphAttribute#symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean)}
-   * @param { boolean } [isActive] - Whether the effect is active.<br>**true**: playing. **false**: not playing.<br>
-   *     Default value: **false**.
+   * > **NOTE**
+   * >
+   * > For animation attributes, only the **effectStrategy** attribute or a single **symbolEffect** attribute is
+   * > supported. Mixing multiple animation attributes is not supported.
+   *
+   * @param { SymbolEffect } [symbolEffect] - Animation strategy of the SymbolGlyph component.
+   * @param { boolean } [isActive] - Playback state of the SymbolGlyph component animation.
+   *     <br>The value **true** means to play, and **false** means not to play.
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -823,12 +886,13 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean): SymbolGlyphAttribute;
 
   /**
-   * Sets the symbol effect and effect trigger for the **SymbolGlyph** component.
+   * Sets the effect strategy and playback trigger of the **SymbolGlyph** component. If this API is not used, the
+   * default animation is a **SymbolEffect** object, and the default trigger value is -1.
    *
-   * @param { SymbolEffect } [symbolEffect] - Symbol effect of the **SymbolGlyph** component.<br>Default value:
-   *     [SymbolEffect]{@link SymbolGlyphAttribute#symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean)}
-   * @param { number } [triggerValue] - Value that, when changed, initiates the animation of the **SymbolGlyph**
-   *     component.<br>To prevent the motion effect from triggering initially, set it to **-1**.
+   * @param { SymbolEffect } [symbolEffect] - Animation strategy of the SymbolGlyph component.
+   * @param { number } [triggerValue] - Trigger for playing the animation of the SymbolGlyph component. The animation is
+   *     triggered when the value changes.
+   *     <br>Set this parameter to -1 if you do not want to trigger the animation on the first time.
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -840,11 +904,16 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   symbolEffect(symbolEffect: SymbolEffect, triggerValue?: number): SymbolGlyphAttribute;
 
   /**
-   * Sets the minimum font scale factor for the **SymbolGlyph** component.
+   * Sets the minimum font scale factor of the SymbolGlyph component. Applicable to scenarios where you need to prevent
+   * icons from becoming unrecognizable when the user's font scale setting is too small, for example, ensuring that
+   * icons maintain a minimum readable size under any system font setting.
    *
-   * @param { Optional<number|Resource> } scale - Minimum font scale factor for the **SymbolGlyph** component.<br>Value
-   *     range: [0, 1]<br>The value **0** results in the minimum scaling.<br>**NOTE**<br>A value less than 0 is handled
-   *     as 0. A value greater than 1 is handled as 1. Abnormal values are ineffective by default.
+   * @param { Optional<number|Resource> } scale - Minimum font scale factor of the SymbolGlyph component.
+   *     <br>Value range: [0, 1]
+   *     <br>When set to 0, the scale is minimized.
+   *     <br>**Note:**
+   *     <br>When the set value is less than 0, it is treated as 0. When the set value is greater than 1, it is treated
+   *     as 1. Invalid values do not take effect by default. When not set, the minimum scale factor is not limited.
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -855,11 +924,14 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   minFontScale(scale: Optional<number|Resource>): SymbolGlyphAttribute;
 
   /**
-   * Sets the maximum font scale factor for the **SymbolGlyph** component.
+   * Sets the maximum font scale factor of the SymbolGlyph component. Applicable to scenarios where you need to prevent
+   * icons from exceeding the layout container or breaking interface consistency when the user's font scale setting is
+   * too large, for example, limiting the maximum display size of icons in a small-sized container.
    *
-   * @param { Optional<number|Resource> } scale - Maximum font scale factor for the **SymbolGlyph** component.<br>Value
-   *     range:
-   *     [1, +∞)<br>**NOTE**<br>A value less than 1 is handled as **1**. Abnormal values are ineffective by default.
+   * @param { Optional<number|Resource> } scale - Maximum font scale factor of the SymbolGlyph component.
+   *     <br>Value range: [1, +∞)
+   *     <br>**Note:**
+   *     <br>If the set value is less than 1, it is processed as 1. If not set, the maximum scale factor is not limited.
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -870,12 +942,14 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   maxFontScale(scale: Optional<number|Resource>): SymbolGlyphAttribute;
 
   /**
-   * Sets the shadow effect of the **SymbolGlyph** component.
+   * Sets the shadow effect of the SymbolGlyph component. When this interface is not used to set the shadow, the default
+   * shadow effect is {radius: 0, color: Color.Black, offsetX: 0, offsetY: 0}.
    *
-   * @param { Optional<ShadowOptions> } shadow - Shadow effect of the **SymbolGlyph** component.<br>Unit:
-   *     [vp]{@link common}<br>Default value: {<br>radius: 0,<br>color: Color.Black<br>offsetX: 0,<br>offsetY: 0<br>} <
-   *     br>The **fill** and **type** attributes, as well as the enumerated values of **ColoringStrategy** within the
-   *     **color **attribute, are not supported.
+   * @param { Optional<ShadowOptions> } shadow - Shadow effect of the SymbolGlyph component.
+   *     <br>Unit: [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#basic-pixel-units)
+   *     <br>**Note:**
+   *     <br>Only the radius, color, offsetX, and offsetY attributes in ShadowOptions are supported. The fill and type
+   *     attributes and the ColoringStrategy enum values in color are not supported.
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -889,21 +963,24 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   /**
    * Applies a gradient or solid color shader effect to the **SymbolGlyph** component.
    *
-   * This API supports [RadialGradientStyle]{@link RadialGradientStyle},
-   * [LinearGradientStyle]{@link LinearGradientStyle}, and [ColorShaderStyle]{@link ColorShaderStyle}. When set,
-   * **shaderStyle** takes precedence over [fontColor]{@link SymbolSpanAttribute#fontColor} and any AI-based styling. To
-   * apply a simple solid color, using [fontColor]{@link SymbolSpanAttribute#fontColor} is recommended.
+   * Can be displayed as a radial gradient [RadialGradientStyle]{@link RadialGradientStyle}, a linear gradient
+   * [LinearGradientStyle]{@link LinearGradientStyle}, or a solid color [ColorShaderStyle]{@link ColorShaderStyle}. The
+   * priority of shaderStyle is higher than that of
+   * [fontColor]{@link SymbolGlyphAttribute#fontColor(value: Array<ResourceColor>)} and AI recognition. For solid
+   * colors, [fontColor]{@link SymbolGlyphAttribute#fontColor(value: Array<ResourceColor>)} is recommended.
    *
-   * @param { Array<ShaderStyle | undefined> | ShaderStyle } shader - Shader effect.<br>Input types and behavior:<br>
-   *     Single **ShaderStyle** object: applies the specified effect to all layers. Array of **ShaderStyle** objects:
-   *     applies the specified effect to the corresponding layer. Array of **undefined**: applies the default
-   *     **SymbolGlyph** color to the corresponding layer. Layers unset retain their default color.<br> Based on the
-   *     input, the system applies a radial gradient ([RadialGradientStyle]{@link RadialGradientStyle}), linear gradient
-   *     ([LinearGradientStyle]{@link LinearGradientStyle}), or solid color ([ColorShaderStyle]{@link ColorShaderStyle})
-   *     to the **SymbolGlyph** component.<br>**NOTE**<br>Unit: [vp]{@link common}<br>Specify the center point and
-   *     radius using percentages. If a non-percentage value (e.g., **10px**) is provided, it will be interpreted as 100
-   *     0%.<br>You are advised to specify the radius using percentages.<br>Percentages are relative to the icon's size.
-   *     The recommended value range is [0, 1).
+   * @param { Array<ShaderStyle | undefined> | ShaderStyle } shader - Radial gradient, linear gradient, or solid color.
+   *     <br>When a ShaderStyle is passed in, it covers all layers. When an array is passed in, if a data item is
+   *     ShaderStyle, it is applied to that layer; if an array item is undefined, that layer uses the default color of
+   *     SymbolGlyph, and layers that are not set also use the default color. Based on the passed-in parameter, the
+   *     radial gradient [RadialGradientStyle]{@link RadialGradientStyle}, linear gradient
+   *     [LinearGradientStyle]{@link LinearGradientStyle}, or solid color [ColorShaderStyle]{@link ColorShaderStyle} is
+   *     processed accordingly, and finally set on the SymbolGlyph component to display a gradient color effect.
+   *     <br>**NOTE**
+   *     <br>Use a percentage for the center point. If a non-percentage value (for example, 10PX) is used, the effect is
+   *     equivalent to setting 1000%.
+   *     <br>It is recommended to use a percentage for the radius.
+   *     <br>The percentage is based on the icon size. The recommended value range is [0, 1).
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -915,9 +992,16 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
 }
 
 /**
- * The **SymbolGlyph** component represents a symbol glyph.<!--RP1--><!--RP1End-->
+ * The **SymbolGlyph** component is used to display system preset symbol glyphs. It supports setting style attributes
+ * such as color, size, font weight, rendering strategy, and effect strategy, and is applicable to scenarios where
+ * system icons need to be displayed in an application, such as navigation bar icons, button icons, and status indicator
+ * icons. Compared with using image resources, **SymbolGlyph** offers advantages such as a smaller size, dynamic
+ * coloring, and animation support.<!--RP1--><!--RP1End-->
  *
  * > **NOTE**
+ * >
+ * > - This component is supported since API version 11. Newly added APIs will be marked with a superscript to indicate
+ * > their
  *
  * ###### Child Components
  *

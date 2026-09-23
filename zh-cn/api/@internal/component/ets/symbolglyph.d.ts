@@ -22,6 +22,10 @@
  * SymbolGlyph组件用于显示系统预置的图标小符号，支持设置颜色、大小、粗细、渲染策略、动效策略等样式属性，适用于需要在应用中展示系统图标的场景，如导航栏图标、按钮图标、状态指示图标等。相比使用图片资源，SymbolGlyph具有
  * 体积小、可动态着色、支持动效等优势。<!--RP1--><!--RP1End-->
  *
+ * > **说明：**
+ * >
+ * > - 该组件从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 20]
@@ -60,9 +64,9 @@ interface SymbolGlyphInterface {
 declare enum SymbolRenderingStrategy {
   /**
    * 单色模式（默认值）。
-   * 
+   *
    * 可以设置一个或者多个颜色，默认为黑色。
-   * 
+   *
    * 当设置多个颜色时，仅生效第一个颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -76,9 +80,9 @@ declare enum SymbolRenderingStrategy {
 
   /**
    * 多色模式。
-   * 
+   *
    * 最多可以设置三个颜色。当只设置一个颜色时，修改symbol图标的第一层颜色，其他颜色保持默认颜色。
-   * 
+   *
    * 颜色设置顺序与图标分层顺序匹配，当颜色数量大于图标分层时，多余的颜色不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -92,9 +96,9 @@ declare enum SymbolRenderingStrategy {
 
   /**
    * 分层模式。
-   * 
+   *
    * 默认为黑色，可以设置一个或者多个颜色。当设置多个颜色时，仅生效第一个颜色。
-   * 
+   *
    * 不透明度与图层相关，symbol通用图标的默认第一层透明度为100%、第二层透明度为50%、第三层透明度为20%。当设置的颜色包含透明度时，设置的透明度与每个图层的默认透明度进行叠加。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -156,7 +160,7 @@ declare enum SymbolEffectStrategy {
 }
 
 /**
- * 符号动效方向的枚举值。
+ * 动效方向的枚举值。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -350,7 +354,7 @@ declare class ScaleSymbolEffect extends SymbolEffect {
 
   /**
    * 动效范围。具体枚举值及说明请参考EffectScope枚举说明。
-   * 
+   *
    * 默认值：EffectScope.LAYER
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -364,7 +368,7 @@ declare class ScaleSymbolEffect extends SymbolEffect {
 
   /**
    * 动效方向。具体枚举值及说明请参考EffectDirection枚举说明。
-   * 
+   *
    * 默认值：EffectDirection.DOWN
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -404,7 +408,7 @@ declare class HierarchicalSymbolEffect extends SymbolEffect {
 
   /**
    * 动效模式。
-   * 
+   *
    * 默认值：EffectFillStyle.CUMULATIVE
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -444,7 +448,7 @@ declare class AppearSymbolEffect extends SymbolEffect {
 
   /**
    * 动效范围。具体枚举值及说明请参考EffectScope枚举说明。
-   * 
+   *
    * 默认值：EffectScope.LAYER
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -469,7 +473,7 @@ declare class AppearSymbolEffect extends SymbolEffect {
  */
 declare class DisappearSymbolEffect extends SymbolEffect {
   /**
-   * AppearSymbolEffect的构造函数，出现动效。
+   * DisappearSymbolEffect的构造函数，消失动效。
    *
    * @param { EffectScope } [scope] - 动效范围。具体枚举值及说明请参考EffectScope枚举说明。
    *     <br>默认值：EffectScope.LAYER
@@ -484,7 +488,7 @@ declare class DisappearSymbolEffect extends SymbolEffect {
 
   /**
    * 动效范围。具体枚举值及说明请参考EffectScope枚举说明。
-   * 
+   *
    * 默认值：EffectScope.LAYER
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -509,7 +513,7 @@ declare class DisappearSymbolEffect extends SymbolEffect {
  */
 declare class BounceSymbolEffect extends SymbolEffect {
   /**
-   * ScaleSymbolEffect的构造函数，缩放动效。
+   * BounceSymbolEffect的构造函数，弹跳动效。
    *
    * @param { EffectScope } [scope] - 动效范围。具体枚举值及说明请参考EffectScope枚举说明。
    *     <br>默认值：EffectScope.LAYER
@@ -526,7 +530,7 @@ declare class BounceSymbolEffect extends SymbolEffect {
 
   /**
    * 动效范围。具体枚举值及说明请参考EffectScope枚举说明。
-   * 
+   *
    * 默认值：EffectScope.LAYER
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -540,7 +544,7 @@ declare class BounceSymbolEffect extends SymbolEffect {
 
   /**
    * 动效方向。具体枚举值及说明请参考EffectDirection枚举说明。
-   * 
+   *
    * 默认值：EffectDirection.DOWN
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -565,7 +569,7 @@ declare class BounceSymbolEffect extends SymbolEffect {
  */
 declare class ReplaceSymbolEffect extends SymbolEffect {
   /**
-   * AppearSymbolEffect的构造函数，出现动效。
+   * ReplaceSymbolEffect的构造函数，替换动效。
    *
    * @param { EffectScope } [scope] - 动效范围。具体枚举值及说明请参考EffectScope枚举说明。
    *     <br>默认值：EffectScope.LAYER
@@ -596,7 +600,7 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
 
   /**
    * 动效范围。具体枚举值及说明请参考EffectScope枚举说明。
-   * 
+   *
    * 默认值：EffectScope.LAYER
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -610,7 +614,7 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
 
   /**
    * 替换动效类型。具体枚举值及说明请参考ReplaceEffectType枚举说明。
-   * 
+   *
    * 默认值：ReplaceEffectType.SEQUENTIAL
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -636,9 +640,7 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
 declare class PulseSymbolEffect extends SymbolEffect {}
 
 /**
- * 支持[通用属性]{@link CommonMethod}，不支持文本通用属性，仅支持以下特有属性。
- * 
- * 支持[通用事件]{@link CommonMethod}。
+ * 支持[通用属性]{@link ./common}，不支持文本通用属性，仅支持以下特有属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -651,16 +653,16 @@ declare class PulseSymbolEffect extends SymbolEffect {}
 declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   /**
    * 设置SymbolGlyph组件字体大小。设置string类型时，支持number类型取值的字符串形式，可以附带单位，例如"10"、"10fp"。
-   * 
+   *
    * 组件的图标显示大小由fontSize控制，设置width或height后，其他通用属性仅对组件的占位大小生效。未通过该接口设置时，默认字体大小为16fp。
-   * 
+   *
    * > **说明：**
    * >
    * > 从API version 12开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
    * @param { number | string | Resource } value - SymbolGlyph组件字体大小。
    *     <br>取值范围：[0, +∞)
-   *     <br>单位：[fp]{@link Length}
+   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *     <br>不支持设置百分比字符串。
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -674,7 +676,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
 
   /**
    * 设置SymbolGlyph组件字体颜色。
-   * 
+   *
    * > **说明：**
    * >
    * > 从API version 12开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
@@ -695,12 +697,14 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   /**
    * 设置SymbolGlyph组件的字体颜色，相比[fontColor]{@link SymbolGlyphAttribute#fontColor(value: Array<ResourceColor>)}接口，本接口支持传入
    * [ColorMetrics]{@link ../../../arkui/Graphics:ColorMetrics}类型参数。
-   * 
+   *
    * > **说明：**
    * >
    * > 该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { Array<ResourceColor | ColorMetrics> | undefined } value
+   * @param { Array<ResourceColor | ColorMetrics> | undefined } value - SymbolGlyph组件字体颜色。支持传入`ResourceColor`或
+   *     `ColorMetrics`类型的数组。
+   *     <br> 当value为undefined时，使用图标的默认颜色，默认颜色跟随主题。
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -713,16 +717,18 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
 
   /**
    * 设置SymbolGlyph组件字体粗细。未通过该接口设置时，默认字体粗细为FontWeight.Normal（正常粗细，对应数值400）。
-   * 
+   *
    * sys.symbol.ohos_lungs图标不支持设置fontWeight。
-   * 
+   *
    * > **说明：**
    * >
    * > 从API version 12开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
    * @param { number | FontWeight | string } value - SymbolGlyph组件字体粗细。
-   *     <br>number类型取值[100, 900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“
-   *     lighter”、“regular”、“medium”，分别对应FontWeight中相应的枚举值。设置过大可能会在不同字体下有截断。传入超出取值范围或不符合间隔要求的值时取默认值。
+   *     <br>number类型取值[100, 900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“
+   *     lighter”、“regular”、“medium”，分别对应FontWeight中相应的枚举值。设置过大可能会在不同字体下有截断。
+   *     <br>**说明：**
+   *     <br>传入超出取值范围的值时取默认值。传入不符合间隔要求的值时也取默认值（仅支持100整数倍的值）。
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -744,7 +750,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * @param { FontWeightConfigs } [fontWeightConfigs] - 字体粗细配置。当需要启用可变字重调节（设置非100整数倍的精细字重值如220、660）或跟随设备字体粗细级别自动更新字重时传入此
    *     参数。默认值继承[FontWeightConfigs]{@link FontWeightConfigs}。
    * @returns { SymbolGlyphAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -755,7 +761,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
 
   /**
    * 设置SymbolGlyph组件动效策略。未通过该接口设置时，默认动效策略为SymbolEffectStrategy.NONE。
-   * 
+   *
    * > **说明：**
    * >
    * > - 从API version 12开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
@@ -779,7 +785,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
 
   /**
    * 设置SymbolGlyph组件渲染策略。未通过该接口设置时，默认渲染策略为SymbolRenderingStrategy.SINGLE。
-   * 
+   *
    * > **说明：**
    * >
    * > 从API version 12开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
@@ -797,7 +803,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
 
   /**
    * 设置SymbolGlyph组件动效策略及播放状态。未通过该接口设置时，默认动效为SymbolEffect对象，默认播放状态为false。
-   * 
+   *
    * > **说明：**
    * >
    * > 动效属性，仅支持使用effectStrategy属性或单个symbolEffect属性，不支持多种动效属性混合使用。
@@ -835,10 +841,10 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    * 设置SymbolGlyph组件最小的字体缩放倍数。适用于需要防止图标在用户字体缩放设置过小时变得不可识别的场景，例如确保图标在任意系统字体设置下仍保持最小可读尺寸。
    *
    * @param { Optional<number|Resource> } scale - SymbolGlyph组件最小的字体缩放倍数。
-   *     <br>取值范围：[0, 1] 
+   *     <br>取值范围：[0, 1]
    *     <br>设置为0，缩放最小。
-   *     <br>**说明：** 
-   *     <br>设置的值小于0时，按值为0处理。设置的值大于1，按值为1处理。异常值默认不生效。
+   *     <br>**说明：**
+   *     <br>设置的值小于0时，按值为0处理。设置的值大于1时，按值为1处理。异常值默认不生效。未设置时，不限制最小缩放倍数。
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -853,8 +859,8 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    *
    * @param { Optional<number|Resource> } scale - SymbolGlyph组件最大的字体缩放倍数。
    *     <br>取值范围：[1, +∞)
-   *     <br>**说明：** 
-   *     <br>设置的值小于1时，按值为1处理。
+   *     <br>**说明：**
+   *     <br>设置的值小于1时，按值为1处理。未设置时，不限制最大缩放倍数。
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -865,11 +871,12 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   maxFontScale(scale: Optional<number|Resource>): SymbolGlyphAttribute;
 
   /**
-   * 设置SymbolGlyph组件的阴影效果。未通过该接口设置时，默认阴影效果为{radius：0,color：Color.Black,offsetX：0,offsetY：0}。
+   * 设置SymbolGlyph组件的阴影效果。未通过该接口设置时，默认阴影效果为{radius: 0,color: Color.Black,offsetX: 0,offsetY: 0}。
    *
    * @param { Optional<ShadowOptions> } shadow - SymbolGlyph组件的阴影效果。
-   *     <br>单位：[vp]{@link Length}
-   *     <br>不支持fill、type属性和color中的ColoringStrategy枚举值。
+   *     <br>单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>**说明：**
+   *     <br>仅支持ShadowOptions中的radius、color、offsetX、offsetY属性，不支持fill、type属性和color中的ColoringStrategy枚举值。
    * @returns { SymbolGlyphAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -882,7 +889,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
 
   /**
    * 设置SymbolGlyph组件的渐变色效果。
-   * 
+   *
    * 可以显示为径向渐变[RadialGradientStyle]{@link RadialGradientStyle}或线性渐变[LinearGradientStyle]{@link LinearGradientStyle}或纯色
    * [ColorShaderStyle]{@link ColorShaderStyle}，shaderStyle的优先级高于
    * [fontColor]{@link SymbolGlyphAttribute#fontColor(value: Array<ResourceColor>)}和AI识别，纯色建议使用
@@ -892,7 +899,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
    *     <br>传入ShaderStyle时，覆盖所有层；传入数组时，数据项是ShaderStyle，则应用该层；数组项是undefined，则该层使用SymbolGlyph默认颜色，未设置的层也应用默认颜色。根据传入的参数区分处
    *     理径向渐变[RadialGradientStyle]{@link RadialGradientStyle}或线性渐变[LinearGradientStyle]{@link LinearGradientStyle}或纯色
    *     [ColorShaderStyle]{@link ColorShaderStyle}，最终设置到SymbolGlyph组件上显示为渐变色效果。
-   *     <br>**说明：** 
+   *     <br>**说明：**
    *     <br>中心点请按百分比使用。如果使用的是非百分比（例如10PX），效果等同于设置1000%。
    *     <br>半径建议使用百分比。
    *     <br>百分比是基于图标大小的百分比，建议取值范围[0, 1)。
@@ -909,9 +916,13 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
 /**
  * SymbolGlyph组件用于显示系统预置的图标小符号，支持设置颜色、大小、粗细、渲染策略、动效策略等样式属性，适用于需要在应用中展示系统图标的场景，如导航栏图标、按钮图标、状态指示图标等。相比使用图片资源，SymbolGlyph具有
  * 体积小、可动态着色、支持动效等优势。<!--RP1--><!--RP1End-->
- * 
+ *
+ * > **说明：**
+ * >
+ * > - 该组件从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ *
  * ###### 子组件
- * 
+ *
  * 不支持子组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

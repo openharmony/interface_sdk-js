@@ -22,6 +22,10 @@
  * ImageSpan是[Text]{@link ./text}、[ContainerSpan]{@link ./container_span}组件的子组件，用于在文本中显示行内图片，支持设置图片对齐方式、缩放类型、加载占位图和颜色滤镜
  * 等，适用于需要在文本段落中嵌入图片实现图文混排的场景。
  *
+ * > **说明：**
+ * >
+ * > - 该组件从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -54,8 +58,6 @@ interface ImageSpanInterface {
 
 /**
  * 属性继承自[BaseSpan]{@link BaseSpan}，通用属性方法支持[尺寸设置]{@link ./common}、[背景设置]{@link ./common}、[边框设置]{@link ./common}。
- * 
- * 通用事件仅支持[点击控制事件]{@link ./common}。还支持以下事件：
  *
  * @extends CommonMethod<ImageSpanAttribute> [since 10 - 10]
  * @extends BaseSpan<ImageSpanAttribute> [since 11]
@@ -93,9 +95,8 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
    *     <br>则过滤后的颜色为 [R’, G’, B’, A’]
    *     <br>![image-matrix-2](docroot://reference/apis-arkui/arkui-ts/figures/image_matrix_2.png)
    *     <br>2. 支持@ohos.graphics.drawing的ColorFilter类型作为入参。
-   *     <br>**说明：** 
-   *     <br>该接口中的DrawingColorFilter类型支持在原子化服务中使用。其中，svg类型的图源只对stroke属性生效。*@ohos.graphics.drawing** can be used as the input parameter.<br>**NOTE**<br>The DrawingColorfilter
-   *     type can be used in atomic services. The SVG image source takes effect only for the stroke attribute.
+   *     <br>**说明：**
+   *     <br>该接口中的DrawingColorFilter类型支持在原子化服务中使用。其中，svg类型的图源只对stroke属性生效。
    * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -132,13 +133,13 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   onComplete(callback: ImageCompleteCallback): ImageSpanAttribute;
 
   /**
-   * 开启或关闭[SVG标签解析能力增强功能]{@link ./image}，开启后支持SVG解析新能力，适用于需要使用
+   * 开启或关闭[SVG标签解析能力增强功能](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md)，开启后支持SVG解析新能力，适用于需要使用
    * SVG新特性的场景；关闭则保持原有SVG解析能力，适用于兼容旧版本SVG图片显示的场景。未通过该接口设置时，默认保持原有SVG解析能力。
-   * 
+   *
    * ImageSpan组件创建后，不支持动态修改该属性的值。
    *
-   * @param { Optional<boolean> } enable - 控制是否开启
-   *     [SVG标签解析能力增强功能]{@link ./image}。
+   * @param { Optional<boolean> } enable - 是否开启
+   *     [SVG标签解析能力增强功能](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md)。
    *     <br>true：支持SVG解析新能力；false：保持原有SVG解析能力。
    * @returns { ImageSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -165,7 +166,7 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   /**
    * 设置图片加载过程中显示的占位图。未通过该接口设置时，默认为null，不显示占位图。
    *
-   * @param { PixelMap } value - 设置图片加载过程中显示的占位图，支持[PixelMap]{@link @ohos.multimedia.image:image.PixelMap}类型。
+   * @param { PixelMap } value - 图片加载过程中显示的占位图，支持[PixelMap]{@link @ohos.multimedia.image:image.PixelMap}类型。
    * @returns { ImageSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -176,22 +177,20 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
   alt(value: PixelMap): ImageSpanAttribute;
 
   /**
-   * 设置图像拉伸时可调整大小的图像选项。拉伸对拖拽缩略图以及占位图有效。
+   * 设置图片拉伸时的大小调整选项。拉伸对拖拽缩略图以及占位图有效。
    *
-   * 设置合法的 [ResizableOptions]{@link ResizableOptions} 时，objectRepeat属性、antialiased属性和orientation属性设置不生效。
-   *
-   * 当设置 top +bottom 大于原图的高或者 left + right 大于原图的宽时 [ResizableOptions]{@link ResizableOptions} 属性设置不生效。
+   * 当设置`top + bottom`大于原图的高或者`left + right`大于原图的宽时[ResizableOptions]{@link ResizableOptions}属性设置不生效。
    *
    * 当组件的参数类型为动图、[AnimatedDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:AnimatedDrawableDescriptor}和SVG时设置该属性
    * 不生效。
    *
    * @param { ResizableOptions } value - 图像拉伸时可调整大小的图像选项。
-   * @returns { ImageSpanAttribute } Returns the instance of the ImageSpanAttribute.
+   * @returns { ImageSpanAttribute } The attribute of the image span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 26.0.1 dynamic
+   * @since 26.0.1 dynamiconly
    */
   resizable(value: ResizableOptions): ImageSpanAttribute;
 }
@@ -199,9 +198,13 @@ declare class ImageSpanAttribute extends BaseSpan<ImageSpanAttribute> {
 /**
  * ImageSpan是[Text]{@link ./text}、[ContainerSpan]{@link ./container_span}组件的子组件，用于在文本中显示行内图片，支持设置图片对齐方式、缩放类型、加载占位图和颜色滤镜
  * 等，适用于需要在文本段落中嵌入图片实现图文混排的场景。
- * 
+ *
+ * > **说明：**
+ * >
+ * > - 该组件从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ *
  * ###### 子组件
- * 
+ *
  * 无
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -249,8 +252,8 @@ type ImageCompleteCallback = (result: ImageLoadResult) => void;
 declare interface ImageLoadResult {
   /**
    * 图片的宽。
-   * 
-   * 单位：[px]{@link Length}
+   *
+   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -261,8 +264,8 @@ declare interface ImageLoadResult {
   width: number;
   /**
    * 图片的高。
-   * 
-   * 单位：[px]{@link Length}
+   *
+   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -273,8 +276,8 @@ declare interface ImageLoadResult {
   height: number;
   /**
    * 组件的宽。
-   * 
-   * 单位：[px]{@link Length}
+   *
+   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -285,8 +288,8 @@ declare interface ImageLoadResult {
   componentWidth: number;
   /**
    * 组件的高。
-   * 
-   * 单位：[px]{@link Length}
+   *
+   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -297,9 +300,9 @@ declare interface ImageLoadResult {
   componentHeight: number;
   /**
    * 图片加载成功的状态值。
-   * 
+   *
    * **说明：**
-   * 
+   *
    * 返回的状态值为0时，表示图片数据加载成功。返回的状态值为1时，表示图片解码成功。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -311,11 +314,11 @@ declare interface ImageLoadResult {
   loadingStatus: number;
   /**
    * 图片实际绘制的宽度。
-   * 
-   * 单位：[px]{@link Length}
-   * 
+   *
+   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *
    * **说明：**
-   * 
+   *
    * 仅在loadingStatus返回1时有效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -327,11 +330,11 @@ declare interface ImageLoadResult {
   contentWidth: number;
   /**
    * 图片实际绘制的高度。
-   * 
-   * 单位：[px]{@link Length}
-   * 
+   *
+   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *
    * **说明：**
-   * 
+   *
    * 仅在loadingStatus返回1时有效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -343,11 +346,11 @@ declare interface ImageLoadResult {
   contentHeight: number;
   /**
    * 实际绘制内容相对于组件自身的x轴偏移。
-   * 
-   * 单位：[px]{@link Length}
-   * 
+   *
+   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *
    * **说明：**
-   * 
+   *
    * 仅在loadingStatus返回1时有效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -359,11 +362,11 @@ declare interface ImageLoadResult {
   contentOffsetX: number;
   /**
    * 实际绘制内容相对于组件自身的y轴偏移。
-   * 
-   * 单位：[px]{@link Length}
-   * 
+   *
+   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *
    * **说明：**
-   * 
+   *
    * 仅在loadingStatus返回1时有效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full

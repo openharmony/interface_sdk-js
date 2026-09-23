@@ -19,7 +19,9 @@
  */
 
 /**
- * The **Hyperlink** component implements a link from a location in the component to another location.
+ * The **Hyperlink** component supports two display forms: text and image. Tapping within the component area redirects
+ * to a specified web page. It is suitable for scenarios where external web links are opened within an app. This
+ * component must be used with the system browser.
  *
  * > **NOTE**
  * >
@@ -32,15 +34,16 @@
  * @noninterop
  */
 interface HyperlinkInterface {
-
   /**
    *
    * Defines the constructor of Hyperlink.
-   * @param { string | Resource } address - Web page to which the hyperlink is redirected.
-   * @param { string | Resource } content - Text displayed in the hyperlink.<br>Default value: **''**. If this parameter
-   *     is not passed and the component does not have child components, the value of the **address** parameter is
-   *     displayed by default.<br>**NOTE**<br>If this component has child components, the hyperlink text is not
-   *     displayed.
+   *
+   * @param { string | Resource } address - Web page address that the **Hyperlink** component navigates to.
+   * @param { string | Resource } content - Text displayed for the hyperlink in the **Hyperlink** component.
+   *     <br>Default value: **''**. If this parameter is not set and the component has no child components, the
+   *     **address** parameter value is displayed by default.
+   *     <br>**NOTE**
+   *     <br>If the component has child components, the hyperlink text is not displayed.
    * @returns { HyperlinkAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 20]
@@ -51,11 +54,7 @@ interface HyperlinkInterface {
 }
 
 /**
- * In addition to the
- * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
- * attributes are supported.
- *
- * The [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are supported.
+ * In addition to the [universal attributes]{@link ./common}, the following attributes are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 20]
@@ -64,12 +63,11 @@ interface HyperlinkInterface {
  * @noninterop
  */
 declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
-
   /**
    * Sets the color of the hyperlink text.
    *
-   * @param { Color | number | string | Resource } value - Color of the hyperlink text<br><!--RP1-->Default value: '#ff0
-   *     07dff', indicating blue.<!--RP1End-->
+   * @param { Color | number | string | Resource } value - Color of the hyperlink text
+   *     <br><!--RP1-->Default value: '#ff007dff', indicating blue.<!--RP1End-->
    * @returns { HyperlinkAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 20]
@@ -80,7 +78,9 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
 }
 
 /**
- * The **Hyperlink** component implements a link from a location in the component to another location.
+ * The **Hyperlink** component supports two display forms: text and image. Tapping within the component area redirects
+ * to a specified web page. It is suitable for scenarios where external web links are opened within an app. This
+ * component must be used with the system browser.
  *
  * > **NOTE**
  * >
@@ -88,8 +88,9 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
  *
  * ###### Required Permissions
  *
- * If Internet access is required, you must apply for the **ohos.permission.INTERNET** permission. For details about how
- * to apply for a permission, see [Declaring Permissions](docroot://security/AccessToken/declare-permissions.md).
+ * When a network connection is required to redirect to the target web page, you need to apply for the
+ * **ohos.permission.INTERNET** permission. For details about how to apply, see
+ * [Declaring Permissions](docroot://security/AccessToken/declare-permissions.md).
  *
  * ###### Child Components
  *

@@ -19,8 +19,8 @@
  */
 
 /**
-* CounterType指定Counter类型。
-*
+ * CounterType指定Counter类型。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -77,7 +77,7 @@ declare enum CounterType {
 
 /**
  * CommonOptions定义了Counter的通用属性和事件。
-*
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -169,10 +169,10 @@ declare class CommonOptions {
 }
 
 /**
-* InlineStyleOptions定义了数值内联型Counter的属性和事件。
-*
-* 继承于[CommonOptions]{@link CommonOptions}。
-*
+ * InlineStyleOptions定义了数值内联型Counter的属性和事件。
+ *
+ * 继承于[CommonOptions]{@link CommonOptions}。
+ *
  * > **说明：**
  * >
  * > 1. min应小于等于max。若min大于max，则按max处理。
@@ -257,7 +257,6 @@ declare class InlineStyleOptions extends CommonOptions {
    *
    * 值为undefined时，按默认值处理。
    *
-   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -271,7 +270,7 @@ declare class InlineStyleOptions extends CommonOptions {
    *
    * value：当前显示的数值。
    *
-   * 默认值：数值改变时，不返回值。
+   * 默认值：不触发数值改变时的回调。
    *
    * 值为undefined时，按默认值处理。
    *
@@ -285,10 +284,10 @@ declare class InlineStyleOptions extends CommonOptions {
 }
 
 /**
-* NumberStyleOptions定义了列表型和紧凑型Counter的属性和事件。
-*
+ * NumberStyleOptions定义了列表型和紧凑型Counter的属性和事件。
+ *
  * 继承于[InlineStyleOptions]{@link InlineStyleOptions}，包含该接口所有属性。本节仅展示新增属性，继承属性请参见父接口。
-*
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -385,8 +384,8 @@ declare class NumberStyleOptions extends InlineStyleOptions {
 }
 
 /**
-* DateData定义了日期通用属性和方法，包括年、月、日。
-*
+ * DateData定义了日期通用属性和方法，包括年、月、日。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -554,7 +553,7 @@ declare class DateStyleOptions extends CommonOptions {
  * CounterOptions定义了Counter类型及样式。
  *
  * 选择不同的Counter类型时，需选择对应的Counter样式。若样式参数与类型不匹配，将使用该类型对应的默认样式。
-*
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -642,10 +641,9 @@ declare class CounterOptions {
  *
  * > **说明：**
  * >
- * > - 如果Counter设置[通用属性]{@link CommonMethod}或[通用事件]{@link CommonMethod}，
- * > 编译工具链会额外生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到Counter本身。
- * > 这可能导致开发者设置的通用属性或通用事件的效果不生效或不符合预期，因此，不建议为Counter设置通用属性和通用事件。
- *
+ * > - 如果Counter设置[通用属性]{@link ./@internal/component/ets/common}和[通用事件]{@link ./@internal/component/ets/common}，编译工具链会额外
+ * > 生成节点__Common__，并将通用属性或通用事件挂载在__Common__上，而不是直接应用到Counter本身。这可能导致开发者设置的通用属性或通用事件的效果不生效或不符合预期，因此，不建议为Counter设置通用属性和通用
+ * > 事件。
  * ## 导入模块
  *
  * ```ts
@@ -667,7 +665,8 @@ declare class CounterOptions {
 declare struct CounterComponent {
 
   /**
-   * 定义Counter组件的类型及样式选项。
+   * 配置选项，用于配置Counter组件的类型和样式。包含type（Counter类型）、direction（布局方向）、numberOptions（列表型和紧凑型样式）、inlineOptions（数值内联样式）、
+   * dateOptions（日期内联样式）等配置项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

@@ -199,9 +199,8 @@ declare interface ReusableOptions {
  */
 declare interface InputCounterOptions {
   /**
-   * 可输入字符数占最大字符限制的百分比值。字符计数器显示的样式为当前输入字符数/最大字符数。当输入字符数大于最大字符数乘百分比值时，显示字符计数器。有效值区间为[1,100]，数值为小数时，向下取整，
-   * 如果设置的number超出有效值区间内，不显示字符计数器。设置为undefined时，显示字符计数器，但此参数不生效。
-   * 
+   * thresholdPercentage是可输入字符数占最大字符限制的百分比值。字符计数器显示的样式为当前输入字符数/最大字符数。当输入字符数大于最大字符数乘百分比值时，显示字符计数器。thresholdPercentage值的有效
+   *  值区间为[1,100]，数值为小数时，向下取整，如果设置的number超出有效值区间内，不显示字符计数器。thresholdPercentage设置为undefined，显示字符计数器，但此参数不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -213,7 +212,7 @@ declare interface InputCounterOptions {
 
   /**
    * 如果用户设置计数器时不设置InputCounterOptions，那么当前输入字符数达到最大字符数时，边框和计数器下标将变为红色。如果用户设置显示字符计数器同时thresholdPercentage参数数值在有效区间内，那么当输入
-   * 字符数超过最大字符数时，边框和计数器下标将变成红色。如果此参数为true，则显示红色边框，参数为false则不显示。<br>默认值：true。
+   * 字符数超过最大字符数时，边框和计数器下标将变成红色。如果此参数为true，则显示红色边框，参数为false则不显示。
    *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -239,9 +238,7 @@ declare interface InputCounterOptions {
   /**
    * 设置组件中字符计数器在溢出时的文本颜色。当用户输入的字符数超过计数器最大长度时，计数器的文本颜色和边框的颜色会切换为counterTextOverflowColor指定的颜色，以提醒用户输入已超出限制。如果不设置counterTe
    * xtOverflowColor，则计数器和边框在溢出时的文本颜色为默认颜色，默认颜色为红色。
-   *
    * **说明：**
-   *
    * 当设置了[InputCounterOptions]{@link InputCounterOptions}的highlightBorder属性时，边框颜色才会被同步更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -264,7 +261,7 @@ declare interface InputCounterOptions {
  */
 declare interface TextDecorationOptions {
   /**
-   * 设置文本装饰线类型。
+   * 文本装饰线类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -275,7 +272,8 @@ declare interface TextDecorationOptions {
   type: TextDecorationType;
 
   /**
-   * 设置文本装饰线颜色。<br>默认值：Color.Black。
+   * 文本装饰线颜色。
+   * 默认值：Color.Black。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -286,7 +284,8 @@ declare interface TextDecorationOptions {
   color?: ResourceColor;
 
   /**
-   * 设置文本装饰线样式。<br>默认值：TextDecorationStyle.SOLID。
+   * 文本装饰线样式。
+   * 默认值：TextDecorationStyle.SOLID。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -297,7 +296,8 @@ declare interface TextDecorationOptions {
   style?: TextDecorationStyle;
 
   /**
-   * 设置文本装饰线的粗细缩放比例。<br>默认值：1.0 <br>取值范围：[0, +∞) <br>**说明：** 负值按默认值处理。
+   * 文本装饰线的粗细缩放比例。
+   * 取值约束：负值按默认值处理。默认值：1。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -27877,10 +27877,10 @@ declare abstract class TextContentControllerBase {
    * >
    * > - 返回值中的位置信息是光标相对于可编辑组件的位置。
    * >
-   * > - 当无法获取光标位置时（例如[TextInputController]{@link TextInputController}未与[TextInput]{@link ./text_input}组件绑定时），该接口返回undefined。
+   * > - 当无法获取光标位置时（例如[TextInputController]{@link TextInputController}未与[TextInput]{@link ./text_input}组件绑定时），该接口返回null。
    *
    * @returns { CaretOffset } 光标相对输入框的位置。
-   *     <br>当controller未绑定组件或绑定controller的组件被释放时，返回undefined。
+   *     *     <br>当controller未绑定组件或绑定controller的组件被释放时，返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27892,13 +27892,6 @@ declare abstract class TextContentControllerBase {
   /**
    * 获取已编辑文本内容区域相对于组件的位置和大小，返回值的单位为像素。
    *
-   * > **说明：**
-   * >  
-   * > - 初始不输入文本时，返回值中有相对组件的位置信息，大小为0。
-   * > - 返回值中的位置信息是第一个字符相对于可编辑组件的位置。
-   * > - 在Search组件中，返回的位置信息是相对Search组件中搜索图标的偏移值。
-   * > - 有输入时，返回信息中的宽度是组件编辑区域的固定宽度。
-   * 
    * @returns { RectResult } 获取已编辑文本内容区域相对组件的位置和大小。
    *     <br>当controller未绑定组件或绑定controller的组件被释放时，返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -27929,10 +27922,10 @@ declare abstract class TextContentControllerBase {
    *
    * > **说明**
    * >
-   * > `addText`仅影响应用内部的UI表现，不影响输入法应用的内部逻辑。预上屏状态由输入法管理，应用层调用`addText`/`deleteText`会破坏输入法的状态管理，因此应避免在预上屏状态下调用`addText`。
+   * > `addText`仅影响应用内部的UI表现，不影响输入法应用的内部逻辑，不推荐在预上屏状态下调用。
    *
    * @param { string } text - 插入的文本内容。
-   * @param { TextContentControllerOptions } [textOperationOptions] - 插入文本的配置选项，用于自定义插入位置等参数。当需要在指定位置插入文本时传入此参数，不设置时默认插入文本至末尾。
+   * @param { TextContentControllerOptions } [textOperationOptions] - 插入文本的配置选项，不设置时默认插入文本至末尾。
    * @returns { number } 插入文本后光标的位置。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -27985,13 +27978,10 @@ declare abstract class TextContentControllerBase {
   getSelection(): TextRange;
 
   /**
-   * 获取指定范围的文本内容。可用于以下场景：
-   * - 文本编辑器中获取用户选中的文本内容进行处理。
-   * - 内容校验时获取特定范围的文本进行检查。
-   * - 文本处理应用中提取部分文本内容进行分析或转换。
+   * 获取指定范围的文本内容。
    *
    * @param { TextRange } [range] - 获取文本的范围，包括需要获取文本的起始位置和终止位置。<br>未指定范围时，默认将获取全部文本。未指定获取文本的起始位置，则默认从下标0开始；未指定获取文本的终止位置，则默认以文本末尾作为结束点。
-   * @returns { string } 返回指定范围内的文本内容字符串。当指定的起始位置大于终止位置时，返回空字符串。
+   * @returns { string } 指定范围的文本内容。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -28016,7 +28006,7 @@ declare abstract class TextContentControllerBase {
   clearPreviewText(): void;
 
   /**
-   * 设置属性字符串样式的占位文本，触发绑定或更新。
+   * 触发属性字符串的绑定或更新。
    *
    * > **说明：**
    * >
@@ -28033,6 +28023,10 @@ declare abstract class TextContentControllerBase {
 
   /**
    * 将起始索引与结束索引传递给与其绑定的输入框（TextInput、TextArea、Search）组件，并将此范围内的文字滚动到可视区域。
+   *
+   * > **说明：**
+   * >
+   * > 当controller未绑定组件或绑定controller的组件被释放时，该接口不生效。
    *
    * > **说明：**
    * >

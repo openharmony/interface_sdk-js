@@ -25,7 +25,7 @@
  * ###### Objects to Import
  *
  * ```ts
- * controller: TextClockController = new TextClockController()
+ * controller: TextClockController = new TextClockController();
  * ```
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -35,7 +35,6 @@
  * @since 8 dynamic
  */
 declare class TextClockController {
-
   /**
    * A constructor used to create a **TextClockController** instance.
    *
@@ -48,7 +47,7 @@ declare class TextClockController {
   constructor();
 
   /**
-   * Starts the **<TextClock\>** component.
+   * Starts the text clock. Before using this API, bind the TextClockController to the TextClock component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -59,7 +58,7 @@ declare class TextClockController {
   start();
 
   /**
-   * Stops the **<TextClock\>** component.
+   * Stops the text clock. Before using this API, bind the TextClockController to the TextClock component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -80,13 +79,14 @@ declare class TextClockController {
  * @since 12 dynamic
  */
 declare interface TextClockConfiguration extends CommonConfiguration<TextClockConfiguration> {
-
   /**
-   * Time zone offset of the text clock.
+   * Time zone offset of the current text clock.
    *
-   * The value range is [-14, 12], indicating UTC+12 to UTC-12. A negative value indicates Eastern Standard Time, and a
-   * positive value indicates Western Standard Time. For example, **-8** indicates UTC+8. If the value is a floating
-   * point number within the value range, it is rounded off, with the decimal portion discarded.
+   * The value range is [-14, 12], indicating from UTC+12 to UTC-12, where a negative value indicates an east time zone
+   * and a positive value indicates a west time zone. For example, UTC+8 is -8. When the set value is a floating-point
+   * number within this range, it is rounded by discarding the decimal part. However, no rounding is performed when the
+   * set value is a floating-point number in the set { 9.5, 3.5, -3.5, -4.5, -5.5, -5.75, -6.5, -9.5, -10.5, -12.75 }.
+   * When the set value is outside the value range, the time zone offset of the current system is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -101,7 +101,7 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
    *
    * **true**: The text clock is started.
    *
-   * **false**: The text clock is disabled.
+   * **false**: The text clock is stopped.
    *
    * Default value: **true**
    *
@@ -131,8 +131,8 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer
+ * > element's @since version number is higher than inner elements'. This does not affect API usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -142,22 +142,21 @@ declare interface TextClockConfiguration extends CommonConfiguration<TextClockCo
  * @since 18 dynamic
  */
 declare interface TextClockOptions {
-
   /**
-   * Time zone offset.
+   * Sets the time zone offset, in hours.
    *
-   * The value range is [-14, 12], indicating UTC+12 to UTC-12. A negative value indicates Eastern Standard Time, and a
-   * positive value indicates Western Standard Time. For example, **-8** indicates UTC+8. If the value is a floating
-   * point number within the value range, it is rounded off, with the decimal portion discarded.
+   * The value ranges from -14 to 12, indicating the range from UTC+12 to UTC-12, where a negative value indicates an
+   * east time zone and a positive value indicates a west time zone. For example, UTC+8 is -8. When the value is a
+   * floating-point number within this range, it is rounded to an integer, with the decimal part discarded.
    *
-   * For countries or regions crossing the International Date Line, use -13 (UTC+13) and -14 (UTC+14) to ensure time
-   * consistency across the country or region. If the set value is not within the valid range, the time zone offset of
-   * the current system will be used.
+   * For countries or regions that span the International Date Line, use -13 (UTC+13) and -14 (UTC+14) to ensure that
+   * the entire country or region is in the same time zone. When the value is outside the range, the time zone offset of
+   * the current system is used.
    *
-   * Default value: time zone offset of the current system
+   * Default value: the time zone offset of the current system
    *
-   * The value is not rounded when it is a floating point number in the { 9.5, 3.5, -3.5, -4.5, -5.5, -5.75, -6.5, -9.5,
-   * -10.5, -12.75 } set.
+   * When the value is a floating-point number in the set { 9.5, 3.5, -3.5, -4.5, -5.5, -5.75, -6.5, -9.5, -10.5, -12.75
+   * }, it is not rounded.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -168,7 +167,9 @@ declare interface TextClockOptions {
   timeZoneOffset?: number;
 
   /**
-   * Controller to control the status of the **<TextClock>** component.
+   * Binds a controller to control the state of the text clock. Pass this parameter when the start and stop of the clock
+   * need to be controlled by code. If it is not passed, the clock still runs and displays normally, but its start and
+   * stop cannot be controlled by code.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -180,12 +181,20 @@ declare interface TextClockOptions {
 }
 
 /**
- * The **TextClock** component displays the current system time in text format for different time zones. The time is
- * accurate to seconds.
+ * The TextClock component displays the current system time on the device in text form. It supports time display in
+ * different time zones and custom time formats, with a precision of up to seconds. It is suitable for scenarios where
+ * the system time needs to be displayed in real time on the application UI and multiple time zones need to be
+ * supported. It helps developers quickly implement time text display without manually calculating and updating the
+ * time.
  *
  * When the component is invisible, the time change stops. The visible status of a component is processed based on
  * [onVisibleAreaChange]{@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}.
  * If the visible threshold **ratios** is greater than 0, the component is visible.
+ *
+ * > **NOTE**
+ * >
+ * > This component is supported since API version 8. Newly added APIs will be marked with a superscript to indicate
+ * > their
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -195,12 +204,14 @@ declare interface TextClockOptions {
  * @noninterop
  */
 interface TextClockInterface {
-
   /**
    * Create TextClock component.
    *
-   * @param { object } options - Options of the text clock. [since 8 - 17]
-   * @param { TextClockOptions } [options] - Options of the text clock. [since 18]
+   * @param { object } options - Component parameter for displaying the current system time as text. If not passed, the
+   *     default configuration is used. For the default value of each attribute, see TextClockOptions. [since 8 - 17]
+   * @param { TextClockOptions } [options] - Component parameter for displaying the current system time as text. If not
+   *     passed, the default configuration is used. For the default value of each attribute, see
+   *     TextClockOptions. [since 18]
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -212,12 +223,7 @@ interface TextClockInterface {
 }
 
 /**
- * In addition to the
- * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
- * attributes are supported.
- *
- * In addition to the [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md), the
- * following events are supported.
+ * In addition to the [universal attributes]{@link ./common}, the following attributes are supported:
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -227,31 +233,31 @@ interface TextClockInterface {
  * @noninterop
  */
 declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
-
   /**
    * Sets the time format, for example, **yyyy/MM/dd** or **yyyy-MM-dd**.
    *
-   * **y**: year (**yyyy** indicates the complete year, and **yy** indicates the last two digits of the year.)
+   * y: year (yyyy indicates the full year, and yy indicates the last two digits of the year)
    *
-   * **M**: month (To display 01 for January, use **MM** instead.)
+   * M: month (use MM to display the month as 01)
    *
-   * **d**: day (To display 01 for the first day, use **dd** instead.)
+   * d: day (use dd to display the day as 01)
    *
-   * **E**: day of week (To display the full name, use **EEEE**; to display the abbreviation, use **E**, **EE**, or
-   * **EEE**.)
+   * E: day of the week (use EEEE to display Saturday, and use E, EE, or EEE to display Sat)
    *
-   * **H**: hour (24-hour format); **h**: hour (12-hour format)
+   * H: hour (24-hour format)
    *
-   * **m**: minute
+   * h: hour (12-hour format)
    *
-   * **s**: second
+   * m: minute
    *
-   * **SS**: centisecond (If the number of S characters in the format is less than 3, all are treated as centiseconds.)
+   * s: second
    *
-   * **SSS**: millisecond (If the number of S characters in the format is greater than or equal to 3, all are treated as
-   * milliseconds.)
+   * SS: centisecond (if the number of S in the format is less than 3, all are processed as centiseconds)
    *
-   * **a**: morning/afternoon (This parameter does not take effect when the hour part is set to **H**.)
+   * SSS: millisecond (if the number of S in the format is greater than or equal to 3, all are processed as milliseconds
+   * )
+   *
+   * a: AM/PM (this parameter does not take effect when the hour format is set to H)
    *
    * Date separators: year, month, day, slash (/), hyphen (-), and period (.) (Custom separator styles are allowed.
    * Letters cannot be used as separators, while Chinese characters can be treated as separators.)
@@ -264,12 +270,12 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    *
    * If **format** is an empty string ("") or **undefined**, the default value is used.
    *
-   * Default value outside of widgets: 12-hour format: aa hh:mm:ss; 24-hour format: HH:mm:ss.
+   * Default value in non-widget scenarios: 12-hour format: aa hh:mm:ss; 24-hour format: HH:mm:ss.
    *
-   * Default value in widgets: 12-hour format: hh:mm, 24-hour format: HH:mm.
+   * Default value in widgets: 12-hour format: hh:mm; 24-hour format: HH:mm.
    *
-   * When used in widgets, the minimum time unit is minute. In this case, if the format contains seconds or
-   * centiseconds, the default value will be used.
+   * When used in a widget, the minimum time unit is minute. If the set format contains seconds or centiseconds, the
+   * default value is used.
    *
    * The following table shows how different settings of **format** work out.
    *
@@ -305,8 +311,10 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    * | hh:mm:ss aa               | 5:00:04 AM             |
    * | HH                        | 17                     |
    *
-   * @param { string } value - Time format to set. [since 8 - 19]
-   * @param { ResourceStr } value - Time format to set.[since 20]
+   * @param { string } value - Time format to display.
+   *     <br>Since API version 20, the Resource type is supported. [since 8 - 19]
+   * @param { ResourceStr } value - Time format to display.
+   *     <br>Since API version 20, the Resource type is supported. [since 20]
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -338,8 +346,8 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
    * Sets the font color.
    *
-   * @param { ResourceColor } value - Font color.<br>Default value for wearables: '#c5ffffff'; default value for other
-   *     devices: '#e6182431'
+   * @param { ResourceColor } value - Font Color.
+   *     <br>Default value on Wearable devices: '#c5ffffff'; default value on other devices: '#e6182431'
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -352,8 +360,9 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
    * Sets the font size.
    *
-   * @param { Length } value - Font size. If **fontSize** is of the number type, the unit fp is used. The default font
-   *     size is 16 fp. The value cannot be a percentage.
+   * @param { Length } value - Font size. When fontSize is of the number type, the unit fp is used.
+   *     <br>The default font size is 16fp. Percentage strings are not supported. If a percentage string is passed in,
+   *     the default value is used.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -366,8 +375,8 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
    * Sets the font style.
    *
-   * @param { FontStyle } value - Font style.<br>Default value: **FontStyle.Normal**, indicating the standard font style
-   *     (non-italic)
+   * @param { FontStyle } value - Font style.
+   *     <br>Default value: FontStyle.Normal, which indicates the standard font style (not italic).
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -380,12 +389,13 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
    * Sets the font weight of the text. If the value is too large, the text in different fonts may be truncated.
    *
-   * @param { number | FontWeight | string } value - Font width of the text. The value range of the number type is
-   *     [100, 900]. The value interval is 100. A larger value indicates a wider font. If the value of the number type
-   *     is not within the value range, the default value is **400**. For the string type, only strings that represent a
-   *     number, for example, **"400"**, and the following enumerated values of **FontWeight** are supported:
-   *     **"bold"**, **"bolder"**, **"lighter"**, **"regular"**, and **"medium"**.<br>Default value:
-   *     **FontWeight.Normal**
+   * @param { number | FontWeight | string } value - Font weight of the text. For the number type, the value ranges from
+   *     100 to 900, at an interval of 100. A larger value indicates a heavier font. The default value is 400 for values
+   *     outside the range of the number type. For the string type, the following values are supported: the string form
+   *     of a number type value (for example, 400), and the enum values 'lighter' (corresponding to 300), 'regular' (
+   *     corresponding to 400), 'medium' (corresponding to 500), 'bold' (corresponding to 700), and 'bolder' (
+   *     corresponding to 900), which correspond to the respective enum values in FontWeight.
+   *     <br>Default value: FontWeight.Normal
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -398,9 +408,10 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
    * Sets the font family.
    *
-   * @param { ResourceStr } value - Font family. Default font: **'HarmonyOS Sans'**<br>The 'HarmonyOS Sans' font and
-   *     [registered custom fonts]{@link @ohos.font:font} are supported for applications.<br>Only the 'HarmonyOS Sans'
-   *     font is supported for widgets.
+   * @param { ResourceStr } value - Font list. The default font is 'HarmonyOS Sans'.
+   *     <br>The application currently supports the 'HarmonyOS Sans' font and
+   *     [registered custom fonts]{@link @ohos.font:font}.
+   *     <br>The card currently supports only the 'HarmonyOS Sans' font.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -411,10 +422,14 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   fontFamily(value: ResourceStr): TextClockAttribute;
 
   /**
-   * Sets the text shadow. It supports input parameters in an array to implement multiple text shadows. This API does
-   * not work with the **fill** attribute or coloring strategy.
+   * Sets the text shadow effect. This API supports passing an array as the input parameter to implement multiple text
+   * shadows. The fill field and the smart color mode are not supported.
    *
-   * @param { ShadowOptions | Array<ShadowOptions> } value - Font shadow of the text.
+   * @param { ShadowOptions | Array<ShadowOptions> } value - Text shadow effect. Supports a single shadow object or an
+   *     array of shadow objects to achieve multiple shadow effects. The ShadowOptions object contains attributes such
+   *     as radius (blur radius), color (shadow color), offsetX (X-axis offset), and offsetY (Y-axis offset).
+   *     <br>The fill field and the smart color picking mode are not supported. For details about the attributes, see
+   *     [ShadowOptions]{@link ShadowOptions}.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -436,7 +451,10 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
    *
    * For example, the input format for monospaced clock fonts is "ss01" on.
    *
-   * @param { string } value - Font feature.
+   * @param { string } value - Text feature effect, used to set the OpenType features of the text. Format: normal | <
+   *     feature-tag-value>, where the <feature-tag-value> format is: <string> [ <integer> | on | off ]. Multiple
+   *     features can be set, separated by ','. For example, the format for using monospaced clock digits is:
+   *     '"ss01" on'.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -450,8 +468,9 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
    * Creates a content modifier.
    *
-   * @param { ContentModifier<TextClockConfiguration> } modifier - Content modifier to apply to the text clock.<br>
-   *     **modifier**: content modifier. You need to customize a class to implement the **ContentModifier** API.
+   * @param { ContentModifier<TextClockConfiguration> } modifier - Method for customizing the content area on the
+   *     TextClock component.
+   *     <br>modifier: content modifier. Developers need to customize a class to implement the ContentModifier API.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -464,10 +483,11 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
   /**
    * Sets whether to display a leading zero for the hour.
    *
-   * @param { Optional<DateTimeOptions> } dateTimeOptions - Whether to display leading zeros in the hour. It only
-   *     supports setting the **hour** parameter. When the parameter value is **{hour: "2-digit"}**, a leading zero is
-   *     displayed. When the parameter value is **{hour: "numeric"}**, no leading zero is displayed.<br>Default value:
-   *     **undefined**. By default, leading zeros are displayed in 24-hour format, but not displayed in 12-hour format.
+   * @param { Optional<DateTimeOptions> } dateTimeOptions - Sets whether to display a leading zero for the hour. Only
+   *     the hour parameter is supported. The value {hour: "2-digit"} indicates that a leading zero is displayed, and
+   *     the value {hour: "numeric"} indicates that no leading zero is displayed.
+   *     <br>Default value: undefined. By default, a leading zero is displayed in the 24-hour format and not displayed
+   *     in the 12-hour format.
    * @returns { TextClockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -480,12 +500,20 @@ declare class TextClockAttribute extends CommonMethod<TextClockAttribute> {
 }
 
 /**
- * The **TextClock** component displays the current system time in text format for different time zones. The time is
- * accurate to seconds.
+ * The TextClock component displays the current system time on the device in text form. It supports time display in
+ * different time zones and custom time formats, with a precision of up to seconds. It is suitable for scenarios where
+ * the system time needs to be displayed in real time on the application UI and multiple time zones need to be
+ * supported. It helps developers quickly implement time text display without manually calculating and updating the
+ * time.
  *
  * When the component is invisible, the time change stops. The visible status of a component is processed based on
  * [onVisibleAreaChange]{@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}.
  * If the visible threshold **ratios** is greater than 0, the component is visible.
+ *
+ * > **NOTE**
+ * >
+ * > This component is supported since API version 8. Newly added APIs will be marked with a superscript to indicate
+ * > their
  *
  * ###### Child Components
  *

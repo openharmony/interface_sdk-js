@@ -75,7 +75,7 @@ declare enum TextDataDetectorType {
    * @atomicservice
    * @since 12 dynamic
    */
-  DATE_TIME = 4,
+  DATE_TIME = 4
 }
 
 /**
@@ -198,7 +198,7 @@ declare interface TextDataDetectorConfig {
 
   /**
    * 文本识别成功后，触发onDetectResultUpdate回调。
-   * 
+   *
    * 默认值：undefined，不触发回调。
    *
    * @type { ?function } [since 11 - 11]
@@ -212,7 +212,7 @@ declare interface TextDataDetectorConfig {
 
   /**
    * 设置文本识别成功后的实体颜色。
-   * 
+   *
    * 默认值：'#ff0a59f7'，表示蓝色（不透明度为100%）
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -224,17 +224,17 @@ declare interface TextDataDetectorConfig {
 
   /**
    * 设置文本识别成功后的实体装饰线样式。
-   * 
+   *
    * 默认值：
-   * 
+   *
    * {
-   * 
+   *
    *  type: TextDecorationType.Underline,
-   * 
+   *
    *  color: 与实体颜色一致,
-   * 
-   *  style: TextDecorationStyle.SOLID 
-   * 
+   *
+   *  style: TextDecorationStyle.SOLID
+   *
    * }
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -246,11 +246,11 @@ declare interface TextDataDetectorConfig {
 
   /**
    * 设置是否开启文本识别长按显示预览菜单。true表示开启，false表示未开启。
-   * 
+   *
    * 默认值：false
-   * 
+   *
    * 当[copyOptions]{@link RichEditorAttribute#copyOptions}设置为None时，若enablePreviewMenu设置为true，长按AI实体也不能显示预览菜单。
-   * 
+   *
    * 本接口实际支持的设备类型范围（Phone、Tablet）小于其所属系统能力支持的设备类型范围（Phone、PC/2in1、Tablet、TV、Car、Wearable）。因硬件形态限制，该接口在PC/2in1、TV、Car、
    * Wearable设备中调用功能不生效。
    *
@@ -485,7 +485,7 @@ declare interface DeleteValue {
 }
 
 /**
- * 文本变换后回调。
+ * 文本变化后回调。
  *
  * @param { TextRange } rangeBefore - Range of the text to be changed.
  * @param { TextRange } rangeAfter - Range of the text added.
@@ -525,17 +525,19 @@ declare type EditableTextOnChangeCallback = (value: string, previewText?: Previe
 declare interface TextBaseController {
   /**
    * 支持设置组件内的内容选中，选中部分背板高亮。
-   * 
+   *
    * selectionStart和selectionEnd均为-1时表示全选。
-   * 
+   *
    * 未获焦时调用该接口不产生选中效果。
-   * 
+   *
    * 从API version 12开始，在PC/2in1设备中，无论options取何值，调用setSelection接口都不会弹出菜单，此外，如果组件中已经存在菜单，调用setSelection接口会关闭菜单。
-   * 
+   *
    * 在非2in1设备中，options取值为MenuPolicy.DEFAULT时，遵循以下规则：
-   * 
+   *
    * 1. 组件内有手柄菜单时，接口调用后不关闭菜单，并且调整菜单位置。
+   *
    * 2. 组件内有不带手柄的菜单时，接口调用后不关闭菜单，并且菜单位置不变。
+   *
    * 3. 组件内无菜单时，接口调用后也无菜单显示。
    *
    * @param { number } selectionStart - 选中开始位置。
@@ -698,7 +700,7 @@ declare interface StyledStringController {
    * 设置富文本组件显示的属性字符串。
    *
    * @param { StyledString } styledString - 属性字符串。
-   *     <br>**说明：** 
+   *     <br>**说明：**
    *     <br>StyledString的子类[MutableStyledString]{@link MutableStyledString}也可以作为入参值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -802,16 +804,16 @@ interface StyledStringChangeValue {
 
 /**
  * 布局管理器对象。
- * 
+ *
  * > **说明：**
  * >
  * > 文本内容变更后，需等待布局完成才可获取到最新的布局信息。
- * 
+ *
  * ###### 导入对象
- * 
+ *
  * 以Text组件为例，完整示例请参考Text组件的
- * [示例10（获取文本信息）]{@link ./text}。
- * 
+ * [示例10（获取文本信息）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#示例10获取文本信息)。
+ *
  * ```ts
  * controller: TextController = new TextController();
  * let layoutManager: LayoutManager = this.controller.getLayoutManager();
@@ -826,7 +828,7 @@ interface StyledStringChangeValue {
 declare interface LayoutManager {
   /**
    * 获取组件内容的总行数。
-   * 
+   *
    * > **说明：**
    * >
    * > 文本内容变更后，需等待布局完成才可获取到最新的总行数。
@@ -841,20 +843,19 @@ declare interface LayoutManager {
   getLineCount(): number;
 
   /**
-   * 获取较为接近给定坐标的字形的位置信息。
-   * 
+   * 获取较为接近给定坐标的字符位置信息。
+   *
    * > **说明：**
    * >
-   * > - 字形（Glyph）是文本渲染的基本单元，与字符（Character）可能存在一对多关系。如需获取字符级别的位置信息，可使用
-   * > [getCharacterPositionAtCoordinate]{@link LayoutManager.getCharacterPositionAtCoordinate}方法。
+   * > - 本接口实际获取的是UTF-16字符偏移量，而非字形偏移量。
    * >
    * > - 文本内容变更后，需等待布局完成才可获取到最新的位置信息。
    *
    * @param { number } x - 相对于组件的横坐标。
-   *     <br>单位：[px]{@link Length}
+   *     <br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    * @param { number } y - 相对于组件的纵坐标。
-   *     <br>单位：[px]{@link Length}
-   * @returns { PositionWithAffinity } 字形位置信息。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，返回无效值。
+   *     <br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * @returns { PositionWithAffinity } 字符位置信息。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，返回无效值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -865,18 +866,20 @@ declare interface LayoutManager {
 
   /**
    * 获取距离指定坐标最近的字符的位置信息。
-   * 
+   *
    * > **说明：**
    * >
-   * > - 字形（Glyph）是文本渲染的基本单元，与字符（Character）可能存在一对多关系。如需获取字形级别的位置信息，可使用
-   * > [getGlyphPositionAtCoordinate]{@link LayoutManager.getGlyphPositionAtCoordinate}方法。
-   * >
    * > - 文本内容变更后，需等待布局完成才可获取到最新的位置信息。
+   * >
+   * > - 本接口返回的字符位置为UTF-8编码偏移量。
    *
    * @param { number } x - 相对于组件的横坐标。
-   *     <br>单位：[px]{@link Length}
+   *     <br>单位为：[px]（docroot://reference/apis-arkui/arkui-ts/ts-像素单元.md#基本像素单元）。
+   *     <br>单位：[px]（docroot://reference/apis-arkui/arkui-ts/ts-像素-单位.md#基本像素-单位）。
+   *     <br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    * @param { number } y - 相对于组件的纵坐标。
-   *     <br>单位：[px]{@link Length}
+   *     <br>单位为：[px]（docroot://reference/apis-arkui/arkui-ts/ts-像素单元.md#基本像素单元）。
+   *     <br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    * @returns { PositionWithAffinity | undefined } 字符的位置信息。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，该接口会返回
    *     undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -890,9 +893,21 @@ declare interface LayoutManager {
   /**
    * 根据指定编码类型，获取距离指定坐标最近的字符位置信息。
    *
-   * @param { number } x - 相对于组件的横坐标。<br>单位：[px]{@link Length}
-   * @param { number } y - 相对于组件的纵坐标。<br>单位：[px]{@link Length}
-   * @param { TextEncoding } [encoding] - 字符位置使用的编码类型，默认值为**TextEncoding.TEXT_ENCODING_UTF8**。
+   * 相比[getCharacterPositionAtCoordinate]{@link LayoutManager.getCharacterPositionAtCoordinate(x: number, y: number)}，本接
+   * 口支持通过encoding参数指定字符位置使用的编码类型（UTF-8或UTF-16）。
+   *
+   * > **说明：**
+   * >
+   * > 文本内容变更后，需等待布局完成才可获取到最新的位置信息。
+   *
+   * @param { number } x - 相对于组件的横坐标。
+   *     <br>单位为：[px]（docroot://reference/apis-arkui/arkui-ts/arkui-ts/ts-pixel-units.md#基本像素单位）。
+   *     <br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
+   * @param { number } y - 相对于组件的纵坐标。
+   *     <br>单位为：[px]（docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位）。
+   *     <br>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
+   * @param { TextEncoding } [encoding] - 字符位置使用的编码类型。UTF-8编码时，字符位置以字节为单位；UTF-16编码时，字符位置以UTF-16码元为单位。
+   *     <br>默认值：TextEncoding.TEXT_ENCODING_UTF8。
    * @returns { PositionWithAffinity | undefined } 字符的位置信息。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，该接口会返回
    *     undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -906,14 +921,14 @@ declare interface LayoutManager {
 
   /**
    * 获取指定行的行信息、文本样式信息、以及字体属性信息。
-   * 
+   *
    * > **说明：**
    * >
    * > 文本内容变更后，需等待布局完成才可获取到最新的行信息。
    *
    * @param { number } lineNumber - 行号，取值范围[0, 实际行数-1]，从0开始。当行号小于0或超出实际行数时，返回无效值。
    * @returns { LineMetrics } 行信息、文本样式信息、以及字体属性信息。
-   *     <br>当行号小于0或超出实际行，返回无效值。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，返回无效值。
+   *     <br>当行号小于0或超出实际行数，返回无效值。当[LayoutManager]{@link LayoutManager}没有和组件绑定时，返回无效值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -924,10 +939,12 @@ declare interface LayoutManager {
 
   /**
    * 根据给定的矩形区域宽度样式和高度样式，获取文本中任意区间范围内的字符或占位符所占的绘制区域信息。
-   * 
+   *
    * > **说明：**
    * >
-   * > 文本内容变更后，需等待布局完成才可获取到最新的绘制区域信息。
+   * > - 文本内容变更后，需等待布局完成才可获取到最新的绘制区域信息。
+   * >
+   * > - 参数range的[TextRange]{@link TextRange}为UTF-16字符偏移量。
    *
    * @param { TextRange } range - 需要获取的区域的文本区间。
    * @param { RectWidthStyle } widthStyle - 返回的矩形区域的宽度规格，用于控制返回矩形的宽度计算方式，不同规格值会影响矩形的宽度边界。
@@ -942,19 +959,19 @@ declare interface LayoutManager {
   getRectsForRange(range: TextRange, widthStyle: RectWidthStyle, heightStyle: RectHeightStyle): Array<TextBox>;
 
   /**
-   * 根据给定的文本字符范围来获取范围内的字形范围，以及实际的字符范围。
-   * 
+   * 根据给定的文本字符范围来获取范围内的字形范围，以及实际的字符范围。本接口的字符偏移量为UTF-8编码。
+   *
    * > **说明：**
    * >
    * > 文本内容变更后，需等待布局完成才可获取到最新的字形范围信息。
-   * > 以文本“世界Hello”为例，其字形索引与字符索引的对应关系如下：
-   * 
+   * > 以文本“世界Hello”为例，UTF-8编码下其字形索引与字符索引的对应关系如下：
+   *
    * | 文本 | 世 | 界 | H | e | l | l | o |
    * |---|---|---|---|---|---|---|---|
    * | 字形索引范围 | [0, 1] | [1, 2] | [2, 3] | [3, 4] | [4, 5] | [5, 6] | [6, 7] |
-   * | 字符索引范围 | [0, 3] | [3, 6] | [6, 7] | [7, 8] | [8, 9] | [9, 10] | [10, 11] |
-   * 
-   * 其中文本“世”的字形索引范围为[0, 1]，一个汉字占三个字符，所以其对应的字符索引范围为[0, 3]。如果指定的字符索引范围是[0, 1]，但无法解析出三分之一个汉字，所以实际的字符索引范围是[0, 3]。
+   * | 字符索引范围（UTF-8） | [0, 3] | [3, 6] | [6, 7] | [7, 8] | [8, 9] | [9, 10] | [10, 11] |
+   *
+   * 其中文本“世”的字形索引范围为[0, 1]，一个汉字占3个字节，所以其对应的字符索引范围为[0, 3]。如果指定的字符索引范围是[0, 1]，但无法解析出三分之一个汉字，所以实际的字符索引范围是[0, 3]。
    *
    * @param { TextRange } charRange - 文本的字符范围。
    * @returns { Array<TextRange> | undefined } 数组中含有两个元素，第一个元素是字形范围，第二个元素是实际的字符范围。
@@ -971,8 +988,27 @@ declare interface LayoutManager {
   /**
    * 根据指定编码类型和文本字符范围，获取字形范围以及实际的字符范围。
    *
+   * 相比[getGlyphRangeForCharacterRange]{@link LayoutManager.getGlyphRangeForCharacterRange(charRange: TextRange)}，本接口支持通
+   * 过encoding参数指定字符范围使用的编码类型（UTF-8或UTF-16）。
+   *
+   * > **说明：**
+   * >
+   * > 文本内容变更后，需等待布局完成才可获取到最新的字形范围信息。
+   * > 以文本“世界Hello”为例，不同编码类型下其字形索引与字符索引的对应关系如下：
+   *
+   * | 文本 | 世 | 界 | H | e | l | l | o |
+   * |---|---|---|---|---|---|---|---|
+   * | 字形索引范围 | [0, 1] | [1, 2] | [2, 3] | [3, 4] | [4, 5] | [5, 6] | [6, 7] |
+   * | 字符索引范围（UTF-8） | [0, 3] | [3, 6] | [6, 7] | [7, 8] | [8, 9] | [9, 10] | [10, 11] |
+   * | 字符索引范围（UTF-16） | [0, 1] | [1, 2] | [2, 3] | [3, 4] | [4, 5] | [5, 6] | [6, 7] |
+   *
+   * UTF-8编码时，一个汉字占3个字节，“世”的字形索引范围为[0, 1]，其对应的字符索引范围为[0, 3]。如果指定的字符索引范围是[0, 1]，但无法解析出三分之一个汉字，所以实际的字符索引范围是[0, 3]。
+   *
+   * UTF-16编码时，字符索引以UTF-16码元为单位，BMP字符（如“世”）占1个码元（2个字节），补充平面字符（如emoji）占2个码元（4字节代理对）。“世”的字形索引范围为[0, 1]，其对应的字符索引范围为[0, 1]。
+   *
    * @param { TextRange } charRange - 文本的字符范围。
-   * @param { TextEncoding } [encoding] - 字符范围使用的编码类型，默认值为**TextEncoding.TEXT_ENCODING_UTF8**。
+   * @param { TextEncoding } [encoding] - 字符范围使用的编码类型。UTF-8编码时，字符索引以字节为单位；UTF-16编码时，字符索引以UTF-16码元为单位。
+   *     <br>默认值：TextEncoding.TEXT_ENCODING_UTF8
    * @returns { Array<TextRange> | undefined } 数组中含有两个元素，第一个元素是字形范围，第二个元素是实际的字符范围。
    *     <br>当返回的范围是异常值时，范围内元素为-1。
    *     <br>当[LayoutManager]{@link LayoutManager}没有和组件绑定时，该接口会返回undefined。
@@ -985,19 +1021,19 @@ declare interface LayoutManager {
   getGlyphRangeForCharacterRange(charRange: TextRange, encoding?: TextEncoding): Array<TextRange> | undefined;
 
   /**
-   * 根据给定的文本字形范围来获取范围内的字符范围，以及实际的字形范围。
-   * 
+   * 根据给定的文本字形范围来获取范围内的字符范围，以及实际的字形范围。本接口的字符偏移量为UTF-8编码。
+   *
    * > **说明：**
    * >
    * > 文本内容变更后，需等待布局完成才可获取到最新的字符范围信息。
-   * > 以文本“世界Hello”为例，其字形索引与字符索引的对应关系如下：
-   * 
+   * > 以文本“世界Hello”为例，UTF-8编码下其字形索引与字符索引的对应关系如下：
+   *
    * | 文本 | 世 | 界 | H | e | l | l | o |
    * |---|---|---|---|---|---|---|---|
    * | 字形索引范围 | [0, 1] | [1, 2] | [2, 3] | [3, 4] | [4, 5] | [5, 6] | [6, 7] |
-   * | 字符索引范围 | [0, 3] | [3, 6] | [6, 7] | [7, 8] | [8, 9] | [9, 10] | [10, 11] |
-   * 
-   * 其字形索引范围为[0, 7]，一个汉字占三个字符，所以其对应的字符索引范围为[0, 11]。如果指定的字形索引范围是[0, 11]，但字形一共只有7个，所以实际的字形索引范围是[0, 7]。
+   * | 字符索引范围（UTF-8） | [0, 3] | [3, 6] | [6, 7] | [7, 8] | [8, 9] | [9, 10] | [10, 11] |
+   *
+   * 其字形索引范围为[0, 7]，一个汉字占3个字节，所以其对应的字符索引范围为[0, 11]。如果指定的字形索引范围是[0, 11]，但字形一共只有7个，所以实际的字形索引范围是[0, 7]。
    *
    * @param { TextRange } glyphRange - 文本的字形范围。
    * @returns { Array<TextRange> | undefined } 数组中含有两个元素，第一个元素是字符范围，第二个元素是实际的字形范围。
@@ -1014,8 +1050,28 @@ declare interface LayoutManager {
   /**
    * 根据指定编码类型和文本字形范围，获取字符范围以及实际的字形范围。
    *
+   * 相比[getCharacterRangeForGlyphRange]{@link LayoutManager.getCharacterRangeForGlyphRange(glyphRange: TextRange)}，本接口支持
+   * 通过encoding参数指定字符范围使用的编码类型（UTF-8或UTF-16）。
+   *
+   * > **说明：**
+   * >
+   * > 文本内容变更后，需等待布局完成才可获取到最新的字符范围信息。
+   * > 以文本“世界Hello”为例，不同编码类型下其字形索引与字符索引的对应关系如下：
+   *
+   * | 文本 | 世 | 界 | H | e | l | l | o |
+   * |---|---|---|---|---|---|---|---|
+   * | 字形索引范围 | [0, 1] | [1, 2] | [2, 3] | [3, 4] | [4, 5] | [5, 6] | [6, 7] |
+   * | 字符索引范围（UTF-8） | [0, 3] | [3, 6] | [6, 7] | [7, 8] | [8, 9] | [9, 10] | [10, 11] |
+   * | 字符索引范围（UTF-16） | [0, 1] | [1, 2] | [2, 3] | [3, 4] | [4, 5] | [5, 6] | [6, 7] |
+   *
+   * UTF-8编码时，其字形索引范围为[0, 7]，一个汉字占3个字节，对应的字符索引范围为[0, 11]。如果指定的字形索引范围超出实际字形数量（如[0, 11]），由于字形一共只有7个，返回的实际字形索引范围为[0, 7]。
+   *
+   * UTF-16编码时，字符索引以UTF-16码元为单位，BMP字符（如“世”）占1个码元（2个字节），补充平面字符（如emoji）占2个码元（4字节代理对）。其字形索引范围为[0, 7]，对应的字符索引范围为[0, 7]。如果指定的
+   * 字形索引范围超出实际字形数量（如[0, 10]），由于字形一共只有7个，返回的实际字形索引范围为[0, 7]。
+   *
    * @param { TextRange } glyphRange - 文本的字形范围。
-   * @param { TextEncoding } [encoding] - 字符范围使用的编码类型，默认值为**TextEncoding.TEXT_ENCODING_UTF8**。
+   * @param { TextEncoding } [encoding] - 字符范围使用的编码类型。UTF-8编码时，字符索引以字节为单位；UTF-16编码时，字符索引以UTF-16码元为单位。
+   *     <br>默认值：TextEncoding.TEXT_ENCODING_UTF8
    * @returns { Array<TextRange> | undefined } 数组中含有两个元素，第一个元素是字符范围，第二个元素是实际的字形范围。
    *     <br>当返回的范围是异常值时，范围内元素为-1。
    *     <br>当[LayoutManager]{@link LayoutManager}没有和组件绑定时，该接口会返回undefined。
@@ -1029,7 +1085,7 @@ declare interface LayoutManager {
 }
 
 /**
- * 枚举文本布局查询接口支持的文本编码类型。
+ * 文本布局查询接口支持的文本编码类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1182,7 +1238,7 @@ declare type FontVariation = import('../api/@ohos.graphics.text').default.FontVa
 interface CaretStyle {
   /**
    * 光标尺寸，不支持百分比。
-   * 
+   *
    * 默认值：'2vp'
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1195,7 +1251,7 @@ interface CaretStyle {
 
   /**
    * 光标颜色。
-   * 
+   *
    * 默认值：'#ff007dff'，表示蓝色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1453,9 +1509,9 @@ declare interface TextMenuItem {
   content: ResourceStr;
   /**
    * 菜单图标。
-   * 
+   *
    * 不支持网络图片。
-   * 
+   *
    * 默认值：undefined，不显示菜单图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1477,9 +1533,9 @@ declare interface TextMenuItem {
   id: TextMenuItemId;
   /**
    * 快捷键提示。
-   * 
+   *
    * 该字段仅2in1设备支持。
-   * 
+   *
    * 默认值：undefined，不显示快捷键提示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1494,7 +1550,7 @@ declare interface TextMenuItem {
 /**
  * 菜单创建时触发。
  *
- * @param { Array<TextMenuItem> } menuItems - 当前显示的菜单项。<br/>**说明：**<br/>对默认菜单项的名称、图标、快捷键提示修改不生效。
+ * @param { Array<TextMenuItem> } menuItems - 当前显示的菜单项。<br/>**说明：** <br/>对默认菜单项的名称、图标、快捷键提示修改不生效。
  * @returns { Array<TextMenuItem> } 处理后的菜单项。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1508,7 +1564,7 @@ type OnCreateMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuIt
  * 当文本选择区域变化后显示菜单之前触发该回调，可在该回调中进行菜单数据设置。入参和返回值只包含一级菜单项，不包含二级菜单项。
  *
  * @param { Array<TextMenuItem> } menuItems - 将要显示的菜单项。
- *     <br>**说明：** 
+ *     <br>**说明：**
  *     <br>对默认菜单项的名称、图标、快捷键提示修改不生效。
  * @returns { Array<TextMenuItem> } 处理后的菜单项。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1533,7 +1589,7 @@ declare interface EditMenuOptions {
    * 在菜单创建时触发该回调，可在该回调中进行菜单数据设置。入参和返回值只包含一级菜单项，不包含二级菜单项。
    *
    * @param { Array<TextMenuItem> } menuItems - 将要显示的菜单项。
-   *     <br>**说明：** 
+   *     <br>**说明：**
    *     <br>对默认菜单项的名称、图标、快捷键提示修改不生效。
    * @returns { Array<TextMenuItem> } 处理后的菜单项。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1547,7 +1603,7 @@ declare interface EditMenuOptions {
    * 在菜单项被点击时触发该回调，用于处理菜单项的点击行为。
    *
    * @param { TextMenuItem } menuItem - 菜单项。
-   *     <br>**说明：** 
+   *     <br>**说明：**
    *     <br>从API version 23开始，对于具备可展开二级菜单能力的一级菜单项，例如自动填充，仅执行系统默认逻辑，不会执行用户自定义逻辑。
    * @param { TextRange } range - 选中的文本信息。
    * @returns { boolean } 菜单项的执行逻辑。
@@ -1563,7 +1619,7 @@ declare interface EditMenuOptions {
 
   /**
    * 当文本选择区域变化后显示菜单之前触发该回调，可在该回调中进行菜单数据设置。
-   * 
+   *
    * 与[onCreateMenu]{@link EditMenuOptions.onCreateMenu}功能相似但触发时机不同：onCreateMenu在菜单创建时触发，适用于初始化菜单项；本接口在每次选择区域变化后、菜单显示前触
    * 发，适用于根据选择内容动态调整菜单。两者可同时使用。
    *
@@ -1611,6 +1667,8 @@ interface DecorationStyleResult {
   /**
    * 装饰线样式。
    *
+   * 默认值：TextDecorationStyle.SOLID
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1621,11 +1679,11 @@ interface DecorationStyleResult {
 
   /**
    * 装饰线粗细缩放比例。
-   * 
+   *
    * 默认值：1.0
-   * 
-   * 取值范围：[0, +∞) 
-   * 
+   *
+   * 取值范围：[0, +∞)
+   *
    * **说明：** 负值按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1652,11 +1710,11 @@ declare interface FontSettingOptions {
    * 是否启用可变字重调节。字体配置项作为
    * [fontWeight]{@link TextAttribute#fontWeight(weight: number | FontWeight | ResourceStr, options?: FontSettingOptions)}
    * 接口的入参，fontWeight接口中weight取值为[100, 900]内非整百数值时，enableVariableFontWeight用于设置weight的值是否生效。
-   * 
-   * 默认值：false 
-   * 
+   *
+   * 默认值：false
+   *
    * true：启用可变字重调节。此时如果weight取值为[100, 900]范围内任意整数，字重取值为weight，否则取默认值400。
-   * 
+   *
    * false：禁用可变字重调节。此时如果weight取值为[100, 900]范围内的整百数值，字重取值为weight；weight是非整百数值时，字重取默认值400。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1747,7 +1805,7 @@ interface EditableTextChangeValue {
 
   /**
    * 预上屏的内容信息。
-   * 
+   *
    * 默认值：undefined，表示无预上屏内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1760,7 +1818,7 @@ interface EditableTextChangeValue {
 
   /**
    * 变化的文本内容信息。
-   * 
+   *
    * 默认值：undefined。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1795,18 +1853,18 @@ declare enum TextMenuShowMode {
 
   /**
    * 优先显示在独立窗口中，若不支持独立窗口，则显示在当前窗口中。
-   * 
-   * **说明：** 
-   * 
+   *
+   * **说明：**
+   *
    * 除应用主窗口、应用子窗口、系统模态窗口及系统桌面类型的窗口外，其他类型的窗口不支持将文本选择菜单显示在独立窗口中。
-   * 
+   *
    * 在预览器中不支持将文本选择菜单显示在独立窗口中。
-   * 
+   *
    * 在[UIExtension]{@link @ohos.arkui.uiExtension:uiExtension}中不支持将文本选择菜单显示在独立窗口中。
-   * 
+   *
    * 当文本类组件已经显示在子窗类型的[Popup]{@link @ohos.arkui.advanced.Popup}、[Dialog]{@link @ohos.arkui.advanced.Dialog}、
    * [Toast](docroot://ui/arkts-create-toast.md)、[Menu]{@link ./menu}中时，不支持将其对应的文本选择菜单显示在独立窗口中。
-   * 
+   *
    * 当TextInput、TextArea可支持拉起AutoFill时，不支持将其对应的文本选择菜单显示在独立窗口中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1830,7 +1888,7 @@ declare enum TextMenuShowMode {
 declare interface TextMenuOptions {
   /**
    * 菜单的显示模式。
-   * 
+   *
    * 默认值：TextMenuShowMode.DEFAULT
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1903,9 +1961,9 @@ declare enum KeyboardAppearance {
 declare interface LineSpacingOptions {
   /**
    * 文本的行间距是否仅在行与行之间生效。
-   * 
+   *
    * 当设置为true时，行间距仅适用于行与行之间，首行上方和尾行下方无额外的行间距。当设置为false时，首行上方和尾行下方均会存在行间距。
-   * 
+   *
    * 默认值：false
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1954,8 +2012,8 @@ interface VoiceButtonOptions {
  */
 declare interface FontConfigs {
   /**
-    * 字体粗细配置。默认值继承[FontWeightConfigs]{@link FontWeightConfigs}。
-    *
+   * 字体粗细配置。默认值继承[FontWeightConfigs]{@link FontWeightConfigs}。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1977,11 +2035,11 @@ declare interface FontConfigs {
 declare interface FontWeightConfigs {
   /**
    * 是否启用可变字重调节。当设置字体粗细的值weight为[100, 900]内非整百数值时，enableVariableFontWeight用于设置weight的值是否生效。
-   * 
-   * 默认值：false 
-   * 
+   *
+   * 默认值：false
+   *
    * true：启用可变字重调节。此时如果weight取值为[100, 900]范围内任意整数，字重取值为weight，否则取默认值400。
-   * 
+   *
    * false：禁用可变字重调节。此时如果weight取值为[100, 900]范围内的整百数值，字重取值为weight；weight是非整百数值时，字重取默认值400。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1993,11 +2051,11 @@ declare interface FontWeightConfigs {
   enableVariableFontWeight?: boolean;
   /**
    * 是否随设备的字体粗细级别自动更新字重。
-   * 
-   * 默认值：true 
-   * 
+   *
+   * 默认值：true
+   *
    * true：当设备的字体粗细级别发生变化时，字重会自动更新。
-   * 
+   *
    * false：当设备的字体粗细级别发生变化时，字重不会自动更新。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2740,7 +2798,7 @@ declare interface TextLayoutOptions {
 declare interface SelectedDragPreviewStyle {
   /**
    * 用于设置文本拖拽时的背板颜色。
-   * 
+   *
    * 默认值：跟随主题。默认主题时，浅色模式显示白色，深色模式显示黑色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2794,28 +2852,18 @@ declare interface AccessibilitySpanOptions {
 
   /**
    * 无障碍重要性。用于设置组件是否可被无障碍辅助服务识别。
-   * 
    * 支持取值如下：
-   * 
    * "auto"：当前组件由无障碍辅助服务和ArkUI进行综合判断组件是否可被无障碍辅助服务所识别。
-   * 
    * "yes"：当前组件可被无障碍辅助服务识别。
-   * 
    * "no"：当前组件不可被无障碍辅助服务识别。
-   * 
    * "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。
-   * 
-   * 默认值："auto"
-   * 
-   * 值为undefined时，按默认值处理。
-   * 
    * **说明：**
-   * 
    * 当accessibilityLevel设置成"auto"时，组件是否可被无障碍辅助服务所识别取决于以下多方面因素：
-   * 
    * 1. 组件是否可被识别由无障碍辅助服务内部判断，自行选择。
    * 2. 若组件的父组件accessibilityGroup属性中isGroup设置为true，无障碍服务将不再关注其子组件内容，组件不可被无障碍辅助服务所识别。
    * 3. 若组件的父组件accessibilityLevel属性设置为"no-hide-descendants"，组件不可被无障碍辅助服务所识别。
+   * 默认值："auto"
+   * 值为undefined时，按默认值处理。
    *
    * @default "auto".
    * @syscap SystemCapability.ArkUI.ArkUI.Full

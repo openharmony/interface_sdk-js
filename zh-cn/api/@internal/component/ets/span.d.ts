@@ -96,17 +96,25 @@ declare class BaseSpan<T> extends CommonMethod<T> {
 /**
  * 作为[Text]{@link ./text}、[ContainerSpan]{@link ./container_span}组件的子组件，用于显示行内文本，支持对文本的字体、颜色、大小等样式进行细粒度设置。适用于在同一行文本中混合显示
  * 不同样式的场景，如不同字体颜色的文本、添加装饰线或阴影效果等。
- * 
+ *
  * > **说明：**
  * >
- * > 该组件从API version 10开始支持继承父组件Text的属性，即如果子组件未设置属性且父组件设置属性，则继承父组件设置的属性。支持继承的属性仅包括：fontColor、fontSize、fontStyle、
+ * > - 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
+ * > - 该组件从API version 10开始支持继承父组件Text的属性，即如果子组件未设置属性且父组件设置属性，则继承父组件设置的属性。支持继承的属性仅包括：fontColor、fontSize、fontStyle、
  * > fontWeight、decoration、letterSpacing、textCase、fontFamily、textShadow。
  * >
- * > 不支持[通用属性]](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)。若需设置通用属性，
- * > 应使用[Text]{@link ./text}进行设置，或改用[属性字符串]{@link ./styled_string}中的[CustomSpan]{@link CustomSpan}自行绘制。
+ * > - 支持[通用属性]{@link ./common}中的[无障碍属性]{@link ./common}（
+ * > [accessibilityText]{@link CommonMethod#accessibilityText(value: string)}）、[组件标识]{@link ./common}（
+ * > [id]{@link CommonMethod#id}、[key]{@link CommonMethod#key}）和[禁用反色能力]{@link ./common}（
+ * > [allowForceDark]{@link CommonMethod#allowForceDark}），不支持其他通用属性。若需设置其他通用属性，应使用[Text]{@link ./text}进行设置，或改用
+ * > [属性字符串]{@link ./styled_string}中的[CustomSpan]{@link CustomSpan}自行绘制。
  * >
- * > [通用事件]{@link CommonMethod}只支持点击事件
- * > [onClick]{@link CommonMethod#onClick(event: (event: ClickEvent) => void)}和悬浮事件
+ * > - [accessibilityText]{@link CommonMethod#accessibilityText(value: string)}仅在Span设置了
+ * > [onClick]{@link CommonMethod#onClick(event: (event: ClickEvent) => void)}事件时生效，配置的文本只会体现在无障碍服务识别到的内嵌链接弹窗中。直接播报时，仍播报
+ * > Span的内容，不会替换为accessibilityText配置的文本。
+ * >
+ * > - [通用事件]{@link ./common}只支持点击事件[onClick]{@link CommonMethod#onClick(event: (event: ClickEvent) => void)}和悬浮事件
  * > [onHover]{@link CommonMethod#onHover}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -117,7 +125,6 @@ declare class BaseSpan<T> extends CommonMethod<T> {
  * @noninterop
  */
 interface SpanInterface {
-
   /**
    *
    * 定义Span组件构造函数。
@@ -135,9 +142,6 @@ interface SpanInterface {
 
 /**
  * 属性继承自[BaseSpan]{@link BaseSpan}。
- * 
- * 通用事件支持[点击事件onClick]{@link CommonMethod#onClick(event: (event: ClickEvent) => void)}、
- * [悬浮事件onHover]{@link CommonMethod#onHover}。
  *
  * @extends CommonMethod<SpanAttribute> [since 7 - 10]
  * @extends BaseSpan<SpanAttribute> [since 11]
@@ -151,7 +155,7 @@ interface SpanInterface {
 declare class SpanAttribute extends BaseSpan<SpanAttribute> {
   /**
    * 设置文本样式。包括字体大小、字体粗细、字体族和字体风格。
-   * 
+   *
    * > **说明：**
    * >
    * > fontWeight设置过大可能会在不同字体下有截断。
@@ -224,17 +228,15 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
 
   /**
    * 设置文本的字体粗细，设置过大可能会在不同字体下有截断。未通过该接口设置时，默认字体粗细为FontWeight.Normal（正常粗细，对应数值400）。
-   * 
+   *
    * > **说明：**
    * >
    * > 当同时设置[fontVariations属性]{@link SpanAttribute#fontVariations}时，fontVariations属性的优先级更高。
    *
-   * @param { number | FontWeight | string } value - Font weight. For the number type, the value range is [100, 900], at
-   *     an interval of 100. The default value is **400**. A larger value indicates a heavier font weight. For the
-   *     string type, only strings of the number type are supported, for example, **400**, **"bold"**, **"bolder"**,
-   *     **"lighter"**, **"regular"**, and **"medium"**, which correspond to the enumerated values in **FontWeight**.<br
-   *     >Default value: **FontWeight.Normal**<br>The [Resource]{@link Resource} type is supported since API version 2
-   *     0. [since 7 - 19]
+   * @param { number | FontWeight | string } value - 文本的字体粗细。
+   *     <br>number类型取值[100, 900]，取值间隔为100，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“lighter”、“
+   *     regular”、“medium”，分别对应FontWeight中相应的枚举值。设置过大可能会在不同字体下有截断。传入超出取值范围或不符合间隔要求的值时取默认值。
+   *     <br>从API version 20开始，支持[Resource]{@link Resource}类型。 [since 7 - 19]
    * @param { number | FontWeight | ResourceStr } value - 文本的字体粗细。
    *     <br>number类型取值[100, 900]，取值间隔为100，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“lighter”、“
    *     regular”、“medium”，分别对应FontWeight中相应的枚举值。设置过大可能会在不同字体下有截断。传入超出取值范围或不符合间隔要求的值时取默认值。
@@ -250,7 +252,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
 
   /**
    * 设置文本的字体粗细。未通过该接口设置时，默认字体粗细为FontWeight.Normal（正常粗细，对应数值400）。
-   * 
+   *
    * > **说明：**
    * >
    * > 当同时设置fontVariations属性时，fontVariations属性的优先级更高。
@@ -288,11 +290,11 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
   /**
    * 设置文本装饰线样式及其颜色。未通过该接口设置时，默认装饰线类型为TextDecorationType.None（无装饰线），颜色为Color.Black（黑色），样式为TextDecorationStyle.SOLID（实线）。
    *
-   * @param { object } value - Style of the text decorative line.<br>Default value:<br>{<br> type:
-   *     TextDecorationType.None,<br> color: Color.Black,<br> style: TextDecorationStyle.SOLID <br>}<br>**NOTE**<br>The
-   *     **style** parameter cannot be used in widgets. [since 7 - 11]
+   * @param { object } value - 文本装饰线样式对象。
+   *     <br>**说明：**
+   *     <br>style参数不支持卡片能力。 [since 7 - 11]
    * @param { DecorationStyleInterface } value - 文本装饰线样式对象。
-   *     <br>**说明：** 
+   *     <br>**说明：**
    *     <br>style参数不支持卡片能力。 [since 12]
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -307,10 +309,11 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * 设置文本字符间距。取值小于0，字符聚集重叠，取值大于0且随着数值变大，字符间距越来越大，稀疏分布。适用于标题排版、标签文字等需要调整字符紧凑度或稀疏度的场景。string类型支持number类型取值的字符串形式，可以附带单位，例如
    * "10"、"10fp"。
    *
-   * @param { number | string } value - Letter spacing.<br>Unit: [fp]{@link common}<br>The [Resource]{@link Resource}
-   *     type is supported since API version 20. [since 7 - 19]
+   * @param { number | string } value - 文本字符间距。
+   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>从API version 20开始，支持[Resource]{@link Resource}类型。 [since 7 - 19]
    * @param { number | ResourceStr } value - 文本字符间距。
-   *     <br>单位：[fp]{@link Length} 
+   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *     <br>从API version 20开始，支持[Resource]{@link Resource}类型。 [since 20]
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -337,7 +340,7 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
   /**
    * 设置文本行高。未通过该接口设置时，默认由系统根据字体大小自动计算行高。
    *
-   * @param { Length } value - 文本行高。 
+   * @param { Length } value - 文本行高。
    *     <br> number类型时单位为fp。设置string类型时，支持number类型取值的字符串形式，可以附带单位，例如"10"、"10fp"，不支持设置百分比字符串。
    * @returns { SpanAttribute } The attribute of the span.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -366,8 +369,9 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
    * 设置可变字体的属性，适用于需要动态调整字体粗细、宽度等可变维度参数的场景。
    *
    * @param { Array<FontVariation> } fontVariations - 可变字体的属性数组，每个数组元素包含axis（属性轴名称）和value（属性值）两个字段。fontVariations属性的优先级高
-   *     于[fontWeight]{@link SpanAttribute#fontWeight(weight: number | FontWeight | ResourceStr, fontWeightConfigs?: FontWeightConfigs)}。
-   *
+   *     于
+   *     [fontWeight]{@link SpanAttribute#fontWeight(weight: number | FontWeight | ResourceStr, fontWeightConfigs?: FontWeightConfigs)}
+   *     。
    * @returns { SpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -382,21 +386,29 @@ declare class SpanAttribute extends BaseSpan<SpanAttribute> {
 /**
  * 作为[Text]{@link ./text}、[ContainerSpan]{@link ./container_span}组件的子组件，用于显示行内文本，支持对文本的字体、颜色、大小等样式进行细粒度设置。适用于在同一行文本中混合显示
  * 不同样式的场景，如不同字体颜色的文本、添加装饰线或阴影效果等。
- * 
+ *
  * > **说明：**
  * >
- * > 该组件从API version 10开始支持继承父组件Text的属性，即如果子组件未设置属性且父组件设置属性，则继承父组件设置的属性。支持继承的属性仅包括：fontColor、fontSize、fontStyle、
+ * > - 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
+ * > - 该组件从API version 10开始支持继承父组件Text的属性，即如果子组件未设置属性且父组件设置属性，则继承父组件设置的属性。支持继承的属性仅包括：fontColor、fontSize、fontStyle、
  * > fontWeight、decoration、letterSpacing、textCase、fontFamily、textShadow。
  * >
- * > 不支持[通用属性]](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)。若需设置通用属性，
- * > 应使用[Text]{@link ./text}进行设置，或改用[属性字符串]{@link ./styled_string}中的[CustomSpan]{@link CustomSpan}自行绘制。
+ * > - 支持[通用属性]{@link ./common}中的[无障碍属性]{@link ./common}（
+ * > [accessibilityText]{@link CommonMethod#accessibilityText(value: string)}）、[组件标识]{@link ./common}（
+ * > [id]{@link CommonMethod#id}、[key]{@link CommonMethod#key}）和[禁用反色能力]{@link ./common}（
+ * > [allowForceDark]{@link CommonMethod#allowForceDark}），不支持其他通用属性。若需设置其他通用属性，应使用[Text]{@link ./text}进行设置，或改用
+ * > [属性字符串]{@link ./styled_string}中的[CustomSpan]{@link CustomSpan}自行绘制。
  * >
- * > [通用事件]{@link CommonMethod}只支持点击事件
- * > [onClick]{@link CommonMethod#onClick(event: (event: ClickEvent) => void)}和悬浮事件
+ * > - [accessibilityText]{@link CommonMethod#accessibilityText(value: string)}仅在Span设置了
+ * > [onClick]{@link CommonMethod#onClick(event: (event: ClickEvent) => void)}事件时生效，配置的文本只会体现在无障碍服务识别到的内嵌链接弹窗中。直接播报时，仍播报
+ * > Span的内容，不会替换为accessibilityText配置的文本。
+ * >
+ * > - [通用事件]{@link ./common}只支持点击事件[onClick]{@link CommonMethod#onClick(event: (event: ClickEvent) => void)}和悬浮事件
  * > [onHover]{@link CommonMethod#onHover}。
- * 
+ *
  * ###### 子组件
- * 
+ *
  * 无
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

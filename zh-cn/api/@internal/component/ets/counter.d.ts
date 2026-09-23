@@ -20,14 +20,10 @@
 
 /**
  * 计数器组件，提供增加或减少的计数操作。适用于商品数量选择、参数调整等需要频繁修改数值的场景，帮助用户快速直观地调整数值。
- * 
+ *
  * > **说明：**
  * >
  * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link ./with_theme}。
- * 
- * ## 子组件
- *
- * 可以包含子组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -52,9 +48,7 @@ interface CounterInterface {
 }
 
 /**
- * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性。
- *
- * 除支持[通用事件]{@link CommonMethod}外，还支持以下事件。
+ * 除支持[通用属性]{@link ./common}外，还支持以下属性。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -67,8 +61,8 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
    * 监听数值增加事件。
    *
-   * @param { function } event - Callback invoked when the value increases. [since 7 - 17]
-   * @param { VoidCallback } event - Counter数值增加的回调函数。 [since 18]
+   * @param { function } event - Counter 数值增加的回调函数。 [since 7 - 17]
+   * @param { VoidCallback } event - Counter 数值增加的回调函数。 [since 18]
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -81,8 +75,8 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
   /**
    * 监听数值减少事件。
    *
-   * @param { function } event - Callback invoked when the value decreases. [since 7 - 17]
-   * @param { VoidCallback } event - Counter数值减少的回调函数。 [since 18]
+   * @param { function } event - Counter 数值减少的回调函数。 [since 7 - 17]
+   * @param { VoidCallback } event - Counter 数值减少的回调函数。 [since 18]
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -135,13 +129,13 @@ declare const CounterInstance: CounterAttribute;
 
 /**
  * 计数器组件，提供增加或减少的计数操作。适用于商品数量选择、参数调整等需要频繁修改数值的场景，帮助用户快速直观地调整数值。
- * 
+ *
  * > **说明：**
  * >
  * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link ./with_theme}。
- * 
+ *
  * ###### 子组件
- * 
+ *
  * 可以包含子组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full

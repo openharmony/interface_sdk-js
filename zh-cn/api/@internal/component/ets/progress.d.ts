@@ -73,11 +73,11 @@ declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
   style?: ProgressStyle;
 
   /**
-   * 指定进度条类型。
+   * 指定进度条类型。Type继承于[ProgressStyleMap]{@link ProgressStyleMap}。
    * 
    * 默认值：ProgressType.Linear
    * 
-   * **说明：** 不同的type需分别对应相应的[style]{@link ProgressAttribute#style}属性设置，详细映射关系参考
+   * **说明：** 不同的[ProgressType]{@link ProgressType}需分别对应相应的[style]{@link ProgressAttribute#style}属性设置，详细映射关系参考
    * [ProgressStyleMap]{@link ProgressStyleMap}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -133,7 +133,8 @@ declare enum ProgressType {
   Eclipse = 2,
 
   /**
-   * 环形有刻度样式，显示类似时钟刻度形式的进度展示效果。从API version 9开始，刻度外圈出现重叠时自动转换为环形无刻度进度条。
+   * 环形有刻度样式，显示类似时钟刻度形式的进度展示效果。
+   * 从API version 9开始，刻度外圈出现重叠时自动转换为环形无刻度进度条。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -144,7 +145,8 @@ declare enum ProgressType {
   ScaleRing = 3,
 
   /**
-   * 胶囊样式，头尾两端圆弧处的进度展示效果与Eclipse相同，中段的进度展示效果与Linear相同。从API version 9开始，当高度大于宽度时，自适应垂直显示。
+   * 胶囊样式，头尾两端圆弧处的进度展示效果与Eclipse相同，中段的进度展示效果与Linear相同。
+   * 从API version 9开始，当高度大于宽度时，自适应垂直显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -166,7 +168,7 @@ declare enum ProgressType {
  */
 declare enum ProgressStatus {
   /**
-   * 加载中。
+   * 加载中状态。开启检查更新动效，此时设置进度值不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -268,11 +270,11 @@ declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
 declare interface CommonProgressStyleOptions {
   /**
    * 进度平滑动效的开关。开启平滑动效后设置进度，进度会从当前值渐变至设定值，页面会有进度变化的动效；否则进度从当前值突变至设定值，页面无动效。
-   *
+   * 
    * true：表示开启进度平滑动效。
-   *
+   * 
    * false：表示关闭进度平滑动效。
-   *
+   * 
    * 默认值：true
    *
    * @default true
@@ -297,11 +299,11 @@ declare interface CommonProgressStyleOptions {
 declare interface ScanEffectOptions {
   /**
    * 扫光效果的开关。仅支持[ProgressType]{@link ProgressType}类型为Linear、Ring、Capsule的进度条。
-   *
+   * 
    * true：表示开启扫光效果。
-   *
+   * 
    * false：表示关闭扫光效果。
-   *
+   * 
    * 默认值：false
    *
    * @default false
@@ -345,7 +347,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
    * 
    * 默认值：4.0vp
    * 
-   * 取值范围：大于0的数值，不支持百分比设置。
+   * 取值范围：大于0的数值（单位：vp），不支持百分比设置。
    * 
    * 超出取值范围或设置非法值时按默认值处理。
    *
@@ -362,7 +364,7 @@ declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
    * 
    * 默认值：2.0vp
    * 
-   * 取值范围：大于0的数值。
+   * 取值范围：大于0的数值（单位：vp）。
    * 
    * 刻度粗细大于进度条宽度时，使用系统默认粗细。
    * 
@@ -414,6 +416,8 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
    * 取值范围：大于0的数值，不支持百分比设置。
    * 
    * 超出取值范围或设置非法值时按默认值处理。
+   * 
+   * 当宽度大于等于半径时，宽度默认修改为半径值的二分之一。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -425,9 +429,9 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
 
   /**
    * 进度条阴影开关。
-   *
+   * 
    * true：表示打开进度条阴影；false：表示关闭进度条阴影。
-   *
+   * 
    * 默认值：false
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -439,10 +443,12 @@ declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyl
   shadow?: boolean;
 
   /**
-   * 设置进度条状态。当设置为ProgressStatus.LOADING时会开启检查更新动效，此时设置进度值不生效。当从ProgressStatus.LOADING设置为ProgressStatus.PROGRESSING时，检查更新
-   * 动效会执行到终点再停止。
-   *
+   * 设置进度条状态。当设置为ProgressStatus.LOADING时会开启检查更新动效。当从ProgressStatus.LOADING设置为ProgressStatus.PROGRESSING时，检查更新动效会执行到终点再停
+   * 止。
+   * 
    * 默认值：ProgressStatus.PROGRESSING
+   * 
+   * **说明：** 当设置为ProgressStatus.LOADING时，进度值设置不生效，具体参见[value]{@link ProgressAttribute#value}属性说明。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -512,11 +518,11 @@ declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressSt
 declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
   /**
    * 内描边颜色。
-   *
+   * 
    * 默认值：
-   *
+   * 
    * API version 10：'#33006cde'
-   *
+   * 
    * API version 11及以上：'#33007dff'
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -580,7 +586,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
 
   /**
    * 文本颜色。
-   *
+   * 
    * 默认值：'#ff182431'
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -593,9 +599,9 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
 
   /**
    * 显示百分比文本的开关。开启后，进度条上显示当前进度的百分比。设置了content属性时该属性不生效。
-   *
+   * 
    * true：表示显示百分比文本；false：表示不显示百分比文本。
-   *
+   * 
    * 默认值：false
    *
    * @default false
@@ -635,7 +641,7 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
  */
 declare enum ProgressStyle {
   /**
-   * 线性样式。
+   * 线性样式，进度条沿直线方向从一端逐渐填充至另一端。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -668,7 +674,8 @@ declare enum ProgressStyle {
   Eclipse,
 
   /**
-   * 环形有刻度样式，显示类似时钟刻度形式的进度展示效果。从API version 9开始，刻度外圈出现重叠时自动转换为环形无刻度进度条。
+   * 环形有刻度样式，显示类似时钟刻度形式的进度展示效果。
+   * 从API version 9开始，刻度外圈出现重叠时自动转换为环形无刻度进度条。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -679,7 +686,8 @@ declare enum ProgressStyle {
   ScaleRing,
 
   /**
-   * 胶囊样式，头尾两端圆弧处的进度展示效果与Eclipse相同，中段的进度展示效果与Linear相同。从API version 9开始，当高度大于宽度时，自适应垂直显示。
+   * 胶囊样式，头尾两端圆弧处的进度展示效果与Eclipse相同，中段的进度展示效果与Linear相同。
+   * 从API version 9开始，当高度大于宽度时，自适应垂直显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -701,7 +709,7 @@ declare enum ProgressStyle {
  */
 declare interface ProgressStyleMap {
   /**
-   * 线性进度条对应的进度条样式。
+   * 线性进度条样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -711,7 +719,7 @@ declare interface ProgressStyleMap {
    */
   [ProgressType.Linear]: LinearStyleOptions | ProgressStyleOptions;
   /**
-   * 环形无刻度进度条对应的进度条样式。
+   * 环形进度条样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -721,7 +729,7 @@ declare interface ProgressStyleMap {
    */
   [ProgressType.Ring]: RingStyleOptions | ProgressStyleOptions;
   /**
-   * 圆形进度条对应的进度条样式。
+   * 圆形进度条样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -731,7 +739,7 @@ declare interface ProgressStyleMap {
    */
   [ProgressType.Eclipse]: EclipseStyleOptions | ProgressStyleOptions;
   /**
-   * 环形有刻度进度条对应的进度条样式。
+   * 刻度环形进度条样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -741,7 +749,7 @@ declare interface ProgressStyleMap {
    */
   [ProgressType.ScaleRing]: ScaleRingStyleOptions | ProgressStyleOptions;
   /**
-   * 胶囊形进度条对应的进度条样式。
+   * 胶囊形进度条样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -755,6 +763,10 @@ declare interface ProgressStyleMap {
 /**
  * 进度条组件，用于显示内容加载或操作处理等进度。支持线性、环形、圆形、胶囊等多种样式，可自定义颜色、渐变效果和动效，适用于文件下载、数据加载、任务处理等需要展示进度状态的场景。通过丰富的样式与动效配置，可快速实现进度可视化，提升用户体
  * 验。
+ * 
+ * > **说明：**
+ * >
+ * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -780,9 +792,12 @@ interface ProgressInterface {
 }
 
 /**
- * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性。
- *
- * 支持[通用事件]{@link CommonMethod}。
+ * 除支持[通用属性]{@link ./common}外，还支持以下属性：
+ * 
+ * > **说明：**
+ * >
+ * > 该组件重写了通用属性[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}，直接添加在Progress组件上，设置进度条的底色。如需设
+ * > 置整个Progress组件的背景色，需要在外层容器上添加backgroundColor，并用该容器包裹Progress组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -841,15 +856,16 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
   /**
    * 设置组件的样式。
    *
-   * @param { Style } value - 组件的样式。
-   *     <br>**说明：** 不同的type需分别对应相应的style属性设置，详细映射关系参考
+   * @param { Style } value - 组件的样式。Style继承于[ProgressStyleMap]{@link ProgressStyleMap}。
+   *     <br>**说明：** 不同的[ProgressType]{@link ProgressType}需分别对应相应的[style]{@link ProgressAttribute#style}属性设置，详细映射关系参考
    *     [ProgressStyleMap]{@link ProgressStyleMap}。
-   *     <br>- CapsuleStyleOptions：设置Capsule的样式。
-   *     <br>- RingStyleOptions：设置Ring的样式。
-   *     <br>- LinearStyleOptions：设置Linear的样式。
-   *     <br>- ScaleRingStyleOptions：设置ScaleRing的样式。
-   *     <br>- EclipseStyleOptions：设置Eclipse的样式。
-   *     <br>- ProgressStyleOptions：仅可设置各类型进度条的strokeWidth、scaleCount、scaleWidth，仅对支持这些样式设置的进度条生效。
+   *     <br>- [CapsuleStyleOptions]{@link CapsuleStyleOptions}：设置Capsule的样式。
+   *     <br>- [RingStyleOptions]{@link RingStyleOptions}：设置Ring的样式。
+   *     <br>- [LinearStyleOptions]{@link LinearStyleOptions}：设置Linear的样式。
+   *     <br>- [ScaleRingStyleOptions]{@link ScaleRingStyleOptions}：设置ScaleRing的样式。
+   *     <br>- [EclipseStyleOptions]{@link EclipseStyleOptions}：设置Eclipse的样式。
+   *     <br>- [ProgressStyleOptions]{@link ProgressStyleOptions}：仅可设置各类型进度条的strokeWidth、scaleCount、scaleWidth，仅对支持这些样式设
+   *     置的进度条生效。
    * @returns { ProgressAttribute<Type> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -870,8 +886,8 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
    *     <br> 默认值：false
    *     <br>**说明：** 
    *     <br>设置null表示不敏感。<!--Del-->
-   *     <br>需要在卡片中使用Progress，并用[FormComponent]{@link ./form_component}组件设置[隐私遮罩]{@link CommonMethod#obscured}属性，显示卡片时才有
-   *     隐私遮罩效果。<!--DelEnd-->
+   *     <br>需要在卡片中使用Progress，并用[FormComponent]{@link ./form_component}组件设置[隐私遮罩]{@link ./common}属性，显示卡片时才有隐私遮罩效果。<!--
+   *     DelEnd-->
    * @returns { ProgressAttribute<Type> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -944,6 +960,10 @@ declare interface ProgressConfiguration extends CommonConfiguration<ProgressConf
 /**
  * 进度条组件，用于显示内容加载或操作处理等进度。支持线性、环形、圆形、胶囊等多种样式，可自定义颜色、渐变效果和动效，适用于文件下载、数据加载、任务处理等需要展示进度状态的场景。通过丰富的样式与动效配置，可快速实现进度可视化，提升用户体
  * 验。
+ * 
+ * > **说明：**
+ * >
+ * > 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  * 
  * ###### 子组件
  * 

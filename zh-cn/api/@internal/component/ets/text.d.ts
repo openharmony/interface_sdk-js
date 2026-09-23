@@ -20,7 +20,7 @@
 
 /**
  * 文本超长显示方式对象。
- * 
+ *
  * > **说明：**
  * >
  * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
@@ -51,6 +51,14 @@ declare interface TextOverflowOptions {
 /**
  * Text组件用于显示文本内容，支持设置字体样式、文本对齐、行高、装饰线等属性，支持图文混排、文本选择、文本识别等功能，适用于需要展示文本信息的各类应用场景。
  *
+ * > **说明：**
+ * >
+ * > - 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
+ * > - 如需设置触摸文本组件外部时是否清除文本选中和手柄，可使用
+ * > [setTextSelectionClearPolicy]{@link @ohos.arkui.UIContext:UIContext.setTextSelectionClearPolicy}接口。
+ * >
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -59,7 +67,6 @@ declare interface TextOverflowOptions {
  */
 interface TextInterface {
   /**
-   * 定义文本组件构造函数。
    *
    * @param { string | Resource } content - 文本内容。当需要直接显示文本内容时传入此参数。包含子组件[Span]{@link ./span}或设置了
    *     [属性字符串]{@link ./styled_string}时，该参数不生效。
@@ -80,9 +87,7 @@ interface TextInterface {
 }
 
 /**
- * 除支持[通用属性]{@link CommonMethod}外，还支持以下属性。
- *
- * 除支持[通用事件]{@link CommonMethod}外，还支持以下事件。
+ * 除支持[通用属性]{@link ./common}，还支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -172,7 +177,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * @param { number | string | Resource } value - 文本最小显示字号。
    *     <br>取值范围：大于0。
-   *     <br>单位：[fp]{@link Length}
+   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *     <br>**说明：**
    *     <br>设置的值≤0时，自适应字号不生效，此时按照fontSize属性的值生效。
    * @returns { TextAttribute }
@@ -200,7 +205,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * @param { number | string | Resource } value - 文本最大显示字号。
    *     <br>取值范围：大于0且大于等于minFontSize。
-   *     <br>单位：[fp]{@link Length}
+   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *     <br>**说明：**
    *     <br>设置的值≤0或小于minFontSize时，自适应字号不生效，此时按照fontSize属性的值生效。
    * @returns { TextAttribute }
@@ -262,12 +267,10 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * 仅Text组件生效，其子组件不生效。
    *
-   * @param { number | FontWeight | string } value - Font weight. For the number type, the value range is [100, 900], at
-   *     an interval of 100. The default value is **400**. A larger value indicates a heavier font weight. For the
-   *     string type, only strings that represent a number, for example, **400**, and the following enumerated values of
-   *     **FontWeight** are supported: **bold**, **bolder**, **lighter**, **regular**, and **medium**.<br>Default value:
-   *     **FontWeight.Normal**<br>Default value on wearable devices: **FontWeight.Regular**<br>The
-   *     [Resource]{@link Resource} type is supported since API version 20. [since 7 - 19]
+   * @param { number | FontWeight | string } value - 文本的字体粗细。
+   *     <br>number类型取值[100, 900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“
+   *     lighter”、“regular”、“medium”，分别对应FontWeight中相应的枚举值。设置过大可能会在不同字体下有截断。传入超出取值范围或不符合间隔要求的值时取默认值。
+   *     <br>从API version 20开始，支持[Resource]{@link Resource}类型。 [since 7 - 19]
    * @param { number | FontWeight | ResourceStr } value - 文本的字体粗细。
    *     <br>number类型取值[100, 900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“
    *     lighter”、“regular”、“medium”，分别对应FontWeight中相应的枚举值。设置过大可能会在不同字体下有截断。传入超出取值范围或不符合间隔要求的值时取默认值。
@@ -287,11 +290,11 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * 仅Text组件生效，其子组件不生效。<!--RP4--><!--RP4End-->
    *
-   * @param { number | FontWeight | string } weight - Font weight. For the number type, the value ranges from 100 to 90
-   *     0, at an interval of 100. A larger value indicates a heavier font weight. The default value is **400**. For the
-   *     string type, only strings that represent a number, for example, **400**, and the following enumerated values of
-   *     **FontWeight** are supported: **bold**, **bolder**, **lighter**, **regular**, and **medium**.<br>The
-   *     [Resource]{@link Resource} type is supported since API version 20. [since 12 - 19]
+   * @param { number | FontWeight | string } weight - 设置文本字重
+   *     <br>number类型取值[100, 900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“
+   *     lighter”、“regular”、“medium”，分别对应FontWeight中相应的枚举值。设置过大可能会在不同字体下有截断。
+   *     <br>传入超出取值范围的值时取默认值。传入不符合间隔要求的值时，若设置fontWeightConfigs的enableVariableFontWeight为true，使用传入值；若设置为false，使用默认值。
+   *     <br>从API version 20开始，支持[Resource]{@link Resource}类型。 [since 12 - 19]
    * @param { number | FontWeight | ResourceStr } weight - 设置文本字重
    *     <br>number类型取值[100, 900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“
    *     lighter”、“regular”、“medium”，分别对应FontWeight中相应的枚举值。设置过大可能会在不同字体下有截断。
@@ -388,7 +391,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * > 排版效果。属性字符串[TextStyle]{@link TextStyle}中的SuperscriptStyle上下角标样式仅在[TextVerticalAlign]{@link TextVerticalAlign}属性值为
    * > TextVerticalAlign.BASELINE时生效，其余垂直对齐方式下上下角标文本和普通文本表现一致，无上下角标效果。
    *
-   * @param { Optional<TextVerticalAlign> } textVerticalAlign - 文本段落在垂直方向的对齐方式。
+   * @param { Optional<TextVerticalAlign> } textVerticalAlign - 文本段落在垂直方向的对齐方式。<br/>默认值：TextVerticalAlign.BASELINE<br/>取
+   *     值为undefined时，按照TextVerticalAlign.BASELINE处理，对齐文本基线。
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -428,7 +432,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * @param { number | string | Resource } value - 文本行高。number类型时单位为fp。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
    * @atomicservice [since 11]
@@ -442,6 +446,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * @param { LengthMetrics | undefined } value - 文本的最小行高，不支持百分比。
    *     <br>设置的值不大于0时按0处理。
+   *     <br>取值为undefined时，不生效。
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -459,6 +464,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * @param { LengthMetrics | undefined } value - 文本的最大行高，不支持百分比。
    *     <br>设置的值不大于0时按0处理，设置为0时，最大行高不受限制。
+   *     <br>取值为undefined时，不生效。
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -487,6 +493,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *     <br>- 设置的值小于0时，lineHeightMultiple不生效。
    *     <br>- 设置的值等于0时，等效于设置为1，表现为行高没有变化。
    *     <br>- 支持小数输入。
+   *     <br>- 值为undefined时，使用默认行高高度。
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -511,7 +518,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * 于WordBreak.BREAK_ALL的时候生效，不支持连词符。
    * - 从API version 11开始，建议优先组合[textOverflow]{@link TextAttribute#textOverflow}和
    * [wordBreak]{@link TextAttribute#wordBreak}属性来设置截断方式，具体详见
-   * [示例4（设置文本断行及折行）]{@link ./text}<!--RP1--><!--RP1
+   * [示例4（设置文本断行及折行）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#示例4设置文本断行及折行)<!--RP1--><!--RP1
    * End-->。
    *
    * 当TextOverflowOptions设置为TextOverflow.MARQUEE时：
@@ -582,8 +589,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * [constraintSize]{@link CommonMethod#constraintSize}约束内。
    *
    * @param { Optional<number> } minLines - 文本最小行数。
-   *     <br>取值范围：[0, INT32_MAX]
+   *     <br>取值范围：[0, INT32_MAX]。
    *     <br>设置的值小于0时按0处理。
+   *     <br>值为undefined时，最小行数无限制。
    *     <br>**说明：**
    *     <br>与[maxLines]{@link TextAttribute#maxLines}同时配置时，最小行数对应的显示高度不会超过最大行数对应的高度限制。
    * @returns { TextAttribute }
@@ -615,9 +623,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * >
    * > 当装饰线颜色设置为Color.Transparent时，装饰线会显示为每行第一个字的字体颜色。设置为透明色16进制值"#00FFFFFF"时，装饰线会显示为透明色。
    *
-   * @param { object } value - Style of the text decorative line.<br>Default value:<br>{<br> type:
-   *     TextDecorationType.None,<br> color: Color.Black,<br> style: TextDecorationStyle.SOLID <br>}<br>**NOTE**<br>The
-   *     **style** parameter cannot be used in widgets. [since 7 - 11]
+   * @param { object } value - 文本装饰线样式对象。
+   *     <br>**说明：**
+   *     <br>style参数不支持卡片能力。 [since 7 - 11]
    * @param { DecorationStyleInterface } value - 文本装饰线样式对象。
    *     <br>**说明：**
    *     <br>style参数不支持卡片能力。 [since 12]
@@ -639,10 +647,11 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * 对每个字符生效，包括行尾字符。
    *
-   * @param { number | string } value - Letter spacing.<br>Default value: **0**<br>Unit: [fp]{@link common}<br>The
-   *     [Resource]{@link Resource} type is supported since API version 20. [since 7 - 19]
+   * @param { number | string } value - 文本字符间距。
+   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   *     <br>从API version 20开始，支持[Resource]{@link Resource}类型。 [since 7 - 19]
    * @param { number | ResourceStr } value - 文本字符间距。
-   *     <br>单位：[fp]{@link Length}
+   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *     <br>从API version 20开始，支持[Resource]{@link Resource}类型。 [since 20]
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -671,7 +680,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * 正数内容向上偏移，负数向下偏移。
    *
-   * @param { number | string } value - Offset of the text baseline.<br>Unit: fp. Default value: 0. [since 7 - 19]
+   * @param { number | string } value - 文本基线的偏移量。设置该值为百分比时，按0显示。
+   *     <br>单位：fp
+   *     <br>从API version 20开始，支持[Resource]{@link Resource}类型。 [since 7 - 19]
    * @param { number | ResourceStr } value - 文本基线的偏移量。设置该值为百分比时，按0显示。
    *     <br>单位：fp
    *     <br>从API version 20开始，支持[Resource]{@link Resource}类型。 [since 20]
@@ -705,7 +716,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * 此时Text会监听onClick事件，手势事件为非冒泡事件，若需要点击Text组件区域响应父组件的点击手势事件，建议在父组件上使用
    * [parallelGesture]{@link CommonMethod#parallelGesture}绑定手势识别，也可参考
-   * [示例7（设置文本识别）]{@link ./text}。
+   * [示例7（设置文本识别）](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#示例7设置文本识别)。
    *
    * 由于卡片没有长按事件，此场景下长按文本，不会弹出文本选择菜单。
    *
@@ -744,9 +755,10 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * 从API version 11开始，该接口支持以数组形式入参，实现多重文字阴影。
    *
-   * @param { ShadowOptions } value - Text shadow. [since 10 - 10]
-   * @param { ShadowOptions | Array<ShadowOptions> } value - 文字阴影效果，用于配置文字阴影的视觉表现。ShadowOptions包含radius（阴影半径）、color（阴影颜色
-   *     ）、offsetX（水平偏移）、offsetY（垂直偏移）等配置项。不支持type、fill字段和color字段的智能取色模式。从API version 11开始支持以数组形式入参，实现多重文字阴影。 [since 11]
+   * @param { ShadowOptions } value - 文字阴影效果，用于配置文字阴影的视觉表现。ShadowOptions包含radius（阴影半径）、color（阴影颜色）、offsetX（水平偏移）、offsetY
+   *     （垂直偏移）等配置项。不支持type、fill字段和color字段的智能取色模式。从API version 11开始支持以数组形式入参，实现多重文字阴影。 [since 10 - 10]
+   * @param { ShadowOptions | Array<ShadowOptions> } value - 文字阴影效果，用于配置文字阴影的视觉表现。ShadowOptions包含radius（阴影半径）、color（阴影颜色）、offsetX（水平偏移）、offsetY
+   *     （垂直偏移）等配置项。不支持type、fill字段和color字段的智能取色模式。从API version 11开始支持以数组形式入参，实现多重文字阴影。 [since 10 - 10]
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -783,7 +795,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * 设置首行文本缩进。未通过该接口设置时，默认首行文本缩进为0。
    *
    * @param { Length } value - 首行文本缩进。
-   *     <br>单位：[fp]{@link Length}
+   *     <br>单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *     <br>取值范围：大于等于0。设置负数时，按默认值处理。
    * @returns { TextAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -919,9 +931,9 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   caretColor(color: ResourceColor): TextAttribute;
 
   /**
-   * 设置文本选中底板颜色。如果未设置不透明度，默认不透明度为20%。未通过该接口设置时，默认文本选中底板颜色为'#007DFF'（蓝色）。
+   * 设置文本选中高亮颜色。如果未设置不透明度或设置为完全不透明，默认使用20%不透明度。未通过该接口设置时，默认文本选中高亮颜色为'#007DFF'（蓝色）。
    *
-   * @param { ResourceColor } color - 文本选中底板颜色。
+   * @param { ResourceColor } color - 文本选中高亮颜色。
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1065,11 +1077,11 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * 需要[CopyOptions]{@link CopyOptions}为CopyOptions.LocalDevice或CopyOptions.CROSS_DEVICE时，本功能生效。
    *
-   * 在[SelectionContainer]{@link SelectionContainer}跨节点选中场景中该属性
-   * 无效，在文本选择菜单中不会展示对应的AI菜单项。
+   * 在[SelectionContainer]{@link @ohos.arkui.components.SelectionContainer}跨节点选中场景中该属性无效，在文本选择菜单中不会展示对应的AI菜单项。
    *
    * @param { boolean | undefined } enable - 是否对选中文本进行实体识别。
-   *     <br>true：开启识别，false：关闭识别。
+   *     <br>true：开启识别，false：关闭识别。默认值为：true。
+   *     <br>取值为undefined时，按默认值处理。
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1168,13 +1180,14 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
 
   /**
    * 设置文本跑马灯模式的配置项。
-   * 
+   *
    * 当textOverflow设置为TextOverflow.MARQUEE时，marqueeOptions的设置才能生效。
    *
    * @param { Optional<TextMarqueeOptions> } options - 当Text组件的textOverflow属性设置为MARQUEE时，可通过marqueeOptions设置跑马灯动效具体的属性，如
    *     开关、步长、循环次数、方向等。
+   *     <br>取值为undefined时，按[TextMarqueeOptions]{@link TextMarqueeOptions}中的默认值处理。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1185,7 +1198,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   /**
    * 跑马灯动画进行到特定的阶段时，触发该回调。
    *
-   * @param { Callback<MarqueeState> } callback - 通过callback参数指定触发回调的状态，状态由MarqueeState枚举定义，例如开始滚动、完成一次滚动、滚动完成。
+   * @param { Callback<MarqueeState> } callback - 通过callback参数指定触发回调的状态，状态由MarqueeState枚举定义，例如开始滚动、完成一次滚动、滚动完成或停止滚动。
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1219,7 +1232,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * @param { TextSelectableMode } mode - 文本是否支持可选择、可获焦。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1295,6 +1308,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * @param { Optional<boolean> } enabled - 是否开启中文与西文的自动间距。
    *     <br>true为开启自动间距，false为不开启。
+   *     <br>值为undefined时，不开启中文与西文的自动间距。
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1319,6 +1333,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * @param { Optional<boolean> } optimize - 是否优化每行末尾的空格。
    *     <br>true表示优化末尾空格，false则不优化。
+   *     <br>值为undefined时，不优化末尾空格。
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1333,6 +1348,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * @param { Optional<ContentTransition> } transition - 文本动效属性，用于配置文本内容变化时的过渡动画效果。可设置为数字翻牌动效
    *     [NumericTextTransition]{@link NumericTextTransition}，实现数字变化时的翻牌动画效果。
+   *     <br>值为undefined时，无翻牌效果。
    * @returns { TextAttribute } returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1375,6 +1391,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * @param { Optional<boolean> } include - 是否在首行和尾行增加间距以避免文字截断。
    *     <br>true表示在首行和尾行增加间距；false表示在首行和尾行不增加间距。
+   *     <br>undefined表示在首行和尾行不增加间距。
    * @returns { TextAttribute } - returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1389,6 +1406,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * @param { Optional<boolean> } enabled - 行高是否基于文字实际高度自适应。
    *     <br>true表示行高基于文字实际高度自适应；false表示行高不基于文字实际高度自适应。
+   *     <br>undefined表示行高不基于文字实际高度自适应。
    * @returns { TextAttribute } - returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1407,7 +1425,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    * > - 支持压缩的标点符号，请参考[ParagraphStyle]{@link @ohos.graphics.text:text.ParagraphStyle}的行首压缩的标点范围。
    *
    * @param { Optional<boolean> } enabled - 是否开启行首标点符号压缩。
-   *     <br>true表示开启行首标点符号压缩；false表示不开启行首标点符号压缩。
+   *     <br>true表示开启行首标点符号压缩；false表示不开启行首标点符号压缩；undefined表示不开启。
    * @returns { TextAttribute } - returns the instance of the TextAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1441,7 +1459,7 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *     [fontWeight]{@link TextAttribute#fontWeight(weight: number | FontWeight | ResourceStr, options?: FontSettingOptions)}
    *     。
    * @returns { TextAttribute }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form [since 26.0.1]
@@ -1495,6 +1513,14 @@ declare const TextInstance: TextAttribute;
 /**
  * Text组件用于显示文本内容，支持设置字体样式、文本对齐、行高、装饰线等属性，支持图文混排、文本选择、文本识别等功能，适用于需要展示文本信息的各类应用场景。
  *
+ * > **说明：**
+ * >
+ * > - 该组件从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * >
+ * > - 如需设置触摸文本组件外部时是否清除文本选中和手柄，可使用
+ * > [setTextSelectionClearPolicy]{@link @ohos.arkui.UIContext:UIContext.setTextSelectionClearPolicy}接口。
+ * >
+ *
  * ###### 子组件
  *
  * 可以包含[Span]{@link ./span}、[ImageSpan]{@link ./image_span}、[SymbolSpan]{@link ./symbol_span}和
@@ -1502,7 +1528,7 @@ declare const TextInstance: TextAttribute;
  *
  * > **说明：**
  * >
- * > 使用[子组件]{@link ./text}实现
+ * > 使用[子组件](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-text.md#子组件)实现
  * > [图文混排](docroot://ui/arkts-text-image-layout.md)场景。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1680,7 +1706,7 @@ declare enum MarqueeState {
   BOUNCE = 1,
 
   /**
-   * 跑马灯全部循环次数完成。
+   * 跑马灯全部循环次数完成或跑马灯停止滚动（例如[TextMarqueeOptions]{@link TextMarqueeOptions}中start被设置为false）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1688,7 +1714,7 @@ declare enum MarqueeState {
    * @atomicservice
    * @since 18 dynamic
    */
-  FINISH = 2,
+  FINISH = 2
 }
 
 /**
@@ -1820,7 +1846,7 @@ declare interface TextMarqueeOptions {
   step?: number;
 
   /**
-   * 两轮跑马灯之间的间距。单位：vp。如果LengthMetrics的unit值是PERCENT，当前设置不生效，按默认值处理。
+   * 两轮跑马灯之间的间距。单位：vp。当LengthMetrics对象的unit属性为LengthUnit.PERCENT时，当前设置不生效，按默认值处理。
    *
    * 默认值：48.0vp
    *
@@ -1896,7 +1922,7 @@ declare interface TextMarqueeOptions {
 
   /**
    * 设置跑马灯启动策略，该属性值生效需将start设置为true。
-   * 
+   *
    * 默认值：TV设备上默认值为MarqueeStartPolicy.ON_FOCUS，其他设备默认值为MarqueeStartPolicy.DEFAULT
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1968,6 +1994,8 @@ declare class TextController {
    * 获取布局管理器对象。
    *
    * @returns { LayoutManager } 布局管理器对象，用于获取文本布局信息，包括行数、字形位置、行信息、字符绘制区域等。
+   * 	<br>**说明：**
+   * 	<br>当TextController还未绑定Text组件，或绑定的Text组件已被销毁/卸载时，会返回undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

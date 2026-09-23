@@ -19,7 +19,7 @@
  */
 
 /**
- * Defines text join style for SelectionContainer.
+ * Provides the concatenation method for text aggregation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29,7 +29,7 @@
  */
 export declare enum SelectionContainerTextJoinStyle {
   /**
-   * Join text with line break (`\n`) between text nodes.
+   * Joined with a newline character `\n` between different text nodes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -40,7 +40,7 @@ export declare enum SelectionContainerTextJoinStyle {
   NEWLINE = 0,
 
   /**
-   * Join text directly without separator between text nodes.
+   * Joined directly between different text nodes without a separator.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -52,7 +52,7 @@ export declare enum SelectionContainerTextJoinStyle {
 }
 
 /**
- * Defines selection menu options for SelectionContainer.
+ * Provides the configuration options in the selection menu.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -62,8 +62,9 @@ export declare enum SelectionContainerTextJoinStyle {
  */
 export interface SelectionContainerMenuOptions {
   /**
-   * Called when the selection menu appears.
-   * The callback parameter is the selected text concatenated in the visual order of Text components.
+   * Triggered when the selection menu appears. The callback parameter is the selected text concatenated in the visual
+   * order of the Text components, and the concatenation method is determined by the textJoinStyle configuration. The
+   * default value is empty, and this callback is not triggered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -74,7 +75,7 @@ export interface SelectionContainerMenuOptions {
   onAppear?: Callback<string>;
 
   /**
-   * Called when the selection menu disappears.
+   * Triggered when the selection menu disappears. The default value is empty, and this callback is not triggered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -85,8 +86,9 @@ export interface SelectionContainerMenuOptions {
   onDisappear?: Callback<void>;
 
   /**
-   * Called when the selection menu is displayed.
-   * The callback parameter is the selected text concatenated in the visual order of Text components.
+   * Triggered when the selection menu is shown. The callback parameter is the selected text concatenated in the visual
+   * order of the Text components, and the concatenation method is determined by the textJoinStyle configuration. The
+   * default value is empty, and this callback is not triggered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -97,8 +99,9 @@ export interface SelectionContainerMenuOptions {
   onMenuShow?: Callback<string>;
 
   /**
-   * Called when the selection menu is hidden.
-   * The callback parameter is the selected text concatenated in the visual order of Text components.
+   * Triggered when the selection menu is hidden. The callback parameter is the selected text concatenated in the visual
+   * order of the Text components, and the concatenation method is determined by the textJoinStyle configuration. The
+   * default value is empty, and this callback is not triggered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -110,11 +113,13 @@ export interface SelectionContainerMenuOptions {
 }
 
 /**
- * Invoke upon clicking an item, capable of intercepting the default system menu execution behavior.
+ * Called when a menu item is tapped. It can intercept the execution of system default menu items (such as copy and
+ * paste menu items).
  *
- * @param { TextMenuItem } menuItem - current clicked menu item.
- * @param { string } value - selected text content.
- * @returns { boolean } Return true if the event is consumed; false otherwise.
+ * @param { TextMenuItem } menuItem - Menu item that is currently clicked.
+ * @param { string } value - Selected text content.
+ * @returns { boolean } Processing result of the menu item click event. The value true indicates that the event has been
+ *     processed, and false indicates the opposite.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -124,7 +129,7 @@ export interface SelectionContainerMenuOptions {
 export type OnMenuItemClickWithTextCallback = (menuItem: TextMenuItem, value: string) => boolean;
 
 /**
- * Defines custom edit menu options for SelectionContainer.
+ * Provides the custom edit menu options of **SelectionContainer**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -134,7 +139,8 @@ export type OnMenuItemClickWithTextCallback = (menuItem: TextMenuItem, value: st
  */
 export interface SelectionContainerEditMenuOptions {
   /**
-   * Passes the default menu, invokes before every display to generate a menu for triggering click events.
+   * Triggered before the menu is displayed each time. It passes in the default menu items and returns the processed
+   * menu items. The default value is empty, and this callback is not triggered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -145,7 +151,8 @@ export interface SelectionContainerEditMenuOptions {
   onCreateMenu?: OnCreateMenuCallback;
 
   /**
-   * Invoked upon clicking an item, capable of intercepting the default system menu execution behavior.
+   * Triggered when a menu item is clicked. It can intercept the default menu execution behavior of the system. The
+   * default value is empty, and this callback is not triggered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -156,7 +163,8 @@ export interface SelectionContainerEditMenuOptions {
   onMenuItemClick?: OnMenuItemClickWithTextCallback;
 
   /**
-   * Callback before displaying the menu when the selection text changes.
+   * Triggered after the selected text content changes and before the menu is displayed. The menu data can be adjusted
+   * in this callback. The default value is empty, and this callback is not triggered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -168,7 +176,7 @@ export interface SelectionContainerEditMenuOptions {
 }
 
 /**
- * Describes the initialization options of the SelectionContainer component.
+ * Provides the initial configuration options of the component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -178,7 +186,7 @@ export interface SelectionContainerEditMenuOptions {
  */
 export interface SelectionContainerOptions {
   /**
-   * SelectionContainer controller.
+   * Controller of the SelectionContainer.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -190,7 +198,7 @@ export interface SelectionContainerOptions {
 }
 
 /**
- * Defines the controller of the SelectionContainer component.
+ * Provides the controller of the **SelectionContainer** component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -200,7 +208,7 @@ export interface SelectionContainerOptions {
  */
 export declare class SelectionContainerController {
   /**
-   * Closes the custom or default selection menu of the SelectionContainer.
+   * Closes the custom or default selection menu of **SelectionContainer**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -211,8 +219,8 @@ export declare class SelectionContainerController {
   closeSelectionMenu(): void;
 
   /**
-   * Clears the current text selection of the SelectionContainer,
-   * and closes the selection menu if it is currently shown.
+   * Clears the current text selection state of **SelectionContainer**. If the selection menu is being displayed, it is
+   * also closed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -224,7 +232,30 @@ export declare class SelectionContainerController {
 }
 
 /**
- * Provides a SelectionContainer component interface.
+ * The **SelectionContainer** component provides cross-node text selection, copying, and menu extension capabilities for
+ * multiple text nodes. It supports unified configuration of the caret color and highlight color of selected text,
+ * flexible text concatenation policies, and custom selection menus and menu extension options. It is suitable for
+ * scenarios where continuous text selection, unified copying, style customization, and menu extension are required
+ * across multiple **Text** components. It resolves the problem of fragmented text selection experience in multi-
+ * **Text** component scenarios and improves the user interaction experience in complex text layouts.
+ *
+ * > **NOTE**
+ * >
+ * > - The text content returned by the selected text related callbacks in this component is concatenated in the top-to-
+ * > bottom display order of the [Text]{@link ./@internal/component/ets/text} components.
+ * >
+ * > - By default, this component uses the [Stack]{@link ./@internal/component/ets/stack} layout. If other container
+ * > layout requirements exist, place a container component in **SelectionContainer**.
+ * >
+ * > - When text is selected in **SelectionContainer**, the magnifier is not displayed, and
+ * > [getMagnifier]{@link @ohos.arkui.UIContext:UIContext.getMagnifier} cannot be used to proactively set the magnifier.
+ * >
+ * > - Dragging is not supported when text is selected in **SelectionContainer**.
+ * >
+ * > - Text under the [Repeat]{@link ./@internal/component/ets/repeat} component in **SelectionContainer** does not
+ * > support cross-node selection.
+ * >
+ * > - Only the text content in **Text** components participates in cross-node selection and text concatenation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -234,7 +265,7 @@ export declare class SelectionContainerController {
  */
 export interface SelectionContainerInterface {
   /**
-   * Defines the constructor of SelectionContainer.
+   * Initial configuration options of the component.
    *
    * @param { SelectionContainerOptions } [value] - Initialization options of the component.
    * @returns { SelectionContainerAttribute }
@@ -248,7 +279,14 @@ export interface SelectionContainerInterface {
 }
 
 /**
- * Defines the attributes of SelectionContainer.
+ * [Universal attributes]{@link ./@internal/component/ets/common} are supported.
+ *
+ * > **NOTE**
+ * >
+ * > - The [obscuring]{@link ./@internal/component/ets/common} attribute is not supported.
+ * >
+ * > - The [transformation]{@link ./@internal/component/ets/common} attribute is not supported. In the
+ * > **SelectionContainer** container, the **Text** child component does not support transformation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -258,9 +296,16 @@ export interface SelectionContainerInterface {
  */
 export declare class SelectionContainerAttribute extends CommonMethod<SelectionContainerAttribute> {
   /**
-   * Set whether to allow copy and where data can be copied.
+   * Sets the copy option for the component. If this attribute is not used, the default value is **CopyOptions.InApp**.
    *
-   * @param { Optional<CopyOptions> } value - copy option for selected text. Default value is CopyOptions.InApp.
+   * > **NOTE**
+   * >
+   * > If the **Text** child component has explicitly set [copyOption]{@link TextAttribute#copyOption}, the
+   * > configuration of the **Text** child component takes precedence. If this attribute is not set, the configuration
+   * > of **SelectionContainer** is used.
+   *
+   * @param { Optional<CopyOptions> } value - Copy and paste configuration item, used to set the copyable range of text.
+   *     For details, see the CopyOptions enum.
    * @returns { SelectionContainerAttribute } returns the instance of the SelectionContainerAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -271,9 +316,18 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
   copyOption(value: Optional<CopyOptions>): SelectionContainerAttribute;
 
   /**
-   * Set the caret color for selected text.
+   * Sets the caret color of the selected text. If this attribute is not used, the default caret color is **'#007DFF'**
+   * (blue).
    *
-   * @param { Optional<ResourceColor> } color - caret color.
+   * > **NOTE**
+   * >
+   * > - In the **SelectionContainer** container, this attribute is used to set the caret color of the selected text in
+   * > each **Text** child component.
+   * >
+   * > - In the **SelectionContainer** container, the [caretColor]{@link TextAttribute#caretColor} setting of the
+   * > **Text** child component does not take effect, and the configuration of **SelectionContainer** is always used.
+   *
+   * @param { Optional<ResourceColor> } color - Caret color.
    * @returns { SelectionContainerAttribute } returns the instance of the SelectionContainerAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -284,9 +338,20 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
   caretColor(color: Optional<ResourceColor>): SelectionContainerAttribute;
 
   /**
-   * Set selected text background color.
+   * Sets the highlight color of the selected text. If this attribute is not used, the default highlight color of the
+   * selected text is **'#007DFF'** (blue). If the opacity is not set or is set to fully opaque, the default opacity is
+   * 20%.
    *
-   * @param { Optional<ResourceColor> } color - selected text background color.
+   * > **NOTE**
+   * >
+   * > - In the **SelectionContainer** container, this attribute is used to control the highlight color of the selected
+   * > area of each **Text** child component.
+   * >
+   * > - If the **Text** child component has explicitly set
+   * > [selectedBackgroundColor]{@link TextAttribute#selectedBackgroundColor}, the configuration of the **Text** child
+   * > component takes preference. Otherwise, use the configuration of **SelectionContainer**.
+   *
+   * @param { Optional<ResourceColor> } color - Highlight color of the selected text.
    * @returns { SelectionContainerAttribute } returns the instance of the SelectionContainerAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -297,9 +362,14 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
   selectedBackgroundColor(color: Optional<ResourceColor>): SelectionContainerAttribute;
 
   /**
-   * Enable or disable haptic feedback.
+   * Sets whether to enable haptic feedback. If this attribute is not used, haptic feedback is enabled by default.
    *
-   * @param { Optional<boolean> } isEnabled - whether to enable haptic feedback. Default value is true.
+   * When haptic feedback is enabled, you need to set the **requestPermissions** field in the
+   * [module.json5 configuration file](docroot://quick-start/module-configuration-file.md) of the project to enable the
+   * vibration permission. The configuration is as follows:
+   *
+   * @param { Optional<boolean> } isEnabled - Whether to enable haptic feedback.
+   *     <br>true indicates that haptic feedback is enabled, and false indicates that haptic feedback is disabled.
    * @returns { SelectionContainerAttribute } returns the instance of the SelectionContainerAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -310,15 +380,23 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
   enableHapticFeedback(isEnabled: Optional<boolean>): SelectionContainerAttribute;
 
   /**
-   * Set text join style for aggregated text in SelectionContainer.
+   * Sets the concatenation method for the aggregated text in **SelectionContainer**. If this attribute is not used, the
+   * default value is **SelectionContainerTextJoinStyle.NEWLINE**, which means that different text nodes are
+   * concatenated with newline characters (\n).
    *
-   * <p><strong>NOTE</strong>:
-   * <br>This setting affects the string value used in callbacks such as onWillCopy and onCopy.
-   * <br>It also affects built-in text menu item logic that depends on string concatenation, such as copy.
-   * <br>The default style is SelectionContainerTextJoinStyle.NEWLINE.
-   * </p>
+   * > **NOTE**
+   * >
+   * > - This configuration affects the text content returned in the callbacks of
+   * > [onWillCopy]{@link SelectionContainerAttribute#onWillCopy}, [onCopy]{@link SelectionContainerAttribute#onCopy},
+   * > and [bindSelectionMenu]{@link SelectionContainerAttribute#bindSelectionMenu}.
+   * >
+   * > - This configuration also affects the logic that depends on the text concatenation result in the built-in system
+   * > menu items. For example, when text in two **Text** nodes is selected, if the configuration is
+   * > **SelectionContainerTextJoinStyle.NEWLINE**, a newline character is inserted between the two text segments after
+   * > copying; if the configuration is **SelectionContainerTextJoinStyle.DIRECT**, the two text segments are directly
+   * > concatenated after copying.
    *
-   * @param { Optional<SelectionContainerTextJoinStyle> } style - text join style for aggregated text.
+   * @param { Optional<SelectionContainerTextJoinStyle> } style - Text concatenation mode of the aggregated text.
    * @returns { SelectionContainerAttribute } returns the instance of the SelectionContainerAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -329,21 +407,34 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
   textJoinStyle(style: Optional<SelectionContainerTextJoinStyle>): SelectionContainerAttribute;
 
   /**
-   * Bind to the selection menu.
+   * Sets a custom selection menu. If this attribute is not used, the default value of **spanType** is
+   * **TextSpanType.TEXT** and the default value of **responseType** is **TextResponseType.LONG_PRESS**.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>The duration required for a long-press gesture is 600 ms for bindSelectionMenu and 800 ms for bindContextMenu.
-   * <br>When both bindSelectionMenu and bindContextMenu are set and both are configured to be triggered by a
-   *     long-press gesture, bindSelectionMenu is triggered first.
-   * <br>If the custom menu is too long, embed a Scroll component to prevent the keyboard from being blocked.
-   * </p>
+   * > **NOTE**
+   * >
+   * > - The long-press response duration of **bindSelectionMenu** is 600 ms, while that of
+   * > [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)}
+   * > is 800 ms. When both are bound and both are triggered by a long press, **bindSelectionMenu** is responded to
+   * > first.
+   * >
+   * > - When the custom menu is too long, you are advised to nest a [Scroll]{@link ./@internal/component/ets/scroll}
+   * > component inside it to prevent the keyboard from being obscured.
+   * >
+   * > - When the selection spans non-copyable text, the menu is displayed and processed based only on the copyable text
+   * > actually selected.
+   * >
+   * > - In the **SelectionContainer** container, the [bindSelectionMenu]{@link TextAttribute#bindSelectionMenu} setting
+   * > of the **Text** child component does not take effect, and the configuration of **SelectionContainer** is always
+   * > used.
    *
-   * @param { Optional<TextSpanType> } spanType - Indicates the type of selection menu. Default value is
-   *     TextSpanType.TEXT.
-   * @param { Optional<CustomBuilder> } content - Indicates the content of selection menu.
-   * @param { Optional<TextResponseType> } responseType - Indicates response type of selection menu. Default value is
-   *     TextResponseType.LONG_PRESS.
-   * @param { Optional<SelectionContainerMenuOptions> } [options] - Indicates the options of selection menu.
+   * @param { Optional<TextSpanType> } spanType - Type of the selection menu. It specifies the range of text types to
+   *     which the selection menu applies. Different types correspond to different menu behaviors. For details about the
+   *     meaning and applicable scenarios of each enum value, see [TextSpanType]{@link TextSpanType}.
+   * @param { Optional<CustomBuilder> } content - Content of the selection menu.
+   * @param { Optional<TextResponseType> } responseType - Response type of the selection menu.
+   * @param { Optional<SelectionContainerMenuOptions> } [options] - Options of the selection menu, used to configure
+   *     callbacks for events such as menu appearance, disappearance, display, and hiding. Pass this parameter when you
+   *     need to listen for these menu events. If it is not passed, menu events are not listened for by default.
    * @returns { SelectionContainerAttribute } returns the instance of the SelectionContainerAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -355,11 +446,22 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
     responseType: Optional<TextResponseType>, options?: Optional<SelectionContainerMenuOptions>): SelectionContainerAttribute;
 
   /**
-   * Set the custom text menu.
-   * Sets the extended options of the custom context menu on selection,
-   * including the text content, icon, and callback.
+   * Sets the edit menu options for the selected text, including the menu text, icon, and callback.
    *
-   * @param { Optional<SelectionContainerEditMenuOptions> } editMenu - Customize text menu options.
+   * > **NOTE**
+   * >
+   * > - When both [bindSelectionMenu]{@link SelectionContainerAttribute#bindSelectionMenu} and **editMenuOptions** are
+   * > set for the current scenario, **bindSelectionMenu** takes precedence and **editMenuOptions** does not take
+   * > effect. **bindSelectionMenu** is used to fully customize the menu style and trigger conditions, with all menu
+   * > items defined by you. **editMenuOptions** is used to add extension items on top of the system default menu, with
+   * > the trigger conditions unchanged. It is recommended that you choose based on the required degree of
+   * > customization.
+   * >
+   * > - In the **SelectionContainer** container, the [editMenuOptions]{@link TextAttribute#editMenuOptions} setting of
+   * > the **Text** child component does not take effect, and the configuration of **SelectionContainer** is always
+   * > used.
+   *
+   * @param { Optional<SelectionContainerEditMenuOptions> } editMenu - Custom edit menu configuration.
    * @returns { SelectionContainerAttribute } returns the instance of the SelectionContainerAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -370,11 +472,20 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
   editMenuOptions(editMenu: Optional<SelectionContainerEditMenuOptions>): SelectionContainerAttribute;
 
   /**
-   * Called when text selection changes in SelectionContainer.
+   * Triggered when the selected text in **SelectionContainer** changes. This API returns the result asynchronously
+   * through a callback.
    *
-   * @param { Optional<Callback<Array<string>>> } callback - callback of selection change event.
-   *     The order of items in the first callback parameter array is consistent with the visual order of Text
-   *     components.
+   * > **NOTE**
+   * >
+   * > - The order of items in the callback parameter array is consistent with the visual order of the **Text**
+   * > components.
+   * >
+   * > - Each item in the array corresponds to the selected text of a **Text** child component.
+   * >
+   * > - The array contains only **Text** child components that have selected text. It does not include **Text** child
+   * > components without selected text, nor does it include empty string placeholders for non-copyable text.
+   *
+   * @param { Optional<Callback<Array<string>>> } callback - Callback invoked when the selected text changes.
    * @returns { SelectionContainerAttribute } returns the instance of the SelectionContainerAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -385,11 +496,19 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
   onTextSelectionChange(callback: Optional<Callback<Array<string>>>): SelectionContainerAttribute;
 
   /**
-   * Called before using the Clipboard copy menu.
-   * Currently, only text can be copied.
+   * Triggered before a copy operation is performed. This API returns the result asynchronously through a callback.
    *
-   * @param { Optional<Callback<string, boolean>> } callback - callback used to check whether copy is allowed.
-   *     The first callback parameter (string) is the selected text concatenated in the visual order of Text components.
+   * > **NOTE**
+   * >
+   * > - The callback parameter is the selected text concatenated in the visual order of the **Text** components, and
+   * > the concatenation method is determined by [textJoinStyle]{@link SelectionContainerAttribute#textJoinStyle}.
+   * >
+   * > - Returning **false** blocks this cross-node copy operation and the container-level
+   * > [onCopy]{@link SelectionContainerAttribute#onCopy} callback triggering, but does not affect the copy event logic
+   * > that each **Text** child component has already processed independently.
+   *
+   * @param { Optional<Callback<string, boolean>> } callback - Callback invoked before copying. Returning **true**
+   *     indicates that copying is allowed, and returning **false** indicates that copying is not allowed.
    * @returns { SelectionContainerAttribute } returns the instance of the SelectionContainerAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -400,11 +519,19 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
   onWillCopy(callback: Optional<Callback<string, boolean>>): SelectionContainerAttribute;
 
   /**
-   * Called when selected text is copied.
-   * Currently, only text can be copied.
+   * Triggered when the copy button on the selection menu is tapped after the selection menu is displayed by long-
+   * pressing the inner area of the text. Only text copying is supported. This API returns the result asynchronously
+   * through a callback.
    *
-   * @param { Optional<Callback<string>> } callback - callback of copy event.
-   *     The callback parameter (string) is the selected text concatenated in the visual order of Text components.
+   * > **NOTE**
+   * >
+   * > - The callback parameter is the selected text concatenated in the visual order of the **Text** components. The
+   * > concatenation method is determined by [textJoinStyle]{@link SelectionContainerAttribute#textJoinStyle}.
+   * >
+   * > - This callback is triggered only when the container-level
+   * > [onWillCopy]{@link SelectionContainerAttribute#onWillCopy} returns **true**.
+   *
+   * @param { Optional<Callback<string>> } callback - Callback for the copy event.
    * @returns { SelectionContainerAttribute } returns the instance of the SelectionContainerAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -416,7 +543,34 @@ export declare class SelectionContainerAttribute extends CommonMethod<SelectionC
 }
 
 /**
- * Defines SelectionContainer component.
+ * The **SelectionContainer** component provides cross-node text selection, copying, and menu extension capabilities for
+ * multiple text nodes. It supports unified configuration of the caret color and highlight color of selected text,
+ * flexible text concatenation policies, and custom selection menus and menu extension options. It is suitable for
+ * scenarios where continuous text selection, unified copying, style customization, and menu extension are required
+ * across multiple **Text** components. It resolves the problem of fragmented text selection experience in multi-
+ * **Text** component scenarios and improves the user interaction experience in complex text layouts.
+ *
+ * > **NOTE**
+ * >
+ * > - The text content returned by the selected text related callbacks in this component is concatenated in the top-to-
+ * > bottom display order of the [Text]{@link ./@internal/component/ets/text} components.
+ * >
+ * > - By default, this component uses the [Stack]{@link ./@internal/component/ets/stack} layout. If other container
+ * > layout requirements exist, place a container component in **SelectionContainer**.
+ * >
+ * > - When text is selected in **SelectionContainer**, the magnifier is not displayed, and
+ * > [getMagnifier]{@link @ohos.arkui.UIContext:UIContext.getMagnifier} cannot be used to proactively set the magnifier.
+ * >
+ * > - Dragging is not supported when text is selected in **SelectionContainer**.
+ * >
+ * > - Text under the [Repeat]{@link ./@internal/component/ets/repeat} component in **SelectionContainer** does not
+ * > support cross-node selection.
+ * >
+ * > - Only the text content in **Text** components participates in cross-node selection and text concatenation.
+ *
+ * ###### Child Components
+ *
+ * Supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

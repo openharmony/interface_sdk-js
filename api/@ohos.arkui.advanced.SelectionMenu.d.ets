@@ -31,9 +31,8 @@ import uiMaterial from './@ohos.arkui.uiMaterial';
  * @noninterop
  */
 export interface EditorMenuOptions {
-
   /**
-   * Icon.
+   * Icon resource of the edit menu item. If symbolStyle is also set, this attribute does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -44,7 +43,8 @@ export interface EditorMenuOptions {
   icon: ResourceStr;
 
   /**
-   * Action triggered when the menu option is clicked.
+   * Event callback for tapping a menu item. When both builder and action are configured, tapping the icon triggers
+   * both. When not set, no response occurs on tap.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -55,8 +55,8 @@ export interface EditorMenuOptions {
   action?: () => void;
 
   /**
-   * Builder of the custom component displayed upon click. It must be used with @Builder for building the custom
-   * component.
+   * Displays a user-defined component when tapped. The custom component is used with @Builder during construction. When
+   * not set, no custom component is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -67,7 +67,9 @@ export interface EditorMenuOptions {
   builder?: () => void;
 
   /**
-   * Symbol icon resource, which has higher priority than **icon**.
+   * Symbol icon resource. Pass this parameter when a system Symbol icon (supporting advanced features such as dynamic
+   * color and multi-color) is needed. When not passed, the icon resource specified by the icon attribute is used. Has
+   * higher priority than icon. When both are set, symbolStyle is used preferentially.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -91,9 +93,8 @@ export interface EditorMenuOptions {
  * @noninterop
  */
 export interface ExpandedMenuOptions extends MenuItemOptions {
-
   /**
-   * Action triggered when the menu option is clicked.
+   * Callback invoked when an option in the menu is tapped. When not set, no response occurs upon tapping.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -115,9 +116,8 @@ export interface ExpandedMenuOptions extends MenuItemOptions {
  * @noninterop
  */
 export interface EditorEventInfo {
-
   /**
-   * Information about the selected content.
+   * Information about the selected content, including the selected text or image spans and the selection range.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -129,7 +129,7 @@ export interface EditorEventInfo {
 }
 
 /**
- * Defines the configuration options of the **SelectionMenu** component.
+ * Describes the optional menu type items and their configuration parameters for **SelectionMenu**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -139,17 +139,16 @@ export interface EditorEventInfo {
  * @noninterop
  */
 export interface SelectionMenuOptions {
-
   /**
    * Edit menu.
    *
-   * If **editorMenuOptions** is not set, the edit menu is not displayed.
+   * When **editorMenuOptions** is not configured, the edit menu is not displayed.
    *
-   * When both **action** and **builder** in **EditorMenuOptions** are configured, clicking the edit icon will trigger
-   * both.
+   * When both **action** and **builder** in **EditorMenuOptions** are configured, tapping the icon triggers both
+   * responses.
    *
-   * By default, the context menu is not closed when the edit menu icon is clicked. You can configure
-   * **closeSelectionMenu** of **RichEditorController** in **action** to enable the menu to be closed.
+   * Tapping an edit menu icon does not close the entire menu by default. The app can configure **RichEditorController**
+   * 's **closeSelectionMenu** through the **action** API to actively close the menu.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -160,12 +159,15 @@ export interface SelectionMenuOptions {
   editorMenuOptions?: Array<EditorMenuOptions>;
 
   /**
-   * Expanded drop-down menu options.
+   * Extended dropdown menu.
    *
-   * If this parameter is left empty, the expanded drop-down menu is not displayed.
+   * When expandedMenuOptions is empty, there is no More button and the extended dropdown menu is not displayed.
    *
-   * The options configured for **ExpandedMenuOptions** are displayed in the **More** menu option, and clicking **More**
-   * shows the expanded drop-down menu.
+   * When expandedMenuOptions is not empty, the More button is displayed, and the configured menu items are collapsed in
+   * the More button. Tap the More button to display them.
+   *
+   * When controller is empty, the More button is not displayed. If expandedMenuOptions is not empty, the items are
+   * displayed in the dropdown menu.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -176,12 +178,29 @@ export interface SelectionMenuOptions {
   expandedMenuOptions?: Array<ExpandedMenuOptions>;
 
   /**
-   * Expanded drop-down menu options.
+   * When the rich text controller is not empty, the default system menu (including cut, copy, paste, and other options)
+   * is displayed and the default menu functions are built-in.
    *
-   * If this parameter is left empty, the expanded drop-down menu is not displayed.
+   * When controller is empty, the More button is not displayed. If expandedMenuOptions is not empty, the items are
+   * displayed in the dropdown menu.
    *
-   * The options configured for **ExpandedMenuOptions** are displayed in the **More** menu option, and clicking **More**
-   * shows the expanded drop-down menu.
+   * By default, the system only supports copying and pasting rich text content. For mixed text and images, the app
+   * needs to customize the onCopy and onPaste APIs. When the app configures the onCopy | onPaste APIs, the system menu'
+   * s default copy and paste become invalid, and the app's custom functions are called instead.
+   *
+   * **NOTE**
+   *
+   * After tapping the built-in copy option in the custom text selection menu, the custom menu disappears and the
+   * selected text highlight is retained.
+   *
+   * After tapping the built-in select all option in the custom text selection menu, the custom menu disappears and all
+   * text is selected and highlighted.
+   *
+   * After tapping the built-in paste option in the custom text selection menu, pasting in a blank area or replacing
+   * selected text with paste both retain the style of the copied text.
+   *
+   * When the copyOptions attribute of the rich text component [RichEditor]{@link ./@internal/component/ets/rich_editor}
+   * is set to `CopyOptions.None`, the built-in copy and cut functions are not restricted.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -190,15 +209,15 @@ export interface SelectionMenuOptions {
    * @since 11 dynamic
    */
   controller?: RichEditorController;
-
   /**
-   * Event callback to take the place of the preset paste menu option.
+   * Event callback that replaces the paste option of the built-in system menu.
    *
-   * It is effective only when the **controller** parameter is set and the preset menu is available.
+   * Prerequisite: The controller parameter must be provided. The built-in paste function can be replaced only when the
+   * system default menu exists.
    *
    * **NOTE**
    *
-   * **event** indicates the returned information.
+   * event is the return information.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -209,13 +228,14 @@ export interface SelectionMenuOptions {
   onPaste?: (event?: EditorEventInfo) => void;
 
   /**
-   * Event callback to take the place of the preset copy menu option.
+   * Event callback that replaces the copy option of the built-in system menu.
    *
-   * It is effective only when the **controller** parameter is set and the preset menu is available.
+   * Prerequisite: The controller parameter must be provided. The built-in copy function can be replaced only when the
+   * system default menu exists.
    *
    * **NOTE**
    *
-   * **event** indicates the returned information.
+   * event is the return information.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -226,13 +246,14 @@ export interface SelectionMenuOptions {
   onCopy?: (event?: EditorEventInfo) => void;
 
   /**
-   * Event callback to take the place of the preset cut menu option.
+   * Event callback that replaces the cut option of the built-in system menu.
    *
-   * It is effective only when the **controller** parameter is set and the preset menu is available.
+   * Prerequisite: The controller parameter must be provided. The built-in cut function can be replaced only when the
+   * system default menu exists.
    *
    * **NOTE**
    *
-   * **event** indicates the returned information.
+   * event is the return information.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -243,13 +264,14 @@ export interface SelectionMenuOptions {
   onCut?: (event?: EditorEventInfo) => void;
 
   /**
-   * Event callback to take the place of the preset select-all menu option.
+   * Event callback that replaces the select all option of the built-in system menu.
    *
-   * It is effective only when the **controller** parameter is set and the preset menu is available.
+   * Prerequisite: The controller parameter must be provided. The built-in select all function can be replaced only when
+   * the system default menu exists.
    *
    * **NOTE**
    *
-   * **event** indicates the returned information.
+   * event is the return information.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -260,8 +282,11 @@ export interface SelectionMenuOptions {
   onSelectAll?: (event?: EditorEventInfo) => void;
 
   /**
-   * Set system-styled materials for the component. Different materials have different effects,
-   * which can influence the backgroundColor, border, shadow, and other visual attributes.
+   * System material used for the menu background panel, which implements visual effects (such as blur and transparency)
+   * for the menu background. Different system materials contain different attributes, affecting the final display
+   * effect. For specific material types and attributes, see
+   * [uiMaterial.Material]{@link @ohos.arkui.uiMaterial:uiMaterial.Material}. Default value: undefined, no material
+   * effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -273,13 +298,13 @@ export interface SelectionMenuOptions {
 }
 
 /**
- * Defines a **SelectionMenu** component. When the input parameter is empty, both the component and its content area
- * have a zero size, making the component invisible. For example, when a **SelectionMenu** component activated via right
- * -click is bound to a [RichEditor]{@link ./@internal/component/ets/rich_editor} component using
- * [bindSelectionMenu]{@link RichEditorAttribute#bindSelectionMenu}, it will not be displayed when the **RichEditor**
- * component receives a right-click event.
+ * When the input parameter is empty, both the content area and the component size of the **SelectionMenu** component
+ * are zero. For example, if the [RichEditor]{@link ./@internal/component/ets/rich_editor} component uses the
+ * [bindSelectionMenu]{@link RichEditorAttribute#bindSelectionMenu} API to bind a right-click menu of **SelectionMenu**,
+ * no menu will pop up when right-clicking the rich text component area.
  *
- * @param { SelectionMenuOptions } options - Configuration options of the **SelectionMenu** component.
+ * @param { SelectionMenuOptions } options - Configuration options for the text selection menu, used to configure the
+ *     edit menu, extended dropdown menu, rich text controller, and callback events such as copy, paste, and cut.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

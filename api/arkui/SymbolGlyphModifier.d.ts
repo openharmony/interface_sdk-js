@@ -19,7 +19,7 @@
  */
 
 /**
- * Defines SymbolGlyph Modifier
+ * Defines the **SymbolGlyphModifier**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -30,9 +30,10 @@
  */
 export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements AttributeModifier<SymbolGlyphAttribute> {
   /**
-   * constructor
+   * A constructor used to create a **SymbolGlyphModifier** object.
    *
-   * @param { Resource } src
+   * @param { Resource } src - Sets the symbol icon resource to be displayed by the SymbolGlyph component. If not
+   *     passed, no resource is loaded.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -42,9 +43,13 @@ export declare class SymbolGlyphModifier extends SymbolGlyphAttribute implements
   constructor(src?: Resource);
 
   /**
-   * Defines the normal update attribute function.
+   * Sets the style of the component in the normal state (that is, the default interaction state in which the component
+   * is not pressed, does not have focus, and so on). This method is a callback method that is automatically invoked by
+   * the framework when the component is in the normal state. Developers can dynamically set the style of the
+   * SymbolGlyph component by modifying the properties of the instance object in the method body.
    *
-   * @param { SymbolGlyphAttribute } instance
+   * @param { SymbolGlyphAttribute } instance - Instance of SymbolGlyphAttribute, used to dynamically set the properties
+   *     and styles of the SymbolGlyph component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
