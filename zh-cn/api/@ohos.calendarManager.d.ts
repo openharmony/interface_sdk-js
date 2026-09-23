@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file 日程管理能力
  * @kit CalendarKit
  */
 
